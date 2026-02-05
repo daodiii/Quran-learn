@@ -1,0 +1,93 @@
+---
+import Card from '../primitives/Card.astro';
+import Badge from '../primitives/Badge.astro';
+import ProgressBar from '../progress/ProgressBar.astro';
+
+interface Props {
+  title: string;
+  level: 1 | 2 | 3 | 4 | 5;
+  lessonsCompleted: number;
+  totalLessons: number;
+  href: string;
+  class?: string;
+}
+
+const {
+  title,
+  level,
+  lessonsCompleted,
+  totalLessons,
+  href,
+  class: className = ''
+} = Astro.props;
+---
+
+<Card variant="elevated" href={href} class={`course-card ${className}`}>
+  <div class="course-card-header">
+    <h3 class="course-card-title">{title}</h3>
+    <Badge level={level}>Level {level}</Badge>
+  </div>
+
+  <div class="course-card-progress">
+    <p class="course-card-progress-text">{lessonsCompleted} of {totalLessons} lessons</p>
+    <ProgressBar
+      value={lessonsCompleted}
+      max={totalLessons}
+      label={`${title} progress`}
+      showLabel={false}
+      height="sm"
+    />
+  </div>
+
+  <div class="course-card-description">
+    <slot />
+  </div>
+</Card>
+
+<style>
+  .course-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: var(--spacing-md);
+    margin-block-end: var(--spacing-md);
+  }
+
+  .course-card-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin: 0;
+    line-height: 1.3;
+  }
+
+  .course-card-progress {
+    margin-block-end: var(--spacing-sm);
+  }
+
+  .course-card-progress-text {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color-text-secondary);
+    margin: 0;
+    margin-block-end: var(--spacing-xs);
+  }
+
+  .course-card-description {
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: var(--color-text-secondary);
+    margin-block-start: var(--spacing-sm);
+  }
+
+  .course-card-description:empty {
+    display: none;
+  }
+
+  /* Accessibility: reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .course-card {
+      transition: none;
+    }
+  }
+</style>
