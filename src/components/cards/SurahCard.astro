@@ -10,6 +10,7 @@ interface Props {
   verseCount?: number;
   href: string;
   class?: string;
+  [key: string]: any; // Allow arbitrary HTML attributes
 }
 
 const {
@@ -19,14 +20,15 @@ const {
   difficulty,
   verseCount,
   href,
-  class: className = ''
+  class: className = '',
+  ...rest
 } = Astro.props;
 
 // Map difficulty to badge variant
 const difficultyVariant = difficulty === 'beginner' ? 'success' : difficulty === 'intermediate' ? 'warning' : 'error';
 ---
 
-<Card variant="elevated" href={href} class={`surah-card ${className}`}>
+<Card variant="elevated" href={href} class={`surah-card ${className}`} {...rest}>
   <div class="surah-card-header">
     <Badge variant="info" size="sm">{number}</Badge>
     <Badge variant={difficultyVariant} size="sm">{difficulty}</Badge>

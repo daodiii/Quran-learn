@@ -10,6 +10,7 @@ interface Props {
   totalLessons: number;
   href: string;
   class?: string;
+  [key: string]: any; // Allow arbitrary HTML attributes
 }
 
 const {
@@ -18,11 +19,12 @@ const {
   lessonsCompleted,
   totalLessons,
   href,
-  class: className = ''
+  class: className = '',
+  ...rest
 } = Astro.props;
 ---
 
-<Card variant="elevated" href={href} class={`course-card ${className}`}>
+<Card variant="elevated" href={href} class={`course-card ${className}`} {...rest}>
   <div class="course-card-header">
     <h3 class="course-card-title">{title}</h3>
     <Badge level={level}>Level {level}</Badge>

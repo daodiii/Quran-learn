@@ -10,6 +10,7 @@ interface Props {
   completed: boolean;
   href: string;
   class?: string;
+  [key: string]: any; // Allow arbitrary HTML attributes
 }
 
 const {
@@ -18,11 +19,12 @@ const {
   level,
   completed,
   href,
-  class: className = ''
+  class: className = '',
+  ...rest
 } = Astro.props;
 ---
 
-<Card variant="elevated" href={href} class={`lesson-card ${className}`}>
+<Card variant="elevated" href={href} class={`lesson-card ${className}`} {...rest}>
   <div class="lesson-card-header">
     <LessonCheckmark completed={completed} label={completed ? "Lesson complete" : "Lesson incomplete"} />
     <Badge level={level}>Level {level}</Badge>

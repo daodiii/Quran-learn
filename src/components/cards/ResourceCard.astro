@@ -6,19 +6,21 @@ interface Props {
   description?: string;
   href: string;
   class?: string;
+  [key: string]: any; // Allow arbitrary HTML attributes
 }
 
 const {
   title,
   description,
   href,
-  class: className = ''
+  class: className = '',
+  ...rest
 } = Astro.props;
 
 const isExternalLink = href.startsWith('http');
 ---
 
-<Card variant="outlined" href={href} class={`resource-card ${className}`}>
+<Card variant="outlined" href={href} class={`resource-card ${className}`} {...rest}>
   <div class="resource-card-header">
     <div class="resource-card-icon">
       <slot name="icon" />

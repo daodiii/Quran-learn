@@ -5,6 +5,7 @@ interface Props {
   clickable?: boolean;
   href?: string;
   class?: string;
+  [key: string]: any; // Allow arbitrary HTML attributes including data-*
 }
 
 const {
@@ -12,14 +13,15 @@ const {
   padding = 'md',
   clickable = false,
   href,
-  class: className = ''
+  class: className = '',
+  ...rest
 } = Astro.props;
 
 const Tag = href ? 'a' : 'div';
 const cardClass = `card card-${variant} card-padding-${padding} ${clickable || href ? 'card-clickable' : ''} ${className}`;
 ---
 
-<Tag class={cardClass} href={href}>
+<Tag class={cardClass} href={href} {...rest}>
   <slot />
 </Tag>
 
