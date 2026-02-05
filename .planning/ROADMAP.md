@@ -52,10 +52,12 @@ Plans:
   5. All components work correctly in RTL mode with logical CSS properties
   6. Icons (arrows, chevrons) mirror correctly in RTL
   7. ARIA labels present for accessibility
-**Plans**: TBD
+**Plans**: 3 plans
 
 Plans:
-- [ ] 02-01: [To be defined during planning]
+- [ ] 02-01-PLAN.md — Create progress components (ProgressBar, ProgressRing, LessonCheckmark)
+- [ ] 02-02-PLAN.md — Create primitive components (Button, Badge, Card, Container)
+- [ ] 02-03-PLAN.md — Component testing and RTL/dark mode verification
 
 ### Phase 3: Card Components & Arabic Typography
 **Goal**: Create card-based layouts that handle Arabic text overflow correctly
@@ -167,7 +169,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Design Foundation & Font Protection | 3/3 | Complete ✓ | 2026-02-05 |
-| 2. Progress & Primitive Components | 0/TBD | Not started | - |
+| 2. Progress & Primitive Components | 0/3 | Planned | - |
 | 3. Card Components & Arabic Typography | 0/TBD | Not started | - |
 | 4. Dark Mode Polish | 0/TBD | Not started | - |
 | 5. Navigation System | 0/TBD | Not started | - |
