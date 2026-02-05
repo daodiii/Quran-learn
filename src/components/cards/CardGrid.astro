@@ -1,0 +1,57 @@
+---
+interface Props {
+  minCardWidth?: number;  // Minimum card width in px (default: 300)
+  gap?: 'sm' | 'md' | 'lg';  // Gap between cards (default: 'md')
+  class?: string;
+}
+
+const {
+  minCardWidth = 300,
+  gap = 'md',
+  class: className = ''
+} = Astro.props;
+---
+
+<div class={`card-grid card-grid-gap-${gap} ${className}`} style={`--min-card-width: ${minCardWidth}px`}>
+  <slot />
+</div>
+
+<style>
+  .card-grid {
+    /* CSS Grid with auto-fit for responsive 1-3 columns */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(var(--min-card-width), 1fr));
+
+    /* Use CSS logical properties for RTL support */
+    inline-size: 100%;
+  }
+
+  /* Gap variants */
+  .card-grid-gap-sm {
+    gap: var(--spacing-md);
+  }
+
+  .card-grid-gap-md {
+    gap: clamp(1rem, 3vw, 2rem);
+  }
+
+  .card-grid-gap-lg {
+    gap: var(--spacing-xl);
+  }
+
+  /* Force single column on narrow containers */
+  @container (max-width: 400px) {
+    .card-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* Fallback for browsers without container query support */
+  @supports not (container-type: inline-size) {
+    @media (max-width: 400px) {
+      .card-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  }
+</style>
