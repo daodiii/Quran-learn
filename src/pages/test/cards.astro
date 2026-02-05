@@ -1,0 +1,372 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CardGrid from '../../components/cards/CardGrid.astro';
+import CourseCard from '../../components/cards/CourseCard.astro';
+import LessonCard from '../../components/cards/LessonCard.astro';
+import SurahCard from '../../components/cards/SurahCard.astro';
+import ResourceCard from '../../components/cards/ResourceCard.astro';
+import Container from '../../components/primitives/Container.astro';
+import Button from '../../components/primitives/Button.astro';
+import Card from '../../components/primitives/Card.astro';
+
+const title = 'Card Components Test';
+---
+
+<BaseLayout title={title} description="Visual testing for all card components with responsive layouts and Arabic typography">
+  <Container maxWidth="xl">
+    <div class="test-page">
+      <header class="page-header">
+        <h1>Card Components Test</h1>
+        <p>Visual testing for card components: responsive grids, Arabic typography, dark mode, and accessibility</p>
+        <Button id="theme-toggle" variant="outline" size="sm">Toggle Theme</Button>
+      </header>
+
+      <!-- Section 1: CardGrid Responsive Test -->
+      <section class="test-section" data-testid="card-grid-section">
+        <h2>CardGrid Responsive Layout</h2>
+        <p class="section-description">Resize viewport to test: 3 columns at 1200px+, 2 columns at 700-1200px, 1 column at &lt;700px</p>
+
+        <CardGrid minCardWidth={300} gap="md">
+          <Card variant="elevated" data-testid="grid-card-1">
+            <h3>Grid Card 1</h3>
+            <p>Testing responsive grid layout</p>
+          </Card>
+          <Card variant="elevated" data-testid="grid-card-2">
+            <h3>Grid Card 2</h3>
+            <p>Testing responsive grid layout</p>
+          </Card>
+          <Card variant="elevated" data-testid="grid-card-3">
+            <h3>Grid Card 3</h3>
+            <p>Testing responsive grid layout</p>
+          </Card>
+          <Card variant="elevated" data-testid="grid-card-4">
+            <h3>Grid Card 4</h3>
+            <p>Testing responsive grid layout</p>
+          </Card>
+          <Card variant="elevated" data-testid="grid-card-5">
+            <h3>Grid Card 5</h3>
+            <p>Testing responsive grid layout</p>
+          </Card>
+          <Card variant="elevated" data-testid="grid-card-6">
+            <h3>Grid Card 6</h3>
+            <p>Testing responsive grid layout</p>
+          </Card>
+        </CardGrid>
+      </section>
+
+      <!-- Section 2: CourseCard Variants -->
+      <section class="test-section" data-testid="course-card-section">
+        <h2>CourseCard Components</h2>
+        <p class="section-description">Testing all 5 levels with various progress states (0%, 25%, 50%, 75%, 100%)</p>
+
+        <CardGrid minCardWidth={280} gap="md">
+          <CourseCard
+            title="Introduction to Arabic Grammar"
+            level={1}
+            lessonsCompleted={0}
+            totalLessons={10}
+            href="/courses/level-1"
+            data-testid="course-card-level-1"
+          >
+            <p>Begin your journey with basic Arabic sentence structure and grammar fundamentals.</p>
+          </CourseCard>
+
+          <CourseCard
+            title="Noun Cases and Articles"
+            level={2}
+            lessonsCompleted={3}
+            totalLessons={12}
+            href="/courses/level-2"
+            data-testid="course-card-level-2"
+          >
+            <p>Master the nominative, accusative, and genitive cases with definite articles.</p>
+          </CourseCard>
+
+          <CourseCard
+            title="Verb Conjugation Patterns"
+            level={3}
+            lessonsCompleted={6}
+            totalLessons={12}
+            href="/courses/level-3"
+            data-testid="course-card-level-3"
+          >
+            <p>Learn the tri-literal verb patterns and their conjugations across tenses.</p>
+          </CourseCard>
+
+          <CourseCard
+            title="Advanced Sentence Structure"
+            level={4}
+            lessonsCompleted={9}
+            totalLessons={12}
+            href="/courses/level-4"
+            data-testid="course-card-level-4"
+          >
+            <p>Study complex conditional sentences and embedded clauses in Quranic Arabic.</p>
+          </CourseCard>
+
+          <CourseCard
+            title="Quranic Rhetoric and Style"
+            level={5}
+            lessonsCompleted={15}
+            totalLessons={15}
+            href="/courses/level-5"
+            data-testid="course-card-level-5"
+          >
+            <p>Explore advanced rhetorical devices and stylistic features of the Quran.</p>
+          </CourseCard>
+        </CardGrid>
+      </section>
+
+      <!-- Section 3: LessonCard Variants -->
+      <section class="test-section" data-testid="lesson-card-section">
+        <h2>LessonCard Components</h2>
+        <p class="section-description">Testing completed and incomplete states with Arabic text wrapping</p>
+
+        <CardGrid minCardWidth={280} gap="md">
+          <LessonCard
+            title="Nominal and Verbal Sentences"
+            titleArabic="الدرس الأول: المبتدأ والخبر"
+            level={1}
+            completed={true}
+            href="/lessons/nominal-sentences"
+            data-testid="lesson-card-completed"
+          >
+            <p>Understanding the structure of Arabic nominal sentences with subject and predicate.</p>
+          </LessonCard>
+
+          <LessonCard
+            title="Verbs and Subjects"
+            titleArabic="الدرس الثاني: الفعل والفاعل"
+            level={2}
+            completed={false}
+            href="/lessons/verbs-subjects"
+            data-testid="lesson-card-incomplete"
+          >
+            <p>Learn how verbs agree with their subjects in Arabic grammar.</p>
+          </LessonCard>
+
+          <LessonCard
+            title="The Nominal Sentence"
+            titleArabic="الجملة الاسمية"
+            level={1}
+            completed={true}
+            href="/lessons/nominal-sentence"
+            data-testid="lesson-card-completed-2"
+          >
+            <p>Deep dive into nominal sentences and their various forms.</p>
+          </LessonCard>
+
+          <LessonCard
+            title="The Verbal Sentence"
+            titleArabic="الجملة الفعلية"
+            level={2}
+            completed={false}
+            href="/lessons/verbal-sentence"
+            data-testid="lesson-card-incomplete-2"
+          >
+            <p>Study the structure and components of verbal sentences.</p>
+          </LessonCard>
+        </CardGrid>
+      </section>
+
+      <!-- Section 4: SurahCard Grid -->
+      <section class="test-section" data-testid="surah-card-section">
+        <h2>SurahCard Components</h2>
+        <p class="section-description">Testing all 3 difficulty levels with Arabic surah names</p>
+
+        <CardGrid minCardWidth={260} gap="md">
+          <SurahCard
+            name="Al-Fatiha"
+            nameArabic="الفاتحة"
+            number={1}
+            difficulty="beginner"
+            verseCount={7}
+            href="/surahs/001-al-fatiha"
+            data-testid="surah-card-1"
+          />
+
+          <SurahCard
+            name="Al-Baqarah"
+            nameArabic="البقرة"
+            number={2}
+            difficulty="advanced"
+            verseCount={286}
+            href="/surahs/002-al-baqarah"
+            data-testid="surah-card-2"
+          />
+
+          <SurahCard
+            name="Al-Ikhlas"
+            nameArabic="الإخلاص"
+            number={112}
+            difficulty="beginner"
+            verseCount={4}
+            href="/surahs/112-al-ikhlas"
+            data-testid="surah-card-112"
+          />
+
+          <SurahCard
+            name="Al-Falaq"
+            nameArabic="الفلق"
+            number={113}
+            difficulty="beginner"
+            verseCount={5}
+            href="/surahs/113-al-falaq"
+            data-testid="surah-card-113"
+          />
+
+          <SurahCard
+            name="An-Nas"
+            nameArabic="الناس"
+            number={114}
+            difficulty="beginner"
+            verseCount={6}
+            href="/surahs/114-an-nas"
+            data-testid="surah-card-114"
+          />
+
+          <SurahCard
+            name="Yusuf"
+            nameArabic="يوسف"
+            number={12}
+            difficulty="intermediate"
+            verseCount={111}
+            href="/surahs/012-yusuf"
+            data-testid="surah-card-12"
+          />
+        </CardGrid>
+      </section>
+
+      <!-- Section 5: ResourceCard Grid -->
+      <section class="test-section" data-testid="resource-card-section">
+        <h2>ResourceCard Components</h2>
+        <p class="section-description">Testing icon slots and external link detection</p>
+
+        <CardGrid minCardWidth={280} gap="md">
+          <ResourceCard
+            title="Arabic Grammar Textbook"
+            description="Comprehensive PDF guide covering all levels of Quranic grammar"
+            href="https://example.com/textbook.pdf"
+            data-testid="resource-card-1"
+          >
+            <svg slot="icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+            </svg>
+          </ResourceCard>
+
+          <ResourceCard
+            title="Interactive Exercises"
+            description="Practice conjugation and declension with interactive drills"
+            href="/exercises"
+            data-testid="resource-card-2"
+          >
+            <svg slot="icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"></path>
+              <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+              <line x1="12" x2="12" y1="19" y2="22"></line>
+            </svg>
+          </ResourceCard>
+
+          <ResourceCard
+            title="Vocabulary Flashcards"
+            description="Memorize Quranic vocabulary with spaced repetition"
+            href="/flashcards"
+            data-testid="resource-card-3"
+          >
+            <svg slot="icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+              <path d="M7 15h0"></path>
+              <path d="M2 9.5h20"></path>
+            </svg>
+          </ResourceCard>
+
+          <ResourceCard
+            title="Video Tutorials"
+            description="Watch detailed explanations of complex grammar topics"
+            href="https://youtube.com/channel/example"
+            data-testid="resource-card-4"
+          >
+            <svg slot="icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="5 3 19 12 5 21 5 3"></polygon>
+            </svg>
+          </ResourceCard>
+        </CardGrid>
+      </section>
+    </div>
+  </Container>
+</BaseLayout>
+
+<style>
+  .test-page {
+    padding-block: var(--spacing-xl);
+  }
+
+  .page-header {
+    margin-block-end: var(--spacing-2xl);
+    text-align: center;
+  }
+
+  .page-header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin-block-end: var(--spacing-sm);
+  }
+
+  .page-header p {
+    font-size: 1.125rem;
+    color: var(--color-text-secondary);
+    margin-block-end: var(--spacing-md);
+  }
+
+  .test-section {
+    margin-block-end: var(--spacing-2xl);
+    padding-block-end: var(--spacing-2xl);
+    border-block-end: 1px solid var(--color-border-primary);
+  }
+
+  .test-section:last-child {
+    border-block-end: none;
+  }
+
+  .test-section h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin-block-end: var(--spacing-sm);
+  }
+
+  .section-description {
+    font-size: 0.875rem;
+    color: var(--color-text-tertiary);
+    margin-block-end: var(--spacing-lg);
+    font-style: italic;
+  }
+
+  h3 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin-block-end: var(--spacing-xs);
+  }
+
+  p {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+  }
+</style>
+
+<script>
+  // Theme toggle functionality
+  const themeToggle = document.getElementById('theme-toggle');
+  if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+      const html = document.documentElement;
+      const currentTheme = html.getAttribute('data-theme') || 'light';
+      const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+      html.setAttribute('data-theme', newTheme);
+    });
+  }
+</script>
