@@ -85,7 +85,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | Requirement | Phase | Status |
 |-------------|-------|--------|
 | DESIGN-01 | Phase 1 | Complete |
-| DESIGN-02 | Phase 2 | Pending |
+| DESIGN-02 | Phase 2 | Complete |
 | NAV-01 | Phase 5 | Pending |
 | NAV-02 | Phase 5 | Pending |
 | HOME-01 | Phase 6 | Pending |
