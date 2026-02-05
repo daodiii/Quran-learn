@@ -1,0 +1,108 @@
+---
+// Horizontal progress bar component with ARIA accessibility
+// Shows 0-100% completion with optional label and percentage display
+interface Props {
+  value: number;              // Current progress (0-max)
+  max?: number;               // Maximum value (default: 100)
+  label: string;              // Accessible name (REQUIRED)
+  showLabel?: boolean;        // Display visible label (default: true)
+  showPercentage?: boolean;   // Show percentage text (default: false)
+  height?: 'sm' | 'md' | 'lg'; // Bar height (default: 'md')
+}
+
+const {
+  value,
+  max = 100,
+  label,
+  showLabel = true,
+  showPercentage = false,
+  height = 'md'
+} = Astro.props;
+
+const percentage = Math.min(100, Math.max(0, (value / max) * 100));
+const percentageText = `${Math.round(percentage)}%`;
+---
+
+<div class="progress-bar-wrapper">
+  {(showLabel || showPercentage) && (
+    <div class="progress-header">
+      {showLabel && <span id="progress-label" class="progress-label">{label}</span>}
+      {showPercentage && <span class="progress-percentage">{percentageText}</span>}
+    </div>
+  )}
+
+  <div
+    role="progressbar"
+    aria-labelledby={showLabel ? "progress-label" : undefined}
+    aria-label={!showLabel ? label : undefined}
+    aria-valuenow={value}
+    aria-valuemin={0}
+    aria-valuemax={max}
+    class={`progress-track progress-track-${height}`}
+  >
+    <div
+      class="progress-fill"
+      style={`inline-size: ${percentage}%`}
+    ></div>
+  </div>
+</div>
+
+<style>
+  .progress-bar-wrapper {
+    inline-size: 100%;
+  }
+
+  .progress-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-block-end: var(--spacing-xs);
+  }
+
+  .progress-label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color-text-secondary);
+  }
+
+  .progress-percentage {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--color-accent-primary);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .progress-track {
+    inline-size: 100%;
+    background-color: var(--color-background-tertiary);
+    border-radius: var(--radius-full);
+    overflow: hidden;
+    position: relative;
+  }
+
+  .progress-track-sm {
+    block-size: 4px;
+  }
+
+  .progress-track-md {
+    block-size: 8px;
+  }
+
+  .progress-track-lg {
+    block-size: 12px;
+  }
+
+  .progress-fill {
+    block-size: 100%;
+    background-color: var(--color-accent-primary);
+    transition: inline-size 500ms cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: var(--radius-full);
+  }
+
+  /* Accessibility: reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .progress-fill {
+      transition: none;
+    }
+  }
+</style>
