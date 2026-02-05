@@ -1,0 +1,347 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ProgressBar from '../../components/progress/ProgressBar.astro';
+import ProgressRing from '../../components/progress/ProgressRing.astro';
+import LessonCheckmark from '../../components/progress/LessonCheckmark.astro';
+import Button from '../../components/primitives/Button.astro';
+import Badge from '../../components/primitives/Badge.astro';
+import Card from '../../components/primitives/Card.astro';
+import Container from '../../components/primitives/Container.astro';
+---
+
+<BaseLayout title="Component Test Page" description="Test page for all UI components">
+  <Container maxWidth="lg">
+    <div class="test-page">
+      <header class="page-header">
+        <h1>Component Test Page</h1>
+        <p>Visual testing for all 7 Phase 2 components in various states</p>
+        <Button id="theme-toggle" variant="outline" size="sm">Toggle Theme</Button>
+      </header>
+
+      <!-- Progress Components Section -->
+      <section class="test-section">
+        <h2>Progress Components</h2>
+
+        <div class="test-group">
+          <h3>ProgressBar - Percentage Variants</h3>
+          <div class="component-grid">
+            <div>
+              <ProgressBar value={0} label="0% Complete" data-testid="progress-bar-0" />
+            </div>
+            <div>
+              <ProgressBar value={25} label="25% Complete" data-testid="progress-bar-25" />
+            </div>
+            <div>
+              <ProgressBar value={50} label="50% Complete" data-testid="progress-bar-50" />
+            </div>
+            <div>
+              <ProgressBar value={75} label="75% Complete" data-testid="progress-bar-75" />
+            </div>
+            <div>
+              <ProgressBar value={100} label="100% Complete" data-testid="progress-bar-100" />
+            </div>
+          </div>
+        </div>
+
+        <div class="test-group">
+          <h3>ProgressBar - With Percentage Display</h3>
+          <ProgressBar
+            value={65}
+            label="Course Progress"
+            showPercentage={true}
+            data-testid="progress-bar-with-percentage"
+          />
+        </div>
+
+        <div class="test-group">
+          <h3>ProgressBar - Height Variants</h3>
+          <div class="component-grid">
+            <div>
+              <ProgressBar value={60} label="Small (4px)" height="sm" data-testid="progress-bar-sm" />
+            </div>
+            <div>
+              <ProgressBar value={60} label="Medium (8px)" height="md" data-testid="progress-bar-md" />
+            </div>
+            <div>
+              <ProgressBar value={60} label="Large (12px)" height="lg" data-testid="progress-bar-lg" />
+            </div>
+          </div>
+        </div>
+
+        <div class="test-group">
+          <h3>ProgressRing - Count Variants</h3>
+          <div class="component-grid horizontal">
+            <ProgressRing current={0} total={10} label="0 of 10 lessons" data-testid="progress-ring-0" />
+            <ProgressRing current={3} total={10} label="3 of 10 lessons" data-testid="progress-ring-3" />
+            <ProgressRing current={7} total={10} label="7 of 10 lessons" data-testid="progress-ring-7" />
+            <ProgressRing current={10} total={10} label="10 of 10 lessons" data-testid="progress-ring-10" />
+          </div>
+        </div>
+
+        <div class="test-group">
+          <h3>ProgressRing - Size Variants</h3>
+          <div class="component-grid horizontal">
+            <ProgressRing current={5} total={10} label="Small ring" size={80} data-testid="progress-ring-size-80" />
+            <ProgressRing current={5} total={10} label="Medium ring" size={120} data-testid="progress-ring-size-120" />
+            <ProgressRing current={5} total={10} label="Large ring" size={160} data-testid="progress-ring-size-160" />
+          </div>
+        </div>
+
+        <div class="test-group">
+          <h3>LessonCheckmark - State Variants</h3>
+          <div class="component-grid horizontal">
+            <LessonCheckmark completed={true} data-testid="checkmark-completed" />
+            <LessonCheckmark completed={false} data-testid="checkmark-incomplete" />
+            <LessonCheckmark completed={true} showLabel={true} label="Lesson Complete" data-testid="checkmark-with-label" />
+            <LessonCheckmark completed={false} showLabel={true} label="Not Started" data-testid="checkmark-incomplete-with-label" />
+          </div>
+        </div>
+      </section>
+
+      <!-- Button Component Section -->
+      <section class="test-section">
+        <h2>Button Component</h2>
+
+        <div class="test-group">
+          <h3>Button Variants</h3>
+          <div class="component-grid horizontal">
+            <Button variant="primary" data-testid="button-primary">Primary</Button>
+            <Button variant="secondary" data-testid="button-secondary">Secondary</Button>
+            <Button variant="outline" data-testid="button-outline">Outline</Button>
+            <Button variant="ghost" data-testid="button-ghost">Ghost</Button>
+          </div>
+        </div>
+
+        <div class="test-group">
+          <h3>Button Sizes</h3>
+          <div class="component-grid horizontal">
+            <Button size="sm" data-testid="button-sm">Small</Button>
+            <Button size="md" data-testid="button-md">Medium</Button>
+            <Button size="lg" data-testid="button-lg">Large</Button>
+          </div>
+        </div>
+
+        <div class="test-group">
+          <h3>Button States</h3>
+          <div class="component-grid horizontal">
+            <Button disabled={true} data-testid="button-disabled">Disabled</Button>
+            <Button href="/test" data-testid="button-link">Link Mode</Button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Badge Component Section -->
+      <section class="test-section">
+        <h2>Badge Component</h2>
+
+        <div class="test-group">
+          <h3>Semantic Variants</h3>
+          <div class="component-grid horizontal">
+            <Badge variant="default" data-testid="badge-default">Default</Badge>
+            <Badge variant="success" data-testid="badge-success">Success</Badge>
+            <Badge variant="warning" data-testid="badge-warning">Warning</Badge>
+            <Badge variant="error" data-testid="badge-error">Error</Badge>
+            <Badge variant="info" data-testid="badge-info">Info</Badge>
+          </div>
+        </div>
+
+        <div class="test-group">
+          <h3>Level Badges</h3>
+          <div class="component-grid horizontal">
+            <Badge level={1} data-testid="badge-level-1">Level 1</Badge>
+            <Badge level={2} data-testid="badge-level-2">Level 2</Badge>
+            <Badge level={3} data-testid="badge-level-3">Level 3</Badge>
+            <Badge level={4} data-testid="badge-level-4">Level 4</Badge>
+            <Badge level={5} data-testid="badge-level-5">Level 5</Badge>
+          </div>
+        </div>
+
+        <div class="test-group">
+          <h3>Badge Sizes</h3>
+          <div class="component-grid horizontal">
+            <Badge size="sm" data-testid="badge-sm">Small</Badge>
+            <Badge size="md" data-testid="badge-md">Medium</Badge>
+          </div>
+        </div>
+      </section>
+
+      <!-- Card Component Section -->
+      <section class="test-section">
+        <h2>Card Component</h2>
+
+        <div class="test-group">
+          <h3>Card Variants</h3>
+          <div class="component-grid">
+            <Card variant="default" data-testid="card-default">
+              <h4>Default Card</h4>
+              <p>Standard card with border</p>
+            </Card>
+            <Card variant="elevated" data-testid="card-elevated">
+              <h4>Elevated Card</h4>
+              <p>Card with shadow elevation</p>
+            </Card>
+            <Card variant="outlined" data-testid="card-outlined">
+              <h4>Outlined Card</h4>
+              <p>Card with thick border</p>
+            </Card>
+          </div>
+        </div>
+
+        <div class="test-group">
+          <h3>Card Padding Options</h3>
+          <div class="component-grid">
+            <Card padding="none" variant="outlined" data-testid="card-padding-none">
+              <div style="padding: 8px;">No Padding (manual padding added)</div>
+            </Card>
+            <Card padding="sm" variant="outlined" data-testid="card-padding-sm">
+              Small Padding
+            </Card>
+            <Card padding="md" variant="outlined" data-testid="card-padding-md">
+              Medium Padding
+            </Card>
+            <Card padding="lg" variant="outlined" data-testid="card-padding-lg">
+              Large Padding
+            </Card>
+          </div>
+        </div>
+
+        <div class="test-group">
+          <h3>Card Interactive States</h3>
+          <div class="component-grid">
+            <Card clickable={true} data-testid="card-clickable">
+              <h4>Clickable Card</h4>
+              <p>Hover to see interaction</p>
+            </Card>
+            <Card href="/test" data-testid="card-link">
+              <h4>Card as Link</h4>
+              <p>Click to navigate</p>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      <!-- Container Component Section -->
+      <section class="test-section">
+        <h2>Container Component</h2>
+
+        <div class="test-group">
+          <h3>Max-Width Variants</h3>
+          <div class="container-showcase">
+            <Container maxWidth="sm" padding={false} data-testid="container-sm">
+              <div class="container-demo">sm (640px)</div>
+            </Container>
+            <Container maxWidth="md" padding={false} data-testid="container-md">
+              <div class="container-demo">md (768px)</div>
+            </Container>
+            <Container maxWidth="lg" padding={false} data-testid="container-lg">
+              <div class="container-demo">lg (1024px)</div>
+            </Container>
+            <Container maxWidth="xl" padding={false} data-testid="container-xl">
+              <div class="container-demo">xl (1280px)</div>
+            </Container>
+            <Container maxWidth="2xl" padding={false} data-testid="container-2xl">
+              <div class="container-demo">2xl (1536px)</div>
+            </Container>
+          </div>
+        </div>
+      </section>
+    </div>
+  </Container>
+</BaseLayout>
+
+<style>
+  .test-page {
+    padding-block: var(--spacing-xl);
+  }
+
+  .page-header {
+    margin-block-end: var(--spacing-2xl);
+    text-align: center;
+  }
+
+  .page-header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin-block-end: var(--spacing-sm);
+  }
+
+  .page-header p {
+    font-size: 1.125rem;
+    color: var(--color-text-secondary);
+    margin-block-end: var(--spacing-md);
+  }
+
+  .test-section {
+    margin-block-end: var(--spacing-2xl);
+    padding-block-end: var(--spacing-2xl);
+    border-block-end: 1px solid var(--color-border-primary);
+  }
+
+  .test-section:last-child {
+    border-block-end: none;
+  }
+
+  .test-section h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin-block-end: var(--spacing-lg);
+  }
+
+  .test-group {
+    margin-block-end: var(--spacing-xl);
+  }
+
+  .test-group:last-child {
+    margin-block-end: 0;
+  }
+
+  .test-group h3 {
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: var(--color-text-secondary);
+    margin-block-end: var(--spacing-md);
+  }
+
+  .component-grid {
+    display: grid;
+    gap: var(--spacing-lg);
+    grid-template-columns: 1fr;
+  }
+
+  .component-grid.horizontal {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+    align-items: center;
+  }
+
+  .container-showcase {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+
+  .container-demo {
+    background-color: var(--color-accent-primary-light);
+    padding: var(--spacing-md);
+    border-radius: var(--radius-md);
+    text-align: center;
+    font-weight: 600;
+    color: var(--color-accent-primary);
+  }
+
+  h4 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin-block-end: var(--spacing-xs);
+  }
+
+  p {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+  }
+</style>
