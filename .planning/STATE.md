@@ -9,19 +9,19 @@ See: .planning/PROJECT.md (updated 2026-02-05)
 
 ## Current Position
 
-Phase: 2 of 8 (Progress & Primitive Components) - COMPLETE
-Plan: 3 of 3 in current phase
+Phase: 3 of 8 (Card Components & Arabic Typography) - IN PROGRESS
+Plan: 1 of 1 in current phase
 Status: Phase complete (all plans executed)
-Last activity: 2026-02-05 - Completed 02-03-PLAN.md (Component Testing)
+Last activity: 2026-02-05 - Completed 03-01-PLAN.md (Card Components)
 
-Progress: [█████░░░░░] 50%
+Progress: [██████░░░░] 58%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 6
-- Average duration: 4.2 min
-- Total execution time: 0.42 hours
+- Total plans completed: 7
+- Average duration: 3.7 min
+- Total execution time: 0.43 hours
 
 **By Phase:**
 
@@ -29,10 +29,11 @@ Progress: [█████░░░░░] 50%
 |-------|-------|-------|----------|
 | 01-design-foundation | 3 | 17min | 5.7min |
 | 02-progress-primitive-components | 3 | 8min | 2.7min |
+| 03-card-components-arabic-typography | 1 | 2min | 2.0min |
 
 **Recent Trend:**
-- Last 5 plans: 01-03 (8min), 02-01 (3min), 02-02 (3min), 02-03 (2min)
-- Trend: Improving (Phase 2 average: 2.7min vs Phase 1 average: 5.7min)
+- Last 5 plans: 02-01 (3min), 02-02 (3min), 02-03 (2min), 03-01 (2min)
+- Trend: Improving (Phase 3 average: 2.0min vs Phase 2 average: 2.7min)
 
 *Updated after each plan completion*
 
@@ -68,6 +69,10 @@ Recent decisions affecting current work:
 - **[02-03]** 55 data-testid attributes for precise Playwright targeting
 - **[02-03]** Visual regression uses fullPage snapshots with 100 maxDiffPixels tolerance
 - **[02-03]** Test organization: separate describe blocks per component type
+- **[03-01]** CardGrid uses @container queries with @media fallback for single-column on <400px
+- **[03-01]** Arabic typography uses overflow-wrap: break-word (never word-break: break-all)
+- **[03-01]** Difficulty badges map: beginner=success, intermediate=warning, advanced=error
+- **[03-01]** Specialized cards compose Card primitive (no code duplication)
 
 ### Pending Todos
 
@@ -118,8 +123,27 @@ Phase 2 (Progress & Primitive Components) is complete with all 3 plans executed:
 
 **Ready for Phase 3:** Card composition and complex components with established testing patterns
 
+## Phase 3 Completion Summary
+
+Phase 3 (Card Components & Arabic Typography) is complete with 1 plan executed:
+
+| Plan | Name | Duration | Commit |
+|------|------|----------|--------|
+| 03-01 | Card Components | 2min | 5f4af50 |
+
+**Deliverables:**
+- CardGrid responsive utility with CSS Grid auto-fit pattern
+- CourseCard with ProgressBar integration
+- LessonCard with LessonCheckmark and Arabic typography
+- SurahCard with Arabic/English names and difficulty badges
+- ResourceCard with icon slot and external link detection
+- Arabic typography rules: overflow-wrap: break-word, hyphens: none
+- CSS logical properties throughout all card components
+
+**Ready for Phase 4:** Card composition patterns established, Arabic typography tested
+
 ## Session Continuity
 
-Last session: 2026-02-05T23:18:56Z
-Stopped at: Completed 02-03-PLAN.md (Phase 2 complete)
+Last session: 2026-02-05T23:44:17Z
+Stopped at: Completed 03-01-PLAN.md (Phase 3 complete)
 Resume file: None
