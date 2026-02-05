@@ -33,10 +33,12 @@ Decimal phases appear between their surrounding integers in numeric order.
   3. CSS token system uses semantic naming (colors, spacing, typography, shadows)
   4. Font verification tests pass confirming fonts unchanged from original
   5. Tailwind 4 configuration integrates custom tokens
-**Plans**: TBD
+**Plans**: 3 plans
 
 Plans:
-- [ ] 01-01: [To be defined during planning]
+- [ ] 01-01-PLAN.md — Extract font declarations, capture checksums, install Playwright
+- [ ] 01-02-PLAN.md — Create modular @theme token files with semantic CTI naming
+- [ ] 01-03-PLAN.md — Build font verification tests and capture visual baselines
 
 ### Phase 2: Progress & Primitive Components
 **Goal**: Build progress visualization components and RTL-ready primitive UI elements
@@ -160,11 +162,11 @@ Plans:
 ## Progress
 
 **Execution Order:**
-Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8
+Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Design Foundation & Font Protection | 0/TBD | Not started | - |
+| 1. Design Foundation & Font Protection | 0/3 | Ready to execute | - |
 | 2. Progress & Primitive Components | 0/TBD | Not started | - |
 | 3. Card Components & Arabic Typography | 0/TBD | Not started | - |
 | 4. Dark Mode Polish | 0/TBD | Not started | - |
