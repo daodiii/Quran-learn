@@ -95,8 +95,8 @@ Which phases cover which requirements. Updated during roadmap creation.
 | SURAH-01 | Phase 6 | Pending |
 | RESOURCE-01 | Phase 6 | Pending |
 | QUIZ-01 | Phase 6 | Pending |
-| COMP-01 | Phase 4 | Pending |
-| COMP-02 | Phase 4 | Pending |
+| COMP-01 | Phase 5 | Pending |
+| COMP-02 | Phase 5 | Pending |
 | RESP-01 | Phase 7 | Pending |
 | DARK-01 | Phase 4 | Pending |
 
@@ -107,4 +107,4 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 ---
 *Requirements defined: 2026-02-05*
-*Last updated: 2026-02-05 after initial definition*
+*Last updated: 2026-02-05 after roadmap creation*
