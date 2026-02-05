@@ -1,0 +1,113 @@
+---
+interface Props {
+  variant?: 'default' | 'success' | 'warning' | 'error' | 'info';
+  level?: 1 | 2 | 3 | 4 | 5;
+  size?: 'sm' | 'md';
+}
+
+const {
+  variant = 'default',
+  level,
+  size = 'md'
+} = Astro.props;
+
+// Level overrides variant
+const variantClass = level ? '' : `badge-${variant}`;
+---
+
+<span class={`badge badge-${size} ${variantClass}`} data-level={level}>
+  <slot />
+</span>
+
+<style>
+  .badge {
+    /* Layout */
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+
+    /* Typography */
+    font-weight: 600;
+    line-height: 1;
+    white-space: nowrap;
+
+    /* Design tokens */
+    border-radius: var(--radius-md);
+    border: 1px solid;
+  }
+
+  /* Size variants with logical properties */
+  .badge-sm {
+    padding-inline: var(--spacing-xs);
+    padding-block: calc(var(--spacing-xs) * 0.5);
+    font-size: 0.75rem;
+  }
+
+  .badge-md {
+    padding-inline: var(--spacing-sm);
+    padding-block: var(--spacing-xs);
+    font-size: 0.875rem;
+  }
+
+  /* Semantic variant styles (when no level specified) */
+  .badge-default {
+    background-color: var(--color-background-secondary);
+    color: var(--color-text-secondary);
+    border-color: var(--color-border-primary);
+  }
+
+  .badge-success {
+    background-color: var(--color-accent-primary-light);
+    color: var(--color-accent-primary);
+    border-color: var(--color-accent-primary);
+  }
+
+  .badge-warning {
+    background-color: var(--color-accent-gold-light);
+    color: var(--color-accent-gold);
+    border-color: var(--color-accent-gold);
+  }
+
+  .badge-error {
+    background-color: var(--color-accent-coral-light);
+    color: var(--color-accent-coral);
+    border-color: var(--color-accent-coral);
+  }
+
+  .badge-info {
+    background-color: var(--color-accent-secondary-light);
+    color: var(--color-accent-secondary);
+    border-color: var(--color-accent-secondary);
+  }
+
+  /* Level-specific styles (override variant when level is present) */
+  .badge[data-level="1"] {
+    background-color: var(--color-level-1-bg);
+    color: var(--color-level-1-text);
+    border-color: var(--color-level-1-border);
+  }
+
+  .badge[data-level="2"] {
+    background-color: var(--color-level-2-bg);
+    color: var(--color-level-2-text);
+    border-color: var(--color-level-2-border);
+  }
+
+  .badge[data-level="3"] {
+    background-color: var(--color-level-3-bg);
+    color: var(--color-level-3-text);
+    border-color: var(--color-level-3-border);
+  }
+
+  .badge[data-level="4"] {
+    background-color: var(--color-level-4-bg);
+    color: var(--color-level-4-text);
+    border-color: var(--color-level-4-border);
+  }
+
+  .badge[data-level="5"] {
+    background-color: var(--color-level-5-bg);
+    color: var(--color-level-5-text);
+    border-color: var(--color-level-5-border);
+  }
+</style>
