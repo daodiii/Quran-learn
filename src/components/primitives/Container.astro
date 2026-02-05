@@ -1,0 +1,74 @@
+---
+interface Props {
+  maxWidth?: 'sm' | 'md' | 'lg' | 'xl' | '2xl' | 'full';
+  padding?: boolean;
+  center?: boolean;
+  class?: string;
+}
+
+const {
+  maxWidth = 'lg',
+  padding = true,
+  center = true,
+  class: className = ''
+} = Astro.props;
+
+const containerClass = `container container-${maxWidth} ${padding ? 'container-padding' : ''} ${center ? 'container-center' : ''} ${className}`;
+---
+
+<div class={containerClass}>
+  <slot />
+</div>
+
+<style>
+  .container {
+    inline-size: 100%;
+  }
+
+  /* Max-width variants using logical properties */
+  .container-sm {
+    max-inline-size: 40rem;  /* 640px */
+  }
+
+  .container-md {
+    max-inline-size: 48rem;  /* 768px */
+  }
+
+  .container-lg {
+    max-inline-size: 64rem;  /* 1024px */
+  }
+
+  .container-xl {
+    max-inline-size: 80rem;  /* 1280px */
+  }
+
+  .container-2xl {
+    max-inline-size: 96rem;  /* 1536px */
+  }
+
+  .container-full {
+    max-inline-size: none;
+  }
+
+  /* Centering with logical properties */
+  .container-center {
+    margin-inline: auto;
+  }
+
+  /* Responsive padding using logical properties */
+  .container-padding {
+    padding-inline: var(--spacing-md);
+  }
+
+  @media (min-width: 640px) {
+    .container-padding {
+      padding-inline: var(--spacing-lg);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container-padding {
+      padding-inline: var(--spacing-xl);
+    }
+  }
+</style>

@@ -1,0 +1,139 @@
+---
+// Binary completion indicator with checkmark animation
+// Shows filled circle with checkmark (completed) or empty circle (incomplete)
+interface Props {
+  completed: boolean;         // Completion state
+  size?: number;              // Icon size in px (default: 24)
+  label?: string;             // Accessible label (default: "Lesson complete")
+  showLabel?: boolean;        // Display label text (default: false)
+}
+
+const {
+  completed,
+  size = 24,
+  label = "Lesson complete",
+  showLabel = false
+} = Astro.props;
+---
+
+<div class="lesson-checkmark">
+  <div
+    class={`checkmark-circle ${completed ? 'completed' : 'incomplete'}`}
+    role="img"
+    aria-label={label}
+    style={`inline-size: ${size}px; block-size: ${size}px;`}
+  >
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+    >
+      {completed ? (
+        <>
+          <!-- Filled circle with checkmark -->
+          <circle
+            cx="12"
+            cy="12"
+            r="11"
+            fill="var(--color-accent-primary)"
+          />
+          <path
+            d="M7 12l3 3 7-7"
+            stroke="white"
+            stroke-width="2.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="checkmark-path"
+          />
+        </>
+      ) : (
+        <!-- Empty circle outline -->
+        <circle
+          cx="12"
+          cy="12"
+          r="10.5"
+          stroke="var(--color-border-secondary)"
+          stroke-width="1.5"
+        />
+      )}
+    </svg>
+  </div>
+
+  {showLabel && (
+    <span class={`checkmark-label ${completed ? 'completed' : ''}`}>
+      {label}
+    </span>
+  )}
+</div>
+
+<style>
+  .lesson-checkmark {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+  }
+
+  .checkmark-circle {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .checkmark-circle.completed svg {
+    animation: checkmark-appear 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  @keyframes checkmark-appear {
+    0% {
+      transform: scale(0.8);
+      opacity: 0;
+    }
+    50% {
+      transform: scale(1.1);
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  .checkmark-path {
+    stroke-dasharray: 20;
+    stroke-dashoffset: 20;
+    animation: checkmark-draw 400ms 100ms cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+
+  @keyframes checkmark-draw {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+
+  .checkmark-label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color-text-secondary);
+  }
+
+  .checkmark-label.completed {
+    color: var(--color-accent-primary);
+  }
+
+  /* Accessibility: reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .checkmark-circle.completed svg {
+      animation: none;
+    }
+
+    .checkmark-path {
+      animation: none;
+      stroke-dashoffset: 0;
+    }
+  }
+
+  /* RTL: checkmark is symmetric - no mirroring needed */
+</style>

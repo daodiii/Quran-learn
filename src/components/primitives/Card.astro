@@ -1,0 +1,99 @@
+---
+interface Props {
+  variant?: 'default' | 'elevated' | 'outlined';
+  padding?: 'none' | 'sm' | 'md' | 'lg';
+  clickable?: boolean;
+  href?: string;
+  class?: string;
+}
+
+const {
+  variant = 'default',
+  padding = 'md',
+  clickable = false,
+  href,
+  class: className = ''
+} = Astro.props;
+
+const Tag = href ? 'a' : 'div';
+const cardClass = `card card-${variant} card-padding-${padding} ${clickable || href ? 'card-clickable' : ''} ${className}`;
+---
+
+<Tag class={cardClass} href={href}>
+  <slot />
+</Tag>
+
+<style>
+  .card {
+    /* Display */
+    display: block;
+    text-decoration: none;
+    color: inherit;
+
+    /* Design tokens */
+    background-color: var(--color-background-primary);
+    border-radius: var(--radius-lg);
+    transition: all 200ms ease;
+  }
+
+  /* Variant styles */
+  .card-default {
+    border: 1px solid var(--color-border-primary);
+  }
+
+  .card-elevated {
+    border: 1px solid transparent;
+    box-shadow: var(--shadow-soft);
+  }
+
+  .card-outlined {
+    border: 2px solid var(--color-border-primary);
+  }
+
+  /* Padding variants using logical properties */
+  .card-padding-none {
+    padding: 0;
+  }
+
+  .card-padding-sm {
+    padding-inline: var(--spacing-md);
+    padding-block: var(--spacing-sm);
+  }
+
+  .card-padding-md {
+    padding-inline: var(--spacing-lg);
+    padding-block: var(--spacing-md);
+  }
+
+  .card-padding-lg {
+    padding-inline: var(--spacing-xl);
+    padding-block: var(--spacing-lg);
+  }
+
+  /* Clickable state */
+  .card-clickable {
+    cursor: pointer;
+  }
+
+  .card-clickable:hover {
+    border-color: var(--color-border-secondary);
+    box-shadow: var(--shadow-medium);
+    transform: translateY(-2px);
+  }
+
+  .card-clickable:focus-visible {
+    outline: 2px solid var(--color-border-focus);
+    outline-offset: 2px;
+  }
+
+  /* Accessibility: reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .card {
+      transition: none;
+    }
+
+    .card-clickable:hover {
+      transform: none;
+    }
+  }
+</style>
