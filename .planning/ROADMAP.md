@@ -70,10 +70,11 @@ Plans:
   4. Components use overflow-wrap instead of word-break for text handling
   5. All cards support hover states and dark mode
   6. Progress indicators integrate into cards correctly
-**Plans**: TBD
+**Plans**: 2 plans
 
 Plans:
-- [ ] 03-01: [To be defined during planning]
+- [ ] 03-01-PLAN.md — Create CardGrid, CourseCard, LessonCard, SurahCard, ResourceCard components
+- [ ] 03-02-PLAN.md — Card test page and Playwright tests for responsive/Arabic/dark mode
 
 ### Phase 4: Dark Mode Polish
 **Goal**: Ensure Arabic typography remains readable in dark mode with proper contrast ratios
@@ -170,7 +171,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8
 |-------|----------------|--------|-----------|
 | 1. Design Foundation & Font Protection | 3/3 | Complete ✓ | 2026-02-05 |
 | 2. Progress & Primitive Components | 3/3 | Complete ✓ | 2026-02-06 |
-| 3. Card Components & Arabic Typography | 0/TBD | Not started | - |
+| 3. Card Components & Arabic Typography | 0/2 | Ready | - |
 | 4. Dark Mode Polish | 0/TBD | Not started | - |
 | 5. Navigation System | 0/TBD | Not started | - |
 | 6. Page Redesigns | 0/TBD | Not started | - |
