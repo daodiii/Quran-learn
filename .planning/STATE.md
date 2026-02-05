@@ -10,28 +10,28 @@ See: .planning/PROJECT.md (updated 2026-02-05)
 ## Current Position
 
 Phase: 1 of 8 (Design Foundation & Font Protection)
-Plan: 1 of TBD in current phase
+Plan: 2 of TBD in current phase
 Status: In progress
-Last activity: 2026-02-05 - Completed 01-01-PLAN.md (Font Protection)
+Last activity: 2026-02-05 - Completed 01-02-PLAN.md (Design Token Migration)
 
-Progress: [█░░░░░░░░░] 10%
+Progress: [██░░░░░░░░] 20%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 1
-- Average duration: 4 min
-- Total execution time: 0.07 hours
+- Total plans completed: 2
+- Average duration: 4.5 min
+- Total execution time: 0.15 hours
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
-| 01-design-foundation | 1 | 4min | 4min |
+| 01-design-foundation | 2 | 9min | 4.5min |
 
 **Recent Trend:**
-- Last 5 plans: 01-01 (4min)
-- Trend: N/A (need more data)
+- Last 5 plans: 01-01 (4min), 01-02 (5min)
+- Trend: Stable
 
 *Updated after each plan completion*
 
@@ -48,6 +48,9 @@ Recent decisions affecting current work:
 - **[01-01]** Marked fonts.css as PROTECTED/IMMUTABLE with header comment
 - **[01-01]** Used SHA-256 for font checksums (64-char hex, cryptographically strong)
 - **[01-01]** Installed only Chromium for Playwright (sufficient for visual regression)
+- **[01-02]** Token files reference CSS variables (not hardcode values) for theme switching
+- **[01-02]** Semantic CTI naming (--color-background-*, --color-text-*, --spacing-*)
+- **[01-02]** Dark mode via [data-theme='dark'] attribute, not Tailwind dark: classes
 
 ### Pending Todos
 
@@ -66,5 +69,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-02-05T22:59:00Z
-Stopped at: Completed 01-01-PLAN.md
+Stopped at: Completed 01-02-PLAN.md
 Resume file: None
