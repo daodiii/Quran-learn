@@ -41,7 +41,17 @@ A Coursera-inspired redesign of the Quran Learn educational website that teaches
 
 ### Active
 
-*(No active requirements — next milestone not yet defined)*
+**Current Milestone: v1.1 Lesson Content**
+
+**Goal:** Fill all 73 lesson MDX files and 6 resource pages with real Arabic grammar content based on classical nahw/sarf, using Quranic verse examples.
+
+**Target features:**
+- 73 textbook-style grammar lessons across 5 levels (Foundation → Applied Study)
+- Classical Arabic grammar (nahw/sarf) applied to Quranic verses
+- Each lesson: concept explanation → Arabic examples with translation → grammar rule → exercises
+- Claude-selected pedagogically appropriate Quranic verse examples
+- 6 reference resources: glossary, verb tables, pronoun charts, case endings, root system, 200 common words
+- Content collection schema (content.config.ts) for lesson/resource validation
 
 ### Out of Scope
 
@@ -94,4 +104,4 @@ A Coursera-inspired redesign of the Quran Learn educational website that teaches
 | 44px touch targets | Exceeds WCAG 2.5.8 minimum (24px), meets iOS HIG | Good |
 
 ---
-*Last updated: 2026-02-06 after v1 milestone*
+*Last updated: 2026-02-06 after v1.1 milestone start*
