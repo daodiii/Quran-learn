@@ -97,7 +97,7 @@ Plans:
 **Depends on**: Phase 4
 **Requirements**: NAV-01, NAV-02, COMP-01, COMP-02
 **Success Criteria** (what must be TRUE):
-  1. CourseNavigator sidebar displays all 61 lessons with checkmarks
+  1. CourseNavigator sidebar displays all 73 lessons with checkmarks
   2. Sidebar collapses on mobile (<1024px) to fixed overlay
   3. Active lesson visible in both collapsed and expanded sidebar states
   4. Breadcrumbs match sidebar structure for all pages
@@ -105,10 +105,13 @@ Plans:
   6. RTL mode breadcrumbs use correct separators (< not >)
   7. Header component cleaner and more minimal
   8. Footer component simplified
-**Plans**: TBD
+**Plans**: 4 plans
 
 Plans:
-- [ ] 05-01: [To be defined during planning]
+- [ ] 05-01-PLAN.md — Create Breadcrumbs component and simplify Header/Footer
+- [ ] 05-02-PLAN.md — Create CourseNavigator sidebar and NavigatorToggle button
+- [ ] 05-03-PLAN.md — Integrate navigation into layouts with JavaScript behaviors
+- [ ] 05-04-PLAN.md — Navigation test page and Playwright test suite
 
 ### Phase 6: Page Redesigns
 **Goal**: Redesign all pages using new components, layouts, and navigation system
@@ -174,7 +177,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8
 | 2. Progress & Primitive Components | 3/3 | Complete ✓ | 2026-02-06 |
 | 3. Card Components & Arabic Typography | 2/2 | Complete ✓ | 2026-02-06 |
 | 4. Dark Mode Polish | 2/2 | Complete ✓ | 2026-02-06 |
-| 5. Navigation System | 0/TBD | Not started | - |
+| 5. Navigation System | 0/4 | Planned | - |
 | 6. Page Redesigns | 0/TBD | Not started | - |
 | 7. Mobile Optimization | 0/TBD | Not started | - |
 | 8. Performance & Accessibility | 0/TBD | Not started | - |
