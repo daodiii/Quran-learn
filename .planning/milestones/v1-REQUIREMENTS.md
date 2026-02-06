@@ -1,3 +1,13 @@
+# Requirements Archive: v1 UI/UX Redesign
+
+**Archived:** 2026-02-06
+**Status:** SHIPPED
+
+This is the archived requirements specification for v1.
+For current requirements, see `.planning/REQUIREMENTS.md` (created for next milestone).
+
+---
+
 # Requirements: Quran Learn UI/UX Redesign
 
 **Defined:** 2026-02-05
@@ -9,45 +19,45 @@ Requirements for the Coursera-inspired redesign. Each maps to roadmap phases.
 
 ### Design Foundation
 
-- [ ] **DESIGN-01**: Design system with Coursera-like spacing, typography, and visual hierarchy
-- [ ] **DESIGN-02**: Clean progress visualization (horizontal bars, circular rings, checkmarks)
+- [x] **DESIGN-01**: Design system with Coursera-like spacing, typography, and visual hierarchy — *Validated v1, Phase 1*
+- [x] **DESIGN-02**: Clean progress visualization (horizontal bars, circular rings, checkmarks) — *Validated v1, Phase 2*
 
 ### Navigation
 
-- [x] **NAV-01**: Collapsible course navigator sidebar with lesson checkmarks
-- [x] **NAV-02**: Breadcrumb navigation throughout the site
+- [x] **NAV-01**: Collapsible course navigator sidebar with lesson checkmarks — *Validated v1, Phase 5*
+- [x] **NAV-02**: Breadcrumb navigation throughout the site — *Validated v1, Phase 5*
 
 ### Home Page
 
-- [x] **HOME-01**: Hero section with inspiring value proposition
-- [x] **HOME-02**: Featured content cards with progress indicators
+- [x] **HOME-01**: Hero section with inspiring value proposition — *Validated v1, Phase 6*
+- [x] **HOME-02**: Featured content cards with progress indicators — *Validated v1, Phase 6*
 
 ### Learn Section
 
-- [x] **LEARN-01**: Module-based learn dashboard with level progress
-- [x] **LEARN-02**: Lesson pages with proper reading width and floating navigator
+- [x] **LEARN-01**: Module-based learn dashboard with level progress — *Validated v1, Phase 6*
+- [x] **LEARN-02**: Lesson pages with proper reading width and floating navigator — *Validated v1, Phase 6*
 
 ### Surah Section
 
-- [x] **SURAH-01**: Card-based surah selector with difficulty badges
+- [x] **SURAH-01**: Card-based surah selector with difficulty badges — *Validated v1, Phase 6*
 
 ### Resources
 
-- [x] **RESOURCE-01**: Visual cards for reference materials
+- [x] **RESOURCE-01**: Visual cards for reference materials — *Validated v1, Phase 6*
 
 ### Quiz
 
-- [x] **QUIZ-01**: Clean, focused quiz experience with clear feedback
+- [x] **QUIZ-01**: Clean, focused quiz experience with clear feedback — *Validated v1, Phase 6*
 
 ### Components
 
-- [x] **COMP-01**: Updated Header component (cleaner, more minimal)
-- [x] **COMP-02**: Updated Footer component (simplified)
+- [x] **COMP-01**: Updated Header component (cleaner, more minimal) — *Validated v1, Phase 5*
+- [x] **COMP-02**: Updated Footer component (simplified) — *Validated v1, Phase 5*
 
 ### Responsive & Polish
 
-- [x] **RESP-01**: Mobile-first responsive design across all pages
-- [ ] **DARK-01**: Polished dark mode with proper contrast (7:1 ratio for Arabic text)
+- [x] **RESP-01**: Mobile-first responsive design across all pages — *Validated v1, Phase 7*
+- [x] **DARK-01**: Polished dark mode with proper contrast (7:1 ratio for Arabic text) — *Validated v1, Phase 4*
 
 ## v2 Requirements
 
@@ -80,8 +90,6 @@ Explicitly excluded. Documented to prevent scope creep.
 
 ## Traceability
 
-Which phases cover which requirements. Updated during roadmap creation.
-
 | Requirement | Phase | Status |
 |-------------|-------|--------|
 | DESIGN-01 | Phase 1 | Complete |
@@ -102,9 +110,16 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 **Coverage:**
 - v1 requirements: 15 total
-- Mapped to phases: 15
-- Unmapped: 0 ✓
+- Shipped: 15
+- Unmapped: 0
 
 ---
-*Requirements defined: 2026-02-05*
-*Last updated: 2026-02-06 after Phase 7 completion*
+
+## Milestone Summary
+
+**Shipped:** 15 of 15 v1 requirements
+**Adjusted:** None — all requirements shipped as originally specified
+**Dropped:** None
+
+---
+*Archived: 2026-02-06 as part of v1 milestone completion*
