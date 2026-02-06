@@ -148,10 +148,13 @@ Plans:
   5. Images in MDX content are responsive
   6. Lighthouse mobile score above 90
   7. Mobile-first responsive design works across all pages
-**Plans**: TBD
+**Plans**: 4 plans
 
 Plans:
-- [ ] 07-01: [To be defined during planning]
+- [ ] 07-01-PLAN.md — iOS text-size-adjust and touch target CSS enhancements
+- [ ] 07-02-PLAN.md — Swipe gestures for sidebar and horizontal scroll prevention
+- [ ] 07-03-PLAN.md — Responsive images for MDX content
+- [ ] 07-04-PLAN.md — Lighthouse audit and real device verification (checkpoint)
 
 ### Phase 8: Performance & Accessibility
 **Goal**: Final polish with font loading optimization and comprehensive accessibility support
@@ -184,5 +187,5 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8
 | 4. Dark Mode Polish | 2/2 | Complete ✓ | 2026-02-06 |
 | 5. Navigation System | 4/4 | Complete ✓ | 2026-02-06 |
 | 6. Page Redesigns | 6/6 | Complete ✓ | 2026-02-06 |
-| 7. Mobile Optimization | 0/TBD | Not started | - |
+| 7. Mobile Optimization | 0/4 | Not started | - |
 | 8. Performance & Accessibility | 0/TBD | Not started | - |
