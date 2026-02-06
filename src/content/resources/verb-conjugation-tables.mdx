@@ -4,8 +4,1239 @@ order: 6
 description: "Complete conjugation tables for all 10 verb forms across all persons and tenses."
 ---
 
+import VerbConjugation from '../../components/mdx/VerbConjugation.astro';
+import ArabicExample from '../../components/mdx/ArabicExample.astro';
+import Callout from '../../components/mdx/Callout.astro';
+
 # Verb Conjugation Tables
 
-Master verb conjugations with comprehensive tables for Forms I through X.
+Master the complete conjugation system for all ten Arabic verb forms. These tables show every possible combination of person (1st, 2nd, 3rd), number (singular, dual, plural), gender (masculine, feminine), and tense (past, present, imperative) for each verb pattern.
 
-(Content placeholder - will be filled with actual tables)
+## How to Use These Tables
+
+Arabic verbs follow predictable patterns based on their **form** (وَزْن / wazn). Each form has a distinct morphological pattern that conveys specific meanings:
+
+- **Forms I-III**: Basic actions and their variations
+- **Forms IV-VI**: Causative and reflexive meanings
+- **Forms VII-X**: Advanced passive, reflexive, and seeking patterns
+
+The tables use **root letters** (ك ت ب for writing, ف ع ل as the abstract template) to demonstrate each pattern. Once you memorize the pattern for a form, you can conjugate any root that follows it.
+
+<Callout type="tip" title="Learning Strategy">
+Focus on mastering Forms I, II, IV, V, and X first—these cover 90% of Quranic verbs. Forms III, VI, VII, VIII, and IX appear less frequently but follow the same systematic patterns.
+</Callout>
+
+## Quick Navigation
+
+- [Form I (فَعَلَ)](#form-i-فعل) - Basic action
+- [Form II (فَعَّلَ)](#form-ii-فعّل) - Intensive/causative
+- [Form III (فَاعَلَ)](#form-iii-فاعل) - Mutual action
+- [Form IV (أَفْعَلَ)](#form-iv-أفعل) - Causative
+- [Form V (تَفَعَّلَ)](#form-v-تفعّل) - Reflexive of Form II
+- [Form VI (تَفَاعَلَ)](#form-vi-تفاعل) - Reflexive of Form III
+- [Form VII (اِنْفَعَلَ)](#form-vii-انفعل) - Passive/reflexive
+- [Form VIII (اِفْتَعَلَ)](#form-viii-افتعل) - Reflexive
+- [Form IX (اِفْعَلَّ)](#form-ix-افعلّ) - Colors and defects
+- [Form X (اِسْتَفْعَلَ)](#form-x-استفعل) - Seeking/requesting
+
+---
+
+## Form I (فَعَلَ)
+
+**Pattern:** فَعَلَ (faʿala)
+**Meaning:** Basic action, the foundation of all verb forms
+**Example Root:** ك ت ب (k-t-b) meaning "to write"
+
+Form I is the simplest and most common verb pattern in Arabic. It represents the basic, unadorned meaning of the root. From this foundational form, all other forms (II-X) are derived with additional patterns that modify the meaning.
+
+### Past Tense (الْمَاضِي / al-māḍī)
+
+<VerbConjugation
+  root="ك ت ب"
+  form="Form I"
+  pattern="فَعَلَ"
+  headers={["الضَّمِير (Pronoun)", "الْمَاضِي (Past)", "النُّطْق (Pronunciation)"]}
+  rows={[
+    ["هُوَ (He)", "كَتَبَ", "kataba"],
+    ["هِيَ (She)", "كَتَبَتْ", "katabat"],
+    ["هُمَا (They two - m)", "كَتَبَا", "katabā"],
+    ["هُمَا (They two - f)", "كَتَبَتَا", "katabatā"],
+    ["هُمْ (They - m)", "كَتَبُوا", "katabū"],
+    ["هُنَّ (They - f)", "كَتَبْنَ", "katabna"],
+    ["أَنْتَ (You - m)", "كَتَبْتَ", "katabta"],
+    ["أَنْتِ (You - f)", "كَتَبْتِ", "katabti"],
+    ["أَنْتُمَا (You two)", "كَتَبْتُمَا", "katabtumā"],
+    ["أَنْتُمْ (You - m pl)", "كَتَبْتُمْ", "katabtum"],
+    ["أَنْتُنَّ (You - f pl)", "كَتَبْتُنَّ", "katabtunna"],
+    ["أَنَا (I)", "كَتَبْتُ", "katabtu"],
+    ["نَحْنُ (We)", "كَتَبْنَا", "katabnā"]
+  ]}
+/>
+
+### Present Tense (الْمُضَارِع / al-muḍāriʿ)
+
+<VerbConjugation
+  root="ك ت ب"
+  form="Form I"
+  pattern="يَفْعُلُ"
+  headers={["الضَّمِير (Pronoun)", "الْمُضَارِع (Present)", "النُّطْق (Pronunciation)"]}
+  rows={[
+    ["هُوَ (He)", "يَكْتُبُ", "yaktubu"],
+    ["هِيَ (She)", "تَكْتُبُ", "taktubu"],
+    ["هُمَا (They two - m)", "يَكْتُبَانِ", "yaktubāni"],
+    ["هُمَا (They two - f)", "تَكْتُبَانِ", "taktubāni"],
+    ["هُمْ (They - m)", "يَكْتُبُونَ", "yaktubūna"],
+    ["هُنَّ (They - f)", "يَكْتُبْنَ", "yaktubna"],
+    ["أَنْتَ (You - m)", "تَكْتُبُ", "taktubu"],
+    ["أَنْتِ (You - f)", "تَكْتُبِينَ", "taktubīna"],
+    ["أَنْتُمَا (You two)", "تَكْتُبَانِ", "taktubāni"],
+    ["أَنْتُمْ (You - m pl)", "تَكْتُبُونَ", "taktubūna"],
+    ["أَنْتُنَّ (You - f pl)", "تَكْتُبْنَ", "taktubna"],
+    ["أَنَا (I)", "أَكْتُبُ", "aktubu"],
+    ["نَحْنُ (We)", "نَكْتُبُ", "naktubu"]
+  ]}
+/>
+
+### Imperative (الْأَمْر / al-amr)
+
+<VerbConjugation
+  root="ك ت ب"
+  form="Form I"
+  pattern="اُكْتُبْ"
+  headers={["الضَّمِير (Pronoun)", "الْأَمْر (Imperative)", "النُّطْق (Pronunciation)"]}
+  rows={[
+    ["أَنْتَ (You - m)", "اُكْتُبْ", "uktub"],
+    ["أَنْتِ (You - f)", "اُكْتُبِي", "uktubī"],
+    ["أَنْتُمَا (You two)", "اُكْتُبَا", "uktubā"],
+    ["أَنْتُمْ (You - m pl)", "اُكْتُبُوا", "uktubū"],
+    ["أَنْتُنَّ (You - f pl)", "اُكْتُبْنَ", "uktubna"]
+  ]}
+/>
+
+### Quranic Example
+
+<ArabicExample
+  arabic="وَكَتَبْنَا عَلَيْهِمْ فِيهَا أَنَّ النَّفْسَ بِالنَّفْسِ"
+  transliteration="wa-katabnā ʿalayhim fīhā anna n-nafsa bi-n-nafs"
+  translation="And We ordained for them therein: a life for a life"
+  reference="Al-Ma'idah 5:45"
+  highlight="كَتَبْنَا"
+/>
+
+The verb **كَتَبْنَا** (katabnā) is Form I past tense, first person plural ("we wrote/ordained"). Notice how it follows the exact pattern shown in the tables above.
+
+### Pattern Notes
+
+<Callout type="rule" title="Form I Vowel Variations">
+Form I verbs have three possible middle vowel patterns in the present tense:
+
+- **يَفْعُلُ** (a-u pattern): كَتَبَ ← يَكْتُبُ (to write)
+- **يَفْعِلُ** (a-i pattern): فَتَحَ ← يَفْتَحُ (to open)
+- **يَفْعَلُ** (a-a pattern): ذَهَبَ ← يَذْهَبُ (to go)
+
+These patterns must be memorized for each verb, but dictionaries always indicate which pattern a verb follows.
+</Callout>
+
+<details>
+<summary>**Weak Verb Variations** (click to expand)</summary>
+
+Form I weak verbs (with و, ي, or ا in the root) follow modified patterns:
+
+**Hollow Verbs (middle weak):** قَالَ (qāla - to say)
+- Past: قَالَ، قَالَتْ، قَالُوا، قُلْتُ
+- Present: يَقُولُ، تَقُولُ، يَقُولُونَ، أَقُولُ
+
+**Defective Verbs (final weak):** رَمَى (ramā - to throw)
+- Past: رَمَى، رَمَتْ، رَمَوْا، رَمَيْتُ
+- Present: يَرْمِي، تَرْمِي، يَرْمُونَ، أَرْمِي
+
+**Assimilated Verbs (initial weak):** وَجَدَ (wajada - to find)
+- Follows regular Form I pattern mostly
+- Imperative drops initial و: جِدْ (jid - find!)
+
+</details>
+
+**Learn More:** Study Form I patterns in depth in [Level 3: Verb Form I](/learn/level-3/verb-form-i)
+
+---
+
+## Form II (فَعَّلَ)
+
+**Pattern:** فَعَّلَ (faʿʿala) - *doubled middle radical*
+**Meaning:** Intensive, causative, or making something happen
+**Example Root:** ع ل م (ʿ-l-m) meaning "knowledge/to know"
+
+Form II takes the basic action of Form I and intensifies it or makes it causative. The key feature is **doubling the middle root letter** (indicated by شَدَّة / shadda). Example: كَسَرَ (to break) → كَسَّرَ (to shatter into pieces).
+
+### Past Tense (الْمَاضِي / al-māḍī)
+
+<VerbConjugation
+  root="ع ل م"
+  form="Form II"
+  pattern="فَعَّلَ"
+  headers={["الضَّمِير (Pronoun)", "الْمَاضِي (Past)", "النُّطْق (Pronunciation)"]}
+  rows={[
+    ["هُوَ (He)", "عَلَّمَ", "ʿallama"],
+    ["هِيَ (She)", "عَلَّمَتْ", "ʿallamat"],
+    ["هُمَا (They two - m)", "عَلَّمَا", "ʿallamā"],
+    ["هُمَا (They two - f)", "عَلَّمَتَا", "ʿallamatā"],
+    ["هُمْ (They - m)", "عَلَّمُوا", "ʿallamū"],
+    ["هُنَّ (They - f)", "عَلَّمْنَ", "ʿallamna"],
+    ["أَنْتَ (You - m)", "عَلَّمْتَ", "ʿallamta"],
+    ["أَنْتِ (You - f)", "عَلَّمْتِ", "ʿallamti"],
+    ["أَنْتُمَا (You two)", "عَلَّمْتُمَا", "ʿallamtumā"],
+    ["أَنْتُمْ (You - m pl)", "عَلَّمْتُمْ", "ʿallamtum"],
+    ["أَنْتُنَّ (You - f pl)", "عَلَّمْتُنَّ", "ʿallamtunna"],
+    ["أَنَا (I)", "عَلَّمْتُ", "ʿallamtu"],
+    ["نَحْنُ (We)", "عَلَّمْنَا", "ʿallamnā"]
+  ]}
+/>
+
+### Present Tense (الْمُضَارِع / al-muḍāriʿ)
+
+<VerbConjugation
+  root="ع ل م"
+  form="Form II"
+  pattern="يُفَعِّلُ"
+  headers={["الضَّمِير (Pronoun)", "الْمُضَارِع (Present)", "النُّطْق (Pronunciation)"]}
+  rows={[
+    ["هُوَ (He)", "يُعَلِّمُ", "yuʿallimu"],
+    ["هِيَ (She)", "تُعَلِّمُ", "tuʿallimu"],
+    ["هُمَا (They two - m)", "يُعَلِّمَانِ", "yuʿallimāni"],
+    ["هُمَا (They two - f)", "تُعَلِّمَانِ", "tuʿallimāni"],
+    ["هُمْ (They - m)", "يُعَلِّمُونَ", "yuʿallimūna"],
+    ["هُنَّ (They - f)", "يُعَلِّمْنَ", "yuʿallimna"],
+    ["أَنْتَ (You - m)", "تُعَلِّمُ", "tuʿallimu"],
+    ["أَنْتِ (You - f)", "تُعَلِّمِينَ", "tuʿallimīna"],
+    ["أَنْتُمَا (You two)", "تُعَلِّمَانِ", "tuʿallimāni"],
+    ["أَنْتُمْ (You - m pl)", "تُعَلِّمُونَ", "tuʿallimūna"],
+    ["أَنْتُنَّ (You - f pl)", "تُعَلِّمْنَ", "tuʿallimna"],
+    ["أَنَا (I)", "أُعَلِّمُ", "uʿallimu"],
+    ["نَحْنُ (We)", "نُعَلِّمُ", "nuʿallimu"]
+  ]}
+/>
+
+### Imperative (الْأَمْر / al-amr)
+
+<VerbConjugation
+  root="ع ل م"
+  form="Form II"
+  pattern="فَعِّلْ"
+  headers={["الضَّمِير (Pronoun)", "الْأَمْر (Imperative)", "النُّطْق (Pronunciation)"]}
+  rows={[
+    ["أَنْتَ (You - m)", "عَلِّمْ", "ʿallim"],
+    ["أَنْتِ (You - f)", "عَلِّمِي", "ʿallimī"],
+    ["أَنْتُمَا (You two)", "عَلِّمَا", "ʿallimā"],
+    ["أَنْتُمْ (You - m pl)", "عَلِّمُوا", "ʿallimū"],
+    ["أَنْتُنَّ (You - f pl)", "عَلِّمْنَ", "ʿallimna"]
+  ]}
+/>
+
+### Quranic Example
+
+<ArabicExample
+  arabic="وَعَلَّمَ آدَمَ الْأَسْمَاءَ كُلَّهَا"
+  transliteration="wa-ʿallama ādama l-asmāʾa kullahā"
+  translation="And He taught Adam all the names"
+  reference="Al-Baqarah 2:31"
+  highlight="عَلَّمَ"
+/>
+
+The verb **عَلَّمَ** (ʿallama) is Form II, meaning "to teach" (causative of عَلِمَ "to know"). Allah caused Adam to know/learn the names—this is the intensive/causative force of Form II.
+
+### Pattern Notes
+
+<Callout type="rule" title="Form II Meaning">
+Form II consistently means one of three things:
+
+1. **Intensive action:** كَسَرَ (to break) → كَسَّرَ (to shatter/break repeatedly)
+2. **Causative:** عَلِمَ (to know) → عَلَّمَ (to cause to know = to teach)
+3. **Declaration:** كَذَبَ (to lie) → كَذَّبَ (to declare someone a liar)
+
+Notice the doubled middle radical in all cases: **فَعَّلَ**
+</Callout>
+
+<details>
+<summary>**Weak Verb Variations** (click to expand)</summary>
+
+Form II weak verbs maintain the doubled middle radical but show modifications:
+
+**Hollow Verbs (middle weak):** قَوَّمَ (qawwama - to straighten/establish)
+- Past: قَوَّمَ، قَوَّمَتْ، قَوَّمُوا
+- Present: يُقَوِّمُ، تُقَوِّمُ، يُقَوِّمُونَ
+
+**Defective Verbs (final weak):** زَكَّى (zakkā - to purify)
+- Past: زَكَّى، زَكَّتْ، زَكَّوْا، زَكَّيْتُ
+- Present: يُزَكِّي، تُزَكِّي، يُزَكُّونَ، أُزَكِّي
+
+</details>
+
+**Learn More:** Explore Form II patterns in [Level 3: Verb Form II](/learn/level-3/verb-form-ii)
+
+---
+
+## Form III (فَاعَلَ)
+
+**Pattern:** فَاعَلَ (fāʿala) - *long ā after first radical*
+**Meaning:** Attempting, mutual action, or doing something with/to someone
+**Example Root:** ج ه د (j-h-d) meaning "effort/struggle"
+
+Form III inserts a long **alif** (ا) between the first and second root letters. This typically expresses attempting to do something or doing it with someone else (mutual action). Example: قَتَلَ (to kill) → قَاتَلَ (to fight/battle with).
+
+### Past Tense (الْمَاضِي / al-māḍī)
+
+<VerbConjugation
+  root="ج ه د"
+  form="Form III"
+  pattern="فَاعَلَ"
+  headers={["الضَّمِير (Pronoun)", "الْمَاضِي (Past)", "النُّطْق (Pronunciation)"]}
+  rows={[
+    ["هُوَ (He)", "جَاهَدَ", "jāhada"],
+    ["هِيَ (She)", "جَاهَدَتْ", "jāhadat"],
+    ["هُمَا (They two - m)", "جَاهَدَا", "jāhadā"],
+    ["هُمَا (They two - f)", "جَاهَدَتَا", "jāhadatā"],
+    ["هُمْ (They - m)", "جَاهَدُوا", "jāhadū"],
+    ["هُنَّ (They - f)", "جَاهَدْنَ", "jāhadna"],
+    ["أَنْتَ (You - m)", "جَاهَدْتَ", "jāhadta"],
+    ["أَنْتِ (You - f)", "جَاهَدْتِ", "jāhadti"],
+    ["أَنْتُمَا (You two)", "جَاهَدْتُمَا", "jāhadtumā"],
+    ["أَنْتُمْ (You - m pl)", "جَاهَدْتُمْ", "jāhadtum"],
+    ["أَنْتُنَّ (You - f pl)", "جَاهَدْتُنَّ", "jāhadtunna"],
+    ["أَنَا (I)", "جَاهَدْتُ", "jāhadtu"],
+    ["نَحْنُ (We)", "جَاهَدْنَا", "jāhadnā"]
+  ]}
+/>
+
+### Present Tense (الْمُضَارِع / al-muḍāriʿ)
+
+<VerbConjugation
+  root="ج ه د"
+  form="Form III"
+  pattern="يُفَاعِلُ"
+  headers={["الضَّمِير (Pronoun)", "الْمُضَارِع (Present)", "النُّطْق (Pronunciation)"]}
+  rows={[
+    ["هُوَ (He)", "يُجَاهِدُ", "yujāhidu"],
+    ["هِيَ (She)", "تُجَاهِدُ", "tujāhidu"],
+    ["هُمَا (They two - m)", "يُجَاهِدَانِ", "yujāhidāni"],
+    ["هُمَا (They two - f)", "تُجَاهِدَانِ", "tujāhidāni"],
+    ["هُمْ (They - m)", "يُجَاهِدُونَ", "yujāhidūna"],
+    ["هُنَّ (They - f)", "يُجَاهِدْنَ", "yujāhidna"],
+    ["أَنْتَ (You - m)", "تُجَاهِدُ", "tujāhidu"],
+    ["أَنْتِ (You - f)", "تُجَاهِدِينَ", "tujāhidīna"],
+    ["أَنْتُمَا (You two)", "تُجَاهِدَانِ", "tujāhidāni"],
+    ["أَنْتُمْ (You - m pl)", "تُجَاهِدُونَ", "tujāhidūna"],
+    ["أَنْتُنَّ (You - f pl)", "تُجَاهِدْنَ", "tujāhidna"],
+    ["أَنَا (I)", "أُجَاهِدُ", "ujāhidu"],
+    ["نَحْنُ (We)", "نُجَاهِدُ", "nujāhidu"]
+  ]}
+/>
+
+### Imperative (الْأَمْر / al-amr)
+
+<VerbConjugation
+  root="ج ه د"
+  form="Form III"
+  pattern="فَاعِلْ"
+  headers={["الضَّمِير (Pronoun)", "الْأَمْر (Imperative)", "النُّطْق (Pronunciation)"]}
+  rows={[
+    ["أَنْتَ (You - m)", "جَاهِدْ", "jāhid"],
+    ["أَنْتِ (You - f)", "جَاهِدِي", "jāhidī"],
+    ["أَنْتُمَا (You two)", "جَاهِدَا", "jāhidā"],
+    ["أَنْتُمْ (You - m pl)", "جَاهِدُوا", "jāhidū"],
+    ["أَنْتُنَّ (You - f pl)", "جَاهِدْنَ", "jāhidna"]
+  ]}
+/>
+
+### Quranic Example
+
+<ArabicExample
+  arabic="وَجَاهِدُوا فِي اللَّهِ حَقَّ جِهَادِهِ"
+  transliteration="wa-jāhidū fī llāhi ḥaqqa jihādih"
+  translation="And strive for Allah with the striving due to Him"
+  reference="Al-Hajj 22:78"
+  highlight="جَاهِدُوا"
+/>
+
+The verb **جَاهِدُوا** (jāhidū) is Form III imperative, plural masculine ("strive!"). The root ج-ه-د means "effort," and Form III extends it to "strive/struggle with dedication."
+
+### Pattern Notes
+
+<Callout type="rule" title="Form III Meaning">
+Form III typically means:
+
+1. **Attempting/trying:** سَمِعَ (to hear) → سَامَعَ (to try to hear/listen attentively)
+2. **Mutual action:** كَاتَبَ (to correspond with = write to each other)
+3. **Doing toward someone:** قَاتَلَ (to fight against), جَاهَدَ (to strive)
+
+The long **ā** (alif) is the distinguishing feature: **فَاعَلَ**
+</Callout>
+
+<details>
+<summary>**Weak Verb Variations** (click to expand)</summary>
+
+Form III weak verbs maintain the long alif but show final modifications:
+
+**Defective Verbs (final weak):** نَادَى (nādā - to call)
+- Past: نَادَى، نَادَتْ، نَادَوْا، نَادَيْتُ
+- Present: يُنَادِي، تُنَادِي، يُنَادُونَ، أُنَادِي
+
+**Doubly Weak Verbs:** وَاعَدَ (wāʿada - to promise)
+- Past: وَاعَدَ، وَاعَدَتْ، وَاعَدُوا
+- Present: يُوَاعِدُ، تُوَاعِدُ، يُوَاعِدُونَ
+
+</details>
+
+**Learn More:** Study Form III in [Level 3: Verb Form III](/learn/level-3/verb-form-iii)
+
+---
+
+## Form IV (أَفْعَلَ)
+
+**Pattern:** أَفْعَلَ (afʿala) - *hamza prefix*
+**Meaning:** Causative (making someone do the action)
+**Example Root:** ن ز ل (n-z-l) meaning "to descend"
+
+Form IV adds a **hamza** (أ) prefix and often means causing the basic action to happen. Example: نَزَلَ (to descend) → أَنْزَلَ (to send down/cause to descend). This is the most common causative form in the Quran.
+
+### Past Tense (الْمَاضِي / al-māḍī)
+
+<VerbConjugation
+  root="ن ز ل"
+  form="Form IV"
+  pattern="أَفْعَلَ"
+  headers={["الضَّمِير (Pronoun)", "الْمَاضِي (Past)", "النُّطْق (Pronunciation)"]}
+  rows={[
+    ["هُوَ (He)", "أَنْزَلَ", "anzala"],
+    ["هِيَ (She)", "أَنْزَلَتْ", "anzalat"],
+    ["هُمَا (They two - m)", "أَنْزَلَا", "anzalā"],
+    ["هُمَا (They two - f)", "أَنْزَلَتَا", "anzalatā"],
+    ["هُمْ (They - m)", "أَنْزَلُوا", "anzalū"],
+    ["هُنَّ (They - f)", "أَنْزَلْنَ", "anzalna"],
+    ["أَنْتَ (You - m)", "أَنْزَلْتَ", "anzalta"],
+    ["أَنْتِ (You - f)", "أَنْزَلْتِ", "anzalti"],
+    ["أَنْتُمَا (You two)", "أَنْزَلْتُمَا", "anzaltumā"],
+    ["أَنْتُمْ (You - m pl)", "أَنْزَلْتُمْ", "anzaltum"],
+    ["أَنْتُنَّ (You - f pl)", "أَنْزَلْتُنَّ", "anzaltunna"],
+    ["أَنَا (I)", "أَنْزَلْتُ", "anzaltu"],
+    ["نَحْنُ (We)", "أَنْزَلْنَا", "anzalnā"]
+  ]}
+/>
+
+### Present Tense (الْمُضَارِع / al-muḍāriʿ)
+
+<VerbConjugation
+  root="ن ز ل"
+  form="Form IV"
+  pattern="يُفْعِلُ"
+  headers={["الضَّمِير (Pronoun)", "الْمُضَارِع (Present)", "النُّطْق (Pronunciation)"]}
+  rows={[
+    ["هُوَ (He)", "يُنْزِلُ", "yunzilu"],
+    ["هِيَ (She)", "تُنْزِلُ", "tunzilu"],
+    ["هُمَا (They two - m)", "يُنْزِلَانِ", "yunzilāni"],
+    ["هُمَا (They two - f)", "تُنْزِلَانِ", "tunzilāni"],
+    ["هُمْ (They - m)", "يُنْزِلُونَ", "yunzilūna"],
+    ["هُنَّ (They - f)", "يُنْزِلْنَ", "yunzilna"],
+    ["أَنْتَ (You - m)", "تُنْزِلُ", "tunzilu"],
+    ["أَنْتِ (You - f)", "تُنْزِلِينَ", "tunzilīna"],
+    ["أَنْتُمَا (You two)", "تُنْزِلَانِ", "tunzilāni"],
+    ["أَنْتُمْ (You - m pl)", "تُنْزِلُونَ", "tunzilūna"],
+    ["أَنْتُنَّ (You - f pl)", "تُنْزِلْنَ", "tunzilna"],
+    ["أَنَا (I)", "أُنْزِلُ", "unzilu"],
+    ["نَحْنُ (We)", "نُنْزِلُ", "nunzilu"]
+  ]}
+/>
+
+### Imperative (الْأَمْر / al-amr)
+
+<VerbConjugation
+  root="ن ز ل"
+  form="Form IV"
+  pattern="أَفْعِلْ"
+  headers={["الضَّمِير (Pronoun)", "الْأَمْر (Imperative)", "النُّطْق (Pronunciation)"]}
+  rows={[
+    ["أَنْتَ (You - m)", "أَنْزِلْ", "anzil"],
+    ["أَنْتِ (You - f)", "أَنْزِلِي", "anzilī"],
+    ["أَنْتُمَا (You two)", "أَنْزِلَا", "anzilā"],
+    ["أَنْتُمْ (You - m pl)", "أَنْزِلُوا", "anzilū"],
+    ["أَنْتُنَّ (You - f pl)", "أَنْزِلْنَ", "anzilna"]
+  ]}
+/>
+
+### Quranic Example
+
+<ArabicExample
+  arabic="إِنَّا أَنْزَلْنَاهُ فِي لَيْلَةِ الْقَدْرِ"
+  transliteration="innā anzalnāhu fī laylati l-qadr"
+  translation="Indeed, We sent it down during the Night of Decree"
+  reference="Al-Qadr 97:1"
+  highlight="أَنْزَلْنَاهُ"
+/>
+
+The verb **أَنْزَلْنَاهُ** (anzalnāhu) is Form IV past tense with attached pronoun ("We sent it down"). Allah caused the Quran to descend—the causative meaning of Form IV.
+
+### Pattern Notes
+
+<Callout type="rule" title="Form IV vs Form II">
+Both Forms II and IV can be causative, but:
+
+- **Form II (فَعَّلَ):** More intensive, often transitive from intransitive. Example: فَرِحَ (to be happy) → فَرَّحَ (to make happy/gladden)
+- **Form IV (أَفْعَلَ):** Pure causative, very common in Quran. Example: سْلَمَ (to be safe) → أَسْلَمَ (to submit/cause to be at peace with God)
+
+Form IV is more frequent with divine actions (أَنْزَلَ, أَعْطَى, أَحْيَا).
+</Callout>
+
+<details>
+<summary>**Weak Verb Variations** (click to expand)</summary>
+
+Form IV weak verbs show modified patterns:
+
+**Hollow Verbs (middle weak):** أَقَامَ (aqāma - to establish)
+- Past: أَقَامَ، أَقَامَتْ، أَقَامُوا، أَقَمْتُ
+- Present: يُقِيمُ، تُقِيمُ، يُقِيمُونَ، أُقِيمُ
+
+**Defective Verbs (final weak):** أَعْطَى (aʿṭā - to give)
+- Past: أَعْطَى، أَعْطَتْ، أَعْطَوْا، أَعْطَيْتُ
+- Present: يُعْطِي، تُعْطِي، يُعْطُونَ، أُعْطِي
+
+**Assimilated Verbs (initial weak):** أَوْحَى (awḥā - to reveal)
+- Past: أَوْحَى، أَوْحَتْ، أَوْحَوْا
+- Present: يُوحِي، تُوحِي، يُوحُونَ
+
+</details>
+
+**Learn More:** Master Form IV in [Level 3: Verb Form IV](/learn/level-3/verb-form-iv)
+
+---
+
+## Form V (تَفَعَّلَ)
+
+**Pattern:** تَفَعَّلَ (tafaʿʿala) - *ta- prefix + doubled middle radical*
+**Meaning:** Reflexive of Form II (doing the action to oneself)
+**Example Root:** ع ل م (ʿ-l-m) meaning "knowledge"
+
+Form V is the reflexive counterpart of Form II. If Form II is "to teach" (عَلَّمَ), Form V is "to learn" (تَعَلَّمَ - to cause oneself to know). It adds **تَـ** prefix and doubles the middle root letter.
+
+### Past Tense (الْمَاضِي / al-māḍī)
+
+<VerbConjugation
+  root="ع ل م"
+  form="Form V"
+  pattern="تَفَعَّلَ"
+  headers={["الضَّمِير (Pronoun)", "الْمَاضِي (Past)", "النُّطْق (Pronunciation)"]}
+  rows={[
+    ["هُوَ (He)", "تَعَلَّمَ", "taʿallama"],
+    ["هِيَ (She)", "تَعَلَّمَتْ", "taʿallamat"],
+    ["هُمَا (They two - m)", "تَعَلَّمَا", "taʿallamā"],
+    ["هُمَا (They two - f)", "تَعَلَّمَتَا", "taʿallamatā"],
+    ["هُمْ (They - m)", "تَعَلَّمُوا", "taʿallamū"],
+    ["هُنَّ (They - f)", "تَعَلَّمْنَ", "taʿallamna"],
+    ["أَنْتَ (You - m)", "تَعَلَّمْتَ", "taʿallamta"],
+    ["أَنْتِ (You - f)", "تَعَلَّمْتِ", "taʿallamti"],
+    ["أَنْتُمَا (You two)", "تَعَلَّمْتُمَا", "taʿallamtumā"],
+    ["أَنْتُمْ (You - m pl)", "تَعَلَّمْتُمْ", "taʿallamtum"],
+    ["أَنْتُنَّ (You - f pl)", "تَعَلَّمْتُنَّ", "taʿallamtunna"],
+    ["أَنَا (I)", "تَعَلَّمْتُ", "taʿallamtu"],
+    ["نَحْنُ (We)", "تَعَلَّمْنَا", "taʿallamnā"]
+  ]}
+/>
+
+### Present Tense (الْمُضَارِع / al-muḍāriʿ)
+
+<VerbConjugation
+  root="ع ل م"
+  form="Form V"
+  pattern="يَتَفَعَّلُ"
+  headers={["الضَّمِير (Pronoun)", "الْمُضَارِع (Present)", "النُّطْق (Pronunciation)"]}
+  rows={[
+    ["هُوَ (He)", "يَتَعَلَّمُ", "yataʿallamu"],
+    ["هِيَ (She)", "تَتَعَلَّمُ", "tataʿallamu"],
+    ["هُمَا (They two - m)", "يَتَعَلَّمَانِ", "yataʿallamāni"],
+    ["هُمَا (They two - f)", "تَتَعَلَّمَانِ", "tataʿallamāni"],
+    ["هُمْ (They - m)", "يَتَعَلَّمُونَ", "yataʿallamūna"],
+    ["هُنَّ (They - f)", "يَتَعَلَّمْنَ", "yataʿallamna"],
+    ["أَنْتَ (You - m)", "تَتَعَلَّمُ", "tataʿallamu"],
+    ["أَنْتِ (You - f)", "تَتَعَلَّمِينَ", "tataʿallamīna"],
+    ["أَنْتُمَا (You two)", "تَتَعَلَّمَانِ", "tataʿallamāni"],
+    ["أَنْتُمْ (You - m pl)", "تَتَعَلَّمُونَ", "tataʿallamūna"],
+    ["أَنْتُنَّ (You - f pl)", "تَتَعَلَّمْنَ", "tataʿallamna"],
+    ["أَنَا (I)", "أَتَعَلَّمُ", "ataʿallamu"],
+    ["نَحْنُ (We)", "نَتَعَلَّمُ", "nataʿallamu"]
+  ]}
+/>
+
+### Imperative (الْأَمْر / al-amr)
+
+<VerbConjugation
+  root="ع ل م"
+  form="Form V"
+  pattern="تَفَعَّلْ"
+  headers={["الضَّمِير (Pronoun)", "الْأَمْر (Imperative)", "النُّطْق (Pronunciation)"]}
+  rows={[
+    ["أَنْتَ (You - m)", "تَعَلَّمْ", "taʿallam"],
+    ["أَنْتِ (You - f)", "تَعَلَّمِي", "taʿallamī"],
+    ["أَنْتُمَا (You two)", "تَعَلَّمَا", "taʿallamā"],
+    ["أَنْتُمْ (You - m pl)", "تَعَلَّمُوا", "taʿallamū"],
+    ["أَنْتُنَّ (You - f pl)", "تَعَلَّمْنَ", "taʿallamna"]
+  ]}
+/>
+
+### Quranic Example
+
+<ArabicExample
+  arabic="وَمَا تَعَلَّمُوا مِمَّا يُضُرُّهُمْ وَلَا يَنْفَعُهُمْ"
+  transliteration="wa-mā taʿallamū mimmā yaḍurruhum wa-lā yanfaʿuhum"
+  translation="And they learned what harmed them and did not benefit them"
+  reference="Al-Baqarah 2:102"
+  highlight="تَعَلَّمُوا"
+/>
+
+The verb **تَعَلَّمُوا** (taʿallamū) is Form V past tense, third person plural ("they learned"). Notice the **تَـ** prefix and doubled ل—the reflexive form of عَلَّمَ (to teach).
+
+### Pattern Notes
+
+<Callout type="rule" title="Form V Reflexive Meaning">
+Form V is systematically the reflexive of Form II:
+
+- Form II: عَلَّمَ (to teach someone)
+- Form V: تَعَلَّمَ (to teach oneself = to learn)
+
+- Form II: طَهَّرَ (to purify something)
+- Form V: تَطَهَّرَ (to purify oneself)
+
+- Form II: كَلَّمَ (to speak to someone)
+- Form V: تَكَلَّمَ (to speak/talk)
+
+The **تَـ** prefix signals "to oneself" or "self-initiated action."
+</Callout>
+
+<details>
+<summary>**Weak Verb Variations** (click to expand)</summary>
+
+Form V weak verbs maintain the تَـ prefix and doubled middle:
+
+**Defective Verbs (final weak):** تَوَلَّى (tawallā - to turn away/take charge)
+- Past: تَوَلَّى، تَوَلَّتْ، تَوَلَّوْا، تَوَلَّيْتُ
+- Present: يَتَوَلَّى، تَتَوَلَّى، يَتَوَلَّوْنَ، أَتَوَلَّى
+
+**Hollow Verbs:** تَبَيَّنَ (tabayyana - to become clear)
+- Past: تَبَيَّنَ، تَبَيَّنَتْ، تَبَيَّنُوا
+- Present: يَتَبَيَّنُ، تَتَبَيَّنُ، يَتَبَيَّنُونَ
+
+</details>
+
+**Learn More:** Study Form V patterns in [Level 3: Verb Form V](/learn/level-3/verb-form-v)
+
+---
+
+## Form VI (تَفَاعَلَ)
+
+**Pattern:** تَفَاعَلَ (tafāʿala) - *ta- prefix + long ā*
+**Meaning:** Reflexive of Form III (mutual/reciprocal action)
+**Example Root:** ب ر ك (b-r-k) meaning "blessing"
+
+Form VI is the reflexive counterpart of Form III. It adds the **تَـ** prefix and long **alif** (ا) to express mutual or reciprocal actions, or to show something happening gradually/intensively to oneself.
+
+### Past Tense (الْمَاضِي / al-māḍī)
+
+<VerbConjugation
+  root="ب ر ك"
+  form="Form VI"
+  pattern="تَفَاعَلَ"
+  headers={["الضَّمِير (Pronoun)", "الْمَاضِي (Past)", "النُّطْق (Pronunciation)"]}
+  rows={[
+    ["هُوَ (He)", "تَبَارَكَ", "tabāraka"],
+    ["هِيَ (She)", "تَبَارَكَتْ", "tabāraḍat"],
+    ["هُمَا (They two - m)", "تَبَارَكَا", "tabārakā"],
+    ["هُمَا (They two - f)", "تَبَارَكَتَا", "tabārakatā"],
+    ["هُمْ (They - m)", "تَبَارَكُوا", "tabārakū"],
+    ["هُنَّ (They - f)", "تَبَارَكْنَ", "tabārakna"],
+    ["أَنْتَ (You - m)", "تَبَارَكْتَ", "tabārakta"],
+    ["أَنْتِ (You - f)", "تَبَارَكْتِ", "tabārakti"],
+    ["أَنْتُمَا (You two)", "تَبَارَكْتُمَا", "tabāraktumā"],
+    ["أَنْتُمْ (You - m pl)", "تَبَارَكْتُمْ", "tabāraktum"],
+    ["أَنْتُنَّ (You - f pl)", "تَبَارَكْتُنَّ", "tabāraktunna"],
+    ["أَنَا (I)", "تَبَارَكْتُ", "tabāraktu"],
+    ["نَحْنُ (We)", "تَبَارَكْنَا", "tabāraknā"]
+  ]}
+/>
+
+### Present Tense (الْمُضَارِع / al-muḍāriʿ)
+
+<VerbConjugation
+  root="ب ر ك"
+  form="Form VI"
+  pattern="يَتَفَاعَلُ"
+  headers={["الضَّمِير (Pronoun)", "الْمُضَارِع (Present)", "النُّطْق (Pronunciation)"]}
+  rows={[
+    ["هُوَ (He)", "يَتَبَارَكُ", "yatabāraku"],
+    ["هِيَ (She)", "تَتَبَارَكُ", "tatabāraku"],
+    ["هُمَا (They two - m)", "يَتَبَارَكَانِ", "yatabārakāni"],
+    ["هُمَا (They two - f)", "تَتَبَارَكَانِ", "tatabārakāni"],
+    ["هُمْ (They - m)", "يَتَبَارَكُونَ", "yatabārakūna"],
+    ["هُنَّ (They - f)", "يَتَبَارَكْنَ", "yatabārakna"],
+    ["أَنْتَ (You - m)", "تَتَبَارَكُ", "tatabāraku"],
+    ["أَنْتِ (You - f)", "تَتَبَارَكِينَ", "tatabārakīna"],
+    ["أَنْتُمَا (You two)", "تَتَبَارَكَانِ", "tatabārakāni"],
+    ["أَنْتُمْ (You - m pl)", "تَتَبَارَكُونَ", "tatabārakūna"],
+    ["أَنْتُنَّ (You - f pl)", "تَتَبَارَكْنَ", "tatabārakna"],
+    ["أَنَا (I)", "أَتَبَارَكُ", "atabāraku"],
+    ["نَحْنُ (We)", "نَتَبَارَكُ", "natabāraku"]
+  ]}
+/>
+
+### Imperative (الْأَمْر / al-amr)
+
+<VerbConjugation
+  root="ب ر ك"
+  form="Form VI"
+  pattern="تَفَاعَلْ"
+  headers={["الضَّمِير (Pronoun)", "الْأَمْر (Imperative)", "النُّطْق (Pronunciation)"]}
+  rows={[
+    ["أَنْتَ (You - m)", "تَبَارَكْ", "tabārak"],
+    ["أَنْتِ (You - f)", "تَبَارَكِي", "tabārakī"],
+    ["أَنْتُمَا (You two)", "تَبَارَكَا", "tabārakā"],
+    ["أَنْتُمْ (You - m pl)", "تَبَارَكُوا", "tabārakū"],
+    ["أَنْتُنَّ (You - f pl)", "تَبَارَكْنَ", "tabārakna"]
+  ]}
+/>
+
+### Quranic Example
+
+<ArabicExample
+  arabic="تَبَارَكَ الَّذِي بِيَدِهِ الْمُلْكُ"
+  transliteration="tabāraka lladhī biyadihi l-mulk"
+  translation="Blessed is He in whose hand is dominion"
+  reference="Al-Mulk 67:1"
+  highlight="تَبَارَكَ"
+/>
+
+The verb **تَبَارَكَ** (tabāraka) means "He is supremely blessed" — blessing manifested abundantly in Himself. This intensive, self-manifesting meaning is characteristic of Form VI.
+
+### Pattern Notes
+
+<Callout type="rule" title="Form VI Meanings">
+Form VI typically expresses:
+
+1. **Reciprocal action:** تَعَارَفُوا (they got to know each other)
+2. **Pretending:** تَجَاهَلَ (to pretend ignorance)
+3. **Gradual/intensive:** تَبَارَكَ (to be supremely blessed), تَزَايَدَ (to increase progressively)
+
+Like Form V, the **تَـ** prefix signals reflexive/self-initiated, but the long **ā** (from Form III) adds the mutual/reciprocal dimension.
+</Callout>
+
+<details>
+<summary>**Weak Verb Variations** (click to expand)</summary>
+
+Form VI weak verbs maintain تَـ prefix and long alif:
+
+**Defective Verbs (final weak):** تَنَادَى (tanādā - to call to each other)
+- Past: تَنَادَى، تَنَادَتْ، تَنَادَوْا، تَنَادَيْتُ
+- Present: يَتَنَادَى، تَتَنَادَى، يَتَنَادَوْنَ، أَتَنَادَى
+
+**Doubly Weak:** تَوَالَى (tawālā - to follow consecutively)
+- Past: تَوَالَى، تَوَالَتْ، تَوَالَوْا
+- Present: يَتَوَالَى، تَتَوَالَى، يَتَوَالَوْنَ
+
+</details>
+
+**Learn More:** Explore Form VI in [Level 3: Verb Form VI](/learn/level-3/verb-form-vi)
+
+---
+
+## Form VII (اِنْفَعَلَ)
+
+**Pattern:** اِنْفَعَلَ (infaʿala) - *in- prefix*
+**Meaning:** Passive or reflexive of Form I
+**Example Root:** ف ط ر (f-ṭ-r) meaning "to split/cleave"
+
+Form VII adds the prefix **اِنْـ** (in-) to express passive or reflexive meanings of Form I verbs. It often indicates something happening to the subject naturally or inevitably. Example: كَسَرَ (to break something) → اِنْكَسَرَ (to become broken).
+
+### Past Tense (الْمَاضِي / al-māḍī)
+
+<VerbConjugation
+  root="ف ط ر"
+  form="Form VII"
+  pattern="اِنْفَعَلَ"
+  headers={["الضَّمِير (Pronoun)", "الْمَاضِي (Past)", "النُّطْق (Pronunciation)"]}
+  rows={[
+    ["هُوَ (He)", "اِنْفَطَرَ", "infaṭara"],
+    ["هِيَ (She)", "اِنْفَطَرَتْ", "infaṭarat"],
+    ["هُمَا (They two - m)", "اِنْفَطَرَا", "infaṭarā"],
+    ["هُمَا (They two - f)", "اِنْفَطَرَتَا", "infaṭaratā"],
+    ["هُمْ (They - m)", "اِنْفَطَرُوا", "infaṭarū"],
+    ["هُنَّ (They - f)", "اِنْفَطَرْنَ", "infaṭarna"],
+    ["أَنْتَ (You - m)", "اِنْفَطَرْتَ", "infaṭarta"],
+    ["أَنْتِ (You - f)", "اِنْفَطَرْتِ", "infaṭarti"],
+    ["أَنْتُمَا (You two)", "اِنْفَطَرْتُمَا", "infaṭartumā"],
+    ["أَنْتُمْ (You - m pl)", "اِنْفَطَرْتُمْ", "infaṭartum"],
+    ["أَنْتُنَّ (You - f pl)", "اِنْفَطَرْتُنَّ", "infaṭartunna"],
+    ["أَنَا (I)", "اِنْفَطَرْتُ", "infaṭartu"],
+    ["نَحْنُ (We)", "اِنْفَطَرْنَا", "infaṭarnā"]
+  ]}
+/>
+
+### Present Tense (الْمُضَارِع / al-muḍāriʿ)
+
+<VerbConjugation
+  root="ف ط ر"
+  form="Form VII"
+  pattern="يَنْفَعِلُ"
+  headers={["الضَّمِير (Pronoun)", "الْمُضَارِع (Present)", "النُّطْق (Pronunciation)"]}
+  rows={[
+    ["هُوَ (He)", "يَنْفَطِرُ", "yanfaṭiru"],
+    ["هِيَ (She)", "تَنْفَطِرُ", "tanfaṭiru"],
+    ["هُمَا (They two - m)", "يَنْفَطِرَانِ", "yanfaṭirāni"],
+    ["هُمَا (They two - f)", "تَنْفَطِرَانِ", "tanfaṭirāni"],
+    ["هُمْ (They - m)", "يَنْفَطِرُونَ", "yanfaṭirūna"],
+    ["هُنَّ (They - f)", "يَنْفَطِرْنَ", "yanfaṭirna"],
+    ["أَنْتَ (You - m)", "تَنْفَطِرُ", "tanfaṭiru"],
+    ["أَنْتِ (You - f)", "تَنْفَطِرِينَ", "tanfaṭirīna"],
+    ["أَنْتُمَا (You two)", "تَنْفَطِرَانِ", "tanfaṭirāni"],
+    ["أَنْتُمْ (You - m pl)", "تَنْفَطِرُونَ", "tanfaṭirūna"],
+    ["أَنْتُنَّ (You - f pl)", "تَنْفَطِرْنَ", "tanfaṭirna"],
+    ["أَنَا (I)", "أَنْفَطِرُ", "anfaṭiru"],
+    ["نَحْنُ (We)", "نَنْفَطِرُ", "nanfaṭiru"]
+  ]}
+/>
+
+### Imperative (الْأَمْر / al-amr)
+
+<VerbConjugation
+  root="ف ط ر"
+  form="Form VII"
+  pattern="اِنْفَعِلْ"
+  headers={["الضَّمِير (Pronoun)", "الْأَمْر (Imperative)", "النُّطْق (Pronunciation)"]}
+  rows={[
+    ["أَنْتَ (You - m)", "اِنْفَطِرْ", "infaṭir"],
+    ["أَنْتِ (You - f)", "اِنْفَطِرِي", "infaṭirī"],
+    ["أَنْتُمَا (You two)", "اِنْفَطِرَا", "infaṭirā"],
+    ["أَنْتُمْ (You - m pl)", "اِنْفَطِرُوا", "infaṭirū"],
+    ["أَنْتُنَّ (You - f pl)", "اِنْفَطِرْنَ", "infaṭirna"]
+  ]}
+/>
+
+### Quranic Example
+
+<ArabicExample
+  arabic="إِذَا السَّمَاءُ انْفَطَرَتْ"
+  transliteration="idhā s-samāʾu infaṭarat"
+  translation="When the sky breaks apart"
+  reference="Al-Infitar 82:1"
+  highlight="انْفَطَرَتْ"
+/>
+
+The verb **اِنْفَطَرَتْ** (infaṭarat) means "it split/broke open" (passive). The sky doesn't split itself actively—it undergoes splitting. This passive/intransitive meaning is typical of Form VII.
+
+### Pattern Notes
+
+<Callout type="rule" title="Form VII Usage">
+Form VII expresses passive or reflexive meanings of Form I:
+
+- **Passive sense:** كَسَرَ (to break) → اِنْكَسَرَ (to be broken, to break)
+- **Reflexive sense:** صَرَفَ (to turn away) → اِنْصَرَفَ (to depart, go away)
+- **Natural occurrence:** فَتَحَ (to open) → اِنْفَتَحَ (to become opened, open up)
+
+Form VII is **less common** in the Quran than Forms I-VI, but appears in vivid descriptions of natural phenomena.
+</Callout>
+
+<details>
+<summary>**Weak Verb Variations** (click to expand)</summary>
+
+Form VII weak verbs maintain the اِنْـ prefix:
+
+**Defective Verbs (final weak):** اِنْتَهَى (intahā - to end, be finished)
+- Past: اِنْتَهَى، اِنْتَهَتْ، اِنْتَهَوْا، اِنْتَهَيْتُ
+- Present: يَنْتَهِي، تَنْتَهِي، يَنْتَهُونَ، أَنْتَهِي
+
+**Note:** Form VII cannot be formed from assimilated verbs (initial و/ي) or doubled verbs.
+
+</details>
+
+**Learn More:** Study Form VII in [Level 3: Verb Form VII](/learn/level-3/verb-form-vii)
+
+---
+
+## Form VIII (اِفْتَعَلَ)
+
+**Pattern:** اِفْتَعَلَ (iftaʿala) - *ت inserted after first radical*
+**Meaning:** Reflexive, reciprocal, or intensive action
+**Example Root:** س م ع (s-m-ʿ) meaning "to hear"
+
+Form VIII inserts a **ت** (tāʾ) after the first root letter and adds the prefix **اِ**. It often expresses reflexive actions or doing something for oneself. Example: سَمِعَ (to hear) → اِسْتَمَعَ (to listen attentively).
+
+### Past Tense (الْمَاضِي / al-māḍī)
+
+<VerbConjugation
+  root="س م ع"
+  form="Form VIII"
+  pattern="اِفْتَعَلَ"
+  headers={["الضَّمِير (Pronoun)", "الْمَاضِي (Past)", "النُّطْق (Pronunciation)"]}
+  rows={[
+    ["هُوَ (He)", "اِسْتَمَعَ", "istamaʿa"],
+    ["هِيَ (She)", "اِسْتَمَعَتْ", "istamaʿat"],
+    ["هُمَا (They two - m)", "اِسْتَمَعَا", "istamaʿā"],
+    ["هُمَا (They two - f)", "اِسْتَمَعَتَا", "istamaʿatā"],
+    ["هُمْ (They - m)", "اِسْتَمَعُوا", "istamaʿū"],
+    ["هُنَّ (They - f)", "اِسْتَمَعْنَ", "istamaʿna"],
+    ["أَنْتَ (You - m)", "اِسْتَمَعْتَ", "istamaʿta"],
+    ["أَنْتِ (You - f)", "اِسْتَمَعْتِ", "istamaʿti"],
+    ["أَنْتُمَا (You two)", "اِسْتَمَعْتُمَا", "istamaʿtumā"],
+    ["أَنْتُمْ (You - m pl)", "اِسْتَمَعْتُمْ", "istamaʿtum"],
+    ["أَنْتُنَّ (You - f pl)", "اِسْتَمَعْتُنَّ", "istamaʿtunna"],
+    ["أَنَا (I)", "اِسْتَمَعْتُ", "istamaʿtu"],
+    ["نَحْنُ (We)", "اِسْتَمَعْنَا", "istamaʿnā"]
+  ]}
+/>
+
+### Present Tense (الْمُضَارِع / al-muḍāriʿ)
+
+<VerbConjugation
+  root="س م ع"
+  form="Form VIII"
+  pattern="يَفْتَعِلُ"
+  headers={["الضَّمِير (Pronoun)", "الْمُضَارِع (Present)", "النُّطْق (Pronunciation)"]}
+  rows={[
+    ["هُوَ (He)", "يَسْتَمِعُ", "yastamiʿu"],
+    ["هِيَ (She)", "تَسْتَمِعُ", "tastamiʿu"],
+    ["هُمَا (They two - m)", "يَسْتَمِعَانِ", "yastamiʿāni"],
+    ["هُمَا (They two - f)", "تَسْتَمِعَانِ", "tastamiʿāni"],
+    ["هُمْ (They - m)", "يَسْتَمِعُونَ", "yastamiʿūna"],
+    ["هُنَّ (They - f)", "يَسْتَمِعْنَ", "yastamiʿna"],
+    ["أَنْتَ (You - m)", "تَسْتَمِعُ", "tastamiʿu"],
+    ["أَنْتِ (You - f)", "تَسْتَمِعِينَ", "tastamiʿīna"],
+    ["أَنْتُمَا (You two)", "تَسْتَمِعَانِ", "tastamiʿāni"],
+    ["أَنْتُمْ (You - m pl)", "تَسْتَمِعُونَ", "tastamiʿūna"],
+    ["أَنْتُنَّ (You - f pl)", "تَسْتَمِعْنَ", "tastamiʿna"],
+    ["أَنَا (I)", "أَسْتَمِعُ", "astamiʿu"],
+    ["نَحْنُ (We)", "نَسْتَمِعُ", "nastamiʿu"]
+  ]}
+/>
+
+### Imperative (الْأَمْر / al-amr)
+
+<VerbConjugation
+  root="س م ع"
+  form="Form VIII"
+  pattern="اِفْتَعِلْ"
+  headers={["الضَّمِير (Pronoun)", "الْأَمْر (Imperative)", "النُّطْق (Pronunciation)"]}
+  rows={[
+    ["أَنْتَ (You - m)", "اِسْتَمِعْ", "istamiʿ"],
+    ["أَنْتِ (You - f)", "اِسْتَمِعِي", "istamiʿī"],
+    ["أَنْتُمَا (You two)", "اِسْتَمِعَا", "istamiʿā"],
+    ["أَنْتُمْ (You - m pl)", "اِسْتَمِعُوا", "istamiʿū"],
+    ["أَنْتُنَّ (You - f pl)", "اِسْتَمِعْنَ", "istamiʿna"]
+  ]}
+/>
+
+### Quranic Example
+
+<ArabicExample
+  arabic="وَإِذَا قُرِئَ الْقُرْآنُ فَاسْتَمِعُوا لَهُ"
+  transliteration="wa-idhā quriʾa l-qurʾānu fa-stamiʿū lah"
+  translation="So when the Quran is recited, then listen to it"
+  reference="Al-A'raf 7:204"
+  highlight="فَاسْتَمِعُوا"
+/>
+
+The verb **اِسْتَمِعُوا** (istamiʿū) is Form VIII imperative plural ("listen attentively!"). It means more than just hearing (سَمِعَ)—it implies actively, intentionally listening.
+
+### Pattern Notes
+
+<Callout type="rule" title="Form VIII Meanings">
+Form VIII expresses several related meanings:
+
+1. **Reflexive:** اِجْتَمَعَ (to gather together, assemble)
+2. **For oneself:** اِكْتَسَبَ (to earn for oneself), اِتَّخَذَ (to take for oneself)
+3. **Intensive:** اِسْتَمَعَ (to listen intently)
+
+**Important phonetic rule:** When the first root letter is ت, د, ط, or ظ, the inserted ت assimilates or changes. Example: وَدَّ (root w-d-d) → اِتَّدَعَ becomes اِدَّعَى (to claim).
+</Callout>
+
+<details>
+<summary>**Weak Verb Variations** (click to expand)</summary>
+
+Form VIII weak verbs show various modifications:
+
+**Defective Verbs (final weak):** اِبْتَغَى (ibtaghā - to seek)
+- Past: اِبْتَغَى، اِبْتَغَتْ، اِبْتَغَوْا، اِبْتَغَيْتُ
+- Present: يَبْتَغِي، تَبْتَغِي، يَبْتَغُونَ، أَبْتَغِي
+
+**Assimilated Verbs:** اِتَّقَى (ittaqā - to be conscious of God, fear)
+- Root: و-ق-ي but و drops and ت doubles: اِتَّقَى
+- Past: اِتَّقَى، اِتَّقَتْ، اِتَّقَوْا، اِتَّقَيْتُ
+- Present: يَتَّقِي، تَتَّقِي، يَتَّقُونَ، أَتَّقِي
+
+</details>
+
+**Learn More:** Master Form VIII in [Level 3: Verb Form VIII](/learn/level-3/verb-form-viii)
+
+---
+
+## Form IX (اِفْعَلَّ)
+
+**Pattern:** اِفْعَلَّ (ifʿalla) - *doubled final radical*
+**Meaning:** Colors and physical defects
+**Example Root:** ح م ر (ḥ-m-r) meaning "redness"
+
+Form IX is a specialized pattern used almost exclusively for colors and physical defects. It doubles the **final root letter** and adds the prefix **اِ**. This form is relatively rare in the Quran but important for descriptive language.
+
+### Past Tense (الْمَاضِي / al-māḍī)
+
+<VerbConjugation
+  root="ح م ر"
+  form="Form IX"
+  pattern="اِفْعَلَّ"
+  headers={["الضَّمِير (Pronoun)", "الْمَاضِي (Past)", "النُّطْق (Pronunciation)"]}
+  rows={[
+    ["هُوَ (He)", "اِحْمَرَّ", "iḥmarra"],
+    ["هِيَ (She)", "اِحْمَرَّتْ", "iḥmarrat"],
+    ["هُمَا (They two - m)", "اِحْمَرَّا", "iḥmarrā"],
+    ["هُمَا (They two - f)", "اِحْمَرَّتَا", "iḥmarratā"],
+    ["هُمْ (They - m)", "اِحْمَرُّوا", "iḥmarrū"],
+    ["هُنَّ (They - f)", "اِحْمَرَرْنَ", "iḥmarnna"],
+    ["أَنْتَ (You - m)", "اِحْمَرَرْتَ", "iḥmarrarta"],
+    ["أَنْتِ (You - f)", "اِحْمَرَرْتِ", "iḥmarrarti"],
+    ["أَنْتُمَا (You two)", "اِحْمَرَرْتُمَا", "iḥmarrartumā"],
+    ["أَنْتُمْ (You - m pl)", "اِحْمَرَرْتُمْ", "iḥmarrartum"],
+    ["أَنْتُنَّ (You - f pl)", "اِحْمَرَرْتُنَّ", "iḥmarrartunna"],
+    ["أَنَا (I)", "اِحْمَرَرْتُ", "iḥmarrartu"],
+    ["نَحْنُ (We)", "اِحْمَرَرْنَا", "iḥmarrarnā"]
+  ]}
+/>
+
+### Present Tense (الْمُضَارِع / al-muḍāriʿ)
+
+<VerbConjugation
+  root="ح م ر"
+  form="Form IX"
+  pattern="يَفْعَلُّ"
+  headers={["الضَّمِير (Pronoun)", "الْمُضَارِع (Present)", "النُّطْق (Pronunciation)"]}
+  rows={[
+    ["هُوَ (He)", "يَحْمَرُّ", "yaḥmarru"],
+    ["هِيَ (She)", "تَحْمَرُّ", "taḥmarru"],
+    ["هُمَا (They two - m)", "يَحْمَرَّانِ", "yaḥmarrāni"],
+    ["هُمَا (They two - f)", "تَحْمَرَّانِ", "taḥmarrāni"],
+    ["هُمْ (They - m)", "يَحْمَرُّونَ", "yaḥmarrūna"],
+    ["هُنَّ (They - f)", "يَحْمَرْرْنَ", "yaḥmarnna"],
+    ["أَنْتَ (You - m)", "تَحْمَرُّ", "taḥmarru"],
+    ["أَنْتِ (You - f)", "تَحْمَرِّينَ", "taḥmarrīna"],
+    ["أَنْتُمَا (You two)", "تَحْمَرَّانِ", "taḥmarrāni"],
+    ["أَنْتُمْ (You - m pl)", "تَحْمَرُّونَ", "taḥmarrūna"],
+    ["أَنْتُنَّ (You - f pl)", "تَحْمَرْرْنَ", "taḥmarnna"],
+    ["أَنَا (I)", "أَحْمَرُّ", "aḥmarru"],
+    ["نَحْنُ (We)", "نَحْمَرُّ", "naḥmarru"]
+  ]}
+/>
+
+### Imperative (الْأَمْر / al-amr)
+
+<VerbConjugation
+  root="ح م ر"
+  form="Form IX"
+  pattern="اِفْعَلَّ"
+  headers={["الضَّمِير (Pronoun)", "الْأَمْر (Imperative)", "النُّطْق (Pronunciation)"]}
+  rows={[
+    ["أَنْتَ (You - m)", "اِحْمَرَّ", "iḥmarr"],
+    ["أَنْتِ (You - f)", "اِحْمَرِّي", "iḥmarrī"],
+    ["أَنْتُمَا (You two)", "اِحْمَرَّا", "iḥmarrā"],
+    ["أَنْتُمْ (You - m pl)", "اِحْمَرُّوا", "iḥmarrū"],
+    ["أَنْتُنَّ (You - f pl)", "اِحْمَرْرْنَ", "iḥmarnna"]
+  ]}
+/>
+
+### Quranic Example
+
+<ArabicExample
+  arabic="كَأَنَّهُمْ حُمُرٌ مُسْتَنْفِرَةٌ"
+  transliteration="ka-annahum ḥumurun mustanfira"
+  translation="As if they were frightened donkeys"
+  reference="Al-Muddaththir 74:50"
+  highlight="حُمُرٌ"
+/>
+
+While this example uses the noun حُمُر (donkeys, from the root ح-م-ر for "red"), it demonstrates the color-related usage. The verb اِحْمَرَّ means "to become red" or "to turn red."
+
+### Pattern Notes
+
+<Callout type="rule" title="Form IX Specialized Usage">
+Form IX is limited to expressing:
+
+1. **Colors:** اِحْمَرَّ (to become red), اِصْفَرَّ (to become yellow), اِخْضَرَّ (to become green)
+2. **Physical defects/states:** اِعْوَرَّ (to become one-eyed), اِعْوَجَّ (to become crooked)
+
+**Key feature:** Final root letter is always doubled (فَعَلَّ pattern with اِ prefix).
+
+This form is **very rare** in Quranic Arabic compared to other forms.
+</Callout>
+
+<details>
+<summary>**Additional Color Examples** (click to expand)</summary>
+
+Other Form IX color verbs:
+
+- **اِسْوَدَّ** (iswadda) - to become black (root: س-و-د)
+- **اِبْيَضَّ** (ibyaḍḍa) - to become white (root: ب-ي-ض)
+- **اِصْفَرَّ** (iṣfarra) - to become yellow (root: ص-ف-ر)
+- **اِخْضَرَّ** (ikhḍarra) - to become green (root: خ-ض-ر)
+
+All follow the same pattern: اِفْعَلَّ with doubled final radical.
+
+</details>
+
+**Learn More:** Study rare forms including IX in [Level 3: Verb Forms VII-X](/learn/level-3/verb-forms-rare)
+
+---
+
+## Form X (اِسْتَفْعَلَ)
+
+**Pattern:** اِسْتَفْعَلَ (istafʿala) - *است prefix*
+**Meaning:** Seeking, requesting, considering something to be
+**Example Root:** غ ف ر (gh-f-r) meaning "forgiveness"
+
+Form X adds the prefix **اِسْتَـ** (ista-) to express seeking or requesting the basic action. It's very common in the Quran, especially in prayers and supplications. Example: غَفَرَ (to forgive) → اِسْتَغْفَرَ (to seek forgiveness).
+
+### Past Tense (الْمَاضِي / al-māḍī)
+
+<VerbConjugation
+  root="غ ف ر"
+  form="Form X"
+  pattern="اِسْتَفْعَلَ"
+  headers={["الضَّمِير (Pronoun)", "الْمَاضِي (Past)", "النُّطْق (Pronunciation)"]}
+  rows={[
+    ["هُوَ (He)", "اِسْتَغْفَرَ", "istaghfara"],
+    ["هِيَ (She)", "اِسْتَغْفَرَتْ", "istaghfarat"],
+    ["هُمَا (They two - m)", "اِسْتَغْفَرَا", "istaghfarā"],
+    ["هُمَا (They two - f)", "اِسْتَغْفَرَتَا", "istaghfaratā"],
+    ["هُمْ (They - m)", "اِسْتَغْفَرُوا", "istaghfarū"],
+    ["هُنَّ (They - f)", "اِسْتَغْفَرْنَ", "istaghfarna"],
+    ["أَنْتَ (You - m)", "اِسْتَغْفَرْتَ", "istaghfarta"],
+    ["أَنْتِ (You - f)", "اِسْتَغْفَرْتِ", "istaghfarti"],
+    ["أَنْتُمَا (You two)", "اِسْتَغْفَرْتُمَا", "istaghfartumā"],
+    ["أَنْتُمْ (You - m pl)", "اِسْتَغْفَرْتُمْ", "istaghfartum"],
+    ["أَنْتُنَّ (You - f pl)", "اِسْتَغْفَرْتُنَّ", "istaghfartunna"],
+    ["أَنَا (I)", "اِسْتَغْفَرْتُ", "istaghfartu"],
+    ["نَحْنُ (We)", "اِسْتَغْفَرْنَا", "istaghfarnā"]
+  ]}
+/>
+
+### Present Tense (الْمُضَارِع / al-muḍāriʿ)
+
+<VerbConjugation
+  root="غ ف ر"
+  form="Form X"
+  pattern="يَسْتَفْعِلُ"
+  headers={["الضَّمِير (Pronoun)", "الْمُضَارِع (Present)", "النُّطْق (Pronunciation)"]}
+  rows={[
+    ["هُوَ (He)", "يَسْتَغْفِرُ", "yastaghfiru"],
+    ["هِيَ (She)", "تَسْتَغْفِرُ", "tastaghfiru"],
+    ["هُمَا (They two - m)", "يَسْتَغْفِرَانِ", "yastaghfirāni"],
+    ["هُمَا (They two - f)", "تَسْتَغْفِرَانِ", "tastaghfirāni"],
+    ["هُمْ (They - m)", "يَسْتَغْفِرُونَ", "yastaghfirūna"],
+    ["هُنَّ (They - f)", "يَسْتَغْفِرْنَ", "yastaghfirna"],
+    ["أَنْتَ (You - m)", "تَسْتَغْفِرُ", "tastaghfiru"],
+    ["أَنْتِ (You - f)", "تَسْتَغْفِرِينَ", "tastaghfirīna"],
+    ["أَنْتُمَا (You two)", "تَسْتَغْفِرَانِ", "tastaghfirāni"],
+    ["أَنْتُمْ (You - m pl)", "تَسْتَغْفِرُونَ", "tastaghfirūna"],
+    ["أَنْتُنَّ (You - f pl)", "تَسْتَغْفِرْنَ", "tastaghfirna"],
+    ["أَنَا (I)", "أَسْتَغْفِرُ", "astaghfiru"],
+    ["نَحْنُ (We)", "نَسْتَغْفِرُ", "nastaghfiru"]
+  ]}
+/>
+
+### Imperative (الْأَمْر / al-amr)
+
+<VerbConjugation
+  root="غ ف ر"
+  form="Form X"
+  pattern="اِسْتَفْعِلْ"
+  headers={["الضَّمِير (Pronoun)", "الْأَمْر (Imperative)", "النُّطْق (Pronunciation)"]}
+  rows={[
+    ["أَنْتَ (You - m)", "اِسْتَغْفِرْ", "istaghfir"],
+    ["أَنْتِ (You - f)", "اِسْتَغْفِرِي", "istaghfirī"],
+    ["أَنْتُمَا (You two)", "اِسْتَغْفِرَا", "istaghfirā"],
+    ["أَنْتُمْ (You - m pl)", "اِسْتَغْفِرُوا", "istaghfirū"],
+    ["أَنْتُنَّ (You - f pl)", "اِسْتَغْفِرْنَ", "istaghfirna"]
+  ]}
+/>
+
+### Quranic Example
+
+<ArabicExample
+  arabic="وَاسْتَغْفِرُوا اللَّهَ إِنَّ اللَّهَ غَفُورٌ رَحِيمٌ"
+  transliteration="wa-staghfirū llāha inna llāha ghafūrun raḥīm"
+  translation="And seek forgiveness of Allah. Indeed, Allah is Forgiving and Merciful"
+  reference="Al-Baqarah 2:199"
+  highlight="اسْتَغْفِرُوا"
+/>
+
+The verb **اِسْتَغْفِرُوا** (istaghfirū) is Form X imperative plural ("seek forgiveness!"). It means actively requesting Allah's forgiveness, not just acknowledging it.
+
+### Pattern Notes
+
+<Callout type="rule" title="Form X Primary Meanings">
+Form X typically expresses one of three meanings:
+
+1. **Seeking/requesting:** اِسْتَغْفَرَ (to seek forgiveness), اِسْتَعَانَ (to seek help)
+2. **Considering something to be:** اِسْتَحْسَنَ (to consider good), اِسْتَكْبَرَ (to consider oneself great = to be arrogant)
+3. **Finding something to be:** اِسْتَصْعَبَ (to find difficult)
+
+**Recognition:** The prefix **اِسْتَـ** is always the marker of Form X.
+</Callout>
+
+<details>
+<summary>**Weak Verb Variations** (click to expand)</summary>
+
+Form X weak verbs maintain the اِسْتَـ prefix:
+
+**Defective Verbs (final weak):** اِسْتَوَى (istawā - to settle, be established)
+- Past: اِسْتَوَى، اِسْتَوَتْ، اِسْتَوَوْا، اِسْتَوَيْتُ
+- Present: يَسْتَوِي، تَسْتَوِي، يَسْتَوُونَ، أَسْتَوِي
+
+**Hollow Verbs:** اِسْتَقَامَ (istaqāma - to be upright/straight)
+- Past: اِسْتَقَامَ، اِسْتَقَامَتْ، اِسْتَقَامُوا، اِسْتَقَمْتُ
+- Present: يَسْتَقِيمُ، تَسْتَقِيمُ، يَسْتَقِيمُونَ، أَسْتَقِيمُ
+
+**Assimilated Verbs:** اِسْتَوْصَى (istawṣā - to enjoin, recommend)
+- Follows regular pattern despite initial و
+
+</details>
+
+**Learn More:** Master Form X in [Level 3: Verb Form X](/learn/level-3/verb-form-x)
+
+---
+
+## Summary of All Ten Forms
+
+<Callout type="tip" title="Quick Reference Chart">
+
+| Form | Pattern | Key Feature | Typical Meaning | Example |
+|------|---------|-------------|-----------------|---------|
+| I | فَعَلَ | Basic root | Simple action | كَتَبَ (wrote) |
+| II | فَعَّلَ | Doubled middle | Intensive/causative | عَلَّمَ (taught) |
+| III | فَاعَلَ | Long ā | Mutual/attempting | جَاهَدَ (strove) |
+| IV | أَفْعَلَ | Hamza prefix | Causative | أَنْزَلَ (sent down) |
+| V | تَفَعَّلَ | تَـ + doubled | Reflexive of II | تَعَلَّمَ (learned) |
+| VI | تَفَاعَلَ | تَـ + long ā | Reflexive of III | تَبَارَكَ (blessed) |
+| VII | اِنْفَعَلَ | اِنْـ prefix | Passive/reflexive | اِنْفَطَرَ (split) |
+| VIII | اِفْتَعَلَ | ت inserted | Reflexive/intensive | اِسْتَمَعَ (listened) |
+| IX | اِفْعَلَّ | Doubled final | Colors/defects | اِحْمَرَّ (became red) |
+| X | اِسْتَفْعَلَ | اِسْتَـ prefix | Seeking/requesting | اِسْتَغْفَرَ (sought forgiveness) |
+
+</Callout>
+
+## Next Steps
+
+Now that you've learned all ten verb form conjugation patterns, practice recognizing them in Quranic verses:
+
+1. **Identify the form** by its distinctive pattern (doubled letters, prefixes, long vowels)
+2. **Determine the root** by removing the pattern additions
+3. **Apply the meaning pattern** (causative, reflexive, seeking, etc.)
+4. **Check the person/number/gender** from the conjugation endings
+
+With consistent practice, you'll be able to instantly recognize any verb form and understand its morphological meaning—a crucial skill for deep Quranic comprehension.
+
+**Continue learning:**
+- [Root System Overview](/resources/root-system) - Understand how roots work
+- [Pronoun Charts](/resources/pronoun-charts) - Master attached pronouns on verbs
+- [200 Most Common Quranic Words](/resources/200-most-used-words) - Build vocabulary
+- [Start Level 3 Curriculum](/learn/level-3) - Study forms systematically in lessons
