@@ -363,6 +363,26 @@
     font-size: 2.5rem;
   }
 
+  /* Dark mode font weight optical compensation for Arabic text */
+  /* Light-on-dark text appears thinner due to antialiasing - increase weight */
+  [data-theme="dark"] .arabic,
+  [data-theme="dark"] .arabic-lg,
+  [data-theme="dark"] .arabic-xl {
+    font-weight: 500;
+  }
+
+  /* Note: UthmanicHafs font may only support weight 400.
+     If font doesn't support 500, browser will synthesize or fallback.
+     Visual regression tests will validate actual rendering. */
+
+  [data-theme="dark"] .word-analysis-table .arabic-cell {
+    font-weight: 500;
+  }
+
+  [data-theme="dark"] .quiz-option.arabic-option {
+    font-weight: 500;
+  }
+
   /* Enhanced focus states for accessibility */
   *:focus-visible {
     outline: 2px solid var(--border-focus);
