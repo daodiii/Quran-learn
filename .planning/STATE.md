@@ -10,18 +10,18 @@ See: .planning/PROJECT.md (updated 2026-02-05)
 ## Current Position
 
 Phase: 5 of 8 (Navigation System)
-Plan: 1 of 3 in current phase
-Status: Phase 5 in progress - Completed 05-01-PLAN.md (Navigation Primitives)
-Last activity: 2026-02-06 - Completed 05-01-PLAN.md (Navigation Primitives)
+Plan: 2 of 3 in current phase
+Status: Phase 5 in progress - Completed 05-02-PLAN.md (Course Navigator & Toggle)
+Last activity: 2026-02-06 - Completed 05-02-PLAN.md (Course Navigator & Toggle)
 
-Progress: [███████████░░] 73%
+Progress: [████████████░] 80%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 11
-- Average duration: 6.6 min
-- Total execution time: 1.30 hours
+- Total plans completed: 12
+- Average duration: 6.3 min
+- Total execution time: 1.35 hours
 
 **By Phase:**
 
@@ -31,11 +31,11 @@ Progress: [███████████░░] 73%
 | 02-progress-primitive-components | 3 | 8min | 2.7min |
 | 03-card-components-arabic-typography | 2 | 16min | 8.0min |
 | 04-dark-mode-polish | 2 | 40min | 20.0min |
-| 05-navigation-system | 1 | 5min | 5.0min |
+| 05-navigation-system | 2 | 9min | 4.5min |
 
 **Recent Trend:**
-- Last 5 plans: 03-02 (14min), 04-01 (26min), 04-02 (14min), 05-01 (5min)
-- Trend: Phase 5 starting fast with simple component creation
+- Last 5 plans: 04-01 (26min), 04-02 (14min), 05-01 (5min), 05-02 (4min)
+- Trend: Phase 5 maintaining fast velocity with component creation (avg 4.5min)
 
 *Updated after each plan completion*
 
@@ -96,6 +96,13 @@ Recent decisions affecting current work:
 - **[05-01]** Navigator toggle button added but hidden by default (shown via JS on lesson pages)
 - **[05-01]** Footer simplified from 4-column to 2-column layout
 - **[05-01]** Footer gradient background removed in favor of solid var(--bg-secondary)
+- **[05-02]** CourseNavigator displays all 73 lessons (not 61 as in research) using getCollection query
+- **[05-02]** Level sections auto-expand when containing active lesson
+- **[05-02]** Transform translateX for mobile overlay (GPU-accelerated, not width transition)
+- **[05-02]** NavigatorToggle has header and floating variants for different contexts
+- **[05-02]** Quiz links footer in navigator provides quick access to all 5 level quizzes
+- **[05-02]** ARIA disclosure pattern: aria-expanded on button, aria-controls linking to content ID
+- **[05-02]** Responsive breakpoint: 1024px for desktop/mobile sidebar behavior switch
 
 ### Pending Todos
 
@@ -192,22 +199,26 @@ Phase 4 (Dark Mode & Accessibility Polish) is complete with 2 plans executed:
 
 ## Phase 5 Progress
 
-Phase 5 (Navigation System) is in progress with 1 of 3 plans executed:
+Phase 5 (Navigation System) is in progress with 2 of 3 plans executed:
 
 | Plan | Name | Duration | Commit |
 |------|------|----------|--------|
 | 05-01 | Navigation Primitives | 5min | 161fea1 |
+| 05-02 | Course Navigator & Toggle | 4min | 80560e1 |
 
 **Deliverables so far:**
 - WAI-ARIA compliant Breadcrumbs component with RTL separator flip
 - Minimal Header with navigator toggle placeholder (hidden by default)
 - Simplified 2-column Footer with reduced visual clutter
+- CourseNavigator sidebar showing all 73 lessons across 5 collapsible levels
+- NavigatorToggle button with header and floating variants
+- ARIA disclosure pattern for accessible navigation
 - CSS logical properties throughout all navigation components
 
-**Next:** Plan 05-02 will create CourseNavigator component and wire up toggle button
+**Next:** Plan 05-03 will add JavaScript interactivity for toggle, focus trap, localStorage persistence
 
 ## Session Continuity
 
-Last session: 2026-02-06T01:40:15Z
-Stopped at: Completed 05-01-PLAN.md (Navigation Primitives)
+Last session: 2026-02-06T01:40:38Z
+Stopped at: Completed 05-02-PLAN.md (Course Navigator & Toggle)
 Resume file: None
