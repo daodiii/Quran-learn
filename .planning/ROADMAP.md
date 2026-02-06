@@ -126,10 +126,15 @@ Plans:
   6. Resource section shows visual cards for all 6 reference materials
   7. Quiz experience is clean and focused with clear feedback
   8. All pages integrate navigation system (sidebar, breadcrumbs)
-**Plans**: TBD
+**Plans**: 6 plans
 
 Plans:
-- [ ] 06-01: [To be defined during planning]
+- [ ] 06-01-PLAN.md — Homepage redesign with hero section and featured CourseCards
+- [ ] 06-02-PLAN.md — Learn dashboard with module-based layout and level progress
+- [ ] 06-03-PLAN.md — Lesson pages with reading width and prev/next navigation
+- [ ] 06-04-PLAN.md — Surah selector with card-based layout and difficulty badges
+- [ ] 06-05-PLAN.md — Resources page with visual ResourceCards
+- [ ] 06-06-PLAN.md — Quiz experience redesign with clean feedback
 
 ### Phase 7: Mobile Optimization
 **Goal**: Optimize responsive design with iOS-specific Arabic font sizing and touch interactions
@@ -178,6 +183,6 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8
 | 3. Card Components & Arabic Typography | 2/2 | Complete ✓ | 2026-02-06 |
 | 4. Dark Mode Polish | 2/2 | Complete ✓ | 2026-02-06 |
 | 5. Navigation System | 4/4 | Complete ✓ | 2026-02-06 |
-| 6. Page Redesigns | 0/TBD | Not started | - |
+| 6. Page Redesigns | 0/6 | Not started | - |
 | 7. Mobile Optimization | 0/TBD | Not started | - |
 | 8. Performance & Accessibility | 0/TBD | Not started | - |
