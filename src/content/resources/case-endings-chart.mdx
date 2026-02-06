@@ -4,8 +4,483 @@ order: 2
 description: "Quick reference for I'rab case endings across different noun and verb categories."
 ---
 
+import GrammarTable from '@/components/mdx/GrammarTable.astro';
+import ArabicExample from '@/components/mdx/ArabicExample.astro';
+import Callout from '@/components/mdx/Callout.astro';
+
 # Case Endings Chart
 
-Comprehensive chart showing Raf', Nasb, and Jarr case endings for different word types.
+This chart provides a comprehensive reference for **iʿrāb** (الْإِعْرَابُ) — the system of case endings that marks grammatical function in Classical Arabic.
 
-(Content placeholder - will be filled with actual chart)
+## Quick Navigation
+
+- [Overview: The Three Cases](#overview-the-three-cases)
+- [Singular Nouns (الْمُفْرَدُ)](#singular-nouns-المفرد)
+- [Dual Nouns (الْمُثَنَّى)](#dual-nouns-المثنى)
+- [Sound Masculine Plural (جَمْعُ الْمُذَكَّرِ السَّالِمِ)](#sound-masculine-plural-جمع-المذكر-السالم)
+- [Sound Feminine Plural (جَمْعُ الْمُؤَنَّثِ السَّالِمِ)](#sound-feminine-plural-جمع-المؤنث-السالم)
+- [Broken Plurals (جَمْعُ التَّكْسِيرِ)](#broken-plurals-جمع-التكسير)
+- [The Five Nouns (الْأَسْمَاءُ الْخَمْسَةُ)](#the-five-nouns-الأسماء-الخمسة)
+
+---
+
+## Overview: The Three Cases
+
+Arabic nouns change their endings based on grammatical function within a sentence. These changes are called **case endings** (حَرَكَاتُ الْإِعْرَابِ).
+
+<GrammarTable
+  caption="The Three Cases"
+  headers={["Case (English)", "Arabic Name", "Primary Function", "Typical Marker"]}
+  rows={[
+    ["Nominative", "الرَّفْعُ (ar-rafʿu)", "Subject of verb or sentence", "ـُ (ḍammah)"],
+    ["Accusative", "النَّصْبُ (an-naṣbu)", "Direct object, adverb", "ـَ (fatḥah)"],
+    ["Genitive", "الجَرُّ (al-jarru)", "After preposition, possessed noun", "ـِ (kasrah)"],
+  ]}
+  rtl={false}
+/>
+
+<Callout type="note" title="Relationship to Lessons">
+This chart complements Lessons **L2.04** (Nominative Case), **L2.05** (Accusative Case), and **L2.06** (Genitive Case). Use it as a quick lookup while working through examples.
+</Callout>
+
+---
+
+## Singular Nouns (الْمُفْرَدُ)
+
+Most singular nouns follow the **triptote** pattern — they take all three cases with **tanwīn** (التَّنْوِينُ) when indefinite.
+
+### Triptote Pattern
+
+<GrammarTable
+  caption="Singular Noun Case Endings (Triptote)"
+  headers={["Case", "Indefinite", "Definite", "Example (indefinite)", "Example (definite)"]}
+  rows={[
+    ["Nominative", "ـٌ (-un)", "ـُ (-u)", "كِتَابٌ (kitābun) 'a book'", "الْكِتَابُ (al-kitābu) 'the book'"],
+    ["Accusative", "ـًا (-an)", "ـَ (-a)", "كِتَابًا (kitāban) 'a book'", "الْكِتَابَ (al-kitāba) 'the book'"],
+    ["Genitive", "ـٍ (-in)", "ـِ (-i)", "كِتَابٍ (kitābin) 'a book'", "الْكِتَابِ (al-kitābi) 'the book'"],
+  ]}
+  rtl={false}
+/>
+
+<ArabicExample
+  arabic="إِنَّ اللَّهَ عَلَىٰ كُلِّ شَيْءٍ قَدِيرٌ"
+  transliteration="inna llāha ʿalā kulli shayʾin qadīrun"
+  translation="Indeed, Allah is over all things competent."
+  reference="Surah Al-Baqarah 2:20"
+  highlight="شَيْءٍ,قَدِيرٌ"
+/>
+
+**Analysis:**
+- **شَيْءٍ** (shayʾin): Genitive indefinite after preposition كُلِّ (every)
+- **قَدِيرٌ** (qadīrun): Nominative indefinite — predicate describing Allah
+
+<details>
+<summary><strong>Diptote Nouns (المَمْنُوعُ مِنَ الصَّرْفِ)</strong> — Special Pattern</summary>
+
+Some nouns are **diptote** (مَمْنُوعٌ مِنَ الصَّرْفِ) — they never take tanwīn when indefinite and use fatḥah instead of kasrah in the genitive.
+
+**Common diptote patterns:**
+- Proper names (أَحْمَدُ, مَرْيَمُ)
+- Adjective patterns like أَفْعَلُ (أَكْبَرُ, أَحْسَنُ)
+- Broken plurals on patterns مَفَاعِلُ or فَوَاعِلُ (مَسَاجِدُ, صَحَارَى)
+
+<GrammarTable
+  caption="Diptote Case Endings"
+  headers={["Case", "Indefinite", "Definite"]}
+  rows={[
+    ["Nominative", "ـُ (-u)", "ـُ (-u)"],
+    ["Accusative", "ـَ (-a)", "ـَ (-a)"],
+    ["Genitive", "ـَ (-a)", "ـِ (-i)"],
+  ]}
+  rtl={false}
+/>
+
+**Key difference:** Indefinite genitive uses **fatḥah** (ـَ), not kasrah.
+
+<ArabicExample
+  arabic="وَلِلَّهِ الْأَسْمَاءُ الْحُسْنَىٰ فَادْعُوهُ بِهَا"
+  transliteration="wa li-llāhi l-asmāʾu l-ḥusnā fa-dʿūhu bihā"
+  translation="And to Allah belong the best names, so invoke Him by them."
+  reference="Surah Al-A'raf 7:180"
+  highlight="الْحُسْنَىٰ"
+/>
+
+**الْحُسْنَىٰ** (al-ḥusnā): Feminine superlative أَفْعَلُ pattern, diptote. Here definite nominative.
+
+</details>
+
+---
+
+## Dual Nouns (الْمُثَنَّى)
+
+The dual (الْمُثَنَّى) indicates exactly two of something. It has only **two case forms**: one for nominative, one for accusative/genitive.
+
+<GrammarTable
+  caption="Dual Noun Case Endings"
+  headers={["Case", "Ending", "Example"]}
+  rows={[
+    ["Nominative", "ـَانِ (-āni) indefinite<br/>ـَانِ (-āni) definite", "رَجُلَانِ (rajulāni) 'two men'<br/>الرَّجُلَانِ (ar-rajulāni) 'the two men'"],
+    ["Accusative/Genitive", "ـَيْنِ (-ayni) indefinite<br/>ـَيْنِ (-ayni) definite", "رَجُلَيْنِ (rajulayni) 'two men'<br/>الرَّجُلَيْنِ (ar-rajulayni) 'the two men'"],
+  ]}
+  rtl={false}
+/>
+
+<Callout type="rule">
+The dual suffix includes the letter **nūn** (نٌ), which **drops** when the noun is in **iḍāfah** (possessive construct).
+
+Example:
+- **كِتَابَانِ** (kitābāni) "two books" → **كِتَابَا الطَّالِبِ** (kitābā aṭ-ṭālibi) "the student's two books"
+</Callout>
+
+<ArabicExample
+  arabic="فَإِن كَانَتَا اثْنَتَيْنِ فَلَهُمَا الثُّلُثَانِ"
+  transliteration="fa-in kānatā ithnatayni fa-lahumā th-thuluthāni"
+  translation="But if there are two [daughters], for them is two-thirds."
+  reference="Surah An-Nisa 4:11"
+  highlight="اثْنَتَيْنِ,الثُّلُثَانِ"
+/>
+
+**Analysis:**
+- **اثْنَتَيْنِ** (ithnatayni): Dual accusative (predicate after كَانَتَا)
+- **الثُّلُثَانِ** (ath-thuluthāni): Dual nominative (subject)
+
+**Related lesson:** L2.08 (Dual Nouns)
+
+---
+
+## Sound Masculine Plural (جَمْعُ الْمُذَكَّرِ السَّالِمِ)
+
+The **sound masculine plural** applies to:
+- Male human nouns (مُسْلِمُونَ muslimūna "Muslims")
+- Masculine adjectives (صَالِحُونَ ṣāliḥūna "righteous ones")
+
+<GrammarTable
+  caption="Sound Masculine Plural Endings"
+  headers={["Case", "Ending", "Example"]}
+  rows={[
+    ["Nominative", "ـُونَ (-ūna) indefinite<br/>ـُونَ (-ūna) definite", "مُسْلِمُونَ (muslimūna)<br/>المُسْلِمُونَ (al-muslimūna)"],
+    ["Accusative/Genitive", "ـِينَ (-īna) indefinite<br/>ـِينَ (-īna) definite", "مُسْلِمِينَ (muslimīna)<br/>المُسْلِمِينَ (al-muslimīna)"],
+  ]}
+  rtl={false}
+/>
+
+<Callout type="rule">
+Like the dual, the **nūn** drops in **iḍāfah**:
+
+- **مُسْلِمُونَ** (muslimūna) → **مُسْلِمُو المَدِينَةِ** (muslimū al-madīnati) "the Muslims of the city"
+</Callout>
+
+<ArabicExample
+  arabic="وَالْمُؤْمِنُونَ وَالْمُؤْمِنَاتُ بَعْضُهُمْ أَوْلِيَاءُ بَعْضٍ"
+  transliteration="wa-l-muʾminūna wa-l-muʾminātu baʿḍuhum awliyāʾu baʿḍin"
+  translation="The believing men and believing women are allies of one another."
+  reference="Surah At-Tawbah 9:71"
+  highlight="الْمُؤْمِنُونَ"
+/>
+
+**الْمُؤْمِنُونَ** (al-muʾminūna): Definite nominative plural (subject)
+
+<details>
+<summary><strong>More Examples: Sound Masculine Plural in Context</strong></summary>
+
+<ArabicExample
+  arabic="يَا أَيُّهَا الَّذِينَ آمَنُوا اتَّقُوا اللَّهَ حَقَّ تُقَاتِهِ وَلَا تَمُوتُنَّ إِلَّا وَأَنتُم مُّسْلِمُونَ"
+  transliteration="yā ayyuhā lladhīna āmanū ttaqū llāha ḥaqqa tuqātihi wa-lā tamūtunna illā wa-antum muslimūna"
+  translation="O you who have believed, fear Allah as He should be feared and do not die except as Muslims [in submission to Him]."
+  reference="Surah Ali 'Imran 3:102"
+  highlight="مُّسْلِمُونَ"
+/>
+
+**مُّسْلِمُونَ** (muslimūna): Nominative predicate after كَانَ-type construction
+
+<ArabicExample
+  arabic="كُنتُمْ خَيْرَ أُمَّةٍ أُخْرِجَتْ لِلنَّاسِ"
+  transliteration="kuntum khayra ummatin ukhrijat li-n-nāsi"
+  translation="You are the best nation produced [as an example] for mankind."
+  reference="Surah Ali 'Imran 3:110"
+/>
+
+**Analysis:** When masculine plural nouns are indefinite and in iḍāfah, the nūn drops:
+- **خَيْرَ** (khayra): Accusative predicate
+- Would be خَيْرُونَ (khayrūna) if not in iḍāfah
+
+</details>
+
+**Related lesson:** L2.09 (Sound Plurals)
+
+---
+
+## Sound Feminine Plural (جَمْعُ الْمُؤَنَّثِ السَّالِمِ)
+
+The **sound feminine plural** ending **ـَاتٌ** applies to:
+- Female nouns (مُسْلِمَاتٌ muslimātun "Muslim women")
+- Many non-human plurals
+- Some abstract nouns
+
+<GrammarTable
+  caption="Sound Feminine Plural Endings"
+  headers={["Case", "Indefinite", "Definite"]}
+  rows={[
+    ["Nominative", "ـَاتٌ (-ātun)", "ـَاتُ (-ātu)"],
+    ["Accusative", "ـَاتٍ (-ātin)", "ـَاتِ (-āti)"],
+    ["Genitive", "ـَاتٍ (-ātin)", "ـَاتِ (-āti)"],
+  ]}
+  rtl={false}
+/>
+
+<Callout type="note">
+Unlike the masculine plural, the sound feminine plural has **three separate case forms**, but accusative and genitive share the same ending.
+</Callout>
+
+<ArabicExample
+  arabic="إِنَّ الْمُسْلِمِينَ وَالْمُسْلِمَاتِ وَالْمُؤْمِنِينَ وَالْمُؤْمِنَاتِ"
+  transliteration="inna l-muslimīna wa-l-muslimāti wa-l-muʾminīna wa-l-muʾmināti"
+  translation="Indeed, the Muslim men and Muslim women, the believing men and believing women..."
+  reference="Surah Al-Ahzab 33:35"
+  highlight="الْمُسْلِمَاتِ,الْمُؤْمِنَاتِ"
+/>
+
+**الْمُسْلِمَاتِ** and **الْمُؤْمِنَاتِ**: Both genitive after the particle إِنَّ (which governs accusative on the first element, then subsequent coordinated nouns take genitive).
+
+<details>
+<summary><strong>More Examples: Sound Feminine Plural Patterns</strong></summary>
+
+<ArabicExample
+  arabic="وَالصَّالِحَاتِ مِن نِّسَائِكُمْ"
+  transliteration="wa-ṣ-ṣāliḥāti min nisāʾikum"
+  translation="And the righteous women among your women"
+  reference="Surah An-Nur 24:32"
+  highlight="الصَّالِحَاتِ"
+/>
+
+**الصَّالِحَاتِ** (aṣ-ṣāliḥāti): Genitive after conjunction وَ in genitive context
+
+**Pattern recognition:**
+- Nominative indefinite: صَالِحَاتٌ (ṣāliḥātun)
+- Accusative indefinite: صَالِحَاتٍ (ṣāliḥātin)
+- Genitive indefinite: صَالِحَاتٍ (ṣāliḥātin)
+
+The feminine plural is especially common for:
+- Abstract concepts: حَسَنَاتٌ (ḥasanātun) "good deeds", سَيِّئَاتٌ (sayyiʾātun) "bad deeds"
+- Collections: آيَاتٌ (āyātun) "signs/verses", كَلِمَاتٌ (kalimātun) "words"
+
+</details>
+
+**Related lesson:** L2.09 (Sound Plurals)
+
+---
+
+## Broken Plurals (جَمْعُ التَّكْسِيرِ)
+
+**Broken plurals** (جَمْعُ التَّكْسِيرِ) change the internal structure of the word. They follow the **same case endings as singular nouns**.
+
+<GrammarTable
+  caption="Broken Plural Case Endings"
+  headers={["Case", "Triptote Indefinite", "Triptote Definite", "Diptote Indefinite", "Diptote Definite"]}
+  rows={[
+    ["Nominative", "ـٌ (-un)", "ـُ (-u)", "ـُ (-u)", "ـُ (-u)"],
+    ["Accusative", "ـًا (-an)", "ـَ (-a)", "ـَ (-a)", "ـَ (-a)"],
+    ["Genitive", "ـٍ (-in)", "ـِ (-i)", "ـَ (-a)", "ـِ (-i)"],
+  ]}
+  rtl={false}
+/>
+
+**Common broken plural patterns:**
+- فُعُولٌ (بُيُوتٌ buyūtun "houses" from بَيْتٌ)
+- فِعَالٌ (رِجَالٌ rijālun "men" from رَجُلٌ)
+- أَفْعَالٌ (أَوْلَادٌ awlādun "children" from وَلَدٌ)
+- فُعَلَاءُ (عُلَمَاءُ ʿulamāʾu "scholars" from عَالِمٌ) — **diptote**
+
+<ArabicExample
+  arabic="وَإِذْ قَالَ رَبُّكَ لِلْمَلَائِكَةِ إِنِّي جَاعِلٌ فِي الْأَرْضِ خَلِيفَةً"
+  transliteration="wa-idh qāla rabbuka li-l-malāʾikati innī jāʿilun fī l-arḍi khalīfatan"
+  translation="And [mention] when your Lord said to the angels, 'Indeed, I will make upon the earth a successive authority.'"
+  reference="Surah Al-Baqarah 2:30"
+  highlight="لِلْمَلَائِكَةِ"
+/>
+
+**لِلْمَلَائِكَةِ** (li-l-malāʾikati): Broken plural of مَلَكٌ (malakun "angel"), genitive after preposition لِـ
+
+**Related lesson:** L2.12 (Broken Plurals)
+
+---
+
+## The Five Nouns (الأَسْمَاء الخَمْسَة)
+
+Five special nouns use **long vowels** (وٌ، اٌ، يٌ) instead of short vowel case endings when they are:
+1. Singular
+2. Indefinite or in iḍāfah (possessive)
+3. Not followed by the first-person possessive suffix (ـي)
+
+The five nouns are:
+- **أَبٌ** (abun) "father"
+- **أَخٌ** (akhun) "brother"
+- **حَمٌ** (ḥamun) "father-in-law"
+- **فُو** (fū) "mouth"
+- **ذُو** (dhū) "possessor of"
+
+<GrammarTable
+  caption="Five Nouns Case Endings"
+  headers={["Case", "Ending Pattern", "Example: أَبٌ (father)"]}
+  rows={[
+    ["Nominative", "Long ū (ـُو)", "أَبُوهُ (abūhu) 'his father'"],
+    ["Accusative", "Long ā (ـَا)", "أَبَاهُ (abāhu) 'his father'"],
+    ["Genitive", "Long ī (ـِي)", "أَبِيهِ (abīhi) 'his father'"],
+  ]}
+  rtl={false}
+/>
+
+<Callout type="rule" title="When Five Nouns Use Regular Endings">
+These nouns revert to **regular singular case endings** when:
+- Definite with the article **ال** (rare usage)
+- Followed by the suffix **ـِي** (my): أَبِي (abī) "my father" — same form in all cases
+</Callout>
+
+<ArabicExample
+  arabic="وَاتَّبَعْتُ مِلَّةَ آبَائِي إِبْرَاهِيمَ وَإِسْحَاقَ وَيَعْقُوبَ"
+  transliteration="wa-ttabaʿtu millata ābāʾī ibrāhīma wa-isḥāqa wa-yaʿqūba"
+  translation="And I have followed the religion of my fathers, Abraham, Isaac, and Jacob."
+  reference="Surah Yusuf 12:38"
+  highlight="آبَائِي"
+/>
+
+**آبَائِي** (ābāʾī): Plural of أَب (ab "father"), not the special five-noun pattern. Genitive after مِلَّةَ.
+
+<ArabicExample
+  arabic="وَرَفَعَ أَبَوَيْهِ عَلَى الْعَرْشِ"
+  transliteration="wa-rafaʿa abawayhi ʿalā l-ʿarshi"
+  translation="And he raised his parents upon the throne."
+  reference="Surah Yusuf 12:100"
+  highlight="أَبَوَيْهِ"
+/>
+
+**أَبَوَيْهِ** (abawayhi): Dual of أَب, accusative (direct object). Shows **wāw** before **dual suffix**.
+
+<details>
+<summary><strong>More Examples: Five Nouns Patterns</strong></summary>
+
+<ArabicExample
+  arabic="وَوَصَّيْنَا الْإِنسَانَ بِوَالِدَيْهِ حُسْنًا"
+  transliteration="wa-waṣṣaynā l-insāna bi-wālidayhi ḥusnan"
+  translation="And We have enjoined upon man goodness to parents."
+  reference="Surah Al-Ankabut 29:8"
+  highlight="بِوَالِدَيْهِ"
+/>
+
+**بِوَالِدَيْهِ** (bi-wālidayhi): Dual genitive after preposition بِ
+
+**Five Nouns Summary:**
+1. أَبٌ (father): أَبُوهُ / أَبَاهُ / أَبِيهِ
+2. أَخٌ (brother): أَخُوهُ / أَخَاهُ / أَخِيهِ
+3. حَمٌ (father-in-law): حَمُوهُ / حَمَاهُ / حَمِيهِ
+4. فُو (mouth): فُوهُ / فَاهُ / فِيهِ
+5. ذُو (possessor): ذُو / ذَا / ذِي
+
+**Note:** ذُو is unique — it ONLY appears in the five-noun pattern, never with regular endings.
+
+<ArabicExample
+  arabic="وَاللَّهُ ذُو الْفَضْلِ الْعَظِيمِ"
+  transliteration="wa-llāhu dhū l-faḍli l-ʿaẓīmi"
+  translation="And Allah is the possessor of great bounty."
+  reference="Surah Al-Baqarah 2:105"
+  highlight="ذُو"
+/>
+
+**ذُو** (dhū): Nominative (subject/predicate position)
+
+</details>
+
+---
+
+## Cross-References
+
+### Related Curriculum Lessons
+- **L2.04**: Nominative Case (الرَّفْع)
+- **L2.05**: Accusative Case (النَّصْب)
+- **L2.06**: Genitive Case (الجَرّ)
+- **L2.08**: Dual Nouns
+- **L2.09**: Sound Plurals
+- **L2.12**: Broken Plurals
+
+### Other Resources
+- [Pronoun Charts](/resources/pronoun-charts) — Attached pronoun case variations
+- [Verb Conjugation Tables](/resources/verb-conjugation-tables) — Verb mood endings
+
+---
+
+## Practice Tips
+
+1. **Start with recognition**: Before memorizing endings, practice identifying case markers in Quranic verses.
+
+2. **Use analysis tools**: When reading verses, identify:
+   - Is this word the subject (nominative)?
+   - Is it an object (accusative)?
+   - Does it follow a preposition (genitive)?
+
+3. **Listen for pronunciation**: Case endings affect recitation in formal tajwīd. Pay attention to final vowel sounds.
+
+4. **Learn patterns gradually**: Master singular → dual → sound plurals → broken plurals → five nouns.
+
+<Callout type="tip">
+Modern Arabic often drops case endings in speech, but they remain essential for:
+- Understanding the Quran
+- Classical texts
+- Formal writing
+- Advanced linguistic study
+</Callout>
+
+---
+
+## Quick Reference: All Patterns Summary
+
+<GrammarTable
+  caption="Nominative Case Markers (الرَّفْعُ)"
+  headers={["Word Type", "Indefinite", "Definite", "Example"]}
+  rows={[
+    ["Singular (triptote)", "ـٌ (-un)", "ـُ (-u)", "مُؤْمِنٌ / الْمُؤْمِنُ"],
+    ["Singular (diptote)", "ـُ (-u)", "ـُ (-u)", "أَكْبَرُ / الْأَكْبَرُ"],
+    ["Dual", "ـَانِ (-āni)", "ـَانِ (-āni)", "مُؤْمِنَانِ / الْمُؤْمِنَانِ"],
+    ["Sound Masc. Plural", "ـُونَ (-ūna)", "ـُونَ (-ūna)", "مُؤْمِنُونَ / الْمُؤْمِنُونَ"],
+    ["Sound Fem. Plural", "ـَاتٌ (-ātun)", "ـَاتُ (-ātu)", "مُؤْمِنَاتٌ / الْمُؤْمِنَاتُ"],
+    ["Broken Plural", "Like singular", "Like singular", "رِجَالٌ / الرِّجَالُ"],
+    ["Five Nouns", "ـُو (-ū)", "ـُو (-ū)", "أَبُوهُ"],
+  ]}
+  rtl={false}
+/>
+
+<GrammarTable
+  caption="Accusative Case Markers (النَّصْبُ)"
+  headers={["Word Type", "Indefinite", "Definite", "Example"]}
+  rows={[
+    ["Singular (triptote)", "ـًا (-an)", "ـَ (-a)", "مُؤْمِنًا / الْمُؤْمِنَ"],
+    ["Singular (diptote)", "ـَ (-a)", "ـَ (-a)", "أَكْبَرَ / الْأَكْبَرَ"],
+    ["Dual", "ـَيْنِ (-ayni)", "ـَيْنِ (-ayni)", "مُؤْمِنَيْنِ / الْمُؤْمِنَيْنِ"],
+    ["Sound Masc. Plural", "ـِينَ (-īna)", "ـِينَ (-īna)", "مُؤْمِنِينَ / الْمُؤْمِنِينَ"],
+    ["Sound Fem. Plural", "ـَاتٍ (-ātin)", "ـَاتِ (-āti)", "مُؤْمِنَاتٍ / الْمُؤْمِنَاتِ"],
+    ["Broken Plural", "Like singular", "Like singular", "رِجَالًا / الرِّجَالَ"],
+    ["Five Nouns", "ـَا (-ā)", "ـَا (-ā)", "أَبَاهُ"],
+  ]}
+  rtl={false}
+/>
+
+<GrammarTable
+  caption="Genitive Case Markers (الجَرُّ)"
+  headers={["Word Type", "Indefinite", "Definite", "Example"]}
+  rows={[
+    ["Singular (triptote)", "ـٍ (-in)", "ـِ (-i)", "مُؤْمِنٍ / الْمُؤْمِنِ"],
+    ["Singular (diptote)", "ـَ (-a)", "ـِ (-i)", "أَكْبَرَ / الْأَكْبَرِ"],
+    ["Dual", "ـَيْنِ (-ayni)", "ـَيْنِ (-ayni)", "مُؤْمِنَيْنِ / الْمُؤْمِنَيْنِ"],
+    ["Sound Masc. Plural", "ـِينَ (-īna)", "ـِينَ (-īna)", "مُؤْمِنِينَ / الْمُؤْمِنِينَ"],
+    ["Sound Fem. Plural", "ـَاتٍ (-ātin)", "ـَاتِ (-āti)", "مُؤْمِنَاتٍ / الْمُؤْمِنَاتِ"],
+    ["Broken Plural", "Like singular", "Like singular", "رِجَالٍ / الرِّجَالِ"],
+    ["Five Nouns", "ـِي (-ī)", "ـِي (-ī)", "أَبِيهِ"],
+  ]}
+  rtl={false}
+/>
+
+**Key Observations:**
+- **Dual** and **sound masculine plural** share the same ending for accusative AND genitive
+- **Sound feminine plural** shares accusative and genitive endings
+- **Diptote** indefinite genitive looks like accusative (ـَ)
+- **Five nouns** use long vowels: و (wāw) for nominative, ا (alif) for accusative, ي (yāʾ) for genitive
+- **Broken plurals** follow singular patterns exactly
