@@ -5,23 +5,23 @@
 See: .planning/PROJECT.md (updated 2026-02-06)
 
 **Core value:** Make learning Quranic Arabic grammar accessible and engaging through beautiful, intuitive design
-**Current focus:** Phase 12 complete — ready for Phase 13 (Level 2 Core Grammar Lessons)
+**Current focus:** Phase 13 in progress — Level 2 Core Grammar Lessons (1 of 11 plans complete)
 
 ## Current Position
 
-Phase: 12 of 17 (Level 1 Foundation Lessons)
-Plan: 5 of 5 complete
-Status: Phase complete
-Last activity: 2026-02-06 — Completed Phase 12 (Level 1 Foundation Lessons — all 11 lessons)
+Phase: 13 of 17 (Level 2 Core Grammar Lessons)
+Plan: 1 of 11 complete
+Status: In progress
+Last activity: 2026-02-06 — Completed 13-01 (L2.01 Nominal Sentence, L2.04 Nominative Case)
 
-Progress: [████████████░░░░░░] 76% (45/59 estimated total plans)
+Progress: [█████████████░░░░░] 78% (46/59 estimated total plans)
 
 ## Performance Metrics
 
 **Velocity (updated):**
-- Total plans completed: 45
-- Average duration: 6.2 min
-- Total execution time: 5.08 hours
+- Total plans completed: 46
+- Average duration: 6.1 min
+- Total execution time: 5.20 hours
 
 **By Phase:**
 
@@ -32,10 +32,11 @@ Progress: [████████████░░░░░░] 76% (45/59 es
 | 10 | 3 | 17.3min | 5.8 min |
 | 11 | 6 | 71.0min | 11.8 min |
 | 12 | 5 | 39.0min | 7.8 min |
+| 13 | 1 | 7.0min | 7.0 min |
 
 **Recent Trend:**
-- Last 5 plans: [12-01: 9min, 12-02: 8min, 12-03: 12min, 12-04: 5min, 12-05: 5min]
-- Trend: Lesson authoring acceleration (Phase 12 recent plans averaging 5min with established patterns)
+- Last 5 plans: [12-02: 8min, 12-03: 12min, 12-04: 5min, 12-05: 5min, 13-01: 7min]
+- Trend: Consistent lesson authoring velocity (5-12min range with established patterns)
 
 *Updated after each plan completion*
 
@@ -95,6 +96,10 @@ Recent decisions affecting v1.1 work:
 - Al-Kafirun (109) chosen for sentence type examples (clear, repetitive structures) (12-05)
 - Al-Ikhlas (112) chosen for case ending examples (short, powerful, familiar theology) (12-05)
 - Level completion sections include milestone celebration and forward preview (12-05)
+- Three-part i'rab analysis format adopted (Function + Case marker + Reason) for Level 2+ grammatical precision (13-01)
+- Level 2 lessons emphasize WHEN and WHY (mastery) over WHAT (recognition) to build on Level 1 foundation (13-01)
+- Al-Ikhlas chosen for L2.01 nominal sentence examples (theological precision) (13-01)
+- An-Nasr chosen for L2.04 nominative case examples (demonstrates four functions clearly) (13-01)
 
 ### Pending Todos
 
@@ -119,6 +124,6 @@ None.
 ## Session Continuity
 
 Last session: 2026-02-06
-Stopped at: Phase 12 execution complete — all 11 Level 1 Foundation lessons created
+Stopped at: Completed 13-01 — L2.01 Nominal Sentence and L2.04 Nominative Case root lessons created
 Resume file: None
-Next: Phase 13 (Level 2 Core Grammar Lessons)
+Next: 13-02 through 13-11 (remaining Level 2 lesson pairs)
