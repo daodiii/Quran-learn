@@ -7,6 +7,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
+    "analyze": "npm run build && echo 'Bundle analysis complete. Check dist/_astro/ for JS files.'",
     "test:fonts": "npx playwright test tests/font-verification.spec.ts",
     "test:fonts:update": "npx playwright test tests/font-verification.spec.ts --update-snapshots",
     "test:a11y": "npx playwright test tests/accessibility.spec.ts",
@@ -34,6 +35,7 @@
   "devDependencies": {
     "@axe-core/playwright": "^4.11.1",
     "@capacitor/assets": "^3.0.5",
-    "@playwright/test": "^1.58.1"
+    "@playwright/test": "^1.58.1",
+    "rollup-plugin-visualizer": "^6.0.5"
   }
 }
