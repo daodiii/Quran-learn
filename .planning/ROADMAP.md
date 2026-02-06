@@ -86,10 +86,11 @@ Plans:
   3. UthmanicHafs font readable without eye strain in dark mode
   4. Font weight adjusted for dark mode (500 vs 400 in light mode)
   5. All components (cards, progress indicators, navigation) work in dark mode
-**Plans**: TBD
+**Plans**: 2 plans
 
 Plans:
-- [ ] 04-01: [To be defined during planning]
+- [ ] 04-01-PLAN.md — Install axe-core, create automated WCAG AAA contrast tests
+- [ ] 04-02-PLAN.md — Arabic font weight adjustments, visual regression for diacritical marks
 
 ### Phase 5: Navigation System
 **Goal**: Build collapsible course navigator sidebar and breadcrumb navigation system
@@ -172,7 +173,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8
 | 1. Design Foundation & Font Protection | 3/3 | Complete ✓ | 2026-02-05 |
 | 2. Progress & Primitive Components | 3/3 | Complete ✓ | 2026-02-06 |
 | 3. Card Components & Arabic Typography | 2/2 | Complete ✓ | 2026-02-06 |
-| 4. Dark Mode Polish | 0/TBD | Ready | - |
+| 4. Dark Mode Polish | 0/2 | Ready | - |
 | 5. Navigation System | 0/TBD | Not started | - |
 | 6. Page Redesigns | 0/TBD | Not started | - |
 | 7. Mobile Optimization | 0/TBD | Not started | - |
