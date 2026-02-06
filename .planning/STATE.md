@@ -9,19 +9,19 @@ See: .planning/PROJECT.md (updated 2026-02-05)
 
 ## Current Position
 
-Phase: 4 of 8 (Dark Mode & Accessibility Polish) - IN PROGRESS
-Plan: 1 of 2 in current phase
-Status: Plan 1 complete (Accessibility Testing Infrastructure)
-Last activity: 2026-02-06 - Completed 04-01-PLAN.md (WCAG AAA Accessibility Testing)
+Phase: 4 of 8 (Dark Mode & Accessibility Polish) - COMPLETE
+Plan: 2 of 2 in current phase
+Status: Phase 4 complete (Arabic Dark Mode Readability)
+Last activity: 2026-02-06 - Completed 04-02-PLAN.md (Arabic Dark Mode Readability)
 
-Progress: [█████████░] 75%
+Progress: [██████████] 100%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 9
-- Average duration: 6.9 min
-- Total execution time: 1.11 hours
+- Total plans completed: 10
+- Average duration: 6.7 min
+- Total execution time: 1.22 hours
 
 **By Phase:**
 
@@ -30,11 +30,11 @@ Progress: [█████████░] 75%
 | 01-design-foundation | 3 | 17min | 5.7min |
 | 02-progress-primitive-components | 3 | 8min | 2.7min |
 | 03-card-components-arabic-typography | 2 | 16min | 8.0min |
-| 04-dark-mode-polish | 1 | 26min | 26.0min |
+| 04-dark-mode-polish | 2 | 40min | 20.0min |
 
 **Recent Trend:**
-- Last 5 plans: 02-03 (2min), 03-01 (2min), 03-02 (14min), 04-01 (26min)
-- Trend: Phase 4 plan 1 took longer due to contrast violation fixes across multiple components and pages
+- Last 5 plans: 03-01 (2min), 03-02 (14min), 04-01 (26min), 04-02 (14min)
+- Trend: Phase 4 averaged 20min per plan due to accessibility testing and visual regression baseline creation
 
 *Updated after each plan completion*
 
@@ -83,6 +83,9 @@ Recent decisions affecting current work:
 - **[04-01]** Automated axe-core testing prevents contrast regressions in future CSS changes
 - **[04-01]** Dark mode text-tertiary adjusted to #b3b3b3 for 7:1 ratio on tertiary backgrounds
 - **[04-01]** Light mode accent colors darkened for sufficient contrast with light backgrounds
+- **[04-02]** Arabic text font-weight increased from 400 to 500 in dark mode for optical compensation
+- **[04-02]** Visual regression baselines capture Arabic diacritical marks (harakat) in dark mode
+- **[04-02]** 100 maxDiffPixels tolerance for Arabic text snapshots (font rendering variance)
 
 ### Pending Todos
 
@@ -157,25 +160,28 @@ Phase 3 (Card Components & Arabic Typography) is complete with 2 plans executed:
 
 **Ready for Phase 4:** Card composition and testing patterns fully established
 
-## Phase 4 Progress
+## Phase 4 Completion Summary
 
-Phase 4 (Dark Mode & Accessibility Polish) - 1 of 2 plans complete:
+Phase 4 (Dark Mode & Accessibility Polish) is complete with 2 plans executed:
 
 | Plan | Name | Duration | Commit |
 |------|------|----------|--------|
 | 04-01 | Accessibility Testing Infrastructure | 26min | fd4ea7c |
+| 04-02 | Arabic Dark Mode Readability | 14min | ce3608b |
 
-**Deliverables so far:**
+**Deliverables:**
 - Automated WCAG AAA accessibility testing with axe-core
 - 16 accessibility tests covering contrast, focus, ARIA
 - WCAG AAA compliant color system (7:1 contrast ratios)
 - Design token migration for theme-aware accessible colors
-- Fixed contrast violations in Badge, Button, and page layouts
+- Dark mode font-weight optical compensation for Arabic text
+- Visual regression baselines for Arabic diacritical marks
+- Fixed contrast violations across all components
 
-**Ready for Plan 2:** Accessibility infrastructure in place, ready for visual dark mode polish
+**Ready for Phase 5:** Dark mode and accessibility polish complete. Navigation system can be built with confidence in accessible colors and optimized Arabic typography.
 
 ## Session Continuity
 
-Last session: 2026-02-06T00:50:22Z
-Stopped at: Completed 04-01-PLAN.md (Accessibility Testing Infrastructure)
+Last session: 2026-02-06T01:10:58Z
+Stopped at: Completed 04-02-PLAN.md (Arabic Dark Mode Readability) - Phase 4 complete
 Resume file: None
