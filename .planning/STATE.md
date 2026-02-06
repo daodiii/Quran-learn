@@ -5,23 +5,23 @@
 See: .planning/PROJECT.md (updated 2026-02-05)
 
 **Core value:** Make learning Quranic Arabic grammar accessible and engaging through beautiful, intuitive design
-**Current focus:** Phase 3 Complete - Phase 4 in progress
+**Current focus:** Phase 5 Navigation System in progress
 
 ## Current Position
 
-Phase: 4 of 8 (Dark Mode & Accessibility Polish) - COMPLETE
-Plan: 2 of 2 in current phase
-Status: Phase 4 complete (Arabic Dark Mode Readability)
-Last activity: 2026-02-06 - Completed 04-02-PLAN.md (Arabic Dark Mode Readability)
+Phase: 5 of 8 (Navigation System)
+Plan: 1 of 3 in current phase
+Status: Phase 5 in progress - Completed 05-01-PLAN.md (Navigation Primitives)
+Last activity: 2026-02-06 - Completed 05-01-PLAN.md (Navigation Primitives)
 
-Progress: [██████████] 100%
+Progress: [███████████░░] 73%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 10
-- Average duration: 6.7 min
-- Total execution time: 1.22 hours
+- Total plans completed: 11
+- Average duration: 6.6 min
+- Total execution time: 1.30 hours
 
 **By Phase:**
 
@@ -31,10 +31,11 @@ Progress: [██████████] 100%
 | 02-progress-primitive-components | 3 | 8min | 2.7min |
 | 03-card-components-arabic-typography | 2 | 16min | 8.0min |
 | 04-dark-mode-polish | 2 | 40min | 20.0min |
+| 05-navigation-system | 1 | 5min | 5.0min |
 
 **Recent Trend:**
-- Last 5 plans: 03-01 (2min), 03-02 (14min), 04-01 (26min), 04-02 (14min)
-- Trend: Phase 4 averaged 20min per plan due to accessibility testing and visual regression baseline creation
+- Last 5 plans: 03-02 (14min), 04-01 (26min), 04-02 (14min), 05-01 (5min)
+- Trend: Phase 5 starting fast with simple component creation
 
 *Updated after each plan completion*
 
@@ -86,6 +87,15 @@ Recent decisions affecting current work:
 - **[04-02]** Arabic text font-weight increased from 400 to 500 in dark mode for optical compensation
 - **[04-02]** Visual regression baselines capture Arabic diacritical marks (harakat) in dark mode
 - **[04-02]** 100 maxDiffPixels tolerance for Arabic text snapshots (font rendering variance)
+- **[05-01]** Breadcrumbs use CSS logical properties exclusively for RTL compatibility
+- **[05-01]** Breadcrumbs RTL separator flips from "/" to "<" using [dir="rtl"] CSS selector
+- **[05-01]** Mobile breadcrumbs hide middle items on <768px, showing only first and last
+- **[05-01]** Header height reduced from 64px to 56px for more content space
+- **[05-01]** Gold dot removed from logo-icon for cleaner minimal design
+- **[05-01]** Desktop navigation removed from header (navigation will be in sidebar)
+- **[05-01]** Navigator toggle button added but hidden by default (shown via JS on lesson pages)
+- **[05-01]** Footer simplified from 4-column to 2-column layout
+- **[05-01]** Footer gradient background removed in favor of solid var(--bg-secondary)
 
 ### Pending Todos
 
@@ -180,8 +190,24 @@ Phase 4 (Dark Mode & Accessibility Polish) is complete with 2 plans executed:
 
 **Ready for Phase 5:** Dark mode and accessibility polish complete. Navigation system can be built with confidence in accessible colors and optimized Arabic typography.
 
+## Phase 5 Progress
+
+Phase 5 (Navigation System) is in progress with 1 of 3 plans executed:
+
+| Plan | Name | Duration | Commit |
+|------|------|----------|--------|
+| 05-01 | Navigation Primitives | 5min | 161fea1 |
+
+**Deliverables so far:**
+- WAI-ARIA compliant Breadcrumbs component with RTL separator flip
+- Minimal Header with navigator toggle placeholder (hidden by default)
+- Simplified 2-column Footer with reduced visual clutter
+- CSS logical properties throughout all navigation components
+
+**Next:** Plan 05-02 will create CourseNavigator component and wire up toggle button
+
 ## Session Continuity
 
-Last session: 2026-02-06T01:10:58Z
-Stopped at: Completed 04-02-PLAN.md (Arabic Dark Mode Readability) - Phase 4 complete
+Last session: 2026-02-06T01:40:15Z
+Stopped at: Completed 05-01-PLAN.md (Navigation Primitives)
 Resume file: None
