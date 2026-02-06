@@ -102,6 +102,10 @@ A Coursera-inspired redesign of the Quran Learn educational website that teaches
 | aria-live="polite" only | Per Adrian Roselli 2026 research, never assertive | Good |
 | Font preload critical only | Only Amiri Regular Arabic + UthmanicHafs, others on-demand | Good |
 | 44px touch targets | Exceeds WCAG 2.5.8 minimum (24px), meets iOS HIG | Good |
+| Plain English + analogies | Grammar content must be easy to understand — simple language, English analogies, examples before rules | — Pending |
+| Bilingual terminology | Always show both: "Accusative case (mansub / مَنْصُوب)" | — Pending |
+| Example-heavy pedagogy | Show patterns before stating abstract rules — learn by seeing, not memorizing | — Pending |
+| One concept per lesson | Avoid cognitive overload — 73 focused lessons better than 50 crammed ones | — Pending |
 
 ---
-*Last updated: 2026-02-06 after v1.1 milestone start*
+*Last updated: 2026-02-06 after v1.1 requirements defined*
