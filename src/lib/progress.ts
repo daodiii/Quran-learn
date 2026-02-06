@@ -3,6 +3,8 @@
  * Tracks lesson completion status per user
  */
 
+import { announceProgress } from '../scripts/progress-announcer';
+
 const PROGRESS_KEY = 'quran-learn-progress';
 
 interface ProgressData {
@@ -69,7 +71,16 @@ export async function markLessonComplete(lessonSlug: string): Promise<boolean> {
   data.completedLessons.push(lessonSlug);
   data.lastUpdated = new Date().toISOString();
 
-  return saveProgressData(data);
+  const success = saveProgressData(data);
+
+  // Announce to screen readers (wrapped in try-catch to never break progress tracking)
+  try {
+    announceProgress(`Lesson completed. ${data.completedLessons.length} lessons finished.`);
+  } catch (error) {
+    console.error('Failed to announce progress:', error);
+  }
+
+  return success;
 }
 
 /**

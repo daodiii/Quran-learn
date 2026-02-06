@@ -340,6 +340,8 @@ const totalQuestions = questions.length;
 </style>
 
 <script define:vars={{ questions, totalQuestions, passingScore, level }}>
+  import { announceProgress } from '../scripts/progress-announcer';
+
   // Quiz state
   let currentQuestionIndex = 0;
   let score = 0;
@@ -469,6 +471,9 @@ const totalQuestions = questions.length;
     // Show feedback
     showFeedback(isCorrect, question.explanation);
 
+    // Announce to screen readers
+    announceProgress(`${isCorrect ? 'Correct' : 'Incorrect'}. ${currentQuestionIndex + 1} of ${totalQuestions} answered.`);
+
     // Show next button
     const nextBtn = document.getElementById('next-btn');
     if (nextBtn) nextBtn.style.display = 'inline-flex';
@@ -505,6 +510,9 @@ const totalQuestions = questions.length;
 
     const percentage = Math.round((score / totalQuestions) * 100);
     const passed = percentage >= passingScore;
+
+    // Announce quiz completion to screen readers
+    announceProgress(`Quiz completed. Score: ${score} out of ${totalQuestions}. ${passed ? 'You passed!' : 'Try again.'}`);
 
     quizContent.innerHTML = `
       <div class="quiz-results" data-testid="quiz-results">

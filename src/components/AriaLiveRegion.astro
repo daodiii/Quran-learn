@@ -1,0 +1,27 @@
+---
+// AriaLiveRegion.astro - Screen reader announcement region
+// Uses aria-live="polite" with role="status" for NVDA/JAWS/VoiceOver compatibility
+// See: https://adrianroselli.com/2026/01/live-region-support.html
+---
+<div
+  role="status"
+  aria-live="polite"
+  aria-atomic="true"
+  class="sr-only"
+  data-progress-announcer
+>
+</div>
+
+<style>
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+</style>
