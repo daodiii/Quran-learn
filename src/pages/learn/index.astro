@@ -181,4 +181,75 @@ const levels = [1, 2, 3, 4, 5];
     padding: var(--spacing-lg);
     text-align: center;
   }
+
+  /* Completed lesson styling */
+  .lessons-grid :global([data-lesson-id].completed) {
+    opacity: 0.8;
+  }
+
+  .lessons-grid :global([data-lesson-id].completed) :global([data-testid="lesson-checkmark"]) {
+    color: var(--color-success);
+  }
 </style>
+
+<script>
+  // Populate lesson completion states from localStorage
+  document.addEventListener('astro:page-load', () => {
+    // Get completed lessons from localStorage
+    const completedLessons = JSON.parse(localStorage.getItem('completedLessons') || '[]');
+
+    // Update LessonCard completion states
+    const lessonCards = document.querySelectorAll('[data-lesson-id]');
+    lessonCards.forEach(card => {
+      const lessonId = card.getAttribute('data-lesson-id');
+      if (completedLessons.includes(lessonId)) {
+        // Add completed class for styling
+        card.classList.add('completed');
+        // Update checkmark if present
+        const checkmark = card.querySelector('[data-testid="lesson-checkmark"]');
+        if (checkmark) {
+          checkmark.setAttribute('data-completed', 'true');
+        }
+      }
+    });
+
+    // Calculate level progress and update overview cards
+    const levelOverviews = document.querySelectorAll('[data-level]');
+    levelOverviews.forEach(card => {
+      const levelAttr = card.getAttribute('data-level');
+      if (!levelAttr) return;
+
+      const level = parseInt(levelAttr, 10);
+
+      // Find all lessons for this level
+      const levelLessonCards = Array.from(document.querySelectorAll('[data-lesson-id]')).filter(lessonCard => {
+        const lessonId = lessonCard.getAttribute('data-lesson-id');
+        return lessonId && lessonId.startsWith(`level-${level}/`);
+      });
+
+      const completed = levelLessonCards.filter(l => l.classList.contains('completed')).length;
+      const total = levelLessonCards.length;
+
+      // Store for reference
+      localStorage.setItem(`level-${level}-completed`, String(completed));
+
+      // Update progress bar if present in the overview card
+      const progressBar = card.querySelector('[role="progressbar"]');
+      if (progressBar && total > 0) {
+        progressBar.setAttribute('aria-valuenow', String(completed));
+
+        // Update visual bar width
+        const fill = progressBar.querySelector('.progress-fill');
+        if (fill) {
+          fill.style.width = `${(completed / total) * 100}%`;
+        }
+      }
+
+      // Update lessons completed text if present
+      const progressText = card.querySelector('.course-card-progress-text');
+      if (progressText) {
+        progressText.textContent = `${completed} of ${total} lessons`;
+      }
+    });
+  });
+</script>
