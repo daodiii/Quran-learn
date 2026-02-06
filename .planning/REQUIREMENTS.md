@@ -46,7 +46,7 @@ Requirements for the Coursera-inspired redesign. Each maps to roadmap phases.
 
 ### Responsive & Polish
 
-- [ ] **RESP-01**: Mobile-first responsive design across all pages
+- [x] **RESP-01**: Mobile-first responsive design across all pages
 - [ ] **DARK-01**: Polished dark mode with proper contrast (7:1 ratio for Arabic text)
 
 ## v2 Requirements
@@ -97,7 +97,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | QUIZ-01 | Phase 6 | Complete |
 | COMP-01 | Phase 5 | Complete |
 | COMP-02 | Phase 5 | Complete |
-| RESP-01 | Phase 7 | Pending |
+| RESP-01 | Phase 7 | Complete |
 | DARK-01 | Phase 4 | Complete |
 
 **Coverage:**
@@ -107,4 +107,4 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 ---
 *Requirements defined: 2026-02-05*
-*Last updated: 2026-02-06 after Phase 6 completion*
+*Last updated: 2026-02-06 after Phase 7 completion*
