@@ -10,18 +10,18 @@ See: .planning/PROJECT.md (updated 2026-02-05)
 ## Current Position
 
 Phase: 6 of 8 (Page Redesigns)
-Plan: 4 of 6 in current phase
-Status: In progress - Completed 06-04-PLAN.md (Surah Selector Page Redesign)
-Last activity: 2026-02-06 - Completed 06-04-PLAN.md (Surah Selector Page Redesign)
+Plan: 5 of 6 in current phase
+Status: In progress - Completed 06-05-PLAN.md (Resources Page Redesign)
+Last activity: 2026-02-06 - Completed 06-05-PLAN.md (Resources Page Redesign)
 
-Progress: [███████████████░] 95.8%
+Progress: [███████████████░] 97.2%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 17
+- Total plans completed: 18
 - Average duration: 6.4 min
-- Total execution time: 1.93 hours
+- Total execution time: 2.08 hours
 
 **By Phase:**
 
@@ -32,11 +32,11 @@ Progress: [███████████████░] 95.8%
 | 03-card-components-arabic-typography | 2 | 16min | 8.0min |
 | 04-dark-mode-polish | 2 | 40min | 20.0min |
 | 05-navigation-system | 4 | 29min | 7.3min |
-| 06-page-redesigns | 3 | 13min | 4.3min |
+| 06-page-redesigns | 4 | 22min | 5.5min |
 
 **Recent Trend:**
-- Last 5 plans: 05-04 (15min), 06-02 (5min), 06-03 (2min), 06-04 (6min)
-- Trend: Phase 6 efficient with established component patterns
+- Last 5 plans: 06-02 (5min), 06-03 (2min), 06-04 (6min), 06-05 (9min)
+- Trend: Phase 6 efficient with content collection setup adding time
 
 *Updated after each plan completion*
 
@@ -122,6 +122,10 @@ Recent decisions affecting current work:
 - **[06-04]** Section IDs match difficulty values (beginner, intermediate, advanced) for semantic anchors
 - **[06-04]** Quick navigation uses accessible ARIA labels for screen readers
 - **[06-04]** 300px minimum card width for optimal Arabic text readability
+- **[06-05]** Icon mapping pattern: Object mapping resource IDs to inline SVG strings for page-specific icons
+- **[06-05]** Astro content collections auto-discovered from src/content/ subdirectories (no config.ts needed)
+- **[06-05]** Resource content uses placeholder MDX with frontmatter (title, order, description)
+- **[06-05]** Created auth.ts, progress.ts, capacitor-init.ts stubs to unblock build (Rule 3 deviations)
 
 ### Pending Todos
 
@@ -129,7 +133,7 @@ None yet.
 
 ### Blockers/Concerns
 
-**Phase 6 consideration:** Determine if progress tracking should sync to Supabase or remain localStorage-only during planning. Need to integrate localStorage lesson completion with LessonCheckmark components.
+**Phase 7 consideration:** Resource MDX content files need actual reference material (currently placeholders). auth.ts, progress.ts, capacitor-init.ts stubs need proper implementation.
 
 **Phase 7 consideration:** Must test on actual iOS devices (iPhone, iPad) for Arabic font rendering validation. Simulator testing insufficient.
 
@@ -245,25 +249,29 @@ Phase 5 (Navigation System) is complete with all 4 plans executed:
 
 ## Phase 6 Progress
 
-Phase 6 (Page Redesigns) in progress - 4 of 6 plans completed:
+Phase 6 (Page Redesigns) in progress - 5 of 6 plans completed:
 
 | Plan | Name | Duration | Commit |
 |------|------|----------|--------|
 | 06-02 | Learn Dashboard Redesign | 5min | bd16236 |
 | 06-03 | Lesson Reading Optimization | 2min | 15f23cb |
-| 06-04 | Surah Selector Page Redesign | 6min | ad4b29d |
+| 06-04 | Surah Selector Page Redesign | 6min | ed94076 |
+| 06-05 | Resources Page Redesign | 9min | e08c7ad |
 
 **Current Deliverables:**
 - Card-based learn dashboard with level overview and progress tracking
 - Reading-optimized lesson layout with 70ch content width
 - Card-based surah selector with difficulty grouping and quick navigation
+- Resources page with 6 reference cards and semantic SVG icons
+- Content collection structure for resources (MDX with frontmatter)
 - Dynamic prev/next navigation from collection order
 - Typography tuned for comfortable reading (17px, 1.75 line-height)
+- Auth, progress, and capacitor stubs to unblock builds
 
-**Next:** 06-05 Resources Page Redesign, 06-06 Quiz Pages Redesign
+**Next:** 06-06 Quiz Pages Redesign (final plan in Phase 6)
 
 ## Session Continuity
 
-Last session: 2026-02-06T03:15:18Z
-Stopped at: Completed 06-04-PLAN.md (Surah Selector Page Redesign)
+Last session: 2026-02-06T03:18:33Z
+Stopped at: Completed 06-05-PLAN.md (Resources Page Redesign)
 Resume file: None
