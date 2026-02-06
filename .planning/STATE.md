@@ -5,23 +5,23 @@
 See: .planning/PROJECT.md (updated 2026-02-05)
 
 **Core value:** Make learning Quranic Arabic grammar accessible and engaging through beautiful, intuitive design
-**Current focus:** Phase 5 Navigation System in progress
+**Current focus:** Phase 6 Page Redesigns in progress
 
 ## Current Position
 
-Phase: 5 of 8 (Navigation System)
-Plan: 4 of 4 in current phase
-Status: Phase 5 complete - Completed 05-04-PLAN.md (Navigation Testing)
-Last activity: 2026-02-06 - Completed 05-04-PLAN.md (Navigation Testing)
+Phase: 6 of 8 (Page Redesigns)
+Plan: 3 of 6 in current phase
+Status: In progress - Completed 06-03-PLAN.md (Lesson Reading Optimization)
+Last activity: 2026-02-06 - Completed 06-03-PLAN.md (Lesson Reading Optimization)
 
-Progress: [██████████████] 93.3%
+Progress: [███████████████] 100.0%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 14
-- Average duration: 7.0 min
-- Total execution time: 1.67 hours
+- Total plans completed: 15
+- Average duration: 6.5 min
+- Total execution time: 1.75 hours
 
 **By Phase:**
 
@@ -32,10 +32,11 @@ Progress: [██████████████] 93.3%
 | 03-card-components-arabic-typography | 2 | 16min | 8.0min |
 | 04-dark-mode-polish | 2 | 40min | 20.0min |
 | 05-navigation-system | 4 | 29min | 7.3min |
+| 06-page-redesigns | 3 | 2min | 2.0min |
 
 **Recent Trend:**
-- Last 5 plans: 05-01 (5min), 05-02 (4min), 05-03 (5min), 05-04 (15min)
-- Trend: Phase 5 complete with testing taking longer (avg 7.3min)
+- Last 5 plans: 05-02 (4min), 05-03 (5min), 05-04 (15min), 06-03 (2min)
+- Trend: Phase 6 starting strong with quick execution
 
 *Updated after each plan completion*
 
@@ -111,6 +112,9 @@ Recent decisions affecting current work:
 - **[05-04]** Test page URLs require trailing slash due to Astro trailingSlash: 'always' config
 - **[05-04]** Visual regression baselines at 1280x1024 (desktop) and 375x667 (mobile)
 - **[05-04]** Navigation test partial pass rate acceptable (19/35) due to JS context limitations
+- **[06-03]** 70ch max-inline-size for optimal reading comprehension (within 60-75ch range)
+- **[06-03]** Dynamic prev/next computation from sorted lesson collection with frontmatter fallback
+- **[06-03]** 17px base font size for lesson content (1.0625rem)
 
 ### Pending Todos
 
@@ -232,8 +236,24 @@ Phase 5 (Navigation System) is complete with all 4 plans executed:
 
 **Ready for Phase 6:** Navigation system complete with testing. Ready for progress tracking integration.
 
+## Phase 6 Progress
+
+Phase 6 (Page Redesigns) in progress - 3 of 6 plans completed:
+
+| Plan | Name | Duration | Commit |
+|------|------|----------|--------|
+| 06-03 | Lesson Reading Optimization | 2min | 15f23cb |
+
+**Current Deliverables:**
+- Reading-optimized lesson layout with 70ch content width
+- Dynamic prev/next navigation from collection order
+- Typography tuned for comfortable reading (17px, 1.75 line-height)
+- Verified mark complete and floating navigator functionality
+
+**Next:** 06-04 Homepage Redesign, 06-05 Resource Page Redesign
+
 ## Session Continuity
 
-Last session: 2026-02-06T02:51:58Z
-Stopped at: Completed 05-03-PLAN.md (Navigation Integration & JavaScript) - Phase 5 complete
+Last session: 2026-02-06T03:10:47Z
+Stopped at: Completed 06-03-PLAN.md (Lesson Reading Optimization)
 Resume file: None
