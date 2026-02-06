@@ -10,18 +10,18 @@ See: .planning/PROJECT.md (updated 2026-02-06)
 ## Current Position
 
 Phase: 12 of 17 (Level 1 Foundation Lessons)
-Plan: 3 of 6 complete
+Plan: 5 of 6 complete
 Status: In progress
-Last activity: 2026-02-06 — Completed 12-03-PLAN.md (L1.06-L1.07 lessons)
+Last activity: 2026-02-06 — Completed 12-05-PLAN.md (L1.10-L1.11 lessons, Level 1 complete)
 
-Progress: [███████████░░░░░░░] 73% (43/59 estimated total plans)
+Progress: [████████████░░░░░░] 76% (45/59 estimated total plans)
 
 ## Performance Metrics
 
 **Velocity (updated):**
-- Total plans completed: 43
-- Average duration: 6.4 min
-- Total execution time: 4.99 hours
+- Total plans completed: 45
+- Average duration: 6.2 min
+- Total execution time: 5.08 hours
 
 **By Phase:**
 
@@ -31,11 +31,11 @@ Progress: [███████████░░░░░░░] 73% (43/59 es
 | 9 | 3 | 7.4min | 2.5 min |
 | 10 | 3 | 17.3min | 5.8 min |
 | 11 | 6 | 71.0min | 11.8 min |
-| 12 | 3 | 29.0min | 9.7 min |
+| 12 | 5 | 39.0min | 7.8 min |
 
 **Recent Trend:**
-- Last 5 plans: [11-06: 7min, 12-01: 9min, 12-02: 8min, 12-03: 12min]
-- Trend: Lesson authoring (Phases 11-12) averaging 9.7min per plan (validation + comprehensive content + Quranic examples)
+- Last 5 plans: [12-01: 9min, 12-02: 8min, 12-03: 12min, 12-04: 5min, 12-05: 5min]
+- Trend: Lesson authoring acceleration (Phase 12 recent plans averaging 5min with established patterns)
 
 *Updated after each plan completion*
 
@@ -90,6 +90,11 @@ Recent decisions affecting v1.1 work:
 - Isolated morpheme diacritics <70% acceptable for pedagogical clarity when showing citation forms (12-03)
 - Sun/moon letter naming mnemonic using الشمس and القمر as self-demonstrating examples (12-03)
 - Terminology validator false positives on bilingual formats accepted as known bug (12-03)
+- Sentence types taught with first-word identification method (L1.10 nominal vs verbal) (12-05)
+- Case endings taught as RECOGNITION only in Level 1, mastery deferred to Level 2 (12-05)
+- Al-Kafirun (109) chosen for sentence type examples (clear, repetitive structures) (12-05)
+- Al-Ikhlas (112) chosen for case ending examples (short, powerful, familiar theology) (12-05)
+- Level completion sections include milestone celebration and forward preview (12-05)
 
 ### Pending Todos
 
@@ -113,7 +118,7 @@ None.
 
 ## Session Continuity
 
-Last session: 2026-02-06T21:42:38Z
-Stopped at: Completed 12-03-PLAN.md (L1.06-L1.07: Three Word Types, Definite Article)
+Last session: 2026-02-06T21:53:50Z
+Stopped at: Completed 12-05-PLAN.md (L1.10-L1.11: Simple Sentences, Case Endings — Level 1 complete)
 Resume file: None
-Next: 12-04 (L1.08-L1.09: Gender, Number)
+Next: 12-06 (L1 comprehensive review lesson)
