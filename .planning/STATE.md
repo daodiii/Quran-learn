@@ -10,18 +10,18 @@ See: .planning/PROJECT.md (updated 2026-02-05)
 ## Current Position
 
 Phase: 7 of 8 (Mobile Optimization)
-Plan: 2 of 5 in current phase
+Plan: 3 of 5 in current phase
 Status: In progress
-Last activity: 2026-02-06 - Completed 07-02-PLAN.md (Mobile Gesture & Scroll Prevention)
+Last activity: 2026-02-06 - Completed 07-03-PLAN.md (Responsive MDX Images)
 
-Progress: [█████████████████] 110%
+Progress: [█████████████████] 115%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 22
-- Average duration: 5.8 min
-- Total execution time: 2.4 hours
+- Total plans completed: 23
+- Average duration: 5.6 min
+- Total execution time: 2.5 hours
 
 **By Phase:**
 
@@ -33,11 +33,11 @@ Progress: [█████████████████] 110%
 | 04-dark-mode-polish | 2 | 40min | 20.0min |
 | 05-navigation-system | 4 | 29min | 7.3min |
 | 06-page-redesigns | 6 | 37min | 6.2min |
-| 07-mobile-optimization | 2 | 4min | 2.0min |
+| 07-mobile-optimization | 3 | 6min | 2.0min |
 
 **Recent Trend:**
-- Last 5 plans: 06-05 (9min), 06-01 (11min), 06-06 (4min), 07-01 (2min), 07-02 (2min)
-- Trend: Phase 7 maintains high velocity - efficient mobile optimization
+- Last 5 plans: 06-01 (11min), 06-06 (4min), 07-01 (2min), 07-02 (2min), 07-03 (2min)
+- Trend: Phase 7 maintains exceptional velocity - efficient mobile optimization
 
 *Updated after each plan completion*
 
@@ -143,6 +143,11 @@ Recent decisions affecting current work:
 - **[07-02]** RTL-aware swipe direction: swipe left (LTR) or right (RTL) closes sidebar
 - **[07-02]** CSS logical properties (max-inline-size, block-size) for horizontal scroll prevention
 - **[07-02]** Tables use display: block with overflow-x: auto for horizontal scrolling
+- **[07-03]** Responsive image breakpoints [320, 640, 960, 1280] cover mobile to large desktop
+- **[07-03]** Astro Picture component generates avif and webp formats for 30-50% better compression
+- **[07-03]** MDX component override pattern (components={{ img: ResponsiveImage }}) for automatic image optimization
+- **[07-03]** External URLs fall back to standard img tag (no proxy/download for external images)
+- **[07-03]** Sizes attribute "(max-width: 640px) 100vw, (max-width: 1024px) 70ch, 960px" matches reading width
 
 ### Pending Todos
 
@@ -295,12 +300,13 @@ Phase 6 (Page Redesigns) is complete with all 6 plans executed:
 
 ## Phase 7 In Progress
 
-Phase 7 (Mobile Optimization) has 2 of 5 plans executed:
+Phase 7 (Mobile Optimization) has 3 of 5 plans executed:
 
 | Plan | Name | Duration | Commit |
 |------|------|----------|--------|
 | 07-01 | Mobile Optimization Foundation | 2min | ed4d69d |
 | 07-02 | Mobile Gesture & Scroll Prevention | 2min | 434a3ac |
+| 07-03 | Responsive MDX Images | 2min | d0eeadc |
 
 **Deliverables:**
 - iOS Safari text-size-adjust controls to prevent font inflation on landscape
@@ -311,11 +317,15 @@ Phase 7 (Mobile Optimization) has 2 of 5 plans executed:
 - Horizontal scroll prevention at 320px viewport using CSS logical properties
 - Passive touch event listeners for improved scroll performance
 - Table horizontal scrolling with momentum on iOS
+- ResponsiveImage component with Astro Picture and srcset generation
+- Modern image formats (avif, webp) with automatic fallback
+- Responsive breakpoints [320, 640, 960, 1280] for all MDX images
+- MDX component override for automatic image optimization
 
-**Ready for:** Mobile viewport configuration, device testing, and Capacitor integration
+**Ready for:** Lighthouse mobile audit and device testing
 
 ## Session Continuity
 
-Last session: 2026-02-06T05:08:03Z
-Stopped at: Completed 07-02-PLAN.md (Mobile Gesture & Scroll Prevention)
+Last session: 2026-02-06T04:12:48Z
+Stopped at: Completed 07-03-PLAN.md (Responsive MDX Images)
 Resume file: None
