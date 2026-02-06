@@ -1,0 +1,143 @@
+---
+// AuthButton component - shows login or user avatar based on auth state
+---
+
+<div class="auth-button-container" id="auth-button-container">
+  <!-- Login Button (shown when logged out) -->
+  <a href="/login/" class="auth-btn login-btn" id="login-btn">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+    </svg>
+    <span class="btn-text">Sign In</span>
+  </a>
+
+  <!-- User Avatar (shown when logged in) -->
+  <a href="/profile/" class="auth-btn user-btn" id="user-btn" style="display: none;">
+    <div class="user-avatar" id="user-avatar-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+      </svg>
+    </div>
+  </a>
+</div>
+
+<style>
+  .auth-button-container {
+    display: flex;
+    align-items: center;
+  }
+
+  .auth-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    transition: all var(--transition-fast);
+  }
+
+  .login-btn {
+    padding: 0.5rem 1rem;
+    background: var(--accent-primary);
+    color: var(--text-inverse);
+    border-radius: var(--radius-md);
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
+
+  .login-btn:hover {
+    background: var(--accent-primary-hover);
+  }
+
+  .login-btn svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .btn-text {
+    display: none;
+  }
+
+  @media (min-width: 640px) {
+    .btn-text {
+      display: inline;
+    }
+  }
+
+  .user-btn {
+    padding: 0.25rem;
+  }
+
+  .user-avatar {
+    width: 36px;
+    height: 36px;
+    background: var(--accent-primary-light);
+    border: 2px solid var(--accent-primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent-primary);
+    transition: all var(--transition-fast);
+  }
+
+  .user-btn:hover .user-avatar {
+    border-color: var(--accent-primary-hover);
+    transform: scale(1.05);
+  }
+
+  [data-theme="dark"] .user-avatar {
+    background: #f5f5f5;
+    border-color: #000000;
+    color: #000000;
+  }
+
+  [data-theme="dark"] .user-btn:hover .user-avatar {
+    border-color: #333333;
+  }
+
+  .user-avatar svg {
+    width: 20px;
+    height: 20px;
+  }
+</style>
+
+<script>
+  import { getCurrentUser, onAuthStateChange, isSupabaseConfigured } from '../lib/auth';
+
+  const loginBtn = document.getElementById('login-btn');
+  const userBtn = document.getElementById('user-btn');
+
+  async function updateAuthUI() {
+    if (!isSupabaseConfigured()) {
+      // Show login button when not configured
+      if (loginBtn) loginBtn.style.display = 'flex';
+      if (userBtn) userBtn.style.display = 'none';
+      return;
+    }
+
+    const user = await getCurrentUser();
+
+    if (user) {
+      if (loginBtn) loginBtn.style.display = 'none';
+      if (userBtn) userBtn.style.display = 'flex';
+    } else {
+      if (loginBtn) loginBtn.style.display = 'flex';
+      if (userBtn) userBtn.style.display = 'none';
+    }
+  }
+
+  // Initial check
+  updateAuthUI();
+
+  // Listen for auth state changes
+  onAuthStateChange((user) => {
+    if (user) {
+      if (loginBtn) loginBtn.style.display = 'none';
+      if (userBtn) userBtn.style.display = 'flex';
+    } else {
+      if (loginBtn) loginBtn.style.display = 'flex';
+      if (userBtn) userBtn.style.display = 'none';
+    }
+  });
+</script>

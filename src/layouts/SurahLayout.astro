@@ -1,0 +1,107 @@
+---
+import BaseLayout from './BaseLayout.astro';
+
+interface Props {
+  name: string;
+  nameArabic: string;
+  surahNumber: number;
+  verseCount: number;
+  revelation: string;
+  description?: string;
+}
+
+const { name, nameArabic, surahNumber, verseCount, revelation, description } = Astro.props;
+---
+
+<BaseLayout title={`Surah ${name}`}>
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <!-- Breadcrumb -->
+    <nav class="text-sm mb-6" style="color: var(--text-tertiary);">
+      <a href="/" style="color: var(--text-tertiary); transition: color var(--transition-fast);" onmouseenter="this.style.color='var(--accent-primary)'" onmouseleave="this.style.color='var(--text-tertiary)'">Home</a>
+      <span class="mx-2">/</span>
+      <a href="/surahs/" style="color: var(--text-tertiary); transition: color var(--transition-fast);" onmouseenter="this.style.color='var(--accent-primary)'" onmouseleave="this.style.color='var(--text-tertiary)'">Surahs</a>
+      <span class="mx-2">/</span>
+      <span style="color: var(--text-primary);">Surah {name}</span>
+    </nav>
+
+    <!-- Surah Header -->
+    <div class="text-center mb-10">
+      <div class="inline-flex items-center gap-3 mb-4">
+        <span class="text-sm font-medium px-3 py-1 rounded-full" style="color: var(--text-tertiary); background-color: var(--bg-tertiary);">
+          Surah {surahNumber}
+        </span>
+        <span class="text-sm font-medium px-3 py-1 rounded-full capitalize" style="color: var(--accent-primary); background-color: var(--accent-primary-light);">
+          {revelation}
+        </span>
+        <span class="text-sm font-medium px-3 py-1 rounded-full" style="color: var(--text-tertiary); background-color: var(--bg-tertiary);">
+          {verseCount} verses
+        </span>
+      </div>
+      <h1 class="text-3xl font-bold" style="color: var(--text-primary);">Surah {name}</h1>
+      <p class="arabic-lg mt-2" style="color: var(--accent-gold);">{nameArabic}</p>
+      {description && (
+        <p class="mt-4 max-w-2xl mx-auto text-lg" style="color: var(--text-secondary);">{description}</p>
+      )}
+    </div>
+
+    <!-- Content -->
+    <div class="prose prose-lg max-w-none surah-content">
+      <slot />
+    </div>
+
+    <!-- Back to Surahs -->
+    <div class="mt-12 pt-8 text-center" style="border-top: 1px solid var(--border-primary);">
+      <a href="/surahs/" class="inline-flex items-center gap-2 font-medium" style="color: var(--accent-primary); transition: color var(--transition-fast);" onmouseenter="this.style.color='var(--accent-primary-hover)'" onmouseleave="this.style.color='var(--accent-primary)'">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+        </svg>
+        Back to All Surahs
+      </a>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .surah-content :global(h1),
+  .surah-content :global(h2),
+  .surah-content :global(h3),
+  .surah-content :global(h4),
+  .surah-content :global(h5),
+  .surah-content :global(h6) {
+    color: var(--text-primary);
+    font-weight: bold;
+  }
+
+  .surah-content :global(h2) {
+    font-size: 1.5rem;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border-primary);
+  }
+
+  .surah-content :global(h3) {
+    font-size: 1.25rem;
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .surah-content :global(p) {
+    color: var(--text-secondary);
+    line-height: 1.75;
+  }
+
+  .surah-content :global(a) {
+    color: var(--accent-primary);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+  }
+
+  .surah-content :global(a:hover) {
+    color: var(--accent-primary-hover);
+  }
+
+  .surah-content :global(strong) {
+    color: var(--text-primary);
+  }
+</style>
