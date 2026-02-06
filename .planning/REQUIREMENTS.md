@@ -44,12 +44,12 @@ Requirements for the Lesson Content milestone. Each maps to roadmap phases.
 
 ### Reference Resources
 
-- [ ] **RSRC-01**: Glossary — 100-150 Arabic grammar terms with bilingual definitions
-- [ ] **RSRC-02**: Verb conjugation tables — Forms I-X across tenses, persons, genders
-- [ ] **RSRC-03**: Pronoun charts — independent, attached, demonstrative, relative
-- [ ] **RSRC-04**: Case endings chart — raf'/nasb/jarr across singular/dual/plural with examples
-- [ ] **RSRC-05**: Root system guide — trilateral roots, derivation patterns, dictionary lookup strategy
-- [ ] **RSRC-06**: 200 most common Quranic words — frequency, root, meaning, example verse
+- [x] **RSRC-01**: Glossary — 100-150 Arabic grammar terms with bilingual definitions
+- [x] **RSRC-02**: Verb conjugation tables — Forms I-X across tenses, persons, genders
+- [x] **RSRC-03**: Pronoun charts — independent, attached, demonstrative, relative
+- [x] **RSRC-04**: Case endings chart — raf'/nasb/jarr across singular/dual/plural with examples
+- [x] **RSRC-05**: Root system guide — trilateral roots, derivation patterns, dictionary lookup strategy
+- [x] **RSRC-06**: 200 most common Quranic words — frequency, root, meaning, example verse
 
 ## Future Requirements
 
@@ -110,20 +110,20 @@ Which phases cover which requirements. Updated during roadmap creation.
 | LSSN-09 | Phases 12-16 | Pending |
 | LSSN-10 | Phases 12-16 | Pending |
 | LSSN-11 | Phases 10, 12-16 | In Progress (standards defined in Phase 10) |
-| PDGY-01 | Phases 11-16 | Pending |
-| PDGY-02 | Phases 11-16 | Pending |
-| PDGY-03 | Phases 10, 11-16 | In Progress (standards defined in Phase 10) |
-| PDGY-04 | Phases 11-16 | Pending |
-| PDGY-05 | Phases 11-16 | Pending |
-| PDGY-06 | Phases 10, 11-16 | In Progress (standards defined in Phase 10) |
-| PDGY-07 | Phases 11-16 | Pending |
-| PDGY-08 | Phases 11-16 | Pending |
-| RSRC-01 | Phase 11 | Pending |
-| RSRC-02 | Phase 11 | Pending |
-| RSRC-03 | Phase 11 | Pending |
-| RSRC-04 | Phase 11 | Pending |
-| RSRC-05 | Phase 11 | Pending |
-| RSRC-06 | Phase 11 | Pending |
+| PDGY-01 | Phases 11-16 | In Progress (applied in Phase 11 resources) |
+| PDGY-02 | Phases 11-16 | In Progress (applied in Phase 11 resources) |
+| PDGY-03 | Phases 10, 11-16 | In Progress (applied in Phase 11 resources) |
+| PDGY-04 | Phases 11-16 | In Progress (applied in Phase 11 resources) |
+| PDGY-05 | Phases 11-16 | In Progress (applied in Phase 11 resources) |
+| PDGY-06 | Phases 10, 11-16 | In Progress (applied in Phase 11 resources) |
+| PDGY-07 | Phases 11-16 | In Progress (applied in Phase 11 resources) |
+| PDGY-08 | Phases 11-16 | In Progress (applied in Phase 11 resources) |
+| RSRC-01 | Phase 11 | Complete |
+| RSRC-02 | Phase 11 | Complete |
+| RSRC-03 | Phase 11 | Complete |
+| RSRC-04 | Phase 11 | Complete |
+| RSRC-05 | Phase 11 | Complete |
+| RSRC-06 | Phase 11 | Complete |
 
 **Coverage:**
 - v1.1 requirements: 32 total
@@ -138,4 +138,4 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 ---
 *Requirements defined: 2026-02-06*
-*Last updated: 2026-02-06 after Phase 10 execution (LSSN-06, LSSN-07, LSSN-11, PDGY-03, PDGY-06 standards/tooling established)*
+*Last updated: 2026-02-06 after Phase 11 execution (RSRC-01 through RSRC-06 complete, PDGY-01 through PDGY-08 in progress)*
