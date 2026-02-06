@@ -86,10 +86,15 @@ Plans:
 5. Root system guide explains trilateral roots, derivation patterns, and dictionary lookup strategy
 6. 200 most common Quranic words resource lists frequency, root, meaning, and example verse
 
-**Plans:** TBD
+**Plans:** 6 plans
 
 Plans:
-- [ ] TBD during planning
+- [ ] 11-01-PLAN.md — Glossary with 100-150 bilingual grammar terms
+- [ ] 11-02-PLAN.md — Case endings chart (raf'/nasb/jarr across noun types)
+- [ ] 11-03-PLAN.md — Verb conjugation tables (Forms I-X, all tenses)
+- [ ] 11-04-PLAN.md — Pronoun charts (independent/attached/demonstrative/relative)
+- [ ] 11-05-PLAN.md — Root system guide with dictionary lookup strategy
+- [ ] 11-06-PLAN.md — 200 most common Quranic words list
 
 ---
 
