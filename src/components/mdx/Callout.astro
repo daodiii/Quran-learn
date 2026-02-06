@@ -1,0 +1,155 @@
+---
+/**
+ * Callout - Educational callout boxes for lessons
+ *
+ * Usage examples:
+ * <Callout type="rule" title="The Definite Article">
+ *   In Arabic, **al-** (ال) makes any noun definite. Unlike English, there is only one article for all genders and numbers.
+ * </Callout>
+ *
+ * <Callout type="warning">
+ *   Don't confuse the sun letters with moon letters — they affect pronunciation but not spelling.
+ * </Callout>
+ */
+
+interface Props {
+  type?: 'note' | 'tip' | 'rule' | 'warning';
+  title?: string;
+}
+
+const { type = 'note', title } = Astro.props;
+
+// Default titles for each type
+const defaultTitles: Record<string, string> = {
+  note: 'Note',
+  tip: 'Tip',
+  rule: 'Grammar Rule',
+  warning: 'Common Mistake',
+};
+
+const displayTitle = title || defaultTitles[type];
+
+// SVG icons for each type
+const icons: Record<string, string> = {
+  note: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>`,
+  tip: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M15 2a7 7 0 0 1 0 12H9a7 7 0 0 1 0-12z"/></svg>`,
+  rule: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>`,
+  warning: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>`,
+};
+---
+
+<aside class={`callout callout-${type}`} role="note">
+  <p class="callout-title">
+    <span class="callout-icon" set:html={icons[type]} />
+    <strong>{displayTitle}</strong>
+  </p>
+  <div class="callout-content">
+    <slot />
+  </div>
+</aside>
+
+<style>
+  .callout {
+    background: var(--color-background-secondary);
+    border-inline-start: 4px solid;
+    border-radius: var(--radius-md);
+    padding-block: var(--spacing-md);
+    padding-inline: var(--spacing-lg);
+    margin-block: var(--spacing-xl);
+  }
+
+  /* Type-specific border and title colors */
+  .callout-note {
+    border-color: rgba(59, 130, 246, 0.8);
+  }
+
+  .callout-note .callout-title {
+    color: rgba(59, 130, 246, 1);
+  }
+
+  .callout-tip {
+    border-color: rgba(168, 85, 247, 0.8);
+  }
+
+  .callout-tip .callout-title {
+    color: rgba(168, 85, 247, 1);
+  }
+
+  .callout-rule {
+    border-color: rgba(245, 158, 11, 0.8);
+  }
+
+  .callout-rule .callout-title {
+    color: rgba(245, 158, 11, 1);
+  }
+
+  .callout-warning {
+    border-color: rgba(239, 68, 68, 0.8);
+  }
+
+  .callout-warning .callout-title {
+    color: rgba(239, 68, 68, 1);
+  }
+
+  .callout-title {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin: 0 0 var(--spacing-sm) 0;
+  }
+
+  .callout-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    inline-size: 1rem;
+    block-size: 1rem;
+  }
+
+  .callout-icon :global(svg) {
+    inline-size: 100%;
+    block-size: 100%;
+  }
+
+  .callout-content {
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: var(--color-text-secondary);
+  }
+
+  .callout-content :global(p) {
+    margin-block-end: var(--spacing-sm);
+  }
+
+  .callout-content :global(p:last-child) {
+    margin-block-end: 0;
+  }
+
+  .callout-content :global(ul),
+  .callout-content :global(ol) {
+    margin-block-start: var(--spacing-sm);
+    margin-block-end: var(--spacing-sm);
+    padding-inline-start: var(--spacing-lg);
+  }
+
+  .callout-content :global(li) {
+    margin-block-end: 0.25rem;
+  }
+
+  .callout-content :global(strong) {
+    color: var(--color-text-primary);
+  }
+
+  .callout-content :global(code) {
+    font-size: 0.875em;
+  }
+
+  /* Ensure Arabic text inside callouts has proper letter spacing */
+  .callout-content :global([lang="ar"]) {
+    letter-spacing: 0;
+  }
+</style>
