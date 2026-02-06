@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 
 test.describe('Navigation System', () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto('/test/navigation');
+    await page.goto('/test/navigation/');
     await page.waitForLoadState('networkidle');
   });
 
@@ -22,7 +22,7 @@ test.describe('Navigation System', () => {
 
 test.describe('CourseNavigator', () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto('/test/navigation');
+    await page.goto('/test/navigation/');
     await page.waitForLoadState('networkidle');
   });
 
@@ -105,7 +105,7 @@ test.describe('CourseNavigator', () => {
 
 test.describe('Breadcrumbs', () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto('/test/navigation');
+    await page.goto('/test/navigation/');
     await page.waitForLoadState('networkidle');
   });
 
@@ -152,7 +152,7 @@ test.describe('Breadcrumbs', () => {
 
 test.describe('NavigatorToggle', () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto('/test/navigation');
+    await page.goto('/test/navigation/');
     await page.waitForLoadState('networkidle');
   });
 
@@ -197,7 +197,7 @@ test.describe('NavigatorToggle', () => {
 
 test.describe('Keyboard Navigation', () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto('/test/navigation');
+    await page.goto('/test/navigation/');
     await page.waitForLoadState('networkidle');
   });
 
@@ -284,7 +284,7 @@ test.describe('Mobile Overlay Behavior', () => {
   test.use({ viewport: { width: 375, height: 667 } });
 
   test.beforeEach(async ({ page }) => {
-    await page.goto('/test/navigation');
+    await page.goto('/test/navigation/');
     await page.waitForLoadState('networkidle');
   });
 
@@ -360,7 +360,7 @@ test.describe('Mobile Overlay Behavior', () => {
 
 test.describe('Dark Mode', () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto('/test/navigation');
+    await page.goto('/test/navigation/');
     await page.waitForLoadState('networkidle');
   });
 
@@ -400,7 +400,7 @@ test.describe('Dark Mode', () => {
 
 test.describe('Visual Regression', () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto('/test/navigation');
+    await page.goto('/test/navigation/');
     await page.waitForLoadState('networkidle');
   });
 
@@ -451,7 +451,7 @@ test.describe('Visual Regression', () => {
 
 test.describe('Accessibility', () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto('/test/navigation');
+    await page.goto('/test/navigation/');
     await page.waitForLoadState('networkidle');
   });
 
