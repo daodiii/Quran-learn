@@ -104,18 +104,18 @@ Which phases cover which requirements. Updated during roadmap creation.
 | LSSN-03 | Phase 14 | Pending |
 | LSSN-04 | Phase 15 | Pending |
 | LSSN-05 | Phase 16 | Pending |
-| LSSN-06 | Phases 10, 12-16 | Pending |
-| LSSN-07 | Phases 12-16 | Pending |
+| LSSN-06 | Phases 10, 12-16 | In Progress (standards defined in Phase 10) |
+| LSSN-07 | Phases 10, 12-16 | In Progress (validation tooling in Phase 10) |
 | LSSN-08 | Phases 12-16 | Pending |
 | LSSN-09 | Phases 12-16 | Pending |
 | LSSN-10 | Phases 12-16 | Pending |
-| LSSN-11 | Phases 10, 12-16 | Pending |
+| LSSN-11 | Phases 10, 12-16 | In Progress (standards defined in Phase 10) |
 | PDGY-01 | Phases 11-16 | Pending |
 | PDGY-02 | Phases 11-16 | Pending |
-| PDGY-03 | Phases 10, 11-16 | Pending |
+| PDGY-03 | Phases 10, 11-16 | In Progress (standards defined in Phase 10) |
 | PDGY-04 | Phases 11-16 | Pending |
 | PDGY-05 | Phases 11-16 | Pending |
-| PDGY-06 | Phases 10, 11-16 | Pending |
+| PDGY-06 | Phases 10, 11-16 | In Progress (standards defined in Phase 10) |
 | PDGY-07 | Phases 11-16 | Pending |
 | PDGY-08 | Phases 11-16 | Pending |
 | RSRC-01 | Phase 11 | Pending |
@@ -138,4 +138,4 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 ---
 *Requirements defined: 2026-02-06*
-*Last updated: 2026-02-06 after Phase 9 execution (INFRA-01 through INFRA-07 Complete)*
+*Last updated: 2026-02-06 after Phase 10 execution (LSSN-06, LSSN-07, LSSN-11, PDGY-03, PDGY-06 standards/tooling established)*
