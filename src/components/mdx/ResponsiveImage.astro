@@ -1,0 +1,54 @@
+---
+/**
+ * ResponsiveImage - Wrapper for MDX images with responsive srcset
+ *
+ * Provides automatic responsive image handling for lesson content.
+ * Falls back to standard img tag for external URLs.
+ */
+import { Picture } from 'astro:assets';
+
+interface Props {
+  src: string | ImageMetadata;
+  alt: string;
+  class?: string;
+  width?: number;
+  height?: number;
+}
+
+const { src, alt, class: className, width, height } = Astro.props;
+
+// Check if src is an external URL
+const isExternal = typeof src === 'string' && (src.startsWith('http://') || src.startsWith('https://'));
+---
+
+{isExternal ? (
+  <img
+    src={src}
+    alt={alt}
+    class:list={['responsive-image', className]}
+    width={width}
+    height={height}
+    loading="lazy"
+    decoding="async"
+  />
+) : (
+  <Picture
+    src={src}
+    alt={alt}
+    widths={[320, 640, 960, 1280]}
+    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 70ch, 960px"
+    formats={['avif', 'webp']}
+    class:list={['responsive-image', className]}
+    loading="lazy"
+    decoding="async"
+  />
+)}
+
+<style>
+  .responsive-image {
+    max-inline-size: 100%;
+    block-size: auto;
+    border-radius: var(--radius-lg);
+    margin-block: var(--space-lg);
+  }
+</style>
