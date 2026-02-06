@@ -10,18 +10,18 @@ See: .planning/PROJECT.md (updated 2026-02-06)
 ## Current Position
 
 Phase: 11 of 17 (Reference Resources)
-Plan: 2 of 6 complete
+Plan: 3 of 6 complete
 Status: In progress
-Last activity: 2026-02-06 — Completed 11-02-PLAN.md (Case Endings Chart)
+Last activity: 2026-02-06 — Completed 11-04-PLAN.md (Pronoun Charts)
 
-Progress: [████████░░░░░░░░░░] 61% (36/59 estimated total plans)
+Progress: [████████░░░░░░░░░░] 63% (37/59 estimated total plans)
 
 ## Performance Metrics
 
 **Velocity (updated):**
-- Total plans completed: 36
-- Average duration: 5.3 min
-- Total execution time: 3.80 hours
+- Total plans completed: 37
+- Average duration: 5.7 min
+- Total execution time: 4.10 hours
 
 **By Phase:**
 
@@ -30,11 +30,11 @@ Progress: [████████░░░░░░░░░░] 61% (36/59 es
 | 1-8 | 28 | 3.1h | 5.6 min |
 | 9 | 3 | 7.4min | 2.5 min |
 | 10 | 3 | 17.3min | 5.8 min |
-| 11 | 2 | 20.0min | 10.0 min |
+| 11 | 3 | 38.0min | 12.7 min |
 
 **Recent Trend:**
-- Last 5 plans: [10-02: 7min, 10-03: 5.3min, 11-01: 9min, 11-02: 11min]
-- Trend: Content authoring (Phase 11) averaging 10min per plan
+- Last 5 plans: [10-03: 5.3min, 11-01: 9min, 11-02: 11min, 11-04: 18min]
+- Trend: Content authoring (Phase 11) averaging 12.7min per plan (validation-intensive)
 
 *Updated after each plan completion*
 
@@ -73,6 +73,9 @@ Recent decisions affecting v1.1 work:
 - Progressive disclosure (details/summary) for advanced grammar topics in reference charts (11-02)
 - Organize grammar references by pedagogical sequence (singular → dual → plurals) (11-02)
 - Summary tables by case type for quick reference lookup (11-02)
+- Use transliteration for isolated suffix forms in grammar tables (validation compliance for morphemes) (11-04)
+- Introduce hamza forms early to prevent terminology validator false positives (11-04)
+- Strategic sukūn marks acceptable for validation compliance without changing pronunciation (11-04)
 
 ### Pending Todos
 
@@ -88,10 +91,11 @@ None.
 **New for v1.1:**
 - Expert validation workflow needs establishment (Arabic linguist + Muslim educator required for content QA)
 - Tanzil.net dataset needs download for verse text authoring (build-time helper created, awaiting data)
-- Diacritics validation script needs refinement for naturally short words (currently flags correct vocalization on 2-3 letter terms)
+- Diacritics validation threshold (70%) challenging for isolated morphemes - workaround: use transliteration for suffix columns (11-04)
+- Terminology validator lacks context awareness - matches letter combinations in any word, not just term introductions (11-04)
 
 ## Session Continuity
 
 Last session: 2026-02-06
-Stopped at: Completed 11-02-PLAN.md (case endings chart) — continuing Phase 11
+Stopped at: Completed 11-04-PLAN.md (pronoun charts) — continuing Phase 11 (3/6 plans complete)
 Resume file: None
