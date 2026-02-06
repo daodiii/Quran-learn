@@ -291,6 +291,8 @@
   html {
     scroll-behavior: smooth;
     color-scheme: light;
+    -webkit-text-size-adjust: 100%; /* Prevent iOS Safari font inflation on landscape */
+    text-size-adjust: 100%; /* Standard property for future compatibility */
   }
 
   html[data-theme="dark"] {
@@ -420,12 +422,23 @@
     }
   }
 
-  /* Touch-friendly tap targets on mobile */
+  /* Touch-friendly tap targets on mobile (WCAG 2.5.8 minimum 24px, iOS HIG 44px) */
   @media (pointer: coarse) {
     button,
     a,
-    .quiz-option {
-      min-height: 44px;
+    .quiz-option,
+    input[type="checkbox"],
+    input[type="radio"],
+    select {
+      min-block-size: 44px;
+      min-inline-size: 44px;
+    }
+
+    /* Ensure adequate spacing between adjacent touch targets */
+    .quiz-option + .quiz-option,
+    .nav-link + .nav-link,
+    .btn + .btn {
+      margin-block-start: 8px;
     }
   }
 }
