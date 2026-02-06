@@ -20,10 +20,10 @@ tech-stack:
   patterns: [reading-width-constraint, dynamic-navigation-links]
 
 key-files:
-  created: []
+  created:
+    - src/pages/learn/[...slug].astro
   modified:
     - src/layouts/LessonLayout.astro
-    - src/pages/learn/[...slug].astro
 
 key-decisions:
   - "70ch max-inline-size for optimal reading comprehension"
@@ -62,12 +62,12 @@ completed: 2026-02-06
 Each task was committed atomically:
 
 1. **Task 1: Add Reading Width Constraints to LessonLayout** - `7524933` (feat)
-2. **Task 2: Add Previous/Next Lesson Navigation** - `f0c5cd3` (feat)
+2. **Task 2: Add Previous/Next Lesson Navigation** - `7578eb4` (feat)
 3. **Task 3: Add Mark Complete Button and Floating Navigator** - `15f23cb` (feat)
 
 ## Files Created/Modified
 - `src/layouts/LessonLayout.astro` - Added 70ch max-inline-size, centered article layout, 17px content font-size, increased desktop padding
-- `src/pages/learn/[...slug].astro` - Dynamic prev/next computation from sorted lesson collection with frontmatter fallback
+- `src/pages/learn/[...slug].astro` (created) - Dynamic prev/next computation from sorted lesson collection with frontmatter fallback
 
 ## Decisions Made
 
