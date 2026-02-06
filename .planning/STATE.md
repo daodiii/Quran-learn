@@ -10,18 +10,18 @@ See: .planning/PROJECT.md (updated 2026-02-06)
 ## Current Position
 
 Phase: 10 of 17 (Curriculum Planning & Standards)
-Plan: 1 of 3 complete
+Plan: 2 of 3 complete
 Status: In progress
-Last activity: 2026-02-06 — Completed 10-01-PLAN.md
+Last activity: 2026-02-06 — Completed 10-02-PLAN.md
 
-Progress: [████████░░░░░░░░░░] 54% (32/59 estimated total plans)
+Progress: [████████░░░░░░░░░░] 56% (33/59 estimated total plans)
 
 ## Performance Metrics
 
 **Velocity (updated):**
-- Total plans completed: 32
-- Average duration: 5.3 min
-- Total execution time: 3.25 hours
+- Total plans completed: 33
+- Average duration: 5.2 min
+- Total execution time: 3.37 hours
 
 **By Phase:**
 
@@ -29,11 +29,11 @@ Progress: [████████░░░░░░░░░░] 54% (32/59 es
 |-------|-------|-------|----------|
 | 1-8 | 28 | 3.1h | 5.6 min |
 | 9 | 3 | 7.4min | 2.5 min |
-| 10 | 1 | 5min | 5.0 min |
+| 10 | 2 | 12min | 6.0 min |
 
 **Recent Trend:**
-- Last 5 plans: [09-01: 3min, 09-02: 2min, 09-03: 2.4min, 10-01: 5min]
-- Trend: Stable, recent plans averaging 3.1min
+- Last 5 plans: [09-02: 2min, 09-03: 2.4min, 10-01: 5min, 10-02: 7min]
+- Trend: Stable, recent plans averaging 4.1min
 
 *Updated after each plan completion*
 
@@ -58,6 +58,12 @@ Recent decisions affecting v1.1 work:
 - 73 lessons across 5 levels following classical nahw/sarf pedagogy (10-01)
 - Progressive transliteration reduction: full (L1) → balanced (L2) → partial (L3) → minimal (L4-5) (10-01)
 - Lesson ID format: L{level}.{order} with forward-only prerequisite dependencies (10-01)
+- Use simplified ALA-LC transliteration (reader-friendly, not linguistic precision) (10-02)
+- Graduated transliteration rules by level (full→partial→minimal) (10-02)
+- Every Arabic letter must have tashkeel (validation enforced) (10-02)
+- Verse reference format: [Surah Name Chapter:Verse] (10-02)
+- First-mention bilingual format for all grammar terms (10-02)
+- letter-spacing: 0 for all Arabic text (prevents disconnection) (10-02)
 
 ### Pending Todos
 
@@ -77,5 +83,5 @@ None.
 ## Session Continuity
 
 Last session: 2026-02-06
-Stopped at: Completed 10-01-PLAN.md — curriculum map with 73 lessons defined
+Stopped at: Completed 10-02-PLAN.md — bilingual terminology standards and lesson style guide
 Resume file: None
