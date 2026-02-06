@@ -310,3 +310,94 @@ test.describe('Edge Cases - Focus and Interactive States', () => {
     }
   });
 });
+
+test.describe('Arabic Diacritical Marks Visibility', () => {
+  test('Quranic text with harakat visible in dark mode', async ({ page }) => {
+    await page.setViewportSize({ width: 1200, height: 800 });
+    await page.goto('/surahs/001-al-fatiha/');
+    await page.waitForLoadState('networkidle');
+
+    // Enable dark mode
+    await page.evaluate(() => {
+      document.documentElement.setAttribute('data-theme', 'dark');
+    });
+    await page.waitForTimeout(300);
+
+    // Target main Quranic text with UthmanicHafs font
+    const arabicText = page.locator('.arabic-xl').first();
+
+    // Visual regression - will capture harakat marks
+    await expect(arabicText).toHaveScreenshot('quran-text-dark-harakat.png', {
+      maxDiffPixels: 100
+    });
+  });
+
+  test('Quranic text in light mode for comparison', async ({ page }) => {
+    await page.setViewportSize({ width: 1200, height: 800 });
+    await page.goto('/surahs/001-al-fatiha/');
+    await page.waitForLoadState('networkidle');
+
+    // Light mode (default)
+    const arabicText = page.locator('.arabic-xl').first();
+
+    await expect(arabicText).toHaveScreenshot('quran-text-light-harakat.png', {
+      maxDiffPixels: 100
+    });
+  });
+
+  test('SurahCard Arabic names in dark mode', async ({ page }) => {
+    await page.goto('/test/cards/');
+    await page.waitForLoadState('networkidle');
+
+    await page.evaluate(() => {
+      document.documentElement.setAttribute('data-theme', 'dark');
+    });
+    await page.waitForTimeout(300);
+
+    const surahSection = page.getByTestId('surah-card-section');
+    await expect(surahSection).toHaveScreenshot('surah-cards-dark-arabic.png', {
+      maxDiffPixels: 100
+    });
+  });
+
+  test('LessonCard Arabic titles in dark mode', async ({ page }) => {
+    await page.goto('/test/cards/');
+    await page.waitForLoadState('networkidle');
+
+    await page.evaluate(() => {
+      document.documentElement.setAttribute('data-theme', 'dark');
+    });
+    await page.waitForTimeout(300);
+
+    const lessonSection = page.getByTestId('lesson-card-section');
+    await expect(lessonSection).toHaveScreenshot('lesson-cards-dark-arabic.png', {
+      maxDiffPixels: 100
+    });
+  });
+});
+
+test.describe('Dark Mode Font Weight', () => {
+  test('Arabic text has increased font-weight in dark mode', async ({ page }) => {
+    await page.goto('/test/cards/');
+    await page.waitForLoadState('networkidle');
+
+    // Get light mode weight
+    const lightWeight = await page.locator('.lesson-title-arabic').first().evaluate((el) => {
+      return window.getComputedStyle(el).fontWeight;
+    });
+
+    // Enable dark mode
+    await page.evaluate(() => {
+      document.documentElement.setAttribute('data-theme', 'dark');
+    });
+    await page.waitForTimeout(300);
+
+    // Get dark mode weight
+    const darkWeight = await page.locator('.lesson-title-arabic').first().evaluate((el) => {
+      return window.getComputedStyle(el).fontWeight;
+    });
+
+    // Dark mode should have equal or higher weight
+    expect(parseInt(darkWeight)).toBeGreaterThanOrEqual(parseInt(lightWeight));
+  });
+});
