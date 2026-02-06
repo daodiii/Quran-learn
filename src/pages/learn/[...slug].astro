@@ -1,6 +1,7 @@
 ---
 import { getCollection, render } from 'astro:content';
 import LessonLayout from '../../layouts/LessonLayout.astro';
+import ResponsiveImage from '../../components/mdx/ResponsiveImage.astro';
 
 export async function getStaticPaths() {
   const lessons = await getCollection('lessons');
@@ -42,5 +43,5 @@ const { Content } = await render(lesson);
   nextLesson={computedNextLesson}
   prevLesson={computedPrevLesson}
 >
-  <Content />
+  <Content components={{ img: ResponsiveImage }} />
 </LessonLayout>
