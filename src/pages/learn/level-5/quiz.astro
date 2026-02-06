@@ -1,0 +1,99 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Container from '../../../components/primitives/Container.astro';
+import Quiz from '../../../components/Quiz.astro';
+
+const questions = [
+  {
+    id: 1,
+    question: "In Surah Al-Fatiha, what is the grammatical function of 'الحمدُ' (al-hamdu)?",
+    options: ["Fa'il (subject)", "Mubtada (topic)", "Khabar (predicate)", "Maf'ul (object)"],
+    correctAnswer: 1,
+    explanation: "'الحمدُ' is the Mubtada (topic/subject) of the nominal sentence, in Marfu' case."
+  },
+  {
+    id: 2,
+    question: "What verb form is 'استغفر' (istaghfara - to seek forgiveness)?",
+    options: ["Form I", "Form IV", "Form VIII", "Form X"],
+    correctAnswer: 3,
+    explanation: "'استغفر' follows Form X pattern (استفعل) which often means 'to seek' or 'to ask for' something."
+  },
+  {
+    id: 3,
+    question: "The phrase 'بِسْمِ اللهِ' begins with which preposition?",
+    options: ["بِ (with/by)", "لِ (for)", "في (in)", "من (from)"],
+    correctAnswer: 0,
+    explanation: "'بِسْمِ' contains the preposition بِ (with/by/in), followed by 'اسم' in Idafah construction."
+  },
+  {
+    id: 4,
+    question: "In 'الرَّحْمٰنِ الرَّحِيمِ', both words are in which case?",
+    options: ["Marfu'", "Mansub", "Majrur", "Mabni"],
+    correctAnswer: 2,
+    explanation: "Both are adjectives describing Allah in Majrur case (Kasra), following the Majrur noun in the Idafah."
+  },
+  {
+    id: 5,
+    question: "What grammatical pattern is 'رَحْمٰن' (Most Merciful)?",
+    options: ["فَعِيل", "فَعَّال", "فَعْلان", "أَفْعَل"],
+    correctAnswer: 2,
+    explanation: "'رَحْمٰن' follows the فَعْلان pattern, indicating intensity and fullness of the quality."
+  },
+  {
+    id: 6,
+    question: "In Quranic Arabic, when يا is used for calling, the following noun is in which case?",
+    options: ["Always Marfu'", "Always Mansub", "Either Marfu' or Mansub", "Always Majrur"],
+    correctAnswer: 1,
+    explanation: "The vocative particle يا causes the following noun (Munada) to be in Mansub case in most contexts."
+  },
+  {
+    id: 7,
+    question: "The word 'قُرْآن' is derived from which verb root?",
+    options: ["ق ر ب (q-r-b)", "ق ر أ (q-r-')", "ق و م (q-w-m)", "ق د س (q-d-s)"],
+    correctAnswer: 1,
+    explanation: "'قُرْآن' comes from the root ق ر أ (q-r-') meaning 'to read/recite'."
+  },
+  {
+    id: 8,
+    question: "What is the علامة (sign/marker) of a sound masculine plural in Marfu' case?",
+    options: ["ون (wun)", "ين (in)", "ات (at)", "و (u)"],
+    correctAnswer: 0,
+    explanation: "Sound masculine plural takes ون (wun) in Marfu' case and ين (in) in Mansub/Majrur cases."
+  },
+  {
+    id: 9,
+    question: "The construction 'إِيَّاكَ نَعْبُدُ' demonstrates which grammatical feature?",
+    options: [
+      "Normal word order",
+      "Fronting object for emphasis",
+      "Passive voice",
+      "Dual form"
+    ],
+    correctAnswer: 1,
+    explanation: "'إِيَّاكَ' (You alone) is fronted before the verb 'نَعْبُدُ' (we worship) for emphasis and restriction."
+  },
+  {
+    id: 10,
+    question: "What is the primary function of the particle 'قَد' before a past tense verb?",
+    options: [
+      "Makes it future tense",
+      "Emphasizes completion/certainty",
+      "Makes it passive",
+      "Negates it"
+    ],
+    correctAnswer: 1,
+    explanation: "'قَد' before a past tense verb emphasizes that the action has been completed or adds certainty to it."
+  }
+];
+---
+
+<BaseLayout title="Level 5 Quiz - Applied Study">
+  <Container maxWidth="lg">
+    <Quiz
+      title="Level 5 Quiz: Applied Quranic Study"
+      questions={questions}
+      passingScore={70}
+      level={5}
+    />
+  </Container>
+</BaseLayout>

@@ -1,0 +1,94 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Container from '../../../components/primitives/Container.astro';
+import Quiz from '../../../components/Quiz.astro';
+
+const questions = [
+  {
+    id: 1,
+    question: "What are the three I'rab cases in Arabic?",
+    options: ["Marfu', Mansub, Majrur", "Fatha, Kasra, Damma", "Mubtada, Khabar, Fa'il", "Ism, Fi'l, Harf"],
+    correctAnswer: 0,
+    explanation: "The three I'rab cases are Marfu' (nominative), Mansub (accusative), and Majrur (genitive)."
+  },
+  {
+    id: 2,
+    question: "What case marker indicates Marfu' for singular nouns?",
+    options: ["Fatha", "Kasra", "Damma", "Sukun"],
+    correctAnswer: 2,
+    explanation: "Damma (ُ) indicates the Marfu' (nominative) case for singular nouns."
+  },
+  {
+    id: 3,
+    question: "What is Idafah (إضافة)?",
+    options: [
+      "A possessive construction",
+      "A verb conjugation",
+      "A sentence type",
+      "A plural form"
+    ],
+    correctAnswer: 0,
+    explanation: "Idafah is a possessive/genitive construction where two or more nouns are linked."
+  },
+  {
+    id: 4,
+    question: "In an Idafah construction, what case is the second noun (المضاف إليه)?",
+    options: ["Marfu'", "Mansub", "Majrur", "Mabni"],
+    correctAnswer: 2,
+    explanation: "The second noun (Mudaf Ilayh) in an Idafah is always in the Majrur (genitive) case."
+  },
+  {
+    id: 5,
+    question: "What is the Fa'il (فاعل)?",
+    options: ["The verb", "The subject/doer", "The object", "The predicate"],
+    correctAnswer: 1,
+    explanation: "Fa'il is the subject or doer of the verb in a verbal sentence."
+  },
+  {
+    id: 6,
+    question: "What case is the Fa'il always in?",
+    options: ["Marfu'", "Mansub", "Majrur", "Mabni"],
+    correctAnswer: 0,
+    explanation: "The Fa'il (subject) is always in the Marfu' (nominative) case."
+  },
+  {
+    id: 7,
+    question: "What is the Maf'ul Bihi (مفعول به)?",
+    options: ["The subject", "The direct object", "The predicate", "The verb"],
+    correctAnswer: 1,
+    explanation: "Maf'ul Bihi is the direct object that receives the action of the verb."
+  },
+  {
+    id: 8,
+    question: "What case is the Maf'ul Bihi in?",
+    options: ["Marfu'", "Mansub", "Majrur", "Mabni"],
+    correctAnswer: 1,
+    explanation: "The Maf'ul Bihi (direct object) is in the Mansub (accusative) case."
+  },
+  {
+    id: 9,
+    question: "In a Nominal Sentence, what case is the Mubtada (المبتدأ) in?",
+    options: ["Marfu'", "Mansub", "Majrur", "Mabni"],
+    correctAnswer: 0,
+    explanation: "The Mubtada (subject of nominal sentence) is in the Marfu' (nominative) case."
+  },
+  {
+    id: 10,
+    question: "What preposition (Harf Jarr) is used to indicate possession 'of' or 'for'?",
+    options: ["في (fi)", "من (min)", "لِ (li)", "إلى (ila)"],
+    correctAnswer: 2,
+    explanation: "The preposition لِ (li) indicates possession, meaning 'of' or 'for'."
+  }
+];
+---
+
+<BaseLayout title="Level 2 Quiz - Core Grammar">
+  <Container maxWidth="lg">
+    <Quiz
+      title="Level 2 Quiz: Core Grammar"
+      questions={questions}
+      passingScore={70}
+      level={2}
+    />
+  </Container>
+</BaseLayout>

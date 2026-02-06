@@ -1,0 +1,124 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Container from '../../../components/primitives/Container.astro';
+import Quiz from '../../../components/Quiz.astro';
+
+const questions = [
+  {
+    id: 1,
+    question: "What is the conditional particle 'if' in Arabic?",
+    options: ["لو (law)", "إن (in)", "إذا (idha)", "All of the above"],
+    correctAnswer: 3,
+    explanation: "Arabic has multiple conditional particles: إن (general condition), إذا (when/if with certainty), لو (contrary to fact)."
+  },
+  {
+    id: 2,
+    question: "What is the difference between إن (in) and إذا (idha)?",
+    options: [
+      "No difference",
+      "إن for uncertain, إذا for certain/likely conditions",
+      "إذا for past only",
+      "إن for present only"
+    ],
+    correctAnswer: 1,
+    explanation: "إن expresses uncertain conditions ('if'), while إذا expresses more certain or likely conditions ('when/if')."
+  },
+  {
+    id: 3,
+    question: "What particle is used for exception (meaning 'except')?",
+    options: ["لكن (laakin)", "إلا (illa)", "بل (bal)", "لولا (lawla)"],
+    correctAnswer: 1,
+    explanation: "إلا (illa) means 'except' and is the primary exception particle."
+  },
+  {
+    id: 4,
+    question: "What is Maf'ul Mutlaq (المفعول المطلق)?",
+    options: [
+      "Direct object",
+      "Absolute/cognate object (same root as verb)",
+      "Object of time",
+      "Object of place"
+    ],
+    correctAnswer: 1,
+    explanation: "Maf'ul Mutlaq is a verbal noun (masdar) from the same root as the verb, used to emphasize or describe the action."
+  },
+  {
+    id: 5,
+    question: "What is Maf'ul Fih (المفعول فيه)?",
+    options: [
+      "Object of time or place",
+      "Direct object",
+      "Indirect object",
+      "Object of purpose"
+    ],
+    correctAnswer: 0,
+    explanation: "Maf'ul Fih is the adverbial object indicating time (Zarf Zaman) or place (Zarf Makan)."
+  },
+  {
+    id: 6,
+    question: "What is Maf'ul Li-Ajlihi (المفعول لأجله)?",
+    options: [
+      "Object of result",
+      "Object of purpose/reason",
+      "Object of manner",
+      "Object of accompaniment"
+    ],
+    correctAnswer: 1,
+    explanation: "Maf'ul Li-Ajlihi indicates the reason or purpose for which an action is done."
+  },
+  {
+    id: 7,
+    question: "What is Maf'ul Ma'ahu (المفعول معه)?",
+    options: [
+      "Object of time",
+      "Object of accompaniment (with)",
+      "Direct object",
+      "Object of place"
+    ],
+    correctAnswer: 1,
+    explanation: "Maf'ul Ma'ahu indicates accompaniment, usually preceded by واو (waw) meaning 'with' or 'along with'."
+  },
+  {
+    id: 8,
+    question: "What grammatical term refers to the subject of a passive verb?",
+    options: ["Fa'il", "Naib al-Fa'il", "Maf'ul Bihi", "Mubtada"],
+    correctAnswer: 1,
+    explanation: "Naib al-Fa'il (نائب الفاعل) is the 'deputy subject' - the object that takes the place of the omitted Fa'il in passive voice."
+  },
+  {
+    id: 9,
+    question: "What is التمييز (at-Tamyiz)?",
+    options: [
+      "The direct object",
+      "The specification/clarification",
+      "The predicate",
+      "The adjective"
+    ],
+    correctAnswer: 1,
+    explanation: "Tamyiz is a noun in the Mansub case that clarifies or specifies an ambiguous noun or number."
+  },
+  {
+    id: 10,
+    question: "What is الحال (al-Haal)?",
+    options: [
+      "The subject",
+      "The circumstantial noun (describes state/manner)",
+      "The predicate",
+      "The object"
+    ],
+    correctAnswer: 1,
+    explanation: "Haal is a noun in Mansub case describing the state or manner in which an action occurs (often translated with '-ly' adverbs or 'while')."
+  }
+];
+---
+
+<BaseLayout title="Level 4 Quiz - Advanced">
+  <Container maxWidth="lg">
+    <Quiz
+      title="Level 4 Quiz: Advanced Grammar"
+      questions={questions}
+      passingScore={70}
+      level={4}
+    />
+  </Container>
+</BaseLayout>

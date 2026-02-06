@@ -1,0 +1,119 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Container from '../../../components/primitives/Container.astro';
+import Quiz from '../../../components/Quiz.astro';
+
+const questions = [
+  {
+    id: 1,
+    question: "How many verb forms (awzan) are there in Arabic?",
+    options: ["5 forms", "8 forms", "10 forms", "15 forms"],
+    correctAnswer: 2,
+    explanation: "There are 10 main verb forms (Form I through Form X) in Arabic, each with distinct meanings."
+  },
+  {
+    id: 2,
+    question: "What is Form I verb typically used for?",
+    options: [
+      "Causative meaning",
+      "Basic/simple action",
+      "Reflexive meaning",
+      "Reciprocal meaning"
+    ],
+    correctAnswer: 1,
+    explanation: "Form I (فَعَلَ) represents the basic, simple action without added meanings."
+  },
+  {
+    id: 3,
+    question: "What meaning does Form II typically add?",
+    options: [
+      "Intensive or causative",
+      "Reflexive",
+      "Passive",
+      "Reciprocal"
+    ],
+    correctAnswer: 0,
+    explanation: "Form II (فَعَّلَ) typically indicates intensification or causation of the basic action."
+  },
+  {
+    id: 4,
+    question: "What does the particle إنَّ (inna) do to a nominal sentence?",
+    options: [
+      "Makes the Mubtada Marfu'",
+      "Makes the Mubtada Mansub",
+      "Makes the Khabar Majrur",
+      "Has no effect"
+    ],
+    correctAnswer: 1,
+    explanation: "إنَّ (inna) and its sisters cause the Mubtada to become Mansub (called Ism Inna)."
+  },
+  {
+    id: 5,
+    question: "How many 'sisters of inna' are there?",
+    options: ["3 particles", "5 particles", "6 particles", "8 particles"],
+    correctAnswer: 2,
+    explanation: "There are 6 particles: إنَّ، أنَّ، كأنَّ، لكنَّ، ليتَ، لعلَّ"
+  },
+  {
+    id: 6,
+    question: "What does the particle كانَ (kaana) do to a nominal sentence?",
+    options: [
+      "Makes both Mubtada and Khabar Marfu'",
+      "Makes Mubtada Marfu' and Khabar Mansub",
+      "Makes both Mansub",
+      "Has no effect"
+    ],
+    correctAnswer: 1,
+    explanation: "كانَ (kaana) keeps the Mubtada (Ism Kaana) Marfu' but makes the Khabar (Khabar Kaana) Mansub."
+  },
+  {
+    id: 7,
+    question: "What is the passive voice called in Arabic grammar?",
+    options: ["المبني للمعلوم", "المبني للمجهول", "المضارع", "الماضي"],
+    correctAnswer: 1,
+    explanation: "Passive voice is المبني للمجهول (Al-Mabni lil-Majhul), literally 'built for the unknown'."
+  },
+  {
+    id: 8,
+    question: "In passive voice, what happens to the Fa'il (subject)?",
+    options: [
+      "It remains unchanged",
+      "It becomes Mansub",
+      "It is omitted",
+      "It becomes Majrur"
+    ],
+    correctAnswer: 2,
+    explanation: "In passive voice, the Fa'il (agent/doer) is omitted, and the object becomes the Naib Fa'il (deputy subject)."
+  },
+  {
+    id: 9,
+    question: "What is the pattern for Form III verb?",
+    options: ["فَعَلَ", "فَعَّلَ", "فَاعَلَ", "أَفْعَلَ"],
+    correctAnswer: 2,
+    explanation: "Form III follows the pattern فَاعَلَ (faa'ala) and often indicates attempting or directing action toward someone."
+  },
+  {
+    id: 10,
+    question: "How is the passive voice formed in past tense (Form I)?",
+    options: [
+      "Change first vowel to Kasra, second to Fatha",
+      "Change first vowel to Damma, second to Kasra",
+      "Change both vowels to Damma",
+      "Change both vowels to Fatha"
+    ],
+    correctAnswer: 1,
+    explanation: "Passive past tense: change فَعَلَ to فُعِلَ (first vowel Damma, second Kasra)."
+  }
+];
+---
+
+<BaseLayout title="Level 3 Quiz - Intermediate">
+  <Container maxWidth="lg">
+    <Quiz
+      title="Level 3 Quiz: Intermediate Grammar"
+      questions={questions}
+      passingScore={70}
+      level={3}
+    />
+  </Container>
+</BaseLayout>

@@ -1,0 +1,94 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Container from '../../../components/primitives/Container.astro';
+import Quiz from '../../../components/Quiz.astro';
+
+const questions = [
+  {
+    id: 1,
+    question: "How many letters are in the Arabic alphabet?",
+    options: ["26 letters", "28 letters", "30 letters", "32 letters"],
+    correctAnswer: 1,
+    explanation: "The Arabic alphabet consists of 28 letters."
+  },
+  {
+    id: 2,
+    question: "What are the three short vowels (harakat) in Arabic?",
+    options: ["Fatha, Kasra, Damma", "Alif, Waw, Ya", "Sukun, Shadda, Tanwin", "Noon, Meem, Lam"],
+    correctAnswer: 0,
+    explanation: "Fatha (َ), Kasra (ِ), and Damma (ُ) are the three short vowels."
+  },
+  {
+    id: 3,
+    question: "What does a Sukun (ْ) indicate?",
+    options: ["A long vowel", "No vowel/silence", "Doubled consonant", "Nasalization"],
+    correctAnswer: 1,
+    explanation: "Sukun indicates the absence of a vowel after a letter."
+  },
+  {
+    id: 4,
+    question: "What is a Shadda (ّ)?",
+    options: ["A long vowel marker", "A doubled consonant marker", "A pause marker", "A stress marker"],
+    correctAnswer: 1,
+    explanation: "Shadda indicates that a consonant is doubled (geminated)."
+  },
+  {
+    id: 5,
+    question: "What are the two main types of sentences in Arabic?",
+    options: ["Past and Present", "Nominal and Verbal", "Active and Passive", "Simple and Complex"],
+    correctAnswer: 1,
+    explanation: "Arabic sentences are classified as Nominal (Jumlah Ismiyyah) or Verbal (Jumlah Fi'liyyah)."
+  },
+  {
+    id: 6,
+    question: "What does Tanwin (nunation) add to a word?",
+    options: ["The sound 'n'", "The sound 'm'", "The sound 'l'", "The sound 'h'"],
+    correctAnswer: 0,
+    explanation: "Tanwin adds an 'n' sound at the end of a noun, indicated by double vowel marks."
+  },
+  {
+    id: 7,
+    question: "Which letters are called 'Sun Letters' (Huruf Shamsiyyah)?",
+    options: [
+      "Letters that assimilate the 'L' of 'Al'",
+      "Letters that keep the 'L' of 'Al'",
+      "Letters that come at the beginning",
+      "Letters written in the sun"
+    ],
+    correctAnswer: 0,
+    explanation: "Sun letters assimilate the 'L' of the definite article 'Al-', making it silent."
+  },
+  {
+    id: 8,
+    question: "What is the basic word order of a Nominal Sentence?",
+    options: ["Verb-Subject-Object", "Subject-Verb-Object", "Subject-Predicate", "Predicate-Subject"],
+    correctAnswer: 2,
+    explanation: "A Nominal Sentence (Jumlah Ismiyyah) begins with a Subject (Mubtada) followed by a Predicate (Khabar)."
+  },
+  {
+    id: 9,
+    question: "What is the basic word order of a Verbal Sentence?",
+    options: ["Subject-Verb-Object", "Verb-Subject-Object", "Object-Verb-Subject", "Verb-Object-Subject"],
+    correctAnswer: 1,
+    explanation: "A Verbal Sentence (Jumlah Fi'liyyah) begins with a Verb, followed by Subject, then Object (if any)."
+  },
+  {
+    id: 10,
+    question: "What are the three long vowels in Arabic?",
+    options: ["Fatha, Kasra, Damma", "Alif, Waw, Ya", "Sukun, Shadda, Tanwin", "Noon, Meem, Lam"],
+    correctAnswer: 1,
+    explanation: "The three long vowels are Alif (ا) for 'aa', Waw (و) for 'oo', and Ya (ي) for 'ee'."
+  }
+];
+---
+
+<BaseLayout title="Level 1 Quiz - Foundation">
+  <Container maxWidth="lg">
+    <Quiz
+      title="Level 1 Quiz: Foundation"
+      questions={questions}
+      passingScore={70}
+      level={1}
+    />
+  </Container>
+</BaseLayout>
