@@ -11,17 +11,17 @@ See: .planning/PROJECT.md (updated 2026-02-05)
 
 Phase: 6 of 8 (Page Redesigns)
 Plan: 5 of 6 in current phase
-Status: In progress - Completed 06-05-PLAN.md (Resources Page Redesign)
-Last activity: 2026-02-06 - Completed 06-05-PLAN.md (Resources Page Redesign)
+Status: In progress - Completed 06-01-PLAN.md (Homepage Redesign - retroactive documentation)
+Last activity: 2026-02-06 - Documented 06-01-PLAN.md (Homepage Redesign)
 
 Progress: [███████████████░] 97.2%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 18
-- Average duration: 6.4 min
-- Total execution time: 2.08 hours
+- Total plans completed: 19
+- Average duration: 6.5 min
+- Total execution time: 2.25 hours
 
 **By Phase:**
 
@@ -32,11 +32,11 @@ Progress: [███████████████░] 97.2%
 | 03-card-components-arabic-typography | 2 | 16min | 8.0min |
 | 04-dark-mode-polish | 2 | 40min | 20.0min |
 | 05-navigation-system | 4 | 29min | 7.3min |
-| 06-page-redesigns | 4 | 22min | 5.5min |
+| 06-page-redesigns | 5 | 33min | 6.6min |
 
 **Recent Trend:**
-- Last 5 plans: 06-02 (5min), 06-03 (2min), 06-04 (6min), 06-05 (9min)
-- Trend: Phase 6 efficient with content collection setup adding time
+- Last 5 plans: 06-02 (5min), 06-03 (2min), 06-04 (6min), 06-05 (9min), 06-01 (11min - retroactive)
+- Trend: Phase 6 efficient, homepage documentation took longer due to retroactive analysis
 
 *Updated after each plan completion*
 
@@ -112,6 +112,10 @@ Recent decisions affecting current work:
 - **[05-04]** Test page URLs require trailing slash due to Astro trailingSlash: 'always' config
 - **[05-04]** Visual regression baselines at 1280x1024 (desktop) and 375x667 (mobile)
 - **[05-04]** Navigation test partial pass rate acceptable (19/35) due to JS context limitations
+- **[06-01]** Homepage stats display actual lesson count from getCollection (73 lessons, not hardcoded)
+- **[06-01]** Progress tracking uses localStorage only (no Supabase sync for MVP)
+- **[06-01]** Featured courses show first 3 levels only (cleaner hierarchy, encourages sequential learning)
+- **[06-01]** Hero gradient (#0D7377 to #1E3A5F) works identically in light/dark mode (self-contained dark background)
 - **[06-02]** Used astro:page-load instead of DOMContentLoaded for view transitions support
 - **[06-02]** Progress tracking via localStorage only (Supabase sync deferred to Phase 7)
 - **[06-02]** Lessons always visible (no accordion/toggle - simpler UX per plan)
@@ -253,12 +257,15 @@ Phase 6 (Page Redesigns) in progress - 5 of 6 plans completed:
 
 | Plan | Name | Duration | Commit |
 |------|------|----------|--------|
+| 06-01 | Homepage Redesign | 11min | f253af5 |
 | 06-02 | Learn Dashboard Redesign | 5min | bd16236 |
 | 06-03 | Lesson Reading Optimization | 2min | 15f23cb |
 | 06-04 | Surah Selector Page Redesign | 6min | ed94076 |
 | 06-05 | Resources Page Redesign | 9min | e08c7ad |
 
 **Current Deliverables:**
+- Homepage with hero section, featured CourseCards, and SurahCards
+- localStorage-based progress tracking utility (isLessonComplete, markLessonComplete)
 - Card-based learn dashboard with level overview and progress tracking
 - Reading-optimized lesson layout with 70ch content width
 - Card-based surah selector with difficulty grouping and quick navigation
@@ -272,6 +279,6 @@ Phase 6 (Page Redesigns) in progress - 5 of 6 plans completed:
 
 ## Session Continuity
 
-Last session: 2026-02-06T03:18:33Z
-Stopped at: Completed 06-05-PLAN.md (Resources Page Redesign)
+Last session: 2026-02-06T04:21:36Z
+Stopped at: Documented 06-01-PLAN.md (Homepage Redesign - retroactive SUMMARY creation)
 Resume file: None
