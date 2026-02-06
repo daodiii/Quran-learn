@@ -10,18 +10,18 @@ See: .planning/PROJECT.md (updated 2026-02-05)
 ## Current Position
 
 Phase: 8 of 8 (Performance & Accessibility)
-Plan: 1 of 2 in current phase
-Status: In progress
-Last activity: 2026-02-06 - Completed 08-01-PLAN.md (Font Preloading & ARIA Live Regions)
+Plan: 2 of 2 in current phase
+Status: Phase complete
+Last activity: 2026-02-06 - Completed 08-02-PLAN.md (Capacitor Splash Screen & Bundle Verification)
 
-Progress: [█████████████████] 125%
+Progress: [████████████████████] 100%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 25
-- Average duration: 5.4 min
-- Total execution time: 2.7 hours
+- Total plans completed: 26
+- Average duration: 5.2 min
+- Total execution time: 2.8 hours
 
 **By Phase:**
 
@@ -34,11 +34,11 @@ Progress: [█████████████████] 125%
 | 05-navigation-system | 4 | 29min | 7.3min |
 | 06-page-redesigns | 6 | 37min | 6.2min |
 | 07-mobile-optimization | 4 | 11min | 2.8min |
-| 08-performance-accessibility | 1 | 3min | 3.0min |
+| 08-performance-accessibility | 2 | 5min | 2.5min |
 
 **Recent Trend:**
-- Last 5 plans: 07-01 (2min), 07-02 (2min), 07-03 (2min), 07-04 (5min), 08-01 (3min)
-- Trend: Exceptional velocity continues - efficient performance and accessibility improvements
+- Last 5 plans: 07-02 (2min), 07-03 (2min), 07-04 (5min), 08-01 (3min), 08-02 (2min)
+- Trend: Exceptional velocity maintained - Phase 8 complete with 2.5min average
 
 *Updated after each plan completion*
 
@@ -157,6 +157,11 @@ Recent decisions affecting current work:
 - **[08-01]** Use aria-live="polite" exclusively (never assertive) per Adrian Roselli January 2026 research
 - **[08-01]** Clear announcements after 1 second to allow re-announcement of same message
 - **[08-01]** Try-catch wrapper in progress.ts prevents announcement failures from breaking progress tracking
+- **[08-02]** 300ms fade duration for splash screen hide transition (smooth but not sluggish)
+- **[08-02]** Error handling always hides splash screen on failure to prevent users stuck on splash
+- **[08-02]** Capacitor.isNativePlatform() ensures splash screen code only runs on iOS/Android
+- **[08-02]** Wait for document.fonts.ready before hiding splash to prevent FOIT
+- **[08-02]** Target < 2 seconds from tap to interactive on iOS mobile apps
 
 ### Pending Todos
 
@@ -341,13 +346,14 @@ Phase 7 (Mobile Optimization) is complete with all 4 plans executed:
 
 **Ready for Phase 8:** Mobile optimization complete. Ready for performance and accessibility polish.
 
-## Phase 8 In Progress
+## Phase 8 Completion Summary
 
-Phase 8 (Performance & Accessibility) has 1 of 2 plans executed:
+Phase 8 (Performance & Accessibility) is complete with all 2 plans executed:
 
 | Plan | Name | Duration | Commit |
 |------|------|----------|--------|
 | 08-01 | Font Preloading & ARIA Live Regions | 3min | e47c19b |
+| 08-02 | Capacitor Splash Screen & Bundle Verification | 2min | 2300be4 |
 
 **Deliverables:**
 - Font preload links for Amiri Regular Arabic and UthmanicHafs (eliminates FOIT)
@@ -357,11 +363,21 @@ Phase 8 (Performance & Accessibility) has 1 of 2 plans executed:
 - Progress tracking announces lesson completion with count
 - All announcements use aria-live="polite" per Adrian Roselli research
 - Try-catch wrapper prevents announcement failures from breaking progress
+- Capacitor splash screen lifecycle (show during init, hide with 300ms fade when ready)
+- Error handling prevents users stuck on splash screen
+- Total JavaScript bundle verified at 14KB (72% under 50KB target)
+- rollup-plugin-visualizer installed as dev tool for bundle regression prevention
 
-**Ready for:** Phase 8 Plan 02 (final accessibility and performance polish)
+**Project Complete:** All 8 phases executed successfully. Ready for production deployment and content creation.
 
 ## Session Continuity
 
-Last session: 2026-02-06T14:48:02Z
-Stopped at: Completed 08-01-PLAN.md (Font Preloading & ARIA Live Regions)
+Last session: 2026-02-06T14:53:07Z
+Stopped at: Completed 08-02-PLAN.md (Capacitor Splash Screen & Bundle Verification)
 Resume file: None
+
+**All phases complete!** Project is ready for:
+1. Content creation (73 lesson MDX files with actual Arabic grammar content)
+2. Production deployment with Lighthouse performance audit
+3. Real iOS device testing (splash screen, Arabic rendering, touch targets)
+4. Screen reader testing with NVDA and VoiceOver
