@@ -187,9 +187,17 @@ const levelNames: Record<number, string> = {
     }
   }
 
+  @media (min-width: 1024px) {
+    .lesson-main {
+      padding: 2rem 3rem;
+    }
+  }
+
   /* Article */
   .lesson-article {
     min-width: 0;
+    max-inline-size: 70ch;
+    margin-inline: auto;
   }
 
   .lesson-header {
@@ -246,6 +254,7 @@ const levelNames: Record<number, string> = {
   /* Content Styles */
   .lesson-content {
     color: var(--text-primary);
+    font-size: 1.0625rem; /* 17px */
     line-height: 1.75;
   }
 
