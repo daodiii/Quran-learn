@@ -1,0 +1,103 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = 'Learn Quranic Arabic grammar from beginner to advanced. Comprehensive lessons, verb forms, and detailed surah breakdowns.' } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="description" content={description} />
+  <meta name="theme-color" content="#0D7C3D" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#0f0f0f" media="(prefers-color-scheme: dark)" />
+  <title>{title} | Quranic Arabic</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <!-- Prevent flash of wrong theme -->
+  <script is:inline>
+    (function() {
+      const theme = localStorage.getItem('theme') ||
+        (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
+</head>
+<body class="min-h-screen flex flex-col">
+  <!-- Skip link for keyboard navigation -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <Header />
+  <main id="main-content" class="flex-1">
+    <slot />
+  </main>
+  <Footer />
+  <script>
+    import { initCapacitor } from '../scripts/capacitor-init';
+    import { initNavigation } from '../scripts/navigation';
+
+    initCapacitor();
+
+    // Theme toggle functionality
+    function initTheme() {
+      const themeToggle = document.getElementById('theme-toggle');
+      const html = document.documentElement;
+
+      function setTheme(theme: string) {
+        html.setAttribute('data-theme', theme);
+        localStorage.setItem('theme', theme);
+
+        // Update meta theme-color
+        const metaTheme = document.querySelector('meta[name="theme-color"]');
+        if (metaTheme) {
+          metaTheme.setAttribute('content', theme === 'dark' ? '#0f0f0f' : '#0D7C3D');
+        }
+      }
+
+      function toggleTheme() {
+        const currentTheme = html.getAttribute('data-theme') || 'light';
+        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+        setTheme(newTheme);
+      }
+
+      themeToggle?.addEventListener('click', toggleTheme);
+
+      // Listen for system theme changes
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+        if (!localStorage.getItem('theme')) {
+          setTheme(e.matches ? 'dark' : 'light');
+        }
+      });
+    }
+
+    initTheme();
+
+    // Initialize navigation on initial load
+    initNavigation();
+
+    // Re-initialize navigation on Astro view transitions (if enabled)
+    document.addEventListener('astro:page-load', () => {
+      initNavigation();
+    });
+
+    document.querySelectorAll('.expandable-header').forEach(header => {
+      header.addEventListener('click', () => {
+        const content = header.nextElementSibling;
+        const arrow = header.querySelector('.expand-arrow');
+        if (content) {
+          content.classList.toggle('open');
+        }
+        if (arrow) {
+          arrow.classList.toggle('rotate-180');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
