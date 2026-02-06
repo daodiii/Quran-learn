@@ -10,9 +10,9 @@ See: .planning/PROJECT.md (updated 2026-02-06)
 ## Current Position
 
 Phase: 11 of 17 (Reference Resources)
-Plan: 3 of 6 complete
+Plan: 1 of 6 complete
 Status: In progress
-Last activity: 2026-02-06 — Completed 11-03-PLAN.md
+Last activity: 2026-02-06 — Completed 11-01-PLAN.md
 
 Progress: [████████░░░░░░░░░░] 59% (35/59 estimated total plans)
 
@@ -21,7 +21,7 @@ Progress: [████████░░░░░░░░░░] 59% (35/59 es
 **Velocity (updated):**
 - Total plans completed: 35
 - Average duration: 5.2 min
-- Total execution time: 3.60 hours
+- Total execution time: 3.62 hours
 
 **By Phase:**
 
@@ -30,11 +30,11 @@ Progress: [████████░░░░░░░░░░] 59% (35/59 es
 | 1-8 | 28 | 3.1h | 5.6 min |
 | 9 | 3 | 7.4min | 2.5 min |
 | 10 | 3 | 17.3min | 5.8 min |
-| 11 | 3 | 24.0min | 8.0 min |
+| 11 | 1 | 9.0min | 9.0 min |
 
 **Recent Trend:**
-- Last 5 plans: [10-01: 5min, 10-02: 7min, 10-03: 5.3min, 11-01: 8min, 11-02: 8min, 11-03: 8min]
-- Trend: Increasing, recent content authoring averaging 8min
+- Last 5 plans: [10-01: 5min, 10-02: 7min, 10-03: 5.3min, 11-01: 9min]
+- Trend: Increasing, content authoring plans averaging 8-9min
 
 *Updated after each plan completion*
 
@@ -68,9 +68,8 @@ Recent decisions affecting v1.1 work:
 - Validation scripts use Node.js built-ins only for speed and portability (10-03)
 - Diacritics threshold set at 70% ratio to allow natural Arabic orthography (10-03)
 - Verse lookup is build-time helper, not runtime API (content frozen in MDX) (10-03)
-- Progressive disclosure (collapsible <details>) for advanced/edge-case grammar (11-03)
-- VerbConjugation component proven for large-scale conjugation tables (11-03)
-- Validation script 70% threshold has known limitation for short Arabic words (2-4 letters) (11-03)
+- Arabic alphabetical ordering chosen for glossary (matches Arabic dictionary standards) (11-01)
+- Single comprehensive glossary preferred over split basic/advanced (unified canonical source) (11-01)
 
 ### Pending Todos
 
@@ -91,5 +90,5 @@ None.
 ## Session Continuity
 
 Last session: 2026-02-06
-Stopped at: Completed 11-03-PLAN.md (verb conjugation tables) — continuing Phase 11
+Stopped at: Completed 11-01-PLAN.md (bilingual glossary) — continuing Phase 11
 Resume file: None
