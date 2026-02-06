@@ -10,10 +10,15 @@ const MOBILE_BREAKPOINT = 1024;
 // State
 let focusTrapCleanup: (() => void) | null = null;
 
+// Swipe gesture state
+let touchStartX = 0;
+let touchStartY = 0;
+
 // Initialize on DOM ready
 export function initNavigation(): void {
   initSidebarToggle();
   initLevelSections();
+  initSwipeGesture();
   restoreLevelStates();
   scrollActiveLessonIntoView();
 }
@@ -236,6 +241,39 @@ function scrollActiveLessonIntoView(): void {
     }, 300);
   } else {
     activeLesson.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+}
+
+// Swipe gesture for mobile sidebar close
+function initSwipeGesture(): void {
+  const sidebar = document.getElementById(SIDEBAR_ID);
+  if (!sidebar) return;
+
+  sidebar.addEventListener('touchstart', handleTouchStart, { passive: true });
+  sidebar.addEventListener('touchend', handleTouchEnd, { passive: true });
+}
+
+function handleTouchStart(e: TouchEvent): void {
+  touchStartX = e.changedTouches[0].screenX;
+  touchStartY = e.changedTouches[0].screenY;
+}
+
+function handleTouchEnd(e: TouchEvent): void {
+  const touchEndX = e.changedTouches[0].screenX;
+  const touchEndY = e.changedTouches[0].screenY;
+
+  const deltaX = touchEndX - touchStartX;
+  const deltaY = touchEndY - touchStartY;
+  const threshold = 50; // minimum swipe distance in pixels
+
+  // Only register horizontal swipe if it's more horizontal than vertical
+  if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > threshold) {
+    const isRtl = document.dir === 'rtl';
+
+    // Swipe left in LTR closes sidebar, swipe right in RTL closes sidebar
+    if ((!isRtl && deltaX < 0) || (isRtl && deltaX > 0)) {
+      closeSidebar();
+    }
   }
 }
 
