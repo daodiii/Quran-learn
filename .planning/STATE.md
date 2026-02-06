@@ -10,27 +10,28 @@ See: .planning/PROJECT.md (updated 2026-02-06)
 ## Current Position
 
 Phase: 9 of 17 (Content Infrastructure)
-Plan: Ready to plan
-Status: Ready to plan
-Last activity: 2026-02-06 — v1.1 roadmap created (phases 9-17)
+Plan: 1 of 2 complete
+Status: In progress
+Last activity: 2026-02-06 — Completed 09-01-PLAN.md
 
-Progress: [████████░░░░░░░░░░] 47% (28/59 estimated total plans)
+Progress: [████████░░░░░░░░░░] 49% (29/59 estimated total plans)
 
 ## Performance Metrics
 
-**Velocity (from v1.0):**
-- Total plans completed: 28
-- Average duration: 5.6 min
-- Total execution time: 3.1 hours
+**Velocity (updated):**
+- Total plans completed: 29
+- Average duration: 5.5 min
+- Total execution time: 3.15 hours
 
-**By Phase (v1.0 only):**
+**By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
 | 1-8 | 28 | 3.1h | 5.6 min |
+| 9 | 1 | 3min | 3.0 min |
 
 **Recent Trend:**
-- Last 5 plans: [varying, v1.0 complete]
+- Last 5 plans: [varying, v1.0 complete, 09-01: 3min]
 - Trend: Stable
 
 *Updated after each plan completion*
@@ -46,6 +47,8 @@ Recent decisions affecting v1.1 work:
 - Bilingual terminology — always show both English and Arabic terms
 - Example-heavy pedagogy — show patterns before stating abstract rules
 - One concept per lesson — avoid cognitive overload with 73 focused lessons
+- Use glob() loaders for content collections (Astro v5 pattern)
+- Position content.config.ts at src/ root (Astro v5 requirement)
 
 ### Pending Todos
 
@@ -65,5 +68,5 @@ None.
 ## Session Continuity
 
 Last session: 2026-02-06
-Stopped at: v1.1 roadmap creation complete — ready to plan Phase 9
+Stopped at: Completed 09-01-PLAN.md (content collections schema)
 Resume file: None
