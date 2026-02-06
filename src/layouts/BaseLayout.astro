@@ -21,6 +21,9 @@ const { title, description = 'Learn Quranic Arabic grammar from beginner to adva
   <meta name="theme-color" content="#0f0f0f" media="(prefers-color-scheme: dark)" />
   <title>{title} | Quranic Arabic</title>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <!-- Preload critical Arabic fonts to eliminate FOIT (Flash of Invisible Text) -->
+  <link rel="preload" href="/fonts/amiri-regular-arabic.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/UthmanicHafs.woff2" as="font" type="font/woff2" crossorigin />
   <!-- Prevent flash of wrong theme -->
   <script is:inline>
     (function() {
