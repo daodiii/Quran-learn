@@ -22,6 +22,14 @@ const advancedSurahs = sortedSurahs.filter(s => s.data.difficulty === 'advanced'
         Detailed word-by-word grammatical analysis of Quranic chapters.
         Each surah includes Arabic text, translation, I'rab analysis, and grammar cross-references.
       </p>
+
+      <!-- Quick Navigation -->
+      <nav class="quick-nav" aria-label="Jump to difficulty level">
+        <span class="quick-nav-label">Jump to:</span>
+        <a href="#beginner" class="quick-nav-link">Beginner</a>
+        <a href="#intermediate" class="quick-nav-link">Intermediate</a>
+        <a href="#advanced" class="quick-nav-link">Advanced</a>
+      </nav>
     </header>
 
     <!-- Beginner Section -->
@@ -119,7 +127,51 @@ const advancedSurahs = sortedSurahs.filter(s => s.data.difficulty === 'advanced'
     line-height: 1.6;
     color: var(--color-text-secondary);
     margin: 0;
+    margin-block-end: var(--spacing-lg);
     max-inline-size: 48rem;
+  }
+
+  /* Quick Navigation */
+  .quick-nav {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--spacing-md);
+    padding: var(--spacing-md);
+    background-color: var(--color-background-secondary);
+    border-radius: 8px;
+    border: 1px solid var(--color-border-primary);
+  }
+
+  .quick-nav-label {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--color-text-secondary);
+  }
+
+  .quick-nav-link {
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: var(--color-accent-gold);
+    text-decoration: none;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: 4px;
+    transition: background-color 200ms ease;
+  }
+
+  .quick-nav-link:hover {
+    background-color: var(--color-background-tertiary);
+  }
+
+  .quick-nav-link:focus-visible {
+    outline: 2px solid var(--color-accent-gold);
+    outline-offset: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .quick-nav-link {
+      transition: none;
+    }
   }
 
   /* Difficulty Sections */
