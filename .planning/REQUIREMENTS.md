@@ -9,13 +9,13 @@ Requirements for the Lesson Content milestone. Each maps to roadmap phases.
 
 ### Infrastructure
 
-- [ ] **INFRA-01**: Content collection schema (`content.config.ts`) with Zod validation for lessons and resources
-- [ ] **INFRA-02**: ArabicExample component — Quranic verse display with translation, reference, grammar highlight
-- [ ] **INFRA-03**: GrammarTable component — responsive grammar paradigm tables with RTL support
-- [ ] **INFRA-04**: VerbConjugation component — verb form tables with root, person, tense columns
-- [ ] **INFRA-05**: ExerciseBox component — practice exercises with show/hide answer reveals
-- [ ] **INFRA-06**: Callout component — highlighted rule/tip/note/warning boxes
-- [ ] **INFRA-07**: Lesson directory structure (`src/content/lessons/level-{1-5}/`)
+- [x] **INFRA-01**: Content collection schema (`content.config.ts`) with Zod validation for lessons and resources
+- [x] **INFRA-02**: ArabicExample component — Quranic verse display with translation, reference, grammar highlight
+- [x] **INFRA-03**: GrammarTable component — responsive grammar paradigm tables with RTL support
+- [x] **INFRA-04**: VerbConjugation component — verb form tables with root, person, tense columns
+- [x] **INFRA-05**: ExerciseBox component — practice exercises with show/hide answer reveals
+- [x] **INFRA-06**: Callout component — highlighted rule/tip/note/warning boxes
+- [x] **INFRA-07**: Lesson directory structure (`src/content/lessons/level-{1-5}/`)
 
 ### Lesson Content
 
@@ -92,13 +92,13 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| INFRA-01 | Phase 9 | Pending |
-| INFRA-02 | Phase 9 | Pending |
-| INFRA-03 | Phase 9 | Pending |
-| INFRA-04 | Phase 9 | Pending |
-| INFRA-05 | Phase 9 | Pending |
-| INFRA-06 | Phase 9 | Pending |
-| INFRA-07 | Phase 9 | Pending |
+| INFRA-01 | Phase 9 | Complete |
+| INFRA-02 | Phase 9 | Complete |
+| INFRA-03 | Phase 9 | Complete |
+| INFRA-04 | Phase 9 | Complete |
+| INFRA-05 | Phase 9 | Complete |
+| INFRA-06 | Phase 9 | Complete |
+| INFRA-07 | Phase 9 | Complete |
 | LSSN-01 | Phase 12 | Pending |
 | LSSN-02 | Phase 13 | Pending |
 | LSSN-03 | Phase 14 | Pending |
@@ -138,4 +138,4 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 ---
 *Requirements defined: 2026-02-06*
-*Last updated: 2026-02-06 after roadmap creation (100% coverage)*
+*Last updated: 2026-02-06 after Phase 9 execution (INFRA-01 through INFRA-07 Complete)*
