@@ -4,13 +4,13 @@ const BASE_URL = 'http://localhost:4321';
 
 test.describe('Card Components Test Page', () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto('/test/cards');
+    await page.goto('/test/cards/');
     await page.waitForLoadState('networkidle');
   });
 
   test('test page loads and displays all card sections', async ({ page }) => {
-    // Verify page title
-    await expect(page.locator('h1')).toContainText('Card Components Test');
+    // Verify page title (first h1 is ours, ignore dev toolbar h1s)
+    await expect(page.locator('h1').first()).toContainText('Card Components Test');
 
     // Verify all section headings are present
     const sectionHeadings = [
@@ -37,7 +37,7 @@ test.describe('Card Components Test Page', () => {
 test.describe('CardGrid Responsive Layout', () => {
   test('displays 3 columns at 1200px viewport', async ({ page }) => {
     await page.setViewportSize({ width: 1200, height: 800 });
-    await page.goto('/test/cards');
+    await page.goto('/test/cards/');
     await page.waitForLoadState('networkidle');
 
     const cardGrid = page.getByTestId('card-grid-section').locator('.card-grid').first();
@@ -54,7 +54,7 @@ test.describe('CardGrid Responsive Layout', () => {
 
   test('displays 2 columns at 700px viewport', async ({ page }) => {
     await page.setViewportSize({ width: 700, height: 800 });
-    await page.goto('/test/cards');
+    await page.goto('/test/cards/');
     await page.waitForLoadState('networkidle');
 
     const cardGrid = page.getByTestId('card-grid-section').locator('.card-grid').first();
@@ -70,7 +70,7 @@ test.describe('CardGrid Responsive Layout', () => {
 
   test('displays 1 column at 400px viewport', async ({ page }) => {
     await page.setViewportSize({ width: 400, height: 800 });
-    await page.goto('/test/cards');
+    await page.goto('/test/cards/');
     await page.waitForLoadState('networkidle');
 
     const cardGrid = page.getByTestId('card-grid-section').locator('.card-grid').first();
@@ -85,7 +85,7 @@ test.describe('CardGrid Responsive Layout', () => {
   });
 
   test('all 6 grid cards are visible', async ({ page }) => {
-    await page.goto('/test/cards');
+    await page.goto('/test/cards/');
     await page.waitForLoadState('networkidle');
 
     for (let i = 1; i <= 6; i++) {
@@ -98,7 +98,7 @@ test.describe('Arabic Text Wrapping', () => {
   test('Arabic text does not overflow at narrow viewport', async ({ page }) => {
     // Test at narrowest mobile viewport
     await page.setViewportSize({ width: 320, height: 568 });
-    await page.goto('/test/cards');
+    await page.goto('/test/cards/');
     await page.waitForLoadState('networkidle');
 
     // Get all elements with dir="rtl" attribute (Arabic text)
@@ -129,7 +129,7 @@ test.describe('Arabic Text Wrapping', () => {
   });
 
   test('Arabic text has correct overflow-wrap style', async ({ page }) => {
-    await page.goto('/test/cards');
+    await page.goto('/test/cards/');
     await page.waitForLoadState('networkidle');
 
     // Check LessonCard Arabic titles
@@ -161,7 +161,7 @@ test.describe('Arabic Text Wrapping', () => {
   });
 
   test('Arabic text does not use word-break break-all', async ({ page }) => {
-    await page.goto('/test/cards');
+    await page.goto('/test/cards/');
     await page.waitForLoadState('networkidle');
 
     const rtlElements = page.locator('[dir="rtl"]');
@@ -180,7 +180,7 @@ test.describe('Arabic Text Wrapping', () => {
 
 test.describe('Progress Integration', () => {
   test('CourseCard contains progressbar role', async ({ page }) => {
-    await page.goto('/test/cards');
+    await page.goto('/test/cards/');
     await page.waitForLoadState('networkidle');
 
     // Check each course card for progressbar
@@ -195,7 +195,7 @@ test.describe('Progress Integration', () => {
   });
 
   test('CourseCard progress values match expected states', async ({ page }) => {
-    await page.goto('/test/cards');
+    await page.goto('/test/cards/');
     await page.waitForLoadState('networkidle');
 
     // Expected progress: Level 1=0%, Level 2=25%, Level 3=50%, Level 4=75%, Level 5=100%
@@ -217,7 +217,7 @@ test.describe('Progress Integration', () => {
   });
 
   test('LessonCard contains checkmark with role="img"', async ({ page }) => {
-    await page.goto('/test/cards');
+    await page.goto('/test/cards/');
     await page.waitForLoadState('networkidle');
 
     // Check completed lesson cards
@@ -234,7 +234,7 @@ test.describe('Progress Integration', () => {
 
 test.describe('Dark Mode Styling', () => {
   test('cards show hover state changes in dark mode', async ({ page }) => {
-    await page.goto('/test/cards');
+    await page.goto('/test/cards/');
     await page.waitForLoadState('networkidle');
 
     // Enable dark mode
@@ -265,7 +265,7 @@ test.describe('Dark Mode Styling', () => {
   });
 
   test('dark mode text remains readable with proper contrast', async ({ page }) => {
-    await page.goto('/test/cards');
+    await page.goto('/test/cards/');
     await page.waitForLoadState('networkidle');
 
     // Enable dark mode
@@ -294,7 +294,7 @@ test.describe('Dark Mode Styling', () => {
 test.describe('Visual Regression', () => {
   test('card grid section at 1200px viewport', async ({ page }) => {
     await page.setViewportSize({ width: 1200, height: 800 });
-    await page.goto('/test/cards');
+    await page.goto('/test/cards/');
     await page.waitForLoadState('networkidle');
 
     const cardGridSection = page.getByTestId('card-grid-section');
@@ -304,7 +304,7 @@ test.describe('Visual Regression', () => {
   });
 
   test('lesson card section with Arabic text', async ({ page }) => {
-    await page.goto('/test/cards');
+    await page.goto('/test/cards/');
     await page.waitForLoadState('networkidle');
 
     const lessonSection = page.getByTestId('lesson-card-section');
@@ -314,7 +314,7 @@ test.describe('Visual Regression', () => {
   });
 
   test('full page in dark mode', async ({ page }) => {
-    await page.goto('/test/cards');
+    await page.goto('/test/cards/');
     await page.waitForLoadState('networkidle');
 
     // Enable dark mode
@@ -332,7 +332,7 @@ test.describe('Visual Regression', () => {
 
 test.describe('Accessibility', () => {
   test('all cards with href are keyboard focusable', async ({ page }) => {
-    await page.goto('/test/cards');
+    await page.goto('/test/cards/');
     await page.waitForLoadState('networkidle');
 
     // Test CourseCards (all have href)
@@ -363,7 +363,7 @@ test.describe('Accessibility', () => {
   });
 
   test('focus-visible outline appears on keyboard focus', async ({ page }) => {
-    await page.goto('/test/cards');
+    await page.goto('/test/cards/');
     await page.waitForLoadState('networkidle');
 
     const card = page.getByTestId('course-card-level-1');
@@ -392,7 +392,7 @@ test.describe('Accessibility', () => {
   });
 
   test('cards have accessible labels or text', async ({ page }) => {
-    await page.goto('/test/cards');
+    await page.goto('/test/cards/');
     await page.waitForLoadState('networkidle');
 
     // CourseCards should have visible title text
@@ -414,7 +414,7 @@ test.describe('Accessibility', () => {
   });
 
   test('external links are properly indicated', async ({ page }) => {
-    await page.goto('/test/cards');
+    await page.goto('/test/cards/');
     await page.waitForLoadState('networkidle');
 
     // ResourceCard 1 and 4 have external links
