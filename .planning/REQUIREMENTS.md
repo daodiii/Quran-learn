@@ -98,7 +98,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | COMP-01 | Phase 5 | Pending |
 | COMP-02 | Phase 5 | Pending |
 | RESP-01 | Phase 7 | Pending |
-| DARK-01 | Phase 4 | Pending |
+| DARK-01 | Phase 4 | Complete |
 
 **Coverage:**
 - v1 requirements: 15 total
