@@ -4,8 +4,342 @@ order: 4
 description: "Complete charts for detached pronouns, attached pronouns, demonstratives, and relatives."
 ---
 
+import GrammarTable from '../../components/mdx/GrammarTable.astro';
+import ArabicExample from '../../components/mdx/ArabicExample.astro';
+import Callout from '../../components/mdx/Callout.astro';
+
 # Pronoun Reference Charts
 
-Comprehensive reference for all Arabic pronoun forms used in the Quran.
+Complete reference for all four categories of Arabic pronouns (الضَّمَائِرُ / ad-damaa'iru) used throughout the Quran. This reference uses fully vocalized Arabic text with Hamza above alif (ʾa / أَ) and Hamza below alif (ʾi / إِ) marks where appropriate.
 
-(Content placeholder - will be filled with actual charts)
+## Quick Navigation
+
+- [Independent Pronouns](#independent-pronouns) - Standalone subject pronouns
+- [Attached Pronouns](#attached-pronouns) - Suffix pronouns on verbs, nouns, and particles
+- [Demonstrative Pronouns](#demonstrative-pronouns) - Pointing words (this/that)
+- [Relative Pronouns](#relative-pronouns) - Connecting words (who/which/that)
+
+---
+
+## Independent Pronouns
+
+**الضَّمَائِرُ الْمُنْفَصِلَةُ** (ad-damaa'iru l-munfasilah) - Independent/Detached Pronouns
+
+These pronouns stand alone as complete words, typically serving as subjects in nominal and verbal sentences.
+
+<GrammarTable
+  caption="Independent Personal Pronouns"
+  headers={["Person/Gender", "Arabic", "Transliteration", "Meaning"]}
+  rows={[
+    ["1st Singular", "أَنَاْ", "anaa", "I"],
+    ["1st Plural", "نَحْنُ", "nahnu", "we"],
+    ["2nd Singular (m)", "أَنْتَ", "anta", "you (masculine)"],
+    ["2nd Singular (f)", "أَنْتِ", "anti", "you (feminine)"],
+    ["2nd Dual (m+f)", "أَنْتُمَا", "antumaa", "you two"],
+    ["2nd Plural (m)", "أَنْتُمْ", "antum", "you all (masculine)"],
+    ["2nd Plural (f)", "أَنْتُنَّ", "antunna", "you all (feminine)"],
+    ["3rd Singular (m)", "هُوَ", "huwa", "he/it"],
+    ["3rd Singular (f)", "هِيَ", "hiya", "she/it"],
+    ["3rd Dual (m)", "هُمَاْ", "humaa", "they two (masculine)"],
+    ["3rd Dual (f)", "هُمَاْ", "humaa", "they two (feminine)"],
+    ["3rd Plural (m)", "هُمْ", "hum", "they (masculine)"],
+    ["3rd Plural (f)", "هُنَّ", "hunna", "they (feminine)"],
+  ]}
+/>
+
+<ArabicExample
+  arabic="إِنَّكَ أَنْتَ الْعَلِيمُ الْحَكِيمُ"
+  transliteration="innaka anta l-'aliimu l-hakiim"
+  translation="Indeed, You are the All-Knowing, the All-Wise"
+  reference="Surah Al-Baqarah 2:32"
+  highlight="أَنْتَ"
+/>
+
+<Callout type="note" title="Usage in Quranic Grammar">
+Independent pronouns often appear in nominal sentences (جُمْلَة اسْمِيَّة) as subjects, or for emphasis when added to verbal sentences. The pronoun **أَنْتَ** (you) in the example above emphasizes the subject.
+</Callout>
+
+**Learn more:** See lessons [L3.06 Subject Pronouns](/learn/level-3/subject-pronouns) for detailed usage patterns.
+
+---
+
+## Attached Pronouns
+
+**الضَّمَائِرُ الْمُتَّصِلَةُ** (ad-damaa'iru l-muttasilah) - Attached/Connected Pronouns
+
+These pronouns appear as suffixes attached to verbs, nouns, or particles. Their meaning changes based on what they attach to.
+
+### On Verbs (Object Pronouns)
+
+When attached to verbs, these pronouns indicate the **object** of the action.
+
+<GrammarTable
+  caption="Attached Pronouns on Verbs"
+  headers={["Person/Gender", "Suffix", "Example", "Meaning"]}
+  rows={[
+    ["1st Singular", "-nee", "رَآنِيْ", "he saw me"],
+    ["1st Plural", "-naa", "رَآنَاْ", "he saw us"],
+    ["2nd Singular (m)", "-ka", "رَآكَْ", "he saw you (m)"],
+    ["2nd Singular (f)", "-ki", "رَآكِْ", "he saw you (f)"],
+    ["2nd Dual (m+f)", "-kumaa", "رَآكُمَاْ", "he saw you two"],
+    ["2nd Plural (m)", "-kum", "رَآكُمْ", "he saw you all (m)"],
+    ["2nd Plural (f)", "-kunna", "رَآكُنَّ", "he saw you all (f)"],
+    ["3rd Singular (m)", "-hu", "رَآهُْ", "he saw him/it"],
+    ["3rd Singular (f)", "-haa", "رَآهَاْ", "he saw her/it"],
+    ["3rd Dual (m+f)", "-humaa", "رَآهُمَاْْ", "he saw them two"],
+    ["3rd Plural (m)", "-hum", "رَآهُمْ", "he saw them (m)"],
+    ["3rd Plural (f)", "-hunna", "رَآهُنَّ", "he saw them (f)"],
+  ]}
+/>
+
+<ArabicExample
+  arabic="رَبَّنَا لَا تُؤَاخِذْنَا إِن نَّسِينَا أَوْ أَخْطَأْنَا"
+  transliteration="rabbanaa laa tu'aakhidhnaa in nasiinaa aw akhta'naa"
+  translation="Our Lord, do not impose blame upon us if we have forgotten or erred"
+  reference="Surah Al-Baqarah 2:286"
+  highlight="تُؤَاخِذْنَا"
+/>
+
+<Callout type="note" title="Vowel Harmony">
+Notice that the pronoun suffix **ـنَا** (us) in **تُؤَاخِذْنَا** (impose blame upon us) attaches directly to the verb root. The vowel changes based on the verb form and context.
+</Callout>
+
+### On Nouns (Possessive Pronouns)
+
+When attached to nouns, these pronouns indicate **possession** (my, your, his, her, etc.).
+
+<GrammarTable
+  caption="Attached Pronouns on Nouns"
+  headers={["Person/Gender", "Suffix", "Example", "Meaning"]}
+  rows={[
+    ["1st Singular", "-ee / -nee", "كِتَابِيَ", "my book"],
+    ["1st Plural", "-naa", "كِتَابُنَاْ", "our book"],
+    ["2nd Singular (m)", "-ka", "كِتَابُكَ", "your book (m)"],
+    ["2nd Singular (f)", "-ki", "كِتَابُكِ", "your book (f)"],
+    ["2nd Dual (m+f)", "-kumaa", "كِتَابُكُمَا", "your book (dual)"],
+    ["2nd Plural (m)", "-kum", "كِتَابُكُمْ", "your book (m.pl)"],
+    ["2nd Plural (f)", "-kunna", "كِتَابُكُنَّ", "your book (f.pl)"],
+    ["3rd Singular (m)", "-hu", "كِتَابُهُ", "his book"],
+    ["3rd Singular (f)", "-haa", "كِتَابُهَاْ", "her book"],
+    ["3rd Dual (m+f)", "-humaa", "كِتَابُهُمَاْ", "their book (dual)"],
+    ["3rd Plural (m)", "-hum", "كِتَابُهُمْ", "their book (m.pl)"],
+    ["3rd Plural (f)", "-hunna", "كِتَابُهُنَّ", "their book (f.pl)"],
+  ]}
+/>
+
+<ArabicExample
+  arabic="الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ"
+  transliteration="al-hamdu lillaahi rabbi l-'aalamiin"
+  translation="All praise is due to Allah, Lord of the worlds"
+  reference="Surah Al-Fatihah 1:2"
+  highlight="رَبِّ"
+/>
+
+<Callout type="rule" title="Case Ending Changes">
+When a pronoun attaches to a noun, the noun loses its tanween (nunation) and becomes definite. Notice **رَبِّ** (Lord of) with the genitive case ending attached to **الْعَالَمِْينَ** (al-'aalameen, the worlds).
+</Callout>
+
+### On Particles
+
+When attached to prepositions and certain particles, pronouns indicate the object of the preposition.
+
+<GrammarTable
+  caption="Attached Pronouns on Particles"
+  headers={["Particle", "With Pronoun", "Transliteration", "Meaning"]}
+  rows={[
+    ["مِنْ (from)", "مِنِّي", "minnee", "from me"],
+    ["مِنْ (from)", "مِنْكَ", "minka", "from you (m)"],
+    ["مِنْ (from)", "مِنْهُ", "minhu", "from him"],
+    ["إِلَىْ (to)", "إِلَيَّ", "ilayya", "to me"],
+    ["إِلَىْ (to)", "إِلَيْكَ", "ilayka", "to you (m)"],
+    ["إِلَىْ (to)", "إِلَيْهِ", "ilayhi", "to him"],
+    ["لِـ (for)", "لِيَ", "liya", "for me"],
+    ["لِـ (for)", "لَكَ", "laka", "for you (m)"],
+    ["لِـ (for)", "لَهُ", "lahu", "for him"],
+    ["بِـ (with/by)", "بِيَ", "biya", "with me"],
+    ["بِـ (with/by)", "بِكَ", "bika", "with you (m)"],
+    ["بِـ (with/by)", "بِهِ", "bihi", "with him"],
+  ]}
+/>
+
+<ArabicExample
+  arabic="إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ"
+  transliteration="iyyaaka na'budu wa-iyyaaka nasta'een"
+  translation="You alone we worship, and You alone we ask for help"
+  reference="Surah Al-Fatihah 1:5"
+  highlight="إِيَّاكَ"
+/>
+
+<Callout type="note" title="Emphasis with إِيَّا">
+The particle **إِيَّا** (iyyaa) is a special emphasis particle that takes attached pronouns for emphasis. Here **إِيَّاكَ** means "You (and You alone)" - emphasizing exclusive worship and reliance on Allah.
+</Callout>
+
+**Learn more:** See lesson [L3.07 Attached Pronouns](/learn/level-3/attached-pronouns) for comprehensive coverage of all attachment contexts.
+
+---
+
+## Demonstrative Pronouns
+
+**أَسْمَاءُ الْإِشَارَةِ** (asmaa'u l-ishaarah) - Demonstrative Pronouns/Nouns of Indication
+
+These pronouns point to near or far objects, people, or concepts (this, that, these, those).
+
+<GrammarTable
+  caption="Near Demonstratives (This/These)"
+  headers={["Gender/Number", "Arabic", "Transliteration", "Meaning"]}
+  rows={[
+    ["Masculine Singular", "هَٰذَاْ", "haadhaa", "this (m)"],
+    ["Feminine Singular", "هَٰذِهِ", "haadhihi", "this (f)"],
+    ["Dual (m+f)", "هَٰذَاْنِ / هَٰذَيْنِ", "haadhaani / hadhayni", "these two"],
+    ["Plural (m+f)", "هَٰؤُلَاءِ", "haa'ulaa'i", "these"],
+  ]}
+/>
+
+<GrammarTable
+  caption="Far Demonstratives (That/Those)"
+  headers={["Gender/Number", "Arabic", "Transliteration", "Meaning"]}
+  rows={[
+    ["Masculine Singular", "ذَٰلِكَ", "dhaalika", "that (m)"],
+    ["Feminine Singular", "تِلْكَ", "tilka", "that (f)"],
+    ["Dual (m+f)", "ذَانِكَ / ذَيْنِكَ", "dhaanika / dhaynika", "those two"],
+    ["Plural (m+f)", "أُولَٰئِكَ", "ulaa'ika", "those"],
+  ]}
+/>
+
+<ArabicExample
+  arabic="ذَٰلِكَ الْكِتَابُ لَا رَيْبَ فِيهِ هُدًى لِّلْمُتَّقِينَ"
+  transliteration="dhaalika l-kitaabu laa rayba feehi hudan lil-muttaqeen"
+  translation="This is the Book about which there is no doubt, a guidance for those conscious of Allah"
+  reference="Surah Al-Baqarah 2:2"
+  highlight="ذَٰلِكَ"
+/>
+
+<Callout type="note" title="Near vs. Far in Context">
+In the Quran, **ذَٰلِكَ** (that) often refers to the Quran itself or concepts being discussed, even though grammatically it's a "far" demonstrative. The choice between near/far can indicate conceptual distance rather than physical distance.
+</Callout>
+
+<GrammarTable
+  caption="Common Demonstrative Variations"
+  headers={["Form", "Arabic", "Usage Context"]}
+  rows={[
+    ["هَٰذَاْ + definite noun", "هَٰذَاْ الْكِتَابُْ", "this book (specific)"],
+    ["ذَٰلِكَ + definite noun", "ذَٰلِكَ الْيَوْمُ", "that day (specific)"],
+    ["Place indicator", "هُنَاْ", "here"],
+    ["Place indicator", "هُنَاْلِكَ", "there"],
+    ["Place indicator", "هَٰهُنَاْ", "right here"],
+  ]}
+/>
+
+<ArabicExample
+  arabic="هَٰؤُلَاءِ قَوْمُنَا اتَّخَذُوا مِن دُونِهِ آلِهَةً"
+  transliteration="haa'ulaa'i qawmunaa ittakhadhuu min duunihi aalihah"
+  translation="These, our people, have taken besides Him deities"
+  reference="Surah Al-Kahf 18:15"
+  highlight="هَٰؤُلَاءِ"
+/>
+
+**Learn more:** See lesson [L3.08 Demonstrative Pronouns](/learn/level-3/demonstrative-pronouns) for detailed usage in nominal sentences.
+
+---
+
+## Relative Pronouns
+
+**الْأَسْمَاءُ الْمَوْصُولَةُ** (al-asmaa'u l-mawsoolah) - Relative Pronouns/Relative Nouns
+
+These pronouns connect clauses and introduce relative clauses (who, which, that, what).
+
+### Specific Relative Pronouns
+
+These change based on gender and number.
+
+<GrammarTable
+  caption="Specific Relative Pronouns"
+  headers={["Gender/Number", "Arabic", "Transliteration", "Meaning"]}
+  rows={[
+    ["Masculine Singular", "الَّذِي", "alladhee", "who/which/that (m.sg)"],
+    ["Feminine Singular", "الَّتِي", "allatee", "who/which/that (f.sg)"],
+    ["Masculine Dual", "اللَّذَانِْ / اللَّذَيْنِ", "alladhaani / alladhayni", "who/which (m.dual)"],
+    ["Feminine Dual", "اللَّتَانِْ / اللَّتَيْنِ", "allataani / allataayni", "who/which (f.dual)"],
+    ["Masculine Plural", "الَّذِينَ", "alladheena", "who/which/that (m.pl)"],
+    ["Feminine Plural", "اللَّاتِيِْ / اللَّوَاتِيِْ", "allaatee / allawaatee", "who/which/that (f.pl)"],
+  ]}
+/>
+
+<ArabicExample
+  arabic="الْحَمْدُ لِلَّهِ الَّذِي خَلَقَ السَّمَاوَاتِ وَالْأَرْضَ"
+  transliteration="al-hamdu lillaahi lladhee khalaqa s-samaawaati wa-l-arda"
+  translation="All praise is due to Allah, who created the heavens and the earth"
+  reference="Surah Al-An'am 6:1"
+  highlight="الَّذِي"
+/>
+
+### Common (Indeclinable) Relative Pronouns
+
+These do not change for gender or number.
+
+<GrammarTable
+  caption="Common Relative Pronouns"
+  headers={["Arabic", "Transliteration", "Meaning", "Usage"]}
+  rows={[
+    ["مَنْ", "man", "who/whoever", "For rational beings (people)"],
+    ["مَا", "maa", "what/whatever", "For non-rational beings or concepts"],
+    ["ذَا (after مَنْ/مَا)", "dhaa", "who/what", "Combined: مَنْ ذَا = who? / مَا ذَا = what?"],
+  ]}
+/>
+
+<ArabicExample
+  arabic="وَمَا تَفْعَلُوا مِنْ خَيْرٍ يَعْلَمْهُ اللَّهُ"
+  transliteration="wa-maa taf'aloo min khayrin ya'lamhu llaah"
+  translation="And whatever you do of good - Allah knows it"
+  reference="Surah Al-Baqarah 2:197"
+  highlight="مَا"
+/>
+
+<Callout type="rule" title="Relative Clause Structure">
+A relative pronoun introduces a **صِلَةٌ** (silatun) - the relative clause that follows it. The relative clause must be a complete sentence (verbal or nominal) that describes or identifies the antecedent. In the example above, **تَفْعَلُواْ مِنْ خَيْرٍ** (taf'aloo min khayr) is the relative clause following **مَا**.
+</Callout>
+
+<GrammarTable
+  caption="Interrogative vs. Relative Usage"
+  headers={["Word", "As Question", "As Relative"]}
+  rows={[
+    ["مَنْ", "Who? (question)", "who/whoever (relative)"],
+    ["مَا", "What? (question)", "what/whatever (relative)"],
+    ["مَاذَاْ", "What? (question)", "what (relative)"],
+    ["أَيْنَ", "Where? (question)", "where (relative with أَيْنَمَا)"],
+  ]}
+/>
+
+<ArabicExample
+  arabic="وَالَّذِينَ آمَنُوا وَعَمِلُوا الصَّالِحَاتِ أُولَٰئِكَ أَصْحَابُ الْجَنَّةِ"
+  transliteration="wa-lladheena aamanoo wa-'amiloo s-saalihaati ulaa'ika as-haabu l-jannah"
+  translation="But those who believed and did righteous deeds - those are the companions of Paradise"
+  reference="Surah Al-Baqarah 2:82"
+  highlight="الَّذِينَ"
+/>
+
+<Callout type="tip" title="Most Common in Quran">
+The plural masculine **الَّذِينَ** (those who) is the most frequently used relative pronoun in the Quran, often describing believers: **الَّذِينَ آمَنُوَاْ** (alladheena aamanoo, those who believe).
+</Callout>
+
+**Learn more:** See lesson [L3.09 Relative Pronouns](/learn/level-3/relative-pronouns) for comprehensive coverage of relative clause construction.
+
+---
+
+## Summary
+
+**Four Pronoun Categories:**
+
+1. **Independent Pronouns** (الضَّمَائِرُ الْمُنْفَصِلَةُ) - Stand-alone words (I, you, he, she, we, they)
+2. **Attached Pronouns** (الضَّمَائِرُ الْمُتَّصِلَةُ) - Suffixes on verbs (object), nouns (possession), particles (prepositional objects)
+3. **Demonstrative Pronouns** (أَسْمَاءُ الْإِشَارَةِ) - Pointing words (this, that, these, those)
+4. **Relative Pronouns** (الْأَسْمَاءُ الْمَوْصُولَةُ) - Connecting words (who, which, that, what)
+
+<Callout type="note" title="Pronoun Agreement">
+All pronouns in Arabic must agree with their antecedents in **gender**, **number**, and (for attached pronouns) sometimes **case**. Mastering pronoun forms is essential for understanding the precise references in Quranic verses.
+</Callout>
+
+**Related Resources:**
+- [200 Most Used Words](/resources/200-most-used-words) - Includes high-frequency pronouns
+- [Glossary](/resources/glossary) - Terminology definitions
+- [Case Endings Chart](/resources/case-endings-chart) - For understanding pronoun case changes
