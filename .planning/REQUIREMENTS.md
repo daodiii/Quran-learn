@@ -19,7 +19,7 @@ Requirements for the Lesson Content milestone. Each maps to roadmap phases.
 
 ### Lesson Content
 
-- [ ] **LSSN-01**: 11 Level 1 Foundation lessons (alphabet, vowels, word types, basic sentences, case intro)
+- [x] **LSSN-01**: 11 Level 1 Foundation lessons (alphabet, vowels, word types, basic sentences, case intro)
 - [ ] **LSSN-02**: 11 Level 2 Core Grammar lessons (three cases, sentence structures, idafah, inna/kaana sisters)
 - [ ] **LSSN-03**: 18 Level 3 Intermediate lessons (root system, verb forms I-X, derived nouns, pronouns)
 - [ ] **LSSN-04**: 17 Level 4 Advanced lessons (conditionals, exceptions, emphasis, rhetoric, weak verbs)
@@ -99,7 +99,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | INFRA-05 | Phase 9 | Complete |
 | INFRA-06 | Phase 9 | Complete |
 | INFRA-07 | Phase 9 | Complete |
-| LSSN-01 | Phase 12 | Pending |
+| LSSN-01 | Phase 12 | Complete |
 | LSSN-02 | Phase 13 | Pending |
 | LSSN-03 | Phase 14 | Pending |
 | LSSN-04 | Phase 15 | Pending |
@@ -138,4 +138,4 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 ---
 *Requirements defined: 2026-02-06*
-*Last updated: 2026-02-06 after Phase 11 execution (RSRC-01 through RSRC-06 complete, PDGY-01 through PDGY-08 in progress)*
+*Last updated: 2026-02-06 after Phase 12 execution (LSSN-01 complete, PDGY-01 through PDGY-08 in progress)*
