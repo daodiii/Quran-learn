@@ -1,0 +1,66 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Container from '../../components/primitives/Container.astro';
+import { getCollection } from 'astro:content';
+
+const allSurahs = await getCollection('surahs');
+const sortedSurahs = allSurahs.sort((a, b) => a.data.surahNumber - b.data.surahNumber);
+
+const beginnerSurahs = sortedSurahs.filter(s => s.data.difficulty === 'beginner');
+const intermediateSurahs = sortedSurahs.filter(s => s.data.difficulty === 'intermediate');
+const advancedSurahs = sortedSurahs.filter(s => s.data.difficulty === 'advanced');
+---
+
+<BaseLayout title="Surah Breakdowns">
+  <Container maxWidth="xl" class="page-content">
+    <!-- Page Header -->
+    <header class="page-header">
+      <h1 class="page-title">Surah Breakdowns</h1>
+      <p class="page-description">
+        Detailed word-by-word grammatical analysis of Quranic chapters.
+        Each surah includes Arabic text, translation, I'rab analysis, and grammar cross-references.
+      </p>
+    </header>
+
+    <!-- Sections will be added in Task 2 -->
+  </Container>
+</BaseLayout>
+
+<style>
+  .page-content {
+    padding-block: var(--spacing-2xl);
+  }
+
+  /* Page Header */
+  .page-header {
+    margin-block-end: var(--spacing-2xl);
+  }
+
+  .page-title {
+    font-size: 2.25rem;
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--color-text-primary);
+    margin: 0;
+    margin-block-end: var(--spacing-sm);
+  }
+
+  .page-description {
+    font-size: 1.125rem;
+    line-height: 1.6;
+    color: var(--color-text-secondary);
+    margin: 0;
+    max-inline-size: 48rem;
+  }
+
+  /* Responsive Typography */
+  @media (max-width: 640px) {
+    .page-title {
+      font-size: 1.875rem;
+    }
+
+    .page-description {
+      font-size: 1rem;
+    }
+  }
+</style>

@@ -1,0 +1,184 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Container from '../../components/primitives/Container.astro';
+import CourseCard from '../../components/cards/CourseCard.astro';
+import LessonCard from '../../components/cards/LessonCard.astro';
+import CardGrid from '../../components/cards/CardGrid.astro';
+import { getCollection } from 'astro:content';
+
+const allLessons = await getCollection('lessons');
+
+const levelNames: Record<number, { title: string; titleAr: string; desc: string }> = {
+  1: { title: 'Foundation', titleAr: 'الأساسيات', desc: 'Build your foundation in Arabic: alphabet, vowels, basic word structures, and sentence types.' },
+  2: { title: 'Core Grammar', titleAr: 'القواعد الأساسية', desc: 'Master the essential grammar: I\'rab cases (Marfu\', Mansub, Majrur), Idafah, and sentence analysis.' },
+  3: { title: 'Intermediate', titleAr: 'القواعد المتوسطة', desc: 'Verb forms I through X, full conjugations, Inna & Kaana sisters, and passive voice.' },
+  4: { title: 'Advanced', titleAr: 'القواعد المتقدمة', desc: 'Complex grammatical constructions: conditionals, exceptions, Maf\'ul types, and rhetorical structures.' },
+  5: { title: 'Applied Study', titleAr: 'التطبيق القرآني', desc: 'Apply everything to the Quran: pattern recognition, vocabulary, and full verse analysis.' },
+};
+
+const levels = [1, 2, 3, 4, 5];
+---
+
+<BaseLayout title="Grammar Lessons">
+  <Container maxWidth="xl">
+    <header class="page-header">
+      <h1 class="page-title">Grammar Curriculum</h1>
+      <p class="page-subtitle">73 lessons across 5 levels, from the Arabic alphabet to full Quranic analysis.</p>
+    </header>
+
+    <!-- Level Overview Cards -->
+    <CardGrid minCardWidth={280} gap="md">
+      {levels.map(level => {
+        const info = levelNames[level];
+        const lessons = allLessons
+          .filter(l => l.data.level === level)
+          .sort((a, b) => a.data.order - b.data.order);
+
+        return (
+          <CourseCard
+            title={info.title}
+            level={level}
+            lessonsCompleted={0}
+            totalLessons={lessons.length}
+            href={`#level-${level}`}
+            data-level={level}
+          >
+            <p class="level-arabic" dir="rtl" lang="ar">{info.titleAr}</p>
+            <p>{info.desc}</p>
+          </CourseCard>
+        );
+      })}
+    </CardGrid>
+
+    <!-- Level Sections with Lesson Lists -->
+    {levels.map(level => {
+      const info = levelNames[level];
+      const lessons = allLessons
+        .filter(l => l.data.level === level)
+        .sort((a, b) => a.data.order - b.data.order);
+
+      return (
+        <section id={`level-${level}`} class="level-section" data-level={level}>
+          <div class="level-header">
+            <h2 class="level-title">
+              <span class="level-number">Level {level}</span>
+              {info.title}
+            </h2>
+            <span class="level-arabic" dir="rtl" lang="ar">{info.titleAr}</span>
+          </div>
+
+          {lessons.length > 0 ? (
+            <div class="lessons-grid">
+              {lessons.map(lesson => (
+                <LessonCard
+                  title={lesson.data.title}
+                  level={level}
+                  completed={false}
+                  href={`/learn/${lesson.id}/`}
+                  data-lesson-id={lesson.id}
+                >
+                  {lesson.data.description}
+                </LessonCard>
+              ))}
+            </div>
+          ) : (
+            <p class="no-lessons">Lessons coming soon.</p>
+          )}
+        </section>
+      );
+    })}
+  </Container>
+</BaseLayout>
+
+<style>
+  .page-header {
+    padding-block-start: var(--spacing-2xl);
+    padding-block-end: var(--spacing-xl);
+    text-align: center;
+  }
+
+  .page-title {
+    font-size: clamp(1.75rem, 4vw, 2.25rem);
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin-block-end: var(--spacing-sm);
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+  }
+
+  .page-subtitle {
+    font-size: clamp(1rem, 2vw, 1.125rem);
+    color: var(--color-text-secondary);
+    max-inline-size: 48rem;
+    margin-inline: auto;
+  }
+
+  /* Level Arabic in CourseCard */
+  .level-arabic {
+    font-family: 'Amiri', serif;
+    font-size: 1.125rem;
+    color: var(--color-text-secondary);
+    margin-block-end: var(--spacing-xs);
+    line-height: 1.6;
+  }
+
+  /* Level Section */
+  .level-section {
+    margin-block-start: var(--spacing-3xl);
+    scroll-margin-block-start: 5rem;
+  }
+
+  .level-header {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+    margin-block-end: var(--spacing-lg);
+    padding-block-end: var(--spacing-md);
+    border-block-end: 2px solid var(--color-border-primary);
+  }
+
+  .level-title {
+    font-size: clamp(1.5rem, 3vw, 1.875rem);
+    font-weight: 700;
+    color: var(--color-text-primary);
+    display: flex;
+    align-items: baseline;
+    gap: var(--spacing-sm);
+    flex-wrap: wrap;
+  }
+
+  .level-number {
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-text-tertiary);
+  }
+
+  .level-header .level-arabic {
+    font-family: 'Amiri', serif;
+    font-size: 1.25rem;
+    color: var(--color-accent-primary);
+  }
+
+  /* Lessons Grid */
+  .lessons-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
+    gap: var(--spacing-md);
+  }
+
+  @media (min-width: 768px) {
+    .lessons-grid {
+      grid-template-columns: repeat(auto-fill, minmax(min(100%, 360px), 1fr));
+    }
+  }
+
+  .no-lessons {
+    font-size: 0.875rem;
+    color: var(--color-text-tertiary);
+    font-style: italic;
+    padding: var(--spacing-lg);
+    text-align: center;
+  }
+</style>
