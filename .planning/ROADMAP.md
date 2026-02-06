@@ -169,10 +169,13 @@ Plans:
   6. Lighthouse accessibility score is 100
   7. Total JavaScript bundle under 50KB
   8. Keyboard navigation complete for all interactive elements
-**Plans**: TBD
+**Plans**: 4 plans
 
 Plans:
-- [ ] 08-01: [To be defined during planning]
+- [ ] 08-01-PLAN.md -- Font preloading and ARIA live region infrastructure
+- [ ] 08-02-PLAN.md -- Capacitor splash screen lifecycle and bundle size verification
+- [ ] 08-03-PLAN.md -- Keyboard navigation audit and comprehensive accessibility tests
+- [ ] 08-04-PLAN.md -- Production Lighthouse audit and screen reader verification (checkpoint)
 
 ## Progress
 
