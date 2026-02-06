@@ -80,7 +80,7 @@ ALWAYS use the EXACT English and Arabic terms from this document. Never use syno
 
 | English | Arabic | Transliteration | Definition | First Used |
 |---------|--------|-----------------|------------|------------|
-| Subject (verbal) | فَاعِل | fāʿil | Doer of the action in verbal sentence | L2.03 |
+| Subject (verbal) | فَاعِلْ | fāʿil | Doer of the action in verbal sentence | L2.03 |
 | Object | مَفْعُول بِهِ | mafʿūl bihi | Direct object receiving the action | L2.05 |
 | Preposition | حَرْف جَرّ | ḥarf jarr | Genitive-triggering particle | L2.07 |
 | Possessive construction | إِضَافَة | iḍāfah | Noun-noun genitive construct (X of Y) | L2.08 |

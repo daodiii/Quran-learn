@@ -4,8 +4,570 @@ order: 5
 description: "Understanding trilateral and quadrilateral root patterns in Quranic vocabulary."
 ---
 
+import ArabicExample from '../../components/mdx/ArabicExample.astro';
+import Callout from '../../components/mdx/Callout.astro';
+import GrammarTable from '../../components/mdx/GrammarTable.astro';
+
 # Arabic Root System Guide
 
-Learn how Arabic roots work and how to identify word families in the Quran.
+**Think of Arabic roots like LEGO bricks.** Each brick (root) can be combined with different patterns (molds) to create an entire family of related words. Once you understand how these work, you can decode thousands of Quranic words you've never seen before.
 
-(Content placeholder - will be filled with actual guide)
+This guide teaches you the root-and-pattern system that powers Arabic morphology, shows you how words derive from roots, and most importantly, gives you a practical strategy for looking up unfamiliar Quranic words in an Arabic dictionary.
+
+## What Are Roots?
+
+An **Root (jadhr / جَذْرٌ)** is a cluster of consonants (usually three, sometimes four) that carries a core meaning. All words derived from that root share a family resemblance in meaning.
+
+For example, the root **ك ت ب** (k-t-b) carries the core idea of **"writing."** From this single root come dozens of related words:
+
+- **كِتَابٌ** (kitābun) - a book (something written)
+- **كَاتِبٌ** (kātibun) - a writer (someone who writes)
+- **مَكْتَبٌ** (maktabun) - a desk/office (a place for writing)
+- **كَتَبَ** (kataba) - he wrote (the action of writing)
+- **مَكْتُوبٌ** (maktūbun) - written (something that has been written)
+
+<Callout type="tip" title="Why This Matters for Quran Study">
+When you encounter an unfamiliar word in the Quran, identifying its root helps you:
+
+1. **Understand its general meaning** - Even if you don't know the exact word, the root gives you a semantic clue
+2. **Look it up in a dictionary** - Arabic dictionaries organize words by root, not alphabetically
+3. **Connect related concepts** - See how the Quran uses different forms of the same root to build themes
+</Callout>
+
+## Trilateral Roots (Three Letters)
+
+**About 95% of Quranic vocabulary comes from trilateral (three-consonant) roots.** These roots follow predictable patterns that help you identify word types.
+
+Arabic grammarians use the template **ف ع ل** (f-ʿ-l) to represent any trilateral root:
+
+- **ف** (fāʾ) - represents the 1st root letter
+- **ع** (ʿayn) - represents the 2nd root letter
+- **ل** (lām) - represents the 3rd root letter
+
+When linguists describe a pattern, they use a template. The doer-of-action pattern is called **Subject (verbal) (fāʿil / فَاعِلْ)** in Arabic grammar. This creates words like "كَاتِبٌ" (kātibun / writer), which is a type of **Noun (ism / اِسْمٌ)**. This pattern appears with various case endings: فَاعِلٌ (nominative), فَاعِلٍ (genitive), فَاعِلَ (accusative).
+
+### Example: Applying فَاعِلٌ Pattern
+
+<GrammarTable
+  caption="Active Participle Pattern (Doer)"
+  headers={["Root", "Root Meaning", "فَاعِلٌ Form", "Translation"]}
+  rows={[
+    ["ك ت ب", "writing", "كَاتِبٌ", "writer"],
+    ["ع ل م", "knowing", "عَالِمٌ", "scholar/knower"],
+    ["ق ر أ", "reading", "قَارِئٌ", "reader"],
+    ["ع ب د", "worshipping", "عَابِدٌ", "worshipper"],
+    ["س م ع", "hearing", "سَامِعٌ", "hearer"],
+  ]}
+/>
+
+Notice how the pattern stays the same (فَاعِلٌ) but the root letters change. This is the key to Arabic morphology.
+
+## Quadrilateral Roots (Four Letters)
+
+**About 5% of roots have four consonants instead of three.** These are less common but important in Quranic vocabulary.
+
+<Callout type="note">
+When analyzing roots, remember that **Hamza above alif (ʾa / أَ)** and **Hamza below alif (ʾi / إِ)** count as root letters, not just vowel markers. Also note that **Doubled consonant (shaddah / شَدَّة)** indicates a geminated root letter.
+</Callout>
+
+Common quadrilateral roots in the Quran:
+
+- **و س و س** (w-s-w-s) - whispering (Shayṭān's whispers)
+- **ز ل ز ل** (z-l-z-l) - shaking/earthquake
+- **ج ع ف ر** (j-ʿ-f-r) - a specific type of plant
+- **ط م ن ن** (ṭ-m-n-n) - tranquility/peace of heart
+
+<ArabicExample
+  arabic="إِذَا زُلْزِلَتِ الْأَرْضُ زِلْزَالَهَا"
+  transliteration="ithā zulzilati l-arḍu zilzālahā"
+  translation="When the earth is shaken with its [final] earthquake"
+  reference="Surah Al-Zalzalah 99:1"
+  highlight="زُلْزِلَتِ,زِلْزَالَهَا"
+/>
+
+The verb **زُلْزِلَتِ** (zulzilat - was shaken) and noun **زِلْزَالَهَا** (zilzālahā - its earthquake) both come from the quadrilateral root **ز ل ز ل**.
+
+## Common Derivation Patterns
+
+Here are the most frequent patterns you'll encounter in Quranic Arabic. Knowing these helps you categorize unfamiliar words by sight.
+
+<GrammarTable
+  caption="Major Derivation Patterns"
+  headers={["Pattern", "Function", "ك ت ب Example", "Translation"]}
+  rows={[
+    ["فَعَلَ", "Past tense verb (he did)", "كَتَبَ", "he wrote"],
+    ["يَفْعَلُ", "Present tense verb (he does)", "يَكْتُبُ", "he writes"],
+    ["فَاعِلٌ", "Active participle (doer)", "كَاتِبٌ", "writer"],
+    ["مَفْعُولٌ", "Passive participle (done to)", "مَكْتُوبٌ", "written"],
+    ["فِعْلٌ", "Verbal noun - Verb (fiʿl / فِعْلٌ)", "كِتَابَةٌ", "writing (act of)"],
+    ["فَعَّالٌ", "Intensive doer (does a lot)", "كَتَّابٌ", "scribe/clerk"],
+    ["مَفْعَلٌ", "Place/time of action", "مَكْتَبٌ", "desk/office"],
+    ["أَفْعَلَ", "Causative verb (made someone do)", "أَكْتَبَ", "made someone write"],
+    ["تَفَعَّلَ", "Reflexive verb (did to oneself)", "تَكَتَّبَ", "enrolled/registered"],
+    ["اِفْتَعَلَ", "Intensive/reciprocal verb", "اِكْتَتَبَ", "copied down"],
+  ]}
+/>
+
+<Callout type="rule" title="Pattern Recognition">
+When you see a word with:
+- **مَ** prefix - Often a **place, time, or instrument** (مَسْجِدٌ - masjid/place of prostration)
+- **تَ** prefix - Often **reflexive or reciprocal** action (تَعَلَّمَ - taught oneself/learned)
+- **اِ** prefix - Often **intensive or middle voice** (اِسْتَغْفَرَ - sought forgiveness)
+- Double middle letter - Often **intensive or causative** (عَلَّمَ - taught/made someone know)
+</Callout>
+
+## How to Look Up a Quranic Word in a Dictionary
+
+**This is the most practical skill for independent Quran study.** Arabic dictionaries don't organize words alphabetically like English dictionaries. They organize by **root**, so you must extract the root from any word form you encounter.
+
+Here's the step-by-step workflow:
+
+### Step 1: Identify the Word Without Prefixes/Suffixes
+
+Remove common prefixes and suffixes to find the core word.
+
+**Common prefixes to strip:**
+- **وَ**, **فَ**, **ثُمَّ** (conjunctions: and, then)
+- **الْ** (definite article: the)
+- **بِ**, **لِ**, **كَ** (prepositions: by/with, to/for, like)
+- **سَ**, **يَ**, **تَ**, **نَ**, **hamza above alif (ʾa / أَ)** (present tense markers)
+- **hamza below alif (ʾi / إِ)** (appears on some Form IV and Form VIII verbs)
+
+**Common suffixes to strip:**
+- **ُونَ**, **ِينَ** (masculine plural endings)
+- **َاتٌ**, **َاتِ** (feminine plural endings)
+- **ُهُ**, **ُهُمْ**, **ُهَا** (attached pronouns: him, them, her)
+- **ٌ**, **ٍ**, **ً** (case endings: tanwīn)
+
+**Example:** Let's extract the root from **وَالْمُسْلِمُونَ** (wa-l-muslimūna - "and the Muslims"):
+
+1. Remove **وَ** (and)
+2. Remove **الْ** (the)
+3. Remove **ُونَ** (masculine plural)
+4. You're left with: **مُسْلِم**
+
+### Step 2: Find the Root Consonants
+
+Look at what remains and identify the **3 (or 4) core consonants**, ignoring:
+- Short vowels (َ ِ ُ)
+- Sukūns (ْ)
+- Doubled letters (marked by shaddah / شَدَّة - the doubling mark)
+- Weak letters that might be pattern markers
+
+From **مُسْلِم** (muslim), the root consonants are:
+- **م** (first root letter)
+- **س** (second root letter)
+- **ل** (third root letter)
+- **م** (wait, two mīms? The pattern مُفْعِل has a prefix مُ)
+
+**Correction:** The pattern **مُفْعِلٌ** has a prefix **مُ**, so the root is actually **س ل م** (s-l-m).
+
+### Step 3: Arrange Root Letters in Dictionary Order
+
+Roots are listed in **alphabetical order by their consonants**. The Arabic alphabet order is:
+
+**أ ب ت ث ج ح خ د ذ ر ز س ش ص ض ط ظ ع غ ف ق ك ل م ن ه و ي**
+
+The root **س ل م** would be listed in the **س** section, under words starting with **س**, then narrowed to **س ل**, then **س ل م**.
+
+### Step 4: Recognize Common Root Patterns
+
+Some root types need special handling:
+
+**Hollow verbs (middle weak letter):**
+- **قَاْلَ** (qāla - he said) → root is **ق و ل** not **قَاْلَ** (the alif is from wāw)
+- **بَاْعَ** (bāʿa - he sold) → root is **ب ي ع** (the alif is from yāʾ)
+
+**Defective verbs (final weak letter):**
+- **هَدْىَٰ** (hadā - he guided) → root is **ه د ي** (final alif maqṣūrah represents yāʾ)
+- **دَعَاْ** (daʿā - he called) → root is **د ع و** (final alif represents wāw)
+
+**Doubled/geminate verbs:**
+- **مَدَّ** (madda - he extended) → root is **م د د** (doubled dāl)
+- **شَدَّ** (shadda - he tied) → root is **ش د د** (doubled dāl)
+
+**Hamzated verbs:**
+- **قَرَأَ** (qaraʾa - he read) → root is **ق ر ء** (hamza is third root letter)
+- **أَخَذَ** (akhatha - he took) → root is **أ خ ذ** (hamza is first root letter)
+
+### Step 5: Look Up the Root Entry
+
+Open your dictionary to the root section (e.g., Hans Wehr Dictionary, Lane's Lexicon, or digital tools like Quran.com word analysis).
+
+Under the root **س ل م**, you'll find all derived forms:
+- **سَلِمَ** (salima) - to be safe
+- **أَسْلَمَ** (aslama) - to submit (Form IV)
+- **سَلَامٌ** (salāmun) - peace
+- **مُسْلِمٌ** (muslimun) - one who submits (Muslim)
+- **إِسْلَامٌ** (islāmun) - submission (Islam)
+
+### Step 6: Verify with Quranic Context
+
+Once you find candidate meanings, verify which fits your verse's context:
+
+<ArabicExample
+  arabic="وَمَا جَعَلْنَا الْقِبْلَةَ الَّتِي كُنتَ عَلَيْهَا إِلَّا لِنَعْلَمَ مَن يَتَّبِعُ الرَّسُولَ مِمَّن يَنقَلِبُ عَلَىٰ عَقِبَيْهِ"
+  transliteration="wa-mā jaʿalnā l-qiblata llatī kunta ʿalayhā illā li-naʿlama man yattabiʿu r-rasūla mimman yanqalibu ʿalā ʿaqibayhi"
+  translation="And We did not make the qiblah which you used to face except that We might know who follows the Messenger from who turns back on his heels."
+  reference="Surah Al-Baqarah 2:143"
+  highlight="يَنقَلِبُ"
+/>
+
+**Challenge:** Look up **يَنقَلِبُ** (yanqalibu - turns back)
+1. Strip **يَ** (present tense marker)
+2. Remaining: **نَقَلِبُ**
+3. Root consonants: **ن ق ل ب** (n-q-l-b) - a quadrilateral root meaning "to overturn/turn upside down"
+4. Pattern: **يَنْفَعِلُ** (Form VII - passive/reflexive)
+
+<Callout type="warning" title="Common Mistakes to Avoid">
+**Mistake 1: Keeping pattern letters as root letters**
+- ❌ Treating **مُ** prefix in **مُسْلِمٌ** as a root letter (it's part of the مُفْعِل pattern)
+- ✅ Recognizing pattern elements vs. root consonants
+
+**Mistake 2: Confusing long vowels with root consonants**
+- ❌ Treating **قَاْلَ** root as **قَ الَ** (alif is not a root letter here)
+- ✅ Recognizing **ا** represents original **و** or **ي** in hollow verbs
+
+**Mistake 3: Not checking for attached pronouns**
+- ❌ Looking up **رَبُّهُ** as one word
+- ✅ Splitting into **رَبُّ** (lord) + **هُ** (his/him)
+
+**Mistake 4: Forgetting assimilated letters**
+- ❌ Looking up **اتَّقَى** with only **ت ق ي** (missing original **و**)
+- ✅ Recognizing Form VIII pattern where initial **و** assimilates: root is **و ق ي**
+</Callout>
+
+## Common Quranic Root Families
+
+Here are 15 high-frequency Quranic roots with their most common derivatives. Memorizing these families dramatically expands your vocabulary.
+
+### 1. ك ت ب (k-t-b) - Writing
+
+<ArabicExample
+  arabic="كِتَابٌ أُنزِلَ إِلَيْكَ فَلَا يَكُن فِي صَدْرِكَ حَرَجٌ مِّنْهُ"
+  transliteration="kitābun unzila ilayka fa-lā yakun fī ṣadrika ḥarajun minhu"
+  translation="[This is] a Book revealed to you, so let there not be in your chest discomfort from it"
+  reference="Surah Al-A'raf 7:2"
+  highlight="كِتَابٌ"
+/>
+
+**Key derivatives:**
+- **كِتَابٌ** (kitābun) - book, scripture
+- **كَتَبَ** (kataba) - he wrote
+- **يَكْتُبُ** (yaktubu) - he writes
+- **مَكْتُوبٌ** (maktūbun) - written, decreed
+- **كَاتِبٌ** (kātibun) - writer, scribe
+
+### 2. ع ل م (ʿ-l-m) - Knowing
+
+<ArabicExample
+  arabic="وَاللَّهُ بِكُلِّ شَيْءٍ عَلِيمٌ"
+  transliteration="wallāhu bi-kulli shayʾin ʿalīmun"
+  translation="And Allah is Knowing of all things"
+  reference="Surah Al-Baqarah 2:282"
+  highlight="عَلِيمٌ"
+/>
+
+**Key derivatives:**
+- **عَلِمَ** (ʿalima) - he knew
+- **يَعْلَمُ** (yaʿlamu) - he knows
+- **عِلْمٌ** (ʿilmun) - knowledge
+- **عَالِمٌ** (ʿālimun) - knower, scholar
+- **عَلِيمٌ** (ʿalīmun) - All-Knowing (Allah's attribute)
+- **مُعَلِّمٌ** (muʿallimun) - teacher
+- **تَعَلَّمَ** (taʿallama) - he learned/taught himself
+
+### 3. ق ر أ (q-r-ʾ) - Reading/Reciting
+
+<ArabicExample
+  arabic="اقْرَأْ بِاسْمِ رَبِّكَ الَّذِي خَلَقَ"
+  transliteration="iqraʾ bi-smi rabbika lladhī khalaqa"
+  translation="Read in the name of your Lord who created"
+  reference="Surah Al-'Alaq 96:1"
+  highlight="اقْرَأْ"
+/>
+
+**Key derivatives:**
+- **قَرَأَ** (qaraʾa) - he read, he recited
+- **يَقْرَأُ** (yaqraʾu) - he reads, he recites
+- **قُرْآنٌ** (qurʾānun) - Quran (the recitation)
+- **قَارِئٌ** (qāriʾun) - reader, reciter
+- **قِرَاءَةٌ** (qirāʾatun) - reading, recitation
+
+### 4. ع ب د (ʿ-b-d) - Worshipping/Serving
+
+<ArabicExample
+  arabic="وَمَا خَلَقْتُ الْجِنَّ وَالْإِنسَ إِلَّا لِيَعْبُدُونِ"
+  transliteration="wa-mā khalaqtu l-jinna wa-l-insa illā li-yaʿbudūni"
+  translation="And I did not create jinn and mankind except to worship Me"
+  reference="Surah Adh-Dhariyat 51:56"
+  highlight="لِيَعْبُدُونِ"
+/>
+
+**Key derivatives:**
+- **عَبَدَ** (ʿabada) - he worshipped, he served
+- **يَعْبُدُ** (yaʿbudu) - he worships
+- **عِبَادَةٌ** (ʿibādatun) - worship, servitude
+- **عَبْدٌ** (ʿabdun) - slave, servant, worshipper
+- **عَابِدٌ** (ʿābidun) - worshipper
+- **مَعْبُودٌ** (maʿbūdun) - one who is worshipped
+
+### 5. ك ف ر (k-f-r) - Disbelieving/Covering Truth
+
+<ArabicExample
+  arabic="إِنَّ الَّذِينَ كَفَرُوْا سَوَاءٌ عَلَيْهِمْ أَأَنذَرْتَهُمْ أَمْ لَمْ تُنذِرْهُمْ لَا يُؤْمِنُونَ"
+  transliteration="inna lladhīna kafarū sawāʾun ʿalayhim a-andhartahum am lam tundhirhum lā yuʾminūna"
+  translation="Indeed, those who disbelieve - it is all the same for them whether you warn them or do not warn them - they will not believe"
+  reference="Surah Al-Baqarah 2:6"
+  highlight="كَفَرُوْا"
+/>
+
+**Key derivatives:**
+- **كَفَرَ** (kafara) - he disbelieved, he covered (the truth)
+- **يَكْفُرُ** (yakfuru) - he disbelieves
+- **كُفْرٌ** (kufrun) - disbelief, ingratitude
+- **كَافِرٌ** (kāfirun) - disbeliever
+- **كَفَّارَةٌ** (kaffāratun) - expiation, atonement
+
+### 6. أ م ن (ʾ-m-n) - Believing/Security
+
+<ArabicExample
+  arabic="آمَنََ الرَّسُولُ بِمَا أُنزِلَ إِلَيْهِ مِن رَّبِّهِ وَالْمُؤْمِنُونَ"
+  transliteration="āmana r-rasūlu bi-mā unzila ilayhi min rabbihi wa-l-muʾminūna"
+  translation="The Messenger has believed in what was revealed to him from his Lord, and [so have] the believers"
+  reference="Surah Al-Baqarah 2:285"
+  highlight="آمَنََ,الْمُؤْمِنُونَ"
+/>
+
+**Key derivatives:**
+- **آمَنََ** (āmana) - he believed (Form IV)
+- **يُؤْمِنُ** (yuʾminu) - he believes
+- **إِيْمَانٌ** (īmānun) - faith, belief
+- **مُؤْمِنٌ** (muʾminun) - believer
+- **أَمْنٌ** (amnun) - security, safety
+- **أَمِينٌ** (amīnun) - trustworthy
+
+### 7. ن ز ل (n-z-l) - Descending/Revealing
+
+<ArabicExample
+  arabic="إِنَّا أَنزَلْنَاهُ فِي لَيْلَةِ الْقَدْرِ"
+  transliteration="innā anzalnāhu fī laylati l-qadri"
+  translation="Indeed, We sent it down during the Night of Decree"
+  reference="Surah Al-Qadr 97:1"
+  highlight="أَنزَلْنَاهُ"
+/>
+
+**Key derivatives:**
+- **نَزَلَ** (nazala) - he descended, it came down
+- **أَنزَلَ** (anzala) - he sent down, he revealed (Form IV)
+- **يُنَزِّلُ** (yunazzilu) - he sends down (Form II - gradual)
+- **نُزُولٌ** (nuzūlun) - descent
+- **مُنَزَّلٌ** (munazzalun) - sent down gradually
+- **تَنْزِيلٌ** (tanzīlun) - revelation, sending down
+
+### 8. ق و ل (q-w-l) - Saying
+
+<ArabicExample
+  arabic="قَاْلَ رَبِّ اشْرَحْ لِي صَدْرِي"
+  transliteration="qāla rabbi shraḥ lī ṣadrī"
+  translation="He said, 'My Lord, expand for me my chest [with assurance]'"
+  reference="Surah Ta-Ha 20:25"
+  highlight="قَاْلَ"
+/>
+
+**Key derivatives:**
+- **قَاْلَ** (qāla) - he said
+- **يَقُولُ** (yaqūlu) - he says
+- **قَوْلٌ** (qawlun) - speech, saying
+- **قَائِلٌ** (qāʾilun) - speaker
+- **مَقَاْلَةٌ** (maqālatun) - statement, article
+
+### 9. ف ع ل (f-ʿ-l) - Doing/Acting
+
+<ArabicExample
+  arabic="أَتَأْمُرُونَ النَّاسَ بِالْبِرِّ وَتَنسَوْنَ أَنفُسَكُمْ وَأَنتُمْ تَتْلُونَ الْكِتَابَ ۚ أَفَلَا تَعْقِلُونَ"
+  transliteration="a-taʾmurūna n-nāsa bi-l-birri wa-tansawna anfusakum wa-antum tatlūna l-kitāba a-fa-lā taʿqilūna"
+  translation="Do you order righteousness of the people and forget yourselves while you recite the Scripture? Then will you not reason?"
+  reference="Surah Al-Baqarah 2:44"
+/>
+
+**Key derivatives:**
+- **فَعَلَ** (faʿala) - he did, he acted
+- **يَفْعَلُ** (yafʿalu) - he does
+- **فِعْلٌ** (fiʿlun) - deed, action
+- **فَاعِلٌ** (fāʿilun) - doer, actor
+- **مَفْعُولٌ** (mafʿūlun) - object (thing acted upon)
+
+### 10. ص ل ح (ṣ-l-ḥ) - Righteousness/Soundness
+
+<ArabicExample
+  arabic="وَالَّذِينَ آمَِنُوْا وَعَمِلُوا الصَّالِْحَاتِ أُولَٰئِكَ أَصْحَابُ الْجَنَّةِ ۖ هُمْ فِيهَا خَالِدُونَ"
+  transliteration="walladhīna āmanū wa-ʿamilū ṣ-ṣāliḥāti ulāʾika aṣḥābu l-jannati hum fīhā khālidūna"
+  translation="But those who believe and do righteous deeds - those are the companions of Paradise; they will abide therein eternally"
+  reference="Surah Al-Baqarah 2:82"
+  highlight="الصَّالِْحَاتِ"
+/>
+
+**Key derivatives:**
+- **صَلَحَ** (ṣalaḥa) - it was good, it was sound
+- **أَصْلَحَ** (aṣlaḥa) - he corrected, he reconciled (Form IV)
+- **صَالِحٌ** (ṣāliḥun) - righteous, good
+- **صَلَاحٌ** (ṣalāḥun) - righteousness, welfare
+- **إِصْلَاحٌ** (iṣlāḥun) - reform, reconciliation
+- **مُصْلِحٌ** (muṣliḥun) - reformer, one who reconciles
+
+### 11. ح م د (ḥ-m-d) - Praising/Thanking
+
+<ArabicExample
+  arabic="الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ"
+  transliteration="al-ḥamdu lillāhi rabbi l-ʿālamīna"
+  translation="[All] praise is [due] to Allah, Lord of the worlds"
+  reference="Surah Al-Fatihah 1:2"
+  highlight="الْحَمْدُ"
+/>
+
+**Key derivatives:**
+- **حَمِدَ** (ḥamida) - he praised, he thanked
+- **يَحْمَدُ** (yaḥmadu) - he praises
+- **حَمْدٌ** (ḥamdun) - praise, gratitude
+- **حَامِدٌ** (ḥāmidun) - one who praises
+- **مَحْمُودٌ** (maḥmūdun) - praiseworthy
+- **مُحَمَّدٌ** (Muḥammadun) - Muhammad (the praised one)
+- **أَحْمَدُ** (Aḥmadu) - more praiseworthy
+
+### 12. س ج د (s-j-d) - Prostrating/Bowing
+
+<ArabicExample
+  arabic="وَلِلَّهِ يَسْجُدُ مَن فِي السَّمَاوَاتِ وَالْأَرْضِ"
+  transliteration="wa-lillāhi yasjudu man fī s-samāwāti wa-l-arḍi"
+  translation="And to Allah prostrates whoever is within the heavens and the earth"
+  reference="Surah Ar-Ra'd 13:15"
+  highlight="يَسْجُدُ"
+/>
+
+**Key derivatives:**
+- **سَجَدَ** (sajada) - he prostrated
+- **يَسْجُدُ** (yasjudu) - he prostrates
+- **سُجُودٌ** (sujūdun) - prostration
+- **سَاجِدٌ** (sājidun) - one who prostrates
+- **مَسْجِدٌ** (masjidun) - mosque (place of prostration)
+
+### 13. ر ح م (r-ḥ-m) - Mercy/Compassion
+
+<ArabicExample
+  arabic="وَرَحْمَتِي وَسِعَتْ كُلَّ شَيْءٍ"
+  transliteration="wa-raḥmatī wasiʿat kulla shayʾin"
+  translation="And My mercy encompasses all things"
+  reference="Surah Al-A'raf 7:156"
+  highlight="وَرَحْمَتِي"
+/>
+
+**Key derivatives:**
+- **رَحِمَ** (raḥima) - he had mercy, he was compassionate
+- **يَرْحَمُ** (yarḥamu) - he has mercy
+- **رَحْمَةٌ** (raḥmatun) - mercy, compassion
+- **رَحِيمٌ** (raḥīmun) - Most Merciful (Allah's attribute)
+- **رَحْمَانٌ** (raḥmānun) - Most Gracious (Allah's attribute)
+- **رَاحِمٌ** (rāḥimun) - merciful one
+
+### 14. ه د ي (h-d-y) - Guiding
+
+<ArabicExample
+  arabic="اِهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ"
+  transliteration="ihdinā ṣ-ṣirāṭa l-mustaqīma"
+  translation="Guide us to the straight path"
+  reference="Surah Al-Fatihah 1:6"
+  highlight="اِهْدِنَا"
+/>
+
+**Key derivatives:**
+- **هَدْىَٰ** (hadā) - he guided
+- **يَهْدِي** (yahdī) - he guides
+- **هُدْىً** (hudan) - guidance
+- **هَاْدٍ** (hādin) - guide
+- **مَهْدِيٌّ** (mahdiyyun) - guided one
+- **اِهْتَدَىٰ** (ihtadā) - he was guided (Form VIII - reflexive)
+
+### 15. ج ه د (j-h-d) - Striving/Struggling
+
+<ArabicExample
+  arabic="وَالَّذِينَ جَاَهِدُوْا فِينَا لَنَهْدِيَنَّهُمْ سُبُلَنَا"
+  transliteration="walladhīna jāhadū fīnā la-nahdiyanna-hum subulanā"
+  translation="And those who strive for Us - We will surely guide them to Our ways"
+  reference="Surah Al-'Ankabut 29:69"
+  highlight="جَاَهِدُوْا"
+/>
+
+**Key derivatives:**
+- **جَهَدَ** (jahada) - he strove, he exerted effort
+- **جَاهَدَ** (jāhada) - he struggled, he fought (Form III)
+- **يُجَاهِدُ** (yujāhidu) - he struggles
+- **جِهَادٌ** (jihādun) - struggle, striving (in Allah's path)
+- **مُجَاهِدٌ** (mujāhidun) - one who struggles
+- **جُهْدٌ** (juhdun) - effort, capacity
+
+<Callout type="tip" title="Memory Technique">
+Create flashcards with the root on one side and a "family tree" of derivatives on the other. Each time you encounter a new Quranic word, add it to the family tree of its root. Over time, you'll build mental maps of how Arabic words cluster around meaning.
+</Callout>
+
+## Practical Application
+
+Let's apply everything we've learned to a real Quranic verse:
+
+<ArabicExample
+  arabic="يَا أَيُّهَا الَّذِينَ آمَِنُوْا اِتَّقُوْا اللَّهَ وَاِبْتَغُوْا إِلَيْهِ الْوَسِيلَةَ وَجَاَهِدُوْا فِي سَبِيلِهِ لَعَلَّكُمْ تُفْلِحُونَ"
+  transliteration="yā ayyuhā lladhīna āmanū ttaqū llāha wa-btaghū ilayhi l-wasīlata wa-jāhidū fī sabīlihi laʿallakum tufliḥūna"
+  translation="O you who have believed, fear Allah and seek the means [of nearness] to Him and strive in His cause that you may succeed"
+  reference="Surah Al-Ma'idah 5:35"
+/>
+
+**Root analysis:**
+
+1. **آمَِنُوْا** (āmanū) - believed
+   - Root: **أ م ن** (security/belief)
+   - Pattern: Form IV perfect verb with plural suffix
+
+2. **اِتَّقُوْا** (ttaqū) - fear/be conscious of
+   - Root: **و ق ي** (protection) - initial و assimilates in Form VIII
+   - Pattern: Form VIII imperative with plural suffix
+
+3. **اِبْتَغُوْا** (ibtaghū) - seek
+   - Root: **ب غ ي** (seeking/desiring)
+   - Pattern: Form VIII imperative with plural suffix
+
+4. **الْوَسِيلَةَ** (al-wasīlata) - the means
+   - Root: **و س ل** (connection/means)
+   - Pattern: **فَعِيلَةٌ** (instrumental noun)
+
+5. **جَاَهِدُوْا** (jāhidū) - strive/struggle
+   - Root: **ج ه د** (effort/striving)
+   - Pattern: Form III imperative with plural suffix
+
+6. **سَبِيلِهِ** (sabīlihi) - His path
+   - Root: **س ب ل** (way/path)
+   - Pattern: **فَعِيلٌ** + possessive pronoun
+
+7. **تُفْلِحُونَ** (tufliḥūna) - you succeed
+   - Root: **ف ل ح** (success/cultivation)
+   - Pattern: Form I present tense with plural suffix
+
+## Next Steps in Your Journey
+
+Now that you understand the root system:
+
+1. **Practice root extraction** - Take 10 new Quranic words daily and extract their roots
+2. **Build root families** - Keep a notebook of roots and their derivatives as you encounter them
+3. **Use digital tools** - Websites like Quran.com and Corpus Quran show root analysis for every word
+4. **Study morphology** - Learn the 10 major verb forms (أَوْزَانُ الْأَفْعَالِ) in Lesson 3.01 for deeper pattern recognition
+5. **Get a good dictionary** - Hans Wehr (Arabic-English) or Lane's Lexicon (classical) organized by root
+
+<Callout type="rule" title="Cross-Reference">
+For detailed verb form patterns and conjugation tables, see:
+- **Lesson 3.01** - Introduction to Verb Forms (الْأَوْزَانُ)
+- **Verb Conjugation Tables** (Resource section)
+- **200 Most Used Words** - Most entries show root families
+</Callout>
+
+**The root system is your key to vocabulary expansion.** Instead of memorizing 10,000 isolated words, you memorize 1,000 roots and learn to recognize patterns - just like a native speaker does naturally.
+
+May Allah grant you clarity in understanding His Book.
