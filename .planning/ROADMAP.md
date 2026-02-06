@@ -139,10 +139,15 @@ Plans:
 4. Each lesson provides 3-4 practice exercises with answer reveals
 5. All lessons follow textbook structure: introduction -> concept -> examples -> rule -> exercises
 
-**Plans:** TBD
+**Plans:** 6 plans
 
 Plans:
-- [ ] TBD during planning
+- [ ] 13-01-PLAN.md — Nominal sentence (L2.01) and nominative case (L2.04)
+- [ ] 13-02-PLAN.md — Subject & predicate (L2.02) and verbal sentence (L2.03)
+- [ ] 13-03-PLAN.md — Accusative case (L2.05)
+- [ ] 13-04-PLAN.md — Genitive case (L2.06) and adjective agreement (L2.09)
+- [ ] 13-05-PLAN.md — Inna sisters (L2.10) and kaana sisters (L2.11)
+- [ ] 13-06-PLAN.md — Prepositions & genitive (L2.07) and possessive/idafah (L2.08)
 
 ---
 
@@ -252,7 +257,7 @@ Plans:
 | 10. Curriculum Planning | v1.1 | 3/3 | Complete | 2026-02-06 |
 | 11. Reference Resources | v1.1 | 6/6 | Complete | 2026-02-06 |
 | 12. Level 1 Foundation | v1.1 | 5/5 | Complete | 2026-02-06 |
-| 13. Level 2 Core Grammar | v1.1 | 0/TBD | Not started | - |
+| 13. Level 2 Core Grammar | v1.1 | 0/6 | Not started | - |
 | 14. Level 3 Intermediate | v1.1 | 0/TBD | Not started | - |
 | 15. Level 4 Advanced | v1.1 | 0/TBD | Not started | - |
 | 16. Level 5 Applied Study | v1.1 | 0/TBD | Not started | - |
