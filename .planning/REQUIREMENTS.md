@@ -19,25 +19,25 @@ Requirements for the Coursera-inspired redesign. Each maps to roadmap phases.
 
 ### Home Page
 
-- [ ] **HOME-01**: Hero section with inspiring value proposition
-- [ ] **HOME-02**: Featured content cards with progress indicators
+- [x] **HOME-01**: Hero section with inspiring value proposition
+- [x] **HOME-02**: Featured content cards with progress indicators
 
 ### Learn Section
 
-- [ ] **LEARN-01**: Module-based learn dashboard with level progress
-- [ ] **LEARN-02**: Lesson pages with proper reading width and floating navigator
+- [x] **LEARN-01**: Module-based learn dashboard with level progress
+- [x] **LEARN-02**: Lesson pages with proper reading width and floating navigator
 
 ### Surah Section
 
-- [ ] **SURAH-01**: Card-based surah selector with difficulty badges
+- [x] **SURAH-01**: Card-based surah selector with difficulty badges
 
 ### Resources
 
-- [ ] **RESOURCE-01**: Visual cards for reference materials
+- [x] **RESOURCE-01**: Visual cards for reference materials
 
 ### Quiz
 
-- [ ] **QUIZ-01**: Clean, focused quiz experience with clear feedback
+- [x] **QUIZ-01**: Clean, focused quiz experience with clear feedback
 
 ### Components
 
@@ -88,13 +88,13 @@ Which phases cover which requirements. Updated during roadmap creation.
 | DESIGN-02 | Phase 2 | Complete |
 | NAV-01 | Phase 5 | Complete |
 | NAV-02 | Phase 5 | Complete |
-| HOME-01 | Phase 6 | Pending |
-| HOME-02 | Phase 6 | Pending |
-| LEARN-01 | Phase 6 | Pending |
-| LEARN-02 | Phase 6 | Pending |
-| SURAH-01 | Phase 6 | Pending |
-| RESOURCE-01 | Phase 6 | Pending |
-| QUIZ-01 | Phase 6 | Pending |
+| HOME-01 | Phase 6 | Complete |
+| HOME-02 | Phase 6 | Complete |
+| LEARN-01 | Phase 6 | Complete |
+| LEARN-02 | Phase 6 | Complete |
+| SURAH-01 | Phase 6 | Complete |
+| RESOURCE-01 | Phase 6 | Complete |
+| QUIZ-01 | Phase 6 | Complete |
 | COMP-01 | Phase 5 | Complete |
 | COMP-02 | Phase 5 | Complete |
 | RESP-01 | Phase 7 | Pending |
@@ -107,4 +107,4 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 ---
 *Requirements defined: 2026-02-05*
-*Last updated: 2026-02-06 after Phase 5 completion*
+*Last updated: 2026-02-06 after Phase 6 completion*

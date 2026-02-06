@@ -17,7 +17,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [x] **Phase 3: Card Components & Arabic Typography** - Create card layouts with proper Arabic text handling ✓
 - [x] **Phase 4: Dark Mode Polish** - Ensure Arabic readability in dark mode with proper contrast ✓
 - [x] **Phase 5: Navigation System** - Build collapsible sidebar and breadcrumb navigation ✓
-- [ ] **Phase 6: Page Redesigns** - Redesign all pages with new components and layouts
+- [x] **Phase 6: Page Redesigns** - Redesign all pages with new components and layouts ✓
 - [ ] **Phase 7: Mobile Optimization** - Optimize responsive design and iOS Arabic font sizing
 - [ ] **Phase 8: Performance & Accessibility** - Final polish with font loading and screen reader support
 
@@ -129,12 +129,12 @@ Plans:
 **Plans**: 6 plans
 
 Plans:
-- [ ] 06-01-PLAN.md — Homepage redesign with hero section and featured CourseCards
-- [ ] 06-02-PLAN.md — Learn dashboard with module-based layout and level progress
-- [ ] 06-03-PLAN.md — Lesson pages with reading width and prev/next navigation
-- [ ] 06-04-PLAN.md — Surah selector with card-based layout and difficulty badges
-- [ ] 06-05-PLAN.md — Resources page with visual ResourceCards
-- [ ] 06-06-PLAN.md — Quiz experience redesign with clean feedback
+- [x] 06-01-PLAN.md — Homepage redesign with hero section and featured CourseCards
+- [x] 06-02-PLAN.md — Learn dashboard with module-based layout and level progress
+- [x] 06-03-PLAN.md — Lesson pages with reading width and prev/next navigation
+- [x] 06-04-PLAN.md — Surah selector with card-based layout and difficulty badges
+- [x] 06-05-PLAN.md — Resources page with visual ResourceCards
+- [x] 06-06-PLAN.md — Quiz experience redesign with clean feedback
 
 ### Phase 7: Mobile Optimization
 **Goal**: Optimize responsive design with iOS-specific Arabic font sizing and touch interactions
@@ -183,6 +183,6 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8
 | 3. Card Components & Arabic Typography | 2/2 | Complete ✓ | 2026-02-06 |
 | 4. Dark Mode Polish | 2/2 | Complete ✓ | 2026-02-06 |
 | 5. Navigation System | 4/4 | Complete ✓ | 2026-02-06 |
-| 6. Page Redesigns | 0/6 | Not started | - |
+| 6. Page Redesigns | 6/6 | Complete ✓ | 2026-02-06 |
 | 7. Mobile Optimization | 0/TBD | Not started | - |
 | 8. Performance & Accessibility | 0/TBD | Not started | - |
