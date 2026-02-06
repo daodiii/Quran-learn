@@ -10,29 +10,29 @@ See: .planning/PROJECT.md (updated 2026-02-06)
 ## Current Position
 
 Phase: 9 of 17 (Content Infrastructure)
-Plan: 1 of 2 complete
-Status: In progress
-Last activity: 2026-02-06 — Completed 09-01-PLAN.md
+Plan: 2 of 2 complete
+Status: Phase complete
+Last activity: 2026-02-06 — Completed 09-02-PLAN.md
 
-Progress: [████████░░░░░░░░░░] 49% (29/59 estimated total plans)
+Progress: [████████░░░░░░░░░░] 51% (30/59 estimated total plans)
 
 ## Performance Metrics
 
 **Velocity (updated):**
-- Total plans completed: 29
-- Average duration: 5.5 min
-- Total execution time: 3.15 hours
+- Total plans completed: 30
+- Average duration: 5.4 min
+- Total execution time: 3.18 hours
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
 | 1-8 | 28 | 3.1h | 5.6 min |
-| 9 | 1 | 3min | 3.0 min |
+| 9 | 2 | 5min | 2.5 min |
 
 **Recent Trend:**
-- Last 5 plans: [varying, v1.0 complete, 09-01: 3min]
-- Trend: Stable
+- Last 5 plans: [varying, v1.0 complete, 09-01: 3min, 09-02: 2min]
+- Trend: Stable, Phase 9 running faster than average
 
 *Updated after each plan completion*
 
@@ -49,6 +49,9 @@ Recent decisions affecting v1.1 work:
 - One concept per lesson — avoid cognitive overload with 73 focused lessons
 - Use glob() loaders for content collections (Astro v5 pattern)
 - Position content.config.ts at src/ root (Astro v5 requirement)
+- Arabic text must always have letter-spacing: 0 to prevent letter disconnection (09-02)
+- Use 'rule' type instead of 'caution' for Callout — more relevant for grammar lessons (09-02)
+- Inline SVG icons for consistent cross-platform rendering instead of emoji (09-02)
 
 ### Pending Todos
 
@@ -68,5 +71,5 @@ None.
 ## Session Continuity
 
 Last session: 2026-02-06
-Stopped at: Completed 09-01-PLAN.md (content collections schema)
+Stopped at: Completed 09-02-PLAN.md (ArabicExample and Callout MDX components)
 Resume file: None
