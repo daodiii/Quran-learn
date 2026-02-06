@@ -1,0 +1,438 @@
+---
+// Full course navigator showing all lessons across all 5 levels
+// Displays collapsible level sections with progress tracking
+import { getCollection } from 'astro:content';
+import LessonCheckmark from '../progress/LessonCheckmark.astro';
+
+interface Props {
+  currentLessonSlug?: string;
+}
+
+const { currentLessonSlug } = Astro.props;
+const currentPath = Astro.url.pathname;
+
+// Fetch all lessons from content collection
+const allLessons = await getCollection('lessons');
+
+// Group lessons by level
+const lessonsByLevel: Record<number, typeof allLessons> = {
+  1: [], 2: [], 3: [], 4: [], 5: []
+};
+
+allLessons.forEach(lesson => {
+  if (lessonsByLevel[lesson.data.level]) {
+    lessonsByLevel[lesson.data.level].push(lesson);
+  }
+});
+
+// Sort each level by order
+Object.keys(lessonsByLevel).forEach(level => {
+  lessonsByLevel[Number(level)].sort((a, b) => a.data.order - b.data.order);
+});
+
+// Level metadata
+const levelNames: Record<number, string> = {
+  1: 'Foundation',
+  2: 'Core Grammar',
+  3: 'Intermediate',
+  4: 'Advanced',
+  5: 'Applied Study',
+};
+
+const levelColors: Record<number, string> = {
+  1: '#3b82f6',
+  2: '#22c55e',
+  3: '#eab308',
+  4: '#ef4444',
+  5: '#8b5cf6',
+};
+---
+
+<nav class="course-navigator" aria-label="Course navigation" id="course-navigator">
+  <div class="navigator-header">
+    <h2 class="navigator-title">Course Navigator</h2>
+    <button class="close-navigator" id="close-navigator" aria-label="Close navigator">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+      </svg>
+    </button>
+  </div>
+
+  <div class="navigator-content">
+    {Object.entries(lessonsByLevel).map(([level, lessons]) => {
+      const levelNum = Number(level);
+      const hasActiveLesson = lessons.some(l => currentPath.includes(l.id));
+      return (
+        <section class="level-section" data-level={level}>
+          <button
+            class="level-header"
+            aria-expanded={hasActiveLesson ? "true" : "false"}
+            aria-controls={`level-${level}-lessons`}
+          >
+            <span class="level-dot" style={`background-color: ${levelColors[levelNum]}`}></span>
+            <span class="level-info">
+              <span class="level-name">Level {level}: {levelNames[levelNum]}</span>
+              <span class="level-count">{lessons.length} lessons</span>
+            </span>
+            <svg class="chevron" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+            </svg>
+          </button>
+
+          <ol id={`level-${level}-lessons`} class="lesson-list" hidden={!hasActiveLesson}>
+            {lessons.map(lesson => {
+              const lessonPath = `/learn/${lesson.id}/`;
+              const isActive = currentPath === lessonPath || currentPath === `/learn/${lesson.id}`;
+              return (
+                <li>
+                  <a
+                    href={lessonPath}
+                    class:list={['lesson-item', { active: isActive }]}
+                    aria-current={isActive ? 'page' : undefined}
+                  >
+                    <span class="lesson-number">{lesson.data.order}</span>
+                    <span class="lesson-title">{lesson.data.title}</span>
+                    <LessonCheckmark completed={false} size={20} />
+                  </a>
+                </li>
+              );
+            })}
+          </ol>
+        </section>
+      );
+    })}
+  </div>
+
+  <!-- Quiz links at bottom -->
+  <div class="navigator-footer">
+    <h3 class="quiz-heading">Level Quizzes</h3>
+    <div class="quiz-links">
+      {[1, 2, 3, 4, 5].map(level => (
+        <a href={`/learn/level-${level}/quiz/`} class="quiz-link">
+          <span class="level-dot" style={`background-color: ${levelColors[level]}`}></span>
+          Level {level}
+        </a>
+      ))}
+    </div>
+  </div>
+</nav>
+
+<style>
+  /* Base Navigator Styles */
+  .course-navigator {
+    display: flex;
+    flex-direction: column;
+    background: var(--bg-elevated);
+    border-inline-end: 1px solid var(--border-primary);
+    inline-size: 280px;
+    block-size: 100vh;
+    overflow-y: auto;
+    transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Desktop: sticky sidebar */
+  @media (min-width: 1024px) {
+    .course-navigator {
+      position: sticky;
+      inset-block-start: 72px;
+      block-size: calc(100vh - 72px);
+    }
+  }
+
+  /* Mobile: fixed overlay (hidden by default) */
+  @media (max-width: 1023px) {
+    .course-navigator {
+      position: fixed;
+      inset-block-start: 0;
+      inset-inline-start: 0;
+      block-size: 100vh;
+      z-index: 40;
+      transform: translateX(-100%);
+      box-shadow: var(--shadow-xl);
+    }
+
+    [dir="rtl"] .course-navigator {
+      inset-inline-start: auto;
+      inset-inline-end: 0;
+      transform: translateX(100%);
+    }
+
+    .course-navigator.open {
+      transform: translateX(0);
+    }
+  }
+
+  /* Navigator Header */
+  .navigator-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    border-block-end: 1px solid var(--border-primary);
+  }
+
+  .navigator-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0;
+  }
+
+  .close-navigator {
+    display: none;
+    inline-size: 32px;
+    block-size: 32px;
+    padding: 0;
+    border: none;
+    border-radius: var(--radius-md);
+    background: transparent;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+  }
+
+  .close-navigator:hover {
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+  }
+
+  .close-navigator:focus-visible {
+    outline: 2px solid var(--accent-primary);
+    outline-offset: 2px;
+  }
+
+  .close-navigator svg {
+    inline-size: 20px;
+    block-size: 20px;
+  }
+
+  @media (max-width: 1023px) {
+    .close-navigator {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  /* Navigator Content */
+  .navigator-content {
+    flex: 1;
+    overflow-y: auto;
+    padding: 0.5rem;
+  }
+
+  /* Level Section */
+  .level-section {
+    margin-block-end: 0.5rem;
+  }
+
+  .level-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    inline-size: 100%;
+    padding: 0.75rem;
+    background: transparent;
+    border: none;
+    border-radius: var(--radius-lg);
+    cursor: pointer;
+    text-align: start;
+    transition: background-color var(--transition-fast);
+  }
+
+  .level-header:hover {
+    background: var(--bg-secondary);
+  }
+
+  .level-header:focus-visible {
+    outline: 2px solid var(--accent-primary);
+    outline-offset: 2px;
+  }
+
+  .level-dot {
+    inline-size: 8px;
+    block-size: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .level-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.125rem;
+  }
+
+  .level-name {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text-primary);
+  }
+
+  .level-count {
+    font-size: 0.75rem;
+    color: var(--text-tertiary);
+  }
+
+  .chevron {
+    inline-size: 16px;
+    block-size: 16px;
+    flex-shrink: 0;
+    color: var(--text-tertiary);
+    transition: transform var(--transition-fast);
+  }
+
+  .level-header[aria-expanded="true"] .chevron {
+    transform: rotate(90deg);
+  }
+
+  [dir="rtl"] .level-header[aria-expanded="true"] .chevron {
+    transform: rotate(-90deg);
+  }
+
+  /* Lesson List */
+  .lesson-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    padding-inline-start: 1.5rem;
+    margin-block-start: 0.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.125rem;
+  }
+
+  .lesson-list[hidden] {
+    display: none;
+  }
+
+  .lesson-list li {
+    margin: 0;
+    padding: 0;
+  }
+
+  .lesson-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.625rem 0.75rem;
+    border-radius: var(--radius-lg);
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: all var(--transition-fast);
+  }
+
+  .lesson-item:hover {
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+  }
+
+  .lesson-item:focus-visible {
+    outline: 2px solid var(--accent-primary);
+    outline-offset: 2px;
+  }
+
+  .lesson-item.active {
+    background: var(--accent-primary);
+    color: var(--text-inverse);
+    font-weight: 500;
+  }
+
+  .lesson-number {
+    inline-size: 24px;
+    block-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 600;
+    background: var(--bg-secondary);
+    color: var(--text-tertiary);
+    border-radius: var(--radius-md);
+    flex-shrink: 0;
+    transition: all var(--transition-fast);
+  }
+
+  .lesson-item:hover .lesson-number {
+    background: var(--accent-primary-light);
+    color: var(--accent-primary);
+  }
+
+  .lesson-item.active .lesson-number {
+    background: rgba(255, 255, 255, 0.2);
+    color: var(--text-inverse);
+  }
+
+  .lesson-title {
+    flex: 1;
+    min-inline-size: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  /* Navigator Footer */
+  .navigator-footer {
+    padding: 1rem;
+    border-block-start: 1px solid var(--border-primary);
+    background: var(--bg-secondary);
+  }
+
+  .quiz-heading {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-tertiary);
+    margin: 0 0 0.75rem 0;
+  }
+
+  .quiz-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.375rem;
+  }
+
+  .quiz-link {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+    padding: 0.5rem 0.75rem;
+    border-radius: var(--radius-lg);
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-decoration: none;
+    background: var(--bg-elevated);
+    color: var(--text-secondary);
+    border: 1px solid var(--border-primary);
+    transition: all var(--transition-fast);
+  }
+
+  .quiz-link:hover {
+    background: var(--accent-primary-light);
+    color: var(--accent-primary);
+    border-color: var(--accent-primary);
+  }
+
+  .quiz-link:focus-visible {
+    outline: 2px solid var(--accent-primary);
+    outline-offset: 2px;
+  }
+
+  .quiz-link .level-dot {
+    inline-size: 6px;
+    block-size: 6px;
+  }
+
+  /* Smooth transitions */
+  @media (prefers-reduced-motion: reduce) {
+    .course-navigator,
+    .level-header,
+    .chevron,
+    .lesson-item,
+    .quiz-link {
+      transition: none;
+    }
+  }
+</style>
