@@ -16,7 +16,12 @@
     "cap:open:android": "npx cap open android",
     "build:ios": "npm run build && npx cap sync ios",
     "build:android": "npm run build && npx cap sync android",
-    "build:mobile": "npm run build && npx cap sync"
+    "build:mobile": "npm run build && npx cap sync",
+    "validate": "npx tsx scripts/validate-content.ts",
+    "validate:diacritics": "npx tsx scripts/validate-diacritics.ts",
+    "validate:terminology": "npx tsx scripts/validate-terminology.ts",
+    "validate:verses": "npx tsx scripts/validate-verses.ts",
+    "quran:lookup": "npx tsx scripts/fetch-quran-text.ts"
   },
   "dependencies": {
     "@astrojs/mdx": "^4.3.13",
@@ -36,6 +41,7 @@
     "@axe-core/playwright": "^4.11.1",
     "@capacitor/assets": "^3.0.5",
     "@playwright/test": "^1.58.1",
-    "rollup-plugin-visualizer": "^6.0.5"
+    "rollup-plugin-visualizer": "^6.0.5",
+    "tsx": "^4.21.0"
   }
 }
