@@ -61,10 +61,12 @@ Plans:
 4. Automated validation scripts check diacritics, terminology consistency, and verse references
 5. Quranic text API integration functions fetch authoritative verses with full harakat
 
-**Plans:** TBD
+**Plans:** 3 plans
 
 Plans:
-- [ ] TBD during planning
+- [ ] 10-01-PLAN.md -- Curriculum map with 73 lesson definitions and prerequisites
+- [ ] 10-02-PLAN.md -- Terminology standards and style guide
+- [ ] 10-03-PLAN.md -- Validation scripts and build-time Quran text helper
 
 ---
 
