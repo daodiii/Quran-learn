@@ -1,0 +1,119 @@
+---
+/**
+ * ArabicExample - Display Quranic verses with transliteration and translation
+ *
+ * Usage example:
+ * <ArabicExample
+ *   arabic="بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ"
+ *   transliteration="bismi llahi r-rahmani r-rahim"
+ *   translation="In the name of God, the Most Gracious, the Most Merciful"
+ *   reference="Surah Al-Fatiha 1:1"
+ *   highlight="بِسْمِ"
+ * />
+ */
+
+interface Props {
+  arabic: string;           // Arabic text (fully vocalized with harakat)
+  transliteration?: string; // Romanized pronunciation
+  translation: string;      // English meaning
+  reference?: string;       // Quranic reference (e.g., "Surah Al-Fatiha 1:2")
+  highlight?: string;       // Comma-separated Arabic words to visually highlight
+}
+
+const { arabic, transliteration, translation, reference, highlight } = Astro.props;
+
+// Process highlight if provided
+const highlightWords = highlight ? highlight.split(',').map(w => w.trim()) : [];
+
+// Function to wrap highlighted words
+const processArabicText = (text: string, words: string[]): string => {
+  if (words.length === 0) return text;
+
+  // Split by spaces and wrap matching words
+  const parts = text.split(' ');
+  return parts.map(part => {
+    if (words.includes(part)) {
+      return `<mark class="grammar-highlight">${part}</mark>`;
+    }
+    return part;
+  }).join(' ');
+};
+
+const processedArabic = processArabicText(arabic, highlightWords);
+---
+
+<div class="arabic-example">
+  <p class="arabic-text" dir="rtl" lang="ar" set:html={processedArabic} />
+
+  {transliteration && (
+    <p class="transliteration" dir="ltr">{transliteration}</p>
+  )}
+
+  <p class="translation" dir="ltr">{translation}</p>
+
+  {reference && (
+    <p class="reference" dir="ltr">&mdash; {reference}</p>
+  )}
+</div>
+
+<style>
+  .arabic-example {
+    background: var(--color-background-secondary);
+    border: 1px solid var(--color-border-primary);
+    border-radius: var(--radius-md);
+    padding-block: var(--spacing-lg);
+    padding-inline: var(--spacing-lg);
+    margin-block: var(--spacing-xl);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+
+  .arabic-text {
+    font-family: var(--font-arabic);
+    font-size: 1.5rem;
+    line-height: 2;
+    letter-spacing: 0;
+    color: var(--color-text-primary);
+    margin: 0;
+    text-align: end;
+  }
+
+  @media (min-width: 640px) {
+    .arabic-text {
+      font-size: 1.75rem;
+    }
+  }
+
+  .arabic-text :global(mark.grammar-highlight) {
+    background: var(--color-accent-primary-light);
+    color: inherit;
+    border-radius: var(--radius-sm);
+    padding-inline: 0.125rem;
+  }
+
+  .transliteration {
+    font-family: 'SF Mono', 'Monaco', 'Consolas', monospace;
+    font-size: 0.9375rem;
+    font-style: italic;
+    color: var(--color-text-secondary);
+    margin: 0;
+    text-align: start;
+  }
+
+  .translation {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--color-text-primary);
+    margin: 0;
+    text-align: start;
+  }
+
+  .reference {
+    font-size: 0.875rem;
+    font-style: italic;
+    color: var(--color-text-secondary);
+    margin: 0;
+    text-align: start;
+  }
+</style>
