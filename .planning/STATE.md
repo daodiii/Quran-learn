@@ -10,18 +10,18 @@ See: .planning/PROJECT.md (updated 2026-02-06)
 ## Current Position
 
 Phase: 11 of 17 (Reference Resources)
-Plan: 3 of 6 complete
+Plan: 4 of 6 complete
 Status: In progress
-Last activity: 2026-02-06 — Completed 11-04-PLAN.md (Pronoun Charts)
+Last activity: 2026-02-06 — Completed 11-05-PLAN.md (Root System Guide)
 
-Progress: [████████░░░░░░░░░░] 63% (37/59 estimated total plans)
+Progress: [████████░░░░░░░░░░] 64% (38/59 estimated total plans)
 
 ## Performance Metrics
 
 **Velocity (updated):**
-- Total plans completed: 37
-- Average duration: 5.7 min
-- Total execution time: 4.10 hours
+- Total plans completed: 38
+- Average duration: 6.0 min
+- Total execution time: 4.29 hours
 
 **By Phase:**
 
@@ -30,11 +30,11 @@ Progress: [████████░░░░░░░░░░] 63% (37/59 es
 | 1-8 | 28 | 3.1h | 5.6 min |
 | 9 | 3 | 7.4min | 2.5 min |
 | 10 | 3 | 17.3min | 5.8 min |
-| 11 | 3 | 38.0min | 12.7 min |
+| 11 | 4 | 57.0min | 14.3 min |
 
 **Recent Trend:**
-- Last 5 plans: [10-03: 5.3min, 11-01: 9min, 11-02: 11min, 11-04: 18min]
-- Trend: Content authoring (Phase 11) averaging 12.7min per plan (validation-intensive)
+- Last 5 plans: [11-01: 9min, 11-02: 11min, 11-04: 18min, 11-05: 19min]
+- Trend: Content authoring (Phase 11) averaging 14.3min per plan (validation + comprehensive content)
 
 *Updated after each plan completion*
 
@@ -76,6 +76,9 @@ Recent decisions affecting v1.1 work:
 - Use transliteration for isolated suffix forms in grammar tables (validation compliance for morphemes) (11-04)
 - Introduce hamza forms early to prevent terminology validator false positives (11-04)
 - Strategic sukūn marks acceptable for validation compliance without changing pronunciation (11-04)
+- LEGO brick analogy effective for teaching root-and-pattern morphology (concrete → abstract pedagogy) (11-05)
+- Dictionary lookup strategy prioritized as critical life skill (enables autonomous vocabulary expansion) (11-05)
+- TERMINOLOGY.md entries must use ≥70% vocalization to match validation requirements (11-05)
 
 ### Pending Todos
 
@@ -93,9 +96,11 @@ None.
 - Tanzil.net dataset needs download for verse text authoring (build-time helper created, awaiting data)
 - Diacritics validation threshold (70%) challenging for isolated morphemes - workaround: use transliteration for suffix columns (11-04)
 - Terminology validator lacks context awareness - matches letter combinations in any word, not just term introductions (11-04)
+- Terminology validator regex bug: Special characters in term.english (like parentheses) not escaped, causing false positives (11-05)
+- TERMINOLOGY.md vocalization inconsistencies can cause validator conflicts - audit recommended (11-05)
 
 ## Session Continuity
 
 Last session: 2026-02-06
-Stopped at: Completed 11-04-PLAN.md (pronoun charts) — continuing Phase 11 (3/6 plans complete)
+Stopped at: Completed 11-05-PLAN.md (root system guide) — continuing Phase 11 (4/6 plans complete)
 Resume file: None
