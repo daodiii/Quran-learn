@@ -313,6 +313,42 @@
     -moz-osx-font-smoothing: grayscale;
   }
 
+  /* Horizontal scroll prevention - ensures no overflow at 320px viewport */
+  img,
+  video,
+  iframe,
+  embed,
+  object,
+  canvas,
+  svg:not([aria-hidden="true"]) {
+    max-inline-size: 100%;
+    block-size: auto;
+  }
+
+  /* Prevent wide tables from causing overflow */
+  table {
+    display: block;
+    max-inline-size: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Ensure pre/code blocks don't overflow */
+  pre,
+  code {
+    max-inline-size: 100%;
+    overflow-x: auto;
+    word-wrap: break-word;
+  }
+
+  /* Container overflow constraint */
+  .content-wrapper,
+  .prose,
+  main {
+    max-inline-size: 100%;
+    overflow-wrap: break-word;
+  }
+
   /* Selection styling */
   ::selection {
     background-color: var(--accent-primary);
