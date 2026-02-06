@@ -16,7 +16,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [x] **Phase 2: Progress & Primitive Components** - Build progress visualization and RTL-ready primitives ✓
 - [x] **Phase 3: Card Components & Arabic Typography** - Create card layouts with proper Arabic text handling ✓
 - [x] **Phase 4: Dark Mode Polish** - Ensure Arabic readability in dark mode with proper contrast ✓
-- [ ] **Phase 5: Navigation System** - Build collapsible sidebar and breadcrumb navigation
+- [x] **Phase 5: Navigation System** - Build collapsible sidebar and breadcrumb navigation ✓
 - [ ] **Phase 6: Page Redesigns** - Redesign all pages with new components and layouts
 - [ ] **Phase 7: Mobile Optimization** - Optimize responsive design and iOS Arabic font sizing
 - [ ] **Phase 8: Performance & Accessibility** - Final polish with font loading and screen reader support
@@ -108,10 +108,10 @@ Plans:
 **Plans**: 4 plans
 
 Plans:
-- [ ] 05-01-PLAN.md — Create Breadcrumbs component and simplify Header/Footer
-- [ ] 05-02-PLAN.md — Create CourseNavigator sidebar and NavigatorToggle button
-- [ ] 05-03-PLAN.md — Integrate navigation into layouts with JavaScript behaviors
-- [ ] 05-04-PLAN.md — Navigation test page and Playwright test suite
+- [x] 05-01-PLAN.md — Create Breadcrumbs component and simplify Header/Footer
+- [x] 05-02-PLAN.md — Create CourseNavigator sidebar and NavigatorToggle button
+- [x] 05-03-PLAN.md — Integrate navigation into layouts with JavaScript behaviors
+- [x] 05-04-PLAN.md — Navigation test page and Playwright test suite
 
 ### Phase 6: Page Redesigns
 **Goal**: Redesign all pages using new components, layouts, and navigation system
@@ -177,7 +177,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8
 | 2. Progress & Primitive Components | 3/3 | Complete ✓ | 2026-02-06 |
 | 3. Card Components & Arabic Typography | 2/2 | Complete ✓ | 2026-02-06 |
 | 4. Dark Mode Polish | 2/2 | Complete ✓ | 2026-02-06 |
-| 5. Navigation System | 0/4 | Planned | - |
+| 5. Navigation System | 4/4 | Complete ✓ | 2026-02-06 |
 | 6. Page Redesigns | 0/TBD | Not started | - |
 | 7. Mobile Optimization | 0/TBD | Not started | - |
 | 8. Performance & Accessibility | 0/TBD | Not started | - |

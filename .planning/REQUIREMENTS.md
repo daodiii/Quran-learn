@@ -14,8 +14,8 @@ Requirements for the Coursera-inspired redesign. Each maps to roadmap phases.
 
 ### Navigation
 
-- [ ] **NAV-01**: Collapsible course navigator sidebar with lesson checkmarks
-- [ ] **NAV-02**: Breadcrumb navigation throughout the site
+- [x] **NAV-01**: Collapsible course navigator sidebar with lesson checkmarks
+- [x] **NAV-02**: Breadcrumb navigation throughout the site
 
 ### Home Page
 
@@ -41,8 +41,8 @@ Requirements for the Coursera-inspired redesign. Each maps to roadmap phases.
 
 ### Components
 
-- [ ] **COMP-01**: Updated Header component (cleaner, more minimal)
-- [ ] **COMP-02**: Updated Footer component (simplified)
+- [x] **COMP-01**: Updated Header component (cleaner, more minimal)
+- [x] **COMP-02**: Updated Footer component (simplified)
 
 ### Responsive & Polish
 
@@ -86,8 +86,8 @@ Which phases cover which requirements. Updated during roadmap creation.
 |-------------|-------|--------|
 | DESIGN-01 | Phase 1 | Complete |
 | DESIGN-02 | Phase 2 | Complete |
-| NAV-01 | Phase 5 | Pending |
-| NAV-02 | Phase 5 | Pending |
+| NAV-01 | Phase 5 | Complete |
+| NAV-02 | Phase 5 | Complete |
 | HOME-01 | Phase 6 | Pending |
 | HOME-02 | Phase 6 | Pending |
 | LEARN-01 | Phase 6 | Pending |
@@ -95,8 +95,8 @@ Which phases cover which requirements. Updated during roadmap creation.
 | SURAH-01 | Phase 6 | Pending |
 | RESOURCE-01 | Phase 6 | Pending |
 | QUIZ-01 | Phase 6 | Pending |
-| COMP-01 | Phase 5 | Pending |
-| COMP-02 | Phase 5 | Pending |
+| COMP-01 | Phase 5 | Complete |
+| COMP-02 | Phase 5 | Complete |
 | RESP-01 | Phase 7 | Pending |
 | DARK-01 | Phase 4 | Complete |
 
@@ -107,4 +107,4 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 ---
 *Requirements defined: 2026-02-05*
-*Last updated: 2026-02-05 after roadmap creation*
+*Last updated: 2026-02-06 after Phase 5 completion*
