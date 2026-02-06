@@ -1,0 +1,546 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Button from '../components/primitives/Button.astro';
+import CourseCard from '../components/cards/CourseCard.astro';
+import CardGrid from '../components/cards/CardGrid.astro';
+import SurahCard from '../components/cards/SurahCard.astro';
+import { getCollection } from 'astro:content';
+
+// Get all lessons to count them
+const allLessons = await getCollection('lessons');
+const totalLessons = allLessons.length;
+
+// Group lessons by level for featured courses
+const levelGroups = [
+  {
+    num: 1,
+    title: 'Foundation',
+    titleAr: 'الأساسيات',
+    desc: 'Arabic alphabet, vowels, basic word structure, pronouns, and sentence types.',
+  },
+  {
+    num: 2,
+    title: 'Core Grammar',
+    titleAr: 'القواعد الأساسية',
+    desc: 'Nominal and verbal sentences, I\'rab cases, Idafah, prepositions, and adjectives.',
+  },
+  {
+    num: 3,
+    title: 'Intermediate',
+    titleAr: 'القواعد المتوسطة',
+    desc: 'Full verb conjugations, Verb Forms I-X, active/passive participles, passive voice.',
+  },
+  {
+    num: 4,
+    title: 'Advanced',
+    titleAr: 'القواعد المتقدمة',
+    desc: 'Hal, Tamyeez, conditional sentences, exception, emphasis, vocative structures.',
+  },
+  {
+    num: 5,
+    title: 'Applied Study',
+    titleAr: 'التطبيق القرآني',
+    desc: 'Quranic sentence patterns, recognizing I\'rab in verses, rhetorical devices.',
+  },
+] as const;
+
+// Count lessons per level
+const lessonCounts = await Promise.all(
+  levelGroups.map(async (level) => {
+    const lessons = await getCollection('lessons', ({ data }) => data.level === level.num);
+    return lessons.length;
+  })
+);
+
+const featuredSurahs = [
+  { name: 'Al-Fatiha', nameAr: 'الفاتحة', num: 1, verses: 7, slug: '001-al-fatiha', difficulty: 'beginner' as const },
+  { name: 'Al-Ikhlas', nameAr: 'الإخلاص', num: 112, verses: 4, slug: '112-al-ikhlas', difficulty: 'beginner' as const },
+  { name: 'Al-Falaq', nameAr: 'الفلق', num: 113, verses: 5, slug: '113-al-falaq', difficulty: 'beginner' as const },
+  { name: 'An-Nas', nameAr: 'الناس', num: 114, verses: 6, slug: '114-an-nas', difficulty: 'beginner' as const },
+];
+
+const features = [
+  {
+    titleAr: 'إعراب',
+    title: 'I\'rab (Case Endings)',
+    desc: 'Marfu\', Mansub, Majrur - understand why every word has the ending it does.',
+  },
+  {
+    titleAr: 'أفعال',
+    title: 'Verb Forms I-X',
+    desc: 'All ten verb forms with patterns, meanings, and Quranic examples.',
+  },
+  {
+    titleAr: 'جملة',
+    title: 'Sentence Structure',
+    desc: 'Nominal and verbal sentences, Idafah constructions, and complex clauses.',
+  },
+  {
+    titleAr: 'قرآن',
+    title: 'Applied Analysis',
+    desc: 'Full grammatical breakdown of surahs with word-by-word analysis.',
+  },
+];
+---
+
+<BaseLayout title="Home">
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-container">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="badge-dot"></span>
+          Free Comprehensive Curriculum
+        </div>
+
+        <h1 class="hero-title">
+          Understand the Quran
+          <span class="hero-title-accent">Through Its Grammar</span>
+        </h1>
+
+        <p class="hero-description">
+          A structured journey from the Arabic alphabet to full grammatical analysis of Quranic verses. Master I'rab, verb forms, and sentence structures.
+        </p>
+
+        <div class="hero-stats">
+          <div class="stat">
+            <span class="stat-value">{totalLessons}</span>
+            <span class="stat-label">Lessons</span>
+          </div>
+          <div class="stat">
+            <span class="stat-value">5</span>
+            <span class="stat-label">Levels</span>
+          </div>
+          <div class="stat">
+            <span class="stat-value">10+</span>
+            <span class="stat-label">Surahs</span>
+          </div>
+        </div>
+
+        <div class="hero-actions">
+          <Button href="/learn/level-1/01-arabic-alphabet/" variant="primary" size="lg">
+            Start Learning
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true" class="icon-arrow">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+            </svg>
+          </Button>
+          <a href="/learn/" class="hero-link">
+            View Curriculum
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Courses Section -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Featured Courses</h2>
+        <p class="section-subtitle">Start your journey with our structured learning path</p>
+      </div>
+
+      <CardGrid minCardWidth={320} gap="md">
+        {levelGroups.slice(0, 3).map((level, index) => (
+          <CourseCard
+            title={level.title}
+            level={level.num}
+            lessonsCompleted={0}
+            totalLessons={lessonCounts[index]}
+            href={`/learn/#level-${level.num}`}
+          >
+            {level.desc}
+          </CourseCard>
+        ))}
+      </CardGrid>
+    </div>
+  </section>
+
+  <!-- Featured Surahs Section -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Surah Breakdowns</h2>
+        <p class="section-subtitle">Word-by-word grammatical analysis of Quranic chapters</p>
+      </div>
+
+      <CardGrid minCardWidth={280} gap="md">
+        {featuredSurahs.map(surah => (
+          <SurahCard
+            name={surah.name}
+            nameAr={surah.nameAr}
+            number={surah.num}
+            verses={surah.verses}
+            difficulty={surah.difficulty}
+            href={`/surahs/${surah.slug}/`}
+          />
+        ))}
+      </CardGrid>
+
+      <div class="section-cta">
+        <Button href="/surahs/" variant="outline">
+          View all surah breakdowns
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true" class="icon-arrow">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+          </svg>
+        </Button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">What You'll Master</h2>
+      </div>
+
+      <div class="features-grid">
+        {features.map(feature => (
+          <div class="feature-card">
+            <div class="feature-icon">
+              <span class="arabic">{feature.titleAr}</span>
+            </div>
+            <h3 class="feature-title">{feature.title}</h3>
+            <p class="feature-desc">{feature.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* Hero Section - Same in light and dark mode */
+  .hero {
+    background: linear-gradient(135deg, #0D7377 0%, #1E3A5F 100%);
+    color: #ffffff;
+    padding-block: var(--spacing-3xl);
+    position: relative;
+    overflow: hidden;
+  }
+
+  @media (min-width: 640px) {
+    .hero {
+      padding-block-end: 5rem;
+    }
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset-block-start: -50%;
+    inset-inline-end: -20%;
+    inline-size: 60%;
+    block-size: 200%;
+    background: radial-gradient(ellipse, rgba(212, 175, 55, 0.15) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    inset-block-end: -30%;
+    inset-inline-start: -10%;
+    inline-size: 40%;
+    block-size: 150%;
+    background: radial-gradient(ellipse, rgba(124, 107, 167, 0.1) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .hero-container {
+    max-inline-size: 80rem;
+    margin-inline: auto;
+    padding-inline: var(--spacing-lg);
+    position: relative;
+  }
+
+  @media (min-width: 640px) {
+    .hero-container {
+      padding-inline: var(--spacing-xl);
+    }
+  }
+
+  .hero-content {
+    max-inline-size: 640px;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding-inline: var(--spacing-lg);
+    padding-block: var(--spacing-sm);
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: var(--radius-full);
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin-block-end: var(--spacing-xl);
+  }
+
+  .badge-dot {
+    inline-size: 8px;
+    block-size: 8px;
+    background: var(--color-accent-gold);
+    border-radius: 50%;
+  }
+
+  .hero-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1.15;
+    margin-block-end: var(--spacing-xl);
+    letter-spacing: -0.02em;
+  }
+
+  @media (min-width: 640px) {
+    .hero-title {
+      font-size: 3.5rem;
+    }
+  }
+
+  .hero-title-accent {
+    display: block;
+    color: #FCD34D;
+    margin-block-start: var(--spacing-xs);
+  }
+
+  .hero-description {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    opacity: 0.9;
+    margin-block-end: var(--spacing-2xl);
+  }
+
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    gap: var(--spacing-2xl);
+    margin-block-end: var(--spacing-2xl);
+    justify-content: start;
+  }
+
+  .stat {
+    display: flex;
+    align-items: baseline;
+    gap: var(--spacing-sm);
+  }
+
+  .stat-value {
+    font-size: 2rem;
+    font-weight: 700;
+  }
+
+  .stat-label {
+    font-size: 0.9375rem;
+    opacity: 0.8;
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-lg);
+    align-items: center;
+  }
+
+  /* Hero button override for white background on dark gradient */
+  .hero-actions :global(.btn-primary) {
+    background: #ffffff;
+    color: #0D7377;
+  }
+
+  .hero-actions :global(.btn-primary:hover) {
+    background: #f5f5f5;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  }
+
+  .icon-arrow {
+    inline-size: 18px;
+    block-size: 18px;
+    transition: transform var(--transition-fast);
+  }
+
+  .hero-actions :global(.btn-primary:hover) .icon-arrow,
+  :global(.btn-outline:hover) .icon-arrow {
+    transform: translateX(2px);
+  }
+
+  .hero-link {
+    display: inline-flex;
+    align-items: center;
+    padding-inline: var(--spacing-lg);
+    padding-block: var(--spacing-sm);
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: opacity var(--transition-fast);
+  }
+
+  .hero-link:hover {
+    opacity: 0.8;
+  }
+
+  /* Sections */
+  .section {
+    padding-block: var(--spacing-3xl);
+  }
+
+  @media (min-width: 640px) {
+    .section {
+      padding-block: 5rem;
+    }
+  }
+
+  .section-alt {
+    background-color: var(--color-background-secondary);
+  }
+
+  .container {
+    max-inline-size: 80rem;
+    margin-inline: auto;
+    padding-inline: var(--spacing-lg);
+  }
+
+  @media (min-width: 640px) {
+    .container {
+      padding-inline: var(--spacing-xl);
+    }
+  }
+
+  .section-header {
+    text-align: center;
+    margin-block-end: var(--spacing-2xl);
+  }
+
+  @media (min-width: 640px) {
+    .section-header {
+      margin-block-end: var(--spacing-3xl);
+    }
+  }
+
+  .section-title {
+    font-size: 1.875rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin-block-end: var(--spacing-sm);
+    letter-spacing: -0.02em;
+  }
+
+  @media (min-width: 640px) {
+    .section-title {
+      font-size: 2.25rem;
+    }
+  }
+
+  .section-subtitle {
+    font-size: 1.0625rem;
+    color: var(--color-text-secondary);
+    max-inline-size: 600px;
+    margin-inline: auto;
+  }
+
+  .section-cta {
+    text-align: center;
+    margin-block-start: var(--spacing-2xl);
+  }
+
+  /* Feature Cards */
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: var(--spacing-xl);
+  }
+
+  @media (min-width: 1024px) {
+    .features-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  .feature-card {
+    text-align: center;
+    padding: var(--spacing-xl);
+    border-radius: var(--radius-xl);
+    transition: background-color var(--transition-fast);
+  }
+
+  .feature-card:hover {
+    background-color: var(--color-background-secondary);
+  }
+
+  .feature-icon {
+    inline-size: 56px;
+    block-size: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-inline: auto;
+    margin-block-end: var(--spacing-lg);
+    background: var(--color-accent-primary-light);
+    border-radius: var(--radius-lg);
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  }
+
+  .feature-card:hover .feature-icon {
+    transform: scale(1.1);
+  }
+
+  .feature-icon .arabic {
+    font-size: 1.125rem;
+    color: var(--color-accent-primary);
+    line-height: 1.5;
+  }
+
+  /* Unique colors for each feature card */
+  .feature-card:nth-child(1) .feature-icon {
+    background: var(--color-accent-primary-light);
+  }
+  .feature-card:nth-child(1) .feature-icon .arabic {
+    color: var(--color-accent-primary);
+  }
+
+  .feature-card:nth-child(2) .feature-icon {
+    background: var(--color-accent-secondary-light);
+  }
+  .feature-card:nth-child(2) .feature-icon .arabic {
+    color: var(--color-accent-secondary);
+  }
+
+  .feature-card:nth-child(3) .feature-icon {
+    background: var(--color-accent-gold-light);
+  }
+  .feature-card:nth-child(3) .feature-icon .arabic {
+    color: var(--color-accent-gold);
+  }
+
+  .feature-card:nth-child(4) .feature-icon {
+    background: var(--color-accent-purple-light);
+  }
+  .feature-card:nth-child(4) .feature-icon .arabic {
+    color: var(--color-accent-purple);
+  }
+
+  .feature-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin-block-end: var(--spacing-sm);
+  }
+
+  .feature-desc {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+  }
+
+  /* Accessibility: reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .hero-actions :global(.btn-primary),
+    .feature-icon,
+    .icon-arrow {
+      transition: none;
+    }
+  }
+</style>
