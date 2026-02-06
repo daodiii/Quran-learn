@@ -37,10 +37,12 @@ Complete Coursera-inspired UI/UX redesign with design system, component library,
 6. Callout component highlights rules, tips, notes, and warnings
 7. Lesson directory structure exists with level-1 through level-5 subdirectories
 
-**Plans:** TBD
+**Plans:** 3 plans
 
 Plans:
-- [ ] TBD during planning
+- [ ] 09-01-PLAN.md -- Content collection schema and lesson directory structure
+- [ ] 09-02-PLAN.md -- ArabicExample and Callout educational components
+- [ ] 09-03-PLAN.md -- GrammarTable, VerbConjugation, and ExerciseBox components
 
 ---
 
@@ -124,7 +126,7 @@ Plans:
 2. All Arabic text is fully vocalized with complete tashkeel
 3. Each lesson includes Quranic verse examples with grammatical parsing (i'rab) analysis
 4. Each lesson provides 3-4 practice exercises with answer reveals
-5. All lessons follow textbook structure: introduction → concept → examples → rule → exercises
+5. All lessons follow textbook structure: introduction -> concept -> examples -> rule -> exercises
 
 **Plans:** TBD
 
@@ -223,7 +225,7 @@ Plans:
 
 ## Progress
 
-**Execution Order:** Phases execute sequentially: 9 → 10 → 11 → 12 → 13 → 14 → 15 → 16 → 17
+**Execution Order:** Phases execute sequentially: 9 -> 10 -> 11 -> 12 -> 13 -> 14 -> 15 -> 16 -> 17
 
 | Phase | Milestone | Plans Complete | Status | Completed |
 |-------|-----------|----------------|--------|-----------|
@@ -235,7 +237,7 @@ Plans:
 | 6. Lesson Pages | v1.0 | 3/3 | Complete | 2026-02-06 |
 | 7. Supporting Pages | v1.0 | 5/5 | Complete | 2026-02-06 |
 | 8. Mobile & Accessibility | v1.0 | 3/3 | Complete | 2026-02-06 |
-| 9. Content Infrastructure | v1.1 | 0/TBD | Not started | - |
+| 9. Content Infrastructure | v1.1 | 0/3 | Not started | - |
 | 10. Curriculum Planning | v1.1 | 0/TBD | Not started | - |
 | 11. Reference Resources | v1.1 | 0/TBD | Not started | - |
 | 12. Level 1 Foundation | v1.1 | 0/TBD | Not started | - |
@@ -247,4 +249,4 @@ Plans:
 
 ---
 
-*Last updated: 2026-02-06 after v1.1 roadmap creation*
+*Last updated: 2026-02-06 after Phase 9 planning*
