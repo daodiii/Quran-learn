@@ -1,6 +1,8 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Container from '../../components/primitives/Container.astro';
+import CardGrid from '../../components/cards/CardGrid.astro';
+import SurahCard from '../../components/cards/SurahCard.astro';
 import { getCollection } from 'astro:content';
 
 const allSurahs = await getCollection('surahs');
@@ -22,7 +24,74 @@ const advancedSurahs = sortedSurahs.filter(s => s.data.difficulty === 'advanced'
       </p>
     </header>
 
-    <!-- Sections will be added in Task 2 -->
+    <!-- Beginner Section -->
+    {beginnerSurahs.length > 0 && (
+      <section class="difficulty-section" id="beginner">
+        <h2 class="section-title">Beginner</h2>
+        <p class="section-description">
+          Short surahs ideal for starting your grammatical analysis journey.
+        </p>
+        <CardGrid minCardWidth={300} gap="md">
+          {beginnerSurahs.map((surah) => (
+            <SurahCard
+              name={surah.data.name}
+              nameArabic={surah.data.nameArabic}
+              number={surah.data.surahNumber}
+              difficulty={surah.data.difficulty}
+              verseCount={surah.data.verseCount}
+              href={`/surahs/${surah.id}/`}
+              data-testid={`surah-card-${surah.id}`}
+            />
+          ))}
+        </CardGrid>
+      </section>
+    )}
+
+    <!-- Intermediate Section -->
+    {intermediateSurahs.length > 0 && (
+      <section class="difficulty-section" id="intermediate">
+        <h2 class="section-title">Intermediate</h2>
+        <p class="section-description">
+          Medium-length surahs with richer grammatical structures.
+        </p>
+        <CardGrid minCardWidth={300} gap="md">
+          {intermediateSurahs.map((surah) => (
+            <SurahCard
+              name={surah.data.name}
+              nameArabic={surah.data.nameArabic}
+              number={surah.data.surahNumber}
+              difficulty={surah.data.difficulty}
+              verseCount={surah.data.verseCount}
+              href={`/surahs/${surah.id}/`}
+              data-testid={`surah-card-${surah.id}`}
+            />
+          ))}
+        </CardGrid>
+      </section>
+    )}
+
+    <!-- Advanced Section -->
+    {advancedSurahs.length > 0 && (
+      <section class="difficulty-section" id="advanced">
+        <h2 class="section-title">Advanced</h2>
+        <p class="section-description">
+          Longer surahs with complex grammar and rhetorical devices.
+        </p>
+        <CardGrid minCardWidth={300} gap="md">
+          {advancedSurahs.map((surah) => (
+            <SurahCard
+              name={surah.data.name}
+              nameArabic={surah.data.nameArabic}
+              number={surah.data.surahNumber}
+              difficulty={surah.data.difficulty}
+              verseCount={surah.data.verseCount}
+              href={`/surahs/${surah.id}/`}
+              data-testid={`surah-card-${surah.id}`}
+            />
+          ))}
+        </CardGrid>
+      </section>
+    )}
   </Container>
 </BaseLayout>
 
@@ -53,6 +122,32 @@ const advancedSurahs = sortedSurahs.filter(s => s.data.difficulty === 'advanced'
     max-inline-size: 48rem;
   }
 
+  /* Difficulty Sections */
+  .difficulty-section {
+    margin-block-end: var(--spacing-2xl);
+  }
+
+  .difficulty-section:last-child {
+    margin-block-end: 0;
+  }
+
+  .section-title {
+    font-size: 1.875rem;
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--color-text-primary);
+    margin: 0;
+    margin-block-end: var(--spacing-xs);
+  }
+
+  .section-description {
+    font-size: 0.9375rem;
+    line-height: 1.5;
+    color: var(--color-text-tertiary);
+    margin: 0;
+    margin-block-end: var(--spacing-lg);
+  }
+
   /* Responsive Typography */
   @media (max-width: 640px) {
     .page-title {
@@ -61,6 +156,10 @@ const advancedSurahs = sortedSurahs.filter(s => s.data.difficulty === 'advanced'
 
     .page-description {
       font-size: 1rem;
+    }
+
+    .section-title {
+      font-size: 1.5rem;
     }
   }
 </style>
