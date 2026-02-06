@@ -14,7 +14,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 
 - [x] **Phase 1: Design Foundation & Font Protection** - Establish design tokens and protect Arabic fonts ✓
 - [x] **Phase 2: Progress & Primitive Components** - Build progress visualization and RTL-ready primitives ✓
-- [ ] **Phase 3: Card Components & Arabic Typography** - Create card layouts with proper Arabic text handling
+- [x] **Phase 3: Card Components & Arabic Typography** - Create card layouts with proper Arabic text handling ✓
 - [ ] **Phase 4: Dark Mode Polish** - Ensure Arabic readability in dark mode with proper contrast
 - [ ] **Phase 5: Navigation System** - Build collapsible sidebar and breadcrumb navigation
 - [ ] **Phase 6: Page Redesigns** - Redesign all pages with new components and layouts
@@ -73,8 +73,8 @@ Plans:
 **Plans**: 2 plans
 
 Plans:
-- [ ] 03-01-PLAN.md — Create CardGrid, CourseCard, LessonCard, SurahCard, ResourceCard components
-- [ ] 03-02-PLAN.md — Card test page and Playwright tests for responsive/Arabic/dark mode
+- [x] 03-01-PLAN.md — Create CardGrid, CourseCard, LessonCard, SurahCard, ResourceCard components
+- [x] 03-02-PLAN.md — Card test page and Playwright tests for responsive/Arabic/dark mode
 
 ### Phase 4: Dark Mode Polish
 **Goal**: Ensure Arabic typography remains readable in dark mode with proper contrast ratios
@@ -171,8 +171,8 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8
 |-------|----------------|--------|-----------|
 | 1. Design Foundation & Font Protection | 3/3 | Complete ✓ | 2026-02-05 |
 | 2. Progress & Primitive Components | 3/3 | Complete ✓ | 2026-02-06 |
-| 3. Card Components & Arabic Typography | 0/2 | Ready | - |
-| 4. Dark Mode Polish | 0/TBD | Not started | - |
+| 3. Card Components & Arabic Typography | 2/2 | Complete ✓ | 2026-02-06 |
+| 4. Dark Mode Polish | 0/TBD | Ready | - |
 | 5. Navigation System | 0/TBD | Not started | - |
 | 6. Page Redesigns | 0/TBD | Not started | - |
 | 7. Mobile Optimization | 0/TBD | Not started | - |
