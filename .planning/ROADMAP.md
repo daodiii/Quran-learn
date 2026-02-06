@@ -113,10 +113,14 @@ Plans:
 4. Each lesson provides 3-4 practice exercises with answer reveals
 5. All lessons use plain English explanations with English analogies before introducing Arabic terminology
 
-**Plans:** TBD
+**Plans:** 5 plans
 
 Plans:
-- [ ] TBD during planning
+- [ ] 12-01-PLAN.md — Alphabet, short vowels, long vowels (L1.01-L1.03) + remove placeholder
+- [ ] 12-02-PLAN.md — Sukun/shadda/tanween and Bismillah reading practice (L1.04-L1.05)
+- [ ] 12-03-PLAN.md — Three word types and definite article (L1.06-L1.07)
+- [ ] 12-04-PLAN.md — Gender and singular/dual/plural (L1.08-L1.09)
+- [ ] 12-05-PLAN.md — Simple sentences and case endings introduction (L1.10-L1.11)
 
 ---
 
