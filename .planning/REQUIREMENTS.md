@@ -92,44 +92,50 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| INFRA-01 | — | Pending |
-| INFRA-02 | — | Pending |
-| INFRA-03 | — | Pending |
-| INFRA-04 | — | Pending |
-| INFRA-05 | — | Pending |
-| INFRA-06 | — | Pending |
-| INFRA-07 | — | Pending |
-| LSSN-01 | — | Pending |
-| LSSN-02 | — | Pending |
-| LSSN-03 | — | Pending |
-| LSSN-04 | — | Pending |
-| LSSN-05 | — | Pending |
-| LSSN-06 | — | Pending |
-| LSSN-07 | — | Pending |
-| LSSN-08 | — | Pending |
-| LSSN-09 | — | Pending |
-| LSSN-10 | — | Pending |
-| LSSN-11 | — | Pending |
-| PDGY-01 | — | Pending |
-| PDGY-02 | — | Pending |
-| PDGY-03 | — | Pending |
-| PDGY-04 | — | Pending |
-| PDGY-05 | — | Pending |
-| PDGY-06 | — | Pending |
-| PDGY-07 | — | Pending |
-| PDGY-08 | — | Pending |
-| RSRC-01 | — | Pending |
-| RSRC-02 | — | Pending |
-| RSRC-03 | — | Pending |
-| RSRC-04 | — | Pending |
-| RSRC-05 | — | Pending |
-| RSRC-06 | — | Pending |
+| INFRA-01 | Phase 9 | Pending |
+| INFRA-02 | Phase 9 | Pending |
+| INFRA-03 | Phase 9 | Pending |
+| INFRA-04 | Phase 9 | Pending |
+| INFRA-05 | Phase 9 | Pending |
+| INFRA-06 | Phase 9 | Pending |
+| INFRA-07 | Phase 9 | Pending |
+| LSSN-01 | Phase 12 | Pending |
+| LSSN-02 | Phase 13 | Pending |
+| LSSN-03 | Phase 14 | Pending |
+| LSSN-04 | Phase 15 | Pending |
+| LSSN-05 | Phase 16 | Pending |
+| LSSN-06 | Phases 10, 12-16 | Pending |
+| LSSN-07 | Phases 12-16 | Pending |
+| LSSN-08 | Phases 12-16 | Pending |
+| LSSN-09 | Phases 12-16 | Pending |
+| LSSN-10 | Phases 12-16 | Pending |
+| LSSN-11 | Phases 10, 12-16 | Pending |
+| PDGY-01 | Phases 11-16 | Pending |
+| PDGY-02 | Phases 11-16 | Pending |
+| PDGY-03 | Phases 10, 11-16 | Pending |
+| PDGY-04 | Phases 11-16 | Pending |
+| PDGY-05 | Phases 11-16 | Pending |
+| PDGY-06 | Phases 10, 11-16 | Pending |
+| PDGY-07 | Phases 11-16 | Pending |
+| PDGY-08 | Phases 11-16 | Pending |
+| RSRC-01 | Phase 11 | Pending |
+| RSRC-02 | Phase 11 | Pending |
+| RSRC-03 | Phase 11 | Pending |
+| RSRC-04 | Phase 11 | Pending |
+| RSRC-05 | Phase 11 | Pending |
+| RSRC-06 | Phase 11 | Pending |
 
 **Coverage:**
 - v1.1 requirements: 32 total
-- Mapped to phases: 0
-- Unmapped: 32 (pending roadmap creation)
+- Mapped to phases: 32
+- Unmapped: 0
+
+**Notes:**
+- LSSN-06 through LSSN-11 are cross-cutting quality standards that apply to all lesson content phases (12-16)
+- PDGY-01 through PDGY-08 are cross-cutting pedagogy principles that apply to all content creation (reference resources and lessons, phases 11-16)
+- Phase 10 (Curriculum Planning) addresses standards that enable LSSN-06, LSSN-11, and PDGY-03, PDGY-06
+- Phase 17 (QA & Validation) validates all requirements across the entire content corpus
 
 ---
 *Requirements defined: 2026-02-06*
-*Last updated: 2026-02-06 after initial definition*
+*Last updated: 2026-02-06 after roadmap creation (100% coverage)*
