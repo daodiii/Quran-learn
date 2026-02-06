@@ -10,18 +10,18 @@ See: .planning/PROJECT.md (updated 2026-02-05)
 ## Current Position
 
 Phase: 6 of 8 (Page Redesigns)
-Plan: 3 of 6 in current phase
-Status: In progress - Completed 06-02-PLAN.md (Learn Dashboard Redesign)
-Last activity: 2026-02-06 - Completed 06-02-PLAN.md (Learn Dashboard Redesign)
+Plan: 4 of 6 in current phase
+Status: In progress - Completed 06-04-PLAN.md (Surah Selector Page Redesign)
+Last activity: 2026-02-06 - Completed 06-04-PLAN.md (Surah Selector Page Redesign)
 
-Progress: [███████████████] 100.0%
+Progress: [███████████████░] 95.8%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 16
+- Total plans completed: 17
 - Average duration: 6.4 min
-- Total execution time: 1.83 hours
+- Total execution time: 1.93 hours
 
 **By Phase:**
 
@@ -32,11 +32,11 @@ Progress: [███████████████] 100.0%
 | 03-card-components-arabic-typography | 2 | 16min | 8.0min |
 | 04-dark-mode-polish | 2 | 40min | 20.0min |
 | 05-navigation-system | 4 | 29min | 7.3min |
-| 06-page-redesigns | 2 | 7min | 3.5min |
+| 06-page-redesigns | 3 | 13min | 4.3min |
 
 **Recent Trend:**
-- Last 5 plans: 05-03 (5min), 05-04 (15min), 06-02 (5min), 06-03 (2min)
-- Trend: Phase 6 efficient execution with established patterns
+- Last 5 plans: 05-04 (15min), 06-02 (5min), 06-03 (2min), 06-04 (6min)
+- Trend: Phase 6 efficient with established component patterns
 
 *Updated after each plan completion*
 
@@ -119,6 +119,9 @@ Recent decisions affecting current work:
 - **[06-03]** 70ch max-inline-size for optimal reading comprehension (within 60-75ch range)
 - **[06-03]** Dynamic prev/next computation from sorted lesson collection with frontmatter fallback
 - **[06-03]** 17px base font size for lesson content (1.0625rem)
+- **[06-04]** Section IDs match difficulty values (beginner, intermediate, advanced) for semantic anchors
+- **[06-04]** Quick navigation uses accessible ARIA labels for screen readers
+- **[06-04]** 300px minimum card width for optimal Arabic text readability
 
 ### Pending Todos
 
@@ -242,22 +245,25 @@ Phase 5 (Navigation System) is complete with all 4 plans executed:
 
 ## Phase 6 Progress
 
-Phase 6 (Page Redesigns) in progress - 3 of 6 plans completed:
+Phase 6 (Page Redesigns) in progress - 4 of 6 plans completed:
 
 | Plan | Name | Duration | Commit |
 |------|------|----------|--------|
+| 06-02 | Learn Dashboard Redesign | 5min | bd16236 |
 | 06-03 | Lesson Reading Optimization | 2min | 15f23cb |
+| 06-04 | Surah Selector Page Redesign | 6min | ad4b29d |
 
 **Current Deliverables:**
+- Card-based learn dashboard with level overview and progress tracking
 - Reading-optimized lesson layout with 70ch content width
+- Card-based surah selector with difficulty grouping and quick navigation
 - Dynamic prev/next navigation from collection order
 - Typography tuned for comfortable reading (17px, 1.75 line-height)
-- Verified mark complete and floating navigator functionality
 
-**Next:** 06-04 Homepage Redesign, 06-05 Resource Page Redesign
+**Next:** 06-05 Resources Page Redesign, 06-06 Quiz Pages Redesign
 
 ## Session Continuity
 
-Last session: 2026-02-06T03:14:28Z
-Stopped at: Completed 06-02-PLAN.md (Learn Dashboard Redesign)
+Last session: 2026-02-06T03:15:18Z
+Stopped at: Completed 06-04-PLAN.md (Surah Selector Page Redesign)
 Resume file: None
