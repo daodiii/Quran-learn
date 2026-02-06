@@ -1,0 +1,370 @@
+---
+import AuthButton from './AuthButton.astro';
+---
+
+<header
+  class="header"
+  style="padding-top: env(safe-area-inset-top);"
+  id="main-header"
+>
+  <div class="header-container">
+    <!-- Logo -->
+    <a href="/" class="logo-link">
+      <div class="logo-icon">
+        <svg
+          viewBox="0 0 32 32"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <circle cx="16" cy="16" r="14" stroke="currentColor" stroke-width="2"/>
+          <path d="M16 7 L16 25 M11 11 Q16 5 21 11 M11 21 Q16 27 21 21" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <span class="logo-text">Quranic Arabic</span>
+    </a>
+
+    <!-- Right Section: Navigator Toggle + Auth + Theme + Mobile Menu -->
+    <div class="header-actions">
+      <!-- Navigator Toggle (hidden by default, shown on lesson pages via JS) -->
+      <button
+        id="navigator-toggle"
+        class="navigator-toggle"
+        aria-label="Toggle course navigator"
+        aria-expanded="false"
+        hidden
+      >
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+
+      <!-- Auth Button -->
+      <AuthButton />
+
+      <!-- Theme Toggle -->
+      <button
+        id="theme-toggle"
+        class="theme-toggle"
+        aria-label="Toggle dark mode"
+        title="Toggle dark mode"
+      >
+        <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="5"/>
+          <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+        </svg>
+        <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+      </button>
+
+      <!-- Mobile Menu Button -->
+      <button
+        id="mobile-menu-btn"
+        class="mobile-menu-btn"
+        aria-label="Toggle menu"
+        aria-expanded="false"
+      >
+        <div class="hamburger" id="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu (simplified) -->
+  <div
+    id="mobile-menu"
+    class="mobile-menu"
+  >
+    <nav class="mobile-nav">
+      <a href="/learn/" class="mobile-nav-item">
+        <span>Learn</span>
+      </a>
+      <a href="/surahs/" class="mobile-nav-item">
+        <span>Surahs</span>
+      </a>
+      <a href="/resources/" class="mobile-nav-item">
+        <span>Resources</span>
+      </a>
+      <a href="/about/" class="mobile-nav-item">
+        <span>About</span>
+      </a>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background-color: var(--bg-primary);
+    border-bottom: 1px solid var(--border-primary);
+    backdrop-filter: blur(12px);
+    transition: background-color var(--transition-base), border-color var(--transition-base), box-shadow var(--transition-base);
+  }
+
+  .header.scrolled {
+    box-shadow: var(--shadow-md);
+  }
+
+  .header-container {
+    max-width: 80rem;
+    margin: 0 auto;
+    padding-inline: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 56px;
+  }
+
+  @media (min-width: 640px) {
+    .header-container {
+      padding-inline: 1.5rem;
+    }
+  }
+
+  /* Logo */
+  .logo-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+  }
+
+  .logo-icon {
+    width: 36px;
+    height: 36px;
+    color: var(--accent-primary);
+    transition: transform var(--transition-fast);
+  }
+
+  .logo-link:hover .logo-icon {
+    transform: scale(1.05);
+  }
+
+  .logo-icon svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .logo-text {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: -0.025em;
+    transition: color var(--transition-fast);
+  }
+
+  .logo-link:hover .logo-text {
+    color: var(--accent-primary);
+  }
+
+  /* Header Actions */
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  /* Navigator Toggle */
+  .navigator-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    inline-size: 40px;
+    block-size: 40px;
+    border-radius: var(--radius-lg);
+    background-color: transparent;
+    border: 1px solid var(--border-primary);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    color: var(--text-secondary);
+  }
+
+  .navigator-toggle:hover {
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+    border-color: var(--border-secondary);
+  }
+
+  .navigator-toggle svg {
+    inline-size: 20px;
+    block-size: 20px;
+  }
+
+  /* Theme Toggle */
+  .theme-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    inline-size: 40px;
+    block-size: 40px;
+    border-radius: var(--radius-lg);
+    background-color: transparent;
+    border: 1px solid var(--border-primary);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    color: var(--text-secondary);
+  }
+
+  .theme-toggle:hover {
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+    border-color: var(--border-secondary);
+  }
+
+  .theme-toggle svg {
+    inline-size: 20px;
+    block-size: 20px;
+  }
+
+  .sun-icon {
+    display: block;
+  }
+
+  .moon-icon {
+    display: none;
+  }
+
+  [data-theme="dark"] .sun-icon {
+    display: none;
+  }
+
+  [data-theme="dark"] .moon-icon {
+    display: block;
+  }
+
+  /* Mobile Menu Button */
+  .mobile-menu-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    inline-size: 40px;
+    block-size: 40px;
+    border-radius: var(--radius-lg);
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    transition: background-color var(--transition-fast);
+  }
+
+  @media (min-width: 768px) {
+    .mobile-menu-btn {
+      display: none;
+    }
+  }
+
+  .mobile-menu-btn:hover {
+    background-color: var(--bg-secondary);
+  }
+
+  .hamburger {
+    inline-size: 20px;
+    block-size: 14px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .hamburger span {
+    display: block;
+    inline-size: 100%;
+    block-size: 2px;
+    background-color: var(--text-primary);
+    border-radius: 1px;
+    transition: all var(--transition-fast);
+    transform-origin: center;
+  }
+
+  /* Mobile Menu */
+  .mobile-menu {
+    display: none;
+    overflow: hidden;
+    transition: max-height var(--transition-slow), opacity var(--transition-base);
+    max-height: 0;
+    opacity: 0;
+    background-color: var(--bg-secondary);
+    border-top: 1px solid var(--border-primary);
+  }
+
+  @media (max-width: 767px) {
+    .mobile-menu {
+      display: block;
+    }
+  }
+
+  .mobile-menu.open {
+    max-height: 320px;
+    opacity: 1;
+  }
+
+  .mobile-nav {
+    padding-block: 1rem;
+    padding-inline: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .mobile-nav-item {
+    display: flex;
+    align-items: center;
+    padding-block: 0.875rem;
+    padding-inline: 1rem;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    text-decoration: none;
+    border-radius: var(--radius-lg);
+    transition: all var(--transition-fast);
+  }
+
+  .mobile-nav-item:hover {
+    background-color: var(--bg-elevated);
+  }
+</style>
+
+<script>
+  const header = document.getElementById('main-header');
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  const hamburger = document.getElementById('hamburger');
+  let isOpen = false;
+
+  // Add shadow on scroll
+  window.addEventListener('scroll', () => {
+    const currentScroll = window.scrollY;
+    if (currentScroll > 10) {
+      header?.classList.add('scrolled');
+    } else {
+      header?.classList.remove('scrolled');
+    }
+  });
+
+  // Mobile menu toggle
+  btn?.addEventListener('click', () => {
+    isOpen = !isOpen;
+    btn.setAttribute('aria-expanded', String(isOpen));
+
+    if (menu && hamburger) {
+      if (isOpen) {
+        menu.classList.add('open');
+        // Animate hamburger to X
+        const spans = hamburger.querySelectorAll('span');
+        spans[0].style.transform = 'rotate(45deg) translateY(6px)';
+        spans[1].style.opacity = '0';
+        spans[2].style.transform = 'rotate(-45deg) translateY(-6px)';
+      } else {
+        menu.classList.remove('open');
+        // Reset hamburger
+        const spans = hamburger.querySelectorAll('span');
+        spans[0].style.transform = '';
+        spans[1].style.opacity = '1';
+        spans[2].style.transform = '';
+      }
+    }
+  });
+</script>
