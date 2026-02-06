@@ -10,18 +10,18 @@ See: .planning/PROJECT.md (updated 2026-02-06)
 ## Current Position
 
 Phase: 12 of 17 (Level 1 Foundation Lessons)
-Plan: 2 of 6 complete
+Plan: 3 of 6 complete
 Status: In progress
-Last activity: 2026-02-06 — Completed 12-02-PLAN.md (L1.04-L1.05 lessons)
+Last activity: 2026-02-06 — Completed 12-03-PLAN.md (L1.06-L1.07 lessons)
 
-Progress: [███████████░░░░░░░] 71% (42/59 estimated total plans)
+Progress: [███████████░░░░░░░] 73% (43/59 estimated total plans)
 
 ## Performance Metrics
 
 **Velocity (updated):**
-- Total plans completed: 42
-- Average duration: 6.3 min
-- Total execution time: 4.82 hours
+- Total plans completed: 43
+- Average duration: 6.4 min
+- Total execution time: 4.99 hours
 
 **By Phase:**
 
@@ -31,11 +31,11 @@ Progress: [███████████░░░░░░░] 71% (42/59 es
 | 9 | 3 | 7.4min | 2.5 min |
 | 10 | 3 | 17.3min | 5.8 min |
 | 11 | 6 | 71.0min | 11.8 min |
-| 12 | 2 | 17.0min | 8.5 min |
+| 12 | 3 | 29.0min | 9.7 min |
 
 **Recent Trend:**
-- Last 5 plans: [11-05: 19min, 11-06: 7min, 12-01: 9min, 12-02: 8min]
-- Trend: Lesson authoring (Phases 11-12) averaging 9.9min per plan (validation + comprehensive content + Quranic examples)
+- Last 5 plans: [11-06: 7min, 12-01: 9min, 12-02: 8min, 12-03: 12min]
+- Trend: Lesson authoring (Phases 11-12) averaging 9.7min per plan (validation + comprehensive content + Quranic examples)
 
 *Updated after each plan completion*
 
@@ -87,6 +87,9 @@ Recent decisions affecting v1.1 work:
 - Standard sukūn (U+0652) recognized by validator, not U+06E1 (small high dotless head) - use standard for compliance (12-01)
 - Quranic verse selection follows CURRICULUM_MAP.md designated surahs for pedagogically appropriate examples (12-01)
 - 4 exercises per lesson (exceeds 3-4 minimum) with progressive difficulty pattern (12-01)
+- Isolated morpheme diacritics <70% acceptable for pedagogical clarity when showing citation forms (12-03)
+- Sun/moon letter naming mnemonic using الشمس and القمر as self-demonstrating examples (12-03)
+- Terminology validator false positives on bilingual formats accepted as known bug (12-03)
 
 ### Pending Todos
 
@@ -110,7 +113,7 @@ None.
 
 ## Session Continuity
 
-Last session: 2026-02-06T21:26:47Z
-Stopped at: Completed 12-02-PLAN.md (L1.04-L1.05: Sukun/Shadda/Tanween, Reading Bismillah)
+Last session: 2026-02-06T21:42:38Z
+Stopped at: Completed 12-03-PLAN.md (L1.06-L1.07: Three Word Types, Definite Article)
 Resume file: None
-Next: 12-03 (L1.06-L1.08: Three Word Types, Definite Article, Gender)
+Next: 12-04 (L1.08-L1.09: Gender, Number)
