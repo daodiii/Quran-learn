@@ -1,0 +1,46 @@
+---
+import { getCollection, render } from 'astro:content';
+import LessonLayout from '../../layouts/LessonLayout.astro';
+
+export async function getStaticPaths() {
+  const lessons = await getCollection('lessons');
+
+  // Sort lessons by level and order for prev/next computation
+  const sortedLessons = lessons.sort((a, b) => {
+    if (a.data.level !== b.data.level) {
+      return a.data.level - b.data.level;
+    }
+    return a.data.order - b.data.order;
+  });
+
+  return sortedLessons.map((lesson, index) => {
+    // Compute prev/next from collection order
+    const prevLesson = index > 0 ? `/learn/${sortedLessons[index - 1].id}/` : undefined;
+    const nextLesson = index < sortedLessons.length - 1 ? `/learn/${sortedLessons[index + 1].id}/` : undefined;
+
+    return {
+      params: { slug: lesson.id },
+      props: {
+        lesson,
+        // Use computed prev/next, fallback to frontmatter
+        computedPrevLesson: prevLesson || lesson.data.prevLesson,
+        computedNextLesson: nextLesson || lesson.data.nextLesson,
+      },
+    };
+  });
+}
+
+const { lesson, computedPrevLesson, computedNextLesson } = Astro.props;
+const { Content } = await render(lesson);
+---
+
+<LessonLayout
+  title={lesson.data.title}
+  titleArabic={lesson.data.titleArabic}
+  level={lesson.data.level}
+  description={lesson.data.description}
+  nextLesson={computedNextLesson}
+  prevLesson={computedPrevLesson}
+>
+  <Content />
+</LessonLayout>
