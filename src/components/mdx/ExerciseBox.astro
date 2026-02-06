@@ -1,0 +1,204 @@
+---
+/**
+ * ExerciseBox - Interactive practice exercise with show/hide answer toggle
+ *
+ * The ONE MDX component that requires client-side JavaScript for interactivity.
+ * Provides accessible keyboard navigation and screen reader support.
+ *
+ * Usage example:
+ * <ExerciseBox question="What is the definite article in Arabic?">
+ *   The definite article is **al-** (الـ). It is prefixed directly to the noun.
+ *
+ *   <ArabicExample
+ *     arabic="الْكِتَابُ"
+ *     translation="the book"
+ *     reference="Example"
+ *   />
+ * </ExerciseBox>
+ */
+
+interface Props {
+  question: string;
+  id?: string;
+}
+
+const { question, id = `exercise-${Math.random().toString(36).substr(2, 9)}` } = Astro.props;
+const answerId = `answer-${id}`;
+---
+
+<div class="exercise-box">
+  <p class="exercise-question">{question}</p>
+
+  <button
+    type="button"
+    class="toggle-answer"
+    aria-expanded="false"
+    aria-controls={answerId}
+  >
+    <span class="toggle-text">Show Answer</span>
+    <span class="toggle-icon" aria-hidden="true">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </span>
+  </button>
+
+  <div class="exercise-answer" id={answerId} hidden>
+    <slot />
+  </div>
+</div>
+
+<style>
+  .exercise-box {
+    background: var(--color-background-secondary);
+    border: 1px solid var(--color-border-primary);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-lg);
+    margin-block: var(--spacing-xl);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+
+  .exercise-question {
+    font-size: 1.0625rem;
+    font-weight: 500;
+    color: var(--color-text-primary);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .toggle-answer {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    padding-block: var(--spacing-sm);
+    padding-inline: var(--spacing-md);
+    background: var(--color-accent-primary);
+    color: white;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    border: none;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: background 200ms cubic-bezier(0.4, 0, 0.2, 1);
+    align-self: flex-start;
+  }
+
+  .toggle-answer:hover {
+    background: var(--color-accent-primary-hover);
+  }
+
+  .toggle-answer:focus-visible {
+    outline: 2px solid var(--color-accent-primary);
+    outline-offset: 2px;
+  }
+
+  .toggle-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .toggle-answer[aria-expanded="true"] .toggle-icon {
+    transform: rotate(180deg);
+  }
+
+  .exercise-answer {
+    padding-block-start: var(--spacing-md);
+    margin-block-start: var(--spacing-md);
+    border-block-start: 1px solid var(--color-border-primary);
+  }
+
+  .exercise-answer[hidden] {
+    display: none;
+  }
+
+  /* Answer content styling */
+  .exercise-answer :global(p) {
+    margin-block-end: var(--spacing-md);
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+  }
+
+  .exercise-answer :global(p:last-child) {
+    margin-block-end: 0;
+  }
+
+  .exercise-answer :global(strong) {
+    color: var(--color-text-primary);
+    font-weight: 600;
+  }
+
+  .exercise-answer :global(ul),
+  .exercise-answer :global(ol) {
+    margin-block-end: var(--spacing-md);
+    padding-inline-start: var(--spacing-lg);
+  }
+
+  .exercise-answer :global(li) {
+    margin-block-end: var(--spacing-sm);
+    color: var(--color-text-secondary);
+  }
+
+  /* Nested MDX components (ArabicExample, Callout, etc.) */
+  .exercise-answer :global(.arabic-example),
+  .exercise-answer :global(.callout) {
+    margin-block: var(--spacing-md);
+  }
+
+  /* Accessibility: reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .toggle-icon {
+      transition: none;
+    }
+
+    .toggle-answer[aria-expanded="true"] .toggle-icon {
+      transform: none;
+    }
+
+    .toggle-answer {
+      transition: none;
+    }
+  }
+</style>
+
+<script>
+  function initExercises() {
+    const toggleButtons = document.querySelectorAll('.toggle-answer');
+
+    toggleButtons.forEach(button => {
+      // Remove existing listener to prevent duplicates on view transitions
+      button.replaceWith(button.cloneNode(true));
+    });
+
+    // Re-query after cloning
+    const freshButtons = document.querySelectorAll('.toggle-answer');
+
+    freshButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const expanded = button.getAttribute('aria-expanded') === 'true';
+        const answerId = button.getAttribute('aria-controls');
+        const answerPanel = document.getElementById(answerId || '');
+        const toggleText = button.querySelector('.toggle-text');
+
+        if (!answerPanel || !toggleText) return;
+
+        // Toggle state
+        button.setAttribute('aria-expanded', String(!expanded));
+        answerPanel.hidden = expanded;
+        toggleText.textContent = expanded ? 'Show Answer' : 'Hide Answer';
+      });
+
+      // Also support keyboard activation (Enter and Space are handled by default for buttons)
+    });
+  }
+
+  // Initialize on page load
+  initExercises();
+
+  // Re-initialize after Astro view transitions
+  document.addEventListener('astro:page-load', initExercises);
+</script>
