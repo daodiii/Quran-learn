@@ -1,0 +1,238 @@
+---
+/**
+ * VerbConjugation - Display Arabic verb conjugation tables with root/form header
+ *
+ * Specialized table component for verb paradigms showing morphological patterns.
+ *
+ * Usage example:
+ * <VerbConjugation
+ *   root="ك ت ب"
+ *   form="Form I"
+ *   pattern="فَعَلَ"
+ *   headers={["Person", "Past", "Present", "Verbal Noun"]}
+ *   rows={[
+ *     ["He", "كَتَبَ", "يَكْتُبُ", "كِتَابَة"],
+ *     ["She", "كَتَبَتْ", "تَكْتُبُ", "—"],
+ *     ["They (m)", "كَتَبُوا", "يَكْتُبُونَ", "—"],
+ *   ]}
+ * />
+ */
+
+interface Props {
+  root: string;          // Arabic root letters (e.g., "ك ت ب")
+  form?: string;         // Verb form (e.g., "Form I", "Form II")
+  pattern?: string;      // Morphological pattern (e.g., "فَعَلَ")
+  headers: string[];     // Column headers for the conjugation table
+  rows: string[][];      // Conjugation data rows
+}
+
+const { root, form, pattern, headers, rows } = Astro.props;
+---
+
+<div class="verb-conjugation">
+  <div class="verb-header">
+    <div class="verb-root" dir="rtl" lang="ar">{root}</div>
+    {(form || pattern) && (
+      <div class="verb-meta">
+        {form && <span class="verb-form">{form}</span>}
+        {pattern && <span class="verb-pattern" dir="rtl" lang="ar">{pattern}</span>}
+      </div>
+    )}
+  </div>
+
+  <div class="table-wrapper">
+    <table class="verb-table" dir="rtl">
+      <thead>
+        <tr>
+          {headers.map(header => (
+            <th scope="col">{header}</th>
+          ))}
+        </tr>
+      </thead>
+      <tbody>
+        {rows.map(row => (
+          <tr>
+            {row.map((cell, index) => (
+              index === 0
+                ? <th scope="row">{cell}</th>
+                : <td data-label={headers[index]}>{cell}</td>
+            ))}
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<style>
+  .verb-conjugation {
+    border: 1px solid var(--color-border-primary);
+    border-radius: var(--radius-md);
+    margin-block: var(--spacing-xl);
+    overflow: hidden;
+    background: var(--color-background-primary);
+  }
+
+  .verb-header {
+    background: var(--color-accent-primary-light);
+    padding-block: var(--spacing-lg);
+    padding-inline: var(--spacing-lg);
+    text-align: center;
+    border-block-end: 1px solid var(--color-border-primary);
+  }
+
+  .verb-root {
+    font-family: var(--font-arabic);
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--color-accent-primary);
+    letter-spacing: 0.25rem;
+    margin-block-end: var(--spacing-sm);
+  }
+
+  @media (min-width: 640px) {
+    .verb-root {
+      font-size: 2.5rem;
+    }
+  }
+
+  .verb-meta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-md);
+    flex-wrap: wrap;
+  }
+
+  .verb-form {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+
+  .verb-pattern {
+    font-family: var(--font-arabic);
+    font-size: 1.25rem;
+    color: var(--color-accent-primary);
+    letter-spacing: 0;
+  }
+
+  .table-wrapper {
+    overflow-x: auto;
+  }
+
+  .verb-table {
+    inline-size: 100%;
+    border-collapse: collapse;
+    background: var(--color-background-primary);
+  }
+
+  .verb-table th[scope="col"] {
+    background: var(--color-background-tertiary);
+    color: var(--color-text-primary);
+    font-weight: 600;
+    font-size: 0.9375rem;
+    padding-block: var(--spacing-md);
+    padding-inline: var(--spacing-md);
+    text-align: start;
+    border-block-end: 1px solid var(--color-border-primary);
+    letter-spacing: 0;
+  }
+
+  .verb-table th[scope="row"] {
+    background: var(--color-background-secondary);
+    color: var(--color-text-primary);
+    font-weight: 500;
+    font-size: 0.9375rem;
+    padding-block: var(--spacing-md);
+    padding-inline: var(--spacing-md);
+    text-align: start;
+    border-block-end: 1px solid var(--color-border-primary);
+    letter-spacing: 0;
+  }
+
+  .verb-table td {
+    padding-block: var(--spacing-md);
+    padding-inline: var(--spacing-md);
+    color: var(--color-text-secondary);
+    font-size: 0.9375rem;
+    text-align: start;
+    border-block-end: 1px solid var(--color-border-primary);
+    letter-spacing: 0;
+  }
+
+  .verb-table tbody tr:last-child th,
+  .verb-table tbody tr:last-child td {
+    border-block-end: none;
+  }
+
+  .verb-table tbody tr:hover {
+    background: var(--color-background-secondary);
+  }
+
+  /* Mobile responsive stacking */
+  @media (max-width: 640px) {
+    .verb-table thead {
+      position: absolute;
+      inline-size: 1px;
+      block-size: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    .verb-table tbody tr {
+      display: block;
+      margin-block-end: var(--spacing-md);
+      border: 1px solid var(--color-border-primary);
+      border-radius: var(--radius-md);
+      background: var(--color-background-secondary);
+    }
+
+    .verb-table tbody tr:last-child {
+      margin-block-end: 0;
+    }
+
+    .verb-table th[scope="row"],
+    .verb-table td {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-block: var(--spacing-sm);
+      padding-inline: var(--spacing-md);
+      border-block-end: 1px solid var(--color-border-primary);
+      background: transparent;
+      text-align: start;
+    }
+
+    .verb-table th[scope="row"] {
+      font-weight: 600;
+      background: var(--color-background-tertiary);
+      border-block-end: 1px solid var(--color-border-primary);
+    }
+
+    .verb-table tbody tr th[scope="row"]:last-child,
+    .verb-table tbody tr td:last-child {
+      border-block-end: none;
+    }
+
+    .verb-table td::before {
+      content: attr(data-label);
+      font-weight: 500;
+      color: var(--color-text-primary);
+      margin-inline-end: var(--spacing-sm);
+    }
+  }
+
+  /* Accessibility: reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .verb-table tbody tr {
+      transition: none;
+    }
+  }
+</style>

@@ -1,0 +1,185 @@
+---
+/**
+ * GrammarTable - Responsive table for Arabic grammar paradigms
+ *
+ * Designed for case endings, pronoun charts, declension patterns.
+ * Stacks into mobile-friendly card layout on small screens.
+ *
+ * Usage example:
+ * <GrammarTable
+ *   caption="Personal Pronouns"
+ *   headers={["Person", "Arabic", "Transliteration", "English"]}
+ *   rows={[
+ *     ["1st Singular", "أَنَا", "ana", "I"],
+ *     ["2nd Singular (m)", "أَنْتَ", "anta", "you (m)"],
+ *     ["2nd Singular (f)", "أَنْتِ", "anti", "you (f)"],
+ *   ]}
+ * />
+ */
+
+interface Props {
+  caption?: string;
+  headers: string[];
+  rows: string[][];
+  rtl?: boolean;  // Default true — most grammar tables have Arabic content
+}
+
+const { caption, headers, rows, rtl = true } = Astro.props;
+---
+
+<div class="table-wrapper">
+  <table class="grammar-table" dir={rtl ? "rtl" : "ltr"}>
+    {caption && <caption>{caption}</caption>}
+    <thead>
+      <tr>
+        {headers.map(header => (
+          <th scope="col">{header}</th>
+        ))}
+      </tr>
+    </thead>
+    <tbody>
+      {rows.map(row => (
+        <tr>
+          {row.map((cell, index) => (
+            index === 0
+              ? <th scope="row">{cell}</th>
+              : <td data-label={headers[index]}>{cell}</td>
+          ))}
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
+
+<style>
+  .table-wrapper {
+    overflow-x: auto;
+    border: 1px solid var(--color-border-primary);
+    border-radius: var(--radius-md);
+    margin-block: var(--spacing-xl);
+  }
+
+  .grammar-table {
+    inline-size: 100%;
+    border-collapse: collapse;
+    background: var(--color-background-primary);
+  }
+
+  .grammar-table caption {
+    padding-block: var(--spacing-md);
+    padding-inline: var(--spacing-md);
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--color-text-primary);
+    text-align: start;
+    background: var(--color-background-tertiary);
+    border-block-end: 1px solid var(--color-border-primary);
+  }
+
+  .grammar-table th[scope="col"] {
+    background: var(--color-background-tertiary);
+    color: var(--color-text-primary);
+    font-weight: 600;
+    font-size: 0.9375rem;
+    padding-block: var(--spacing-md);
+    padding-inline: var(--spacing-md);
+    text-align: start;
+    border-block-end: 1px solid var(--color-border-primary);
+    letter-spacing: 0;
+  }
+
+  .grammar-table th[scope="row"] {
+    background: var(--color-background-secondary);
+    color: var(--color-text-primary);
+    font-weight: 500;
+    font-size: 0.9375rem;
+    padding-block: var(--spacing-md);
+    padding-inline: var(--spacing-md);
+    text-align: start;
+    border-block-end: 1px solid var(--color-border-primary);
+    letter-spacing: 0;
+  }
+
+  .grammar-table td {
+    padding-block: var(--spacing-md);
+    padding-inline: var(--spacing-md);
+    color: var(--color-text-secondary);
+    font-size: 0.9375rem;
+    text-align: start;
+    border-block-end: 1px solid var(--color-border-primary);
+    letter-spacing: 0;
+  }
+
+  .grammar-table tbody tr:last-child th,
+  .grammar-table tbody tr:last-child td {
+    border-block-end: none;
+  }
+
+  .grammar-table tbody tr:hover {
+    background: var(--color-background-secondary);
+  }
+
+  /* Mobile responsive stacking */
+  @media (max-width: 640px) {
+    .grammar-table thead {
+      position: absolute;
+      inline-size: 1px;
+      block-size: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    .grammar-table tbody tr {
+      display: block;
+      margin-block-end: var(--spacing-md);
+      border: 1px solid var(--color-border-primary);
+      border-radius: var(--radius-md);
+      background: var(--color-background-secondary);
+    }
+
+    .grammar-table tbody tr:last-child {
+      margin-block-end: 0;
+    }
+
+    .grammar-table th[scope="row"],
+    .grammar-table td {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-block: var(--spacing-sm);
+      padding-inline: var(--spacing-md);
+      border-block-end: 1px solid var(--color-border-primary);
+      background: transparent;
+      text-align: start;
+    }
+
+    .grammar-table th[scope="row"] {
+      font-weight: 600;
+      background: var(--color-background-tertiary);
+      border-block-end: 1px solid var(--color-border-primary);
+    }
+
+    .grammar-table tbody tr th[scope="row"]:last-child,
+    .grammar-table tbody tr td:last-child {
+      border-block-end: none;
+    }
+
+    .grammar-table td::before {
+      content: attr(data-label);
+      font-weight: 500;
+      color: var(--color-text-primary);
+      margin-inline-end: var(--spacing-sm);
+    }
+  }
+
+  /* Accessibility: reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .grammar-table tbody tr {
+      transition: none;
+    }
+  }
+</style>
