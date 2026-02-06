@@ -10,18 +10,18 @@ See: .planning/PROJECT.md (updated 2026-02-06)
 ## Current Position
 
 Phase: 11 of 17 (Reference Resources)
-Plan: 1 of 6 complete
+Plan: 2 of 6 complete
 Status: In progress
-Last activity: 2026-02-06 — Completed 11-01-PLAN.md
+Last activity: 2026-02-06 — Completed 11-02-PLAN.md (Case Endings Chart)
 
-Progress: [████████░░░░░░░░░░] 59% (35/59 estimated total plans)
+Progress: [████████░░░░░░░░░░] 61% (36/59 estimated total plans)
 
 ## Performance Metrics
 
 **Velocity (updated):**
-- Total plans completed: 35
-- Average duration: 5.2 min
-- Total execution time: 3.62 hours
+- Total plans completed: 36
+- Average duration: 5.3 min
+- Total execution time: 3.80 hours
 
 **By Phase:**
 
@@ -30,11 +30,11 @@ Progress: [████████░░░░░░░░░░] 59% (35/59 es
 | 1-8 | 28 | 3.1h | 5.6 min |
 | 9 | 3 | 7.4min | 2.5 min |
 | 10 | 3 | 17.3min | 5.8 min |
-| 11 | 1 | 9.0min | 9.0 min |
+| 11 | 2 | 20.0min | 10.0 min |
 
 **Recent Trend:**
-- Last 5 plans: [10-01: 5min, 10-02: 7min, 10-03: 5.3min, 11-01: 9min]
-- Trend: Increasing, content authoring plans averaging 8-9min
+- Last 5 plans: [10-02: 7min, 10-03: 5.3min, 11-01: 9min, 11-02: 11min]
+- Trend: Content authoring (Phase 11) averaging 10min per plan
 
 *Updated after each plan completion*
 
@@ -70,6 +70,9 @@ Recent decisions affecting v1.1 work:
 - Verse lookup is build-time helper, not runtime API (content frozen in MDX) (10-03)
 - Arabic alphabetical ordering chosen for glossary (matches Arabic dictionary standards) (11-01)
 - Single comprehensive glossary preferred over split basic/advanced (unified canonical source) (11-01)
+- Progressive disclosure (details/summary) for advanced grammar topics in reference charts (11-02)
+- Organize grammar references by pedagogical sequence (singular → dual → plurals) (11-02)
+- Summary tables by case type for quick reference lookup (11-02)
 
 ### Pending Todos
 
@@ -90,5 +93,5 @@ None.
 ## Session Continuity
 
 Last session: 2026-02-06
-Stopped at: Completed 11-01-PLAN.md (bilingual glossary) — continuing Phase 11
+Stopped at: Completed 11-02-PLAN.md (case endings chart) — continuing Phase 11
 Resume file: None
