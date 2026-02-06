@@ -10,18 +10,18 @@ See: .planning/PROJECT.md (updated 2026-02-06)
 ## Current Position
 
 Phase: 11 of 17 (Reference Resources)
-Plan: 4 of 6 complete
+Plan: 5 of 6 complete
 Status: In progress
-Last activity: 2026-02-06 — Completed 11-05-PLAN.md (Root System Guide)
+Last activity: 2026-02-06 — Completed 11-06-PLAN.md (200 Most Common Quranic Words)
 
-Progress: [████████░░░░░░░░░░] 64% (38/59 estimated total plans)
+Progress: [████████░░░░░░░░░░] 66% (39/59 estimated total plans)
 
 ## Performance Metrics
 
 **Velocity (updated):**
-- Total plans completed: 38
-- Average duration: 6.0 min
-- Total execution time: 4.29 hours
+- Total plans completed: 39
+- Average duration: 6.2 min
+- Total execution time: 4.41 hours
 
 **By Phase:**
 
@@ -30,11 +30,11 @@ Progress: [████████░░░░░░░░░░] 64% (38/59 es
 | 1-8 | 28 | 3.1h | 5.6 min |
 | 9 | 3 | 7.4min | 2.5 min |
 | 10 | 3 | 17.3min | 5.8 min |
-| 11 | 4 | 57.0min | 14.3 min |
+| 11 | 5 | 64.0min | 12.8 min |
 
 **Recent Trend:**
-- Last 5 plans: [11-01: 9min, 11-02: 11min, 11-04: 18min, 11-05: 19min]
-- Trend: Content authoring (Phase 11) averaging 14.3min per plan (validation + comprehensive content)
+- Last 5 plans: [11-02: 11min, 11-04: 18min, 11-05: 19min, 11-06: 7min]
+- Trend: Content authoring (Phase 11) averaging 12.8min per plan (validation + comprehensive content)
 
 *Updated after each plan completion*
 
@@ -79,6 +79,10 @@ Recent decisions affecting v1.1 work:
 - LEGO brick analogy effective for teaching root-and-pattern morphology (concrete → abstract pedagogy) (11-05)
 - Dictionary lookup strategy prioritized as critical life skill (enables autonomous vocabulary expansion) (11-05)
 - TERMINOLOGY.md entries must use ≥70% vocalization to match validation requirements (11-05)
+- Organize vocabulary by part of speech rather than pure frequency for pedagogical effectiveness (11-06)
+- Compact table format chosen for 200-word list to maintain scanability and avoid cognitive overload (11-06)
+- Frequency data included with each word to enable data-driven learning prioritization (11-06)
+- Dagger alif (U+0670) validation limitation accepted for pedagogically correct Quranic orthography (11-06)
 
 ### Pending Todos
 
@@ -98,9 +102,10 @@ None.
 - Terminology validator lacks context awareness - matches letter combinations in any word, not just term introductions (11-04)
 - Terminology validator regex bug: Special characters in term.english (like parentheses) not escaped, causing false positives (11-05)
 - TERMINOLOGY.md vocalization inconsistencies can cause validator conflicts - audit recommended (11-05)
+- Diacritics validator's Unicode range incomplete: dagger alif (U+0670) not recognized as diacritic, causing 67% ratio for pedagogically correct words (11-06)
 
 ## Session Continuity
 
 Last session: 2026-02-06
-Stopped at: Completed 11-05-PLAN.md (root system guide) — continuing Phase 11 (4/6 plans complete)
+Stopped at: Completed 11-06-PLAN.md (200 most common words list) — continuing Phase 11 (5/6 plans complete)
 Resume file: None
