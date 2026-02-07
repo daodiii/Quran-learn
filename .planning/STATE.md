@@ -5,23 +5,23 @@
 See: .planning/PROJECT.md (updated 2026-02-06)
 
 **Core value:** Make learning Quranic Arabic grammar accessible and engaging through beautiful, intuitive design
-**Current focus:** Phase 14 COMPLETE — Level 3 Intermediate Lessons (6/6 plans complete).
+**Current focus:** Phase 14 in progress — Level 3 Intermediate Lessons (7/8 plans complete).
 
 ## Current Position
 
 Phase: 14 of 17 (Level 3 Intermediate Lessons)
-Plan: 6 of 6 complete
-Status: Phase complete
-Last activity: 2026-02-07 — Completed 14-06-PLAN.md (L3.05 Imperative Mood + L3.06 Subject Pronouns)
+Plan: 7 of 8 complete
+Status: In progress
+Last activity: 2026-02-07 — Completed 14-07-PLAN.md (L3.13 Verb Form V + L3.14 Verb Form VI)
 
-Progress: [█████████████████░░] 95% (56/59 estimated total plans)
+Progress: [█████████████████░░] 95% (57/60 estimated total plans)
 
 ## Performance Metrics
 
 **Velocity (updated):**
-- Total plans completed: 56
-- Average duration: 7.98 min
-- Total execution time: 7.73 hours
+- Total plans completed: 57
+- Average duration: 8.04 min
+- Total execution time: 7.88 hours
 
 **By Phase:**
 
@@ -33,11 +33,11 @@ Progress: [█████████████████░░] 95% (56/59
 | 11 | 6 | 71.0min | 11.8 min |
 | 12 | 5 | 39.0min | 7.8 min |
 | 13 | 6 | 93.3min | 15.6 min |
-| 14 | 6 | 54.0min | 9.0 min |
+| 14 | 7 | 64.4min | 9.2 min |
 
 **Recent Trend:**
-- Last 5 plans: [14-02: 6min, 14-03: 10min, 14-04: 11min, 14-05: 9min, 14-06: 8.4min]
-- Trend: Phase 14 complete at ~9min pace, consistent velocity across dual-lesson plans
+- Last 5 plans: [14-03: 10min, 14-04: 11min, 14-05: 9min, 14-06: 8.4min, 14-07: 10.4min]
+- Trend: Phase 14 maintaining ~9min pace, consistent velocity across dual-lesson plans
 
 *Updated after each plan completion*
 
@@ -135,6 +135,10 @@ Recent decisions affecting v1.1 work:
 - Explicit vs implicit pronoun distinction established as KEY CONCEPT for Arabic verb system (14-06)
 - 12 independent subject pronouns organized systematically by person × gender × number grid (14-06)
 - Al-Ikhlas هُوَ pronoun analyzed as emphasis on divine identity: "HE is Allah" (14-06)
+- Form V/VI taught as systematic pair showing تَ prefix pattern: Form V = تَ + Form II (reflexive), Form VI = تَ + Form III (mutual) (14-07)
+- Shadda vs alif distinction established as key Form V/VI differentiator: Form V has doubled middle, Form VI has alif after first (14-07)
+- Three-stage derivation chains (Form I→parent→derived) consistently used to show semantic progression across verb forms (14-07)
+- Two-ת present tense structure explained: present prefix + Form V/VI marker creates consecutive ת letters (14-07)
 
 ### Pending Todos
 
@@ -159,6 +163,6 @@ None.
 ## Session Continuity
 
 Last session: 2026-02-07
-Stopped at: Completed 14-06-PLAN.md — L3.05 Imperative Mood (425 lines) + L3.06 Subject Pronouns (460 lines)
+Stopped at: Completed 14-07-PLAN.md — L3.13 Verb Form V (559 lines) + L3.14 Verb Form VI (680 lines)
 Resume file: None
-Next: Phase 14 COMPLETE. Ready for Phase 15 or next iteration of Level 3 content.
+Next: Phase 14 plan 14-08 (1 more Level 3 lesson plan remaining)
