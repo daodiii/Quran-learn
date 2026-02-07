@@ -5,23 +5,23 @@
 See: .planning/PROJECT.md (updated 2026-02-06)
 
 **Core value:** Make learning Quranic Arabic grammar accessible and engaging through beautiful, intuitive design
-**Current focus:** Phase 15 PLANNED — Level 4 Advanced Lessons (9 plans created, 0/9 executed). Ready for execution.
+**Current focus:** Phase 15 IN PROGRESS — Level 4 Advanced Lessons (9 plans created, 3/9 executed).
 
 ## Current Position
 
 Phase: 15 of 17 (Level 4 Advanced Lessons)
-Plan: 2 of 9 complete
+Plan: 3 of 9 complete
 Status: In progress
-Last activity: 2026-02-07 — Completed 15-02-PLAN.md (L4.03 Conditional Sentences, L4.04 Conditional Particles)
+Last activity: 2026-02-07 — Completed 15-05-PLAN.md (L4.10 Negation Particles)
 
-Progress: [█████████████████░░] 97% (61/63 estimated total plans)
+Progress: [█████████████████░░] 98% (62/63 estimated total plans)
 
 ## Performance Metrics
 
 **Velocity (updated):**
-- Total plans completed: 61
-- Average duration: 8.10 min
-- Total execution time: 8.48 hours
+- Total plans completed: 62
+- Average duration: 8.15 min
+- Total execution time: 8.66 hours
 
 **By Phase:**
 
@@ -34,11 +34,11 @@ Progress: [█████████████████░░] 97% (61/63
 | 12 | 5 | 39.0min | 7.8 min |
 | 13 | 6 | 93.3min | 15.6 min |
 | 14 | 8 | 90.4min | 11.3 min |
-| 15 | 2 | 19min | 9.5 min |
+| 15 | 3 | 30min | 10.0 min |
 
 **Recent Trend:**
-- Last 5 plans: [14-07: 10.4min, 14-08: 12min, 14-09: 14min, 15-01: 9min, 15-02: 10min]
-- Trend: Phase 15 averaging 9.5min per dual-lesson plan. Conditionals (15-02) took 10min for 763 lines.
+- Last 5 plans: [14-08: 12min, 14-09: 14min, 15-01: 9min, 15-02: 10min, 15-05: 11min]
+- Trend: Phase 15 averaging 10min per plan. Negation particles (15-05) took 11min for 567 lines (single lesson).
 
 *Updated after each plan completion*
 
@@ -156,6 +156,10 @@ Recent decisions affecting v1.1 work:
 - إِنْ vs إِذَا distinction emphasized as most common learner error: إِذَا fundamentally temporal "when" (expected), إِنْ uncertain "if" (15-02)
 - Jussive mood markers (deleted nūn for plurals, sukūn for singulars) highlighted as key recognition features in conditional sentences (15-02)
 - إِنْ vs إِنَّ distinction (conditional vs emphatic) taught early to prevent shadda confusion in reading conditionals (15-02)
+- Isolated word diacritics handled via transliteration in table cells/exercises when 70% threshold cannot be met while maintaining full vocalization in ArabicExample components (15-05)
+- Same-verb comparison pedagogy (all five negations of one root) demonstrates systematic grammar variation effectively (15-05)
+- Decision tree format for particle selection reduces learner confusion on "which particle?" questions by providing algorithmic method (15-05)
+- لَمْ (lam) uniqueness requires explicit three-feature emphasis: present form + past meaning + jussive mood combination makes it distinct (15-05)
 
 ### Pending Todos
 
@@ -180,6 +184,6 @@ None.
 ## Session Continuity
 
 Last session: 2026-02-07
-Stopped at: Completed 15-02-PLAN.md (L4.03 Conditional Sentences, L4.04 Conditional Particles) — conditional logic pair with certainty scale pedagogy
+Stopped at: Completed 15-05-PLAN.md (L4.10 Negation Particles) — five-particle system with lam uniqueness and decision tree
 Resume file: None
-Next: Execute remaining Phase 15 plans (8/9 remaining)
+Next: Execute remaining Phase 15 plans — 6/9 remaining (weak verbs, exception/emphasis, maf'ul types)
