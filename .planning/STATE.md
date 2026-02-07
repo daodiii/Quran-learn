@@ -119,6 +119,12 @@ None — v1.1 milestone complete.
 - Tanzil.net dataset still needed for verse text authoring
 - Expert Arabic linguist review (31-39 hours) should be scheduled
 
+### Quick Tasks Completed
+
+| # | Description | Date | Commit | Directory |
+|---|-------------|------|--------|-----------|
+| 001 | Fix ~870 broken cross-reference links and 247 glossary anchor warnings | 2026-02-07 | dd1965a | [001-fix-cross-references-glossary-anchors](./quick/001-fix-cross-references-glossary-anchors/) |
+
 ## Session Continuity
 
 Last session: 2026-02-07
