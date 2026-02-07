@@ -1,0 +1,575 @@
+---
+title: "Hamzated Verbs (al-Mahmuz)"
+level: 4
+order: 15
+description: "Master hamza spelling rules based on vowel hierarchy, recognize hamza positions and carriers, and complete the four-category weak verb classification system."
+draft: false
+---
+
+import ArabicExample from '@components/mdx/ArabicExample.astro';
+import GrammarTable from '@components/mdx/GrammarTable.astro';
+import VerbConjugation from '@components/mdx/VerbConjugation.astro';
+import Callout from '@components/mdx/Callout.astro';
+import ExerciseBox from '@components/mdx/ExerciseBox.astro';
+
+## Introduction
+
+You've completed three weak verb categories: hollow, defective, and assimilated. Now you're ready for the final category: hamzated verbs (al-mahmūz). These are verbs containing hamza (ء) — the glottal stop that changes its "seat" (carrier letter) based on surrounding vowels.
+
+<ArabicExample
+  arabic="إِنَّآ أَعْطَيْنَٰكَ ٱلْكَوْثَرَ"
+  transliteration="innā aʿṭaynāka l-kawthar"
+  translation="Indeed, We have granted you al-Kawthar"
+  reference="Al-Kawthar 108:1"
+  highlight="أَعْطَيْنَٰكَ"
+/>
+
+The word **أَعْطَيْنَٰكَ** (aʿṭaynāka) "We gave you" is from the hamzated root ع-ط-ي (ʿ-ṭ-y). Wait — where's the hamza? It's hidden in the past tense, but appears clearly in other forms: the masdar is **إِعْطَاءٌ** (iʿṭāʾun) "giving." The hamza's spelling changes based on the vowels around it, making hamzated verbs unique among weak verbs.
+
+**In this lesson, you will:**
+- Understand hamza seat rules (kasra > damma > fatha > sukūn hierarchy)
+- Identify three hamza positions: initial, middle, final
+- Recognize common hamzated roots and their conjugations
+- Master irregular imperative exceptions (khudh, kul, mur)
+- Complete the four-category weak verb comparison
+- Apply hamza analysis to Al-Kawthar examples
+
+**Connection to previous learning:** In [L4.11 Weak Verbs Introduction](/learn/level-4/weak-verbs-intro), you learned the four-category system. You've mastered [L4.12 Hollow Verbs](/learn/level-4/hollow-verbs) (middle weak), [L4.13 Defective Verbs](/learn/level-4/defective-verbs) (final weak), and [L4.14 Assimilated Verbs](/learn/level-4/assimilated-verbs) (initial weak). Hamzated verbs complete the system — they're different because hamza doesn't contract or drop like و/ي. Instead, its SPELLING changes while pronunciation stays the same.
+
+**Forward connection:** This lesson completes the weak verb series. With all four categories mastered, you'll move to [L4.16 Introduction to Balagha](/learn/level-4/balagha-intro) (rhetoric), expanding from morphology to stylistics and eloquence.
+
+**Key insight:** Hamza is technically NOT a "weak letter" in the grammatical sense — it's a consonant (glottal stop). But it causes spelling irregularities that justify including it with weak verbs. The good news: conjugation is regular, only the orthography (spelling) changes based on vowel context.
+
+## Understanding Hamzated Verbs
+
+**Plain English first:** Imagine hamza as royalty that must always sit on a throne. The throne can be alif (ا), waw (و), ya (ي), or the line itself (standalone ء). Which throne hamza sits on depends on the vowels around it — like choosing formal clothes based on the occasion. Same person (hamza), different presentation (spelling).
+
+### What Makes a Verb "Hamzated"?
+
+**[Hamzated verb](/resources/glossary#fil-mahmuz)** (fiʿl mahmūz / فِعْلٌ مَهْمُوزٌ) — verb containing hamza (ء) in any position (initial, middle, or final)
+
+**Examples:**
+- **ء-خ-ذ** (ʾ-kh-dh) "taking" — initial hamza
+- **س-ء-ل** (s-ʾ-l) "asking" — middle hamza
+- **ق-ر-ء** (q-r-ʾ) "reading" — final hamza
+
+**Why "mahmūz"?** The Arabic term مَهْمُوزٌ (mahmūz) means "having hamza." It's a passive participle from the root ه-م-ز (h-m-z) meaning "to insert hamza."
+
+### Hamza vs Weak Letters: The Difference
+
+**Weak letters (و، ي):**
+- Contract into long vowels (قَالَْ from ق-و-ل)
+- Drop entirely (قُلْ from ق-و-ل)
+- Change pronunciation based on conjugation
+
+**Hamza (ء):**
+- Pronunciation NEVER changes (always a glottal stop)
+- Conjugation follows regular sound verb patterns
+- ONLY the spelling (carrier/seat) changes based on vowels
+
+**Key takeaway:** You already know how to conjugate hamzated verbs! The challenge is spelling them correctly. Master the seat rules, and hamzated verbs become straightforward.
+
+## Hamza Seat Rules (The Vowel Hierarchy)
+
+Hamza must sit on a carrier that matches the surrounding vowels. The carrier is determined by a hierarchy:
+
+<Callout type="rule" title="Hamza Seat Hierarchy (Strongest to Weakest)">
+
+**1. Kasra (ِ) → Hamza on ya (ئ)**
+**2. Damma (ُ) → Hamza on waw (ؤ)**
+**3. Fatha (َ) → Hamza on alif (أ or إ)**
+**4. Sukūn (ْ) → Hamza on line (ء) or follows previous vowel**
+
+**Rule:** Compare the hamza's vowel with the vowel of the letter BEFORE it. Use the STRONGER vowel to determine the seat.
+
+</Callout>
+
+### Detailed Seat Rules with Examples
+
+**Rule 1: Kasra wins (strongest)**
+
+If hamza OR the letter before it has kasra, hamza sits on ya (ئ).
+
+Examples:
+- **سُئِلَ** (suʾila) "he was asked" — hamza has kasra → sits on ya
+- **قَارِئٌ** (qāriʾun) "reader" — letter before (ر) has kasra → sits on ya
+- **مَسَائِلُ** (masāʾilu) "questions" — letter before (ا) has kasra effect → sits on ya
+
+**Rule 2: Damma second (strong)**
+
+If neither has kasra, but one has damma, hamza sits on waw (ؤ).
+
+Examples:
+- **يُؤْمِنُ** (yuʾminu) "he believes" — hamza has sukūn, but prefix has damma → sits on waw
+- **مَسْؤُولٌ** (masʾūlun) "responsible" — hamza has damma → sits on waw
+- **رُؤُوسٌ** (ruʾūsun) "heads" — letter before has damma → sits on waw
+
+**Rule 3: Fatha third (moderate)**
+
+If only fatha is present, hamza sits on alif (أ or إ).
+
+Examples:
+- **أَخَذَ** (ʾakhada) "he took" — initial hamza with fatha → sits on alif above
+- **سَأَلَ** (saʾala) "he asked" — hamza has fatha → sits on alif
+- **قَرَأَ** (qaraʾa) "he read" — hamza has fatha → sits on alif
+
+**Rule 4: Sukūn (weakest) or standalone**
+
+If hamza has sukūn and the letter before has sukūn or long vowel, hamza sits on the line (ء) or follows the previous vowel's rule.
+
+Examples:
+- **شَيْءٌ** (shayʾun) "thing" — hamza follows long vowel → sits on line
+- **قِرَاءَةٌ** (qirāʾatun) "reading" — hamza follows long ā → sits on line
+- **يَقْرَءُ** (yaqraʾu) "he reads" — final hamza with preceding sukūn → various spellings acceptable
+
+<Callout type="info" title="Why This Hierarchy?">
+
+The hierarchy mirrors Arabic phonology: kasra is the "tightest" vowel (high front), followed by damma (high back), then fatha (low). Sukūn has no vowel quality. Hamza, being a glottal stop, needs vowel context to determine its orthographic representation.
+
+Think of it like dressing for weather: kasra is winter coat (most protective carrier), fatha is light jacket, sukūn is no coat (hamza stands alone).
+
+</Callout>
+
+## Three Hamza Positions
+
+Hamzated verbs are categorized by WHERE the hamza appears in the root:
+
+<GrammarTable>
+| Position | Example Root | Past 3MS | Present 3MS | Imperative 2MS | Translation | Key Feature |
+|----------|-------------|---------|-------------|----------------|-------------|-------------|
+| **Initial** | ء-خ-ذ | أَخَذَ | يَأْخُذُ | خُذْ | take/took | Hamza drops in some forms |
+| **Middle** | س-ء-ل | سَأَلَ | يَسْأَلُ | ٱِسْأَلْ | ask/asked | Hamza seat changes frequently |
+| **Final** | ق-ر-ء | قَرَأَ | يَقْرَأُ | ٱِقْرَأْ | read | Hamza maintained in all forms |
+</GrammarTable>
+
+### Position 1: Initial Hamza (First Radical)
+
+**Pattern:** Initial hamza often changes spelling based on vowel type.
+
+**Common initial hamza roots:**
+- **ء-م-ن** (ʾ-m-n) "believing" → ʾāmana "he believed"
+- **ء-م-ر** (ʾ-m-r) "commanding" → أَمَرَ (ʾamara) "he commanded"
+- **ء-خ-ذ** (ʾ-kh-dh) "taking" → أَخَذَ (ʾakhada) "he took"
+- **ء-ك-ل** (ʾ-k-l) "eating" → أَكَلَ (ʾakala) "he ate"
+
+**Special case:** Form IV doubles the hamza (أَفْعَلَ pattern), creating آ (madda):
+- ʾāmana "he believed" — from ء-م-ن, Form IV (أَأْمَنَ becomes ʾāmana with madda آ)
+
+**Key behavior:** In imperative, initial hamza sometimes drops for phonetic ease (irregular forms).
+
+### Position 2: Middle Hamza (Second Radical)
+
+**Pattern:** Middle hamza changes seat frequently based on conjugation vowels.
+
+**Common middle hamza roots:**
+- **س-ء-ل** (s-ʾ-l) "asking" → سَأَلَ (saʾala) "he asked"
+- **ر-ء-س** (r-ʾ-s) "heading/presiding" → رَأَسَ (raʾasa) "he presided"
+- **ب-ء-س** (b-ʾ-s) "hardship" → بَئِسَ (baʾisa) "it was miserable"
+
+**Seat changes in conjugation:**
+- Past 3MS: سَأَلَ (saʾala) — fatha → alif seat
+- Past 1S: سَأَلْتُ (saʾaltu) — still fatha → alif seat
+- Present 3MS: يَسْأَلُ (yasʾalu) — sukūn before, damma after → alif seat (follows fatha pattern)
+- Masdar: سُؤَالٌ (suʾālun) — damma → waw seat
+
+**Most variable position** — seat changes frequently!
+
+### Position 3: Final Hamza (Third Radical)
+
+**Pattern:** Final hamza is the most stable — usually sits on alif or line.
+
+**Common final hamza roots:**
+- **ق-ر-ء** (q-r-ʾ) "reading" → قَرَأَ (qaraʾa) "he read"
+- **ب-د-ء** (b-d-ʾ) "beginning" → بَدَأَ (badaʾa) "he began"
+- **م-ل-ء** (m-l-ʾ) "filling" → مَلَأَ (malaʾa) "he filled"
+
+**Seat consistency:**
+- Past 3MS: قَرَأَ (qaraʾa) — fatha → alif
+- Present 3MS: يَقْرَأُ (yaqraʾu) — fatha → alif
+- Imperative: ٱِقْرَأْ (iqraʾ) — fatha → alif
+- Masdar: قِرَاءَةٌ (qirāʾatun) — long ā before → line
+
+**Most predictable position** — seat rarely changes!
+
+## Common Hamzated Verb Conjugation
+
+Let's conjugate two hamzated verbs to see the seat changes in action:
+
+### Verb 1: أَمَرَ (ʾamara) "to command" — Initial Hamza
+
+<VerbConjugation
+  title="Past Tense: أَمَرَ (ʾamara) 'he commanded'"
+  root="ء-م-ر"
+>
+
+| Person | Arabic | Transliteration | Hamza Seat Note |
+|--------|--------|-----------------|-----------------|
+| 3MS (he) | أَمَرَ | ʾamara | Initial hamza with fatha → alif above |
+| 3FS (she) | أَمَرَتْ | ʾamarat | Same |
+| 3MD (they two) | أَمَرَا | ʾamarā | Same |
+| 3FD (they two) | أَمَرَتَا | ʾaratā | Same |
+| 3MP (they) | أَمَرُوْا | ʾamarū | Same |
+| 3FP (they) | أَمَرْنَ | ʾamarna | Same |
+| 2MS (you) | أَمَرْتَ | ʾamarta | Same |
+| 2FS (you) | أَمَرْتِ | ʾamarti | Same |
+| 2MD (you two) | أَمَرْتُمَا | ʾamartumā | Same |
+| 2FD (you two) | أَمَرْتُمَا | ʾamartumā | Same |
+| 2MP (you) | أَمَرْتُمْ | ʾamartum | Same |
+| 2FP (you) | أَمَرْتُنَّ | ʾamartunna | Same |
+| 1S (I) | أَمَرْتُ | ʾamartu | Same |
+| 1P (we) | أَمَرْنَا | ʾamarnā | Same |
+
+</VerbConjugation>
+
+**Present tense: يَأْمُرُ (yaʾmuru) "he commands"**
+
+| Person | Arabic | Transliteration | Hamza Seat Note |
+|--------|--------|-----------------|-----------------|
+| 3MS | يَأْمُرُ | yaʾmuru | Hamza has sukūn, prefix has fatha → sits on alif |
+| 3FS | تَأْمُرُ | taʾmuru | Same |
+| 1S | أَامُرُ | ʾāmuru | Initial hamza with fatha → alif (madda آ) |
+| 1P | نَأْمُرُ | naʾmuru | Same pattern |
+
+**Imperative: مُرْ (mur) "command!" — IRREGULAR**
+
+The regular form would be *ٱِئْمُرْ* (iʾmur), but Arabic simplifies this to **مُرْ** (mur). This is an irregular exception that must be memorized.
+
+### Verb 2: سَأَلَ (saʾala) "to ask" — Middle Hamza
+
+<VerbConjugation
+  title="Past and Present Tense: سَأَلَ (saʾala) 'he asked'"
+  root="س-ء-ل"
+>
+
+**Past Tense**
+
+| Person | Arabic | Transliteration | Hamza Seat Note |
+|--------|--------|-----------------|-----------------|
+| 3MS (he) | سَأَلَ | saʾala | Fatha on hamza → sits on alif |
+| 3FS (she) | سَأَلَتْ | saʾalat | Same |
+| 2MS (you) | سَأَلْتَ | saʾalta | Same |
+| 1S (I) | سَأَلْتُ | saʾaltu | Same |
+| 1P (we) | سَأَلْنَا | saʾalnā | Same |
+
+**Present Tense**
+
+| Person | Arabic | Transliteration | Hamza Seat Note |
+|--------|--------|-----------------|-----------------|
+| 3MS | يَسْأَلُ | yasʾalu | Sukūn before, fatha after → alif |
+| 3FS | تَسْأَلُ | tasʾalu | Same |
+| 3MP | يَسْأَلُونَ | yasʾalūna | Same |
+| 1S | أَسْأَلُ | ʾasʾalu | Same |
+| 1P | نَسْأَلُ | nasʾalu | Same |
+
+**Imperative: ٱِسْأَلْ (isʾal) "ask!"**
+
+Regular imperative — hamza maintained with alif seat.
+
+</VerbConjugation>
+
+**Key observation:** Middle hamza (س-ء-ل) has consistent alif seat in Form I because the surrounding vowels (fatha) remain constant. In derived forms or with different vowels, the seat would change.
+
+## Irregular Imperative Exceptions
+
+Three common hamzated verbs have irregular imperatives that don't follow standard conjugation:
+
+<GrammarTable>
+| Root | Regular Imperative | Actual Imperative | Transliteration | Translation |
+|------|-------------------|-------------------|-----------------|-------------|
+| ء-خ-ذ | *ٱِئْخُذْ* | خُذْ | khudh | take! |
+| ء-ك-ل | *ٱِئْكُلْ* | كُلْ | kul | eat! |
+| ء-م-ر | *ٱِئْمُرْ* | مُرْ | mur | command! |
+</GrammarTable>
+
+**Why irregular?** The regular forms (*ٱِئْخُذْ*, *ٱِئْكُلْ*, *ٱِئْمُرْ*) are phonetically awkward — starting with hamza + sukūn + consonant cluster. Arabic simplifies these to single-syllable forms by dropping the initial hamza and prefix vowel.
+
+**Memory aid:** Think of these as "command shortcuts" — quick, sharp orders.
+
+**Quranic examples:**
+- **خُذْ** (khudh) — "خُذْ مِنْ أَمْوَالِهِمْ" (Take from their wealth) [At-Tawbah 9:103]
+- **كُلْ** (kul) — "كُلْ وَٱشْرَبْ" (Eat and drink) [Al-Baqarah 2:187]
+- **مُرْ** (mur) — Similar command forms
+
+<Callout type="rule" title="Memorize the Three Irregular Imperatives">
+
+1. **خُذْ** (khudh) — take!
+2. **كُلْ** (kul) — eat!
+3. **مُرْ** (mur) — command!
+
+These are high-frequency verbs. Memorize their imperative forms as exceptions.
+
+</Callout>
+
+## Four-Category Weak Verb Summary
+
+You've now completed all four weak verb categories. Here's the complete comparison:
+
+<GrammarTable>
+| Category | Arabic | Position | Weak Letter | Key Behavior | Example Root | Example Conjugation | Master Strategy |
+|----------|--------|----------|-------------|--------------|--------------|---------------------|-----------------|
+| **Hollow** | أَجْوَف | Middle (2nd) | و or ي | Contracts/drops | ق-و-ل | قَالَْ / يَقُولُ / قُلْ | Learn 3 contraction principles |
+| **Defective** | نَاقِصٌ | Final (3rd) | و or ي | Changes/drops at end | ه-د-ي | هَدَىْٰ / يَهْدِي / ٱِهْدِ | Recognize alif maqṣūrah (ى) pattern |
+| **Assimilated** | مِثَالٌ | Initial (1st) | و (rarely ي) | Drops in some forms | و-ج-د | وَجَدَ / يَجِدُ / جِدْ | Initial و drops in present/imperative |
+| **Hamzated** | مَهْمُوزٌ | Any position | ء (hamza) | Seat changes only | س-ء-ل | سَأَلَ / يَسْأَلُ / ٱِسْأَلْ | Master vowel hierarchy (kasra > damma > fatha) |
+</GrammarTable>
+
+**Comparative insights:**
+
+1. **Hollow, defective, assimilated** = letters contract/drop → pronunciation AND spelling change
+2. **Hamzated** = only spelling changes → pronunciation stays constant (always glottal stop)
+
+3. **Recognition difficulty ranking:**
+   - Easiest: Assimilated (least irregular)
+   - Moderate: Hollow, Hamzated (predictable patterns)
+   - Hardest: Defective (many forms look identical to sound verbs)
+
+4. **Frequency in Quran:**
+   - Highest: Hollow (قَالَْ, كَانَْ, جَاءَْ are top verbs)
+   - High: Defective (ه-د-ي, د-ع-و common)
+   - Moderate: Hamzated (ء-م-ن, س-ء-ل frequent)
+   - Lower: Assimilated (و-ج-د common, but category is smaller)
+
+**The complete weak verb recognition strategy:**
+
+1. **Find the root** — strip prefixes/suffixes
+2. **Identify weak letters** — look for و، ي، ء
+3. **Determine position** — 1st/2nd/3rd radical
+4. **Match to category** — hollow/defective/assimilated/hamzated
+5. **Apply category rules** — contraction, dropping, or seat changes
+
+With this framework, you can analyze ANY weak verb systematically!
+
+## Examples from Al-Kawthar
+
+Let's analyze hamzated verb morphology from Surah Al-Kawthar (Chapter 108):
+
+### Example 1: أَعْطَيْنَٰكَ (aʿṭaynāka) "We gave you"
+
+<ArabicExample
+  arabic="إِنَّآ أَعْطَيْنَٰكَ ٱلْكَوْثَرَ"
+  transliteration="innā aʿṭaynāka l-kawthar"
+  translation="Indeed, We have granted you al-Kawthar"
+  reference="Al-Kawthar 108:1"
+  highlight="أَعْطَيْنَٰكَ"
+/>
+
+**Morphological analysis:**
+
+- **أَعْطَيْنَٰكَ** (aʿṭaynāka)
+  - Root: ع-ط-ي (ʿ-ṭ-y) — wait, where's the hamza?
+  - Verb form: Form IV (أَفْعَلَ pattern)
+  - Pattern: أَعْطَى → Past tense, defective (final ي)
+  - Person: 1st plural (نَا suffix "we")
+  - Object: كَ suffix "you" (2nd masculine singular)
+  - Translation: "We gave you" / "We granted you"
+
+**Where's the hamza?** The Form IV pattern أَفْعَلَ adds an initial hamza, but this verb is from ع-ط-ي (defective, not hamzated root). However, the masdar **إِعْطَاءٌ** (iʿṭāʾun) "giving" DOES show hamza — because the defective ي extends into a glide followed by hamza in the masdar pattern (إِفْعَالٌ → إِعْطَاءٌ).
+
+**Key insight:** Form IV adds hamza regardless of root type. So **أَعْطَى** (aʿṭā) combines:
+- Initial hamza (Form IV marker)
+- Defective final ي (becomes ى alif maqṣūrah in past 3MS)
+
+This demonstrates how verb forms can layer multiple weak features!
+
+### Example 2: Masdar إِعْطَاءٌ (iʿṭāʾun) "giving"
+
+**Masdar pattern for Form IV defective verbs:** إِفْعَالٌ → إِعْطَاءٌ
+
+- **Root:** ع-ط-ي
+- **Form IV masdar:** إِعْطَاءٌ (iʿṭāʾun)
+- **Hamza seat:** Final position, preceded by long ā → sits on line (ء)
+- **Translation:** "giving" / "granting"
+
+**Seat rule applied:** Long vowel (ā) before hamza → sukūn context → hamza sits on line (ءٌ).
+
+### Example 3: Hidden Hamza in Form IV
+
+<ArabicExample
+  arabic="فَصَلِّ لِرَبِّكَ وَٱنْحَرْ"
+  transliteration="fa-ṣalli li-rabbika wanḥar"
+  translation="So pray to your Lord and sacrifice"
+  reference="Al-Kawthar 108:2"
+  highlight="فَصَلِّ"
+/>
+
+**Analysis:**
+
+- **صَلِّ** (ṣalli) — root ص-ل-و (ṣ-l-w), Form II imperative, defective (not hamzated)
+- **ٱِنْحَرْ** (inḥar) — root ن-ح-ر (n-ḥ-r), sound verb (not weak)
+
+No hamzated verbs in verses 2-3. Al-Kawthar's hamzated focus is on **أَعْطَى** (aʿṭā) and its masdar **إِعْطَاءٌ** (iʿṭāʾun), demonstrating Form IV hamza addition and masdar hamza seat rules.
+
+### Example 4: Related Verb — يُعْطِي (yuʿṭī) "he gives"
+
+From the same root ع-ط-ي, Form IV present tense:
+
+- **يُعْطِي** (yuʿṭī) "he gives"
+  - Present tense pattern: يُفْعِلُ → يُعْطِي
+  - Defective final ي visible in present tense
+  - No hamza in conjugated form (hamza is Form IV marker in masdar only)
+  - Translation: "he gives"
+
+**Comparison with masdar:**
+- Masdar: إِعْطَاءٌ (iʿṭāʾun) — shows hamza in final position
+- Verb: يُعْطِي (yuʿṭī) — hamza absent in conjugated forms
+
+This shows that hamza can appear in SOME forms (masdar) but not others (conjugated verb) for the same root!
+
+## The 4-Step Strategy for Hamzated Verbs
+
+Applying the weak verb recognition strategy to hamzated verbs:
+
+**Step 1: Find the root**
+
+Strip prefixes, suffixes, case endings. For hamzated verbs, the hamza is part of the root.
+
+**Step 2: Identify hamza position**
+
+Is hamza the 1st, 2nd, or 3rd radical? This determines conjugation patterns.
+
+**Step 3: Check surrounding vowels**
+
+Apply the vowel hierarchy (kasra > damma > fatha > sukūn) to predict hamza seat.
+
+**Step 4: Verify spelling**
+
+Does the hamza sit on the expected carrier (alif, waw, ya, line)?
+
+**Example application: Analyzing سَأَلْنَا (saʾalnā) "we asked"**
+
+- **Step 1:** Root is س-ء-ل (s-ʾ-l) — middle hamza
+- **Step 2:** Hamza is 2nd radical (middle position)
+- **Step 3:** Hamza has fatha, letter before (س) has fatha → fatha governs → alif seat
+- **Step 4:** Spelling is سَأَلْنَا — hamza on alif (ʾ) ✓ Correct!
+
+## Exercises
+
+<ExerciseBox
+  title="Exercise 1: Identify Hamza Position"
+  instructions="For each hamzated root, identify the hamza position (initial, middle, final)."
+>
+
+1. **ء-م-ن** (ʾ-m-n) "believing"
+2. **س-ء-ل** (s-ʾ-l) "asking"
+3. **ق-ر-ء** (q-r-ʾ) "reading"
+4. **ء-خ-ذ** (ʾ-kh-dh) "taking"
+5. **ب-د-ء** (b-d-ʾ) "beginning"
+6. **ر-ء-س** (r-ʾ-s) "heading"
+7. **ء-ك-ل** (ʾ-k-l) "eating"
+8. **م-ل-ء** (m-l-ʾ) "filling"
+
+**Expected answers:**
+1. Initial (1st radical)
+2. Middle (2nd radical)
+3. Final (3rd radical)
+4. Initial (1st radical)
+5. Final (3rd radical)
+6. Middle (2nd radical)
+7. Initial (1st radical)
+8. Final (3rd radical)
+
+</ExerciseBox>
+
+<ExerciseBox
+  title="Exercise 2: Apply Hamza Seat Rules"
+  instructions="For each word, determine which carrier (alif, waw, ya, line) the hamza should sit on based on surrounding vowels."
+>
+
+1. **سُــِــلَ** (suʾila) "he was asked" — hamza has kasra
+2. **يُــْــمِنُ** (yuʾminu) "he believes" — hamza has sukūn, prefix has damma
+3. **قَارِــٌ** (qāriʾun) "reader" — hamza follows kasra on ر
+4. **قَرَــَ** (qaraʾa) "he read" — hamza has fatha
+5. **شَيْــٌ** (shayʾun) "thing" — hamza follows long vowel
+
+**Apply the hierarchy: kasra > damma > fatha > sukūn**
+
+**Expected answers:**
+1. Ya (ئ) — kasra wins → **سُئِلَ**
+2. Waw (ؤ) — damma governs → **يُؤْمِنُ**
+3. Ya (ئ) — kasra before hamza → **قَارِئٌ**
+4. Alif (أ) — fatha governs → **قَرَأَ**
+5. Line (ء) — long vowel before → **شَيْءٌ**
+
+</ExerciseBox>
+
+<ExerciseBox
+  title="Exercise 3: Conjugate Hamzated Verbs"
+  instructions="Conjugate the hamzated verb ق-ر-ء (q-r-ʾ) 'reading' in the following forms."
+>
+
+1. Past tense 3MS (he read)
+2. Past tense 1S (I read)
+3. Present tense 3MS (he reads)
+4. Present tense 1P (we read)
+5. Imperative 2MS (read!)
+
+**Hint:** Final hamza is stable — usually sits on alif or line. Check surrounding vowels.
+
+**Expected answers:**
+1. قَرَأَ (qaraʾa) — fatha → alif
+2. قَرَأْتُ (qaraʾtu) — fatha → alif
+3. يَقْرَأُ (yaqraʾu) — fatha → alif
+4. نَقْرَأُ (naqraʾu) — fatha → alif
+5. ٱِقْرَأْ (iqraʾ) — fatha → alif
+
+</ExerciseBox>
+
+<ExerciseBox
+  title="Exercise 4: Weak Verb Category Review"
+  instructions="For each verb, identify which weak verb category it belongs to: hollow, defective, assimilated, or hamzated."
+>
+
+1. **قَالَْ** (qāla) "he said" — root ق-و-ل
+2. **هَدَىْٰ** (hadā) "he guided" — root ه-د-ي
+3. **وَجَدَ** (wajada) "he found" — root و-ج-د
+4. **سَأَلَ** (saʾala) "he asked" — root س-ء-ل
+5. **كَانَْ** (kāna) "he was" — root ك-و-ن
+6. **أَمَرَ** (ʾamara) "he commanded" — root ء-م-ر
+7. **مَشَىْٰ** (mashā) "he walked" — root م-ش-ي
+8. **قَرَأَ** (qaraʾa) "he read" — root ق-ر-ء
+
+**Work through the 4-step strategy for each.**
+
+**Expected answers:**
+1. Hollow (middle و)
+2. Defective (final ي)
+3. Assimilated (initial و)
+4. Hamzated (middle ء)
+5. Hollow (middle و)
+6. Hamzated (initial ء)
+7. Defective (final ي)
+8. Hamzated (final ء)
+
+</ExerciseBox>
+
+## Summary
+
+You've now completed the four-category weak verb classification system:
+
+**Key concepts:**
+1. **Hamzated verbs:** Contain hamza (ء) in any position — conjugation is regular, only spelling changes
+2. **Hamza seat rules:** Vowel hierarchy (kasra > damma > fatha > sukūn) determines carrier (ya, waw, alif, line)
+3. **Three positions:** Initial (often irregular imperatives), middle (frequent seat changes), final (most stable)
+4. **Irregular imperatives:** خُذْ (khudh), كُلْ (kul), مُرْ (mur) — memorize these exceptions
+5. **Complete system:** Hollow (middle weak), defective (final weak), assimilated (initial weak), hamzated (hamza spelling)
+
+**Common hamzated verbs to remember:**
+- **أَمَرَ** (ʾamara) / يَأْمُرُ (yaʾmuru) / مُرْ (mur) — command
+- **سَأَلَ** (saʾala) / يَسْأَلُ (yasʾalu) / ٱِسْأَلْ (isʾal) — ask
+- **قَرَأَ** (qaraʾa) / يَقْرَأُ (yaqraʾu) / ٱِقْرَأْ (iqraʾ) — read
+- **أَخَذَ** (ʾakhada) / يَأْخُذُ (yaʾkhudhu) / خُذْ (khudh) — take
+- **أَكَلَ** (ʾakala) / يَأْكُلُ (yaʾkulu) / كُلْ (kul) — eat
+
+**Four-category mastery:**
+
+You've now completed the weak verb series spanning L4.11-15. You can:
+- Recognize any weak verb by position
+- Apply category-specific conjugation rules
+- Understand pronunciation vs spelling differences
+- Analyze Quranic weak verbs systematically
+
+**Next steps:**
+- [L4.16 Introduction to Balagha](/learn/level-4/balagha-intro) — Move from morphology to rhetoric and eloquence
+- [L4.17 Figures of Speech](/learn/level-4/figures-of-speech) — Explore Quranic linguistic beauty
+
+**Remember:** Hamzated verbs are the easiest weak verb category once you master the seat rules. The conjugation is regular — only the spelling adapts to vowel context. Trust the hierarchy, and hamzated verbs become straightforward!
