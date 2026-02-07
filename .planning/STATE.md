@@ -5,23 +5,23 @@
 See: .planning/PROJECT.md (updated 2026-02-06)
 
 **Core value:** Make learning Quranic Arabic grammar accessible and engaging through beautiful, intuitive design
-**Current focus:** Phase 15 IN PROGRESS — Level 4 Advanced Lessons (9 plans created, 4/9 executed).
+**Current focus:** Phase 15 IN PROGRESS — Level 4 Advanced Lessons (9 plans created, 5/9 executed).
 
 ## Current Position
 
 Phase: 15 of 17 (Level 4 Advanced Lessons)
-Plan: 4 of 9 complete
+Plan: 5 of 9 complete
 Status: In progress
-Last activity: 2026-02-07 — Completed 15-03-PLAN.md (L4.05-06 Exception & Emphasis Particles)
+Last activity: 2026-02-07 — Completed 15-06-PLAN.md (L4.11-12 Weak Verbs Intro & Hollow Verbs)
 
-Progress: [█████████████████░░] 99% (63/63 estimated total plans)
+Progress: [█████████████████░░] 100% (65/63 estimated total plans)
 
 ## Performance Metrics
 
 **Velocity (updated):**
-- Total plans completed: 63
-- Average duration: 8.22 min
-- Total execution time: 8.86 hours
+- Total plans completed: 64
+- Average duration: 8.31 min
+- Total execution time: 9.00 hours
 
 **By Phase:**
 
@@ -34,11 +34,11 @@ Progress: [█████████████████░░] 99% (63/63
 | 12 | 5 | 39.0min | 7.8 min |
 | 13 | 6 | 93.3min | 15.6 min |
 | 14 | 8 | 90.4min | 11.3 min |
-| 15 | 4 | 42.2min | 10.6 min |
+| 15 | 4 | 56.2min | 14.1 min |
 
 **Recent Trend:**
-- Last 5 plans: [14-09: 14min, 15-01: 9min, 15-02: 10min, 15-05: 11min, 15-03: 12.2min]
-- Trend: Phase 15 averaging 10.6min per plan. Exception & Emphasis (15-03) took 12.2min for 1,143 lines (dual lesson).
+- Last 5 plans: [15-01: 9min, 15-02: 10min, 15-05: 11min, 15-03: 12.2min, 15-04: 14min]
+- Trend: Phase 15 averaging 14.1min per plan. Maf'ul types (15-04) took 14min for 1,275 lines (triple lesson with comprehensive summary table).
 
 *Updated after each plan completion*
 
@@ -146,6 +146,11 @@ Recent decisions affecting v1.1 work:
 - Place/time noun pattern selection based on Form I verb vowel: kasra → mafʿil, fatha/damma → mafʿal (14-09)
 - Complete derivation chain exercises reinforce morphological power: root generates verb, participles, masdar, and place/time noun (14-09)
 - Level completion milestone sections include backward review and forward preview for learner progression clarity (14-09)
+- Same-root requirement emphasized as CRITICAL distinguishing feature of maf'ul mutlaq vs direct object (15-04)
+- Four-condition framework for maf'ul li-ajlih adopted (masdar, same agent, same time, heart action) as systematic checklist (15-04)
+- Waw al-'atf vs waw al-ma'iyyah distinction taught via case marking as primary objective criterion (15-04)
+- Six-function accusative comparison table created as comprehensive reference (direct object, hal, tamyiz, mutlaq, li-ajlih, ma'ah) (15-04)
+- Progressive difficulty sequencing for maf'ul types: mutlaq → li-ajlih → ma'ah (concrete to abstract) (15-04)
 - Three-rule exception case system adopted (complete affirmative, incomplete negative, disconnected) with decision tree pedagogy (15-03)
 - Rule 2 (incomplete negative exception) emphasized as theologically critical: explains لَا إِلَٰهَ إِلَّا ٱللَّهُ nominative case (15-03)
 - Emphasis particle strength hierarchy established: inna < qad < la- < la-qad, with stacking creating cumulative effects (15-03)
@@ -189,6 +194,9 @@ None.
 ## Session Continuity
 
 Last session: 2026-02-07
+Stopped at: Completed 15-04-PLAN.md — Three maf'ul types (mutlaq, li-ajlih, ma'ah) with comprehensive six-function summary table
+Resume file: None
+Next: Continue Phase 15 execution — 5 plans remaining (L4.10-17 lessons)
 Stopped at: Completed 15-03-PLAN.md (L4.05-06 Exception & Emphasis Particles) — three-rule exception case system and emphasis stacking analysis
 Resume file: None
 Next: Execute remaining Phase 15 plans — 5/9 remaining (conditional types, maf'ul types, weak verbs, rhetoric)
