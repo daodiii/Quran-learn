@@ -19,9 +19,9 @@ Progress: [█████████████████░░] 97% (61/63
 ## Performance Metrics
 
 **Velocity (updated):**
-- Total plans completed: 60
-- Average duration: 8.07 min
-- Total execution time: 8.32 hours
+- Total plans completed: 61
+- Average duration: 8.10 min
+- Total execution time: 8.48 hours
 
 **By Phase:**
 
@@ -34,11 +34,11 @@ Progress: [█████████████████░░] 97% (61/63
 | 12 | 5 | 39.0min | 7.8 min |
 | 13 | 6 | 93.3min | 15.6 min |
 | 14 | 8 | 90.4min | 11.3 min |
-| 15 | 1 | 9min | 9.0 min |
+| 15 | 2 | 19min | 9.5 min |
 
 **Recent Trend:**
-- Last 5 plans: [14-06: 8.4min, 14-07: 10.4min, 14-08: 12min, 14-09: 14min, 15-01: 9min]
-- Trend: Phase 15 started with 9min for dual-lesson plan (1,156 lines total). Consistent with Phase 14 pace.
+- Last 5 plans: [14-07: 10.4min, 14-08: 12min, 14-09: 14min, 15-01: 9min, 15-02: 10min]
+- Trend: Phase 15 averaging 9.5min per dual-lesson plan. Conditionals (15-02) took 10min for 763 lines.
 
 *Updated after each plan completion*
 
@@ -151,6 +151,11 @@ Recent decisions affecting v1.1 work:
 - Wāw al-ḥāl (وَاوُ ٱلْحَالِ) explicitly taught as marker for sentence hal, not simple conjunction "and" (15-01)
 - 3-10 number exception (genitive plural tamyiz) explained as historical remnant of possessive (iḍāfah) construction for linguistic insight (15-01)
 - Specialized accusative functions (hal, tamyiz) taught as extension of L2.05 foundation, showing accusative has multiple roles beyond direct object (15-01)
+- Two-part conditional pedagogy: structure first (L4.03 shart/jawab), then particle nuances (L4.04) prevents cognitive overload on complex topic (15-02)
+- Certainty scale (law-in-idha) as primary organizing framework for conditional particle pedagogy: impossible ← uncertain → expected spectrum (15-02)
+- إِنْ vs إِذَا distinction emphasized as most common learner error: إِذَا fundamentally temporal "when" (expected), إِنْ uncertain "if" (15-02)
+- Jussive mood markers (deleted nūn for plurals, sukūn for singulars) highlighted as key recognition features in conditional sentences (15-02)
+- إِنْ vs إِنَّ distinction (conditional vs emphatic) taught early to prevent shadda confusion in reading conditionals (15-02)
 
 ### Pending Todos
 
@@ -175,6 +180,6 @@ None.
 ## Session Continuity
 
 Last session: 2026-02-07
-Stopped at: Completed 15-01-PLAN.md (L4.01 Hal Clauses, L4.02 Tamyiz) — first Level 4 lessons
+Stopped at: Completed 15-02-PLAN.md (L4.03 Conditional Sentences, L4.04 Conditional Particles) — conditional logic pair with certainty scale pedagogy
 Resume file: None
 Next: Execute remaining Phase 15 plans (8/9 remaining)
