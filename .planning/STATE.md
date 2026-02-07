@@ -11,8 +11,8 @@ See: .planning/PROJECT.md (updated 2026-02-06)
 
 Phase: 17 of 17 (QA & Validation) — COMPLETE
 Plan: 4 of 4 complete
-Status: Phase 17 complete — all validators fixed, new validators created, expert review docs authored, full QA report generated. v1.1 milestone shipped.
-Last activity: 2026-02-07 — Completed 17-04: QA report generator + full validation run (52 errors, ~1,040 warnings across 79 files)
+Status: Phase 17 complete + Quick Task 001 complete — all validators fixed, new validators created, expert review docs authored, full QA report generated, all cross-reference links fixed. v1.1 milestone shipped.
+Last activity: 2026-02-07 — Completed Quick Task 001: Fixed 247 glossary anchor warnings (0 errors, 0 warnings, 1196/1196 links valid)
 
 Progress: [████████████████████] 100% (84/84 total plans)
 
@@ -53,7 +53,7 @@ Progress: [████████████████████] 100% (8
 
 **Final Validation Results (79 files):**
 - Errors: 52 (47 unvocalized Arabic text, 5 surah name mismatches — all genuine issues)
-- Warnings: ~1,040 (mostly broken cross-reference links needing manual slug fixes)
+- Warnings: 0 (was ~1,040, now RESOLVED via Quick Task 001 — all 1,196 cross-reference links valid)
 
 **Documentation Created:**
 - Expert Review Checklist (31-39 hours estimated review time across 73 lessons)
@@ -115,13 +115,13 @@ None — v1.1 milestone complete.
 
 **Remaining for future milestones:**
 - 52 genuine diacritics errors need manual content fixes (47 unvocalized Arabic, 5 surah mismatches)
-- ~600 broken cross-reference links need slug alignment between content and filesystem
+- ~~~600 broken cross-reference links need slug alignment between content and filesystem~~ — RESOLVED (Quick Task 001)
 - Tanzil.net dataset still needed for verse text authoring
 - Expert Arabic linguist review (31-39 hours) should be scheduled
 
 ## Session Continuity
 
 Last session: 2026-02-07
-Stopped at: Phase 17 COMPLETE — v1.1 Lesson Content milestone SHIPPED
+Stopped at: Quick Task 001 COMPLETE — all cross-reference links fixed (0 errors, 0 warnings)
 Resume file: None
 Next: v1.2 milestone planning (or production deployment prep)
