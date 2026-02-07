@@ -10,18 +10,18 @@ See: .planning/PROJECT.md (updated 2026-02-06)
 ## Current Position
 
 Phase: 16 of 17 (Level 5 Applied Study Lessons) — IN PROGRESS
-Plan: 1 of 1 complete
-Status: Phase 16 started — L5.01 Full I'rab Analysis Method complete (systematic 5-step method established)
-Last activity: 2026-02-07 — Completed 16-01-PLAN.md: L5.01 Full I'rab Analysis Method lesson (749 lines, Bismillah guided example with nahw+sarf+balagha)
+Plan: 3 of 9 complete
+Status: Phase 16 in progress — short surah analysis complete (Al-Ikhlas, Al-Falaq, An-Nas analyzed)
+Last activity: 2026-02-07 — Completed 16-03-PLAN.md: L5.04 Surah Al-Ikhlas + L5.05 Al-Falaq & An-Nas (1333 lines, ring composition, taqdim, comparative synthesis)
 
-Progress: [███████████████████░] 97% (69/71 estimated total plans)
+Progress: [███████████████████░] 97% (70/71 estimated total plans)
 
 ## Performance Metrics
 
 **Velocity (updated):**
-- Total plans completed: 69
-- Average duration: 8.48 min
-- Total execution time: 9.94 hours
+- Total plans completed: 70
+- Average duration: 8.53 min
+- Total execution time: 10.12 hours
 
 **By Phase:**
 
@@ -35,11 +35,11 @@ Progress: [███████████████████░] 97% (69
 | 13 | 6 | 93.3min | 15.6 min |
 | 14 | 8 | 90.4min | 11.3 min |
 | 15 | 9 | 101.4min | 11.3 min |
-| 16 | 1 | 10.0min | 10.0 min |
+| 16 | 3 | 31.2min | 10.4 min |
 
 **Recent Trend:**
-- Last 5 plans: [15-06: 15min, 15-08: 7min, 15-07: 10min, 15-09: 13.2min, 16-01: 10min]
-- Trend: Phase 16 started with L5.01 Full I'rab Analysis Method (10min, 749 lines). Systematic 5-step framework established: segment → sentence type → three-level word analysis (nahw+sarf+balagha) → relationships → rhetoric. Complete Bismillah guided example with all 4 words analyzed.
+- Last 5 plans: [15-08: 7min, 15-07: 10min, 15-09: 13.2min, 16-01: 10min, 16-03: 10.6min]
+- Trend: Phase 16 short surah analysis complete (16-03: 10.6min, 1333 lines). L5.04 Al-Ikhlas: tawhid through grammar with ring composition and taqdim analysis. L5.05 Al-Falaq & An-Nas: comparative synthesis showing grammar adapts to content (1 attribute/4 threats vs 3 attributes/1 threat).
 
 *Updated after each plan completion*
 
@@ -198,6 +198,11 @@ Recent decisions affecting v1.1 work:
 - Three irregular imperatives (khudh, kul, mur) documented as memorization exceptions from phonetic simplification (15-08)
 - Hamzated verbs distinguished as orthographic irregularities (spelling changes) vs phonetic irregularities (pronunciation changes) in other weak categories (15-08)
 - Madda (آ) Unicode validation limitation handled via transliteration in isolated contexts while preserving full Arabic in component/contextual usage (15-08)
+- Ring composition analysis pattern established: opening/closing with same word (أَحَدٌ in Al-Ikhlas V1/V4) frames entire surah message (16-03)
+- Taqdim (word order inversion) analyzed via standard vs actual order comparison to explain rhetorical effects (exclusivity, suspense, finality) (16-03)
+- Comparative surah analysis methodology for natural pairs: Al-Falaq & An-Nas analyzed together showing parallel structures with meaningful variations (16-03)
+- Grammar-content connection demonstrated: active participles for temporal/intermittent threats, intensive patterns for persistent/relentless threats (16-03)
+- Al-Ikhlas scholarly debate (ḍamīr al-sha'n) presented as advanced callout showing multiple valid interpretations without privileging one (16-03)
 
 ### Pending Todos
 
@@ -221,7 +226,7 @@ None.
 
 ## Session Continuity
 
-Last session: 2026-02-07 14:41:43Z
-Stopped at: Completed 16-01-PLAN.md — L5.01 Full I'rab Analysis Method lesson (systematic 5-step framework, Bismillah guided example, 749 lines)
+Last session: 2026-02-07 14:43:50Z
+Stopped at: Completed 16-03-PLAN.md — L5.04 Surah Al-Ikhlas + L5.05 Al-Falaq & An-Nas (short surah analysis complete: ring composition, taqdim, comparative synthesis, 1333 lines)
 Resume file: None
-Next: Continue Phase 16 execution (L5.02-17 applied analysis lessons)
+Next: Continue Phase 16 execution (L5.06+ applied analysis lessons)
