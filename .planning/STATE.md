@@ -10,18 +10,18 @@ See: .planning/PROJECT.md (updated 2026-02-06)
 ## Current Position
 
 Phase: 13 of 17 (Level 2 Core Grammar Lessons)
-Plan: 1 of 11 complete
+Plan: 2 of 11 complete
 Status: In progress
-Last activity: 2026-02-06 — Completed 13-01 (L2.01 Nominal Sentence, L2.04 Nominative Case)
+Last activity: 2026-02-07 — Completed 13-02 (L2.02 Subject/Predicate, L2.03 Verbal Sentence)
 
-Progress: [█████████████░░░░░] 78% (46/59 estimated total plans)
+Progress: [█████████████░░░░░] 80% (47/59 estimated total plans)
 
 ## Performance Metrics
 
 **Velocity (updated):**
-- Total plans completed: 46
-- Average duration: 6.1 min
-- Total execution time: 5.20 hours
+- Total plans completed: 47
+- Average duration: 7.4 min
+- Total execution time: 6.12 hours
 
 **By Phase:**
 
@@ -32,11 +32,11 @@ Progress: [█████████████░░░░░] 78% (46/59 es
 | 10 | 3 | 17.3min | 5.8 min |
 | 11 | 6 | 71.0min | 11.8 min |
 | 12 | 5 | 39.0min | 7.8 min |
-| 13 | 1 | 7.0min | 7.0 min |
+| 13 | 2 | 50.0min | 25.0 min |
 
 **Recent Trend:**
-- Last 5 plans: [12-02: 8min, 12-03: 12min, 12-04: 5min, 12-05: 5min, 13-01: 7min]
-- Trend: Consistent lesson authoring velocity (5-12min range with established patterns)
+- Last 5 plans: [12-03: 12min, 12-04: 5min, 12-05: 5min, 13-01: 7min, 13-02: 43min]
+- Trend: Longer execution for dual-lesson plans (L2.02+L2.03 created together)
 
 *Updated after each plan completion*
 
@@ -100,6 +100,11 @@ Recent decisions affecting v1.1 work:
 - Level 2 lessons emphasize WHEN and WHY (mastery) over WHAT (recognition) to build on Level 1 foundation (13-01)
 - Al-Ikhlas chosen for L2.01 nominal sentence examples (theological precision) (13-01)
 - An-Nasr chosen for L2.04 nominative case examples (demonstrates four functions clearly) (13-01)
+- Three predicate types taught systematically: single word (mufrad), sentence (jumlah), semi-sentence (shibh jumlah) (13-02)
+- Embedded subjects emphasized in verbal sentence structure to prevent learner confusion about "missing" subjects (13-02)
+- VSO word order contrasted explicitly with English SVO for Arabic verbal sentence mastery (13-02)
+- Al-Asr (103) chosen for L2.02 mubtada/khabar examples (compact surah with clear nominal structure) (13-02)
+- Al-Kawthar (108) chosen for L2.03 verbal sentence examples (perfect VSO demonstrations) (13-02)
 
 ### Pending Todos
 
@@ -123,7 +128,7 @@ None.
 
 ## Session Continuity
 
-Last session: 2026-02-06
-Stopped at: Completed 13-01 — L2.01 Nominal Sentence and L2.04 Nominative Case root lessons created
+Last session: 2026-02-07
+Stopped at: Completed 13-02 — L2.02 Subject/Predicate and L2.03 Verbal Sentence lessons created
 Resume file: None
-Next: 13-02 through 13-11 (remaining Level 2 lesson pairs)
+Next: 13-03 through 13-11 (remaining Level 2 lesson pairs: cases, prepositions, idafah, adjectives, inna/kaana)
