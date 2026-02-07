@@ -5,23 +5,23 @@
 See: .planning/PROJECT.md (updated 2026-02-06)
 
 **Core value:** Make learning Quranic Arabic grammar accessible and engaging through beautiful, intuitive design
-**Current focus:** Phase 14 in progress — Level 3 Intermediate Lessons (1/6 plans complete).
+**Current focus:** Phase 14 in progress — Level 3 Intermediate Lessons (5/6 plans complete).
 
 ## Current Position
 
 Phase: 14 of 17 (Level 3 Intermediate Lessons)
-Plan: 4 of 6 complete
+Plan: 5 of 6 complete
 Status: In progress
-Last activity: 2026-02-07 — Completed 14-04-PLAN.md (L3.10-11 Verb Forms II and III)
+Last activity: 2026-02-07 — Completed 14-05-PLAN.md (L3.12 Verb Form IV + L3.16 Active/Passive Participles)
 
-Progress: [████████████████░░░] 92% (54/59 estimated total plans)
+Progress: [█████████████████░░] 93% (55/59 estimated total plans)
 
 ## Performance Metrics
 
 **Velocity (updated):**
-- Total plans completed: 54
+- Total plans completed: 55
 - Average duration: 7.9 min
-- Total execution time: 7.44 hours
+- Total execution time: 7.59 hours
 
 **By Phase:**
 
@@ -33,11 +33,11 @@ Progress: [████████████████░░░] 92% (54/59
 | 11 | 6 | 71.0min | 11.8 min |
 | 12 | 5 | 39.0min | 7.8 min |
 | 13 | 6 | 93.3min | 15.6 min |
-| 14 | 4 | 36.6min | 9.2 min |
+| 14 | 5 | 45.6min | 9.1 min |
 
 **Recent Trend:**
-- Last 5 plans: [13-06: 12min, 14-01: 9.6min, 14-02: 6min, 14-03: 10min, 14-04: 11min]
-- Trend: Phase 14 maintaining ~9min pace for dual-lesson plans, consistent velocity
+- Last 5 plans: [14-01: 9.6min, 14-02: 6min, 14-03: 10min, 14-04: 11min, 14-05: 9min]
+- Trend: Phase 14 maintaining ~9min pace, consistent velocity across dual-lesson plans
 
 *Updated after each plan completion*
 
@@ -127,6 +127,9 @@ Recent decisions affecting v1.1 work:
 - Indicative mood (marfūʿ) with damma ending established as default present tense (subjunctive/jussive deferred) (14-03)
 - Past vs present side-by-side comparison pedagogy adopted to show suffix→prefix relationship (14-03)
 - Morphological i'rab extended to include Mood analysis for present tense verbs (14-03)
+- Form IV causative meaning differentiated from Form II intensive causation (14-05)
+- Participles taught with dual function emphasis: identity nouns vs descriptive adjectives (14-05)
+- Al-Fatiha ٱلرَّحْمَٰنِ ٱلرَّحِيمِ analyzed as intensive active participle patterns (فَعْلَانُ and فَعِيلٌ) (14-05)
 
 ### Pending Todos
 
@@ -151,6 +154,6 @@ None.
 ## Session Continuity
 
 Last session: 2026-02-07
-Stopped at: Completed 14-03-PLAN.md — L3.03 Past Tense (440 lines) and L3.04 Present Tense (448 lines) lessons created
+Stopped at: Completed 14-05-PLAN.md — L3.12 Verb Form IV (558 lines) + L3.16 Active/Passive Participles (519 lines)
 Resume file: None
-Next: Phase 14 continuation — 3 more Level 3 lesson plans (imperative, participles, pronouns, moods)
+Next: Phase 14 final plan (14-06) — 1 more Level 3 lesson plan remaining
