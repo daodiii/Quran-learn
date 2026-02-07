@@ -181,7 +181,7 @@ Plans:
 
 ---
 
-#### Phase 15: Level 4 Advanced Lessons
+#### ✅ Phase 15: Level 4 Advanced Lessons
 
 **Goal:** Create 17 Advanced lessons teaching conditionals, exceptions, emphasis, rhetoric, and weak verbs with minimal transliteration and complex grammatical analysis.
 
@@ -199,15 +199,15 @@ Plans:
 **Plans:** 9 plans
 
 Plans:
-- [ ] 15-01-PLAN.md — Hal Clauses & Tamyiz (L4.01, L4.02)
-- [ ] 15-02-PLAN.md — Conditional Sentences & Particle Types (L4.03, L4.04)
-- [ ] 15-03-PLAN.md — Exception Particles & Emphasis (L4.05, L4.06)
-- [ ] 15-04-PLAN.md — Maf'ul Mutlaq, li-Ajlih & Ma'ah (L4.07, L4.08, L4.09)
-- [ ] 15-05-PLAN.md — Negation Particles (L4.10)
-- [ ] 15-06-PLAN.md — Weak Verbs Introduction & Hollow Verbs (L4.11, L4.12)
-- [ ] 15-07-PLAN.md — Defective & Assimilated Verbs (L4.13, L4.14)
-- [ ] 15-08-PLAN.md — Hamzated Verbs (L4.15)
-- [ ] 15-09-PLAN.md — Introduction to Balagha & Figures of Speech (L4.16, L4.17)
+- [x] 15-01-PLAN.md — Hal Clauses & Tamyiz (L4.01, L4.02)
+- [x] 15-02-PLAN.md — Conditional Sentences & Particle Types (L4.03, L4.04)
+- [x] 15-03-PLAN.md — Exception Particles & Emphasis (L4.05, L4.06)
+- [x] 15-04-PLAN.md — Maf'ul Mutlaq, li-Ajlih & Ma'ah (L4.07, L4.08, L4.09)
+- [x] 15-05-PLAN.md — Negation Particles (L4.10)
+- [x] 15-06-PLAN.md — Weak Verbs Introduction & Hollow Verbs (L4.11, L4.12)
+- [x] 15-07-PLAN.md — Defective & Assimilated Verbs (L4.13, L4.14)
+- [x] 15-08-PLAN.md — Hamzated Verbs (L4.15)
+- [x] 15-09-PLAN.md — Introduction to Balagha & Figures of Speech (L4.16, L4.17)
 
 ---
 
@@ -275,7 +275,7 @@ Plans:
 | 12. Level 1 Foundation | v1.1 | 5/5 | Complete | 2026-02-06 |
 | 13. Level 2 Core Grammar | v1.1 | 6/6 | Complete | 2026-02-07 |
 | 14. Level 3 Intermediate | v1.1 | 9/9 | Complete | 2026-02-07 |
-| 15. Level 4 Advanced | v1.1 | 0/9 | Not started | - |
+| 15. Level 4 Advanced | v1.1 | 9/9 | Complete | 2026-02-07 |
 | 16. Level 5 Applied Study | v1.1 | 0/TBD | Not started | - |
 | 17. QA & Validation | v1.1 | 0/TBD | Not started | - |
 

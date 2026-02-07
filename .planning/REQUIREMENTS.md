@@ -21,8 +21,8 @@ Requirements for the Lesson Content milestone. Each maps to roadmap phases.
 
 - [x] **LSSN-01**: 11 Level 1 Foundation lessons (alphabet, vowels, word types, basic sentences, case intro)
 - [x] **LSSN-02**: 11 Level 2 Core Grammar lessons (three cases, sentence structures, idafah, inna/kaana sisters)
-- [ ] **LSSN-03**: 18 Level 3 Intermediate lessons (root system, verb forms I-X, derived nouns, pronouns)
-- [ ] **LSSN-04**: 17 Level 4 Advanced lessons (conditionals, exceptions, emphasis, rhetoric, weak verbs)
+- [x] **LSSN-03**: 18 Level 3 Intermediate lessons (root system, verb forms I-X, derived nouns, pronouns)
+- [x] **LSSN-04**: 17 Level 4 Advanced lessons (conditionals, exceptions, emphasis, rhetoric, weak verbs)
 - [ ] **LSSN-05**: 16 Level 5 Applied Study lessons (full verse analysis, pattern recognition, surah analysis)
 - [ ] **LSSN-06**: Each lesson follows textbook structure: introduction → concept → examples → rule → exercises
 - [ ] **LSSN-07**: All Arabic text fully vocalized with tashkeel (diacritics on every letter)
@@ -101,8 +101,8 @@ Which phases cover which requirements. Updated during roadmap creation.
 | INFRA-07 | Phase 9 | Complete |
 | LSSN-01 | Phase 12 | Complete |
 | LSSN-02 | Phase 13 | Complete |
-| LSSN-03 | Phase 14 | Pending |
-| LSSN-04 | Phase 15 | Pending |
+| LSSN-03 | Phase 14 | Complete |
+| LSSN-04 | Phase 15 | Complete |
 | LSSN-05 | Phase 16 | Pending |
 | LSSN-06 | Phases 10, 12-16 | In Progress (standards defined in Phase 10) |
 | LSSN-07 | Phases 10, 12-16 | In Progress (validation tooling in Phase 10) |
