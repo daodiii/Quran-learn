@@ -19,9 +19,9 @@ Progress: [█████████████████░░] 100% (65/6
 ## Performance Metrics
 
 **Velocity (updated):**
-- Total plans completed: 64
-- Average duration: 8.31 min
-- Total execution time: 9.00 hours
+- Total plans completed: 65
+- Average duration: 8.42 min
+- Total execution time: 9.25 hours
 
 **By Phase:**
 
@@ -34,11 +34,11 @@ Progress: [█████████████████░░] 100% (65/6
 | 12 | 5 | 39.0min | 7.8 min |
 | 13 | 6 | 93.3min | 15.6 min |
 | 14 | 8 | 90.4min | 11.3 min |
-| 15 | 4 | 56.2min | 14.1 min |
+| 15 | 5 | 71.2min | 14.2 min |
 
 **Recent Trend:**
-- Last 5 plans: [15-01: 9min, 15-02: 10min, 15-05: 11min, 15-03: 12.2min, 15-04: 14min]
-- Trend: Phase 15 averaging 14.1min per plan. Maf'ul types (15-04) took 14min for 1,275 lines (triple lesson with comprehensive summary table).
+- Last 5 plans: [15-02: 10min, 15-05: 11min, 15-03: 12.2min, 15-04: 14min, 15-06: 15min]
+- Trend: Phase 15 averaging 14.2min per plan. Weak verbs (15-06) took 15min for 899 lines (dual lesson with systematic framework + hollow verb deep dive).
 
 *Updated after each plan completion*
 
@@ -170,6 +170,12 @@ Recent decisions affecting v1.1 work:
 - Same-verb comparison pedagogy (all five negations of one root) demonstrates systematic grammar variation effectively (15-05)
 - Decision tree format for particle selection reduces learner confusion on "which particle?" questions by providing algorithmic method (15-05)
 - لَمْ (lam) uniqueness requires explicit three-feature emphasis: present form + past meaning + jussive mood combination makes it distinct (15-05)
+- Four-category weak verb classification by position (hollow, defective, assimilated, hamzated) more systematic than traditional exception-based teaching (15-06)
+- Principle-based hollow verb pedagogy (3 contraction rules) replaces conjugation memorization for hundreds of verbs (15-06)
+- Hollow-waw vs hollow-ya subtype distinction critical for understanding why يَقُولُ has ū but يَبِيعُ has ī (vowel quality preservation) (15-06)
+- Transliteration included in hollow verb reference tables despite Level 4 minimal guidelines - justified by learner pronunciation needs for contraction patterns (15-06)
+- VerbConjugation component side-by-side tables effective for showing WHEN middle letter drops vs contracts (3rd person contraction vs 1st/2nd person dropping) (15-06)
+- 4-step weak verb recognition strategy (find root → identify weak letter → determine position → apply rules) provides systematic approach applicable to any weak verb (15-06)
 
 ### Pending Todos
 
@@ -194,9 +200,6 @@ None.
 ## Session Continuity
 
 Last session: 2026-02-07
-Stopped at: Completed 15-04-PLAN.md — Three maf'ul types (mutlaq, li-ajlih, ma'ah) with comprehensive six-function summary table
+Stopped at: Completed 15-06-PLAN.md (L4.11-12 Weak Verbs Intro & Hollow Verbs) — Four-category classification and hollow verb contraction principles
 Resume file: None
-Next: Continue Phase 15 execution — 5 plans remaining (L4.10-17 lessons)
-Stopped at: Completed 15-03-PLAN.md (L4.05-06 Exception & Emphasis Particles) — three-rule exception case system and emphasis stacking analysis
-Resume file: None
-Next: Execute remaining Phase 15 plans — 5/9 remaining (conditional types, maf'ul types, weak verbs, rhetoric)
+Next: Execute remaining Phase 15 plans — 4/9 remaining (L4.13-17: defective/assimilated/hamzated verbs, rhetoric)
