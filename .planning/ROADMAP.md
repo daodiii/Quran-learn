@@ -256,10 +256,13 @@ Plans:
 4. Readability and difficulty progression verified across all 5 levels
 5. All glossary links resolve correctly to reference resources
 
-**Plans:** TBD
+**Plans:** 4 plans
 
 Plans:
-- [ ] TBD during planning
+- [ ] 17-01-PLAN.md -- Fix validator bugs + cross-lesson consistency validator
+- [ ] 17-02-PLAN.md -- Glossary link validator + readability progression checker
+- [ ] 17-03-PLAN.md -- Expert review checklists + cultural sensitivity guidelines
+- [ ] 17-04-PLAN.md -- QA report generator + full validation run
 
 ---
 
@@ -285,7 +288,7 @@ Plans:
 | 14. Level 3 Intermediate | v1.1 | 9/9 | Complete | 2026-02-07 |
 | 15. Level 4 Advanced | v1.1 | 9/9 | Complete | 2026-02-07 |
 | 16. Level 5 Applied Study | v1.1 | 9/9 | Complete | 2026-02-07 |
-| 17. QA & Validation | v1.1 | 0/TBD | Not started | - |
+| 17. QA & Validation | v1.1 | 0/4 | Not started | - |
 
 ---
 
