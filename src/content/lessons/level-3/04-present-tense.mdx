@@ -1,0 +1,448 @@
+---
+title: "Present Tense Conjugation (al-Mudari')"
+level: 3
+order: 4
+description: "Learn all 14 present tense conjugations with prefixes and suffixes, and understand indicative mood as the default."
+draft: false
+---
+
+import ArabicExample from '@components/mdx/ArabicExample.astro';
+import GrammarTable from '@components/mdx/GrammarTable.astro';
+import VerbConjugation from '@components/mdx/VerbConjugation.astro';
+import Callout from '@components/mdx/Callout.astro';
+import ExerciseBox from '@components/mdx/ExerciseBox.astro';
+
+## Introduction
+
+The most recited verse in Quranic prayer contains two present tense verbs side by side:
+
+<ArabicExample
+  arabic="إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ"
+  transliteration="iyyāka naʿbudu wa-iyyāka nastaʿīnu"
+  translation="You alone we worship, and You alone we ask for help"
+  reference="Al-Fatiha 1:5"
+  highlight="نَعْبُدُ"
+/>
+
+Both **نَعْبُدُ** (naʿbudu) "we worship" and **نَسْتَعِينُ** (nastaʿīnu) "we ask for help" are present tense verbs. Notice the prefix **نَ** (na) at the beginning of each — this tells you immediately that the subject is "we." Unlike past tense, which uses ONLY suffixes, present tense uses PREFIXES at the start of the verb to mark who is performing the action, sometimes combined with suffixes at the end for further precision.
+
+There are only FOUR prefix letters in Arabic present tense: **أَ** (I), **نَ** (we), **يَ** (he/they masculine), and **تَ** (you/she/they feminine). Master these four letters, and you've unlocked the key to recognizing present tense verbs throughout the Quran.
+
+**In this lesson, you will:**
+- Learn all 14 present tense conjugations with their prefixes and suffixes
+- Master the four prefix letters: أَنَيْتَ (anayta) — a mnemonic for أ-ن-ي-ت
+- Understand indicative mood (marfūʿ) as the default present tense ending
+- Conjugate Form I verbs in present tense
+- Compare present tense side-by-side with past tense conjugations
+
+**Connection to previous learning:** In [L3.03 Past Tense Conjugation](/learn/level-3/past-tense), you learned that past tense uses suffixes ONLY to mark the person. Present tense is more complex: it uses prefixes (and sometimes suffixes too) to create the same 14-person system. Both systems work together — once you know the past and present conjugations, you can identify any verb's subject instantly.
+
+**Forward connection:** This lesson prepares you for [L3.05 Imperative](/learn/level-3/imperative), where you'll learn how commands are derived directly from present tense by removing the prefix. It also prepares you for [L3.07 Subjunctive and Jussive Moods](/learn/level-3/subjunctive-jussive), where you'll discover that present tense has THREE mood forms, not just one.
+
+## Understanding Present Tense Conjugation
+
+**Plain English first:** Present tense in Arabic uses four prefix letters that attach to the BEGINNING of the verb to tell you who is doing the action: **أَ** for "I," **نَ** for "we," **يَ** for "he" and "they (masculine)," and **تَ** for "you" and "she" and "they (feminine)." Some conjugations also add a suffix at the END for further clarity (especially to distinguish masculine from feminine).
+
+Think of it like English future tense with "will": "I will go, you will go, he will go, they will go." The prefix "will" stays the same, but the subject changes. Arabic does the opposite: the subject information is IN the prefix itself (أَذْهَبُ "I go," تَذْهَبُ "you go," يَذْهَبُ "he goes"). No separate pronoun needed — the prefix tells you everything.
+
+**Prefix mnemonic:** To remember the four prefix letters, use the word **أَنَيْتَ** (anayta). It's not a real word, but it contains all four prefixes in order: **أَ** (a) "I," **نَ** (na) "we," **يَ** (ya) "he/they," **تَ** (ta) "you/she/they." Just remember "anayta" — أَنَيْتَ.
+
+**Arabic terminology:** Present tense is called [al-fiʿl al-muḍāriʿ](/resources/glossary#mudari) (al-fiʿl al-muḍāriʿ / ٱلْفِعْلُ ٱلْمُضَارِعُ) — literally "the similar verb" or "the resembling verb," because in classical grammar, it resembles the active participle (ism al-fāʿil). It indicates ongoing actions, habitual actions, or future actions depending on context.
+
+The default mood for present tense is [indicative mood](/resources/glossary#marfu) (marfūʿ / مَرْفُوْعٌ), marked by a damma (ـُ) on the final letter. This is the form you'll encounter most often in the Quran. Other moods (subjunctive and jussive) change this final vowel, but we'll study those in a later lesson.
+
+### The Complete 14-Person Paradigm
+
+Let's see all 14 present tense conjugations using the same root we used for past tense: **ك-ت-ب** (kataba "he wrote" → yaktubu "he writes"):
+
+<VerbConjugation
+  root="ك ت ب"
+  form="Form I"
+  pattern="يَفْعُلُ"
+  headers={["Person", "Arabic", "Transliteration", "Translation"]}
+  rows={[
+    ["هُوَ (he)", "يَكْتُبُ", "yaktubu", "he writes"],
+    ["هِيَ (she)", "تَكْتُبُ", "taktubu", "she writes"],
+    ["هُمَا (they two - m)", "يَكْتُبَانِ", "yaktubāni", "they (two males) write"],
+    ["هُمَا (they two - f)", "تَكْتُبَانِ", "taktubāni", "they (two females) write"],
+    ["هُمْ (they - m)", "يَكْتُبُونَ", "yaktubūna", "they (males) write"],
+    ["هُنَّ (they - f)", "يَكْتُبْنَ", "yaktubna", "they (females) write"],
+    ["أَنْتَ (you - m)", "تَكْتُبُ", "taktubu", "you (male) write"],
+    ["أَنْتِ (you - f)", "تَكْتُبِينَ", "taktubīna", "you (female) write"],
+    ["أَنْتُمَا (you two)", "تَكْتُبَانِ", "taktubāni", "you (two) write"],
+    ["أَنْتُمْ (you - m pl)", "تَكْتُبُونَ", "taktubūna", "you (males) write"],
+    ["أَنْتُنَّ (you - f pl)", "تَكْتُبْنَ", "taktubna", "you (females) write"],
+    ["أَنَا (I)", "أَكْتُبُ", "aktubu", "I write"],
+    ["نَحْنُ (we)", "نَكْتُبُ", "naktubu", "we write"],
+  ]}
+/>
+
+**Key observations:**
+
+1. **The prefix changes based on person:**
+   - أَ (a-) for "I" (1st person singular)
+   - نَ (na-) for "we" (1st person plural)
+   - يَ (ya-) for "he" and "they masculine" (3rd person masculine)
+   - تَ (ta-) for "you" and "she" and "they feminine" (2nd person all, 3rd person feminine)
+
+2. **The suffix provides additional information:**
+   - No suffix = he, she, you (m sg), I, we
+   - ـَانِ = dual (both genders)
+   - ـُونَ = masculine plural (both 2nd and 3rd person)
+   - ـْنَ = feminine plural (both 2nd and 3rd person)
+   - ـِينَ = 2nd person feminine singular only
+
+3. **The final vowel is damma (ـُ) in indicative mood:** يَكْتُبُ, تَكْتُبُ, أَكْتُبُ, نَكْتُبُ all end with damma. This is the DEFAULT mood. When you see fatha or sukūn on the final letter, it's a different mood (subjunctive or jussive), which we'll study later.
+
+4. **Ambiguity exists:** Notice that يَكْتُبُ "he writes," تَكْتُبُ "she writes," and تَكْتُبُ "you (m) write" are IDENTICAL in writing and pronunciation. Context tells you which meaning is intended. This is normal in Arabic — the verb alone can be ambiguous, but the sentence context makes it clear.
+
+### Prefix and Suffix Pattern Summary
+
+Here's a complete breakdown of how prefixes and suffixes combine:
+
+<GrammarTable>
+| Person | Prefix | Stem | Suffix | Example (ك-ت-ب) | Notes |
+|--------|--------|------|--------|-----------------|-------|
+| He (3rd m sg) | يَ | ـْعُلُ | — | يَكْتُبُ | No suffix needed |
+| She (3rd f sg) | تَ | ـْعُلُ | — | تَكْتُبُ | Same as "you (m)" |
+| They dual (m) | يَ | ـْعُلَ | ـَانِ | يَكْتُبَانِ | Alif + nūn with kasra |
+| They dual (f) | تَ | ـْعُلَ | ـَانِ | تَكْتُبَانِ | Alif + nūn with kasra |
+| They plural (m) | يَ | ـْعُلُ | ـُونَ | يَكْتُبُونَ | Waw + nūn with fatha |
+| They plural (f) | يَ | ـْعُلْ | ـْنَ | يَكْتُبْنَ | Nūn with fatha |
+| You (2nd m sg) | تَ | ـْعُلُ | — | تَكْتُبُ | Same as "she" |
+| You (2nd f sg) | تَ | ـْعُلِ | ـِينَ | تَكْتُبِينَ | Yā + nūn with fatha |
+| You (2nd dual) | تَ | ـْعُلَ | ـَانِ | تَكْتُبَانِ | Same as they dual (f) |
+| You (2nd m pl) | تَ | ـْعُلُ | ـُونَ | تَكْتُبُونَ | Same as they plural (m) |
+| You (2nd f pl) | تَ | ـْعُلْ | ـْنَ | تَكْتُبْنَ | Same as they plural (f) |
+| I (1st sg) | أَ | ـْعُلُ | — | أَكْتُبُ | No suffix needed |
+| We (1st pl) | نَ | ـْعُلُ | — | نَكْتُبُ | No suffix needed |
+</GrammarTable>
+
+**Pattern insight:** The stem changes slightly based on the suffix. When no suffix or a simple suffix follows, the middle root letter takes sukūn (ـْ) and the final root letter takes damma (ـُ): **يَكْتُبُ**. When a suffix with its own vowel follows, the final root letter takes fatha (ـَ): **يَكْتُبَانِ**.
+
+### Past vs. Present Comparison
+
+Let's compare the same root in past and present tense to see the relationship:
+
+<GrammarTable>
+| Person | Past Tense (māḍī) | Present Tense (muḍāriʿ) | Suffix → Prefix Shift |
+|--------|-------------------|-------------------------|----------------------|
+| He | كَتَبَ (kataba) | يَكْتُبُ (yaktubu) | No suffix → يَ prefix |
+| She | كَتَبَتْ (katabat) | تَكْتُبُ (taktubu) | ـَتْ suffix → تَ prefix |
+| They (m pl) | كَتَبُوْا (katabū) | يَكْتُبُونَ (yaktubūna) | ـُوْا suffix → يَ prefix + ـُونَ suffix |
+| You (m) | كَتَبْتَ (katabta) | تَكْتُبُ (taktubu) | ـْتَ suffix → تَ prefix |
+| I | كَتَبْتُ (katabtu) | أَكْتُبُ (aktubu) | ـْتُ suffix → أَ prefix |
+| We | كَتَبْنَا (katabnā) | نَكْتُبُ (naktubu) | ـْنَا suffix → نَ prefix |
+</GrammarTable>
+
+**Key difference:** Past tense marks ALL persons with suffixes. Present tense uses prefixes for basic person/number, then adds suffixes for additional distinctions (dual, plural, feminine).
+
+## Examples from the Quran
+
+Let's examine present tense verbs in their Quranic context with complete morphological analysis:
+
+**Example 1: First person plural "we" (نَحْنُ)**
+
+<ArabicExample
+  arabic="إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ"
+  transliteration="iyyāka naʿbudu wa-iyyāka nastaʿīnu"
+  translation="You alone we worship, and You alone we ask for help"
+  reference="Al-Fatiha 1:5"
+  highlight="نَعْبُدُ"
+/>
+
+**Morphological analysis of نَعْبُدُ:**
+- **Root:** ع-ب-د (ʿayn-ba-dal) "to worship, to serve"
+- **Form:** Form I (فَعَلَ pattern)
+- **Tense:** Present (muḍāriʿ)
+- **Mood:** Indicative (marfūʿ) — damma on final letter
+- **Person:** First person plural (we)
+- **Prefix:** نَ (na-) indicating "we"
+- **Function:** Main verb (fiʿl) of a verbal sentence
+
+The prefix **نَ** (na) immediately identifies this as "we worship." The final damma (ـُ) marks indicative mood — the default present tense.
+
+**Morphological analysis of نَسْتَعِينُ:**
+- **Root:** ع-و-ن (ʿayn-waw-nūn) "to help, to assist"
+- **Form:** Form X (اِسْتَفْعَلَ pattern) — "to seek/request"
+- **Tense:** Present (muḍāriʿ)
+- **Mood:** Indicative (marfūʿ) — damma on final nūn
+- **Person:** First person plural (we)
+- **Prefix:** نَ (na-) indicating "we"
+- **Function:** Main verb coordinated with نَعْبُدُ
+
+Though this is Form X (more advanced), the conjugation rules are the SAME: نَ prefix = "we," damma ending = indicative mood.
+
+**Example 2: Third person masculine singular "he" (هُوَ)**
+
+<ArabicExample
+  arabic="وَٱللَّهُ يَدْعُو إِلَىٰ دَارِ ٱلسَّلَامِ"
+  transliteration="wa-llāhu yadʿū ilā dāri s-salām"
+  translation="And Allah calls to the home of peace"
+  reference="Yunus 10:25"
+  highlight="يَدْعُو"
+/>
+
+**Morphological analysis of يَدْعُو:**
+- **Root:** د-ع-و (dal-ʿayn-waw) "to call, to invite"
+- **Form:** Form I (فَعَلَ pattern with weak third letter)
+- **Tense:** Present (muḍāriʿ)
+- **Mood:** Indicative (marfūʿ) — damma on final waw
+- **Person:** Third person masculine singular (he)
+- **Prefix:** يَ (ya-) indicating 3rd person masculine
+- **Subject:** ٱللَّهُ (Allah) explicitly stated, nominative case
+- **Function:** Main verb (fiʿl) with explicit subject (fāʿil)
+
+The prefix **يَ** (ya) marks this as third person masculine. The subject "Allah" is explicitly stated for emphasis.
+
+**Example 3: Third person masculine plural "they" (هُمْ)**
+
+<ArabicExample
+  arabic="يُؤْمِنُونَ بِٱللَّهِ وَٱلْيَوْمِ ٱلْآخِرِ"
+  transliteration="yuʾminūna bi-llāhi wa-l-yawmi l-ākhir"
+  translation="They believe in Allah and the Last Day"
+  reference="Al-Baqarah 2:62"
+  highlight="يُؤْمِنُونَ"
+/>
+
+**Morphological analysis of يُؤْمِنُونَ:**
+- **Root:** ء-م-ن (hamza-mīm-nūn) "to believe, to have faith"
+- **Form:** Form IV (أَفْعَلَ pattern)
+- **Tense:** Present (muḍāriʿ)
+- **Mood:** Indicative (marfūʿ) — damma on final nūn
+- **Person:** Third person masculine plural (they)
+- **Prefix:** يُ (yu-) indicating 3rd person
+- **Suffix:** ـُونَ (ūna) indicating masculine plural
+- **Function:** Main verb (fiʿl) with hidden subject pronoun (they)
+
+The combination of **يُ** prefix + **ـُونَ** suffix clearly marks "they (masculine)" with no ambiguity.
+
+**Example 4: Second person masculine plural "you all" (أَنْتُمْ)**
+
+<ArabicExample
+  arabic="قُلْ هَلْ تَرَبَّصُونَ بِنَا إِلَّا إِحْدَى ٱلْحُسْنَيَيْنِ"
+  transliteration="qul hal tarabbaṣūna binā illā iḥdā l-ḥusnayayn"
+  translation="Say: Do you wait for us except one of the two best outcomes?"
+  reference="At-Tawbah 9:52"
+  highlight="تَرَبَّصُونَ"
+/>
+
+**Morphological analysis of تَرَبَّصُونَ:**
+- **Root:** ر-ب-ص (ra-ba-ṣad) "to wait, to watch"
+- **Form:** Form V (تَفَعَّلَ pattern)
+- **Tense:** Present (muḍāriʿ)
+- **Mood:** Indicative (marfūʿ) — damma on final nūn
+- **Person:** Second person masculine plural (you all)
+- **Prefix:** تَ (ta-) indicating 2nd person
+- **Suffix:** ـُونَ (ūna) indicating masculine plural
+- **Function:** Main verb in interrogative sentence
+
+The **تَ** prefix marks 2nd person, and **ـُونَ** suffix marks masculine plural. Together: "you all (males) wait."
+
+**Example 5: Word-by-word breakdown**
+
+Let's do a complete morphological breakdown of a verse with multiple present tense verbs:
+
+<ArabicExample
+  arabic="يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ"
+  transliteration="yaʿlamu mā bayna aydīhim wa-mā khalfahum"
+  translation="He knows what is before them and what is behind them"
+  reference="Al-Baqarah 2:255"
+/>
+
+**Word-by-word morphological analysis:**
+
+| Word | Root | Form | Analysis |
+|------|------|------|----------|
+| يَعْلَمُ | ع-ل-م | Form I | Present tense, 3rd person masculine singular "he", indicative mood (يَ prefix, ـُ damma ending), means "he knows" |
+| مَا | — | — | Relative pronoun "what" (no verb conjugation) |
+| بَيْنَ | — | — | Preposition "between" (ẓarf makān - adverb of place) |
+| أَيْدِيهِمْ | ي-د-ي | — | Plural noun "hands" with attached pronoun ـهِمْ "their," genitive case after بَيْنَ |
+| وَمَا | — | — | Conjunction وَ + relative pronoun مَا |
+| خَلْفَهُمْ | خ-ل-ف | — | Preposition "behind" (ẓarf makān) + attached pronoun ـهُمْ "them" |
+
+Focus on **يَعْلَمُ** — the present tense verb:
+- Prefix **يَ** (ya) identifies third person masculine
+- No suffix needed for singular
+- Final damma (ـُ) marks indicative mood
+- The verb has a hidden pronoun "he" (referring to Allah from earlier in the verse)
+
+## The Rule
+
+<Callout type="rule">
+**Present Tense Conjugation Rules (al-Fiʿl al-Muḍāriʿ)**
+
+1. **Four Prefix Letters (أَنَيْتَ mnemonic)**:
+   - أَ (a-) = I (1st person singular)
+   - نَ (na-) = We (1st person plural)
+   - يَ (ya-) = He, they masculine (3rd person masculine)
+   - تَ (ta-) = You, she, they feminine (2nd person all, 3rd person feminine)
+
+2. **Suffix Additions for Precision**:
+   - No suffix = he, she, you (m sg), I, we
+   - ـَانِ (-āni) = Dual (both genders, 2nd and 3rd person)
+   - ـُونَ (-ūna) = Masculine plural (2nd and 3rd person)
+   - ـْنَ (-na) = Feminine plural (2nd and 3rd person)
+   - ـِينَ (-īna) = 2nd person feminine singular ONLY
+
+3. **Indicative Mood (Default)**:
+   - Final letter takes damma (ـُ) in indicative mood: يَكْتُبُ, تَكْتُبُ, أَكْتُبُ, نَكْتُبُ
+   - This is the STANDARD present tense you'll see most often
+   - Subjunctive (ـَ fatha) and jussive (ـْ sukūn or shortened) moods change this ending
+
+4. **Stem Vowel Pattern**:
+   - Form I pattern is يَفْعُلُ (ya-fʿulu) for most verbs: يَكْتُبُ, يَعْلَمُ, يَذْهَبُ
+   - Middle root letter usually has sukūn: يَكْتُبُ (not يَكَتُبُ)
+   - Final root letter takes damma in indicative: يَكْتُبُ
+
+5. **Ambiguity is Normal**:
+   - يَكْتُبُ can mean "he writes"
+   - تَكْتُبُ can mean "she writes" OR "you (m) write"
+   - Context determines the correct meaning
+</Callout>
+
+<Callout type="warning">
+**Common Mistakes in Present Tense Conjugation**
+
+1. **Confusing تَ prefix meanings**: The prefix تَ (ta-) is used for BOTH "you" and "she." Don't assume تَكْتُبُ always means "you write" — it can also mean "she writes." Check the context or look for a stated subject.
+
+2. **Forgetting the indicative damma**: The default present tense ends with damma (ـُ): يَكْتُبُ. If you see يَكْتُبَ with fatha or يَكْتُبْ with sukūn, it's NOT indicative mood — it's subjunctive or jussive, which change the meaning and usage.
+
+3. **Mixing up masculine and feminine plural suffixes**: Don't confuse يَكْتُبُونَ (they/you masculine, ends with ـُونَ) with يَكْتُبْنَ (they/you feminine, ends with ـْنَ). The masculine plural has a long vowel (ـُو), while the feminine plural has sukūn (ـْ).
+
+4. **Assuming all present tense verbs are Form I**: Just like past tense, the conjugation patterns we learned here apply to ALL verb forms (I-X). The root, form pattern, and meaning differ, but the prefix/suffix system is consistent. For example, Form IV أَنْزَلَ "he sent down" conjugates to يُنْزِلُ (yuنْزِلُ) "he sends down" with the same يَ prefix.
+
+5. **Forgetting that present can mean future**: Arabic present tense (muḍāriʿ) covers BOTH present and future time. The context or surrounding particles (like سَ or سَوْفَ) determine whether it means "he writes" (now) or "he will write" (later). Without context, it's ambiguous.
+
+6. **Missing the انِ vs ونَ distinction**: Dual forms end with ـَانِ (yaktubāni, taktubāni) with kasra on the final nūn. Masculine plural forms end with ـُونَ (yaktubūna, taktubūna) with fatha on the final nūn. Don't mix up the final vowels.
+</Callout>
+
+## Practice Exercises
+
+<ExerciseBox level="beginner" id="present-prefix-identification">
+**Exercise 1: Prefix Identification**
+
+Identify the person and number for each present tense verb based on the prefix alone. Use the root ن-ص-ر (naṣara → yanṣuru "he helps"):
+
+1. يَنْصُرُ
+2. تَنْصُرُ
+3. أَنْصُرُ
+4. نَنْصُرُ
+5. يَنْصُرُونَ
+6. تَنْصُرِينَ
+7. يَنْصُرْنَ
+8. تَنْصُرَانِ
+
+**Answers:**
+1. يَنْصُرُ — 3rd person masculine singular (he)
+2. تَنْصُرُ — 3rd person feminine singular (she) OR 2nd person masculine singular (you m)
+3. أَنْصُرُ — 1st person singular (I)
+4. نَنْصُرُ — 1st person plural (we)
+5. يَنْصُرُونَ — 3rd person masculine plural (they m) OR 2nd person masculine plural (you m pl)
+6. تَنْصُرِينَ — 2nd person feminine singular (you f)
+7. يَنْصُرْنَ — 3rd person feminine plural (they f)
+8. تَنْصُرَانِ — 3rd person dual feminine (they two f) OR 2nd person dual (you two)
+</ExerciseBox>
+
+<ExerciseBox level="beginner" id="present-conjugation-practice">
+**Exercise 2: Present Tense Conjugation**
+
+Conjugate the verb ذَهَبَ → يَذْهَبُ (dhahaba → yadhhabu "he goes") for the following persons. Write the full Arabic form:
+
+1. She goes: __________
+2. They (masculine) go: __________
+3. You (feminine) go: __________
+4. We go: __________
+5. I go: __________
+6. They (feminine) go: __________
+
+**Answers:**
+1. تَذْهَبُ (tadhhabu)
+2. يَذْهَبُونَ (yadhhhabūna)
+3. تَذْهَبِينَ (tadhhabīna)
+4. نَذْهَبُ (nadhhabu)
+5. أَذْهَبُ (adhhabu)
+6. يَذْهَبْنَ (yadhhhabna)
+</ExerciseBox>
+
+<ExerciseBox level="intermediate" id="past-to-present-conversion">
+**Exercise 3: Past to Present Conversion**
+
+Convert the following past tense verbs to their corresponding present tense forms. Keep the same person/number:
+
+1. كَتَبَ (he wrote) → __________
+2. كَتَبْتُ (I wrote) → __________
+3. كَتَبُوْا (they m wrote) → __________
+4. كَتَبَتْ (she wrote) → __________
+5. كَتَبْنَا (we wrote) → __________
+6. كَتَبْتُمْ (you m pl wrote) → __________
+
+**Answers:**
+1. كَتَبَ → يَكْتُبُ (yaktubu) "he writes"
+2. كَتَبْتُ → أَكْتُبُ (aktubu) "I write"
+3. كَتَبُوْا → يَكْتُبُونَ (yaktubūna) "they (m) write"
+4. كَتَبَتْ → تَكْتُبُ (taktubu) "she writes"
+5. كَتَبْنَا → نَكْتُبُ (naktubu) "we write"
+6. كَتَبْتُمْ → تَكْتُبُونَ (taktubūna) "you (m pl) write"
+</ExerciseBox>
+
+<ExerciseBox level="intermediate" id="quranic-present-analysis">
+**Exercise 4: Quranic Present Tense Analysis**
+
+For each of the following Quranic verses, identify the present tense verb(s), extract the root, determine the form, and identify the person from the prefix/suffix:
+
+1. **يَعْلَمُ مَا فِي ٱلسَّمَاوَاتِ وَٱلْأَرْضِ** "He knows what is in the heavens and the earth" [Luqman 31:26]
+2. **وَيَخْلُقُ مَا لَا تَعْلَمُونَ** "And He creates what you do not know" [An-Nahl 16:8]
+3. **إِنَّا نَحْنُ نَزَّلْنَا ٱلذِّكْرَ وَإِنَّا لَهُ لَحَافِظُونَ** (Focus on the active participle used as present tense) [Al-Hijr 15:9]
+
+**Answers:**
+
+1. **يَعْلَمُ**
+   - Root: ع-ل-م (to know)
+   - Form: Form I
+   - Person: 3rd person masculine singular (he)
+   - Prefix: يَ (ya-)
+   - Mood: Indicative (damma ending)
+
+2. **يَخْلُقُ**
+   - Root: خ-ل-ق (to create)
+   - Form: Form I
+   - Person: 3rd person masculine singular (he)
+   - Prefix: يَ (ya-)
+   - Mood: Indicative (damma ending)
+
+   **تَعْلَمُونَ**
+   - Root: ع-ل-م (to know)
+   - Form: Form I
+   - Person: 2nd person masculine plural (you all)
+   - Prefix: تَ (ta-)
+   - Suffix: ـُونَ (-ūna)
+   - Mood: Indicative (damma on final nūn)
+
+3. **لَحَافِظُونَ** (active participle functioning as present tense)
+   - Root: ح-ف-ظ (to preserve, to guard)
+   - Form: Form I (fāʿil pattern active participle)
+   - Meaning: "We are surely guardians/preservers" (present continuous)
+   - Note: This is technically an active participle (ism al-fāʿil), not a verb, but it functions with present tense meaning when used as a predicate. The actual present tense verb from this root would be يَحْفَظُ (yaḥfaẓu) "he guards."
+</ExerciseBox>
+
+## Related Lessons
+
+**Prerequisites:**
+- [L3.03 Past Tense Conjugation](/learn/level-3/past-tense) — Present tense builds on the past tense 14-person system
+- [L3.02 Verb Form I](/learn/level-3/verb-form-i) — The يَفْعُلُ pattern is Form I present tense
+
+**Next Steps:**
+- [L3.05 Imperative](/learn/level-3/imperative) — Commands are derived directly from present tense
+- [L3.06 Subject Pronouns](/learn/level-3/subject-pronouns) — Independent pronouns corresponding to conjugations
+- [L3.07 Subjunctive and Jussive Moods](/learn/level-3/subjunctive-jussive) — The other two moods of present tense
+
+**Advanced Topics:**
+- [L3.10 Weak Verbs](/learn/level-3/weak-verbs) — Verbs with weak letters conjugate irregularly in present tense
+- [L4.03 Active and Passive Participles](/learn/level-4/participles) — Participles often function with present tense meaning
+- [L4.10 Conditional Sentences](/learn/level-4/conditional) — Present tense verbs in "if-then" structures
+
+**Reference Resources:**
+- [Verb Forms Chart](/resources/verb-forms-chart) — Present tense conjugations for all Forms I-X
+- [Glossary: Present Tense (al-muḍāriʿ)](/resources/glossary#mudari) — Full terminology and examples
+- [Glossary: Indicative Mood (marfūʿ)](/resources/glossary#marfu) — Default present tense mood
