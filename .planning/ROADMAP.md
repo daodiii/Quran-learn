@@ -124,7 +124,7 @@ Plans:
 
 ---
 
-#### Phase 13: Level 2 Core Grammar Lessons
+#### ✅ Phase 13: Level 2 Core Grammar Lessons
 
 **Goal:** Create 11 Core Grammar lessons teaching three cases, sentence structures, idafah, and inna/kaana sisters with balanced transliteration and structured examples.
 
@@ -133,21 +133,21 @@ Plans:
 **Requirements:** LSSN-02, LSSN-06, LSSN-07, LSSN-08, LSSN-09, LSSN-10, LSSN-11, PDGY-01, PDGY-02, PDGY-03, PDGY-04, PDGY-05, PDGY-06, PDGY-07, PDGY-08
 
 **Success Criteria** (what must be TRUE):
-1. 11 Level 2 lessons exist covering three cases, sentence structures, idafah, and inna/kaana sisters
-2. All Arabic text is fully vocalized with complete tashkeel
-3. Each lesson includes Quranic verse examples with grammatical parsing (i'rab) analysis
-4. Each lesson provides 3-4 practice exercises with answer reveals
-5. All lessons follow textbook structure: introduction -> concept -> examples -> rule -> exercises
+1. ✅ 11 Level 2 lessons exist covering three cases, sentence structures, idafah, and inna/kaana sisters
+2. ✅ All Arabic text is fully vocalized with complete tashkeel
+3. ✅ Each lesson includes Quranic verse examples with grammatical parsing (i'rab) analysis
+4. ✅ Each lesson provides 3-4 practice exercises with answer reveals
+5. ✅ All lessons follow textbook structure: introduction -> concept -> examples -> rule -> exercises
 
 **Plans:** 6 plans
 
 Plans:
-- [ ] 13-01-PLAN.md — Nominal sentence (L2.01) and nominative case (L2.04)
-- [ ] 13-02-PLAN.md — Subject & predicate (L2.02) and verbal sentence (L2.03)
-- [ ] 13-03-PLAN.md — Accusative case (L2.05)
-- [ ] 13-04-PLAN.md — Genitive case (L2.06) and adjective agreement (L2.09)
-- [ ] 13-05-PLAN.md — Inna sisters (L2.10) and kaana sisters (L2.11)
-- [ ] 13-06-PLAN.md — Prepositions & genitive (L2.07) and possessive/idafah (L2.08)
+- [x] 13-01-PLAN.md — Nominal sentence (L2.01) and nominative case (L2.04)
+- [x] 13-02-PLAN.md — Subject & predicate (L2.02) and verbal sentence (L2.03)
+- [x] 13-03-PLAN.md — Accusative case (L2.05)
+- [x] 13-04-PLAN.md — Genitive case (L2.06) and adjective agreement (L2.09)
+- [x] 13-05-PLAN.md — Inna sisters (L2.10) and kaana sisters (L2.11)
+- [x] 13-06-PLAN.md — Prepositions & genitive (L2.07) and possessive/idafah (L2.08)
 
 ---
 
@@ -257,7 +257,7 @@ Plans:
 | 10. Curriculum Planning | v1.1 | 3/3 | Complete | 2026-02-06 |
 | 11. Reference Resources | v1.1 | 6/6 | Complete | 2026-02-06 |
 | 12. Level 1 Foundation | v1.1 | 5/5 | Complete | 2026-02-06 |
-| 13. Level 2 Core Grammar | v1.1 | 0/6 | Not started | - |
+| 13. Level 2 Core Grammar | v1.1 | 6/6 | Complete | 2026-02-07 |
 | 14. Level 3 Intermediate | v1.1 | 0/TBD | Not started | - |
 | 15. Level 4 Advanced | v1.1 | 0/TBD | Not started | - |
 | 16. Level 5 Applied Study | v1.1 | 0/TBD | Not started | - |
