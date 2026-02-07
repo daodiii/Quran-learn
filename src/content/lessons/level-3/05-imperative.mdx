@@ -1,0 +1,425 @@
+---
+title: "Imperative Mood (al-Amr)"
+level: 3
+order: 5
+description: "Derive imperative forms from present tense verbs and recognize Quranic commands."
+draft: false
+---
+
+import ArabicExample from '@components/mdx/ArabicExample.astro';
+import GrammarTable from '@components/mdx/GrammarTable.astro';
+import VerbConjugation from '@components/mdx/VerbConjugation.astro';
+import Callout from '@components/mdx/Callout.astro';
+import ExerciseBox from '@components/mdx/ExerciseBox.astro';
+
+## Introduction
+
+Four surahs in the Quran begin with the same command — a single, powerful word addressed to the Prophet Muhammad:
+
+<ArabicExample
+  arabic="قُلْ أَعُوذُ بِرَبِّ ٱلْفَلَقِ"
+  transliteration="qul aʿūdhu bi-rabbi l-falaq"
+  translation="Say: I seek refuge with the Lord of daybreak"
+  reference="Al-Falaq 113:1"
+  highlight="قُلْ"
+/>
+
+The word **قُلْ** (qul) "Say!" is an imperative — a command form. This single verb appears 332 times throughout the Quran, making it one of the most frequently used command verbs. It opens Surah Al-Kafirun (109), Al-Ikhlas (112), Al-Falaq (113), and An-Nas (114), each time directing the Prophet to proclaim a foundational truth of faith.
+
+Commands are remarkably common in the Quran because Allah frequently instructs believers about specific actions: pray, remember, reflect, believe, give charity, avoid wrongdoing. Understanding imperatives unlocks this entire category of divine instruction.
+
+**In this lesson, you will:**
+- Derive imperative forms from present tense verbs
+- Understand command forms for different addressees (you-masculine, you-feminine, you-plural)
+- Recognize imperatives in Quranic commands
+- Master three irregular common imperatives
+
+**Connection to previous learning:** In [L3.04 Present Tense Conjugation](/learn/level-3/present-tense), you learned the present tense يَفْعَلُ (yafʿalu) pattern with its four prefixes (أَنَيْتَ). The imperative is NOT a separate conjugation system — it's derived DIRECTLY from the present tense by removing the prefix and adjusting the beginning of the word. Once you know the present tense, deriving the imperative is a mechanical process.
+
+**Forward connection:** This lesson completes the three fundamental verb moods you need for Quranic reading: past (māḍī), present (muḍāriʿ), and imperative (amr). Together, these three give you instant recognition of most verb forms in the Quran. This lesson also prepares you for [L3.07 Subjunctive and Jussive Moods](/learn/level-3/subjunctive-jussive), where you'll learn the other two moods that modify present tense verbs.
+
+## Understanding the Imperative
+
+**Plain English first:** The imperative is the command form of a verb. In English, we say "Write!" "Go!" "Say!" "Read!" Arabic imperatives work the same way — they're direct commands addressed to someone you're speaking to ("you"). You can't command "he" or "I" to do something (those require different grammatical constructions).
+
+Arabic imperatives exist ONLY for second person ("you") forms. That means six possible imperative conjugations, not fourteen:
+- You (masculine singular)
+- You (feminine singular)
+- You (two people - dual)
+- You (masculine plural)
+- You (feminine plural)
+
+No first person ("I command myself"?), no third person ("command him"?). Only "you" forms.
+
+**Arabic terminology:** The imperative is called [al-amr](/resources/glossary#amr) (al-amr / ٱلْأَمْرُ) — literally "the command." It's a distinct mood of the verb, built by derivation from the present tense.
+
+### How to Derive Imperatives from Present Tense
+
+The derivation process is mechanical and follows these three steps:
+
+**Step 1: Start with the present tense "you" form**
+
+Take the second person present tense conjugation (the one with تَ prefix):
+- تَكْتُبُ (taktubu) "you write"
+- تَذْهَبُ (tadhhabu) "you go"
+- تَقْرَأُ (taqraʾu) "you read"
+
+**Step 2: Remove the prefix تَ and the final indicative vowel**
+
+Drop the تَ at the beginning and the final damma:
+- تَكْتُبُ → كْتُبْ
+- تَذْهَبُ → ذْهَبْ
+- تَقْرَأُ → قْرَأْ
+
+**Step 3: Check if the result begins with a consonant cluster**
+
+If the result starts with two consonants (sukūn on the first letter), add [hamzat al-waṣl](/resources/glossary#hamza-wasl) (hamzat al-waṣl / هَمْزَة ٱلْوَصْلِ) at the beginning with a helping vowel:
+
+- كْتُبْ → starts with كْتُ (two consonants) → add اُ → **اُكْتُبْ** (uktub) "Write!"
+- ذْهَبْ → starts with ذْهَ (two consonants) → add اِ → **اِذْهَبْ** (idh'hab) "Go!"
+- قْرَأْ → starts with قْرَ (two consonants) → add اِ → **اِقْرَأْ** (iqraʾ) "Read!"
+
+But if the result begins with a single consonant (vowel on first letter), no hamza needed:
+- تَقُولُ (taqūlu) "you say" → قُوْلْ → drop final vowel → **قُلْ** (qul) "Say!"
+
+**The helping vowel rule:** The hamzat al-waṣl takes three possible vowels:
+- اُ (u) if the middle root letter has damma: اُكْتُبْ (uktub)
+- اِ (i) if the middle root letter has kasra: اِجْلِسْ (ijlis) "Sit!"
+- اِ (i) if the middle root letter has fatha: اِذْهَبْ (idh'hab)
+
+Most Form I verbs use اِ (kasra). Form IV and some others use اُ (damma).
+
+### Imperative Conjugation Table
+
+Let's see the complete imperative paradigm for the root ك-ت-ب (kataba → yaktubu "he writes"):
+
+<VerbConjugation
+  root="ك ت ب"
+  form="Form I"
+  pattern="اُفْعُلْ"
+  headers={["Person", "Arabic", "Transliteration", "Translation"]}
+  rows={[
+    ["أَنْتَ (you - m)", "اُكْتُبْ", "uktub", "you (male) write!"],
+    ["أَنْتِ (you - f)", "اُكْتُبِي", "uktubī", "you (female) write!"],
+    ["أَنْتُمَا (you two)", "اُكْتُبَا", "uktubā", "you (two) write!"],
+    ["أَنْتُمْ (you - m pl)", "اُكْتُبُوْا", "uktubū", "you (males) write!"],
+    ["أَنْتُنَّ (you - f pl)", "اُكْتُبْنَ", "uktubna", "you (females) write!"],
+  ]}
+/>
+
+**Key observations:**
+
+1. **The stem stays the same** — all forms share the base اُكْتُبْ
+2. **The suffix marks gender and number** — just like present tense:
+   - No suffix = masculine singular
+   - ـِي (ī) = feminine singular
+   - ـَا (ā) = dual
+   - ـُوا (ū) = masculine plural
+   - ـْنَ (na) = feminine plural
+
+3. **The final sukūn** — The masculine singular form ends with sukūn (اُكْتُبْ), similar to jussive mood. This is the base imperative form.
+
+### Imperative Derivation Examples
+
+Here's a table showing the derivation process for several common verbs:
+
+<GrammarTable>
+| Root | Present "You" | Remove Prefix | Add Hamza | Imperative | Transliteration | Translation |
+|------|---------------|---------------|-----------|------------|-----------------|-------------|
+| ك-ت-ب | تَكْتُبُ | كْتُبْ | Yes (اُ) | اُكْتُبْ | uktub | Write! |
+| ذ-ه-ب | تَذْهَبُ | ذْهَبْ | Yes (اِ) | اِذْهَبْ | idh'hab | Go! |
+| ج-ل-س | تَجْلِسُ | جْلِسْ | Yes (اِ) | اِجْلِسْ | ijlis | Sit! |
+| ع-ب-د | تَعْبُدُ | عْبُدْ | Yes (اُ) | اُعْبُدْ | uʿbud | Worship! |
+| ق-ر-ء | تَقْرَأُ | قْرَأْ | Yes (اِ) | اِقْرَأْ | iqraʾ | Read! |
+| ق-و-ل | تَقُولُ | قُوْلْ | No | قُلْ | qul | Say! |
+| ك-ل | تَأْكُلُ | كُلْ | No | كُلْ | kul | Eat! |
+| خ-ذ | تَأْخُذُ | خُذْ | No | خُذْ | khudh | Take! |
+</GrammarTable>
+
+**Critical insight:** Notice the last three verbs — **قُلْ** (qul), **كُلْ** (kul), and **خُذْ** (khudh). These are irregular imperatives derived from hollow and defective verbs. Their present tense forms have more letters than the imperative, so the derivation looks unusual. These three must be MEMORIZED as exceptions — they're extremely common in the Quran.
+
+## Examples from the Quran
+
+Let's examine imperatives in their Quranic context with complete morphological analysis:
+
+**Example 1: The opening command of Al-Falaq**
+
+<ArabicExample
+  arabic="قُلْ أَعُوذُ بِرَبِّ ٱلْفَلَقِ"
+  transliteration="qul aʿūdhu bi-rabbi l-falaq"
+  translation="Say: I seek refuge with the Lord of daybreak"
+  reference="Al-Falaq 113:1"
+  highlight="قُلْ"
+/>
+
+**Morphological analysis of قُلْ:**
+- **Root:** ق-و-ل (qāf-wāw-lām) "to say, to speak"
+- **Form:** Form I (فَعَلَ pattern, but hollow verb)
+- **Mood:** Imperative (amr)
+- **Person:** Second person masculine singular (you - m)
+- **Derived from:** تَقُولُ (taqūlu) "you say" → remove تَ and final vowel → قُلْ
+- **Irregular:** The waw (و) disappears in the imperative form
+- **Function:** Command verb (fiʿl amr) initiating a direct speech
+
+The verb **قُلْ** appears 332 times in the Quran, always addressing the Prophet Muhammad ﷺ with a command to proclaim something. This is the single most common imperative in the Quran.
+
+**Example 2: Commands in Al-Fatiha**
+
+<ArabicExample
+  arabic="إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ"
+  transliteration="iyyāka naʿbudu wa-iyyāka nastaʿīnu"
+  translation="You alone we worship, and You alone we ask for help"
+  reference="Al-Fatiha 1:5"
+/>
+
+While this verse contains present tense verbs (نَعْبُدُ, نَسْتَعِينُ), let's examine a true imperative from the following verse:
+
+<ArabicExample
+  arabic="اِهْدِنَا ٱلصِّرَاطَ ٱلْمُسْتَقِيمَ"
+  transliteration="ihdinā ṣ-ṣirāṭa l-mustaqīm"
+  translation="Guide us to the straight path"
+  reference="Al-Fatiha 1:6"
+  highlight="اِهْدِنَا"
+/>
+
+**Morphological analysis of اِهْدِنَا:**
+- **Root:** ه-د-ي (hā-dāl-yā) "to guide"
+- **Form:** Form I (defective verb)
+- **Mood:** Imperative (amr)
+- **Person:** Second person masculine singular (you - m) with attached pronoun
+- **Suffix:** ـنَا (nā) "us" — object pronoun attached to imperative
+- **Derived from:** تَهْدِي (tahdī) "you guide" → remove تَ and ي → هْدِ → add hamza → اِهْدِ → add pronoun → اِهْدِنَا
+- **Function:** Command verb with direct object ("guide us")
+
+The imperative **اِهْدِ** "guide!" takes the attached pronoun **ـنَا** "us" to create "Guide us!" This is extremely common — imperatives frequently attach object pronouns.
+
+**Example 3: The command to read**
+
+<ArabicExample
+  arabic="اِقْرَأْ بِٱسْمِ رَبِّكَ ٱلَّذِي خَلَقَ"
+  transliteration="iqraʾ bi-smi rabbika lladhī khalaqa"
+  translation="Read in the name of your Lord who created"
+  reference="Al-Alaq 96:1"
+  highlight="اِقْرَأْ"
+/>
+
+**Morphological analysis of اِقْرَأْ:**
+- **Root:** ق-ر-ء (qāf-rā-hamza) "to read, to recite"
+- **Form:** Form I (فَعَلَ pattern)
+- **Mood:** Imperative (amr)
+- **Person:** Second person masculine singular (you - m)
+- **Derived from:** تَقْرَأُ (taqraʾu) "you read" → remove تَ → قْرَأْ → add hamzat al-waṣl → اِقْرَأْ
+- **Hamza type:** Hamzat al-waṣl (connecting hamza) with kasra
+- **Function:** Command verb — the first word revealed in the Quran
+
+This is the famous first revelation — the command to read. The hamzat al-waṣl (اِ) is necessary because the stem begins with two consonants (قْرَ).
+
+**Example 4: Multiple imperatives in sequence**
+
+<ArabicExample
+  arabic="فَصَلِّ لِرَبِّكَ وَٱنْحَرْ"
+  transliteration="fa-ṣalli li-rabbika wa-nḥar"
+  translation="So pray to your Lord and sacrifice"
+  reference="Al-Kawthar 108:2"
+  highlight="فَصَلِّ"
+/>
+
+**Morphological analysis of صَلِّ:**
+- **Root:** ص-ل-ي (ṣād-lām-yā) "to pray, to connect"
+- **Form:** Form II (فَعَّلَ pattern with doubled middle letter)
+- **Mood:** Imperative (amr)
+- **Person:** Second person masculine singular (you - m)
+- **Derived from:** تُصَلِّي (tuṣallī) "you pray" → remove تُ and ي → صَلِّ
+- **Irregular shortening:** Final yā drops in imperative
+- **Function:** Command verb coordinated with وَٱنْحَرْ
+
+**Morphological analysis of ٱنْحَرْ:**
+- **Root:** ن-ح-ر (nūn-ḥā-rā) "to slaughter, to sacrifice"
+- **Form:** Form I
+- **Mood:** Imperative (amr)
+- **Person:** Second person masculine singular (you - m)
+- **Derived from:** تَنْحَرُ (tanḥaru) "you slaughter" → remove تَ → نْحَرْ → add hamza → ٱنْحَرْ
+- **Function:** Command verb coordinated with صَلِّ
+
+Two imperatives in sequence, both addressed to the Prophet: "Pray and sacrifice." This pairing of commands is common in Quranic style.
+
+**Example 5: Word-by-word breakdown**
+
+Let's analyze a complete verse with multiple grammatical elements:
+
+<ArabicExample
+  arabic="قُلْ هُوَ ٱللَّهُ أَحَدٌ"
+  transliteration="qul huwa llāhu aḥad"
+  translation="Say: He is Allah, the One"
+  reference="Al-Ikhlas 112:1"
+/>
+
+**Word-by-word morphological analysis:**
+
+| Word | Root | Form/Type | Analysis |
+|------|------|-----------|----------|
+| قُلْ | ق-و-ل | Form I | Imperative, 2nd person masculine singular, "Say!" — hollow verb with irregular form |
+| هُوَ | — | Pronoun | Independent subject pronoun, 3rd person masculine singular "he" |
+| ٱللَّهُ | — | Proper noun | Allah, nominative case (subject of nominal sentence) |
+| أَحَدٌ | — | Noun | "One," nominative case with tanwīn (predicate of nominal sentence) |
+
+The structure: **Command + Nominal sentence**. The imperative قُلْ introduces direct speech. What follows (هُوَ ٱللَّهُ أَحَدٌ) is the content of what should be said — a nominal sentence with explicit pronoun for emphasis.
+
+## The Rule
+
+<Callout type="rule">
+**Imperative Derivation Rules (al-Amr)**
+
+1. **Derive from present tense "you" form**:
+   - Start with 2nd person present tense (with تَ prefix)
+   - Example: تَكْتُبُ (taktubu) "you write"
+
+2. **Remove the prefix and final vowel**:
+   - Drop the تَ at the beginning
+   - Drop the final indicative damma (ـُ)
+   - Result: كْتُبْ (ktub)
+
+3. **Add hamzat al-waṣl if needed**:
+   - If the result starts with two consonants (sukūn on first letter), add hamzat al-waṣl
+   - Helping vowel: اُ (u) if middle letter has damma, اِ (i) otherwise
+   - Example: كْتُبْ → اُكْتُبْ (uktub) "Write!"
+
+4. **No hamza if starts with vowel**:
+   - If the stem begins with a vowel, no hamza needed
+   - Example: تَقُولُ → قُلْ (qul) "Say!"
+
+5. **Conjugate for different addressees**:
+   - Masculine singular: اُكْتُبْ (no suffix)
+   - Feminine singular: اُكْتُبِي (add ـِي)
+   - Dual: اُكْتُبَا (add ـَا)
+   - Masculine plural: اُكْتُبُوْا (add ـُوْا)
+   - Feminine plural: اُكْتُبْنَ (add ـْنَ)
+
+6. **Only second person ("you") forms exist**:
+   - No imperative for "I," "he," "she," "they"
+   - Commands are always addressed to "you"
+</Callout>
+
+<Callout type="warning">
+**Common Mistakes with Imperatives**
+
+1. **Confusing imperative with jussive**: Both can end with sukūn (اُكْتُبْ vs. يَكْتُبْ), but jussive KEEPS the prefix (يَ, تَ, etc.), while imperative REMOVES it. If you see a prefix, it's NOT imperative.
+
+2. **Forgetting hamzat al-waṣl**: Don't write كْتُبْ (ktub) without the hamza. Arabic words cannot begin with sukūn. The hamza is REQUIRED when the stem starts with two consonants: اُكْتُبْ.
+
+3. **Using wrong helping vowel**: The hamzat al-waṣl usually takes kasra (اِ) for Form I verbs: اِذْهَبْ, اِجْلِسْ, اِقْرَأْ. But if the middle root letter has damma, use damma on the hamza: اُكْتُبْ, اُعْبُدْ. Pay attention to the stem vowel.
+
+4. **Irregular imperatives must be memorized**: Three common verbs have irregular imperative forms that don't follow the normal derivation:
+   - قُلْ (qul) "Say!" from قَالَ → يَقُولُ (not اُقْوُوْلْ)
+   - كُلْ (kul) "Eat!" from أَكَلَ → يَأْكُلُ (not اُؤْكُلْ)
+   - خُذْ (khudh) "Take!" from أَخَذَ → يَأْخُذُ (not اُؤْخُذْ)
+
+5. **Mixing up imperative and present tense**: The imperative اُكْتُبْ means "Write!" (command). The present tense تَكْتُبُ means "you write" (statement). Don't confuse command with description.
+
+6. **Assuming all imperatives are harsh**: In Arabic, the imperative can express requests, advice, or guidance, not just strict commands. Context determines the tone. اِهْدِنَا "Guide us" is a humble request, not a harsh demand.
+</Callout>
+
+## Practice Exercises
+
+<ExerciseBox level="beginner" id="imperative-derivation-basic">
+**Exercise 1: Imperative Derivation**
+
+Derive the imperative (masculine singular) from the following present tense verbs. Show whether hamzat al-waṣl is needed:
+
+1. يَنْصُرُ (yanṣuru) "he helps" → تَنْصُرُ (tanṣuru) "you help" → ?
+2. يَذْكُرُ (yadhkuru) "he remembers" → تَذْكُرُ (tadhkuru) "you remember" → ?
+3. يَفْعَلُ (yafʿalu) "he does" → تَفْعَلُ (tafʿalu) "you do" → ?
+4. يَدْخُلُ (yadkhulu) "he enters" → تَدْخُلُ (tadkhulu) "you enter" → ?
+
+**Answers:**
+1. تَنْصُرُ → نْصُرْ → اُنْصُرْ (unṣur) "Help!" — hamza needed, damma vowel
+2. تَذْكُرُ → ذْكُرْ → اُذْكُرْ (udhkur) "Remember!" — hamza needed, damma vowel
+3. تَفْعَلُ → فْعَلْ → اِفْعَلْ (ifʿal) "Do!" — hamza needed, kasra vowel
+4. تَدْخُلُ → دْخُلْ → اُدْخُلْ (udkhul) "Enter!" — hamza needed, damma vowel
+</ExerciseBox>
+
+<ExerciseBox level="beginner" id="imperative-identification">
+**Exercise 2: Imperative Identification**
+
+Which of the following are imperatives? For each imperative, identify the root and meaning:
+
+1. قُلْ
+2. يَقُولُ
+3. اُكْتُبْ
+4. كَتَبَ
+5. اِقْرَأْ
+6. تَقْرَأُ
+
+**Answers:**
+1. **قُلْ** — YES, imperative. Root: ق-و-ل. Meaning: "Say!"
+2. يَقُولُ — NO, present tense (has prefix يَ)
+3. **اُكْتُبْ** — YES, imperative. Root: ك-ت-ب. Meaning: "Write!"
+4. كَتَبَ — NO, past tense
+5. **اِقْرَأْ** — YES, imperative. Root: ق-ر-ء. Meaning: "Read!"
+6. تَقْرَأُ — NO, present tense (has prefix تَ and final damma)
+</ExerciseBox>
+
+<ExerciseBox level="intermediate" id="quranic-imperative-analysis">
+**Exercise 3: Quranic Imperative Analysis**
+
+Find all imperatives in Surah Al-Falaq (113). For each imperative, provide:
+- The Arabic word
+- The root
+- The present tense "you" form it derives from
+- The English translation
+
+**Surah Al-Falaq (113):**
+قُلْ أَعُوذُ بِرَبِّ ٱلْفَلَقِ مِنْ شَرِّ مَا خَلَقَ وَمِنْ شَرِّ غَاسِقٍ إِذَا وَقَبَ وَمِنْ شَرِّ ٱلنَّفَّٰثَٰتِ فِي ٱلْعُقَدِ وَمِنْ شَرِّ حَاسِدٍ إِذَا حَسَدَ
+
+**Answers:**
+
+There are TWO imperatives in Al-Falaq:
+
+1. **قُلْ** (verse 1)
+   - Root: ق-و-ل
+   - Present "you": تَقُولُ (taqūlu)
+   - Translation: "Say!"
+
+2. **أَعُوذُ** — This is NOT an imperative! It's 1st person present tense "I seek refuge." The only imperative is قُلْ at the beginning.
+
+**Correction:** Only قُلْ is an imperative in this surah. The rest of the verse is what the Prophet is commanded to say.
+</ExerciseBox>
+
+<ExerciseBox level="intermediate" id="imperative-conjugation-practice">
+**Exercise 4: Imperative Conjugation**
+
+Give the imperative forms for the root ن-ص-ر (naṣara → yanṣuru "to help") for all five "you" persons:
+
+1. You (masculine singular): __________
+2. You (feminine singular): __________
+3. You (dual): __________
+4. You (masculine plural): __________
+5. You (feminine plural): __________
+
+**Answers:**
+1. You (masculine singular): اُنْصُرْ (unṣur)
+2. You (feminine singular): اُنْصُرِي (unṣurī)
+3. You (dual): اُنْصُرَا (unṣurā)
+4. You (masculine plural): اُنْصُرُوا (unṣurū)
+5. You (feminine plural): اُنْصُرْنَ (unṣurna)
+</ExerciseBox>
+
+## Related Lessons
+
+**Prerequisites:**
+- [L3.04 Present Tense Conjugation](/learn/level-3/present-tense) — Imperative is derived FROM present tense
+- [L3.02 Verb Form I](/learn/level-3/verb-form-i) — Understanding the basic فَعَلَ pattern
+
+**Next Steps:**
+- [L3.06 Subject Pronouns](/learn/level-3/subject-pronouns) — Independent pronouns for "you" (أَنْتَ, أَنْتِ, etc.)
+- [L3.07 Subjunctive and Jussive Moods](/learn/level-3/subjunctive-jussive) — Other moods that modify present tense
+- [L3.10 Verb Form II](/learn/level-3/verb-form-ii) — Imperative derivation works the same for all verb forms
+
+**Advanced Topics:**
+- [L3.15 Weak Verbs](/learn/level-3/weak-verbs) — Hollow and defective verbs have irregular imperatives
+- [L4.08 Prohibition (Nahi)](/learn/level-4/prohibition) — Negative commands using لَا + jussive
+
+**Reference Resources:**
+- [Verb Forms Chart](/resources/verb-forms-chart) — Imperative conjugations for Forms I-X
+- [Glossary: Imperative (al-amr)](/resources/glossary#amr) — Full terminology and examples
+- [Glossary: Hamzat al-waṣl](/resources/glossary#hamza-wasl) — Connecting hamza rules
