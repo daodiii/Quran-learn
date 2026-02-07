@@ -226,10 +226,18 @@ Plans:
 4. Each lesson provides 3-4 practice exercises with answer reveals
 5. All lessons focus on one major concept to avoid cognitive overload
 
-**Plans:** TBD
+**Plans:** 9 plans
 
 Plans:
-- [ ] TBD during planning
+- [ ] 16-01-PLAN.md — L5.01 Full I'rab Analysis Method (foundation)
+- [ ] 16-02-PLAN.md — L5.02-03 Analyzing Al-Fatiha & Ayat al-Kursi
+- [ ] 16-03-PLAN.md — L5.04-05 Analyzing Al-Ikhlas & Al-Falaq/An-Nas
+- [ ] 16-04-PLAN.md — L5.06-07 Juz 'Amma Patterns & Du'a Patterns
+- [ ] 16-05-PLAN.md — L5.08 Oath Formulas in the Quran
+- [ ] 16-06-PLAN.md — L5.09-10 Prophet Ibrahim & Musa Narratives
+- [ ] 16-07-PLAN.md — L5.11-12 Dialogue Patterns & Parallelism/Repetition
+- [ ] 16-08-PLAN.md — L5.13-14 Rhetorical Questions & Word Order/Emphasis
+- [ ] 16-09-PLAN.md — L5.15-16 Nahw Synthesis & Sarf Synthesis (course completion)
 
 ---
 
@@ -276,7 +284,7 @@ Plans:
 | 13. Level 2 Core Grammar | v1.1 | 6/6 | Complete | 2026-02-07 |
 | 14. Level 3 Intermediate | v1.1 | 9/9 | Complete | 2026-02-07 |
 | 15. Level 4 Advanced | v1.1 | 9/9 | Complete | 2026-02-07 |
-| 16. Level 5 Applied Study | v1.1 | 0/TBD | Not started | - |
+| 16. Level 5 Applied Study | v1.1 | 0/9 | Planned | - |
 | 17. QA & Validation | v1.1 | 0/TBD | Not started | - |
 
 ---
