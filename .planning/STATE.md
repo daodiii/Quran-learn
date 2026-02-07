@@ -11,8 +11,8 @@ See: .planning/PROJECT.md (updated 2026-02-06)
 
 Phase: 17 of 17 (QA & Validation) — COMPLETE
 Plan: 4 of 4 complete
-Status: Phase 17 complete + Quick Task 001 complete — all validators fixed, new validators created, expert review docs authored, full QA report generated, all cross-reference links fixed. v1.1 milestone shipped.
-Last activity: 2026-02-07 — Completed Quick Task 001: Fixed 247 glossary anchor warnings (0 errors, 0 warnings, 1196/1196 links valid)
+Status: Phase 17 complete + Quick Tasks 001-002 complete — all validators fixed, new validators created, expert review docs authored, full QA report generated, all cross-reference links fixed, diacritics validator made orthography-aware. v1.1 milestone shipped.
+Last activity: 2026-02-07 — Completed Quick Task 002: Fixed diacritics validator to handle Arabic orthography (329→51 warnings, 84% reduction)
 
 Progress: [████████████████████] 100% (84/84 total plans)
 
@@ -52,8 +52,8 @@ Progress: [████████████████████] 100% (8
 - New validators: cross-lesson consistency, link validation, readability progression
 
 **Final Validation Results (79 files):**
-- Errors: 52 (47 unvocalized Arabic text, 5 surah name mismatches — all genuine issues)
-- Warnings: 0 (was ~1,040, now RESOLVED via Quick Task 001 — all 1,196 cross-reference links valid)
+- Errors: 0 (was 52, RESOLVED via Quick Task 002 — diacritics validator now orthography-aware)
+- Warnings: 312 (260 terminology + 51 diacritics + 1 other; was ~1,040 before Quick Task 001)
 
 **Documentation Created:**
 - Expert Review Checklist (31-39 hours estimated review time across 73 lessons)
@@ -114,8 +114,10 @@ None — v1.1 milestone complete.
 - ~~Expert validation workflow needs establishment~~ — Created: EXPERT_REVIEW_CHECKLIST.md, CULTURAL_SENSITIVITY.md, EXERCISE_REVIEW_TEMPLATE.md
 
 **Remaining for future milestones:**
-- 52 genuine diacritics errors need manual content fixes (47 unvocalized Arabic, 5 surah mismatches)
+- 51 genuine diacritics warnings need manual content fixes (missing case endings, sukun marks)
 - ~~~600 broken cross-reference links need slug alignment between content and filesystem~~ — RESOLVED (Quick Task 001)
+- ~~52 diacritics errors from naive validator~~ — RESOLVED (Quick Task 002 - validator now orthography-aware)
+- 260 terminology warnings (first-mention bilingual format reminders)
 - Tanzil.net dataset still needed for verse text authoring
 - Expert Arabic linguist review (31-39 hours) should be scheduled
 
@@ -124,10 +126,11 @@ None — v1.1 milestone complete.
 | # | Description | Date | Commit | Directory |
 |---|-------------|------|--------|-----------|
 | 001 | Fix ~870 broken cross-reference links and 247 glossary anchor warnings | 2026-02-07 | dd1965a | [001-fix-cross-references-glossary-anchors](./quick/001-fix-cross-references-glossary-anchors/) |
+| 002 | Fix diacritics validator to handle Arabic orthographic conventions | 2026-02-07 | 984979c | [002-fix-52-diacritics-errors](./quick/002-fix-52-diacritics-errors/) |
 
 ## Session Continuity
 
 Last session: 2026-02-07
-Stopped at: Quick Task 001 COMPLETE — all cross-reference links fixed (0 errors, 0 warnings)
+Stopped at: Quick Task 002 COMPLETE — diacritics validator made orthography-aware (329→51 warnings, 0 errors)
 Resume file: None
 Next: v1.2 milestone planning (or production deployment prep)
