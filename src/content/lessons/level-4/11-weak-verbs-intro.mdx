@@ -1,0 +1,400 @@
+---
+title: "Weak Verbs Introduction (al-Fi'l al-Mu'tall)"
+level: 4
+order: 11
+description: "Master the four-category weak verb classification system and learn the recognition strategy for identifying and analyzing weak verbs in Quranic text."
+draft: false
+---
+
+import ArabicExample from '@components/mdx/ArabicExample.astro';
+import GrammarTable from '@components/mdx/GrammarTable.astro';
+import Callout from '@components/mdx/Callout.astro';
+import ExerciseBox from '@components/mdx/ExerciseBox.astro';
+
+## Introduction
+
+You've mastered sound verbs — verbs with three strong consonants that conjugate regularly. Now you're ready for the most challenging topic in Arabic verb morphology: weak verbs. These are verbs containing a weak letter (waw و, ya ي, or alif ا/hamza ء) that causes irregularities in conjugation.
+
+<ArabicExample
+  arabic="ٱهْدِنَا ٱلصِّرَاطَ ٱلْمُسْتَقِيمَ"
+  transliteration="ihdinā ṣ-ṣirāṭa l-mustaqīma"
+  translation="Guide us to the straight path"
+  reference="Al-Fatiha 1:6"
+  highlight="ٱهْدِنَا"
+/>
+
+The word **ٱهْدِنَا** (ihdinā) "guide us" is an imperative verb from the root ه-د-ي (h-d-y). Notice that the final root letter is ي (ya) — a weak letter. This makes it a [defective verb](/resources/glossary#fil-naqis) (fiʿl nāqiṣ / فِعْلٌ نَاقِصٌ), and it conjugates differently from sound verbs. Instead of adding suffixes directly, the weak letter undergoes changes.
+
+**In this lesson, you will:**
+- Understand what makes a verb "weak" vs "sound"
+- Master the four-category classification: hollow, defective, assimilated, hamzated
+- Learn the systematic 4-step recognition strategy for weak verbs
+- Apply categorization skills to Quranic examples from Al-Fatiha
+- Recognize weak verbs as patterns to learn, not exceptions to memorize
+
+**Connection to previous learning:** In [L3.02 Verb Form I](/learn/level-3/verb-form-i), you learned the three vowel classes (faʿala, faʿila, faʿula) for sound verbs. In [L3.03 Past Tense](/learn/level-3/past-tense) and [L3.04 Present Tense](/learn/level-3/present-tense), you mastered sound verb conjugation. Now you'll discover that weak verbs follow DIFFERENT but SYSTEMATIC patterns based on which position contains the weak letter.
+
+**Forward connection:** This lesson establishes the framework. The next four lessons apply it systematically: [L4.12 Hollow Verbs](/learn/level-4/hollow-verbs) (middle weak), [L4.13 Defective Verbs](/learn/level-4/defective-verbs) (final weak), [L4.14 Assimilated Verbs](/learn/level-4/assimilated-verbs) (initial weak), and [L4.15 Hamzated Verbs](/learn/level-4/hamzated-verbs) (hamza complications).
+
+**Key mindset shift:** Weak verbs are NOT exceptions to memorize individually. They are CATEGORIES with consistent internal patterns. Learn the category rules, and you can handle hundreds of weak verbs systematically.
+
+## Understanding Weak vs Sound Verbs
+
+**Plain English first:** Imagine you're building a tower. With strong bricks (sound verbs), you stack them predictably — each level is stable and follows the same rules. But if one brick is made of soft clay (weak letter), that level behaves differently — it might compress, change shape, or even disappear under pressure. Weak verbs work the same way: when conjugation rules "put pressure" on a weak letter (adding suffixes, changing vowels), that weak letter changes or drops.
+
+### What Makes a Letter "Weak"?
+
+In Arabic, three letters are called [weak letters](/resources/glossary#hurufu-l-illah) (ḥurūfu l-ʿillah / حُرُوفُ ٱلْعِلَّةِ):
+
+1. **و (waw)** — pronounced like "w" or long "u"
+2. **ي (ya)** — pronounced like "y" or long "i"
+3. **ا (alif)** — represents long "a" (has no consonantal value)
+
+Additionally, **ء (hamza)** causes irregularities and is sometimes grouped with weak letters for conjugation purposes.
+
+**Why are they "weak"?** These letters are semi-vowels — they sit between consonants and vowels. When conjugation rules try to add vowels or suffixes, these letters often:
+- Contract into long vowels
+- Drop entirely
+- Transform into other letters
+- Merge with surrounding vowels
+
+### Sound Verb vs Weak Verb: The Difference
+
+**[Sound verb](/resources/glossary#fil-sahih)** (fiʿl ṣaḥīḥ / فِعْلٌ صَحِيحٌ) — all three root letters are strong consonants
+
+Example: **ك-ت-ب** (k-t-b) "writing"
+- Past: كَتَبَ (kataba) "he wrote"
+- Present: يَكْتُبُ (yaktubu) "he writes"
+- Imperative: ٱُكْتُبْ (uktub) "write!"
+
+All conjugations follow predictable rules. No letters drop or change.
+
+**[Weak verb](/resources/glossary#fil-mutall)** (fiʿl muʿtall / فِعْلٌ مُعْتَلٌّ) — contains at least one weak letter (و، ي، ا) or hamza (ء)
+
+Example: **ق-و-ل** (q-w-l) "saying"
+- Past: قَالَْ (qāla) "he said" — middle و contracted to long ا
+- Present: يَقُولُ (yaqūlu) "he says" — middle و becomes long ū
+- Imperative: قُلْ (qul) "say!" — middle و dropped entirely!
+
+The weak letter و changes form or disappears depending on conjugation context.
+
+## The Four-Category Classification System
+
+**Key insight:** Weak verbs are NOT one random group. They divide into FOUR clear categories based on WHERE the weak letter appears in the root:
+
+<GrammarTable>
+| Category | Arabic Term | Position | Weak Letter | Example Root | Example Word | Pattern Behavior |
+|----------|-------------|----------|-------------|--------------|--------------|------------------|
+| **Hollow** | أَجْوَف | Middle (2nd radical) | و or ي | ق-و-ل | قَالَْ (qāla) "said" | Middle letter contracts/drops |
+| **Defective** | نَاقِصٌ | Final (3rd radical) | و or ي | ه-د-ي | هَدَىْٰ (hadā) "guided" | Final letter changes/drops |
+| **Assimilated** | مِثَالٌ | Initial (1st radical) | و (rarely ي) | و-ج-د | وَجَدَ (wajada) "found" | Initial و drops in some forms |
+| **Hamzated** | مَهْمُوزٌ | Any position | ء (hamza) | ق-ر-ء | قَرَأَ (qaraʾa) "read" | Hamza seat changes based on vowels |
+</GrammarTable>
+
+**Memory aid:** Think of the root as a three-position slot machine: [1st]–[2nd]–[3rd]. The weak letter's position determines which category and which rules apply.
+
+### Category 1: Hollow Verbs (al-Ajwaf)
+
+**[Hollow verb](/resources/glossary#fil-ajwaf)** (fiʿl ajwaf / فِعْلٌ أَجْوَفٌ) — weak letter in the MIDDLE position
+
+**Arabic term etymology:** أَجْوَف (ajwaf) means "hollow" or "empty" — the middle is hollowed out or contracted.
+
+**Most common weak verb type** — appears frequently in the Quran
+
+Examples:
+- ق-و-ل (q-w-l) → قَالَْ (qāla) "he said"
+- ك-و-ن (k-w-n) → كَانَْ (kāna) "he was"
+- ج-ي-ء (j-y-ʾ) → جَاءَْ (jāʾa) "he came"
+
+**Pattern rule:** The middle weak letter contracts into a long vowel (ا، و، ي) in most conjugations, or drops entirely in imperative and jussive forms.
+
+Detailed study in [L4.12 Hollow Verbs](/learn/level-4/hollow-verbs).
+
+### Category 2: Defective Verbs (al-Naqis)
+
+**[Defective verb](/resources/glossary#fil-naqis)** (fiʿl nāqiṣ / فِعْلٌ نَاقِصٌ) — weak letter in the FINAL position
+
+**Arabic term etymology:** نَاقِصٌ (nāqiṣ) means "deficient" or "lacking" — the verb lacks a full strong final letter.
+
+**Second most common** — many high-frequency verbs are defective
+
+Examples:
+- ه-د-ي (h-d-y) → هَدَىْٰ (hadā) "he guided"
+- م-ش-ي (m-sh-y) → مَشَىْٰ (mashā) "he walked"
+- د-ع-و (d-ʿ-w) → دَعَاْ (daʿā) "he called"
+
+**Pattern rule:** The final weak letter changes form depending on case endings and conjugation. It often appears as ى (alif maqṣūrah) in past tense, and drops before pronoun suffixes.
+
+Detailed study in [L4.13 Defective Verbs](/learn/level-4/defective-verbs).
+
+### Category 3: Assimilated Verbs (al-Mithal)
+
+**[Assimilated verb](/resources/glossary#fil-mithal)** (fiʿl mithāl / فِعْلٌ مِثَالٌ) — weak letter in the INITIAL position
+
+**Arabic term etymology:** مِثَالٌ (mithāl) means "similar" or "example" — these verbs resemble sound verbs except in certain forms.
+
+**Least irregular** — often conjugates like sound verbs, with exceptions in imperative and derived forms
+
+Examples:
+- و-ج-د (w-j-d) → وَجَدَ (wajada) "he found"
+- و-ص-ل (w-ṣ-l) → وَصَلَ (waṣala) "he arrived"
+- و-ق-ع (w-q-ʿ) → وَقَعَ (waqaʿa) "he fell"
+
+**Pattern rule:** The initial و drops in the imperative (جِدْ "find!" not *وِجِدْ) and present tense of Form I (يَجِدُ not *يَوْجِدُ). Otherwise fairly regular.
+
+Detailed study in [L4.14 Assimilated Verbs](/learn/level-4/assimilated-verbs).
+
+### Category 4: Hamzated Verbs (al-Mahmuz)
+
+**[Hamzated verb](/resources/glossary#fil-mahmuz)** (fiʿl mahmūz / فِعْلٌ مَهْمُوزٌ) — contains hamza ء in any position
+
+**Arabic term etymology:** مَهْمُوزٌ (mahmūz) means "having hamza."
+
+**Different type of irregularity** — hamza changes its "seat" (throne) depending on surrounding vowels
+
+Examples:
+- ء-م-ن (ʾ-m-n) → آمَنَْ (āmana) "he believed" (initial hamza)
+- س-ء-ل (s-ʾ-l) → سَأَلَ (saʾala) "he asked" (middle hamza)
+- ق-ر-ء (q-r-ʾ) → قَرَأَ (qaraʾa) "he read" (final hamza)
+
+**Pattern rule:** Hamza sits on different "thrones" (ا، و، ي، or standalone ء) based on vowel hierarchy. The conjugation is otherwise regular — only the spelling changes.
+
+Detailed study in [L4.15 Hamzated Verbs](/learn/level-4/hamzated-verbs).
+
+## The 4-Step Recognition Strategy
+
+**This is the most important section.** Don't memorize individual weak verbs. Instead, master this systematic approach:
+
+<Callout type="rule" title="4-Step Weak Verb Recognition Strategy">
+
+**Step 1: Find the root**
+Strip away prefixes, suffixes, case endings, and definite article to isolate the three (or four) root consonants.
+
+**Step 2: Identify any weak letters**
+Check if the root contains و، ي، ا، or ء. If all letters are strong consonants, it's a sound verb — stop here.
+
+**Step 3: Determine the position**
+Is the weak letter in position 1 (assimilated), position 2 (hollow), or position 3 (defective)? Is it hamza (hamzated)?
+
+**Step 4: Apply category rules**
+Use the appropriate category rules for conjugation patterns. Each category has systematic principles — not random exceptions.
+
+</Callout>
+
+### Step-by-Step Example: Analyzing ٱهْدِنَا
+
+Let's apply the 4-step strategy to the word from Al-Fatiha:
+
+**Word:** ٱهْدِنَا (ihdinā) "guide us"
+
+**Step 1: Find the root**
+- Strip prefix: ٱِ (imperative hamza) → leaves هْدِنَا
+- Strip suffix: ـنَا (us) → leaves هْدِ
+- Add the missing third radical → root is **ه-د-ي** (h-d-y)
+
+How did we know the third radical is ي? Because in Arabic dictionaries, defective verbs show the full trilateral root even when the final letter drops in conjugation.
+
+**Step 2: Identify weak letters**
+Root **ه-د-ي** contains ي (ya) — a weak letter.
+
+**Step 3: Determine position**
+The ي appears in the 3rd (final) position → **defective verb** category
+
+**Step 4: Apply category rules**
+Defective verb rules tell us:
+- In imperative, the final ي drops before pronoun suffixes
+- The base imperative is ٱِهْدِ (ihdi) "guide!" with the ي visible
+- When we add ـنَا (us), the ي drops: ٱِهْدِ + نَا → ٱِهْدِنَا
+
+Result: We systematically determined the verb type and understood why it conjugates this way — no memorization required!
+
+### Practice with Al-Fatiha Verbs
+
+Let's apply the 4-step strategy to other verbs from Al-Fatiha:
+
+**Example 2: نَعْبُدُ (naʿbudu) "we worship"**
+
+<ArabicExample
+  arabic="إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ"
+  transliteration="iyyāka naʿbudu wa-iyyāka nastaʿīnu"
+  translation="You alone we worship, and You alone we ask for help"
+  reference="Al-Fatiha 1:5"
+  highlight="نَعْبُدُ"
+/>
+
+**Step 1:** Root is **ع-ب-د** (ʿ-b-d)
+**Step 2:** No weak letters (ع، ب، د are all strong consonants)
+**Step 3:** N/A — this is a **sound verb**
+**Step 4:** Apply regular sound verb conjugation rules
+
+**Example 3: نَسْتَعِينُ (nastaʿīnu) "we ask for help"**
+
+**Step 1:** Root is **ع-و-ن** (ʿ-w-n) — derived Form X (اِسْتَفْعَلَ)
+**Step 2:** Contains و (waw) — weak letter
+**Step 3:** The و is in position 2 (middle) → **hollow verb** category
+**Step 4:** Hollow verb rules apply — the و became long ī in present tense
+
+Notice how the و transformed into ي in this conjugation. This is a hollow verb pattern!
+
+## Weak Verb Recognition in Context
+
+Now let's practice categorizing weak verbs from various Quranic contexts:
+
+<GrammarTable>
+| Quranic Word | Transliteration | Root | Weak Letter | Position | Category | Translation |
+|--------------|-----------------|------|-------------|----------|----------|-------------|
+| قَالَْ | qāla | ق-و-ل | و | 2nd | Hollow | he said |
+| جَاءَْ | jāʾa | ج-ي-ء | ي | 2nd | Hollow | he came |
+| هَدَىْٰ | hadā | ه-د-ي | ي | 3rd | Defective | he guided |
+| دَعَاْ | daʿā | د-ع-و | و | 3rd | Defective | he called |
+| وَجَدَ | wajada | و-ج-د | و | 1st | Assimilated | he found |
+| قَرَأَ | qaraʾa | ق-ر-ء | ء | 3rd | Hamzated | he read |
+| آمَنَْ | āmana | ء-م-ن | ء | 1st | Hamzated | he believed |
+| سَأَلَ | saʾala | س-ء-ل | ء | 2nd | Hamzated | he asked |
+</GrammarTable>
+
+**Key observation:** Once you identify the weak letter's position, you know which category and which rules to apply. The patterns are systematic, not random.
+
+<Callout type="info" title="Doubly Weak Verbs">
+
+Some verbs have TWO weak letters in the same root. These are called [doubly weak verbs](/resources/glossary#fil-lafif) (fiʿl lafīf / فِعْلٌ لَفِيفٌ):
+
+- **و-ق-ي** (w-q-y) "to protect" — assimilated + defective
+- **ر-ء-ي** (r-ʾ-y) "to see" — hamzated + defective
+
+These combine the rules of both categories. They're less common, so we'll address them after mastering the four main categories.
+
+</Callout>
+
+## Why This Framework Matters
+
+**Traditional approach (DON'T do this):** Memorize each weak verb's conjugation as an individual exception. This requires memorizing hundreds of irregular patterns.
+
+**GSD approach (DO this):** Learn the FOUR category rules. Then apply them systematically to any weak verb you encounter. This requires understanding four rule sets — exponentially easier!
+
+**Practical benefit for Quran study:**
+
+When you encounter **فَقَالَْ** (fa-qāla) "and he said" in your reading:
+1. Recognize root ق-و-ل with middle و → hollow verb
+2. Apply hollow verb rules → middle و contracts to ا in past tense
+3. Understand the morphology instantly — no dictionary needed!
+
+This skill accelerates your reading fluency and deepens comprehension.
+
+## Exercises
+
+<ExerciseBox
+  title="Exercise 1: Identify Weak Letters"
+  instructions="For each root, identify if it contains a weak letter (و، ي، ء). If yes, state which letter and its position."
+>
+
+1. **ن-ز-ل** (n-z-l) "descending"
+2. **ق-و-م** (q-w-m) "standing"
+3. **ر-ج-و** (r-j-w) "hoping"
+4. **ء-خ-ذ** (ʾ-kh-dh) "taking"
+5. **س-م-ع** (s-m-ʿ) "hearing"
+6. **ب-ي-ن** (b-y-n) "clarifying"
+7. **و-ع-د** (w-ʿ-d) "promising"
+8. **ك-ف-ر** (k-f-r) "disbelieving"
+
+**Expected answers:**
+1. No weak letter — sound verb
+2. و in position 2 — weak
+3. و in position 3 — weak
+4. ء in position 1 — weak
+5. No weak letter — sound verb
+6. ي in position 2 — weak
+7. و in position 1 — weak
+8. No weak letter — sound verb
+
+</ExerciseBox>
+
+<ExerciseBox
+  title="Exercise 2: Categorize Weak Verbs"
+  instructions="For each weak verb root, identify the category: hollow, defective, assimilated, or hamzated."
+>
+
+1. **ق-و-ل** (q-w-l) "saying" — weak letter: و in position 2
+2. **م-ش-ي** (m-sh-y) "walking" — weak letter: ي in position 3
+3. **و-ص-ل** (w-ṣ-l) "arriving" — weak letter: و in position 1
+4. **ق-ر-ء** (q-r-ʾ) "reading" — weak letter: ء in position 3
+5. **ك-و-ن** (k-w-n) "being" — weak letter: و in position 2
+6. **ر-م-ي** (r-m-y) "throwing" — weak letter: ي in position 3
+7. **و-ق-ف** (w-q-f) "stopping" — weak letter: و in position 1
+8. **س-ء-ل** (s-ʾ-l) "asking" — weak letter: ء in position 2
+
+**Expected answers:**
+1. Hollow (middle position)
+2. Defective (final position)
+3. Assimilated (initial position)
+4. Hamzated (hamza in any position)
+5. Hollow (middle position)
+6. Defective (final position)
+7. Assimilated (initial position)
+8. Hamzated (hamza in any position)
+
+</ExerciseBox>
+
+<ExerciseBox
+  title="Exercise 3: Apply the 4-Step Strategy"
+  instructions="For each Quranic word, apply the 4-step recognition strategy to determine the verb category."
+>
+
+1. **كَانَْ** (kāna) "he was" — from verse "كَانَْ ٱللَّهُ عَلَِيمًا حَكَِيمًا"
+2. **دَعَاْ** (daʿā) "he called" — from verse "دَعَاْ رَبَّهُ"
+3. **وَجَدَ** (wajada) "he found" — from verse "وَجَدَ ٱللَّهَ غَفُوُرًا رَّحِيمًا"
+4. **قَرَأَ** (qaraʾa) "he read" — from verb root in "ٱقْرَأْ بِٱسْمِ رَبِّكَ"
+
+**Work through each:**
+- Step 1: Find root
+- Step 2: Identify weak letter
+- Step 3: Determine position
+- Step 4: State category
+
+**Expected answers:**
+1. Root ك-و-ن, weak letter و, position 2 → Hollow
+2. Root د-ع-و, weak letter و, position 3 → Defective
+3. Root و-ج-د, weak letter و, position 1 → Assimilated
+4. Root ق-ر-ء, weak letter ء, position 3 → Hamzated
+
+</ExerciseBox>
+
+<ExerciseBox
+  title="Exercise 4: Al-Fatiha Weak Verb Hunt"
+  instructions="Read Al-Fatiha (Chapter 1) and identify ALL weak verbs. State the root, weak letter position, and category for each."
+>
+
+**Hint:** Al-Fatiha contains at least 3 weak verbs. Look carefully at:
+- Verse 5: إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ
+- Verse 6: ٱهْدِنَا ٱلصِّرَاطَ ٱلْمُسْتَقِيمَ
+- Verse 7: صِرَاطَ ٱلَّذِينَ أَنْعَمْتَ عَلَيْهِمْ
+
+**Challenge:** Identify the verb forms (Form I, IV, X, etc.) as well as the categories.
+
+**Expected verbs:**
+1. **نَعْبُدُ** (naʿbudu) — root ع-ب-د, no weak letter → SOUND verb (trick question!)
+2. **نَسْتَعِينُ** (nastaʿīnu) — root ع-و-ن, و in position 2 → Hollow, Form X
+3. **ٱهْدِنَا** (ihdinā) — root ه-د-ي, ي in position 3 → Defective, Form I imperative
+4. **أَنْعَمْتَ** (anʿamta) — root ن-ع-م, no weak letter → SOUND verb, Form IV
+
+Note: This exercise reinforces that not all verbs are weak — always check first!
+
+</ExerciseBox>
+
+## Summary
+
+You've now mastered the foundational framework for weak verbs:
+
+**Key concepts:**
+1. **Weak letters:** و، ي، ا، ء cause conjugation irregularities
+2. **Four categories:** Position determines category (hollow, defective, assimilated, hamzated)
+3. **Recognition strategy:** 4 systematic steps replace memorization
+4. **Pattern-based learning:** Each category follows consistent internal rules
+
+**Next steps:**
+- [L4.12 Hollow Verbs](/learn/level-4/hollow-verbs) — Study middle-position weak verbs in detail
+- [L4.13 Defective Verbs](/learn/level-4/defective-verbs) — Master final-position weak verbs
+- [L4.14 Assimilated Verbs](/learn/level-4/assimilated-verbs) — Handle initial-position weak verbs
+- [L4.15 Hamzated Verbs](/learn/level-4/hamzated-verbs) — Understand hamza spelling rules
+
+**Remember:** Weak verbs are systematic, not chaotic. Trust the categorization framework, and you'll handle them with confidence!
