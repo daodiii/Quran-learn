@@ -166,10 +166,18 @@ Plans:
 4. Each lesson provides 3-4 practice exercises with answer reveals
 5. All lessons show patterns before stating abstract rules (example-heavy approach)
 
-**Plans:** TBD
+**Plans:** 9 plans
 
 Plans:
-- [ ] TBD during planning
+- [ ] 14-01-PLAN.md — Root System (L3.01)
+- [ ] 14-02-PLAN.md — Verb Form I (L3.02)
+- [ ] 14-03-PLAN.md — Past Tense & Present Tense Conjugation (L3.03, L3.04)
+- [ ] 14-04-PLAN.md — Verb Forms II & III (L3.10, L3.11)
+- [ ] 14-05-PLAN.md — Verb Form IV & Active/Passive Participles (L3.12, L3.16)
+- [ ] 14-06-PLAN.md — Imperative Mood & Subject Pronouns (L3.05, L3.06)
+- [ ] 14-07-PLAN.md — Verb Forms V & VI (L3.13, L3.14)
+- [ ] 14-08-PLAN.md — Attached, Demonstrative & Relative Pronouns (L3.07, L3.08, L3.09)
+- [ ] 14-09-PLAN.md — Verb Forms VII-X, Verbal Nouns & Place/Time Nouns (L3.15, L3.17, L3.18)
 
 ---
 
