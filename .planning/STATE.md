@@ -5,23 +5,23 @@
 See: .planning/PROJECT.md (updated 2026-02-06)
 
 **Core value:** Make learning Quranic Arabic grammar accessible and engaging through beautiful, intuitive design
-**Current focus:** Phase 13 in progress — Level 2 Core Grammar Lessons (1 of 11 plans complete)
+**Current focus:** Phase 13 in progress — Level 2 Core Grammar Lessons (3 of 11 plans complete)
 
 ## Current Position
 
 Phase: 13 of 17 (Level 2 Core Grammar Lessons)
-Plan: 2 of 11 complete
+Plan: 3 of 11 complete
 Status: In progress
-Last activity: 2026-02-07 — Completed 13-02 (L2.02 Subject/Predicate, L2.03 Verbal Sentence)
+Last activity: 2026-02-07 — Completed 13-05 (L2.10 Inna Sisters, L2.11 Kaana Sisters)
 
-Progress: [█████████████░░░░░] 80% (47/59 estimated total plans)
+Progress: [█████████████░░░░░] 81% (48/59 estimated total plans)
 
 ## Performance Metrics
 
 **Velocity (updated):**
-- Total plans completed: 47
-- Average duration: 7.4 min
-- Total execution time: 6.12 hours
+- Total plans completed: 48
+- Average duration: 7.5 min
+- Total execution time: 6.25 hours
 
 **By Phase:**
 
@@ -32,11 +32,11 @@ Progress: [█████████████░░░░░] 80% (47/59 es
 | 10 | 3 | 17.3min | 5.8 min |
 | 11 | 6 | 71.0min | 11.8 min |
 | 12 | 5 | 39.0min | 7.8 min |
-| 13 | 2 | 50.0min | 25.0 min |
+| 13 | 3 | 58.0min | 19.3 min |
 
 **Recent Trend:**
-- Last 5 plans: [12-03: 12min, 12-04: 5min, 12-05: 5min, 13-01: 7min, 13-02: 43min]
-- Trend: Longer execution for dual-lesson plans (L2.02+L2.03 created together)
+- Last 5 plans: [12-04: 5min, 12-05: 5min, 13-01: 7min, 13-02: 43min, 13-05: 8min]
+- Trend: Dual-lesson plans vary 8-43min depending on complexity
 
 *Updated after each plan completion*
 
@@ -105,6 +105,10 @@ Recent decisions affecting v1.1 work:
 - VSO word order contrasted explicitly with English SVO for Arabic verbal sentence mastery (13-02)
 - Al-Asr (103) chosen for L2.02 mubtada/khabar examples (compact surah with clear nominal structure) (13-02)
 - Al-Kawthar (108) chosen for L2.03 verbal sentence examples (perfect VSO demonstrations) (13-02)
+- Six inna sisters documented with before/after case change comparison pedagogy (13-05)
+- Eight kaana sisters documented with temporal/modal meaning distinctions (13-05)
+- Kaana vs inna comparison table shows mirror-image case modification patterns (13-05)
+- Level 2 completion milestone celebration included in L2.11 with Level 3 preview (13-05)
 
 ### Pending Todos
 
@@ -129,6 +133,6 @@ None.
 ## Session Continuity
 
 Last session: 2026-02-07
-Stopped at: Completed 13-02 — L2.02 Subject/Predicate and L2.03 Verbal Sentence lessons created
+Stopped at: Completed 13-05 — L2.10 Inna Sisters and L2.11 Kaana Sisters lessons created (Level 2 complete!)
 Resume file: None
-Next: 13-03 through 13-11 (remaining Level 2 lesson pairs: cases, prepositions, idafah, adjectives, inna/kaana)
+Next: 13-03, 13-04, 13-06 (remaining Level 2 lesson pairs: accusative case, genitive case, prepositions/idafah, adjectives)
