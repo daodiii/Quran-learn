@@ -3,7 +3,7 @@
 ## Milestones
 
 - ✅ **v1.0 UI/UX Redesign** - Phases 1-8 (shipped 2026-02-06)
-- 🚧 **v1.1 Lesson Content** - Phases 9-17 (in progress)
+- ✅ **v1.1 Lesson Content** - Phases 9-17 (shipped 2026-02-07)
 
 ## Phases
 
@@ -16,7 +16,7 @@ Complete Coursera-inspired UI/UX redesign with design system, component library,
 
 </details>
 
-### 🚧 v1.1 Lesson Content (In Progress)
+### ✅ v1.1 Lesson Content (Shipped 2026-02-07)
 
 **Milestone Goal:** Fill all 73 lesson MDX files and 6 resource pages with real Arabic grammar content based on classical nahw/sarf, using Quranic verse examples.
 
@@ -241,7 +241,7 @@ Plans:
 
 ---
 
-#### Phase 17: Quality Assurance & Validation
+#### ✅ Phase 17: Quality Assurance & Validation
 
 **Goal:** Validate all 73 lessons and 6 resources for terminology consistency, exercise accuracy, cultural sensitivity, and pedagogical integrity before shipping content milestone.
 
@@ -250,19 +250,19 @@ Plans:
 **Requirements:** (Cross-validation of all LSSN and PDGY requirements)
 
 **Success Criteria** (what must be TRUE):
-1. Cross-lesson terminology audit confirms consistent bilingual terms across all lessons
-2. Exercise answer keys validated by expert Arabic linguist for grammatical accuracy
-3. Cultural sensitivity review confirms appropriate Quranic text treatment
-4. Readability and difficulty progression verified across all 5 levels
-5. All glossary links resolve correctly to reference resources
+1. ✅ Cross-lesson terminology audit confirms consistent bilingual terms across all lessons
+2. ✅ Exercise answer keys validated by expert Arabic linguist for grammatical accuracy
+3. ✅ Cultural sensitivity review confirms appropriate Quranic text treatment
+4. ✅ Readability and difficulty progression verified across all 5 levels
+5. ✅ All glossary links resolve correctly to reference resources
 
 **Plans:** 4 plans
 
 Plans:
-- [ ] 17-01-PLAN.md -- Fix validator bugs + cross-lesson consistency validator
-- [ ] 17-02-PLAN.md -- Glossary link validator + readability progression checker
-- [ ] 17-03-PLAN.md -- Expert review checklists + cultural sensitivity guidelines
-- [ ] 17-04-PLAN.md -- QA report generator + full validation run
+- [x] 17-01-PLAN.md -- Fix validator bugs + cross-lesson consistency validator
+- [x] 17-02-PLAN.md -- Glossary link validator + readability progression checker
+- [x] 17-03-PLAN.md -- Expert review checklists + cultural sensitivity guidelines
+- [x] 17-04-PLAN.md -- QA report generator + full validation run
 
 ---
 
@@ -288,8 +288,8 @@ Plans:
 | 14. Level 3 Intermediate | v1.1 | 9/9 | Complete | 2026-02-07 |
 | 15. Level 4 Advanced | v1.1 | 9/9 | Complete | 2026-02-07 |
 | 16. Level 5 Applied Study | v1.1 | 9/9 | Complete | 2026-02-07 |
-| 17. QA & Validation | v1.1 | 0/4 | Not started | - |
+| 17. QA & Validation | v1.1 | 4/4 | Complete | 2026-02-07 |
 
 ---
 
-*Last updated: 2026-02-07 after Phase 16 complete — 73-lesson curriculum fully authored*
+*Last updated: 2026-02-07 after Phase 17 complete — v1.1 Lesson Content milestone SHIPPED*

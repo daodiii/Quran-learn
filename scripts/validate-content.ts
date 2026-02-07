@@ -5,12 +5,13 @@ import { dirname } from 'path';
 import { validateDiacritics } from './validate-diacritics.js';
 import { validateTerminology } from './validate-terminology.js';
 import { validateVerses } from './validate-verses.js';
+import { validateLinks } from './validate-links.js';
 
 /**
  * Main validation orchestrator
  *
- * Runs all validation checks (diacritics, terminology, verses) on all lesson MDX files.
- * Exits with code 1 if any errors found, 0 if clean.
+ * Runs all validation checks (diacritics, terminology, verses, links) on all
+ * lesson and resource MDX files. Exits with code 1 if any errors found, 0 if clean.
  */
 
 const __filename = fileURLToPath(import.meta.url);
@@ -42,18 +43,18 @@ function findMdxFiles(dir: string): string[] {
 
       // Skip files/directories starting with underscore (index files, drafts)
       if (entry.startsWith('_')) continue;
+      // Skip backup files
+      if (entry.endsWith('.bak')) continue;
 
       const stat = statSync(fullPath);
 
       if (stat.isDirectory()) {
-        // Recurse into subdirectory
         files.push(...findMdxFiles(fullPath));
       } else if (stat.isFile() && entry.endsWith('.mdx')) {
         files.push(fullPath);
       }
     }
   } catch (error) {
-    // Directory doesn't exist yet (lessons not created)
     return [];
   }
 
@@ -97,6 +98,14 @@ function validateFile(filepath: string): ValidationResult {
     else result.warnings++;
   }
 
+  // Run link validation
+  const linkIssues = validateLinks(content, filepath);
+  for (const issue of linkIssues) {
+    result.issues.push({ ...issue, validator: 'links' });
+    if (issue.severity === 'error') result.errors++;
+    else result.warnings++;
+  }
+
   return result;
 }
 
@@ -105,14 +114,16 @@ function validateFile(filepath: string): ValidationResult {
  */
 function validateContent() {
   const lessonsDir = join(__dirname, '..', 'src', 'content', 'lessons');
+  const resourcesDir = join(__dirname, '..', 'src', 'content', 'resources');
 
-  console.log('🔍 Validating lesson content...\n');
+  console.log('🔍 Validating lesson and resource content...\n');
 
-  const mdxFiles = findMdxFiles(lessonsDir);
+  const lessonFiles = findMdxFiles(lessonsDir);
+  const resourceFiles = findMdxFiles(resourcesDir);
+  const mdxFiles = [...lessonFiles, ...resourceFiles];
 
   if (mdxFiles.length === 0) {
-    console.log('ℹ️  No lesson files found in src/content/lessons/');
-    console.log('   (This is expected if lessons haven\'t been created yet)\n');
+    console.log('ℹ️  No content files found');
     process.exit(0);
   }
 
@@ -129,8 +140,9 @@ function validateContent() {
   }
 
   // Print results
+  const contentBase = join(__dirname, '..', 'src', 'content');
   for (const result of results) {
-    const shortPath = result.file.replace(lessonsDir + '/', '');
+    const shortPath = result.file.replace(contentBase + '/', '');
 
     if (result.issues.length === 0) {
       console.log(`✓ ${shortPath}`);
@@ -162,7 +174,7 @@ function validateContent() {
 
   // Print summary
   console.log('─'.repeat(60));
-  console.log(`📊 Summary: ${mdxFiles.length} files checked`);
+  console.log(`📊 Summary: ${mdxFiles.length} files checked (${lessonFiles.length} lessons, ${resourceFiles.length} resources)`);
   console.log(`   Errors: ${totalErrors}`);
   console.log(`   Warnings: ${totalWarnings}`);
 

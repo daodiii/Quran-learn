@@ -7,6 +7,12 @@ import { dirname, join } from 'path';
  *
  * Ensures consistent use of Arabic grammar terms per TERMINOLOGY.md (PDGY-03).
  * Checks that first-mention format is used: "English (transliteration / عَرَبِي)"
+ *
+ * Bug fixes applied:
+ * - Special regex characters in term.english are now escaped
+ * - Single/two-character Arabic terms (hamza forms) are filtered out
+ * - JSX component content and markdown headings are skipped
+ * - Improved context awareness to reduce false positives
  */
 
 const __filename = fileURLToPath(import.meta.url);
@@ -25,6 +31,21 @@ export interface CanonicalTerm {
 }
 
 /**
+ * Escape special regex characters in a string
+ */
+function escapeRegex(str: string): string {
+  return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+/**
+ * Count base Arabic letters (excluding diacritics) in a string
+ */
+function countBaseArabicLetters(str: string): number {
+  const baseLetters = str.replace(/[\u064B-\u065F\u0670\u0654-\u0656]/g, '');
+  return (baseLetters.match(/[\u0621-\u064A]/g) || []).length;
+}
+
+/**
  * Parse TERMINOLOGY.md to extract canonical terms
  */
 export function loadTerminology(): CanonicalTerm[] {
@@ -35,7 +56,6 @@ export function loadTerminology(): CanonicalTerm[] {
     const terms: CanonicalTerm[] = [];
 
     const lines = content.split('\n');
-    let inTable = false;
 
     for (const line of lines) {
       // Detect table rows (contain | separators)
@@ -49,12 +69,13 @@ export function loadTerminology(): CanonicalTerm[] {
           const transliteration = cells[3];
 
           if (english && arabic && transliteration) {
-            terms.push({ english, arabic, transliteration });
-            inTable = true;
+            // Filter out terms with fewer than 3 base Arabic letters
+            // Single/two-char terms like أَ, إِ, أَل match everywhere and cause false positives
+            if (countBaseArabicLetters(arabic) >= 3) {
+              terms.push({ english, arabic, transliteration });
+            }
           }
         }
-      } else {
-        inTable = false;
       }
     }
 
@@ -63,6 +84,29 @@ export function loadTerminology(): CanonicalTerm[] {
     console.error(`Warning: Could not load TERMINOLOGY.md: ${error}`);
     return [];
   }
+}
+
+/**
+ * Check if a line is inside a JSX component or is a heading
+ */
+function shouldSkipLine(line: string): boolean {
+  const trimmed = line.trim();
+
+  // Skip markdown headings (terms in headings don't need bilingual format)
+  if (trimmed.startsWith('#')) return true;
+
+  // Skip JSX component attribute lines
+  if (trimmed.match(/^\s*<(ArabicExample|GrammarTable|VerbConjugation|Callout|ExerciseBox)/)) return true;
+  if (trimmed.match(/^\s*\w+="/)) return true;
+
+  // Skip import lines
+  if (trimmed.startsWith('import ')) return true;
+
+  // Skip code blocks content (handled by caller)
+  // Skip HTML tags
+  if (trimmed.startsWith('<') && !trimmed.startsWith('<Callout') && !trimmed.startsWith('<ExerciseBox')) return true;
+
+  return false;
 }
 
 /**
@@ -88,13 +132,38 @@ export function validateTerminology(content: string, filename: string): Validati
   // Track which terms have been introduced with bilingual format
   const introducedTerms = new Set<string>();
 
+  // Track frontmatter and code blocks
+  let inFrontmatter = false;
+  let inCodeBlock = false;
+  let frontmatterCount = 0;
+
   for (let i = 0; i < lines.length; i++) {
     const line = lines[i];
     const lineNumber = i + 1;
 
+    // Track frontmatter
+    if (line.trim() === '---') {
+      frontmatterCount++;
+      if (frontmatterCount <= 2) {
+        inFrontmatter = !inFrontmatter;
+        continue;
+      }
+    }
+    if (inFrontmatter) continue;
+
+    // Track code blocks
+    if (line.trim().startsWith('```')) {
+      inCodeBlock = !inCodeBlock;
+      continue;
+    }
+    if (inCodeBlock) continue;
+
+    // Skip certain line types
+    if (shouldSkipLine(line)) continue;
+
     // Check each canonical term
     for (const term of terms) {
-      // Check if Arabic term appears in this line
+      // Check if Arabic term appears in this line (in prose content)
       if (line.includes(term.arabic)) {
         const termKey = term.arabic;
 
@@ -103,16 +172,24 @@ export function validateTerminology(content: string, filename: string): Validati
           // Expected formats:
           // 1. "English (transliteration / عَرَبِي)"
           // 2. "[English](/path) (transliteration / عَرَبِي)"
+          // 3. "English (عَرَبِي)" shorthand (acceptable)
+
+          const escapedEnglish = escapeRegex(term.english);
 
           const pattern1 = new RegExp(
-            `${term.english}\\s*\\([^)]*${term.arabic}[^)]*\\)`
+            `${escapedEnglish}\\s*\\([^)]*${escapeRegex(term.arabic)}[^)]*\\)`
           );
 
           const pattern2 = new RegExp(
-            `\\[${term.english}\\]\\([^)]+\\)\\s*\\([^)]*${term.arabic}[^)]*\\)`
+            `\\[${escapedEnglish}\\]\\([^)]+\\)\\s*\\([^)]*${escapeRegex(term.arabic)}[^)]*\\)`
           );
 
-          if (pattern1.test(line) || pattern2.test(line)) {
+          // Also accept: term appears in a parenthetical with the English term nearby
+          const pattern3 = new RegExp(
+            `${escapedEnglish}[^.]*\\(.*${escapeRegex(term.arabic)}.*\\)`
+          );
+
+          if (pattern1.test(line) || pattern2.test(line) || pattern3.test(line)) {
             // Valid bilingual format found
             introducedTerms.add(termKey);
           } else {
