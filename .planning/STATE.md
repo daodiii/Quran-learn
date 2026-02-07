@@ -10,18 +10,18 @@ See: .planning/PROJECT.md (updated 2026-02-06)
 ## Current Position
 
 Phase: 15 of 17 (Level 4 Advanced Lessons)
-Plan: 5 of 9 complete
+Plan: 6 of 9 complete
 Status: In progress
-Last activity: 2026-02-07 — Completed 15-06-PLAN.md (L4.11-12 Weak Verbs Intro & Hollow Verbs)
+Last activity: 2026-02-07 — Completed 15-08-PLAN.md (L4.15 Hamzated Verbs)
 
-Progress: [█████████████████░░] 100% (65/63 estimated total plans)
+Progress: [█████████████████░░] 100% (66/63 estimated total plans)
 
 ## Performance Metrics
 
 **Velocity (updated):**
-- Total plans completed: 65
-- Average duration: 8.42 min
-- Total execution time: 9.25 hours
+- Total plans completed: 66
+- Average duration: 8.35 min
+- Total execution time: 9.37 hours
 
 **By Phase:**
 
@@ -34,11 +34,11 @@ Progress: [█████████████████░░] 100% (65/6
 | 12 | 5 | 39.0min | 7.8 min |
 | 13 | 6 | 93.3min | 15.6 min |
 | 14 | 8 | 90.4min | 11.3 min |
-| 15 | 5 | 71.2min | 14.2 min |
+| 15 | 6 | 78.2min | 13.0 min |
 
 **Recent Trend:**
-- Last 5 plans: [15-02: 10min, 15-05: 11min, 15-03: 12.2min, 15-04: 14min, 15-06: 15min]
-- Trend: Phase 15 averaging 14.2min per plan. Weak verbs (15-06) took 15min for 899 lines (dual lesson with systematic framework + hollow verb deep dive).
+- Last 5 plans: [15-05: 11min, 15-03: 12.2min, 15-04: 14min, 15-06: 15min, 15-08: 7min]
+- Trend: Phase 15 averaging 13.0min per plan. Hamzated verbs (15-08) took 7min for 575 lines (efficient due to established weak verb pattern and systematic seat rules).
 
 *Updated after each plan completion*
 
@@ -176,6 +176,11 @@ Recent decisions affecting v1.1 work:
 - Transliteration included in hollow verb reference tables despite Level 4 minimal guidelines - justified by learner pronunciation needs for contraction patterns (15-06)
 - VerbConjugation component side-by-side tables effective for showing WHEN middle letter drops vs contracts (3rd person contraction vs 1st/2nd person dropping) (15-06)
 - 4-step weak verb recognition strategy (find root → identify weak letter → determine position → apply rules) provides systematic approach applicable to any weak verb (15-06)
+- Hamza seat rules taught via vowel hierarchy (kasra > damma > fatha > sukūn) determines carrier (ya, waw, alif, line) for systematic orthography (15-08)
+- Position-based hamza categorization (initial/middle/final) aligns with other weak verb categories and determines conjugation stability patterns (15-08)
+- Three irregular imperatives (khudh, kul, mur) documented as memorization exceptions from phonetic simplification (15-08)
+- Hamzated verbs distinguished as orthographic irregularities (spelling changes) vs phonetic irregularities (pronunciation changes) in other weak categories (15-08)
+- Madda (آ) Unicode validation limitation handled via transliteration in isolated contexts while preserving full Arabic in component/contextual usage (15-08)
 
 ### Pending Todos
 
@@ -200,6 +205,6 @@ None.
 ## Session Continuity
 
 Last session: 2026-02-07
-Stopped at: Completed 15-06-PLAN.md (L4.11-12 Weak Verbs Intro & Hollow Verbs) — Four-category classification and hollow verb contraction principles
+Stopped at: Completed 15-08-PLAN.md (L4.15 Hamzated Verbs) — Completes four-category weak verb system with hamza seat rules
 Resume file: None
-Next: Execute remaining Phase 15 plans — 4/9 remaining (L4.13-17: defective/assimilated/hamzated verbs, rhetoric)
+Next: Execute remaining Phase 15 plans — 3/9 remaining (L4.16-17 rhetoric lessons: balagha introduction, figures of speech)
