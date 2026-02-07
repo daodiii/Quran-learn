@@ -9,19 +9,19 @@ See: .planning/PROJECT.md (updated 2026-02-06)
 
 ## Current Position
 
-Phase: 15 of 17 (Level 4 Advanced Lessons) — COMPLETE
-Plan: 9 of 9 complete
-Status: Phase 15 complete — all 17 Level 4 lessons created
-Last activity: 2026-02-07 — Phase 15 executed with 9 plans in 2 waves (17 lessons: hal/tamyiz, conditionals, exceptions/emphasis, maf'ul types, negation, weak verbs, balagha)
+Phase: 16 of 17 (Level 5 Applied Study Lessons) — IN PROGRESS
+Plan: 1 of 1 complete
+Status: Phase 16 started — L5.01 Full I'rab Analysis Method complete (systematic 5-step method established)
+Last activity: 2026-02-07 — Completed 16-01-PLAN.md: L5.01 Full I'rab Analysis Method lesson (749 lines, Bismillah guided example with nahw+sarf+balagha)
 
-Progress: [██████████████████░] 96% (68/71 estimated total plans)
+Progress: [███████████████████░] 97% (69/71 estimated total plans)
 
 ## Performance Metrics
 
 **Velocity (updated):**
-- Total plans completed: 68
-- Average duration: 8.50 min
-- Total execution time: 9.77 hours
+- Total plans completed: 69
+- Average duration: 8.48 min
+- Total execution time: 9.94 hours
 
 **By Phase:**
 
@@ -35,10 +35,11 @@ Progress: [██████████████████░] 96% (68/71
 | 13 | 6 | 93.3min | 15.6 min |
 | 14 | 8 | 90.4min | 11.3 min |
 | 15 | 9 | 101.4min | 11.3 min |
+| 16 | 1 | 10.0min | 10.0 min |
 
 **Recent Trend:**
-- Last 5 plans: [15-04: 14min, 15-06: 15min, 15-08: 7min, 15-07: 10min, 15-09: 13.2min]
-- Trend: Phase 15 complete at 11.3min average per plan. Balagha lessons (15-09) took 13.2min for L4.16-17 rhetoric pair (L4.16 already existed from 15-08, L4.17 created with 649 lines, completion milestone, five figures of speech).
+- Last 5 plans: [15-06: 15min, 15-08: 7min, 15-07: 10min, 15-09: 13.2min, 16-01: 10min]
+- Trend: Phase 16 started with L5.01 Full I'rab Analysis Method (10min, 749 lines). Systematic 5-step framework established: segment → sentence type → three-level word analysis (nahw+sarf+balagha) → relationships → rhetoric. Complete Bismillah guided example with all 4 words analyzed.
 
 *Updated after each plan completion*
 
@@ -183,6 +184,11 @@ Recent decisions affecting v1.1 work:
 - Grammar + rhetoric combined analysis modeled as key skill for Level 5 synthesis (15-09)
 - Level completion milestone sections (achievement summary, journey reflection, forward preview) provide psychological closure and readiness for next level (15-09)
 - Defective-waw vs defective-ya subtype distinction by present tense vowel quality (ū vs ī) parallels hollow verb waw/ya patterns (15-07)
+- 5-step systematic i'rab method established as foundational framework for ALL Level 5 applied analysis lessons (16-01)
+- Three-level word analysis (syntactic nahw, morphological sarf, rhetorical balagha) performed sequentially not simultaneously to prevent cognitive overload (16-01)
+- Bismillah chosen as primary guided example for universal familiarity + compact demonstration of multiple grammatical constructions (idafah, adjective agreement, ellipsis, rhetoric) in 4 words (16-01)
+- Understanding prioritized over completeness in Level 5: focus on major structures first, add detail layers progressively (16-01)
+- Morphological patterns presented via transliteration in meta-discussions to avoid false-positive diacritics validation on abstract linguistic notation (16-01)
 - Al-Fatiha ٱهْدِنَا chosen for defective verb example due to theological significance as central Islamic supplication recited in every prayer (15-07)
 - Assimilated verbs emphasized as simplest weak verb category (one deletion rule) after mastering hollow (3 principles) and defective (mood interaction) for pedagogical momentum (15-07)
 - Initial-waw deletion rule applies ONLY to present tense Form I; waw stays in past tense and derived forms II-X (15-07)
@@ -215,7 +221,7 @@ None.
 
 ## Session Continuity
 
-Last session: 2026-02-07
-Stopped at: Phase 15 complete — 9 plans, 17 lessons, ~8,400 lines of Level 4 content
+Last session: 2026-02-07 14:41:43Z
+Stopped at: Completed 16-01-PLAN.md — L5.01 Full I'rab Analysis Method lesson (systematic 5-step framework, Bismillah guided example, 749 lines)
 Resume file: None
-Next: Plan Phase 16 — /gsd:plan-phase 16 (Level 5 Applied Study)
+Next: Continue Phase 16 execution (L5.02-17 applied analysis lessons)
