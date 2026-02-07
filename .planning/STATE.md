@@ -5,14 +5,14 @@
 See: .planning/PROJECT.md (updated 2026-02-06)
 
 **Core value:** Make learning Quranic Arabic grammar accessible and engaging through beautiful, intuitive design
-**Current focus:** Phase 13 in progress — Level 2 Core Grammar Lessons (3 of 11 plans complete)
+**Current focus:** Phase 13 in progress — Level 2 Core Grammar Lessons (4 of 11 plans complete)
 
 ## Current Position
 
 Phase: 13 of 17 (Level 2 Core Grammar Lessons)
-Plan: 3 of 11 complete
+Plan: 4 of 11 complete
 Status: In progress
-Last activity: 2026-02-07 — Completed 13-05 (L2.10 Inna Sisters, L2.11 Kaana Sisters)
+Last activity: 2026-02-07 — Completed 13-04 (L2.06 Genitive Case, L2.09 Adjective Agreement)
 
 Progress: [█████████████░░░░░] 81% (48/59 estimated total plans)
 
@@ -21,7 +21,7 @@ Progress: [█████████████░░░░░] 81% (48/59 es
 **Velocity (updated):**
 - Total plans completed: 48
 - Average duration: 7.5 min
-- Total execution time: 6.25 hours
+- Total execution time: 6.44 hours
 
 **By Phase:**
 
@@ -32,10 +32,10 @@ Progress: [█████████████░░░░░] 81% (48/59 es
 | 10 | 3 | 17.3min | 5.8 min |
 | 11 | 6 | 71.0min | 11.8 min |
 | 12 | 5 | 39.0min | 7.8 min |
-| 13 | 3 | 58.0min | 19.3 min |
+| 13 | 4 | 69.3min | 17.3 min |
 
 **Recent Trend:**
-- Last 5 plans: [12-04: 5min, 12-05: 5min, 13-01: 7min, 13-02: 43min, 13-05: 8min]
+- Last 5 plans: [12-05: 5min, 13-01: 7min, 13-02: 43min, 13-03: 8min, 13-04: 11min]
 - Trend: Dual-lesson plans vary 8-43min depending on complexity
 
 *Updated after each plan completion*
@@ -105,6 +105,10 @@ Recent decisions affecting v1.1 work:
 - VSO word order contrasted explicitly with English SVO for Arabic verbal sentence mastery (13-02)
 - Al-Asr (103) chosen for L2.02 mubtada/khabar examples (compact surah with clear nominal structure) (13-02)
 - Al-Kawthar (108) chosen for L2.03 verbal sentence examples (perfect VSO demonstrations) (13-02)
+- Three-case system completion strategy: L2.06 completes nom→acc→gen with summary comparison table (13-04)
+- Al-Fatiha chosen for genitive case and adjective agreement examples (familiar, pedagogically clear) (13-04)
+- Adjective-predicate distinction taught via definiteness pattern (both definite = adjective, mixed = predicate) (13-04)
+- Four-part adjective agreement framework: gender, number, case, definiteness as systematic checklist (13-04)
 - Six inna sisters documented with before/after case change comparison pedagogy (13-05)
 - Eight kaana sisters documented with temporal/modal meaning distinctions (13-05)
 - Kaana vs inna comparison table shows mirror-image case modification patterns (13-05)
@@ -133,6 +137,6 @@ None.
 ## Session Continuity
 
 Last session: 2026-02-07
-Stopped at: Completed 13-05 — L2.10 Inna Sisters and L2.11 Kaana Sisters lessons created (Level 2 complete!)
+Stopped at: Completed 13-04 — L2.06 Genitive Case and L2.09 Adjective Agreement lessons created
 Resume file: None
-Next: 13-03, 13-04, 13-06 (remaining Level 2 lesson pairs: accusative case, genitive case, prepositions/idafah, adjectives)
+Next: 13-05 through 13-11 (remaining Level 2 lesson pairs: prepositions/genitive, idafah, inna/kaana)
