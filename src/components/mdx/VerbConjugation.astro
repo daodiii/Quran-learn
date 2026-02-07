@@ -18,15 +18,28 @@
  * />
  */
 
+interface PersonEntry {
+  person: string;
+  arabic: string;
+  transliteration: string;
+}
+
 interface Props {
   root: string;          // Arabic root letters (e.g., "ك ت ب")
   form?: string;         // Verb form (e.g., "Form I", "Form II")
   pattern?: string;      // Morphological pattern (e.g., "فَعَلَ")
-  headers: string[];     // Column headers for the conjugation table
-  rows: string[][];      // Conjugation data rows
+  headers?: string[];    // Column headers for the conjugation table
+  rows?: string[][];     // Conjugation data rows
+  verb?: string;         // Alternative API: verb display form
+  tense?: string;        // Alternative API: tense label
+  persons?: PersonEntry[]; // Alternative API: persons array
 }
 
-const { root, form, pattern, headers, rows } = Astro.props;
+const { root, form, pattern, persons } = Astro.props;
+
+// Support both APIs: explicit headers/rows or persons array
+const headers = Astro.props.headers ?? (persons ? ["Person", "Arabic", "Transliteration"] : []);
+const rows = Astro.props.rows ?? (persons ? persons.map(p => [p.person, p.arabic, p.transliteration]) : []);
 ---
 
 <div class="verb-conjugation">

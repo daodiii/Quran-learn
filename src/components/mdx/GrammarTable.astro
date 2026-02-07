@@ -19,37 +19,44 @@
 
 interface Props {
   caption?: string;
-  headers: string[];
-  rows: string[][];
+  headers?: string[];
+  rows?: string[][];
   rtl?: boolean;  // Default true — most grammar tables have Arabic content
 }
 
 const { caption, headers, rows, rtl = true } = Astro.props;
+const hasProps = headers && rows;
 ---
 
-<div class="table-wrapper">
-  <table class="grammar-table" dir={rtl ? "rtl" : "ltr"}>
-    {caption && <caption>{caption}</caption>}
-    <thead>
-      <tr>
-        {headers.map(header => (
-          <th scope="col">{header}</th>
-        ))}
-      </tr>
-    </thead>
-    <tbody>
-      {rows.map(row => (
+{hasProps ? (
+  <div class="table-wrapper">
+    <table class="grammar-table" dir={rtl ? "rtl" : "ltr"}>
+      {caption && <caption>{caption}</caption>}
+      <thead>
         <tr>
-          {row.map((cell, index) => (
-            index === 0
-              ? <th scope="row">{cell}</th>
-              : <td data-label={headers[index]}>{cell}</td>
+          {headers.map(header => (
+            <th scope="col">{header}</th>
           ))}
         </tr>
-      ))}
-    </tbody>
-  </table>
-</div>
+      </thead>
+      <tbody>
+        {rows.map(row => (
+          <tr>
+            {row.map((cell, index) => (
+              index === 0
+                ? <th scope="row">{cell}</th>
+                : <td data-label={headers[index]}>{cell}</td>
+            ))}
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+) : (
+  <div class="table-wrapper">
+    <slot />
+  </div>
+)}
 
 <style>
   .table-wrapper {

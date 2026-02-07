@@ -28,6 +28,17 @@ const lessons = defineCollection({
   }),
 });
 
+const surahs = defineCollection({
+  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/surahs' }),
+  schema: z.object({
+    name: z.string(),
+    nameArabic: z.string(),
+    surahNumber: z.number().int().min(1).max(114),
+    verseCount: z.number().int().positive(),
+    difficulty: z.enum(['beginner', 'intermediate', 'advanced']),
+  }),
+});
+
 const resources = defineCollection({
   loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/resources' }),
   schema: z.object({
@@ -39,5 +50,6 @@ const resources = defineCollection({
 
 export const collections = {
   lessons,
+  surahs,
   resources,
 };

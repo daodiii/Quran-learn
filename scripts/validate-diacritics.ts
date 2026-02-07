@@ -85,6 +85,9 @@ function extractArabicSegments(content: string): Array<{ text: string; line: num
     // Remove JSX expressions {content}
     processedLine = processedLine.replace(/\{[^}]*\}/g, '');
 
+    // Remove markdown link URLs — slugs can't carry diacritics
+    processedLine = processedLine.replace(/\]\([^)]*\)/g, ']');
+
     // Find Arabic text
     const arabicMatches = processedLine.match(/[\u0600-\u06FF\u0750-\u077F\uFB50-\uFDFF\uFE70-\uFEFF]+/g);
 
