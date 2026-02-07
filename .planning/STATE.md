@@ -5,23 +5,23 @@
 See: .planning/PROJECT.md (updated 2026-02-06)
 
 **Core value:** Make learning Quranic Arabic grammar accessible and engaging through beautiful, intuitive design
-**Current focus:** Phase 15 COMPLETE — Level 4 Advanced Lessons (9/9 plans executed, 17 lessons created). Ready for Phase 16.
+**Current focus:** Phase 16 COMPLETE — Level 5 Applied Study Lessons (9/9 plans executed, 16 lessons created, 8947 lines). 73-lesson curriculum COMPLETE. Ready for Phase 17 (QA & Validation).
 
 ## Current Position
 
-Phase: 16 of 17 (Level 5 Applied Study Lessons) — IN PROGRESS
-Plan: 4 of 9 complete
-Status: Phase 16 in progress — complete passage analysis lessons created (Al-Fatiha 7-verse analysis, Ayat al-Kursi 11-clause analysis)
-Last activity: 2026-02-07 — Completed 16-02-PLAN.md: L5.02 Al-Fatiha + L5.03 Ayat al-Kursi (1641 lines, iltifat, taqdim for qasr, genus-negating lā, five-stage progression)
+Phase: 16 of 17 (Level 5 Applied Study Lessons) — COMPLETE
+Plan: 9 of 9 complete
+Status: Phase 16 complete — all 16 Level 5 lessons created. Full 73-lesson Quranic Arabic Grammar curriculum authored.
+Last activity: 2026-02-07 — Completed 16-09-PLAN.md: L5.15 Nahw Synthesis + L5.16 Sarf Synthesis (course finale, 750 lines, master reference tables, course completion celebration)
 
-Progress: [███████████████████░] 97% (71/73 estimated total plans)
+Progress: [████████████████████] 100% (80/80 total plans)
 
 ## Performance Metrics
 
 **Velocity (updated):**
-- Total plans completed: 71
-- Average duration: 8.74 min
-- Total execution time: 10.34 hours
+- Total plans completed: 80
+- Average duration: 8.6 min
+- Total execution time: 11.5 hours
 
 **By Phase:**
 
@@ -35,11 +35,11 @@ Progress: [███████████████████░] 97% (71
 | 13 | 6 | 93.3min | 15.6 min |
 | 14 | 8 | 90.4min | 11.3 min |
 | 15 | 9 | 101.4min | 11.3 min |
-| 16 | 4 | 44.2min | 11.05 min |
+| 16 | 9 | 104.2min | 11.6 min |
 
 **Recent Trend:**
-- Last 5 plans: [15-07: 10min, 15-09: 13.2min, 16-01: 10min, 16-03: 10.6min, 16-02: 13min]
-- Trend: Phase 16 passage analysis complete (16-02: 13min, 1641 lines). L5.02 Al-Fatiha: 7-verse surah analysis with grammatical progression (nominal→verbal, third→second person, iltifat, taqdim for exclusivity). L5.03 Ayat al-Kursi: 11-clause single-verse analysis with genus-negating lā, five-stage theological progression (identity→perfection→ownership→authority→power), negation-first approach.
+- Last 5 plans: [16-05: ~10min, 16-06: ~12min, 16-07: ~12min, 16-08: ~12min, 16-09: ~12min]
+- Trend: Phase 16 COMPLETE. All 16 Level 5 lessons created (8947 total lines). 73-lesson curriculum fully authored. Pattern recognition (L5.06-08), narrative grammar (L5.09-11), applied rhetoric (L5.12-14), and synthesis capstones (L5.15-16) all complete.
 
 *Updated after each plan completion*
 
@@ -203,6 +203,23 @@ Recent decisions affecting v1.1 work:
 - Comparative surah analysis methodology for natural pairs: Al-Falaq & An-Nas analyzed together showing parallel structures with meaningful variations (16-03)
 - Grammar-content connection demonstrated: active participles for temporal/intermittent threats, intensive patterns for persistent/relentless threats (16-03)
 - Al-Ikhlas scholarly debate (ḍamīr al-sha'n) presented as advanced callout showing multiple valid interpretations without privileging one (16-03)
+- 4-step pattern recognition method (identify, catalog, analyze function, compare) as transferable skill across all pattern lessons (16-04)
+- Du'a analyzed as distinct grammatical genre with three core patterns: imperative+pronoun, vocative, conditional+request (16-04)
+- Juz 'Amma over-generalization warning: patterns common in short Makkan surahs but longer Madinan surahs use different structures (16-04)
+- Three oath particles (waw, ba, ta al-qasam) always take genitive case — no exceptions (16-05)
+- Oath vs conjunction waw distinguished via position-based and case-based concrete tests (16-05)
+- Narrative grammar taught as 5-element toolkit: past tense dominance, dialogue markers, quoted speech, speaker shifts, temporal/conditional (16-06)
+- Ibrahim (simpler, 2 parties) → Musa (complex, 3+ parties) progression for narrative complexity (16-06)
+- Feminine verb markers (qaalat) demonstrate gender-based speaker tracking (16-06)
+- Four dialogue types classified by grammatical structure: narrative qaala, divine command qul, prophetic address ya ayyuha, eschatological yaquulu (16-07)
+- Three parallelism types: structural (same pattern, different content), refrain (exact repetition), antithetical (parallel contrasts) (16-07)
+- Ar-Rahman refrain dual form (kumaa/tukadhdhibaan) addresses both jinn and humans simultaneously (16-07)
+- Seven interrogative particles with grammatical effects, not just translations (16-08)
+- Three rhetorical question types: istifham inkari (denial), taqriri (affirmation), ta'ajjubi (astonishment) (16-08)
+- Four taqdim types: object fronting (exclusivity), predicate fronting (ownership), adverbial fronting (location), subject delay (16-08)
+- 30/70 guided-to-independent ratio for capstone synthesis lessons (maximum learner independence) (16-09)
+- Root ع-ل-م chosen for sarf synthesis tracing through 10 derived forms (most common educational root) (16-09)
+- Course completion celebration includes milestones for all 5 levels + journey reflection + practical next steps (16-09)
 
 ### Pending Todos
 
@@ -226,7 +243,7 @@ None.
 
 ## Session Continuity
 
-Last session: 2026-02-07 14:43:50Z
-Stopped at: Completed 16-03-PLAN.md — L5.04 Surah Al-Ikhlas + L5.05 Al-Falaq & An-Nas (short surah analysis complete: ring composition, taqdim, comparative synthesis, 1333 lines)
+Last session: 2026-02-07
+Stopped at: Phase 16 COMPLETE — all 9 plans executed, 16 Level 5 lessons created (8947 lines), 73-lesson curriculum fully authored
 Resume file: None
-Next: Continue Phase 16 execution (L5.06+ applied analysis lessons)
+Next: Phase 17 (QA & Validation) — plan and execute cross-lesson quality assurance

@@ -211,7 +211,7 @@ Plans:
 
 ---
 
-#### Phase 16: Level 5 Applied Study Lessons
+#### ✅ Phase 16: Level 5 Applied Study Lessons
 
 **Goal:** Create 16 Applied Study lessons teaching full verse analysis, pattern recognition, and surah analysis with minimal transliteration and synthesis of all concepts.
 
@@ -220,24 +220,24 @@ Plans:
 **Requirements:** LSSN-05, LSSN-06, LSSN-07, LSSN-08, LSSN-09, LSSN-10, LSSN-11, PDGY-01, PDGY-02, PDGY-03, PDGY-04, PDGY-05, PDGY-06, PDGY-07, PDGY-08
 
 **Success Criteria** (what must be TRUE):
-1. 16 Level 5 lessons exist covering full verse analysis, pattern recognition, and surah analysis
-2. All Arabic text is fully vocalized with diacritics
-3. Each lesson demonstrates synthesis of grammar concepts across entire verses or passages
-4. Each lesson provides 3-4 practice exercises with answer reveals
-5. All lessons focus on one major concept to avoid cognitive overload
+1. ✅ 16 Level 5 lessons exist covering full verse analysis, pattern recognition, and surah analysis
+2. ✅ All Arabic text is fully vocalized with diacritics
+3. ✅ Each lesson demonstrates synthesis of grammar concepts across entire verses or passages
+4. ✅ Each lesson provides 3-4 practice exercises with answer reveals
+5. ✅ All lessons focus on one major concept to avoid cognitive overload
 
 **Plans:** 9 plans
 
 Plans:
-- [ ] 16-01-PLAN.md — L5.01 Full I'rab Analysis Method (foundation)
-- [ ] 16-02-PLAN.md — L5.02-03 Analyzing Al-Fatiha & Ayat al-Kursi
-- [ ] 16-03-PLAN.md — L5.04-05 Analyzing Al-Ikhlas & Al-Falaq/An-Nas
-- [ ] 16-04-PLAN.md — L5.06-07 Juz 'Amma Patterns & Du'a Patterns
-- [ ] 16-05-PLAN.md — L5.08 Oath Formulas in the Quran
-- [ ] 16-06-PLAN.md — L5.09-10 Prophet Ibrahim & Musa Narratives
-- [ ] 16-07-PLAN.md — L5.11-12 Dialogue Patterns & Parallelism/Repetition
-- [ ] 16-08-PLAN.md — L5.13-14 Rhetorical Questions & Word Order/Emphasis
-- [ ] 16-09-PLAN.md — L5.15-16 Nahw Synthesis & Sarf Synthesis (course completion)
+- [x] 16-01-PLAN.md — L5.01 Full I'rab Analysis Method (foundation)
+- [x] 16-02-PLAN.md — L5.02-03 Analyzing Al-Fatiha & Ayat al-Kursi
+- [x] 16-03-PLAN.md — L5.04-05 Analyzing Al-Ikhlas & Al-Falaq/An-Nas
+- [x] 16-04-PLAN.md — L5.06-07 Juz 'Amma Patterns & Du'a Patterns
+- [x] 16-05-PLAN.md — L5.08 Oath Formulas in the Quran
+- [x] 16-06-PLAN.md — L5.09-10 Prophet Ibrahim & Musa Narratives
+- [x] 16-07-PLAN.md — L5.11-12 Dialogue Patterns & Parallelism/Repetition
+- [x] 16-08-PLAN.md — L5.13-14 Rhetorical Questions & Word Order/Emphasis
+- [x] 16-09-PLAN.md — L5.15-16 Nahw Synthesis & Sarf Synthesis (course completion)
 
 ---
 
@@ -284,9 +284,9 @@ Plans:
 | 13. Level 2 Core Grammar | v1.1 | 6/6 | Complete | 2026-02-07 |
 | 14. Level 3 Intermediate | v1.1 | 9/9 | Complete | 2026-02-07 |
 | 15. Level 4 Advanced | v1.1 | 9/9 | Complete | 2026-02-07 |
-| 16. Level 5 Applied Study | v1.1 | 0/9 | Planned | - |
+| 16. Level 5 Applied Study | v1.1 | 9/9 | Complete | 2026-02-07 |
 | 17. QA & Validation | v1.1 | 0/TBD | Not started | - |
 
 ---
 
-*Last updated: 2026-02-07 after Phase 15 planning complete*
+*Last updated: 2026-02-07 after Phase 16 complete — 73-lesson curriculum fully authored*
