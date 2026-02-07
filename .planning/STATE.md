@@ -5,23 +5,23 @@
 See: .planning/PROJECT.md (updated 2026-02-06)
 
 **Core value:** Make learning Quranic Arabic grammar accessible and engaging through beautiful, intuitive design
-**Current focus:** Phase 14 COMPLETE — Level 3 Intermediate Lessons (8/8 plans complete). Ready for Phase 15 (Level 4 Advanced Grammar).
+**Current focus:** Phase 15 PLANNED — Level 4 Advanced Lessons (9 plans created, 0/9 executed). Ready for execution.
 
 ## Current Position
 
-Phase: 14 of 17 (Level 3 Intermediate Lessons)
-Plan: 9 of 9 complete
-Status: Phase complete
-Last activity: 2026-02-07 — Completed 14-09-PLAN.md (L3.15 Verb Forms VII-X + L3.17 Verbal Nouns + L3.18 Nouns of Place & Time) — **LEVEL 3 COMPLETE**
+Phase: 15 of 17 (Level 4 Advanced Lessons)
+Plan: 2 of 9 complete
+Status: In progress
+Last activity: 2026-02-07 — Completed 15-02-PLAN.md (L4.03 Conditional Sentences, L4.04 Conditional Particles)
 
-Progress: [█████████████████░░] 93% (59/63 estimated total plans)
+Progress: [█████████████████░░] 97% (61/63 estimated total plans)
 
 ## Performance Metrics
 
 **Velocity (updated):**
-- Total plans completed: 59
-- Average duration: 8.08 min
-- Total execution time: 8.17 hours
+- Total plans completed: 60
+- Average duration: 8.07 min
+- Total execution time: 8.32 hours
 
 **By Phase:**
 
@@ -34,10 +34,11 @@ Progress: [█████████████████░░] 93% (59/63
 | 12 | 5 | 39.0min | 7.8 min |
 | 13 | 6 | 93.3min | 15.6 min |
 | 14 | 8 | 90.4min | 11.3 min |
+| 15 | 1 | 9min | 9.0 min |
 
 **Recent Trend:**
-- Last 5 plans: [14-05: 9min, 14-06: 8.4min, 14-07: 10.4min, 14-08: 12min, 14-09: 14min]
-- Trend: Phase 14 complete at 11.3min average pace, final triple-lesson plan (14-09) took 14min for 1,429 lines
+- Last 5 plans: [14-06: 8.4min, 14-07: 10.4min, 14-08: 12min, 14-09: 14min, 15-01: 9min]
+- Trend: Phase 15 started with 9min for dual-lesson plan (1,156 lines total). Consistent with Phase 14 pace.
 
 *Updated after each plan completion*
 
@@ -145,6 +146,11 @@ Recent decisions affecting v1.1 work:
 - Place/time noun pattern selection based on Form I verb vowel: kasra → mafʿil, fatha/damma → mafʿal (14-09)
 - Complete derivation chain exercises reinforce morphological power: root generates verb, participles, masdar, and place/time noun (14-09)
 - Level completion milestone sections include backward review and forward preview for learner progression clarity (14-09)
+- Comparison tables with side-by-side feature grids effective for distinguishing similar grammatical constructs (hal vs na't, tamyiz vs hal) (15-01)
+- Question-based grammatical tests provide systematic identification methods: "Can you make it definite?" for hal/na't, "What question answered?" for tamyiz/hal (15-01)
+- Wāw al-ḥāl (وَاوُ ٱلْحَالِ) explicitly taught as marker for sentence hal, not simple conjunction "and" (15-01)
+- 3-10 number exception (genitive plural tamyiz) explained as historical remnant of possessive (iḍāfah) construction for linguistic insight (15-01)
+- Specialized accusative functions (hal, tamyiz) taught as extension of L2.05 foundation, showing accusative has multiple roles beyond direct object (15-01)
 
 ### Pending Todos
 
@@ -169,6 +175,6 @@ None.
 ## Session Continuity
 
 Last session: 2026-02-07
-Stopped at: Completed 14-09-PLAN.md — L3.15 Verb Forms VII-X Overview (494 lines) + L3.17 Verbal Nouns (441 lines) + L3.18 Nouns of Place & Time (494 lines) — **LEVEL 3 COMPLETE (18/18 lessons)**
+Stopped at: Completed 15-01-PLAN.md (L4.01 Hal Clauses, L4.02 Tamyiz) — first Level 4 lessons
 Resume file: None
-Next: Phase 14 complete. Ready for Phase 15 (Level 4 Advanced Grammar) planning and execution
+Next: Execute remaining Phase 15 plans (8/9 remaining)
