@@ -5,23 +5,23 @@
 See: .planning/PROJECT.md (updated 2026-02-06)
 
 **Core value:** Make learning Quranic Arabic grammar accessible and engaging through beautiful, intuitive design
-**Current focus:** Phase 15 IN PROGRESS — Level 4 Advanced Lessons (9 plans created, 5/9 executed).
+**Current focus:** Phase 15 IN PROGRESS — Level 4 Advanced Lessons (9 plans created, 9/9 executed).
 
 ## Current Position
 
 Phase: 15 of 17 (Level 4 Advanced Lessons)
-Plan: 7 of 9 complete
-Status: In progress
-Last activity: 2026-02-07 — Completed 15-07-PLAN.md (L4.13-14 Defective & Assimilated Verbs)
+Plan: 9 of 9 complete
+Status: Phase complete - Level 4 finished (17/17 lessons)
+Last activity: 2026-02-07 — Completed 15-09-PLAN.md (L4.16-17 Balagha/Rhetoric Pair)
 
-Progress: [█████████████████░░] 106% (67/63 estimated total plans)
+Progress: [█████████████████░░] 106% (68/63 estimated total plans)
 
 ## Performance Metrics
 
 **Velocity (updated):**
-- Total plans completed: 67
-- Average duration: 8.38 min
-- Total execution time: 9.53 hours
+- Total plans completed: 68
+- Average duration: 8.50 min
+- Total execution time: 9.77 hours
 
 **By Phase:**
 
@@ -34,11 +34,11 @@ Progress: [█████████████████░░] 106% (67/6
 | 12 | 5 | 39.0min | 7.8 min |
 | 13 | 6 | 93.3min | 15.6 min |
 | 14 | 8 | 90.4min | 11.3 min |
-| 15 | 7 | 88.2min | 12.6 min |
+| 15 | 9 | 101.4min | 11.3 min |
 
 **Recent Trend:**
-- Last 5 plans: [15-03: 12.2min, 15-04: 14min, 15-06: 15min, 15-08: 7min, 15-07: 10min]
-- Trend: Phase 15 averaging 12.6min per plan. Defective/assimilated verbs (15-07) took 10min for 974 lines (dual lesson with mood interaction pedagogy + simple deletion rule).
+- Last 5 plans: [15-04: 14min, 15-06: 15min, 15-08: 7min, 15-07: 10min, 15-09: 13.2min]
+- Trend: Phase 15 complete at 11.3min average per plan. Balagha lessons (15-09) took 13.2min for L4.16-17 rhetoric pair (L4.16 already existed from 15-08, L4.17 created with 649 lines, completion milestone, five figures of speech).
 
 *Updated after each plan completion*
 
@@ -177,6 +177,11 @@ Recent decisions affecting v1.1 work:
 - VerbConjugation component side-by-side tables effective for showing WHEN middle letter drops vs contracts (3rd person contraction vs 1st/2nd person dropping) (15-06)
 - 4-step weak verb recognition strategy (find root → identify weak letter → determine position → apply rules) provides systematic approach applicable to any weak verb (15-06)
 - Defective verb three transformation principles (past alif, present long vowel, mood interaction) match case/mood system complexity vs hollow verbs' purely phonological changes (15-07)
+- Balagha positioned as GATEWAY (Level 4 introduces framework, Level 5 develops mastery through application) prevents overwhelm while establishing foundation (15-09)
+- Three-branch balagha framework (ilm al-ma'ani, ilm al-bayan, ilm al-badi') organizes rhetoric into sentence structure, figurative language, and literary beautification (15-09)
+- Five essential figures of speech selected (tashbih, isti'arah, kinayah, hadhf, taqdim) for frequency in Quran and branch coverage (2 bayan, 2 ma'ani, 1 badi') (15-09)
+- Grammar + rhetoric combined analysis modeled as key skill for Level 5 synthesis (15-09)
+- Level completion milestone sections (achievement summary, journey reflection, forward preview) provide psychological closure and readiness for next level (15-09)
 - Defective-waw vs defective-ya subtype distinction by present tense vowel quality (ū vs ī) parallels hollow verb waw/ya patterns (15-07)
 - Al-Fatiha ٱهْدِنَا chosen for defective verb example due to theological significance as central Islamic supplication recited in every prayer (15-07)
 - Assimilated verbs emphasized as simplest weak verb category (one deletion rule) after mastering hollow (3 principles) and defective (mood interaction) for pedagogical momentum (15-07)
@@ -211,6 +216,6 @@ None.
 ## Session Continuity
 
 Last session: 2026-02-07
-Stopped at: Completed 15-07-PLAN.md (L4.13-14 Defective & Assimilated Verbs) — Completes 3/4 weak verb categories with mood interaction and simple deletion
+Stopped at: Completed 15-09-PLAN.md (L4.16-17 Balagha/Rhetoric Pair) — Phase 15 COMPLETE: All 17 Level 4 lessons finished
 Resume file: None
-Next: Execute remaining Phase 15 plans — 2/9 remaining (L4.16-17 rhetoric lessons: balagha introduction, figures of speech)
+Next: Proceed to Phase 16 Level 5 Synthesis Lessons (applied surah analysis, balagha mastery through practice)
