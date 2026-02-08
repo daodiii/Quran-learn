@@ -6,6 +6,11 @@ verseCount: 8
 difficulty: "intermediate"
 ---
 
+import ArabicExample from '@components/mdx/ArabicExample.astro';
+import GrammarTable from '@components/mdx/GrammarTable.astro';
+import Callout from '@components/mdx/Callout.astro';
+import ExerciseBox from '@components/mdx/ExerciseBox.astro';
+
 # At-Tin (The Fig)
 
 ## Overview
@@ -13,200 +18,393 @@ difficulty: "intermediate"
 - **Revelation:** Meccan
 - **Verses:** 8
 - **Theme:** Allah swears by sacred fruits and places (the fig, the olive, Mount Sinai, and Mecca), affirming that humans were created in the best form but can descend to the lowest state, except those who believe and do righteous deeds.
-- **Grammar Focus:** Oath constructions with wa (وَ), superlative forms (aḥsan, asfal), conditional exception with illa (إِلَّا), and past tense Divine creative acts.
+- **Grammar Focus:** Oath constructions with وَ (wa al-qasam), لَقَدْ as oath answer (jawab al-qasam), elative/superlative forms (أَحْسَن, أَسْفَل, أَحْكَم), exception with إِلَّا, لَيْسَ with extra بِ for emphasis, badal (apposition), fronted khabar for emphasis
+
+### Structural Overview
+
+<GrammarTable>
+| Verse | Arabic | Sentence Type | Key Grammar | Message |
+|-------|--------|---------------|-------------|---------|
+| 1 | وَالتِّينِ وَالزَّيْتُونِ | Oath formula | وَ oath particle + genitive | Sacred oath by fig and olive |
+| 2 | وَطُورِ سِينِينَ | Oath formula (continued) | Idafa construction | Sacred oath by Mount Sinai |
+| 3 | وَهَـٰذَا الْبَلَدِ الْأَمِينِ | Oath formula (continued) | Demonstrative + badal + adjective | Sacred oath by Mecca |
+| 4 | لَقَدْ خَلَقْنَا الْإِنسَانَ فِي أَحْسَنِ تَقْوِيمٍ | Verbal (jawab al-qasam) | لَقَدْ + elative + idafa | Human created in best form |
+| 5 | ثُمَّ رَدَدْنَاهُ أَسْفَلَ سَافِلِينَ | Verbal (past tense) | Elative + active participle plural | Returned to lowest state |
+| 6 | إِلَّا الَّذِينَ آمَنُوا وَعَمِلُوا الصَّالِحَاتِ | Exception clause | إِلَّا + relative clause + fronted khabar | Believers excepted from degradation |
+| 7 | فَمَا يُكَذِّبُكَ بَعْدُ بِالدِّينِ | Verbal (interrogative) | Form II verb + rhetorical مَا | Rhetorical challenge to deniers |
+| 8 | أَلَيْسَ اللَّهُ بِأَحْكَمِ الْحَاكِمِينَ | Nominal (laysa) | لَيْسَ + extra بِ + elative | Rhetorical affirmation of Allah's justice |
+</GrammarTable>
+
+<Callout type="tip" title="The Surah of Three Superlatives">
+At-Tin contains three elative/superlative forms, each from the أَفْعَل pattern: أَحْسَنِ تَقْوِيمٍ (best of forms — verse 4), أَسْفَلَ سَافِلِينَ (lowest of the low — verse 5), and أَحْكَمِ الْحَاكِمِينَ (most just of judges — verse 8). These three superlatives trace the surah's entire argument: humans start at the *highest* point (best form), can fall to the *lowest* point (lowest of low), and will be judged by the *most just* Judge. The grammar itself maps the theological arc — from creation's peak to potential ruin to ultimate accountability.
+</Callout>
 
 ## Verse-by-Verse Analysis
 
 ### Verse 1
 
-**Arabic:** وَالتِّينِ وَالزَّيْتُونِ
-
-**Translation:** "By the fig and the olive"
+<ArabicExample
+  arabic="وَالتِّينِ وَالزَّيْتُونِ"
+  transliteration="wa-l-tīni wa-l-zaytūni"
+  translation="By the fig and the olive"
+  reference="At-Tin 95:1"
+  highlight="وَالتِّينِ"
+/>
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | وَ | wa | - | Particle - oath | Not declinable (mabni), introduces oath | By |
-| 2 | التِّينِ | al-tīni | ت ي ن | Noun - masculine, singular, definite | Object of oath (maqsam bihi) - genitive (majrūr) after wa | The fig |
+| 2 | التِّينِ | al-tīni | ت ي ن | Noun - masculine, singular, definite | Object of oath (maqsam bihi) - genitive (majrur) after wa | The fig |
 | 3 | وَ | wa | - | Particle - oath | Not declinable (mabni) | And by |
-| 4 | الزَّيْتُونِ | al-zaytūni | ز ي ت | Noun - masculine, singular, definite | Object of oath (maqsam bihi) - genitive (majrūr) after wa | The olive |
+| 4 | الزَّيْتُونِ | al-zaytūni | ز ي ت | Noun - masculine, singular, definite | Object of oath (maqsam bihi) - genitive (majrur) after wa | The olive |
+</GrammarTable>
 
-#### Grammar Notes
-- **wa oath particle**: Different from coordinating wa; introduces oath formula (qasam)
-- **al-tīn and al-zaytūn**: Definite articles indicate specific, known items (may refer to the fruits themselves or the regions where they grow)
-- **Genitive after wa oath**: Objects of oath take genitive case (kasra)
-- **Deleted oath answer**: The actual answer to the oath (jawāb al-qasam) comes in verse 4
+<Callout type="rule" title="وَ al-Qasam: The Oath Wa vs. the Conjunction Wa">
+The وَ in this verse is NOT the coordinating conjunction (حَرْف عَطْف) meaning "and." It is the oath particle (واو القَسَم), meaning "by." How to tell the difference: (1) the oath وَ takes a genitive noun directly after it, (2) it appears at the beginning of a sentence, and (3) an oath answer (جَوَاب القَسَم) follows later. After the first oath وَ, the second وَ could be either another oath or a coordinating conjunction linking two objects of the same oath. Both analyses are valid — the grammatical effect (genitive case) is the same.
+</Callout>
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** The oath وَ is a particle of oath (حَرْف قَسَم) that governs the following noun in the genitive case. التِّينِ is genitive (مَجْرُور) with kasra as the sign of genitive. The second وَ introduces الزَّيْتُونِ, also genitive. The answer to this oath (جَوَاب القَسَم) is delayed until verse 4, introduced by لَقَدْ. This creates a multi-verse build-up: four oath elements before the answer.
+
+**Sarf (Morphology):** التِّينِ is from root ت-ي-ن on the فِعْل pattern. الزَّيْتُونِ is from root ز-ي-ت on the فَيْعُول pattern — an augmented form with extra letters (ـون). The definite articles (الـ) are sun-letter assimilated: الـ + ت → التّ (shadda on ta), الـ + ز → الزّ (shadda on za).
+
+**Balagha (Rhetoric):** Opening with an oath by fruits is striking and unusual. Allah swears by His creation to draw attention to the oath's answer. The fig and olive represent either the fruits themselves (signs of Divine provision) or the lands associated with them (Palestine/Sham where these grow abundantly, connecting to the prophetic tradition). Pairing two oath elements in one verse creates rhythm and establishes the pattern that will continue in verses 2-3. The definite articles make these specific, known entities — not just any fig and olive, but *the* fig and *the* olive.
 
 ### Verse 2
 
-**Arabic:** وَطُورِ سِينِينَ
-
-**Translation:** "And [by] Mount Sinai"
+<ArabicExample
+  arabic="وَطُورِ سِينِينَ"
+  transliteration="wa-ṭūri sīnīna"
+  translation="And [by] Mount Sinai"
+  reference="At-Tin 95:2"
+  highlight="طُورِ سِينِينَ"
+/>
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | وَ | wa | - | Particle - oath | Not declinable (mabni) | And by |
-| 2 | طُورِ | ṭūri | ط و ر | Noun - masculine, singular, construct state | Object of oath (maqsam bihi) - genitive (majrūr), first part of iḍāfa | Mount |
-| 3 | سِينِينَ | sīnīna | س ن ن | Proper noun - place name, indeclinable | Second part of iḍāfa - genitive in meaning (majrūr maḥallan) | Sinai |
+| 2 | طُورِ | ṭūri | ط و ر | Noun - masculine, singular, construct state | Object of oath (maqsam bihi) - genitive (majrur), first part of idafa | Mount |
+| 3 | سِينِينَ | sīnīna | س ن ن | Proper noun - place name, indeclinable | Second part of idafa - genitive in meaning (majrur mahallan) | Sinai |
+</GrammarTable>
 
-#### Grammar Notes
-- **ṭūr construct state**: Forms iḍāfa (possessive construction) with Sīnīn
-- **sīnīna proper noun**: Refers to Mount Sinai where Musa (Moses) received revelation
-- **Continuing oath sequence**: Third element in the series of oaths
+<Callout type="tip" title="Idafa with Proper Nouns: طُورِ سِينِينَ">
+طُورِ سِينِينَ is an idafa (possessive construction) where the first element (طُور, mount) is in the genitive (kasra) due to the oath particle, and the second element (سِينِين) is in the genitive as mudaf ilayh. سِينِين is a non-Arabic proper noun (foreign name), which makes it indeclinable (مَمْنُوع مِنَ الصَّرْف) — it does not take tanwin. Its genitive is indicated by position (مَحَلًّا مَجْرُور) rather than by a visible case ending. This idafa pattern (common noun + proper place name) also appears in: بَيْت اللَّهِ (House of Allah), مَسْجِد الحَرَام (Sacred Mosque).
+</Callout>
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** The third oath element. وَ is again the oath particle. طُورِ is genitive (مَجْرُور) after the oath وَ, and simultaneously the first part of an idafa with سِينِينَ. In construct state (مُضَاف), طُورِ loses any potential tanwin or definite article. سِينِينَ is the mudaf ilayh (second part of idafa) in genitive position.
+
+**Sarf (Morphology):** طُورِ is from root ط-و-ر on the فُعْل pattern, meaning "mount, mountain." The word is used specifically for certain sacred mountains in the Quran. سِينِينَ is a variant of سِينَاء (Sinai), possibly preserving an older Semitic form. The ـِينَ ending resembles a sound masculine plural, but this is a proper noun, not a plural.
+
+**Balagha (Rhetoric):** Mount Sinai is where Musa received the Torah — invoking it connects the oath to prophetic revelation. The oath sequence is building geographically: the fig and olive (associated with Palestine/Sham), Mount Sinai (associated with Musa in Egypt/Sinai), and the next verse will bring Mecca. These three sacred locations represent three major revelations: the prophets of Sham, Musa's Torah, and Muhammad's Quran. The oath thus spans the entire prophetic tradition, grounding the surah's claim about human nature in the authority of all divine revelations.
 
 ### Verse 3
 
-**Arabic:** وَهَـٰذَا الْبَلَدِ الْأَمِينِ
-
-**Translation:** "And [by] this secure city"
+<ArabicExample
+  arabic="وَهَـٰذَا الْبَلَدِ الْأَمِينِ"
+  transliteration="wa-hādhā l-baladi l-amīni"
+  translation="And [by] this secure city"
+  reference="At-Tin 95:3"
+  highlight="هَـٰذَا,الْأَمِينِ"
+/>
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | وَ | wa | - | Particle - oath | Not declinable (mabni) | And by |
 | 2 | هَـٰذَا | hādhā | - | Demonstrative pronoun - masculine, singular, near | Object of oath (maqsam bihi) - genitive in place (mahall jarr) | This |
-| 3 | الْبَلَدِ | al-baladi | ب ل د | Noun - masculine, singular, definite | Clarification (badal) of hādhā - genitive (majrūr) | The city/land |
-| 4 | الْأَمِينِ | al-amīni | أ م ن | Adjective - masculine, singular, definite | Adjective (na't) of al-balad - genitive (majrūr) | The secure/safe |
+| 3 | الْبَلَدِ | al-baladi | ب ل د | Noun - masculine, singular, definite | Clarification (badal) of hadha - genitive (majrur) | The city/land |
+| 4 | الْأَمِينِ | al-amīni | أ م ن | Adjective - masculine, singular, definite | Adjective (na't) of al-balad - genitive (majrur) | The secure/safe |
+</GrammarTable>
 
-#### Grammar Notes
-- **hādhā demonstrative**: Points to a known, present city (Mecca)
-- **al-balad badal**: Functions as clarification/substitute explaining what "this" refers to
-- **al-amīn adjective**: Pattern fa'īl (intensive/characteristic), describes the intrinsic safety of Mecca
-- **Fourth oath element**: Completes the oath sequence before the answer
+<Callout type="rule" title="Badal (Apposition): هَـٰذَا الْبَلَدِ">
+الْبَلَدِ functions as a badal (بَدَل — apposition/substitution) for هَـٰذَا. Badal is a grammatical relationship where a second noun clarifies or replaces the first. Here, "this" is vague — "this what?" The answer: "this city." The badal takes the same grammatical position as what it replaces — since هَـٰذَا is in the genitive position (after the oath وَ), الْبَلَدِ is also genitive. Badal differs from an adjective (na't): an adjective describes a quality, while badal identifies or specifies. الْأَمِينِ is then an adjective of الْبَلَدِ, not of هَـٰذَا.
+</Callout>
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** The fourth and final oath element. هَـٰذَا is a demonstrative pronoun (اسم إشارة) in genitive position (مَحَلًّا مَجْرُور) after the oath وَ. Since demonstratives are indeclinable (مَبْنِي), the genitive is positional, not visible. الْبَلَدِ is badal (بَدَل) for هَـٰذَا, taking genitive case with kasra. الْأَمِينِ is an adjective (نَعْت) of الْبَلَدِ, matching it in case (genitive), gender (masculine), number (singular), and definiteness (definite with الـ).
+
+**Sarf (Morphology):** الْبَلَدِ is from root ب-ل-د on the فَعَل pattern, meaning "land, town, city." الْأَمِينِ is from root أ-م-ن on the فَعِيل pattern, which typically indicates a permanent, characteristic quality. فَعِيل can function as either an adjective (describing a quality) or a passive participle equivalent (meaning "the one made safe"). Here it means "inherently secure" — safety is a defining characteristic of Mecca.
+
+**Balagha (Rhetoric):** Using the demonstrative هَـٰذَا ("this") instead of just saying مَكَّة (Mecca) creates immediacy — as if pointing at the city. This implies the surah was revealed while the Prophet was *in* Mecca, making the oath personal and present. Calling Mecca الْأَمِين (the secure) invokes its status as a sacred sanctuary (حَرَم) where violence is forbidden. The four oath elements now form a complete prophetic geography, and the listener waits in anticipation for the answer: what truth requires all these sacred witnesses?
 
 ### Verse 4
 
-**Arabic:** لَقَدْ خَلَقْنَا الْإِنسَانَ فِي أَحْسَنِ تَقْوِيمٍ
-
-**Translation:** "We have certainly created mankind in the best of forms"
+<ArabicExample
+  arabic="لَقَدْ خَلَقْنَا الْإِنسَانَ فِي أَحْسَنِ تَقْوِيمٍ"
+  transliteration="laqad khalaqnā l-insāna fī aḥsani taqwīmin"
+  translation="We have certainly created mankind in the best of forms"
+  reference="At-Tin 95:4"
+  highlight="لَقَدْ,أَحْسَنِ تَقْوِيمٍ"
+/>
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | لَقَدْ | laqad | - | Particle - emphasis + lam of oath answer | Not declinable (mabni) | Certainly/indeed |
-| 2 | خَلَقْنَا | khalaqnā | خ ل ق | Verb - Form I, past, 1st person plural | Past verb (mabni), subject pronoun (nā) attached | We created |
-| 3 | الْإِنسَانَ | al-insāna | أ ن س | Noun - masculine, singular, definite | Direct object (maf'ūl bihi) - accusative (manṣūb) | The human/mankind |
+| 2 | خَلَقْنَا | khalaqnā | خ ل ق | Verb - Form I, past, 1st person plural | Past verb (mabni), subject pronoun (na) attached | We created |
+| 3 | الْإِنسَانَ | al-insāna | أ ن س | Noun - masculine, singular, definite | Direct object (maf'ul bihi) - accusative (mansub) | The human/mankind |
 | 4 | فِي | fī | - | Particle - preposition | Not declinable (mabni) | In |
-| 5 | أَحْسَنِ | aḥsani | ح س ن | Noun - elative/superlative, masculine, construct state | Object of preposition (majrūr), first part of iḍāfa | Best |
-| 6 | تَقْوِيمٍ | taqwīmin | ق و م | Noun - masculine, singular, indefinite | Second part of iḍāfa - genitive (majrūr) with tanwin | Form/proportioning |
+| 5 | أَحْسَنِ | aḥsani | ح س ن | Noun - elative/superlative, masculine, construct state | Object of preposition (majrur), first part of idafa | Best |
+| 6 | تَقْوِيمٍ | taqwīmin | ق و م | Noun - masculine, singular, indefinite | Second part of idafa - genitive (majrur) with tanwin | Form/proportioning |
+</GrammarTable>
 
-#### Grammar Notes
-- **laqad oath answer**: La- is the lam of the oath answer (lam al-qasam), qad emphasizes completion
-- **khalaqnā Divine action**: Past tense indicating completed creation
-- **aḥsan superlative**: Elative form (af'al pattern) meaning "best" or "most excellent"
-- **taqwīm verbal noun**: From Form II (qawwama), meaning "making upright, proportioning"
-- **fī aḥsani taqwīm**: Idiomatic phrase meaning "in the most excellent proportions/form"
+<Callout type="rule" title="لَقَدْ: The Oath Answer Formula">
+لَقَدْ consists of two particles: لَ (lam al-qasam — the lam of the oath answer) + قَدْ (emphasis/completion particle). Together they signal: "This is the answer to the oath, and it is absolutely certain." The لَ connects back to the four oath elements in verses 1-3 — everything those sacred places and fruits testified to culminates in this statement. قَدْ before a past tense verb emphasizes completion and certainty: "We *have indeed* created." This formula appears across the Quran whenever a multi-element oath is answered.
+</Callout>
+
+<Callout type="tip" title="The Elative أَحْسَن in Idafa: 'Best of Forms'">
+أَحْسَنِ is an elative (اسم تفضيل) on the أَفْعَل pattern from root ح-س-ن (to be beautiful/good). When an elative is the first part of an idafa, it functions as a superlative: أَحْسَنِ تَقْوِيمٍ = "the best of forms/proportions." The mudaf ilayh (تَقْوِيمٍ) is a verbal noun (مَصْدَر) from Form II verb قَوَّمَ (to make upright, to proportion). The entire phrase فِي أَحْسَنِ تَقْوِيمٍ means "in the best possible proportioning" — referring to both physical and spiritual perfection.
+</Callout>
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** This verse is the jawab al-qasam (جَوَاب القَسَم) — the answer to the four oath elements. لَقَدْ introduces the answer emphatically. خَلَقْنَا is a past tense verb with attached subject pronoun نَا. الْإِنسَانَ is the direct object (مَفْعُول بِهِ) in the accusative. فِي أَحْسَنِ تَقْوِيمٍ is a prepositional phrase indicating the manner/state of creation. أَحْسَنِ is in construct state (مُضَاف) with تَقْوِيمٍ (مُضَاف إِلَيْهِ, genitive with tanwin).
+
+**Sarf (Morphology):** خَلَقْنَا is Form I from root خ-ل-ق (to create). الْإِنسَان is from root أ-ن-س on the إِفْعَال pattern — the initial hamza is augmented. أَحْسَنِ follows the أَفْعَل elative pattern from root ح-س-ن. تَقْوِيمٍ is a verbal noun (مَصْدَر) of Form II verb قَوَّمَ, following the تَفْعِيل pattern — the standard masdar pattern for Form II.
+
+**Balagha (Rhetoric):** After four elements of sacred testimony, the answer is breathtaking in its scope: all of humanity was created in the best possible form. The use of الْإِنسَان (with definite article) means *the human species* — every human, without exception, was created in أَحْسَنِ تَقْوِيمٍ. This is not just physical beauty but complete proportioning: upright posture, rational intellect, spiritual capacity. The past tense خَلَقْنَا indicates a completed, established fact — this is not aspiration but reality. The preposition فِي ("in") suggests the human was placed *inside* this perfection, enveloped by it entirely.
 
 ### Verse 5
 
-**Arabic:** ثُمَّ رَدَدْنَاهُ أَسْفَلَ سَافِلِينَ
-
-**Translation:** "Then We returned him to the lowest of the low"
+<ArabicExample
+  arabic="ثُمَّ رَدَدْنَاهُ أَسْفَلَ سَافِلِينَ"
+  transliteration="thumma radadnāhu asfala sāfilīna"
+  translation="Then We returned him to the lowest of the low"
+  reference="At-Tin 95:5"
+  highlight="أَسْفَلَ سَافِلِينَ"
+/>
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | ثُمَّ | thumma | - | Particle - conjunction/sequence | Not declinable (mabni) | Then |
-| 2 | رَدَدْنَاهُ | radadnāhu | ر د د | Verb - Form I, past, 1st person plural + pronoun | Past verb (mabni), subject pronoun (nā), object pronoun (hu) in accusative | We returned him |
-| 3 | أَسْفَلَ | asfala | س ف ل | Noun - elative/superlative, masculine, construct state | Adverb of place (ẓarf makān) - accusative (manṣūb), or second object | Lowest |
-| 4 | سَافِلِينَ | sāfilīna | س ف ل | Noun - active participle, masculine, plural, indefinite | Second part of iḍāfa - genitive (majrūr) with yā (sound masculine plural ending) | Low ones/lower ones |
+| 2 | رَدَدْنَاهُ | radadnāhu | ر د د | Verb - Form I, past, 1st person plural + pronoun | Past verb (mabni), subject pronoun (na), object pronoun (hu) in accusative | We returned him |
+| 3 | أَسْفَلَ | asfala | س ف ل | Noun - elative/superlative, masculine, construct state | Adverb of place (zarf makan) - accusative (mansub), or second object | Lowest |
+| 4 | سَافِلِينَ | sāfilīna | س ف ل | Noun - active participle, masculine, plural, indefinite | Second part of idafa - genitive (majrur) with ya (sound masculine plural ending) | Low ones/lower ones |
+</GrammarTable>
 
-#### Grammar Notes
-- **thumma sequence**: Indicates temporal sequence or order, "then after that"
-- **radadnāhu double object**: Can take two objects - "We returned him (to) the lowest"
-- **asfal sāfilīn superlative construction**: "Lowest of the low" - Arabic uses construct state for superlative with plural
-- **Contrast with verse 4**: From "best form" to "lowest state" - referring to moral/spiritual degradation
-- **General vs. specific**: Verse 4 is general creation; verse 5 describes those who reject guidance
+<Callout type="rule" title="Elative in Idafa with Participle Plural: أَسْفَلَ سَافِلِينَ">
+أَسْفَلَ سَافِلِينَ demonstrates how Arabic forms superlatives using the elative (أَفْعَل) in idafa with a plural noun. أَسْفَلَ (lowest) is the first part of the idafa, and سَافِلِينَ (low ones) is the second part (genitive with ya as the sound masculine plural marker). The result means "the lowest of all low ones" — an absolute bottom. سَافِلِينَ is an active participle (اسم فاعل) from سَفَلَ (to be low), on the فَاعِل pattern, used here as a noun describing a category of beings.
+</Callout>
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** ثُمَّ is a conjunction indicating sequence with delay or contrast. رَدَدْنَاهُ is a past tense verb with two pronouns: نَا (subject, nominative position) and هُ (direct object, accusative position). أَسْفَلَ is in the accusative as either an adverb of place (ظَرْف مَكَان — "to the lowest place") or a second object (مَفْعُول بِهِ ثَانٍ) if رَدَّ is taken as a double-transitive verb. سَافِلِينَ is the mudaf ilayh of أَسْفَلَ, genitive with يَاء as the sign of genitive in sound masculine plurals.
+
+**Sarf (Morphology):** رَدَدْنَاهُ is from the geminate root ر-د-د (to return, restore). In Form I with attached pronouns, the two identical radicals remain separated: رَدَدْنَا (not رَدَّنَا). أَسْفَلَ follows the أَفْعَل elative pattern from root س-ف-ل. سَافِلِينَ is a sound masculine plural of the active participle سَافِل (فَاعِل pattern), with the genitive ending ـِينَ.
+
+**Balagha (Rhetoric):** The contrast with verse 4 is devastating. From أَحْسَنِ تَقْوِيمٍ (best of forms) to أَسْفَلَ سَافِلِينَ (lowest of the low) — from the absolute peak to the absolute pit. ثُمَّ (then) implies this fall was not immediate but gradual, making it more tragic. The verb رَدَّ (to return) suggests that the lowest state is a *return* — they were elevated but chose to descend. Both superlative phrases use the same grammatical construction (elative + idafa), making the parallel explicit: the same grammar that described perfection now describes degradation. The active participle سَافِلِينَ (those who are low) implies agency — these are beings *actively* being low, not merely placed there.
 
 ### Verse 6
 
-**Arabic:** إِلَّا الَّذِينَ آمَنُوا وَعَمِلُوا الصَّالِحَاتِ فَلَهُمْ أَجْرٌ غَيْرُ مَمْنُونٍ
-
-**Translation:** "Except for those who believe and do righteous deeds, for they will have a reward uninterrupted"
+<ArabicExample
+  arabic="إِلَّا الَّذِينَ آمَنُوا وَعَمِلُوا الصَّالِحَاتِ فَلَهُمْ أَجْرٌ غَيْرُ مَمْنُونٍ"
+  transliteration="illā lladhīna āmanū wa-ʿamilū l-ṣāliḥāti fa-lahum ajrun ghayru mamnūnin"
+  translation="Except for those who believe and do righteous deeds, for they will have a reward uninterrupted"
+  reference="At-Tin 95:6"
+  highlight="إِلَّا,غَيْرُ مَمْنُونٍ"
+/>
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | إِلَّا | illā | - | Particle - exception | Not declinable (mabni) | Except |
-| 2 | الَّذِينَ | alladhīna | - | Relative pronoun - masculine, plural | Excepted noun (mustathnā) - accusative place (mahall naṣb) | Those who |
-| 3 | آمَنُوا | āmanū | أ م ن | Verb - Form IV, past, 3rd person masculine plural | Past verb (mabni), subject pronoun (wāw) attached | They believed |
+| 2 | الَّذِينَ | alladhīna | - | Relative pronoun - masculine, plural | Excepted noun (mustathna) - accusative place (mahall nasb) | Those who |
+| 3 | آمَنُوا | āmanū | أ م ن | Verb - Form IV, past, 3rd person masculine plural | Past verb (mabni), subject pronoun (waw) attached | They believed |
 | 4 | وَ | wa | - | Particle - conjunction | Not declinable (mabni) | And |
-| 5 | عَمِلُوا | 'amilū | ع م ل | Verb - Form I, past, 3rd person masculine plural | Past verb (mabni), subject pronoun (wāw) attached | They did/worked |
-| 6 | الصَّالِحَاتِ | al-ṣāliḥāti | ص ل ح | Noun - active participle, feminine, plural, definite | Direct object (maf'ūl bihi) - accusative (manṣūb) with kasra (feminine plural) | The righteous deeds |
+| 5 | عَمِلُوا | ʿamilū | ع م ل | Verb - Form I, past, 3rd person masculine plural | Past verb (mabni), subject pronoun (waw) attached | They did/worked |
+| 6 | الصَّالِحَاتِ | al-ṣāliḥāti | ص ل ح | Noun - active participle, feminine, plural, definite | Direct object (maf'ul bihi) - accusative (mansub) with kasra (feminine plural) | The righteous deeds |
 | 7 | فَ | fa | - | Particle - conjunction/result | Not declinable (mabni) | So/then |
 | 8 | لَهُمْ | lahum | - | Particle + pronoun - preposition + attached pronoun | Preposition + pronoun in genitive place, fronted predicate (khabar muqaddam) | For them |
-| 9 | أَجْرٌ | ajrun | أ ج ر | Noun - masculine, singular, indefinite | Subject (mubtada' mu'akhkhar) - nominative (marfū') with tanwin | A reward |
-| 10 | غَيْرُ | ghayru | غ ي ر | Noun - adjective/exception, masculine, singular | Adjective (na't) of ajr - nominative (marfū') | Other than/not |
-| 11 | مَمْنُونٍ | mamnūnin | م ن ن | Noun - passive participle, masculine, singular, indefinite | Second part of iḍāfa - genitive (majrūr) with tanwin | Interrupted/limited |
+| 9 | أَجْرٌ | ajrun | أ ج ر | Noun - masculine, singular, indefinite | Subject (mubtada mu'akhkhar) - nominative (marfu') with tanwin | A reward |
+| 10 | غَيْرُ | ghayru | غ ي ر | Noun - adjective/exception, masculine, singular | Adjective (na't) of ajr - nominative (marfu') | Other than/not |
+| 11 | مَمْنُونٍ | mamnūnin | م ن ن | Noun - passive participle, masculine, singular, indefinite | Second part of idafa - genitive (majrur) with tanwin | Interrupted/limited |
+</GrammarTable>
 
-#### Grammar Notes
-- **illā exception**: Exceptions those described from the "lowest of the low" fate
-- **alladhīna relative clause**: Describes the characteristics of the excepted group
-- **āmanū wa 'amilū**: Standard Quranic pairing of faith and righteous action
-- **al-ṣāliḥāt feminine plural**: Grammatically feminine plural for deeds (a'māl)
-- **lahum fronted**: Prepositional phrase placed before subject for emphasis
-- **ghayr mamnūn double negative**: "Not interrupted" = continuous, eternal reward
-- **mamnūn from manna**: "To cut off, to weaken" - reward that is never diminished
+<Callout type="rule" title="Exception with إِلَّا: Rescuing Believers from the Fall">
+إِلَّا introduces an exception (اسْتِثْنَاء) from the general statement in verse 5. The preceding sentence said "We returned him to the lowest of the low" — إِلَّا carves out those who believe and do righteous deeds. الَّذِينَ is the excepted noun (مُسْتَثْنَى), in the accusative position. The exception is "connected" (مُتَّصِل) because the excepted group is part of the larger group (الْإِنسَان). This exception pattern — general negative statement + إِلَّا + specific positive group — is one of the most common structures in the Quran.
+</Callout>
+
+<Callout type="tip" title="Fronted Khabar: لَهُمْ أَجْرٌ">
+In the phrase فَلَهُمْ أَجْرٌ غَيْرُ مَمْنُونٍ, the prepositional phrase لَهُمْ is a fronted predicate (خَبَر مُقَدَّم), and أَجْرٌ is the delayed subject (مُبْتَدَأ مُؤَخَّر). Normal order would be: أَجْرٌ لَهُمْ (a reward is for them). By fronting لَهُمْ, the emphasis shifts to the *recipients* — "for *them* specifically is a reward." غَيْرُ مَمْنُونٍ (not interrupted) adds that this reward never ceases — a double negation creating emphatic affirmation of eternal reward.
+</Callout>
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** إِلَّا is a particle of exception. الَّذِينَ is the mustathna (excepted), in accusative position (مَحَلًّا مَنْصُوب). The relative clause آمَنُوا وَعَمِلُوا الصَّالِحَاتِ defines who is excepted. فَلَهُمْ أَجْرٌ is a new nominal sentence: لَهُمْ is the fronted khabar (خَبَر مُقَدَّم), and أَجْرٌ is the delayed mubtada (مُبْتَدَأ مُؤَخَّر). غَيْرُ is an adjective (نَعْت) for أَجْرٌ, nominative with damma. مَمْنُونٍ is the mudaf ilayh of غَيْرُ, genitive with tanwin.
+
+**Sarf (Morphology):** آمَنُوا is Form IV from root أ-م-ن (to believe) — the prefixed hamza and the sukun pattern identify Form IV. عَمِلُوا is Form I from root ع-م-ل. الصَّالِحَاتِ is the sound feminine plural of صَالِحَة (active participle from root ص-ل-ح), with the accusative case shown by kasra (the sign of accusative in sound feminine plurals — a special rule). مَمْنُونٍ is a passive participle (اسم مفعول) from root م-ن-ن on the مَفْعُول pattern, meaning "cut off, interrupted."
+
+**Balagha (Rhetoric):** This verse is the theological rescue — after the terrifying fall of verse 5, إِلَّا saves the believers. The Quran's standard pairing آمَنُوا وَعَمِلُوا الصَّالِحَاتِ (believed AND did righteous deeds) insists that faith without action is insufficient. The reward is described with a powerful double negative: غَيْرُ مَمْنُونٍ — "not cut off," meaning eternal and uninterrupted. The فَ before لَهُمْ implies logical consequence: their faith and deeds *result in* this reward. The indefinite أَجْرٌ (a reward, without الـ) suggests something beyond human imagination — unspecified because it exceeds description.
 
 ### Verse 7
 
-**Arabic:** فَمَا يُكَذِّبُكَ بَعْدُ بِالدِّينِ
-
-**Translation:** "So what yet causes you to deny the Recompense?"
+<ArabicExample
+  arabic="فَمَا يُكَذِّبُكَ بَعْدُ بِالدِّينِ"
+  transliteration="fa-mā yukadhdhibuka baʿdu bi-l-dīni"
+  translation="So what yet causes you to deny the Recompense?"
+  reference="At-Tin 95:7"
+  highlight="يُكَذِّبُكَ,بِالدِّينِ"
+/>
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | فَ | fa | - | Particle - conjunction/interrogative | Not declinable (mabni) | So/then |
 | 2 | مَا | mā | - | Particle - interrogative | Not declinable (mabni) | What |
-| 3 | يُكَذِّبُكَ | yukadhdhibuka | ك ذ ب | Verb - Form II, present, 3rd person masculine singular + pronoun | Present verb indicative (marfū'), subject concealed (huwa), object pronoun (ka) accusative | It causes you to deny |
-| 4 | بَعْدُ | ba'du | ب ع د | Adverb - indefinite adverb of time | Adverb (ẓarf zamān) - accusative (manṣūb), but here nominative as subject | After/yet |
+| 3 | يُكَذِّبُكَ | yukadhdhibuka | ك ذ ب | Verb - Form II, present, 3rd person masculine singular + pronoun | Present verb indicative (marfu'), subject concealed (huwa), object pronoun (ka) accusative | It causes you to deny |
+| 4 | بَعْدُ | baʿdu | ب ع د | Adverb - indefinite adverb of time | Adverb (zarf zaman) - accusative (mansub), but here nominative as subject | After/yet |
 | 5 | بِ | bi | - | Particle - preposition | Not declinable (mabni) | In/regarding |
-| 6 | الدِّينِ | al-dīni | د ي ن | Noun - masculine, singular, definite | Object of preposition (majrūr) | The judgment/recompense/religion |
+| 6 | الدِّينِ | al-dīni | د ي ن | Noun - masculine, singular, definite | Object of preposition (majrur) | The judgment/recompense/religion |
+</GrammarTable>
 
-#### Grammar Notes
-- **fa interrogative**: Introduces rhetorical question following from the argument
-- **mā interrogative**: "What?" asks for the cause or reason
-- **yukadhdhibuka Form II**: Causative/intensive meaning "to declare false, to deny"
-- **ba'du ambiguous**: Could mean "after this" (temporal) or function as part of the question structure
-- **al-dīn multiple meanings**: Can mean judgment, recompense, religion, accountability - here likely "the Recompense/Judgment Day"
-- **Rhetorical question**: Implies there is no valid reason to deny the Day of Judgment after this clear evidence
+<Callout type="rule" title="Form II يُكَذِّبُ: Causative Denial">
+يُكَذِّبُ is a Form II verb (فَعَّلَ pattern) from root ك-ذ-ب. Form I كَذَبَ means "to lie," but Form II كَذَّبَ means "to declare something false, to deny, to reject as a lie." The added intensity of the doubled middle radical transforms passive dishonesty into active rejection. With the attached pronoun ـكَ (you), the question becomes: "What makes you deny?" — addressing the individual directly and demanding they account for their denial in light of all the preceding evidence.
+</Callout>
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** This is a rhetorical interrogative sentence. فَ connects the question to the preceding argument. مَا is an interrogative pronoun (اسم استفهام) functioning as the subject (مُبْتَدَأ) or as a fronted object. يُكَذِّبُكَ is a present tense verb in the indicative mood (مَرْفُوع) with concealed subject. بَعْدُ is an adverb of time. بِالدِّينِ is a prepositional phrase where الدِّينِ is genitive after بِ.
+
+**Sarf (Morphology):** يُكَذِّبُ is Form II present tense from root ك-ذ-ب, identifiable by the doubled second radical (ذّ with shadda). The present tense prefix يُ- (with damma) and the doubled middle radical are Form II markers. الدِّينِ is from root د-ي-ن on the فِعْل pattern, with multiple meanings: religion, judgment, recompense, accountability. Context here points to "the Day of Recompense/Judgment."
+
+**Balagha (Rhetoric):** The rhetorical question implies: "After all this evidence — the sacred oaths, the fact of human creation in perfection, the promise of reward — what possible reason could you have to deny the Day of Judgment?" The question is unanswerable by design. Using مَا ("what?") rather than مَنْ ("who?") makes the question about the *cause* or *reason* for denial, not the person. The direct address (ـكَ, "you") makes this confrontational and personal. The word الدِّين encompasses both "religion" and "recompense," creating a double challenge: denial of the entire system of accountability.
 
 ### Verse 8
 
-**Arabic:** أَلَيْسَ اللَّهُ بِأَحْكَمِ الْحَاكِمِينَ
-
-**Translation:** "Is not Allah the most just of judges?"
+<ArabicExample
+  arabic="أَلَيْسَ اللَّهُ بِأَحْكَمِ الْحَاكِمِينَ"
+  transliteration="a-laysa llāhu bi-aḥkami l-ḥākimīna"
+  translation="Is not Allah the most just of judges?"
+  reference="At-Tin 95:8"
+  highlight="أَلَيْسَ,بِأَحْكَمِ الْحَاكِمِينَ"
+/>
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | أَ | a | - | Particle - interrogative | Not declinable (mabni) | [Interrogative marker] |
 | 2 | لَيْسَ | laysa | ل ي س | Verb - defective/negation verb, 3rd person masculine singular | Negation verb (mabni), governs nominative subject and accusative predicate | Is not |
-| 3 | اللَّهُ | Allāhu | - | Proper noun - Divine name | Subject (ism) of laysa - nominative (marfū') | Allah |
+| 3 | اللَّهُ | Allāhu | - | Proper noun - Divine name | Subject (ism) of laysa - nominative (marfu') | Allah |
 | 4 | بِ | bi | - | Particle - preposition (extra/emphasis) | Not declinable (mabni), emphasis particle | [Emphasis - not translated] |
-| 5 | أَحْكَمِ | aḥkami | ح ك م | Noun - elative/superlative, masculine, construct state | Predicate (khabar) of laysa - genitive in place after bi (mahall naṣb), first part of iḍāfa | Most just/wisest |
-| 6 | الْحَاكِمِينَ | al-ḥākimīna | ح ك م | Noun - active participle, masculine, plural, definite | Second part of iḍāfa - genitive (majrūr) with yā (sound masculine plural) | The judges |
+| 5 | أَحْكَمِ | aḥkami | ح ك م | Noun - elative/superlative, masculine, construct state | Predicate (khabar) of laysa - genitive in place after bi (mahall nasb), first part of idafa | Most just/wisest |
+| 6 | الْحَاكِمِينَ | al-ḥākimīna | ح ك م | Noun - active participle, masculine, plural, definite | Second part of idafa - genitive (majrur) with ya (sound masculine plural) | The judges |
+</GrammarTable>
 
-#### Grammar Notes
-- **a-laysa interrogative negation**: Rhetorical question expecting affirmative answer: "Indeed He is!"
-- **laysa defective verb**: Takes nominative subject (ism) and accusative predicate (khabar)
-- **bi extra/zā'ida**: Extra preposition for emphasis, doesn't change meaning but adds rhetorical force
-- **aḥkam al-ḥākimīn superlative**: "Most judicious of judges" - construct state with plural for superlative
-- **Rhetorical climax**: Ends surah with affirmation of Allah's perfect justice, making denial of Judgment irrational
-- **Response formula**: Muslims traditionally respond "balā wa ana 'alā dhālika min al-shāhidīn" (Yes, and I am among the witnesses to that)
+<Callout type="rule" title="لَيْسَ with Extra بِ: Emphatic Negation for Affirmation">
+لَيْسَ normally takes a nominative subject (ism) and an accusative predicate (khabar). Here, the khabar أَحْكَمِ is preceded by an "extra" بِ (بَاء زَائِدَة). This بِ does not change the meaning — it adds rhetorical emphasis. The khabar is technically in the genitive after بِ, but its grammatical role is accusative (in position: مَحَلًّا مَنْصُوب). Combined with the interrogative أَ, the construction أَلَيْسَ...بِ creates a powerful double rhetorical device: "Is He not indeed the most just?" The expected answer: بَلَى — "Yes, indeed He is!"
+</Callout>
+
+<Callout type="tip" title="أَحْكَمِ الْحَاكِمِينَ: Same Root, Two Forms">
+Both أَحْكَم and الْحَاكِمِين come from root ح-ك-م (to judge, to be wise). أَحْكَم is the elative (أَفْعَل pattern) meaning "most judicious/wisest." الْحَاكِمِين is the sound masculine plural of the active participle حَاكِم (فَاعِل pattern, "one who judges"). The structure "most X of all X-ers" (أَفْعَل + plural of فَاعِل) is a standard Arabic superlative construction. Using the same root for both elements creates an etymological echo: the Judge of all judges, the Ruler of all rulers.
+</Callout>
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** أَ is the interrogative hamza introducing a rhetorical question. لَيْسَ is a defective verb (فِعْل نَاقِص) that takes a nominative ism and accusative khabar. اللَّهُ is the ism of laysa (nominative with damma). بِأَحْكَمِ الْحَاكِمِينَ is the khabar: بِ is extra (زَائِدَة) for emphasis, and أَحْكَمِ الْحَاكِمِينَ is in genitive position after بِ but functionally accusative as the khabar. أَحْكَمِ is the first part of an idafa with الْحَاكِمِينَ as the mudaf ilayh (genitive with يَاء).
+
+**Sarf (Morphology):** لَيْسَ is a unique Arabic verb — it looks like a past tense verb but functions as a present-tense negation copula. It is indeclinable (مَبْنِي). أَحْكَمِ follows the أَفْعَل elative pattern from root ح-ك-م. الْحَاكِمِينَ is the sound masculine plural of حَاكِم (active participle, فَاعِل pattern), with the genitive/accusative ending ـِينَ.
+
+**Balagha (Rhetoric):** The surah closes with its most powerful rhetorical device: a question that answers itself. أَلَيْسَ اللَّهُ بِأَحْكَمِ الْحَاكِمِينَ? "Is not Allah the most just of judges?" The only possible answer is بَلَى — "Yes, indeed." This closing achieves multiple purposes: (1) it affirms that the Day of Judgment (denied in verse 7) is guaranteed by the Most Just Judge; (2) it circles back to the oath — the sacred places testified, and now the Most Just Judge confirms; (3) it transforms the listener from a passive audience into an active respondent, compelled to affirm Allah's justice. The surah opened with Allah swearing by His creation and closes with a question about His justice — from testimony to verdict.
+
+## Practice Exercises
+
+<ExerciseBox question="Identify all three elative/superlative forms in this surah. For each, give the root, the base adjective, and the elative form. Then explain how the three superlatives trace the surah's theological argument from creation to judgment.">
+
+**Superlative 1: أَحْسَنِ (verse 4)**
+- **Root:** ح-س-ن | **Base:** حَسَن (beautiful, good) | **Elative:** أَحْسَن (best, most beautiful)
+- **Context:** فِي أَحْسَنِ تَقْوِيمٍ — "in the best of forms"
+- **Position in argument:** The starting point — human creation at the *peak* of perfection
+
+**Superlative 2: أَسْفَلَ (verse 5)**
+- **Root:** س-ف-ل | **Base:** سَافِل (low) | **Elative:** أَسْفَل (lowest)
+- **Context:** أَسْفَلَ سَافِلِينَ — "lowest of the low"
+- **Position in argument:** The fall — from the peak to the *absolute bottom*
+
+**Superlative 3: أَحْكَمِ (verse 8)**
+- **Root:** ح-ك-م | **Base:** حَاكِم (judge, wise) | **Elative:** أَحْكَم (most just, wisest)
+- **Context:** بِأَحْكَمِ الْحَاكِمِينَ — "most just of judges"
+- **Position in argument:** The resolution — the *most just* Judge will hold all accountable
+
+**The theological arc:**
+The three superlatives map the surah's entire message: humans were created at the HIGHEST point (best form) → they can fall to the LOWEST point (lowest of low, unless they believe) → they will be judged by the MOST JUST Judge. The grammar itself tells the story: from peak to pit to judgment.
+
+</ExerciseBox>
+
+<ExerciseBox question="Analyze the oath structure (qasam) in verses 1-4. List all four oath elements, explain why each takes the genitive case, and identify the jawab al-qasam (oath answer). How does لَقَدْ signal that verse 4 is the answer?">
+
+**The four oath elements (all genitive after وَ al-qasam):**
+
+1. **التِّينِ** (the fig) — genitive with kasra after oath وَ
+2. **الزَّيْتُونِ** (the olive) — genitive with kasra after oath وَ
+3. **طُورِ سِينِينَ** (Mount Sinai) — genitive with kasra (طُورِ), plus idafa with سِينِينَ
+4. **هَـٰذَا الْبَلَدِ الْأَمِينِ** (this secure city) — demonstrative in genitive position (مَحَلًّا مَجْرُور), with بَدَل (الْبَلَدِ) and adjective (الْأَمِينِ) both in genitive
+
+**Why genitive case:**
+The oath particle وَ (واو القَسَم) is a type of preposition (حَرْف جَرّ). Like all prepositions, it governs the following noun in the genitive case (مَجْرُور). This is a fundamental nahw rule: prepositions always take genitive objects.
+
+**The jawab al-qasam (oath answer) — verse 4:**
+لَقَدْ خَلَقْنَا الْإِنسَانَ فِي أَحْسَنِ تَقْوِيمٍ
+
+**How لَقَدْ signals the answer:**
+- لَ is the "lam of the oath answer" (لام جواب القَسَم) — it marks the sentence as the response to the preceding oath
+- قَدْ adds emphasis and completion — "certainly, indeed"
+- Together, لَقَدْ means: "This is what those four sacred witnesses testify to, and it is absolutely certain"
+
+</ExerciseBox>
+
+<ExerciseBox question="In verse 8, explain how أَلَيْسَ...بِ creates a rhetorical question. Break down: (a) the role of the interrogative hamza, (b) the function of لَيْسَ as a defective verb, (c) why بِ is called 'extra' (زَائِدَة), and (d) the expected answer form (بَلَى vs. نَعَم).">
+
+**(a) The interrogative hamza (أَ):**
+- The أَ before لَيْسَ converts the sentence from a statement into a question
+- Without أَ: لَيْسَ اللَّهُ بِأَحْكَمِ = "Allah is not the most just" (negative statement)
+- With أَ: أَلَيْسَ اللَّهُ بِأَحْكَمِ = "Is Allah not the most just?" (rhetorical question expecting "yes")
+
+**(b) لَيْسَ as a defective verb:**
+- لَيْسَ is a "sister of كَانَ" (أَخَوَات كَانَ) — a defective verb that takes a nominative subject (ism) and accusative predicate (khabar)
+- Its ism: اللَّهُ (nominative with damma)
+- Its khabar: أَحْكَمِ الْحَاكِمِينَ (accusative in position, though appearing genitive after بِ)
+- لَيْسَ negates the predicate — "is not"
+
+**(c) Why بِ is 'extra' (زَائِدَة):**
+- The بِ before أَحْكَمِ is not required grammatically — you could say لَيْسَ اللَّهُ أَحْكَمَ (without بِ)
+- It is called "extra" (زَائِدَة) because removing it would not change the core meaning
+- However, "extra" does NOT mean "meaningless" — it adds rhetorical emphasis and strengthens the negation
+- After this extra بِ, the khabar takes genitive form (مَجْرُور لَفْظًا) but is functionally accusative (مَنْصُوب مَحَلًّا)
+
+**(d) The expected answer — بَلَى (not نَعَم):**
+- In Arabic, a negative question requires بَلَى to affirm (= "Yes, He IS the most just")
+- If you answered نَعَم to a negative question, it would confirm the negation: "Yes, He is NOT" — the opposite of what's intended
+- So: أَلَيْسَ اللَّهُ بِأَحْكَمِ الْحَاكِمِينَ؟ → بَلَى (Yes, indeed He is!)
+- Muslims traditionally respond: بَلَى وَأَنَا عَلَى ذَٰلِكَ مِنَ الشَّاهِدِينَ ("Yes, and I am among the witnesses to that")
+
+</ExerciseBox>
 
 ## Key Vocabulary
 
+<GrammarTable>
 | Arabic | Root | Pattern | Meaning | Frequency |
 |--------|------|---------|---------|-----------|
 | تِين | ت ي ن | فِعْل | fig | Rare |
@@ -228,16 +426,25 @@ difficulty: "intermediate"
 | دِين | د ي ن | فِعْل | judgment, religion | Very common |
 | أَحْكَم | ح ك م | أَفْعَل | most just, wisest | Common |
 | حَاكِم | ح ك م | فَاعِل | judge, ruler | Common |
+</GrammarTable>
 
 ## Grammar Summary
 
-- **Oath constructions (qasam)**: Four oath elements using wa particle (verses 1-3), with answer in verse 4 using laqad
-- **Demonstrative pronouns**: hādhā used to point to Mecca as "this secure city"
-- **Superlative forms**: aḥsan (best), asfal (lowest), aḥkam (most just) - all use af'al elative pattern
-- **Iḍāfa constructions**: Multiple possessive/descriptive constructions (ṭūr sīnīn, aḥsan taqwīm, asfal sāfilīn, aḥkam al-ḥākimīn)
-- **Exception with illā**: Verse 6 exceptions believers from the fate described in verse 5
-- **Laysa negation verb**: Verse 8 uses laysa with extra bi for emphatic rhetorical question
-- **Verbal nouns and participles**: taqwīm (verbal noun), sāfilīn (active participle), al-ṣāliḥāt (active participle), mamnūn (passive participle), al-ḥākimīn (active participle)
-- **Rhetorical questions**: Verses 7-8 use interrogative particles to make powerful concluding arguments
-- **Past tense Divine actions**: khalaqnā, radadnā - completed actions by Allah
-- **Standard faith-action pairing**: āmanū wa 'amilū al-ṣāliḥāt appears as defining characteristic of saved believers
+<Callout type="note" title="Key Grammar Concepts in This Surah">
+- **Oath constructions (قَسَم)**: Four oath elements using وَ oath particle (verses 1-3), with answer in verse 4 using لَقَدْ
+- **وَ al-qasam vs. وَ al-'atf**: Oath وَ (governs genitive, starts sentence) vs. conjunction وَ (connects parallel elements)
+- **Idafa constructions**: طُورِ سِينِينَ (Mount Sinai), أَحْسَنِ تَقْوِيمٍ (best form), أَسْفَلَ سَافِلِينَ (lowest of low), أَحْكَمِ الْحَاكِمِينَ (most just of judges)
+- **Elative/superlative forms (أَفْعَل)**: أَحْسَن (best), أَسْفَل (lowest), أَحْكَم (most just) — three superlatives tracing creation → fall → judgment
+- **لَقَدْ as jawab al-qasam**: لَ (lam of oath answer) + قَدْ (certainty) introducing the answer to the oath
+- **Badal (apposition)**: الْبَلَدِ as badal for هَـٰذَا — clarifying what "this" refers to
+- **Demonstrative pronoun**: هَـٰذَا (this) creating immediacy, pointing at Mecca
+- **Exception with إِلَّا**: Connected exception (مُتَّصِل) carving believers out from the general fall
+- **Fronted khabar**: لَهُمْ placed before أَجْرٌ for emphasis on the recipients
+- **غَيْرُ مَمْنُونٍ**: Double negative (not interrupted) creating emphatic affirmation of eternal reward
+- **Form II causative**: يُكَذِّبُ (to cause to deny/declare false) vs. Form I كَذَبَ (to lie)
+- **لَيْسَ with extra بِ**: Emphatic negation in rhetorical question — أَلَيْسَ...بِ expects بَلَى as affirmative response
+- **Active participles as nouns**: سَافِلِينَ (low ones), الصَّالِحَاتِ (righteous deeds), الْحَاكِمِينَ (judges)
+- **Sound masculine plural genitive**: سَافِلِينَ, الْحَاكِمِينَ — genitive marked by ـِينَ
+- **Sound feminine plural accusative**: الصَّالِحَاتِ — accusative marked by kasra (special rule)
+- **Rhetorical questions**: مَا يُكَذِّبُكَ (verse 7), أَلَيْسَ (verse 8) — unanswerable challenges that affirm truth
+</Callout>
