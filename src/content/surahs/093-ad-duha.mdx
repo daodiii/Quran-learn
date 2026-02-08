@@ -6,6 +6,11 @@ verseCount: 11
 difficulty: "intermediate"
 ---
 
+import ArabicExample from '@components/mdx/ArabicExample.astro';
+import GrammarTable from '@components/mdx/GrammarTable.astro';
+import Callout from '@components/mdx/Callout.astro';
+import ExerciseBox from '@components/mdx/ExerciseBox.astro';
+
 # Ad-Duha (The Morning Hours)
 
 ## Overview
@@ -13,56 +18,113 @@ difficulty: "intermediate"
 - **Revelation:** Meccan
 - **Verses:** 11
 - **Theme:** Divine reassurance to the Prophet during a period of revelation pause, reminding him of Allah's continuous care and promise of future reward. Emphasizes gratitude and kindness to the vulnerable.
-- **Grammar Focus:** Oath constructions (wa-), negative particles (ma), conditional particle (amma), future perfect constructions (la-sawfa), emphasis through repetition
+- **Grammar Focus:** Oath constructions (wa-), negative particles (ma), emphasis particle (la-), rhetorical interrogation (alam), triple parallel wajadaka structure, conditional particle (amma) with fa- answer, imperative and prohibitive moods
+
+### Structural Overview
+
+<GrammarTable>
+| Verse | Arabic | Sentence Type | Key Grammar | Message |
+|-------|--------|---------------|-------------|---------|
+| 1 | وَٱلضُّحَىٰ | Oath (nominal) | وَ oath particle + genitive noun | First oath: by the morning brightness |
+| 2 | وَٱلَّيْلِ إِذَا سَجَىٰ | Oath (nominal + temporal) | وَ oath + إِذَا temporal clause | Second oath: by the still night |
+| 3 | مَا وَدَّعَكَ رَبُّكَ وَمَا قَلَىٰ | Verbal (jawab al-qasam) | مَا negation + Form II verb | Answer to oaths: Allah has not abandoned you |
+| 4 | وَلَلْءَاخِرَةُ خَيْرٌۭ لَّكَ مِنَ ٱلْأُولَىٰ | Nominal (emphatic) | لَ emphasis + ism tafdil (خَيْر) | The Hereafter is better for you |
+| 5 | وَلَسَوْفَ يُعْطِيكَ رَبُّكَ فَتَرْضَىٰ | Verbal (emphatic future) | لَسَوْفَ emphasis + future + فَ consequence | Allah will give until you are satisfied |
+| 6 | أَلَمْ يَجِدْكَ يَتِيمًۭا فَـَٔاوَىٰ | Verbal (rhetorical question) | أَلَمْ + jussive + حَال accusative | Did He not shelter you as an orphan? |
+| 7 | وَوَجَدَكَ ضَآلًّۭا فَهَدَىٰ | Verbal (parallel) | وَجَدَكَ + حَال + فَ-consequence | He found you unguided and guided you |
+| 8 | وَوَجَدَكَ عَآئِلًۭا فَأَغْنَىٰ | Verbal (parallel) | وَجَدَكَ + حَال + Form IV فَأَغْنَىٰ | He found you poor and enriched you |
+| 9 | فَأَمَّا ٱلْيَتِيمَ فَلَا تَقْهَرْ | Verbal (conditional-prohibitive) | أَمَّا + فَلَا + jussive (nahiy) | So do not oppress the orphan |
+| 10 | وَأَمَّا ٱلسَّآئِلَ فَلَا تَنْهَرْ | Verbal (conditional-prohibitive) | أَمَّا + فَلَا + jussive (nahiy) | And do not repel the petitioner |
+| 11 | وَأَمَّا بِنِعْمَةِ رَبِّكَ فَحَدِّثْ | Verbal (conditional-imperative) | أَمَّا + بِ-prepositional + Form II imperative | And proclaim your Lord's favor |
+</GrammarTable>
+
+<Callout type="tip" title="The Surah of Divine Consolation and Mirrored Commands">
+Ad-Duha is a masterpiece of structural symmetry. It divides into three sections — oaths and reassurance (vv.1-5), three past blessings (vv.6-8), and three corresponding commands (vv.9-11). The middle section uses an identical grammatical frame: وَجَدَكَ + hāl accusative + فَ + past verb. Each blessing in vv.6-8 maps directly to a command in vv.9-11: orphanhood (6) → protect orphans (9), being unguided (7) → do not repel seekers (10), poverty (8) → proclaim blessings (11). The surah moves from cosmic oaths (morning and night) to intimate personal history to universal ethical imperatives — all in just 11 verses. Grammatically, it showcases مَا negation, لَ emphasis, أَلَمْ rhetorical affirmation, حَال accusative, and the أَمَّا conditional construction.
+</Callout>
 
 ## Verse-by-Verse Analysis
 
 ### Verse 1
 
-**Arabic:** وَٱلضُّحَىٰ
-
-**Translation:** "By the morning brightness"
+<ArabicExample
+  arabic="وَٱلضُّحَىٰ"
+  transliteration="wa-d-duhā"
+  translation="By the morning brightness"
+  reference="Ad-Duha 93:1"
+  highlight="وَ,ٱلضُّحَىٰ"
+/>
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | وَ | wa | - | Particle - oath | Not declinable (mabni), introduces oath | And/By |
 | 2 | ٱلضُّحَىٰ | ad-duhā | ض ح و | Noun - masculine, singular, definite | Object of oath (muqsam bihi) - genitive (majrur) by implied preposition | the morning brightness |
+</GrammarTable>
 
-#### Grammar Notes
-- Oath construction begins with wa- (oath particle)
-- The noun after wa- is in genitive case (majrur) due to implied preposition ba- (by)
-- Ad-duhā refers to the forenoon when the sun has fully risen
+<Callout type="rule" title="وَ القَسَم: The Oath Particle وَ">
+When وَ begins a sentence before a noun (not a verb), it can function as an oath particle (حَرْف قَسَم) rather than a simple conjunction. The noun following وَ القَسَم is placed in the genitive case (مَجْرُور) because the وَ here is equivalent to the full oath preposition بِ (by). This construction appears throughout the Quran for solemn oaths: وَالشَّمْسِ (by the sun, 91:1), وَالتِّينِ (by the fig, 95:1), وَالعَصْرِ (by time, 103:1). Only Allah swears by created things in the Quran — a rhetorical device that draws attention to these phenomena as signs.
+</Callout>
+
+<Callout type="tip" title="ٱلضُّحَى: The Forenoon Light">
+ٱلضُّحَى refers specifically to the mid-morning period when the sun has fully risen and its light fills the world — not sunrise (شُرُوق) and not noon (ظُهْر), but the bright, warm hours between them. From root ض-ح-و, it conveys exposure to light. Swearing by this particular time evokes warmth, clarity, and the return of light after darkness — a perfect metaphor for the return of revelation after its pause. The surah pairs it with night (verse 2), establishing a light/dark contrast that mirrors the Prophet's emotional state: revelation (light) and its temporary absence (darkness).
+</Callout>
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** This is a nominal oath construction. وَ functions as an oath particle (حَرْف قَسَم), not a conjunction. ٱلضُّحَى is the object sworn by (مُقْسَم بِهِ), placed in the genitive case by the implicit preposition بِ. The answer to the oath (جَوَاب القَسَم) comes in verse 3. The entire oath structure spans three verses: two oaths (vv.1-2) followed by the answer (v.3).
+
+**Sarf (Morphology):** ٱلضُّحَى is from root ض-ح-و, following the فُعَل pattern. It is a noun of time (ظَرْف زَمَان in origin) that has been lexicalized as a regular noun. The alif maqsurah (ى) at the end indicates it is a defective noun (اسم مَقْصُور) — its final vowel is hidden (مُقَدَّر) and does not visibly change across cases.
+
+**Balagha (Rhetoric):** Opening with a cosmic oath immediately elevates the discourse from the mundane to the sacred. Swearing by the morning brightness — not just "morning" but the specific quality of light — is deeply purposeful. The Prophet was experiencing a pause in revelation, which his enemies mocked as abandonment. By swearing by the moment when darkness gives way to brilliant light, Allah is saying: just as the night always yields to morning, the pause in revelation will always yield to its return. The brevity of this verse — just two words — mirrors the suddenness with which light appears.
 
 ### Verse 2
 
-**Arabic:** وَٱلَّيْلِ إِذَا سَجَىٰ
-
-**Translation:** "And by the night when it settles"
+<ArabicExample
+  arabic="وَٱلَّيْلِ إِذَا سَجَىٰ"
+  transliteration="wa-l-layli idhā sajā"
+  translation="And by the night when it settles"
+  reference="Ad-Duha 93:2"
+  highlight="إِذَا,سَجَىٰ"
+/>
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | وَ | wa | - | Particle - oath | Not declinable (mabni), introduces oath | And/By |
 | 2 | ٱلَّيْلِ | al-layli | ل ي ل | Noun - masculine, singular, definite | Object of oath (muqsam bihi) - genitive (majrur) | the night |
 | 3 | إِذَا | idhā | - | Particle - conditional/temporal | Not declinable (mabni), introduces temporal clause | when |
 | 4 | سَجَىٰ | sajā | س ج و | Verb - Form I, past tense, 3rd person masculine singular | Verb in past tense - mabni 'ala al-fath | it settled/became still |
+</GrammarTable>
 
-#### Grammar Notes
-- Second oath sworn by the night in its state of stillness
-- Idhā introduces temporal clause describing the state of the night
-- Sajā (Form I) means to be still, calm, or settled
+<Callout type="rule" title="إِذَا in Oath Qualifications: Specifying the State">
+When إِذَا appears after the muqsam bihi (object of oath), it does not introduce a full conditional sentence. Instead, it specifies the *state* or *condition* of the object at the time of swearing: "the night *when* it settles." This restricts the oath to a particular quality of the night — not its beginning or its darkest hour, but its settled stillness. The إِذَا clause functions as a حَال (state descriptor) or صِفَة (attribute) of the muqsam bihi. Compare: وَالشَّمْسِ وَضُحَاهَا (by the sun and its brightness, 91:1) uses a different technique (waw of accompaniment), while Ad-Duha uses إِذَا for temporal specification.
+</Callout>
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** Second oath in the series, parallel to verse 1. وَ is again the oath particle, and ٱلَّيْلِ is the muqsam bihi in the genitive. إِذَا introduces a temporal clause that qualifies the night: "when it settles." سَجَىٰ is the verb of the temporal clause, with its subject being the implied pronoun هُوَ (it, referring to the night). The entire إِذَا سَجَىٰ clause functions adverbially, describing the specific state of the night being sworn by.
+
+**Sarf (Morphology):** سَجَىٰ is a Form I past tense verb from root س-ج-و, a defective (nāqis) verb whose final radical is و. The past tense ends in alif maqsurah (ى), and the fatha on the final syllable is muqaddara (estimated) because the alif cannot visibly carry vowel marks. The verb means "to be still, to settle, to become calm" — it describes the night at its deepest and most peaceful.
+
+**Balagha (Rhetoric):** The choice of سَجَىٰ (to settle into stillness) rather than أَظْلَمَ (to darken) or غَشِيَ (to cover) is remarkable. Allah swears by the night not in its frightening aspect but in its *peaceful* aspect. This reframes the Prophet's experience of revelation's pause: just as the still night is not a threat but a natural rest before morning's return, the pause in revelation is not abandonment but a quiet interval before the next wave of guidance. The two oaths together — bright morning and still night — form a complete cycle, implying that both states are from Allah and both serve a purpose.
 
 ### Verse 3
 
-**Arabic:** مَا وَدَّعَكَ رَبُّكَ وَمَا قَلَىٰ
-
-**Translation:** "Your Lord has not abandoned you, nor has He been displeased"
+<ArabicExample
+  arabic="مَا وَدَّعَكَ رَبُّكَ وَمَا قَلَىٰ"
+  transliteration="mā wadda'aka rabbuka wa-mā qalā"
+  translation="Your Lord has not abandoned you, nor has He been displeased"
+  reference="Ad-Duha 93:3"
+  highlight="مَا,وَدَّعَكَ"
+/>
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | مَا | mā | - | Particle - negation | Not declinable (mabni), negates past tense | not |
@@ -70,21 +132,37 @@ difficulty: "intermediate"
 | 3 | رَبُّكَ | rabbuka | ر ب ب | Noun - masculine, singular, definite + attached pronoun | Subject (fa'il) - nominative (marfu'), pronoun ka possessive - genitive | your Lord |
 | 4 | وَمَا | wa-mā | - | Particle - conjunction + negation | wa = conjunction, ma = negation particle | and not |
 | 5 | قَلَىٰ | qalā | ق ل و | Verb - Form I, past tense, 3rd person masculine singular | Verb negated by ma, subject implied (rabbuka) | He was displeased |
+</GrammarTable>
 
-#### Grammar Notes
-- Answer to the oaths: reassurance to the Prophet
-- Ma negates past tense verbs (ma al-nāfiyah)
-- Wadda'a (Form II) means to bid farewell/abandon, qalā means to hate/be displeased with
-- Subject (rabbuka) stated in first clause, implied in second clause
+<Callout type="rule" title="مَا النَّافِيَة: Negation of Past Tense">
+مَا here is the negation particle (مَا النَّافِيَة) that negates past tense verbs. Unlike لَمْ (which also negates past but governs jussive mood on a present-tense verb), مَا directly negates the past tense verb that follows it without changing its form. The verb وَدَّعَكَ remains in its standard past-tense form (مَبْنِي عَلَى الفَتْح). This مَا + past tense construction firmly denies that the action ever occurred: "He did not abandon you" — it never happened, not even once.
+</Callout>
+
+<Callout type="tip" title="جَوَاب القَسَم: The Oath's Answer">
+Verse 3 is the jawab al-qasam (answer to the oath) — the actual statement that the oaths of verses 1-2 were sworn to affirm. In Arabic rhetoric, the greater the oaths, the greater the significance of what follows. Two cosmic oaths (morning brightness and still night) are sworn to affirm a deeply personal reassurance: "Your Lord has not abandoned you." The subject is رَبُّكَ (your Lord) — using the intimate رَبّ (Sustainer) with the possessive ـكَ (your), not the majestic اللَّه. The second clause (وَمَا قَلَىٰ) omits the direct object — "nor has He been displeased [with you]" — leaving the pronoun implied. This omission softens the negation: Allah does not even want to articulate the possibility of displeasure toward His Prophet.
+</Callout>
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** This is the jawab al-qasam — a verbal sentence negated by مَا. The verb وَدَّعَكَ has an attached pronoun كَ functioning as the direct object (مَفْعُول بِهِ) in the accusative. The subject (فَاعِل) رَبُّكَ is delayed after the verb (standard Arabic VSO word order). The second clause وَمَا قَلَىٰ is coordinated by وَ, with the subject implied (carrying over from رَبُّكَ) and the object also implied (you).
+
+**Sarf (Morphology):** وَدَّعَ is Form II (فَعَّلَ) from root و-د-ع. Form I وَدَعَ means "to leave alone," and Form II وَدَّعَ intensifies this to "to bid farewell, to abandon deliberately." The doubled middle radical (shadda on the دال) signals Form II's intensive/causative meaning. قَلَىٰ is Form I from root ق-ل-و (to dislike, to be displeased), a defective verb ending in alif maqsurah.
+
+**Balagha (Rhetoric):** The two negations form a powerful pair, denying both action and feeling: مَا وَدَّعَكَ (He did not abandon you — no action of departure) وَمَا قَلَىٰ (nor was He displeased — no feeling of displeasure). The first negation addresses the external situation (the pause in revelation), the second addresses the internal (Allah's attitude). Together they form a complete reassurance: neither the outward sign nor the inward reality supports the claim that Allah has turned away. Using Form II وَدَّعَ instead of Form I وَدَعَ adds intensity: Allah did not even *slightly* turn away, let alone fully abandon.
 
 ### Verse 4
 
-**Arabic:** وَلَلْءَاخِرَةُ خَيْرٌۭ لَّكَ مِنَ ٱلْأُولَىٰ
-
-**Translation:** "And surely the Hereafter is better for you than the first [life]"
+<ArabicExample
+  arabic="وَلَلْءَاخِرَةُ خَيْرٌۭ لَّكَ مِنَ ٱلْأُولَىٰ"
+  transliteration="wa-la-l-ākhiratu khayrun laka mina l-ūlā"
+  translation="And surely the Hereafter is better for you than the first [life]"
+  reference="Ad-Duha 93:4"
+  highlight="لَ,خَيْرٌۭ"
+/>
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | وَ | wa | - | Particle - conjunction | Not declinable (mabni) | And |
@@ -94,21 +172,33 @@ difficulty: "intermediate"
 | 5 | لَّكَ | laka | - | Particle - preposition + attached pronoun | la = preposition, ka = pronoun - genitive (majrur) | for you |
 | 6 | مِنَ | mina | - | Particle - preposition | Not declinable (mabni), governs genitive | than |
 | 7 | ٱلْأُولَىٰ | al-ūlā | ء و ل | Noun - feminine, singular, definite | Object of preposition - genitive (majrur) | the first |
+</GrammarTable>
 
-#### Grammar Notes
-- Nominal sentence (jumla ismiyyah) with la- for emphasis
-- Khayr is ism tafdīl (comparative noun) following pattern af'al
-- Min introduces comparison (comparative min)
-- Al-ūlā (the first) refers to this worldly life
+<Callout type="rule" title="اسْم التَّفْضِيل: The Comparative/Superlative خَيْر">
+خَيْرٌ is an ism tafdīl (comparative/superlative noun) on the أَفْعَل pattern, though it has lost its initial hamza (the original form would be أَخْيَر). It means "better" when followed by مِنْ (than). The structure اسم التَّفْضِيل + مِنْ creates a standard comparison: خَيْرٌ لَكَ مِنَ الأُولَى (better for you than the first). The لَكَ (for you) specifies who benefits from this comparison — it is better *for you specifically*, making the statement personally directed at the Prophet.
+</Callout>
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** This is a nominal sentence (جُمْلَة اسْمِيَّة) introduced by the emphatic لَ (لام الابتداء). ٱلْءَاخِرَةُ is the subject (مُبْتَدَأ) in the nominative, and خَيْرٌ is the predicate (خَبَر) also in the nominative. لَكَ is a prepositional phrase qualifying خَيْر, indicating the beneficiary of the comparison. مِنَ ٱلْأُولَى introduces the second term of comparison, with ٱلْأُولَى in the genitive after مِنَ.
+
+**Sarf (Morphology):** ٱلْءَاخِرَةُ is from root ء-خ-ر, the active participle form آخِرَة (feminine of آخِر) used as a noun meaning "the Last [Life], the Hereafter." ٱلْأُولَى is from root و-ء-ل, the feminine superlative أُولَى (first) — a defective noun ending in alif maqsurah. خَيْرٌ is from root خ-ي-ر, an irregular ism tafdīl (the regular form أَخْيَر exists but خَيْر is standard usage).
+
+**Balagha (Rhetoric):** After the negative reassurance of verse 3 (He has not abandoned you), verse 4 shifts to a positive promise. The emphatic لَ before ٱلْءَاخِرَةُ transforms the statement from simple information into a solemn guarantee. The comparison between الآخِرَة (Hereafter) and الأُولَى (this first life) uses feminine forms for both — evoking them as two stages of a single journey. لَكَ (for you) personalizes this cosmic truth: it is not a generic theological statement but a direct promise to the Prophet that his future will be better than his present difficulties.
 
 ### Verse 5
 
-**Arabic:** وَلَسَوْفَ يُعْطِيكَ رَبُّكَ فَتَرْضَىٰ
-
-**Translation:** "And your Lord will surely give you, and you will be satisfied"
+<ArabicExample
+  arabic="وَلَسَوْفَ يُعْطِيكَ رَبُّكَ فَتَرْضَىٰ"
+  transliteration="wa-la-sawfa yu'tīka rabbuka fa-tardā"
+  translation="And your Lord will surely give you, and you will be satisfied"
+  reference="Ad-Duha 93:5"
+  highlight="لَسَوْفَ,يُعْطِيكَ"
+/>
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | وَ | wa | - | Particle - conjunction | Not declinable (mabni) | And |
@@ -118,42 +208,70 @@ difficulty: "intermediate"
 | 5 | رَبُّكَ | rabbuka | ر ب ب | Noun - masculine, singular, definite + attached pronoun | Subject (fa'il) - nominative (marfu') | your Lord |
 | 6 | فَ | fa | - | Particle - conjunction | Not declinable (mabni), indicates sequence/consequence | and then/so |
 | 7 | تَرْضَىٰ | tardā | ر ض و | Verb - Form I, present tense, 2nd person masculine singular | Present tense verb - indicative (marfu') | you will be satisfied |
+</GrammarTable>
 
-#### Grammar Notes
-- La-sawfa construction emphasizes future certainty
-- Yu'tī (Form IV) is hollow verb (mudāri' nāqis) from 'atā
-- Fa- introduces consequential clause showing result
-- Tardā subject is implied pronoun anta (you)
+<Callout type="rule" title="لَسَوْفَ: Emphatic Future Certainty">
+لَسَوْفَ combines the emphasis particle لَ (لام الابتداء) with سَوْفَ (future particle). While سَوْفَ alone indicates the future, adding لَ transforms it into an emphatic, unbreakable promise: "surely, certainly will." This combination is relatively rare in the Quran, making its appearance here all the more powerful. Compare: سَوْفَ يُعْطِيكَ ("He will give you" — future) vs. لَسَوْفَ يُعْطِيكَ ("He will absolutely, certainly give you" — emphatic future). The لَ makes this a Divine guarantee, not merely a prediction.
+</Callout>
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** This is a verbal sentence with an emphatic future construction. لَ is the emphasis particle, سَوْفَ is the future particle, and يُعْطِيكَ is the present tense verb (مُضَارِع مَرْفُوع). The verb is Form IV (أَعْطَى/يُعْطِي) and takes two objects: the attached pronoun كَ (first object, you — the recipient) and an implied second object (what is given — left unspecified for maximum generosity). رَبُّكَ is the subject (فَاعِل). فَتَرْضَىٰ is a consequential clause: فَ shows result, and تَرْضَىٰ is a present tense verb with the implied subject أَنْتَ.
+
+**Sarf (Morphology):** يُعْطِي is Form IV present tense from root ع-ط-و. Form IV (أَفْعَلَ) adds a causative/transitive meaning: Form I عَطَا means "to give," and Form IV أَعْطَى means "to bestow, grant generously." The ي prefix indicates third person masculine singular, and the yā at the end is the defective verb's characteristic. تَرْضَىٰ is Form I from root ر-ض-و (to be pleased, satisfied), another defective verb with alif maqsurah.
+
+**Balagha (Rhetoric):** The genius of this verse lies in what is *not* said. يُعْطِيكَ (He will give you) deliberately leaves the gift unspecified. By not naming what Allah will give, the verse implies that the giving will be so vast and continuous that it cannot be contained in a single description. فَتَرْضَىٰ (so that you will be satisfied) defines the giving not by its content but by its *effect* — the giving will continue until complete satisfaction is achieved. The Prophet's satisfaction becomes the measure of Allah's generosity. Scholars note this is one of the most hope-giving verses in the entire Quran.
 
 ### Verse 6
 
-**Arabic:** أَلَمْ يَجِدْكَ يَتِيمًۭا فَـَٔاوَىٰ
-
-**Translation:** "Did He not find you an orphan and give [you] refuge?"
+<ArabicExample
+  arabic="أَلَمْ يَجِدْكَ يَتِيمًۭا فَـَٔاوَىٰ"
+  transliteration="alam yajidka yatīman fa-āwā"
+  translation="Did He not find you an orphan and give [you] refuge?"
+  reference="Ad-Duha 93:6"
+  highlight="أَلَمْ,يَجِدْكَ"
+/>
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | أَلَمْ | a-lam | - | Particle - interrogative + negation | Alif = interrogative (mabni), lam = jussive negation (mabni) | Did not? |
 | 2 | يَجِدْكَ | yajidka | و ج د | Verb - Form I, present tense, 3rd person masculine singular, jussive + attached pronoun | Verb in jussive mood (majzum) by lam, ka = direct object - accusative | He find you |
 | 3 | يَتِيمًۭا | yatīman | ي ت م | Noun - masculine, singular, indefinite | Object complement (hal/tamyiz) - accusative (mansub) | an orphan |
 | 4 | فَـَٔاوَىٰ | fa-āwā | ء و ي | Particle + Verb - Form IV, past tense, 3rd person masculine singular | Fa = conjunction, verb mabni 'ala fatha maqdurah | and [He] gave refuge |
+</GrammarTable>
 
-#### Grammar Notes
-- Rhetorical question (a-lam) expecting affirmative answer
-- Lam jazm governs present tense verb making it jussive (majzum)
-- Yatīman is hal (state/condition) describing object
-- Āwā (Form IV) means to shelter/give refuge
+<Callout type="rule" title="أَلَمْ: Rhetorical Negation Becomes Emphatic Affirmation">
+أَلَمْ combines the interrogative hamza (أَ) with the negation particle لَمْ. Together they produce a rhetorical question expecting "yes": "Did He not find you an orphan?" means "He certainly found you an orphan." لَمْ governs the following verb in the jussive mood (مَجْزُوم) — hence يَجِدْكَ with sukun (not يَجِدُكَ with damma). This أَلَمْ construction appears in Ash-Sharh 94:1 (أَلَمْ نَشْرَحْ) and Al-Balad 90:8 (أَلَمْ نَجْعَل). Its rhetorical power lies in making the listener *participate* in affirming the truth — they must mentally answer "yes, indeed" — which is stronger than merely hearing a statement.
+</Callout>
+
+<Callout type="tip" title="The Triple وَجَدَكَ Pattern: Verses 6-8">
+Verse 6 begins a triple parallel structure that is one of the most beautiful grammatical patterns in the Quran. Each of the three verses (6-8) follows the same frame: found-you + state + so-He-acted. Verse 6 uses أَلَمْ يَجِدْكَ (rhetorical question form), while verses 7-8 switch to the declarative وَوَجَدَكَ. The accusative nouns (يَتِيمًا, ضَالًّا, عَائِلًا) function as حَال (state descriptors) showing the condition in which the Prophet was found. Each فَ introduces the Divine response. This structure creates an emotional crescendo: orphan → guided you, lost → guided you, poor → enriched you.
+</Callout>
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** This is a verbal sentence in the form of a rhetorical question. أَلَمْ is a compound of أَ (interrogative) + لَمْ (jussive negation). لَمْ governs يَجِدْكَ in the jussive mood (مَجْزُوم), marked by sukun on the final consonant. The verb يَجِدْ takes two objects: كَ (you, first object — direct object) and يَتِيمًا (second object/حَال — describing the state in which "you" were found). فَ introduces the consequential action, and آوَىٰ is Form IV past tense with an implied object (you).
+
+**Sarf (Morphology):** يَجِدْ is Form I present tense from root و-ج-د. It is an assimilated verb (مِثَال) — the initial و drops in the present tense (وَجَدَ → يَجِدُ, not يَوْجِدُ). يَتِيم is from root ي-ت-م on the فَعِيل pattern, meaning "one who has lost his father." آوَىٰ is Form IV (أَفْعَلَ) from root ء-و-ي, meaning "to give shelter, grant refuge." Form IV adds causative meaning: Form I أَوَى means "to take shelter," Form IV آوَى means "to provide shelter to someone."
+
+**Balagha (Rhetoric):** The shift from general promises (vv.3-5) to specific personal history is profoundly moving. Allah reminds the Prophet of his most vulnerable moments — not to wound but to show the continuous thread of Divine care. The word يَتِيم (orphan) carries immense emotional weight: the Prophet lost his father before birth and his mother at age six. By framing this as أَلَمْ (Did He not...?), Allah gently asks the Prophet to look back and recognize the protection that was always there. فَآوَى (so He gave refuge) — through his grandfather Abdul-Muttalib, then his uncle Abu Talib — was never accidental but always providential.
 
 ### Verse 7
 
-**Arabic:** وَوَجَدَكَ ضَآلًّۭا فَهَدَىٰ
-
-**Translation:** "And He found you lost and guided [you]"
+<ArabicExample
+  arabic="وَوَجَدَكَ ضَآلًّۭا فَهَدَىٰ"
+  transliteration="wa-wajadaka dāllan fa-hadā"
+  translation="And He found you lost and guided [you]"
+  reference="Ad-Duha 93:7"
+  highlight="ضَآلًّۭا,فَهَدَىٰ"
+/>
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | وَ | wa | - | Particle - conjunction | Not declinable (mabni) | And |
@@ -161,21 +279,33 @@ difficulty: "intermediate"
 | 3 | ضَآلًّۭا | dāllan | ض ل ل | Noun/Active participle - masculine, singular, indefinite | Object complement (hal) - accusative (mansub) | lost/astray |
 | 4 | فَ | fa | - | Particle - conjunction | Not declinable (mabni), indicates sequence | and then/so |
 | 5 | هَدَىٰ | hadā | ه د ي | Verb - Form I, past tense, 3rd person masculine singular | Verb mabni 'ala fatha maqdurah, subject implied (He), object implied (you) | He guided |
+</GrammarTable>
 
-#### Grammar Notes
-- Parallel structure to verse 6 (wajadaka... fa...)
-- Dāll is active participle or ism fa'il functioning as hal
-- Hadā is defective verb (nāqis) ending in alif
-- Direct object (you) implied from context
+<Callout type="tip" title="ضَالّ: Not 'Sinful' but 'Seeking Without Finding'">
+ضَالّ (from root ض-ل-ل) is often translated as "astray" or "lost," but when applied to the Prophet before revelation, it does not mean sinful or misguided in a moral sense. Rather, it means "searching without having found the way yet" — the Prophet knew the idolatry of his people was wrong but had not yet received the Divine guidance that would illuminate the path. The word describes a state of seeking, not a state of rebellion. هَدَىٰ (He guided) then provides the answer to that seeking — the gift of prophethood itself. The active participle form (فَاعِل pattern) emphasizes an ongoing state that was then resolved.
+</Callout>
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** Parallel structure to verse 6 but in declarative form (not interrogative). وَوَجَدَكَ is the verb + object, with وَ as a conjunction. ضَالًّا is a حَال (state complement) in the accusative, describing the Prophet's condition when found. فَ introduces the consequence, and هَدَىٰ is the past tense verb with both subject (He) and object (you) implied. The verb هَدَى is transitive here (He guided you) though the object is omitted for brevity (حَذْف المَفْعُول).
+
+**Sarf (Morphology):** ضَالّ is the active participle (اسم فَاعِل) from root ض-ل-ل, a doubled verb (مُضَعَّف). The pattern is فَاعِل, with the doubled lām assimilated (ضَالِل → ضَالّ). The tanwin fatha (ضَالًّا) marks it as indefinite accusative. هَدَىٰ is Form I from root ه-د-ي, a defective verb (نَاقِص) ending in alif maqsurah. The fatha is مُقَدَّرَة (estimated) on the alif.
+
+**Balagha (Rhetoric):** The second panel of the triptych. While verse 6 addressed physical vulnerability (orphanhood), verse 7 addresses spiritual searching. The progression is deliberate: body → soul → provision. ضَالًّا (unguided) paired with فَهَدَىٰ (so He guided) creates a compact narrative of transformation. The brevity is powerful — just five words capture years of spiritual yearning resolved by Divine revelation. The parallel with verse 6 (wajadaka... fa-) creates a rhythmic pattern that makes the blessings feel inevitable and systematic rather than random.
 
 ### Verse 8
 
-**Arabic:** وَوَجَدَكَ عَآئِلًۭا فَأَغْنَىٰ
-
-**Translation:** "And He found you in need and made [you] self-sufficient"
+<ArabicExample
+  arabic="وَوَجَدَكَ عَآئِلًۭا فَأَغْنَىٰ"
+  transliteration="wa-wajadaka 'ā'ilan fa-aghnā"
+  translation="And He found you in need and made [you] self-sufficient"
+  reference="Ad-Duha 93:8"
+  highlight="عَآئِلًۭا,فَأَغْنَىٰ"
+/>
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | وَ | wa | - | Particle - conjunction | Not declinable (mabni) | And |
@@ -183,21 +313,33 @@ difficulty: "intermediate"
 | 3 | عَآئِلًۭا | 'ā'ilan | ع ي ل | Active participle - masculine, singular, indefinite | Object complement (hal) - accusative (mansub) | in need/poor |
 | 4 | فَ | fa | - | Particle - conjunction | Not declinable (mabni), indicates sequence | and then/so |
 | 5 | أَغْنَىٰ | aghnā | غ ن ي | Verb - Form IV, past tense, 3rd person masculine singular | Verb mabni 'ala fatha maqdurah, subject and object implied | He enriched/made self-sufficient |
+</GrammarTable>
 
-#### Grammar Notes
-- Third parallel structure continuing wajadaka... fa- pattern
-- 'Ā'il is active participle (ism fa'il) meaning needy/poor
-- Aghnā (Form IV) means to make rich/self-sufficient
-- Subject (He) and object (you) both implied
+<Callout type="rule" title="Form IV أَغْنَى: Causative Enrichment">
+أَغْنَىٰ is a Form IV verb (أَفْعَلَ pattern) from root غ-ن-ي. Form I غَنِيَ means "to be rich, self-sufficient." Form IV أَغْنَى means "to make someone rich/self-sufficient" — adding the causative meaning that Form IV characteristically provides. This pattern appears repeatedly: عَلِمَ (knew) → أَعْلَمَ (informed), خَرَجَ (went out) → أَخْرَجَ (brought out), آوَى (took shelter) → آوَى Form IV (gave shelter). Recognizing this Form I → Form IV relationship is one of the most productive patterns in Quranic Arabic morphology.
+</Callout>
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** Third and final panel of the parallel structure. Identical syntactic frame to verse 7: وَ + وَجَدَكَ + حَال accusative + فَ + past verb. عَائِلًا is the حَال describing the state of need, and أَغْنَىٰ is the consequential action with both subject (He) and object (you) implied. The consistency of this three-verse frame (6-8) creates a grammatical rhythm that becomes almost musical.
+
+**Sarf (Morphology):** عَائِل is the active participle from root ع-ي-ل, meaning "one who is in a state of need/poverty." It follows the فَاعِل pattern with the characteristic hamza appearing between the two vowels (عَ-ا-ئِ-ل). أَغْنَى is Form IV from root غ-ن-ي, a defective verb. The hamza prefix and the causative meaning (to make self-sufficient) are hallmarks of Form IV.
+
+**Balagha (Rhetoric):** The third blessing completes the triptych: physical protection (orphan → sheltered), spiritual guidance (lost → guided), material provision (poor → enriched). The progression addresses the three fundamental human needs: security, purpose, and sustenance. أَغْنَى is carefully chosen over أَعْطَى (gave): Allah did not merely give wealth but made the Prophet *self-sufficient* — a more dignified and complete provision. The three فَ connectives (فَآوَى, فَهَدَى, فَأَغْنَى) create a drumbeat of Divine intervention: so He sheltered, so He guided, so He enriched. Each blessing was not requested but discovered — Allah found the need and provided before being asked.
 
 ### Verse 9
 
-**Arabic:** فَأَمَّا ٱلْيَتِيمَ فَلَا تَقْهَرْ
-
-**Translation:** "So as for the orphan, do not oppress [him]"
+<ArabicExample
+  arabic="فَأَمَّا ٱلْيَتِيمَ فَلَا تَقْهَرْ"
+  transliteration="fa-amma l-yatīma fa-lā taqhar"
+  translation="So as for the orphan, do not oppress [him]"
+  reference="Ad-Duha 93:9"
+  highlight="أَمَّا,فَلَا تَقْهَرْ"
+/>
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | فَ | fa | - | Particle - conjunction | Not declinable (mabni), introduces consequence | So/Therefore |
@@ -206,21 +348,33 @@ difficulty: "intermediate"
 | 4 | فَ | fa | - | Particle - conjunction | Not declinable (mabni), answer to amma | then |
 | 5 | لَا | lā | - | Particle - negation | Not declinable (mabni), negates imperative (nahiy) | do not |
 | 6 | تَقْهَرْ | taqhar | ق ه ر | Verb - Form I, present tense, 2nd person masculine singular, jussive | Verb in jussive mood (majzum) by la nahiy | oppress |
+</GrammarTable>
 
-#### Grammar Notes
-- Amma conditional construction (fa-amma... fa-...)
-- Al-yatīm in accusative (mansub) as object of interest governed by amma
-- La nahiy (prohibitive la) makes verb jussive mood
-- Command derived from verse 6 experience: since Allah sheltered you, shelter orphans
+<Callout type="rule" title="أَمَّا...فَ: The Conditional-Topicalization Construction">
+أَمَّا is a conditional particle (حَرْف شَرْط وَتَفْصِيل) that means "as for" and requires فَ in its answer clause. The noun after أَمَّا is placed in the accusative (مَنْصُوب) because it is the object of an implied verb (مَهْمَا يَكُنْ مِنْ شَيْء — "whatever the case may be concerning..."). The فَ is obligatory and introduces the response. This أَمَّا...فَ pattern is used for *topicalization* — bringing a topic to the front of the sentence and then commenting on it. It appears three times (vv.9-11) to create a triad of commands, each corresponding to a blessing from vv.6-8.
+</Callout>
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** This is a conditional-imperative sentence. أَمَّا introduces the topic (ٱلْيَتِيمَ, accusative). The فَ is mandatory (فَاء الجَزَاء) and introduces the command. لَا is the prohibitive particle (لا النَّاهِيَة) which governs the following verb in the jussive mood. تَقْهَرْ is in the jussive (مَجْزُوم), marked by sukun on the final consonant. The implied subject is أَنْتَ (you).
+
+**Sarf (Morphology):** تَقْهَرْ is Form I from root ق-ه-ر (to overpower, oppress, subjugate). The jussive form is identical to the imperative base (without the alif prefix). قَهَرَ carries connotations of forceful domination — one of Allah's names is القَاهِر (the Subduer). When applied to treatment of orphans, it means to exploit their weakness or treat them harshly.
+
+**Balagha (Rhetoric):** The shift from verses 6-8 (past blessings) to verses 9-11 (present commands) is marked by فَ (so, therefore), establishing a causal link: *because* Allah did these things for you, *therefore* act accordingly. The first command mirrors the first blessing: you were an orphan (v.6), so do not oppress orphans (v.9). The verb قَهَرَ (to overpower) is deliberately strong — it does not just forbid neglect but forbids active oppression. The negation لَا تَقْهَرْ sets a minimum standard: not merely "be kind to orphans" but "at the very least, do not oppress them." The positive action (kindness) is implied as exceeding this minimum.
 
 ### Verse 10
 
-**Arabic:** وَأَمَّا ٱلسَّآئِلَ فَلَا تَنْهَرْ
-
-**Translation:** "And as for the one who asks, do not repel [him]"
+<ArabicExample
+  arabic="وَأَمَّا ٱلسَّآئِلَ فَلَا تَنْهَرْ"
+  transliteration="wa-amma s-sā'ila fa-lā tanhar"
+  translation="And as for the one who asks, do not repel [him]"
+  reference="Ad-Duha 93:10"
+  highlight="ٱلسَّآئِلَ,فَلَا تَنْهَرْ"
+/>
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | وَ | wa | - | Particle - conjunction | Not declinable (mabni) | And |
@@ -229,21 +383,33 @@ difficulty: "intermediate"
 | 4 | فَ | fa | - | Particle - conjunction | Not declinable (mabni), answer to amma | then |
 | 5 | لَا | lā | - | Particle - negation | Not declinable (mabni), negates imperative (nahiy) | do not |
 | 6 | تَنْهَرْ | tanhar | ن ه ر | Verb - Form I, present tense, 2nd person masculine singular, jussive | Verb in jussive mood (majzum) by la nahiy | repel/rebuke harshly |
+</GrammarTable>
 
-#### Grammar Notes
-- Parallel amma construction to verse 9
-- As-sā'il is active participle (ism fa'il) meaning one who asks
-- Tanhar means to rebuke harshly or drive away
-- Command derived from verse 8 experience: since Allah enriched you, be kind to those who ask
+<Callout type="tip" title="ٱلسَّائِل: The One Who Asks — Material or Spiritual">
+ٱلسَّائِل is the active participle (اسم فَاعِل) from سَأَلَ (to ask). While often interpreted as a beggar asking for material help, scholars note that ٱلسَّائِل also encompasses anyone seeking knowledge, guidance, or information. This dual meaning connects verse 10 to verse 7 (ضَالًّا فَهَدَىٰ — lost, then guided): just as Allah guided the Prophet when he was "seeking without finding," the Prophet must not repel those who come seeking from him. The correspondence: you were ضَالّ (seeking guidance) → فَهَدَى (He guided you) → فَلَا تَنْهَرْ ٱلسَّائِلَ (so do not repel the seeker).
+</Callout>
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** Identical structure to verse 9: أَمَّا + accusative topic + فَ + لَا نَاهِيَة + jussive verb. ٱلسَّائِلَ is in the accusative governed by أَمَّا. تَنْهَرْ is in the jussive (مَجْزُوم) after لَا النَّاهِيَة. The parallel with verse 9 is exact in structure, differing only in the topic and the verb.
+
+**Sarf (Morphology):** ٱلسَّائِل is the active participle (فَاعِل pattern) from root س-ء-ل. The hamza appears between the long ā and the kasra (سَ-ا-ئِ-ل). تَنْهَرْ is Form I from root ن-ه-ر, meaning "to rebuke harshly, to drive away with verbal aggression." نَهَرَ specifically implies loudness and harshness in speech — it is not just refusal but hostile refusal.
+
+**Balagha (Rhetoric):** The second command mirrors the second blessing (v.7 → v.10). The verb نَهَرَ (to rebuke harshly) is more specific than a general "refuse" — it forbids the *manner* of refusal, not just the act. Even if one cannot give what is asked, the response must not be harsh or demeaning. This distinction is subtle and important: the verse does not command giving to every petitioner (which may not always be possible) but absolutely forbids treating them with contempt. The active participle ٱلسَّائِل (the one who is asking) emphasizes the ongoing, present act of asking — someone in the vulnerable moment of reaching out for help.
 
 ### Verse 11
 
-**Arabic:** وَأَمَّا بِنِعْمَةِ رَبِّكَ فَحَدِّثْ
-
-**Translation:** "And as for the favor of your Lord, then proclaim [it]"
+<ArabicExample
+  arabic="وَأَمَّا بِنِعْمَةِ رَبِّكَ فَحَدِّثْ"
+  transliteration="wa-amma bi-ni'mati rabbika fa-haddith"
+  translation="And as for the favor of your Lord, then proclaim [it]"
+  reference="Ad-Duha 93:11"
+  highlight="بِنِعْمَةِ,فَحَدِّثْ"
+/>
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | وَ | wa | - | Particle - conjunction | Not declinable (mabni) | And |
@@ -253,15 +419,98 @@ difficulty: "intermediate"
 | 5 | رَبِّكَ | rabbika | ر ب ب | Noun - masculine, singular, definite + attached pronoun | Mudaf ilayh (second term of idafa) - genitive (majrur) | your Lord |
 | 6 | فَ | fa | - | Particle - conjunction | Not declinable (mabni), answer to amma | then |
 | 7 | حَدِّثْ | haddith | ح د ث | Verb - Form II, imperative, 2nd person masculine singular | Imperative verb (amr) - mabni 'ala sukun | proclaim/speak about |
+</GrammarTable>
 
-#### Grammar Notes
-- Third amma construction, completing the triad
-- Bi-ni'mati rabbika is prepositional phrase with idafa construction
-- Haddith (Form II imperative) means to narrate/proclaim
-- Command derived from all three experiences: since Allah blessed you, proclaim His favors
+<Callout type="rule" title="Form II Imperative حَدِّثْ: Intensive Proclamation">
+حَدِّثْ is the imperative of Form II حَدَّثَ from root ح-د-ث. Form I حَدَثَ means "to happen, to occur." Form II حَدَّثَ means "to tell, narrate, report" — the intensive doubling transforms an event (happening) into speech about that event (narrating). The imperative حَدِّثْ is formed by dropping the present-tense prefix (تُحَدِّثُ → حَدِّثْ). The sukun on the final letter marks the imperative mood. This verb choice implies not quiet gratitude but active, public proclamation — speaking about Allah's favors to others.
+</Callout>
+
+<Callout type="tip" title="The Grand Triad: Blessings → Commands">
+Verse 11 completes the surah's structural masterpiece. The three أَمَّا clauses (vv.9-11) mirror the three blessings (vv.6-8) in exact correspondence:
+
+**Blessing → Command:**
+- يَتِيمًا فَآوَى (orphan → sheltered) → فَأَمَّا اليَتِيمَ فَلَا تَقْهَرْ (do not oppress orphans)
+- ضَالًّا فَهَدَى (lost → guided) → وَأَمَّا السَّائِلَ فَلَا تَنْهَرْ (do not repel seekers)
+- عَائِلًا فَأَغْنَى (poor → enriched) → وَأَمَّا بِنِعْمَةِ رَبِّكَ فَحَدِّثْ (proclaim the blessings)
+
+The first two commands are negative (لَا تَقْهَرْ, لَا تَنْهَرْ), while the third is positive (حَدِّثْ). The movement from prohibition to command mirrors the movement from problems to gratitude: first stop the harm, then actively do good.
+</Callout>
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** The third أَمَّا construction, but with a key difference: instead of a direct object after أَمَّا, there is a prepositional phrase بِنِعْمَةِ رَبِّكَ. The بِ is a preposition governing نِعْمَة in the genitive. نِعْمَةِ رَبِّكَ is an idafa (possessive construction): "the favor of your Lord." فَ introduces the positive command حَدِّثْ (imperative, مَبْنِي عَلَى السُّكُون). The implied subject is أَنْتَ, and the implied object is "it" (the favor).
+
+**Sarf (Morphology):** نِعْمَة is from root ن-ع-م on the فِعْلَة pattern — a verbal noun indicating a single instance of blessing/favor (as opposed to نِعَم, the plural for multiple blessings, or نَعِيم, the continuous state of bliss). حَدِّثْ is the Form II imperative from root ح-د-ث. The doubled middle radical (دّ) identifies Form II, and the imperative is formed from the present tense by removing the prefix and adding sukun.
+
+**Balagha (Rhetoric):** The final verse transforms the entire surah from personal consolation into universal duty. While verses 9-10 prohibited specific harms, verse 11 commands active gratitude. حَدِّثْ (proclaim) is stronger than اشْكُرْ (be grateful) — it requires *public speech*, not just private thanks. The preposition بِ in بِنِعْمَةِ rَبِّكَ makes the favor itself the content of the speech: "speak *about* the favor." This explains why the surah exists: it is itself an act of proclamation, narrating Allah's favors to the Prophet so that all believers can witness and learn from them. The surah ends not with a warning but with a joyful command: speak about what Allah has done for you.
+
+## Practice Exercises
+
+<ExerciseBox question="Trace the oath-answer structure of this surah. Identify the two oaths (vv.1-2) and their jawab al-qasam (v.3). Then explain: what grammatical marker confirms that verse 3 is the answer to the oaths? How does the مَا negation in the jawab interact with the positive imagery of the oaths?">
+
+**The two oaths:**
+1. وَٱلضُّحَىٰ — "By the morning brightness" (oath particle وَ + muqsam bihi in genitive)
+2. وَٱلَّيْلِ إِذَا سَجَىٰ — "And by the night when it settles" (oath particle وَ + muqsam bihi + temporal clause)
+
+**The jawab al-qasam (answer):**
+مَا وَدَّعَكَ رَبُّكَ وَمَا قَلَىٰ — "Your Lord has not abandoned you, nor has He been displeased"
+
+**Grammatical confirmation:**
+The jawab al-qasam typically begins with an emphatic element. Here, مَا (negation) serves this function — the emphatic denial that follows the oaths. In Arabic grammar, when the jawab al-qasam is negative, مَا is used (not لَا or لَنْ). When it is positive, لَ or إِنَّ are used (as in verses 4-5 with لَ).
+
+**Interaction between oaths and answer:**
+The oaths swear by positive natural phenomena (bright morning, peaceful night), while the answer *negates* an accusation (abandonment, displeasure). The contrast is deliberate: the certainty and beauty of morning and night (which never fail to appear) guarantee the certainty of Allah's continued care (which also never fails). Just as night *always* gives way to morning, the pause in revelation will *always* give way to its return.
+
+</ExerciseBox>
+
+<ExerciseBox question="Analyze the triple parallel structure in verses 6-8 and its mirror in verses 9-11. For each of the three pairs, identify: (a) the حَال accusative in vv.6-8, (b) the corresponding أَمَّا topic in vv.9-11, and (c) the logical connection between the blessing and the command.">
+
+**Pair 1: Verses 6 and 9**
+- **(a) حَال:** يَتِيمًا (an orphan) — describes the state in which Allah found the Prophet
+- **(b) أَمَّا topic:** ٱلْيَتِيمَ (the orphan) — same word, now as the object of the command
+- **(c) Connection:** Because Allah sheltered you when you were an orphan (فَآوَى), you must not oppress orphans (فَلَا تَقْهَرْ). Personal experience of vulnerability → empathy toward the vulnerable.
+
+**Pair 2: Verses 7 and 10**
+- **(a) حَال:** ضَالًّا (lost/seeking) — describes spiritual searching before revelation
+- **(b) أَمَّا topic:** ٱلسَّائِلَ (the one who asks/seeks) — someone in a similar state of seeking
+- **(c) Connection:** Because Allah guided you when you were seeking (فَهَدَى), you must not repel those who come seeking from you (فَلَا تَنْهَرْ). Experience of being guided → patience with seekers.
+
+**Pair 3: Verses 8 and 11**
+- **(a) حَال:** عَائِلًا (in need/poor) — describes material deprivation
+- **(b) أَمَّا topic:** بِنِعْمَةِ رَبِّكَ (the favor of your Lord) — the blessings that replaced poverty
+- **(c) Connection:** Because Allah enriched you (فَأَغْنَى), you must publicly proclaim His favors (فَحَدِّثْ). Experience of provision → gratitude and proclamation.
+
+**Structural note:** The first two commands are prohibitions (لَا تَقْهَرْ, لَا تَنْهَرْ — do not...), while the third is a positive command (حَدِّثْ — do...). This mirrors the progression from protection (preventing harm) to active gratitude (spreading good).
+
+</ExerciseBox>
+
+<ExerciseBox question="Compare the three Form IV verbs in this surah: آوَى (v.6), أَعْطَى/يُعْطِي (v.5), and أَغْنَى (v.8). For each, give the Form I base meaning, explain how Form IV changes the meaning, and identify the root. What pattern do you notice about Form IV's function in this surah?">
+
+**Verb 1: آوَى (āwā) — verse 6**
+- **Root:** ء-و-ي
+- **Form I meaning:** أَوَى — to take shelter, to seek refuge (intransitive)
+- **Form IV meaning:** آوَى — to give shelter, to provide refuge to someone (transitive/causative)
+- **Change:** Intransitive → transitive. From "seeking shelter" to "providing shelter"
+
+**Verb 2: أَعْطَى/يُعْطِي (a'tā/yu'tī) — verse 5**
+- **Root:** ع-ط-و
+- **Form I meaning:** عَطَا — to give (basic)
+- **Form IV meaning:** أَعْطَى — to bestow, grant generously (intensified giving)
+- **Change:** Simple giving → generous, deliberate bestowal. Takes two objects (recipient + gift)
+
+**Verb 3: أَغْنَى (aghnā) — verse 8**
+- **Root:** غ-ن-ي
+- **Form I meaning:** غَنِيَ — to be rich, self-sufficient (stative, intransitive)
+- **Form IV meaning:** أَغْنَى — to make someone rich/self-sufficient (causative, transitive)
+- **Change:** Stative → causative. From "being rich" to "making someone rich"
+
+**The pattern:** In all three cases, Form IV transforms Allah's action from something the Prophet *experienced* into something Allah *caused*. Form IV in this surah consistently portrays Divine agency: Allah does not merely observe the Prophet's condition — He actively *causes* the transformation. Shelter is given (not found), wealth is created (not stumbled upon), guidance is bestowed (not accidentally discovered). Form IV is the verb form of Divine intervention.
+
+</ExerciseBox>
 
 ## Key Vocabulary
 
+<GrammarTable>
 | Arabic | Root | Pattern | Meaning | Frequency |
 |--------|------|---------|---------|-----------|
 | ٱلضُّحَىٰ | ض ح و | fu'lā | morning brightness, forenoon | Rare |
@@ -280,38 +529,22 @@ difficulty: "intermediate"
 | نَهَرَ | ن ه ر | fa'ala | to rebuke harshly, repel | Rare |
 | نِعْمَة | ن ع م | fi'lah | favor, blessing | Very common |
 | حَدَّثَ | ح د ث | fa''ala (Form II) | to tell, narrate, proclaim | Common |
+</GrammarTable>
 
 ## Grammar Summary
 
-### Main Grammatical Constructs
-
-1. **Oath constructions (qasam)**: Verses 1-2 use wa- oath particle with implied preposition governing genitive case
-
-2. **Ma negation**: Verse 3 uses ma al-nāfiyah to negate past tense verbs (ma wadda'a, ma qalā)
-
-3. **Emphasis particles**: La- used for emphasis in verses 4-5 (la-al-ākhiratu, la-sawfa)
-
-4. **Future perfect with la-sawfa**: Verse 5 combines emphasis + future for strong assertion of future event
-
-5. **Rhetorical questions**: Verse 6 uses a-lam (did not?) expecting affirmative answer
-
-6. **Jussive mood**: Verse 6 (after lam), verses 9-10 (after la nahiy) show jussive verb forms
-
-7. **Amma conditional construction**: Verses 9-11 use fa-amma... fa- pattern for conditional-directive clauses
-
-8. **Parallel structures**: Verses 6-8 follow identical wajadaka... fa- pattern showing divine care
-
-9. **Object complement (hal)**: Verses 6-8 use accusative nouns/participles (yatīman, dāllan, 'ā'ilan) describing object's state
-
-10. **Idafa constructions**: Throughout surah, especially verse 11 (ni'mati rabbika)
-
-11. **Imperative and prohibitive**: Verse 11 has positive command (haddith), verses 9-10 have negative commands (la taqhar, la tanhar)
-
-### Pedagogical Notes
-
-This surah is excellent for teaching:
-- The emphatic la- particle and its effect on meaning
-- The distinction between different negative particles (ma vs. la)
-- Conditional constructions with amma
-- Parallel syntactic structures for rhetorical effect
-- The relationship between verb mood and meaning (jussive for prohibition/condition)
+<Callout type="note" title="Key Grammar Concepts in This Surah">
+- **Oath construction (قَسَم)**: وَ as oath particle governing genitive case on ٱلضُّحَىٰ and ٱلَّيْلِ; إِذَا temporal clause qualifying the muqsam bihi
+- **مَا negation of past tense**: مَا وَدَّعَكَ — مَا النَّافِيَة directly negates past tense without changing verb form (unlike لَمْ which governs jussive)
+- **لَام الابتداء (emphatic لَ)**: وَلَلْآخِرَةُ (v.4) and وَلَسَوْفَ (v.5) — emphasis particle attached to the beginning of nominal and verbal sentences
+- **لَسَوْفَ (emphatic future)**: Rare combination of emphasis لَ + future سَوْفَ for absolute certainty of future event
+- **اسم التَّفْضِيل (comparative)**: خَيْرٌ + مِنْ for comparison — "better than" with irregular elative form
+- **أَلَمْ rhetorical interrogation**: أَ (interrogative) + لَمْ (jussive negation) → rhetorical question expecting "yes" as answer
+- **حَال (state complement)**: يَتِيمًا, ضَالًّا, عَائِلًا — accusative nouns describing the state/condition of the object at the time of the verb
+- **Triple parallel structure**: Three identical وَجَدَكَ + حَال + فَ + verb patterns (vv.6-8) creating rhythmic enumeration of blessings
+- **أَمَّا...فَ conditional construction**: Three instances (vv.9-11) for topicalization with obligatory فَ in the answer clause
+- **لَا النَّاهِيَة (prohibitive لَا)**: لَا تَقْهَرْ, لَا تَنْهَرْ — governs jussive mood for negative commands
+- **Form IV causative verbs**: آوَى (sheltered), أَعْطَى (gave), أَغْنَى (enriched) — all showing Divine agency through causative Form IV
+- **Form II intensive verbs**: وَدَّعَ (abandoned deliberately), حَدِّثْ (proclaim actively) — doubled middle radical for intensity
+- **Blessing-command correspondence**: Vv.6-8 (past blessings) map exactly to vv.9-11 (present commands), creating ethical imperatives grounded in personal experience
+</Callout>
