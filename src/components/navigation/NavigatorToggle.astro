@@ -120,3 +120,39 @@ const { class: className, variant = 'header' } = Astro.props;
     }
   }
 </style>
+
+<script>
+  function setupToggle() {
+    const toggle = document.getElementById('navigator-toggle');
+    const sidebar = document.getElementById('course-navigator');
+    const backdrop = document.getElementById('navigator-backdrop');
+
+    if (!toggle || !sidebar) return;
+
+    toggle.addEventListener('click', () => {
+      const isOpen = sidebar.classList.contains('open');
+      if (isOpen) {
+        sidebar.classList.remove('open');
+        backdrop?.classList.remove('visible');
+        toggle.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+        toggle.focus();
+      } else {
+        sidebar.classList.add('open');
+        backdrop?.classList.add('visible');
+        toggle.setAttribute('aria-expanded', 'true');
+        document.body.style.overflow = 'hidden';
+      }
+    });
+
+    backdrop?.addEventListener('click', () => {
+      sidebar.classList.remove('open');
+      backdrop.classList.remove('visible');
+      toggle.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+      toggle.focus();
+    });
+  }
+  setupToggle();
+  document.addEventListener('astro:page-load', setupToggle);
+</script>

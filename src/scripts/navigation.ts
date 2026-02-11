@@ -9,6 +9,7 @@ const MOBILE_BREAKPOINT = 1024;
 
 // State
 let focusTrapCleanup: (() => void) | null = null;
+let sidebarInitialized = false;
 
 // Swipe gesture state
 let touchStartX = 0;
@@ -25,13 +26,12 @@ export function initNavigation(): void {
 
 // Sidebar toggle functionality
 function initSidebarToggle(): void {
-  const toggle = document.getElementById(TOGGLE_ID);
-  const closeBtn = document.getElementById(CLOSE_ID);
-  const backdrop = document.getElementById(BACKDROP_ID);
+  if (sidebarInitialized) return;
+  sidebarInitialized = true;
 
-  toggle?.addEventListener('click', toggleSidebar);
+  // Toggle click and backdrop click are handled by NavigatorToggle component's inline script
+  const closeBtn = document.getElementById(CLOSE_ID);
   closeBtn?.addEventListener('click', closeSidebar);
-  backdrop?.addEventListener('click', closeSidebar);
 
   // Handle Escape key
   document.addEventListener('keydown', (e) => {
@@ -277,11 +277,3 @@ function handleTouchEnd(e: TouchEvent): void {
   }
 }
 
-// Auto-initialize when script loads
-if (typeof document !== 'undefined') {
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initNavigation);
-  } else {
-    initNavigation();
-  }
-}
