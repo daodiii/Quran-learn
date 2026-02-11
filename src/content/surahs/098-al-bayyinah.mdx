@@ -6,6 +6,11 @@ verseCount: 8
 difficulty: "intermediate"
 ---
 
+import ArabicExample from '@components/mdx/ArabicExample.astro';
+import GrammarTable from '@components/mdx/GrammarTable.astro';
+import Callout from '@components/mdx/Callout.astro';
+import ExerciseBox from '@components/mdx/ExerciseBox.astro';
+
 # Al-Bayyinah (The Clear Evidence)
 
 ## Overview
@@ -15,16 +20,40 @@ difficulty: "intermediate"
 - **Theme:** The arrival of the Prophet Muhammad as clear proof (bayyinah) to People of the Book and polytheists. Describes the pure religion's essence and the ultimate fate of believers and disbelievers in the Hereafter.
 - **Grammar Focus:** Lam yakun negation, relative clauses, active participles (ism fa'il), superlative constructions, nominal sentences, dual number, emphasis through repetition
 
+### Structural Overview
+
+<GrammarTable>
+| Verse | Arabic | Sentence Type | Key Grammar | Message |
+|-------|--------|---------------|-------------|---------|
+| 1 | لَمْ يَكُنِ ٱلَّذِينَ كَفَرُوا۟ ... مُنفَكِّينَ | Verbal (negated kana) | لَمْ + jussive kana + active participle khabar | Disbelievers would not desist until proof came |
+| 2 | رَسُولٌۭ مِّنَ ٱللَّهِ يَتْلُوا۟ صُحُفًۭا | Nominal (badal clause) | Badal (apposition) + hal clause | The clear evidence is a messenger reciting |
+| 3 | فِيهَا كُتُبٌۭ قَيِّمَةٌۭ | Nominal (fronted khabar) | Prepositional khabar muqaddam + delayed mubtada | The scriptures contain upright writings |
+| 4 | وَمَا تَفَرَّقَ ٱلَّذِينَ أُوتُوا۟ ... إِلَّا مِنۢ بَعْدِ | Verbal (negated + exception) | مَا...إِلَّا restriction + passive voice | They split only after evidence arrived |
+| 5 | وَمَآ أُمِرُوٓا۟ إِلَّا لِيَعْبُدُوا۟ | Verbal (negated + purpose) | مَا...إِلَّا + لِ purpose + subjunctive | They were only commanded to worship sincerely |
+| 6 | إِنَّ ٱلَّذِينَ كَفَرُوا۟ ... شَرُّ ٱلْبَرِيَّةِ | Nominal (inna emphasis) | إِنَّ + superlative idafa + fasl pronoun | Disbelievers are the worst of creatures |
+| 7 | إِنَّ ٱلَّذِينَ ءَامَنُوا۟ ... خَيْرُ ٱلْبَرِيَّةِ | Nominal (inna emphasis) | إِنَّ + superlative idafa + fasl pronoun | Believers are the best of creatures |
+| 8 | جَزَآؤُهُمْ عِندَ رَبِّهِمْ جَنَّـٰتُ عَدْنٍۢ | Nominal (multiple clauses) | Nominal + verbal + mutual action | Their reward is Gardens with mutual divine pleasure |
+</GrammarTable>
+
+<Callout type="tip" title="A Surah of Perfect Parallelism">
+Al-Bayyinah is a masterclass in structural contrast. Verses 6 and 7 use identical grammatical constructions — إِنَّ ٱلَّذِينَ ... أُو۟لَـٰٓئِكَ هُمْ ... ٱلْبَرِيَّةِ — but swap شَرُّ (worst) for خَيْرُ (best). The same fasl pronoun هُمْ, the same demonstrative أُو۟لَـٰٓئِكَ, and the same noun ٱلْبَرِيَّةِ frame both groups. The grammar forces the listener to see these as mirror images: identical in structure, opposite in destiny. This deliberate parallelism (مُقَابَلَة) is one of the most powerful rhetorical devices in Arabic, and this surah uses it to devastating effect.
+</Callout>
+
 ## Verse-by-Verse Analysis
 
 ### Verse 1
 
-**Arabic:** لَمْ يَكُنِ ٱلَّذِينَ كَفَرُوا۟ مِنْ أَهْلِ ٱلْكِتَـٰبِ وَٱلْمُشْرِكِينَ مُنفَكِّينَ حَتَّىٰ تَأْتِيَهُمُ ٱلْبَيِّنَةُ
-
-**Translation:** "Those who disbelieved from the People of the Book and the polytheists were not to desist until there came to them the clear evidence"
+<ArabicExample
+  arabic="لَمْ يَكُنِ ٱلَّذِينَ كَفَرُوا۟ مِنْ أَهْلِ ٱلْكِتَـٰبِ وَٱلْمُشْرِكِينَ مُنفَكِّينَ حَتَّىٰ تَأْتِيَهُمُ ٱلْبَيِّنَةُ"
+  transliteration="lam yakuni lladhīna kafarū min ahli l-kitābi wa-l-mushrikīna munfakkīna hattā ta'tiyahumu l-bayyinah"
+  translation="Those who disbelieved from the People of the Book and the polytheists were not to desist until there came to them the clear evidence"
+  reference="Al-Bayyinah 98:1"
+  highlight="لَمْ يَكُنِ,مُنفَكِّينَ,ٱلْبَيِّنَةُ"
+/>
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | لَمْ | lam | - | Particle - negation | Not declinable (mabni), jussive negation | not |
@@ -40,22 +69,37 @@ difficulty: "intermediate"
 | 11 | حَتَّىٰ | hattā | - | Particle - purpose/limit | Not declinable (mabni), introduces purpose clause | until |
 | 12 | تَأْتِيَهُمُ | ta'tiyahum | ء ت ي | Verb - Form I, present tense, 3rd person feminine singular, subjunctive + pronoun | Verb in subjunctive (mansub) by hatta, hum = indirect object | it comes to them |
 | 13 | ٱلْبَيِّنَةُ | al-bayyinatu | ب ي ن | Noun - feminine, singular, definite | Subject (fa'il) - nominative (marfu') | the clear evidence |
+</GrammarTable>
 
-#### Grammar Notes
-- Lam yakun construction negates past continuous state
-- Alladhīna is ism kana in nominative case (marfu')
-- Munfakkīna (active participle) is khabar kana in accusative (mansub)
-- Hattā introduces purpose clause with subjunctive mood
-- Al-bayyinah refers to Prophet Muhammad and the Quran
+<Callout type="rule" title="The لَمْ يَكُنْ Negation: Negating Past Continuous State">
+لَمْ is a jussive particle that negates the past using a present-tense verb form. When combined with كَانَ (the defective verb "to be"), the construction لَمْ يَكُنْ negates a past continuous state: "they were not (in a state of)." The verb يَكُنْ loses its final nun in the jussive (from يَكُونُ → يَكُنْ), and the kasra on يَكُنِ here is due to the liaison (iltiqaa' al-saakinayn) with the following ٱلَّذِينَ. The ism of kana (ٱلَّذِينَ) takes nominative case, while its khabar (مُنفَكِّينَ) takes accusative.
+</Callout>
+
+<Callout type="tip" title="مُنفَكِّينَ: A Form VII Active Participle">
+مُنفَكِّينَ derives from the Form VII verb اِنْفَكَّ (root ف-ك-ك, "to separate, release"). Form VII (اِنْفَعَلَ) adds a reflexive/passive nuance: فَكَّ = "he unfastened" → اِنْفَكَّ = "it became unfastened / it ceased." As an active participle used as khabar of kana, it describes the ongoing state they were in — they were not ceasing from their disbelief. This is one of the "sisters of kana" that behaves like a continuous negation when preceded by لَمْ.
+</Callout>
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** This is a verbal sentence negated by لَمْ, which puts the defective verb يَكُنْ into the jussive mood. ٱلَّذِينَ is the ism of kana (nominative), and the relative clause كَفَرُوا۟ مِنْ أَهْلِ ٱلْكِتَـٰبِ وَٱلْمُشْرِكِينَ serves as its sila (connection). مُنفَكِّينَ is the khabar of kana (accusative). The حَتَّىٰ clause introduces a temporal limit with the verb in subjunctive mood.
+
+**Sarf (Morphology):** يَكُنِ is a hollow verb (ajwaf) from root ك-و-ن; the waaw drops in the jussive. مُنفَكِّينَ is the masculine plural active participle of Form VII اِنْفَكَّ, from the geminate root ف-ك-ك. The Form VII pattern is مُنْفَعِل, yielding مُنْفَكّ with the doubled kaf. ٱلْمُشْرِكِينَ is an active participle of Form IV أَشْرَكَ (to associate partners), with the مُفْعِل pattern.
+
+**Balagha (Rhetoric):** The verse opens with a negation (لَمْ يَكُنِ) followed by a purpose clause (حَتَّىٰ), creating suspense: the disbelievers were not going to stop — *until what?* The answer, ٱلْبَيِّنَةُ, is delayed to the very end of the verse, placed as the fa'il in the emphatic final position. The word ٱلْبَيِّنَةُ (the clear evidence) also gives the surah its name, signaling its central importance. By grouping أَهْلِ ٱلْكِتَـٰبِ and ٱلْمُشْرِكِينَ under one sentence, the verse treats both groups' disbelief as a single phenomenon requiring the same proof.
 
 ### Verse 2
 
-**Arabic:** رَسُولٌۭ مِّنَ ٱللَّهِ يَتْلُوا۟ صُحُفًۭا مُّطَهَّرَةًۭ
-
-**Translation:** "A messenger from Allah, reciting purified scriptures"
+<ArabicExample
+  arabic="رَسُولٌۭ مِّنَ ٱللَّهِ يَتْلُوا۟ صُحُفًۭا مُّطَهَّرَةًۭ"
+  transliteration="rasūlun mina llāhi yatlū suhufan mutahharatan"
+  translation="A messenger from Allah, reciting purified scriptures"
+  reference="Al-Bayyinah 98:2"
+  highlight="رَسُولٌۭ,مُّطَهَّرَةًۭ"
+/>
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | رَسُولٌۭ | rasūlun | ر س ل | Noun - masculine, singular, indefinite | Badal (apposition) to al-bayyinatu - nominative (marfu') | a messenger |
@@ -64,41 +108,69 @@ difficulty: "intermediate"
 | 4 | يَتْلُوا۟ | yatlū | ت ل و | Verb - Form I, present tense, 3rd person masculine singular | Verb (hal/state) describing rasul - indicative (marfu') | he recites |
 | 5 | صُحُفًۭا | suhufan | ص ح ف | Noun - feminine, plural, indefinite | Direct object (maf'ul bihi) - accusative (mansub) | scriptures/pages |
 | 6 | مُّطَهَّرَةًۭ | mutahharatan | ط ه ر | Passive participle - feminine, plural, indefinite | Adjective modifying suhufan - accusative (mansub) | purified |
+</GrammarTable>
 
-#### Grammar Notes
-- Rasūl is badal (appositive) explaining al-bayyinah
-- Yatlū is hal (circumstantial) clause describing the messenger's action
-- Mutahharah is passive participle (ism maf'ul) from Form II tahhara
-- Suhuf refers to written revelations
+<Callout type="rule" title="Badal (Apposition): رَسُولٌ Explaining ٱلْبَيِّنَةُ">
+رَسُولٌ is badal (appositive) to ٱلْبَيِّنَةُ from verse 1. In Arabic grammar, badal replaces the original noun in function and takes the same case — here nominative (marfu') with tanwin. This is badal kull min kull (complete apposition), meaning "the clear evidence" IS "a messenger." The badal construction reveals that ٱلْبَيِّنَةُ is not an abstract concept but a person: the Prophet Muhammad himself is the proof.
+</Callout>
+
+<Callout type="tip" title="Passive Participle from Form II: مُطَهَّرَة">
+مُطَهَّرَة is the passive participle (ism maf'ul) of the Form II verb طَهَّرَ (to purify). Form II passive participles follow the pattern مُفَعَّل (with ta marbuta for feminine): مُطَهَّر → مُطَهَّرَة. The passive meaning indicates the scriptures were purified *by Allah* — the agent is implied but understood. Compare with the active participle مُطَهِّر (one who purifies). The Form II doubling adds intensity: these are not merely clean but thoroughly purified.
+</Callout>
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** رَسُولٌ is badal (apposition) to ٱلْبَيِّنَةُ, taking nominative case. The prepositional phrase مِّنَ ٱللَّهِ modifies رَسُولٌ, indicating origin. يَتْلُوا۟ صُحُفًۭا مُّطَهَّرَةًۭ is a hal (circumstantial) clause describing the messenger's ongoing action. صُحُفًۭا is the direct object (accusative), and مُّطَهَّرَةًۭ is its adjective (also accusative).
+
+**Sarf (Morphology):** رَسُولٌ from root ر-س-ل follows the فَعُول pattern, an intensive form meaning "one who is sent (repeatedly/purposefully)." يَتْلُوا۟ is a defective verb (naqis) from root ت-ل-و, with the final waaw appearing in the present tense. صُحُفًۭا is the broken plural of صَحِيفَة (page/scripture), following the فُعُل pattern. مُّطَهَّرَةًۭ derives from Form II طَهَّرَ, with the مُفَعَّلَة passive participle pattern.
+
+**Balagha (Rhetoric):** The verse explains ٱلْبَيِّنَةُ through progressive specification: first "a messenger," then "from Allah" (his divine origin), then "reciting purified scriptures" (his mission). The hal clause يَتْلُوا۟ uses present tense to depict the recitation as ongoing and vivid — the listener can almost hear the messenger reciting. مُّطَهَّرَة (purified) emphasizes that these scriptures are free from any corruption or falsehood, contrasting with the distortions that the People of the Book had introduced into their own scriptures.
 
 ### Verse 3
 
-**Arabic:** فِيهَا كُتُبٌۭ قَيِّمَةٌۭ
-
-**Translation:** "Containing correct/upright writings"
+<ArabicExample
+  arabic="فِيهَا كُتُبٌۭ قَيِّمَةٌۭ"
+  transliteration="fīhā kutubun qayyimatun"
+  translation="Containing correct/upright writings"
+  reference="Al-Bayyinah 98:3"
+  highlight="كُتُبٌۭ,قَيِّمَةٌۭ"
+/>
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | فِيهَا | fīhā | - | Particle - preposition + attached pronoun | Fi = preposition, ha = pronoun - genitive | in them |
 | 2 | كُتُبٌۭ | kutubun | ك ت ب | Noun - feminine, plural, indefinite | Subject (mubtada') - nominative (marfu') | writings/books |
 | 3 | قَيِّمَةٌۭ | qayyimatun | ق و م | Active participle - feminine, plural, indefinite | Adjective modifying kutub - nominative (marfu') | upright/correct |
+</GrammarTable>
 
-#### Grammar Notes
-- Nominal sentence with prepositional phrase (fīhā) as khabar muqaddam
-- Kutubun is mubtada' mu'akhkhar (delayed subject)
-- Qayyimah from qayyim (upright/straight/correct)
-- Describes the content of the revealed scriptures
+<Callout type="rule" title="Khabar Muqaddam: Fronted Predicate with فِيهَا">
+This verse demonstrates a classic nominal sentence with fronted predicate (khabar muqaddam). The normal order would be كُتُبٌ قَيِّمَةٌ فِيهَا ("upright writings are in them"), but Arabic fronts the prepositional phrase فِيهَا to emphasize *where* the writings are found. When the mubtada (subject) is indefinite (كُتُبٌ) and the khabar is a prepositional phrase, fronting the khabar is often obligatory to avoid ambiguity between a statement and a descriptive phrase.
+</Callout>
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** This is a nominal sentence with the prepositional phrase فِيهَا as khabar muqaddam (fronted predicate) and كُتُبٌۭ as mubtada' mu'akhkhar (delayed subject, nominative). The fronting is necessary because the subject is indefinite. قَيِّمَةٌۭ is an adjective (na't) modifying كُتُبٌۭ, matching in case (nominative), gender (feminine), and indefiniteness.
+
+**Sarf (Morphology):** كُتُبٌ is the broken plural of كِتَاب (book/writing), following the فُعُل pattern. قَيِّمَة derives from root ق-و-م and follows the فَيْعِلَة pattern (from the original فَيْوِمَة, with the waaw becoming yaa). This pattern indicates an inherent, stable quality — not merely "standing" but "firmly established and correct." The ta marbuta marks feminine agreement with كُتُبٌ.
+
+**Balagha (Rhetoric):** This remarkably concise verse — only three words — describes the content of the purified scriptures. The brevity itself is eloquent: no elaboration is needed because the writings speak for themselves. قَيِّمَةٌ (upright, correct) is a comprehensive descriptor meaning these writings are straight, just, and free from crookedness. The verse builds a chain: the clear evidence (verse 1) is a messenger (verse 2) reciting scriptures that contain correct writings (verse 3) — each verse zooming in one level deeper.
 
 ### Verse 4
 
-**Arabic:** وَمَا تَفَرَّقَ ٱلَّذِينَ أُوتُوا۟ ٱلْكِتَـٰبَ إِلَّا مِنۢ بَعْدِ مَا جَآءَتْهُمُ ٱلْبَيِّنَةُ
-
-**Translation:** "And those who were given the Scripture did not differ until after the clear evidence had come to them"
+<ArabicExample
+  arabic="وَمَا تَفَرَّقَ ٱلَّذِينَ أُوتُوا۟ ٱلْكِتَـٰبَ إِلَّا مِنۢ بَعْدِ مَا جَآءَتْهُمُ ٱلْبَيِّنَةُ"
+  transliteration="wa-mā tafarraqa lladhīna ūtū l-kitāba illā min ba'di mā jā'athumu l-bayyinah"
+  translation="And those who were given the Scripture did not differ until after the clear evidence had come to them"
+  reference="Al-Bayyinah 98:4"
+  highlight="تَفَرَّقَ,إِلَّا,ٱلْبَيِّنَةُ"
+/>
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | وَ | wa | - | Particle - conjunction | Not declinable (mabni), connects clauses | And |
@@ -113,21 +185,37 @@ difficulty: "intermediate"
 | 10 | مَا | mā | - | Relative pronoun/particle | Not declinable (mabni), introduces relative clause | that which |
 | 11 | جَآءَتْهُمُ | jā'athum | ج ي ء | Verb - Form I, past tense, 3rd person feminine singular + pronoun | Verb in relative clause - mabni, hum = indirect object | it came to them |
 | 12 | ٱلْبَيِّنَةُ | al-bayyinatu | ب ي ن | Noun - feminine, singular, definite | Subject (fa'il) - nominative (marfu') | the clear evidence |
+</GrammarTable>
 
-#### Grammar Notes
-- Ma negates tafarraqa (negative past tense)
-- Ūtū is passive voice of Form IV ātā (to give)
-- Illā min ba'di ma construction: exception limiting time
-- Irony: they split after receiving clarity, not before
+<Callout type="rule" title="The مَا...إِلَّا Restriction Construction">
+مَا تَفَرَّقَ ... إِلَّا مِنۢ بَعْدِ is a hasr (restriction) construction. مَا negates the verb, and إِلَّا reintroduces one exception: they did NOT split EXCEPT after the evidence came. This construction is one of the most powerful tools in Arabic for emphasis through limitation. It focuses the listener's attention on the single excepted element — their division happened specifically and only after receiving clarity, making their schism all the more blameworthy.
+</Callout>
+
+<Callout type="tip" title="Form V تَفَرَّقَ: Reflexive Fragmentation">
+تَفَرَّقَ is a Form V verb (تَفَعَّلَ) from root ف-ر-ق. Form V adds a reflexive meaning to Form II: فَرَّقَ (Form II) = "he divided/separated [others]" → تَفَرَّقَ (Form V) = "they became divided among themselves." The reflexive nuance is significant: nobody forced them apart — they split of their own accord, despite receiving the very clarity that should have united them.
+</Callout>
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** مَا negates the past-tense verb تَفَرَّقَ. ٱلَّذِينَ is the fa'il (subject, nominative), with its relative clause أُوتُوا۟ ٱلْكِتَـٰبَ. The passive verb أُوتُوا۟ takes ٱلْكِتَـٰبَ as its na'ib fa'il (deputy subject) in the accusative. إِلَّا مِنۢ بَعْدِ introduces the temporal exception, and بَعْدِ is in idafa with the masdariyya مَا clause (مَا جَآءَتْهُمُ ٱلْبَيِّنَةُ).
+
+**Sarf (Morphology):** تَفَرَّقَ follows the Form V pattern تَفَعَّلَ, identifiable by the تَ prefix and doubled middle radical. أُوتُوا۟ is the passive of Form IV آتَى (to give), with the characteristic damma on the first letter marking the passive. جَآءَتْ has the feminine تْ suffix because its fa'il ٱلْبَيِّنَةُ is feminine. The verb is from the hollow root ج-ي-ء.
+
+**Balagha (Rhetoric):** The deep irony is unmistakable: the People of the Book differed not *before* the evidence but *after* it. The مَا...إِلَّا construction drives this irony home — the very thing that should have united them became the occasion of their splitting. The repetition of ٱلْبَيِّنَةُ from verse 1 creates a thematic frame: the same "clear evidence" that was supposed to end their confusion instead triggered their division. Using the passive أُوتُوا۟ (they were given) reminds us these people were recipients of divine favor, making their ingratitude all the greater.
 
 ### Verse 5
 
-**Arabic:** وَمَآ أُمِرُوٓا۟ إِلَّا لِيَعْبُدُوا۟ ٱللَّهَ مُخْلِصِينَ لَهُ ٱلدِّينَ حُنَفَآءَ وَيُقِيمُوا۟ ٱلصَّلَوٰةَ وَيُؤْتُوا۟ ٱلزَّكَوٰةَ ۚ وَذَٰلِكَ دِينُ ٱلْقَيِّمَةِ
-
-**Translation:** "And they were not commanded except to worship Allah, being sincere to Him in religion, inclining to truth, and to establish prayer and give zakah. And that is the correct religion"
+<ArabicExample
+  arabic="وَمَآ أُمِرُوٓا۟ إِلَّا لِيَعْبُدُوا۟ ٱللَّهَ مُخْلِصِينَ لَهُ ٱلدِّينَ حُنَفَآءَ وَيُقِيمُوا۟ ٱلصَّلَوٰةَ وَيُؤْتُوا۟ ٱلزَّكَوٰةَ ۚ وَذَٰلِكَ دِينُ ٱلْقَيِّمَةِ"
+  transliteration="wa-mā umirū illā li-ya'budū llāha mukhlisīna lahu d-dīna hunafā'a wa-yuqīmū s-salāta wa-yu'tū z-zakāta wa-dhālika dīnu l-qayyimah"
+  translation="And they were not commanded except to worship Allah, being sincere to Him in religion, inclining to truth, and to establish prayer and give zakah. And that is the correct religion"
+  reference="Al-Bayyinah 98:5"
+  highlight="مُخْلِصِينَ,حُنَفَآءَ,دِينُ ٱلْقَيِّمَةِ"
+/>
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | وَ | wa | - | Particle - conjunction | Not declinable (mabni) | And |
@@ -151,22 +239,37 @@ difficulty: "intermediate"
 | 19 | ذَٰلِكَ | dhālika | - | Demonstrative pronoun - masculine, singular | Not declinable (mabni), subject (mubtada') | that |
 | 20 | دِينُ | dīnu | د ي ن | Noun - masculine, singular, definite (mudaf) | Predicate (khabar) - nominative (marfu') | religion |
 | 21 | ٱلْقَيِّمَةِ | al-qayyimati | ق و م | Noun/Active participle - feminine, singular, definite | Mudaf ilayh - genitive (majrur) | the upright/correct |
+</GrammarTable>
 
-#### Grammar Notes
-- Ma... illā construction: restriction (only commanded to...)
-- Li- introduces purpose clause with subjunctive mood
-- Mukhlisīna and hunafā' are dual hal (circumstantial states)
-- Three coordinated subjunctive verbs: ya'budū, yuqīmū, yu'tū
-- Al-qayyimah agrees in gender with dīn (treated as feminine metaphorically)
+<Callout type="rule" title="Dual Hal Clauses: مُخْلِصِينَ and حُنَفَآءَ">
+This verse contains two simultaneous hal (circumstantial state) clauses: مُخْلِصِينَ (being sincere) and حُنَفَآءَ (inclining to truth). Both are in the accusative case (mansub) and describe the *manner* in which worship should be performed. The hal answers the question "in what state?" — they worship Allah *while being* sincere and *while being* upright. Multiple hal clauses can stack to describe the same subject, each adding a required condition for proper worship.
+</Callout>
+
+<Callout type="tip" title="Three Coordinated Subjunctive Verbs">
+The لِ of purpose governs not just يَعْبُدُوا۟ but also يُقِيمُوا۟ and يُؤْتُوا۟ through coordination (عَطْف). All three are in the subjunctive mood (mansub), indicated by the deletion of the final nun. This creates a triad of commanded actions: worship, prayer, and zakah. The coordination through وَ makes all three equally obligatory — the command is not fulfilled by worship alone but requires all three together.
+</Callout>
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** Another مَا...إِلَّا restriction: they were commanded for *nothing except* these specific acts. لِ introduces a purpose clause with يَعْبُدُوا۟ in subjunctive. مُخْلِصِينَ and حُنَفَآءَ are both hal (accusative). Three coordinated verbs share the subjunctive mood through عَطْف. The final clause وَذَٰلِكَ دِينُ ٱلْقَيِّمَةِ is a separate nominal sentence: ذَٰلِكَ (mubtada) and دِينُ ٱلْقَيِّمَةِ (khabar in idafa).
+
+**Sarf (Morphology):** أُمِرُوٓا۟ is the passive of أَمَرَ (Form I, to command), with the passive marker damma on the first letter. مُخْلِصِينَ is the active participle of Form IV أَخْلَصَ (to make sincere/pure), following the مُفْعِل pattern. حُنَفَآءَ is the broken plural of حَنِيف (upright/monotheist), following the فُعَلَاء pattern. يُقِيمُوا۟ is Form IV from root ق-و-م (the hollow waaw becomes long yaa in Form IV). يُؤْتُوا۟ is Form IV from root ء-ت-ي.
+
+**Balagha (Rhetoric):** The verse distills religion to its essence using the restrictive مَا...إِلَّا — stripping away all the additions and disputes to reveal three core duties: sincere worship, prayer, and zakah. The two hal clauses (مُخْلِصِينَ, حُنَفَآءَ) emphasize that external acts without internal sincerity are worthless. The closing declaration وَذَٰلِكَ دِينُ ٱلْقَيِّمَةِ functions as a divine stamp of approval: this simplified, sincere religion is the correct one. The word ٱلْقَيِّمَةِ echoes قَيِّمَةٌ from verse 3, creating a verbal link between the upright writings and the upright religion.
 
 ### Verse 6
 
-**Arabic:** إِنَّ ٱلَّذِينَ كَفَرُوا۟ مِنْ أَهْلِ ٱلْكِتَـٰبِ وَٱلْمُشْرِكِينَ فِى نَارِ جَهَنَّمَ خَـٰلِدِينَ فِيهَآ ۚ أُو۟لَـٰٓئِكَ هُمْ شَرُّ ٱلْبَرِيَّةِ
-
-**Translation:** "Indeed, those who disbelieve from the People of the Book and the polytheists will be in the Fire of Hell, abiding therein eternally. Those are the worst of creatures"
+<ArabicExample
+  arabic="إِنَّ ٱلَّذِينَ كَفَرُوا۟ مِنْ أَهْلِ ٱلْكِتَـٰبِ وَٱلْمُشْرِكِينَ فِى نَارِ جَهَنَّمَ خَـٰلِدِينَ فِيهَآ ۚ أُو۟لَـٰٓئِكَ هُمْ شَرُّ ٱلْبَرِيَّةِ"
+  transliteration="inna lladhīna kafarū min ahli l-kitābi wa-l-mushrikīna fī nāri jahannama khālidīna fīhā ulā'ika hum sharru l-bariyyah"
+  translation="Indeed, those who disbelieve from the People of the Book and the polytheists will be in the Fire of Hell, abiding therein eternally. Those are the worst of creatures"
+  reference="Al-Bayyinah 98:6"
+  highlight="شَرُّ,ٱلْبَرِيَّةِ"
+/>
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | إِنَّ | inna | - | Particle - emphasis | Not declinable (mabni), governs accusative | Indeed |
@@ -186,23 +289,37 @@ difficulty: "intermediate"
 | 15 | هُمْ | hum | - | Pronoun - detached, 3rd person masculine plural | Not declinable (mabni), emphasis/separator | they |
 | 16 | شَرُّ | sharru | ش ر ر | Noun - masculine, singular, definite (mudaf), superlative | Predicate (khabar) - nominative (marfu') | worst |
 | 17 | ٱلْبَرِيَّةِ | al-bariyyati | ب ر ء | Noun - feminine, singular, definite | Mudaf ilayh - genitive (majrur) | creatures/creation |
+</GrammarTable>
 
-#### Grammar Notes
-- Inna construction with emphasis
-- Fī nāri jahannama is khabar inna (prepositional predicate)
-- Khālidīna is hal showing perpetual state
-- Second nominal sentence: ulā'ika hum sharru al-bariyyah
-- Hum is fasl (separator pronoun) for emphasis
-- Sharr is superlative (af'al pattern) in idafa
+<Callout type="rule" title="The Fasl Pronoun هُمْ: Emphasis Between Subject and Predicate">
+In the clause أُو۟لَـٰٓئِكَ هُمْ شَرُّ ٱلْبَرِيَّةِ, the pronoun هُمْ functions as a fasl (separator/emphasis) pronoun. It sits between the mubtada (أُو۟لَـٰٓئِكَ) and khabar (شَرُّ ٱلْبَرِيَّةِ) to prevent ambiguity — without هُمْ, one might read شَرُّ as an adjective rather than a predicate. The fasl also adds emphatic force: "Those — they specifically — are the worst." This construction appears identically in verse 7, creating the perfect parallel.
+</Callout>
+
+<Callout type="tip" title="Superlative in Idafa: شَرُّ ٱلْبَرِيَّةِ">
+شَرُّ (worst) is the superlative (ism tafdhil) from the root ش-ر-ر. Unlike regular superlatives that follow the أَفْعَل pattern (like أَكْبَر), شَرّ and خَيْر are irregular superlatives that do not take the أَفْعَل form. When used in an idafa with a definite noun (ٱلْبَرِيَّةِ), the superlative becomes definite and specific: "the worst of all creatures." The word ٱلْبَرِيَّةِ (from root ب-ر-ء, to create) encompasses all of creation.
+</Callout>
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** إِنَّ governs the entire sentence, placing ٱلَّذِينَ as ism inna (accusative). The khabar of inna is the prepositional phrase فِى نَارِ جَهَنَّمَ. خَـٰلِدِينَ فِيهَآ is a hal clause (accusative) modifying the implied state of those in the fire. The second sentence أُو۟لَـٰٓئِكَ هُمْ شَرُّ ٱلْبَرِيَّةِ is a nominal sentence: أُو۟لَـٰٓئِكَ (mubtada), هُمْ (fasl), شَرُّ ٱلْبَرِيَّةِ (khabar in idafa).
+
+**Sarf (Morphology):** خَـٰلِدِينَ is the active participle (masculine plural) from خَلَدَ (to remain forever), following the فَاعِل pattern with sound masculine plural ending ـِينَ. شَرُّ is an irregular superlative (ism tafdhil) — most roots form superlatives on أَفْعَل, but شَرّ and خَيْر are exceptions. ٱلْبَرِيَّةِ from root ب-ر-ء follows the فَعِيلَة pattern with the hamza converting to yaa, yielding the double yaa.
+
+**Balagha (Rhetoric):** The verse opens with إِنَّ for emphatic certainty — there is no doubt about this judgment. The near-identical phrasing to verse 1 (مِنْ أَهْلِ ٱلْكِتَـٰبِ وَٱلْمُشْرِكِينَ) creates a structural echo: the same groups mentioned at the beginning are now receiving their verdict. The label شَرُّ ٱلْبَرِيَّةِ (worst of creatures) is devastatingly absolute — not merely "bad" but the superlative "worst" among all created beings. This sets up the dramatic contrast with verse 7.
 
 ### Verse 7
 
-**Arabic:** إِنَّ ٱلَّذِينَ ءَامَنُوا۟ وَعَمِلُوا۟ ٱلصَّـٰلِحَـٰتِ أُو۟لَـٰٓئِكَ هُمْ خَيْرُ ٱلْبَرِيَّةِ
-
-**Translation:** "Indeed, those who believe and do righteous deeds - those are the best of creatures"
+<ArabicExample
+  arabic="إِنَّ ٱلَّذِينَ ءَامَنُوا۟ وَعَمِلُوا۟ ٱلصَّـٰلِحَـٰتِ أُو۟لَـٰٓئِكَ هُمْ خَيْرُ ٱلْبَرِيَّةِ"
+  transliteration="inna lladhīna āmanū wa-'amilū s-sālihāti ulā'ika hum khayru l-bariyyah"
+  translation="Indeed, those who believe and do righteous deeds - those are the best of creatures"
+  reference="Al-Bayyinah 98:7"
+  highlight="خَيْرُ,ٱلْبَرِيَّةِ"
+/>
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | إِنَّ | inna | - | Particle - emphasis | Not declinable (mabni), governs accusative | Indeed |
@@ -215,22 +332,33 @@ difficulty: "intermediate"
 | 8 | هُمْ | hum | - | Pronoun - detached, 3rd person masculine plural | Not declinable (mabni), fasl (separator) | they |
 | 9 | خَيْرُ | khayru | خ ي ر | Noun - masculine, singular, definite (mudaf), superlative | Second khabar or khabar for mubtada' - nominative (marfu') | best |
 | 10 | ٱلْبَرِيَّةِ | al-bariyyati | ب ر ء | Noun - feminine, singular, definite | Mudaf ilayh - genitive (majrur) | creatures/creation |
+</GrammarTable>
 
-#### Grammar Notes
-- Parallel structure to verse 6 (inna alladhīna...)
-- Perfect contrast: believers vs. disbelievers
-- Ulā'ika hum construction same as verse 6
-- Khayr (best) vs. sharr (worst) - superlative contrast
-- Same phrase al-bariyyah (creatures) for both groups
+<Callout type="rule" title="Perfect Muqabalah: Verses 6 and 7 as Mirror Images">
+Verses 6 and 7 form a muqabalah (antithetical parallelism), one of Arabic rhetoric's most powerful structures. The grammar is identical: إِنَّ ٱلَّذِينَ ... أُو۟لَـٰٓئِكَ هُمْ ... ٱلْبَرِيَّةِ. Only the key terms change: كَفَرُوا۟ (disbelieved) becomes ءَامَنُوا۟ وَعَمِلُوا۟ (believed and did righteous deeds), and شَرُّ (worst) becomes خَيْرُ (best). By keeping the syntactic frame identical, the Quran forces the contrast into sharpest possible focus — the listener perceives the opposition not through different structures but through minimal word substitutions within the same structure.
+</Callout>
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** This verse mirrors verse 6 exactly in its grammatical structure. إِنَّ governs ٱلَّذِينَ (ism inna). The relative clause contains two coordinated verbs: ءَامَنُوا۟ and عَمِلُوا۟ ٱلصَّـٰلِحَـٰتِ. The khabar of inna is the nominal sentence أُو۟لَـٰٓئِكَ هُمْ خَيْرُ ٱلْبَرِيَّةِ, with the same fasl pronoun هُمْ.
+
+**Sarf (Morphology):** ءَامَنُوا۟ is the past tense of Form IV آمَنَ (to believe), from root ء-م-ن. The Form IV pattern adds causative/transitive meaning: أَمِنَ = "he was safe" → آمَنَ = "he committed to faith/trusted." عَمِلُوا۟ is Form I from root ع-م-ل. ٱلصَّـٰلِحَـٰتِ is the feminine sound plural of the active participle صَالِح (righteous), used as a noun meaning "righteous deeds." خَيْرُ is an irregular superlative like شَرُّ.
+
+**Balagha (Rhetoric):** The contrast with verse 6 is comprehensive. Disbelievers are described by a single verb (كَفَرُوا۟), while believers require two: ءَامَنُوا۟ وَعَمِلُوا۟ — faith alone is not enough; it must be accompanied by action. The superlative خَيْرُ ٱلْبَرِيَّةِ (best of creatures) elevates believers above all creation, not merely above other humans. This pairing of شَرُّ/خَيْرُ ٱلْبَرِيَّةِ presents the starkest possible moral binary: there is no middle ground in this surah's worldview.
 
 ### Verse 8
 
-**Arabic:** جَزَآؤُهُمْ عِندَ رَبِّهِمْ جَنَّـٰتُ عَدْنٍۢ تَجْرِى مِن تَحْتِهَا ٱلْأَنْهَـٰرُ خَـٰلِدِينَ فِيهَآ أَبَدًا ۖ رَّضِىَ ٱللَّهُ عَنْهُمْ وَرَضُوا۟ عَنْهُ ۚ ذَٰلِكَ لِمَنْ خَشِىَ رَبَّهُۥ
-
-**Translation:** "Their reward with their Lord is Gardens of Eternity beneath which rivers flow, wherein they abide forever. Allah is pleased with them and they are pleased with Him. That is for whoever has feared his Lord"
+<ArabicExample
+  arabic="جَزَآؤُهُمْ عِندَ رَبِّهِمْ جَنَّـٰتُ عَدْنٍۢ تَجْرِى مِن تَحْتِهَا ٱلْأَنْهَـٰرُ خَـٰلِدِينَ فِيهَآ أَبَدًا ۖ رَّضِىَ ٱللَّهُ عَنْهُمْ وَرَضُوا۟ عَنْهُ ۚ ذَٰلِكَ لِمَنْ خَشِىَ رَبَّهُۥ"
+  transliteration="jazā'uhum 'inda rabbihim jannātu 'adnin tajrī min tahtihā l-anhāru khālidīna fīhā abadan radiya llāhu 'anhum wa-radū 'anhu dhālika li-man khashiya rabbahu"
+  translation="Their reward with their Lord is Gardens of Eternity beneath which rivers flow, wherein they abide forever. Allah is pleased with them and they are pleased with Him. That is for whoever has feared his Lord"
+  reference="Al-Bayyinah 98:8"
+  highlight="رَّضِىَ ٱللَّهُ عَنْهُمْ,وَرَضُوا۟ عَنْهُ"
+/>
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | جَزَآؤُهُمْ | jazā'uhum | ج ز ي | Noun - masculine, singular, definite + attached pronoun | Subject (mubtada') - nominative (marfu') | their reward |
@@ -256,18 +384,69 @@ difficulty: "intermediate"
 | 21 | مَنْ | man | - | Relative pronoun | Not declinable (mabni), object of li | whoever |
 | 22 | خَشِىَ | khashiya | خ ش ي | Verb - Form I, past tense, 3rd person masculine singular | Verb in relative clause - mabni 'ala fatha maqdurah | he feared |
 | 23 | رَبَّهُۥ | rabbahu | ر ب ب | Noun - masculine, singular, definite + attached pronoun | Direct object (maf'ul bihi) - accusative (mansub) | his Lord |
+</GrammarTable>
 
-#### Grammar Notes
-- Nominal sentence: jazā'uhum... jannātu 'adnin
-- 'Inda rabbihim is adverbial phrase (zarf) modifying predicate
-- Tajrī min tahtihā al-anhāru: embedded verbal sentence describing gardens
-- Khālidīna fīhā abadan: multiple layers of permanence emphasis
-- Radiya Allāhu 'anhum wa-radū 'anhu: mutual pleasure (beautiful reciprocity)
-- Final sentence: dhālika li-man khashiya rabbahu (specification of who qualifies)
-- Khashiya means reverential fear/awe of Allah
+<Callout type="rule" title="Mutual Action: رَضِىَ ٱللَّهُ عَنْهُمْ وَرَضُوا۟ عَنْهُ">
+This phrase demonstrates a rare and beautiful grammatical structure: mutual action expressed through verb repetition with swapped subjects and objects. In the first clause, Allah is the fa'il (subject) and عَنْهُمْ refers to the believers. In the second, the believers are the fa'il (via the plural verb رَضُوا۟) and عَنْهُ refers to Allah. The same verb رَضِيَ (to be pleased) governs both clauses, but the roles reverse — creating a grammatical expression of reciprocal divine-human relationship.
+</Callout>
+
+<Callout type="tip" title="Triple Permanence: خَـٰلِدِينَ فِيهَآ أَبَدًا">
+The Quran layers three indicators of permanence in this verse. خَـٰلِدِينَ (abiding) is an active participle indicating an ongoing state. فِيهَآ (in them) anchors them to the Gardens. أَبَدًا (forever) adds an explicit time adverbial meaning "for all eternity." While خَـٰلِدِينَ alone would suggest permanence, the addition of أَبَدًا removes any possible doubt — this is not a long stay but an infinite one. Contrast this with verse 6 where خَـٰلِدِينَ فِيهَآ appears without أَبَدًا, though scholars note the punishment is also eternal.
+</Callout>
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** This dense verse contains multiple sentences. First: جَزَآؤُهُمْ (mubtada) ... جَنَّـٰتُ عَدْنٍۢ (khabar), with عِندَ رَبِّهِمْ as an adverbial phrase (zarf). تَجْرِى مِن تَحْتِهَا ٱلْأَنْهَـٰرُ is an embedded verbal sentence describing the gardens. خَـٰلِدِينَ فِيهَآ أَبَدًا is a hal clause with a temporal adverbial. رَّضِىَ ٱللَّهُ عَنْهُمْ وَرَضُوا۟ عَنْهُ is a coordinated verbal sentence pair. ذَٰلِكَ لِمَنْ خَشِىَ رَبَّهُۥ is a final nominal sentence specifying the recipients.
+
+**Sarf (Morphology):** جَزَآؤُهُمْ from root ج-ز-ي follows the فَعَال pattern with attached pronoun. جَنَّـٰتُ is the sound feminine plural of جَنَّة (garden, from root ج-ن-ن, "to conceal" — a garden concealed/enclosed). عَدْنٍۢ from root ع-د-ن means "permanent settlement/Eden." رَّضِىَ and رَضُوا۟ are both from the defective root ر-ض-و (ending in waaw); the final radical appears as yaa in the singular (رَضِيَ) but surfaces in the plural (رَضُوا). خَشِىَ is from the defective root خ-ش-ي, with the fatha maqdurah (estimated) on the final yaa.
+
+**Balagha (Rhetoric):** This concluding verse is the richest in the surah, packing physical reward (gardens, rivers), temporal assurance (forever), and spiritual fulfillment (mutual pleasure) into a single verse. The phrase رَّضِىَ ٱللَّهُ عَنْهُمْ وَرَضُوا۟ عَنْهُ is considered one of the most beautiful expressions of the divine-human relationship in the Quran — mutual satisfaction transcends any physical reward. The final clause ذَٰلِكَ لِمَنْ خَشِىَ رَبَّهُۥ narrows the entire surah's message to a single qualification: khashyah (reverential awe of Allah). This word was chosen over خَافَ (feared) because خَشِيَ implies fear born from knowledge and reverence, not mere terror.
+
+## Practice Exercises
+
+<ExerciseBox question="Verses 6 and 7 use identical grammatical structures but opposite meanings. Write out both verse structures side by side, identify every grammatical element that stays the same and every element that changes, and explain how this parallelism (muqabalah) creates rhetorical impact.">
+
+**Verse 6 structure:**
+إِنَّ + ٱلَّذِينَ كَفَرُوا۟ مِنْ أَهْلِ ٱلْكِتَـٰبِ وَٱلْمُشْرِكِينَ + فِى نَارِ جَهَنَّمَ خَـٰلِدِينَ فِيهَآ + أُو۟لَـٰٓئِكَ هُمْ + شَرُّ + ٱلْبَرِيَّةِ
+
+**Verse 7 structure:**
+إِنَّ + ٱلَّذِينَ ءَامَنُوا۟ وَعَمِلُوا۟ ٱلصَّـٰلِحَـٰتِ + [reward in verse 8] + أُو۟لَـٰٓئِكَ هُمْ + خَيْرُ + ٱلْبَرِيَّةِ
+
+**Elements that stay the same:**
+- إِنَّ (emphasis particle) -- identical grammatical force
+- ٱلَّذِينَ (relative pronoun as ism inna) -- same case, same function
+- أُو۟لَـٰٓئِكَ (demonstrative pronoun as mubtada) -- identical
+- هُمْ (fasl/separator pronoun) -- identical emphatic function
+- ٱلْبَرِيَّةِ (mudaf ilayh) -- same noun, same case
+
+**Elements that change:**
+- كَفَرُوا۟ (disbelieved) → ءَامَنُوا۟ وَعَمِلُوا۟ (believed and acted) -- opposite verbs; note believers need TWO verbs
+- شَرُّ (worst) → خَيْرُ (best) -- opposite superlatives
+- نَارِ جَهَنَّمَ (Fire of Hell) → جَنَّـٰتُ عَدْنٍۢ (Gardens of Eden) -- opposite destinations
+
+**Rhetorical impact:** By keeping five grammatical elements identical and changing only three, the Quran isolates the contrast to its essence: the difference between worst and best of creation is not complex — it is simply faith vs. disbelief, action vs. inaction. The identical frame forces the listener to see these as two sides of one coin, making the choice inescapable.
+</ExerciseBox>
+
+<ExerciseBox question="Analyze the مَا...إِلَّا restriction construction in verses 4 and 5. For each verse: (a) identify what is negated by مَا, (b) identify what is excepted by إِلَّا, and (c) explain how the restriction sharpens the meaning compared to a simple positive statement.">
+
+**Verse 4: وَمَا تَفَرَّقَ ... إِلَّا مِنۢ بَعْدِ مَا جَآءَتْهُمُ ٱلْبَيِّنَةُ**
+
+**(a) Negated by مَا:** The act of splitting/differing (تَفَرَّقَ) — they did NOT split
+**(b) Excepted by إِلَّا:** The time period "after the clear evidence came" (مِنۢ بَعْدِ مَا جَآءَتْهُمُ ٱلْبَيِّنَةُ)
+**(c) Sharpened meaning:** A simple positive statement ("They split after the evidence came") merely states a fact. The restriction ("They did NOT split EXCEPT after the evidence came") emphasizes that the evidence itself was the trigger. It implies they had no excuse — they were united before proof arrived, and only after receiving clarity did they choose division. The blame is intensified.
+
+**Verse 5: وَمَآ أُمِرُوٓا۟ إِلَّا لِيَعْبُدُوا۟ ٱللَّهَ ...**
+
+**(a) Negated by مَا:** The entirety of what they were commanded (أُمِرُوٓا۟) — they were NOT commanded for anything
+**(b) Excepted by إِلَّا:** Three specific acts: worship Allah sincerely, establish prayer, give zakah
+**(c) Sharpened meaning:** A positive statement ("They were commanded to worship Allah") lists duties. The restriction ("They were commanded for NOTHING EXCEPT worshipping Allah...") strips away everything else — all the disputes, innovations, and additions that the People of the Book introduced are dismissed as irrelevant. Religion is reduced to its pure essence: three acts performed with sincerity.
+
+**Combined effect:** The two مَا...إِلَّا constructions work together — verse 4 shows that the People of the Book complicated what was simple (splitting after clarity), and verse 5 shows how simple the original command actually was (just three duties). The restriction construction in both verses serves to simplify and clarify.
+</ExerciseBox>
 
 ## Key Vocabulary
 
+<GrammarTable>
 | Arabic | Root | Pattern | Meaning | Frequency |
 |--------|------|---------|---------|-----------|
 | ٱلْبَيِّنَة | ب ي ن | fay'ilah | clear evidence, proof | Common |
@@ -290,54 +469,26 @@ difficulty: "intermediate"
 | عَدْن | ع د ن | fa'l | eternity, Eden | Common |
 | رَضِىَ | ر ض و | fa'ila | he was pleased | Very common |
 | خَشِىَ | خ ش ي | fa'ila | he feared (reverentially) | Very common |
+</GrammarTable>
 
 ## Grammar Summary
 
-### Main Grammatical Constructs
+<Callout type="note" title="Key Grammar Concepts in This Surah">
+- **لَمْ يَكُنْ negation**: Jussive particle لَمْ with defective verb كَانَ negating a past continuous state, with ism kana (nominative) and khabar kana (accusative)
+- **Relative clauses with ٱلَّذِينَ**: Recurring throughout verses 1, 4, 6, and 7, each containing different verbal patterns (past active, past passive, coordinated verbs)
+- **Active participles as khabar and hal**: مُنفَكِّينَ (khabar kana), مُخْلِصِينَ and حُنَفَآءَ (dual hal), خَـٰلِدِينَ (hal of permanence)
+- **Passive participle from Form II**: مُطَهَّرَة (purified) following the مُفَعَّلَة pattern
+- **Badal (apposition)**: رَسُولٌ as complete apposition to ٱلْبَيِّنَةُ, taking its nominative case
+- **Nominal sentences with fronted khabar**: فِيهَا كُتُبٌ — prepositional khabar muqaddam with delayed indefinite mubtada
+- **Passive voice**: أُوتُوا۟ (Form IV passive, "they were given") and أُمِرُوا۟ (Form I passive, "they were commanded")
+- **مَا...إِلَّا restriction**: Used in verses 4 and 5 for emphasis through limitation
+- **Purpose clauses with لِ + subjunctive**: لِيَعْبُدُوا۟ governing three coordinated subjunctive verbs
+- **Hal (circumstantial) clauses**: مُخْلِصِينَ and حُنَفَآءَ as dual simultaneous states
+- **إِنَّ emphasis constructions**: Verses 6-7, governing ism (accusative) and khabar (nominative)
+- **Superlative constructions in idafa**: شَرُّ ٱلْبَرِيَّةِ and خَيْرُ ٱلْبَرِيَّةِ — irregular superlatives
+- **Fasl (separator) pronoun هُمْ**: Between mubtada and khabar for emphasis and disambiguation
+- **Coordinated subjunctive verbs**: يَعْبُدُوا۟, يُقِيمُوا۟, يُؤْتُوا۟ — three verbs sharing one governing particle
+- **Mutual action through verb repetition**: رَضِىَ ٱللَّهُ عَنْهُمْ وَرَضُوا۟ عَنْهُ — swapped subject-object expressing reciprocity
+</Callout>
 
-1. **Lam yakun negation**: Verse 1 uses lam with defective verb kāna in jussive mood
-
-2. **Relative clauses**: Alladhīna constructions throughout (verses 1, 4, 6, 7)
-
-3. **Active participles (ism fa'il)**:
-   - Munfakkīna (desisting)
-   - Mukhlisīna (sincere ones)
-   - Khālidīna (abiding ones)
-   - Al-mushrikīna (polytheists)
-
-4. **Passive participles (ism maf'ul)**: Mutahharah (purified)
-
-5. **Badal (apposition)**: Verse 2 rasūlun as badal to al-bayyinah
-
-6. **Nominal sentences with prepositional phrases**: Verse 3 (fīhā kutubun), verse 8 ('inda rabbihim)
-
-7. **Passive voice**: Ūtū, umirū (were given, were commanded)
-
-8. **Ma... illā construction**: Verses 4-5 for restriction/exception
-
-9. **Purpose clauses with li-**: Verse 5 (li-ya'budū) with subjunctive mood
-
-10. **Hal (circumstantial) clauses**: Mukhlisīna, hunafā', khālidīna showing states
-
-11. **Inna emphasis constructions**: Verses 6-7 for strong assertion
-
-12. **Superlative constructions in idafa**: Sharru al-bariyyah, khayru al-bariyyah
-
-13. **Fasl pronoun (hum)**: Verses 6-7 for emphasis between mubtada' and khabar
-
-14. **Coordinated subjunctive verbs**: Verse 5 (ya'budū, yuqīmū, yu'tū)
-
-15. **Mutual action**: Verse 8 radiya Allāhu 'anhum wa-radū 'anhu
-
-### Pedagogical Notes
-
-This surah is excellent for teaching:
-- The lam yakun construction (negated past continuous)
-- Contrast structures (believers vs. disbelievers, best vs. worst)
-- Active and passive participles as adjectives and nouns
-- Purpose clauses with subjunctive mood
-- The badal (appositive) construction
-- Superlatives in idafa construction
-- Hal (circumstantial state) clauses with active participles
-- The ma... illā restrictive construction
-- Fasl pronouns for emphasis in nominal sentences
+Al-Bayyinah presents a comprehensive grammar curriculum in just eight verses: from the negated kana construction and relative clauses of verse 1, through passive voice and purpose clauses in the middle verses, to the superlative parallelism of verses 6-7 and the richly layered final verse. The surah's structural symmetry — where identical grammatical frames carry opposite meanings — demonstrates how Arabic syntax itself can serve as a vehicle for theological argument.

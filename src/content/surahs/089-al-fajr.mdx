@@ -5,6 +5,11 @@ surahNumber: 89
 verseCount: 30
 difficulty: "intermediate"
 ---
+import ArabicExample from '@components/mdx/ArabicExample.astro';
+import GrammarTable from '@components/mdx/GrammarTable.astro';
+import Callout from '@components/mdx/Callout.astro';
+import ExerciseBox from '@components/mdx/ExerciseBox.astro';
+
 
 # Al-Fajr (The Dawn)
 
@@ -15,90 +20,186 @@ difficulty: "intermediate"
 - **Theme:** This surah opens with a series of oaths by dawn, ten nights, and other phenomena, followed by warnings about the fate of ancient nations ('Ad, Thamud, and Pharaoh) who were destroyed for their arrogance. It emphasizes the test of wealth and poverty, and concludes with the peace of the tranquil soul.
 - **Grammar Focus:** Series of oath constructions with وَ (wa), interrogative particles (هَلْ), conditional constructions with إِذَا (idha), emphasis particles كَلَّا (kalla), narrative past tense verbs, relative pronouns and clauses
 
+
+### Structural Overview
+
+<GrammarTable>
+| Verse | Arabic | Sentence Type | Key Grammar | Message |
+|-------|--------|---------------|-------------|---------|
+| 1 | وَالْفَجْرِ | Oath (nominal) | wa al-qasam + genitive noun | Cosmic oath by dawn |
+| 2 | وَلَيَالٍ عَشْرٍ | Oath (nominal) | Indefinite noun + numerical adjective | Oath by ten sacred nights |
+| 3 | وَالشَّفْعِ وَالْوَتْرِ | Oath (nominal) | Double wa-oath, abstract nouns | Oath by even and odd |
+| 4 | وَالَّيْلِ إِذَا يَسْرِ | Oath + temporal | wa-oath with idha temporal clause | Oath by passing night |
+| 5 | هَلْ فِي ذَٰلِكَ قَسَمٌ لِّذِي حِجْرٍ | Interrogative (nominal) | hal rhetorical, five nouns (dhi), delayed mubtada' | Oaths suffice for the wise |
+| 6 | أَلَمْ تَرَ كَيْفَ فَعَلَ رَبُّكَ بِعَادٍ | Interrogative (verbal) | a-lam + jussive, kayfa indirect question | Divine reckoning with 'Aad |
+| 7 | إِرَمَ ذَاتِ الْعِمَادِ | Nominal (fragment) | Badal (apposition), dhat possessive | Iram of the pillars |
+| 8 | الَّتِي لَمْ يُخْلَقْ مِثْلُهَا فِي الْبِلَادِ | Relative clause (verbal) | allati relative, passive voice, na'ib fa'il | Unmatched in the lands |
+| 9 | وَثَمُودَ الَّذِينَ جَابُوا الصَّخْرَ بِالْوَادِ | Verbal (relative clause) | Diptote proper noun, alladhina relative | Thamud carved the rocks |
+| 10 | وَفِرْعَوْنَ ذِي الْأَوْتَادِ | Nominal (fragment) | Five nouns (dhi) in accusative | Pharaoh of the stakes |
+| 11-12 | الَّذِينَ طَغَوْا... فَأَكْثَرُوا | Verbal (narrative) | Relative clause, fa-consequential, Form IV | They transgressed and corrupted |
+| 13 | فَصَبَّ عَلَيْهِمْ رَبُّكَ سَوْطَ عَذَابٍ | Verbal (narrative) | fa-result, idafa metaphor, delayed fa'il | God poured punishment |
+| 14 | إِنَّ رَبَّكَ لَبِالْمِرْصَادِ | Nominal (inna) | inna + lam double emphasis, place noun (mif'al) | God is ever watchful |
+| 15 | فَأَمَّا الْإِنسَانُ إِذَا مَا ابْتَلَاهُ... | Conditional (amma...fa) | amma...fa construction, Form VIII verb | Man mistakes honor for test |
+| 16 | وَأَمَّا إِذَا مَا ابْتَلَاهُ فَقَدَرَ... | Conditional (amma...fa) | Parallel to v.15, Form I qadara | Man mistakes poverty for humiliation |
+| 17 | كَلَّا بَل لَّا تُكْرِمُونَ الْيَتِيمَ | Verbal (negative) | kalla rebuke, bal correction, Form IV | Real failure: neglecting orphans |
+| 18 | وَلَا تَحَاضُّونَ عَلَىٰ طَعَامِ الْمِسْكِينِ | Verbal (negative) | Form VI reciprocal, idafa chain | No mutual encouragement to feed poor |
+| 19 | وَتَأْكُلُونَ التُّرَاثَ أَكْلًا لَّمًّا | Verbal (positive) | Maf'ul mutlaq with adjective | Devouring inheritance greedily |
+| 20 | وَتُحِبُّونَ الْمَالَ حُبًّا جَمًّا | Verbal (positive) | Maf'ul mutlaq with adjective | Excessive love of wealth |
+| 21 | كَلَّا إِذَا دُكَّتِ الْأَرْضُ دَكًّا دَكًّا | Conditional (verbal) | kalla, passive voice, repeated maf'ul mutlaq | Earth pounded to dust |
+| 22 | وَجَاءَ رَبُّكَ وَالْمَلَكُ صَفًّا صَفًّا | Verbal (narrative) | Repeated hal accusative | God and angels arrive in ranks |
+| 23 | وَجِيءَ يَوْمَئِذٍ بِجَهَنَّمَ... | Verbal (passive) + interrogative | Passive ji'a, anna rhetorical question | Hell brought; remembrance too late |
+| 24 | يَقُولُ يَا لَيْتَنِي قَدَّمْتُ لِحَيَاتِي | Verbal (wish) | layta (inna's sister), Form II qaddama | Wish to have sent good ahead |
+| 25-26 | فَيَوْمَئِذٍ لَّا يُعَذِّبُ... وَلَا يُوثِقُ | Verbal (negative) | Maf'ul mutlaq, Form II/IV parallel | None punishes or binds like God |
+| 27 | يَا أَيَّتُهَا النَّفْسُ الْمُطْمَئِنَّةُ | Vocative (nominal) | ya ayyatuha vocative, Form VIII participle | Address to the tranquil soul |
+| 28 | ارْجِعِي إِلَىٰ رَبِّكِ رَاضِيَةً مَّرْضِيَّةً | Imperative | Feminine imperative, active/passive participle hal | Return pleased and pleasing |
+| 29-30 | فَادْخُلِي فِي عِبَادِي وَادْخُلِي جَنَّتِي | Imperative | Repeated feminine imperative, divine 1st person | Enter among My servants, enter My Paradise |
+</GrammarTable>
+
+<Callout type="tip" title="A Grammar Journey from Cosmic Oaths to Divine Invitation">
+Al-Fajr is structured as a grammatical descent from the cosmic to the personal. It opens with four oath constructions (verses 1-4) — all in genitive case after وَ — then pivots through narrative past tense (verses 6-13) describing destroyed nations, shifts to conditional أَمَّا...فَ constructions (verses 15-16) diagnosing human psychology, delivers a rebuke with كَلَّا (verses 17-20) using present tense accusations, builds to an eschatological scene with passive verbs and repeated maf'ul mutlaq (verses 21-26), and finally resolves in the most intimate grammar the Quran offers: a direct feminine vocative يَا أَيَّتُهَا followed by feminine imperatives (ارْجِعِي، ادْخُلِي). The surah's grammar mirrors its theology — from impersonal oaths to God addressing a single soul by name.
+</Callout>
+
 ## Verse-by-Verse Analysis
 
 ### Verse 1
 
-**Arabic:** وَالْفَجْرِ
 
-**Translation:** "By the dawn"
+<ArabicExample
+  arabic="وَالْفَجْرِ"
+  transliteration="wa-l-fajr"
+  translation="By the dawn"
+  reference="Al-Fajr 89:1"
+  highlight="وَالْفَجْرِ"
+/>
+
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | وَالْفَجْرِ | wa-l-fajri | ف-ج-ر | Noun - masculine, singular, definite | Oath particle wa + noun in genitive (majrur) after oath particle | and the dawn |
+</GrammarTable>
 
-#### Grammar Notes
-- Opening oath construction: وَ (wa) used as oath particle (harf al-qasam), takes following noun in genitive case
-- الْفَجْر is a time noun referring to the dawn period
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** The verse is the opening of a qasam (oath) construction. The وَ functions as harf al-qasam (oath particle), not as a conjunction. It governs the following noun الْفَجْرِ in the genitive case (majrur with kasra). The jawab al-qasam (answer to the oath) is debated — some scholars place it at verse 5 (hal fi dhalika), others at verse 14 (inna rabbaka la-bi-l-mirsad).
+
+**Sarf (Morphology):** الْفَجْرِ derives from the root ف-ج-ر on the fa'l pattern, carrying meanings of splitting open and breaking forth — dawn "splits" the darkness. The definite article الـ makes it refer to the phenomenon of dawn in general, not a specific morning.
+
+**Balagha (Rhetoric):** Opening with a cosmic oath immediately elevates the discourse. Dawn is chosen because it represents the transition from darkness to light — mirroring the surah's progression from the darkness of human corruption (verses 15-20) to the light of divine invitation (verses 27-30). The single-word verse creates dramatic brevity, building anticipation for what follows.
 
 ### Verse 2
 
-**Arabic:** وَلَيَالٍ عَشْرٍ
 
-**Translation:** "And [by] the ten nights"
+<ArabicExample
+  arabic="وَلَيَالٍ عَشْرٍ"
+  transliteration="wa-layālin 'ashr"
+  translation="And [by] the ten nights"
+  reference="Al-Fajr 89:2"
+  highlight="وَلَيَالٍ,عَشْرٍ"
+/>
+
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | وَ | wa | - | Particle - oath | Not declinable (mabni), oath particle | and |
 | 2 | لَيَالٍ | layaalin | ل-ي-ل | Noun - feminine, plural, indefinite | Genitive (majrur) after oath particle, with tanwin kasratayn | nights |
 | 3 | عَشْرٍ | 'ashrin | ع-ش-ر | Noun - feminine, plural, indefinite (numerical adjective) | Adjective (na't) of لَيَالٍ, genitive (majrur), with tanwin kasratayn | ten |
+</GrammarTable>
 
-#### Grammar Notes
-- Continuation of oath series with وَ
-- لَيَالٍ is the plural of لَيْلَة (night), irregular plural form
-- عَشْرٍ is a number adjective agreeing with لَيَالٍ in case, gender, and definiteness
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** The وَ continues the oath series. لَيَالٍ is genitive (majrur) after the oath particle, and عَشْرٍ is its na't (adjective) agreeing in case (genitive), gender (feminine — numbers 3-10 reverse gender, so عَشْرٍ is feminine to match the feminine لَيَالٍ), and definiteness (both indefinite with tanwin). The indefiniteness is notable — the oath swears by "ten nights" without specifying which, though scholars identify them as the first ten of Dhul-Hijjah.
+
+**Sarf (Morphology):** لَيَالٍ is the broken plural of لَيْلَة on the irregular فَعَالٍ pattern. The original form would be لَيَالِيَ, but the final ya' drops and tanwin replaces it in the indefinite genitive. This is a diptote-like behavior unique to this plural form.
+
+**Balagha (Rhetoric):** Shifting from the definite الْفَجْرِ (the dawn) to the indefinite لَيَالٍ عَشْرٍ (ten nights) creates variety in the oath series. The indefiniteness serves ta'zim (magnification) — these are nights so sacred they need no specification. The juxtaposition of dawn (singular moment) with ten nights (extended period) expands the temporal scope of the oaths.
 
 ### Verse 3
 
-**Arabic:** وَالشَّفْعِ وَالْوَتْرِ
 
-**Translation:** "And [by] the even and the odd"
+<ArabicExample
+  arabic="وَالشَّفْعِ وَالْوَتْرِ"
+  transliteration="wa-sh-shaf'i wa-l-watr"
+  translation="And [by] the even and the odd"
+  reference="Al-Fajr 89:3"
+  highlight="وَالشَّفْعِ,وَالْوَتْرِ"
+/>
+
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | وَ | wa | - | Particle - oath | Not declinable (mabni), oath particle | and |
 | 2 | الشَّفْعِ | ash-shaf'i | ش-ف-ع | Noun - masculine, singular, definite | Genitive (majrur) after oath particle | the even |
 | 3 | وَ | wa | - | Particle - oath | Not declinable (mabni), oath particle | and |
 | 4 | الْوَتْرِ | al-watri | و-ت-ر | Noun - masculine, singular, definite | Genitive (majrur) after oath particle | the odd |
+</GrammarTable>
 
-#### Grammar Notes
-- Double oath with coordination: even and odd numbers/phenomena
-- الشَّفْع and الْوَتْر are abstract nouns representing duality and singularity
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** Two oath constructions coordinated by وَ, each with وَ functioning as harf al-qasam. Both الشَّفْعِ and الْوَتْرِ are genitive (majrur) after their respective oath particles. The coordination creates a pair of oaths that together encompass all numbers (every number is either even or odd).
+
+**Sarf (Morphology):** الشَّفْعِ from root ش-ف-ع on the fa'l pattern means "pair/even" — the same root gives شَفَاعَة (intercession, where one person "pairs" with another). الْوَتْرِ from root و-ت-ر on the fa'l pattern means "single/odd" — it also carries a sense of uniqueness and aloneness.
+
+**Balagha (Rhetoric):** Swearing by "the even and the odd" encompasses totality — all of creation falls into pairs or singularity. This has been interpreted as referring to prayer units (even and odd rak'at), all of creation (paired) versus Allah (One), or the days of Dhul-Hijjah. The abstract quality of these oaths elevates the discourse beyond physical phenomena into mathematical and metaphysical truth.
 
 ### Verse 4
 
-**Arabic:** وَالَّيْلِ إِذَا يَسْرِ
 
-**Translation:** "And [by] the night when it passes"
+<ArabicExample
+  arabic="وَالَّيْلِ إِذَا يَسْرِ"
+  transliteration="wa-l-layli idhā yasr"
+  translation="And [by] the night when it passes"
+  reference="Al-Fajr 89:4"
+  highlight="وَالَّيْلِ,إِذَا"
+/>
+
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | وَ | wa | - | Particle - oath | Not declinable (mabni), oath particle | and |
 | 2 | الَّيْلِ | al-layli | ل-ي-ل | Noun - masculine, singular, definite | Genitive (majrur) after oath particle | the night |
 | 3 | إِذَا | idha | - | Particle - conditional/temporal | Not declinable (mabni), introduces temporal clause | when |
 | 4 | يَسْرِ | yasri | س-ر-ي | Verb - Form I, present, 3rd person masculine singular | Verb in indicative (marfu'), subject is اللَّيْل | it passes/flows |
+</GrammarTable>
 
-#### Grammar Notes
-- إِذَا introduces a temporal clause (when-clause) qualifying the oath
-- يَسْرِ is in indicative mood (shortened from يَسْرِي due to pause)
-- The verb subject is الَّيْل (night), the night itself is personified as moving
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** The وَ is again the oath particle, with الَّيْلِ in the genitive. إِذَا introduces a temporal clause (zharfiyyah) that qualifies the oath — swearing not just by the night, but by the night in a specific state. يَسْرِ is a present tense verb (fi'l mudari') whose subject is the hidden pronoun هُوَ referring to الَّيْل. The verb is shortened from يَسْرِي — the final ya' drops in Quranic pause (waqf) and to match the rhyme scheme (فَوَاصِل).
+
+**Sarf (Morphology):** يَسْرِي derives from root س-ر-ي on the Form I present pattern يَفْعِل, meaning "to travel/flow by night." The verb is specifically about nighttime movement — it is the root of إِسْرَاء (the Night Journey). The deletion of the final ya' (حذف الياء) is a common Quranic feature in verse-final positions.
+
+**Balagha (Rhetoric):** The night is personified as a traveler — it "passes" or "flows" rather than simply existing. This anthropomorphism (majāz) gives the night agency and movement, connecting it to the theme of time passing and accountability arriving. The oath series now spans four phenomena: dawn (beginning), nights (duration), even/odd (structure), and the passing night (motion) — a comprehensive temporal framework.
 
 ### Verse 5
 
-**Arabic:** هَلْ فِي ذَٰلِكَ قَسَمٌ لِّذِي حِجْرٍ
 
-**Translation:** "Is there [not] in that an oath for one of perception?"
+<ArabicExample
+  arabic="هَلْ فِي ذَٰلِكَ قَسَمٌ لِّذِي حِجْرٍ"
+  transliteration="hal fī dhālika qasamun li-dhī ḥijr"
+  translation="Is there [not] in that an oath for one of perception?"
+  reference="Al-Fajr 89:5"
+  highlight="ذَٰلِكَ,قَسَمٌ"
+/>
+
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | هَلْ | hal | - | Particle - interrogative | Not declinable (mabni), introduces rhetorical question | is there? |
@@ -108,21 +209,32 @@ difficulty: "intermediate"
 | 5 | لِّ | li- | - | Particle - preposition | Not declinable (mabni), governs genitive | for |
 | 6 | ذِي | dhi | - | Noun - masculine, singular (special noun of the five) | Genitive (majrur) after لِ, invariable form | possessor of |
 | 7 | حِجْرٍ | hijrin | ح-ج-ر | Noun - masculine, singular, indefinite | Genitive (majrur) in idafa construction, with tanwin kasratayn | intellect/perception |
+</GrammarTable>
 
-#### Grammar Notes
-- هَلْ introduces rhetorical question expecting affirmative answer
-- Nominal sentence with delayed subject (قَسَمٌ) after prepositional phrase (فِي ذَٰلِكَ)
-- ذِي is one of the "five nouns" (الأسماء الخمسة) that show case by long vowels
-- حِجْر literally means "restraint/intelligence"
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** هَلْ introduces a rhetorical question (istifham inkari) expecting an affirmative answer: "Is there not in that a sufficient oath?" The sentence is nominal with a delayed mubtada': the prepositional phrase فِي ذَٰلِكَ is the khabar (predicate) fronted before the mubtada' قَسَمٌ (subject). لِذِي حِجْرٍ is a prepositional phrase where ذِي is one of the الأسماء الخمسة (five nouns) showing genitive case through the long vowel ي. حِجْرٍ is the second part of the idafa.
+
+**Sarf (Morphology):** قَسَمٌ from root ق-س-م on the fa'al pattern is a masdar meaning "oath/swearing." ذِي from ذُو is one of the five special nouns that show case through their final letter: ذُو (nominative), ذَا (accusative), ذِي (genitive). حِجْرٍ from root ح-ج-ر on the fi'l pattern literally means "barrier/restraint" — intelligence is called حِجْر because it restrains a person from foolishness.
+
+**Balagha (Rhetoric):** This verse closes the oath sequence by addressing the listener directly — after four cosmic oaths, the question challenges: "Is this not enough for someone with intellect?" The word حِجْر (rather than عَقْل for intellect) is deliberately chosen — it implies that only those who can "restrain" themselves from heedlessness will appreciate these oaths. The rhetorical question format transforms the oath from a statement into a challenge.
 
 ### Verse 6
 
-**Arabic:** أَلَمْ تَرَ كَيْفَ فَعَلَ رَبُّكَ بِعَادٍ
 
-**Translation:** "Have you not considered how your Lord dealt with 'Aad?"
+<ArabicExample
+  arabic="أَلَمْ تَرَ كَيْفَ فَعَلَ رَبُّكَ بِعَادٍ"
+  transliteration="a-lam tara kayfa fa'ala rabbuka bi-'ād"
+  translation="Have you not considered how your Lord dealt with 'Aad?"
+  reference="Al-Fajr 89:6"
+  highlight="أَلَمْ,كَيْفَ"
+/>
+
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | أَلَمْ | alam | - | Particle - interrogative + negation | Not declinable (mabni), أَ (interrogative) + لَمْ (negation/jussive) | did not? |
@@ -132,40 +244,63 @@ difficulty: "intermediate"
 | 5 | رَبُّكَ | rabbuka | ر-ب-ب | Noun - masculine, singular, definite + attached pronoun | Subject (fa'il) - nominative (marfu'), كَ 2nd person pronoun in genitive | your Lord |
 | 6 | بِ | bi- | - | Particle - preposition | Not declinable (mabni), governs genitive | with/to |
 | 7 | عَادٍ | 'aadin | ع-و-د | Proper noun - masculine, singular, indefinite (foreign name) | Genitive (majrur) after بِ, with tanwin kasratayn (diptote) | 'Aad |
+</GrammarTable>
 
-#### Grammar Notes
-- أَلَمْ تَرَ is a rhetorical question formula meaning "haven't you seen/considered?"
-- تَرَ is jussive after لَمْ, apocopated from تَرَى
-- كَيْفَ introduces indirect question (how your Lord dealt)
-- عَادٍ is treated as diptote (no nunation in definite form), foreign proper name
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** أَلَمْ is a compound of the interrogative أَ and the negative/jussive particle لَمْ, creating a negative rhetorical question expecting an affirmative answer ("Have you not seen?" = "You have certainly seen"). تَرَ is in the jussive mood (majzum) after لَمْ, apocopated from تَرَى — the alif maqsura drops as the jussive marker. كَيْفَ introduces an indirect question clause functioning as the object of تَرَ. فَعَلَ رَبُّكَ is the verb-subject pair within the indirect question. بِعَادٍ is a prepositional phrase where عَادٍ takes genitive tanwin — some scholars treat it as fully declinable (triptote) since it can refer to the tribe.
+
+**Sarf (Morphology):** تَرَ derives from root ر-أ-ي, a doubly-weak verb (hamza + ya'). The jussive تَرَ shows the loss of the final weak letter in jussive mood. فَعَلَ is the quintessential Form I verb — the root itself (ف-ع-ل) is used as the pattern template for all Arabic verb forms.
+
+**Balagha (Rhetoric):** The shift from cosmic oaths (verses 1-5) to historical narrative marks a new section. أَلَمْ تَرَ addresses the Prophet personally, as if the events are visible — not distant history but a living demonstration of divine justice. The use of رَبُّكَ ("your Lord") rather than اللَّه personalizes the relationship, connecting the Prophet's Lord to the historical punishment of tyrants.
 
 ### Verse 7
 
-**Arabic:** إِرَمَ ذَاتِ الْعِمَادِ
 
-**Translation:** "Iram - who had lofty pillars"
+<ArabicExample
+  arabic="إِرَمَ ذَاتِ الْعِمَادِ"
+  transliteration="irama dhāti l-'imād"
+  translation="Iram - who had lofty pillars"
+  reference="Al-Fajr 89:7"
+  highlight="إِرَمَ,ذَاتِ"
+/>
+
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | إِرَمَ | irama | - | Proper noun - feminine, singular (place/tribe name) | Apposition (badal) to عَادٍ - genitive (majrur), diptote (no tanwin) | Iram |
 | 2 | ذَاتِ | dhati | - | Noun - feminine, singular (special possessive noun) | Adjective (na't) of إِرَمَ - genitive (majrur) | possessor of |
 | 3 | الْعِمَادِ | al-'imadi | ع-م-د | Noun - masculine, singular/plural, definite | Genitive (majrur) in idafa construction after ذَاتِ | the pillars/columns |
+</GrammarTable>
 
-#### Grammar Notes
-- إِرَمَ is apposition (badal) to عَادٍ, specifying which 'Aad
-- ذَاتِ is feminine form of ذُو meaning "possessor of"
-- الْعِمَادِ can be singular or plural (collective noun for pillars)
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** إِرَمَ is badal (apposition) to عَادٍ from verse 6, specifying which 'Aad is meant. It takes genitive case but as a diptote (mamnu' min al-sarf) it shows fatha instead of kasra for genitive. ذَاتِ is a na't (adjective) for إِرَمَ, agreeing in gender (feminine) and case (genitive). ذَاتِ is in idafa with الْعِمَادِ, creating the possessive: "possessor of the pillars."
+
+**Sarf (Morphology):** إِرَمَ is a foreign proper noun and therefore diptote — it takes only two case markers (fatha for both accusative and genitive, damma for nominative, no tanwin). ذَاتِ is the feminine form of ذُو, one of the five special nouns. الْعِمَادِ from root ع-م-د on the fi'al pattern can be singular (a single pillar) or collective (pillars generally), referring to their towering constructions.
+
+**Balagha (Rhetoric):** The specification إِرَمَ ذَاتِ الْعِمَادِ adds grandeur to the destroyed nation — these were not a weak people but builders of pillars, a civilization of immense power. The phrase evokes towering architecture, making their destruction all the more significant. Despite their pillars reaching toward the sky, they could not escape divine reckoning.
 
 ### Verse 8
 
-**Arabic:** الَّتِي لَمْ يُخْلَقْ مِثْلُهَا فِي الْبِلَادِ
 
-**Translation:** "The likes of whom had never been created in the land"
+<ArabicExample
+  arabic="الَّتِي لَمْ يُخْلَقْ مِثْلُهَا فِي الْبِلَادِ"
+  transliteration="allatī lam yukhlaq mithluhā fī l-bilād"
+  translation="The likes of whom had never been created in the land"
+  reference="Al-Fajr 89:8"
+  highlight="الَّتِي,يُخْلَقْ"
+/>
+
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | الَّتِي | allati | - | Relative pronoun - feminine, singular | Not declinable (mabni), refers to إِرَمَ | which/who |
@@ -174,21 +309,32 @@ difficulty: "intermediate"
 | 4 | مِثْلُهَا | mithluha | م-ث-ل | Noun - masculine, singular + attached pronoun | Subject (na'ib fa'il) of passive verb - nominative (marfu'), هَا pronoun in genitive | its like |
 | 5 | فِي | fi | - | Particle - preposition | Not declinable (mabni), governs genitive | in |
 | 6 | الْبِلَادِ | al-biladi | ب-ل-د | Noun - feminine, plural, definite | Genitive (majrur) after فِي | the lands |
+</GrammarTable>
 
-#### Grammar Notes
-- الَّتِي begins relative clause modifying إِرَمَ
-- يُخْلَقْ is passive Form I verb, jussive after لَمْ
-- مِثْلُهَا is the deputy subject (na'ib fa'il) in passive construction
-- Emphasizes uniqueness of the people of 'Aad
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** الَّتِي is a relative pronoun (ism mawsul) referring to إِرَمَ, introducing a relative clause (silat al-mawsul). لَمْ places يُخْلَقْ in the jussive mood (majzum, marked by sukun). يُخْلَقْ is passive voice, and مِثْلُهَا is the na'ib al-fa'il (deputy subject) in the nominative. The prepositional phrase فِي الْبِلَادِ specifies scope — "in all the lands."
+
+**Sarf (Morphology):** يُخْلَقْ shows the passive present pattern (yu-f'al) of Form I from root خ-ل-ق. The passive shifts the damma to the prefix (يُـ) and fatha to the middle radical. مِثْلُ from root م-ث-ل on the fi'l pattern means "like/equivalent," and the attached pronoun هَا refers back to إِرَمَ.
+
+**Balagha (Rhetoric):** The superlative claim "the likes of which had never been created in the lands" is the Quran's most emphatic statement about 'Aad's civilization. Using passive voice (لَمْ يُخْلَقْ) rather than active conceals the agent — the focus is on the uniqueness of the creation, not on who created it. This hyperbolic praise of the destroyed nation makes the lesson more powerful: even the most extraordinary civilization is nothing before divine justice.
 
 ### Verse 9
 
-**Arabic:** وَثَمُودَ الَّذِينَ جَابُوا الصَّخْرَ بِالْوَادِ
 
-**Translation:** "And Thamud, who carved out the rocks in the valley"
+<ArabicExample
+  arabic="وَثَمُودَ الَّذِينَ جَابُوا الصَّخْرَ بِالْوَادِ"
+  transliteration="wa-thamūda lladhīna jābū ṣ-ṣakhra bi-l-wād"
+  translation="And Thamud, who carved out the rocks in the valley"
+  reference="Al-Fajr 89:9"
+  highlight="وَثَمُودَ,الَّذِينَ"
+/>
+
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | وَ | wa | - | Particle - conjunction | Not declinable (mabni), coordinates with previous | and |
@@ -198,81 +344,128 @@ difficulty: "intermediate"
 | 5 | الصَّخْرَ | as-sakhra | ص-خ-ر | Noun - masculine, singular, definite | Direct object (maf'ul bihi) - accusative (mansub) | the rock |
 | 6 | بِ | bi- | - | Particle - preposition | Not declinable (mabni), governs genitive | in/at |
 | 7 | الْوَادِ | al-wadi | و-د-ي | Noun - masculine, singular, definite | Genitive (majrur) after بِ | the valley |
+</GrammarTable>
 
-#### Grammar Notes
-- ثَمُودَ is coordinated with عَادٍ from verse 6, both objects of فَعَلَ
-- الَّذِينَ introduces relative clause describing ثَمُودَ
-- جَابُوا means "to hollow out, carve through" (the rocks)
-- Reference to Thamud's famous rock dwellings in valleys
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** وَ is a conjunction coordinating ثَمُودَ with عَادٍ from verse 6 — both are governed by the verb فَعَلَ through the preposition بِ (understood: "and with Thamud"). ثَمُودَ is a diptote proper noun in the genitive (shown by fatha, not kasra). الَّذِينَ introduces a relative clause where جَابُوا is the verb with وَا as the subject pronoun. الصَّخْرَ is the direct object (maf'ul bihi, accusative). بِالْوَادِ is a prepositional phrase indicating location.
+
+**Sarf (Morphology):** جَابُوا derives from root ج-و-ب, a hollow verb (middle radical is و). Form I past: the وا suffix marks third person masculine plural. The root carries meanings of "cutting through, hollowing, traversing." الصَّخْرَ from root ص-خ-ر is a collective noun for rock/stone. الْوَادِ from root و-د-ي is a defective noun — the final ي drops before the definite article pattern.
+
+**Balagha (Rhetoric):** The verb جَابُوا (they carved through) is vivid and physical — it describes the sheer labor and engineering of Thamud, who carved homes directly from mountain rock. Each destroyed nation is characterized by its greatest achievement: 'Aad by their pillars, Thamud by their rock-cutting. The Quran acknowledges human accomplishment only to demonstrate its insignificance before divine power.
 
 ### Verse 10
 
-**Arabic:** وَفِرْعَوْنَ ذِي الْأَوْتَادِ
 
-**Translation:** "And Pharaoh, owner of the stakes"
+<ArabicExample
+  arabic="وَفِرْعَوْنَ ذِي الْأَوْتَادِ"
+  transliteration="wa-fir'awna dhī l-awtād"
+  translation="And Pharaoh, owner of the stakes"
+  reference="Al-Fajr 89:10"
+  highlight="وَفِرْعَوْنَ,الْأَوْتَادِ"
+/>
+
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | وَ | wa | - | Particle - conjunction | Not declinable (mabni), coordinates | and |
 | 2 | فِرْعَوْنَ | fir'awna | - | Proper noun - masculine, singular (foreign name) | Object (ma'tuf) parallel to عَادٍ - accusative (mansub), diptote | Pharaoh |
 | 3 | ذِي | dhi | - | Noun - masculine, singular (one of the five nouns) | Adjective (na't) of فِرْعَوْنَ - accusative (mansub) | possessor of |
 | 4 | الْأَوْتَادِ | al-awtadi | و-ت-د | Noun - masculine, plural, definite | Genitive (majrur) in idafa construction | the stakes/pegs |
+</GrammarTable>
 
-#### Grammar Notes
-- فِرْعَوْنَ coordinated with عَادٍ and ثَمُودَ
-- ذِي shows accusative by ي (one of the five nouns: ذُو/ذَا/ذِي)
-- الْأَوْتَادِ metaphor for power, armies, or torture methods
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** وَفِرْعَوْنَ is coordinated with the previous proper nouns, all governed by فَعَلَ رَبُّكَ بِ from verse 6. فِرْعَوْنَ is a diptote foreign proper noun in the genitive (shown by fatha). ذِي is a na't (adjective) for فِرْعَوْنَ — as one of the five nouns (الأسماء الخمسة), it shows genitive case through the long vowel ي (nominative: ذُو, accusative: ذَا, genitive: ذِي). الْأَوْتَادِ is the second part of the idafa, genitive.
+
+**Sarf (Morphology):** فِرْعَوْنَ is a non-Arabic proper noun, treated as diptote. ذِي is the genitive form of ذُو, meaning "possessor of." الْأَوْتَادِ is the broken plural of وَتِد (peg/stake) on the af'al pattern — أَفْعَال is one of the most common broken plural patterns for tri-consonantal nouns.
+
+**Balagha (Rhetoric):** Pharaoh is described not by his name but by his instrument of power — "the one with the stakes." This metonym (كِنَايَة) evokes the stakes used either to torture people, to pitch grand military tents, or to anchor his kingdom's structures. The three destroyed nations form a literary triptych: 'Aad (builders of pillars), Thamud (carvers of rock), Pharaoh (wielder of stakes) — each defined by their emblematic power, each equally destroyed.
 
 ### Verse 11
 
-**Arabic:** الَّذِينَ طَغَوْا فِي الْبِلَادِ
 
-**Translation:** "Who transgressed in the lands"
+<ArabicExample
+  arabic="الَّذِينَ طَغَوْا فِي الْبِلَادِ"
+  transliteration="alladhīna ṭaghaw fī l-bilād"
+  translation="Who transgressed in the lands"
+  reference="Al-Fajr 89:11"
+  highlight="الَّذِينَ,طَغَوْا"
+/>
+
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | الَّذِينَ | alladhina | - | Relative pronoun - masculine, plural | Not declinable (mabni), refers back to all three groups | who/those who |
 | 2 | طَغَوْا | taghaw | ط-غ-ي | Verb - Form I, past, 3rd person masculine plural | Verb in past (mabni), وا pronoun is subject | they transgressed |
 | 3 | فِي | fi | - | Particle - preposition | Not declinable (mabni), governs genitive | in |
 | 4 | الْبِلَادِ | al-biladi | ب-ل-د | Noun - feminine, plural, definite | Genitive (majrur) after فِي | the lands |
+</GrammarTable>
 
-#### Grammar Notes
-- الَّذِينَ refers collectively to 'Aad, Thamud, and Pharaoh
-- طَغَوْا Form I verb meaning "to transgress, exceed bounds, be tyrannical"
-- Common Quranic description of rebellious nations
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** الَّذِينَ is a relative pronoun (masculine plural) referring collectively to all three groups — 'Aad, Thamud, and Pharaoh. This grammatical unification is significant: despite being separate civilizations, they share one defining relative clause. طَغَوْا is the verb of the relative clause (silat al-mawsul), with وَا as the subject pronoun. فِي الْبِلَادِ is a prepositional phrase indicating the scope of their transgression.
+
+**Sarf (Morphology):** طَغَوْا derives from root ط-غ-ي, a defective verb (final radical is ي). In the past tense third person plural, the pattern becomes طَغَوْ + ا. The root carries meanings of exceeding limits, overflowing, and tyranny — the same root gives طُغْيَان (tyranny) and طَاغُوت (false god/tyrant).
+
+**Balagha (Rhetoric):** By using a single relative clause for all three nations, the Quran compresses centuries of history into one grammatical structure. The crime is the same regardless of era or civilization: طُغْيَان (transgression). The word الْبِلَادِ (the lands) echoes verse 8, where the same word described the uniqueness of 'Aad — the lands that witnessed their greatness now witness their corruption.
 
 ### Verse 12
 
-**Arabic:** فَأَكْثَرُوا فِيهَا الْفَسَادَ
 
-**Translation:** "And increased therein corruption"
+<ArabicExample
+  arabic="فَأَكْثَرُوا فِيهَا الْفَسَادَ"
+  transliteration="fa-aktharū fīhā l-fasād"
+  translation="And increased therein corruption"
+  reference="Al-Fajr 89:12"
+  highlight="فَأَكْثَرُوا,فِيهَا"
+/>
+
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | فَ | fa- | - | Particle - conjunction (consequence) | Not declinable (mabni), shows result | so/and |
 | 2 | أَكْثَرُوا | aktharu | ك-ث-ر | Verb - Form IV, past, 3rd person masculine plural | Verb in past (mabni), وا pronoun is subject | they increased/multiplied |
 | 3 | فِيهَا | fiha | - | Preposition + attached pronoun | فِي governs genitive, هَا pronoun refers to الْبِلَادِ | in it |
 | 4 | الْفَسَادَ | al-fasada | ف-س-د | Noun - masculine, singular, definite | Direct object (maf'ul bihi) - accusative (mansub) | the corruption |
+</GrammarTable>
 
-#### Grammar Notes
-- فَ shows causal relationship: they transgressed, SO they increased corruption
-- أَكْثَرُوا is Form IV (causative): "to make much, to increase"
-- الْفَسَادَ is direct object of أَكْثَرُوا
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** فَ is a conjunction showing result/consequence (fa al-sababiyyah): because they transgressed (v.11), therefore they increased corruption. أَكْثَرُوا is the verb with وَا as subject. فِيهَا is a prepositional phrase where هَا refers back to الْبِلَادِ. الْفَسَادَ is the direct object (maf'ul bihi) in the accusative.
+
+**Sarf (Morphology):** أَكْثَرُوا is Form IV (af'ala) from root ك-ث-ر. Form IV adds causative/transitive meaning: كَثُرَ (it was much) → أَكْثَرَ (he made much/increased). الْفَسَادَ from root ف-س-د on the fa'al pattern is a masdar meaning corruption, ruin, or moral decay.
+
+**Balagha (Rhetoric):** The verse intensifies the accusation — not only did they transgress, but they multiplied corruption. The definite article on الْفَسَادَ makes the corruption categorical and comprehensive. The pronoun فِيهَا ("in them/it" — referring to the lands) connects the corruption directly to the places that were supposed to be sites of civilization. The fa-consecutive creates an inevitable chain: transgression leads to corruption, which leads to divine response (verse 13).
 
 ### Verse 13
 
-**Arabic:** فَصَبَّ عَلَيْهِمْ رَبُّكَ سَوْطَ عَذَابٍ
 
-**Translation:** "So your Lord poured upon them a scourge of punishment"
+<ArabicExample
+  arabic="فَصَبَّ عَلَيْهِمْ رَبُّكَ سَوْطَ عَذَابٍ"
+  transliteration="fa-ṣabba 'alayhim rabbuka sawṭa 'adhāb"
+  translation="So your Lord poured upon them a scourge of punishment"
+  reference="Al-Fajr 89:13"
+  highlight="فَصَبَّ,عَلَيْهِمْ"
+/>
+
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | فَ | fa- | - | Particle - conjunction (consequence) | Not declinable (mabni), shows result | so |
@@ -281,21 +474,32 @@ difficulty: "intermediate"
 | 4 | رَبُّكَ | rabbuka | ر-ب-ب | Noun - masculine, singular, definite + attached pronoun | Subject (fa'il) - nominative (marfu'), كَ 2nd person pronoun in genitive | your Lord |
 | 5 | سَوْطَ | sawta | س-و-ط | Noun - masculine, singular, indefinite | Direct object (maf'ul bihi) - accusative (mansub) | scourge/whip |
 | 6 | عَذَابٍ | 'adhabin | ع-ذ-ب | Noun - masculine, singular, indefinite | Genitive (majrur) in idafa construction, with tanwin kasratayn | punishment |
+</GrammarTable>
 
-#### Grammar Notes
-- فَ introduces divine response to their transgression
-- صَبَّ literally "poured" - metaphor for overwhelming punishment
-- سَوْطَ عَذَابٍ idafa: "a whip of punishment" = severe punishment
-- Subject (رَبُّكَ) comes after verb and object for emphasis
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** فَ is consequential — the divine response to their corruption. صَبَّ is a past tense verb. The word order is striking: verb (صَبَّ) → prepositional phrase (عَلَيْهِمْ) → subject (رَبُّكَ) → object (سَوْطَ عَذَابٍ). The subject is delayed after the verb and the prepositional phrase, a marked word order (ta'khir al-fa'il). سَوْطَ عَذَابٍ is an idafa construction functioning as the maf'ul bihi (direct object, accusative).
+
+**Sarf (Morphology):** صَبَّ from root ص-ب-ب is a doubled verb (the second and third radicals are identical). It means "to pour out, unleash." سَوْطَ from root س-و-ط on the fa'l pattern literally means "whip/lash." عَذَابٍ from root ع-ذ-ب is a masdar meaning punishment/torment.
+
+**Balagha (Rhetoric):** The metaphor is layered: صَبَّ (poured) is a liquid metaphor, while سَوْطَ (whip) is a solid metaphor — together they convey punishment that is both overwhelming like a flood and sharp like a lash. The idafa سَوْطَ عَذَابٍ ("a whip of punishment") is a metaphor of unrelenting severity. The delayed subject رَبُّكَ builds suspense — the listener first hears the pouring, then the targets, and only then the source: your Lord. The personal address (your Lord) reminds the Prophet that the same God who protects him destroyed tyrants.
 
 ### Verse 14
 
-**Arabic:** إِنَّ رَبَّكَ لَبِالْمِرْصَادِ
 
-**Translation:** "Indeed, your Lord is in observation"
+<ArabicExample
+  arabic="إِنَّ رَبَّكَ لَبِالْمِرْصَادِ"
+  transliteration="inna rabbaka la-bi-l-mirṣād"
+  translation="Indeed, your Lord is in observation"
+  reference="Al-Fajr 89:14"
+  highlight="رَبَّكَ,لَبِالْمِرْصَادِ"
+/>
+
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | إِنَّ | inna | - | Particle - emphasis | Not declinable (mabni), governs accusative for subject | indeed |
@@ -303,21 +507,32 @@ difficulty: "intermediate"
 | 3 | لَ | la- | - | Particle - emphasis | Not declinable (mabni), strengthens predicate | surely |
 | 4 | بِ | bi- | - | Particle - preposition | Not declinable (mabni), governs genitive | in/at |
 | 5 | الْمِرْصَادِ | al-mirsadi | ر-ص-د | Noun - masculine, singular, definite (place noun) | Predicate of إِنَّ (khabar inna) - genitive (majrur) after بِ, in place of nominative | the watch-place/observation |
+</GrammarTable>
 
-#### Grammar Notes
-- إِنَّ... لَ double emphasis structure
-- الْمِرْصَادِ is a place noun (mif'al pattern) meaning "place of watching"
-- The prepositional phrase بِالْمِرْصَادِ is the predicate (khabar) of إِنَّ
-- Warns that God observes all transgression
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** إِنَّ governs رَبَّكَ as its ism (subject) in the accusative (marked by fatha). The khabar (predicate) is the prepositional phrase بِالْمِرْصَادِ, preceded by the emphatic لَ (lam al-tawkid). This creates the strongest assertion structure in Arabic: إِنَّ + لَ = double emphasis. The بِ in بِالْمِرْصَادِ is locative — "at the watch-place."
+
+**Sarf (Morphology):** الْمِرْصَادِ from root ر-ص-د follows the mif'al place noun pattern (also called ism makan), meaning "the place of watching/observation." This pattern (مِفْعَال) indicates a location where the action of the root occurs — a watchtower, an observation post. The root ر-ص-د gives رَصَدَ (to watch, observe, lie in wait).
+
+**Balagha (Rhetoric):** This verse is the theological anchor of the entire historical narrative (verses 6-13). After describing three destroyed civilizations, the surah delivers the universal principle: your Lord is ever watchful. The مِرْصَاد metaphor evokes a watchtower or ambush point — God is not a passive observer but one strategically positioned to intercept injustice. The double emphasis (إِنَّ... لَ) matches the gravity of the claim, and the verse serves as the transition point between the historical section and the psychological analysis that follows.
 
 ### Verse 15
 
-**Arabic:** فَأَمَّا الْإِنسَانُ إِذَا مَا ابْتَلَاهُ رَبُّهُ فَأَكْرَمَهُ وَنَعَّمَهُ فَيَقُولُ رَبِّي أَكْرَمَنِ
 
-**Translation:** "As for man, when his Lord tries him and [thus] is generous to him and favors him, he says, 'My Lord has honored me'"
+<ArabicExample
+  arabic="فَأَمَّا الْإِنسَانُ إِذَا مَا ابْتَلَاهُ رَبُّهُ فَأَكْرَمَهُ وَنَعَّمَهُ فَيَقُولُ رَبِّي أَكْرَمَنِ"
+  transliteration="fa-amma l-insānu idhā mā btalāhu rabbuhu fa-akramahu wa-na''amahu fa-yaqūlu rabbī akraman"
+  translation="As for man, when his Lord tries him and [thus] is generous to him and favors him, he says, 'My Lord has honored me'"
+  reference="Al-Fajr 89:15"
+  highlight="فَأَمَّا,الْإِنسَانُ"
+/>
+
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | فَ | fa- | - | Particle - conjunction | Not declinable (mabni), transitions to new topic | and/so |
@@ -335,22 +550,32 @@ difficulty: "intermediate"
 | 13 | يَقُولُ | yaqulu | ق-و-ل | Verb - Form I, present, 3rd person masculine singular | Verb in indicative (marfu'), subject is الْإِنسَانُ | he says |
 | 14 | رَبِّي | rabbi | ر-ب-ب | Noun - masculine, singular, definite + attached pronoun | Subject of nominal sentence - nominative (marfu'), يَ 1st person pronoun in genitive | my Lord |
 | 15 | أَكْرَمَنِ | akramani | ك-ر-م | Verb - Form IV, past, 3rd person masculine singular + pronoun | Predicate (khabar) - verb in past (mabni), نِ 1st person pronoun is object, originally أَكْرَمَنِي | he honored me |
+</GrammarTable>
 
-#### Grammar Notes
-- فَأَمَّا... فَ construction: "as for X, then Y"
-- إِذَا مَا: conditional particle with مَا for emphasis
-- Series of فَ connectors showing sequence: tested → honored → says
-- The human's statement shows misunderstanding of the test
-- أَكْرَمَنِ shortened from أَكْرَمَنِي (dropped final vowel in pause)
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** فَأَمَّا introduces a conditional-topicalization construction: "as for X, then Y." الْإِنسَانُ is the mubtada' (subject, nominative). إِذَا مَا is a temporal-conditional clause where مَا is za'ida (emphatic), reinforcing إِذَا. ابْتَلَاهُ رَبُّهُ is the condition clause (verb + object + subject). The chain of فَ particles (fa-akramahu, fa-yaqulu) shows sequential consequence. يَقُولُ is the jawab (answer) of the أَمَّا construction. أَكْرَمَنِ is shortened from أَكْرَمَنِي — the final ya' drops in pause (waqf).
+
+**Sarf (Morphology):** ابْتَلَاهُ is Form VIII (ifta'ala) from root ب-ل-و, meaning "to test/try." Form VIII adds a reflexive or intensified meaning. أَكْرَمَهُ is Form IV (af'ala) from root ك-ر-م (to honor). نَعَّمَهُ is Form II (fa''ala) from root ن-ع-م (to bless/favor) — Form II's doubled middle radical intensifies the action. The shift between Forms (VIII → IV → II) within one verse demonstrates Arabic's morphological richness.
+
+**Balagha (Rhetoric):** This verse begins the surah's psychological analysis. The أَمَّا...فَ construction creates a case study: "Take the human — when tested with blessings, he says 'My Lord has honored me.'" The irony is devastating: the human mistakes the test (ابْتَلَى) for a verdict (أَكْرَمَ). God tests; the human interprets. The parallel with verse 16 creates a diagnostic pair revealing how humans misread both wealth and poverty.
 
 ### Verse 16
 
-**Arabic:** وَأَمَّا إِذَا مَا ابْتَلَاهُ فَقَدَرَ عَلَيْهِ رِزْقَهُ فَيَقُولُ رَبِّي أَهَانَنِ
 
-**Translation:** "But when He tries him and restricts his provision, he says, 'My Lord has humiliated me'"
+<ArabicExample
+  arabic="وَأَمَّا إِذَا مَا ابْتَلَاهُ فَقَدَرَ عَلَيْهِ رِزْقَهُ فَيَقُولُ رَبِّي أَهَانَنِ"
+  transliteration="wa-ammā idhā mā btalāhu fa-qadara 'alayhi rizqahu fa-yaqūlu rabbī ahānan"
+  translation="But when He tries him and restricts his provision, he says, 'My Lord has humiliated me'"
+  reference="Al-Fajr 89:16"
+  highlight="وَأَمَّا,إِذَا"
+/>
+
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | وَ | wa | - | Particle - conjunction | Not declinable (mabni), contrasts with previous | but/and |
@@ -366,21 +591,32 @@ difficulty: "intermediate"
 | 11 | يَقُولُ | yaqulu | ق-و-ل | Verb - Form I, present, 3rd person masculine singular | Verb in indicative (marfu') | he says |
 | 12 | رَبِّي | rabbi | ر-ب-ب | Noun - masculine, singular, definite + attached pronoun | Subject of nominal sentence - nominative (marfu'), يَ 1st person pronoun in genitive | my Lord |
 | 13 | أَهَانَنِ | ahānani | ه-و-ن | Verb - Form IV, past, 3rd person masculine singular + pronoun | Predicate (khabar) - verb in past (mabni), نِ 1st person pronoun is object, from أَهَانَنِي | he humiliated me |
+</GrammarTable>
 
-#### Grammar Notes
-- Parallel structure to verse 15: وَأَمَّا contrasts the two scenarios
-- قَدَرَ عَلَيْهِ رِزْقَهُ: "restricted upon him his provision" = gave him limited sustenance
-- Shows human misunderstanding: sees wealth as honor, poverty as humiliation
-- Both verses critique materialistic interpretation of divine tests
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** وَأَمَّا mirrors the structure of verse 15, creating a parallel conditional construction. The subject الْإِنسَانُ is implied from verse 15. إِذَا مَا ابْتَلَاهُ is identical to verse 15 — same test, different outcome. قَدَرَ عَلَيْهِ رِزْقَهُ: the verb قَدَرَ takes عَلَيْهِ as prepositional complement and رِزْقَهُ as its direct object (maf'ul bihi, accusative). أَهَانَنِ is Form IV from root ه-و-ن, shortened from أَهَانَنِي in pause.
+
+**Sarf (Morphology):** قَدَرَ from root ق-د-ر on Form I means "to measure, restrict, limit" — the same root gives قَدَر (destiny) and قُدْرَة (power). When used with عَلَى + provision, it means to limit or tighten. أَهَانَ is Form IV (af'ala) from root ه-و-ن (to be insignificant/easy), adding causative meaning: "to cause to be humiliated." رِزْقَ from root ر-ز-ق on the fi'l pattern means provision or sustenance.
+
+**Balagha (Rhetoric):** The perfect grammatical parallelism between verses 15 and 16 is the point — the human makes the same error in both cases. Whether given abundance or restriction, he draws a materialistic conclusion. The Quran's critique is structural: both sentences share identical grammar (أَمَّا...إِذَا مَا ابْتَلَاهُ...فَيَقُولُ رَبِّي...) with only the middle terms changed. The identical framework exposes the identical flaw in reasoning.
 
 ### Verse 17
 
-**Arabic:** كَلَّا ۖ بَل لَّا تُكْرِمُونَ الْيَتِيمَ
 
-**Translation:** "No! Rather, you do not honor the orphan"
+<ArabicExample
+  arabic="كَلَّا ۖ بَل لَّا تُكْرِمُونَ الْيَتِيمَ"
+  transliteration="kallā bal lā tukrimūna l-yatīm"
+  translation="No! Rather, you do not honor the orphan"
+  reference="Al-Fajr 89:17"
+  highlight="كَلَّا,تُكْرِمُونَ"
+/>
+
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | كَلَّا | kalla | - | Particle - negation/rebuke | Not declinable (mabni), refutes previous claim | No! Not at all! |
@@ -388,21 +624,32 @@ difficulty: "intermediate"
 | 3 | لَّا | la | - | Particle - negation | Not declinable (mabni), negates present verb | not |
 | 4 | تُكْرِمُونَ | tukriumuna | ك-ر-م | Verb - Form IV, present, 2nd person masculine plural | Verb in indicative (marfu'), نَ is subject pronoun and ن for plural | you honor |
 | 5 | الْيَتِيمَ | al-yatima | ي-ت-م | Noun - masculine, singular, definite | Direct object (maf'ul bihi) - accusative (mansub) | the orphan |
+</GrammarTable>
 
-#### Grammar Notes
-- كَلَّا strongly refutes the human's interpretation in verses 15-16
-- بَل shifts focus: the real issue is moral failure, not material status
-- لَّا negates the present tense verb
-- Beginning of a series of accusations about failure in social responsibility
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** كَلَّا is a particle of rebuke and rejection (harf rad' wa-zajr), strongly negating the claims in verses 15-16. بَل is a particle of correction (harf idrab), shifting the discourse: "Rather, the real issue is..." لَّا negates the present tense verb تُكْرِمُونَ. The verb is Form IV (tuf'iluna) with the second person plural subject. الْيَتِيمَ is the maf'ul bihi (direct object, accusative).
+
+**Sarf (Morphology):** تُكْرِمُونَ is Form IV present (tuf'iluna pattern) from root ك-ر-م. The same root appeared in verse 15 as أَكْرَمَهُ (He honored him) — but here it is negated. The irony: the human claims God honored him, but he himself does not honor the orphan. الْيَتِيمَ from root ي-ت-م on the fa'il pattern means "one bereft of a parent" — specifically a child who has lost their father.
+
+**Balagha (Rhetoric):** كَلَّا is a rhetorical thunderclap — it shatters the human's self-deception from verses 15-16. Then بَل redirects: the real measure is not wealth or poverty but moral action. The shift from third person (الْإِنسَانُ in v.15-16) to second person plural (تُكْرِمُونَ) directly confronts the audience. The accusation begins with orphans — the most vulnerable members of society — making the moral failure inescapable.
 
 ### Verse 18
 
-**Arabic:** وَلَا تَحَاضُّونَ عَلَىٰ طَعَامِ الْمِسْكِينِ
 
-**Translation:** "Nor do you encourage one another to feed the poor"
+<ArabicExample
+  arabic="وَلَا تَحَاضُّونَ عَلَىٰ طَعَامِ الْمِسْكِينِ"
+  transliteration="wa-lā taḥāḍḍūna 'alā ṭa'āmi l-miskīn"
+  translation="Nor do you encourage one another to feed the poor"
+  reference="Al-Fajr 89:18"
+  highlight="وَلَا,تَحَاضُّونَ"
+/>
+
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | وَ | wa | - | Particle - conjunction | Not declinable (mabni), coordinates | and |
@@ -411,20 +658,32 @@ difficulty: "intermediate"
 | 4 | عَلَىٰ | 'ala | - | Particle - preposition | Not declinable (mabni), governs genitive | upon/to |
 | 5 | طَعَامِ | ta'ami | ط-ع-م | Noun - masculine, singular, indefinite | Genitive (majrur) after عَلَىٰ in idafa construction | feeding |
 | 6 | الْمِسْكِينِ | al-miskini | س-ك-ن | Noun - masculine, singular, definite | Genitive (majrur) in idafa construction | the poor |
+</GrammarTable>
 
-#### Grammar Notes
-- تَحَاضُّونَ is Form VI (mutual action): "to encourage each other"
-- طَعَامِ الْمِسْكِينِ idafa: "feeding of the poor"
-- Critiques social apathy and lack of mutual encouragement in charity
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** وَلَا continues the negation series from verse 17. تَحَاضُّونَ is a present tense verb (second person masculine plural) negated by لَا. عَلَىٰ introduces the object of the encouragement. طَعَامِ الْمِسْكِينِ is a double idafa chain: طَعَامِ (feeding) is in idafa with الْمِسْكِينِ (the poor), both genitive.
+
+**Sarf (Morphology):** تَحَاضُّونَ derives from root ح-ض-ض on Form VI (tafā'ula), which indicates mutual/reciprocal action: "to urge each other, to mutually encourage." The doubled ض (shaddah) comes from the root's identical second and third radicals. الْمِسْكِينِ from root س-ك-ن on the mif'il pattern means "one rendered still/immobile by poverty" — the inability to move or act due to destitution.
+
+**Balagha (Rhetoric):** The accusation escalates: not only do they fail to feed the poor themselves (which would be bad enough), they do not even encourage each other to do so. Form VI (mutual action) makes the failure communal — it is a collective social breakdown, not just individual neglect. The word طَعَام (feeding) rather than just مَال (money) makes the obligation viscerally concrete: this is about food, survival, hunger.
 
 ### Verse 19
 
-**Arabic:** وَتَأْكُلُونَ التُّرَاثَ أَكْلًا لَّمًّا
 
-**Translation:** "And you consume inheritance, devouring [it] altogether"
+<ArabicExample
+  arabic="وَتَأْكُلُونَ التُّرَاثَ أَكْلًا لَّمًّا"
+  transliteration="wa-ta'kulūna t-turātha aklan lammā"
+  translation="And you consume inheritance, devouring [it] altogether"
+  reference="Al-Fajr 89:19"
+  highlight="وَتَأْكُلُونَ,التُّرَاثَ"
+/>
+
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | وَ | wa | - | Particle - conjunction | Not declinable (mabni), coordinates | and |
@@ -432,20 +691,32 @@ difficulty: "intermediate"
 | 3 | التُّرَاثَ | al-turatha | و-ر-ث | Noun - masculine, singular, definite | Direct object (maf'ul bihi) - accusative (mansub) | the inheritance |
 | 4 | أَكْلًا | aklan | أ-ك-ل | Noun - masculine, singular, indefinite (verbal noun) | Absolute object (maf'ul mutlaq) - accusative (mansub), with tanwin | eating/consuming |
 | 5 | لَّمًّا | lamman | ل-م-م | Noun - masculine, singular, indefinite (active participle/adjective) | Adjective (na't) of أَكْلًا - accusative (mansub), with tanwin | devouring/greedy |
+</GrammarTable>
 
-#### Grammar Notes
-- أَكْلًا is maf'ul mutlaq (absolute object) emphasizing the verb تَأْكُلُونَ
-- لَّمًّا means "greedily gathering everything together"
-- Critiques unjust seizure of others' inheritance (especially of orphans and weak)
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** وَ coordinates with the previous accusations. تَأْكُلُونَ is present tense (second person masculine plural, indicative). التُّرَاثَ is the maf'ul bihi (direct object, accusative). أَكْلًا is a maf'ul mutlaq (cognate accusative) from the same root as the verb (أ-ك-ل), emphasizing the manner of eating. لَّمًّا is a na't (adjective) of أَكْلًا, also in the accusative.
+
+**Sarf (Morphology):** تَأْكُلُونَ is Form I from root أ-ك-ل (to eat/consume). التُّرَاثَ from root و-ر-ث on the tu'al pattern is a noun meaning "inheritance/legacy." The initial و changed to ت (a common phonological shift). أَكْلًا is the masdar of أَكَلَ. لَّمًّا from root ل-م-م means "gathering everything together, devouring greedily" — it describes eating that leaves nothing behind.
+
+**Balagha (Rhetoric):** The verb أَكَلَ (to eat) for consuming inheritance is a powerful metaphor — inheritance is devoured like food, consumed physically and completely. The maf'ul mutlaq أَكْلًا لَّمًّا amplifies the greed: not just eating, but "a devouring that gathers everything." This connects to the orphan theme (v.17) — the inheritance being consumed likely belongs to orphans and the weak. The accusation moves from passive neglect (not honoring orphans) to active injustice (consuming their inheritance).
 
 ### Verse 20
 
-**Arabic:** وَتُحِبُّونَ الْمَالَ حُبًّا جَمًّا
 
-**Translation:** "And you love wealth with immense love"
+<ArabicExample
+  arabic="وَتُحِبُّونَ الْمَالَ حُبًّا جَمًّا"
+  transliteration="wa-tuḥibbūna l-māla ḥubban jammā"
+  translation="And you love wealth with immense love"
+  reference="Al-Fajr 89:20"
+  highlight="وَتُحِبُّونَ,الْمَالَ"
+/>
+
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | وَ | wa | - | Particle - conjunction | Not declinable (mabni), coordinates | and |
@@ -453,21 +724,32 @@ difficulty: "intermediate"
 | 3 | الْمَالَ | al-mala | م-و-ل | Noun - masculine, singular, definite | Direct object (maf'ul bihi) - accusative (mansub) | the wealth |
 | 4 | حُبًّا | hubban | ح-ب-ب | Noun - masculine, singular, indefinite (verbal noun) | Absolute object (maf'ul mutlaq) - accusative (mansub), with tanwin | love/loving |
 | 5 | جَمًّا | jamman | ج-م-م | Adjective - masculine, singular, indefinite | Adjective (na't) of حُبًّا - accusative (mansub), with tanwin | great/immense |
+</GrammarTable>
 
-#### Grammar Notes
-- حُبًّا جَمًّا: maf'ul mutlaq with adjective for emphasis
-- جَمًّا means "abundant, much, great"
-- Identifies root cause: excessive love of wealth leads to social injustice
-- Completes the critique: verses 17-20 diagnose moral failures
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** The structure mirrors verse 19: verb (تُحِبُّونَ) + object (الْمَالَ) + maf'ul mutlaq (حُبًّا) + adjective (جَمًّا). تُحِبُّونَ is present tense Form IV (second person plural, indicative). الْمَالَ is the maf'ul bihi (accusative). حُبًّا is the maf'ul mutlaq (cognate accusative from the same root ح-ب-ب as the verb). جَمًّا is a na't of حُبًّا (accusative).
+
+**Sarf (Morphology):** تُحِبُّونَ is Form IV (tuf'iluna) from the doubled root ح-ب-ب. Form IV here means "to love intensely." حُبًّا is the masdar on the fu'l pattern. جَمًّا from root ج-م-م means "abundant, excessive, comprehensive" — describing a love that gathers and encompasses everything.
+
+**Balagha (Rhetoric):** This verse identifies the root cause behind all the previous moral failures: حُبًّا جَمًّا — an all-consuming love of wealth. The maf'ul mutlaq + adjective pattern mirrors verse 19 (أَكْلًا لَّمًّا), creating structural parallelism between the two verses: greedy consuming and excessive loving are twin symptoms of the same disease. The four-verse accusation (17-20) forms a complete diagnosis: neglect of orphans → neglect of the poor → consuming inheritance → loving wealth. Each step is deeper than the last, moving from omission to commission to the underlying spiritual disease.
 
 ### Verse 21
 
-**Arabic:** كَلَّا إِذَا دُكَّتِ الْأَرْضُ دَكًّا دَكًّا
 
-**Translation:** "No! When the earth has been leveled - pounding and pounding"
+<ArabicExample
+  arabic="كَلَّا إِذَا دُكَّتِ الْأَرْضُ دَكًّا دَكًّا"
+  transliteration="kallā idhā dukkati l-arḍu dakkan dakkā"
+  translation="No! When the earth has been leveled - pounding and pounding"
+  reference="Al-Fajr 89:21"
+  highlight="كَلَّا,إِذَا"
+/>
+
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | كَلَّا | kalla | - | Particle - negation/warning | Not declinable (mabni), refutes false security | No! Not at all! |
@@ -476,21 +758,32 @@ difficulty: "intermediate"
 | 4 | الْأَرْضُ | al-ardu | أ-ر-ض | Noun - feminine, singular, definite | Deputy subject (na'ib fa'il) of passive verb - nominative (marfu') | the earth |
 | 5 | دَكًّا | dakkan | د-ك-ك | Noun - masculine, singular, indefinite (verbal noun) | Absolute object (maf'ul mutlaq) - accusative (mansub), with tanwin | pounding |
 | 6 | دَكًّا | dakkan | د-ك-ك | Noun - masculine, singular, indefinite (verbal noun) | Absolute object (maf'ul mutlaq) - accusative (mansub), repetition for emphasis, with tanwin | pounding |
+</GrammarTable>
 
-#### Grammar Notes
-- كَلَّا warns: this materialistic attitude will not save on the Day of Judgment
-- دُكَّتِ passive Form I: earth will be crushed/leveled
-- دَكًّا دَكًّا: repetition of maf'ul mutlaq for extreme emphasis
-- إِذَا introduces eschatological scene
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** كَلَّا is again a rebuke particle, now transitioning from worldly diagnosis to eschatological warning. إِذَا introduces a temporal condition for the Day of Judgment. دُكَّتِ is a past tense passive verb (feminine singular, the تِ marks feminine agreement with الْأَرْضُ). الْأَرْضُ is the na'ib al-fa'il (deputy subject, nominative). دَكًّا دَكًّا: the first دَكًّا is maf'ul mutlaq (cognate accusative), and the repetition creates emphasis through تَوْكِيد لَفْظِي (verbal emphasis by repetition).
+
+**Sarf (Morphology):** دُكَّتِ is Form I passive from the doubled root د-ك-ك (to pound, crush, level). The passive pattern (fu''ilat) hides the agent — the focus is on the event, not the doer. دَكًّا is the masdar of دَكَّ. The doubled final radical (كّ) makes the word sound heavy and percussive, phonetically echoing the pounding it describes.
+
+**Balagha (Rhetoric):** The second كَلَّا marks the surah's major structural division — from worldly to eschatological. The repeated دَكًّا دَكًّا is one of the Quran's most vivid sound devices: the hard كّ sound repeated four times mimics the pounding of the earth. Repetition of the maf'ul mutlaq is rare and intensely emphatic — not just pounding, but pounding upon pounding. The earth they fought over, consumed inheritance from, and loved wealth upon is itself being destroyed.
 
 ### Verse 22
 
-**Arabic:** وَجَاءَ رَبُّكَ وَالْمَلَكُ صَفًّا صَفًّا
 
-**Translation:** "And your Lord has come and the angels, rank upon rank"
+<ArabicExample
+  arabic="وَجَاءَ رَبُّكَ وَالْمَلَكُ صَفًّا صَفًّا"
+  transliteration="wa-jā'a rabbuka wa-l-malaku ṣaffan ṣaffā"
+  translation="And your Lord has come and the angels, rank upon rank"
+  reference="Al-Fajr 89:22"
+  highlight="وَجَاءَ,رَبُّكَ"
+/>
+
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | وَ | wa | - | Particle - conjunction | Not declinable (mabni), coordinates | and |
@@ -500,20 +793,32 @@ difficulty: "intermediate"
 | 5 | الْمَلَكُ | al-malaku | م-ل-ك | Noun - masculine, singular/collective, definite | Subject (ma'tuf) - nominative (marfu'), coordinated with رَبُّكَ | the angels |
 | 6 | صَفًّا | saffan | ص-ف-ف | Noun - masculine, singular, indefinite (verbal noun used as hal) | Circumstantial expression (hal) - accusative (mansub), with tanwin | rank/row |
 | 7 | صَفًّا | saffan | ص-ف-ف | Noun - masculine, singular, indefinite | Circumstantial expression (hal) - accusative (mansub), repetition for emphasis, with tanwin | rank/row |
+</GrammarTable>
 
-#### Grammar Notes
-- جَاءَ رَبُّكَ: theological statement interpreted as God's command or judgment comes
-- الْمَلَكُ can be singular collective or read الْمَلَائِكُ (angels)
-- صَفًّا صَفًّا: circumstantial (hal) showing manner - "in ranks upon ranks"
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** وَ coordinates with the previous eschatological scene. جَاءَ is a past tense verb (used for future events in eschatological context). رَبُّكَ is the fa'il (subject, nominative). وَالْمَلَكُ is coordinated with رَبُّكَ as a second subject. صَفًّا صَفًّا is a hal (circumstantial expression, accusative) describing the manner of the angels' arrival. The repetition creates emphasis: rank after rank after rank.
+
+**Sarf (Morphology):** جَاءَ from root ج-ي-ء is a hollow verb (middle radical is ي). الْمَلَكُ from root م-ل-ك can be read as singular (the angel) used collectively, or as a shortened form of الْمَلَائِكَة (the angels). صَفًّا from root ص-ف-ف is a masdar/noun meaning "row, rank, line" — the doubled final radical is characteristic of this root.
+
+**Balagha (Rhetoric):** جَاءَ رَبُّكَ is one of the Quran's most awe-inspiring phrases — scholars explain it as God's command coming, His judgment arriving, or in a manner befitting His majesty. The past tense for a future event (الماضي بمعنى المستقبل) makes the scene vivid and certain, as if it has already occurred. صَفًّا صَفًّا paints a military tableau: the angels arriving in orderly, endless ranks — the cosmic army of the Day of Judgment. The image contrasts sharply with the disorganized greed of verses 17-20.
 
 ### Verse 23
 
-**Arabic:** وَجِيءَ يَوْمَئِذٍ بِجَهَنَّمَ ۚ يَوْمَئِذٍ يَتَذَكَّرُ الْإِنسَانُ وَأَنَّىٰ لَهُ الذِّكْرَىٰ
 
-**Translation:** "And brought [within view], that Day, is Hell - that Day, man will remember, but what good to him will be the remembrance?"
+<ArabicExample
+  arabic="وَجِيءَ يَوْمَئِذٍ بِجَهَنَّمَ ۚ يَوْمَئِذٍ يَتَذَكَّرُ الْإِنسَانُ وَأَنَّىٰ لَهُ الذِّكْرَىٰ"
+  transliteration="wa-jī'a yawma'idhin bi-jahannama yawma'idhin yatadhakkaru l-insānu wa-annā lahu dh-dhikrā"
+  translation="And brought [within view], that Day, is Hell - that Day, man will remember, but what good to him will be the remembrance?"
+  reference="Al-Fajr 89:23"
+  highlight="وَجِيءَ,يَوْمَئِذٍ"
+/>
+
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | وَ | wa | - | Particle - conjunction | Not declinable (mabni), coordinates | and |
@@ -528,21 +833,32 @@ difficulty: "intermediate"
 | 10 | أَنَّىٰ | anna | - | Particle - interrogative | Not declinable (mabni), rhetorical question | how/from where |
 | 11 | لَهُ | lahu | - | Preposition + attached pronoun | لَ governs genitive, هُ 3rd person pronoun | for him |
 | 12 | الذِّكْرَىٰ | adh-dhikra | ذ-ك-ر | Noun - feminine, singular, definite | Subject (mubtada') - nominative (marfu'), alif maqsura ending | the remembrance |
+</GrammarTable>
 
-#### Grammar Notes
-- جِيءَ بِجَهَنَّمَ: passive construction "Hell will be brought"
-- يَوْمَئِذٍ repeated for emphasis
-- أَنَّىٰ لَهُ الذِّكْرَىٰ: rhetorical question "of what benefit is remembrance to him?"
-- Too late to benefit from remembering
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** جِيءَ is passive past tense of جَاءَ (to come/bring). In passive voice, the prepositional phrase بِجَهَنَّمَ substitutes for the direct object — the na'ib al-fa'il is implicit. يَوْمَئِذٍ is an adverbial of time (zarf zaman, accusative): يَوْمَ + إِذٍ (that day). It appears twice for emphasis. يَتَذَكَّرُ الْإِنسَانُ is a verbal sentence (verb + fa'il). أَنَّىٰ is an interrogative meaning "how/from where" — أَنَّىٰ لَهُ الذِّكْرَىٰ is a nominal sentence where الذِّكْرَىٰ is the mubtada' and لَهُ is the khabar.
+
+**Sarf (Morphology):** جِيءَ shows the passive voweling of the hollow verb جَاءَ (ji'a instead of ja'a). يَتَذَكَّرُ is Form V (tafa''ala) from root ذ-ك-ر, meaning "to remember, reflect, take heed." Form V adds reflexive meaning to Form II. الذِّكْرَىٰ is a masdar/noun from the same root on the fi'la pattern with alif maqsura, meaning "remembrance, reminder."
+
+**Balagha (Rhetoric):** The verse creates a devastating scene in two parts. First, Hell is brought — the passive voice (جِيءَ) makes Hell an object being transported, implying an unimaginable force bringing it. Then the human finally remembers — يَتَذَكَّرُ, the very thing he failed to do in life. The rhetorical question أَنَّىٰ لَهُ الذِّكْرَىٰ is the surah's most tragic line: "but what good is remembrance now?" The repetition of يَوْمَئِذٍ hammers the temporal finality — on THAT day, too late.
 
 ### Verse 24
 
-**Arabic:** يَقُولُ يَا لَيْتَنِي قَدَّمْتُ لِحَيَاتِي
 
-**Translation:** "He will say, 'Oh, I wish I had sent ahead [some good] for my life'"
+<ArabicExample
+  arabic="يَقُولُ يَا لَيْتَنِي قَدَّمْتُ لِحَيَاتِي"
+  transliteration="yaqūlu yā laytanī qaddamtu li-ḥayātī"
+  translation="He will say, 'Oh, I wish I had sent ahead [some good] for my life'"
+  reference="Al-Fajr 89:24"
+  highlight="يَقُولُ,لَيْتَنِي"
+/>
+
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | يَقُولُ | yaqulu | ق-و-ل | Verb - Form I, present, 3rd person masculine singular | Verb in indicative (marfu'), subject is الْإِنسَانُ | he will say |
@@ -551,21 +867,32 @@ difficulty: "intermediate"
 | 4 | قَدَّمْتُ | qaddamtu | ق-د-م | Verb - Form II, past, 1st person singular | Verb in past (mabni), تُ is subject pronoun, predicate (khabar) of لَيْتَ | I had sent ahead |
 | 5 | لِ | li- | - | Particle - preposition | Not declinable (mabni), governs genitive | for |
 | 6 | حَيَاتِي | hayati | ح-ي-ي | Noun - feminine, singular, indefinite + attached pronoun | Genitive (majrur) after لِ, يَ 1st person pronoun in genitive | my life |
+</GrammarTable>
 
-#### Grammar Notes
-- يَا here is exclamation of regret (not vocative)
-- لَيْتَنِي: "would that I" - expresses impossible wish
-- قَدَّمْتُ Form II: "to send forward, advance" (good deeds)
-- لِحَيَاتِي: "for my [true/eternal] life" - the afterlife
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** يَقُولُ is the main verb, its subject is الْإِنسَانُ from verse 23. يَا is a vocative particle used here for exclamation/regret (not calling someone). لَيْتَنِي: لَيْتَ is one of إِنَّ's sisters (the wish particle), governing its ism (نِي, first person pronoun) in the accusative. قَدَّمْتُ لِحَيَاتِي is the khabar of لَيْتَ. لِحَيَاتِي: the لِ is a preposition of purpose/benefit, and حَيَاتِي is genitive in idafa with the first person possessive pronoun.
+
+**Sarf (Morphology):** لَيْتَ is one of the nawasikh (particles that alter the normal case pattern of nominal sentences), specifically one of إِنَّ's sisters that express wishes. قَدَّمْتُ is Form II (fa''ala) past tense from root ق-د-م, meaning "to send forward, advance." Form II's doubled middle radical intensifies the meaning: actively preparing and sending ahead. حَيَاتِي from root ح-ي-ي on the fa'alah pattern means "life."
+
+**Balagha (Rhetoric):** This is the human's speech — now stripped of the arrogance from verses 15-16. The يَا of regret is one of Arabic's most emotionally charged particles. لَيْتَ expresses an impossible wish — it is specifically used for desires that cannot be fulfilled. قَدَّمْتُ ("I had sent ahead") uses a traveling metaphor: good deeds are provisions sent forward on a journey, and the human has arrived at the destination empty-handed. لِحَيَاتِي — "for my life" — reveals the tragic irony: only now does he realize which "life" is the real one.
 
 ### Verse 25
 
-**Arabic:** فَيَوْمَئِذٍ لَّا يُعَذِّبُ عَذَابَهُ أَحَدٌ
 
-**Translation:** "So on that Day, none will punish [as severely] as His punishment"
+<ArabicExample
+  arabic="فَيَوْمَئِذٍ لَّا يُعَذِّبُ عَذَابَهُ أَحَدٌ"
+  transliteration="fa-yawma'idhin lā yu'adhdhibu 'adhābahu aḥad"
+  translation="So on that Day, none will punish [as severely] as His punishment"
+  reference="Al-Fajr 89:25"
+  highlight="فَيَوْمَئِذٍ,يُعَذِّبُ"
+/>
+
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | فَ | fa- | - | Particle - conjunction | Not declinable (mabni), shows result | so/then |
@@ -574,20 +901,32 @@ difficulty: "intermediate"
 | 4 | يُعَذِّبُ | yu'adhdhibu | ع-ذ-ب | Verb - Form II, present, 3rd person masculine singular | Verb in indicative (marfu') | he punishes |
 | 5 | عَذَابَهُ | 'adhabahu | ع-ذ-ب | Noun - masculine, singular, indefinite + attached pronoun | Absolute object (maf'ul mutlaq) - accusative (mansub), هُ 3rd person pronoun in genitive | His punishment |
 | 6 | أَحَدٌ | ahadun | - | Pronoun - masculine, singular, indefinite | Subject (fa'il) - nominative (marfu'), with tanwin dammatayn | anyone |
+</GrammarTable>
 
-#### Grammar Notes
-- لَّا يُعَذِّبُ عَذَابَهُ أَحَدٌ: "no one punishes His punishment" = none can punish like God
-- عَذَابَهُ is maf'ul mutlaq emphasizing the severity
-- أَحَدٌ in negative context means "no one"
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** فَيَوْمَئِذٍ is the temporal adverb (accusative) marking the time frame. لَّا negates the verb يُعَذِّبُ. عَذَابَهُ is a maf'ul mutlaq (cognate accusative) — the verb and its object share the root ع-ذ-ب. The attached pronoun هُ refers to God. أَحَدٌ is the fa'il (subject, nominative with tanwin). The meaning: "no one punishes a punishment like His punishment."
+
+**Sarf (Morphology):** يُعَذِّبُ is Form II (yufa''ilu) from root ع-ذ-ب, meaning "to punish, torment." Form II's doubled middle radical indicates intensity. عَذَابَ is the masdar of the same root on the fa'al pattern. The cognate relationship (verb عَذَّبَ + masdar عَذَاب) creates the maf'ul mutlaq construction.
+
+**Balagha (Rhetoric):** The maf'ul mutlaq here serves a unique purpose — not just emphasis, but comparison. "None punishes His punishment" means no punishment in existence compares. The pronoun هُ (His) on عَذَابَهُ attributes ownership: this is God's own punishment, unique and unmatched. The verse pairs with verse 26 to create comprehensive helplessness: no one punishes like God (v.25), and no one binds like God (v.26) — internal torment and external restraint are both exclusively divine.
 
 ### Verse 26
 
-**Arabic:** وَلَا يُوثِقُ وَثَاقَهُ أَحَدٌ
 
-**Translation:** "And none will bind [as severely] as His binding"
+<ArabicExample
+  arabic="وَلَا يُوثِقُ وَثَاقَهُ أَحَدٌ"
+  transliteration="wa-lā yūthiqu wathāqahu aḥad"
+  translation="And none will bind [as severely] as His binding"
+  reference="Al-Fajr 89:26"
+  highlight="وَلَا,يُوثِقُ"
+/>
+
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | وَ | wa | - | Particle - conjunction | Not declinable (mabni), coordinates | and |
@@ -595,41 +934,64 @@ difficulty: "intermediate"
 | 3 | يُوثِقُ | yuthiqu | و-ث-ق | Verb - Form IV, present, 3rd person masculine singular | Verb in indicative (marfu') | he binds |
 | 4 | وَثَاقَهُ | wathaqahu | و-ث-ق | Noun - masculine, singular, indefinite + attached pronoun | Absolute object (maf'ul mutlaq) - accusative (mansub), هُ 3rd person pronoun in genitive | His binding |
 | 5 | أَحَدٌ | ahadun | - | Pronoun - masculine, singular, indefinite | Subject (fa'il) - nominative (marfu'), with tanwin dammatayn | anyone |
+</GrammarTable>
 
-#### Grammar Notes
-- Parallel structure to verse 25
-- يُوثِقُ Form IV: "to bind, shackle"
-- وَثَاقَهُ maf'ul mutlaq: emphasizes the severity of divine binding
-- Emphasizes unique severity of God's punishment
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** Perfectly parallel to verse 25: وَلَا + verb (يُوثِقُ) + maf'ul mutlaq (وَثَاقَهُ) + subject (أَحَدٌ). The negation وَلَا coordinates with the previous negation. يُوثِقُ is the present tense verb. وَثَاقَهُ is the maf'ul mutlaq with the possessive pronoun هُ. أَحَدٌ is the fa'il (subject, nominative).
+
+**Sarf (Morphology):** يُوثِقُ is Form IV (yuf'ilu) from root و-ث-ق (to bind, tie firmly). Form IV adds causative meaning: "to cause to be bound." وَثَاقَ from the same root on the fi'al pattern is a masdar meaning "binding, shackling" — it refers specifically to the bonds and chains of punishment.
+
+**Balagha (Rhetoric):** The parallelism between verses 25-26 creates a couplet of divine exclusivity: no one punishes like His punishment (internal suffering), and no one binds like His binding (external restraint). The repetition of the same grammatical pattern (لَا يُفَعِّلُ فَعَالَهُ أَحَدٌ) with different roots (ع-ذ-ب then و-ث-ق) creates rhythmic emphasis. Together they express total, inescapable divine judgment — both the experience of punishment and the inability to escape it are uniquely God's domain.
 
 ### Verse 27
 
-**Arabic:** يَا أَيَّتُهَا النَّفْسُ الْمُطْمَئِنَّةُ
 
-**Translation:** "O reassured soul"
+<ArabicExample
+  arabic="يَا أَيَّتُهَا النَّفْسُ الْمُطْمَئِنَّةُ"
+  transliteration="yā ayyatuhā n-nafsu l-muṭma'innah"
+  translation="O reassured soul"
+  reference="Al-Fajr 89:27"
+  highlight="أَيَّتُهَا,النَّفْسُ"
+/>
+
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | يَا | ya | - | Particle - vocative | Not declinable (mabni), calls attention | O |
 | 2 | أَيَّتُهَا | ayyatuha | - | Vocative particle + demonstrative pronoun | أَيَّتُ is feminine vocative particle in nominative, هَا for attention | O you (feminine) |
 | 3 | النَّفْسُ | an-nafsu | ن-ف-س | Noun - feminine, singular, definite | Apposition (badal) to أَيَّتُ - nominative (marfu') | the soul |
 | 4 | الْمُطْمَئِنَّةُ | al-mutma'innatu | ط-م-ن | Noun - feminine, singular, definite (active participle Form VIII) | Adjective (na't) of النَّفْسُ - nominative (marfu') | the tranquil/reassured |
+</GrammarTable>
 
-#### Grammar Notes
-- Shift to address the righteous soul (contrast with verses 15-26)
-- يَا أَيَّتُهَا vocative structure for honored address
-- الْمُطْمَئِنَّةُ Form VIII active participle: "the one at peace/tranquil"
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** يَا is the vocative particle. أَيَّتُهَا is the feminine form of أَيُّهَا, used for calling attention to a feminine noun — أَيَّتُ is in the nominative (mabni 'ala al-damm) as the munada (vocative noun), and هَا is an attention particle (harf tanbih). النَّفْسُ is badal (apposition) or na't (adjective) of أَيَّتُ, nominative. الْمُطْمَئِنَّةُ is a na't of النَّفْسُ, agreeing in case (nominative), gender (feminine), number (singular), and definiteness (definite).
+
+**Sarf (Morphology):** الْمُطْمَئِنَّةُ is a Form VIII active participle (muf'a'illah) from root ط-م-ن. Form VIII (ifta'ala → iṭma'anna) with the characteristic ta' infix. The quadriliteral-like behavior (ṭa-ma-'-na is treated as four radicals) creates the distinctive form مُطْمَئِنّ. The word means "the one at peace, the tranquil, the reassured" — a settled, secure state of the soul.
+
+**Balagha (Rhetoric):** This verse is one of the most beloved in the entire Quran. After the harshness of punishment (verses 21-26), the tone transforms completely — God directly addresses a single soul with the most intimate vocative: يَا أَيَّتُهَا. The feminine form reflects النَّفْس (feminine), but the tenderness of the address — the Creator calling a creation by its spiritual quality — is extraordinary. الْمُطْمَئِنَّة (tranquil) contrasts with every form of agitation in the preceding verses: the transgressing nations, the greedy humans, the pounded earth. True peace is the soul's only worthy destination.
 
 ### Verse 28
 
-**Arabic:** ارْجِعِي إِلَىٰ رَبِّكِ رَاضِيَةً مَّرْضِيَّةً
 
-**Translation:** "Return to your Lord, well-pleased and pleasing [to Him]"
+<ArabicExample
+  arabic="ارْجِعِي إِلَىٰ رَبِّكِ رَاضِيَةً مَّرْضِيَّةً"
+  transliteration="irji'ī ilā rabbiki rāḍiyatan marḍiyyah"
+  translation="Return to your Lord, well-pleased and pleasing [to Him]"
+  reference="Al-Fajr 89:28"
+  highlight="ارْجِعِي,إِلَىٰ"
+/>
+
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | ارْجِعِي | irji'i | ر-ج-ع | Verb - Form I, imperative, 2nd person feminine singular | Imperative verb (mabni on sukun), ي for feminine | return! |
@@ -637,54 +999,133 @@ difficulty: "intermediate"
 | 3 | رَبِّكِ | rabbiki | ر-ب-ب | Noun - masculine, singular, definite + attached pronoun | Genitive (majrur) after إِلَىٰ, كِ 2nd person feminine pronoun in genitive | your Lord |
 | 4 | رَاضِيَةً | radiyatan | ر-ض-ي | Noun - feminine, singular, indefinite (active participle) | Circumstantial expression (hal) - accusative (mansub), with tanwin | pleased/satisfied |
 | 5 | مَّرْضِيَّةً | mardiyyatan | ر-ض-ي | Noun - feminine, singular, indefinite (passive participle) | Circumstantial expression (hal) - accusative (mansub), with tanwin | pleasing/approved |
+</GrammarTable>
 
-#### Grammar Notes
-- ارْجِعِي imperative to the tranquil soul
-- رَاضِيَةً active participle: the soul is pleased
-- مَّرْضِيَّةً passive participle: the soul is pleasing to God
-- Both are hal (circumstantial) describing the state of return
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** ارْجِعِي is a feminine singular imperative from رَجَعَ. The ي suffix marks the feminine addressee (the soul). إِلَىٰ رَبِّكِ is a prepositional phrase indicating the destination, with كِ as the feminine second person possessive. رَاضِيَةً and مَّرْضِيَّةً are both hal (circumstantial expressions, accusative with tanwin), describing the soul's state during the return.
+
+**Sarf (Morphology):** ارْجِعِي is Form I imperative from root ر-ج-ع, with hamzat al-wasl at the beginning and the ي feminine suffix. رَاضِيَةً is an active participle (fa'ilah) from root ر-ض-ي, meaning "one who is pleased/satisfied." مَّرْضِيَّةً is a passive participle (maf'ulah) from the same root, meaning "one who is pleasing to others/approved." The ة on both marks feminine singular, matching النَّفْسُ.
+
+**Balagha (Rhetoric):** The active-passive participle pair رَاضِيَةً مَّرْضِيَّةً is one of the Quran's most elegant constructions. The soul is both pleased (active: she is satisfied) and pleasing (passive: God is satisfied with her). This bidirectional satisfaction — the soul pleased with God's decree, God pleased with the soul's devotion — is the essence of spiritual fulfillment. The return إِلَىٰ رَبِّكِ uses the intimate "your Lord" (feminine), matching the tender vocative of verse 27. The entire worldly drama — wealth, poverty, tests, corruption — dissolves into this single destination: returning to one's Lord in a state of mutual satisfaction.
 
 ### Verse 29
 
-**Arabic:** فَادْخُلِي فِي عِبَادِي
 
-**Translation:** "And enter among My [righteous] servants"
+<ArabicExample
+  arabic="فَادْخُلِي فِي عِبَادِي"
+  transliteration="fa-dkhulī fī 'ibādī"
+  translation="And enter among My [righteous] servants"
+  reference="Al-Fajr 89:29"
+  highlight="فَادْخُلِي,عِبَادِي"
+/>
+
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | فَ | fa- | - | Particle - conjunction | Not declinable (mabni), shows sequence | so/and |
 | 2 | ادْخُلِي | udkhuli | د-خ-ل | Verb - Form I, imperative, 2nd person feminine singular | Imperative verb (mabni on sukun), ي for feminine | enter! |
 | 3 | فِي | fi | - | Particle - preposition | Not declinable (mabni), governs genitive | in/among |
 | 4 | عِبَادِي | 'ibadi | ع-ب-د | Noun - masculine, plural, definite + attached pronoun | Genitive (majrur) after فِي, يَ 1st person pronoun in genitive | My servants |
+</GrammarTable>
 
-#### Grammar Notes
-- فَ shows sequence: after returning, enter
-- ادْخُلِي imperative continuing the command
-- عِبَادِي: God's righteous servants, the community of the blessed
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** فَ is a sequential conjunction: after returning, then enter. ادْخُلِي is a Form I feminine imperative from root د-خ-ل, with hamzat al-wasl and the ي feminine suffix. فِي عِبَادِي: the preposition فِي indicates entry among a group. عِبَادِي is a noun in idafa with the first person pronoun يَ (My servants), genitive after فِي.
+
+**Sarf (Morphology):** ادْخُلِي follows the same formation as ارْجِعِي — Form I imperative with hamzat al-wasl and feminine ي. عِبَادِ from root ع-ب-د is the broken plural of عَبْد (servant) on the fi'al pattern. The first person possessive يَ (My) creates a possessive construction: "My servants."
+
+**Balagha (Rhetoric):** The progression is deliberate: first return to your Lord (v.28), then enter among His servants (v.29), then enter His Paradise (v.30). The soul does not go directly to Paradise — it first rejoins the community of the righteous. The possessive عِبَادِي ("MY servants") is deeply honorific: God claims ownership and pride in these servants. Being counted among God's servants is itself a reward, even before Paradise is mentioned.
 
 ### Verse 30
 
-**Arabic:** وَادْخُلِي جَنَّتِي
 
-**Translation:** "And enter My Paradise"
+<ArabicExample
+  arabic="وَادْخُلِي جَنَّتِي"
+  transliteration="wa-dkhulī jannatī"
+  translation="And enter My Paradise"
+  reference="Al-Fajr 89:30"
+  highlight="وَادْخُلِي,جَنَّتِي"
+/>
+
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | وَ | wa | - | Particle - conjunction | Not declinable (mabni), coordinates | and |
 | 2 | ادْخُلِي | udkhuli | د-خ-ل | Verb - Form I, imperative, 2nd person feminine singular | Imperative verb (mabni on sukun), ي for feminine | enter! |
 | 3 | جَنَّتِي | jannati | ج-ن-ن | Noun - feminine, singular, definite + attached pronoun | Direct object (maf'ul bihi) - accusative (mansub), يَ 1st person pronoun in genitive | My Paradise |
+</GrammarTable>
 
-#### Grammar Notes
-- Final command completing the sequence
-- جَنَّتِي: God's Paradise, the ultimate reward
-- Beautiful conclusion contrasting the fate of the materialistic (verses 15-26) with the tranquil soul (verses 27-30)
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** وَ coordinates with the previous imperative. ادْخُلِي is repeated from verse 29 — same feminine imperative form. جَنَّتِي is the maf'ul bihi (direct object, accusative) — the verb دَخَلَ can take a direct object meaning "enter a place." The possessive يَ (My) creates an idafa: "My Paradise."
+
+**Sarf (Morphology):** جَنَّتِي from root ج-ن-ن on the fa'lah pattern means "garden/paradise" — the root carries the meaning of concealment and covering (a garden is concealed by its trees). The first person possessive يَ makes it an intimate, direct gift from God: not "the Paradise" but "MY Paradise."
+
+**Balagha (Rhetoric):** The surah ends with two words of transcendent simplicity: وَادْخُلِي جَنَّتِي. After 26 verses of oaths, destruction, moral diagnosis, and eschatological terror, the conclusion is an invitation of ultimate gentleness. The possessive جَنَّتِي ("My Paradise") is the surah's rhetorical climax — God possessively claims Paradise as His own and offers it as a personal gift. The three-step progression (return → join My servants → enter My Paradise) mirrors a homecoming: come back, rejoin your family, enter your true home. The surah that opened with cosmic oaths by dawn ends with the most intimate address in scripture — from the impersonal grandeur of the universe to the personal tenderness of divine invitation.
+
+## Practice Exercises
+
+<ExerciseBox question="This surah uses two أَمَّا...فَ constructions in verses 15-16 to diagnose a human flaw. Identify the grammatical components of each construction (the topic, the condition, and the result), and explain how the parallel grammar reveals the theological point.">
+
+**Verse 15: فَأَمَّا الْإِنسَانُ إِذَا مَا ابْتَلَاهُ رَبُّهُ فَأَكْرَمَهُ وَنَعَّمَهُ فَيَقُولُ رَبِّي أَكْرَمَنِ**
+- **Topic (mubtada'):** الْإِنسَانُ (the human)
+- **Condition:** إِذَا مَا ابْتَلَاهُ رَبُّهُ فَأَكْرَمَهُ وَنَعَّمَهُ (when his Lord tests him by honoring and favoring him)
+- **Result (jawab amma):** فَيَقُولُ رَبِّي أَكْرَمَنِ (he says "My Lord has honored me")
+
+**Verse 16: وَأَمَّا إِذَا مَا ابْتَلَاهُ فَقَدَرَ عَلَيْهِ رِزْقَهُ فَيَقُولُ رَبِّي أَهَانَنِ**
+- **Topic:** الْإِنسَانُ (implied from v.15)
+- **Condition:** إِذَا مَا ابْتَلَاهُ فَقَدَرَ عَلَيْهِ رِزْقَهُ (when He tests him by restricting his provision)
+- **Result:** فَيَقُولُ رَبِّي أَهَانَنِ (he says "My Lord has humiliated me")
+
+**Theological point through grammar:** Both verses share identical structure — the ONLY differences are the middle verb (أَكْرَمَ/قَدَرَ) and the human's conclusion (أَكْرَمَنِ/أَهَانَنِ). The identical grammar exposes the identical flaw: both responses are wrong. Both are tests (ابْتَلَاهُ), not verdicts. The human confuses testing with judgment because he measures God's favor by material outcomes. The parallel grammar makes the error structurally visible.
+
+</ExerciseBox>
+
+<ExerciseBox question="Trace the use of the maf'ul mutlaq (cognate accusative) across verses 19-21 and 25-26. For each instance, identify the verb-masdar pair, state whether it includes an adjective, and explain what rhetorical effect the maf'ul mutlaq creates in each case.">
+
+**Verse 19: وَتَأْكُلُونَ التُّرَاثَ أَكْلًا لَّمًّا**
+- **Verb:** تَأْكُلُونَ (root أ-ك-ل) | **Masdar:** أَكْلًا (same root)
+- **Adjective:** لَّمًّا (devouring/greedy)
+- **Effect:** Intensifies the verb — not just eating but a specific KIND of eating: greedy, all-consuming
+
+**Verse 20: وَتُحِبُّونَ الْمَالَ حُبًّا جَمًّا**
+- **Verb:** تُحِبُّونَ (root ح-ب-ب) | **Masdar:** حُبًّا (same root)
+- **Adjective:** جَمًّا (excessive/immense)
+- **Effect:** Intensifies — not just love but excessive, all-encompassing love
+
+**Verse 21: دُكَّتِ الْأَرْضُ دَكًّا دَكًّا**
+- **Verb:** دُكَّتِ (root د-ك-ك) | **Masdar:** دَكًّا (same root)
+- **Adjective:** None — instead, the masdar is REPEATED
+- **Effect:** Repetition creates extreme emphasis — pounding upon pounding, relentless destruction
+
+**Verse 25: لَّا يُعَذِّبُ عَذَابَهُ أَحَدٌ**
+- **Verb:** يُعَذِّبُ (root ع-ذ-ب) | **Masdar:** عَذَابَ (same root)
+- **Adjective:** None — instead, possessive pronoun هُ (His)
+- **Effect:** The possessive makes it comparative — "none punishes HIS punishment" = none can match it
+
+**Verse 26: وَلَا يُوثِقُ وَثَاقَهُ أَحَدٌ**
+- **Verb:** يُوثِقُ (root و-ث-ق) | **Masdar:** وَثَاقَ (same root)
+- **Adjective:** None — possessive pronoun هُ (His)
+- **Effect:** Parallel to v.25 — "none binds HIS binding" = unmatched restraint
+
+**Pattern:** The maf'ul mutlaq progresses from human vices (greedy eating, excessive love) to eschatological events (earth being pounded) to divine exclusivity (God's unique punishment and binding). The grammar escalates with the theme.
+
+</ExerciseBox>
 
 ## Key Vocabulary
 
+
+<GrammarTable>
 | Arabic | Root | Pattern | Meaning | Frequency |
 |--------|------|---------|---------|-----------|
 | وَالْفَجْرِ | ف-ج-ر | فَعْل | the dawn | Common |
@@ -740,8 +1181,11 @@ difficulty: "intermediate"
 | مَّرْضِيَّةً | ر-ض-ي | مَفْعُولَة | pleasing/approved | Frequent |
 | عِبَادِي | ع-ب-د | عِفَال | My servants | Very Frequent |
 | جَنَّتِي | ج-ن-ن | فَعْلَة | My Paradise | Very Frequent |
+</GrammarTable>
 
 ## Grammar Summary
+
+<Callout type="note" title="Key Grammar Concepts in This Surah">
 
 - **Oath constructions with وَ**: Verses 1-4 demonstrate the oath particle وَ (wa) governing genitive case, a hallmark of Meccan surahs
 - **Interrogative particles**: هَلْ (hal) in verse 5 introduces rhetorical question; أَلَمْ (alam) in verse 6 introduces negative rhetorical question expecting affirmative answer
@@ -755,3 +1199,4 @@ difficulty: "intermediate"
 - **Form IV and Form VIII verbs**: Multiple occurrences (ابْتَلَاهُ, أَكْرَمَهُ, أَهَانَ, يُوثِقُ, الْمُطْمَئِنَّةُ)
 - **Vocative structures**: يَا أَيَّتُهَا (verse 27) for honored address
 - **Imperative mood**: ارْجِعِي, ادْخُلِي (verses 28-30) for divine commands to the righteous soul
+</Callout>

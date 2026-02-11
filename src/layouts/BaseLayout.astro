@@ -18,11 +18,11 @@ const { title, description = 'Learn Quranic Arabic grammar from beginner to adva
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="description" content={description} />
-  <meta name="theme-color" content="#0D7C3D" media="(prefers-color-scheme: light)" />
-  <meta name="theme-color" content="#0f0f0f" media="(prefers-color-scheme: dark)" />
-  <title>{title} | Quranic Arabic</title>
+  <meta name="theme-color" content="#0D4749" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#0A1929" media="(prefers-color-scheme: dark)" />
+  <title>{title} | Quranic Grammar</title>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <!-- Preload critical Arabic fonts to eliminate FOIT (Flash of Invisible Text) -->
+  <!-- Preload critical Arabic fonts -->
   <link rel="preload" href="/fonts/amiri-regular-arabic.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="/fonts/UthmanicHafs.woff2" as="font" type="font/woff2" crossorigin />
   <!-- Prevent flash of wrong theme -->
@@ -34,7 +34,7 @@ const { title, description = 'Learn Quranic Arabic grammar from beginner to adva
     })();
   </script>
 </head>
-<body class="min-h-screen flex flex-col">
+<body class="min-h-screen flex flex-col font-sans">
   <!-- Skip link for keyboard navigation -->
   <a href="#main-content" class="skip-link">Skip to main content</a>
   <Header />
@@ -61,7 +61,7 @@ const { title, description = 'Learn Quranic Arabic grammar from beginner to adva
         // Update meta theme-color
         const metaTheme = document.querySelector('meta[name="theme-color"]');
         if (metaTheme) {
-          metaTheme.setAttribute('content', theme === 'dark' ? '#0f0f0f' : '#0D7C3D');
+          metaTheme.setAttribute('content', theme === 'dark' ? '#000000' : '#0D4749');
         }
       }
 

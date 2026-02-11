@@ -6,6 +6,11 @@ verseCount: 26
 difficulty: "advanced"
 ---
 
+import ArabicExample from '@components/mdx/ArabicExample.astro';
+import GrammarTable from '@components/mdx/GrammarTable.astro';
+import Callout from '@components/mdx/Callout.astro';
+import ExerciseBox from '@components/mdx/ExerciseBox.astro';
+
 # Al-Ghashiyah (The Overwhelming)
 
 ## Overview
@@ -15,112 +20,230 @@ difficulty: "advanced"
 - **Theme:** The overwhelming terror of Judgment Day, contrasting fates of believers and disbelievers, signs in creation pointing to the Creator
 - **Grammar Focus:** Interrogative hal, nominal descriptive sentences with adjective agreement, active participles as substantives, a-fa-la interrogative-negative constructions, commands to reflect on creation
 
+### Structural Overview
+
+<GrammarTable>
+| Verse | Arabic | Sentence Type | Key Grammar | Message |
+|-------|--------|---------------|-------------|---------|
+| 1 | هَلْ أَتَاكَ حَدِيثُ الْغَاشِيَةِ | Verbal (interrogative) | Rhetorical هَلْ, active participle as noun | Attention-grabbing opening |
+| 2 | وُجُوهٌ يَوْمَئِذٍ خَاشِعَةٌ | Nominal (descriptive) | Multiple predicates, compound adverb | Humbled faces introduced |
+| 3 | عَامِلَةٌ نَّاصِبَةٌ | Nominal (continuation) | Stacked active participles as predicates | Futile labor |
+| 4 | تَصْلَىٰ نَارًا حَامِيَةً | Verbal (descriptive) | Active participle as adjective | Burning in fire |
+| 5 | تُسْقَىٰ مِنْ عَيْنٍ آنِيَةٍ | Verbal (passive) | Passive voice, active participle adjective | Forced drink from boiling spring |
+| 6 | لَّيْسَ لَهُمْ طَعَامٌ إِلَّا مِن ضَرِيعٍ | Verbal (negative) | Laysa + exception with illa | No food but poison |
+| 7 | لَّا يُسْمِنُ وَلَا يُغْنِي مِن جُوعٍ | Verbal (negative) | Double negation, Form IV verbs | Useless sustenance |
+| 8 | وُجُوهٌ يَوْمَئِذٍ نَّاعِمَةٌ | Nominal (descriptive) | Parallel to v.2, contrasting participle | Blissful faces introduced |
+| 9 | لِّسَعْيِهَا رَاضِيَةٌ | Nominal (continuation) | Prepositional phrase + active participle | Satisfaction with effort |
+| 10 | فِي جَنَّةٍ عَالِيَةٍ | Nominal (locative) | Prepositional predicate | Elevated Garden |
+| 11 | لَّا تَسْمَعُ فِيهَا لَاغِيَةً | Verbal (negative) | Negation + active participle as object | No vain speech |
+| 12 | فِيهَا عَيْنٌ جَارِيَةٌ | Nominal (inverted) | Predicate fronted (khabar muqaddam) | Flowing spring |
+| 13 | فِيهَا سُرُرٌ مَّرْفُوعَةٌ | Nominal (inverted) | Passive participle adjective | Raised couches |
+| 14 | وَأَكْوَابٌ مَّوْضُوعَةٌ | Nominal | Passive participle predicate | Placed cups |
+| 15 | وَنَمَارِقُ مَصْفُوفَةٌ | Nominal | Passive participle predicate | Lined cushions |
+| 16 | وَزَرَابِيُّ مَبْثُوثَةٌ | Nominal | Passive participle predicate | Spread carpets |
+| 17 | أَفَلَا يَنظُرُونَ إِلَى الْإِبِلِ كَيْفَ خُلِقَتْ | Verbal (rhetorical) | أَفَلَا construction, passive kayfa clause | Look at camels |
+| 18 | وَإِلَى السَّمَاءِ كَيْفَ رُفِعَتْ | Verbal (elliptical) | Ellipsis of main verb, passive | Look at sky |
+| 19 | وَإِلَى الْجِبَالِ كَيْفَ نُصِبَتْ | Verbal (elliptical) | Ellipsis of main verb, passive | Look at mountains |
+| 20 | وَإِلَى الْأَرْضِ كَيْفَ سُطِحَتْ | Verbal (elliptical) | Ellipsis of main verb, passive | Look at earth |
+| 21 | فَذَكِّرْ إِنَّمَا أَنتَ مُذَكِّرٌ | Imperative + Nominal | Restriction with innama, Form II participle | Remind only |
+| 22 | لَّسْتَ عَلَيْهِم بِمُصَيْطِرٍ | Verbal (negative) | Laysa + emphatic ba, active participle | Not a controller |
+| 23 | إِلَّا مَن تَوَلَّىٰ وَكَفَرَ | Nominal (exceptive) | Exception particle, Form V verb | Whoever turns away |
+| 24 | فَيُعَذِّبُهُ اللَّهُ الْعَذَابَ الْأَكْبَرَ | Verbal | Form II verb, maf'ul mutlaq, elative | Greatest punishment |
+| 25 | إِنَّ إِلَيْنَا إِيَابَهُمْ | Nominal (inna, inverted) | Inna + fronted predicate | Their return is to Us |
+| 26 | ثُمَّ إِنَّ عَلَيْنَا حِسَابَهُمْ | Nominal (inna, inverted) | Sequential thumma, inna + fronted predicate | Their reckoning is upon Us |
+</GrammarTable>
+
+<Callout type="tip" title="What Makes Al-Ghashiyah Unique for Grammar Study">
+This surah is one of the densest collections of active and passive participles in the entire Quran. Nearly every descriptor is a participle: khashi'ah, 'amilah, nasibah, hamiyah, aniyah, na'imah, radiyah, 'aliyah, laghiyah, jariyah (all active participles on the fa'ilah pattern) alongside marfu'ah, mawdu'ah, masfufah, mabthuthah (all passive participles on the maf'ulah pattern). The surah builds a powerful contrast between two sets of faces -- the humbled (vv.2-7) versus the delighted (vv.8-16) -- using parallel nominal structures. The four creation signs (camel, sky, mountains, earth in vv.17-20) employ an identical rhetorical framework with the rare a-fa-la interrogative-negative construction and passive kayfa clauses, making divine agency central while the created objects are grammatically passive recipients. Finally, the Prophet's role is defined through two opposing participles: mudhakkir (reminder, Form II active participle) versus musaytir (controller) -- he IS the first, he is NOT the second.
+</Callout>
+
 ## Verse-by-Verse Analysis
 
 ### Verse 1
 
-**Arabic:** هَلْ أَتَاكَ حَدِيثُ الْغَاشِيَةِ
-
-**Translation:** "Has the story of the Overwhelming Event reached you?"
+<ArabicExample
+  arabic="هَلْ أَتَاكَ حَدِيثُ الْغَاشِيَةِ"
+  transliteration="hal ataka hadithu l-ghashiyah"
+  translation="Has the story of the Overwhelming Event reached you?"
+  reference="Al-Ghashiyah 88:1"
+  highlight="الْغَاشِيَةِ"
+/>
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | هَلْ | hal | - | Particle - interrogative | Not declinable (mabni), introduces question | has/did |
 | 2 | أَتَاكَ | ataka | أ ت ي | Verb - Form I, past, 3rd person masculine singular + pronoun | Main verb + object pronoun | it came to you |
 | 3 | حَدِيثُ | hadithu | ح د ث | Noun - masculine, singular, definite (mudaf) | Subject (fa'il) - nominative (marfu') | story/account |
 | 4 | الْغَاشِيَةِ | al-ghashiyati | غ ش ي | Noun - active participle, feminine, singular, definite | Mudaf ilayhi - genitive (majrur) | the Overwhelming |
+</GrammarTable>
 
-#### Grammar Notes
-- hal ataka: rhetorical question drawing attention
-- al-ghashiyah: active participle from ghashiya (to overwhelm/cover) - the Day that overwhelms all
-- Characteristic Quranic opening creating suspense
+<Callout type="rule" title="Rhetorical hal and the Active Participle al-Ghashiyah">
+- hal ataka: rhetorical question drawing attention -- not seeking information but creating suspense and engagement
+- al-ghashiyah: active participle from ghashiya (to overwhelm/cover) on the fa'ilah pattern -- the Day that overwhelms all
+- This is a characteristic Quranic opening (also found in 79:1, 101:1) that creates dramatic anticipation
+</Callout>
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** The sentence is a verbal interrogative: hal (interrogative particle) + ataka (verb) + hadithu (subject/fa'il). The verb ataka includes the attached pronoun ka (you), functioning as the direct object (maf'ul bihi). Hadithu al-ghashiyah is an idafah construction where hadithu is the mudaf (nominative/marfu') and al-ghashiyah is the mudaf ilayhi (genitive/majrur).
+
+**Sarf (Morphology):** al-ghashiyah is an active participle (ism fa'il) from the root gh-sh-y on the fa'ilah pattern. The ta marbuta marks feminine gender, agreeing with the implied feminine noun (al-sa'ah or al-qiyamah). ataka is from the defective root a-t-y (weak final radical ya), conjugated in the past tense with the alif maqsurah ending.
+
+**Balagha (Rhetoric):** The use of hal instead of a (the more common interrogative) is deliberate: hal in rhetorical questions implies that the answer is significant and worth attention. The choice of hadith (story/account) rather than khabar (news) suggests a narration that unfolds, creating dramatic buildup. Naming the Day al-ghashiyah (the Overwhelming) rather than yawm al-qiyamah sets the emotional register for the entire surah -- this is not just a day but an event that engulfs and overwhelms everything.
 
 ### Verse 2
 
-**Arabic:** وُجُوهٌ يَوْمَئِذٍ خَاشِعَةٌ
-
-**Translation:** "Some faces, that Day, will be humbled"
+<ArabicExample
+  arabic="وُجُوهٌ يَوْمَئِذٍ خَاشِعَةٌ"
+  transliteration="wujuhun yawma'idhin khashi'atun"
+  translation="Some faces, that Day, will be humbled"
+  reference="Al-Ghashiyah 88:2"
+  highlight="وُجُوهٌ,خَاشِعَةٌ"
+/>
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | وُجُوهٌ | wujuhun | و ج ه | Noun - feminine, plural, indefinite | Subject (mubtada') - nominative (marfu') | faces |
 | 2 | يَوْمَئِذٍ | yawma'idhin | - | Adverb - temporal (compound) | Adverbial accusative (zarf zaman) - accusative (mansub) | that Day |
 | 3 | خَاشِعَةٌ | khashi'atun | خ ش ع | Adjective - active participle, feminine, plural, indefinite | Predicate (khabar) - nominative (marfu') | humbled/humiliated |
+</GrammarTable>
 
-#### Grammar Notes
+<Callout type="rule" title="Nominal Sentence with Compound Adverb">
 - wujuhun yawma'idhin khashi'atun: nominal sentence describing state on Judgment Day
-- yawma'idhin: compound adverb (yawma + idhin)
-- khashi'ah: active participle showing continuous state of humiliation
+- yawma'idhin: compound adverb (yawma + idhin) -- "the day of then" = "that Day." The yawma is a zarf (adverbial of time) in the accusative, and idhin is in the genitive as mudaf ilayhi with tanwin standing for the omitted clause (idh takunu al-ghashiyah)
+- khashi'ah: active participle showing continuous state of humiliation -- not a momentary action but an enduring condition
+</Callout>
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** This is a nominal sentence (jumlah ismiyyah): wujuhun (mubtada') + khashi'atun (khabar), with yawma'idhin as an intercalated adverbial phrase (zarf mutawassit). The indefiniteness of wujuhun is significant -- it means "some faces" (not all), implying there are other faces with a different fate (introduced in v.8). This single subject will carry multiple predicates through verses 2-7.
+
+**Sarf (Morphology):** wujuhun is the broken plural of wajh (face), on the fu'ul pattern typical of triliteral nouns. khashi'atun is an active participle from khasha'a (to be humble/submissive) on the fa'ilah pattern, with the ta marbuta for feminine agreement with wujuh (grammatically feminine plural in Arabic).
+
+**Balagha (Rhetoric):** Beginning with "faces" rather than "people" is a powerful metonymy (majaz mursal) -- faces are the most expressive part of the body, the site where humiliation is most visible. The indefinite wujuhun (without al) creates suspense: which faces? The reader must continue to find out. The active participle khashi'ah (rather than a verb like takhsha'u) presents humiliation as an inherent, ongoing quality of these faces, not a temporary event.
 
 ### Verse 3
 
-**Arabic:** عَامِلَةٌ نَّاصِبَةٌ
-
-**Translation:** "Working [hard] and exhausted"
+<ArabicExample
+  arabic="عَامِلَةٌ نَّاصِبَةٌ"
+  transliteration="'amilatun nasibatun"
+  translation="Working [hard] and exhausted"
+  reference="Al-Ghashiyah 88:3"
+  highlight="عَامِلَةٌ,نَاصِبَةٌ"
+/>
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | عَامِلَةٌ | 'amilatun | ع م ل | Adjective - active participle, feminine, plural, indefinite | Second predicate (khabar thani) - nominative (marfu') | working |
 | 2 | نَاصِبَةٌ | nasibatun | ن ص ب | Adjective - active participle, feminine, plural, indefinite | Third predicate (khabar thalith) - nominative (marfu') | exhausted/weary |
+</GrammarTable>
 
-#### Grammar Notes
-- Multiple predicates (khabar) for single subject (wujuhun)
-- 'amilah nasibah: working hard but to no avail (in Hellfire)
-- Active participles describing continuous state
+<Callout type="rule" title="Multiple Predicates (Ta'addud al-Khabar)">
+- Multiple predicates (khabar) for a single subject (wujuhun): khashi'atun (v.2), 'amilatun, nasibatun (v.3) -- all describe the same faces simultaneously
+- 'amilah nasibah: working hard but to no avail (in Hellfire) -- the combination implies futile exertion, effort that produces only exhaustion
+- Active participles describing continuous state -- these faces are perpetually laboring and perpetually weary
+</Callout>
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** Both words are additional predicates (khabar thani and khabar thalith) for the mubtada' wujuhun in v.2. Arabic allows multiple predicates for a single subject, each adding a layer of description. All three predicates (khashi'ah, 'amilah, nasibah) are nominative with tanwin, agreeing with the indefinite feminine plural subject.
+
+**Sarf (Morphology):** Both are active participles on the fa'ilah pattern. 'amilah from the root 'a-m-l (to work/act) and nasibah from n-s-b (to toil/be weary). The fa'ilah pattern for both creates morphological unity, reinforcing that these are parallel descriptions of the same state.
+
+**Balagha (Rhetoric):** The juxtaposition of 'amilah (working) and nasibah (exhausted) creates a devastating image: labor without reward, effort without relief. Classical scholars debate whether this refers to their futile worldly worship (working hard at wrong beliefs) or their punishment in the Hereafter (dragging chains, climbing only to fall). Either reading produces the same rhetorical effect: the tragic futility of misdirected effort. The asyndeton (no conjunction wa between the two words) makes them feel like a single compound description, inseparable.
 
 ### Verse 4
 
-**Arabic:** تَصْلَىٰ نَارًا حَامِيَةً
-
-**Translation:** "They will burn in an intensely hot Fire"
+<ArabicExample
+  arabic="تَصْلَىٰ نَارًا حَامِيَةً"
+  transliteration="tasla naran hamiyatan"
+  translation="They will burn in an intensely hot Fire"
+  reference="Al-Ghashiyah 88:4"
+  highlight="حَامِيَةً"
+/>
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | تَصْلَىٰ | tasla | ص ل ي | Verb - Form I, present, 3rd person feminine plural | Main verb - indicative (marfu') | they burn/enter |
 | 2 | نَارًا | naran | ن و ر | Noun - feminine, singular, indefinite | Object (maf'ul bihi) - accusative (mansub) | fire |
 | 3 | حَامِيَةً | hamiyatan | ح م ي | Adjective - active participle, feminine, singular, indefinite | Adjective modifying naran - accusative (mansub) | intensely hot |
+</GrammarTable>
 
-#### Grammar Notes
-- tasla naran: they enter/burn in fire
-- hamiyah: active participle from hamiya (to be intensely hot)
-- Fourth predicate continuing description of the humbled faces
+<Callout type="tip" title="Verbal Sentence Extending the Nominal Chain">
+- tasla naran: they enter/burn in fire -- the shift from nominal predicates (khashi'ah, 'amilah, nasibah) to a verbal sentence adds dynamic action to the static description
+- hamiyah: active participle from hamiya (to be intensely hot) -- the fire itself is described as an active agent of heat
+- This functions as a fourth predicate continuing the description of the humbled faces, but expressed verbally rather than nominally
+</Callout>
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** The sentence shifts from nominal (participle predicates) to verbal (tasla), adding a dynamic element. The verb tasla takes naran as its direct object (maf'ul bihi, accusative/mansub). hamiyatan is a sifah (adjective) modifying naran, also accusative to agree with it. The feminine plural form of the verb (tasla with the alif maqsurah) refers back to wujuh.
+
+**Sarf (Morphology):** tasla from root s-l-y means to enter fire or be exposed to its heat. The present tense indicates ongoing action. hamiyah from root h-m-y on the fa'ilah pattern is an active participle describing the fire as an active source of intense heat -- not passively hot but actively burning.
+
+**Balagha (Rhetoric):** The indefiniteness of naran (a fire, not THE fire) is significant: it suggests a fire beyond known description, one that defies specification. Modifying it with hamiyah (intensely hot) creates what rhetoricians call tabyin ba'd al-ibham (clarifying after leaving vague) -- the fire is specified only by its most terrifying quality. The unbroken chain of descriptors from v.2 through v.4 builds relentlessly: humbled, working, exhausted, burning -- each worse than the last.
 
 ### Verse 5
 
-**Arabic:** تُسْقَىٰ مِنْ عَيْنٍ آنِيَةٍ
-
-**Translation:** "They will be given drink from a boiling spring"
+<ArabicExample
+  arabic="تُسْقَىٰ مِنْ عَيْنٍ آنِيَةٍ"
+  transliteration="tusqa min 'aynin aniyatin"
+  translation="They will be given drink from a boiling spring"
+  reference="Al-Ghashiyah 88:5"
+  highlight="تُسْقَىٰ,آنِيَةٍ"
+/>
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | تُسْقَىٰ | tusqa | س ق ي | Verb - Form I, present passive, 3rd person feminine plural | Main verb - passive, indicative (marfu') | they are given to drink |
 | 2 | مِنْ | min | - | Particle - preposition | Not declinable (mabni) | from |
 | 3 | عَيْنٍ | 'aynin | ع ي ن | Noun - feminine, singular, indefinite | Object of preposition min - genitive (majrur) | spring/fountain |
 | 4 | آنِيَةٍ | aniyatin | أ ن ي | Adjective - active participle, feminine, singular, indefinite | Adjective modifying 'aynin - genitive (majrur) | boiling |
+</GrammarTable>
 
-#### Grammar Notes
-- tusqa: passive verb - they are forcibly given drink
-- 'aynin aniyatin: spring that has reached extreme boiling point
+<Callout type="rule" title="Passive Voice: Forced Action">
+- tusqa: passive verb -- they are forcibly given drink (not choosing to drink, but compelled)
+- 'aynin aniyatin: spring that has reached extreme boiling point -- the active participle aniyah shows the spring is actively at boiling temperature
+- The passive voice emphasizes their helplessness: they cannot refuse this drink
 - Continues description of torment for the humbled faces
+</Callout>
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** tusqa is a passive verb (mabni li-l-majhul), where the original subject (the one who gives drink) is suppressed. The na'ib al-fa'il (deputy subject) is the hidden pronoun referring to wujuh. min 'aynin is a prepositional phrase indicating the source, and aniyatin is a sifah (adjective) for 'aynin, in the genitive to agree.
+
+**Sarf (Morphology):** tusqa is the passive of tasqi (Form I, root s-q-y). The passive is formed by changing the vowel pattern: ta-s-qi (active) becomes tu-s-qa (passive) with damma on the prefix and fatha before the final radical. aniyah from root a-n-y on the fa'ilah pattern means "having reached the utmost point of boiling."
+
+**Balagha (Rhetoric):** The shift to passive voice (from the active tasla in v.4) is rhetorically devastating: in v.4 they actively burn (some agency), but in v.5 they are passively given drink (no agency at all). The contrast between 'aynin aniyah (boiling spring) here and 'aynun jariyah (flowing spring) in v.12 creates an antithetical parallel that structures the entire surah's contrast between punishment and reward. Both describe springs, but one boils and the other flows pleasantly.
 
 ### Verse 6
 
-**Arabic:** لَّيْسَ لَهُمْ طَعَامٌ إِلَّا مِن ضَرِيعٍ
-
-**Translation:** "They will have no food except from poisonous thorny plants"
+<ArabicExample
+  arabic="لَّيْسَ لَهُمْ طَعَامٌ إِلَّا مِن ضَرِيعٍ"
+  transliteration="laysa lahum ta'amun illa min dari'in"
+  translation="They will have no food except from poisonous thorny plants"
+  reference="Al-Ghashiyah 88:6"
+  highlight="ضَرِيعٍ"
+/>
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | لَيْسَ | laysa | - | Verb - negative copula (kana sister) | Incomplete verb (negates nominal sentence) | there is not |
@@ -129,20 +252,35 @@ difficulty: "advanced"
 | 4 | إِلَّا | illa | - | Particle - exception | Not declinable (mabni) | except |
 | 5 | مِن | min | - | Particle - preposition | Not declinable (mabni) | from |
 | 6 | ضَرِيعٍ | dari'in | ض ر ع | Noun - masculine, singular, indefinite | Object of preposition min - genitive (majrur) | poisonous thorny plant |
+</GrammarTable>
 
-#### Grammar Notes
-- laysa lahum ta'amun: negative existential sentence
-- illa min dari'in: exception - only dari' (dried thorny plant, poisonous)
-- dari': intensely bitter plant that neither nourishes nor satisfies hunger
+<Callout type="rule" title="Laysa with Inverted Structure and Exception">
+- laysa lahum ta'amun: negative existential sentence with the predicate (lahum) fronted before the subject (ta'amun) -- this inversion emphasizes their deprivation
+- illa min dari'in: exception -- the only "food" is dari' (dried thorny plant, poisonous)
+- dari': intensely bitter plant that neither nourishes nor satisfies hunger -- the exception is worse than having nothing
+</Callout>
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** laysa is one of the "sisters of kana" (incomplete verbs). Its predicate lahum (khabar laysa) is fronted before its subject ta'amun (ism laysa), which remains nominative despite the inversion. The exception with illa creates a structure called istithna' (exception): the general negation (no food) is then "excepted" by dari'. Grammatically, min dari'in is a badal (substitute) from ta'amun or a connected exception.
+
+**Sarf (Morphology):** dari' from root d-r-' on the fa'il pattern is a noun describing a specific thorny plant (identified as dried shubrum or shibriq) that is poisonous and inedible. ta'am from root t-'-m on the fa'al pattern is the general word for food/sustenance.
+
+**Balagha (Rhetoric):** The rhetorical brilliance of this verse lies in the false exception: the "except" (illa) creates an expectation of relief ("they have no food... except..."), but what follows is worse than having nothing at all. This is called istithna' munqati' (disconnected exception) by some scholars -- dari' is so far from real food that calling it an exception is itself ironic. The verse mocks the very concept of sustenance in Hell.
 
 ### Verse 7
 
-**Arabic:** لَّا يُسْمِنُ وَلَا يُغْنِي مِن جُوعٍ
-
-**Translation:** "Which neither nourishes nor satisfies hunger"
+<ArabicExample
+  arabic="لَّا يُسْمِنُ وَلَا يُغْنِي مِن جُوعٍ"
+  transliteration="la yusminu wa-la yughni min ju'in"
+  translation="Which neither nourishes nor satisfies hunger"
+  reference="Al-Ghashiyah 88:7"
+  highlight="يُسْمِنُ,يُغْنِي"
+/>
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | لَا | la | - | Particle - negation | Not declinable (mabni) | not |
@@ -152,193 +290,351 @@ difficulty: "advanced"
 | 5 | يُغْنِي | yughni | غ ن ي | Verb - Form IV, present, 3rd person masculine singular | Coordinated verb - indicative (marfu') | it satisfies/enriches |
 | 6 | مِن | min | - | Particle - preposition | Not declinable (mabni) | from |
 | 7 | جُوعٍ | ju'in | ج و ع | Noun - masculine, singular, indefinite | Object of preposition min - genitive (majrur) | hunger |
+</GrammarTable>
 
-#### Grammar Notes
-- la yusminu wa-la yughni: double negation - neither nourishes nor satisfies
-- min ju'in: from/against hunger - provides no relief
-- Adjective clause (sifah) modifying dari' (v.6)
+<Callout type="tip" title="Double Negation with Form IV Verbs">
+- la yusminu wa-la yughni: double negation -- neither nourishes nor satisfies. The repetition of la intensifies the negation
+- Both verbs are Form IV (af'ala pattern), which is the causative: yusminu = "causes fatness/nourishment," yughni = "causes sufficiency/satisfaction"
+- min ju'in: from/against hunger -- provides no relief from the most basic need
+- This entire verse is an adjective clause (sifah/na't) modifying dari' in v.6
+</Callout>
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** This entire verse functions as a sifah (adjective clause) for dari'in in v.6, providing further description of the thorny plant. The two verbal sentences are coordinated with wa: la yusminu + wa-la yughni. min ju'in is a prepositional phrase complementing yughni, specifying what it fails to relieve.
+
+**Sarf (Morphology):** Both yusminu and yughni are Form IV (af'ala/yuf'ilu), the causative form. yusminu from s-m-n means "to cause fatness/nourishment" (the base Form I samina means "to become fat"). yughni from gh-n-y means "to cause sufficiency" (the base Form I ghaniya means "to become sufficient/rich"). The Form IV pattern emphasizes that this plant fails to CAUSE any positive effect.
+
+**Balagha (Rhetoric):** The double negation (la...wa-la) is a comprehensive denial covering both aspects of sustenance: physical nourishment (yusminu) and hunger satisfaction (yughni). These represent the two basic functions of food: building the body and relieving hunger. By negating both with causative verbs, the verse says dari' fails to produce even the smallest effect in either direction. The present tense of both verbs indicates this is a permanent, ongoing reality -- it will never nourish and never satisfy.
 
 ### Verse 8
 
-**Arabic:** وُجُوهٌ يَوْمَئِذٍ نَّاعِمَةٌ
-
-**Translation:** "Other faces, that Day, will be in delight"
+<ArabicExample
+  arabic="وُجُوهٌ يَوْمَئِذٍ نَّاعِمَةٌ"
+  transliteration="wujuhun yawma'idhin na'imatun"
+  translation="Other faces, that Day, will be in delight"
+  reference="Al-Ghashiyah 88:8"
+  highlight="وُجُوهٌ,نَاعِمَةٌ"
+/>
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | وُجُوهٌ | wujuhun | و ج ه | Noun - feminine, plural, indefinite | Subject (mubtada') - nominative (marfu') | faces |
 | 2 | يَوْمَئِذٍ | yawma'idhin | - | Adverb - temporal | Adverbial accusative (zarf zaman) - accusative (mansub) | that Day |
 | 3 | نَاعِمَةٌ | na'imatun | ن ع م | Adjective - active participle, feminine, plural, indefinite | Predicate (khabar) - nominative (marfu') | delighted/blissful |
+</GrammarTable>
 
-#### Grammar Notes
-- Parallel structure with verse 2, contrasting the two groups
-- na'imah: active participle showing continuous state of bliss
+<Callout type="rule" title="Parallel Contrast with Verse 2">
+- Parallel structure with verse 2, contrasting the two groups: wujuhun...khashi'atun (v.2) vs. wujuhun...na'imatun (v.8)
+- na'imah: active participle from na'ima (to be blessed/delighted) showing continuous state of bliss
+- The identical grammatical framework (indefinite subject + compound adverb + active participle predicate) makes the contrast entirely semantic
 - Begins description of the blessed faces (verses 8-16)
+</Callout>
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** Structurally identical to v.2: mubtada' (wujuhun) + zarf (yawma'idhin) + khabar (na'imatun). The exact grammatical parallelism forces the reader to compare the two groups. Like v.2, this wujuhun will carry multiple predicates through the following verses.
+
+**Sarf (Morphology):** na'imatun from root n-'-m on the fa'ilah pattern is an active participle. The root n-'-m is one of the most common in the Quran, appearing in forms like ni'mah (blessing), an'ama (He bestowed), and na'im (bliss). The active participle form indicates that the faces are actively experiencing and radiating delight.
+
+**Balagha (Rhetoric):** The surah creates a diptych: the first panel (vv.2-7) painted in dark tones, the second (vv.8-16) in light. By using the same word wujuhun (without any modifier like "other"), the Quran forces the reader to mentally supply the contrast. The choice of na'imah (delighted, active participle) as the antonym of khashi'ah (humbled, active participle) is precise: both are internal states visible on the face, but one shows degradation and the other shows radiance.
 
 ### Verse 9
 
-**Arabic:** لِّسَعْيِهَا رَاضِيَةٌ
-
-**Translation:** "With their effort [they will be] satisfied"
+<ArabicExample
+  arabic="لِّسَعْيِهَا رَاضِيَةٌ"
+  transliteration="li-sa'yiha radiyatun"
+  translation="With their effort [they will be] satisfied"
+  reference="Al-Ghashiyah 88:9"
+  highlight="رَاضِيَةٌ"
+/>
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | لِ | li | - | Particle - preposition | Not declinable (mabni) | with/for |
 | 2 | سَعْيِهَا | sa'yiha | س ع ي | Noun - masculine, singular, definite + pronoun | Object of preposition li - genitive (majrur) | its effort/striving |
 | 3 | رَاضِيَةٌ | radiyatun | ر ض ي | Adjective - active participle, feminine, plural, indefinite | Second predicate (khabar thani) - nominative (marfu') | satisfied/pleased |
+</GrammarTable>
 
-#### Grammar Notes
-- li-sa'yiha radiyah: satisfied with their efforts (worldly good deeds)
-- radiyah: active participle showing continuous satisfaction
-- sa'y: effort/striving in obedience to Allah
+<Callout type="tip" title="Satisfaction as Reward for Effort">
+- li-sa'yiha radiyah: satisfied with their efforts (worldly good deeds) -- the preposition li connects the cause (sa'y) with the result (rida)
+- radiyah: active participle showing continuous satisfaction -- not a momentary feeling but an enduring state
+- sa'y: effort/striving in obedience to Allah -- contrasts with 'amilatun nasibatun (v.3) where effort was futile
+- The fronting of the prepositional phrase (li-sa'yiha before radiyah) emphasizes the CAUSE of satisfaction
+</Callout>
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** radiyatun is a second predicate (khabar thani) for wujuhun (v.8). The prepositional phrase li-sa'yiha is fronted before the predicate for emphasis -- it could also be analyzed as muta'alliq (attached) to radiyah. The pronoun ha in sa'yiha refers back to wujuh.
+
+**Sarf (Morphology):** radiyah from root r-d-y on the fa'ilah pattern is an active participle meaning "one who is satisfied/pleased." sa'y from root s-'-y is a verbal noun (masdar) meaning effort or striving. The combination of a masdar (sa'y) with an active participle (radiyah) creates a cause-effect relationship at the morphological level.
+
+**Balagha (Rhetoric):** The profound contrast with v.3 ('amilatun nasibatun) is the rhetorical heart of this verse. In v.3, the humbled faces work and are exhausted (effort producing only weariness). In v.9, the blessed faces worked and are satisfied (effort producing eternal satisfaction). The same concept -- effort and its outcome -- is presented in diametrically opposed terms. The fronting of li-sa'yiha (for their effort) places the emphasis on the effort that EARNED them satisfaction, not on the satisfaction itself.
 
 ### Verse 10
 
-**Arabic:** فِي جَنَّةٍ عَالِيَةٍ
-
-**Translation:** "In an elevated Garden"
+<ArabicExample
+  arabic="فِي جَنَّةٍ عَالِيَةٍ"
+  transliteration="fi jannatin 'aliyatin"
+  translation="In an elevated Garden"
+  reference="Al-Ghashiyah 88:10"
+  highlight="عَالِيَةٍ"
+/>
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | فِي | fi | - | Particle - preposition | Not declinable (mabni) | in |
 | 2 | جَنَّةٍ | jannatin | ج ن ن | Noun - feminine, singular, indefinite | Object of preposition fi - genitive (majrur) | garden/paradise |
 | 3 | عَالِيَةٍ | 'aliyatin | ع ل و | Adjective - active participle, feminine, singular, indefinite | Adjective modifying jannatin - genitive (majrur) | elevated/lofty |
+</GrammarTable>
 
-#### Grammar Notes
-- fi jannatin 'aliyatin: third predicate or circumstantial phrase
-- 'aliyah: elevated in rank and physical position
-- Description of Paradise location
+<Callout type="tip" title="Locative Predicate">
+- fi jannatin 'aliyatin: third predicate or circumstantial phrase specifying the location of these blessed faces
+- 'aliyah: active participle from 'ala (to be high/elevated) -- elevated in both rank and physical position
+- The description of Paradise location begins the shift from internal states (na'imah, radiyah) to external environment (vv.10-16)
+</Callout>
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** The prepositional phrase fi jannatin functions as a third predicate (khabar thalith) for wujuhun, or as a hal (circumstantial phrase) describing their state. 'aliyatin is a sifah (adjective) for jannatin, taking genitive case to agree. The chain of predicates grows: na'imah (v.8), radiyah (v.9), fi jannatin 'aliyatin (v.10).
+
+**Sarf (Morphology):** jannah from root j-n-n (to conceal/cover) on the fa'lah pattern originally means "a concealed garden" -- a place so lush with foliage that it is hidden. 'aliyah from root '-l-w on the fa'ilah pattern is an active participle from a weak-final (naqis) verb, with the ya appearing in place of the weak waw.
+
+**Balagha (Rhetoric):** After describing the internal states (delight, satisfaction), the surah now locates these faces in physical space. The indefiniteness of jannatin (a garden, not THE garden) mirrors the indefiniteness of naran in v.4, but here it creates wonder rather than dread -- a garden so magnificent it defies specification. 'aliyah (elevated) contrasts with the lowered, humbled faces of vv.2-3: the righteous are physically and spiritually elevated.
 
 ### Verse 11
 
-**Arabic:** لَّا تَسْمَعُ فِيهَا لَاغِيَةً
-
-**Translation:** "They will not hear therein any ill speech"
+<ArabicExample
+  arabic="لَّا تَسْمَعُ فِيهَا لَاغِيَةً"
+  transliteration="la tasma'u fiha laghiyatan"
+  translation="They will not hear therein any ill speech"
+  reference="Al-Ghashiyah 88:11"
+  highlight="لَاغِيَةً"
+/>
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | لَا | la | - | Particle - negation | Not declinable (mabni) | not |
 | 2 | تَسْمَعُ | tasma'u | س م ع | Verb - Form I, present, 2nd person masculine singular | Main verb - indicative (marfu') | you hear |
 | 3 | فِيهَا | fiha | - | Preposition + pronoun | Prepositional phrase | in it |
 | 4 | لَاغِيَةً | laghiyatan | ل غ و | Noun - active participle, feminine, singular, indefinite | Object (maf'ul bihi) - accusative (mansub) | idle/vain talk |
+</GrammarTable>
 
-#### Grammar Notes
-- la tasma'u: addressed to generic listener (or wujuh implied)
-- laghiyah: vain talk, idle speech, falsehood
-- Describes purity of Paradise environment
+<Callout type="tip" title="Negation of Harmful Speech">
+- la tasma'u: addressed to generic listener (or wujuh implied) -- the second person draws the listener into the scene
+- laghiyah: active participle from lagha (to speak vainly/idly) -- vain talk, idle speech, falsehood
+- Describes purity of Paradise environment -- not just physical beauty but auditory peace
+- The active participle laghiyah treats vain speech as an active agent that is absent from Paradise
+</Callout>
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** This is a verbal sentence with la (negation particle, non-jazm) + tasma'u (present indicative). fiha is a prepositional phrase (in it = in the garden), and laghiyatan is the maf'ul bihi (direct object, accusative). The shift to second person (tasma'u = you hear) breaks the third-person narrative, creating direct engagement.
+
+**Sarf (Morphology):** laghiyah from root l-gh-w on the fa'ilah pattern is an active participle. The root means "to be vain, worthless, idle in speech." The ta marbuta can indicate either a single instance of vain speech or a collective feminine noun representing all idle talk.
+
+**Balagha (Rhetoric):** The description of Paradise moves from positive attributes (bliss, satisfaction, elevation) to a negative attribute (no vain speech), which is actually a deeper positive: the environment is so pure that even unpleasant sounds are absent. The use of the active participle laghiyah (rather than the verbal noun laghw) personifies idle speech as an active intruder that has been expelled from Paradise. This verse addresses the listener directly (tasma'u, "you hear"), pulling the audience into the scene of Paradise.
 
 ### Verse 12
 
-**Arabic:** فِيهَا عَيْنٌ جَارِيَةٌ
-
-**Translation:** "Within it is a flowing spring"
+<ArabicExample
+  arabic="فِيهَا عَيْنٌ جَارِيَةٌ"
+  transliteration="fiha 'aynun jariyatun"
+  translation="Within it is a flowing spring"
+  reference="Al-Ghashiyah 88:12"
+  highlight="عَيْنٌ,جَارِيَةٌ"
+/>
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | فِيهَا | fiha | - | Preposition + pronoun | Predicate (khabar muqaddam) - prepositional phrase | in it |
 | 2 | عَيْنٌ | 'aynun | ع ي ن | Noun - feminine, singular, indefinite | Subject (mubtada' mu'akhkhar) - nominative (marfu') | spring |
 | 3 | جَارِيَةٌ | jariyatun | ج ر ي | Adjective - active participle, feminine, singular, indefinite | Adjective modifying 'aynun - nominative (marfu') | flowing |
+</GrammarTable>
 
-#### Grammar Notes
-- fiha 'aynun jariyah: inverted nominal sentence (predicate before subject)
-- jariyah: active participle - continuously flowing
-- Contrasts with 'aynin aniyatin (boiling spring) in verse 5
+<Callout type="rule" title="Inverted Nominal Sentence (Khabar Muqaddam)">
+- fiha 'aynun jariyah: inverted nominal sentence (predicate before subject) -- the prepositional phrase fiha is the khabar muqaddam, and 'aynun is the mubtada' mu'akhkhar
+- The inversion emphasizes LOCATION first: "In it (there is)..." -- drawing attention to what Paradise contains
+- jariyah: active participle from jara (to flow) -- continuously flowing, never stagnant
+- Contrasts with 'aynin aniyatin (boiling spring) in verse 5 -- both are springs but with opposite qualities
+</Callout>
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** This is a nominal sentence with inverted word order: fiha (khabar muqaddam) + 'aynun jariyatun (mubtada' mu'akhkhar + sifah). The inversion is motivated by the indefiniteness of the subject -- Arabic grammar prefers not to begin sentences with indefinite subjects, so the prepositional phrase is fronted. This pattern repeats in v.13.
+
+**Sarf (Morphology):** 'ayn from root '-y-n has multiple meanings: eye, spring, essence. Here it means "spring" (water source). jariyah from root j-r-y on the fa'ilah pattern is an active participle meaning "flowing/running." The same root gives us jari (river), jariyah (slave girl, lit. "one who moves"), and majra (course/channel).
+
+**Balagha (Rhetoric):** The surah creates a deliberate antithesis: the spring in Hell is aniyah (boiling, v.5) while the spring in Paradise is jariyah (flowing). Both are described with active participles on the same fa'ilah pattern, making the contrast purely semantic: one spring actively boils, the other actively flows. This mirrored grammar with opposite content is a hallmark of Quranic balagha called tibaq (antithesis). The singular 'aynun (one spring) in the midst of plural furnishings (vv.13-16) may suggest a spring so vast that one suffices.
 
 ### Verse 13
 
-**Arabic:** فِيهَا سُرُرٌ مَّرْفُوعَةٌ
-
-**Translation:** "Within it are couches raised high"
+<ArabicExample
+  arabic="فِيهَا سُرُرٌ مَّرْفُوعَةٌ"
+  transliteration="fiha sururun marfu'atun"
+  translation="Within it are couches raised high"
+  reference="Al-Ghashiyah 88:13"
+  highlight="مَرْفُوعَةٌ"
+/>
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | فِيهَا | fiha | - | Preposition + pronoun | Predicate (khabar muqaddam) | in it |
 | 2 | سُرُرٌ | sururun | س ر ر | Noun - feminine, plural, indefinite | Subject (mubtada' mu'akhkhar) - nominative (marfu') | couches/thrones |
 | 3 | مَرْفُوعَةٌ | marfu'atun | ر ف ع | Adjective - passive participle, feminine, plural, indefinite | Adjective modifying sururun - nominative (marfu') | raised |
+</GrammarTable>
 
-#### Grammar Notes
-- Inverted nominal sentence like verse 12
-- marfu'ah: passive participle - raised by divine command
-- surur: plural of sarir (throne/couch for reclining)
+<Callout type="rule" title="Shift from Active to Passive Participles">
+- Inverted nominal sentence like verse 12, maintaining the fiha pattern
+- marfu'ah: **passive participle** from rafa'a (to raise) -- raised by divine command. This marks the shift from active participles (describing natural qualities) to passive participles (describing divinely arranged states)
+- surur: plural of sarir (throne/couch for reclining) -- broken plural on the fu'ul pattern
+- The passive participle indicates these couches were raised BY someone (Allah), not raised on their own
+</Callout>
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** Same inverted nominal structure as v.12: fiha (khabar muqaddam) + sururun marfu'atun (mubtada' mu'akhkhar + sifah). The repetition of this syntactic pattern creates a catalogue effect, listing Paradise's contents one after another.
+
+**Sarf (Morphology):** marfu'ah is a passive participle (ism maf'ul) from rafa'a on the maf'ulah pattern. This is the first passive participle in the Paradise description (vv.8-16), marking a shift from active participles (na'imah, radiyah, 'aliyah, jariyah) to passive participles (marfu'ah, mawdu'ah, masfufah, mabthuthah). surur is a broken plural of sarir on the fu'ul pattern.
+
+**Balagha (Rhetoric):** The shift from active to passive participles at v.13 is significant: the people and natural features of Paradise are described with active participles (they actively experience delight, the springs actively flow), but the furnishings are described with passive participles (raised, placed, arranged, spread) -- they have been prepared by a divine agent. This grammatical distinction separates the living from the arranged, the experiencer from the experienced.
 
 ### Verse 14
 
-**Arabic:** وَأَكْوَابٌ مَّوْضُوعَةٌ
-
-**Translation:** "And cups put in place"
+<ArabicExample
+  arabic="وَأَكْوَابٌ مَّوْضُوعَةٌ"
+  transliteration="wa-akwabun mawdu'atun"
+  translation="And cups put in place"
+  reference="Al-Ghashiyah 88:14"
+  highlight="مَوْضُوعَةٌ"
+/>
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | وَ | wa | - | Particle - conjunction | Not declinable (mabni) | and |
 | 2 | أَكْوَابٌ | akwabun | ك و ب | Noun - feminine, plural, indefinite | Subject (mubtada') - nominative (marfu') | cups/goblets |
 | 3 | مَوْضُوعَةٌ | mawdu'atun | و ض ع | Adjective - passive participle, feminine, plural, indefinite | Predicate (khabar) - nominative (marfu') | placed/set |
+</GrammarTable>
 
-#### Grammar Notes
-- wa-akwabun mawdu'ah: coordinated nominal sentence
-- mawdu'ah: passive participle - placed ready for use
-- akwab: cups without handles (for drinking in Paradise)
+<Callout type="tip" title="Passive Participle: Divinely Arranged">
+- wa-akwabun mawdu'ah: coordinated nominal sentence continuing the catalogue of Paradise furnishings
+- mawdu'ah: passive participle from wada'a (to place/put) -- placed ready for use by divine arrangement
+- akwab: broken plural of kub -- cups without handles, designed for drinking in Paradise
+- The passive voice implies divine service: these cups are placed there for the inhabitants, not by them
+</Callout>
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** This sentence is coordinated with the previous via wa. Unlike vv.12-13, the word order here is normal (not inverted): akwabun (mubtada') + mawdu'atun (khabar). The conjunction wa connects this to the fiha in v.12-13, implying "and [in it are] cups placed."
+
+**Sarf (Morphology):** mawdu'ah is a passive participle from wada'a (Form I) on the maf'ulah pattern. akwab is a broken plural of kub on the af'al pattern, which is typical for triliteral nouns with a long vowel.
+
+**Balagha (Rhetoric):** The passive participle mawdu'ah (placed) suggests readiness and service -- the cups are not being placed (active process) but are already placed (completed state), awaiting use. The passive voice throughout vv.13-16 creates an atmosphere of effortless luxury: everything has been prepared in advance, with no labor required from the inhabitants. This contrasts sharply with 'amilatun nasibatun (v.3) -- the damned work and are exhausted, while the blessed find everything already arranged.
 
 ### Verse 15
 
-**Arabic:** وَنَمَارِقُ مَصْفُوفَةٌ
-
-**Translation:** "And cushions lined up"
+<ArabicExample
+  arabic="وَنَمَارِقُ مَصْفُوفَةٌ"
+  transliteration="wa-namariqu masfufatun"
+  translation="And cushions lined up"
+  reference="Al-Ghashiyah 88:15"
+  highlight="مَصْفُوفَةٌ"
+/>
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | وَ | wa | - | Particle - conjunction | Not declinable (mabni) | and |
 | 2 | نَمَارِقُ | namariqu | ن م ر ق | Noun - feminine, plural, indefinite | Subject (mubtada') - nominative (marfu') | cushions |
-| 3 | مَصْفُوفَةٌ | masfu fatun | ص ف ف | Adjective - passive participle, feminine, plural, indefinite | Predicate (khabar) - nominative (marfu') | lined up/arranged |
+| 3 | مَصْفُوفَةٌ | masfufatun | ص ف ف | Adjective - passive participle, feminine, plural, indefinite | Predicate (khabar) - nominative (marfu') | lined up/arranged |
+</GrammarTable>
 
-#### Grammar Notes
-- wa-namariqu masfufah: coordinated nominal sentence
-- masfufah: passive participle - arranged in rows
-- namariq: plural of numruqah (cushion for reclining)
+<Callout type="tip" title="Quadriliteral Root and Passive Participle">
+- wa-namariqu masfufah: coordinated nominal sentence continuing the Paradise catalogue
+- masfufah: passive participle from saffa (to line up/arrange in rows) -- arranged in rows by divine arrangement
+- namariq: plural of numruqah (cushion for reclining) -- a quadriliteral root (n-m-r-q) with a broken plural on the fa'alil pattern
+- The passive participles continue: placed (mawdu'ah), lined up (masfufah) -- everything is orderly and divinely prepared
+</Callout>
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** Same nominal structure as v.14: wa + mubtada' (namariqu) + khabar (masfufatun). The three coordinated nominal sentences (vv.14-16) build upon the inverted nominal sentences (vv.12-13), creating a list that accelerates through the furnishings of Paradise.
+
+**Sarf (Morphology):** masfufah is a passive participle from the doubled root s-f-f on the maf'ulah pattern. The root means "to arrange in rows" -- the doubling of the fa suggests ordered repetition. namariqu from the quadriliteral root n-m-r-q follows the fa'alil broken plural pattern typical of quadriliteral nouns.
+
+**Balagha (Rhetoric):** The progression from surur (large couches for sitting), to akwab (cups for drinking), to namariq (cushions for reclining) creates a scene of escalating comfort and intimacy. Each item is closer to the body: sitting, drinking, then leaning. The passive participle masfufah (lined up) suggests abundance -- enough cushions to fill rows, arranged with order and care.
 
 ### Verse 16
 
-**Arabic:** وَزَرَابِيُّ مَبْثُوثَةٌ
-
-**Translation:** "And carpets spread out"
+<ArabicExample
+  arabic="وَزَرَابِيُّ مَبْثُوثَةٌ"
+  transliteration="wa-zarabiyyu mabthuthatun"
+  translation="And carpets spread out"
+  reference="Al-Ghashiyah 88:16"
+  highlight="مَبْثُوثَةٌ"
+/>
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | وَ | wa | - | Particle - conjunction | Not declinable (mabni) | and |
 | 2 | زَرَابِيُّ | zarabiyyu | - | Noun - feminine, plural, indefinite | Subject (mubtada') - nominative (marfu') | carpets/rugs |
-| 3 | مَبْثُوثَةٌ | mabthuthatu n | ب ث ث | Adjective - passive participle, feminine, plural, indefinite | Predicate (khabar) - nominative (marfu') | spread out |
+| 3 | مَبْثُوثَةٌ | mabthuthatun | ب ث ث | Adjective - passive participle, feminine, plural, indefinite | Predicate (khabar) - nominative (marfu') | spread out |
+</GrammarTable>
 
-#### Grammar Notes
-- wa-zarabiyyu mabthuthah: coordinated nominal sentence completing Paradise description
-- mabthuthah: passive participle - spread/scattered abundantly
-- zarabiy: fine carpets/rugs
-- Verses 12-16: five parallel nominal sentences describing Paradise furnishings
+<Callout type="rule" title="Completing the Paradise Catalogue with Passive Participles">
+- wa-zarabiyyu mabthuthah: coordinated nominal sentence completing the Paradise description
+- mabthuthah: passive participle from baththa (to spread/scatter) -- spread/scattered abundantly, implying profusion
+- zarabiy: fine carpets/rugs -- the word suggests luxurious, richly decorated textiles
+- Verses 12-16 present five parallel nominal sentences describing Paradise furnishings: a spring (jariyah, active), couches (marfu'ah, passive), cups (mawdu'ah, passive), cushions (masfufah, passive), carpets (mabthuthah, passive)
+</Callout>
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** The final nominal sentence in the Paradise catalogue: wa + mubtada' (zarabiyyu) + khabar (mabthuthatun). The five sentences of vv.12-16 form a unified descriptive passage, all dependent on the initial fiha (in it) of v.12.
+
+**Sarf (Morphology):** mabthuthah is a passive participle from the doubled root b-th-th on the maf'ulah pattern. The root means "to scatter, spread, disseminate" -- the doubling suggests thoroughness and abundance. zarabiy is a noun whose singular form (zarbiyyah or zuriyyah) follows the fa'alil broken plural pattern.
+
+**Balagha (Rhetoric):** The four passive participles in vv.13-16 (marfu'ah, mawdu'ah, masfufah, mabthuthah) form a descending spatial progression: raised couches (high), placed cups (on tables), lined cushions (mid-level), spread carpets (ground level). The description moves from ceiling to floor, creating a complete three-dimensional image of Paradise. The final participle mabthuthah (spread/scattered) implies such abundance that carpets cover every surface -- there is no bare ground in Paradise. This concludes the Paradise section with an image of overwhelming luxury.
 
 ### Verse 17
 
-**Arabic:** أَفَلَا يَنظُرُونَ إِلَى الْإِبِلِ كَيْفَ خُلِقَتْ
-
-**Translation:** "Then do they not look at the camels - how they are created?"
+<ArabicExample
+  arabic="أَفَلَا يَنظُرُونَ إِلَى الْإِبِلِ كَيْفَ خُلِقَتْ"
+  transliteration="a-fa-la yanzuruna ila l-ibili kayfa khuliqat"
+  translation="Then do they not look at the camels - how they are created?"
+  reference="Al-Ghashiyah 88:17"
+  highlight="أَفَلَا,خُلِقَتْ"
+/>
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | أَ | a | - | Particle - interrogative | Not declinable (mabni) | [interrogative marker] |
@@ -349,21 +645,36 @@ difficulty: "advanced"
 | 6 | الْإِبِلِ | al-ibili | - | Noun - feminine, plural, definite | Object of preposition ila - genitive (majrur) | the camels |
 | 7 | كَيْفَ | kayfa | - | Interrogative adverb | Not declinable (mabni) | how |
 | 8 | خُلِقَتْ | khuliqat | خ ل ق | Verb - Form I, past passive, 3rd person feminine singular | Subordinate clause verb | it was created |
+</GrammarTable>
 
-#### Grammar Notes
-- a-fa-la yanzurun: interrogative + fa + negative - rhetorical question
-- ila al-ibili: camels - remarkable creation familiar to Arabs
-- kayfa khuliqat: indirect question - how they were created
-- Shift from eschatology to signs in creation (verses 17-20)
+<Callout type="rule" title="The a-fa-la Construction and Passive kayfa Clause">
+- a-fa-la yanzurun: interrogative (a) + connective (fa) + negative (la) -- a triple-layered rhetorical question meaning "Then do they not...?" This construction expresses astonishment at their failure to observe
+- ila al-ibili: camels -- remarkable creation familiar to Arabs, chosen as the most prominent sign in their daily environment
+- kayfa khuliqat: indirect question in passive voice -- "how they were created" -- emphasizing divine agency (the creator is implied but unnamed)
+- This verse marks a dramatic shift from eschatology to signs in creation (verses 17-20)
+</Callout>
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** The sentence is complex: the main clause is a-fa-la yanzuruna ila l-ibili (interrogative-negative verbal sentence), and kayfa khuliqat is a subordinate clause functioning as a badal (apposition/explanatory substitute) for al-ibili, or as a second maf'ul for yanzuruna. The a-fa-la construction combines three particles: a (interrogative, hamzat al-istifham), fa (connective/resultive), and la (negation). Together they produce an emphatic rhetorical question.
+
+**Sarf (Morphology):** khuliqat is the passive (mabni li-l-majhul) of khalaqa. The passive is formed by changing the vowel pattern: kha-la-qat (active) becomes khu-li-qat (passive) with damma-kasra on the first two radicals. The ta at the end marks feminine gender, agreeing with al-ibil. yanzuruna is a sound masculine plural verb form, Form I present.
+
+**Balagha (Rhetoric):** The sudden shift from Paradise and Hell to camels, sky, mountains, and earth is a masterstroke of Quranic rhetoric. After describing unseen realities (the afterlife), the surah pivots to visible signs that prove those unseen realities. The camel is listed first because it was the most important animal in Arabian life -- the audience's most familiar sign of divine power. The passive voice khuliqat removes human agency entirely: the focus is not on WHO created (that is assumed) but HOW the creation was accomplished -- its engineering, its design, its perfection.
 
 ### Verse 18
 
-**Arabic:** وَإِلَى السَّمَاءِ كَيْفَ رُفِعَتْ
-
-**Translation:** "And at the sky - how it is raised?"
+<ArabicExample
+  arabic="وَإِلَى السَّمَاءِ كَيْفَ رُفِعَتْ"
+  transliteration="wa-ila s-sama'i kayfa rufi'at"
+  translation="And at the sky - how it is raised?"
+  reference="Al-Ghashiyah 88:18"
+  highlight="رُفِعَتْ"
+/>
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | وَ | wa | - | Particle - conjunction | Not declinable (mabni) | and |
@@ -371,20 +682,35 @@ difficulty: "advanced"
 | 3 | السَّمَاءِ | as-sama'i | س م و | Noun - feminine, singular, definite | Object of preposition ila - genitive (majrur) | the sky |
 | 4 | كَيْفَ | kayfa | - | Interrogative adverb | Not declinable (mabni) | how |
 | 5 | رُفِعَتْ | rufi'at | ر ف ع | Verb - Form I, past passive, 3rd person feminine singular | Subordinate clause verb | it was raised |
+</GrammarTable>
 
-#### Grammar Notes
-- wa-ila as-sama'i: elliptical - [do they not look] at the sky
-- kayfa rufi'at: how it was raised without visible pillars
-- Passive voice emphasizes divine power
+<Callout type="tip" title="Elliptical Construction">
+- wa-ila as-sama'i: elliptical -- the verb yanzuruna is omitted (understood from v.17): "[do they not look] at the sky"
+- kayfa rufi'at: how it was raised without visible pillars -- passive voice emphasizes divine power
+- The root r-f-' (to raise) connects to marfu'ah (v.13) -- both the sky and Paradise couches are "raised" by divine will
+</Callout>
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** This is an elliptical construction (hadhf/ijaz): the main verb yanzuruna and the interrogative-negative a-fa-la are omitted but understood from v.17. The full implied sentence is: a-fa-la yanzuruna ila s-sama'i kayfa rufi'at. The ellipsis creates brevity and accelerates the pace of the four creation signs.
+
+**Sarf (Morphology):** rufi'at is the passive of rafa'a (to raise), with the characteristic passive pattern of damma-kasra: ru-fi-'at. The same root r-f-' appeared in v.13 as the passive participle marfu'ah (raised couches). The morphological connection is intentional: the same divine power that raises the sky also raises the thrones of Paradise.
+
+**Balagha (Rhetoric):** The four creation signs follow a spatial logic: the camel is at eye level, the sky is above, the mountains are on the horizon, and the earth is below. This creates a complete panoramic sweep of the visual world. The ellipsis of the main verb in vv.18-20 increases the pace, creating a sense of rapid enumeration -- as if the speaker is pointing urgently: "And the sky! And the mountains! And the earth!" The passive voice in all four signs (khuliqat, rufi'at, nusibat, sutihat) consistently directs attention away from the agent (Allah) and toward the evidence (the creation), letting the audience draw their own conclusion about the Creator.
 
 ### Verse 19
 
-**Arabic:** وَإِلَى الْجِبَالِ كَيْفَ نُصِبَتْ
-
-**Translation:** "And at the mountains - how they are erected?"
+<ArabicExample
+  arabic="وَإِلَى الْجِبَالِ كَيْفَ نُصِبَتْ"
+  transliteration="wa-ila l-jibali kayfa nusibat"
+  translation="And at the mountains - how they are erected?"
+  reference="Al-Ghashiyah 88:19"
+  highlight="نُصِبَتْ"
+/>
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | وَ | wa | - | Particle - conjunction | Not declinable (mabni) | and |
@@ -392,20 +718,36 @@ difficulty: "advanced"
 | 3 | الْجِبَالِ | al-jibali | ج ب ل | Noun - feminine, plural, definite | Object of preposition ila - genitive (majrur) | the mountains |
 | 4 | كَيْفَ | kayfa | - | Interrogative adverb | Not declinable (mabni) | how |
 | 5 | نُصِبَتْ | nusibat | ن ص ب | Verb - Form I, past passive, 3rd person feminine plural | Subordinate clause verb | they were erected |
+</GrammarTable>
 
-#### Grammar Notes
-- wa-ila al-jibali: elliptical construction
-- kayfa nusibat: how they were firmly set/erected
-- nusibat from nasaba (to erect, set up firmly)
+<Callout type="tip" title="Parallel Passive Construction">
+- wa-ila al-jibali: elliptical construction (verb omitted as in v.18)
+- kayfa nusibat: how they were firmly set/erected -- passive voice continuing the pattern
+- nusibat from nasaba (to erect, set up firmly) -- emphasizes the stability and permanence of mountains as anchors for the earth
+- Third of four parallel creation signs, all in passive voice
+</Callout>
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** Identical elliptical construction to v.18: wa + ila + definite noun (al-jibali) + kayfa + passive past verb (nusibat). The parallelism across vv.17-20 is precise: each sign follows the same grammatical template, varying only the noun and the passive verb.
+
+**Sarf (Morphology):** nusibat is the passive of nasaba (to erect/set up) on the fu'ilat pattern. The root n-s-b carries meanings of erecting, fixing, and establishing firmly. Interestingly, this root also gives nasb (the accusative case marker), connecting the idea of "fixing" something in position to "fixing" a grammatical ending.
+
+**Balagha (Rhetoric):** Mountains in the Quranic worldview serve as "pegs" or "anchors" (rawasiya) that stabilize the earth. The verb nusibat (were erected) emphasizes their vertical, imposing stature -- they didn't grow gradually but were placed firmly by divine will. The panoramic progression (camel at eye level, sky above, mountains on the horizon) now moves to the most massive visible feature of the landscape, creating a sense of scale that builds toward the final sign.
 
 ### Verse 20
 
-**Arabic:** وَإِلَى الْأَرْضِ كَيْفَ سُطِحَتْ
-
-**Translation:** "And at the earth - how it is spread out?"
+<ArabicExample
+  arabic="وَإِلَى الْأَرْضِ كَيْفَ سُطِحَتْ"
+  transliteration="wa-ila l-ardi kayfa sutihat"
+  translation="And at the earth - how it is spread out?"
+  reference="Al-Ghashiyah 88:20"
+  highlight="سُطِحَتْ"
+/>
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | وَ | wa | - | Particle - conjunction | Not declinable (mabni) | and |
@@ -413,20 +755,36 @@ difficulty: "advanced"
 | 3 | الْأَرْضِ | al-ardi | أ ر ض | Noun - feminine, singular, definite | Object of preposition ila - genitive (majrur) | the earth |
 | 4 | كَيْفَ | kayfa | - | Interrogative adverb | Not declinable (mabni) | how |
 | 5 | سُطِحَتْ | sutihat | س ط ح | Verb - Form I, past passive, 3rd person feminine singular | Subordinate clause verb | it was spread out |
+</GrammarTable>
 
-#### Grammar Notes
-- wa-ila al-ardi: elliptical construction
-- kayfa sutihat: how it was spread/flattened (for habitability)
-- Four parallel structures (vv.17-20): camel, sky, mountains, earth - all signs of the Creator
+<Callout type="rule" title="Completing the Four Creation Signs">
+- wa-ila al-ardi: elliptical construction (final in the series)
+- kayfa sutihat: how it was spread/flattened for habitability -- passive voice completing the pattern
+- Four parallel structures (vv.17-20): camel (khuliqat), sky (rufi'at), mountains (nusibat), earth (sutihat) -- all signs of the Creator, all in passive voice
+- Each passive verb is uniquely chosen for its sign: created, raised, erected, spread out -- matching the nature of each creation to its specific verb
+</Callout>
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** The fourth and final parallel construction: wa + ila + al-ardi + kayfa + sutihat. The four signs form a complete rhetorical unit with identical syntax, varying only the noun and verb. This is a textbook example of parallel structure (tawazi) in Arabic rhetoric.
+
+**Sarf (Morphology):** sutihat is the passive of sataha (to spread out, flatten) on the fu'ilat pattern. The root s-t-h relates to surfaces and flatness (sath = surface/roof). The passive voice, consistent across all four verses, creates a unified morphological theme: all of creation is presented as having been acted upon by a divine agent.
+
+**Balagha (Rhetoric):** The four signs are arranged in a deliberate sequence: (1) the camel -- closest and most familiar, (2) the sky -- above, vast and visible, (3) the mountains -- on the horizon, massive and imposing, (4) the earth -- beneath, foundational. The progression moves from the specific (one type of creature) to the universal (the entire earth), from the animate to the inanimate. Each passive verb is precisely matched to its subject: camels are "created" (unique biological design), the sky is "raised" (lifted without pillars), mountains are "erected" (fixed firmly upright), the earth is "spread out" (flattened for habitation). The four verbs are irreplaceable -- you cannot say the sky was "spread out" or the earth was "erected." This precision of verb choice (tanasub) is a mark of the highest rhetoric.
 
 ### Verse 21
 
-**Arabic:** فَذَكِّرْ إِنَّمَا أَنتَ مُذَكِّرٌ
-
-**Translation:** "So remind, for you are only a reminder"
+<ArabicExample
+  arabic="فَذَكِّرْ إِنَّمَا أَنتَ مُذَكِّرٌ"
+  transliteration="fa-dhakkir innama anta mudhakkirun"
+  translation="So remind, for you are only a reminder"
+  reference="Al-Ghashiyah 88:21"
+  highlight="مُذَكِّرٌ"
+/>
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | فَ | fa | - | Particle - conjunction/result | Not declinable (mabni) | so/then |
@@ -434,41 +792,73 @@ difficulty: "advanced"
 | 3 | إِنَّمَا | innama | - | Particle - restriction/confinement | Not declinable (mabni) | only/merely |
 | 4 | أَنتَ | anta | - | Pronoun - detached, 2nd person masculine singular | Subject (mubtada') - nominative (marfu') | you |
 | 5 | مُذَكِّرٌ | mudhakkirun | ذ ك ر | Noun - active participle, masculine, singular, indefinite | Predicate (khabar) - nominative (marfu') | reminder/admonisher |
+</GrammarTable>
 
-#### Grammar Notes
-- fa-dhakkir: imperative command to the Prophet
-- innama anta mudhakkirun: restriction particle - you are only a reminder
-- mudhakkir: active participle Form II (intensive) - one who reminds/admonishes
-- Establishes Prophet's role: warner, not controller
+<Callout type="rule" title="Restriction with innama and Form II Cognate Pair">
+- fa-dhakkir: imperative command to the Prophet -- the fa connects this command to everything that preceded it (the afterlife, Paradise, signs in creation)
+- innama anta mudhakkirun: restriction particle innama confines the Prophet's role -- "you are ONLY a reminder"
+- mudhakkir: Form II active participle from the same root dh-k-r as the imperative dhakkir -- the verb and participle are cognates, creating emphasis: "Remind! You are a reminder"
+- Establishes the Prophet's role: warner, not controller -- a fundamental theological principle
+</Callout>
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** The verse contains two clauses: (1) fa-dhakkir -- an imperative clause with fa al-fa'iyyah (resultive fa, drawing a conclusion from the preceding), and (2) innama anta mudhakkirun -- a nominal sentence restricted by innama. The innama clause provides the reason (ta'lil) for the command: "remind, BECAUSE you are only a reminder." The nominal sentence structure (anta + mudhakkirun) makes the Prophet's identity as a reminder a permanent, defining characteristic.
+
+**Sarf (Morphology):** dhakkir is a Form II imperative from root dh-k-r. Form II (fa''ala) carries an intensive/causative meaning: dhakara means "to remember," while dhakkara means "to cause to remember / to remind." mudhakkir is the Form II active participle (mufa''il pattern), meaning "one who reminds." The cognate relationship between the imperative dhakkir and the participle mudhakkir is morphologically transparent: same root, same form, one a verb and one a noun.
+
+**Balagha (Rhetoric):** The use of innama (only/merely) is theologically precise: it simultaneously affirms one role (reminding) and negates all others (controlling, compelling, judging). The cognate pair dhakkir/mudhakkir creates what rhetoricians call jinasmu'tariz (paronomasia) -- using two forms of the same root for emphasis. The effect is: "Your entire being is summed up in this one act: reminding." The fa at the beginning ties this command to everything preceding it: after hearing about the afterlife and seeing creation's signs, the logical conclusion is: keep reminding people.
 
 ### Verse 22
 
-**Arabic:** لَّسْتَ عَلَيْهِم بِمُصَيْطِرٍ
-
-**Translation:** "You are not over them a controller"
+<ArabicExample
+  arabic="لَّسْتَ عَلَيْهِم بِمُصَيْطِرٍ"
+  transliteration="lasta 'alayhim bi-musaytirin"
+  translation="You are not over them a controller"
+  reference="Al-Ghashiyah 88:22"
+  highlight="بِمُصَيْطِرٍ"
+/>
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | لَسْتَ | lasta | - | Verb - laysa (negative copula), 2nd person masculine singular | Incomplete verb (negates nominal sentence) | you are not |
 | 2 | عَلَيْهِم | 'alayhim | - | Preposition + pronoun | Prepositional phrase (khabar laysa muqaddam) | over them |
 | 3 | بِ | bi | - | Particle - preposition (emphatic) | Not declinable (mabni) | [emphatic] |
 | 4 | مُصَيْطِرٍ | musaytirin | س ط ر | Noun - active participle, masculine, singular, indefinite | Khabar laysa - genitive (majrur) due to bi | controller/dominator |
+</GrammarTable>
 
-#### Grammar Notes
-- lasta 'alayhim bi-musaytirin: emphatic negation (laysa + bi)
-- musaytir: active participle - one who dominates/controls
-- Clarifies limitation of prophetic authority - guidance, not compulsion
+<Callout type="rule" title="Emphatic Negation: Laysa + bi Construction">
+- lasta 'alayhim bi-musaytirin: emphatic negation using laysa + bi
+- The bi before musaytir is called ba' za'idah (emphatic/pleonastic ba) -- it adds emphasis to the negation: "you are absolutely NOT a controller"
+- musaytir: active participle on the mufa'il pattern -- one who dominates, controls, or compels others
+- This verse explicitly negates what v.21 implicitly denied: the Prophet's authority is limited to reminding, not controlling
+- Clarifies limitation of prophetic authority -- guidance, not compulsion (la ikraha fi d-din)
+</Callout>
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** lasta is laysa conjugated for second person masculine singular (laysa + ta = lasta). The predicate 'alayhim (khabar laysa) is fronted before the notional subject complement bi-musaytirin. The bi is called ba' za'idah (pleonastic preposition) -- it doesn't add new meaning but intensifies the negation. Technically, musaytirin is majrur (genitive) due to the bi, but semantically it functions as the khabar laysa.
+
+**Sarf (Morphology):** musaytir is an active participle on the mufa'il pattern, which appears to be Form II-like but is actually from the quadriliteral root s-y-t-r (to dominate, control). Some scholars derive it from s-t-r with an inserted ya. The word implies absolute authority, dominion, and control over others -- a role explicitly denied to the Prophet.
+
+**Balagha (Rhetoric):** The pairing of v.21 and v.22 creates a precise theological boundary: mudhakkir YES, musaytir NO. The two participles are placed in direct opposition, both describing active roles but with fundamentally different scope. The emphatic negation (laysa + bi) makes the denial stronger than simple la: it is not merely that the Prophet does not control them, but that he is categorically NOT a controller by nature or mandate. The preposition 'alayhim (over them) emphasizes that the denial is specifically about power OVER people -- the Prophet's authority is lateral (reminding alongside) not vertical (controlling from above).
 
 ### Verse 23
 
-**Arabic:** إِلَّا مَن تَوَلَّىٰ وَكَفَرَ
-
-**Translation:** "However, whoever turns away and disbelieves"
+<ArabicExample
+  arabic="إِلَّا مَن تَوَلَّىٰ وَكَفَرَ"
+  transliteration="illa man tawalla wa-kafara"
+  translation="However, whoever turns away and disbelieves"
+  reference="Al-Ghashiyah 88:23"
+  highlight="تَوَلَّىٰ"
+/>
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | إِلَّا | illa | - | Particle - exception/adversative | Not declinable (mabni) | except/however |
@@ -476,21 +866,36 @@ difficulty: "advanced"
 | 3 | تَوَلَّىٰ | tawalla | و ل ي | Verb - Form V, past, 3rd person masculine singular | Relative clause verb | turned away |
 | 4 | وَ | wa | - | Particle - conjunction | Not declinable (mabni) | and |
 | 5 | كَفَرَ | kafara | ك ف ر | Verb - Form I, past, 3rd person masculine singular | Coordinated verb | disbelieved |
+</GrammarTable>
 
-#### Grammar Notes
-- illa man: adversative/exceptive use - "but as for whoever..."
-- tawalla (Form V): reflexive - deliberately turned away
-- wa-kafara: intensifies with explicit disbelief
-- Introduces contrast with verse 24
+<Callout type="tip" title="Adversative Exception and Form V Reflexive">
+- illa man: adversative/exceptive use -- "but as for whoever..." This is istithna' munqati' (disconnected exception), meaning "however" rather than strict "except"
+- tawalla (Form V): reflexive of walla (Form II, to turn) -- deliberately turned oneself away. The Form V adds volition: this is a conscious, willful act of rejection
+- wa-kafara: intensifies with explicit disbelief -- turning away is coupled with active denial
+- Introduces contrast with verse 24 -- after establishing the Prophet's limited role, the surah warns of consequences for those who reject
+</Callout>
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** illa here functions as an adversative particle (istithra'iyyah) rather than a strict exception particle. man is a relative pronoun (ism mawsul) functioning as mubtada', and its khabar is the sentence in v.24 (fa-yu'adhdhibuhu...). The relative clause contains two coordinated past-tense verbs: tawalla wa-kafara.
+
+**Sarf (Morphology):** tawalla is Form V of the root w-l-y. Form V (tafa''ala) is the reflexive of Form II, meaning "to turn oneself away." The alif maqsurah ending indicates a weak final radical (ya/waw). kafara from root k-f-r (Form I) literally means "to cover/conceal" -- disbelief as the covering of truth.
+
+**Balagha (Rhetoric):** The two verbs create a progression: tawalla (turned away, physical/behavioral rejection) then kafara (disbelieved, internal/theological rejection). The order matters: first the outward act of turning away, then the inner reality of disbelief. This may suggest that disbelief follows from willful avoidance of truth -- one first turns away from the signs, then hardens into disbelief. The past tense of both verbs suggests completed, definitive action: these are not people who wavered but people who decisively rejected.
 
 ### Verse 24
 
-**Arabic:** فَيُعَذِّبُهُ اللَّهُ الْعَذَابَ الْأَكْبَرَ
-
-**Translation:** "Then Allah will punish him with the greatest punishment"
+<ArabicExample
+  arabic="فَيُعَذِّبُهُ اللَّهُ الْعَذَابَ الْأَكْبَرَ"
+  transliteration="fa-yu'adhdhibuhu llahu l-'adhaba l-akbara"
+  translation="Then Allah will punish him with the greatest punishment"
+  reference="Al-Ghashiyah 88:24"
+  highlight="الْعَذَابَ الْأَكْبَرَ"
+/>
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | فَ | fa | - | Particle - conjunction/result | Not declinable (mabni) | then/so |
@@ -498,56 +903,186 @@ difficulty: "advanced"
 | 3 | اللَّهُ | Allahu | - | Proper noun - divine name | Subject (fa'il) - nominative (marfu') | Allah |
 | 4 | الْعَذَابَ | al-'adhaba | ع ذ ب | Noun - masculine, singular, definite | Absolute object (maf'ul mutlaq) - accusative (mansub) | the punishment |
 | 5 | الْأَكْبَرَ | al-akbara | ك ب ر | Adjective - elative (superlative), masculine, singular, definite | Adjective modifying al-'adhaba - accusative (mansub) | the greatest |
+</GrammarTable>
 
-#### Grammar Notes
-- fa-yu'adhdhibuhu: result clause (apodosis) for man tawalla wa-kafara
-- Form II yu'adhdhib: intensive punishment
-- al-'adhaba al-akbara: absolute object (maf'ul mutlaq) with superlative - the greatest punishment
-- al-akbar: elative form of kabir
+<Callout type="rule" title="Form II Intensive and Maf'ul Mutlaq">
+- fa-yu'adhdhibuhu: result clause (apodosis) for man tawalla wa-kafara -- the fa is fa al-jaza'iyyah (consequential fa)
+- Form II yu'adhdhib: intensive punishment -- the doubling of the middle radical (dh-dh) indicates intensified action
+- al-'adhaba al-akbara: absolute object (maf'ul mutlaq) with superlative -- the greatest punishment. The maf'ul mutlaq emphasizes the nature and degree of punishment
+- al-akbar: elative form (af'al pattern) of kabir -- used here as a superlative, meaning the punishment has no equal
+</Callout>
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** fa-yu'adhdhibuhu is the jawab (apodosis/result clause) for the conditional implied by man tawalla wa-kafara (v.23). The fa connects cause (turning away and disbelieving) to consequence (punishment). Allahu is the fa'il (subject), yu'adhdhibuhu contains the object pronoun (him), and al-'adhaba al-akbara is the maf'ul mutlaq (absolute/cognate object) -- a noun from the same root as the verb, used for emphasis.
+
+**Sarf (Morphology):** yu'adhdhib is Form II (yu-fa''il) from root '-dh-b, with the doubled middle radical creating the intensive form. The base Form I 'adhaba means "to punish," while Form II yu'adhdhibu means "to punish severely/repeatedly." al-akbar is the elative (af'al) pattern from root k-b-r, functioning as superlative when preceded by al.
+
+**Balagha (Rhetoric):** The maf'ul mutlaq (al-'adhaba) shares its root with the verb (yu'adhdhib), creating a cognate accusative construction that intensifies meaning: "He punishes him THE punishment." Adding al-akbar (the greatest) further intensifies it: "the greatest punishment." The verse also marks the return of Allah as an explicitly named agent after the passive constructions of vv.17-20 -- when it comes to judgment, the divine agent is identified directly. This contrasts with creation (passive, unnamed agent) and punishment (active, named agent).
 
 ### Verse 25
 
-**Arabic:** إِنَّ إِلَيْنَا إِيَابَهُمْ
-
-**Translation:** "Indeed, to Us is their return"
+<ArabicExample
+  arabic="إِنَّ إِلَيْنَا إِيَابَهُمْ"
+  transliteration="inna ilayna iyabahum"
+  translation="Indeed, to Us is their return"
+  reference="Al-Ghashiyah 88:25"
+  highlight="إِيَابَهُمْ"
+/>
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | إِنَّ | inna | - | Particle - emphasis | Not declinable (mabni), governs accusative | indeed |
 | 2 | إِلَيْنَا | ilayna | - | Preposition + pronoun | Predicate of inna (khabar inna muqaddam) | to Us |
 | 3 | إِيَابَهُمْ | iyabahum | أ و ب | Noun - masculine, singular, definite + pronoun | Subject of inna (ism inna mu'akhkhar) - accusative (mansub) | their return |
+</GrammarTable>
 
-#### Grammar Notes
-- inna ilayna iyabahum: inverted inna sentence (predicate before subject) for emphasis
-- iyab: return (to Allah for judgment)
-- Emphasizes inevitability of accountability
+<Callout type="rule" title="Inverted Inna Sentence for Emphasis">
+- inna ilayna iyabahum: inverted inna sentence -- the predicate (ilayna) is fronted before the subject (iyabahum) for emphasis
+- The fronting emphasizes the destination: "To US (specifically) is their return" -- not to anyone else
+- iyab: verbal noun from aba/ya'ubu (to return) -- a less common synonym of ruju' (return), adding gravity through its rarity
+- inna provides emphatic assertion -- "indeed/verily" -- removing all doubt about the inevitability of return to Allah
+</Callout>
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** inna governs its subject (ism inna) in the accusative: iyabahum is mansub. The predicate (khabar inna) is the prepositional phrase ilayna, which has been fronted (muqaddam) before the subject (mu'akhkhar). This inversion creates hasr (restriction): their return is EXCLUSIVELY to Us, not to any other entity. The pronoun hum (their) in iyabahum refers back to man tawalla wa-kafara (v.23) or to all people generally.
+
+**Sarf (Morphology):** iyab from root a-w-b on the if'al (fi'al) verbal noun pattern means "return." The root a-w-b is associated with returning and repentance (tawbah is from the same semantic field though a different root). The choice of this rarer verbal noun over the more common ruju' adds solemnity and formality.
+
+**Balagha (Rhetoric):** The pronoun na (Us, in ilayna) is the majestic plural (na al-ta'zim), asserting divine majesty at the surah's conclusion. The inverted word order creates a rhetorical structure where the DESTINATION (to Us) is the first thing heard, before the TRAVELERS (their return) are mentioned. This prioritizes Allah's sovereignty over human agency. The verse transitions from the Prophet's limited role (vv.21-22) to Allah's unlimited authority (vv.25-26): the Prophet only reminds, but Allah has final jurisdiction.
 
 ### Verse 26
 
-**Arabic:** ثُمَّ إِنَّ عَلَيْنَا حِسَابَهُمْ
-
-**Translation:** "Then indeed, upon Us is their account"
+<ArabicExample
+  arabic="ثُمَّ إِنَّ عَلَيْنَا حِسَابَهُمْ"
+  transliteration="thumma inna 'alayna hisabahum"
+  translation="Then indeed, upon Us is their account"
+  reference="Al-Ghashiyah 88:26"
+  highlight="حِسَابَهُمْ"
+/>
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | ثُمَّ | thumma | - | Particle - conjunction (sequence) | Not declinable (mabni) | then |
 | 2 | إِنَّ | inna | - | Particle - emphasis | Not declinable (mabni) | indeed |
 | 3 | عَلَيْنَا | 'alayna | - | Preposition + pronoun | Predicate of inna (khabar inna muqaddam) | upon Us |
 | 4 | حِسَابَهُمْ | hisabahum | ح س ب | Noun - masculine, singular, definite + pronoun | Subject of inna (ism inna mu'akhkhar) - accusative (mansub) | their reckoning |
+</GrammarTable>
 
-#### Grammar Notes
-- thumma inna 'alayna hisabahum: sequential - after return comes reckoning
-- Inverted inna sentence like verse 25
-- hisab: accounting/judgment of deeds
-- Parallel structure with v.25: return (iyab) then reckoning (hisab)
+<Callout type="rule" title="Sequential thumma and Parallel Inna Structure">
+- thumma inna 'alayna hisabahum: sequential -- after return (iyab, v.25) comes reckoning (hisab, v.26)
+- Inverted inna sentence like verse 25 -- identical grammatical structure creates a powerful parallel
+- hisab: accounting/judgment of deeds -- a more comprehensive term than 'adhab (punishment), encompassing the entire process of divine judgment
+- Parallel structure with v.25: return (iyab) then reckoning (hisab) -- two stages of the afterlife in two parallel sentences
+- thumma (then) indicates sequence with a gap: first they return, THEN they are judged -- two distinct phases
 - Concludes surah with divine sovereignty in judgment
+</Callout>
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** Structurally parallel to v.25: thumma (sequential conjunction) + inna + fronted predicate ('alayna, khabar inna muqaddam) + delayed subject (hisabahum, ism inna mu'akhkhar, accusative). thumma indicates sequence with an interval (unlike fa, which indicates immediate succession): there is a period between return and reckoning.
+
+**Sarf (Morphology):** hisab from root h-s-b on the fi'al pattern is a verbal noun meaning "reckoning, accounting." The same root gives hasaba (to count), muhasib (accountant), and ihtasaba (to expect reward). The comprehensive nature of hisab (total accounting of all deeds) makes it more encompassing than 'adhab (punishment) or thawab (reward).
+
+**Balagha (Rhetoric):** The surah closes with a ring composition: it opened with the ghashiyah (the overwhelming event) and closes with the reality that event represents (return and judgment). The parallel structure of vv.25-26 (both inverted inna sentences) creates a couplet that functions as the surah's final declaration. The shift from ilayna (to Us, v.25) to 'alayna (upon Us, v.26) is remarkable: ila implies direction (they come TO Us) while 'ala implies responsibility (the reckoning is UPON Us, i.e., We guarantee it). Allah first claims their return, then takes responsibility for their judgment -- a statement of absolute divine sovereignty that brings the entire surah full circle.
+
+## Practice Exercises
+
+<ExerciseBox question="Al-Ghashiyah uses both active and passive participles extensively. Classify each of the following participles from the surah as active (ism fa'il) or passive (ism maf'ul), identify its root and pattern, and explain whether it describes a living being's state or a divinely arranged object.">
+
+| Participle | Arabic | Type | Root | Pattern | Describes |
+|------------|--------|------|------|---------|-----------|
+| al-ghashiyah | الْغَاشِيَةِ | Active (ism fa'il) | غ ش ي | fa'ilah | The Day itself -- actively overwhelming |
+| khashi'ah | خَاشِعَةٌ | Active (ism fa'il) | خ ش ع | fa'ilah | Living beings' state -- faces actively humbled |
+| 'amilah | عَامِلَةٌ | Active (ism fa'il) | ع م ل | fa'ilah | Living beings' state -- faces actively working |
+| nasibah | نَاصِبَةٌ | Active (ism fa'il) | ن ص ب | fa'ilah | Living beings' state -- faces actively exhausted |
+| hamiyah | حَامِيَةً | Active (ism fa'il) | ح م ي | fa'ilah | Natural phenomenon -- fire actively intensely hot |
+| aniyah | آنِيَةٍ | Active (ism fa'il) | أ ن ي | fa'ilah | Natural phenomenon -- spring actively boiling |
+| na'imah | نَاعِمَةٌ | Active (ism fa'il) | ن ع م | fa'ilah | Living beings' state -- faces actively delighted |
+| radiyah | رَاضِيَةٌ | Active (ism fa'il) | ر ض ي | fa'ilah | Living beings' state -- faces actively satisfied |
+| 'aliyah | عَالِيَةٍ | Active (ism fa'il) | ع ل و | fa'ilah | Location quality -- garden actively elevated |
+| laghiyah | لَاغِيَةً | Active (ism fa'il) | ل غ و | fa'ilah | Abstract concept -- vain talk (personified as active) |
+| jariyah | جَارِيَةٌ | Active (ism fa'il) | ج ر ي | fa'ilah | Natural phenomenon -- spring actively flowing |
+| marfu'ah | مَرْفُوعَةٌ | **Passive (ism maf'ul)** | ر ف ع | maf'ulah | Divinely arranged object -- couches raised (by Allah) |
+| mawdu'ah | مَوْضُوعَةٌ | **Passive (ism maf'ul)** | و ض ع | maf'ulah | Divinely arranged object -- cups placed (by Allah) |
+| masfufah | مَصْفُوفَةٌ | **Passive (ism maf'ul)** | ص ف ف | maf'ulah | Divinely arranged object -- cushions arranged (by Allah) |
+| mabthuthah | مَبْثُوثَةٌ | **Passive (ism maf'ul)** | ب ث ث | maf'ulah | Divinely arranged object -- carpets spread (by Allah) |
+| mudhakkir | مُذَكِّرٌ | Active (ism fa'il, Form II) | ذ ك ر | mufa''il | Person's role -- Prophet actively reminding |
+| musaytir | مُصَيْطِرٍ | Active (ism fa'il) | س ط ر | mufa'il | Person's role -- controller (negated) |
+
+**Key Pattern:** Active participles (fa'ilah) describe living states and natural phenomena -- things with inherent, ongoing qualities. Passive participles (maf'ulah) describe Paradise furnishings -- objects prepared by divine agency. This grammatical distinction separates the EXPERIENCER (active) from the PREPARED (passive), revealing that in Paradise, inhabitants are actively experiencing bliss while their environment has been passively arranged for them.
+</ExerciseBox>
+
+<ExerciseBox question="Compare the two 'faces' passages: the humbled faces (vv.2-7) and the delighted faces (vv.8-16). For each passage, list every predicate or descriptive clause attached to wujuhun, and analyze how the grammar creates the contrast between punishment and reward.">
+
+**Humbled Faces (vv.2-7):**
+
+| Verse | Description | Grammar | Type |
+|-------|-------------|---------|------|
+| 2 | khashi'atun (humbled) | Active participle, khabar | Internal state |
+| 3 | 'amilatun (working) | Active participle, khabar thani | Activity |
+| 3 | nasibatun (exhausted) | Active participle, khabar thalith | Result of activity |
+| 4 | tasla naran hamiyatan | Verbal clause, active verb | Physical punishment |
+| 5 | tusqa min 'aynin aniyatin | Verbal clause, passive verb | Forced consumption |
+| 6-7 | laysa lahum ta'amun illa min dari'in | Negative existential + exception | Deprivation |
+
+**Delighted Faces (vv.8-16):**
+
+| Verse | Description | Grammar | Type |
+|-------|-------------|---------|------|
+| 8 | na'imatun (delighted) | Active participle, khabar | Internal state |
+| 9 | radiyatun (satisfied) | Active participle, khabar thani | Emotional reward |
+| 10 | fi jannatin 'aliyatin | Prepositional phrase, khabar | Location |
+| 11 | la tasma'u fiha laghiyatan | Verbal clause, negation | Purity of environment |
+| 12 | fiha 'aynun jariyatun | Inverted nominal sentence | Water (flowing) |
+| 13 | fiha sururun marfu'atun | Inverted nominal sentence | Furniture (raised) |
+| 14 | akwabun mawdu'atun | Nominal sentence | Drinks (placed) |
+| 15 | namariqu masfufatun | Nominal sentence | Comfort (arranged) |
+| 16 | zarabiyyu mabthuthatun | Nominal sentence | Luxury (spread) |
+
+**Grammar of Contrast:**
+1. **Length:** Punishment gets 6 verses; reward gets 9 verses -- grace exceeds wrath
+2. **Participle types:** Punishment uses only active participles (victims actively suffering); reward uses active then passive (active bliss + passively prepared luxury)
+3. **Springs:** aniyah (boiling, v.5) vs. jariyah (flowing, v.12) -- identical grammar (active participle modifying 'ayn), opposite meaning
+4. **Effort:** 'amilatun nasibatun (working, exhausted -- futile) vs. li-sa'yiha radiyatun (for effort, satisfied -- rewarded)
+5. **Agency:** Punishment includes passive verbs (tusqa -- forced to drink); reward includes passive participles (objects prepared for comfort)
+</ExerciseBox>
+
+<ExerciseBox question="Verses 17-20 use four parallel passive-voice constructions to present signs in creation. For each verse, (a) identify the passive verb and its active form, (b) explain why passive voice was chosen instead of active, and (c) explain how the specific verb matches its subject uniquely.">
+
+| Verse | Subject | Passive Verb | Active Form | Root |
+|-------|---------|-------------|-------------|------|
+| 17 | al-ibil (camels) | khuliqat (was created) | khalaqa (created) | خ ل ق |
+| 18 | as-sama' (sky) | rufi'at (was raised) | rafa'a (raised) | ر ف ع |
+| 19 | al-jibal (mountains) | nusibat (were erected) | nasaba (erected) | ن ص ب |
+| 20 | al-ard (earth) | sutihat (was spread) | sataha (spread) | س ط ح |
+
+**(a) Passive formation:** Each follows the same morphological transformation: the active fa'ala pattern (fatha-fatha) becomes the passive fu'ila pattern (damma-kasra): khalaqa becomes khuliqat, rafa'a becomes rufi'at, nasaba becomes nusibat, sataha becomes sutihat.
+
+**(b) Why passive voice?**
+- The passive suppresses the agent (fa'il), removing Allah's name from the sentence. This is NOT because Allah is unknown but because the EVIDENCE (the creation) is the focus, not the CREATOR.
+- The listener is meant to OBSERVE the creation and DEDUCE the Creator -- passive voice forces this intellectual engagement.
+- If active voice were used ("Did they not see how Allah created the camels?"), the conclusion would be handed to them. The passive makes them work for it -- matching the surah's theme that the Prophet is a "reminder" (mudhakkir), not a controller (musaytir).
+
+**(c) Verb-subject matching:**
+- **khuliqat (created) + camels:** "Created" is the broadest verb -- appropriate for a living creature whose entire biological design (humps, eyelashes, padded feet, water storage) is a marvel of engineering. No more specific verb captures the totality of the camel's design.
+- **rufi'at (raised) + sky:** "Raised" perfectly describes the sky's defining characteristic -- it is ABOVE, lifted without visible pillars. You cannot say the sky was "erected" (that implies solidity) or "spread" (that implies flatness).
+- **nusibat (erected) + mountains:** "Erected" captures the vertical, solid, planted nature of mountains -- they stand upright like columns driven into the earth. You cannot say mountains were "raised" (they don't float) or "spread" (they are vertical).
+- **sutihat (spread) + earth:** "Spread out" describes the earth's defining characteristic for its inhabitants -- its surface is extended flat for habitation. You cannot say the earth was "raised" or "erected."
+
+Each verb is irreplaceable: swapping any two would produce an inaccurate or absurd description.
+</ExerciseBox>
 
 ## Key Vocabulary
 
+<GrammarTable>
 | Arabic | Root | Pattern | Meaning | Frequency |
 |--------|------|---------|---------|-----------|
 | الْغَاشِيَةِ | غ ش ي | fa'ilah (active participle) | the Overwhelming | rare |
@@ -570,20 +1105,23 @@ difficulty: "advanced"
 | مُصَيْطِرٍ | س ط ر | mufa'il pattern | controller | very rare |
 | إِيَابَهُمْ | أ و ب | if'al (verbal noun) | their return | frequent |
 | حِسَابَهُمْ | ح س ب | fi'al (verbal noun) | their reckoning | very common |
+</GrammarTable>
 
 ## Grammar Summary
 
+<Callout type="note" title="Key Grammar Concepts in This Surah">
 - **Interrogative hal**: Rhetorical question opening (v.1) drawing attention and creating suspense
-- **Nominal descriptive sentences**: Extensive use with multiple predicates describing faces (vv.2-7, 8-16) - wujuhun khashi'atun 'amilatun nasibatun
+- **Nominal descriptive sentences**: Extensive use with multiple predicates describing faces (vv.2-7, 8-16) -- wujuhun khashi'atun 'amilatun nasibatun
 - **Active participles as substantives**: Almost every adjective is an active/passive participle showing continuous state (khashi'ah, 'amilah, nasibah, hamiyah, na'imah, radiyah, etc.)
 - **Inverted nominal sentences**: Predicate before subject for emphasis (vv.12-16: fiha 'aynun jariyah, etc.; vv.25-26: inna ilayna iyabahum)
 - **Passive voice constructions**: Divine agency emphasized (khuliqat, rufi'at, nusibat, sutihat in vv.17-20)
 - **Parallel structures**: Contrasting descriptions of two groups (vv.2-7 vs. 8-16); four creation signs (vv.17-20)
-- **A-fa-la interrogative-negative**: Rhetorical questioning (v.17: a-fa-la yanzurun) - "Then do they not...?"
+- **A-fa-la interrogative-negative**: Rhetorical questioning (v.17: a-fa-la yanzurun) -- "Then do they not...?"
 - **Ellipsis**: Repeated verb omitted in parallel constructions (vv.18-20: wa-ila as-sama'i implied yanzurun)
-- **Restriction particles**: innama (v.21) confining meaning - "only a reminder"
+- **Restriction particles**: innama (v.21) confining meaning -- "only a reminder"
 - **Emphatic negation**: laysa + bi construction (v.22: lasta 'alayhim bi-musaytirin)
 - **Inna with inverted structure**: Verses 25-26 use inna with predicate before subject for rhetorical emphasis
-- **Sequential particles**: thumma (v.26) indicating sequence - first return, then reckoning
-- **Form II intensive verbs**: yu'adhdhib (v.24), dhakkir (v.21) - intensified action
-- **Absolute object (maf'ul mutlaq)**: al-'adhaba al-akbara (v.24) - emphasizing the punishment itself
+- **Sequential particles**: thumma (v.26) indicating sequence -- first return, then reckoning
+- **Form II intensive verbs**: yu'adhdhib (v.24), dhakkir (v.21) -- intensified action
+- **Absolute object (maf'ul mutlaq)**: al-'adhaba al-akbara (v.24) -- emphasizing the punishment itself
+</Callout>

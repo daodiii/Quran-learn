@@ -6,7 +6,7 @@ import ResourceCard from '../../components/cards/ResourceCard.astro';
 import { getCollection } from 'astro:content';
 
 const allResources = await getCollection('resources');
-const sorted = allResources.sort((a, b) => a.data.order - b.data.order);
+const sorted = allResources.sort((a, b) => (a.data.order ?? 0) - (b.data.order ?? 0));
 
 // Map resource types to icons
 const resourceIcons = {
@@ -74,7 +74,7 @@ const resourceIcons = {
           href={`/resources/${resource.id}/`}
           data-testid={`resource-${resource.id}`}
         >
-          <Fragment slot="icon" set:html={resourceIcons[resource.id] || resourceIcons['glossary']} />
+          <Fragment slot="icon" set:html={resourceIcons[resource.id as keyof typeof resourceIcons] || resourceIcons['glossary']} />
         </ResourceCard>
       ))}
     </CardGrid>

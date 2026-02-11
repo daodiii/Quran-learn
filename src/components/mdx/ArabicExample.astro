@@ -58,21 +58,27 @@ const processedArabic = processArabicText(arabic, highlightWords);
 
 <style>
   .arabic-example {
-    background: var(--color-background-secondary);
+    background: var(--color-background-elevated);
     border: 1px solid var(--color-border-primary);
-    border-radius: var(--radius-md);
-    padding-block: var(--spacing-lg);
-    padding-inline: var(--spacing-lg);
-    margin-block: var(--spacing-xl);
+    border-left: 4px solid var(--accent-primary);
+    border-radius: 16px;
+    padding: var(--spacing-xl);
+    margin-block: var(--spacing-2xl);
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-md);
+    gap: var(--spacing-lg);
+    box-shadow: var(--shadow-sm);
+  }
+
+  :global([data-theme="dark"]) .arabic-example {
+    background: var(--bg-elevated);
+    box-shadow: none;
   }
 
   .arabic-text {
     font-family: var(--font-arabic);
-    font-size: 1.5rem;
-    line-height: 2;
+    font-size: 1.75rem;
+    line-height: 2.2;
     letter-spacing: 0;
     color: var(--color-text-primary);
     margin: 0;
@@ -81,28 +87,32 @@ const processedArabic = processArabicText(arabic, highlightWords);
 
   @media (min-width: 640px) {
     .arabic-text {
-      font-size: 1.75rem;
+      font-size: 2.25rem;
     }
   }
 
   .arabic-text :global(mark.grammar-highlight) {
-    background: var(--color-accent-primary-light);
-    color: inherit;
+    background: var(--accent-primary-light);
+    color: var(--accent-primary);
+    border-bottom: 2px solid var(--accent-primary);
     border-radius: var(--radius-sm);
-    padding-inline: 0.125rem;
+    padding-inline: 0.25rem;
   }
 
   .transliteration {
-    font-family: 'SF Mono', 'Monaco', 'Consolas', monospace;
+    font-family: var(--font-sans);
     font-size: 0.9375rem;
     font-style: italic;
-    color: var(--color-text-secondary);
+    color: var(--accent-primary);
     margin: 0;
     text-align: start;
+    opacity: 0.8;
   }
 
   .translation {
-    font-size: 1rem;
+    font-family: var(--font-display);
+    font-size: 1.125rem;
+    font-weight: 500;
     line-height: 1.6;
     color: var(--color-text-primary);
     margin: 0;
@@ -110,10 +120,15 @@ const processedArabic = processArabicText(arabic, highlightWords);
   }
 
   .reference {
-    font-size: 0.875rem;
-    font-style: italic;
-    color: var(--color-text-secondary);
+    font-family: var(--font-display);
+    font-size: 0.8125rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-text-tertiary);
     margin: 0;
     text-align: start;
+    padding-top: var(--spacing-sm);
+    border-top: 1px solid var(--color-border-primary);
   }
 </style>

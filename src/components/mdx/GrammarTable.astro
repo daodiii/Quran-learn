@@ -72,6 +72,10 @@ const hasProps = headers && rows;
     background: var(--color-background-primary);
   }
 
+  :global([data-theme="dark"]) .grammar-table {
+    background: var(--color-background-primary);
+  }
+
   .grammar-table caption {
     padding-block: var(--spacing-md);
     padding-inline: var(--spacing-md);
@@ -81,6 +85,10 @@ const hasProps = headers && rows;
     text-align: start;
     background: var(--color-background-tertiary);
     border-block-end: 1px solid var(--color-border-primary);
+  }
+
+  :global([data-theme="dark"]) .grammar-table caption {
+    background: var(--color-background-tertiary);
   }
 
   .grammar-table th[scope="col"] {
@@ -95,6 +103,10 @@ const hasProps = headers && rows;
     letter-spacing: 0;
   }
 
+  :global([data-theme="dark"]) .grammar-table th[scope="col"] {
+    background: var(--color-background-tertiary);
+  }
+
   .grammar-table th[scope="row"] {
     background: var(--color-background-secondary);
     color: var(--color-text-primary);
@@ -105,6 +117,10 @@ const hasProps = headers && rows;
     text-align: start;
     border-block-end: 1px solid var(--color-border-primary);
     letter-spacing: 0;
+  }
+
+  :global([data-theme="dark"]) .grammar-table th[scope="row"] {
+    background: var(--color-background-secondary);
   }
 
   .grammar-table td {

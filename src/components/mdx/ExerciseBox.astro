@@ -55,9 +55,12 @@ const answerId = `answer-${id}`;
     border-radius: var(--radius-md);
     padding: var(--spacing-lg);
     margin-block: var(--spacing-xl);
-    display: flex;
     flex-direction: column;
     gap: var(--spacing-md);
+  }
+
+  :global([data-theme="dark"]) .exercise-box {
+    background: var(--color-background-secondary);
   }
 
   .exercise-question {

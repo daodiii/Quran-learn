@@ -86,12 +86,20 @@ const rows = Astro.props.rows ?? (persons ? persons.map(p => [p.person, p.arabic
     background: var(--color-background-primary);
   }
 
+  :global([data-theme="dark"]) .verb-conjugation {
+    background: var(--color-background-primary);
+  }
+
   .verb-header {
     background: var(--color-accent-primary-light);
     padding-block: var(--spacing-lg);
     padding-inline: var(--spacing-lg);
     text-align: center;
     border-block-end: 1px solid var(--color-border-primary);
+  }
+
+  :global([data-theme="dark"]) .verb-header {
+    background: var(--color-background-secondary);
   }
 
   .verb-root {
@@ -142,6 +150,10 @@ const rows = Astro.props.rows ?? (persons ? persons.map(p => [p.person, p.arabic
     background: var(--color-background-primary);
   }
 
+  :global([data-theme="dark"]) .verb-table {
+    background: var(--color-background-primary);
+  }
+
   .verb-table th[scope="col"] {
     background: var(--color-background-tertiary);
     color: var(--color-text-primary);
@@ -154,6 +166,10 @@ const rows = Astro.props.rows ?? (persons ? persons.map(p => [p.person, p.arabic
     letter-spacing: 0;
   }
 
+  :global([data-theme="dark"]) .verb-table th[scope="col"] {
+    background: var(--color-background-tertiary);
+  }
+
   .verb-table th[scope="row"] {
     background: var(--color-background-secondary);
     color: var(--color-text-primary);
@@ -164,6 +180,10 @@ const rows = Astro.props.rows ?? (persons ? persons.map(p => [p.person, p.arabic
     text-align: start;
     border-block-end: 1px solid var(--color-border-primary);
     letter-spacing: 0;
+  }
+
+  :global([data-theme="dark"]) .verb-table th[scope="row"] {
+    background: var(--color-background-secondary);
   }
 
   .verb-table td {

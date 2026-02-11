@@ -6,6 +6,11 @@ verseCount: 4
 difficulty: "beginner"
 ---
 
+import ArabicExample from '@components/mdx/ArabicExample.astro';
+import GrammarTable from '@components/mdx/GrammarTable.astro';
+import Callout from '@components/mdx/Callout.astro';
+import ExerciseBox from '@components/mdx/ExerciseBox.astro';
+
 # Al-Ikhlas (The Sincerity)
 
 ## Overview
@@ -15,81 +20,143 @@ difficulty: "beginner"
 - **Theme:** Pure monotheism (tawhid), declaring the absolute oneness and unique nature of Allah, negating any partnership, comparison, or genealogy.
 - **Grammar Focus:** Imperative verbs (قُلْ), nominal sentences (jumlah ismiyyah), negation with لَمْ, active participles, demonstrative pronouns, emphasis with هُوَ
 
+### Structural Overview
+
+<GrammarTable>
+| Verse | Arabic | Sentence Type | Key Grammar | Message |
+|-------|--------|---------------|-------------|---------|
+| 1 | قُلْ هُوَ اللَّهُ أَحَدٌ | Imperative + Nominal | Pronoun debate (ḍamīr al-sha'n), أَحَدٌ vs وَاحِدٌ | Absolute oneness |
+| 2 | اللَّهُ الصَّمَدُ | Nominal (equation) | Both terms definite | Self-sufficiency |
+| 3 | لَمْ يَلِدْ وَلَمْ يُولَدْ | Verbal (negative) | Jussive mood, active/passive contrast | No lineage |
+| 4 | وَلَمْ يَكُن لَّهُ كُفُوًا أَحَدٌ | Verbal (negative) | Kaana, taqdīm (word order inversion) | No equal |
+</GrammarTable>
+
+<Callout type="tip" title="A Third of the Quran in Grammar">
+The Prophet described Al-Ikhlas as "equal to a third of the Quran" in meaning. In just 4 verses and 15 words, it demonstrates nominal sentences, negation with لَمْ, active vs. passive voice, defective verbs (كَانَ), word order inversion (taqdīm), and ring composition — making it one of the most grammar-dense surahs in the entire Quran.
+</Callout>
+
 ## Verse-by-Verse Analysis
 
 ### Verse 1
 
-**Arabic:** قُلْ هُوَ اللَّهُ أَحَدٌ
-
-**Translation:** "Say: He is Allah, [the] One"
+<ArabicExample
+  arabic="قُلْ هُوَ اللَّهُ أَحَدٌ"
+  transliteration="qul huwa llāhu aḥadun"
+  translation="Say: He is Allah, [the] One"
+  reference="Al-Ikhlas 112:1"
+  highlight="أَحَدٌ"
+/>
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | قُلْ | qul | ق و ل | Verb - Form I, imperative, 2nd person masculine singular | Command verb (fi'l amr) - mabni | Say |
 | 2 | هُوَ | huwa | - | Pronoun - detached, 3rd person masculine singular | Subject (mubtada') or pronoun of separation (ḍamīr al-faṣl) - nominative (marfū') | He |
 | 3 | اللَّهُ | Allāhu | - | Proper noun - definite | Subject (mubtada') or predicate (khabar) - nominative (marfū') | Allah |
 | 4 | أَحَدٌ | aḥadun | - | Noun/adjective - masculine singular, indefinite | Predicate (khabar) - nominative (marfū') | One, unique |
+</GrammarTable>
 
-#### Grammar Notes
-- قُلْ is the imperative form commanding the Prophet (and by extension, believers) to proclaim.
-- This can be analyzed as a nominal sentence in two ways:
-  1. هُوَ (subject) + اللَّهُ أَحَدٌ (compound predicate)
-  2. اللَّهُ (subject) + أَحَدٌ (predicate), with هُوَ as pronoun of separation (ḍamīr al-faṣl) for emphasis
-- أَحَدٌ emphasizes absolute, indivisible oneness (different from وَاحِد which can mean "one of many").
-- The entire verse is a declarative statement of pure monotheism.
+<Callout type="rule" title="Two Valid Analyses of هُوَ">
+Classical grammarians debate the function of هُوَ in this verse:
+
+**View 1:** Standard mubtada' (subject), with اللَّهُ أَحَدٌ as compound predicate (multiple predicates).
+
+**View 2:** Ḍamīr al-sha'n (pronoun of affair), where the entire clause اللَّهُ أَحَدٌ functions as khabar. This reading adds rhetorical weight: "The matter is: Allah is One."
+
+Both are grammatically valid. The ḍamīr al-sha'n reading adds emphasis that many scholars prefer given the surah's theological significance.
+</Callout>
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** The clause هُوَ اللَّهُ أَحَدٌ is a nominal sentence embedded within the imperative command قُلْ. All three nouns/pronouns take nominative case (marfū'). Whether هُوَ is mubtada' or ḍamīr al-sha'n, the resulting analysis yields the same meaning: Allah is absolutely One.
+
+**Sarf (Morphology):** The imperative قُلْ demonstrates hollow verb behavior — the root is ق-و-ل, but the middle radical و drops in the imperative, shortening the form to قُلْ. أَحَدٌ is indefinite (tanwin damma), contrasting with the definite اللَّهُ.
+
+**Balagha (Rhetoric):** Why أَحَدٌ (aḥad) instead of وَاحِدٌ (wāḥid)? أَحَدٌ emphasizes absolute uniqueness — unrepeatable singularity in a category of its own. وَاحِدٌ means numerical one ("one of a kind," implying the kind exists). The choice asserts that Allah is not "one god among potential gods" but uniquely ONE with no category of comparison. The indefiniteness serves emphasis — not identifying WHICH one (definite) but asserting the CONCEPT of absolute oneness (indefinite for amplification).
 
 ### Verse 2
 
-**Arabic:** اللَّهُ الصَّمَدُ
-
-**Translation:** "Allah, the Eternal Refuge"
+<ArabicExample
+  arabic="اللَّهُ الصَّمَدُ"
+  transliteration="allāhu ṣ-ṣamadu"
+  translation="Allah, the Eternal Refuge"
+  reference="Al-Ikhlas 112:2"
+  highlight="الصَّمَدُ"
+/>
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | اللَّهُ | Allāhu | - | Proper noun - definite | Subject (mubtada') - nominative (marfū') | Allah |
 | 2 | الصَّمَدُ | al-ṣamadu | ص م د | Noun/adjective - masculine singular, definite | Predicate (khabar) - nominative (marfū') | The Eternal, The Absolute, The Self-Sufficient, The Refuge |
+</GrammarTable>
 
-#### Grammar Notes
-- This is a simple nominal sentence: subject + predicate.
-- الصَّمَدُ is a unique attribute of Allah with rich meanings: the one who is eternal, self-sufficient, upon whom all depend, who needs nothing.
-- The definite article الـ emphasizes the exclusivity of this attribute to Allah alone.
-- The verse continues and amplifies the description begun in verse 1.
+<Callout type="rule" title="Equation Sentence: Both Terms Definite">
+When both the mubtada' and khabar are definite, the result is an equation sentence (jumlah mu'ādilah): "Allah = The Eternal Refuge." This is not description but identification — asserting that Allah IS the Eternal Refuge, not merely that He "has the quality" of being eternal. The definiteness of الصَّمَدُ (with الـ) asserts exclusivity: there is no other ṣamad but Allah.
+</Callout>
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** This is a simple nominal sentence — mubtada' (اللَّهُ) + khabar (الصَّمَدُ), both nominative (marfū') with damma. Both being definite creates an equation rather than a description.
+
+**Sarf (Morphology):** الصَّمَدُ from root ص-م-د on the فَعَل pattern carries meanings of solidity, permanence, and being the ultimate recourse. The pattern فَعَل often indicates intensive qualities. This word appears nowhere else in the Quran, marking Allah's absolute uniqueness in this attribute.
+
+**Balagha (Rhetoric):** The conciseness is striking — a complete theological concept in just two words, each definite, each essential. Both ending in the u-sound (allāhu, aṣ-ṣamadu) creates phonetic unity. After asserting oneness (أَحَدٌ in verse 1), the surah explains the nature of that oneness — not just numerical unity but absolute self-sufficiency and completeness, preparing for the negations in verses 3-4.
 
 ### Verse 3
 
-**Arabic:** لَمْ يَلِدْ وَلَمْ يُولَدْ
-
-**Translation:** "He neither begets nor is born"
+<ArabicExample
+  arabic="لَمْ يَلِدْ وَلَمْ يُولَدْ"
+  transliteration="lam yalid wa-lam yūlad"
+  translation="He neither begets nor is born"
+  reference="Al-Ikhlas 112:3"
+  highlight="لَمْ"
+/>
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | لَمْ | lam | - | Particle - negation and jussive | Negative particle (ḥarf nafy wa-jazm) - mabni | Not, did not |
 | 2 | يَلِدْ | yalid | و ل د | Verb - Form I, present tense, 3rd person masculine singular | Present tense verb in jussive mood (fi'l muḍāri' majzūm) due to لَمْ | He begets |
 | 3 | وَلَمْ | wa-lam | - | Conjunction + particle - negation and jussive | Coordinating conjunction + negative particle - mabni | And not, and did not |
 | 4 | يُولَدْ | yūlad | و ل د | Verb - Form I passive, present tense, 3rd person masculine singular | Present tense passive verb in jussive mood (fi'l muḍāri' majzūm mabni li-l-majhūl) due to لَمْ | He is born |
+</GrammarTable>
 
-#### Grammar Notes
-- لَمْ is the negation particle for present tense that places the verb in the jussive mood (majzūm).
-- يَلِدْ is in the jussive mood, indicated by the sukūn (absence of final vowel).
-- The first verb is active voice: "He does not beget" (negating offspring).
-- يُولَدْ is the passive voice of the same root: "He is not born/begotten" (negating being born).
-- Together they negate both directions of genealogy, affirming Allah's eternal existence independent of origin or progeny.
-- The parallel structure (لَمْ... وَلَمْ) creates balance and emphasis.
+<Callout type="rule" title="لَمْ: Eternal Negation Through Present Form">
+لَمْ uses present-form verbs for past meaning, but the implication is eternal. Unlike مَا وَلَدَ ("He didn't beget at some point"), لَمْ يَلِدْ gives ETERNAL past negation — "He has never and will never beget." The present form with past meaning indicates timeless negation, making this the strongest way to deny lineage.
+</Callout>
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** Two parallel negative verbal sentences joined by وَ. Both verbs take jussive mood (majzūm) due to لَمْ, marked by sukun on the final radical. The parallelism (لَمْ... وَلَمْ...) creates rhythmic balance. The hidden subject (huwa) in both verbs refers to Allah.
+
+**Sarf (Morphology):** Same root و-ل-د used in active voice (يَلِدْ) then passive voice (يُولَدْ). This morphological contrast negates the concept from BOTH directions. The active يَلِدْ follows the يَفْعِل present pattern, while the passive يُولَدْ follows the يُفْعَل pattern — the vowel shift from َ to ُ on the prefix and from ِ to َ on the middle radical marks the voice change.
+
+**Balagha (Rhetoric):** The active-then-passive sequence is deliberate:
+1. **لَمْ يَلِدْ** — He is not a father (active: no offspring from Him)
+2. **لَمْ يُولَدْ** — He is not a son (passive: no parent produced Him)
+
+Together these negate lineage completely — no generation forward, no generation backward. Using the same root in both voices creates maximum contrast with minimum words.
 
 ### Verse 4
 
-**Arabic:** وَلَمْ يَكُن لَّهُ كُفُوًا أَحَدٌ
-
-**Translation:** "And there is none comparable to Him"
+<ArabicExample
+  arabic="وَلَمْ يَكُن لَّهُ كُفُوًا أَحَدٌ"
+  transliteration="wa-lam yakun lahu kufuwan aḥadun"
+  translation="And there is none comparable to Him"
+  reference="Al-Ikhlas 112:4"
+  highlight="كُفُوًا,أَحَدٌ"
+/>
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | وَلَمْ | wa-lam | - | Conjunction + particle - negation and jussive | Coordinating conjunction + negative particle - mabni | And not |
@@ -97,18 +164,74 @@ difficulty: "beginner"
 | 3 | لَّهُ | lahu | - | Preposition + attached pronoun 3rd person masculine singular | Preposition + pronoun acting as predicate (khabar kāna muqaddam) - mabni | For Him, to Him |
 | 4 | كُفُوًا | kufuwan | ك ف و | Noun/adjective - masculine singular, indefinite | Circumstantial description (ḥāl) - accusative (manṣūb) | Equivalent, equal, comparable |
 | 5 | أَحَدٌ | aḥadun | - | Noun/pronoun - indefinite | Subject of kāna (ism kāna mu'akhkhar) - nominative (marfū') | Anyone, none |
+</GrammarTable>
 
-#### Grammar Notes
-- لَمْ negates يَكُن, placing it in the jussive mood.
-- يَكُن is a defective verb (kāna wa-akhawātuhā) that requires a subject (ism kāna) and predicate (khabar kāna).
-- The word order is inverted: predicate (لَّهُ) comes before subject (أَحَدٌ).
-- أَحَدٌ is the subject of كَانَ, so it's in the nominative case despite the negation.
-- لَّهُ is the predicate of كَانَ in the form of a prepositional phrase.
-- كُفُوًا is in the accusative as a ḥāl (circumstantial state), describing the condition ("as an equivalent").
-- The verse completes the negation: no offspring, no origin, and no equal or partner.
+<Callout type="rule" title="Taqdīm: Word Order Inversion for Emphasis">
+The normal word order would be: لَمْ يَكُنْ أَحَدٌ كُفُوًا لَهُ. But the verse inverts this — fronting لَهُ (to Him) before the subject أَحَدٌ. This taqdīm (advancement) serves emphasis: by placing "to HIM" first, the verse establishes exclusive focus on Allah before stating what is negated. The delayed أَحَدٌ creates suspense and finality.
+</Callout>
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** This sentence features كَانَ (in jussive as يَكُن after لَمْ), one of the incomplete/defective verbs. The normal word order is inverted: the predicate لَهُ (khabar kāna) is fronted before the subject أَحَدٌ (ism kāna). أَحَدٌ remains nominative as ism kāna despite being delayed. كُفُوًا is accusative, functioning as ḥāl (circumstantial state).
+
+**Sarf (Morphology):** يَكُن shows hollow verb behavior in jussive — the long vowel ū drops from يَكُونُ to يَكُنْ. The word كُفُوًا from root ك-ف-ء on the فُعُل pattern means "equal, equivalent." Its accusative tanwin (ـوًا) marks it as ḥāl.
+
+**Balagha (Rhetoric):** The word أَحَدٌ appears at the END of both verse 1 and verse 4, creating ring composition (inclusio) that frames the entire surah within the concept of absolute oneness. Everything between these bookends explains and reinforces this truth. The fronting of لَهُ isn't just stylistic — it's theological: by placing "to HIM" first, the verse structure itself mirrors the tawhid message: ALLAH first, then everything else.
+
+## Practice Exercises
+
+<ExerciseBox question="Track the definiteness of every noun across all 4 verses. Which nouns are definite and which are indefinite? What rhetorical purpose does each definiteness choice serve?">
+
+**Verse 1:** قُلْ هُوَ اللَّهُ أَحَدٌ
+- هُوَ: definite (pronoun)
+- اللَّهُ: definite (proper name)
+- أَحَدٌ: **indefinite** (tanwin)
+
+**Verse 2:** اللَّهُ الصَّمَدُ
+- اللَّهُ: definite (proper name)
+- الصَّمَدُ: **definite** (الـ)
+
+**Verse 3:** لَمْ يَلِدْ وَلَمْ يُولَدْ — no nouns (only verbs)
+
+**Verse 4:** وَلَمْ يَكُن لَّهُ كُفُوًا أَحَدٌ
+- لَهُ: definite (pronoun)
+- كُفُوًا: **indefinite** (tanwin)
+- أَحَدٌ: **indefinite** (tanwin)
+
+**Rhetorical purposes:**
+- **Indefinite أَحَدٌ (V1):** Emphasizes the concept of oneness, not the identity of a specific one — absolute uniqueness over numerical counting
+- **Definite الصَّمَدُ (V2):** Creates an equation sentence, asserting exclusivity — only Allah has this attribute
+- **Indefinite كُفُوًا and أَحَدٌ (V4):** Universal negation — "not anyone, not anything" — indefiniteness here means generality and absoluteness
+</ExerciseBox>
+
+<ExerciseBox question="Verse 3 uses the same root (و-ل-د) in two different voices. Identify each verb's voice, explain the morphological difference, and state why the Quran uses both voices here.">
+
+**يَلِدْ (yalid) — Active voice:**
+- Root: و-ل-د
+- Pattern: يَفْعِل (Form I present, jussive)
+- Voice marker: Standard prefix vowel يَ and active internal vowels
+- Meaning: "He begets" — the subject PERFORMS the action of producing offspring
+
+**يُولَدْ (yūlad) — Passive voice:**
+- Root: و-ل-د (same root)
+- Pattern: يُفْعَل (Form I present passive, jussive)
+- Voice marker: Changed prefix vowel يُ and changed internal vowel pattern
+- Meaning: "He is born" — the subject RECEIVES the action of being produced
+
+**Morphological difference:** The voice shift is marked by:
+1. Prefix vowel: يَـ (active) → يُـ (passive)
+2. Internal vowels: يَلِدْ (fatha + kasra) → يُولَدْ (damma + fatha)
+
+**Why both voices:** The verse negates lineage from BOTH directions:
+- Active (لَمْ يَلِدْ): Allah has no offspring — no children, no progeny
+- Passive (لَمْ يُولَدْ): Allah has no parent — no origin, no beginning
+
+Together: no generation forward, no generation backward. This is the most comprehensive possible denial of lineage, achieved through a single morphological transformation of the same root.
+</ExerciseBox>
 
 ## Key Vocabulary
 
+<GrammarTable>
 | Arabic | Root | Pattern | Meaning | Frequency |
 |--------|------|---------|---------|-----------|
 | قُلْ | ق و ل | فُعْل (imperative Form I) | Say | Very common |
@@ -118,20 +241,22 @@ difficulty: "beginner"
 | يَلِد | و ل د | يَفْعِل (present Form I) | Begets, gives birth | Common |
 | يُولَد | و ل د | يُفْعَل (passive present Form I) | Is born, is begotten | Common |
 | كُفُو | ك ف و | فُعُل | Equivalent, equal, comparable | Rare |
+</GrammarTable>
 
 ## Grammar Summary
 
-- **Imperative verb:** قُلْ commands direct speech
+<Callout type="note" title="Key Grammar Concepts in This Surah">
+- **Imperative verb:** قُلْ commands direct speech (hollow verb, و drops)
 - **Nominal sentences (jumlah ismiyyah):** Subject-predicate structures in verses 1, 2, and 4
 - **Pronoun of separation (ḍamīr al-faṣl):** هُوَ emphasizes the identification "He is Allah"
-- **Negation with لَمْ:** Places present tense verbs in jussive mood (majzūm), negating past/present/future
-- **Jussive mood (majzūm):** يَلِدْ، يُولَدْ، يَكُن show sukūn or dropped final نْ
+- **Equation sentence:** Both terms definite in verse 2 (اللَّهُ = الصَّمَدُ)
+- **Negation with لَمْ:** Places present tense verbs in jussive mood (majzūm), expressing eternal negation
+- **Jussive mood (majzūm):** يَلِدْ، يُولَدْ، يَكُن show sukun or dropped long vowel
 - **Active vs. passive voice:** يَلِدْ (active) vs. يُولَدْ (passive) from same root و ل د
-- **Defective verb كَانَ:** Requires nominative subject (أَحَدٌ) and can take various predicate forms (here a prepositional phrase لَّهُ)
-- **Inverted word order:** Predicate before subject (لَّهُ... أَحَدٌ) for emphasis
-- **Ḥāl (circumstantial state):** كُفُوًا in accusative describes the condition
-- **Parallel structure:** Repeated لَمْ creates rhythmic negation pattern
-- **Emphasis through structure:** Short, declarative statements with strategic repetition of أَحَدٌ (verses 1 and 4)
-- **Unique vocabulary:** الصَّمَد appears nowhere else in the Quran, marking Allah's absolute uniqueness
+- **Defective verb كَانَ:** Requires nominative subject (أَحَدٌ) and can take prepositional phrase as predicate (لَّهُ)
+- **Taqdīm (word order inversion):** Predicate before subject (لَّهُ... أَحَدٌ) for emphasis
+- **Ring composition:** أَحَدٌ at end of verses 1 and 4 frames the entire surah
+- **Unique vocabulary:** الصَّمَد appears nowhere else in the Quran
+</Callout>
 
 This concise surah is foundational for Arabic grammar learners, demonstrating negation, nominal sentences, defective verbs, and active/passive voice in a theologically profound context.

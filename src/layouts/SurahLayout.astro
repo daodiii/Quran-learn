@@ -6,7 +6,7 @@ interface Props {
   nameArabic: string;
   surahNumber: number;
   verseCount: number;
-  revelation: string;
+  revelation?: string;
   description?: string;
 }
 
@@ -30,9 +30,11 @@ const { name, nameArabic, surahNumber, verseCount, revelation, description } = A
         <span class="text-sm font-medium px-3 py-1 rounded-full" style="color: var(--text-tertiary); background-color: var(--bg-tertiary);">
           Surah {surahNumber}
         </span>
-        <span class="text-sm font-medium px-3 py-1 rounded-full capitalize" style="color: var(--accent-primary); background-color: var(--accent-primary-light);">
-          {revelation}
-        </span>
+        {revelation && (
+          <span class="text-sm font-medium px-3 py-1 rounded-full capitalize" style="color: var(--accent-primary); background-color: var(--accent-primary-light);">
+            {revelation}
+          </span>
+        )}
         <span class="text-sm font-medium px-3 py-1 rounded-full" style="color: var(--text-tertiary); background-color: var(--bg-tertiary);">
           {verseCount} verses
         </span>
@@ -40,7 +42,7 @@ const { name, nameArabic, surahNumber, verseCount, revelation, description } = A
       <h1 class="text-3xl font-bold" style="color: var(--text-primary);">Surah {name}</h1>
       <p class="arabic-lg mt-2" style="color: var(--accent-gold);">{nameArabic}</p>
       {description && (
-        <p class="mt-4 max-w-2xl mx-auto text-lg" style="color: var(--text-secondary);">{description}</p>
+        <p class="mt-4 mx-auto text-lg" style="color: var(--text-secondary); max-inline-size: 42rem;">{description}</p>
       )}
     </div>
 

@@ -1,5 +1,4 @@
 ---
-import AuthButton from './AuthButton.astro';
 ---
 
 <header
@@ -20,8 +19,16 @@ import AuthButton from './AuthButton.astro';
           <path d="M16 7 L16 25 M11 11 Q16 5 21 11 M11 21 Q16 27 21 21" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
         </svg>
       </div>
-      <span class="logo-text">Quranic Arabic</span>
+      <span class="logo-text">Quranic Grammar</span>
     </a>
+
+    <!-- Desktop Navigation -->
+    <nav class="desktop-nav">
+      <a href="/learn/" class="desktop-nav-link">Learn</a>
+      <a href="/surahs/" class="desktop-nav-link">Surahs</a>
+      <a href="/resources/" class="desktop-nav-link">Resources</a>
+      <a href="/about/" class="desktop-nav-link">About / Feedback</a>
+    </nav>
 
     <!-- Right Section: Navigator Toggle + Auth + Theme + Mobile Menu -->
     <div class="header-actions">
@@ -37,9 +44,6 @@ import AuthButton from './AuthButton.astro';
           <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
         </svg>
       </button>
-
-      <!-- Auth Button -->
-      <AuthButton />
 
       <!-- Theme Toggle -->
       <button
@@ -89,7 +93,7 @@ import AuthButton from './AuthButton.astro';
         <span>Resources</span>
       </a>
       <a href="/about/" class="mobile-nav-item">
-        <span>About</span>
+        <span>About / Feedback</span>
       </a>
     </nav>
   </div>
@@ -100,83 +104,154 @@ import AuthButton from './AuthButton.astro';
     position: sticky;
     top: 0;
     z-index: 50;
-    background-color: var(--bg-primary);
-    border-bottom: 1px solid var(--border-primary);
-    backdrop-filter: blur(12px);
-    transition: background-color var(--transition-base), border-color var(--transition-base), box-shadow var(--transition-base);
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    transition: all var(--transition-base);
+  }
+
+  :global([data-theme="dark"]) .header {
+    background-color: rgba(26, 26, 26, 0.8); /* Using --bg-elevated equivalent color manually or just rely on var if possible, but let's keep it consistent with the glass effect */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   }
 
   .header.scrolled {
-    box-shadow: var(--shadow-md);
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
+    height: 64px;
+  }
+
+  :global([data-theme="dark"]) .header.scrolled {
+    background-color: rgba(26, 26, 26, 0.9);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
   }
 
   .header-container {
     max-width: 80rem;
     margin: 0 auto;
-    padding-inline: 1rem;
+    padding-inline: 1.5rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 56px;
+    height: 72px;
+    transition: height 0.3s ease;
   }
 
-  @media (min-width: 640px) {
-    .header-container {
-      padding-inline: 1.5rem;
-    }
+  .header.scrolled .header-container {
+    height: 64px;
   }
 
   /* Logo */
   .logo-link {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
+    gap: 0.875rem;
     text-decoration: none;
+    group: hover;
   }
 
   .logo-icon {
-    width: 36px;
-    height: 36px;
+    width: 40px;
+    height: 40px;
     color: var(--accent-primary);
-    transition: transform var(--transition-fast);
+    transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
-  .logo-link:hover .logo-icon {
-    transform: scale(1.05);
+  .logo-icon::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--accent-primary);
+    opacity: 0.1;
+    border-radius: 12px;
+    transform: rotate(45deg);
+    transition: all 0.5s ease;
+  }
+
+  .logo-link:hover .logo-icon::before {
+    transform: rotate(90deg);
+    opacity: 0.2;
   }
 
   .logo-icon svg {
-    width: 100%;
-    height: 100%;
+    width: 24px;
+    height: 24px;
+    z-index: 1;
   }
 
   .logo-text {
-    font-size: 1.125rem;
-    font-weight: 700;
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 800;
     color: var(--text-primary);
-    letter-spacing: -0.025em;
+    letter-spacing: -0.02em;
     transition: color var(--transition-fast);
   }
 
-  .logo-link:hover .logo-text {
+  /* Desktop Navigation */
+  .desktop-nav {
+    display: none;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .desktop-nav {
+      display: flex;
+    }
+  }
+
+  .desktop-nav-link {
+    padding: 0.625rem 1.125rem;
+    font-family: var(--font-display);
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    text-decoration: none;
+    border-radius: 12px;
+    transition: all var(--transition-fast);
+  }
+
+  .desktop-nav-link:hover {
     color: var(--accent-primary);
+    background-color: var(--accent-primary-light);
+  }
+
+  :global([data-theme="dark"]) .desktop-nav-link:hover {
+    background-color: rgba(94, 234, 212, 0.12);
+  }
+
+  .desktop-nav-link[aria-current="page"] {
+    color: #ffffff;
+    background-color: var(--accent-primary);
+    box-shadow: 0 4px 12px rgba(13, 71, 73, 0.2);
+  }
+
+  :global([data-theme="dark"]) .desktop-nav-link[aria-current="page"] {
+    color: #042F2E;
+    box-shadow: 0 4px 12px rgba(94, 234, 212, 0.25);
   }
 
   /* Header Actions */
   .header-actions {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 1rem;
   }
 
-  /* Navigator Toggle */
-  .navigator-toggle {
+  /* Buttons Styling Override */
+  .theme-toggle, .navigator-toggle {
     display: flex;
     align-items: center;
     justify-content: center;
-    inline-size: 40px;
-    block-size: 40px;
-    border-radius: var(--radius-lg);
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
     background-color: transparent;
     border: 1px solid var(--border-primary);
     cursor: pointer;
@@ -184,36 +259,16 @@ import AuthButton from './AuthButton.astro';
     color: var(--text-secondary);
   }
 
-  .navigator-toggle:hover {
-    background-color: var(--bg-secondary);
-    color: var(--text-primary);
-    border-color: var(--border-secondary);
+  .theme-toggle:hover, .navigator-toggle:hover {
+    background-color: var(--accent-primary-light);
+    color: var(--accent-primary);
+    border-color: var(--accent-primary);
+    transform: translateY(-2px);
   }
 
-  .navigator-toggle svg {
-    inline-size: 20px;
-    block-size: 20px;
-  }
-
-  /* Theme Toggle */
-  .theme-toggle {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    inline-size: 40px;
-    block-size: 40px;
-    border-radius: var(--radius-lg);
-    background-color: transparent;
-    border: 1px solid var(--border-primary);
-    cursor: pointer;
-    transition: all var(--transition-fast);
-    color: var(--text-secondary);
-  }
-
-  .theme-toggle:hover {
-    background-color: var(--bg-secondary);
-    color: var(--text-primary);
-    border-color: var(--border-secondary);
+  :global([data-theme="dark"]) .theme-toggle:hover,
+  :global([data-theme="dark"]) .navigator-toggle:hover {
+    background-color: rgba(94, 234, 212, 0.12);
   }
 
   .theme-toggle svg {
@@ -229,11 +284,11 @@ import AuthButton from './AuthButton.astro';
     display: none;
   }
 
-  [data-theme="dark"] .sun-icon {
+  :global([data-theme="dark"]) .sun-icon {
     display: none;
   }
 
-  [data-theme="dark"] .moon-icon {
+  :global([data-theme="dark"]) .moon-icon {
     display: block;
   }
 

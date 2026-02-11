@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Container from '../../../components/primitives/Container.astro';
-import Quiz from '../../../components/Quiz.astro';
+import QuizComponent from '../../../components/Quiz.astro';
 
 const questions = [
   {
@@ -84,7 +84,7 @@ const questions = [
 
 <BaseLayout title="Level 1 Quiz - Foundation">
   <Container maxWidth="lg">
-    <Quiz
+    <QuizComponent
       title="Level 1 Quiz: Foundation"
       questions={questions}
       passingScore={70}

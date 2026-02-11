@@ -1,0 +1,25 @@
+---
+import { getCollection, render } from 'astro:content';
+import SurahLayout from '../../layouts/SurahLayout.astro';
+
+export async function getStaticPaths() {
+  const surahs = await getCollection('surahs');
+
+  return surahs.map((surah) => ({
+    params: { slug: surah.id },
+    props: { surah },
+  }));
+}
+
+const { surah } = Astro.props;
+const { Content } = await render(surah);
+---
+
+<SurahLayout
+  name={surah.data.name}
+  nameArabic={surah.data.nameArabic}
+  surahNumber={surah.data.surahNumber}
+  verseCount={surah.data.verseCount}
+>
+  <Content />
+</SurahLayout>

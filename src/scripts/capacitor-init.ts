@@ -1,4 +1,6 @@
 import { SplashScreen } from '@capacitor/splash-screen';
+import { StatusBar, Style } from '@capacitor/status-bar';
+import { App } from '@capacitor/app';
 import { Capacitor } from '@capacitor/core';
 
 /**
@@ -6,7 +8,7 @@ import { Capacitor } from '@capacitor/core';
  * Controls splash screen visibility during critical initialization:
  * 1. Keeps splash screen visible during font loading and theme setup
  * 2. Hides splash screen when app is ready for interaction
- * Target: < 2 seconds from tap to interactive on iOS
+ * 3. Handles native platform events (back button, status bar)
  */
 export async function initCapacitor(): Promise<void> {
   // Only run on native platforms (iOS/Android)
@@ -20,26 +22,58 @@ export async function initCapacitor(): Promise<void> {
       autoHide: false,
     });
 
-    // Critical initialization tasks:
-    // 1. Theme preference from localStorage
-    const theme = localStorage.getItem('theme') || 'light';
-    document.documentElement.setAttribute('data-theme', theme);
+    // Handle Android back button
+    App.addListener('backButton', ({ canGoBack }) => {
+      if (canGoBack) {
+        window.history.back();
+      } else {
+        App.exitApp();
+      }
+    });
 
-    // 2. Wait for critical fonts to be ready
-    // (font-display: swap shows fallback immediately, this waits for final fonts)
+    // Initial theme setup
+    const theme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    await updateStatusBar(theme);
+
+    // Watch for theme changes to update status bar
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.attributeName === 'data-theme') {
+          const newTheme = document.documentElement.getAttribute('data-theme') || 'light';
+          updateStatusBar(newTheme);
+        }
+      });
+    });
+
+    observer.observe(document.documentElement, { attributes: true });
+
+    // Wait for critical fonts to be ready
     await document.fonts.ready;
 
-    // 3. Hide splash screen with smooth fade
+    // Hide splash screen with smooth fade
     await SplashScreen.hide({
       fadeOutDuration: 300,
     });
   } catch (error) {
     console.error('Capacitor initialization error:', error);
-    // Always hide splash screen on error to prevent user stuck on splash
-    try {
-      await SplashScreen.hide();
-    } catch {
-      // If hide also fails, nothing more we can do
+    await SplashScreen.hide();
+  }
+}
+
+async function updateStatusBar(theme: string) {
+  try {
+    if (theme === 'dark') {
+      await StatusBar.setStyle({ style: Style.Dark });
+      if (Capacitor.getPlatform() === 'android') {
+        await StatusBar.setBackgroundColor({ color: '#000000' });
+      }
+    } else {
+      await StatusBar.setStyle({ style: Style.Light });
+      if (Capacitor.getPlatform() === 'android') {
+        await StatusBar.setBackgroundColor({ color: '#0D4749' });
+      }
     }
+  } catch (e) {
+    console.warn('StatusBar update failed', e);
   }
 }

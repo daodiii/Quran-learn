@@ -55,6 +55,13 @@ const totalQuestions = questions.length;
   </div>
 </div>
 
+<!-- Pass server data to client script via JSON -->
+<script
+  id="quiz-data"
+  type="application/json"
+  set:html={JSON.stringify({ questions, totalQuestions, passingScore, level })}
+/>
+
 <style>
   .quiz-container {
     inline-size: 100%;
@@ -339,8 +346,12 @@ const totalQuestions = questions.length;
   }
 </style>
 
-<script define:vars={{ questions, totalQuestions, passingScore, level }}>
+<script>
   import { announceProgress } from '../scripts/progress-announcer';
+
+  // Read server data from JSON script element
+  const quizDataEl = document.getElementById('quiz-data');
+  const { questions, totalQuestions, passingScore, level } = JSON.parse(quizDataEl?.textContent || '{}');
 
   // Quiz state
   let currentQuestionIndex = 0;

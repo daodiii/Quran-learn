@@ -33,7 +33,7 @@ const cardClass = `card card-${variant} card-padding-${padding} ${clickable || h
     color: inherit;
 
     /* Design tokens */
-    background-color: var(--color-background-primary);
+    background-color: var(--color-background-elevated);
     border-radius: var(--radius-lg);
     transition: all 200ms ease;
   }
@@ -44,12 +44,17 @@ const cardClass = `card card-${variant} card-padding-${padding} ${clickable || h
   }
 
   .card-elevated {
-    border: 1px solid transparent;
-    box-shadow: var(--shadow-soft);
+    border: 1px solid rgba(0, 0, 0, 0.03);
+    box-shadow: var(--shadow-sm);
+  }
+
+  :global([data-theme="dark"]) .card-elevated {
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
   }
 
   .card-outlined {
-    border: 2px solid var(--color-border-primary);
+    border: 1px solid var(--color-border-primary);
   }
 
   /* Padding variants using logical properties */
@@ -58,18 +63,15 @@ const cardClass = `card card-${variant} card-padding-${padding} ${clickable || h
   }
 
   .card-padding-sm {
-    padding-inline: var(--spacing-md);
-    padding-block: var(--spacing-sm);
+    padding: var(--spacing-md);
   }
 
   .card-padding-md {
-    padding-inline: var(--spacing-lg);
-    padding-block: var(--spacing-md);
+    padding: var(--spacing-xl);
   }
 
   .card-padding-lg {
-    padding-inline: var(--spacing-xl);
-    padding-block: var(--spacing-lg);
+    padding: var(--spacing-2xl);
   }
 
   /* Clickable state */
@@ -78,9 +80,9 @@ const cardClass = `card card-${variant} card-padding-${padding} ${clickable || h
   }
 
   .card-clickable:hover {
-    border-color: var(--color-border-secondary);
-    box-shadow: var(--shadow-medium);
-    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-4px);
+    border-color: var(--accent-primary);
   }
 
   .card-clickable:focus-visible {

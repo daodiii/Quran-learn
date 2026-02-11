@@ -1,0 +1,114 @@
+---
+import BaseLayout from './BaseLayout.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<BaseLayout title={title}>
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <!-- Breadcrumb -->
+    <nav class="text-sm mb-6" style="color: var(--text-tertiary);">
+      <a href="/" style="color: var(--text-tertiary); transition: color var(--transition-fast);" onmouseenter="this.style.color='var(--accent-primary)'" onmouseleave="this.style.color='var(--text-tertiary)'">Home</a>
+      <span class="mx-2">/</span>
+      <a href="/resources/" style="color: var(--text-tertiary); transition: color var(--transition-fast);" onmouseenter="this.style.color='var(--accent-primary)'" onmouseleave="this.style.color='var(--text-tertiary)'">Resources</a>
+      <span class="mx-2">/</span>
+      <span style="color: var(--text-primary);">{title}</span>
+    </nav>
+
+    <!-- Resource Header -->
+    <div class="text-center mb-10">
+      <h1 class="text-3xl font-bold" style="color: var(--text-primary);">{title}</h1>
+      {description && (
+        <p class="mt-4 mx-auto text-lg" style="color: var(--text-secondary); max-inline-size: 42rem;">{description}</p>
+      )}
+    </div>
+
+    <!-- Content -->
+    <div class="prose prose-lg max-w-none resource-content">
+      <slot />
+    </div>
+
+    <!-- Back to Resources -->
+    <div class="mt-12 pt-8 text-center" style="border-top: 1px solid var(--border-primary);">
+      <a href="/resources/" class="inline-flex items-center gap-2 font-medium" style="color: var(--accent-primary); transition: color var(--transition-fast);" onmouseenter="this.style.color='var(--accent-primary-hover)'" onmouseleave="this.style.color='var(--accent-primary)'">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+        </svg>
+        Back to All Resources
+      </a>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .resource-content :global(h1),
+  .resource-content :global(h2),
+  .resource-content :global(h3),
+  .resource-content :global(h4),
+  .resource-content :global(h5),
+  .resource-content :global(h6) {
+    color: var(--text-primary);
+    font-weight: bold;
+  }
+
+  .resource-content :global(h2) {
+    font-size: 1.5rem;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border-primary);
+  }
+
+  .resource-content :global(h3) {
+    font-size: 1.25rem;
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .resource-content :global(p) {
+    color: var(--text-secondary);
+    line-height: 1.75;
+  }
+
+  .resource-content :global(a) {
+    color: var(--accent-primary);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+  }
+
+  .resource-content :global(a:hover) {
+    color: var(--accent-primary-hover);
+  }
+
+  .resource-content :global(strong) {
+    color: var(--text-primary);
+  }
+
+  .resource-content :global(table) {
+    width: 100%;
+    border-collapse: collapse;
+    margin-block: 1.5rem;
+  }
+
+  .resource-content :global(th),
+  .resource-content :global(td) {
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--border-primary);
+    text-align: left;
+  }
+
+  .resource-content :global(th) {
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+    font-weight: 600;
+  }
+
+  .resource-content :global(td) {
+    color: var(--text-secondary);
+  }
+</style>

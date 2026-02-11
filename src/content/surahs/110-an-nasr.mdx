@@ -6,6 +6,11 @@ verseCount: 3
 difficulty: "beginner"
 ---
 
+import ArabicExample from '@components/mdx/ArabicExample.astro';
+import GrammarTable from '@components/mdx/GrammarTable.astro';
+import Callout from '@components/mdx/Callout.astro';
+import ExerciseBox from '@components/mdx/ExerciseBox.astro';
+
 # An-Nasr (The Help)
 
 ## Overview
@@ -15,16 +20,35 @@ difficulty: "beginner"
 - **Theme:** Victory and divine help, announcing the conquest of Mecca and the coming of people into Islam in multitudes, with an instruction to glorify Allah and seek forgiveness.
 - **Grammar Focus:** Conditional particles (إِذَا), past tense verbs, conjunction فَ (fa), imperative verbs, verbal nouns (masdar), noun-adjective agreement
 
+### Structural Overview
+
+<GrammarTable>
+| Verse | Arabic | Sentence Type | Key Grammar | Message |
+|-------|--------|---------------|-------------|---------|
+| 1 | إِذَا جَاءَ نَصْرُ اللَّهِ وَالْفَتْحُ | Conditional (protasis) | إِذَا + past tense with future meaning | Victory is coming |
+| 2 | وَرَأَيْتَ النَّاسَ يَدْخُلُونَ... | Conditional (continued) | Ḥāl clause + ḥāl noun | People entering in multitudes |
+| 3 | فَسَبِّحْ بِحَمْدِ رَبِّكَ... | Imperative (apodosis) | فَ consequential + Forms II and X | Glorify and seek forgiveness |
+</GrammarTable>
+
+<Callout type="tip" title="A Showcase of Verb Forms">
+An-Nasr is exceptional for demonstrating three different verb forms in its commands: Form I (جَاءَ — basic), Form II (سَبِّحْ — intensive glorification), and Form X (اسْتَغْفِرْ — seeking forgiveness). It also demonstrates how إِذَا makes past tense verbs refer to the future, a feature that confuses many learners. Three verses, three verb forms, one complete lesson.
+</Callout>
+
 ## Verse-by-Verse Analysis
 
 ### Verse 1
 
-**Arabic:** إِذَا جَاءَ نَصْرُ اللَّهِ وَالْفَتْحُ
-
-**Translation:** "When the help of Allah and the victory come"
+<ArabicExample
+  arabic="إِذَا جَاءَ نَصْرُ اللَّهِ وَالْفَتْحُ"
+  transliteration="idhā jā'a naṣru llāhi wa-l-fatḥu"
+  translation="When the help of Allah and the victory come"
+  reference="An-Nasr 110:1"
+  highlight="إِذَا"
+/>
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | إِذَا | idhā | - | Particle - conditional/temporal | Conditional particle for the future (ḍarf li-l-mustaqbal) - mabni | When |
@@ -32,68 +56,143 @@ difficulty: "beginner"
 | 3 | نَصْرُ | naṣru | ن ص ر | Noun - masculine singular, construct state (muḍāf) | Subject (fa'il) - nominative (marfu') | Help, victory, support |
 | 4 | اللَّهِ | Allāhi | - | Proper noun - genitive, definite | Second part of construct (muḍāf ilayhi) - genitive (majrur) | Allah |
 | 5 | وَالْفَتْحُ | wa-l-fatḥu | ف ت ح | Conjunction + noun - masculine singular, definite | Coordinating conjunction + subject (fa'il ma'ṭūf) - nominative (marfu') | And the victory, the conquest |
+</GrammarTable>
 
-#### Grammar Notes
-- إِذَا is a conditional particle for future events that are expected to occur.
-- Although جَاءَ is past tense in form, when used after إِذَا it refers to a future event.
-- نَصْرُ اللَّهِ forms an iḍāfah (possessive/genitive construction) meaning "the help of Allah."
-- وَالْفَتْحُ is coordinated with نَصْرُ as a second subject of the verb جَاءَ.
-- This verse is the conditional clause (protasis); the response comes in verse 2.
+<Callout type="rule" title="إِذَا: Past Tense with Future Meaning">
+إِذَا is a conditional particle for future events that are expected to occur. Although جَاءَ is past tense in form, after إِذَا it refers to a future event. This is a critical Arabic grammar rule: conditional particles like إِذَا and إِنْ can shift the temporal reference of past tense verbs to the future.
+</Callout>
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** This is a conditional clause (jumlat al-shart / protasis). إِذَا governs the past tense verb جَاءَ, shifting it to future meaning. نَصْرُ اللَّهِ is an iḍāfah construction (possessive), where نَصْرُ is the muḍāf (nominative, unmarked because it's in construct state) and اللَّهِ is the muḍāf ilayhi (genitive). وَالْفَتْحُ is coordinated with نَصْرُ as a second subject of جَاءَ — both in the nominative case.
+
+**Sarf (Morphology):** جَاءَ is a Form I hollow verb from root ج-ي-ء. نَصْرُ from root ن-ص-ر on the فَعْل pattern is a masdar (verbal noun) meaning "help/victory." الْفَتْحُ from root ف-ت-ح on the فَعْل pattern is also a masdar meaning "opening/conquest." Both are masculine singular nouns.
+
+**Balagha (Rhetoric):** The use of إِذَا (when) rather than إِنْ (if) indicates certainty — this victory is not hypothetical but inevitable. The iḍāfah نَصْرُ اللَّهِ attributes the victory directly to Allah, not to human effort. Pairing نَصْر (help) with الْفَتْح (conquest) creates a comprehensive picture: divine assistance leading to tangible victory. The verse serves as the protasis of a conditional whose resolution comes in verse 3.
 
 ### Verse 2
 
-**Arabic:** وَرَأَيْتَ النَّاسَ يَدْخُلُونَ فِي دِينِ اللَّهِ أَفْوَاجًا
-
-**Translation:** "And you see the people entering into the religion of Allah in multitudes"
+<ArabicExample
+  arabic="وَرَأَيْتَ النَّاسَ يَدْخُلُونَ فِي دِينِ اللَّهِ أَفْوَاجًا"
+  transliteration="wa-ra'ayta n-nāsa yadkhulūna fī dīni llāhi afwājan"
+  translation="And you see the people entering into the religion of Allah in multitudes"
+  reference="An-Nasr 110:2"
+  highlight="أَفْوَاجًا"
+/>
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
-| 1 | وَرَأَيْتَ | wa-ra'ayta | ر أ ي | Conjunction + verb - Form I, past tense, 2nd person masculine singular + attached pronoun | Coordinating conjunction + past tense verb (fi'l māḍī) - mabni | And you saw / you see |
+| 1 | وَرَأَيْتَ | wa-ra'ayta | ر أ ي | Conjunction + verb - Form I, past tense, 2nd person masculine singular | Coordinating conjunction + past tense verb (fi'l māḍī) - mabni | And you saw / you see |
 | 2 | النَّاسَ | al-nāsa | ن و س | Noun - masculine plural, definite | Object (maf'ūl bihi) - accusative (manṣūb) | The people |
-| 3 | يَدْخُلُونَ | yadkhulūn | د خ ل | Verb - Form I, present tense, 3rd person masculine plural | Present tense verb (fi'l muḍāri') - indicative (marfū'), functioning as ḥāl (circumstantial clause) | They enter / entering |
+| 3 | يَدْخُلُونَ | yadkhulūna | د خ ل | Verb - Form I, present tense, 3rd person masculine plural | Present tense verb (fi'l muḍāri') - indicative (marfū'), functioning as ḥāl (circumstantial clause) | They enter / entering |
 | 4 | فِي | fī | - | Particle - preposition | Preposition (ḥarf jarr) - mabni | In, into |
 | 5 | دِينِ | dīni | د ي ن | Noun - masculine singular, construct state (muḍāf) | Object of preposition (majrūr bi-l-ḥarf) - genitive (majrūr) | Religion |
 | 6 | اللَّهِ | Allāhi | - | Proper noun - genitive, definite | Second part of construct (muḍāf ilayhi) - genitive (majrūr) | Allah |
 | 7 | أَفْوَاجًا | afwājan | ف و ج | Noun - masculine plural, indefinite | Circumstantial description (ḥāl) - accusative (manṣūb) | In multitudes, in groups |
+</GrammarTable>
 
-#### Grammar Notes
-- وَرَأَيْتَ is the main clause (jawāb al-sharṭ) responding to the conditional in verse 1.
-- Past tense رَأَيْتَ also refers to future events when following إِذَا.
-- يَدْخُلُونَ is a present tense verb functioning as a ḥāl (circumstantial clause) describing the state of النَّاسَ.
-- دِينِ اللَّهِ is another iḍāfah construction.
-- أَفْوَاجًا is in the accusative as a ḥāl, describing the manner of entry (in groups/multitudes).
+<Callout type="tip" title="Double Ḥāl: Two Layers of Circumstance">
+This verse contains TWO ḥāl (circumstantial) constructions simultaneously: يَدْخُلُونَ is a sentential ḥāl describing the state of النَّاسَ ("you see the people [while they are] entering"), and أَفْوَاجًا is a single-word ḥāl describing the manner of their entry ("entering [as] multitudes"). Both are in the accusative, but one is a verbal sentence and the other a simple noun.
+</Callout>
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** وَرَأَيْتَ continues the conditional clause from verse 1 — all still governed by إِذَا. The past tense رَأَيْتَ also carries future meaning. النَّاسَ is the direct object (maf'ūl bihi) of رَأَيْتَ in the accusative. يَدْخُلُونَ functions as a ḥāl clause describing the state of the people. دِينِ اللَّهِ is another iḍāfah. أَفْوَاجًا is a second ḥāl in the accusative describing the manner.
+
+**Sarf (Morphology):** رَأَيْتَ is Form I from root ر-أ-ي with the 2nd person masculine singular past tense suffix ـتَ. يَدْخُلُونَ is Form I present tense with the masculine plural suffix ـونَ indicating indicative mood (marfū'). أَفْوَاجًا is the broken plural of فَوْج on the أَفْعَال pattern, a common broken plural pattern.
+
+**Balagha (Rhetoric):** The shift from singular "you see" (addressing the Prophet) to plural "they enter" paints a vivid scene: one observer watching masses flow in. The word أَفْوَاجًا (multitudes, waves) is deliberately indefinite — the numbers are so vast they cannot be defined or counted. The present tense يَدْخُلُونَ within a past tense conditional creates a sense of ongoing, continuous action — not a single event but a sustained flow of people entering Islam.
 
 ### Verse 3
 
-**Arabic:** فَسَبِّحْ بِحَمْدِ رَبِّكَ وَاسْتَغْفِرْهُ ۚ إِنَّهُ كَانَ تَوَّابًا
-
-**Translation:** "Then glorify the praise of your Lord and seek His forgiveness, indeed He is the Acceptor of Repentance"
+<ArabicExample
+  arabic="فَسَبِّحْ بِحَمْدِ رَبِّكَ وَاسْتَغْفِرْهُ ۚ إِنَّهُ كَانَ تَوَّابًا"
+  transliteration="fa-sabbiḥ bi-ḥamdi rabbika wa-staghfirhu innahu kāna tawwāban"
+  translation="Then glorify the praise of your Lord and seek His forgiveness, indeed He is the Acceptor of Repentance"
+  reference="An-Nasr 110:3"
+  highlight="فَسَبِّحْ,وَاسْتَغْفِرْهُ"
+/>
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | فَسَبِّحْ | fa-sabbiḥ | س ب ح | Particle + verb - Form II, imperative, 2nd person masculine singular | Consequential particle + command verb (fi'l amr) - mabni | Then glorify |
 | 2 | بِحَمْدِ | bi-ḥamdi | ح م د | Preposition + noun - masculine singular, construct state (muḍāf) | Preposition + noun (majrūr bi-l-ḥarf) - genitive (majrūr) | With the praise |
 | 3 | رَبِّكَ | rabbika | ر ب ب | Noun - masculine singular + attached pronoun 2nd person singular | Second part of construct (muḍāf ilayhi) - genitive (majrūr) | Your Lord |
-| 4 | وَاسْتَغْفِرْهُ | wa-staghfirhu | غ ف ر | Conjunction + verb - Form X, imperative, 2nd person masculine singular + attached pronoun 3rd person masculine singular | Coordinating conjunction + command verb (fi'l amr) - mabni + object pronoun | And seek His forgiveness |
-| 5 | إِنَّهُ | innahu | - | Particle + attached pronoun 3rd person masculine singular | Emphasis particle (ḥarf tawkīd wa-naṣb) + pronoun as noun (ism inna) - accusative (manṣūb) | Indeed He |
-| 6 | كَانَ | kāna | ك و ن | Verb - Form I, past tense, 3rd person masculine singular (defective verb) | Defective past tense verb (kāna wa-akhawātuhā) - mabni, raises subject to nominative | Was / is |
-| 7 | تَوَّابًا | tawwāban | ت و ب | Noun - masculine singular, indefinite, intensive active participle (Form II) | Predicate of kāna (khabar kāna) - accusative (manṣūb) | The Acceptor of Repentance, Ever-Returning |
+| 4 | وَاسْتَغْفِرْهُ | wa-staghfirhu | غ ف ر | Conjunction + verb - Form X, imperative, 2nd person masculine singular + attached pronoun | Coordinating conjunction + command verb (fi'l amr) - mabni + object pronoun | And seek His forgiveness |
+| 5 | إِنَّهُ | innahu | - | Particle + attached pronoun 3rd person masculine singular | Emphasis particle (ḥarf tawkīd) + pronoun as noun (ism inna) - accusative (manṣūb) | Indeed He |
+| 6 | كَانَ | kāna | ك و ن | Verb - Form I, past tense, 3rd person masculine singular (defective verb) | Defective past tense verb (kāna wa-akhawātuhā) - mabni | Was / is |
+| 7 | تَوَّابًا | tawwāban | ت و ب | Noun - masculine singular, indefinite, intensive active participle (Form II) | Predicate of kāna (khabar kāna) - accusative (manṣūb) | The Acceptor of Repentance |
+</GrammarTable>
 
-#### Grammar Notes
-- فَ (fa) is a consequential conjunction meaning "then/so" indicating the result of the conditional.
-- سَبِّحْ is Form II (intensive/causative), intensifying the basic meaning of glorification.
-- بِحَمْدِ رَبِّكَ means "with/by the praise of your Lord" - the preposition بِ indicates accompaniment.
-- اسْتَغْفِرْهُ is Form X (seeking/requesting action), meaning "seek forgiveness from Him."
-- إِنَّ governs the pronoun, placing it in the accusative case as its subject.
-- كَانَ is a defective verb that requires a subject (ism kāna, here the pronoun in إِنَّهُ) and predicate (khabar kāna).
-- تَوَّابًا is a Form II active participle in an intensive pattern, emphasizing Allah's attribute of accepting repentance abundantly.
+<Callout type="rule" title="Form X: Seeking Action (اسْتَغْفِرْ)">
+اسْتَغْفِرْ is a Form X verb (اِسْتَفْعَلَ pattern) from root غ-ف-ر (forgiveness). Form X typically means "to seek/request" the action of the base root. So while غَفَرَ means "to forgive," اسْتَغْفَرَ means "to seek forgiveness." This pattern is extremely productive in Arabic — recognizing it unlocks the meaning of many words.
+</Callout>
+
+<Callout type="tip" title="The Intensive Pattern: تَوَّاب">
+تَوَّابًا follows the فَعَّال intensive active participle pattern. While a basic تَائِب (tā'ib) means "one who accepts repentance," the intensive تَوَّاب emphasizes that Allah accepts repentance repeatedly, abundantly, and eagerly. The pattern itself carries theological weight.
+</Callout>
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** فَ marks the apodosis (jawāb al-shart) — the response to the conditional in verses 1-2. Two imperative verbs are coordinated: سَبِّحْ (Form II) and اسْتَغْفِرْهُ (Form X). The phrase بِحَمْدِ رَبِّكَ is a nested iḍāfah: بِ + حَمْدِ (muḍāf) + رَبِّ (muḍāf ilayhi, itself muḍāf to) + كَ (muḍāf ilayhi). إِنَّهُ كَانَ تَوَّابًا is a supporting clause: إِنَّ governs the pronoun هُ (accusative), and كَانَ takes تَوَّابًا as its khabar (accusative).
+
+**Sarf (Morphology):** Three verb forms appear: سَبِّحْ (Form II — intensive, from root س-ب-ح), اسْتَغْفِرْ (Form X — seeking, from root غ-ف-ر), and كَانَ (Form I hollow verb, from root ك-و-ن). تَوَّابًا follows the فَعَّال intensive pattern from root ت-و-ب, emphasizing abundant and repeated action.
+
+**Balagha (Rhetoric):** The juxtaposition of glorification (سَبِّحْ) with seeking forgiveness (اسْتَغْفِرْ) at the moment of victory is profoundly counter-intuitive. Victory usually brings celebration, but the Quran commands humility. The intensive تَوَّابًا (not just "forgiving" but "ever-accepting of repentance") reassures: seeking forgiveness will always be answered. The nested iḍāfah بِحَمْدِ رَبِّكَ chains three elements — praise, lordship, personal relationship — in one compact phrase.
+
+## Practice Exercises
+
+<ExerciseBox question="Identify all iḍāfah (construct/possessive) constructions in this surah. For each, state the muḍāf (first term) and muḍāf ilayhi (second term), and give the case of each.">
+
+**1. نَصْرُ اللَّهِ (Verse 1)**
+- Muḍāf: نَصْرُ — nominative (as fa'il of جَاءَ), but loses tanwin due to construct state
+- Muḍāf ilayhi: اللَّهِ — genitive (always in iḍāfah)
+- Meaning: "the help of Allah"
+
+**2. دِينِ اللَّهِ (Verse 2)**
+- Muḍāf: دِينِ — genitive (governed by preposition فِي), no tanwin
+- Muḍāf ilayhi: اللَّهِ — genitive
+- Meaning: "the religion of Allah"
+
+**3. بِحَمْدِ رَبِّكَ (Verse 3)** — nested iḍāfah
+- First iḍāfah: حَمْدِ (muḍāf, genitive via بِ) + رَبِّ (muḍāf ilayhi, genitive)
+- Second iḍāfah: رَبِّ (muḍāf) + كَ (muḍāf ilayhi, genitive pronoun)
+- Meaning: "the praise of your Lord"
+
+**Key rule:** The muḍāf always drops its tanwin and definite article. The muḍāf ilayhi is always genitive. The case of the muḍāf is determined by its role in the sentence (subject, object, etc.), not by the iḍāfah itself.
+</ExerciseBox>
+
+<ExerciseBox question="This surah uses three different verb forms for commands/actions: Form I (جَاءَ), Form II (سَبِّحْ), and Form X (اسْتَغْفِرْ). Explain what each form adds to the base root meaning.">
+
+**Form I — جَاءَ (root: ج-ي-ء)**
+- **Meaning:** "to come" — the basic, unaugmented meaning
+- **Function:** Expresses the simple action without additional nuance
+- Form I is the foundation; all other forms build on it
+
+**Form II — سَبِّحْ (root: س-ب-ح)**
+- **Base meaning:** سَبَحَ = "to swim, to float"
+- **Form II meaning:** سَبَّحَ = "to glorify, to declare God's perfection"
+- **What Form II adds:** Intensification and causation. The doubled middle letter (بّ) intensifies the action — not just acknowledging God's perfection but actively, repeatedly, emphatically declaring it
+- **Pattern:** فَعَّلَ (doubled middle radical)
+
+**Form X — اسْتَغْفَرَ (root: غ-ف-ر)**
+- **Base meaning:** غَفَرَ = "to forgive, to cover"
+- **Form X meaning:** اسْتَغْفَرَ = "to seek forgiveness"
+- **What Form X adds:** The meaning of "seeking/requesting" the base action. Form X transforms the action from performing it to requesting it from someone else
+- **Pattern:** اسْتَفْعَلَ (prefix اسْتَ)
+
+**Insight:** The progression from Form I (basic action) to Form II (intensified action) to Form X (seeking action) shows how Arabic morphology builds complex meanings systematically from simple roots.
+</ExerciseBox>
 
 ## Key Vocabulary
 
+<GrammarTable>
 | Arabic | Root | Pattern | Meaning | Frequency |
 |--------|------|---------|---------|-----------|
 | نَصْر | ن ص ر | فَعْل | Help, victory, support | Very common |
@@ -108,18 +207,18 @@ difficulty: "beginner"
 | رَبّ | ر ب ب | فَعْل | Lord, sustainer | Very common |
 | اسْتَغْفِرْ | غ ف ر | اِسْتَفْعِلْ (imperative Form X) | Seek forgiveness | Very common |
 | تَوَّاب | ت و ب | فَعَّال (intensive Form II active participle) | Acceptor of Repentance | Common |
+</GrammarTable>
 
 ## Grammar Summary
 
+<Callout type="note" title="Key Grammar Concepts in This Surah">
 - **Conditional construction with إِذَا:** Introduces future events with certainty, governing past tense verbs with future meaning
 - **Past tense with future meaning:** After conditional particles, past tense indicates expected future events
 - **Iḍāfah (construct state):** نَصْرُ اللَّهِ, دِينِ اللَّهِ, بِحَمْدِ رَبِّكَ (possessive constructions)
 - **Ḥāl (circumstantial clause):** يَدْخُلُونَ describes the state of the people; أَفْوَاجًا describes manner
-- **Imperative verbs:** سَبِّحْ (Form II) and اسْتَغْفِرْ (Form X) - different verb forms conveying nuanced commands
+- **Imperative verbs:** سَبِّحْ (Form II) and اسْتَغْفِرْ (Form X) — different verb forms conveying nuanced commands
 - **Defective verb كَانَ:** Requires nominative subject and accusative predicate
 - **Emphasis particle إِنَّ:** Places its subject (noun or pronoun) in the accusative case
 - **Consequential فَ:** Links the command in verse 3 as a response to the conditions in verses 1-2
-- **Attached pronouns:** ـكَ (your), ـهُ (him/his) attached to nouns and verbs
 - **Verb forms:** Form I (basic), Form II (intensive), Form X (seeking/requesting) demonstrate morphological patterns
-
-This short surah is excellent for learning conditional structures, verb forms, and the relationship between grammar and meaning in expressing divine commands.
+</Callout>

@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test';
+import { test, expect, type Page } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 
 const BASE_URL = 'http://localhost:4321';
@@ -6,7 +6,7 @@ const BASE_URL = 'http://localhost:4321';
 /**
  * Helper function to enable dark mode on the page
  */
-async function enableDarkMode(page) {
+async function enableDarkMode(page: Page) {
   await page.evaluate(() => {
     document.documentElement.setAttribute('data-theme', 'dark');
   });

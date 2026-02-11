@@ -6,6 +6,11 @@ verseCount: 15
 difficulty: "intermediate"
 ---
 
+import ArabicExample from '@components/mdx/ArabicExample.astro';
+import GrammarTable from '@components/mdx/GrammarTable.astro';
+import Callout from '@components/mdx/Callout.astro';
+import ExerciseBox from '@components/mdx/ExerciseBox.astro';
+
 # Ash-Shams (The Sun)
 
 ## Overview
@@ -15,96 +20,179 @@ difficulty: "intermediate"
 - **Theme:** This surah features one of the longest oath series in the Quran (verses 1-7), swearing by the sun, moon, day, night, heaven, earth, and the soul. It emphasizes that success comes from purifying the soul and failure from corrupting it. The surah concludes with the story of Thamud and their prophet Salih, illustrating the consequences of rejecting divine guidance.
 - **Grammar Focus:** Extended oath constructions with وَ (wa), emphasis particle قَدْ (qad), past tense narrative, passive voice constructions, relative clauses, Form II verbs (intensified action)
 
+### Structural Overview
+
+<GrammarTable>
+| Verse | Arabic | Sentence Type | Key Grammar | Message |
+|-------|--------|---------------|-------------|---------|
+| 1 | وَالشَّمْسِ وَضُحَاهَا | Oath (qasam) | وَ oath particle + genitive noun | By the sun and its light |
+| 2 | وَالْقَمَرِ إِذَا تَلَاهَا | Oath + temporal clause | وَ oath + إِذَا temporal clause | The moon following the sun |
+| 3 | وَالنَّهَارِ إِذَا جَلَّاهَا | Oath + temporal clause | وَ oath + Form II verb (intensive) | Day revealing light |
+| 4 | وَاللَّيْلِ إِذَا يَغْشَاهَا | Oath + temporal clause | وَ oath + present tense verb | Night covering light |
+| 5 | وَالسَّمَاءِ وَمَا بَنَاهَا | Oath + relative clause | وَ oath + مَا relative/masdariyya | The sky and its Builder |
+| 6 | وَالْأَرْضِ وَمَا طَحَاهَا | Oath + relative clause | وَ oath + مَا relative/masdariyya | The earth and its Spreader |
+| 7 | وَنَفْسٍ وَمَا سَوَّاهَا | Oath + relative clause | وَ oath + indefinite noun + Form II verb | The soul and its Perfecter |
+| 8 | فَأَلْهَمَهَا فُجُورَهَا وَتَقْوَاهَا | Declarative (continuation) | فَ sequential + Form IV double object | God inspired it with moral knowledge |
+| 9 | قَدْ أَفْلَحَ مَن زَكَّاهَا | Declarative (jawab al-qasam) | قَدْ emphasis + Form IV + relative مَن | Success through purification |
+| 10 | وَقَدْ خَابَ مَن دَسَّاهَا | Declarative (parallel) | قَدْ emphasis + Form II corruption | Failure through corruption |
+| 11 | كَذَّبَتْ ثَمُودُ بِطَغْوَاهَا | Narrative (historical) | Form II denial + causal بِ | Thamud denied through transgression |
+| 12 | إِذِ انبَعَثَ أَشْقَاهَا | Temporal clause | إِذِ + Form VII + superlative أَفْعَل | The most wretched rose up |
+| 13 | فَقَالَ لَهُمْ رَسُولُ اللَّهِ... | Narrative (speech) | فَ sequential + idafa + warning | The prophet's warning |
+| 14 | فَكَذَّبُوهُ فَعَقَرُوهَا فَدَمْدَمَ... | Narrative (rapid sequence) | Five فَ connectors + quadriliteral verb | Rapid cause-and-effect destruction |
+| 15 | وَلَا يَخَافُ عُقْبَاهَا | Declarative (conclusion) | لَا negation + present tense | God fears no consequence |
+</GrammarTable>
+
+<Callout type="tip" title="The Longest Oath Sequence in the Quran">
+Ash-Shams contains the longest unbroken oath sequence in the entire Quran: seven consecutive oaths spanning verses 1-7, each introduced by the oath particle وَ. This is extraordinary because the answer to the oath (jawab al-qasam) does not arrive until verse 9 with قَدْ أَفْلَحَ. The sheer length of the buildup creates immense rhetorical weight, and every sworn element -- sun, moon, day, night, sky, earth, soul -- converges on a single moral truth: purify the soul or face ruin. Notice also how the oaths progress from the cosmic (sun, moon) to the terrestrial (day, night) to the divine creative act (sky, earth) and finally to the human soul -- a deliberate narrowing from the universe down to the individual.
+</Callout>
+
 ## Verse-by-Verse Analysis
 
 ### Verse 1
 
-**Arabic:** وَالشَّمْسِ وَضُحَاهَا
-
-**Translation:** "By the sun and its brightness"
+<ArabicExample
+  arabic="وَالشَّمْسِ وَضُحَاهَا"
+  transliteration="wa-sh-shamsi wa-duhaha"
+  translation="By the sun and its brightness"
+  reference="Ash-Shams 91:1"
+  highlight="وَالشَّمْسِ"
+/>
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | وَ | wa | - | Particle - oath | Not declinable (mabni), oath particle | by |
 | 2 | الشَّمْسِ | ash-shamsi | ش-م-س | Noun - feminine, singular, definite | Genitive (majrur) after oath particle وَ | the sun |
 | 3 | وَ | wa | - | Particle - conjunction | Not declinable (mabni), coordinates | and |
 | 4 | ضُحَاهَا | duhaha | ض-ح-و | Noun - feminine, singular, indefinite + attached pronoun | Genitive (majrur) in idafa, هَا 3rd person pronoun in genitive | its brightness/morning light |
+</GrammarTable>
 
-#### Grammar Notes
-- Opening oath by the sun - وَ is oath particle taking genitive
-- ضُحَاهَا: brightness/radiance of the sun, from ض-ح-و root
-- First in series of cosmic oaths (verses 1-7)
+<Callout type="rule" title="The Oath Particle وَ and Genitive Case">
+The opening وَ here is not a simple conjunction but an oath particle (huruf al-qasam). It governs the genitive case on the noun that follows it, which is why الشَّمْسِ appears with kasra. This وَ is equivalent to "I swear by..." and is one of three oath particles in Arabic (وَ, بِ, تَ). Throughout verses 1-7, each وَ introduces a new oath, placing its noun in the genitive.
+</Callout>
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** The verse opens with the oath particle وَ governing الشَّمْسِ in the genitive. The second وَ is a conjunction (atf) coordinating ضُحَاهَا with الشَّمْسِ. ضُحَاهَا is in an idafa relationship with the attached pronoun هَا, which refers back to الشَّمْسِ. The jawab al-qasam (answer to the oath) is delayed until verse 9.
+
+**Sarf (Morphology):** الشَّمْسِ is from root ش-م-س on the فَعْل pattern, a feminine noun (no ta marbuta but inherently feminine). ضُحَى is from root ض-ح-و on the فُعَل pattern, a noun denoting the morning brightness or forenoon.
+
+**Balagha (Rhetoric):** Opening with the sun establishes cosmic grandeur. The pairing of the sun with its own radiance (ضُحَاهَا) draws attention to the relationship between a thing and its essential quality -- the sun is inseparable from its light, just as the soul (introduced in verse 7) is inseparable from its moral nature.
 
 ### Verse 2
 
-**Arabic:** وَالْقَمَرِ إِذَا تَلَاهَا
-
-**Translation:** "And [by] the moon when it follows it"
+<ArabicExample
+  arabic="وَالْقَمَرِ إِذَا تَلَاهَا"
+  transliteration="wa-l-qamari idha talaha"
+  translation="And [by] the moon when it follows it"
+  reference="Ash-Shams 91:2"
+  highlight="تَلَاهَا"
+/>
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | وَ | wa | - | Particle - oath | Not declinable (mabni), oath particle | and [by] |
 | 2 | الْقَمَرِ | al-qamari | ق-م-ر | Noun - masculine, singular, definite | Genitive (majrur) after oath particle وَ | the moon |
 | 3 | إِذَا | idha | - | Particle - conditional/temporal | Not declinable (mabni), introduces when-clause | when |
 | 4 | تَلَاهَا | talaha | ت-ل-و | Verb - Form I, past, 3rd person masculine singular + pronoun | Verb in past (mabni), هَا 3rd person pronoun is object | it followed it |
+</GrammarTable>
 
-#### Grammar Notes
-- وَالْقَمَرِ genitive after oath وَ
-- إِذَا introduces temporal clause qualifying the oath
-- تَلَاهَا: "it (the moon) followed it (the sun)" - moon appearing after sunset
+<Callout type="tip" title="Temporal Qualification of Oaths">
+The oath is not by the moon in general, but by the moon specifically "when it follows" the sun. The إِذَا clause narrows the oath to a particular cosmic moment -- the appearance of the moon after sunset. This pattern of oath + temporal clause continues in verses 3 and 4, each capturing a specific astronomical phenomenon.
+</Callout>
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** وَالْقَمَرِ continues the oath series with القمر in the genitive. إِذَا introduces a temporal clause (zarf li-l-mustaqbal) qualifying the noun under oath. تَلَاهَا is the verb of the إِذَا clause; the hidden pronoun (هُوَ) is the subject referring to the moon, and هَا is the object pronoun referring to the sun.
+
+**Sarf (Morphology):** الْقَمَرِ is from root ق-م-ر on the فَعَل pattern. تَلَاهَا is a Form I verb from root ت-ل-و, a defective (naqis) verb whose final radical و becomes alif in the past tense. The هَا suffix is the attached object pronoun.
+
+**Balagha (Rhetoric):** The image of the moon "following" the sun personifies the celestial bodies, suggesting obedience and order in creation. This sets up the later contrast with Thamud, who refused to follow divine guidance. The verb تَلَا also carries the connotation of "reciting" or "following a path," adding a layer of meaning about following divine will.
 
 ### Verse 3
 
-**Arabic:** وَالنَّهَارِ إِذَا جَلَّاهَا
-
-**Translation:** "And [by] the day when it displays it"
+<ArabicExample
+  arabic="وَالنَّهَارِ إِذَا جَلَّاهَا"
+  transliteration="wa-n-nahari idha jallaha"
+  translation="And [by] the day when it displays it"
+  reference="Ash-Shams 91:3"
+  highlight="جَلَّاهَا"
+/>
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | وَ | wa | - | Particle - oath | Not declinable (mabni), oath particle | and [by] |
 | 2 | النَّهَارِ | an-nahari | ن-ه-ر | Noun - masculine, singular, definite | Genitive (majrur) after oath particle وَ | the day |
 | 3 | إِذَا | idha | - | Particle - conditional/temporal | Not declinable (mabni), introduces when-clause | when |
 | 4 | جَلَّاهَا | jallaha | ج-ل-و | Verb - Form II, past, 3rd person masculine singular + pronoun | Verb in past (mabni), هَا 3rd person pronoun is object | it displayed/revealed it |
+</GrammarTable>
 
-#### Grammar Notes
-- Continuation of oath series
-- جَلَّاهَا Form II (intensive): "it (the day) revealed/displayed it (the sun/earth)"
-- The day makes the sun's light visible
+<Callout type="rule" title="Form II Intensive: جَلَّاهَا">
+جَلَّاهَا is a Form II verb (فَعَّلَ pattern) from root ج-ل-و. While the Form I جَلَا means "to reveal," Form II جَلَّى intensifies this to "to display fully, to make brilliantly visible." The doubled middle radical (لّ) signals this intensification. This is the first of several Form II verbs in the surah (سَوَّاهَا, زَكَّاهَا, دَسَّاهَا, كَذَّبَتْ), making Form II a central morphological theme.
+</Callout>
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** Same oath structure as verse 2: وَ oath particle + النَّهَارِ (genitive) + إِذَا temporal clause + جَلَّاهَا (verb + object pronoun). The subject of جَلَّاهَا is the hidden pronoun (هُوَ) referring to النَّهَار, and the object هَا refers back to الشَّمْس or the earth.
+
+**Sarf (Morphology):** النَّهَارِ is from root ن-ه-ر on the فَعَال pattern. جَلَّاهَا is Form II from root ج-ل-و, a defective (naqis) verb. The doubled middle radical (لّ) is the hallmark of Form II, indicating intensive or causative meaning.
+
+**Balagha (Rhetoric):** The contrast between day revealing (جَلَّاهَا) and night covering (يَغْشَاهَا in the next verse) creates a pair of opposites (tibaq), a key rhetorical device. The choice of Form II intensifies the action -- the day does not merely show the sun but fully and gloriously displays it.
 
 ### Verse 4
 
-**Arabic:** وَاللَّيْلِ إِذَا يَغْشَاهَا
-
-**Translation:** "And [by] the night when it covers it"
+<ArabicExample
+  arabic="وَاللَّيْلِ إِذَا يَغْشَاهَا"
+  transliteration="wa-l-layli idha yaghshaha"
+  translation="And [by] the night when it covers it"
+  reference="Ash-Shams 91:4"
+  highlight="يَغْشَاهَا"
+/>
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | وَ | wa | - | Particle - oath | Not declinable (mabni), oath particle | and [by] |
 | 2 | اللَّيْلِ | al-layli | ل-ي-ل | Noun - masculine, singular, definite | Genitive (majrur) after oath particle وَ | the night |
 | 3 | إِذَا | idha | - | Particle - conditional/temporal | Not declinable (mabni), introduces when-clause | when |
 | 4 | يَغْشَاهَا | yaghshaha | غ-ش-ي | Verb - Form I, present, 3rd person masculine singular + pronoun | Verb in indicative (marfu'), هَا 3rd person pronoun is object | it covers it |
+</GrammarTable>
 
-#### Grammar Notes
-- Contrasts with verse 3: day reveals, night covers
-- يَغْشَاهَا: "it (the night) covers it (the sun/earth)"
-- Present tense for recurring action
+<Callout type="tip" title="Tense Shift: Past vs. Present in the Oath Clauses">
+Notice that verse 3 uses the past tense جَلَّاهَا but verse 4 uses the present tense يَغْشَاهَا. This is not arbitrary. The present tense here evokes the ongoing, recurring nature of night's covering -- it happens again and again, perpetually enveloping the world. The past tense in verse 3 may emphasize the completed, decisive act of daylight revealing. This subtle tense variation (iltifat) is a hallmark of Quranic eloquence.
+</Callout>
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** The structure mirrors verses 2-3 but with a key difference: يَغْشَاهَا is in the present tense (mudari') rather than past. After إِذَا, present tense verbs retain their present/habitual meaning. The verb is marfu' (indicative), with a hidden pronoun (هُوَ) as subject and هَا as object.
+
+**Sarf (Morphology):** اللَّيْلِ is from root ل-ي-ل on the فَعْل pattern. يَغْشَاهَا is Form I from root غ-ش-ي, a defective (naqis) verb. The present tense form follows the يَفْعَل pattern with the final radical becoming alif.
+
+**Balagha (Rhetoric):** Night "covering" (يَغْشَى) the sun/earth creates a vivid metaphor of concealment, directly opposing day's "revealing" (جَلَّى). The pair day/night (نَهَار/لَيْل) echoes the cosmic duality theme. Night's covering is also a metaphor for spiritual blindness, foreshadowing the moral corruption discussed in verse 10.
 
 ### Verse 5
 
-**Arabic:** وَالسَّمَاءِ وَمَا بَنَاهَا
-
-**Translation:** "And [by] the sky and He who constructed it"
+<ArabicExample
+  arabic="وَالسَّمَاءِ وَمَا بَنَاهَا"
+  transliteration="wa-s-sama'i wa-ma banaha"
+  translation="And [by] the sky and He who constructed it"
+  reference="Ash-Shams 91:5"
+  highlight="مَا"
+/>
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | وَ | wa | - | Particle - oath | Not declinable (mabni), oath particle | and [by] |
@@ -112,20 +200,33 @@ difficulty: "intermediate"
 | 3 | وَ | wa | - | Particle - oath | Not declinable (mabni), oath particle | and [by] |
 | 4 | مَا | ma | - | Relative pronoun/particle (masdariyya or mawsuliyya) | Not declinable (mabni) in place of genitive | He who/what |
 | 5 | بَنَاهَا | banaha | ب-ن-ي | Verb - Form I, past, 3rd person masculine singular + pronoun | Verb in past (mabni), هَا 3rd person pronoun is object | He constructed it |
+</GrammarTable>
 
-#### Grammar Notes
-- Oath by the sky and its Creator
-- مَا can be mawsul (He who built it = Allah) or masdariyya (the building of it)
-- بَنَاهَا: building/construction metaphor for creation
+<Callout type="rule" title="مَا as Relative Pronoun: Two Interpretations">
+مَا in verses 5, 6, and 7 can be interpreted two ways: (1) as ism mawsul (relative pronoun) meaning "He who" -- referring to Allah as the One who built the sky, spread the earth, and proportioned the soul; or (2) as masdariyya meaning "the act of" -- swearing by the building itself. Most scholars prefer the first reading, treating مَا as equivalent to مَنْ ("He who"), which gives the oath a theological dimension beyond the physical.
+</Callout>
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** The structure shifts from oath + temporal clause (verses 2-4) to oath + relative clause (verses 5-7). Both وَ particles here are oath particles, creating a double oath: by the sky and by its Creator. مَا introduces a relative clause (sila) with بَنَاهَا as the verb. The entire مَا بَنَاهَا phrase occupies the genitive position after the oath وَ.
+
+**Sarf (Morphology):** السَّمَاءِ is from root س-م-و on the فَعَال pattern, a feminine noun. بَنَاهَا is Form I from root ب-ن-ي, a defective (naqis) verb whose final radical ي becomes alif in the past tense.
+
+**Balagha (Rhetoric):** The oath now moves from natural phenomena (sun, moon, day, night) to creative acts (building the sky). The metaphor of "building" (بَنَى) for sky-creation is vivid -- it implies architecture, intention, and design. Pairing the creation with the Creator elevates the oath from the physical to the theological.
 
 ### Verse 6
 
-**Arabic:** وَالْأَرْضِ وَمَا طَحَاهَا
-
-**Translation:** "And [by] the earth and He who spread it"
+<ArabicExample
+  arabic="وَالْأَرْضِ وَمَا طَحَاهَا"
+  transliteration="wa-l-ardi wa-ma tahaha"
+  translation="And [by] the earth and He who spread it"
+  reference="Ash-Shams 91:6"
+  highlight="طَحَاهَا"
+/>
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | وَ | wa | - | Particle - oath | Not declinable (mabni), oath particle | and [by] |
@@ -133,20 +234,33 @@ difficulty: "intermediate"
 | 3 | وَ | wa | - | Particle - oath | Not declinable (mabni), oath particle | and [by] |
 | 4 | مَا | ma | - | Relative pronoun/particle (masdariyya or mawsuliyya) | Not declinable (mabni) in place of genitive | He who/what |
 | 5 | طَحَاهَا | tahaha | ط-ح-و | Verb - Form I, past, 3rd person masculine singular + pronoun | Verb in past (mabni), هَا 3rd person pronoun is object | He spread it |
+</GrammarTable>
 
-#### Grammar Notes
-- Parallel structure to verse 5: sky and its builder, earth and its spreader
-- طَحَاهَا: "to spread out, flatten" - the earth made habitable
-- مَا طَحَاهَا: He who spread the earth (Allah)
+<Callout type="tip" title="Cosmic Pairing: Sky and Earth">
+Verses 5 and 6 form a perfect pair: السَّمَاءِ (sky) and الْأَرْضِ (earth), بَنَاهَا (constructed it) and طَحَاهَا (spread it). The sky is built upward; the earth is spread outward. This pairing of cosmic opposites (tibaq) is a recurring Quranic technique, emphasizing Allah's comprehensive creative power over everything above and below.
+</Callout>
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** Parallel structure to verse 5: double oath (by the earth and by its Spreader). مَا طَحَاهَا is the relative clause, structurally identical to مَا بَنَاهَا. The parallelism between verses 5 and 6 is syntactically exact.
+
+**Sarf (Morphology):** الْأَرْضِ is from root أ-ر-ض, a feminine noun. طَحَاهَا is Form I from root ط-ح-و, a defective (naqis) verb meaning "to spread out, to flatten." This is a relatively rare root in the Quran.
+
+**Balagha (Rhetoric):** طَحَاهَا ("He spread it") evokes the image of earth being flattened and prepared for habitation -- a deliberate, purposeful act. The rare verb choice draws attention: this is not a common word, making the listener pause and reflect on the specific nature of earth's creation.
 
 ### Verse 7
 
-**Arabic:** وَنَفْسٍ وَمَا سَوَّاهَا
-
-**Translation:** "And [by] the soul and He who proportioned it"
+<ArabicExample
+  arabic="وَنَفْسٍ وَمَا سَوَّاهَا"
+  transliteration="wa-nafsin wa-ma sawwaha"
+  translation="And [by] the soul and He who proportioned it"
+  reference="Ash-Shams 91:7"
+  highlight="نَفْسٍ"
+/>
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | وَ | wa | - | Particle - oath | Not declinable (mabni), oath particle | and [by] |
@@ -154,21 +268,33 @@ difficulty: "intermediate"
 | 3 | وَ | wa | - | Particle - oath | Not declinable (mabni), oath particle | and [by] |
 | 4 | مَا | ma | - | Relative pronoun/particle (masdariyya or mawsuliyya) | Not declinable (mabni) in place of genitive | He who/what |
 | 5 | سَوَّاهَا | sawwaha | س-و-ي | Verb - Form II, past, 3rd person masculine singular + pronoun | Verb in past (mabni), هَا 3rd person pronoun is object | He proportioned/perfected it |
+</GrammarTable>
 
-#### Grammar Notes
-- Final element in oath series, shifting from cosmos to human soul
-- نَفْسٍ indefinite for generality: "a soul" / "the soul [in general]"
-- سَوَّاهَا Form II (intensive): "to proportion, perfect, balance"
-- Transitions from physical creation to moral focus
+<Callout type="rule" title="Indefinite Noun in an Oath: نَفْسٍ">
+Unlike all the previous oath nouns (الشَّمْسِ, الْقَمَرِ, النَّهَارِ, etc.), which are definite with the article الـ, نَفْسٍ is indefinite (notice the tanwin). This indefiniteness is deliberate: it means "a soul" or "any soul" -- universalizing the statement to apply to every human being, not just a specific one. The shift from definite cosmic objects to an indefinite soul marks the climax of the oath series.
+</Callout>
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** Same double-oath structure as verses 5-6, but with the crucial difference that نَفْسٍ is indefinite (مجرور بالكسرة الظاهرة مع التنوين). The tanwin on نَفْسٍ confirms its indefiniteness. سَوَّاهَا is the relative clause verb, with هَا referring back to نَفْس.
+
+**Sarf (Morphology):** نَفْسٍ is from root ن-ف-س on the فَعْل pattern, a feminine noun meaning "soul, self." سَوَّاهَا is Form II from root س-و-ي, a doubly defective verb. Form II here conveys intensive meaning: not just "to make" but "to proportion, perfect, balance" -- implying careful, deliberate creation.
+
+**Balagha (Rhetoric):** The oath series reaches its climax with the soul. The progression narrows from the cosmos (sun, moon) to time (day, night) to creation (sky, earth) to the human self (nafs). This telescoping structure guides the listener from the vast universe inward to the individual soul, which is the true subject of the surah. The indefiniteness of نَفْسٍ makes this deeply personal: this is about YOUR soul.
 
 ### Verse 8
 
-**Arabic:** فَأَلْهَمَهَا فُجُورَهَا وَتَقْوَاهَا
-
-**Translation:** "And inspired it [with discernment of] its wickedness and its righteousness"
+<ArabicExample
+  arabic="فَأَلْهَمَهَا فُجُورَهَا وَتَقْوَاهَا"
+  transliteration="fa-alhamaha fujuraha wa-taqwaha"
+  translation="And inspired it [with discernment of] its wickedness and its righteousness"
+  reference="Ash-Shams 91:8"
+  highlight="أَلْهَمَهَا"
+/>
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | فَ | fa- | - | Particle - conjunction | Not declinable (mabni), shows sequence | and/so |
@@ -176,43 +302,66 @@ difficulty: "intermediate"
 | 3 | فُجُورَهَا | fujuraha | ف-ج-ر | Noun - masculine, singular, indefinite + attached pronoun | Second object (maf'ul bihi thani) - accusative (mansub), هَا 3rd person pronoun in genitive | its wickedness |
 | 4 | وَ | wa | - | Particle - conjunction | Not declinable (mabni), coordinates | and |
 | 5 | تَقْوَاهَا | taqwaha | و-ق-ي | Noun - feminine, singular, indefinite + attached pronoun | Object (ma'tuf) coordinated with فُجُورَهَا - accusative (mansub), هَا 3rd person pronoun in genitive | its righteousness |
+</GrammarTable>
 
-#### Grammar Notes
-- فَ connects to previous verse: God proportioned the soul, THEN inspired it
-- أَلْهَمَهَا Form IV takes two objects: the soul (هَا) and the knowledge (فُجُورَهَا وَتَقْوَاهَا)
-- فُجُورَهَا and تَقْوَاهَا: moral opposites - wickedness and piety
-- Emphasizes human moral agency and knowledge of good/evil
+<Callout type="rule" title="Form IV Double Object: أَلْهَمَ">
+أَلْهَمَهَا is a Form IV verb (أَفْعَلَ pattern) from root ل-ه-م. Form IV verbs often make intransitive roots transitive, or single-object verbs take two objects. Here أَلْهَمَ takes two objects: (1) the soul (هَا) and (2) its wickedness and righteousness (فُجُورَهَا وَتَقْوَاهَا). This grammatical structure means Allah did not just inspire the soul -- He inspired it WITH specific knowledge of right and wrong.
+</Callout>
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** فَ connects this verse sequentially to verse 7: God proportioned the soul, THEN inspired it. أَلْهَمَهَا takes two objects (maf'ul bihi awwal and thani): the first is هَا (the soul) and the second is فُجُورَهَا وَتَقْوَاهَا (its wickedness and righteousness). تَقْوَاهَا is coordinated with فُجُورَهَا via وَ, both in the accusative.
+
+**Sarf (Morphology):** أَلْهَمَ is Form IV from root ل-ه-م, with the characteristic hamza prefix (أَ). فُجُورَ is from root ف-ج-ر on the فُعُول pattern, a masdar meaning "wickedness, immorality." تَقْوَى is from root و-ق-ي on the فَعْلَى pattern, meaning "piety, God-consciousness, righteousness."
+
+**Balagha (Rhetoric):** The order is significant: فُجُور (wickedness) is mentioned before تَقْوَى (righteousness). This is not because evil precedes good, but because recognizing what is wrong is the first step toward choosing what is right. The pairing creates perfect antithesis (tibaq), and the possessive pronouns (هَا) emphasize that every soul carries within it the knowledge of both paths.
 
 ### Verse 9
 
-**Arabic:** قَدْ أَفْلَحَ مَن زَكَّاهَا
-
-**Translation:** "He has succeeded who purifies it"
+<ArabicExample
+  arabic="قَدْ أَفْلَحَ مَن زَكَّاهَا"
+  transliteration="qad aflaha man zakkaha"
+  translation="He has succeeded who purifies it"
+  reference="Ash-Shams 91:9"
+  highlight="قَدْ"
+/>
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | قَدْ | qad | - | Particle - emphasis | Not declinable (mabni), emphasizes past/perfect verb | certainly/indeed |
 | 2 | أَفْلَحَ | aflaha | ف-ل-ح | Verb - Form IV, past, 3rd person masculine singular | Verb in past (mabni), answer to oath (jawab al-qasam) | he succeeded |
 | 3 | مَن | man | - | Relative pronoun - indefinite | Not declinable (mabni), subject of أَفْلَحَ | who/whoever |
 | 4 | زَكَّاهَا | zakkaha | ز-ك-و | Verb - Form II, past, 3rd person masculine singular + pronoun | Verb in past (mabni), هَا 3rd person pronoun is object | he purified it |
+</GrammarTable>
 
-#### Grammar Notes
-- قَدْ emphasizes the certainty of success
-- This is the answer (jawab) to the long oath series (verses 1-7)
-- مَن relative pronoun meaning "whoever"
-- زَكَّاهَا Form II: "to purify, cleanse, make righteous" the soul
-- Contrast set up with next verse
+<Callout type="rule" title="The Jawab al-Qasam: Answer After Seven Oaths">
+After seven consecutive oaths (verses 1-7), the answer (jawab al-qasam) finally arrives here in verse 9 with قَدْ أَفْلَحَ. The particle قَدْ before a past tense verb emphasizes certainty and completion -- "he has SURELY succeeded." This is the entire point the seven oaths were building toward: the purification of the soul is the measure of true success. The weight of seven cosmic oaths lends absolute authority to this moral declaration.
+</Callout>
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** This verse is the jawab al-qasam (answer to the oath) for the entire series in verses 1-7. قَدْ precedes the past tense verb أَفْلَحَ to emphasize certainty and completion. مَن is a relative pronoun (ism mawsul) functioning as the subject (fa'il) of أَفْلَحَ. The relative clause زَكَّاهَا provides the condition for success. هَا refers to النَّفْس from verse 7.
+
+**Sarf (Morphology):** أَفْلَحَ is Form IV from root ف-ل-ح, with the causative/resultative meaning "to achieve success, to prosper." زَكَّاهَا is Form II from root ز-ك-و, with the intensive meaning "to purify, to cleanse, to make grow in righteousness." The doubled كّ indicates intensified, sustained effort at purification.
+
+**Balagha (Rhetoric):** The simplicity of this verse after the elaborate oath series is itself rhetorical: after cosmic grandeur, a single, clear moral truth. The verb زَكَّى (Form II) implies not a one-time act but sustained, intensive purification -- a lifelong process. The use of مَن (whoever) universalizes the message, matching the indefinite نَفْسٍ in verse 7.
 
 ### Verse 10
 
-**Arabic:** وَقَدْ خَابَ مَن دَسَّاهَا
-
-**Translation:** "And he has failed who corrupts it"
+<ArabicExample
+  arabic="وَقَدْ خَابَ مَن دَسَّاهَا"
+  transliteration="wa-qad khaba man dassaha"
+  translation="And he has failed who corrupts it"
+  reference="Ash-Shams 91:10"
+  highlight="دَسَّاهَا"
+/>
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | وَ | wa | - | Particle - conjunction | Not declinable (mabni), coordinates | and |
@@ -220,63 +369,98 @@ difficulty: "intermediate"
 | 3 | خَابَ | khaba | خ-ي-ب | Verb - Form I, past, 3rd person masculine singular | Verb in past (mabni) | he failed/lost |
 | 4 | مَن | man | - | Relative pronoun - indefinite | Not declinable (mabni), subject of خَابَ | who/whoever |
 | 5 | دَسَّاهَا | dassaha | د-س-س | Verb - Form II, past, 3rd person masculine singular + pronoun | Verb in past (mabni), هَا 3rd person pronoun is object | he corrupted/buried it |
+</GrammarTable>
 
-#### Grammar Notes
-- Parallel structure to verse 9: قَدْ أَفْلَحَ vs. قَدْ خَابَ
-- خَابَ: "to fail, lose, be disappointed"
-- دَسَّاهَا Form II: "to bury, hide, corrupt" the soul
-- Opposite of زَكَّاهَا: purification vs. corruption
+<Callout type="tip" title="Perfect Parallelism: Verses 9 and 10">
+Verses 9 and 10 form a perfect grammatical mirror: قَدْ أَفْلَحَ مَن زَكَّاهَا // وَقَدْ خَابَ مَن دَسَّاهَا. Success vs. failure (أَفْلَحَ / خَابَ), purification vs. corruption (زَكَّاهَا / دَسَّاهَا). Both use قَدْ for emphasis, both use مَن as subject, and both end with Form II verbs acting on the soul (هَا). This structural symmetry drives home the binary moral choice.
+</Callout>
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** Parallel to verse 9. وَ coordinates this verse with the previous one. قَدْ خَابَ mirrors قَدْ أَفْلَحَ. مَن is again the relative pronoun as subject. دَسَّاهَا is the relative clause verb with هَا as object referring to the soul. The entire verse is a mirror-image of verse 9.
+
+**Sarf (Morphology):** خَابَ is Form I from root خ-ي-ب, a hollow verb meaning "to fail, to be disappointed." دَسَّاهَا is Form II from root د-س-س, originally meaning "to bury, to hide." The doubled سّ intensifies the meaning to "to corrupt, to conceal beneath layers of sin." Some scholars note the original form would be دَسَّسَهَا, with the final س changed to ا for phonetic ease.
+
+**Balagha (Rhetoric):** The verb دَسَّى carries a vivid metaphor: burying the soul under corruption, hiding its innate goodness. This contrasts with زَكَّى (purifying, making it grow) -- one verb lifts up, the other buries down. The antithesis is not just moral but spatial, evoking growth versus burial.
 
 ### Verse 11
 
-**Arabic:** كَذَّبَتْ ثَمُودُ بِطَغْوَاهَا
-
-**Translation:** "Thamud denied [their prophet] by reason of their transgression"
+<ArabicExample
+  arabic="كَذَّبَتْ ثَمُودُ بِطَغْوَاهَا"
+  transliteration="kadhdhabat thamudu bi-taghwaha"
+  translation="Thamud denied [their prophet] by reason of their transgression"
+  reference="Ash-Shams 91:11"
+  highlight="كَذَّبَتْ"
+/>
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | كَذَّبَتْ | kadhdhabat | ك-ذ-ب | Verb - Form II, past, 3rd person feminine singular | Verb in past (mabni), تْ indicates feminine subject | she/they denied |
 | 2 | ثَمُودُ | thamudu | - | Proper noun - feminine, singular (tribal name) | Subject (fa'il) - nominative (marfu'), diptote | Thamud |
 | 3 | بِ | bi- | - | Particle - preposition | Not declinable (mabni), governs genitive | by/because of |
 | 4 | طَغْوَاهَا | taghwaha | ط-غ-ي | Noun - feminine, singular, indefinite + attached pronoun | Genitive (majrur) after بِ, هَا 3rd person pronoun in genitive | its transgression |
+</GrammarTable>
 
-#### Grammar Notes
-- Transitions to historical example: Thamud (ancient Arabian tribe)
-- كَذَّبَتْ Form II (intensive denial)
-- ثَمُودُ treated as feminine collective (takes feminine verb)
-- بِطَغْوَاهَا: causal بِ "because of their transgression"
-- Illustrates verse 10: they corrupted their souls
+<Callout type="rule" title="Feminine Verb with Collective Noun: كَذَّبَتْ ثَمُودُ">
+ثَمُودُ is a tribal name treated as a feminine collective noun, which is why it takes the feminine verb كَذَّبَتْ (with the ta' marbuta suffix تْ). Tribal and national names in Arabic are often grammatically feminine because they implicitly refer to the "nation" (أُمَّة) or "tribe" (قَبِيلَة), both feminine nouns. Also note that ثَمُودُ is a diptote (ممنوع من الصرف) -- it takes damma without tanwin.
+</Callout>
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** The surah shifts from universal moral truth (verses 9-10) to historical narrative (verses 11-15). كَذَّبَتْ is the main verb with ثَمُودُ as subject (fa'il, marfu'). بِطَغْوَاهَا is a prepositional phrase with causal بِ, meaning "because of their transgression." The implicit object of كَذَّبَتْ is their prophet Salih (not mentioned explicitly).
+
+**Sarf (Morphology):** كَذَّبَ is Form II from root ك-ذ-ب. While Form I كَذَبَ means "to lie," Form II كَذَّبَ means "to deny, to reject, to accuse of lying" -- an intensified, transitive meaning. طَغْوَى is from root ط-غ-ي on the فَعْلَى pattern, a masdar meaning "transgression, exceeding bounds."
+
+**Balagha (Rhetoric):** After the abstract moral lesson (purify or corrupt your soul), the surah now provides a concrete historical example. Thamud exemplifies دَسَّاهَا -- they corrupted their souls through transgression, and the first manifestation was denial (تكذيب) of divine guidance. The causal بِ links their denial directly to their transgression: sin led to disbelief.
 
 ### Verse 12
 
-**Arabic:** إِذِ انبَعَثَ أَشْقَاهَا
-
-**Translation:** "When the most wicked of them rose up"
+<ArabicExample
+  arabic="إِذِ انبَعَثَ أَشْقَاهَا"
+  transliteration="idhi nba'atha ashqaha"
+  translation="When the most wicked of them rose up"
+  reference="Ash-Shams 91:12"
+  highlight="أَشْقَاهَا"
+/>
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | إِذِ | idh | - | Particle - temporal | Not declinable (mabni), when/at the time | when |
 | 2 | انبَعَثَ | inba'atha | ب-ع-ث | Verb - Form VII, past, 3rd person masculine singular | Verb in past (mabni) | he rose up/was sent forth |
 | 3 | أَشْقَاهَا | ashqaha | ش-ق-ي | Noun - masculine, singular (elative/superlative) + attached pronoun | Subject (fa'il) - nominative (marfu'), هَا 3rd person pronoun in genitive | their most wretched/wicked |
+</GrammarTable>
 
-#### Grammar Notes
-- إِذِ introduces specific time when Thamud's transgression occurred
-- انبَعَثَ Form VII (reflexive/passive): "to be sent forth, rise up"
-- أَشْقَاهَا superlative: "the most wretched/wicked of them"
-- Refers to the one who killed the she-camel (see Quran 7:77)
+<Callout type="tip" title="Form VII Reflexive: انبَعَثَ">
+انبَعَثَ is a Form VII verb (انْفَعَلَ pattern) from root ب-ع-ث. While بَعَثَ (Form I) means "to send," the reflexive Form VII انبَعَثَ means "to rise up of one's own accord, to be stirred into action." The form implies that the most wretched person was driven by inner impulse -- his corruption propelled him forward. This morphological nuance reinforces the surah's theme: the soul's state determines its actions.
+</Callout>
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** إِذِ is a temporal particle (different from إِذَا in the oath verses) introducing a past-time clause: "when..." It specifies the moment of Thamud's transgression. انبَعَثَ is the verb with أَشْقَاهَا as subject (fa'il, marfu'). The هَا pronoun refers to Thamud, and أَشْقَى is the superlative (ism tafdil) meaning "the most wretched of them."
+
+**Sarf (Morphology):** انبَعَثَ is Form VII from root ب-ع-ث, with the characteristic نـ infix giving reflexive/passive meaning. أَشْقَاهَا follows the أَفْعَل superlative pattern from root ش-ق-ي, a defective root. The superlative form indicates the extreme degree of wretchedness.
+
+**Balagha (Rhetoric):** The superlative أَشْقَاهَا singles out one individual from the tribe -- the embodiment of their collective corruption. Tradition identifies this as the man who hamstrung the she-camel. His rising (انبَعَثَ) is presented as the culmination of the tribe's moral decline: transgression produced denial, denial produced a champion of evil.
 
 ### Verse 13
 
-**Arabic:** فَقَالَ لَهُمْ رَسُولُ اللَّهِ نَاقَةَ اللَّهِ وَسُقْيَاهَا
-
-**Translation:** "And the messenger of Allah said to them, '[This is] the she-camel of Allah, so [leave her to eat and] to drink'"
+<ArabicExample
+  arabic="فَقَالَ لَهُمْ رَسُولُ اللَّهِ نَاقَةَ اللَّهِ وَسُقْيَاهَا"
+  transliteration="fa-qala lahum rasulu llahi naqata llahi wa-suqyaha"
+  translation="And the messenger of Allah said to them, '[This is] the she-camel of Allah, so [leave her to eat and] to drink'"
+  reference="Ash-Shams 91:13"
+  highlight="نَاقَةَ"
+/>
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | فَ | fa- | - | Particle - conjunction | Not declinable (mabni), shows sequence | and/so |
@@ -288,21 +472,33 @@ difficulty: "intermediate"
 | 7 | اللَّهِ | allahi | - | Proper noun - divine name | Genitive (majrur) in idafa construction | Allah |
 | 8 | وَ | wa | - | Particle - conjunction | Not declinable (mabni), coordinates | and |
 | 9 | سُقْيَاهَا | suqyaha | س-ق-ي | Noun - feminine, singular, indefinite + attached pronoun | Object (ma'tuf) - accusative (mansub), هَا 3rd person pronoun in genitive | her drink/drinking |
+</GrammarTable>
 
-#### Grammar Notes
-- رَسُولُ اللَّهِ: Prophet Salih (peace be upon him)
-- نَاقَةَ اللَّهِ: object of implied verb "beware of" or direct object of implied command
-- سُقْيَاهَا: "and [respect] her right to drink"
-- The she-camel was a miraculous sign to Thamud
+<Callout type="tip" title="Implied Warning: نَاقَةَ اللَّهِ">
+نَاقَةَ اللَّهِ is in the accusative case, but there is no explicit verb governing it. It is understood as an implied warning (tahdhir): "Beware of the she-camel of Allah!" or as the object of an implied verb like "Leave alone." This type of implied verb (fi'l mahdhuf) is a feature of concise Quranic style -- the urgency of the warning is so great that the verb is dropped, leaving only the object to carry the emotional weight.
+</Callout>
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** فَ shows narrative sequence. قَالَ is the main verb with رَسُولُ اللَّهِ as subject (fa'il) in an idafa construction. لَهُمْ is the indirect object (to them). نَاقَةَ اللَّهِ is the object of an implied verb ( احذروا or ذروا), in the accusative as a warning (mahdhur). سُقْيَاهَا is coordinated with نَاقَةَ via وَ, also in the accusative.
+
+**Sarf (Morphology):** رَسُولُ is from root ر-س-ل on the فَعُول pattern, meaning "one who is sent, messenger." نَاقَةَ is from root ن-و-ق on the فَاعِلَة pattern. سُقْيَا is from root س-ق-ي on the فُعْلَى pattern, a masdar meaning "the act of watering/drinking."
+
+**Balagha (Rhetoric):** The attribution نَاقَةَ اللَّهِ ("the she-camel OF Allah") elevates the animal from ordinary property to a sacred sign. By linking the camel to Allah's name, any harm to it becomes a direct challenge to divine authority. The concise, verb-less warning conveys urgency -- as if Salih's words were a breathless plea.
 
 ### Verse 14
 
-**Arabic:** فَكَذَّبُوهُ فَعَقَرُوهَا فَدَمْدَمَ عَلَيْهِمْ رَبُّهُم بِذَنبِهِمْ فَسَوَّاهَا
-
-**Translation:** "But they denied him and hamstrung her. So their Lord brought down upon them destruction for their sin and made it equal [upon all of them]"
+<ArabicExample
+  arabic="فَكَذَّبُوهُ فَعَقَرُوهَا فَدَمْدَمَ عَلَيْهِمْ رَبُّهُم بِذَنبِهِمْ فَسَوَّاهَا"
+  transliteration="fa-kadhdhabuhu fa-'aqaruha fa-damdama 'alayhim rabbuhum bi-dhanbihim fa-sawwaha"
+  translation="But they denied him and hamstrung her. So their Lord brought down upon them destruction for their sin and made it equal [upon all of them]"
+  reference="Ash-Shams 91:14"
+  highlight="فَدَمْدَمَ"
+/>
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | فَ | fa- | - | Particle - conjunction | Not declinable (mabni), shows sequence | so/then |
@@ -317,37 +513,132 @@ difficulty: "intermediate"
 | 10 | ذَنبِهِمْ | dhanbihim | ذ-ن-ب | Noun - masculine, singular, indefinite + attached pronoun | Genitive (majrur) after بِ, هِمْ 3rd person plural pronoun in genitive | their sin |
 | 11 | فَ | fa- | - | Particle - conjunction | Not declinable (mabni), shows sequence | so/then |
 | 12 | سَوَّاهَا | sawwaha | س-و-ي | Verb - Form II, past, 3rd person masculine singular + pronoun | Verb in past (mabni), هَا 3rd person pronoun is object | He leveled it |
+</GrammarTable>
 
-#### Grammar Notes
-- Series of فَ connectors showing rapid sequence of events
-- عَقَرُوهَا: "to hamstring" - they killed the she-camel
-- دَمْدَمَ quadriliteral verb: "to destroy utterly, bring down"
-- بِذَنبِهِمْ causal: "because of their sin"
-- سَوَّاهَا: "He leveled it" - made destruction equal/complete
+<Callout type="rule" title="Five فَ Connectors: Rapid Narrative Cascade">
+This verse contains five consecutive فَ particles, each marking a step in a rapid cause-and-effect chain: they denied him (فَكَذَّبُوهُ) --> they hamstrung her (فَعَقَرُوهَا) --> God destroyed them (فَدَمْدَمَ) --> because of their sin (بِذَنبِهِمْ) --> He leveled it (فَسَوَّاهَا). The فَ here is fa' al-ta'qib (the فَ of immediate sequence), conveying breathless rapidity: each event followed instantly upon the last, as if sin, punishment, and annihilation were a single unstoppable chain.
+</Callout>
+
+<Callout type="tip" title="Quadriliteral Verb: دَمْدَمَ">
+دَمْدَمَ is one of the rare quadriliteral verbs in the Quran, from the four-letter root د-م-د-م. It means "to destroy utterly, to bring crushing ruin." The reduplication of the root (د-م repeated twice) is itself onomatopoeic -- it sounds like rumbling, thundering destruction. This morphological intensity matches the severity of the divine punishment.
+</Callout>
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** The verse is a chain of five فَ-connected clauses. كَذَّبُوهُ has an implicit subject (واو الجماعة) and هُ as object (Salih). عَقَرُوهَا similarly has واو as subject and هَا (the she-camel) as object. دَمْدَمَ has رَبُّهُم as explicit subject (fa'il), with عَلَيْهِمْ as prepositional complement. بِذَنبِهِمْ is a causal prepositional phrase. سَوَّاهَا has a hidden pronoun (هُوَ/Allah) as subject and هَا as object.
+
+**Sarf (Morphology):** كَذَّبُوهُ is Form II (intensive denial). عَقَرُوهَا is Form I from root ع-ق-ر ("to hamstring, wound fatally"). دَمْدَمَ is a quadriliteral verb (فَعْلَلَ pattern) from root د-م-د-م. سَوَّاهَا is Form II from root س-و-ي, here meaning "to level, to make equal" (the destruction was complete and universal).
+
+**Balagha (Rhetoric):** The narrative accelerates with staccato-like فَ particles, each event crashing into the next without pause. Note that سَوَّاهَا appeared in verse 7 meaning "He proportioned it" (creation), but here means "He leveled it" (destruction). This deliberate repetition with reversed meaning is a powerful rhetorical device: the God who perfects can also destroy. The same verb, two opposite outcomes.
 
 ### Verse 15
 
-**Arabic:** وَلَا يَخَافُ عُقْبَاهَا
-
-**Translation:** "And He does not fear the consequence of it"
+<ArabicExample
+  arabic="وَلَا يَخَافُ عُقْبَاهَا"
+  transliteration="wa-la yakhafu 'uqbaha"
+  translation="And He does not fear the consequence of it"
+  reference="Ash-Shams 91:15"
+  highlight="لَا يَخَافُ"
+/>
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | وَ | wa | - | Particle - conjunction | Not declinable (mabni), coordinates | and |
 | 2 | لَا | la | - | Particle - negation | Not declinable (mabni), negates present verb | not |
 | 3 | يَخَافُ | yakhafu | خ-و-ف | Verb - Form I, present, 3rd person masculine singular | Verb in indicative (marfu') | He fears |
 | 4 | عُقْبَاهَا | 'uqbaha | ع-ق-ب | Noun - feminine, singular, indefinite + attached pronoun | Direct object (maf'ul bihi) - accusative (mansub), هَا 3rd person pronoun in genitive | its consequence |
+</GrammarTable>
 
-#### Grammar Notes
-- Subject of يَخَافُ is Allah (hidden pronoun هُوَ)
-- لَا يَخَافُ: negation emphasizing God's absolute power
-- عُقْبَاهَا: "consequence, outcome" of the destruction
-- Concludes with affirmation of divine sovereignty - God fears no retaliation
+<Callout type="rule" title="Divine Sovereignty: لَا يَخَافُ">
+The surah closes with a statement of absolute divine power: لَا يَخَافُ -- "He does not fear." The negation particle لَا with the present tense verb indicates permanent, ongoing negation: God never fears, has never feared, and will never fear any consequence of His actions. This is not merely about Thamud's destruction -- it is a universal declaration that divine justice operates without hesitation or concern for repercussion.
+</Callout>
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** وَ coordinates this clause with the preceding narrative. لَا is a negation particle (la al-nafiya) negating the present tense verb يَخَافُ. The subject is a hidden pronoun (هُوَ) referring to Allah. عُقْبَاهَا is the direct object (maf'ul bihi) in the accusative, with هَا referring to the destruction or the act of punishment.
+
+**Sarf (Morphology):** يَخَافُ is Form I from root خ-و-ف, a hollow verb (the middle radical و becomes alif in certain forms). عُقْبَى is from root ع-ق-ب on the فُعْلَى pattern, meaning "consequence, outcome, aftermath."
+
+**Balagha (Rhetoric):** The surah ends not with the destruction itself but with a theological affirmation. After the devastating narrative of Thamud's annihilation, the final word belongs to God's sovereignty. The brevity of this closing verse -- just four words -- contrasts sharply with the verbose verse 14, creating a sense of calm authority after the storm of punishment. The message is unmistakable: divine justice is final and uncontested.
+
+## Practice Exercises
+
+<ExerciseBox question="Identify and analyze the seven oath constructions in verses 1-7. For each, state: (a) the noun sworn by and its case, (b) whether it has a temporal clause (with إِذَا) or a relative clause (with مَا), and (c) the grammatical relationship between the oath and its qualifier.">
+
+**1. وَالشَّمْسِ وَضُحَاهَا (Verse 1)**
+- Noun: الشَّمْسِ -- genitive (majrur) after oath وَ
+- Qualifier: وَضُحَاهَا -- coordinated noun (atf), no temporal/relative clause
+- Relationship: The brightness is an attribute of the sun, linked by conjunction
+
+**2. وَالْقَمَرِ إِذَا تَلَاهَا (Verse 2)**
+- Noun: الْقَمَرِ -- genitive after oath وَ
+- Qualifier: إِذَا temporal clause
+- Relationship: The oath is by the moon AT THE TIME it follows the sun
+
+**3. وَالنَّهَارِ إِذَا جَلَّاهَا (Verse 3)**
+- Noun: النَّهَارِ -- genitive after oath وَ
+- Qualifier: إِذَا temporal clause
+- Relationship: The oath is by the day WHEN it reveals (Form II intensive)
+
+**4. وَاللَّيْلِ إِذَا يَغْشَاهَا (Verse 4)**
+- Noun: اللَّيْلِ -- genitive after oath وَ
+- Qualifier: إِذَا temporal clause (present tense verb)
+- Relationship: The oath is by the night WHEN it covers (habitual action)
+
+**5. وَالسَّمَاءِ وَمَا بَنَاهَا (Verse 5)**
+- Noun: السَّمَاءِ -- genitive after oath وَ
+- Qualifier: وَمَا relative clause (He who built it)
+- Relationship: Double oath -- by the sky AND by its Creator
+
+**6. وَالْأَرْضِ وَمَا طَحَاهَا (Verse 6)**
+- Noun: الْأَرْضِ -- genitive after oath وَ
+- Qualifier: وَمَا relative clause (He who spread it)
+- Relationship: Double oath -- by the earth AND by its Spreader
+
+**7. وَنَفْسٍ وَمَا سَوَّاهَا (Verse 7)**
+- Noun: نَفْسٍ -- genitive after oath وَ (indefinite, with tanwin)
+- Qualifier: وَمَا relative clause (He who proportioned it)
+- Relationship: Double oath -- by the soul AND by its Perfecter
+
+**Key patterns:** Verses 2-4 use إِذَا (temporal), verses 5-7 use مَا (relative). Verse 1 stands alone with a simple conjunction. The progression moves from observed phenomena (sun, moon, day, night) to creative acts (building, spreading, proportioning).
+</ExerciseBox>
+
+<ExerciseBox question="Compare the use of Form II verbs in this surah. List each Form II verb, its root, its Form I meaning, and how Form II changes or intensifies the meaning. What does the prevalence of Form II tell us about the surah's themes?">
+
+**1. جَلَّاهَا (Verse 3) -- root: ج-ل-و**
+- Form I جَلَا: "to reveal, uncover"
+- Form II جَلَّى: "to display brilliantly, to make fully visible"
+- Intensification: From simple revealing to complete, radiant display
+
+**2. سَوَّاهَا (Verses 7, 14) -- root: س-و-ي**
+- Form I سَوِيَ: "to be equal, level"
+- Form II سَوَّى: "to proportion, perfect, balance" (v.7) / "to level, equalize destruction" (v.14)
+- Intensification: From a state of equality to the active, deliberate act of making something perfect or leveling it
+
+**3. زَكَّاهَا (Verse 9) -- root: ز-ك-و**
+- Form I زَكَا: "to be pure, to grow"
+- Form II زَكَّى: "to purify, to make righteous, to cause to grow"
+- Intensification: From natural purity to active, sustained purification effort
+
+**4. دَسَّاهَا (Verse 10) -- root: د-س-س**
+- Form I دَسَّ: "to hide, insert"
+- Form II (variant): "to bury, corrupt, conceal under layers"
+- Intensification: From simple hiding to total corruption and burial of the soul
+
+**5. كَذَّبَتْ / كَذَّبُوهُ (Verses 11, 14) -- root: ك-ذ-ب**
+- Form I كَذَبَ: "to lie"
+- Form II كَذَّبَ: "to deny, to reject, to accuse of lying"
+- Intensification: From lying to actively rejecting truth and accusing the truthful
+
+**Thematic significance:** The dominance of Form II verbs reveals that this surah is about INTENSIFIED actions -- not passive states but deliberate, forceful choices. Purification (زَكَّى) and corruption (دَسَّى) are not mild inclinations but vigorous commitments. Creation (سَوَّى) is not casual but meticulous. Denial (كَذَّبَ) is not passive doubt but active rejection. The surah's message is that the soul's fate depends on the INTENSITY of one's moral choices.
+</ExerciseBox>
 
 ## Key Vocabulary
 
+<GrammarTable>
 | Arabic | Root | Pattern | Meaning | Frequency |
 |--------|------|---------|---------|-----------|
 | الشَّمْسِ | ش-م-س | الفَعْل | the sun | Frequent |
@@ -383,20 +674,24 @@ difficulty: "intermediate"
 | دَمْدَمَ | د-م-د-م | فَعْلَلَ (quadriliteral) | he brought destruction | Rare |
 | ذَنبِهِمْ | ذ-ن-ب | فَعْل | their sin | Frequent |
 | عُقْبَاهَا | ع-ق-ب | فُعْلَى | its consequence | Common |
+</GrammarTable>
 
 ## Grammar Summary
 
-- **Extended oath series**: Verses 1-7 feature one of the longest oath sequences in the Quran (7 consecutive وَ oaths), each with genitive after oath particle وَ
-- **Temporal clauses with إِذَا**: Verses 2, 3, 4 use إِذَا to introduce when-clauses qualifying the oaths
-- **Relative pronouns**: مَا in verses 5, 6, 7 functioning as ism mawsul (He who) or masdariyya (the act of)
-- **Emphasis particle قَدْ**: Verses 9 and 10 use قَدْ to emphasize the certainty of the oath's answer
-- **Form II verbs (intensive/causative)**: جَلَّاهَا, سَوَّاهَا, زَكَّاهَا, دَسَّاهَا, كَذَّبَتْ - showing intensified or causative action
-- **Form IV verbs**: أَلْهَمَهَا, أَفْلَحَ
-- **Form VII verb**: انبَعَثَ (reflexive/passive meaning)
-- **Superlative form**: أَشْقَاهَا (أَفْعَل pattern for "most wretched")
-- **Idafa constructions**: رَسُولُ اللَّهِ, نَاقَةَ اللَّهِ
-- **Connected narrative with فَ**: Verse 14 has five consecutive فَ particles showing rapid sequence of cause-effect
-- **Quadriliteral verb**: دَمْدَمَ (د-م-د-م) - four-letter root for emphasis
-- **Attached pronouns**: Extensive use of هَا pronoun referring back to النَّفْس (the soul) and other antecedents
-- **Contrast structure**: Verses 9-10 present perfect parallelism (success vs. failure, purification vs. corruption)
-- **Historical narrative**: Verses 11-15 shift from universal truth to specific example (Thamud's destruction)
+<Callout type="note" title="Key Grammar Concepts in This Surah">
+- **Extended oath series (qasam):** Verses 1-7 feature one of the longest oath sequences in the Quran -- seven consecutive وَ oaths, each placing its noun in the genitive case, with the jawab al-qasam delayed until verse 9
+- **Temporal clauses with إِذَا:** Verses 2, 3, and 4 use إِذَا to introduce when-clauses that qualify the oaths, specifying particular cosmic moments
+- **Relative pronoun مَا:** Verses 5, 6, and 7 use مَا functioning as ism mawsul ("He who") or masdariyya ("the act of"), introducing relative clauses about divine creative acts
+- **Emphasis particle قَدْ:** Verses 9 and 10 use قَدْ before past tense verbs to emphasize certainty and completion of the oath's answer
+- **Form II verbs (فَعَّلَ -- intensive/causative):** A dominant pattern -- جَلَّاهَا, سَوَّاهَا, زَكَّاهَا, دَسَّاهَا, كَذَّبَتْ -- showing intensified, deliberate action that mirrors the surah's theme of active moral choice
+- **Form IV verbs (أَفْعَلَ):** أَلْهَمَهَا (double object) and أَفْلَحَ (resultative success)
+- **Form VII verb (انْفَعَلَ):** انبَعَثَ -- reflexive/passive meaning ("to rise up of one's own accord")
+- **Superlative أَفْعَل pattern:** أَشْقَاهَا ("the most wretched of them")
+- **Quadriliteral verb:** دَمْدَمَ (د-م-د-م) -- four-letter root with onomatopoeic force
+- **Idafa constructions:** رَسُولُ اللَّهِ, نَاقَةَ اللَّهِ -- linking human/natural elements to divine authority
+- **Rapid narrative with فَ:** Verse 14 chains five consecutive فَ particles for breathless cause-and-effect narration
+- **Indefinite noun in oath:** نَفْسٍ (verse 7) is uniquely indefinite among the oath nouns, universalizing the message to every soul
+- **Contrast structure (tibaq):** Verses 9-10 present perfect parallelism -- success vs. failure, purification vs. corruption -- as the surah's central moral binary
+
+This surah is a masterclass in building rhetorical momentum through extended oath constructions, then delivering a concise moral verdict reinforced by historical example.
+</Callout>

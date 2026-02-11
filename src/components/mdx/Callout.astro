@@ -50,64 +50,62 @@ const icons: Record<string, string> = {
 
 <style>
   .callout {
-    background: var(--color-background-secondary);
-    border-inline-start: 4px solid;
-    border-radius: var(--radius-md);
-    padding-block: var(--spacing-md);
-    padding-inline: var(--spacing-lg);
-    margin-block: var(--spacing-xl);
+    background: var(--color-background-elevated);
+    border: 1px solid var(--color-border-primary);
+    border-radius: 16px;
+    padding: var(--spacing-lg) var(--spacing-xl);
+    margin-block: var(--spacing-2xl);
+    box-shadow: var(--shadow-sm);
+    position: relative;
+    overflow: hidden;
   }
 
-  /* Type-specific border and title colors */
-  .callout-note {
-    border-color: rgba(59, 130, 246, 0.8);
+  /* Type-specific background tints and accents */
+  .callout::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 6px;
   }
 
-  .callout-note .callout-title {
-    color: rgba(59, 130, 246, 1);
-  }
+  .callout-note { background: #F0F4F8; color: #102A43; }
+  .callout-note::after { background: #102A43; }
+  
+  .callout-tip { background: #F2F6F2; color: #405240; }
+  .callout-tip::after { background: #617D61; }
 
-  .callout-tip {
-    border-color: rgba(168, 85, 247, 0.8);
-  }
+  .callout-rule { background: #FBF7ED; color: #7A5C29; }
+  .callout-rule::after { background: #C5A059; }
 
-  .callout-tip .callout-title {
-    color: rgba(168, 85, 247, 1);
-  }
+  .callout-warning { background: #FEF6F5; color: #8A3E31; }
+  .callout-warning::after { background: #D66D5E; }
 
-  .callout-rule {
-    border-color: rgba(245, 158, 11, 0.8);
-  }
-
-  .callout-rule .callout-title {
-    color: rgba(245, 158, 11, 1);
-  }
-
-  .callout-warning {
-    border-color: rgba(239, 68, 68, 0.8);
-  }
-
-  .callout-warning .callout-title {
-    color: rgba(239, 68, 68, 1);
-  }
+  /* Dark Mode - Distinct hue-tinted backgrounds matching light mode identity */
+  :global([data-theme="dark"]) .callout-note { background: #0C1929; color: #93C5FD; border-color: #1E3A5F; }
+  :global([data-theme="dark"]) .callout-tip { background: #0F1A0F; color: #8FB88F; border-color: #1A3A1A; }
+  :global([data-theme="dark"]) .callout-rule { background: #1A1608; color: #EAD096; border-color: #3D3010; }
+  :global([data-theme="dark"]) .callout-warning { background: #1F1210; color: #F0A090; border-color: #3D1A14; }
 
   .callout-title {
     display: flex;
     align-items: center;
-    gap: var(--spacing-sm);
-    font-size: 0.75rem;
-    font-weight: 700;
+    gap: var(--spacing-md);
+    font-family: var(--font-display);
+    font-size: 0.8125rem;
+    font-weight: 800;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
-    margin: 0 0 var(--spacing-sm) 0;
+    letter-spacing: 0.1em;
+    margin: 0 0 var(--spacing-md) 0;
   }
 
   .callout-icon {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    inline-size: 1rem;
-    block-size: 1rem;
+    inline-size: 1.25rem;
+    block-size: 1.25rem;
   }
 
   .callout-icon :global(svg) {
@@ -116,13 +114,13 @@ const icons: Record<string, string> = {
   }
 
   .callout-content {
-    font-size: 0.9375rem;
-    line-height: 1.6;
-    color: var(--color-text-secondary);
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--color-text-primary);
   }
 
   .callout-content :global(p) {
-    margin-block-end: var(--spacing-sm);
+    margin-block-end: var(--spacing-md);
   }
 
   .callout-content :global(p:last-child) {

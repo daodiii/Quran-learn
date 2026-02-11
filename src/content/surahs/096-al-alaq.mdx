@@ -6,6 +6,11 @@ verseCount: 19
 difficulty: "intermediate"
 ---
 
+import ArabicExample from '@components/mdx/ArabicExample.astro';
+import GrammarTable from '@components/mdx/GrammarTable.astro';
+import Callout from '@components/mdx/Callout.astro';
+import ExerciseBox from '@components/mdx/ExerciseBox.astro';
+
 # Al-'Alaq (The Clot)
 
 ## Overview
@@ -15,16 +20,51 @@ difficulty: "intermediate"
 - **Theme:** The first revelation emphasizing the importance of reading/reciting in the name of Allah, knowledge through the pen, and warning against human arrogance and transgression. Describes divine knowledge and human accountability.
 - **Grammar Focus:** Imperative constructions (iqra'), relative clauses, kalla negation/emphasis particle, conditional la'in constructions, divine name formulas, active participles
 
+### Structural Overview
+
+<GrammarTable>
+| Verse | Arabic | Sentence Type | Key Grammar | Message |
+|-------|--------|---------------|-------------|---------|
+| 1 | ٱقْرَأْ بِٱسْمِ رَبِّكَ ٱلَّذِى خَلَقَ | Imperative + relative clause | Imperative amr + iḍāfah + ism mawṣūl | Read in Allah's name |
+| 2 | خَلَقَ ٱلْإِنسَـٰنَ مِنْ عَلَقٍ | Verbal (past tense) | Transitive verb + min for origin | Humble human origin |
+| 3 | ٱقْرَأْ وَرَبُّكَ ٱلْأَكْرَمُ | Imperative + nominal | Repeated amr + jumla ismiyyah with ism tafdīl | Allah's generosity |
+| 4 | ٱلَّذِى عَلَّمَ بِٱلْقَلَمِ | Relative clause | ism mawṣūl + Form II verb + bi instrumental | Knowledge through the pen |
+| 5 | عَلَّمَ ٱلْإِنسَـٰنَ مَا لَمْ يَعْلَمْ | Verbal (past tense) | Double transitive verb + mā mawṣūlah + jussive | Divine teaching |
+| 6 | كَلَّآ إِنَّ ٱلْإِنسَـٰنَ لَيَطْغَىٰٓ | Nominal (inna clause) | kallā deterrence + inna + la-emphasis | Human transgression |
+| 7 | أَن رَّءَاهُ ٱسْتَغْنَىٰٓ | Causal clause | an sababiyyah + Form X verb | Cause of arrogance |
+| 8 | إِنَّ إِلَىٰ رَبِّكَ ٱلرُّجْعَىٰ | Nominal (inna clause) | inna + fronted khabar + delayed ism | Return to Allah |
+| 9 | أَرَءَيْتَ ٱلَّذِى يَنْهَىٰ | Rhetorical question | Interrogative hamza + ra'ayta + ism mawṣūl | Who dares forbid? |
+| 10 | عَبْدًا إِذَا صَلَّىٰٓ | Verbal complement | Maf'ūl bih + idhā temporal | A servant at prayer |
+| 11 | أَرَءَيْتَ إِن كَانَ عَلَى ٱلْهُدَىٰٓ | Rhetorical question + conditional | a-ra'ayta + in conditional + kāna | What if he's guided? |
+| 12 | أَوْ أَمَرَ بِٱلتَّقْوَىٰٓ | Verbal (coordinated) | aw alternative + amara bi construction | Or enjoins piety? |
+| 13 | أَرَءَيْتَ إِن كَذَّبَ وَتَوَلَّىٰٓ | Rhetorical question + conditional | Form II + Form V coordinated | Denial and turning away |
+| 14 | أَلَمْ يَعْلَم بِأَنَّ ٱللَّهَ يَرَىٰ | Rhetorical question | a-lam + jussive + anna clause | Allah sees all |
+| 15 | كَلَّا لَئِن لَّمْ يَنتَهِ لَنَسْفَعًۢا بِٱلنَّاصِيَةِ | Emphatic conditional | kallā + la'in...la- + Form VIII jussive | Severe warning |
+| 16 | نَاصِيَةٍۢ كَـٰذِبَةٍ خَاطِئَةٍۢ | Nominal (apposition) | badal + active participles as adjectives | Lying, sinful forelock |
+| 17 | فَلْيَدْعُ نَادِيَهُۥ | Jussive command | fa + lām al-amr + jussive | Call your supporters |
+| 18 | سَنَدْعُ ٱلزَّبَانِيَةَ | Verbal (future) | sa- future particle + 1st person plural | Angels of punishment |
+| 19 | كَلَّا لَا تُطِعْهُ وَٱسْجُدْ وَٱقْتَرِب ۩ | Prohibition + imperatives | lā nāhiyah + two positive imperatives | Prostrate and draw near |
+</GrammarTable>
+
+<Callout type="tip" title="The First Words Revealed: A Grammar Masterclass">
+Al-'Alaq contains the very first words of the Quran revealed to the Prophet: ٱقْرَأْ بِٱسْمِ رَبِّكَ ٱلَّذِى خَلَقَ. This single command packs an imperative verb, a prepositional phrase, an iḍāfah construction, and a relative clause into one sentence. The surah also features three distinct uses of كَلَّا (deterrence particle), three rhetorical أَرَءَيْتَ questions, and the rare emphatic conditional لَئِن...لَ- construction -- making it one of the most grammatically dense surahs in the Quran relative to its length.
+</Callout>
+
 ## Verse-by-Verse Analysis
 
 ### Verse 1
 
-**Arabic:** ٱقْرَأْ بِٱسْمِ رَبِّكَ ٱلَّذِى خَلَقَ
-
-**Translation:** "Read in the name of your Lord who created"
+<ArabicExample
+  arabic="ٱقْرَأْ بِٱسْمِ رَبِّكَ ٱلَّذِى خَلَقَ"
+  transliteration="iqra' bi-smi rabbika lladhī khalaqa"
+  translation="Read in the name of your Lord who created"
+  reference="Al-'Alaq 96:1"
+  highlight="ٱقْرَأْ"
+/>
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | ٱقْرَأْ | iqra' | ق ر ء | Verb - Form I, imperative, 2nd person masculine singular | Imperative verb (amr) - mabni 'ala sukun | Read/Recite |
@@ -33,82 +73,136 @@ difficulty: "intermediate"
 | 4 | رَبِّكَ | rabbika | ر ب ب | Noun - masculine, singular, definite + attached pronoun | Mudaf ilayh - genitive (majrur) | your Lord |
 | 5 | ٱلَّذِى | alladhī | - | Relative pronoun - masculine, singular | Not declinable (mabni), modifies rabbika | who |
 | 6 | خَلَقَ | khalaqa | خ ل ق | Verb - Form I, past tense, 3rd person masculine singular | Verb in relative clause - mabni 'ala fath | created |
+</GrammarTable>
 
-#### Grammar Notes
-- First command in the Quran: iqra' (imperative of qara'a)
-- Bi-ismi rabbika is prepositional phrase with idafa construction
-- Alladhī introduces relative clause (silat al-mawsul) modifying rabbika
-- Khalaqa verb has implied object (everything)
+<Callout type="rule" title="The First Command: ٱقْرَأْ (Imperative of qara'a)">
+ٱقْرَأْ is the very first word revealed in the Quran. It is an imperative (fi'l amr) from the root ق-ر-ء, built on the pattern اِفْعَلْ. The hamza at the beginning is hamzat al-wasl (connecting hamza), which drops in connected speech. The verb is mabni 'ala sukun because the last radical carries sukun. This imperative sets the tone for the entire Quran: a divine command to engage with knowledge.
+</Callout>
+
+<Callout type="tip" title="Nested Iḍāfah + Relative Clause">
+بِٱسْمِ رَبِّكَ ٱلَّذِى خَلَقَ layers three grammatical structures: the preposition بِ governs the iḍāfah ٱسْمِ رَبِّكَ, which itself contains a second iḍāfah (رَبِّ + كَ), and the relative pronoun ٱلَّذِى opens a relative clause modifying رَبِّكَ. This compact phrasing connects reading, divine naming, lordship, and creation in a single breath.
+</Callout>
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** This is an imperative sentence (jumla inshā'iyyah). ٱقْرَأْ is the main verb commanding the addressee. بِٱسْمِ رَبِّكَ is a prepositional phrase (jār wa-majrūr) functioning as a circumstantial modifier or complement. ٱسْمِ is the muḍāf and رَبِّكَ the muḍāf ilayhi (genitive). ٱلَّذِى introduces a relative clause (ṣilat al-mawṣūl) whose verb خَلَقَ has an implied object (all of creation).
+
+**Sarf (Morphology):** ٱقْرَأْ is Form I imperative from root ق-ر-ء on the pattern اِفْعَلْ. The hamza is radical (part of the root). خَلَقَ is Form I past tense on the فَعَلَ pattern, a basic transitive verb. رَبِّ is from root ر-ب-ب on the فَعْل pattern, with the doubled second radical merged.
+
+**Balagha (Rhetoric):** The first word of revelation is a command, not a statement -- establishing the Quran's authoritative voice from the very beginning. The object of ٱقْرَأْ is deliberately omitted (ḥadhf al-maf'ūl), making the command universal: read everything, not just a specific text. Linking reading to بِٱسْمِ رَبِّكَ frames all knowledge as sacred. The relative clause ٱلَّذِى خَلَقَ grounds the command in Allah's creative power.
 
 ### Verse 2
 
-**Arabic:** خَلَقَ ٱلْإِنسَـٰنَ مِنْ عَلَقٍ
-
-**Translation:** "He created man from a clinging clot"
+<ArabicExample
+  arabic="خَلَقَ ٱلْإِنسَـٰنَ مِنْ عَلَقٍ"
+  transliteration="khalaqa l-insāna min 'alaqin"
+  translation="He created man from a clinging clot"
+  reference="Al-'Alaq 96:2"
+  highlight="عَلَقٍ"
+/>
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | خَلَقَ | khalaqa | خ ل ق | Verb - Form I, past tense, 3rd person masculine singular | Verb - mabni 'ala fath, subject implied (huwa/He) | He created |
 | 2 | ٱلْإِنسَـٰنَ | al-insāna | ء ن س | Noun - masculine, singular, definite | Direct object (maf'ul bihi) - accusative (mansub) | man/human |
 | 3 | مِنْ | min | - | Particle - preposition | Not declinable (mabni), indicates source/origin | from |
 | 4 | عَلَقٍ | 'alaqin | ع ل ق | Noun - masculine, singular, indefinite | Object of preposition - genitive (majrur) | clinging clot |
+</GrammarTable>
 
-#### Grammar Notes
-- Expansion on the creation mentioned in verse 1
-- 'Alaq refers to the clinging embryonic stage
-- Min indicates material origin (min al-ibtidā'iyyah)
+<Callout type="rule" title="مِنْ for Origin (min al-ibtidā'iyyah)">
+The preposition مِنْ here indicates the origin or source material from which creation occurred. This is مِنْ الابتدائية -- one of the most common uses of مِنْ in Quranic Arabic. It answers the question "from what?" and governs the genitive case on عَلَقٍ. Compare with مِنْ for partitive meaning ("some of") or مِنْ for comparison ("than").
+</Callout>
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** This is a verbal sentence (jumla fi'liyyah) expanding on the creation mentioned in verse 1. خَلَقَ is the verb with an implied subject (هُوَ). ٱلْإِنسَـٰنَ is the direct object (maf'ūl bihi) in the accusative. مِنْ عَلَقٍ is a prepositional phrase indicating the material origin.
+
+**Sarf (Morphology):** ٱلْإِنسَـٰنَ is from root ء-ن-س, referring to humanity generically. عَلَقٍ is from root ع-ل-ق on the فَعَل pattern, referring to a clinging substance (the embryonic stage). It can function as both singular and collective noun.
+
+**Balagha (Rhetoric):** Immediately after commanding to "read," Allah specifies His creation of humanity from the most humble material -- a blood clot. The juxtaposition between the grandeur of the command ٱقْرَأْ and the lowliness of عَلَق creates a powerful contrast: the being called to knowledge began as something insignificant. This humbles the reader while elevating the power of the Creator.
 
 ### Verse 3
 
-**Arabic:** ٱقْرَأْ وَرَبُّكَ ٱلْأَكْرَمُ
-
-**Translation:** "Read, and your Lord is the Most Generous"
+<ArabicExample
+  arabic="ٱقْرَأْ وَرَبُّكَ ٱلْأَكْرَمُ"
+  transliteration="iqra' wa-rabbuka l-akramu"
+  translation="Read, and your Lord is the Most Generous"
+  reference="Al-'Alaq 96:3"
+  highlight="ٱلْأَكْرَمُ"
+/>
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | ٱقْرَأْ | iqra' | ق ر ء | Verb - Form I, imperative, 2nd person masculine singular | Imperative verb (amr) - mabni 'ala sukun | Read/Recite |
 | 2 | وَ | wa | - | Particle - conjunction | Not declinable (mabni), connects clauses | And |
 | 3 | رَبُّكَ | rabbuka | ر ب ب | Noun - masculine, singular, definite + attached pronoun | Subject (mubtada') - nominative (marfu') | your Lord |
 | 4 | ٱلْأَكْرَمُ | al-akramu | ك ر م | Noun - masculine, singular, definite, superlative form | Predicate (khabar) - nominative (marfu') | the Most Generous |
+</GrammarTable>
 
-#### Grammar Notes
-- Command repeated for emphasis
-- Nominal sentence (jumla ismiyyah): rabbuka al-akram
-- Al-akram is ism tafdīl (superlative) on pattern af'al
+<Callout type="rule" title="Ism Tafdīl: ٱلْأَكْرَمُ (Superlative on أَفْعَل Pattern)">
+ٱلْأَكْرَمُ follows the أَفْعَل superlative pattern from root ك-ر-م. When preceded by the definite article اَلْ, ism tafdīl functions as a true superlative ("the most generous"). Without the article, it would be comparative ("more generous than"). Here it is the khabar (predicate) of the nominal sentence رَبُّكَ ٱلْأَكْرَمُ, both terms in the nominative.
+</Callout>
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** Two clauses are joined by وَ: the repeated imperative ٱقْرَأْ and the nominal sentence (jumla ismiyyah) رَبُّكَ ٱلْأَكْرَمُ. In the nominal clause, رَبُّكَ is the mubtada' (subject, nominative) and ٱلْأَكْرَمُ is the khabar (predicate, nominative). The وَ here is likely ḥāliyyah (circumstantial): "Read, while your Lord is the Most Generous."
+
+**Sarf (Morphology):** ٱلْأَكْرَمُ is ism tafdīl on the أَفْعَل pattern from root ك-ر-م. The base adjective is كَرِيم (generous), and the superlative form intensifies it to "most generous." رَبُّكَ is from root ر-ب-ب with the 2nd person pronoun suffix.
+
+**Balagha (Rhetoric):** The repetition of ٱقْرَأْ (verses 1 and 3) creates emphasis through structural parallelism (takrār). The first command links reading to creation; the second links it to generosity. Calling Allah ٱلْأَكْرَمُ (the Most Generous) immediately after commanding to read implies that knowledge itself is the greatest gift. The wāw connects the command to its motivation: read, because your Lord's generosity is supreme.
 
 ### Verse 4
 
-**Arabic:** ٱلَّذِى عَلَّمَ بِٱلْقَلَمِ
-
-**Translation:** "Who taught by the pen"
+<ArabicExample
+  arabic="ٱلَّذِى عَلَّمَ بِٱلْقَلَمِ"
+  transliteration="alladhī 'allama bi-l-qalami"
+  translation="Who taught by the pen"
+  reference="Al-'Alaq 96:4"
+  highlight="ٱلْقَلَمِ"
+/>
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | ٱلَّذِى | alladhī | - | Relative pronoun - masculine, singular | Not declinable (mabni), modifies al-akram | Who |
 | 2 | عَلَّمَ | 'allama | ع ل م | Verb - Form II, past tense, 3rd person masculine singular | Verb in relative clause - mabni 'ala fath | taught |
 | 3 | بِ | bi | - | Particle - preposition | Not declinable (mabni), indicates instrument | by/with |
 | 4 | ٱلْقَلَمِ | al-qalami | ق ل م | Noun - masculine, singular, definite | Object of preposition - genitive (majrur) | the pen |
+</GrammarTable>
 
-#### Grammar Notes
-- Relative clause modifying al-akram (the Most Generous)
-- 'Allama (Form II) indicates teaching/causing to know
-- Bi-al-qalam shows instrument (bi indicating means)
-- Emphasis on written knowledge
+<Callout type="rule" title="Form II (فَعَّلَ): عَلَّمَ as Causative/Intensive">
+عَلَّمَ is a Form II verb from root ع-ل-م. While Form I عَلِمَ means "to know," Form II عَلَّمَ means "to teach/cause to know." The doubled middle radical (لّ) signals causation: making someone else acquire the knowledge. This Form I to Form II relationship (knowing vs. teaching) is one of the clearest examples of how Arabic verb forms systematically derive meaning.
+</Callout>
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** ٱلَّذِى introduces a second relative clause modifying ٱلْأَكْرَمُ from verse 3. The verb عَلَّمَ has an omitted direct object (humanity) and the prepositional phrase بِٱلْقَلَمِ indicates the instrument of teaching. The بِ here is بِ الاستعانة (instrumental bā').
+
+**Sarf (Morphology):** عَلَّمَ is Form II (فَعَّلَ) from root ع-ل-م with the doubled middle radical creating the causative meaning. ٱلْقَلَمِ is from root ق-ل-م on the فَعَل pattern, a concrete noun denoting the writing instrument.
+
+**Balagha (Rhetoric):** The pen (ٱلْقَلَم) is singled out as the instrument of divine teaching -- remarkable given that the Prophet himself was unlettered. This elevates written knowledge to a sacred status. The omission of the direct object (who was taught) universalizes the teaching: Allah taught all of humanity through the pen. Combined with the previous verse, a chain emerges: generosity manifests as teaching, and teaching manifests through writing.
 
 ### Verse 5
 
-**Arabic:** عَلَّمَ ٱلْإِنسَـٰنَ مَا لَمْ يَعْلَمْ
-
-**Translation:** "He taught man what he did not know"
+<ArabicExample
+  arabic="عَلَّمَ ٱلْإِنسَـٰنَ مَا لَمْ يَعْلَمْ"
+  transliteration="'allama l-insāna mā lam ya'lam"
+  translation="He taught man what he did not know"
+  reference="Al-'Alaq 96:5"
+  highlight="مَا"
+/>
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | عَلَّمَ | 'allama | ع ل م | Verb - Form II, past tense, 3rd person masculine singular | Verb - mabni 'ala fath | He taught |
@@ -116,21 +210,33 @@ difficulty: "intermediate"
 | 3 | مَا | mā | - | Relative pronoun | Not declinable (mabni), second object (maf'ul bihi thani) | what/that which |
 | 4 | لَمْ | lam | - | Particle - negation | Not declinable (mabni), jussive negation | not |
 | 5 | يَعْلَمْ | ya'lam | ع ل م | Verb - Form I, present tense, 3rd person masculine singular, jussive | Verb in jussive mood (majzum) by lam | he know |
+</GrammarTable>
 
-#### Grammar Notes
-- 'Allama takes two objects (double transitive verb)
-- Ma is relative pronoun (mawsul) as second object
-- Lam governs jussive mood (ya'lam becomes majzum)
-- Emphasizes Allah's role in granting knowledge to humanity
+<Callout type="rule" title="Double Object Verbs: عَلَّمَ Takes Two Maf'ūl">
+عَلَّمَ is a double transitive verb (fi'l muta'addin ilā maf'ūlayn). Its first object is ٱلْإِنسَـٰنَ (the one taught) and its second object is مَا لَمْ يَعْلَمْ (what was taught). Both are in the accusative case. Other common double-transitive verbs include أَعْطَى (to give), جَعَلَ (to make), and ظَنَّ (to think/suppose).
+</Callout>
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** عَلَّمَ governs two objects: ٱلْإِنسَـٰنَ (first maf'ūl bihi, accusative) and مَا لَمْ يَعْلَمْ (second maf'ūl bihi, the relative clause functioning as a noun in the accusative). مَا is ism mawṣūl (relative pronoun), and لَمْ يَعْلَمْ is its ṣilah (relative clause). لَمْ is a jāzim particle putting يَعْلَمْ in the jussive mood.
+
+**Sarf (Morphology):** The root ع-ل-م appears in three forms in this verse: عَلَّمَ (Form II, "taught"), يَعْلَمْ (Form I, "know"), highlighting the morphological relationship between knowing and teaching. لَمْ negates the present tense verb and shifts it to past meaning: "did not know."
+
+**Balagha (Rhetoric):** The repetition of the root ع-ل-م in both the verb and its complement creates a powerful polyptoton (jinās ishtiqāqī): "He taught man what he did not know." The indefiniteness of مَا (what) encompasses all knowledge -- boundless and uncountable. This verse completes the five-verse opening unit: command to read, creation from humble origins, divine generosity, teaching through the pen, and the gift of knowledge.
 
 ### Verse 6
 
-**Arabic:** كَلَّآ إِنَّ ٱلْإِنسَـٰنَ لَيَطْغَىٰٓ
-
-**Translation:** "No! Indeed, man transgresses"
+<ArabicExample
+  arabic="كَلَّآ إِنَّ ٱلْإِنسَـٰنَ لَيَطْغَىٰٓ"
+  transliteration="kallā inna l-insāna la-yaṭghā"
+  translation="No! Indeed, man transgresses"
+  reference="Al-'Alaq 96:6"
+  highlight="كَلَّآ"
+/>
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | كَلَّآ | kallā | - | Particle - negation/deterrence | Not declinable (mabni), negates or warns | No!/Nay! |
@@ -138,101 +244,163 @@ difficulty: "intermediate"
 | 3 | ٱلْإِنسَـٰنَ | al-insāna | ء ن س | Noun - masculine, singular, definite | Ism inna (subject of inna) - accusative (mansub) | man |
 | 4 | لَ | la | - | Particle - emphasis | Not declinable (mabni), emphasizes predicate | surely/indeed |
 | 5 | يَطْغَىٰٓ | yatghā | ط غ ي | Verb - Form I, present tense, 3rd person masculine singular | Khabar inna (predicate) - nominative (marfu') | he transgresses |
+</GrammarTable>
 
-#### Grammar Notes
-- Kallā marks transition to warning about human arrogance
-- Inna + la- construction for strong emphasis
-- Yatghā (defective verb) means to exceed bounds, rebel, transgress
-- Sharp contrast with previous verses praising divine teaching
+<Callout type="rule" title="إِنَّ + لَ Double Emphasis Construction">
+The combination of إِنَّ with the لَ prefix on the khabar (predicate) is one of the strongest emphasis structures in Arabic grammar. إِنَّ alone provides emphasis ("indeed"), but adding لَ before the predicate يَطْغَىٰ doubles the assertion. This لَ is called لام المُزَحلَقة (the "shifted lām") -- it originally belongs with إِنَّ but is moved to the predicate for stylistic balance.
+</Callout>
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** كَلَّآ is a deterrence/warning particle that marks a sharp transition. إِنَّ governs the nominal clause: ٱلْإِنسَـٰنَ is the ism inna (accusative) and the verbal clause لَيَطْغَىٰ is the khabar inna (nominative position). The لَ on the khabar is لام المزحلقة, intensifying the assertion.
+
+**Sarf (Morphology):** يَطْغَىٰ is a Form I defective verb (nāqiṣ) from root ط-غ-ي. The final yā' is hidden (alif maqṣūrah), and the verb is marfū' with a ḍammah muqaddarah (estimated) on the alif. The pattern يَفْعَل indicates the present/imperfect tense.
+
+**Balagha (Rhetoric):** كَلَّآ creates a dramatic pivot -- from the beauty of divine knowledge (verses 1-5) to the ugliness of human arrogance (verses 6-19). The use of the generic ٱلْإِنسَـٰن (man/humanity) rather than a specific person universalizes the warning. The present tense يَطْغَىٰ indicates an ongoing, habitual tendency -- transgression is not a one-time act but a recurring human flaw.
 
 ### Verse 7
 
-**Arabic:** أَن رَّءَاهُ ٱسْتَغْنَىٰٓ
-
-**Translation:** "Because he sees himself self-sufficient"
+<ArabicExample
+  arabic="أَن رَّءَاهُ ٱسْتَغْنَىٰٓ"
+  transliteration="an ra'āhu staghnā"
+  translation="Because he sees himself self-sufficient"
+  reference="Al-'Alaq 96:7"
+  highlight="ٱسْتَغْنَىٰٓ"
+/>
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | أَن | an | - | Particle - causative | Not declinable (mabni), indicates reason | Because |
 | 2 | رَّءَاهُ | ra'āhu | ر ء ي | Verb - Form I, past tense, 3rd person masculine singular + attached pronoun | Verb mabni, hu = direct object - accusative | he sees himself |
-| 3 | ٱسْتَغْنَىٰٓ | istaghнā | غ ن ي | Verb - Form X, past tense, 3rd person masculine singular | Verb mabni 'ala fatha maqdurah | he became self-sufficient |
+| 3 | ٱسْتَغْنَىٰٓ | istaghnā | غ ن ي | Verb - Form X, past tense, 3rd person masculine singular | Verb mabni 'ala fatha maqdurah | he became self-sufficient |
+</GrammarTable>
 
-#### Grammar Notes
-- An here indicates causation (an sababiyyah)
-- Ra'āhu: verb + attached pronoun (reflexive: sees himself)
-- Istaghnā (Form X) means to consider oneself independent/wealthy
-- This clause explains why man transgresses
+<Callout type="tip" title="Form X (اِسْتَفْعَلَ): Seeking or Considering Oneself">
+ٱسْتَغْنَىٰ is Form X from root غ-ن-ي (wealth, self-sufficiency). While غَنِيَ (Form I) means "to be wealthy," اِسْتَغْنَى (Form X) means "to consider oneself wealthy/self-sufficient" or "to seek independence." Form X often carries the meaning of seeking the base quality or deeming oneself to possess it. This same pattern appears in اِسْتَكْبَرَ (to consider oneself great/arrogant) from كَبُرَ (to be great).
+</Callout>
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** أَن here is أَنْ المصدرية السببية (causative masdariyyah), creating a causal clause explaining why man transgresses. رَءَاهُ has the attached pronoun هُ functioning reflexively (he sees himself). ٱسْتَغْنَىٰ is the second predicate or complement -- "he saw himself [to be] self-sufficient."
+
+**Sarf (Morphology):** رَءَاهُ is Form I from root ر-ء-ي, a hollow verb with the middle radical weakened. ٱسْتَغْنَىٰ is Form X from root غ-ن-ي on the اِسْتَفْعَلَ pattern. The final alif maqṣūrah conceals the original yā'. Form X adds the prefix اِسْتَـ to signal "considering oneself" to have a quality.
+
+**Balagha (Rhetoric):** The verse provides the psychology behind transgression: self-perceived self-sufficiency. The reflexive construction رَءَاهُ (he sees himself) emphasizes that this is a matter of perception, not reality. Man only "sees himself" as independent -- the reality (stated in verse 8) is that everything returns to Allah. The Form X verb reinforces the theme of false self-assessment.
 
 ### Verse 8
 
-**Arabic:** إِنَّ إِلَىٰ رَبِّكَ ٱلرُّجْعَىٰ
-
-**Translation:** "Indeed, to your Lord is the return"
+<ArabicExample
+  arabic="إِنَّ إِلَىٰ رَبِّكَ ٱلرُّجْعَىٰ"
+  transliteration="inna ilā rabbika r-ruj'ā"
+  translation="Indeed, to your Lord is the return"
+  reference="Al-'Alaq 96:8"
+  highlight="ٱلرُّجْعَىٰ"
+/>
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | إِنَّ | inna | - | Particle - emphasis | Not declinable (mabni), governs accusative | Indeed |
 | 2 | إِلَىٰ | ilā | - | Particle - preposition | Not declinable (mabni), indicates direction | to |
 | 3 | رَبِّكَ | rabbika | ر ب ب | Noun - masculine, singular, definite + attached pronoun | Object of preposition - genitive (majrur) | your Lord |
 | 4 | ٱلرُّجْعَىٰ | ar-ruj'ā | ر ج ع | Noun - feminine, singular, definite | Ism inna (delayed subject) - accusative (mansub) | the return |
+</GrammarTable>
 
-#### Grammar Notes
-- Inna sentence with prepositional phrase preceding ism inna
-- Ar-ruj'ā is masdar (verbal noun) from raja'a
-- Warning: despite arrogance, everyone returns to Allah
+<Callout type="rule" title="Fronted Khabar with إِنَّ (Taqdīm al-Khabar)">
+In standard word order, the ism inna comes directly after إِنَّ, followed by the khabar. Here, the khabar (إِلَىٰ رَبِّكَ) is fronted before the ism inna (ٱلرُّجْعَىٰ). This fronting (taqdīm) serves to emphasize the destination of the return -- specifically to your Lord, not to anyone else. The delayed ism inna remains accusative.
+</Callout>
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** إِنَّ introduces an emphasized nominal clause. The prepositional phrase إِلَىٰ رَبِّكَ is the khabar (predicate) of إِنَّ, fronted for emphasis. ٱلرُّجْعَىٰ is the ism inna (subject), delayed but still in the accusative as required by إِنَّ. This is a case of taqdīm al-khabar 'alā l-ism (fronting the predicate over the subject).
+
+**Sarf (Morphology):** ٱلرُّجْعَىٰ is a masdar (verbal noun) from root ر-ج-ع on the فُعْلَى pattern. This pattern often creates feminine verbal nouns denoting abstract concepts. The alif maqṣūrah at the end marks it as feminine.
+
+**Balagha (Rhetoric):** This verse directly counters the false self-sufficiency of verse 7. The fronting of إِلَىٰ رَبِّكَ creates ḥaṣr (restriction/exclusivity): the return is to your Lord and to no one else. After describing human arrogance, this serves as the ultimate reality check. The use of رَبِّكَ (your Lord) with the second person pronoun personalizes the warning -- it is addressed directly.
 
 ### Verse 9
 
-**Arabic:** أَرَءَيْتَ ٱلَّذِى يَنْهَىٰ
-
-**Translation:** "Have you seen the one who forbids"
+<ArabicExample
+  arabic="أَرَءَيْتَ ٱلَّذِى يَنْهَىٰ"
+  transliteration="a-ra'ayta lladhī yanhā"
+  translation="Have you seen the one who forbids"
+  reference="Al-'Alaq 96:9"
+  highlight="أَرَءَيْتَ"
+/>
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | أَ | a | - | Particle - interrogative | Not declinable (mabni), introduces question | [interrogative marker] |
 | 2 | رَءَيْتَ | ra'ayta | ر ء ي | Verb - Form I, past tense, 2nd person masculine singular | Verb mabni 'ala sukun | Have you seen/considered |
 | 3 | ٱلَّذِى | alladhī | - | Relative pronoun - masculine, singular | Not declinable (mabni), object of ra'ayta | the one who |
 | 4 | يَنْهَىٰ | yanhā | ن ه ي | Verb - Form I, present tense, 3rd person masculine singular | Verb in relative clause - indicative (marfu') | forbids/prevents |
+</GrammarTable>
 
-#### Grammar Notes
-- A-ra'ayta is rhetorical question drawing attention
-- Alladhī is relative pronoun functioning as object of ra'ayta
-- Yanhā (defective verb) introduces description of the one mentioned
+<Callout type="tip" title="أَرَءَيْتَ: Rhetorical Question for Astonishment">
+أَرَءَيْتَ (have you seen/considered?) is a rhetorical question formula used three times in this surah (verses 9, 11, 13). It does not seek information but expresses amazement and draws the listener's attention. The hamzah at the beginning is hamzat al-istifhām (interrogative hamza), transforming a statement into a question. This construction is common in Meccan surahs for dramatic effect.
+</Callout>
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** أَ is hamzat al-istifhām (interrogative particle). رَءَيْتَ is the main verb with an implied subject (أَنْتَ). ٱلَّذِى functions as the direct object (maf'ūl bihi) of رَءَيْتَ, and يَنْهَىٰ is the verb within the relative clause (ṣilat al-mawṣūl). The object of يَنْهَىٰ (عَبْدًا) comes in the next verse.
+
+**Sarf (Morphology):** رَءَيْتَ is Form I past tense from root ر-ء-ي with the 2nd person suffix ـتَ. يَنْهَىٰ is Form I present tense from root ن-ه-ي, a defective verb (nāqiṣ) with the final yā' appearing as alif maqṣūrah. It is marfū' with an estimated ḍammah.
+
+**Balagha (Rhetoric):** The rhetorical question أَرَءَيْتَ opens a new dramatic section. It addresses the Prophet (and by extension all listeners) to contemplate an outrageous act: someone who forbids prayer. The present tense يَنْهَىٰ indicates habitual action -- this person repeatedly and persistently forbids. The enjambment across verses 9-10 (the object عَبْدًا delayed to the next verse) creates suspense.
 
 ### Verse 10
 
-**Arabic:** عَبْدًا إِذَا صَلَّىٰٓ
-
-**Translation:** "A servant when he prays"
+<ArabicExample
+  arabic="عَبْدًا إِذَا صَلَّىٰٓ"
+  transliteration="'abdan idhā ṣallā"
+  translation="A servant when he prays"
+  reference="Al-'Alaq 96:10"
+  highlight="عَبْدًا"
+/>
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | عَبْدًا | 'abdan | ع ب د | Noun - masculine, singular, indefinite | Direct object of yanhā - accusative (mansub) | a servant |
 | 2 | إِذَا | idhā | - | Particle - temporal/conditional | Not declinable (mabni), introduces temporal clause | when |
 | 3 | صَلَّىٰٓ | sallā | ص ل و | Verb - Form II, past tense, 3rd person masculine singular | Verb in temporal clause - mabni 'ala fatha maqdurah | he prayed |
+</GrammarTable>
 
-#### Grammar Notes
-- 'Abdan is object of yanhā from previous verse
-- Idhā introduces circumstantial temporal clause
-- Sallā (Form II) means to perform ritual prayer
-- Historically refers to Abu Jahl forbidding the Prophet from praying
+<Callout type="tip" title="Historical Context: عَبْدًا Refers to the Prophet">
+عَبْدًا (a servant) refers to the Prophet Muhammad, whom Abu Jahl tried to prevent from praying at the Ka'bah. The use of the indefinite form عَبْدًا rather than a proper name universalizes the situation: any person who forbids another from worshipping commits a grave offense. The word عَبْد also carries deep theological meaning -- the highest title for a human being is to be called a "servant of Allah."
+</Callout>
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** عَبْدًا is the maf'ūl bihi (direct object) of يَنْهَىٰ from verse 9, in the accusative case with tanwīn. إِذَا introduces a temporal clause (ẓarf zamān) with صَلَّىٰ as its verb. The entire phrase "a servant when he prays" completes the relative clause begun in verse 9.
+
+**Sarf (Morphology):** عَبْدًا is from root ع-ب-د on the فَعْل pattern. صَلَّىٰ is Form II from root ص-ل-و, with the final wāw appearing as alif maqṣūrah. Form II here carries the meaning of performing an action ritually and thoroughly.
+
+**Balagha (Rhetoric):** The delay of عَبْدًا to this verse after the question in verse 9 creates dramatic effect. The indefiniteness of عَبْدًا serves dual purposes: it generalizes the principle while also expressing contempt for the forbidder -- "he forbids a mere servant?" The temporal clause إِذَا صَلَّىٰ specifies the exact moment of the offense: the forbidding occurs precisely at the time of prayer, heightening the enormity of the transgression.
 
 ### Verse 11
 
-**Arabic:** أَرَءَيْتَ إِن كَانَ عَلَى ٱلْهُدَىٰٓ
-
-**Translation:** "Have you seen if he is upon guidance"
+<ArabicExample
+  arabic="أَرَءَيْتَ إِن كَانَ عَلَى ٱلْهُدَىٰٓ"
+  transliteration="a-ra'ayta in kāna 'alā l-hudā"
+  translation="Have you seen if he is upon guidance"
+  reference="Al-'Alaq 96:11"
+  highlight="ٱلْهُدَىٰٓ"
+/>
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | أَرَءَيْتَ | a-ra'ayta | ر ء ي | Verb - Form I, past tense, 2nd person masculine singular | Interrogative + verb mabni | Have you considered |
@@ -240,41 +408,66 @@ difficulty: "intermediate"
 | 3 | كَانَ | kāna | ك و ن | Verb - Form I, past tense, 3rd person masculine singular | Defective verb (kana), governs nominative + accusative | he was |
 | 4 | عَلَى | 'alā | - | Particle - preposition | Not declinable (mabni), indicates position | upon |
 | 5 | ٱلْهُدَىٰٓ | al-hudā | ه د ي | Noun - masculine, singular, definite | Object of preposition - genitive (majrur) | the guidance |
+</GrammarTable>
 
-#### Grammar Notes
-- Rhetorical question about the servant (who prays)
-- In introduces conditional clause
-- Kāna here with prepositional phrase as khabar
-- 'Alā al-hudā indicates being firmly upon guidance
+<Callout type="rule" title="كَانَ with Prepositional Khabar">
+كَانَ here takes a prepositional phrase (عَلَى ٱلْهُدَىٰ) as its khabar (predicate) instead of a simple accusative noun. The subject (ism kāna) is implied (هُوَ, referring to the servant/Prophet). When كَانَ takes a prepositional phrase as khabar, the phrase functions in the position of the accusative without actually carrying the accusative case marker. The preposition عَلَى conveys firmness and stability: being "upon" guidance, not merely "with" it.
+</Callout>
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** أَرَءَيْتَ is repeated (second occurrence). إِن introduces a conditional clause (shart) with كَانَ as the verb of the condition. The ism kāna is implied (هُوَ), and عَلَى ٱلْهُدَىٰ is the khabar kāna in the form of a prepositional phrase. The jawāb al-shart (answer to the conditional) is implied: "what then of the one who forbids him?"
+
+**Sarf (Morphology):** كَانَ is a Form I hollow verb from root ك-و-ن, with the middle wāw deleted in the past tense conjugation. ٱلْهُدَىٰ is a masdar from root ه-د-ي on the فُعَل pattern (originally فُعَى), a defective noun with alif maqṣūrah.
+
+**Balagha (Rhetoric):** This rhetorical question invites the audience to consider the situation: what if the servant being forbidden is actually on the right path? The conditional إِن (if) creates a hypothetical that is clearly true -- the Prophet was indeed upon guidance. عَلَى (upon) rather than فِي (in) or مَعَ (with) suggests being firmly established on guidance, as though standing on solid ground.
 
 ### Verse 12
 
-**Arabic:** أَوْ أَمَرَ بِٱلتَّقْوَىٰٓ
-
-**Translation:** "Or he enjoins righteousness"
+<ArabicExample
+  arabic="أَوْ أَمَرَ بِٱلتَّقْوَىٰٓ"
+  transliteration="aw amara bi-t-taqwā"
+  translation="Or he enjoins righteousness"
+  reference="Al-'Alaq 96:12"
+  highlight="ٱلتَّقْوَىٰٓ"
+/>
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | أَوْ | aw | - | Particle - conjunction | Not declinable (mabni), indicates alternative | Or |
 | 2 | أَمَرَ | amara | ء م ر | Verb - Form I, past tense, 3rd person masculine singular | Verb coordinated with kāna - mabni 'ala fath | he commanded/enjoined |
 | 3 | بِ | bi | - | Particle - preposition | Not declinable (mabni), governs genitive | with |
 | 4 | ٱلتَّقْوَىٰٓ | at-taqwā | و ق ي | Noun - feminine, singular, definite | Object of preposition - genitive (majrur) | the righteousness/piety |
+</GrammarTable>
 
-#### Grammar Notes
-- Aw coordinates alternative conditional scenario
-- Amara bi- construction (command with/enjoin to)
-- At-taqwā is masdar (verbal noun) meaning piety/God-consciousness
+<Callout type="tip" title="أَمَرَ بِـ: The Command Construction">
+The verb أَمَرَ takes its object with the preposition بِ (amara bi = to command/enjoin something). This is different from أَمَرَ + direct object (to command someone). The distinction matters: أَمَرَ النَّاسَ means "he commanded the people," while أَمَرَ بِالتَّقْوَىٰ means "he enjoined piety/commanded piety to be done." The بِ indicates the content of the command.
+</Callout>
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** أَوْ coordinates an alternative conditional scenario with verse 11. أَمَرَ is the verb with an implied subject (هُوَ). بِٱلتَّقْوَىٰ is a prepositional phrase functioning as the complement of أَمَرَ, indicating what is being enjoined.
+
+**Sarf (Morphology):** أَمَرَ is Form I from root ء-م-ر on the فَعَلَ pattern. ٱلتَّقْوَىٰ is a masdar (verbal noun) from root و-ق-ي, originally تَقْوَيَة, contracted to تَقْوَى on an irregular pattern. It carries the sense of guarding oneself, being conscious of Allah.
+
+**Balagha (Rhetoric):** The alternative أَوْ (or) presents two virtues of the servant: being on guidance (internal state) and enjoining piety (external action). Together they form a complete picture of righteousness. ٱلتَّقْوَىٰ is one of the most comprehensive ethical terms in the Quran, encompassing fear of Allah, moral consciousness, and righteous conduct. Forbidding someone who commands taqwā is doubly outrageous.
 
 ### Verse 13
 
-**Arabic:** أَرَءَيْتَ إِن كَذَّبَ وَتَوَلَّىٰٓ
-
-**Translation:** "Have you seen if he denies and turns away"
+<ArabicExample
+  arabic="أَرَءَيْتَ إِن كَذَّبَ وَتَوَلَّىٰٓ"
+  transliteration="a-ra'ayta in kadhdhaba wa-tawallā"
+  translation="Have you seen if he denies and turns away"
+  reference="Al-'Alaq 96:13"
+  highlight="كَذَّبَ,تَوَلَّىٰٓ"
+/>
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | أَرَءَيْتَ | a-ra'ayta | ر ء ي | Verb - Form I, past tense, 2nd person masculine singular | Interrogative + verb mabni | Have you considered |
@@ -282,21 +475,33 @@ difficulty: "intermediate"
 | 3 | كَذَّبَ | kadhdhaba | ك ذ ب | Verb - Form II, past tense, 3rd person masculine singular | Verb in conditional clause - mabni 'ala fath | he denied/rejected |
 | 4 | وَ | wa | - | Particle - conjunction | Not declinable (mabni), connects verbs | And |
 | 5 | تَوَلَّىٰٓ | tawallā | و ل ي | Verb - Form V, past tense, 3rd person masculine singular | Verb coordinated with kadhdhaba - mabni 'ala fatha maqdurah | he turned away |
+</GrammarTable>
 
-#### Grammar Notes
-- Parallel rhetorical question now about the forbidder
-- In introduces conditional about his negative actions
-- Kadhdhaba (Form II) means to reject/deny as false
-- Tawallā (Form V) means to turn away deliberately
+<Callout type="rule" title="Augmented Verb Forms in Contrast: Form II vs. Form V">
+This verse pairs two augmented verb forms: كَذَّبَ (Form II) and تَوَلَّىٰ (Form V). Form II كَذَّبَ from root ك-ذ-ب intensifies the base meaning: not merely lying but actively rejecting truth. Form V تَوَلَّىٰ from root و-ل-ي adds reflexivity: deliberately turning oneself away. Together they describe rejection that is both intellectual (denial) and physical (turning away) -- a complete act of opposition.
+</Callout>
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** This is the third أَرَءَيْتَ construction, now shifting focus to the forbidder (not the servant). إِن introduces a conditional clause with two coordinated verbs: كَذَّبَ and تَوَلَّىٰ joined by وَ. The jawāb al-shart is again implied, building suspense across multiple verses.
+
+**Sarf (Morphology):** كَذَّبَ is Form II (فَعَّلَ) from root ك-ذ-ب, with the doubled middle radical indicating intensification of the base meaning "to lie." تَوَلَّىٰ is Form V (تَفَعَّلَ) from root و-ل-ي, with the prefix تَـ adding reflexive meaning. The original wāw of the root is assimilated into the pattern.
+
+**Balagha (Rhetoric):** The third rhetorical question shifts from the righteous servant to the arrogant forbidder, creating a stark contrast. The pairing of كَذَّبَ (internal rejection) with تَوَلَّىٰ (external turning away) covers both dimensions of disbelief. The triple repetition of أَرَءَيْتَ (verses 9, 11, 13) creates an escalating rhetorical pattern (tadrīj) that builds toward the threat in verse 15.
 
 ### Verse 14
 
-**Arabic:** أَلَمْ يَعْلَم بِأَنَّ ٱللَّهَ يَرَىٰ
-
-**Translation:** "Does he not know that Allah sees"
+<ArabicExample
+  arabic="أَلَمْ يَعْلَم بِأَنَّ ٱللَّهَ يَرَىٰ"
+  transliteration="a-lam ya'lam bi-anna llāha yarā"
+  translation="Does he not know that Allah sees"
+  reference="Al-'Alaq 96:14"
+  highlight="يَرَىٰ"
+/>
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | أَ | a | - | Particle - interrogative | Not declinable (mabni), introduces rhetorical question | [Does?] |
@@ -306,21 +511,33 @@ difficulty: "intermediate"
 | 5 | أَنَّ | anna | - | Particle - emphasis | Not declinable (mabni), governs accusative | that/indeed |
 | 6 | ٱللَّهَ | Allāha | - | Proper noun - Allah | Ism anna (subject of anna) - accusative (mansub) | Allah |
 | 7 | يَرَىٰ | yarā | ر ء ي | Verb - Form I, present tense, 3rd person masculine singular | Khabar anna (predicate) - indicative (marfu') | He sees |
+</GrammarTable>
 
-#### Grammar Notes
-- A-lam rhetorical question expecting affirmative (he should know)
-- Bi- before anna is often considered za'idah (extra/emphatic)
-- Anna introduces nominal clause (object of ya'lam)
-- Yarā emphasizes Allah's all-seeing nature
+<Callout type="rule" title="أَلَمْ: Rhetorical Negative Question Expecting 'Yes'">
+أَلَمْ (does he not?) is a rhetorical question using the interrogative hamza + negative لَمْ. It expects an affirmative answer: "Of course he should know!" The لَمْ governs the jussive mood on يَعْلَم (the final mīm carries sukūn). This construction is one of the strongest ways to express reproach in Arabic -- it implies the person should already possess this knowledge but has willfully ignored it.
+</Callout>
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** أَ is interrogative and لَمْ negates يَعْلَم, putting it in the jussive (majzūm). The بِ before أَنَّ is considered zā'idah (extra/emphatic) by most grammarians. أَنَّ governs a nominal clause: ٱللَّهَ is the ism anna (accusative) and يَرَىٰ is the khabar anna. The entire أَنَّ clause functions as the object of يَعْلَم.
+
+**Sarf (Morphology):** يَعْلَم is Form I from root ع-ل-م in the jussive, with sukūn on the final radical. يَرَىٰ is Form I from root ر-ء-ي, a defective verb with the final hamza weakened to alif maqṣūrah. It is marfū' with an estimated ḍammah on the alif.
+
+**Balagha (Rhetoric):** This verse serves as the climax of the rhetorical questions: the ultimate reason not to transgress is that Allah sees everything. The root ر-ء-ي (seeing) echoes verse 7 (رَءَاهُ -- he sees himself) but now it is Allah who sees. The contrast is devastating: man sees himself as self-sufficient, but Allah sees the full truth. The absolute brevity of يَرَىٰ (He sees) -- with no specified object -- means Allah sees everything without limitation.
 
 ### Verse 15
 
-**Arabic:** كَلَّا لَئِن لَّمْ يَنتَهِ لَنَسْفَعًۢا بِٱلنَّاصِيَةِ
-
-**Translation:** "No! If he does not desist, We will surely drag him by the forelock"
+<ArabicExample
+  arabic="كَلَّا لَئِن لَّمْ يَنتَهِ لَنَسْفَعًۢا بِٱلنَّاصِيَةِ"
+  transliteration="kallā la'in lam yantahi la-nasfa'an bi-n-nāṣiyati"
+  translation="No! If he does not desist, We will surely drag him by the forelock"
+  reference="Al-'Alaq 96:15"
+  highlight="لَئِن,لَنَسْفَعًۢا"
+/>
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | كَلَّا | kallā | - | Particle - deterrence/negation | Not declinable (mabni), strong warning | No!/Nay! |
@@ -331,82 +548,130 @@ difficulty: "intermediate"
 | 6 | نَسْفَعًۢا | nasfa'an | س ف ع | Verb - Form I, present tense, 1st person plural | Verb (future/threat) - indicative (marfu') | We will drag/seize |
 | 7 | بِ | bi | - | Particle - preposition | Not declinable (mabni), indicates instrument | by |
 | 8 | ٱلنَّاصِيَةِ | an-nāsiyati | ن ص و | Noun - feminine, singular, definite | Object of preposition - genitive (majrur) | the forelock |
+</GrammarTable>
 
-#### Grammar Notes
-- Kallā introduces severe warning
-- La'in... la- construction: emphatic conditional with emphatic answer
-- Yantahi (Form VIII of nahā) means to desist/stop
-- Nasfa'an means to drag violently by grasping
-- An-nāsiyah (forelock) represents humiliating seizure
+<Callout type="rule" title="لَئِن...لَـ: The Emphatic Conditional with Oath">
+لَئِن...لَـ is one of the strongest conditional constructions in Arabic. The first لَ is the lām of an implied oath (lām al-qasam), making لَئِن equivalent to "I swear, if..." The second لَ before the answer (لَنَسْفَعًا) is the lām of the oath's response. Together they create an unbreakable divine promise: if the condition is met (not desisting), the consequence (being seized by the forelock) is absolutely certain.
+</Callout>
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** كَلَّا is the second occurrence, reinforcing deterrence. لَئِن combines an implied oath (لَ) with a conditional particle (إِن). لَمْ يَنتَهِ is the conditional clause (shart), with لَمْ putting يَنتَهِ in the jussive. The final yā' is deleted in the jussive (originally يَنتَهِي). لَنَسْفَعًا is the jawāb al-qasam (response to the oath). بِٱلنَّاصِيَةِ is a prepositional phrase indicating what is seized.
+
+**Sarf (Morphology):** يَنتَهِ is Form VIII (اِفْتَعَلَ) from root ن-ه-ي, meaning "to desist/refrain." The Form VIII adds reflexive force: to cause oneself to stop. نَسْفَعًا is Form I from root س-ف-ع, a rare and violent word meaning to seize and drag. The alif at the end (written with tanwīn) is alif al-ithāq (extending alif for pausal recitation). ٱلنَّاصِيَة is an active participle-form noun from root ن-ص-و meaning the forelock/front of the head.
+
+**Balagha (Rhetoric):** This is the most threatening verse in the surah. The combination of كَلَّا + لَئِن...لَـ creates a triple-layered emphasis: deterrence, oath, and conditional promise. The verb نَسْفَعًا is deliberately violent and rare, chosen for its harshness. Seizing by the forelock (نَاصِيَة) is the ultimate symbol of humiliation in Arab culture -- leading someone by the front of their hair like an animal.
 
 ### Verse 16
 
-**Arabic:** نَاصِيَةٍۢ كَـٰذِبَةٍ خَاطِئَةٍۢ
-
-**Translation:** "A lying, sinful forelock"
+<ArabicExample
+  arabic="نَاصِيَةٍۢ كَـٰذِبَةٍ خَاطِئَةٍۢ"
+  transliteration="nāṣiyatin kādhibatin khāṭi'atin"
+  translation="A lying, sinful forelock"
+  reference="Al-'Alaq 96:16"
+  highlight="كَـٰذِبَةٍ,خَاطِئَةٍۢ"
+/>
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | نَاصِيَةٍۢ | nāsiyatin | ن ص و | Noun - feminine, singular, indefinite | Apposition (badal) - genitive (majrur) | a forelock |
 | 2 | كَـٰذِبَةٍ | kādhibatin | ك ذ ب | Active participle - feminine, singular, indefinite | Adjective modifying nāsiyatin - genitive (majrur) | lying |
 | 3 | خَاطِئَةٍۢ | khāti'atin | خ ط ء | Active participle - feminine, singular, indefinite | Adjective modifying nāsiyatin - genitive (majrur) | sinful/erring |
+</GrammarTable>
 
-#### Grammar Notes
-- Nāsiyatin is badal (appositive) to an-nāsiyati in verse 15
-- Kādhibatin and khāti'atin are active participles functioning as adjectives
-- Attributes describe the forelock metonymically (representing the person)
+<Callout type="rule" title="Badal (Apposition): Indefinite Replacing Definite">
+نَاصِيَةٍ is badal (appositive) to ٱلنَّاصِيَةِ in verse 15. The shift from definite (ٱلنَّاصِيَةِ) to indefinite (نَاصِيَةٍ) is deliberate: it allows the adjectives كَـٰذِبَةٍ and خَاطِئَةٍ to be attached. In Arabic grammar, the badal takes the case of the word it replaces (genitive here, matching ٱلنَّاصِيَةِ), but being indefinite enables qualification through adjectives that describe the kind of forelock.
+</Callout>
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** نَاصِيَةٍ is badal (appositive substitute) for ٱلنَّاصِيَةِ in verse 15, taking the same genitive case. كَـٰذِبَةٍ and خَاطِئَةٍ are both adjectives (na't/ṣifah) modifying نَاصِيَةٍ, agreeing in gender (feminine), number (singular), case (genitive), and definiteness (indefinite).
+
+**Sarf (Morphology):** Both كَـٰذِبَةٍ and خَاطِئَةٍ are active participles (ism fā'il) on the فَاعِلَة pattern with the feminine tā' marbūṭah. كَـٰذِبَة is from root ك-ذ-ب (lying), and خَاطِئَة is from root خ-ط-ء (erring/sinning). As active participles, they describe ongoing characteristics, not momentary actions.
+
+**Balagha (Rhetoric):** Describing the forelock as "lying" and "sinful" is a powerful metonymy (majāz mursal): the forelock represents the entire person, attributing human qualities to a body part. This figure of speech intensifies the condemnation -- even the person's hair is characterized by falsehood and sin. The two adjectives cover speech (lying) and action (sinning), condemning the person comprehensively.
 
 ### Verse 17
 
-**Arabic:** فَلْيَدْعُ نَادِيَهُۥ
-
-**Translation:** "Then let him call his associates"
+<ArabicExample
+  arabic="فَلْيَدْعُ نَادِيَهُۥ"
+  transliteration="fa-l-yad'u nādiyahu"
+  translation="Then let him call his associates"
+  reference="Al-'Alaq 96:17"
+  highlight="فَلْيَدْعُ"
+/>
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | فَ | fa | - | Particle - conjunction | Not declinable (mabni), indicates sequence | Then/So |
 | 2 | لْ | li | - | Particle - command | Not declinable (mabni), introduces imperative | Let [him] |
 | 3 | يَدْعُ | yad'u | د ع و | Verb - Form I, present tense, 3rd person masculine singular, jussive | Verb in jussive mood (majzum) by lam amr | he call |
 | 4 | نَادِيَهُۥ | nādiyahu | ن د و | Noun - masculine, singular, definite + attached pronoun | Direct object (maf'ul bihi) - accusative (mansub) | his associates/council |
+</GrammarTable>
 
-#### Grammar Notes
-- Fa-li construction for third-person command
-- Yad'u is jussive (majzum) governed by lam amr (command lam)
-- Nādī originally means assembly/council, here refers to supporters
-- Ironic challenge: call your supporters (we will call ours)
+<Callout type="rule" title="لام الأمر: Third-Person Imperative">
+Arabic imperatives are only for the 2nd person (اُقْرَأْ = read!). To express a command for the 3rd person, Arabic uses لام الأمر (lām al-amr) + jussive verb: فَلْيَدْعُ = "let him call." The لَ is a jāzim particle that puts the present tense verb in the jussive mood. After فَ or وَ, the lām loses its kasrah and becomes ساكنة (لْ). This construction is extremely common in the Quran.
+</Callout>
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** فَ connects this to the preceding warning. لْ (lām al-amr) governs يَدْعُ, putting it in the jussive mood. The original form يَدْعُو loses its final wāw in the jussive. نَادِيَهُ is the direct object (maf'ūl bihi) in the accusative, with the attached pronoun هُ as muḍāf ilayhi.
+
+**Sarf (Morphology):** يَدْعُ is Form I from root د-ع-و, a defective verb (nāqiṣ) whose final wāw drops in the jussive. نَادِي is from root ن-د-و on the فَاعِل pattern, originally meaning "a meeting place/assembly," here referring metonymically to the people who gather there.
+
+**Balagha (Rhetoric):** This is a challenge (taḥaddī) dripping with irony. The forbidder (Abu Jahl) is sarcastically invited to summon his council for support. The use of نَادِي (assembly) rather than أَنْصَار (helpers) or أَصْحَاب (companions) adds contempt -- they are mere social gatherers, not true allies. The next verse reveals what Allah will summon in response, creating a devastating contrast.
 
 ### Verse 18
 
-**Arabic:** سَنَدْعُ ٱلزَّبَانِيَةَ
-
-**Translation:** "We will call the angels of punishment"
+<ArabicExample
+  arabic="سَنَدْعُ ٱلزَّبَانِيَةَ"
+  transliteration="sa-nad'u z-zabāniyata"
+  translation="We will call the angels of punishment"
+  reference="Al-'Alaq 96:18"
+  highlight="ٱلزَّبَانِيَةَ"
+/>
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | سَ | sa | - | Particle - future | Not declinable (mabni), indicates near future | will |
 | 2 | نَدْعُ | nad'u | د ع و | Verb - Form I, present tense, 1st person plural | Verb governed by sa - indicative (marfu') | We call |
 | 3 | ٱلزَّبَانِيَةَ | az-zabāniyata | ز ب ن | Noun - masculine/common, plural, definite | Direct object (maf'ul bihi) - accusative (mansub) | the angels of punishment |
+</GrammarTable>
 
-#### Grammar Notes
-- Sa- indicates near future (less distant than sawfa)
-- Nad'u is first person plural (majestic plural)
-- Az-zabāniyah refers to fierce angels who guard and punish in Hell
-- Contrast: his weak supporters vs. Allah's powerful angels
+<Callout type="tip" title="سَـ vs. سَوْفَ: Degrees of Future">
+سَـ (sa) indicates the near future, while سَوْفَ (sawfa) indicates a more distant future. Here, سَنَدْعُ with سَـ conveys immediacy and certainty of the threat: "We WILL call" -- soon and inevitably. Both particles only attach to present tense (muḍāri') verbs and keep them in the indicative mood (marfū'). The choice of سَـ over سَوْفَ intensifies the warning.
+</Callout>
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** سَ is a future particle attached to the present tense verb نَدْعُ. The verb is in the 1st person plural (majestic plural, referring to Allah). ٱلزَّبَانِيَةَ is the direct object (maf'ūl bihi) in the accusative. The sentence parallels verse 17 structurally: both use "call" (د-ع-و) with a direct object.
+
+**Sarf (Morphology):** نَدْعُ is Form I from root د-ع-و in the present tense, 1st person plural. The final wāw of the root is preserved here (unlike the jussive in verse 17). ٱلزَّبَانِيَة is a plural form from root ز-ب-ن, referring to the fierce angels who guard and punish in Hell. It is a rare word appearing only here in the Quran.
+
+**Balagha (Rhetoric):** The parallel structure between verses 17 and 18 creates a devastating contrast (muqābalah): "let him call his assembly" vs. "We will call the angels of punishment." His weak human supporters against Allah's fearsome angels. The majestic plural (نَدْعُ, "We") underscores divine authority. ٱلزَّبَانِيَة is a uniquely terrifying word -- its very rarity adds to the dread, as it describes entities beyond normal human experience.
 
 ### Verse 19
 
-**Arabic:** كَلَّا لَا تُطِعْهُ وَٱسْجُدْ وَٱقْتَرِب ۩
-
-**Translation:** "No! Do not obey him, but prostrate and draw near [to Allah]"
+<ArabicExample
+  arabic="كَلَّا لَا تُطِعْهُ وَٱسْجُدْ وَٱقْتَرِب ۩"
+  transliteration="kallā lā tuṭi'hu wa-sjud wa-qtarib"
+  translation="No! Do not obey him, but prostrate and draw near [to Allah]"
+  reference="Al-'Alaq 96:19"
+  highlight="وَٱسْجُدْ,وَٱقْتَرِب"
+/>
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | كَلَّا | kallā | - | Particle - deterrence/negation | Not declinable (mabni), negation/warning | No! |
@@ -416,16 +681,71 @@ difficulty: "intermediate"
 | 5 | ٱسْجُدْ | usjud | س ج د | Verb - Form I, imperative, 2nd person masculine singular | Imperative verb (amr) - mabni 'ala sukun | prostrate |
 | 6 | وَ | wa | - | Particle - conjunction | Not declinable (mabni), connects commands | And |
 | 7 | ٱقْتَرِب | iqtarib | ق ر ب | Verb - Form VIII, imperative, 2nd person masculine singular | Imperative verb (amr) - mabni 'ala sukun | draw near |
+</GrammarTable>
 
-#### Grammar Notes
-- Kallā reinforces rejection of the forbidder
-- La nahiy (prohibitive la) makes verb jussive: do not obey
-- Two positive imperatives follow: usjud (prostrate), iqtarib (draw near)
-- Iqtarib (Form VIII) means to come close/approach (to Allah)
-- Sajdah symbol ۩ indicates prostration verse
+<Callout type="rule" title="لَا الناهية: Prohibitive Lā + Jussive">
+لَا تُطِعْهُ uses the prohibitive لَا (lā nāhiyah), which puts the present tense verb in the jussive mood (majzūm). This is the negative counterpart of the imperative: while أَطِعْ means "obey!" لَا تُطِعْ means "do not obey!" The prohibitive لَا only works with present tense verbs and always triggers the jussive. Note تُطِعْ is Form IV (أَفْعَلَ) from root ط-و-ع, where the Form IV pattern adds the meaning of compliance/obedience.
+</Callout>
+
+<Callout type="tip" title="Three Commands, Three Verb Types in One Verse">
+Verse 19 contains three commands using three different grammatical constructions: (1) لَا تُطِعْهُ -- prohibition via lā nāhiyah + jussive (Form IV), (2) ٱسْجُدْ -- direct imperative (Form I), and (3) ٱقْتَرِب -- direct imperative (Form VIII). The progression moves from rejecting the enemy's authority to submitting to Allah to approaching Him -- a complete spiritual journey in three words.
+</Callout>
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** كَلَّا appears for the third and final time, completing the tripartite structure. لَا نَاهِيَة governs تُطِعْهُ in the jussive: the sukūn on the 'ayn indicates jussive mood. The attached هُ is the direct object. Two positive imperatives follow, coordinated by وَ: ٱسْجُدْ and ٱقْتَرِب, both mabni 'alā sukūn.
+
+**Sarf (Morphology):** تُطِعْ is Form IV (أَفْعَلَ) from root ط-و-ع. The hollow root has the middle wāw deleted in the jussive. ٱسْجُدْ is Form I imperative from root س-ج-د on the اُفْعُلْ pattern. ٱقْتَرِب is Form VIII (اِفْتَعَلَ) imperative from root ق-ر-ب, meaning to bring oneself near, with the reflexive tā' infix adding the sense of self-directed action.
+
+**Balagha (Rhetoric):** The surah ends as it began -- with a command. It opened with ٱقْرَأْ (read!) and closes with ٱسْجُدْ وَٱقْتَرِب (prostrate and draw near!). The three final commands form a complete program of spiritual resistance: reject the oppressor, submit to Allah, and seek closeness to Him. The sajdah symbol ۩ marks this as a verse of prostration, making the command literally performative -- the reader is called to enact the very obedience being described. The Form VIII ٱقْتَرِب (draw near to yourself) emphasizes that approaching Allah is a deliberate, personal choice.
+
+## Practice Exercises
+
+<ExerciseBox question="Al-'Alaq uses the particle كَلَّا three times (verses 6, 15, 19). Analyze how the function and context of كَلَّا shifts in each occurrence. What does each instance negate or deter, and how does the surah's argument build through these three uses?">
+
+**1. كَلَّا in Verse 6: Transition from Knowledge to Warning**
+- **Function:** Deterrence (radʿ) and transition marker
+- **What it negates:** The implicit assumption that divine gifts of knowledge should lead to gratitude; instead, man transgresses
+- **Context:** Shifts from the noble theme of divine teaching (verses 1-5) to condemning human arrogance (verses 6-8)
+
+**2. كَلَّا in Verse 15: Introduction of Severe Threat**
+- **Function:** Strong negation and deterrence before a direct threat
+- **What it negates:** Any thought that the forbidder's behavior will go unpunished
+- **Context:** Follows the triple أَرَءَيْتَ construction (verses 9-14) and introduces the emphatic لَئِن...لَـ conditional -- the most severe warning in the surah
+
+**3. كَلَّا in Verse 19: Final Rejection and Pivot to Positive Commands**
+- **Function:** Definitive rejection of the oppressor's authority
+- **What it negates:** Any suggestion of obeying the forbidder
+- **Context:** Precedes the closing commands (do not obey, prostrate, draw near), transforming the surah's final message from threat to spiritual guidance
+
+**The Build:** The three uses of كَلَّا mark the surah's structural pivots: from teaching to warning, from rhetorical questions to threat, and from threat to positive command. Each is progressively more intense, reflecting the surah's escalating argument.
+</ExerciseBox>
+
+<ExerciseBox question="Extract every verb in verses 1-5 and classify each by its Form (I, II, VIII, X, etc.), tense (past, present, imperative), and voice (active, passive). Then identify the root of each verb and explain how the Form modifies the root meaning.">
+
+**Verse 1:**
+- **ٱقْرَأْ** -- Form I, imperative, active. Root: ق-ر-ء. Base meaning: to read/recite. Form I is the basic form; the imperative commands the action directly.
+- **خَلَقَ** -- Form I, past, active. Root: خ-ل-ق. Base meaning: to create. Form I expresses the basic action of creation.
+
+**Verse 2:**
+- **خَلَقَ** -- Form I, past, active. Root: خ-ل-ق. Same as above; repeated to elaborate on what was created.
+
+**Verse 3:**
+- **ٱقْرَأْ** -- Form I, imperative, active. Root: ق-ر-ء. Repeated command for emphasis.
+
+**Verse 4:**
+- **عَلَّمَ** -- Form II, past, active. Root: ع-ل-م. Form I عَلِمَ = "to know." Form II عَلَّمَ = "to teach" (causative: to cause someone to know). The doubled middle radical creates causation.
+
+**Verse 5:**
+- **عَلَّمَ** -- Form II, past, active. Root: ع-ل-م. Same causative "taught."
+- **يَعْلَمْ** -- Form I, present (jussive), active. Root: ع-ل-م. "To know" (basic meaning). After لَمْ, it means "did not know."
+
+**Summary Pattern:** The opening five verses use only Forms I and II. Form I carries the basic meanings (read, create, know), while Form II (عَلَّمَ) introduces the causative dimension (to make someone know = to teach). The progression from Form I خَلَقَ (He created) to Form II عَلَّمَ (He taught) to Form I يَعْلَمْ (man knows) traces the arc: Allah creates, Allah teaches, man gains knowledge.
+</ExerciseBox>
 
 ## Key Vocabulary
 
+<GrammarTable>
 | Arabic | Root | Pattern | Meaning | Frequency |
 |--------|------|---------|---------|-----------|
 | ٱقْرَأْ | ق ر ء | if'al (imperative) | read, recite | Very common |
@@ -450,54 +770,25 @@ difficulty: "intermediate"
 | ٱلزَّبَانِيَة | ز ب ن | fa'āliyah (plural) | angels of punishment | Very rare |
 | ٱسْجُدْ | س ج د | if'ul (imperative) | prostrate | Very common |
 | ٱقْتَرِب | ق ر ب | iftaʻil (Form VIII imperative) | draw near | Common |
+</GrammarTable>
 
 ## Grammar Summary
 
-### Main Grammatical Constructs
+<Callout type="note" title="Key Grammar Concepts in This Surah">
+- **Imperative constructions:** ٱقْرَأْ (verses 1, 3), ٱسْجُدْ, ٱقْتَرِب (verse 19) demonstrate direct commands in Forms I and VIII
+- **Relative clauses (ٱلَّذِى):** Used in verses 1, 4, and 9 to attach descriptive information, forming ṣilat al-mawṣūl
+- **كَلَّا particle:** Three occurrences (verses 6, 15, 19) for emphatic negation and deterrence, each marking a structural pivot
+- **إِنَّ emphasis:** Verses 6 and 8 use إِنَّ for strong assertion; verse 6 adds لام المزحلقة for double emphasis
+- **Conditional constructions:** Simple إِن (verses 11, 13) and emphatic لَئِن...لَـ (verse 15) with implied oath
+- **Jussive mood (المجزوم):** After لَمْ (verses 5, 14, 15), after لَا نَاهِيَة (verse 19), and after لام الأمر (verse 17)
+- **Double object verbs:** عَلَّمَ takes two objects (verse 5): the person taught and what was taught
+- **كَانَ with prepositional khabar:** Verse 11 uses عَلَى ٱلْهُدَىٰ as the predicate of كَانَ
+- **Active participles as adjectives:** كَـٰذِبَةٍ, خَاطِئَةٍ (verse 16) describe ongoing qualities
+- **Iḍāfah constructions:** بِٱسْمِ رَبِّكَ, نَادِيَهُ, and others chain possessive relationships
+- **Future constructions:** سَـ for near future (verse 18) conveys immediacy of divine response
+- **Rhetorical questions:** أَرَءَيْتَ (verses 9, 11, 13) and أَلَمْ يَعْلَم (verse 14) for dramatic reproach
+- **Badal (apposition):** Verse 16 نَاصِيَةٍ as indefinite badal replacing definite ٱلنَّاصِيَةِ from verse 15
+- **Metonymy (majāz mursal):** ٱلنَّاصِيَة (forelock) represents the whole person
 
-1. **Imperative constructions**: Iqra' (verses 1, 3), usjud, iqtarib (verse 19) - different forms of command
-
-2. **Relative clauses**: Alladhī structures throughout (verses 1, 4, 9) connecting descriptive information
-
-3. **Kallā particle**: Used three times (verses 6, 15, 19) for emphatic negation/deterrence
-
-4. **Inna emphasis**: Verses 6, 8 use inna for strong assertion
-
-5. **Conditional constructions**:
-   - Simple in (verses 11, 13)
-   - Emphatic la'in... la- (verse 15)
-
-6. **Jussive mood**:
-   - After lam (verses 5, 14, 15)
-   - After la nahiy (verse 19)
-   - After lam amr (verse 17)
-
-7. **Double object verbs**: 'Allama takes two objects (verse 5)
-
-8. **Kāna constructions**: Verse 11 with prepositional phrase as khabar
-
-9. **Active participles as adjectives**: Kādhibatin, khāti'atin (verse 16)
-
-10. **Idafa (possessive) constructions**: Bi-ismi rabbika, nādiyahu, etc.
-
-11. **Future constructions**:
-    - Sa- for near future (verse 18)
-    - La-sawfa implied in threats
-
-12. **Rhetorical questions**: A-ra'ayta constructions (verses 9, 11, 13), a-lam ya'lam (verse 14)
-
-13. **Badal (apposition)**: Verse 16 nāsiyatin as badal to an-nāsiyati
-
-14. **Metonymy**: An-nāsiyah (forelock) representing the whole person
-
-### Pedagogical Notes
-
-This surah is excellent for teaching:
-- The first revelation and its command structure
-- Various forms of emphasis (inna, la-, kallā)
-- Conditional sentence types (in vs. la'in)
-- Jussive mood in multiple contexts (negation, prohibition, command)
-- Rhetorical question patterns
-- Contrast between divine knowledge and human arrogance
-- Relative clause construction with alladhī
-- The interplay between narrative and direct address
+Al-'Alaq is a grammar masterclass disguised as 19 verses of revelation: it opens with a command (ٱقْرَأْ), transitions through emphatic assertions (إِنَّ...لَـ), builds through rhetorical questions (أَرَءَيْتَ), escalates to oath-bound threats (لَئِن...لَـ), and resolves with three final commands that encompass rejection, submission, and spiritual aspiration.
+</Callout>

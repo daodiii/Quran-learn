@@ -6,6 +6,11 @@ verseCount: 29
 difficulty: "advanced"
 ---
 
+import ArabicExample from '@components/mdx/ArabicExample.astro';
+import GrammarTable from '@components/mdx/GrammarTable.astro';
+import Callout from '@components/mdx/Callout.astro';
+import ExerciseBox from '@components/mdx/ExerciseBox.astro';
+
 # At-Takwir (The Overthrowing)
 
 ## Overview
@@ -15,282 +20,526 @@ difficulty: "advanced"
 - **Theme:** Vivid depiction of cosmic signs preceding the Day of Judgment, followed by revelation of the Quran through the angel Gabriel
 - **Grammar Focus:** Extensive idha conditional chains (12 consecutive clauses), passive voice constructions, interrogative structures, oaths with emphasis particles
 
+### Structural Overview
+
+<GrammarTable>
+| Verse | Arabic | Sentence Type | Key Grammar | Message |
+|-------|--------|---------------|-------------|---------|
+| 1 | إِذَا الشَّمْسُ كُوِّرَتْ | Conditional (إِذَا) | إِذَا + nominal with passive verb | The sun wrapped in darkness |
+| 2 | وَإِذَا النُّجُومُ انكَدَرَتْ | Conditional (إِذَا) | Form VII reflexive verb | Stars fall and scatter |
+| 3 | وَإِذَا الْجِبَالُ سُيِّرَتْ | Conditional (إِذَا) | Form II passive | Mountains set in motion |
+| 4 | وَإِذَا الْعِشَارُ عُطِّلَتْ | Conditional (إِذَا) | Form II passive | Pregnant camels neglected |
+| 5 | وَإِذَا الْوُحُوشُ حُشِرَتْ | Conditional (إِذَا) | Form I passive | Wild beasts gathered |
+| 6 | وَإِذَا الْبِحَارُ سُجِّرَتْ | Conditional (إِذَا) | Form II passive | Seas set ablaze |
+| 7 | وَإِذَا النُّفُوسُ زُوِّجَتْ | Conditional (إِذَا) | Form II passive | Souls paired |
+| 8 | وَإِذَا الْمَوْءُودَةُ سُئِلَتْ | Conditional (إِذَا) | Passive participle as subject | Buried infant girl questioned |
+| 9 | بِأَيِّ ذَنبٍ قُتِلَتْ | Interrogative | بِأَيِّ + passive verb | For what sin was she killed? |
+| 10 | وَإِذَا الصُّحُفُ نُشِرَتْ | Conditional (إِذَا) | Form I passive | Scrolls of deeds opened |
+| 11 | وَإِذَا السَّمَاءُ كُشِطَتْ | Conditional (إِذَا) | Form I passive | Sky stripped away |
+| 12 | وَإِذَا الْجَحِيمُ سُعِّرَتْ | Conditional (إِذَا) | Form II passive | Hellfire set ablaze |
+| 13 | وَإِذَا الْجَنَّةُ أُزْلِفَتْ | Conditional (إِذَا) | Form IV passive | Paradise brought near |
+| 14 | عَلِمَتْ نَفْسٌ مَّا أَحْضَرَتْ | Verbal (jawab) | Apodosis of 12 إِذَا clauses | Every soul knows its deeds |
+| 15 | فَلَا أُقْسِمُ بِالْخُنَّسِ | Oath (فَلَا أُقْسِمُ) | Emphatic oath with لَا | I swear by the retreating stars |
+| 16 | الْجَوَارِ الْكُنَّسِ | Attributive (na't) | Double adjective in genitive | Running and hiding |
+| 17 | وَاللَّيْلِ إِذَا عَسْعَسَ | Oath (وَ + genitive) | Quadriliteral verb | By the departing night |
+| 18 | وَالصُّبْحِ إِذَا تَنَفَّسَ | Oath (وَ + genitive) | Form V verb | By the breathing dawn |
+| 19 | إِنَّهُ لَقَوْلُ رَسُولٍ كَرِيمٍ | Nominal (إِنَّ) | إِنَّ + لَ double emphasis | Word of a noble messenger |
+| 20 | ذِي قُوَّةٍ عِندَ ذِي الْعَرْشِ مَكِينٍ | Attributive chain | الأسماء الخمسة (five nouns) | Gabriel: powerful and secure |
+| 21 | مُّطَاعٍ ثَمَّ أَمِينٍ | Attributive chain | Passive participle as na't | Obeyed and trustworthy |
+| 22 | وَمَا صَاحِبُكُم بِمَجْنُونٍ | Negation (مَا...بِ) | Emphatic negation with بِ | Your companion is not mad |
+| 23 | وَلَقَدْ رَآهُ بِالْأُفُقِ الْمُبِينِ | Verbal (emphasis) | وَ + لَ + قَدْ triple emphasis | He saw Gabriel on the horizon |
+| 24 | وَمَا هُوَ عَلَى الْغَيْبِ بِضَنِينٍ | Negation (مَا...بِ) | Emphatic negation with بِ | Not withholding revelation |
+| 25 | وَمَا هُوَ بِقَوْلِ شَيْطَانٍ رَّجِيمٍ | Negation (مَا...بِ) | Emphatic negation with بِ | Not the word of a devil |
+| 26 | فَأَيْنَ تَذْهَبُونَ | Interrogative | Rhetorical أَيْنَ question | So where are you going? |
+| 27 | إِنْ هُوَ إِلَّا ذِكْرٌ لِّلْعَالَمِينَ | Restriction (حصر) | إِنْ...إِلَّا restriction | It is but a reminder for all |
+| 28 | لِمَن شَاءَ مِنكُمْ أَن يَسْتَقِيمَ | Relative clause | مصدر مؤول (an + subjunctive) | For whoever wills uprightness |
+| 29 | وَمَا تَشَاءُونَ إِلَّا أَن يَشَاءَ اللَّهُ رَبُّ الْعَالَمِينَ | Restriction + apposition | Human will subordinate to divine will | You will only as Allah wills |
+</GrammarTable>
+
+<Callout type="tip" title="Architecture of Cosmic Suspense">
+At-Takwir is one of the most rhetorically powerful surahs in the Quran. It builds an extraordinary 12-clause إِذَا conditional chain (verses 1-13) — the longest in the entire Quran — before finally delivering the apodosis (jawab) in verse 14. Every clause uses a passive verb, concealing the Agent (Allah) while the natural order collapses. The listener is suspended through cosmic destruction, moral reckoning, and eschatological preparation before receiving the devastating conclusion: "A soul will know what it has brought." The surah then pivots to a triple oath (verses 15-18) validating the Quran's divine origin, before closing with one of the Quran's most piercing rhetorical questions: فَأَيْنَ تَذْهَبُونَ — "So where are you going?"
+</Callout>
+
 ## Verse-by-Verse Analysis
 
 ### Verse 1
 
-**Arabic:** إِذَا الشَّمْسُ كُوِّرَتْ
-
-**Translation:** "When the sun is wrapped up [in darkness]"
+<ArabicExample
+  arabic="إِذَا الشَّمْسُ كُوِّرَتْ"
+  transliteration="idhā ash-shamsu kuwwirat"
+  translation="When the sun is wrapped up [in darkness]"
+  reference="At-Takwir 81:1"
+  highlight="كُوِّرَتْ"
+/>
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | إِذَا | idha | - | Particle - conditional/temporal | Not declinable (mabni), introduces protasis | when |
 | 2 | الشَّمْسُ | ash-shamsu | ش م س | Noun - feminine, singular, definite | Subject (mubtada') - nominative (marfu') | the sun |
 | 3 | كُوِّرَتْ | kuwwirat | ك و ر | Verb - Form II, past passive, 3rd person feminine singular | Predicate (khabar) - passive verb | was wrapped up |
+</GrammarTable>
 
-#### Grammar Notes
-- The idha particle begins a long series of conditional clauses (verses 1-13)
-- kuwwirat is passive Form II (intensive), subject concealed in the verb
-- Nominal sentence pattern with passive verb as predicate
+<Callout type="rule" title="إِذَا + Nominal Sentence with Passive Verb">
+The إِذَا particle here introduces a nominal sentence where the subject (الشَّمْسُ) is fronted before its passive verb predicate (كُوِّرَتْ). This pattern — إِذَا + subject + passive verb — repeats across all 12 conditional clauses. The subject is mubtada' (nominative), and the passive verb serves as khabar. This is distinct from إِذَا + verbal sentence, where the verb would precede the subject.
+</Callout>
+
+<Callout type="tip" title="Form II Passive: Intensity of Cosmic Transformation">
+كُوِّرَتْ is the passive of Form II (فُعِّلَ), which carries intensive meaning. The root ك-و-ر means "to wrap/fold," and Form II intensifies this: the sun is not merely dimmed but thoroughly wrapped up, extinguished completely. This intensive passive sets the tone for the escalating destruction that follows.
+</Callout>
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** This is a conditional sentence introduced by إِذَا. The protasis is a nominal sentence: الشَّمْسُ (mubtada', nominative) + كُوِّرَتْ (khabar, passive verb). The jawab (apodosis) of this إِذَا is delayed all the way to verse 14 (عَلِمَتْ نَفْسٌ مَّا أَحْضَرَتْ), creating unprecedented syntactic suspense across 13 verses.
+
+**Sarf (Morphology):** كُوِّرَتْ derives from root ك-و-ر on the Form II passive pattern (فُعِّلَ). The original active would be كَوَّرَ (to wrap intensely). The passive is formed by changing the vowel pattern to ضُمَّة on the first radical and كَسْرَة on the second: كُوِّرَتْ. The تْ suffix marks feminine singular agreement with الشَّمْسُ.
+
+**Balagha (Rhetoric):** Opening with إِذَا rather than إِنْ signals certainty — these events will happen, not hypothetically but inevitably. The passive voice conceals the divine Agent, focusing the listener entirely on the terrifying events themselves. Starting with the sun — the most constant, dependable celestial body — being "wrapped up" immediately signals that the entire cosmic order is collapsing.
 
 ### Verse 2
 
-**Arabic:** وَإِذَا النُّجُومُ انكَدَرَتْ
-
-**Translation:** "And when the stars fall, dispersing"
+<ArabicExample
+  arabic="وَإِذَا النُّجُومُ انكَدَرَتْ"
+  transliteration="wa-idhā an-nujūmu inkadarat"
+  translation="And when the stars fall, dispersing"
+  reference="At-Takwir 81:2"
+  highlight="انكَدَرَتْ"
+/>
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | وَ | wa | - | Particle - conjunction | Not declinable (mabni), coordinates clauses | and |
 | 2 | إِذَا | idha | - | Particle - conditional/temporal | Not declinable (mabni), introduces protasis | when |
 | 3 | النُّجُومُ | an-nujumu | ن ج م | Noun - feminine, plural, definite | Subject (mubtada') - nominative (marfu') | the stars |
 | 4 | انكَدَرَتْ | inkadarat | ك د ر | Verb - Form VII, past, 3rd person feminine plural | Predicate (khabar) | fell/scattered |
+</GrammarTable>
 
-#### Grammar Notes
-- Form VII verb (infa'ala) indicates reflexive/passive action
-- Continues the idha conditional series
+<Callout type="rule" title="Form VII (انْفَعَلَ): Reflexive/Passive Meaning">
+انكَدَرَتْ follows Form VII (انْفَعَلَ) from root ك-د-ر. Form VII adds a reflexive/passive dimension: the stars do not merely fall — they fall of their own undoing, as if the cosmic order itself unravels. Unlike the explicit passive (فُعِلَ) used in verse 1, Form VII implies the action happens to the subject intrinsically.
+</Callout>
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** The وَ conjunction coordinates this clause with verse 1, continuing the إِذَا protasis chain. The same nominal sentence structure applies: النُّجُومُ (mubtada', nominative) + انكَدَرَتْ (khabar). All these clauses share the same distant jawab in verse 14.
+
+**Sarf (Morphology):** انكَدَرَتْ is Form VII (انْفَعَلَ) from root ك-د-ر, meaning "to become turbid/fall." The Form VII prefix انـ adds reflexive meaning. The تْ suffix marks feminine plural agreement. Form VII verbs cannot be made passive (they already carry passive/reflexive sense), distinguishing them from the Form II passives in adjacent verses.
+
+**Balagha (Rhetoric):** Moving from the singular sun to the plural stars escalates the imagery. The choice of Form VII (self-acting) rather than a passive (acted upon) subtly varies the rhetorical texture — the stars scatter as if of their own volition, adding to the chaos.
 
 ### Verse 3
 
-**Arabic:** وَإِذَا الْجِبَالُ سُيِّرَتْ
-
-**Translation:** "And when the mountains are set in motion"
+<ArabicExample
+  arabic="وَإِذَا الْجِبَالُ سُيِّرَتْ"
+  transliteration="wa-idhā al-jibālu suyyirat"
+  translation="And when the mountains are set in motion"
+  reference="At-Takwir 81:3"
+  highlight="سُيِّرَتْ"
+/>
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | وَ | wa | - | Particle - conjunction | Not declinable (mabni) | and |
 | 2 | إِذَا | idha | - | Particle - conditional/temporal | Not declinable (mabni) | when |
 | 3 | الْجِبَالُ | al-jibalu | ج ب ل | Noun - feminine, plural, definite | Subject (mubtada') - nominative (marfu') | the mountains |
 | 4 | سُيِّرَتْ | suyyirat | س ي ر | Verb - Form II, past passive, 3rd person feminine plural | Predicate (khabar) - passive | were set in motion |
+</GrammarTable>
 
-#### Grammar Notes
-- Form II passive emphasizes the intensity of the action
-- Third in the idha conditional chain
+<Callout type="rule" title="Form II Passive: Causative Intensity">
+سُيِّرَتْ is the passive of Form II from root س-ي-ر (to walk/travel). Form II adds causative and intensive meaning: سَيَّرَ means "to make something travel/move." The passive سُيِّرَتْ means the mountains are forcibly made to travel — the most immovable objects in creation are set drifting like clouds.
+</Callout>
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** Third coordinated إِذَا clause following the same pattern. الْجِبَالُ is mubtada' (nominative with damma), سُيِّرَتْ is khabar (passive verb). The syntactic parallelism across all these verses creates a rhythmic, hypnotic effect.
+
+**Sarf (Morphology):** سُيِّرَتْ follows the Form II passive pattern فُعِّلَ from root س-ي-ر. The medial ي (a weak letter) is retained in this conjugation. The active would be سَيَّرَ (to cause to travel). Form II here carries its causative sense: something external causes the mountains to move.
+
+**Balagha (Rhetoric):** The progression from celestial (sun, stars) to terrestrial (mountains) brings the destruction closer to human experience. Mountains symbolize permanence and stability in Arabic poetry and Quranic discourse — their movement signals the absolute reversal of the natural order.
 
 ### Verse 4
 
-**Arabic:** وَإِذَا الْعِشَارُ عُطِّلَتْ
-
-**Translation:** "And when the full-term she-camels are neglected"
+<ArabicExample
+  arabic="وَإِذَا الْعِشَارُ عُطِّلَتْ"
+  transliteration="wa-idhā al-ʿishāru ʿuṭṭilat"
+  translation="And when the full-term she-camels are neglected"
+  reference="At-Takwir 81:4"
+  highlight="الْعِشَارُ,عُطِّلَتْ"
+/>
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | وَ | wa | - | Particle - conjunction | Not declinable (mabni) | and |
 | 2 | إِذَا | idha | - | Particle - conditional/temporal | Not declinable (mabni) | when |
 | 3 | الْعِشَارُ | al-'isharu | ع ش ر | Noun - feminine, plural, definite | Subject (mubtada') - nominative (marfu') | the pregnant camels |
 | 4 | عُطِّلَتْ | 'uttilat | ع ط ل | Verb - Form II, past passive, 3rd person feminine plural | Predicate (khabar) - passive | were neglected |
+</GrammarTable>
 
-#### Grammar Notes
-- al-'ishar refers to precious she-camels in their 10th month of pregnancy
-- Their neglect symbolizes the total disruption of normal life
+<Callout type="tip" title="Cultural Context: The Most Prized Possession">
+الْعِشَارُ refers to she-camels in their tenth month of pregnancy — the most valuable livestock in Arabian society. Their neglect would be unthinkable under any normal circumstances. By using this culturally specific image, the Quran speaks directly to its first audience: the terror of that Day is so overwhelming that even the most precious worldly possession is abandoned.
+</Callout>
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** Continues the إِذَا chain with identical structure. الْعِشَارُ is mubtada' (nominative), عُطِّلَتْ is khabar (Form II passive verb). The consistency of this syntactic pattern across verses creates a cumulative, relentless effect.
+
+**Sarf (Morphology):** عُطِّلَتْ is Form II passive from root ع-ط-ل (to be idle/neglect). The active عَطَّلَ means "to leave idle, to abandon." Form II here carries intensive force: these camels are completely, utterly abandoned. الْعِشَارُ is the plural of عُشَرَاء, following a broken plural pattern.
+
+**Balagha (Rhetoric):** The shift from cosmic destruction (sun, stars, mountains) to the human/social realm (pregnant camels) is a rhetorical descent from the universal to the particular. This grounds the apocalyptic imagery in lived experience, making it viscerally real for the original audience.
 
 ### Verse 5
 
-**Arabic:** وَإِذَا الْوُحُوشُ حُشِرَتْ
-
-**Translation:** "And when the wild beasts are gathered"
+<ArabicExample
+  arabic="وَإِذَا الْوُحُوشُ حُشِرَتْ"
+  transliteration="wa-idhā al-wuḥūshu ḥushirat"
+  translation="And when the wild beasts are gathered"
+  reference="At-Takwir 81:5"
+  highlight="حُشِرَتْ"
+/>
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | وَ | wa | - | Particle - conjunction | Not declinable (mabni) | and |
 | 2 | إِذَا | idha | - | Particle - conditional/temporal | Not declinable (mabni) | when |
 | 3 | الْوُحُوشُ | al-wuhushu | و ح ش | Noun - feminine, plural, definite | Subject (mubtada') - nominative (marfu') | the wild beasts |
 | 4 | حُشِرَتْ | hushirat | ح ش ر | Verb - Form I, past passive, 3rd person feminine plural | Predicate (khabar) - passive | were gathered |
+</GrammarTable>
 
-#### Grammar Notes
-- hushr (gathering) is a key Quranic term for the Day of Resurrection
-- Even wild animals are resurrected and assembled
+<Callout type="tip" title="حَشْر: A Key Quranic Term">
+The root ح-ش-ر (to gather/resurrect) is one of the most significant eschatological terms in the Quran. Even wild, solitary animals that naturally flee from one another are gathered together — the Day of Judgment overrides all natural instincts and laws.
+</Callout>
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** Same إِذَا + nominal sentence structure. الْوُحُوشُ (mubtada', nominative) + حُشِرَتْ (khabar, Form I passive). The passive voice again conceals the divine Agent who gathers the beasts.
+
+**Sarf (Morphology):** حُشِرَتْ is Form I passive from root ح-ش-ر. The passive is formed by changing the vowels: حَشَرَ (active) becomes حُشِرَ (passive). الْوُحُوشُ is a broken plural of وَحْش, following the فُعُول pattern.
+
+**Balagha (Rhetoric):** Wild beasts, creatures that are by nature scattered and solitary, being gathered together intensifies the sense of cosmic reversal. If even untamed animals cannot escape divine gathering, what hope has humanity of avoiding accountability?
 
 ### Verse 6
 
-**Arabic:** وَإِذَا الْبِحَارُ سُجِّرَتْ
-
-**Translation:** "And when the seas are set ablaze"
+<ArabicExample
+  arabic="وَإِذَا الْبِحَارُ سُجِّرَتْ"
+  transliteration="wa-idhā al-biḥāru sujjirat"
+  translation="And when the seas are set ablaze"
+  reference="At-Takwir 81:6"
+  highlight="سُجِّرَتْ"
+/>
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | وَ | wa | - | Particle - conjunction | Not declinable (mabni) | and |
 | 2 | إِذَا | idha | - | Particle - conditional/temporal | Not declinable (mabni) | when |
 | 3 | الْبِحَارُ | al-biharu | ب ح ر | Noun - feminine, plural, definite | Subject (mubtada') - nominative (marfu') | the seas |
 | 4 | سُجِّرَتْ | sujjirat | س ج ر | Verb - Form II, past passive, 3rd person feminine plural | Predicate (khabar) - passive | were set ablaze |
+</GrammarTable>
 
-#### Grammar Notes
-- sujjirat from sajara (to kindle/set ablaze) - seas become fire
-- Form II passive intensifies the transformation
+<Callout type="rule" title="Form II Passive for Transformation">
+سُجِّرَتْ from root س-ج-ر (to kindle/heat) in Form II passive indicates the seas are not merely heated but thoroughly set ablaze — water transformed into fire. Form II's intensive meaning is critical here: this is total elemental reversal, not a gradual warming.
+</Callout>
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** Sixth إِذَا clause maintaining the same nominal sentence pattern. الْبِحَارُ (mubtada', nominative) + سُجِّرَتْ (khabar, Form II passive). The syntactic monotony is deliberate — it mirrors the relentless inevitability of these events.
+
+**Sarf (Morphology):** سُجِّرَتْ is Form II passive from root س-ج-ر. The active سَجَّرَ means "to set ablaze intensely." The Form II passive pattern فُعِّلَ applies: سُجِّرَتْ. الْبِحَارُ is a broken plural of بَحْر following the فِعَال pattern.
+
+**Balagha (Rhetoric):** Water becoming fire is the ultimate paradox — the elements themselves betray their nature. This oxymoronic image would have been especially striking to the Arab audience, for whom the sea represented the vast and untameable.
 
 ### Verse 7
 
-**Arabic:** وَإِذَا النُّفُوسُ زُوِّجَتْ
-
-**Translation:** "And when the souls are paired"
+<ArabicExample
+  arabic="وَإِذَا النُّفُوسُ زُوِّجَتْ"
+  transliteration="wa-idhā an-nufūsu zuwwijat"
+  translation="And when the souls are paired"
+  reference="At-Takwir 81:7"
+  highlight="زُوِّجَتْ"
+/>
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | وَ | wa | - | Particle - conjunction | Not declinable (mabni) | and |
 | 2 | إِذَا | idha | - | Particle - conditional/temporal | Not declinable (mabni) | when |
 | 3 | النُّفُوسُ | an-nufusu | ن ف س | Noun - feminine, plural, definite | Subject (mubtada') - nominative (marfu') | the souls |
-| 4 | زُوِّجَتْ | zuwwijat |ز و ج | Verb - Form II, past passive, 3rd person feminine plural | Predicate (khabar) - passive | were paired |
+| 4 | زُوِّجَتْ | zuwwijat | ز و ج | Verb - Form II, past passive, 3rd person feminine plural | Predicate (khabar) - passive | were paired |
+</GrammarTable>
 
-#### Grammar Notes
-- Souls paired with their bodies or paired with their like (righteous with righteous, wicked with wicked)
-- Form II passive: the action is done to them
+<Callout type="tip" title="Pairing of Souls">
+زُوِّجَتْ (Form II passive of زَوَّجَ, to pair) carries multiple interpretive possibilities: souls paired with their bodies for resurrection, or righteous souls grouped with the righteous and wicked with the wicked. The passive voice indicates this pairing is done to them by divine decree — they have no choice in their assignment.
+</Callout>
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** Seventh إِذَا clause. النُّفُوسُ (mubtada', nominative) + زُوِّجَتْ (khabar, Form II passive). The shift from physical subjects (sun, mountains, seas) to metaphysical ones (souls) marks a thematic transition within the conditional chain.
+
+**Sarf (Morphology):** زُوِّجَتْ is Form II passive from root ز-و-ج. The medial و (weak letter) is retained. Active form: زَوَّجَ (to pair/marry). النُّفُوسُ is a broken plural of نَفْس following the فُعُول pattern.
+
+**Balagha (Rhetoric):** The surah transitions from the external cosmos to the internal reality of souls. This verse serves as a pivot point — from the physical world's destruction to the spiritual reckoning that follows.
 
 ### Verse 8
 
-**Arabic:** وَإِذَا الْمَوْءُودَةُ سُئِلَتْ
-
-**Translation:** "And when the female infant buried alive is asked"
+<ArabicExample
+  arabic="وَإِذَا الْمَوْءُودَةُ سُئِلَتْ"
+  transliteration="wa-idhā al-mawʾūdatu su'ilat"
+  translation="And when the female infant buried alive is asked"
+  reference="At-Takwir 81:8"
+  highlight="الْمَوْءُودَةُ"
+/>
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | وَ | wa | - | Particle - conjunction | Not declinable (mabni) | and |
 | 2 | إِذَا | idha | - | Particle - conditional/temporal | Not declinable (mabni) | when |
 | 3 | الْمَوْءُودَةُ | al-maw'uudatu | و أ د | Noun - passive participle, feminine, singular, definite | Subject (mubtada') - nominative (marfu') | the buried [infant girl] |
 | 4 | سُئِلَتْ | su'ilat | س أ ل | Verb - Form I, past passive, 3rd person feminine singular | Predicate (khabar) - passive | was asked |
+</GrammarTable>
 
-#### Grammar Notes
-- al-maw'udah: passive participle from wa'ada (to bury alive) - refers to pre-Islamic practice of female infanticide
-- The passive verb su'ilat creates a dramatic interrogative setup for verse 9
+<Callout type="rule" title="Passive Participle as Subject: الْمَوْءُودَةُ">
+الْمَوْءُودَةُ is a passive participle (اسم مفعول) from root و-أ-د on the مَفْعُولَة pattern, meaning "the one who was buried alive." It functions here as a noun — the subject of the sentence. Passive participles in Arabic frequently function as nouns, retaining the meaning "the one to whom the action was done." The feminine تَاء مَرْبُوطَة specifies the victim is female.
+</Callout>
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** Eighth إِذَا clause, but with a dramatic shift: instead of a cosmic phenomenon, the subject is a human victim. الْمَوْءُودَةُ (mubtada', nominative) + سُئِلَتْ (khabar, passive). This verse is syntactically incomplete — it sets up the question answered in verse 9.
+
+**Sarf (Morphology):** الْمَوْءُودَةُ is the passive participle of وَأَدَ (Form I, to bury alive), following the مَفْعُول pattern with feminine ending: مَوْءُودَة. The hamza appears because the root begins with و, which transforms to hamza in certain positions. سُئِلَتْ is Form I passive from root س-أ-ل.
+
+**Balagha (Rhetoric):** This is the most emotionally charged verse in the conditional chain. By placing the buried infant in the same grammatical structure as cosmic events (sun, stars, mountains), the Quran elevates her murder to a matter of universal significance. The passive voice (she "is asked") gives voice to the voiceless — the victim speaks, not the perpetrator.
 
 ### Verse 9
 
-**Arabic:** بِأَيِّ ذَنبٍ قُتِلَتْ
-
-**Translation:** "For what sin was she killed?"
+<ArabicExample
+  arabic="بِأَيِّ ذَنبٍ قُتِلَتْ"
+  transliteration="bi-ayyi dhanbin qutilat"
+  translation="For what sin was she killed?"
+  reference="At-Takwir 81:9"
+  highlight="بِأَيِّ ذَنبٍ"
+/>
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | بِ | bi | - | Particle - preposition | Not declinable (mabni), governs genitive | for/because of |
 | 2 | أَيِّ | ayyi | - | Interrogative - genitive | In construction with dhanbin (mudaf ilayhi) - genitive (majrur) | what/which |
 | 3 | ذَنبٍ | dhanbin | ذ ن ب | Noun - masculine, singular, indefinite | Object of preposition bi - genitive (majrur) | sin |
 | 4 | قُتِلَتْ | qutilat | ق ت ل | Verb - Form I, past passive, 3rd person feminine singular | Predicate - passive | was she killed |
+</GrammarTable>
 
-#### Grammar Notes
-- Powerful rhetorical question: the innocent infant will testify against her killers
-- bi-ayyi dhanbin: prepositional phrase moved forward for emphasis
+<Callout type="rule" title="Fronted Prepositional Phrase for Emphasis (التقديم والتأخير)">
+The normal word order would be قُتِلَتْ بِأَيِّ ذَنبٍ (she was killed for what sin). By fronting بِأَيِّ ذَنبٍ, the question of "what sin" takes rhetorical priority. This fronting (تقديم) is a fundamental tool in Arabic rhetoric — the information placed first is what the speaker wants to emphasize.
+</Callout>
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** This is a verbal sentence with the interrogative prepositional phrase بِأَيِّ ذَنبٍ fronted before the verb. بِ is a preposition governing genitive. أَيِّ is an interrogative in the mudaf position, and ذَنبٍ is mudaf ilayhi (genitive). قُتِلَتْ is a passive verb whose subject (نائب فاعل) is the concealed pronoun هِيَ referring back to الْمَوْءُودَةُ.
+
+**Sarf (Morphology):** قُتِلَتْ is Form I passive from root ق-ت-ل (to kill). The passive is formed by changing the vowel pattern: قَتَلَ → قُتِلَ. The تْ suffix marks feminine singular. ذَنبٍ is a Form I masdar-like noun meaning "sin/fault."
+
+**Balagha (Rhetoric):** This is one of the most powerful rhetorical questions in the Quran. The question is asked not to seek information but to condemn the act — the infant clearly had no sin. The implied answer (no sin at all) becomes the indictment. The brevity of this verse (just four words) after the elaborate buildup of verses 1-8 creates a devastating emotional punch.
 
 ### Verse 10
 
-**Arabic:** وَإِذَا الصُّحُفُ نُشِرَتْ
-
-**Translation:** "And when the pages [of deeds] are spread open"
+<ArabicExample
+  arabic="وَإِذَا الصُّحُفُ نُشِرَتْ"
+  transliteration="wa-idhā aṣ-ṣuḥufu nushirat"
+  translation="And when the pages [of deeds] are spread open"
+  reference="At-Takwir 81:10"
+  highlight="الصُّحُفُ"
+/>
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | وَ | wa | - | Particle - conjunction | Not declinable (mabni) | and |
 | 2 | إِذَا | idha | - | Particle - conditional/temporal | Not declinable (mabni) | when |
 | 3 | الصُّحُفُ | as-suhufu | ص ح ف | Noun - feminine, plural, definite | Subject (mubtada') - nominative (marfu') | the pages/scrolls |
 | 4 | نُشِرَتْ | nushirat | ن ش ر | Verb - Form I, past passive, 3rd person feminine plural | Predicate (khabar) - passive | were spread open |
+</GrammarTable>
 
-#### Grammar Notes
-- as-suhuf: scrolls/pages containing record of deeds
-- Passive voice: they are opened by divine command
+<Callout type="tip" title="Scrolls of Accountability">
+الصُّحُفُ (scrolls/pages) refers to the records of every person's deeds. Their being "spread open" (نُشِرَتْ) means nothing remains hidden — every action is exposed. The passive voice emphasizes that this revealing is done by divine command, not by human choice.
+</Callout>
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** The إِذَا chain resumes after the parenthetical verses 8-9. الصُّحُفُ (mubtada', nominative) + نُشِرَتْ (khabar, Form I passive). This verse returns to the eschatological sequence after the powerful interruption about the buried infant.
+
+**Sarf (Morphology):** نُشِرَتْ is Form I passive from root ن-ش-ر (to spread/publish). Active: نَشَرَ; passive: نُشِرَ. الصُّحُفُ is a broken plural of صَحِيفَة following the فُعُل pattern.
+
+**Balagha (Rhetoric):** After the emotional verses about the buried infant, the surah returns to the Day of Judgment imagery but now focuses on accountability (scrolls, sky, Hellfire, Paradise) rather than destruction. The transition from cosmic upheaval to individual reckoning creates a powerful thematic arc.
 
 ### Verse 11
 
-**Arabic:** وَإِذَا السَّمَاءُ كُشِطَتْ
-
-**Translation:** "And when the sky is stripped away"
+<ArabicExample
+  arabic="وَإِذَا السَّمَاءُ كُشِطَتْ"
+  transliteration="wa-idhā as-samā'u kushiṭat"
+  translation="And when the sky is stripped away"
+  reference="At-Takwir 81:11"
+  highlight="كُشِطَتْ"
+/>
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | وَ | wa | - | Particle - conjunction | Not declinable (mabni) | and |
 | 2 | إِذَا | idha | - | Particle - conditional/temporal | Not declinable (mabni) | when |
 | 3 | السَّمَاءُ | as-sama'u | س م و | Noun - feminine, singular, definite | Subject (mubtada') - nominative (marfu') | the sky |
 | 4 | كُشِطَتْ | kushitat | ك ش ط | Verb - Form I, past passive, 3rd person feminine singular | Predicate (khabar) - passive | was stripped away |
+</GrammarTable>
 
-#### Grammar Notes
-- kushitat from kashata (to strip/peel away) - sky removed like a cover
-- Vivid imagery of cosmic dissolution
+<Callout type="tip" title="Visceral Imagery: Peeling Away the Sky">
+كُشِطَتْ from root ك-ش-ط means to strip or peel away — the same word used for skinning an animal. The sky is imagined as a covering that is ripped off, exposing what lies beyond. This visceral, physical imagery makes the abstract (sky's removal) concrete and terrifying.
+</Callout>
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** Tenth إِذَا clause. السَّمَاءُ (mubtada', nominative) + كُشِطَتْ (khabar, Form I passive). The syntax remains uniform, reinforcing the relentless march of events.
+
+**Sarf (Morphology):** كُشِطَتْ is Form I passive from root ك-ش-ط (to strip/peel). This is a rare root in the Quran, appearing only here. The Form I passive pattern: كَشَطَ → كُشِطَ. The rarity of the word contributes to its striking effect.
+
+**Balagha (Rhetoric):** The verb كَشَطَ is deliberately earthy and physical — it is a butcher's term. Applying it to the sky creates a shocking collision between the mundane and the cosmic, forcing the listener to visualize the unimaginable.
 
 ### Verse 12
 
-**Arabic:** وَإِذَا الْجَحِيمُ سُعِّرَتْ
-
-**Translation:** "And when Hellfire is set ablaze"
+<ArabicExample
+  arabic="وَإِذَا الْجَحِيمُ سُعِّرَتْ"
+  transliteration="wa-idhā al-jaḥīmu suʿʿirat"
+  translation="And when Hellfire is set ablaze"
+  reference="At-Takwir 81:12"
+  highlight="الْجَحِيمُ,سُعِّرَتْ"
+/>
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | وَ | wa | - | Particle - conjunction | Not declinable (mabni) | and |
 | 2 | إِذَا | idha | - | Particle - conditional/temporal | Not declinable (mabni) | when |
 | 3 | الْجَحِيمُ | al-jahimu | ج ح م | Noun - feminine, singular, definite | Subject (mubtada') - nominative (marfu') | the Hellfire |
 | 4 | سُعِّرَتْ | su''irat | س ع ر | Verb - Form II, past passive, 3rd person feminine singular | Predicate (khabar) - passive | was set ablaze |
+</GrammarTable>
 
-#### Grammar Notes
-- Form II passive su''irat: intensified burning
-- Hellfire is stoked in preparation
+<Callout type="rule" title="Form II Passive: Intensified Burning">
+سُعِّرَتْ is Form II passive from root س-ع-ر (to kindle). Form II intensifies: this is not a simple lighting but a furious, intensified kindling. The passive indicates Hellfire is prepared by divine command for the Day of Judgment — it is stoked and made ready for those who earned it.
+</Callout>
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** Eleventh إِذَا clause. الْجَحِيمُ (mubtada', nominative) + سُعِّرَتْ (khabar, Form II passive). The approach to the chain's conclusion is signaled by the shift to eschatological realities (Hellfire and Paradise).
+
+**Sarf (Morphology):** سُعِّرَتْ follows the Form II passive pattern فُعِّلَ from root س-ع-ر. The gemination (shadda) on the middle radical is the marker of Form II. Active: سَعَّرَ; passive: سُعِّرَ.
+
+**Balagha (Rhetoric):** Hellfire and Paradise (next verse) are paired as the penultimate images, shifting from cosmic destruction to eternal destinations. This pairing (punishment then reward) follows a common Quranic pattern of targhib wa tarhib (encouragement and warning).
 
 ### Verse 13
 
-**Arabic:** وَإِذَا الْجَنَّةُ أُزْلِفَتْ
-
-**Translation:** "And when Paradise is brought near"
+<ArabicExample
+  arabic="وَإِذَا الْجَنَّةُ أُزْلِفَتْ"
+  transliteration="wa-idhā al-jannatu uzlifat"
+  translation="And when Paradise is brought near"
+  reference="At-Takwir 81:13"
+  highlight="الْجَنَّةُ,أُزْلِفَتْ"
+/>
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | وَ | wa | - | Particle - conjunction | Not declinable (mabni) | and |
 | 2 | إِذَا | idha | - | Particle - conditional/temporal | Not declinable (mabni) | when |
 | 3 | الْجَنَّةُ | al-jannatu | ج ن ن | Noun - feminine, singular, definite | Subject (mubtada') - nominative (marfu') | the Paradise |
 | 4 | أُزْلِفَتْ | uzlifat | ز ل ف | Verb - Form IV, past passive, 3rd person feminine singular | Predicate (khabar) - passive | was brought near |
+</GrammarTable>
 
-#### Grammar Notes
-- Form IV azlafa (to bring near) - Paradise is made accessible to the righteous
-- This completes the 12-verse idha conditional chain
+<Callout type="rule" title="Form IV Passive: أُزْلِفَتْ">
+أُزْلِفَتْ is Form IV passive from root ز-ل-ف. Form IV (أَفْعَلَ) often carries a causative meaning: أَزْلَفَ means "to bring near." The passive أُزْلِفَتْ means Paradise "was brought near" — it comes to the righteous rather than them needing to reach it. This completes the 12-verse إِذَا conditional chain.
+</Callout>
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** The twelfth and final إِذَا clause. الْجَنَّةُ (mubtada', nominative) + أُزْلِفَتْ (khabar, Form IV passive). This verse concludes the protasis; the listener now expects the long-awaited jawab (apodosis).
+
+**Sarf (Morphology):** أُزْلِفَتْ follows the Form IV passive pattern أُفْعِلَ from root ز-ل-ف. The hamza prefix and kasra on the third radical are markers of Form IV passive. Active: أَزْلَفَ (to bring near); passive: أُزْلِفَ.
+
+**Balagha (Rhetoric):** Ending the conditional chain with Paradise creates a note of hope after destruction and punishment. The progression Hellfire → Paradise mirrors the Quranic pattern of concluding with mercy. Paradise being "brought near" (passive) rather than the righteous "approaching it" (active) emphasizes divine grace — it is Allah who facilitates the reunion.
 
 ### Verse 14
 
-**Arabic:** عَلِمَتْ نَفْسٌ مَّا أَحْضَرَتْ
-
-**Translation:** "A soul will know what it has brought [of deeds]"
+<ArabicExample
+  arabic="عَلِمَتْ نَفْسٌ مَّا أَحْضَرَتْ"
+  transliteration="ʿalimat nafsun mā aḥḍarat"
+  translation="A soul will know what it has brought [of deeds]"
+  reference="At-Takwir 81:14"
+  highlight="عَلِمَتْ,نَفْسٌ"
+/>
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | عَلِمَتْ | 'alimat | ع ل م | Verb - Form I, past, 3rd person feminine singular | Main verb - perfect tense | [she] knew |
 | 2 | نَفْسٌ | nafsun | ن ف س | Noun - feminine, singular, indefinite | Subject (fa'il) - nominative (marfu') | a soul |
 | 3 | مَا | ma | - | Relative pronoun | Object of 'alimat - accusative (mansub) | what |
 | 4 | أَحْضَرَتْ | ahdarat | ح ض ر | Verb - Form IV, past, 3rd person feminine singular | Relative clause verb | it brought forth |
+</GrammarTable>
 
-#### Grammar Notes
-- This is the apodosis (jawab) of the long idha chain (verses 1-13)
-- When all those cosmic events occur, then each soul will know its deeds
+<Callout type="rule" title="The Jawab (Apodosis) of 12 إِذَا Clauses">
+This verse is the jawab (answer/apodosis) of the entire إِذَا chain spanning verses 1-13. In Arabic grammar, when إِذَا introduces a condition, the jawab provides the consequence. Here, after 12 conditional clauses describing cosmic upheaval, the consequence is devastatingly simple: each soul will know what it brought. The use of the indefinite نَفْسٌ (a soul, any soul) makes it universal — no soul is excluded.
+</Callout>
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** This is a verbal sentence serving as the jawab (apodosis) of the 12-verse إِذَا chain. عَلِمَتْ is the main verb, نَفْسٌ is the subject (fa'il, nominative with tanwin). مَا أَحْضَرَتْ is a relative clause functioning as the object (maf'ul bihi) of عَلِمَتْ. The relative pronoun مَا means "what/that which."
+
+**Sarf (Morphology):** عَلِمَتْ is Form I from root ع-ل-م (to know). أَحْضَرَتْ is Form IV from root ح-ض-ر (to be present); Form IV أَحْضَرَ means "to make present, to bring forth." The use of the past tense for future events (prophetic past) is a common Quranic device expressing certainty.
+
+**Balagha (Rhetoric):** After 13 verses of elaborate, escalating imagery, the conclusion is breathtakingly simple — four words. This contrast between the elaborate protasis and the terse apodosis is itself a rhetorical masterpiece. The indefinite نَفْسٌ (any soul) creates universality, while مَا أَحْضَرَتْ (what it brought forth) leaves the content unspecified, forcing each listener to confront their own deeds.
 
 ### Verse 15
 
-**Arabic:** فَلَا أُقْسِمُ بِالْخُنَّسِ
-
-**Translation:** "So I swear by the retreating [stars]"
+<ArabicExample
+  arabic="فَلَا أُقْسِمُ بِالْخُنَّسِ"
+  transliteration="fa-lā uqsimu bi-l-khunnasi"
+  translation="So I swear by the retreating [stars]"
+  reference="At-Takwir 81:15"
+  highlight="الْخُنَّسِ"
+/>
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | فَ | fa | - | Particle - conjunction | Not declinable (mabni), result/sequence | so/then |
@@ -298,75 +547,130 @@ difficulty: "advanced"
 | 3 | أُقْسِمُ | uqsimu | ق س م | Verb - Form IV, present, 1st person singular | Main verb - indicative (marfu') | I swear |
 | 4 | بِ | bi | - | Particle - preposition | Not declinable (mabni), marks object of oath | by |
 | 5 | الْخُنَّسِ | al-khunnasi | خ ن س | Noun - feminine, plural, definite | Object of preposition bi - genitive (majrur) | the retreaters |
+</GrammarTable>
 
-#### Grammar Notes
-- fa-la uqsimu: emphatic oath formula (la intensifies rather than negates)
-- al-khunnas: planets that retreat/move backward (retrograde motion)
+<Callout type="rule" title="فَلَا أُقْسِمُ: The Emphatic Oath Formula">
+لَا in فَلَا أُقْسِمُ is not a negation but an emphatic particle (لَا زائدة للتأكيد). It intensifies rather than negates the oath. This formula appears several times in the Quran (e.g., 56:75, 69:38, 75:1). أُقْسِمُ is Form IV from root ق-س-م, meaning "I swear." The فَ connects this new section to the preceding argument.
+</Callout>
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** This begins a new structural section — the oath sequence (verses 15-18). فَ is a connective conjunction. لَا is an emphatic particle (not negation). أُقْسِمُ is the main verb (present tense, indicative, marfu' with damma). بِالْخُنَّسِ is a prepositional phrase indicating the object of the oath (مُقْسَم بِهِ).
+
+**Sarf (Morphology):** أُقْسِمُ is Form IV present tense from root ق-س-م. The Form IV pattern يُفْعِلُ → أُقْسِمُ (1st person). الْخُنَّسِ is a plural form from root خ-ن-س (to retreat/withdraw), following the فُعَّل plural pattern. It refers to celestial bodies that appear to move backward (retrograde motion).
+
+**Balagha (Rhetoric):** The surah's second movement begins with a divine oath. Swearing by the "retreating stars" — celestial phenomena that the Arabs observed but could not explain — invites the audience to consider signs in creation that point to a Creator. The shift from eschatological terror to astronomical wonder resets the emotional register.
 
 ### Verse 16
 
-**Arabic:** الْجَوَارِ الْكُنَّسِ
-
-**Translation:** "That run [their courses] and hide"
+<ArabicExample
+  arabic="الْجَوَارِ الْكُنَّسِ"
+  transliteration="al-jawāri l-kunnasi"
+  translation="That run [their courses] and hide"
+  reference="At-Takwir 81:16"
+  highlight="الْجَوَارِ,الْكُنَّسِ"
+/>
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | الْجَوَارِ | al-jawari | ج ر ي | Noun - active participle, feminine, plural, definite | Adjective modifying al-khunnasi - genitive (majrur) | the runners/coursers |
 | 2 | الْكُنَّسِ | al-kunnasi | ك ن س | Noun - active participle, feminine, plural, definite | Adjective modifying al-khunnasi - genitive (majrur) | the hiders |
+</GrammarTable>
 
-#### Grammar Notes
-- Both words are attributes (na't) describing al-khunnas
-- Jawari: running/coursing through their orbits
-- Kunnas: hiding/disappearing (setting below horizon or retrograde motion)
+<Callout type="rule" title="Na't (Adjective) Agreement in Genitive">
+Both الْجَوَارِ and الْكُنَّسِ are adjectives (na't) modifying الْخُنَّسِ from verse 15. They agree in definiteness (all have الـ), gender (feminine), number (plural), and case (genitive/majrur because الْخُنَّسِ is the object of بِ). الْجَوَارِ follows the فَوَاعِل active participle plural pattern; الْكُنَّسِ follows the فُعَّل pattern.
+</Callout>
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** This verse is a continuation of verse 15, providing two additional attributes (na't) for الْخُنَّسِ. Both words are in the genitive case, matching their described noun. الْجَوَارِ is technically فَوَاعِل but the final ي is dropped (حذف الياء) in the definite genitive.
+
+**Sarf (Morphology):** الْجَوَارِ is the active participle plural of جَرَى (to run), following the فَوَاعِل pattern (جَوَارِي → الْجَوَارِ with ي dropped). الْكُنَّسِ is from root ك-ن-س (to hide/sweep), following the فُعَّل intensive plural pattern. Both are active participles indicating ongoing action.
+
+**Balagha (Rhetoric):** Three attributes for the same celestial bodies (retreating, running, hiding) create a vivid picture of planetary motion — retrograde movement, orbital paths, and disappearance below the horizon. The precision of astronomical observation embedded in poetic oath language is remarkable.
 
 ### Verse 17
 
-**Arabic:** وَاللَّيْلِ إِذَا عَسْعَسَ
-
-**Translation:** "And by the night as it departs"
+<ArabicExample
+  arabic="وَاللَّيْلِ إِذَا عَسْعَسَ"
+  transliteration="wa-l-layli idhā ʿasʿasa"
+  translation="And by the night as it departs"
+  reference="At-Takwir 81:17"
+  highlight="عَسْعَسَ"
+/>
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | وَ | wa | - | Particle - conjunction/oath | Not declinable (mabni), introduces oath | and/by |
 | 2 | اللَّيْلِ | al-layli | ل ي ل | Noun - masculine, singular, definite | Object of oath (muqsam bihi) - genitive (majrur) | the night |
 | 3 | إِذَا | idha | - | Particle - temporal | Not declinable (mabni), time specification | when |
 | 4 | عَسْعَسَ | 'as'asa | ع س س | Verb - Form I, past, 3rd person masculine singular | Circumstantial clause | it darkened/departed |
+</GrammarTable>
 
-#### Grammar Notes
-- wa + genitive = oath formula
-- 'as'asa can mean night darkening or departing (approaching dawn)
+<Callout type="tip" title="A Rare Quadriliteral Verb">
+عَسْعَسَ is a rare quadriliteral verb (رباعي مضاعف) from root ع-س-س, formed by repeating the second and third radicals. It is an addad word (ضد) — one of those Arabic words that can mean opposite things: both "to darken/approach" and "to depart/retreat." Most scholars prefer the meaning of night departing (approaching dawn), which pairs with the dawn breathing in verse 18.
+</Callout>
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** وَ here is the oath conjunction (واو القسم), governing the genitive: اللَّيْلِ is muqsam bihi (object of oath, genitive). إِذَا عَسْعَسَ is a temporal clause specifying when the oath applies — "by the night when it departs."
+
+**Sarf (Morphology):** عَسْعَسَ follows the فَعْفَعَ quadriliteral reduplicated pattern from root ع-س-س. This repetition of root letters often indicates repetitive or back-and-forth motion. The verb is extremely rare in Arabic, appearing only here in the Quran.
+
+**Balagha (Rhetoric):** Swearing by the night at its moment of departure — the threshold between darkness and light — captures a moment of profound natural transition. This liminal image connects to the surah's broader theme of transformation (cosmic destruction, resurrection, the boundary between this world and the next).
 
 ### Verse 18
 
-**Arabic:** وَالصُّبْحِ إِذَا تَنَفَّسَ
-
-**Translation:** "And by the dawn when it breathes"
+<ArabicExample
+  arabic="وَالصُّبْحِ إِذَا تَنَفَّسَ"
+  transliteration="wa-ṣ-ṣubḥi idhā tanaffasa"
+  translation="And by the dawn when it breathes"
+  reference="At-Takwir 81:18"
+  highlight="تَنَفَّسَ"
+/>
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | وَ | wa | - | Particle - conjunction/oath | Not declinable (mabni) | and/by |
 | 2 | الصُّبْحِ | as-subhi | ص ب ح | Noun - masculine, singular, definite | Object of oath - genitive (majrur) | the dawn |
 | 3 | إِذَا | idha | - | Particle - temporal | Not declinable (mabni) | when |
 | 4 | تَنَفَّسَ | tanaffasa | ن ف س | Verb - Form V, past, 3rd person masculine singular | Circumstantial clause | it breathed |
+</GrammarTable>
 
-#### Grammar Notes
-- tanaffasa (Form V): dawn "breathing" - poetic description of light spreading
-- Triple oath structure (verses 15-18) builds emphasis
+<Callout type="tip" title="Dawn Breathing: Personification through Form V">
+تَنَفَّسَ (Form V from root ن-ف-س) means "to breathe" — the dawn is personified as a living being drawing its first breath. Form V (تَفَعَّلَ) here carries a reflexive sense: the dawn breathes of itself, naturally, gently. This is one of the most celebrated examples of personification (استعارة مكنية) in the Quran.
+</Callout>
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** Second oath clause, parallel to verse 17. وَ is the oath conjunction, الصُّبْحِ is muqsam bihi (genitive). إِذَا تَنَفَّسَ is a temporal clause. Together, verses 15-18 form a compound oath structure whose jawab (conclusion) comes in verse 19.
+
+**Sarf (Morphology):** تَنَفَّسَ is Form V (تَفَعَّلَ) from root ن-ف-س. Form V adds reflexive meaning to Form II: if نَفَّسَ (Form II) means "to give relief," تَنَفَّسَ means "to breathe (by oneself)." The ت prefix and gemination of the middle radical are Form V markers.
+
+**Balagha (Rhetoric):** The pairing of night departing (عَسْعَسَ) with dawn breathing (تَنَفَّسَ) creates one of the Quran's most beautiful image pairs. Dawn "breathing" suggests gentle, life-giving emergence — a counterpoint to the destructive imagery of verses 1-13. This transition from darkness to light metaphorically parallels the transition from ignorance to revelation, setting up the assertion in verse 19 about the Quran's divine origin.
 
 ### Verse 19
 
-**Arabic:** إِنَّهُ لَقَوْلُ رَسُولٍ كَرِيمٍ
-
-**Translation:** "Indeed, it is the word of a noble messenger"
+<ArabicExample
+  arabic="إِنَّهُ لَقَوْلُ رَسُولٍ كَرِيمٍ"
+  transliteration="innahu la-qawlu rasūlin karīmin"
+  translation="Indeed, it is the word of a noble messenger"
+  reference="At-Takwir 81:19"
+  highlight="رَسُولٍ كَرِيمٍ"
+/>
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | إِنَّ | inna | - | Particle - emphasis | Not declinable (mabni), governs accusative | indeed |
@@ -375,20 +679,33 @@ difficulty: "advanced"
 | 4 | قَوْلُ | qawlu | ق و ل | Noun - masculine, singular, definite (mudaf) | Khabar inna (predicate of inna) - nominative (marfu') | word/speech |
 | 5 | رَسُولٍ | rasulin | ر س ل | Noun - masculine, singular, indefinite | Mudaf ilayhi - genitive (majrur) | messenger |
 | 6 | كَرِيمٍ | karimin | ك ر م | Adjective - masculine, singular, indefinite | Adjective modifying rasulin - genitive (majrur) | noble |
+</GrammarTable>
 
-#### Grammar Notes
-- This is the jawab (conclusion) of the oaths (verses 15-18)
-- inna + la: double emphasis structure
-- The noble messenger is Angel Gabriel
+<Callout type="rule" title="إِنَّ + لَ: Double Emphasis Structure">
+إِنَّهُ لَقَوْلُ combines two emphasis devices: إِنَّ (indeed) governing the accusative subject, and لَ (the lam of emphasis) prefixed to the khabar. This double emphasis (توكيد مضاعف) is used for the most important assertions. The lam can only appear on the khabar of إِنَّ — never on the ism — and signals that the statement counters potential denial.
+</Callout>
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** This is the jawab (conclusion) of the oaths in verses 15-18. It is a nominal sentence introduced by إِنَّ. The ism of إِنَّ is the attached pronoun هُ (accusative), referring to the Quran. The khabar is قَوْلُ رَسُولٍ كَرِيمٍ (nominative). قَوْلُ is mudaf, رَسُولٍ is mudaf ilayhi (genitive), and كَرِيمٍ is na't (adjective) agreeing with رَسُولٍ in gender, number, case, and indefiniteness.
+
+**Sarf (Morphology):** قَوْلُ is a masdar (verbal noun) from root ق-و-ل on the فَعْل pattern. رَسُولٍ follows the فَعُول pattern from root ر-س-ل. كَرِيمٍ follows the فَعِيل pattern from root ك-ر-م, a common pattern for adjectives denoting qualities.
+
+**Balagha (Rhetoric):** The "noble messenger" is Angel Gabriel. Attributing the Quran to a rasul (messenger) rather than directly to Allah emphasizes the chain of transmission: Allah → Gabriel → Muhammad → humanity. The adjective كَرِيمٍ (noble) begins a series of attributes (verses 19-21) that establish Gabriel's credentials as the trustworthy bearer of revelation.
 
 ### Verse 20
 
-**Arabic:** ذِي قُوَّةٍ عِندَ ذِي الْعَرْشِ مَكِينٍ
-
-**Translation:** "Possessor of power, secure in position with the Owner of the Throne"
+<ArabicExample
+  arabic="ذِي قُوَّةٍ عِندَ ذِي الْعَرْشِ مَكِينٍ"
+  transliteration="dhī quwwatin ʿinda dhī l-ʿarshi makīnin"
+  translation="Possessor of power, secure in position with the Owner of the Throne"
+  reference="At-Takwir 81:20"
+  highlight="ذِي قُوَّةٍ"
+/>
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | ذِي | dhi | - | Noun - possessor, masculine, singular (5 nouns pattern) | Adjective modifying rasulin - genitive (majrur) | possessor of |
@@ -397,38 +714,65 @@ difficulty: "advanced"
 | 4 | ذِي | dhi | - | Noun - possessor (5 nouns pattern) | Mudaf ilayhi after 'inda - genitive (majrur) | possessor of |
 | 5 | الْعَرْشِ | al-'arshi | ع ر ش | Noun - masculine, singular, definite | Mudaf ilayhi - genitive (majrur) | the Throne |
 | 6 | مَكِينٍ | makinin | م ك ن | Adjective - masculine, singular, indefinite | Adjective modifying rasulin - genitive (majrur) | secure/established |
+</GrammarTable>
 
-#### Grammar Notes
-- dhi quwwatin: one of the special "five nouns" (al-asma' al-khamsah) showing genitive with -i
-- Multiple attributes describing Gabriel: powerful and honored in Allah's presence
+<Callout type="rule" title="الأسماء الخمسة: The Five Special Nouns">
+ذِي is one of the five special nouns (الأسماء الخمسة: أَبُو، أَخُو، حَمُو، فُو، ذُو) that show case with long vowels instead of short ones: ذُو (nominative), ذَا (accusative), ذِي (genitive). Here ذِي appears twice in the genitive — first as na't of رَسُولٍ (genitive), and second after عِندَ (which governs genitive). These nouns only display this special behavior when they are mudaf (in construct state) with a noun that is not ي (first person pronoun).
+</Callout>
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** This verse continues describing رَسُولٍ from verse 19 with additional attributes. ذِي قُوَّةٍ is a na't (adjective phrase) in the genitive. عِندَ ذِي الْعَرْشِ is a circumstantial adverb phrase (zarf makan). مَكِينٍ is another na't of رَسُولٍ in the genitive. The multiple layered attributes all modify the single noun رَسُولٍ from the previous verse.
+
+**Sarf (Morphology):** قُوَّةٍ is a masdar from root ق-و-ي on the فُعْلَة pattern with the medial و retained. مَكِينٍ follows the فَعِيل pattern from root م-ك-ن, meaning "firmly established/secure." الْعَرْشِ is from root ع-ر-ش meaning "throne/structure."
+
+**Balagha (Rhetoric):** Gabriel is described with attributes that counter potential objections: he has power (not weak), he has access to Allah's Throne (not distant from authority), and he is secure in position (not marginal). Each attribute serves as a credential validating the message he carries.
 
 ### Verse 21
 
-**Arabic:** مُّطَاعٍ ثَمَّ أَمِينٍ
-
-**Translation:** "Obeyed there [by angels], trustworthy"
+<ArabicExample
+  arabic="مُّطَاعٍ ثَمَّ أَمِينٍ"
+  transliteration="muṭāʿin thamma amīnin"
+  translation="Obeyed there [by angels], trustworthy"
+  reference="At-Takwir 81:21"
+  highlight="مُطَاعٍ,أَمِينٍ"
+/>
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | مُطَاعٍ | muta'in | ط و ع | Adjective - passive participle, masculine, singular, indefinite | Adjective modifying rasulin - genitive (majrur) | obeyed |
 | 2 | ثَمَّ | thamma | - | Adverb - locative | Circumstantial adverb (zarf makan) | there |
 | 3 | أَمِينٍ | aminin | أ م ن | Adjective - masculine, singular, indefinite | Adjective modifying rasulin - genitive (majrur) | trustworthy |
+</GrammarTable>
 
-#### Grammar Notes
-- muta' (passive participle): Gabriel is obeyed by other angels
-- thamma: adverb indicating "there" (in the celestial realm)
-- Four attributes for Gabriel: noble, powerful, secure, obeyed, trustworthy
+<Callout type="tip" title="Five Attributes of Gabriel (Verses 19-21)">
+Across three verses, the Quran gives Gabriel five stacked attributes — all genitive adjectives (na't) agreeing with رَسُولٍ: (1) كَرِيمٍ (noble), (2) ذِي قُوَّةٍ (powerful), (3) مَكِينٍ (secure), (4) مُطَاعٍ (obeyed), (5) أَمِينٍ (trustworthy). This cascade of credentials validates the Quran's transmission chain. The passive participle مُطَاعٍ (obeyed) indicates that other angels follow his command, while أَمِينٍ (trustworthy) is the climactic attribute — Gabriel does not alter or withhold what he delivers.
+</Callout>
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** مُطَاعٍ and أَمِينٍ are two more na't (adjectives) of رَسُولٍ (verse 19), both in the genitive. ثَمَّ is a locative adverb meaning "there" (in the heavens), providing circumstantial information. All five attributes span three verses but modify the same noun — an impressive example of extended adjectival chains in Arabic.
+
+**Sarf (Morphology):** مُطَاعٍ is a passive participle (اسم مفعول) from root ط-و-ع on the مُفَعَل pattern (with the medial و becoming ا in the participle: مُطَاع). It means "the one who is obeyed." أَمِينٍ follows the فَعِيل pattern from root أ-م-ن, meaning "trustworthy/faithful."
+
+**Balagha (Rhetoric):** The final attribute — trustworthy — is the most critical for a messenger. Ending with أَمِينٍ creates a climactic sequence: noble → powerful → secure → obeyed → trustworthy. The rhetorical purpose is clear: if the messenger is this credentialed, the message he carries must be genuine.
 
 ### Verse 22
 
-**Arabic:** وَمَا صَاحِبُكُم بِمَجْنُونٍ
-
-**Translation:** "And your companion [Muhammad] is not mad"
+<ArabicExample
+  arabic="وَمَا صَاحِبُكُم بِمَجْنُونٍ"
+  transliteration="wa-mā ṣāḥibukum bi-majnūnin"
+  translation="And your companion [Muhammad] is not mad"
+  reference="At-Takwir 81:22"
+  highlight="صَاحِبُكُم"
+/>
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | وَ | wa | - | Particle - conjunction | Not declinable (mabni) | and |
@@ -436,19 +780,33 @@ difficulty: "advanced"
 | 3 | صَاحِبُكُم | sahibukum | ص ح ب | Noun - masculine, singular, definite + pronoun | Subject (mubtada') - nominative (marfu') | your companion |
 | 4 | بِ | bi | - | Particle - preposition (extra/emphatic) | Not declinable (mabni), adds emphasis | [emphatic] |
 | 5 | مَجْنُونٍ | majnunin | ج ن ن | Adjective - passive participle, masculine, singular, indefinite | Predicate (khabar) - genitive (majrur) due to bi | mad/insane |
+</GrammarTable>
 
-#### Grammar Notes
-- ma + bi + genitive: emphatic negation structure
-- sahibukum: respectful term for the Prophet, countering accusations of madness
+<Callout type="rule" title="مَا...بِ: Emphatic Negation Construction">
+The construction مَا + subject + بِ + predicate is an emphatic negation pattern in Arabic. The بِ is a "ba' zaidah" (extra preposition) that does not add meaning but intensifies the negation. The predicate مَجْنُونٍ appears in the genitive because of بِ, but its syntactic role is khabar (predicate). This pattern is stronger than simple مَا + subject + predicate without بِ.
+</Callout>
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** This is a nominal sentence negated by مَا. صَاحِبُكُم is the mubtada' (nominative, marfu'). بِمَجْنُونٍ is the khabar — though مَجْنُونٍ appears genitive (due to the emphatic بِ), its syntactic role is predicate. The بِ is زائدة (extra/pleonastic), added for emphasis.
+
+**Sarf (Morphology):** صَاحِبُكُم is an active participle from root ص-ح-ب on the فَاعِل pattern, meaning "companion/associate," with the plural attached pronoun كُم (your, addressing the Quraysh). مَجْنُونٍ is a passive participle from root ج-ن-ن on the مَفْعُول pattern, meaning "one possessed by jinn" (mad).
+
+**Balagha (Rhetoric):** The shift from discussing Gabriel (the celestial messenger) to Muhammad (the human messenger) demonstrates that both links in the revelation chain are trustworthy. The term صَاحِبُكُم (your companion) is deliberately chosen — it reminds the Quraysh that they knew Muhammad personally. The accusation of madness is emphatically rejected through the مَا...بِ construction.
 
 ### Verse 23
 
-**Arabic:** وَلَقَدْ رَآهُ بِالْأُفُقِ الْمُبِينِ
-
-**Translation:** "And he certainly saw him [Gabriel] in the clear horizon"
+<ArabicExample
+  arabic="وَلَقَدْ رَآهُ بِالْأُفُقِ الْمُبِينِ"
+  transliteration="wa-la-qad ra'āhu bi-l-ufuqi l-mubīni"
+  translation="And he certainly saw him [Gabriel] in the clear horizon"
+  reference="At-Takwir 81:23"
+  highlight="رَآهُ"
+/>
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | وَ | wa | - | Particle - conjunction | Not declinable (mabni) | and |
@@ -458,20 +816,33 @@ difficulty: "advanced"
 | 5 | بِ | bi | - | Particle - preposition | Not declinable (mabni) | in/at |
 | 6 | الْأُفُقِ | al-ufuqi | أ ف ق | Noun - masculine, singular, definite | Object of preposition bi - genitive (majrur) | the horizon |
 | 7 | الْمُبِينِ | al-mubini | ب ي ن | Adjective - active participle, masculine, singular, definite | Adjective modifying al-ufuqi - genitive (majrur) | the clear/manifest |
+</GrammarTable>
 
-#### Grammar Notes
-- wa-la-qad: triple emphasis (and + surely + certainly)
-- ra'ahu: the Prophet saw Gabriel in his true angelic form
-- Reference to Surah 53 (An-Najm) vision
+<Callout type="rule" title="وَ + لَ + قَدْ: Triple Emphasis Stack">
+This verse combines three emphasis devices before the verb: وَ (conjunction), لَ (emphasis particle), and قَدْ (certainty particle before past verbs). This triple stack (وَلَقَدْ) is one of the strongest affirmation structures in Arabic grammar. It is used when the speaker wants to assert something beyond any doubt — here, that Muhammad genuinely saw Gabriel.
+</Callout>
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** A verbal sentence with triple emphasis particles before the verb. رَآهُ is the main verb with an attached object pronoun (هُ = him, referring to Gabriel). The subject is concealed (هُوَ = he, referring to Muhammad). بِالْأُفُقِ الْمُبِينِ is a prepositional phrase indicating location. الْمُبِينِ is na't of الْأُفُقِ (genitive).
+
+**Sarf (Morphology):** رَآهُ is Form I from root ر-أ-ي. The verb رَأَى has an irregular past tense form: the hamza and ya interact, producing رَأَى → رَآ (with the hamza-alif combination). الْمُبِينِ is an active participle of Form IV (أَبَانَ → مُبِين) from root ب-ي-ن, meaning "clear/manifest."
+
+**Balagha (Rhetoric):** This verse provides empirical evidence for the Prophet's claim — he physically saw Gabriel. The "clear horizon" (الْأُفُقِ الْمُبِينِ) is the visual boundary of the sky, suggesting Gabriel appeared in his true, vast angelic form spanning the horizon. This references the event described in more detail in Surah An-Najm (53:5-7).
 
 ### Verse 24
 
-**Arabic:** وَمَا هُوَ عَلَى الْغَيْبِ بِضَنِينٍ
-
-**Translation:** "And he is not withholding [what is revealed] of the unseen"
+<ArabicExample
+  arabic="وَمَا هُوَ عَلَى الْغَيْبِ بِضَنِينٍ"
+  transliteration="wa-mā huwa ʿalā l-ghaybi bi-ḍanīnin"
+  translation="And he is not withholding [what is revealed] of the unseen"
+  reference="At-Takwir 81:24"
+  highlight="الْغَيْبِ,ضَنِينٍ"
+/>
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | وَ | wa | - | Particle - conjunction | Not declinable (mabni) | and |
@@ -481,20 +852,33 @@ difficulty: "advanced"
 | 5 | الْغَيْبِ | al-ghaybi | غ ي ب | Noun - masculine, singular, definite | Object of preposition 'ala - genitive (majrur) | the unseen |
 | 6 | بِ | bi | - | Particle - preposition (emphatic) | Not declinable (mabni) | [emphatic] |
 | 7 | ضَنِينٍ | daninin | ض ن ن | Adjective - masculine, singular, indefinite | Predicate (khabar) - genitive (majrur) due to bi | withholding/stingy |
+</GrammarTable>
 
-#### Grammar Notes
-- ma ... bi-danin: emphatic negation
-- The Prophet freely conveys all revelation, hiding nothing
-- Alternative reading: bi-zatinin (suspected/accused)
+<Callout type="tip" title="Two Readings: ضَنِين vs. ظَنِين">
+This verse has a famous variant reading (قراءة). The majority reading is بِضَنِينٍ (with ض, from ضَنَّ = to be stingy), meaning "he is not withholding the unseen." The alternative reading is بِظَنِينٍ (with ظ, from ظَنَّ = to suspect), meaning "he is not suspected/accused regarding the unseen." Both readings are authentic and complementary: the Prophet neither withholds revelation nor is he unreliable in transmitting it.
+</Callout>
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** A nominal sentence negated by مَا. هُوَ (mubtada', nominative) + بِضَنِينٍ (khabar, with emphatic بِ). عَلَى الْغَيْبِ is a prepositional phrase indicating what he is not stingy about — the unseen knowledge he receives. The مَا...بِ emphatic negation pattern appears for the second time (cf. verse 22).
+
+**Sarf (Morphology):** ضَنِينٍ follows the فَعِيل pattern from root ض-ن-ن (a doubled root), meaning "stingy/withholding." The فَعِيل pattern often carries intensive adjectival meaning. الْغَيْبِ is from root غ-ي-ب, a fundamental Quranic term for "the unseen/hidden realm."
+
+**Balagha (Rhetoric):** This verse complements verse 22: the Prophet is neither mad (مَجْنُون) nor withholding (ضَنِين). The systematic refutation of objections is structurally organized — each negative claim is emphatically denied using the same مَا...بِ construction, creating rhetorical parallelism.
 
 ### Verse 25
 
-**Arabic:** وَمَا هُوَ بِقَوْلِ شَيْطَانٍ رَّجِيمٍ
-
-**Translation:** "And it is not the word of an accursed devil"
+<ArabicExample
+  arabic="وَمَا هُوَ بِقَوْلِ شَيْطَانٍ رَّجِيمٍ"
+  transliteration="wa-mā huwa bi-qawli shayṭānin rajīmin"
+  translation="And it is not the word of an accursed devil"
+  reference="At-Takwir 81:25"
+  highlight="شَيْطَانٍ رَّجِيمٍ"
+/>
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | وَ | wa | - | Particle - conjunction | Not declinable (mabni) | and |
@@ -504,37 +888,65 @@ difficulty: "advanced"
 | 5 | قَوْلِ | qawli | ق و ل | Noun - masculine, singular, definite (mudaf) | Predicate (khabar) - genitive (majrur) due to bi | word/speech |
 | 6 | شَيْطَانٍ | shaytanin | ش ط ن | Noun - masculine, singular, indefinite | Mudaf ilayhi - genitive (majrur) | devil |
 | 7 | رَجِيمٍ | rajimin | ر ج م | Adjective - passive participle, masculine, singular, indefinite | Adjective modifying shaytanin - genitive (majrur) | accursed/rejected |
+</GrammarTable>
 
-#### Grammar Notes
-- Emphatic negation countering accusation that Quran is from Satan
-- rajim (stoned/cursed/expelled)
+<Callout type="rule" title="Triple مَا...بِ Negation Pattern (Verses 22, 24, 25)">
+This is the third use of the emphatic مَا...بِ negation in four verses. Each instance refutes a different accusation: v.22 denies madness (بِمَجْنُونٍ), v.24 denies withholding (بِضَنِينٍ), v.25 denies satanic origin (بِقَوْلِ شَيْطَانٍ). The repetition of the same grammatical structure creates a systematic, comprehensive defense of both the messenger and the message.
+</Callout>
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** Same مَا...بِ construction as verses 22 and 24. هُوَ (mubtada', nominative) refers to the Quran. بِقَوْلِ شَيْطَانٍ رَّجِيمٍ is the khabar with emphatic بِ. قَوْلِ is mudaf, شَيْطَانٍ is mudaf ilayhi (genitive), and رَجِيمٍ is na't (adjective) of شَيْطَانٍ in the genitive.
+
+**Sarf (Morphology):** شَيْطَانٍ is from root ش-ط-ن on the فَيْعَال pattern, meaning "one who is far from good/rebellious." رَجِيمٍ is a passive participle-like adjective from root ر-ج-م on the فَعِيل pattern, meaning "stoned/cursed/expelled."
+
+**Balagha (Rhetoric):** Having established the credentials of the celestial messenger (Gabriel, verses 19-21) and defended the human messenger (Muhammad, verses 22-24), the Quran now addresses the message itself. The progression is systematic: the bearer is noble → the Prophet is sane → the Prophet is honest → the source is not satanic. Every possible objection is methodically dismantled.
 
 ### Verse 26
 
-**Arabic:** فَأَيْنَ تَذْهَبُونَ
-
-**Translation:** "So where are you going?"
+<ArabicExample
+  arabic="فَأَيْنَ تَذْهَبُونَ"
+  transliteration="fa-ayna tadhhabūna"
+  translation="So where are you going?"
+  reference="At-Takwir 81:26"
+  highlight="فَأَيْنَ"
+/>
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | فَ | fa | - | Particle - conjunction | Not declinable (mabni), result/inference | so/then |
 | 2 | أَيْنَ | ayna | - | Interrogative adverb | Not declinable (mabni), asks about place/direction | where |
 | 3 | تَذْهَبُونَ | tadhhabuna | ذ ه ب | Verb - Form I, present, 2nd person masculine plural | Main verb - indicative (marfu') | you (all) go |
+</GrammarTable>
 
-#### Grammar Notes
-- Rhetorical question challenging those who turn away from truth
-- ayna: interrogative adverb of place, but here metaphorical (where are you heading in your choices?)
+<Callout type="tip" title="The Rhetorical Question that Stops You in Your Tracks">
+فَأَيْنَ تَذْهَبُونَ is one of the Quran's most famous rhetorical questions. It is not asking for geographical information but challenging the disbelievers' spiritual direction: after all the evidence presented — cosmic signs, validated messenger, divine origin — where else could you possibly turn? The فَ (so/then) draws a logical inference from everything preceding: given all this, where are you going?
+</Callout>
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** A verbal sentence with an interrogative adverb. أَيْنَ is an adverb of place (zarf makan) functioning as the fronted predicate (khabar muqaddam) or adverbial complement. تَذْهَبُونَ is the main verb (present indicative, marfu' with نون because it is one of the five verbs/الأفعال الخمسة). The فَ is a connective/inferential conjunction drawing a conclusion.
+
+**Sarf (Morphology):** تَذْهَبُونَ is Form I from root ذ-ه-ب (to go). The present tense conjugation for 2nd person masculine plural: تَ + ذْهَبُ + ونَ. The verb is indicative (مرفوع) indicated by the presence of the نون, which is the sign of raf' for the الأفعال الخمسة.
+
+**Balagha (Rhetoric):** The devastating simplicity of three words — after 25 verses of elaborate argument — creates a rhetorical coup de grace. The question is impossible to answer: there is nowhere to go that escapes divine truth. The verb ذَهَبَ (to go) implies departure from truth, making the question simultaneously a challenge and a warning.
 
 ### Verse 27
 
-**Arabic:** إِنْ هُوَ إِلَّا ذِكْرٌ لِّلْعَالَمِينَ
-
-**Translation:** "It is not but a reminder to the worlds"
+<ArabicExample
+  arabic="إِنْ هُوَ إِلَّا ذِكْرٌ لِّلْعَالَمِينَ"
+  transliteration="in huwa illā dhikrun li-l-ʿālamīna"
+  translation="It is not but a reminder to the worlds"
+  reference="At-Takwir 81:27"
+  highlight="ذِكْرٌ"
+/>
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | إِنْ | in | - | Particle - negation | Not declinable (mabni), used with illa for restriction | not |
@@ -543,19 +955,33 @@ difficulty: "advanced"
 | 4 | ذِكْرٌ | dhikrun | ذ ك ر | Noun - masculine, singular, indefinite | Predicate (khabar) - nominative (marfu') | reminder |
 | 5 | لِ | li | - | Particle - preposition | Not declinable (mabni) | for/to |
 | 6 | الْعَالَمِينَ | al-'alamina | ع ل م | Noun - masculine, plural, definite | Object of preposition li - genitive (majrur) | the worlds/creation |
+</GrammarTable>
 
-#### Grammar Notes
-- in ... illa: restriction/confinement structure (hasr)
-- The Quran is precisely and only a reminder for all people
+<Callout type="rule" title="إِنْ...إِلَّا: The Restriction Construction (حَصْر)">
+إِنْ...إِلَّا is a restriction/confinement structure (أسلوب الحصر أو القصر). إِنْ (not the emphatic إِنَّ but the negating إِنْ) negates, and إِلَّا (except) restricts: "It is nothing except a reminder." This construction limits the Quran's identity to one essential quality — it is a reminder, purely and exclusively. The hasr pattern is one of the most important rhetorical devices in Arabic for defining something by excluding alternatives.
+</Callout>
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** A nominal sentence with restriction. إِنْ is a negation particle (distinct from إِنَّ the emphasis particle — note the absence of shadda). هُوَ is mubtada' (nominative). إِلَّا is the exception particle. ذِكْرٌ is khabar (nominative with tanwin). لِلْعَالَمِينَ is a prepositional phrase modifying ذِكْرٌ. The restriction means: the Quran is nothing other than a reminder.
+
+**Sarf (Morphology):** ذِكْرٌ is a masdar (verbal noun) from root ذ-ك-ر on the فِعْل pattern, meaning "remembrance/reminder." الْعَالَمِينَ is the sound masculine plural of عَالَم (world/realm), genitive with يَاء as it is the object of لِ. Its special plural form (with ين) follows the pattern used for rational beings and certain cosmic terms.
+
+**Balagha (Rhetoric):** The description of the Quran as "a reminder for the worlds" — not just for the Arabs or the Quraysh — universalizes its message. The indefinite ذِكْرٌ (without الـ) suggests it is one instance of divine reminding, while لِلْعَالَمِينَ expands its scope to all of creation across all time.
 
 ### Verse 28
 
-**Arabic:** لِمَن شَاءَ مِنكُمْ أَن يَسْتَقِيمَ
-
-**Translation:** "For whoever among you wills to take the straight path"
+<ArabicExample
+  arabic="لِمَن شَاءَ مِنكُمْ أَن يَسْتَقِيمَ"
+  transliteration="li-man shā'a minkum an yastaqīma"
+  translation="For whoever among you wills to take the straight path"
+  reference="At-Takwir 81:28"
+  highlight="يَسْتَقِيمَ"
+/>
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | لِ | li | - | Particle - preposition | Not declinable (mabni) | for |
@@ -564,19 +990,33 @@ difficulty: "advanced"
 | 4 | مِنكُم | minkum | - | Preposition + pronoun | Not declinable + attached pronoun | among you |
 | 5 | أَن | an | - | Particle - masdar/infinitive | Not declinable (mabni), introduces verbal noun | to |
 | 6 | يَسْتَقِيمَ | yastaqima | ق و م | Verb - Form X, present, 3rd person masculine singular | Subjunctive (mansub) after an | he be straight |
+</GrammarTable>
 
-#### Grammar Notes
-- an yastaqima: masdar mu'awwal (interpreted infinitive) - object of sha'a
-- Form X istaqama: to be/become straight, upright
+<Callout type="rule" title="المصدر المؤوّل: أَنْ + Subjunctive as Verbal Noun">
+أَن يَسْتَقِيمَ forms a مصدر مؤوّل (interpreted infinitive/verbal noun). The particle أَنْ + the subjunctive verb together function as a single noun phrase equivalent to الاسْتِقَامَة (uprightness). This interpreted infinitive is the object of شَاءَ: "whoever wills uprightness." The subjunctive mood (منصوب) is marked by the fatha on يَسْتَقِيمَ.
+</Callout>
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** لِمَن is a prepositional phrase (لِ + مَن). مَن is a relative pronoun introducing a relative clause. شَاءَ is the verb of the relative clause. مِنكُم is a prepositional phrase specifying "among you." أَن يَسْتَقِيمَ is a مصدر مؤوّل functioning as the object of شَاءَ. The whole verse elaborates on لِلْعَالَمِينَ from verse 27: the reminder is for the worlds, specifically for whoever among them wills guidance.
+
+**Sarf (Morphology):** يَسْتَقِيمَ is Form X (اسْتَفْعَلَ) from root ق-و-م. Form X often means "to seek/request the quality of the root": اسْتَقَامَ = to seek straightness, to be upright. The medial و of the root becomes ي in Form X: قَوَمَ → اسْتَقَامَ → يَسْتَقِيمُ. The subjunctive (mansub) drops the final damma: يَسْتَقِيمَ.
+
+**Balagha (Rhetoric):** This verse introduces the concept of human free will — the reminder is available to whoever "wills" (شَاءَ) to be upright. This sets up the theological counterpoint in verse 29, creating a balanced statement on the relationship between human choice and divine will.
 
 ### Verse 29
 
-**Arabic:** وَمَا تَشَاءُونَ إِلَّا أَن يَشَاءَ اللَّهُ رَبُّ الْعَالَمِينَ
-
-**Translation:** "And you do not will except that Allah wills - Lord of the worlds"
+<ArabicExample
+  arabic="وَمَا تَشَاءُونَ إِلَّا أَن يَشَاءَ اللَّهُ رَبُّ الْعَالَمِينَ"
+  transliteration="wa-mā tashā'ūna illā an yashā'a Allāhu rabbu l-ʿālamīna"
+  translation="And you do not will except that Allah wills - Lord of the worlds"
+  reference="At-Takwir 81:29"
+  highlight="تَشَاءُونَ,يَشَاءَ"
+/>
 
 #### Word-by-Word Breakdown
 
+<GrammarTable>
 | # | Arabic | Transliteration | Root | Morphology | I'rab | Meaning |
 |---|--------|----------------|------|------------|-------|---------|
 | 1 | وَ | wa | - | Particle - conjunction | Not declinable (mabni) | and |
@@ -588,14 +1028,81 @@ difficulty: "advanced"
 | 7 | اللَّهُ | Allahu | - | Proper noun - divine name | Subject (fa'il) - nominative (marfu') | Allah |
 | 8 | رَبُّ | rabbu | ر ب ب | Noun - masculine, singular, definite (mudaf) | Apposition (badal) to Allahu - nominative (marfu') | Lord |
 | 9 | الْعَالَمِينَ | al-'alamina | ع ل م | Noun - masculine, plural, definite | Mudaf ilayhi - genitive (majrur) | the worlds |
+</GrammarTable>
 
-#### Grammar Notes
-- ma tasha'una illa an yasha'a Allahu: human will is subordinate to divine will
-- rabbu al-'alamin: appositive phrase emphasizing Allah's sovereignty
-- Perfect theological conclusion balancing free will (v.28) with divine sovereignty (v.29)
+<Callout type="rule" title="Subordination of Human Will to Divine Will">
+مَا تَشَاءُونَ إِلَّا أَن يَشَاءَ اللَّهُ uses the same root (ش-ي-أ) for both human and divine willing, creating a direct grammatical relationship between them. The إِلَّا (except) makes human will conditional upon divine will. أَن يَشَاءَ is another مصدر مؤوّل (interpreted infinitive) functioning as a circumstantial/conditional clause: "You do not will except [in the circumstance] that Allah wills." This is one of the Quran's most precise theological statements, expressed through syntax.
+</Callout>
+
+<Callout type="tip" title="The Theological Balance of Verses 28-29">
+Verse 28 affirms human choice (لِمَن شَاءَ — for whoever wills), and verse 29 subordinates it to divine will (إِلَّا أَن يَشَاءَ اللَّهُ — except that Allah wills). Together, they articulate the Islamic theological position: humans have real agency (verse 28), but that agency operates within the framework of divine sovereignty (verse 29). The grammar carries the theology — neither verse can be read in isolation without distortion.
+</Callout>
+
+#### Nahw-Sarf-Balagha Synthesis
+
+**Nahw (Syntax):** A verbal sentence with restriction. مَا negates, تَشَاءُونَ is the main verb (present indicative, marfu' with نون for الأفعال الخمسة). إِلَّا introduces the exception. أَن يَشَاءَ اللَّهُ is a مصدر مؤوّل: أَن + subjunctive verb يَشَاءَ, with اللَّهُ as fa'il (subject, nominative). رَبُّ الْعَالَمِينَ is badal (apposition) to اللَّهُ — it renames and describes Allah — both nominative. رَبُّ is mudaf, الْعَالَمِينَ is mudaf ilayhi (genitive with يَاء).
+
+**Sarf (Morphology):** تَشَاءُونَ and يَشَاءَ both derive from the same root ش-ي-أ (to will). تَشَاءُونَ is 2nd person masculine plural present indicative; يَشَاءَ is 3rd person masculine singular present subjunctive (after أَن). The deliberate use of the same verb for both human and divine willing emphasizes the parallel. رَبُّ is from root ر-ب-ب (to nurture/lord over).
+
+**Balagha (Rhetoric):** The surah concludes with the ultimate theological statement, using the most concise possible syntax. The repetition of the root ش-ي-أ (sha'a) in both the human and divine contexts creates a lexical mirror: your willing and Allah's willing are not independent phenomena but interconnected realities. The appositional phrase رَبُّ الْعَالَمِينَ (Lord of the worlds) echoes لِلْعَالَمِينَ from verse 27, creating a frame: the reminder is for the worlds (v.27), and the Lord of the worlds is sovereign over all will (v.29).
+
+## Practice Exercises
+
+<ExerciseBox question="The إِذَا chain in verses 1-13 uses predominantly passive verbs. Identify three different verb forms (I, II, IV, VII) used in the passive across these verses, give one example of each, and explain how the form affects the meaning of the passive.">
+
+**Form II Passive — كُوِّرَتْ (verse 1, root ك-و-ر):**
+- Pattern: فُعِّلَ (passive of فَعَّلَ)
+- Form II adds intensive/causative meaning. The passive كُوِّرَتْ means the sun was intensely/thoroughly wrapped up — not a gradual process but a complete, forceful transformation.
+
+**Form VII — انكَدَرَتْ (verse 2, root ك-د-ر):**
+- Pattern: انْفَعَلَ (inherently reflexive/passive)
+- Form VII is not technically a passive of another form but carries its own reflexive/passive meaning intrinsically. انكَدَرَتْ means the stars fell/scattered of themselves. Unlike Form II passive (which implies an external agent acting intensely), Form VII implies the action happens to the subject from within.
+
+**Form IV Passive — أُزْلِفَتْ (verse 13, root ز-ل-ف):**
+- Pattern: أُفْعِلَ (passive of أَفْعَلَ)
+- Form IV adds causative meaning. The passive أُزْلِفَتْ means Paradise was caused to be brought near — an external agent (Allah) makes Paradise approach the righteous, rather than the righteous traveling to it.
+
+**Key insight:** The variety of verb forms in the passive creates subtle distinctions: Form II passive emphasizes intensity of the action done to the subject, Form VII emphasizes the subject's own transformation, and Form IV passive emphasizes an external agent causing the action. The Quran selects each form deliberately to convey the precise nature of each eschatological event.
+</ExerciseBox>
+
+<ExerciseBox question="Analyze the three emphatic negation constructions in verses 22, 24, and 25 (all using مَا...بِ). What accusation does each deny, and why is the emphatic بِ important to the argument?">
+
+**Verse 22: وَمَا صَاحِبُكُم بِمَجْنُونٍ**
+- **Accusation denied:** Madness/insanity of Prophet Muhammad
+- **Subject:** صَاحِبُكُم (your companion) — referring to Muhammad
+
+**Verse 24: وَمَا هُوَ عَلَى الْغَيْبِ بِضَنِينٍ**
+- **Accusation denied:** Withholding or distorting revelation
+- **Subject:** هُوَ (he) — referring to Muhammad
+
+**Verse 25: وَمَا هُوَ بِقَوْلِ شَيْطَانٍ رَّجِيمٍ**
+- **Accusation denied:** Satanic origin of the Quran
+- **Subject:** هُوَ (it) — referring to the Quran itself
+
+**The role of emphatic بِ:**
+The بِ in these constructions is بَاء زائدة (extra/pleonastic preposition). Grammatically, it places the khabar in the genitive case, but semantically it intensifies the negation. Without بِ, the negation would be مَا هُوَ مَجْنُونٌ (he is not mad). With بِ, it becomes مَا هُوَ بِمَجْنُونٍ (he is absolutely/emphatically not mad). The consistent use of this emphatic pattern three times creates a systematic, comprehensive defense where each accusation is not merely denied but forcefully rejected.
+</ExerciseBox>
+
+<ExerciseBox question="Compare the jawab (apodosis) structure of the two main sections: (1) the إِذَا chain (verses 1-13 → jawab in verse 14), and (2) the oath sequence (verses 15-18 → jawab in verse 19). How does the grammar of each jawab differ, and what does this reveal about their rhetorical purposes?">
+
+**إِذَا Chain Jawab (Verse 14): عَلِمَتْ نَفْسٌ مَّا أَحْضَرَتْ**
+- **Grammar:** Verbal sentence. Past tense verb عَلِمَتْ + indefinite subject نَفْسٌ + relative clause مَا أَحْضَرَتْ
+- **Structure:** Verb-first (V-S-O pattern), no emphasis particles
+- **Subject:** Indefinite (نَفْسٌ = any soul) — universalizing the consequence
+- **Rhetorical purpose:** After 13 verses of cosmic spectacle, the conclusion is devastatingly understated. No emphasis particles are needed because the weight of the 12-verse buildup provides all the emphasis. The indefiniteness of "a soul" means every listener must apply this to themselves.
+
+**Oath Jawab (Verse 19): إِنَّهُ لَقَوْلُ رَسُولٍ كَرِيمٍ**
+- **Grammar:** Nominal sentence with إِنَّ + لَ double emphasis. إِنَّ governs the subject (هُ, accusative), لَ intensifies the predicate (قَوْلُ, nominative)
+- **Structure:** Emphasis particle + nominal sentence (S-P pattern) with double emphasis
+- **Subject:** Pronoun referring to the Quran — specific and definite
+- **Rhetorical purpose:** The oaths (by stars, night, dawn) validate a specific claim that the audience might resist: the Quran is from a noble messenger. Double emphasis (إِنَّ + لَ) is needed precisely because this claim faces denial.
+
+**Key contrast:** The إِذَا chain uses understatement (no emphasis particles, indefinite subject) because its power comes from the cumulative buildup. The oath sequence uses overstatement (double emphasis) because it must overcome active resistance. The grammar mirrors the rhetorical strategy: accumulated evidence needs no decoration, while contested claims need explicit reinforcement.
+</ExerciseBox>
 
 ## Key Vocabulary
 
+<GrammarTable>
 | Arabic | Root | Pattern | Meaning | Frequency |
 |--------|------|---------|---------|-----------|
 | كُوِّرَتْ | ك و ر | fu''ilat (Form II passive) | wrapped up/darkened | rare |
@@ -615,9 +1122,11 @@ difficulty: "advanced"
 | ضَنِينٍ | ض ن ن | fa'il pattern | withholding/stingy | rare |
 | رَجِيمٍ | ر ج م | fa'il pattern | accursed/stoned | frequent |
 | يَسْتَقِيمَ | ق و م | yastaF'ila (Form X) | to be upright/straight | very common |
+</GrammarTable>
 
 ## Grammar Summary
 
+<Callout type="note" title="Key Grammar Concepts in This Surah">
 - **Extensive conditional chains**: 12 consecutive idha clauses (verses 1-13) with single apodosis (v.14) - advanced conditional I'rab structure
 - **Passive voice dominance**: Most idha clauses use passive verbs (kuwwirat, inkadarat, suyyirat, etc.) emphasizing divine agency
 - **Oath constructions**: Triple oath sequence (verses 15-18) using la uqsimu and wa + genitive formulas
@@ -627,3 +1136,4 @@ difficulty: "advanced"
 - **Interrogatives**: Powerful rhetorical questions (v.9: bi-ayyi dhanbin, v.26: fa-ayna tadhhabun)
 - **Masdar mu'awwal**: an + subjunctive forming verbal nouns (vv.28-29)
 - **Subordinate clauses**: Human will subordinated to divine will (v.29) - complex theological syntax
+</Callout>

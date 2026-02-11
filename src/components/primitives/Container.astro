@@ -1,19 +1,23 @@
 ---
 interface Props {
-  maxWidth?: 'sm' | 'md' | 'lg' | 'xl' | '2xl' | 'full';
+  maxWidth?: 'sm' | 'md' | 'lg' | 'xl' | '2xl' | 'full' | 'none';
+  size?: 'sm' | 'md' | 'lg' | 'xl' | '2xl' | 'full' | 'none';
   padding?: boolean;
   center?: boolean;
   class?: string;
 }
 
 const {
-  maxWidth = 'lg',
+  maxWidth,
+  size,
   padding = true,
   center = true,
   class: className = ''
 } = Astro.props;
 
-const containerClass = `container container-${maxWidth} ${padding ? 'container-padding' : ''} ${center ? 'container-center' : ''} ${className}`;
+const resolvedMaxWidth = maxWidth || size || 'lg';
+
+const containerClass = `container container-${resolvedMaxWidth} ${padding ? 'container-padding' : ''} ${center ? 'container-center' : ''} ${className}`;
 ---
 
 <div class={containerClass}>
@@ -46,7 +50,8 @@ const containerClass = `container container-${maxWidth} ${padding ? 'container-p
     max-inline-size: 96rem;  /* 1536px */
   }
 
-  .container-full {
+  .container-full,
+  .container-none {
     max-inline-size: none;
   }
 

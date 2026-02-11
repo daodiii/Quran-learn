@@ -16,7 +16,7 @@ const levelNames: Record<number, { title: string; titleAr: string; desc: string 
   5: { title: 'Applied Study', titleAr: 'التطبيق القرآني', desc: 'Apply everything to the Quran: pattern recognition, vocabulary, and full verse analysis.' },
 };
 
-const levels = [1, 2, 3, 4, 5];
+const levels: (1 | 2 | 3 | 4 | 5)[] = [1, 2, 3, 4, 5];
 ---
 
 <BaseLayout title="Grammar Lessons">
@@ -67,7 +67,49 @@ const levels = [1, 2, 3, 4, 5];
             <span class="level-arabic" dir="rtl" lang="ar">{info.titleAr}</span>
           </div>
 
-          {lessons.length > 0 ? (
+          {level === 1 && lessons.length > 0 ? (
+            <>
+              {/* Essential lessons (1-5) with green accent */}
+              <div class="lessons-grid">
+                {lessons.slice(0, 5).map(lesson => (
+                  <LessonCard
+                    title={lesson.data.title}
+                    level={level}
+                    completed={false}
+                    href={`/learn/${lesson.id}/`}
+                    data-lesson-id={lesson.id}
+                    class="lesson-essential"
+                  >
+                    {lesson.data.description}
+                  </LessonCard>
+                ))}
+              </div>
+
+              {/* Mandatory banner */}
+              <div class="mandatory-banner">
+                <svg class="mandatory-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                  <path d="m9 12 2 2 4-4"/>
+                </svg>
+                <p class="mandatory-text">Mandatory to know if you want to benefit from this course. Skip these if you already know how to read Arabic.</p>
+              </div>
+
+              {/* Remaining lessons (6-11) */}
+              <div class="lessons-grid">
+                {lessons.slice(5).map(lesson => (
+                  <LessonCard
+                    title={lesson.data.title}
+                    level={level}
+                    completed={false}
+                    href={`/learn/${lesson.id}/`}
+                    data-lesson-id={lesson.id}
+                  >
+                    {lesson.data.description}
+                  </LessonCard>
+                ))}
+              </div>
+            </>
+          ) : lessons.length > 0 ? (
             <div class="lessons-grid">
               {lessons.map(lesson => (
                 <LessonCard
@@ -174,6 +216,50 @@ const levels = [1, 2, 3, 4, 5];
     }
   }
 
+  /* Essential lesson cards - green accent */
+  .lessons-grid :global(.lesson-essential .card) {
+    border-left: 4px solid var(--accent-primary);
+    background: var(--accent-primary-light);
+  }
+
+  :global([data-theme="dark"]) .lessons-grid :global(.lesson-essential .card) {
+    border-left-color: var(--accent-primary);
+    background: var(--accent-primary-light);
+  }
+
+  .lessons-grid :global(.lesson-essential .card:hover) {
+    border-left-color: var(--accent-primary);
+  }
+
+  /* Mandatory banner */
+  .mandatory-banner {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    padding: var(--spacing-md) var(--spacing-lg);
+    margin-block: var(--spacing-xl);
+    background: var(--accent-primary-light);
+    border: 1px solid var(--accent-primary);
+    border-radius: var(--radius-lg);
+  }
+
+  .mandatory-icon {
+    color: var(--accent-primary);
+    flex-shrink: 0;
+  }
+
+  .mandatory-text {
+    margin: 0;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--accent-primary);
+  }
+
+  :global([data-theme="dark"]) .mandatory-banner {
+    background: var(--accent-primary-light);
+    border-color: var(--accent-primary);
+  }
+
   .no-lessons {
     font-size: 0.875rem;
     color: var(--color-text-tertiary);
@@ -186,70 +272,70 @@ const levels = [1, 2, 3, 4, 5];
   .lessons-grid :global([data-lesson-id].completed) {
     opacity: 0.8;
   }
-
-  .lessons-grid :global([data-lesson-id].completed) :global([data-testid="lesson-checkmark"]) {
-    color: var(--color-success);
-  }
 </style>
 
 <script>
+  import { getCompletedLessons } from '../../lib/progress';
+
   // Populate lesson completion states from localStorage
-  document.addEventListener('astro:page-load', () => {
-    // Get completed lessons from localStorage
-    const completedLessons = JSON.parse(localStorage.getItem('completedLessons') || '[]');
+  // Run immediately — module scripts are deferred and execute after DOM is parsed
+  const completedLessons = getCompletedLessons();
 
-    // Update LessonCard completion states
-    const lessonCards = document.querySelectorAll('[data-lesson-id]');
-    lessonCards.forEach(card => {
-      const lessonId = card.getAttribute('data-lesson-id');
-      if (completedLessons.includes(lessonId)) {
-        // Add completed class for styling
-        card.classList.add('completed');
-        // Update checkmark if present
-        const checkmark = card.querySelector('[data-testid="lesson-checkmark"]');
-        if (checkmark) {
-          checkmark.setAttribute('data-completed', 'true');
+  // Update LessonCard completion states
+  const lessonCards = document.querySelectorAll('[data-lesson-id]');
+  lessonCards.forEach(card => {
+    const lessonId = card.getAttribute('data-lesson-id');
+    if (completedLessons.includes(lessonId!)) {
+      card.classList.add('completed');
+
+      // Replace checkmark SVG with completed version
+      const checkmarkCircle = card.querySelector('.checkmark-circle');
+      if (checkmarkCircle) {
+        checkmarkCircle.classList.remove('incomplete');
+        checkmarkCircle.classList.add('completed');
+        const svg = checkmarkCircle.querySelector('svg');
+        if (svg) {
+          svg.innerHTML = `
+            <circle cx="12" cy="12" r="11" fill="var(--color-accent-primary)"/>
+            <path d="M7 12l3 3 7-7" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          `;
         }
       }
+    }
+  });
+
+  // Calculate level progress and update overview cards
+  const levelOverviews = document.querySelectorAll('[data-level]');
+  levelOverviews.forEach(card => {
+    const levelAttr = card.getAttribute('data-level');
+    if (!levelAttr) return;
+
+    const level = parseInt(levelAttr, 10);
+
+    // Find all lessons for this level
+    const levelLessonCards = Array.from(document.querySelectorAll('[data-lesson-id]')).filter(lessonCard => {
+      const lessonId = lessonCard.getAttribute('data-lesson-id');
+      return lessonId && lessonId.startsWith(`level-${level}/`);
     });
 
-    // Calculate level progress and update overview cards
-    const levelOverviews = document.querySelectorAll('[data-level]');
-    levelOverviews.forEach(card => {
-      const levelAttr = card.getAttribute('data-level');
-      if (!levelAttr) return;
+    const completed = levelLessonCards.filter(l => l.classList.contains('completed')).length;
+    const total = levelLessonCards.length;
 
-      const level = parseInt(levelAttr, 10);
+    // Update progress bar if present in the overview card
+    const progressBar = card.querySelector('[role="progressbar"]');
+    if (progressBar && total > 0) {
+      progressBar.setAttribute('aria-valuenow', String(completed));
 
-      // Find all lessons for this level
-      const levelLessonCards = Array.from(document.querySelectorAll('[data-lesson-id]')).filter(lessonCard => {
-        const lessonId = lessonCard.getAttribute('data-lesson-id');
-        return lessonId && lessonId.startsWith(`level-${level}/`);
-      });
-
-      const completed = levelLessonCards.filter(l => l.classList.contains('completed')).length;
-      const total = levelLessonCards.length;
-
-      // Store for reference
-      localStorage.setItem(`level-${level}-completed`, String(completed));
-
-      // Update progress bar if present in the overview card
-      const progressBar = card.querySelector('[role="progressbar"]');
-      if (progressBar && total > 0) {
-        progressBar.setAttribute('aria-valuenow', String(completed));
-
-        // Update visual bar width
-        const fill = progressBar.querySelector('.progress-fill');
-        if (fill) {
-          fill.style.width = `${(completed / total) * 100}%`;
-        }
+      const fill = progressBar.querySelector('.progress-fill');
+      if (fill) {
+        (fill as HTMLElement).style.inlineSize = `${(completed / total) * 100}%`;
       }
+    }
 
-      // Update lessons completed text if present
-      const progressText = card.querySelector('.course-card-progress-text');
-      if (progressText) {
-        progressText.textContent = `${completed} of ${total} lessons`;
-      }
-    });
+    // Update lessons completed text if present
+    const progressText = card.querySelector('.course-card-progress-text');
+    if (progressText) {
+      progressText.textContent = `${completed} of ${total} lessons`;
+    }
   });
 </script>

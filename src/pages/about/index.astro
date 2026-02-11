@@ -1,0 +1,223 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Container from '../../components/primitives/Container.astro';
+---
+
+<BaseLayout title="About">
+  <Container maxWidth="md">
+    <article class="about-page">
+      <header class="page-header">
+        <p class="arabic-heading" dir="rtl" lang="ar">عن المشروع</p>
+        <h1>About This Project</h1>
+        <p class="subtitle">A free, structured resource for learning Quranic Arabic grammar &mdash; from the alphabet to full verse analysis.</p>
+      </header>
+
+      <section class="section">
+        <h2>The Mission</h2>
+        <p>
+          As-salamu alaykum wa rahmatullahi wa barakatuhu. This page was originally meant for me, a non-Arabic Muslim who speaks English and really wants to understand the direct message Allah subhanahu wa ta'ala sent down to us.
+        </p>
+        <p>
+          I believe that there are many Muslims like me who are desperate and hungry for this knowledge to really know what Allah SWT has said, so I thought I'll make it a website and share it with others.
+        </p>
+        <p>
+          This page is 100% free in hope that it will benefit the Muslim ummah and we will draw closer to our Lord, and it will strengthen us and unite us. I ask Allah subhana wa ta'ala to make this beneficial for the Muslims, and I hope that this will be on my scale of good deeds when I need it the most.
+        </p>
+        <p>
+          If you find this page beneficial, please make dua for me and spread it to other people so that they might also benefit.
+        </p>
+      </section>
+
+      <section class="section" id="feedback">
+        <h2>Share Your Feedback</h2>
+        <p>Have suggestions, found a mistake, or want to share how this site has helped you? We'd love to hear from you.</p>
+
+        <form
+          action="https://api.web3forms.com/submit"
+          method="POST"
+          class="feedback-form"
+        >
+          <!-- Replace YOUR_ACCESS_KEY with your key from https://web3forms.com -->
+          <input type="hidden" name="access_key" value="5343ff10-6be0-487f-92ef-311dc2a1c8af" />
+          <input type="hidden" name="subject" value="Quranic Grammar - New Feedback" />
+          <input type="hidden" name="redirect" value="https://quran-learn.vercel.app/about/?submitted=true" />
+          <!-- Honeypot spam prevention -->
+          <input type="checkbox" name="botcheck" class="hidden" style="display:none" />
+
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required placeholder="Your name" />
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required placeholder="your@email.com" />
+          </div>
+
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" required rows="5" placeholder="Your feedback, suggestion, or testimonial..."></textarea>
+          </div>
+
+          <div class="form-check">
+            <input type="checkbox" id="testimonial" name="testimonial" value="yes" />
+            <label for="testimonial">I'd like this to be considered as a testimonial on the site</label>
+          </div>
+
+          <button type="submit" class="form-submit">Send Feedback</button>
+        </form>
+      </section>
+    </article>
+  </Container>
+</BaseLayout>
+
+<style>
+  .about-page {
+    padding-block: 3rem 4rem;
+  }
+
+  .page-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .arabic-heading {
+    font-family: var(--font-arabic);
+    font-size: 1.5rem;
+    color: var(--accent-primary);
+    margin-bottom: 0.5rem;
+  }
+
+  .page-header h1 {
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+  }
+
+  .subtitle {
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+    max-width: 36rem;
+    margin-inline: auto;
+    line-height: 1.6;
+  }
+
+  .section {
+    margin-bottom: 2.5rem;
+  }
+
+  .section h2 {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--border-primary);
+  }
+
+  .section p {
+    color: var(--text-secondary);
+    line-height: 1.75;
+    margin-bottom: 0.75rem;
+  }
+
+  /* Feedback Form */
+  .feedback-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    margin-top: 1.5rem;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.375rem;
+  }
+
+  .form-group label {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 0.875rem;
+    color: var(--text-primary);
+  }
+
+  .form-group input,
+  .form-group textarea {
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--border-primary);
+    border-radius: var(--radius-lg);
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    font-family: inherit;
+    font-size: 0.9375rem;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .form-group input:focus,
+  .form-group textarea:focus {
+    outline: none;
+    border-color: var(--accent-primary);
+    box-shadow: 0 0 0 3px var(--accent-primary-light, rgba(197, 160, 89, 0.15));
+  }
+
+  .form-group input::placeholder,
+  .form-group textarea::placeholder {
+    color: var(--text-tertiary);
+  }
+
+  .form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+  }
+
+  .form-check {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .form-check input[type="checkbox"] {
+    width: 1.125rem;
+    height: 1.125rem;
+    accent-color: var(--accent-primary);
+    cursor: pointer;
+  }
+
+  .form-check label {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    cursor: pointer;
+  }
+
+  .form-submit {
+    align-self: flex-start;
+    padding: 0.75rem 2rem;
+    background: var(--accent-primary);
+    color: var(--text-inverse, #fff);
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 0.9375rem;
+    border: none;
+    border-radius: var(--radius-lg);
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease;
+  }
+
+  .form-submit:hover {
+    background: var(--accent-gold);
+    transform: translateY(-1px);
+  }
+
+  .form-submit:active {
+    transform: translateY(0);
+  }
+
+  :global([data-theme="dark"]) .form-group input,
+  :global([data-theme="dark"]) .form-group textarea {
+    background: var(--bg-elevated);
+  }
+</style>

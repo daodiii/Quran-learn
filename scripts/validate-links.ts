@@ -157,9 +157,12 @@ export function validateLinks(content: string, filepath: string): ValidationIssu
       // Skip anchor-only links
       if (url.startsWith('#')) continue;
 
+      // Normalize: strip trailing slashes for comparison
+      const normalizedUrl = url.replace(/\/(?=#|\?|$)/g, '');
+
       // Check glossary links: /resources/glossary#anchor
-      if (url.startsWith('/resources/glossary#')) {
-        const anchor = url.split('#')[1];
+      if (normalizedUrl.startsWith('/resources/glossary#')) {
+        const anchor = normalizedUrl.split('#')[1];
         if (anchor && !glossaryAnchors.has(anchor)) {
           issues.push({
             line: lineNumber,
@@ -169,8 +172,8 @@ export function validateLinks(content: string, filepath: string): ValidationIssu
         }
       }
       // Check lesson cross-references: /learn/level-N/slug
-      else if (url.startsWith('/learn/level-')) {
-        const pathPart = url.replace('/learn/', '');
+      else if (normalizedUrl.startsWith('/learn/level-')) {
+        const pathPart = normalizedUrl.replace('/learn/', '').replace(/\/$/, '');
         if (!lessonSlugs.has(pathPart)) {
           issues.push({
             line: lineNumber,
@@ -180,13 +183,13 @@ export function validateLinks(content: string, filepath: string): ValidationIssu
         }
       }
       // Check bare /learn/level-N links (directory links)
-      else if (url.match(/^\/learn\/level-\d+$/)) {
+      else if (normalizedUrl.match(/^\/learn\/level-\d+$/)) {
         // Directory links are valid (index pages)
         continue;
       }
       // Check resource links: /resources/slug
-      else if (url.startsWith('/resources/')) {
-        const slug = url.replace('/resources/', '').split('#')[0];
+      else if (normalizedUrl.startsWith('/resources/')) {
+        const slug = normalizedUrl.replace('/resources/', '').split('#')[0].replace(/\/$/, '');
         if (slug && !resourceSlugs.has(slug)) {
           issues.push({
             line: lineNumber,

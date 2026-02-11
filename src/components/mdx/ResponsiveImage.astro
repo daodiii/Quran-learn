@@ -33,12 +33,14 @@ const isExternal = typeof src === 'string' && (src.startsWith('http://') || src.
   />
 ) : (
   <Picture
-    src={src}
+    src={src as ImageMetadata}
     alt={alt}
     widths={[320, 640, 960, 1280]}
     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 70ch, 960px"
     formats={['avif', 'webp']}
     class:list={['responsive-image', className]}
+    width={width}
+    height={height}
     loading="lazy"
     decoding="async"
   />
