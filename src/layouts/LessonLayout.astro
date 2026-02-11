@@ -160,9 +160,10 @@ const levelNames: Record<number, string> = {
     }
   }
 
-  /* Sidebar */
+  /* Sidebar: use display:contents on mobile so the fixed-position
+     CourseNavigator can render (display:none would prevent it) */
   .lesson-sidebar {
-    display: none;
+    display: contents;
   }
 
   @media (min-width: 1024px) {

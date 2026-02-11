@@ -360,12 +360,17 @@ const features = [
   .hero-new {
     position: relative;
     min-block-size: 100svh;
-    padding-block: 5rem 8rem;
+    padding-block: 6rem 4rem;
     display: flex;
     align-items: center;
     background: #000000;
     color: #ffffff;
-    overflow: hidden;
+  }
+
+  @media (min-width: 640px) {
+    .hero-new {
+      padding-block: 5rem 8rem;
+    }
   }
 
   .hero-overlay {
@@ -489,8 +494,15 @@ const features = [
   .hero-stats {
     display: flex;
     align-items: center;
-    gap: var(--spacing-lg);
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
     margin-block-end: var(--spacing-xl);
+  }
+
+  @media (min-width: 640px) {
+    .hero-stats {
+      gap: var(--spacing-lg);
+    }
   }
 
   .hero-stat {
@@ -523,6 +535,13 @@ const features = [
     width: 1px;
     height: 40px;
     background: rgba(255, 255, 255, 0.2);
+    display: none;
+  }
+
+  @media (min-width: 480px) {
+    .hero-stat-divider {
+      display: block;
+    }
   }
 
   .hero-actions-new {

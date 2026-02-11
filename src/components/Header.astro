@@ -32,19 +32,6 @@
 
     <!-- Right Section: Navigator Toggle + Auth + Theme + Mobile Menu -->
     <div class="header-actions">
-      <!-- Navigator Toggle (hidden by default, shown on lesson pages via JS) -->
-      <button
-        id="navigator-toggle"
-        class="navigator-toggle"
-        aria-label="Toggle course navigator"
-        aria-expanded="false"
-        hidden
-      >
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
-        </svg>
-      </button>
-
       <!-- Theme Toggle -->
       <button
         id="theme-toggle"
@@ -245,7 +232,7 @@
   }
 
   /* Buttons Styling Override */
-  .theme-toggle, .navigator-toggle {
+  .theme-toggle {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -259,15 +246,14 @@
     color: var(--text-secondary);
   }
 
-  .theme-toggle:hover, .navigator-toggle:hover {
+  .theme-toggle:hover {
     background-color: var(--accent-primary-light);
     color: var(--accent-primary);
     border-color: var(--accent-primary);
     transform: translateY(-2px);
   }
 
-  :global([data-theme="dark"]) .theme-toggle:hover,
-  :global([data-theme="dark"]) .navigator-toggle:hover {
+  :global([data-theme="dark"]) .theme-toggle:hover {
     background-color: rgba(94, 234, 212, 0.12);
   }
 
