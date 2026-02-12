@@ -82,7 +82,7 @@ const rows = Astro.props.rows ?? (persons ? persons.map(p => [p.person, p.arabic
     border: 1px solid var(--color-border-primary);
     border-radius: var(--radius-md);
     margin-block: var(--spacing-xl);
-    overflow: hidden;
+    overflow: clip;
     background: var(--color-background-primary);
   }
 
@@ -142,6 +142,23 @@ const rows = Astro.props.rows ?? (persons ? persons.map(p => [p.person, p.arabic
 
   .table-wrapper {
     overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    /* Scroll shadow indicators */
+    background:
+      linear-gradient(to right, var(--color-background-primary) 30%, transparent) left center / 40px 100% no-repeat,
+      linear-gradient(to left, var(--color-background-primary) 30%, transparent) right center / 40px 100% no-repeat,
+      linear-gradient(to right, rgba(0, 0, 0, 0.1), transparent) left center / 14px 100% no-repeat,
+      linear-gradient(to left, rgba(0, 0, 0, 0.1), transparent) right center / 14px 100% no-repeat;
+    background-attachment: local, local, scroll, scroll;
+  }
+
+  :global([data-theme="dark"]) .table-wrapper {
+    background:
+      linear-gradient(to right, var(--color-background-primary) 30%, transparent) left center / 40px 100% no-repeat,
+      linear-gradient(to left, var(--color-background-primary) 30%, transparent) right center / 40px 100% no-repeat,
+      linear-gradient(to right, rgba(255, 255, 255, 0.07), transparent) left center / 14px 100% no-repeat,
+      linear-gradient(to left, rgba(255, 255, 255, 0.07), transparent) right center / 14px 100% no-repeat;
+    background-attachment: local, local, scroll, scroll;
   }
 
   .verb-table {

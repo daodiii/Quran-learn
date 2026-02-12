@@ -61,9 +61,26 @@ const hasProps = headers && rows;
 <style>
   .table-wrapper {
     overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
     border: 1px solid var(--color-border-primary);
     border-radius: var(--radius-md);
     margin-block: var(--spacing-xl);
+    /* Scroll shadow indicators — shadows appear at edges when content is scrollable */
+    background:
+      linear-gradient(to right, var(--color-background-primary) 30%, transparent) left center / 40px 100% no-repeat,
+      linear-gradient(to left, var(--color-background-primary) 30%, transparent) right center / 40px 100% no-repeat,
+      linear-gradient(to right, rgba(0, 0, 0, 0.1), transparent) left center / 14px 100% no-repeat,
+      linear-gradient(to left, rgba(0, 0, 0, 0.1), transparent) right center / 14px 100% no-repeat;
+    background-attachment: local, local, scroll, scroll;
+  }
+
+  :global([data-theme="dark"]) .table-wrapper {
+    background:
+      linear-gradient(to right, var(--color-background-primary) 30%, transparent) left center / 40px 100% no-repeat,
+      linear-gradient(to left, var(--color-background-primary) 30%, transparent) right center / 40px 100% no-repeat,
+      linear-gradient(to right, rgba(255, 255, 255, 0.07), transparent) left center / 14px 100% no-repeat,
+      linear-gradient(to left, rgba(255, 255, 255, 0.07), transparent) right center / 14px 100% no-repeat;
+    background-attachment: local, local, scroll, scroll;
   }
 
   .grammar-table {
@@ -197,6 +214,49 @@ const hasProps = headers && rows;
       color: var(--color-text-primary);
       margin-inline-end: var(--spacing-sm);
     }
+  }
+
+  /* === Slot-based table styling ===
+     Targets slotted MDX markdown tables that don't have .grammar-table class.
+     :global() required because Astro scoped styles don't penetrate slot content. */
+  .table-wrapper :global(table) {
+    border-collapse: collapse;
+    background: var(--color-background-primary);
+    min-inline-size: 100%;
+  }
+
+  .table-wrapper :global(th) {
+    background: var(--color-background-tertiary);
+    color: var(--color-text-primary);
+    font-weight: 600;
+    font-size: 0.9375rem;
+    padding-block: var(--spacing-md);
+    padding-inline: var(--spacing-md);
+    text-align: start;
+    border-block-end: 1px solid var(--color-border-primary);
+    white-space: nowrap;
+  }
+
+  :global([data-theme="dark"]) .table-wrapper :global(th) {
+    background: var(--color-background-tertiary);
+  }
+
+  .table-wrapper :global(td) {
+    padding-block: var(--spacing-md);
+    padding-inline: var(--spacing-md);
+    color: var(--color-text-secondary);
+    font-size: 0.9375rem;
+    text-align: start;
+    border-block-end: 1px solid var(--color-border-primary);
+  }
+
+  .table-wrapper :global(tbody tr:last-child th),
+  .table-wrapper :global(tbody tr:last-child td) {
+    border-block-end: none;
+  }
+
+  .table-wrapper :global(tbody tr:hover) {
+    background: var(--color-background-secondary);
   }
 
   /* Accessibility: reduced motion */
