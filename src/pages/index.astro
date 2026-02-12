@@ -90,6 +90,16 @@ const features = [
 ---
 
 <BaseLayout title="Home">
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Quranic Grammar",
+      "url": "https://quranic-grammar.com/",
+      "description": "Learn Quranic Arabic grammar from beginner to advanced. Comprehensive lessons, verb forms, and detailed surah breakdowns.",
+      "inLanguage": "en"
+    })} />
+  </Fragment>
   <!-- World-Class Hero Section -->
   <section class="hero-new">
     <div class="hero-overlay"></div>

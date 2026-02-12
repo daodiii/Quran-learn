@@ -11,9 +11,10 @@ interface Props {
 }
 
 const { name, nameArabic, surahNumber, verseCount, revelation, description } = Astro.props;
+const surahDescription = description || `Word-by-word grammatical analysis of Surah ${name} (${nameArabic}). ${verseCount} verses with detailed Arabic grammar breakdown.`;
 ---
 
-<BaseLayout title={`Surah ${name}`}>
+<BaseLayout title={`Surah ${name}`} description={surahDescription} type="article">
   <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
     <!-- Breadcrumb -->
     <nav class="text-sm mb-6" style="color: var(--text-tertiary);">
