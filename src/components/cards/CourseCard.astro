@@ -24,7 +24,7 @@ const {
 } = Astro.props;
 ---
 
-<Card variant="elevated" href={href} class={`course-card ${className}`} {...rest}>
+<Card variant="elevated" padding="sm" href={href} class={`course-card ${className}`} {...rest}>
   <div class="course-card-header">
     <h3 class="course-card-title">{title}</h3>
     <Badge level={level}>Level {level}</Badge>
@@ -50,45 +50,47 @@ const {
   .course-card-header {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
-    gap: var(--spacing-md);
-    margin-block-end: var(--spacing-lg);
+    align-items: center;
+    gap: var(--spacing-sm);
+    margin-block-end: var(--spacing-sm);
   }
 
   .course-card-title {
     font-family: var(--font-display);
-    font-size: 1.875rem;
+    font-size: 1rem;
     font-weight: 600;
     color: var(--color-text-primary);
     margin: 0;
-    line-height: 1.15;
+    line-height: 1.2;
     letter-spacing: -0.02em;
+    white-space: nowrap;
   }
 
   .course-card-progress {
-    margin-block-end: var(--spacing-md);
+    margin-block-end: var(--spacing-sm);
     background: var(--color-background-secondary);
-    padding: var(--spacing-lg);
-    border-radius: var(--radius-lg);
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--radius-md);
     border: 1px solid var(--color-border-primary);
   }
 
   .course-card-progress-text {
     font-family: var(--font-display);
-    font-size: 0.75rem;
+    font-size: 0.6875rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.1em;
     color: var(--accent-gold);
     margin: 0;
-    margin-block-end: var(--spacing-xs);
+    margin-block-end: 0.25rem;
   }
 
   .course-card-description {
-    font-size: 0.9375rem;
-    line-height: 1.6;
+    font-size: 0.8125rem;
+    line-height: 1.5;
     color: var(--color-text-secondary);
-    margin-block-start: var(--spacing-md);
+    margin-block-start: var(--spacing-sm);
+    flex: 1;
   }
 
   .course-card-description:empty {

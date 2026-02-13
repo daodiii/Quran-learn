@@ -75,7 +75,7 @@ const baseClass = `btn btn-${variant} btn-${size} ${className}`;
     background: linear-gradient(
       45deg,
       transparent 30%,
-      rgba(255, 255, 255, 0.1) 50%,
+      rgba(255, 255, 255, 0.05) 50%,
       transparent 70%
     );
     transform: translateX(-100%) translateY(-100%) rotate(45deg);
@@ -88,9 +88,9 @@ const baseClass = `btn btn-${variant} btn-${size} ${className}`;
 
   /* Size variants with logical properties */
   .btn-sm {
-    padding-inline: 1.5rem;
-    padding-block: 0.625rem;
-    font-size: 0.875rem;
+    padding-inline: 1.25rem;
+    padding-block: 0.5rem;
+    font-size: 0.8125rem;
   }
 
   .btn-md {
@@ -121,17 +121,18 @@ const baseClass = `btn btn-${variant} btn-${size} ${className}`;
 
   .btn-gold {
     background: var(--gradient-gold);
-    color: var(--text-primary);
+    color: #FFFFFF;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.06em;
     box-shadow: var(--shadow-gold);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
   }
 
   .btn-gold:hover:not([disabled]):not([aria-disabled="true"]) {
     transform: translateY(-3px);
     box-shadow: 0 12px 40px rgba(184, 134, 11, 0.45);
-    filter: brightness(1.08);
+    filter: brightness(1.05);
   }
 
   .btn-outline {

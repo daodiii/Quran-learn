@@ -103,18 +103,11 @@ const features = [
   <!-- World-Class Hero Section -->
   <section class="hero-new">
     <div class="hero-overlay"></div>
-    <div class="video-wrapper">
-      <video
-        class="hero-video-new"
-        autoplay
-        muted
-        playsinline
-        poster="/videos/hero-bg-poster.jpg"
-        aria-hidden="true"
-      >
-        <source src="/videos/hero-bg.webm" type="video/webm" />
-        <source src="/videos/hero-bg.mp4" type="video/mp4" />
-      </video>
+    <div class="hero-shimmer" aria-hidden="true"></div>
+    <div class="hero-orbs" aria-hidden="true">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="orb orb-3"></div>
     </div>
 
     <div class="hero-container-new">
@@ -147,7 +140,7 @@ const features = [
           </div>
 
           <div class="hero-actions-new">
-            <Button href="/learn/level-1/01-alphabet-letter-forms/" variant="gold" size="lg" class="btn-world-class">
+            <Button href="/learn/level-1/01-alphabet-letter-forms/" variant="gold" size="md" class="btn-world-class">
               Enter the Journey
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true" class="icon-arrow">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7-7 7M3 12h18"/>
@@ -369,12 +362,12 @@ const features = [
   /* New World-Class Hero Section */
   .hero-new {
     position: relative;
-    min-block-size: 100svh;
-    padding-block: 6rem 4rem;
+    padding-block: 3rem 1.5rem;
     display: flex;
     align-items: center;
-    background: linear-gradient(135deg, #1A1147 0%, #2C1810 50%, #1A1147 100%);
+    background: linear-gradient(135deg, #000000 0%, #1a1a1a 40%, #0a0a0a 100%);
     color: #ffffff;
+    overflow: hidden;
   }
 
   .hero-new::before {
@@ -396,66 +389,121 @@ const features = [
     transform: translate(-50%, -50%);
     width: 800px;
     height: 800px;
-    background: radial-gradient(circle, rgba(184, 134, 11, 0.12) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(184, 134, 11, 0.18) 0%, transparent 70%);
+    animation: driftGlow 12s ease-in-out infinite alternate;
     z-index: 0;
     pointer-events: none;
   }
 
   @media (min-width: 640px) {
     .hero-new {
-      padding-block: 5rem 8rem;
+      padding-block: 2.5rem 2rem;
     }
   }
 
   .hero-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to right, rgba(26, 17, 71, 0.95) 0%, rgba(26, 17, 71, 0.7) 50%, rgba(44, 24, 16, 0.5) 100%);
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.92) 0%, rgba(0, 0, 0, 0.6) 50%, rgba(0, 0, 0, 0.35) 100%);
     z-index: 1;
   }
 
-  .video-wrapper {
+  /* Diagonal gold shimmer sweep */
+  .hero-shimmer {
     position: absolute;
     inset: 0;
     z-index: 0;
     overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #1A1147;
+    pointer-events: none;
   }
 
-  .hero-video-new {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0.8; /* Increased visibility */
-    /* Removed blur and brightness reduction */
-    transform: scale(1.1);
+  .hero-shimmer::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+      45deg,
+      transparent 40%,
+      rgba(184, 134, 11, 0.04) 45%,
+      rgba(212, 168, 73, 0.07) 50%,
+      rgba(184, 134, 11, 0.04) 55%,
+      transparent 60%
+    );
+    animation: shimmerSweep 8s ease-in-out infinite;
   }
 
-  @media (min-width: 1024px) {
-    .video-wrapper {
-        /* Constrain video width regarding user feedback "video ... can be much smaller" */
-        /* To improve pixel quality, we don't stretch it full width if content allows */
-        /* But for a hero background, full width is standard. */
-        /* Let's constrain the max-width and fade edges */
-    }
-    
-    .hero-video-new {
-      width: 100%;
-      height: auto;
-      min-height: 100%;
-      /* If "smaller" means literally smaller dimension to avoid stretching artifacts */
-      /* but we want it to cover. Maybe they meant the *file* size or *viewport* area? */
-      /* "so that the pixels are better" -> implies downscaling or not upscaling as much. */
-      /* If source is low res, showing it smaller (centered) with blurred edges might specific fix. */
-      max-width: 1280px; /* Constrain max width */
-      margin: 0 auto;
-      box-shadow: 0 0 100px 100px #000000 inset; /* Fade edges into background */
-      -webkit-mask-image: radial-gradient(circle, black 30%, transparent 80%);
-      mask-image: radial-gradient(circle, black 30%, transparent 80%);
-    }
+  /* Floating gold orbs */
+  .hero-orbs {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+
+  .orb {
+    position: absolute;
+    border-radius: 50%;
+    will-change: transform;
+  }
+
+  .orb-1 {
+    width: 500px;
+    height: 500px;
+    top: -10%;
+    right: -5%;
+    background: radial-gradient(circle, rgba(184, 134, 11, 0.12) 0%, rgba(212, 168, 73, 0.04) 40%, transparent 70%);
+    animation: floatOrb1 16s ease-in-out infinite;
+  }
+
+  .orb-2 {
+    width: 350px;
+    height: 350px;
+    bottom: -15%;
+    left: 10%;
+    background: radial-gradient(circle, rgba(242, 217, 140, 0.08) 0%, rgba(184, 134, 11, 0.03) 40%, transparent 70%);
+    animation: floatOrb2 20s ease-in-out infinite;
+  }
+
+  .orb-3 {
+    width: 250px;
+    height: 250px;
+    top: 40%;
+    left: 45%;
+    background: radial-gradient(circle, rgba(212, 168, 73, 0.10) 0%, transparent 60%);
+    animation: floatOrb3 14s ease-in-out infinite;
+  }
+
+  @keyframes shimmerSweep {
+    0% { transform: translateX(-30%) translateY(-10%); }
+    50% { transform: translateX(30%) translateY(10%); }
+    100% { transform: translateX(-30%) translateY(-10%); }
+  }
+
+  @keyframes driftGlow {
+    0% { transform: translate(-50%, -50%) scale(1); opacity: 0.7; }
+    50% { transform: translate(-45%, -55%) scale(1.15); opacity: 1; }
+    100% { transform: translate(-55%, -45%) scale(1.05); opacity: 0.8; }
+  }
+
+  @keyframes floatOrb1 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(-30px, 20px) scale(1.1); }
+    66% { transform: translate(15px, -15px) scale(0.95); }
+  }
+
+  @keyframes floatOrb2 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    40% { transform: translate(25px, -20px) scale(1.08); }
+    70% { transform: translate(-10px, 15px) scale(0.92); }
+  }
+
+  @keyframes floatOrb3 {
+    0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.6; }
+    50% { transform: translate(-20px, -25px) scale(1.2); opacity: 1; }
   }
 
   .hero-container-new {
@@ -470,7 +518,7 @@ const features = [
   .hero-grid-new {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 2rem;
+    gap: 1.5rem;
     align-items: center;
   }
 
@@ -507,10 +555,10 @@ const features = [
 
   .hero-title-new {
     font-family: var(--font-display);
-    font-size: clamp(2.5rem, 6vw, 5rem);
+    font-size: clamp(2rem, 5vw, 3.75rem);
     font-weight: 700;
     line-height: 1.08;
-    margin-block-end: var(--spacing-xl);
+    margin-block-end: var(--spacing-md);
     letter-spacing: -0.03em;
     color: #ffffff;
     max-width: 900px;
@@ -530,7 +578,7 @@ const features = [
     align-items: center;
     flex-wrap: wrap;
     gap: var(--spacing-md);
-    margin-block-end: var(--spacing-xl);
+    margin-block-end: var(--spacing-md);
   }
 
   @media (min-width: 640px) {
@@ -546,7 +594,7 @@ const features = [
 
   .hero-stat-number {
     font-family: var(--font-display);
-    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
     font-weight: 700;
     line-height: 1;
     background: linear-gradient(135deg, #F2D98C 0%, #D4A849 50%, #B8860B 100%);
@@ -557,7 +605,7 @@ const features = [
 
   .hero-stat-label {
     font-family: var(--font-display);
-    font-size: 0.8125rem;
+    font-size: 0.75rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.08em;
@@ -567,7 +615,7 @@ const features = [
 
   .hero-stat-divider {
     width: 1px;
-    height: 40px;
+    height: 30px;
     background: rgba(255, 255, 255, 0.2);
     display: none;
   }
@@ -610,7 +658,7 @@ const features = [
 
   .hero-scroll-indicator {
     position: absolute;
-    bottom: 40px;
+    bottom: 16px;
     left: 50%;
     transform: translateX(-50%);
     z-index: 2;
@@ -944,26 +992,39 @@ const features = [
 
   .levels-grid-horizontal {
     display: flex;
-    gap: var(--spacing-xl);
+    align-items: stretch;
+    gap: var(--spacing-md);
     width: max-content;
-    padding-inline-end: var(--spacing-xl);
+    padding-inline-end: var(--spacing-md);
   }
 
   .level-card-wrapper {
-    width: 320px;
+    width: 260px;
     scroll-snap-align: center;
+    display: flex;
   }
 
   @media (min-width: 640px) {
     .level-card-wrapper {
-      width: 360px;
+      width: 280px;
     }
   }
 
   @media (min-width: 1280px) {
     .level-card-wrapper {
-      width: 420px;
+      width: 300px;
     }
+  }
+
+  /* Force level cards to equal height */
+  .level-card-wrapper :global(.card) {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .level-card-wrapper :global(.course-card-description) {
+    flex: 1;
   }
 
   /* Sections */
@@ -1190,8 +1251,10 @@ const features = [
 
   /* Accessibility: reduced motion */
   @media (prefers-reduced-motion: reduce) {
-    .hero-video {
-      display: none;
+    .hero-shimmer::after,
+    .orb,
+    .hero-new::after {
+      animation: none;
     }
 
     .hero-actions :global(.btn-primary),
