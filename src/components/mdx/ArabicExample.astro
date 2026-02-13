@@ -60,25 +60,29 @@ const processedArabic = processArabicText(arabic, highlightWords);
   .arabic-example {
     background: var(--color-background-elevated);
     border: 1px solid var(--color-border-primary);
-    border-left: 4px solid var(--accent-primary);
-    border-radius: 16px;
-    padding: var(--spacing-xl);
+    border-left: 5px solid transparent;
+    border-image: linear-gradient(180deg, #B8860B 0%, #D4A849 50%, #F2D98C 100%) 1;
+    border-image-slice: 0 0 0 5;
+    border-radius: var(--radius-xl);
+    padding: var(--spacing-xl) var(--spacing-2xl);
     margin-block: var(--spacing-2xl);
     display: flex;
     flex-direction: column;
     gap: var(--spacing-lg);
-    box-shadow: var(--shadow-sm);
+    box-shadow: var(--shadow-elevated);
   }
 
   :global([data-theme="dark"]) .arabic-example {
     background: var(--bg-elevated);
-    box-shadow: none;
+    border-image: linear-gradient(180deg, #F2D98C 0%, #FFE8A8 100%) 1;
+    border-image-slice: 0 0 0 5;
+    box-shadow: var(--shadow-md);
   }
 
   .arabic-text {
     font-family: var(--font-arabic);
     font-size: 1.75rem;
-    line-height: 2.2;
+    line-height: 2.4;
     letter-spacing: 0;
     color: var(--color-text-primary);
     margin: 0;
@@ -92,28 +96,32 @@ const processedArabic = processArabicText(arabic, highlightWords);
   }
 
   .arabic-text :global(mark.grammar-highlight) {
-    background: var(--accent-primary-light);
-    color: var(--accent-primary);
-    border-bottom: 2px solid var(--accent-primary);
+    background: var(--accent-gold-light);
+    color: var(--accent-gold);
+    border-bottom: 2px solid var(--accent-gold);
     border-radius: var(--radius-sm);
     padding-inline: 0.25rem;
+  }
+
+  :global([data-theme="dark"]) .arabic-text :global(mark.grammar-highlight) {
+    background: rgba(242, 217, 140, 0.15);
   }
 
   .transliteration {
     font-family: var(--font-sans);
     font-size: 0.9375rem;
     font-style: italic;
-    color: var(--accent-primary);
+    color: var(--accent-gold);
     margin: 0;
     text-align: start;
-    opacity: 0.8;
+    opacity: 0.85;
   }
 
   .translation {
     font-family: var(--font-display);
-    font-size: 1.125rem;
+    font-size: 1.1875rem;
     font-weight: 500;
-    line-height: 1.6;
+    line-height: 1.7;
     color: var(--color-text-primary);
     margin: 0;
     text-align: start;
@@ -124,11 +132,15 @@ const processedArabic = processArabicText(arabic, highlightWords);
     font-size: 0.8125rem;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.08em;
     color: var(--color-text-tertiary);
     margin: 0;
     text-align: start;
     padding-top: var(--spacing-sm);
-    border-top: 1px solid var(--color-border-primary);
+    border-top: 2px solid var(--accent-gold);
+  }
+
+  :global([data-theme="dark"]) .reference {
+    border-top-color: var(--accent-gold);
   }
 </style>

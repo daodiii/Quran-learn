@@ -119,12 +119,14 @@ const advancedSurahs = sortedSurahs.filter(s => s.data.difficulty === 'advanced'
   }
 
   .page-title {
-    font-size: 2.25rem;
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 5vw, 3rem);
     font-weight: 700;
-    line-height: 1.2;
+    line-height: 1.1;
     color: var(--color-text-primary);
     margin: 0;
     margin-block-end: var(--spacing-sm);
+    letter-spacing: -0.03em;
   }
 
   .page-description {
@@ -149,9 +151,11 @@ const advancedSurahs = sortedSurahs.filter(s => s.data.difficulty === 'advanced'
   }
 
   .quick-nav-label {
+    font-family: var(--font-display);
     font-size: 0.9375rem;
-    font-weight: 600;
+    font-weight: 700;
     color: var(--color-text-secondary);
+    letter-spacing: 0.02em;
   }
 
   .quick-nav-link {
@@ -216,12 +220,14 @@ const advancedSurahs = sortedSurahs.filter(s => s.data.difficulty === 'advanced'
   }
 
   .section-title {
+    font-family: var(--font-display);
     font-size: 1.875rem;
     font-weight: 700;
     line-height: 1.2;
     color: var(--color-text-primary);
     margin: 0;
     margin-block-end: var(--spacing-xs);
+    letter-spacing: -0.02em;
   }
 
   .section-description {

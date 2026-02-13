@@ -43,20 +43,20 @@ const currentYear = new Date().getFullYear();
     margin-block-start: auto;
     background: var(--bg-primary);
     color: #ffffff;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-top: 3px solid var(--accent-gold);
     padding-block: var(--spacing-3xl);
   }
 
   :global([data-theme="light"]) .footer {
-    background: #F0F4F8;
-    color: #102A43;
-    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    background: #F5F1EB;
+    color: #1A1147;
+    border-top: 3px solid var(--accent-gold);
   }
 
   .footer-container {
-    max-inline-size: 80rem;
+    max-inline-size: 90rem;
     margin: 0 auto;
-    padding-inline: 1.5rem;
+    padding-inline: 2rem;
   }
 
   .footer-grid {
@@ -93,23 +93,23 @@ const currentYear = new Date().getFullYear();
   .brand-name {
     font-family: var(--font-display);
     font-size: 1.5rem;
-    font-weight: 800;
+    font-weight: 600;
     color: #ffffff;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.01em;
   }
 
   :global([data-theme="light"]) .brand-name {
-    color: #102A43;
+    color: #1A1147;
   }
 
   .brand-description {
     font-size: 1rem;
     color: rgba(255, 255, 255, 0.7);
-    line-height: 1.6;
+    line-height: 1.8;
   }
 
   :global([data-theme="light"]) .brand-description {
-    color: #486581;
+    color: #6B5B7E;
   }
 
   /* Sections */
@@ -142,7 +142,7 @@ const currentYear = new Date().getFullYear();
   }
 
   :global([data-theme="light"]) .footer-links a {
-    color: #486581;
+    color: #6B5B7E;
   }
 
   .footer-links a:hover {
@@ -154,20 +154,18 @@ const currentYear = new Date().getFullYear();
   .footer-bottom {
     margin-block-start: 4rem;
     padding-block-start: 2rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-top: 2px solid var(--accent-gold);
     text-align: center;
-  }
-
-  :global([data-theme="light"]) .footer-bottom {
-    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    opacity: 0.6;
   }
 
   .footer-copyright {
+    font-family: var(--font-display);
     font-size: 0.875rem;
     color: rgba(255, 255, 255, 0.5);
   }
 
   :global([data-theme="light"]) .footer-copyright {
-    color: #829AB1;
+    color: #6B5B7E;
   }
 </style>
