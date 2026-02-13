@@ -91,29 +91,31 @@ const rows = Astro.props.rows ?? (persons ? persons.map(p => [p.person, p.arabic
   }
 
   .verb-header {
-    background: var(--color-accent-primary-light);
-    padding-block: var(--spacing-lg);
-    padding-inline: var(--spacing-lg);
+    background: linear-gradient(135deg, var(--accent-gold-light) 0%, var(--color-background-secondary) 100%);
+    padding-block: var(--spacing-xl);
+    padding-inline: var(--spacing-xl);
     text-align: center;
-    border-block-end: 1px solid var(--color-border-primary);
+    border-block-end: 3px solid var(--accent-gold);
+    position: relative;
   }
 
   :global([data-theme="dark"]) .verb-header {
-    background: var(--color-background-secondary);
+    background: linear-gradient(135deg, var(--accent-gold-light) 0%, var(--color-background-secondary) 100%);
   }
 
   .verb-root {
     font-family: var(--font-arabic);
-    font-size: 2rem;
+    font-size: 2.25rem;
     font-weight: 600;
-    color: var(--color-accent-primary);
-    letter-spacing: 0.25rem;
+    color: var(--accent-gold);
+    letter-spacing: 0.3rem;
     margin-block-end: var(--spacing-sm);
+    filter: drop-shadow(0 2px 8px rgba(184, 134, 11, 0.25));
   }
 
   @media (min-width: 640px) {
     .verb-root {
-      font-size: 2.5rem;
+      font-size: 2.75rem;
     }
   }
 
@@ -126,17 +128,18 @@ const rows = Astro.props.rows ?? (persons ? persons.map(p => [p.person, p.arabic
   }
 
   .verb-form {
+    font-family: var(--font-display);
     font-size: 0.875rem;
-    font-weight: 600;
+    font-weight: 700;
     color: var(--color-text-primary);
     text-transform: uppercase;
-    letter-spacing: 0.03em;
+    letter-spacing: 0.08em;
   }
 
   .verb-pattern {
     font-family: var(--font-arabic);
     font-size: 1.25rem;
-    color: var(--color-accent-primary);
+    color: var(--accent-gold);
     letter-spacing: 0;
   }
 

@@ -38,8 +38,8 @@ const ogImageURL = new URL(image, Astro.site);
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="description" content={description} />
-  <meta name="theme-color" content="#0D4749" media="(prefers-color-scheme: light)" />
-  <meta name="theme-color" content="#0A1929" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#1A1147" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#1A1614" media="(prefers-color-scheme: dark)" />
   <title>{fullTitle}</title>
   <!-- Canonical URL -->
   <link rel="canonical" href={canonicalURL.href} />
@@ -97,7 +97,7 @@ const ogImageURL = new URL(image, Astro.site);
         // Update meta theme-color
         const metaTheme = document.querySelector('meta[name="theme-color"]');
         if (metaTheme) {
-          metaTheme.setAttribute('content', theme === 'dark' ? '#000000' : '#0D4749');
+          metaTheme.setAttribute('content', theme === 'dark' ? '#1A1614' : '#1A1147');
         }
       }
 

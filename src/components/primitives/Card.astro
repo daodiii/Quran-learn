@@ -31,30 +31,33 @@ const cardClass = `card card-${variant} card-padding-${padding} ${clickable || h
     display: block;
     text-decoration: none;
     color: inherit;
+    position: relative;
+    overflow: hidden;
 
     /* Design tokens */
     background-color: var(--color-background-elevated);
-    border-radius: var(--radius-lg);
-    transition: all 200ms ease;
+    border-radius: var(--radius-xl);
+    transition: all var(--transition-base);
   }
 
   /* Variant styles */
   .card-default {
     border: 1px solid var(--color-border-primary);
+    box-shadow: var(--shadow-soft);
   }
 
   .card-elevated {
-    border: 1px solid rgba(0, 0, 0, 0.03);
-    box-shadow: var(--shadow-sm);
+    border: 1px solid rgba(184, 134, 11, 0.08);
+    box-shadow: var(--shadow-layered);
   }
 
   :global([data-theme="dark"]) .card-elevated {
-    border: 1px solid rgba(255, 255, 255, 0.03);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(242, 217, 140, 0.08);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
   }
 
   .card-outlined {
-    border: 1px solid var(--color-border-primary);
+    border: 2px solid var(--color-border-primary);
   }
 
   /* Padding variants using logical properties */
@@ -74,20 +77,42 @@ const cardClass = `card card-${variant} card-padding-${padding} ${clickable || h
     padding: var(--spacing-2xl);
   }
 
+  /* Gold bottom bar on hover */
+  .card-clickable::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #B8860B 0%, #D4A849 50%, #F2D98C 100%);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform var(--transition-base);
+  }
+
+  :global([data-theme="dark"]) .card-clickable::after {
+    background: linear-gradient(90deg, #F2D98C 0%, #FFE8A8 100%);
+  }
+
   /* Clickable state */
   .card-clickable {
     cursor: pointer;
   }
 
   .card-clickable:hover {
-    box-shadow: var(--shadow-lg);
-    transform: translateY(-4px);
-    border-color: var(--accent-primary);
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-8px) scale(1.01);
+    border-color: var(--accent-gold);
+  }
+
+  .card-clickable:hover::after {
+    transform: scaleX(1);
   }
 
   .card-clickable:focus-visible {
-    outline: 2px solid var(--color-border-focus);
-    outline-offset: 2px;
+    outline: 3px solid var(--color-border-focus);
+    outline-offset: 3px;
   }
 
   /* Accessibility: reduced motion */
@@ -98,6 +123,10 @@ const cardClass = `card card-${variant} card-padding-${padding} ${clickable || h
 
     .card-clickable:hover {
       transform: none;
+    }
+
+    .card-clickable::after {
+      transition: none;
     }
   }
 </style>

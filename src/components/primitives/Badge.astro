@@ -27,26 +27,34 @@ const variantClass = level ? '' : `badge-${variant}`;
     gap: var(--spacing-xs);
 
     /* Typography */
-    font-weight: 600;
+    font-family: var(--font-display);
+    font-weight: 700;
     line-height: 1;
     white-space: nowrap;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
 
     /* Design tokens */
-    border-radius: var(--radius-md);
-    border: 1px solid;
+    border-radius: var(--radius-full);
+    border: 1.5px solid;
+    transition: transform var(--transition-fast);
+  }
+
+  .badge:hover {
+    transform: scale(1.05);
   }
 
   /* Size variants with logical properties */
   .badge-sm {
-    padding-inline: var(--spacing-xs);
-    padding-block: calc(var(--spacing-xs) * 0.5);
-    font-size: 0.75rem;
+    padding-inline: var(--spacing-sm);
+    padding-block: calc(var(--spacing-xs) * 0.6);
+    font-size: 0.6875rem;
   }
 
   .badge-md {
-    padding-inline: var(--spacing-sm);
+    padding-inline: var(--spacing-md);
     padding-block: var(--spacing-xs);
-    font-size: 0.875rem;
+    font-size: 0.75rem;
   }
 
   /* Semantic variant styles (when no level specified) */

@@ -140,12 +140,13 @@ const levels: (1 | 2 | 3 | 4 | 5)[] = [1, 2, 3, 4, 5];
   }
 
   .page-title {
-    font-size: clamp(1.75rem, 4vw, 2.25rem);
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 5vw, 3rem);
     font-weight: 700;
     color: var(--color-text-primary);
     margin-block-end: var(--spacing-sm);
-    letter-spacing: -0.02em;
-    line-height: 1.2;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
   }
 
   .page-subtitle {
@@ -176,31 +177,34 @@ const levels: (1 | 2 | 3 | 4 | 5)[] = [1, 2, 3, 4, 5];
     gap: var(--spacing-xs);
     margin-block-end: var(--spacing-lg);
     padding-block-end: var(--spacing-md);
-    border-block-end: 2px solid var(--color-border-primary);
+    border-block-end: 3px solid var(--accent-gold);
   }
 
   .level-title {
-    font-size: clamp(1.5rem, 3vw, 1.875rem);
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 3vw, 2rem);
     font-weight: 700;
     color: var(--color-text-primary);
     display: flex;
     align-items: baseline;
     gap: var(--spacing-sm);
     flex-wrap: wrap;
+    letter-spacing: -0.02em;
   }
 
   .level-number {
+    font-family: var(--font-display);
     font-size: 0.875rem;
-    font-weight: 600;
+    font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: var(--color-text-tertiary);
+    letter-spacing: 0.08em;
+    color: var(--accent-gold);
   }
 
   .level-header .level-arabic {
     font-family: 'Amiri', serif;
     font-size: 1.25rem;
-    color: var(--color-accent-primary);
+    color: var(--accent-gold);
   }
 
   /* Lessons Grid */

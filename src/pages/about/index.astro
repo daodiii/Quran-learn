@@ -83,17 +83,19 @@ import Container from '../../components/primitives/Container.astro';
 
   .arabic-heading {
     font-family: var(--font-arabic);
-    font-size: 1.5rem;
-    color: var(--accent-primary);
+    font-size: 1.75rem;
+    color: var(--accent-gold);
     margin-bottom: 0.5rem;
+    filter: drop-shadow(0 1px 4px rgba(184, 134, 11, 0.2));
   }
 
   .page-header h1 {
     font-family: var(--font-display);
-    font-size: 2.5rem;
-    font-weight: 800;
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 700;
     color: var(--text-primary);
     margin-bottom: 1rem;
+    letter-spacing: -0.03em;
   }
 
   .subtitle {
@@ -110,12 +112,13 @@ import Container from '../../components/primitives/Container.astro';
 
   .section h2 {
     font-family: var(--font-display);
-    font-size: 1.5rem;
+    font-size: 1.625rem;
     font-weight: 700;
     color: var(--text-primary);
     margin-bottom: 1rem;
     padding-bottom: 0.5rem;
-    border-bottom: 2px solid var(--border-primary);
+    border-bottom: 3px solid var(--accent-gold);
+    letter-spacing: -0.01em;
   }
 
   .section p {
@@ -160,8 +163,8 @@ import Container from '../../components/primitives/Container.astro';
   .form-group input:focus,
   .form-group textarea:focus {
     outline: none;
-    border-color: var(--accent-primary);
-    box-shadow: 0 0 0 3px var(--accent-primary-light, rgba(197, 160, 89, 0.15));
+    border-color: var(--accent-gold);
+    box-shadow: 0 0 0 3px rgba(184, 134, 11, 0.15);
   }
 
   .form-group input::placeholder,
@@ -195,21 +198,24 @@ import Container from '../../components/primitives/Container.astro';
 
   .form-submit {
     align-self: flex-start;
-    padding: 0.75rem 2rem;
-    background: var(--accent-primary);
-    color: var(--text-inverse, #fff);
+    padding: 0.875rem 2.5rem;
+    background: var(--gradient-gold, linear-gradient(90deg, #B8860B 0%, #D4A849 50%, #F2D98C 100%));
+    color: #1A1147;
     font-family: var(--font-display);
     font-weight: 700;
     font-size: 0.9375rem;
     border: none;
     border-radius: var(--radius-lg);
     cursor: pointer;
-    transition: background 0.2s ease, transform 0.2s ease;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+    box-shadow: 0 4px 12px rgba(184, 134, 11, 0.2);
+    letter-spacing: 0.02em;
   }
 
   .form-submit:hover {
-    background: var(--accent-gold);
-    transform: translateY(-1px);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(184, 134, 11, 0.3);
+    filter: brightness(1.05);
   }
 
   .form-submit:active {

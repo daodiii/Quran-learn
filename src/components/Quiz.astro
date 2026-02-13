@@ -76,7 +76,8 @@ const totalQuestions = questions.length;
   }
 
   .quiz-title {
-    font-size: clamp(1.5rem, 4vw, 2rem);
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 4vw, 2.25rem);
     font-weight: 700;
     color: var(--color-text-primary);
     margin-block-end: var(--spacing-sm);
@@ -137,7 +138,8 @@ const totalQuestions = questions.length;
   }
 
   .question-text {
-    font-size: 1.125rem;
+    font-family: var(--font-display);
+    font-size: 1.1875rem;
     font-weight: 600;
     color: var(--color-text-primary);
     line-height: 1.6;
@@ -169,7 +171,7 @@ const totalQuestions = questions.length;
 
   .quiz-option:hover:not(:disabled) {
     background-color: var(--color-background-tertiary);
-    border-color: var(--color-accent-primary);
+    border-color: var(--accent-gold);
     transform: translateX(4px);
   }
 
@@ -300,16 +302,19 @@ const totalQuestions = questions.length;
   }
 
   .results-title {
-    font-size: clamp(1.5rem, 4vw, 1.875rem);
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 4vw, 2rem);
     font-weight: 700;
     color: var(--color-text-primary);
     margin-block-end: var(--spacing-xs);
   }
 
   .results-score {
-    font-size: clamp(2rem, 6vw, 3rem);
-    font-weight: 800;
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 6vw, 3.5rem);
+    font-weight: 700;
     margin-block: var(--spacing-md);
+    letter-spacing: -0.02em;
   }
 
   .results-score.pass {

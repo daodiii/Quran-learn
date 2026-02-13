@@ -103,18 +103,11 @@ const features = [
   <!-- World-Class Hero Section -->
   <section class="hero-new">
     <div class="hero-overlay"></div>
-    <div class="video-wrapper">
-      <video
-        class="hero-video-new"
-        autoplay
-        muted
-        playsinline
-        poster="/videos/hero-bg-poster.jpg"
-        aria-hidden="true"
-      >
-        <source src="/videos/hero-bg.webm" type="video/webm" />
-        <source src="/videos/hero-bg.mp4" type="video/mp4" />
-      </video>
+    <div class="hero-shimmer" aria-hidden="true"></div>
+    <div class="hero-orbs" aria-hidden="true">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="orb orb-3"></div>
     </div>
 
     <div class="hero-container-new">
@@ -147,7 +140,7 @@ const features = [
           </div>
 
           <div class="hero-actions-new">
-            <Button href="/learn/level-1/01-alphabet-letter-forms/" variant="gold" size="lg" class="btn-world-class">
+            <Button href="/learn/level-1/01-alphabet-letter-forms/" variant="gold" size="md" class="btn-world-class">
               Enter the Journey
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true" class="icon-arrow">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7-7 7M3 12h18"/>
@@ -369,73 +362,152 @@ const features = [
   /* New World-Class Hero Section */
   .hero-new {
     position: relative;
-    min-block-size: 100svh;
-    padding-block: 6rem 4rem;
+    padding-block: 3rem 1.5rem;
     display: flex;
     align-items: center;
-    background: #000000;
+    background: linear-gradient(135deg, #000000 0%, #1a1a1a 40%, #0a0a0a 100%);
     color: #ffffff;
+    overflow: hidden;
+  }
+
+  .hero-new::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url('/patterns/geometric-star.svg');
+    background-size: 120px;
+    opacity: 0.06;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .hero-new::after {
+    content: '';
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 800px;
+    height: 800px;
+    background: radial-gradient(circle, rgba(184, 134, 11, 0.18) 0%, transparent 70%);
+    animation: driftGlow 12s ease-in-out infinite alternate;
+    z-index: 0;
+    pointer-events: none;
   }
 
   @media (min-width: 640px) {
     .hero-new {
-      padding-block: 5rem 8rem;
+      padding-block: 2.5rem 2rem;
     }
   }
 
   .hero-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to right, #000000 0%, rgba(0, 0, 0, 0.8) 50%, rgba(0, 0, 0, 0.4) 100%);
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.92) 0%, rgba(0, 0, 0, 0.6) 50%, rgba(0, 0, 0, 0.35) 100%);
     z-index: 1;
   }
 
-  .video-wrapper {
+  /* Diagonal gold shimmer sweep */
+  .hero-shimmer {
     position: absolute;
     inset: 0;
     z-index: 0;
     overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #000;
+    pointer-events: none;
   }
 
-  .hero-video-new {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0.8; /* Increased visibility */
-    /* Removed blur and brightness reduction */
-    transform: scale(1.1);
+  .hero-shimmer::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+      45deg,
+      transparent 40%,
+      rgba(184, 134, 11, 0.04) 45%,
+      rgba(212, 168, 73, 0.07) 50%,
+      rgba(184, 134, 11, 0.04) 55%,
+      transparent 60%
+    );
+    animation: shimmerSweep 8s ease-in-out infinite;
   }
 
-  @media (min-width: 1024px) {
-    .video-wrapper {
-        /* Constrain video width regarding user feedback "video ... can be much smaller" */
-        /* To improve pixel quality, we don't stretch it full width if content allows */
-        /* But for a hero background, full width is standard. */
-        /* Let's constrain the max-width and fade edges */
-    }
-    
-    .hero-video-new {
-      width: 100%;
-      height: auto;
-      min-height: 100%;
-      /* If "smaller" means literally smaller dimension to avoid stretching artifacts */
-      /* but we want it to cover. Maybe they meant the *file* size or *viewport* area? */
-      /* "so that the pixels are better" -> implies downscaling or not upscaling as much. */
-      /* If source is low res, showing it smaller (centered) with blurred edges might specific fix. */
-      max-width: 1280px; /* Constrain max width */
-      margin: 0 auto;
-      box-shadow: 0 0 100px 100px #000000 inset; /* Fade edges into background */
-      -webkit-mask-image: radial-gradient(circle, black 30%, transparent 80%);
-      mask-image: radial-gradient(circle, black 30%, transparent 80%);
-    }
+  /* Floating gold orbs */
+  .hero-orbs {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+
+  .orb {
+    position: absolute;
+    border-radius: 50%;
+    will-change: transform;
+  }
+
+  .orb-1 {
+    width: 500px;
+    height: 500px;
+    top: -10%;
+    right: -5%;
+    background: radial-gradient(circle, rgba(184, 134, 11, 0.12) 0%, rgba(212, 168, 73, 0.04) 40%, transparent 70%);
+    animation: floatOrb1 16s ease-in-out infinite;
+  }
+
+  .orb-2 {
+    width: 350px;
+    height: 350px;
+    bottom: -15%;
+    left: 10%;
+    background: radial-gradient(circle, rgba(242, 217, 140, 0.08) 0%, rgba(184, 134, 11, 0.03) 40%, transparent 70%);
+    animation: floatOrb2 20s ease-in-out infinite;
+  }
+
+  .orb-3 {
+    width: 250px;
+    height: 250px;
+    top: 40%;
+    left: 45%;
+    background: radial-gradient(circle, rgba(212, 168, 73, 0.10) 0%, transparent 60%);
+    animation: floatOrb3 14s ease-in-out infinite;
+  }
+
+  @keyframes shimmerSweep {
+    0% { transform: translateX(-30%) translateY(-10%); }
+    50% { transform: translateX(30%) translateY(10%); }
+    100% { transform: translateX(-30%) translateY(-10%); }
+  }
+
+  @keyframes driftGlow {
+    0% { transform: translate(-50%, -50%) scale(1); opacity: 0.7; }
+    50% { transform: translate(-45%, -55%) scale(1.15); opacity: 1; }
+    100% { transform: translate(-55%, -45%) scale(1.05); opacity: 0.8; }
+  }
+
+  @keyframes floatOrb1 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(-30px, 20px) scale(1.1); }
+    66% { transform: translate(15px, -15px) scale(0.95); }
+  }
+
+  @keyframes floatOrb2 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    40% { transform: translate(25px, -20px) scale(1.08); }
+    70% { transform: translate(-10px, 15px) scale(0.92); }
+  }
+
+  @keyframes floatOrb3 {
+    0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.6; }
+    50% { transform: translate(-20px, -25px) scale(1.2); opacity: 1; }
   }
 
   .hero-container-new {
-    max-inline-size: 80rem;
+    max-inline-size: 90rem;
     margin-inline: auto;
     padding-inline: var(--spacing-lg);
     position: relative;
@@ -446,7 +518,7 @@ const features = [
   .hero-grid-new {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 2rem;
+    gap: 1.5rem;
     align-items: center;
   }
 
@@ -483,22 +555,22 @@ const features = [
 
   .hero-title-new {
     font-family: var(--font-display);
-    font-size: clamp(2rem, 4.5vw, 3.75rem);
-    font-weight: 800;
-    line-height: 1.1;
-    margin-block-end: var(--spacing-lg);
-    letter-spacing: -0.02em;
+    font-size: clamp(2rem, 5vw, 3.75rem);
+    font-weight: 700;
+    line-height: 1.08;
+    margin-block-end: var(--spacing-md);
+    letter-spacing: -0.03em;
     color: #ffffff;
     max-width: 900px;
   }
 
   .text-gradient-gold {
-    background: linear-gradient(135deg, #FCD34D 0%, #F59E0B 50%, #B45309 100%);
+    background: linear-gradient(135deg, #F2D98C 0%, #D4A849 40%, #B8860B 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     text-fill-color: transparent;
-    filter: drop-shadow(0 0 20px rgba(245, 158, 11, 0.3));
+    filter: drop-shadow(0 0 30px rgba(184, 134, 11, 0.4));
   }
 
   .hero-stats {
@@ -506,7 +578,7 @@ const features = [
     align-items: center;
     flex-wrap: wrap;
     gap: var(--spacing-md);
-    margin-block-end: var(--spacing-xl);
+    margin-block-end: var(--spacing-md);
   }
 
   @media (min-width: 640px) {
@@ -522,10 +594,10 @@ const features = [
 
   .hero-stat-number {
     font-family: var(--font-display);
-    font-size: clamp(1.75rem, 3vw, 2.5rem);
-    font-weight: 800;
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
+    font-weight: 700;
     line-height: 1;
-    background: linear-gradient(135deg, #FCD34D 0%, #F59E0B 50%, #B45309 100%);
+    background: linear-gradient(135deg, #F2D98C 0%, #D4A849 50%, #B8860B 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -533,7 +605,7 @@ const features = [
 
   .hero-stat-label {
     font-family: var(--font-display);
-    font-size: 0.8125rem;
+    font-size: 0.75rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.08em;
@@ -543,7 +615,7 @@ const features = [
 
   .hero-stat-divider {
     width: 1px;
-    height: 40px;
+    height: 30px;
     background: rgba(255, 255, 255, 0.2);
     display: none;
   }
@@ -586,7 +658,7 @@ const features = [
 
   .hero-scroll-indicator {
     position: absolute;
-    bottom: 40px;
+    bottom: 16px;
     left: 50%;
     transform: translateX(-50%);
     z-index: 2;
@@ -596,7 +668,7 @@ const features = [
   .mouse {
     width: 26px;
     height: 42px;
-    border: 2px solid #ffffff;
+    border: 2px solid rgba(255, 255, 255, 0.5);
     border-radius: 14px;
     position: relative;
   }
@@ -604,7 +676,7 @@ const features = [
   .wheel {
     width: 4px;
     height: 8px;
-    background: #ffffff;
+    background: var(--accent-gold, #B8860B);
     border-radius: 2px;
     position: absolute;
     top: 8px;
@@ -649,16 +721,17 @@ const features = [
 
   .section-badge {
     display: inline-block;
-    padding: var(--spacing-xs) var(--spacing-md);
-    background: var(--accent-primary-light);
-    color: var(--accent-primary);
+    padding: var(--spacing-xs) var(--spacing-lg);
+    background: linear-gradient(135deg, var(--accent-gold-light) 0%, var(--accent-primary-light) 100%);
+    color: var(--accent-gold);
     font-family: var(--font-display);
     font-size: 0.75rem;
     font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 0.15em;
-    border-radius: 8px;
+    border-radius: var(--radius-full, 100px);
     margin-block-end: var(--spacing-lg);
+    border: 1px solid rgba(184, 134, 11, 0.15);
   }
 
   .importance-title {
@@ -672,7 +745,7 @@ const features = [
   }
 
   .text-accent {
-    color: var(--accent-primary);
+    color: var(--accent-gold);
   }
 
   .importance-narrative {
@@ -713,10 +786,10 @@ const features = [
     display: flex;
     gap: var(--spacing-lg);
     background: var(--color-background-elevated);
-    padding: var(--spacing-lg);
+    padding: var(--spacing-xl) var(--spacing-xl) var(--spacing-xl) var(--spacing-2xl);
     border-radius: var(--radius-xl);
     box-shadow: var(--shadow-md);
-    border: 1px solid rgba(197, 160, 89, 0.2);
+    border: 1px solid rgba(184, 134, 11, 0.12);
     position: relative;
     overflow: hidden;
     transition: transform var(--transition-base), box-shadow var(--transition-base);
@@ -731,9 +804,10 @@ const features = [
     position: absolute;
     top: 0;
     left: 0;
-    width: 6px;
+    width: 5px;
     height: 100%;
     background: var(--gradient-gold);
+    border-radius: 0 3px 3px 0;
   }
 
   .i-feature:hover {
@@ -746,12 +820,17 @@ const features = [
     flex-shrink: 0;
     width: 48px;
     height: 48px;
-    background: var(--color-background-secondary);
-    border-radius: 12px;
+    background: linear-gradient(135deg, var(--accent-gold-light) 0%, var(--color-background-secondary) 100%);
+    border-radius: 14px;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--accent-primary);
+    color: var(--accent-gold);
+    transition: transform var(--transition-fast);
+  }
+
+  .i-feature:hover .i-icon {
+    transform: scale(1.08) rotate(3deg);
   }
 
   .i-icon svg {
@@ -781,25 +860,41 @@ const features = [
 
   .visual-card {
     background: var(--color-background-elevated);
-    padding: var(--spacing-2xl);
+    padding: var(--spacing-3xl);
     border-radius: 24px;
     box-shadow: var(--shadow-xl);
-    border: 1px solid var(--color-border-primary);
+    border: 2px solid rgba(184, 134, 11, 0.2);
     text-align: center;
     z-index: 2;
     transform: rotate(-2deg);
-    transition: transform 0.3s ease;
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.4s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .visual-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url('/patterns/geometric-lattice.svg');
+    background-size: 80px;
+    opacity: 0.04;
+    pointer-events: none;
   }
 
   .visual-card:hover {
     transform: rotate(0deg) scale(1.05);
+    border-color: var(--accent-gold);
+    box-shadow: 0 25px 60px rgba(184, 134, 11, 0.15);
   }
 
   .visual-arabic {
     font-family: var(--font-arabic);
-    font-size: 3rem;
-    color: var(--accent-primary);
+    font-size: 3.5rem;
+    color: var(--accent-gold);
     margin-block-end: var(--spacing-md);
+    filter: drop-shadow(0 2px 8px rgba(184, 134, 11, 0.25));
+    position: relative;
   }
 
   .visual-label {
@@ -809,14 +904,15 @@ const features = [
     text-transform: uppercase;
     letter-spacing: 0.1em;
     color: var(--color-text-tertiary);
+    position: relative;
   }
 
   .visual-decoration {
     position: absolute;
     width: 100%;
     height: 100%;
-    background: var(--gradient-accent);
-    opacity: 0.1;
+    background: radial-gradient(circle, rgba(184, 134, 11, 0.2) 0%, transparent 70%);
+    opacity: 0.6;
     filter: blur(80px);
     border-radius: 50%;
     z-index: 1;
@@ -885,7 +981,7 @@ const features = [
   .scroll-hint-arrow {
     width: 16px;
     height: 16px;
-    color: var(--accent-primary);
+    color: var(--accent-gold);
     animation: nudgeRight 1.5s ease-in-out infinite;
   }
 
@@ -896,26 +992,39 @@ const features = [
 
   .levels-grid-horizontal {
     display: flex;
-    gap: var(--spacing-xl);
+    align-items: stretch;
+    gap: var(--spacing-md);
     width: max-content;
-    padding-inline-end: var(--spacing-xl);
+    padding-inline-end: var(--spacing-md);
   }
 
   .level-card-wrapper {
-    width: 300px;
+    width: 260px;
     scroll-snap-align: center;
+    display: flex;
   }
 
   @media (min-width: 640px) {
     .level-card-wrapper {
-      width: 340px;
+      width: 280px;
     }
   }
 
   @media (min-width: 1280px) {
     .level-card-wrapper {
-      width: 380px;
+      width: 300px;
     }
+  }
+
+  /* Force level cards to equal height */
+  .level-card-wrapper :global(.card) {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .level-card-wrapper :global(.course-card-description) {
+    flex: 1;
   }
 
   /* Sections */
@@ -934,7 +1043,7 @@ const features = [
   }
 
   .container {
-    max-inline-size: 80rem;
+    max-inline-size: 90rem;
     margin-inline: auto;
     padding-inline: var(--spacing-lg);
   }
@@ -957,17 +1066,13 @@ const features = [
   }
 
   .section-title {
-    font-size: 1.875rem;
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 3rem);
     font-weight: 700;
     color: var(--color-text-primary);
-    margin-block-end: var(--spacing-sm);
-    letter-spacing: -0.02em;
-  }
-
-  @media (min-width: 640px) {
-    .section-title {
-      font-size: 2.25rem;
-    }
+    margin-block-end: var(--spacing-md);
+    letter-spacing: -0.03em;
+    line-height: 1.1;
   }
 
   .section-subtitle {
@@ -1007,20 +1112,22 @@ const features = [
   }
 
   .feature-icon {
-    inline-size: 56px;
-    block-size: 56px;
+    inline-size: 60px;
+    block-size: 60px;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-inline: auto;
     margin-block-end: var(--spacing-lg);
     background: var(--color-accent-primary-light);
-    border-radius: var(--radius-lg);
+    border-radius: var(--radius-xl);
     transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+    box-shadow: 0 4px 12px rgba(184, 134, 11, 0.08);
   }
 
   .feature-card:hover .feature-icon {
-    transform: scale(1.1);
+    transform: scale(1.1) rotate(3deg);
+    box-shadow: 0 6px 20px rgba(184, 134, 11, 0.15);
   }
 
   .feature-icon .arabic {
@@ -1059,10 +1166,12 @@ const features = [
   }
 
   .feature-title {
-    font-size: 1rem;
-    font-weight: 600;
+    font-family: var(--font-display);
+    font-size: 1.0625rem;
+    font-weight: 700;
     color: var(--color-text-primary);
     margin-block-end: var(--spacing-sm);
+    letter-spacing: -0.01em;
   }
 
   .feature-desc {
@@ -1105,10 +1214,10 @@ const features = [
   }
 
   .quote-icon {
-    width: 28px;
-    height: 28px;
+    width: 36px;
+    height: 36px;
     color: var(--accent-gold);
-    opacity: 0.4;
+    opacity: 0.5;
     margin-block-end: var(--spacing-md);
   }
 
@@ -1117,13 +1226,14 @@ const features = [
     line-height: 1.7;
     color: var(--color-text-secondary);
     margin-block-end: var(--spacing-lg);
+    font-style: italic;
   }
 
   .testimonial-author {
     display: flex;
     flex-direction: column;
     gap: 2px;
-    border-top: 1px solid var(--color-border-primary);
+    border-top: 2px solid var(--accent-gold);
     padding-block-start: var(--spacing-md);
   }
 
@@ -1141,8 +1251,10 @@ const features = [
 
   /* Accessibility: reduced motion */
   @media (prefers-reduced-motion: reduce) {
-    .hero-video {
-      display: none;
+    .hero-shimmer::after,
+    .orb,
+    .hero-new::after {
+      animation: none;
     }
 
     .hero-actions :global(.btn-primary),

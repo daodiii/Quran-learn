@@ -50,24 +50,26 @@ const answerId = `answer-${id}`;
 
 <style>
   .exercise-box {
-    background: var(--color-background-secondary);
-    border: 1px solid var(--color-border-primary);
-    border-radius: var(--radius-md);
-    padding: var(--spacing-lg);
+    background: var(--accent-gold-light);
+    border: 2px solid var(--accent-gold);
+    border-radius: var(--radius-xl);
+    padding: var(--spacing-xl);
     margin-block: var(--spacing-xl);
     flex-direction: column;
     gap: var(--spacing-md);
   }
 
   :global([data-theme="dark"]) .exercise-box {
-    background: var(--color-background-secondary);
+    background: var(--accent-gold-light);
+    border-color: var(--accent-gold);
   }
 
   .exercise-question {
-    font-size: 1.0625rem;
-    font-weight: 500;
+    font-family: var(--font-display);
+    font-size: 1.125rem;
+    font-weight: 600;
     color: var(--color-text-primary);
-    line-height: 1.6;
+    line-height: 1.7;
     margin: 0;
   }
 
@@ -78,19 +80,23 @@ const answerId = `answer-${id}`;
     gap: var(--spacing-sm);
     padding-block: var(--spacing-sm);
     padding-inline: var(--spacing-md);
-    background: var(--color-accent-primary);
-    color: white;
+    background: var(--gradient-gold);
+    color: var(--text-primary);
+    font-family: var(--font-display);
     font-size: 0.9375rem;
-    font-weight: 600;
+    font-weight: 700;
     border: none;
-    border-radius: var(--radius-md);
+    border-radius: var(--radius-lg);
     cursor: pointer;
-    transition: background 200ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all var(--transition-fast);
     align-self: flex-start;
+    box-shadow: var(--shadow-gold);
   }
 
   .toggle-answer:hover {
-    background: var(--color-accent-primary-hover);
+    filter: brightness(1.1);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(184, 134, 11, 0.35);
   }
 
   .toggle-answer:focus-visible {
