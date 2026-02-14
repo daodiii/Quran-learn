@@ -2,7 +2,7 @@
 /**
  * ArabicExample - Display Quranic verses with transliteration and translation
  *
- * Usage example:
+ * Usage example (basic):
  * <ArabicExample
  *   arabic="بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ"
  *   transliteration="bismi llahi r-rahmani r-rahim"
@@ -10,7 +10,27 @@
  *   reference="Surah Al-Fatiha 1:1"
  *   highlight="بِسْمِ"
  * />
+ *
+ * Usage example (with interlinear word-by-word):
+ * <ArabicExample
+ *   arabic="بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ"
+ *   transliteration="bismi llahi r-rahmani r-rahim"
+ *   translation="In the name of God, the Most Gracious, the Most Merciful"
+ *   reference="Surah Al-Fatiha 1:1"
+ *   words={[
+ *     { ar: "بِسْمِ", tr: "bismi", en: "In the name of" },
+ *     { ar: "اللَّهِ", tr: "Allāhi", en: "Allah" },
+ *     { ar: "الرَّحْمَنِ", tr: "ar-raḥmāni", en: "the Most Gracious" },
+ *     { ar: "الرَّحِيمِ", tr: "ar-raḥīmi", en: "the Most Merciful" },
+ *   ]}
+ * />
  */
+
+interface WordEntry {
+  ar: string;   // Arabic word (vocalized)
+  tr: string;   // Transliteration
+  en: string;   // English meaning
+}
 
 interface Props {
   arabic: string;           // Arabic text (fully vocalized with harakat)
@@ -18,9 +38,10 @@ interface Props {
   translation: string;      // English meaning
   reference?: string;       // Quranic reference (e.g., "Surah Al-Fatiha 1:2")
   highlight?: string;       // Comma-separated Arabic words to visually highlight
+  words?: WordEntry[];      // Optional word-by-word interlinear data
 }
 
-const { arabic, transliteration, translation, reference, highlight } = Astro.props;
+const { arabic, transliteration, translation, reference, highlight, words } = Astro.props;
 
 // Process highlight if provided
 const highlightWords = highlight ? highlight.split(',').map(w => w.trim()) : [];
@@ -40,10 +61,26 @@ const processArabicText = (text: string, words: string[]): string => {
 };
 
 const processedArabic = processArabicText(arabic, highlightWords);
+const hasWords = words && words.length > 0;
 ---
 
 <div class="arabic-example">
-  <p class="arabic-text" dir="rtl" lang="ar" set:html={processedArabic} />
+  {hasWords ? (
+    <div class="interlinear" dir="rtl" aria-label={arabic}>
+      {words.map((word) => {
+        const isHighlighted = highlightWords.includes(word.ar);
+        return (
+          <div class:list={["word-unit", { highlighted: isHighlighted }]}>
+            <span class="word-ar" lang="ar">{word.ar}</span>
+            <span class="word-tr" dir="ltr">{word.tr}</span>
+            <span class="word-en" dir="ltr">{word.en}</span>
+          </div>
+        );
+      })}
+    </div>
+  ) : (
+    <p class="arabic-text" dir="rtl" lang="ar" set:html={processedArabic} />
+  )}
 
   {transliteration && (
     <p class="transliteration" dir="ltr">{transliteration}</p>
@@ -79,6 +116,7 @@ const processedArabic = processArabicText(arabic, highlightWords);
     box-shadow: var(--shadow-md);
   }
 
+  /* === Existing plain text display === */
   .arabic-text {
     font-family: var(--font-arabic);
     font-size: 1.75rem;
@@ -105,6 +143,78 @@ const processedArabic = processArabicText(arabic, highlightWords);
 
   :global([data-theme="dark"]) .arabic-text :global(mark.grammar-highlight) {
     background: rgba(242, 217, 140, 0.15);
+  }
+
+  /* === Interlinear word-by-word layout === */
+  .interlinear {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-lg);
+    justify-content: flex-start;
+    padding-block-end: var(--spacing-md);
+    border-block-end: 1px solid var(--color-border-primary);
+    margin-block-end: var(--spacing-xs);
+  }
+
+  .word-unit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-xs);
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--radius-md);
+    transition: background-color 0.15s ease;
+    min-inline-size: 3.5rem;
+  }
+
+  .word-unit:hover {
+    background-color: var(--accent-gold-light);
+  }
+
+  :global([data-theme="dark"]) .word-unit:hover {
+    background-color: rgba(242, 217, 140, 0.1);
+  }
+
+  .word-unit.highlighted {
+    background-color: var(--accent-gold-light);
+    border-block-end: 2px solid var(--accent-gold);
+  }
+
+  :global([data-theme="dark"]) .word-unit.highlighted {
+    background-color: rgba(242, 217, 140, 0.15);
+  }
+
+  .word-ar {
+    font-family: var(--font-arabic);
+    font-size: 1.75rem;
+    line-height: 2;
+    color: var(--color-text-primary);
+    text-align: center;
+  }
+
+  @media (min-width: 640px) {
+    .word-ar {
+      font-size: 2rem;
+    }
+  }
+
+  .word-tr {
+    font-family: var(--font-sans);
+    font-size: 0.8125rem;
+    font-style: italic;
+    color: var(--accent-gold);
+    text-align: center;
+    opacity: 0.85;
+  }
+
+  .word-en {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--color-text-tertiary);
+    text-align: center;
+    max-inline-size: 8rem;
+    overflow-wrap: break-word;
   }
 
   .transliteration {
@@ -151,6 +261,23 @@ const processedArabic = processArabicText(arabic, highlightWords);
       margin-block: var(--spacing-lg);
       gap: var(--spacing-md);
       border-radius: var(--radius-lg);
+    }
+
+    .interlinear {
+      gap: var(--spacing-md);
+    }
+
+    .word-unit {
+      padding: var(--spacing-xs) var(--spacing-sm);
+    }
+
+    .word-ar {
+      font-size: 1.5rem;
+    }
+
+    .word-en {
+      font-size: 0.6875rem;
+      max-inline-size: 6rem;
     }
   }
 </style>
