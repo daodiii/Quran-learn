@@ -5,6 +5,7 @@ import CourseCard from '../components/cards/CourseCard.astro';
 import CardGrid from '../components/cards/CardGrid.astro';
 import SurahCard from '../components/cards/SurahCard.astro';
 import GoldCalligraphy from '../components/decoration/GoldCalligraphy.astro';
+import AnnouncementTicker from '../components/AnnouncementTicker.astro';
 import { getCollection } from 'astro:content';
 import { testimonials } from '../data/testimonials';
 
@@ -100,6 +101,8 @@ const features = [
       "inLanguage": "en"
     })} />
   </Fragment>
+  <AnnouncementTicker slot="before-header" />
+
   <!-- World-Class Hero Section -->
   <section class="hero-new">
     <div class="hero-overlay"></div>
