@@ -121,6 +121,15 @@
   --transition-bounce: 600ms cubic-bezier(0.68, -0.25, 0.265, 1.25);
 }
 
+/* Mobile spacing overrides — tighter padding on small screens */
+@media (max-width: 640px) {
+  :root {
+    --space-xl: 1.75rem;
+    --space-2xl: 2.5rem;
+    --space-3xl: 3.5rem;
+  }
+}
+
 /* Dark Mode - Warm Charcoal System */
 [data-theme="dark"] {
   /* Background Colors - Warm Charcoal with Depth */

@@ -1252,6 +1252,56 @@ const features = [
     color: var(--color-text-tertiary);
   }
 
+  /* Mobile: tighter layout */
+  @media (max-width: 640px) {
+    .section {
+      padding-block: var(--spacing-xl);
+    }
+
+    .container {
+      padding-inline: var(--spacing-md);
+    }
+
+    .section-header {
+      margin-block-end: var(--spacing-lg);
+    }
+
+    .i-feature {
+      padding: var(--spacing-md) var(--spacing-md) var(--spacing-md) var(--spacing-lg);
+      gap: var(--spacing-md);
+    }
+
+    .importance-features {
+      gap: var(--spacing-md);
+    }
+
+    .features-grid {
+      gap: var(--spacing-md);
+    }
+
+    .feature-card {
+      padding: var(--spacing-md);
+    }
+
+    .feature-icon {
+      inline-size: 48px;
+      block-size: 48px;
+      margin-block-end: var(--spacing-md);
+    }
+
+    .visual-card {
+      padding: var(--spacing-xl);
+    }
+
+    .testimonials-grid {
+      gap: var(--spacing-md);
+    }
+
+    .testimonial-card {
+      padding: var(--spacing-md);
+    }
+  }
+
   /* Accessibility: reduced motion */
   @media (prefers-reduced-motion: reduce) {
     .hero-shimmer::after,

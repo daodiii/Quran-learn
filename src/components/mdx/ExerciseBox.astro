@@ -158,6 +158,15 @@ const answerId = `answer-${id}`;
     margin-block: var(--spacing-md);
   }
 
+  /* Mobile: tighter padding */
+  @media (max-width: 640px) {
+    .exercise-box {
+      padding: var(--spacing-md);
+      margin-block: var(--spacing-lg);
+      border-radius: var(--radius-lg);
+    }
+  }
+
   /* Accessibility: reduced motion */
   @media (prefers-reduced-motion: reduce) {
     .toggle-icon {

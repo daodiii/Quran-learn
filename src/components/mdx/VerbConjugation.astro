@@ -225,6 +225,17 @@ const rows = Astro.props.rows ?? (persons ? persons.map(p => [p.person, p.arabic
     background: var(--color-background-secondary);
   }
 
+  /* Mobile: tighter header */
+  @media (max-width: 640px) {
+    .verb-header {
+      padding: var(--spacing-md);
+    }
+
+    .verb-root {
+      font-size: 1.75rem;
+    }
+  }
+
   /* Mobile responsive stacking */
   @media (max-width: 640px) {
     .verb-table thead {
