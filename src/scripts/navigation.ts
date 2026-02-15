@@ -5,7 +5,6 @@ const SIDEBAR_ID = 'course-navigator';
 const BACKDROP_ID = 'navigator-backdrop';
 const TOGGLE_ID = 'navigator-toggle';
 const CLOSE_ID = 'close-navigator';
-const MOBILE_BREAKPOINT = 1024;
 
 // State
 let focusTrapCleanup: (() => void) | null = null;
@@ -40,12 +39,6 @@ function initSidebarToggle(): void {
     }
   });
 
-  // Handle resize - close sidebar if going to desktop
-  window.addEventListener('resize', () => {
-    if (window.innerWidth >= MOBILE_BREAKPOINT && isSidebarOpen()) {
-      closeSidebar();
-    }
-  });
 }
 
 function isSidebarOpen(): boolean {

@@ -2,6 +2,14 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Container from '../../../components/primitives/Container.astro';
 import QuizComponent from '../../../components/Quiz.astro';
+import { getCollection } from 'astro:content';
+
+const LEVEL = 3;
+const allLessons = await getCollection('lessons');
+const levelLessons = allLessons.filter(l => l.data.level === LEVEL).sort((a, b) => a.data.order - b.data.order);
+const nextLevelLessons = allLessons.filter(l => l.data.level === LEVEL + 1).sort((a, b) => a.data.order - b.data.order);
+const prevLesson = levelLessons.length > 0 ? `/learn/${levelLessons[levelLessons.length - 1].id}/` : undefined;
+const nextLesson = nextLevelLessons.length > 0 ? `/learn/${nextLevelLessons[0].id}/` : undefined;
 
 const questions = [
   {
@@ -115,5 +123,66 @@ const questions = [
       passingScore={70}
       level={3}
     />
+    <nav class="quiz-nav">
+      {prevLesson ? (
+        <a href={prevLesson} class="nav-link prev">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+          </svg>
+          Previous Lesson
+        </a>
+      ) : <div></div>}
+      {nextLesson ? (
+        <a href={nextLesson} class="nav-link next">
+          Next Lesson
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+          </svg>
+        </a>
+      ) : <div></div>}
+    </nav>
   </Container>
 </BaseLayout>
+
+<style>
+  .quiz-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-inline-size: 85ch;
+    margin-inline: auto;
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-primary);
+  }
+
+  .nav-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-display);
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--accent-gold);
+    text-decoration: none;
+    transition: all var(--transition-fast);
+  }
+
+  .nav-link:hover {
+    opacity: 0.8;
+  }
+
+  .nav-link svg {
+    width: 18px;
+    height: 18px;
+    transition: transform var(--transition-fast);
+  }
+
+  .nav-link.prev:hover svg {
+    transform: translateX(-2px);
+  }
+
+  .nav-link.next:hover svg {
+    transform: translateX(2px);
+  }
+</style>

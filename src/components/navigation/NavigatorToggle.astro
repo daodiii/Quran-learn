@@ -69,15 +69,9 @@ const { class: className, variant = 'header' } = Astro.props;
     display: block;
   }
 
-  /* Header variant: visible on tablet/mobile only */
+  /* Header variant: visible on all screen sizes */
   .navigator-toggle--header {
-    display: none;
-  }
-
-  @media (max-width: 1023px) {
-    .navigator-toggle--header {
-      display: flex;
-    }
+    display: flex;
   }
 
   /* Floating variant: fixed position for quick access */
@@ -106,12 +100,6 @@ const { class: className, variant = 'header' } = Astro.props;
     outline-offset: 2px;
   }
 
-  /* Hide floating on desktop where sidebar is visible */
-  @media (min-width: 1024px) {
-    .navigator-toggle--floating {
-      display: none;
-    }
-  }
 
   /* Accessibility: reduced motion */
   @media (prefers-reduced-motion: reduce) {

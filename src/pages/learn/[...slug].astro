@@ -14,10 +14,29 @@ export async function getStaticPaths() {
     return a.data.order - b.data.order;
   });
 
+  // Group lessons by level to find last lesson of each level
+  const lessonsByLevel: Record<number, typeof sortedLessons> = {};
+  sortedLessons.forEach(l => {
+    if (!lessonsByLevel[l.data.level]) lessonsByLevel[l.data.level] = [];
+    lessonsByLevel[l.data.level].push(l);
+  });
+
   return sortedLessons.map((lesson, index) => {
     // Compute prev/next from collection order
-    const prevLesson = index > 0 ? `/learn/${sortedLessons[index - 1].id}/` : undefined;
-    const nextLesson = index < sortedLessons.length - 1 ? `/learn/${sortedLessons[index + 1].id}/` : undefined;
+    let prevLesson = index > 0 ? `/learn/${sortedLessons[index - 1].id}/` : undefined;
+    let nextLesson = index < sortedLessons.length - 1 ? `/learn/${sortedLessons[index + 1].id}/` : undefined;
+
+    const levelLessons = lessonsByLevel[lesson.data.level];
+
+    // If this is the first lesson of its level (and not level 1), prev goes to previous level's quiz
+    if (levelLessons && lesson === levelLessons[0] && lesson.data.level > 1) {
+      prevLesson = `/learn/level-${lesson.data.level - 1}/quiz/`;
+    }
+
+    // If this is the last lesson of its level, next goes to the level quiz
+    if (levelLessons && lesson === levelLessons[levelLessons.length - 1]) {
+      nextLesson = `/learn/level-${lesson.data.level}/quiz/`;
+    }
 
     return {
       params: { slug: lesson.id },

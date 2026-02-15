@@ -62,25 +62,31 @@ const hasProps = headers && rows;
   .table-wrapper {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
-    border: 1px solid var(--color-border-primary);
+    /* Frosted glass container */
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    border: 1px solid var(--glass-border-light);
     border-radius: var(--radius-md);
     margin-block: var(--spacing-xl);
+    box-shadow: var(--shadow-md);
     /* Scroll shadow indicators — shadows appear at edges when content is scrollable */
     background:
-      linear-gradient(to right, var(--color-background-primary) 30%, transparent) left center / 40px 100% no-repeat,
-      linear-gradient(to left, var(--color-background-primary) 30%, transparent) right center / 40px 100% no-repeat,
+      linear-gradient(to right, var(--glass-bg-elevated) 30%, transparent) left center / 40px 100% no-repeat,
+      linear-gradient(to left, var(--glass-bg-elevated) 30%, transparent) right center / 40px 100% no-repeat,
       linear-gradient(to right, rgba(0, 0, 0, 0.1), transparent) left center / 14px 100% no-repeat,
-      linear-gradient(to left, rgba(0, 0, 0, 0.1), transparent) right center / 14px 100% no-repeat;
-    background-attachment: local, local, scroll, scroll;
+      linear-gradient(to left, rgba(0, 0, 0, 0.1), transparent) right center / 14px 100% no-repeat,
+      var(--glass-bg-elevated);
+    background-attachment: local, local, scroll, scroll, scroll;
   }
 
   :global([data-theme="dark"]) .table-wrapper {
     background:
-      linear-gradient(to right, var(--color-background-primary) 30%, transparent) left center / 40px 100% no-repeat,
-      linear-gradient(to left, var(--color-background-primary) 30%, transparent) right center / 40px 100% no-repeat,
+      linear-gradient(to right, var(--glass-bg-elevated) 30%, transparent) left center / 40px 100% no-repeat,
+      linear-gradient(to left, var(--glass-bg-elevated) 30%, transparent) right center / 40px 100% no-repeat,
       linear-gradient(to right, rgba(255, 255, 255, 0.07), transparent) left center / 14px 100% no-repeat,
-      linear-gradient(to left, rgba(255, 255, 255, 0.07), transparent) right center / 14px 100% no-repeat;
-    background-attachment: local, local, scroll, scroll;
+      linear-gradient(to left, rgba(255, 255, 255, 0.07), transparent) right center / 14px 100% no-repeat,
+      var(--glass-bg-elevated);
+    background-attachment: local, local, scroll, scroll, scroll;
   }
 
   .grammar-table {
