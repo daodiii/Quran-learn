@@ -145,35 +145,17 @@ const levelNames: Record<number, string> = {
     padding: 0;
   }
 
-  /* Grid Layout */
+  /* Layout */
   .lesson-grid {
     display: flex;
     flex-direction: column;
     min-block-size: 100vh;
   }
 
-  @media (min-width: 1024px) {
-    .lesson-grid {
-      display: grid;
-      grid-template-columns: 280px 1fr;
-      gap: 0;
-    }
-  }
-
-  /* Sidebar: use display:contents on mobile so the fixed-position
-     CourseNavigator can render (display:none would prevent it) */
+  /* Sidebar uses display:contents so the fixed-position
+     CourseNavigator can render without affecting layout */
   .lesson-sidebar {
     display: contents;
-  }
-
-  @media (min-width: 1024px) {
-    .lesson-sidebar {
-      display: block;
-      position: sticky;
-      top: 0;
-      block-size: 100vh;
-      overflow-y: auto;
-    }
   }
 
   /* Main content area */
@@ -197,7 +179,7 @@ const levelNames: Record<number, string> = {
   /* Article */
   .lesson-article {
     min-width: 0;
-    max-inline-size: 70ch;
+    max-inline-size: 85ch;
     margin-inline: auto;
   }
 

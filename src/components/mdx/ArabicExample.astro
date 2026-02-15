@@ -72,7 +72,6 @@ const hasWords = words && words.length > 0;
         return (
           <div class:list={["word-unit", { highlighted: isHighlighted }]}>
             <span class="word-ar" lang="ar">{word.ar}</span>
-            <span class="word-tr" dir="ltr">{word.tr}</span>
             <span class="word-en" dir="ltr">{word.en}</span>
           </div>
         );
@@ -80,10 +79,6 @@ const hasWords = words && words.length > 0;
     </div>
   ) : (
     <p class="arabic-text" dir="rtl" lang="ar" set:html={processedArabic} />
-  )}
-
-  {transliteration && (
-    <p class="transliteration" dir="ltr">{transliteration}</p>
   )}
 
   <p class="translation" dir="ltr">{translation}</p>
@@ -95,32 +90,40 @@ const hasWords = words && words.length > 0;
 
 <style>
   .arabic-example {
-    background: var(--color-background-elevated);
-    border: 1px solid var(--color-border-primary);
+    /* Frosted glass effect */
+    background: var(--glass-bg-elevated);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    border: 1px solid var(--glass-border-light);
     border-left: 5px solid transparent;
     border-image: linear-gradient(180deg, #B8860B 0%, #D4A849 50%, #F2D98C 100%) 1;
     border-image-slice: 0 0 0 5;
     border-radius: var(--radius-xl);
-    padding: var(--spacing-xl) var(--spacing-2xl);
-    margin-block: var(--spacing-2xl);
+    padding: var(--spacing-md) var(--spacing-lg);
+    margin-block: var(--spacing-lg);
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-lg);
-    box-shadow: var(--shadow-elevated);
+    gap: var(--spacing-sm);
+    box-shadow: var(--shadow-float);
+    transition: transform var(--transition-base), box-shadow var(--transition-base);
+  }
+
+  .arabic-example:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-gold-hover);
   }
 
   :global([data-theme="dark"]) .arabic-example {
-    background: var(--bg-elevated);
+    background: var(--glass-bg-elevated);
     border-image: linear-gradient(180deg, #F2D98C 0%, #FFE8A8 100%) 1;
     border-image-slice: 0 0 0 5;
-    box-shadow: var(--shadow-md);
   }
 
   /* === Existing plain text display === */
   .arabic-text {
     font-family: var(--font-arabic);
-    font-size: 1.75rem;
-    line-height: 2.4;
+    font-size: 1.5rem;
+    line-height: 2;
     letter-spacing: 0;
     color: var(--color-text-primary);
     margin: 0;
@@ -129,7 +132,7 @@ const hasWords = words && words.length > 0;
 
   @media (min-width: 640px) {
     .arabic-text {
-      font-size: 2.25rem;
+      font-size: 1.75rem;
     }
   }
 
@@ -149,22 +152,22 @@ const hasWords = words && words.length > 0;
   .interlinear {
     display: flex;
     flex-wrap: wrap;
-    gap: var(--spacing-lg);
+    gap: var(--spacing-xs) var(--spacing-sm);
     justify-content: flex-start;
-    padding-block-end: var(--spacing-md);
+    padding-block-end: var(--spacing-sm);
     border-block-end: 1px solid var(--color-border-primary);
-    margin-block-end: var(--spacing-xs);
+    margin-block-end: 0;
   }
 
   .word-unit {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: var(--spacing-xs);
-    padding: var(--spacing-sm) var(--spacing-md);
+    gap: 2px;
+    padding: var(--spacing-xs) var(--spacing-sm);
     border-radius: var(--radius-md);
     transition: background-color 0.15s ease;
-    min-inline-size: 3.5rem;
+    min-inline-size: 2.5rem;
   }
 
   .word-unit:hover {
@@ -186,25 +189,16 @@ const hasWords = words && words.length > 0;
 
   .word-ar {
     font-family: var(--font-arabic);
-    font-size: 1.75rem;
-    line-height: 2;
+    font-size: 1.5rem;
+    line-height: 1.7;
     color: var(--color-text-primary);
     text-align: center;
   }
 
   @media (min-width: 640px) {
     .word-ar {
-      font-size: 2rem;
+      font-size: 1.65rem;
     }
-  }
-
-  .word-tr {
-    font-family: var(--font-sans);
-    font-size: 0.8125rem;
-    font-style: italic;
-    color: var(--accent-gold);
-    text-align: center;
-    opacity: 0.85;
   }
 
   .word-en {
@@ -217,21 +211,11 @@ const hasWords = words && words.length > 0;
     overflow-wrap: break-word;
   }
 
-  .transliteration {
-    font-family: var(--font-sans);
-    font-size: 0.9375rem;
-    font-style: italic;
-    color: var(--accent-gold);
-    margin: 0;
-    text-align: start;
-    opacity: 0.85;
-  }
-
   .translation {
     font-family: var(--font-display);
-    font-size: 1.1875rem;
+    font-size: 1.0625rem;
     font-weight: 500;
-    line-height: 1.7;
+    line-height: 1.5;
     color: var(--color-text-primary);
     margin: 0;
     text-align: start;
@@ -239,14 +223,14 @@ const hasWords = words && words.length > 0;
 
   .reference {
     font-family: var(--font-display);
-    font-size: 0.8125rem;
+    font-size: 0.75rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.08em;
     color: var(--color-text-tertiary);
     margin: 0;
     text-align: start;
-    padding-top: var(--spacing-sm);
+    padding-top: var(--spacing-xs);
     border-top: 2px solid var(--accent-gold);
   }
 
@@ -257,22 +241,22 @@ const hasWords = words && words.length > 0;
   /* Mobile: tighter padding */
   @media (max-width: 640px) {
     .arabic-example {
-      padding: var(--spacing-md) var(--spacing-lg);
-      margin-block: var(--spacing-lg);
-      gap: var(--spacing-md);
+      padding: var(--spacing-sm) var(--spacing-md);
+      margin-block: var(--spacing-md);
+      gap: var(--spacing-xs);
       border-radius: var(--radius-lg);
     }
 
     .interlinear {
-      gap: var(--spacing-md);
+      gap: var(--spacing-xs);
     }
 
     .word-unit {
-      padding: var(--spacing-xs) var(--spacing-sm);
+      padding: 2px var(--spacing-xs);
     }
 
     .word-ar {
-      font-size: 1.5rem;
+      font-size: 1.3rem;
     }
 
     .word-en {

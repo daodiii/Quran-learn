@@ -50,14 +50,23 @@ const icons: Record<string, string> = {
 
 <style>
   .callout {
-    background: var(--color-background-elevated);
-    border: 2px solid var(--color-border-primary);
+    /* Frosted glass effect */
+    background: var(--glass-bg-elevated);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    border: 1px solid var(--glass-border-light);
     border-radius: var(--radius-xl);
     padding: var(--spacing-xl) var(--spacing-2xl);
     margin-block: var(--spacing-2xl);
-    box-shadow: var(--shadow-elevated);
+    box-shadow: var(--shadow-float);
     position: relative;
     overflow: hidden;
+    transition: transform var(--transition-base), box-shadow var(--transition-base);
+  }
+
+  .callout:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-xl);
   }
 
   /* Left accent bar with gradient */
@@ -71,24 +80,24 @@ const icons: Record<string, string> = {
     border-radius: var(--radius-xl) 0 0 var(--radius-xl);
   }
 
-  /* Type-specific: warm gradient tints */
-  .callout-note { background: linear-gradient(135deg, #F0EDF7 0%, #FAF8F5 100%); border-color: #1A1147; }
+  /* Type-specific: tinted glass variants */
+  .callout-note { background: var(--glass-bg-tinted-indigo); border-color: rgba(26, 17, 71, 0.15); }
   .callout-note::after { background: linear-gradient(180deg, #1A1147, #B8860B); }
 
-  .callout-tip { background: linear-gradient(135deg, #F2F6F2 0%, #FAF8F5 100%); border-color: #617D61; }
+  .callout-tip { background: var(--glass-bg-tinted-sage); border-color: rgba(97, 125, 97, 0.15); }
   .callout-tip::after { background: #617D61; }
 
-  .callout-rule { background: linear-gradient(135deg, #FBF7ED 0%, #FAF8F5 100%); border-color: #B8860B; }
+  .callout-rule { background: var(--glass-bg-tinted-gold); border-color: rgba(184, 134, 11, 0.15); }
   .callout-rule::after { background: linear-gradient(180deg, #B8860B, #D4A849, #F2D98C); }
 
-  .callout-warning { background: linear-gradient(135deg, #FDF6F3 0%, #FAF8F5 100%); border-color: #C4704B; }
+  .callout-warning { background: var(--glass-bg-tinted-coral); border-color: rgba(196, 112, 75, 0.15); }
   .callout-warning::after { background: #C4704B; }
 
   /* Dark Mode */
-  :global([data-theme="dark"]) .callout-note { background: linear-gradient(135deg, #1E1B28 0%, #221E1C 100%); color: #9B88E8; border-color: #2A2442; }
-  :global([data-theme="dark"]) .callout-tip { background: linear-gradient(135deg, #1F2B1F 0%, #221E1C 100%); color: #8FB88F; border-color: #2A4E3B; }
-  :global([data-theme="dark"]) .callout-rule { background: linear-gradient(135deg, #2D2818 0%, #221E1C 100%); color: #F2D98C; border-color: #4D3F18; }
-  :global([data-theme="dark"]) .callout-warning { background: linear-gradient(135deg, #2D2118 0%, #221E1C 100%); color: #E89B7A; border-color: #4D3328; }
+  :global([data-theme="dark"]) .callout-note { background: var(--glass-bg-tinted-indigo); border-color: rgba(155, 136, 232, 0.12); }
+  :global([data-theme="dark"]) .callout-tip { background: var(--glass-bg-tinted-sage); border-color: rgba(143, 184, 143, 0.12); }
+  :global([data-theme="dark"]) .callout-rule { background: var(--glass-bg-tinted-gold); border-color: rgba(242, 217, 140, 0.12); }
+  :global([data-theme="dark"]) .callout-warning { background: var(--glass-bg-tinted-coral); border-color: rgba(232, 155, 122, 0.12); }
 
   .callout-title {
     display: flex;

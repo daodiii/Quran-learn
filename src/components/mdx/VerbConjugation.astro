@@ -79,19 +79,23 @@ const rows = Astro.props.rows ?? (persons ? persons.map(p => [p.person, p.arabic
 
 <style>
   .verb-conjugation {
-    border: 1px solid var(--color-border-primary);
+    /* Frosted glass container */
+    background: var(--glass-bg-elevated);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    border: 1px solid var(--glass-border-light);
     border-radius: var(--radius-md);
     margin-block: var(--spacing-xl);
     overflow: clip;
-    background: var(--color-background-primary);
+    box-shadow: var(--shadow-md);
   }
 
   :global([data-theme="dark"]) .verb-conjugation {
-    background: var(--color-background-primary);
+    background: var(--glass-bg-elevated);
   }
 
   .verb-header {
-    background: linear-gradient(135deg, var(--accent-gold-light) 0%, var(--color-background-secondary) 100%);
+    background: var(--glass-bg-tinted-gold);
     padding-block: var(--spacing-xl);
     padding-inline: var(--spacing-xl);
     text-align: center;
@@ -100,7 +104,7 @@ const rows = Astro.props.rows ?? (persons ? persons.map(p => [p.person, p.arabic
   }
 
   :global([data-theme="dark"]) .verb-header {
-    background: linear-gradient(135deg, var(--accent-gold-light) 0%, var(--color-background-secondary) 100%);
+    background: var(--glass-bg-tinted-gold);
   }
 
   .verb-root {
@@ -148,20 +152,22 @@ const rows = Astro.props.rows ?? (persons ? persons.map(p => [p.person, p.arabic
     -webkit-overflow-scrolling: touch;
     /* Scroll shadow indicators */
     background:
-      linear-gradient(to right, var(--color-background-primary) 30%, transparent) left center / 40px 100% no-repeat,
-      linear-gradient(to left, var(--color-background-primary) 30%, transparent) right center / 40px 100% no-repeat,
+      linear-gradient(to right, var(--glass-bg-elevated) 30%, transparent) left center / 40px 100% no-repeat,
+      linear-gradient(to left, var(--glass-bg-elevated) 30%, transparent) right center / 40px 100% no-repeat,
       linear-gradient(to right, rgba(0, 0, 0, 0.1), transparent) left center / 14px 100% no-repeat,
-      linear-gradient(to left, rgba(0, 0, 0, 0.1), transparent) right center / 14px 100% no-repeat;
-    background-attachment: local, local, scroll, scroll;
+      linear-gradient(to left, rgba(0, 0, 0, 0.1), transparent) right center / 14px 100% no-repeat,
+      var(--glass-bg-elevated);
+    background-attachment: local, local, scroll, scroll, scroll;
   }
 
   :global([data-theme="dark"]) .table-wrapper {
     background:
-      linear-gradient(to right, var(--color-background-primary) 30%, transparent) left center / 40px 100% no-repeat,
-      linear-gradient(to left, var(--color-background-primary) 30%, transparent) right center / 40px 100% no-repeat,
+      linear-gradient(to right, var(--glass-bg-elevated) 30%, transparent) left center / 40px 100% no-repeat,
+      linear-gradient(to left, var(--glass-bg-elevated) 30%, transparent) right center / 40px 100% no-repeat,
       linear-gradient(to right, rgba(255, 255, 255, 0.07), transparent) left center / 14px 100% no-repeat,
-      linear-gradient(to left, rgba(255, 255, 255, 0.07), transparent) right center / 14px 100% no-repeat;
-    background-attachment: local, local, scroll, scroll;
+      linear-gradient(to left, rgba(255, 255, 255, 0.07), transparent) right center / 14px 100% no-repeat,
+      var(--glass-bg-elevated);
+    background-attachment: local, local, scroll, scroll, scroll;
   }
 
   .verb-table {

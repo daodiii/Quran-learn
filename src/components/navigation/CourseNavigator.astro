@@ -97,24 +97,28 @@ const levelColors: Record<number, string> = {
                 </li>
               );
             })}
+            <li>
+              {(() => {
+                const quizPath = `/learn/level-${level}/quiz/`;
+                const isQuizActive = currentPath === quizPath || currentPath === `/learn/level-${level}/quiz`;
+                return (
+                  <a
+                    href={quizPath}
+                    class:list={['lesson-item', { active: isQuizActive }]}
+                    aria-current={isQuizActive ? 'page' : undefined}
+                  >
+                    <span class="lesson-number">{lessons.length + 1}</span>
+                    <span class="lesson-title">Level {level} Quiz</span>
+                  </a>
+                );
+              })()}
+            </li>
           </ol>
         </section>
       );
     })}
   </div>
 
-  <!-- Quiz links at bottom -->
-  <div class="navigator-footer">
-    <h3 class="quiz-heading">Level Quizzes</h3>
-    <div class="quiz-links">
-      {[1, 2, 3, 4, 5].map(level => (
-        <a href={`/learn/level-${level}/quiz/`} class="quiz-link">
-          <span class="level-dot" style={`background-color: ${levelColors[level]}`}></span>
-          Level {level}
-        </a>
-      ))}
-    </div>
-  </div>
 </nav>
 
 <style>
@@ -130,36 +134,25 @@ const levelColors: Record<number, string> = {
     transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1);
   }
 
-  /* Desktop: sticky sidebar */
-  @media (min-width: 1024px) {
-    .course-navigator {
-      position: sticky;
-      inset-block-start: 72px;
-      block-size: calc(100vh - 72px);
-    }
+  /* Fixed overlay on all screen sizes (hidden by default) */
+  .course-navigator {
+    position: fixed;
+    inset-block-start: 0;
+    inset-inline-start: 0;
+    block-size: 100vh;
+    z-index: 40;
+    transform: translateX(-100%);
+    box-shadow: var(--shadow-xl);
   }
 
-  /* Mobile: fixed overlay (hidden by default) */
-  @media (max-width: 1023px) {
-    .course-navigator {
-      position: fixed;
-      inset-block-start: 0;
-      inset-inline-start: 0;
-      block-size: 100vh;
-      z-index: 40;
-      transform: translateX(-100%);
-      box-shadow: var(--shadow-xl);
-    }
+  [dir="rtl"] .course-navigator {
+    inset-inline-start: auto;
+    inset-inline-end: 0;
+    transform: translateX(100%);
+  }
 
-    [dir="rtl"] .course-navigator {
-      inset-inline-start: auto;
-      inset-inline-end: 0;
-      transform: translateX(100%);
-    }
-
-    .course-navigator.open {
-      transform: translateX(0);
-    }
+  .course-navigator.open {
+    transform: translateX(0);
   }
 
   /* Navigator Header */
@@ -179,7 +172,9 @@ const levelColors: Record<number, string> = {
   }
 
   .close-navigator {
-    display: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     inline-size: 44px;
     block-size: 44px;
     padding: 0;
@@ -206,13 +201,6 @@ const levelColors: Record<number, string> = {
     block-size: 20px;
   }
 
-  @media (max-width: 1023px) {
-    .close-navigator {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-  }
 
   /* Navigator Content */
   .navigator-content {
@@ -374,67 +362,12 @@ const levelColors: Record<number, string> = {
     white-space: nowrap;
   }
 
-  /* Navigator Footer */
-  .navigator-footer {
-    padding: 1rem;
-    border-block-start: 1px solid var(--border-primary);
-    background: var(--bg-secondary);
-  }
-
-  .quiz-heading {
-    font-size: 0.75rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: var(--text-tertiary);
-    margin: 0 0 0.75rem 0;
-  }
-
-  .quiz-links {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem; /* 8px minimum spacing */
-  }
-
-  .quiz-link {
-    display: flex;
-    align-items: center;
-    gap: 0.625rem;
-    padding: 0.5rem 0.75rem;
-    border-radius: var(--radius-lg);
-    font-size: 0.875rem;
-    font-weight: 500;
-    text-decoration: none;
-    background: var(--bg-elevated);
-    color: var(--text-secondary);
-    border: 1px solid var(--border-primary);
-    transition: all var(--transition-fast);
-    min-block-size: 44px;
-  }
-
-  .quiz-link:hover {
-    background: var(--accent-primary-light);
-    color: var(--accent-primary);
-    border-color: var(--accent-primary);
-  }
-
-  .quiz-link:focus-visible {
-    outline: 2px solid var(--accent-primary);
-    outline-offset: 2px;
-  }
-
-  .quiz-link .level-dot {
-    inline-size: 6px;
-    block-size: 6px;
-  }
-
   /* Smooth transitions */
   @media (prefers-reduced-motion: reduce) {
     .course-navigator,
     .level-header,
     .chevron,
-    .lesson-item,
-    .quiz-link {
+    .lesson-item {
       transition: none;
     }
   }

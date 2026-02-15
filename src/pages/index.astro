@@ -169,7 +169,7 @@ const features = [
   </section>
 
   <!-- Importance Section -->
-  <section id="importance" class="importance-section">
+  <section id="importance" class="importance-section mesh-bg mesh-bg-secondary">
     <div class="container">
       <div class="importance-grid">
         <div class="importance-content">
@@ -233,7 +233,7 @@ const features = [
     </div>
   </section>
 
-  <section class="section">
+  <section class="section mesh-bg mesh-bg-primary">
     <div class="container">
       <div class="section-header">
         <h2 class="section-title">The Learning Path</h2>
@@ -275,7 +275,7 @@ const features = [
   </section>
 
   <!-- Featured Surahs Section -->
-  <section class="section section-alt">
+  <section class="section section-alt mesh-bg mesh-bg-secondary">
     <div class="container">
       <div class="section-header">
         <h2 class="section-title">Surah Breakdowns</h2>
@@ -307,7 +307,7 @@ const features = [
   </section>
 
   <!-- Features Section -->
-  <section class="section">
+  <section class="section mesh-bg mesh-bg-primary">
     <div class="container">
       <div class="section-header">
         <h2 class="section-title">What You'll Master</h2>
@@ -329,7 +329,7 @@ const features = [
 
   <!-- Testimonials Section -->
   {testimonials.length > 0 && (
-    <section class="section section-alt">
+    <section class="section section-alt mesh-bg mesh-bg-secondary">
       <div class="container">
         <div class="section-header">
           <h2 class="section-title">What Learners Say</h2>
@@ -788,18 +788,21 @@ const features = [
   .i-feature {
     display: flex;
     gap: var(--spacing-lg);
-    background: var(--color-background-elevated);
+    /* Frosted glass effect */
+    background: var(--glass-bg-elevated);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
     padding: var(--spacing-xl) var(--spacing-xl) var(--spacing-xl) var(--spacing-2xl);
     border-radius: var(--radius-xl);
-    box-shadow: var(--shadow-md);
-    border: 1px solid rgba(184, 134, 11, 0.12);
+    box-shadow: var(--shadow-float);
+    border: 1px solid var(--glass-border-light);
     position: relative;
     overflow: hidden;
     transition: transform var(--transition-base), box-shadow var(--transition-base);
   }
 
   :global([data-theme="dark"]) .i-feature {
-    border-color: var(--border-primary);
+    border-color: var(--glass-border-light);
   }
 
   .i-feature::before {
@@ -862,10 +865,13 @@ const features = [
   }
 
   .visual-card {
-    background: var(--color-background-elevated);
+    /* Frosted glass effect */
+    background: var(--glass-bg-elevated);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
     padding: var(--spacing-3xl);
     border-radius: 24px;
-    box-shadow: var(--shadow-xl);
+    box-shadow: var(--shadow-float);
     border: 2px solid rgba(184, 134, 11, 0.2);
     text-align: center;
     z-index: 2;
@@ -1107,11 +1113,16 @@ const features = [
     text-align: center;
     padding: var(--spacing-xl);
     border-radius: var(--radius-xl);
-    transition: background-color var(--transition-fast);
+    border: 1px solid transparent;
+    transition: all var(--transition-fast);
   }
 
   .feature-card:hover {
-    background-color: var(--color-background-secondary);
+    background: var(--glass-bg-elevated);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    box-shadow: var(--shadow-md);
+    border-color: var(--glass-border-subtle);
   }
 
   .feature-icon {
@@ -1203,11 +1214,15 @@ const features = [
   }
 
   .testimonial-card {
-    background: var(--color-background-elevated);
-    border: 1px solid var(--color-border-primary);
+    /* Frosted glass effect */
+    background: var(--glass-bg-elevated);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    border: 1px solid var(--glass-border-light);
     border-radius: var(--radius-xl);
     padding: var(--spacing-xl);
     position: relative;
+    box-shadow: var(--shadow-md);
     transition: transform var(--transition-base), box-shadow var(--transition-base);
   }
 
