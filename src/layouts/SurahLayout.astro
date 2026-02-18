@@ -1,20 +1,38 @@
 ---
 import BaseLayout from './BaseLayout.astro';
+import BreadcrumbSchema from '../components/seo/BreadcrumbSchema.astro';
+import ArticleSchema from '../components/seo/ArticleSchema.astro';
 
 interface Props {
   name: string;
   nameArabic: string;
   surahNumber: number;
   verseCount: number;
+  difficulty?: 'beginner' | 'intermediate' | 'advanced';
   revelation?: string;
   description?: string;
 }
 
-const { name, nameArabic, surahNumber, verseCount, revelation, description } = Astro.props;
-const surahDescription = description || `Word-by-word grammatical analysis of Surah ${name} (${nameArabic}). ${verseCount} verses with detailed Arabic grammar breakdown.`;
+const { name, nameArabic, surahNumber, verseCount, difficulty, revelation, description } = Astro.props;
+const difficultyLabel = difficulty ? `${difficulty.charAt(0).toUpperCase() + difficulty.slice(1)}-level ` : '';
+const surahDescription = description || `${difficultyLabel}word-by-word I'rab and grammatical breakdown of Surah ${name} (${nameArabic}), Surah ${surahNumber} of the Quran. Covers all ${verseCount} verses with Arabic syntax analysis.`;
+
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  { label: 'Surahs', href: '/surahs/' },
+  { label: `Surah ${name}` },
+];
 ---
 
 <BaseLayout title={`Surah ${name}`} description={surahDescription} type="article">
+  <Fragment slot="head">
+    <BreadcrumbSchema items={breadcrumbItems} />
+    <ArticleSchema
+      title={`Surah ${name} - Grammatical Breakdown`}
+      description={surahDescription}
+      url={Astro.url.pathname}
+    />
+  </Fragment>
   <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
     <!-- Breadcrumb -->
     <nav class="text-sm mb-6" style="color: var(--text-tertiary);">

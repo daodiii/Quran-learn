@@ -10,7 +10,15 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig({
   site: 'https://quranic-grammar.com',
-  integrations: [mdx({ rehypePlugins: [rehypeArabicWrap] }), sitemap()],
+  integrations: [
+    mdx({ rehypePlugins: [rehypeArabicWrap] }),
+    sitemap({
+      serialize(item) {
+        item.lastmod = new Date().toISOString();
+        return item;
+      },
+    }),
+  ],
   trailingSlash: 'always',
   vite: {
     plugins: [tailwindcss()],

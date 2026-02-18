@@ -4,6 +4,8 @@ import BaseLayout from './BaseLayout.astro';
 import CourseNavigator from '../components/navigation/CourseNavigator.astro';
 import NavigatorToggle from '../components/navigation/NavigatorToggle.astro';
 import Breadcrumbs from '../components/navigation/Breadcrumbs.astro';
+import BreadcrumbSchema from '../components/seo/BreadcrumbSchema.astro';
+import ArticleSchema from '../components/seo/ArticleSchema.astro';
 import { getCollection } from 'astro:content';
 
 interface Props {
@@ -44,9 +46,29 @@ const levelNames: Record<number, string> = {
   4: 'Advanced',
   5: 'Applied Study',
 };
+
+const educationalLevels: Record<number, string> = {
+  1: 'Beginner',
+  2: 'Beginner',
+  3: 'Intermediate',
+  4: 'Advanced',
+  5: 'Advanced',
+};
 ---
 
 <BaseLayout title={title} description={description} type="article">
+  <Fragment slot="head">
+    <BreadcrumbSchema items={breadcrumbItems} />
+    <ArticleSchema
+      title={title}
+      description={description || `${levelNames[level]} lesson on ${title} in Quranic Arabic grammar.`}
+      url={Astro.url.pathname}
+      type="LearningResource"
+      educationalLevel={educationalLevels[level]}
+    />
+    {prevLesson && <link rel="prev" href={new URL(prevLesson, Astro.site).href} />}
+    {nextLesson && <link rel="next" href={new URL(nextLesson, Astro.site).href} />}
+  </Fragment>
   <!-- Backdrop for mobile sidebar -->
   <div id="navigator-backdrop" class="navigator-backdrop"></div>
 

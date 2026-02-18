@@ -17,9 +17,33 @@ const levelNames: Record<number, { title: string; titleAr: string; desc: string 
 };
 
 const levels: (1 | 2 | 3 | 4 | 5)[] = [1, 2, 3, 4, 5];
+
+const courseSchema = {
+  "@context": "https://schema.org",
+  "@type": "Course",
+  "name": "Quranic Arabic Grammar",
+  "description": "A structured course for learning Quranic Arabic grammar from beginner to advanced, covering 73 lessons across 5 levels.",
+  "provider": {
+    "@type": "Organization",
+    "name": "Quranic Grammar",
+    "url": "https://quranic-grammar.com/",
+  },
+  "numberOfCredits": 0,
+  "isAccessibleForFree": true,
+  "inLanguage": "en",
+  "hasCourseInstance": levels.map(level => ({
+    "@type": "CourseInstance",
+    "name": `Level ${level}: ${levelNames[level].title}`,
+    "description": levelNames[level].desc,
+    "courseMode": "online",
+  })),
+};
 ---
 
-<BaseLayout title="Grammar Lessons">
+<BaseLayout title="Grammar Lessons" description="Browse all 73 Quranic Arabic grammar lessons across 5 levels. From the Arabic alphabet and vowels to verb forms I-X, I'rab case endings, and applied Quranic analysis.">
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(courseSchema)} />
+  </Fragment>
   <Container maxWidth="xl">
     <header class="page-header">
       <h1 class="page-title">Grammar Curriculum</h1>

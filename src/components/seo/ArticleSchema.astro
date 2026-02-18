@@ -1,0 +1,32 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  url: string;
+  type?: 'Article' | 'LearningResource';
+  educationalLevel?: string;
+}
+
+const { title, description, url, type = 'Article', educationalLevel } = Astro.props;
+const siteUrl = Astro.site?.href.replace(/\/$/, '') || '';
+
+const jsonLd: Record<string, unknown> = {
+  "@context": "https://schema.org",
+  "@type": type,
+  "headline": title,
+  "description": description,
+  "url": `${siteUrl}${url}`,
+  "inLanguage": "en",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Quranic Grammar",
+    "url": siteUrl,
+  },
+};
+
+if (educationalLevel) {
+  jsonLd.educationalLevel = educationalLevel;
+}
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />

@@ -1,5 +1,7 @@
 ---
 import BaseLayout from './BaseLayout.astro';
+import BreadcrumbSchema from '../components/seo/BreadcrumbSchema.astro';
+import ArticleSchema from '../components/seo/ArticleSchema.astro';
 
 interface Props {
   title: string;
@@ -7,9 +9,24 @@ interface Props {
 }
 
 const { title, description } = Astro.props;
+
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  { label: 'Resources', href: '/resources/' },
+  { label: title },
+];
 ---
 
 <BaseLayout title={title} description={description} type="article">
+  <Fragment slot="head">
+    <BreadcrumbSchema items={breadcrumbItems} />
+    <ArticleSchema
+      title={title}
+      description={description || `${title} - Quranic Arabic grammar reference guide.`}
+      url={Astro.url.pathname}
+      type="LearningResource"
+    />
+  </Fragment>
   <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
     <!-- Breadcrumb -->
     <nav class="text-sm mb-6" style="color: var(--text-tertiary);">
