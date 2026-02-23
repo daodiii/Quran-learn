@@ -1,0 +1,581 @@
+---
+title: "Numbers & Counting (al-A'dad)"
+level: 4
+order: 16
+description: "Master Arabic number agreement rules including the famous 'reverse gender' rule for 3-10, compound numbers, and recognize number expressions in the Quran."
+draft: false
+---
+
+import ArabicExample from '../../../components/mdx/ArabicExample.astro';
+import GrammarTable from '../../../components/mdx/GrammarTable.astro';
+import Callout from '../../../components/mdx/Callout.astro';
+import ExerciseBox from '../../../components/mdx/ExerciseBox.astro';
+
+## Introduction
+
+When Allah describes His creation of the heavens, He uses a number with precise grammatical agreement:
+
+<ArabicExample
+  arabic="هُوَ ٱلَّذِى خَلَقَ لَكُم مَّا فِى ٱلْأَرْضِ جَمِيعًۭا ثُمَّ ٱسْتَوَىٰٓ إِلَى ٱلسَّمَآءِ فَسَوَّىٰهُنَّ سَبْعَ سَمَٰوَٰتٍۢ"
+  transliteration="huwa lladhī khalaqa lakum mā fī l-arḍi jamīʿan thumma stawā ilā s-samāʾi fa-sawwāhunna sabʿa samāwātin"
+  translation="It is He who created for you all that is on the earth, then He turned to the heaven and fashioned them as seven heavens"
+  reference="Al-Baqarah 2:29"
+  highlight="سَبْعَ سَمَٰوَٰتٍۢ"
+  words={[
+    { ar: "سَبْعَ", tr: "sabʿa", en: "seven" },
+    { ar: "سَمَٰوَٰتٍۢ", tr: "samāwātin", en: "heavens" }
+  ]}
+/>
+
+Notice that **سَبْعَ** (sabʿa) "seven" has NO taa marbuta, even though you might expect a feminine ending. This is because **سَمَاء** (samāʾ) "heaven/sky" is feminine — and in Arabic, numbers 3-10 take the OPPOSITE gender of their counted noun. This counter-intuitive "reverse gender agreement" is one of the most famous rules in Arabic grammar, and numbers appear throughout the Quran in contexts ranging from theological declarations to legal rulings to prophetic narratives.
+
+**In this lesson, you will:**
+- Understand the basic agreement rules for numbers 1-2 (straightforward gender agreement)
+- Master the famous "reverse gender rule" for numbers 3-10 and its idafah relationship
+- Learn compound number structures (11-19) and their case patterns
+- Recognize tens, hundreds, and thousands in Quranic expressions
+- Parse number-noun phrases from actual Quranic verses with confidence
+
+**Connection to previous learning:** In [L1.07 Gender: Masculine & Feminine](/learn/level-1/07-gender-masculine-feminine/), you learned to distinguish masculine and feminine nouns — essential for applying number agreement. In [L1.10 Case Endings](/learn/level-1/10-case-endings/), you learned the three cases (nominative, accusative, genitive) — numbers interact with all three. In [L2.08 The Possessive (Idafah)](/learn/level-2/08-possessive-idafah/), you learned the idafah construction — numbers 3-10 form idafah with their counted noun, placing it in the genitive.
+
+**Forward connection:** This lesson prepares you for [L4.17 Introduction to Balagha (Rhetoric)](/learn/level-4/17-intro-balagha/), where you'll see how the Quran's choice of specific numbers and numerical structures contributes to rhetorical impact and precision.
+
+<Callout type="note" title="Recognition, not production">
+Arabic number rules are among the most complex in the language. Our focus here is on RECOGNIZING number patterns when you encounter them in the Quran — not on producing them from scratch. If you can identify the reverse gender rule in action and parse a Quranic number phrase, you've achieved the goal of this lesson.
+</Callout>
+
+## Numbers 1-2: Normal Agreement
+
+Numbers 1 and 2 are the simplest — they behave like regular adjectives. They FOLLOW the noun and AGREE with it in gender.
+
+### Number 1: واحِدٌ / واحِدَةٌ (wāḥid / wāḥidah)
+
+The number "one" acts as an adjective after the noun, agreeing in gender:
+
+<ArabicExample
+  arabic="وَإِلَٰهُكُمْ إِلَٰهٌ وَاحِدٌ"
+  transliteration="wa-ilāhukum ilāhun wāḥidun"
+  translation="And your god is one God"
+  reference="Al-Baqarah 2:163"
+  highlight="وَاحِدٌ"
+  words={[
+    { ar: "وَإِلَٰهُكُمْ", tr: "wa-ilāhukum", en: "and your god" },
+    { ar: "إِلَٰهٌ", tr: "ilāhun", en: "is a God" },
+    { ar: "وَاحِدٌ", tr: "wāḥidun", en: "one" }
+  ]}
+/>
+
+**Grammatical analysis:**
+- **إِلَٰهٌ:** Masculine noun → **وَاحِدٌ** is masculine (no taa marbuta)
+- **وَاحِدٌ** follows the noun as an adjective, agreeing in gender, case (nominative), and definiteness (indefinite)
+
+For a feminine noun, you would use **وَاحِدَةٌ** (wāḥidatun) — with taa marbuta.
+
+### Number 2: اِثْنَانِ / اِثْنَتَانِ (ithnāni / ithnatāni)
+
+The number "two" also follows the noun as an adjective, but the noun itself must be in the dual form:
+
+<ArabicExample
+  arabic="لَا تَتَّخِذُوٓا۟ إِلَٰهَيْنِ ٱثْنَيْنِ"
+  transliteration="lā tattakhidhū ilāhayni thnayn"
+  translation="Do not take two gods"
+  reference="An-Nahl 16:51"
+  highlight="ٱثْنَيْنِ"
+  words={[
+    { ar: "لَا", tr: "lā", en: "do not" },
+    { ar: "تَتَّخِذُوٓا۟", tr: "tattakhidhū", en: "take" },
+    { ar: "إِلَٰهَيْنِ", tr: "ilāhayni", en: "two gods" },
+    { ar: "ٱثْنَيْنِ", tr: "thnayn", en: "two" }
+  ]}
+/>
+
+**Grammatical analysis:**
+- **إِلَٰهَيْنِ:** Masculine dual noun (accusative/genitive dual ending ـَيْنِ)
+- **ٱثْنَيْنِ:** Masculine form of "two," matching the noun in gender and case
+
+**Key point:** Numbers 1 and 2 are straightforward — they agree normally with their noun, just like any adjective. The complexity begins with number 3.
+
+<GrammarTable>
+| Number | Masculine | Feminine | Position | Agreement |
+|--------|-----------|----------|----------|-----------|
+| **1** | وَاحِدٌ (wāḥid) | وَاحِدَةٌ (wāḥidah) | After noun | Normal — agrees with noun in gender |
+| **2** | اِثْنَانِ (ithnān) | اِثْنَتَانِ (ithnatān) | After noun (dual) | Normal — agrees with noun in gender |
+</GrammarTable>
+
+## Numbers 3-10: The Reverse Gender Rule
+
+This is the CORE section of this lesson and the most famous rule in Arabic number grammar. Brace yourself — it is deliberately counter-intuitive.
+
+**The rule:** Numbers 3-10 take the OPPOSITE gender of their counted noun (ma'dud):
+- If the noun is **masculine**, the number takes a **feminine** form (WITH taa marbuta)
+- If the noun is **feminine**, the number takes a **masculine** form (WITHOUT taa marbuta)
+
+Think of Arabic numbers as contrarians — they always dress in the opposite gender's clothing. When the noun is masculine, the number puts on a feminine ending; when the noun is feminine, the number strips off that ending.
+
+### The Numbers 3-10 in Both Genders
+
+<GrammarTable>
+| Number | With Masculine Noun (feminine form) | With Feminine Noun (masculine form) |
+|--------|--------------------------------------|--------------------------------------|
+| **3** | ثَلَاثَةٌ (thalāthah) | ثَلَاثٌ (thalāth) |
+| **4** | أَرْبَعَةٌ (arbaʿah) | أَرْبَعٌ (arbaʿ) |
+| **5** | خَمْسَةٌ (khamsah) | خَمْسٌ (khams) |
+| **6** | سِتَّةٌ (sittah) | سِتٌّ (sitt) |
+| **7** | سَبْعَةٌ (sabʿah) | سَبْعٌ (sabʿ) |
+| **8** | ثَمَانِيَةٌ (thamāniyah) | ثَمَانٍ (thamānin) |
+| **9** | تِسْعَةٌ (tisʿah) | تِسْعٌ (tisʿ) |
+| **10** | عَشَرَةٌ (ʿasharah) | عَشْرٌ (ʿashr) |
+</GrammarTable>
+
+**Remember the pattern:**
+- **Left column** (with taa marbuta ة) = used with MASCULINE nouns
+- **Right column** (without taa marbuta) = used with FEMININE nouns
+
+### The Counted Noun (ma'dud) Takes Genitive Plural
+
+The number (3-10) comes BEFORE the noun, and the two form an **idafah** construction. This means the counted noun (ma'dud) takes **genitive plural** (مَجْرُورٌ):
+
+**Number (3-10) + Noun (genitive plural)**
+
+This is the same idafah you learned in [L2.08](/learn/level-2/08-possessive-idafah/): the first word "possesses" the second, and the second takes genitive case.
+
+### Quranic Examples
+
+**Example 1: Feminine noun — number has NO taa marbuta**
+
+<ArabicExample
+  arabic="هُوَ ٱلَّذِى خَلَقَ سَبْعَ سَمَٰوَٰتٍۢ"
+  transliteration="huwa lladhī khalaqa sabʿa samāwātin"
+  translation="It is He who created seven heavens"
+  reference="Al-Mulk 67:3"
+  highlight="سَبْعَ سَمَٰوَٰتٍۢ"
+  words={[
+    { ar: "هُوَ", tr: "huwa", en: "He is" },
+    { ar: "ٱلَّذِى", tr: "lladhī", en: "the one who" },
+    { ar: "خَلَقَ", tr: "khalaqa", en: "created" },
+    { ar: "سَبْعَ", tr: "sabʿa", en: "seven" },
+    { ar: "سَمَٰوَٰتٍۢ", tr: "samāwātin", en: "heavens" }
+  ]}
+/>
+
+**Grammatical analysis:**
+- **سَمَاء** (samāʾ) "heaven/sky" is **feminine**
+- Therefore **سَبْعَ** (sabʿa) takes the masculine form — NO taa marbuta
+- **سَمَٰوَٰتٍۢ** is genitive plural (ـٍ ending) because it forms idafah with the number
+- Reverse gender rule in action: feminine noun → masculine number
+
+**Example 2: Masculine noun — number HAS taa marbuta**
+
+<ArabicExample
+  arabic="فَمَن لَّمْ يَجِدْ فَصِيَامُ ثَلَاثَةِ أَيَّامٍۢ"
+  transliteration="fa-man lam yajid fa-ṣiyāmu thalāthati ayyāmin"
+  translation="And whoever cannot find [a sacrifice] — then a fast of three days"
+  reference="Al-Baqarah 2:196"
+  highlight="ثَلَاثَةِ أَيَّامٍۢ"
+  words={[
+    { ar: "فَمَن", tr: "fa-man", en: "and whoever" },
+    { ar: "لَّمْ يَجِدْ", tr: "lam yajid", en: "cannot find" },
+    { ar: "فَصِيَامُ", tr: "fa-ṣiyāmu", en: "then a fast of" },
+    { ar: "ثَلَاثَةِ", tr: "thalāthati", en: "three" },
+    { ar: "أَيَّامٍۢ", tr: "ayyāmin", en: "days" }
+  ]}
+/>
+
+**Grammatical analysis:**
+- **يَوْمٌ** (yawm) "day" is **masculine**
+- Therefore **ثَلَاثَة** (thalāthah) takes the feminine form — WITH taa marbuta
+- **أَيَّامٍۢ** is genitive plural (ـٍ ending) — idafah with the number
+- Reverse gender rule in action: masculine noun → feminine number
+
+**Example 3: Feminine noun — number has NO taa marbuta**
+
+<ArabicExample
+  arabic="إِنِّىٓ أَرَىٰ سَبْعَ بَقَرَٰتٍۢ سِمَانٍۢ"
+  transliteration="innī arā sabʿa baqarātin simānin"
+  translation="Indeed, I have seen seven fat cows"
+  reference="Yusuf 12:43"
+  highlight="سَبْعَ بَقَرَٰتٍۢ"
+  words={[
+    { ar: "إِنِّىٓ", tr: "innī", en: "indeed, I" },
+    { ar: "أَرَىٰ", tr: "arā", en: "have seen" },
+    { ar: "سَبْعَ", tr: "sabʿa", en: "seven" },
+    { ar: "بَقَرَٰتٍۢ", tr: "baqarātin", en: "cows" },
+    { ar: "سِمَانٍۢ", tr: "simānin", en: "fat" }
+  ]}
+/>
+
+**Grammatical analysis:**
+- **بَقَرَةٌ** (baqarah) "cow" is **feminine** (has taa marbuta)
+- Therefore **سَبْعَ** (sabʿa) takes the masculine form — NO taa marbuta
+- **بَقَرَٰتٍۢ** is genitive plural (ـٍ ending) — idafah with the number
+- Reverse gender rule confirmed again: feminine noun → masculine number
+
+**Example 4: Masculine noun — number HAS taa marbuta**
+
+<ArabicExample
+  arabic="وَكَانَ فِى ٱلْمَدِينَةِ تِسْعَةُ رَهْطٍۢ"
+  transliteration="wa-kāna fī l-madīnati tisʿatu rahṭin"
+  translation="And there were in the city nine persons"
+  reference="An-Naml 27:48"
+  highlight="تِسْعَةُ رَهْطٍۢ"
+  words={[
+    { ar: "وَكَانَ", tr: "wa-kāna", en: "and there were" },
+    { ar: "فِى ٱلْمَدِينَةِ", tr: "fī l-madīnati", en: "in the city" },
+    { ar: "تِسْعَةُ", tr: "tisʿatu", en: "nine" },
+    { ar: "رَهْطٍۢ", tr: "rahṭin", en: "persons" }
+  ]}
+/>
+
+**Grammatical analysis:**
+- **رَهْطٌ** (rahṭ) "group of men, persons" is **masculine**
+- Therefore **تِسْعَة** (tisʿah) takes the feminine form — WITH taa marbuta
+- **رَهْطٍۢ** is genitive (ـٍ ending) — idafah with the number
+- Reverse gender rule: masculine noun → feminine number
+
+<Callout type="warning" title="This is counter-intuitive — and that's normal">
+The reverse gender rule trips up even advanced Arabic students. It feels wrong to put a feminine ending on a number when counting masculine nouns. Don't worry about producing this perfectly — focus on RECOGNIZING it. When you see a number with taa marbuta followed by a noun, ask: "Is the noun masculine?" If yes, the reverse rule is in action. With practice, you'll spot it instantly.
+</Callout>
+
+### Why Does This Rule Exist?
+
+Classical Arabic grammarians debated this extensively. The most common explanation is historical: the original forms of the numbers (3-10) were feminine, and the "masculine" forms we see (without taa marbuta) are actually the shortened/derived forms. Over time, the grammatical tradition codified this pattern as the "reverse" rule, even though historically it may have been the original default. Regardless of the origin, the rule is absolute and consistent throughout the Quran.
+
+## Numbers 11-19: Compound Numbers
+
+Numbers 11-19 are "compound" — they consist of two parts joined together. The agreement rules shift here.
+
+### Numbers 11 and 12: Both Parts Agree
+
+For 11 and 12, BOTH parts of the compound number agree in gender with the counted noun:
+
+<GrammarTable>
+| Number | With Masculine Noun | With Feminine Noun |
+|--------|---------------------|---------------------|
+| **11** | أَحَدَ عَشَرَ (aḥada ʿashara) | إِحْدَىٰ عَشْرَةَ (iḥdā ʿashrata) |
+| **12** | اِثْنَا عَشَرَ (ithnā ʿashara) | اِثْنَتَا عَشْرَةَ (ithnatā ʿashrata) |
+</GrammarTable>
+
+**Key Quranic example:**
+
+<ArabicExample
+  arabic="وَبَعَثْنَا مِنْهُمُ ٱثْنَىْ عَشَرَ نَقِيبًا"
+  transliteration="wa-baʿathnā minhumu thnaī ʿashara naqīban"
+  translation="And We sent among them twelve chieftains"
+  reference="Al-Ma'idah 5:12"
+  highlight="ٱثْنَىْ عَشَرَ نَقِيبًا"
+  words={[
+    { ar: "وَبَعَثْنَا", tr: "wa-baʿathnā", en: "and We sent" },
+    { ar: "مِنْهُمُ", tr: "minhumu", en: "among them" },
+    { ar: "ٱثْنَىْ عَشَرَ", tr: "thnaī ʿashara", en: "twelve" },
+    { ar: "نَقِيبًا", tr: "naqīban", en: "chieftains" }
+  ]}
+/>
+
+**Grammatical analysis:**
+- **نَقِيبٌ** (naqīb) "chieftain" is **masculine**
+- Both parts agree: **اِثْنَيْ** (masculine) + **عَشَرَ** (masculine form)
+- **نَقِيبًا** is accusative SINGULAR — not plural! (This is a key difference from 3-10.)
+
+<ArabicExample
+  arabic="إِذْ قَالَ يُوسُفُ لِأَبِيهِ يَٰٓأَبَتِ إِنِّى رَأَيْتُ أَحَدَ عَشَرَ كَوْكَبًا"
+  transliteration="idh qāla yūsufu li-abīhi yā abati innī raʾaytu aḥada ʿashara kawkaban"
+  translation="When Joseph said to his father, 'O my father, indeed I have seen eleven stars'"
+  reference="Yusuf 12:4"
+  highlight="أَحَدَ عَشَرَ كَوْكَبًا"
+  words={[
+    { ar: "إِنِّى", tr: "innī", en: "indeed, I" },
+    { ar: "رَأَيْتُ", tr: "raʾaytu", en: "have seen" },
+    { ar: "أَحَدَ عَشَرَ", tr: "aḥada ʿashara", en: "eleven" },
+    { ar: "كَوْكَبًا", tr: "kawkaban", en: "stars" }
+  ]}
+/>
+
+**Grammatical analysis:**
+- **كَوْكَبٌ** (kawkab) "star/planet" is **masculine**
+- Both parts agree: **أَحَدَ** (masculine) + **عَشَرَ** (masculine form)
+- **كَوْكَبًا** is accusative SINGULAR (ـًا ending) — the counted noun after 11-99 is always singular
+
+### Numbers 13-19: Mixed Agreement
+
+For 13-19, the first part follows the reverse gender rule (like 3-10), but the second part (عَشَرَ / عَشْرَةَ) agrees normally with the noun:
+
+<GrammarTable>
+| Number | With Masculine Noun | With Feminine Noun |
+|--------|---------------------|---------------------|
+| **13** | ثَلَاثَةَ عَشَرَ (thalāthata ʿashara) | ثَلَاثَ عَشْرَةَ (thalātha ʿashrata) |
+| **14** | أَرْبَعَةَ عَشَرَ (arbaʿata ʿashara) | أَرْبَعَ عَشْرَةَ (arbaʿa ʿashrata) |
+| **15** | خَمْسَةَ عَشَرَ (khamsata ʿashara) | خَمْسَ عَشْرَةَ (khamsa ʿashrata) |
+| **19** | تِسْعَةَ عَشَرَ (tisʿata ʿashara) | تِسْعَ عَشْرَةَ (tisʿa ʿashrata) |
+</GrammarTable>
+
+**Pattern for 13-19 with masculine nouns:**
+- First part: feminine form (taa marbuta) — reverse rule, like 3-10
+- Second part: عَشَرَ (ʿashara) — masculine form, agreeing normally
+
+**Pattern for 13-19 with feminine nouns:**
+- First part: masculine form (no taa marbuta) — reverse rule, like 3-10
+- Second part: عَشْرَةَ (ʿashrata) — feminine form, agreeing normally
+
+<ArabicExample
+  arabic="عَلَيْهَا تِسْعَةَ عَشَرَ"
+  transliteration="ʿalayhā tisʿata ʿashara"
+  translation="Over it are nineteen [angels]"
+  reference="Al-Muddaththir 74:30"
+  highlight="تِسْعَةَ عَشَرَ"
+  words={[
+    { ar: "عَلَيْهَا", tr: "ʿalayhā", en: "over it" },
+    { ar: "تِسْعَةَ عَشَرَ", tr: "tisʿata ʿashara", en: "nineteen" }
+  ]}
+/>
+
+**Grammatical analysis:**
+- The implied counted noun (angels / مَلَكٌ) is **masculine**
+- First part **تِسْعَةَ**: feminine form (taa marbuta) — reverse rule applied
+- Second part **عَشَرَ**: masculine form — normal agreement
+
+<Callout type="rule" title="Counted noun after 11-99 is accusative singular">
+Unlike numbers 3-10 (where the counted noun is genitive PLURAL), numbers 11-99 take the counted noun in the accusative case and SINGULAR form. This is called تَمْيِيز (tamyiz) — the same specification construction you learned about in [L4.02](/learn/level-4/02-tamyiz/). Examples: أَحَدَ عَشَرَ **كَوْكَبًا** (eleven stars — singular!), اِثْنَا عَشَرَ **نَقِيبًا** (twelve chieftains — singular!).
+</Callout>
+
+## Tens, Hundreds, and Thousands
+
+### Tens (20-90): No Gender Change
+
+The tens (عِشْرُونَ, ثَلَاثُونَ, أَرْبَعُونَ... تِسْعُونَ) do NOT change for gender. They have one form regardless of the noun's gender, and the counted noun is accusative singular (tamyiz):
+
+<ArabicExample
+  arabic="وَلَتَجِدَنَّهُمْ أَحْرَصَ ٱلنَّاسِ عَلَىٰ حَيَوٰةٍۢ وَمِنَ ٱلَّذِينَ أَشْرَكُوا۟ يَوَدُّ أَحَدُهُمْ لَوْ يُعَمَّرُ أَلْفَ سَنَةٍۢ"
+  transliteration="wa-la-tajidannahum aḥraṣa n-nāsi ʿalā ḥayātin... yawaddu aḥaduhum law yuʿammaru alfa sanatin"
+  translation="And you will surely find them the most greedy of people for life... One of them wishes he could be given a life of a thousand years"
+  reference="Al-Baqarah 2:96"
+  highlight="أَلْفَ سَنَةٍۢ"
+  words={[
+    { ar: "يَوَدُّ", tr: "yawaddu", en: "wishes" },
+    { ar: "أَحَدُهُمْ", tr: "aḥaduhum", en: "one of them" },
+    { ar: "لَوْ", tr: "law", en: "if only" },
+    { ar: "يُعَمَّرُ", tr: "yuʿammaru", en: "he could live" },
+    { ar: "أَلْفَ", tr: "alfa", en: "a thousand" },
+    { ar: "سَنَةٍۢ", tr: "sanatin", en: "years" }
+  ]}
+/>
+
+**Grammatical analysis:**
+- **أَلْفَ** (alf) "a thousand" — no gender change
+- **سَنَةٍۢ** is genitive SINGULAR (ـٍ ending) — after hundreds and thousands, the counted noun is genitive singular
+
+<ArabicExample
+  arabic="إِن تَسْتَغْفِرْ لَهُمْ سَبْعِينَ مَرَّةًۭ فَلَن يَغْفِرَ ٱللَّهُ لَهُمْ"
+  transliteration="in tastaghfir lahum sabʿīna marratan fa-lan yaghfira llāhu lahum"
+  translation="If you ask forgiveness for them seventy times — never will Allah forgive them"
+  reference="At-Tawbah 9:80"
+  highlight="سَبْعِينَ مَرَّةًۭ"
+  words={[
+    { ar: "إِن", tr: "in", en: "if" },
+    { ar: "تَسْتَغْفِرْ", tr: "tastaghfir", en: "you ask forgiveness" },
+    { ar: "لَهُمْ", tr: "lahum", en: "for them" },
+    { ar: "سَبْعِينَ", tr: "sabʿīna", en: "seventy" },
+    { ar: "مَرَّةًۭ", tr: "marratan", en: "times" }
+  ]}
+/>
+
+**Grammatical analysis:**
+- **سَبْعِينَ** (sabʿīna) "seventy" — accusative form of the tens (sound masculine plural pattern)
+- **مَرَّةًۭ** is accusative SINGULAR (tamyiz) — not plural
+- No gender change on the tens number
+
+### Hundreds and Thousands
+
+<ArabicExample
+  arabic="وَلَبِثُوا۟ فِى كَهْفِهِمْ ثَلَٰثَ مِائَةٍۢ سِنِينَ"
+  transliteration="wa-labithū fī kahfihim thalātha miʾatin sinīna"
+  translation="And they remained in their cave for three hundred years"
+  reference="Al-Kahf 18:25"
+  highlight="ثَلَٰثَ مِائَةٍۢ"
+  words={[
+    { ar: "وَلَبِثُوا۟", tr: "wa-labithū", en: "and they remained" },
+    { ar: "فِى كَهْفِهِمْ", tr: "fī kahfihim", en: "in their cave" },
+    { ar: "ثَلَٰثَ", tr: "thalātha", en: "three" },
+    { ar: "مِائَةٍۢ", tr: "miʾatin", en: "hundred" },
+    { ar: "سِنِينَ", tr: "sinīna", en: "years" }
+  ]}
+/>
+
+**Grammatical analysis:**
+- **مِائَةٌ** (miʾah) "hundred" is **feminine**
+- Therefore **ثَلَاث** has NO taa marbuta — reverse gender rule applies (3-10 rule with مِائَة as the counted noun)
+- **مِائَةٍۢ** is genitive (idafah with ثَلَاث)
+- **سِنِينَ** (sinīna) "years" is a further specification
+
+<GrammarTable>
+| Number | Form | Counted Noun Case | Example |
+|--------|------|-------------------|---------|
+| **Tens (20-90)** | عِشْرُونَ, ثَلَاثُونَ, etc. — no gender change | Accusative singular (tamyiz) | سَبْعِينَ مَرَّةًۭ (seventy times) |
+| **Hundred** | مِائَةٌ (miʾah) | Genitive singular | مِائَةَ عَامٍۢ (a hundred years) |
+| **Thousands** | أَلْفٌ (alf) | Genitive singular | أَلْفَ سَنَةٍۢ (a thousand years) |
+</GrammarTable>
+
+## Ordinal Numbers
+
+Ordinal numbers (first, second, third...) follow a completely different pattern from cardinal numbers. For 1st through 10th, they follow the فَاعِل (fāʿil) active participle pattern and — unlike cardinals 3-10 — they AGREE NORMALLY in gender with their noun:
+
+<GrammarTable>
+| Ordinal | Masculine | Feminine |
+|---------|-----------|----------|
+| **1st** | أَوَّلُ (awwal) | أُولَىٰ (ūlā) |
+| **2nd** | ثَانٍ (thānin) | ثَانِيَةٌ (thāniyah) |
+| **3rd** | ثَالِثٌ (thālith) | ثَالِثَةٌ (thālithah) |
+| **4th** | رَابِعٌ (rābiʿ) | رَابِعَةٌ (rābiʿah) |
+| **5th** | خَامِسٌ (khāmis) | خَامِسَةٌ (khāmisah) |
+| **6th** | سَادِسٌ (sādis) | سَادِسَةٌ (sādisah) |
+| **7th** | سَابِعٌ (sābiʿ) | سَابِعَةٌ (sābiʿah) |
+| **8th** | ثَامِنٌ (thāmin) | ثَامِنَةٌ (thāminah) |
+| **9th** | تَاسِعٌ (tāsiʿ) | تَاسِعَةٌ (tāsiʿah) |
+| **10th** | عَاشِرٌ (ʿāshir) | عَاشِرَةٌ (ʿāshirah) |
+</GrammarTable>
+
+**Key point:** Ordinals work like regular adjectives — they follow the noun and agree in gender, case, and definiteness. No reverse rule here.
+
+<ArabicExample
+  arabic="وَلَقَدْ ءَاتَيْنَا مُوسَى ٱلْكِتَٰبَ مِنۢ بَعْدِ مَآ أَهْلَكْنَا ٱلْقُرُونَ ٱلْأُولَىٰ"
+  transliteration="wa-laqad ātaynā mūsa l-kitāba min baʿdi mā ahlaknā l-qurūna l-ūlā"
+  translation="And We certainly gave Moses the Scripture after We had destroyed the former generations"
+  reference="Al-Qasas 28:43"
+  highlight="ٱلْقُرُونَ ٱلْأُولَىٰ"
+  words={[
+    { ar: "أَهْلَكْنَا", tr: "ahlaknā", en: "We had destroyed" },
+    { ar: "ٱلْقُرُونَ", tr: "l-qurūna", en: "the generations" },
+    { ar: "ٱلْأُولَىٰ", tr: "l-ūlā", en: "the former/first" }
+  ]}
+/>
+
+**Grammatical analysis:**
+- **ٱلْقُرُونَ** "the generations" — feminine plural (قَرْنٌ treated as collective)
+- **ٱلْأُولَىٰ** "the first/former" — feminine ordinal, agreeing normally
+
+## The Rule
+
+Here is a comprehensive summary of Arabic number agreement:
+
+<GrammarTable>
+| Number Range | Number Position | Gender Agreement | Counted Noun Case | Example |
+|-------------|-----------------|------------------|-------------------|---------|
+| **1** | After noun | Normal (agrees with noun) | Same case as context | إِلَٰهٌ وَاحِدٌ (one God) |
+| **2** | After noun (dual) | Normal (agrees with noun) | Same case as context (dual) | إِلَٰهَيْنِ ٱثْنَيْنِ (two gods) |
+| **3-10** | Before noun (idafah) | **REVERSE** (opposite gender) | Genitive PLURAL | ثَلَاثَةِ أَيَّامٍۢ (three days) |
+| **11-12** | Before noun | Both parts agree normally | Accusative SINGULAR | أَحَدَ عَشَرَ كَوْكَبًا (eleven stars) |
+| **13-19** | Before noun | 1st part reverse, 2nd part normal | Accusative SINGULAR | تِسْعَةَ عَشَرَ (nineteen) |
+| **20-90** | Before noun | No gender change | Accusative SINGULAR | سَبْعِينَ مَرَّةًۭ (seventy times) |
+| **100, 1000** | Before noun | No gender change | Genitive SINGULAR | أَلْفَ سَنَةٍۢ (a thousand years) |
+| **Ordinals (1st-10th)** | After noun | Normal (agrees with noun) | Same case as noun | ٱلْقُرُونَ ٱلْأُولَىٰ (the first generations) |
+</GrammarTable>
+
+**Recognition strategy:**
+1. When you see a number + noun, first identify the noun's gender
+2. For 3-10: Check if the number has taa marbuta — if the noun is masculine, the number should have it; if the noun is feminine, it should not
+3. For 11-19: Check the counted noun — it should be accusative singular
+4. For 20-99: The number has one form; the counted noun is accusative singular
+5. For 100/1000: The counted noun is genitive singular
+
+## Practice
+
+<ExerciseBox question="Exercise 1: Identify Gender Agreement">
+
+Determine whether the number-noun agreement in each phrase is correct, and explain why.
+
+**1. سَبْعَ سَمَٰوَٰتٍۢ (seven heavens)**
+
+CORRECT. سَمَاء (sky/heaven) is feminine. By the reverse gender rule, the number takes the masculine form: سَبْعَ (no taa marbuta). The counted noun سَمَٰوَٰتٍ is genitive plural (idafah). This matches the Quranic usage in Al-Baqarah 2:29 and Al-Mulk 67:3.
+
+**2. ثَلَاثَةِ أَيَّامٍۢ (three days)**
+
+CORRECT. يَوْمٌ (day) is masculine. By the reverse gender rule, the number takes the feminine form: ثَلَاثَةِ (with taa marbuta). The counted noun أَيَّامٍ is genitive plural. This matches Al-Baqarah 2:196.
+
+**3. خَمْسَةِ لَيَالٍ (five nights)**
+
+INCORRECT. لَيْلَةٌ (night) is feminine. By the reverse gender rule, the number should take the masculine form: خَمْسِ لَيَالٍ (without taa marbuta). The form خَمْسَةِ (with taa marbuta) would be used with masculine nouns.
+
+**4. سَبْعَ بَقَرَٰتٍۢ (seven cows)**
+
+CORRECT. بَقَرَةٌ (cow) is feminine (has taa marbuta). By the reverse gender rule, the number takes the masculine form: سَبْعَ (no taa marbuta). The counted noun بَقَرَٰتٍ is genitive plural. This matches Yusuf 12:43.
+
+</ExerciseBox>
+
+<ExerciseBox question="Exercise 2: Parse Quranic Number Phrases">
+
+Analyze each Quranic number expression: identify the number, the counted noun, its gender, and explain the agreement pattern.
+
+**1. وَٱلْفَجْرِ وَلَيَالٍ عَشْرٍۢ (By the dawn and ten nights) [Al-Fajr 89:1-2]**
+
+Number: عَشْرٍ (ʿashr) "ten" — masculine form (no taa marbuta). Counted noun: لَيَالٍ (layālin) "nights" — plural of لَيْلَةٌ (feminine). Agreement: Reverse gender rule applied correctly. Feminine noun (لَيْلَةٌ) takes the masculine number form (عَشْرٍ without taa marbuta). Note: Here عَشْرٍ follows the noun as an adjective rather than preceding it in idafah — this is an alternative construction found in classical Arabic.
+
+**2. تِلْكَ عَشَرَةٌ كَامِلَةٌ (That is ten complete) [Al-Baqarah 2:196]**
+
+Number: عَشَرَةٌ (ʿasharah) "ten" — feminine form (with taa marbuta). This verse sums up "three days" + "seven days" = ten. The feminine form عَشَرَةٌ indicates the counted noun (أَيَّامٍ / days) is masculine. Reverse gender rule: masculine noun (يَوْمٌ) → feminine number (عَشَرَةٌ). كَامِلَةٌ "complete" is a feminine adjective modifying عَشَرَةٌ.
+
+**3. وَقَطَّعْنَٰهُمُ ٱثْنَتَىْ عَشْرَةَ أَسْبَاطًا (And We divided them into twelve tribes) [Al-A'raf 7:160]**
+
+Number: اِثْنَتَيْ عَشْرَةَ (ithnatay ʿashrata) "twelve" — feminine form for both parts. Counted noun: أَسْبَاطًا (asbāṭan) "tribes" — accusative singular form (tamyiz). Both parts of the compound number take the feminine form because the implied counted entity (أُمَّةٌ / nation or فِرْقَةٌ / group) is feminine. The counted noun after 11-12 is accusative singular.
+
+**4. إِنَّ عِدَّةَ ٱلشُّهُورِ عِندَ ٱللَّهِ ٱثْنَا عَشَرَ شَهْرًا (Indeed, the number of months with Allah is twelve months) [At-Tawbah 9:36]**
+
+Number: اِثْنَا عَشَرَ (ithnā ʿashara) "twelve" — masculine form for both parts. Counted noun: شَهْرًا (shahran) "month" — accusative singular (tamyiz). Agreement: شَهْرٌ (month) is masculine, so both parts take masculine form. The counted noun is singular and accusative, as required after compound numbers 11-19.
+
+</ExerciseBox>
+
+<ExerciseBox question="Exercise 3: Apply the Correct Number Form">
+
+Given a noun and a number, determine the correct Arabic number form using the rules you have learned.
+
+**1. The noun is رَجُلٌ (rajul, "man" — masculine). The number is 5.**
+
+Correct form: خَمْسَةُ رِجَالٍ (khamsatu rijālin). Since رَجُلٌ is masculine, the reverse gender rule requires the feminine number form: خَمْسَة (with taa marbuta). The counted noun رِجَالٍ is genitive plural (idafah).
+
+**2. The noun is لَيْلَةٌ (laylah, "night" — feminine). The number is 7.**
+
+Correct form: سَبْعُ لَيَالٍ (sabʿu layālin). Since لَيْلَةٌ is feminine, the reverse gender rule requires the masculine number form: سَبْع (without taa marbuta). The counted noun لَيَالٍ is genitive plural.
+
+**3. The noun is كَوْكَبٌ (kawkab, "star" — masculine). The number is 11.**
+
+Correct form: أَحَدَ عَشَرَ كَوْكَبًا (aḥada ʿashara kawkaban). For number 11, both parts agree normally with the masculine noun: أَحَدَ (masculine) + عَشَرَ (masculine form). The counted noun كَوْكَبًا is accusative singular (tamyiz), as seen in Yusuf 12:4.
+
+**4. The noun is سَنَةٌ (sanah, "year" — feminine). The number is 1000.**
+
+Correct form: أَلْفَ سَنَةٍ (alfa sanatin). أَلْفٌ does not change for gender. The counted noun سَنَةٍ is genitive singular, as seen in Al-Baqarah 2:96.
+
+</ExerciseBox>
+
+<ExerciseBox question="Exercise 4: Comprehensive Verse Analysis">
+
+Analyze the full verses below, identifying all number-related grammar.
+
+**1. سَخَّرَهَا عَلَيْهِمْ سَبْعَ لَيَالٍۢ وَثَمَٰنِيَةَ أَيَّامٍۢ حُسُومًا (He subjected it upon them for seven nights and eight days in succession) [Al-Haqqah 69:7]**
+
+Two number phrases in one verse: (a) سَبْعَ لَيَالٍ — Number سَبْعَ (no taa marbuta, masculine form) with لَيَالٍ (nights, feminine noun). Reverse rule: feminine noun → masculine number. Genitive plural in idafah. (b) ثَمَٰنِيَةَ أَيَّامٍ — Number ثَمَانِيَةَ (with taa marbuta, feminine form) with أَيَّامٍ (days, masculine noun). Reverse rule: masculine noun → feminine number. Genitive plural in idafah. Both phrases demonstrate the reverse gender rule side by side: nights (feminine) get the masculine number form; days (masculine) get the feminine number form.
+
+**2. وَلَقَدْ أَخَذْنَا مِنْهُمْ مِيثَٰقَهُمْ وَبَعَثْنَا مِنْهُمُ ٱثْنَىْ عَشَرَ نَقِيبًا (And We certainly took from them their covenant and We sent among them twelve chieftains) [Al-Ma'idah 5:12]**
+
+Number phrase: اِثْنَيْ عَشَرَ نَقِيبًا. Number: اِثْنَيْ عَشَرَ (twelve) — both parts masculine, agreeing with the masculine noun نَقِيبٌ (chieftain). The number is in accusative/genitive form (اِثْنَيْ rather than اِثْنَا) because it is the object of بَعَثْنَا (We sent). Counted noun: نَقِيبًا — accusative singular (tamyiz, not plural). Additional grammar: لَقَدْ provides maximum emphasis (emphatic lam + qad) — "We CERTAINLY took their covenant." The emphasis underscores the gravity of the divine covenant with the twelve tribes of Israel.
+
+**3. إِنِّىٓ أَرَىٰ سَبْعَ بَقَرَٰتٍۢ سِمَانٍۢ يَأْكُلُهُنَّ سَبْعٌ عِجَافٌ وَسَبْعَ سُنۢبُلَٰتٍ خُضْرٍۢ وَأُخَرَ يَابِسَٰتٍ (Indeed, I have seen seven fat cows being eaten by seven lean ones, and seven green ears of grain and others dry) [Yusuf 12:43]**
+
+Multiple number phrases from the king's dream in Surah Yusuf: (a) سَبْعَ بَقَرَٰتٍ — سَبْعَ (no taa marbuta) with بَقَرَٰتٍ (cows, feminine). Reverse rule: feminine → masculine number. Genitive plural. (b) سَبْعٌ عِجَافٌ — سَبْعٌ (no taa marbuta, nominative) without an explicit noun; عِجَافٌ (lean) is an adjective describing the implied cows. Feminine noun implied → masculine number form. (c) سَبْعَ سُنۢبُلَٰتٍ — سَبْعَ (no taa marbuta) with سُنۢبُلَٰتٍ (ears of grain, feminine). Reverse rule: feminine → masculine number. Genitive plural. All three instances use the same number (seven) with feminine nouns, consistently showing the masculine form (no taa marbuta). This verse is a masterclass in number agreement.
+
+</ExerciseBox>
+
+## Summary
+
+Arabic numbers have layered agreement rules that shift based on the number range:
+
+- **Numbers 1-2** are simple — they agree normally with their noun, like adjectives.
+- **Numbers 3-10** follow the famous **reverse gender rule**: masculine nouns take a feminine number form and vice versa. The counted noun is genitive plural (idafah).
+- **Numbers 11-12** have both parts agreeing normally with the noun. The counted noun is accusative singular (tamyiz).
+- **Numbers 13-19** mix the rules: the first part follows the reverse rule, the second part agrees normally. The counted noun is accusative singular.
+- **Tens (20-90)** have one form. The counted noun is accusative singular.
+- **Hundreds and thousands** have one form. The counted noun is genitive singular.
+- **Ordinal numbers** agree normally with the noun — no reverse rule.
+
+The key takeaway for Quranic reading: when you see a number phrase, check the gender of the noun and verify the number form. If the number has taa marbuta but the noun is masculine, the reverse rule is working exactly as it should. With practice, you'll recognize these patterns instantly.
+
+---
+
+**Next lesson:** [L4.17 Introduction to Balagha (Rhetoric)](/learn/level-4/17-intro-balagha/) — Learn the foundations of Arabic rhetoric, including the three branches of balagha and how they illuminate the Quran's linguistic miracle.

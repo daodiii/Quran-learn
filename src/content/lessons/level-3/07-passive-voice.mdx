@@ -1,0 +1,610 @@
+---
+title: "Passive Voice (al-Majhul)"
+level: 3
+order: 7
+description: "Learn to recognize and understand passive voice constructions in the Quran, where the agent is unknown or implied."
+draft: false
+---
+
+import ArabicExample from '../../../components/mdx/ArabicExample.astro';
+import GrammarTable from '../../../components/mdx/GrammarTable.astro';
+import VerbConjugation from '../../../components/mdx/VerbConjugation.astro';
+import Callout from '../../../components/mdx/Callout.astro';
+import ExerciseBox from '../../../components/mdx/ExerciseBox.astro';
+
+## Introduction
+
+One of the most powerful verses about Ramadan contains a verb form that hides its subject entirely:
+
+<ArabicExample
+  arabic="كُتِبَ عَلَيْكُمُ ٱلصِّيَامُ كَمَا كُتِبَ عَلَى ٱلَّذِينَ مِن قَبْلِكُمْ"
+  transliteration="kutiba ʿalaykumu ṣ-ṣiyāmu kamā kutiba ʿalā lladhīna min qablikum"
+  translation="Fasting has been prescribed for you, as it was prescribed for those before you"
+  reference="Al-Baqarah 2:183"
+  highlight="كُتِبَ"
+  words={[
+    { ar: "كُتِبَ", tr: "kutiba", en: "was prescribed" },
+    { ar: "عَلَيْكُمُ", tr: "ʿalaykumu", en: "upon you" },
+    { ar: "ٱلصِّيَامُ", tr: "ṣ-ṣiyāmu", en: "the fasting" },
+    { ar: "كَمَا", tr: "kamā", en: "just as" },
+    { ar: "كُتِبَ", tr: "kutiba", en: "was prescribed" },
+    { ar: "عَلَى", tr: "ʿalā", en: "upon" },
+    { ar: "ٱلَّذِينَ", tr: "lladhīna", en: "those who" },
+    { ar: "مِن قَبْلِكُمْ", tr: "min qablikum", en: "before you" }
+  ]}
+/>
+
+The verb **كُتِبَ** (kutiba) means "it was prescribed" or "it was written." But WHO prescribed it? The verb does not say. Compare it with the active form **كَتَبَ** (kataba) "he wrote" — the vowels have changed, and the doer has vanished. This is passive voice: the agent who performed the action is hidden, and the focus shifts entirely to the action itself and its recipient.
+
+In the Quran, when the passive voice is used, the doer is most often Allah — but the passive construction deliberately shifts emphasis from WHO did it to WHAT was done. When Allah says كُتِبَ عَلَيْكُمُ ٱلصِّيَامُ, the emphasis lands squarely on fasting being prescribed, not on restating that Allah is the one who prescribed it — because that is already understood.
+
+**In this lesson, you will:**
+- Understand how passive voice differs from active voice in Arabic
+- Learn the vowel patterns that transform any active verb into passive
+- Conjugate past and present passive for all 14 persons
+- Identify the deputy subject (na'ib al-fa'il) and its grammatical case
+- Recognize the most common passive verbs in the Quran
+- Analyze complete Quranic verses containing passive constructions
+
+**Connection to previous learning:** In [L3.03 Past Tense](/learn/level-3/03-past-tense/) and [L3.04 Present Tense](/learn/level-3/04-present-tense/), you learned all 14 conjugations for active voice verbs. The passive voice uses the EXACT same suffix and prefix system — the only difference is the vowels on the root letters themselves. If you know how to conjugate active verbs, you already know 90% of passive conjugation.
+
+**Forward connection:** Passive voice appears throughout the verb forms you will study later (Forms II-X in [L3.12](/learn/level-3/12-verb-form-ii/) through [L3.18](/learn/level-3/18-verb-forms-ix-x/)). It also connects directly to [L3.19 Active and Passive Participles](/learn/level-3/19-active-passive-participles/), where you will learn the noun forms that derive from both active and passive verbs.
+
+## Active vs. Passive: The Core Concept
+
+**Plain English first:** Every sentence has an action and (usually) someone who performs it. In the sentence "The teacher wrote the exam," the teacher is the doer (the agent) and the exam is the thing affected. This is active voice — the agent is stated.
+
+Now consider: "The exam was written." The same action happened, but the doer is gone. We know the exam was written, but we don't know (or don't care) who wrote it. This is passive voice — the agent is removed.
+
+English creates the passive with the helper verb "was" plus the past participle: "was written," "was killed," "was sent." Arabic does something far more elegant: it changes the VOWELS inside the verb itself. The consonants — the root letters — stay absolutely identical. Only the short vowels shift.
+
+**Arabic terminology:** Active voice is called [al-maʿlūm](/resources/glossary/#malum) (al-maʿlūm / ٱلْمَعْلُومُ) — literally "the known," because the agent IS known and stated. Passive voice is called [al-majhūl](/resources/glossary/#majhul) (al-majhūl / ٱلْمَجْهُولُ) — literally "the unknown," because the agent is NOT stated.
+
+### The Transformation: Vowels Only
+
+Here is the fundamental insight: Arabic passive voice changes ONLY the vowels. The root letters and all suffixes/prefixes remain identical:
+
+<GrammarTable>
+| Active (maʿlūm) | Passive (majhūl) | Meaning Change | What Changed |
+|------------------|------------------|----------------|--------------|
+| كَتَبَ (kataba) | كُتِبَ (kutiba) | "he wrote" → "it was written" | fatha-fatha → damma-kasra |
+| قَتَلَ (qatala) | قُتِلَ (qutila) | "he killed" → "he was killed" | fatha-fatha → damma-kasra |
+| فَعَلَ (faʿala) | فُعِلَ (fuʿila) | "he did" → "it was done" | fatha-fatha → damma-kasra |
+| سَمِعَ (samiʿa) | سُمِعَ (sumiʿa) | "he heard" → "it was heard" | fatha-kasra → damma-kasra |
+| عَلِمَ (ʿalima) | عُلِمَ (ʿulima) | "he knew" → "it was known" | fatha-kasra → damma-kasra |
+</GrammarTable>
+
+**The pattern is always the same:** In the past tense passive, put **damma** (ـُ) on the first root letter and **kasra** (ـِ) on the second root letter. That is it. Regardless of what vowels the active form had (fatha-fatha, fatha-kasra, or fatha-damma), the passive is always damma-kasra.
+
+Think of it like a uniform: every past passive verb "wears" the same damma-kasra pattern, no matter what its active form looked like.
+
+<Callout type="tip" title="Why Passive Is So Common in the Quran">
+The Quran uses passive voice to shift focus from the agent (who did it) to the action and its impact (what was done). When Allah prescribes fasting, the emphasis is on fasting being **prescribed** — the obligation itself — not on repeating that Allah is the one who prescribed it, because that is already understood by the believer. The passive voice also creates a sense of divine authority and universality: "it was written" suggests an eternal, unquestionable decree.
+</Callout>
+
+## Past Passive Conjugation
+
+### The Pattern: fu'ila (فُعِلَ)
+
+The past passive pattern is **فُعِلَ** (fuʿila):
+- **Damma** (ـُ) on the **first** root letter
+- **Kasra** (ـِ) on the **second** root letter (the letter before the last)
+
+<Callout type="rule" title="Past Passive Transformation Rule">
+To make ANY Form I past tense verb passive, apply these two vowel changes:
+
+1. First root letter: change its vowel to **damma** (ـُ)
+2. Second root letter (letter before the last): change its vowel to **kasra** (ـِ)
+
+- كَتَبَ (ka-ta-ba) → كُتِبَ (ku-ti-ba)
+- فَتَحَ (fa-ta-ḥa) → فُتِحَ (fu-ti-ḥa)
+- ضَرَبَ (ḍa-ra-ba) → ضُرِبَ (ḍu-ri-ba)
+
+The consonants and ALL suffixes remain identical. Only the internal vowels change.
+</Callout>
+
+### Active to Passive: Side-by-Side
+
+Let's see the transformation for several common verbs:
+
+<GrammarTable>
+| Root | Active | Transliteration | Passive | Transliteration | Meaning |
+|------|--------|-----------------|---------|-----------------|---------|
+| ك-ت-ب | كَتَبَ | kataba | كُتِبَ | kutiba | wrote → was written |
+| قَ-تَ-لَ | قَتَلَ | qatala | قُتِلَ | qutila | killed → was killed |
+| ف-ت-ح | فَتَحَ | fataḥa | فُتِحَ | futiḥa | opened → was opened |
+| ض-ر-ب | ضَرَبَ | ḍaraba | ضُرِبَ | ḍuriba | struck → was struck |
+| ج-ع-ل | جَعَلَ | jaʿala | جُعِلَ | juʿila | made → was made |
+| خ-ل-ق | خَلَقَ | khalaqa | خُلِقَ | khuliqa | created → was created |
+</GrammarTable>
+
+### Full 14-Person Conjugation
+
+The suffixes are identical to active voice. Only the stem vowels change. Here is the complete past passive paradigm using the root **ك-ت-ب**:
+
+<VerbConjugation
+  root="ك ت ب"
+  form="Past Passive"
+  pattern="فُعِلَ"
+  headers={["Person", "Active", "Passive", "Translation (Passive)"]}
+  rows={[
+    ["هُوَ (he)", "كَتَبَ", "كُتِبَ", "it was written"],
+    ["هِيَ (she)", "كَتَبَتْ", "كُتِبَتْ", "it (f) was written"],
+    ["هُمَا (they two - m)", "كَتَبَا", "كُتِبَا", "they two were written"],
+    ["هُمَا (they two - f)", "كَتَبَتَا", "كُتِبَتَا", "they two (f) were written"],
+    ["هُمْ (they - m)", "كَتَبُوا", "كُتِبُوا", "they were written"],
+    ["هُنَّ (they - f)", "كَتَبْنَ", "كُتِبْنَ", "they (f) were written"],
+    ["أَنْتَ (you - m)", "كَتَبْتَ", "كُتِبْتَ", "you (m) were written"],
+    ["أَنْتِ (you - f)", "كَتَبْتِ", "كُتِبْتِ", "you (f) were written"],
+    ["أَنْتُمَا (you two)", "كَتَبْتُمَا", "كُتِبْتُمَا", "you two were written"],
+    ["أَنْتُمْ (you - m pl)", "كَتَبْتُمْ", "كُتِبْتُمْ", "you (m pl) were written"],
+    ["أَنْتُنَّ (you - f pl)", "كَتَبْتُنَّ", "كُتِبْتُنَّ", "you (f pl) were written"],
+    ["أَنَا (I)", "كَتَبْتُ", "كُتِبْتُ", "I was written"],
+    ["نَحْنُ (we)", "كَتَبْنَا", "كُتِبْنَا", "we were written"],
+  ]}
+/>
+
+**Key insight:** Look at the Active and Passive columns carefully. The ONLY difference is the first two vowels of the stem: **كَتَ** (ka-ta) becomes **كُتِ** (ku-ti). Every suffix — ـَتْ, ـَا, ـَتَا, ـُوا, ـْنَ, ـْتَ, ـْتِ, ـْتُمَا, ـْتُمْ, ـْتُنَّ, ـْتُ, ـْنَا — remains exactly the same.
+
+<Callout type="note" title="Recognizing Past Passive at a Glance">
+When you see a past tense verb and notice **damma on the first letter** followed by **kasra**, you are looking at a passive verb. Train your eye to spot the **ـُ...ـِ** pattern:
+
+- كُـ**تِ**ـبَ — damma on كُ, kasra on تِ → passive
+- كَـ**تَ**ـبَ — fatha on كَ, fatha on تَ → active
+
+This vowel "fingerprint" is your fastest identification tool.
+</Callout>
+
+## Present Passive Conjugation
+
+### The Pattern: yuf'alu (يُفْعَلُ)
+
+The present passive uses a different vowel shift:
+- **Damma** (ـُ) on the **prefix** letter (يُ, تُ, أُ, نُ)
+- **Fatha** (ـَ) on the **second root letter** (the letter before the last)
+
+Compare active and passive present tense:
+- Active: يَكْتُبُ (ya**k**tu**b**u) — fatha on prefix, damma on second root letter
+- Passive: يُكْتَبُ (yu**k**ta**b**u) — damma on prefix, fatha on second root letter
+
+<Callout type="rule" title="Present Passive Transformation Rule">
+To make ANY Form I present tense verb passive, apply these two vowel changes:
+
+1. The prefix letter (يَ, تَ, أَ, نَ): change its vowel to **damma** (ـُ) → يُ, تُ, أُ, نُ
+2. The second root letter: change its vowel to **fatha** (ـَ)
+
+- يَكْتُبُ (yaktubu) → يُكْتَبُ (yuktabu) "it is written"
+- يَفْتَحُ (yaftaḥu) → يُفْتَحُ (yuftaḥu) "it is opened"
+- يَضْرِبُ (yaḍribu) → يُضْرَبُ (yuḍrabu) "it is struck"
+
+Regardless of whether the active has damma (يَكْتُبُ), fatha (يَفْتَحُ), or kasra (يَضْرِبُ) on the second root letter, the passive ALWAYS puts fatha there.
+</Callout>
+
+### Full 14-Person Conjugation
+
+<VerbConjugation
+  root="ك ت ب"
+  form="Present Passive"
+  pattern="يُفْعَلُ"
+  headers={["Person", "Active", "Passive", "Translation (Passive)"]}
+  rows={[
+    ["هُوَ (he)", "يَكْتُبُ", "يُكْتَبُ", "it is written"],
+    ["هِيَ (she)", "تَكْتُبُ", "تُكْتَبُ", "it (f) is written"],
+    ["هُمَا (they two - m)", "يَكْتُبَانِ", "يُكْتَبَانِ", "they two are written"],
+    ["هُمَا (they two - f)", "تَكْتُبَانِ", "تُكْتَبَانِ", "they two (f) are written"],
+    ["هُمْ (they - m)", "يَكْتُبُونَ", "يُكْتَبُونَ", "they are written"],
+    ["هُنَّ (they - f)", "يَكْتُبْنَ", "يُكْتَبْنَ", "they (f) are written"],
+    ["أَنْتَ (you - m)", "تَكْتُبُ", "تُكْتَبُ", "you (m) are written"],
+    ["أَنْتِ (you - f)", "تَكْتُبِينَ", "تُكْتَبِينَ", "you (f) are written"],
+    ["أَنْتُمَا (you two)", "تَكْتُبَانِ", "تُكْتَبَانِ", "you two are written"],
+    ["أَنْتُمْ (you - m pl)", "تَكْتُبُونَ", "تُكْتَبُونَ", "you (m pl) are written"],
+    ["أَنْتُنَّ (you - f pl)", "تَكْتُبْنَ", "تُكْتَبْنَ", "you (f pl) are written"],
+    ["أَنَا (I)", "أَكْتُبُ", "أُكْتَبُ", "I am written"],
+    ["نَحْنُ (we)", "نَكْتُبُ", "نُكْتَبُ", "we are written"],
+  ]}
+/>
+
+<Callout type="warning" title="Active and Passive Can Look Very Similar">
+The present passive can be difficult to distinguish from active in recitation because the difference between يَكْتُبُ (yaktubu) and يُكْتَبُ (yuktabu) is just two vowel shifts. In written Quran with full diacritics, look carefully at:
+
+1. The **prefix vowel**: fatha (يَـ) = active, damma (يُـ) = passive
+2. The **second root letter**: damma/kasra/fatha (varies in active), but ALWAYS fatha in passive
+
+When reading unvocalized Arabic, context is your only guide. But in the Quran with full tashkeel, the diacritics make it clear.
+</Callout>
+
+## The Deputy Subject (na'ib al-fa'il)
+
+### What Happens to the Object?
+
+In an active sentence, you have a subject (the doer) and an object (the thing affected):
+
+<ArabicExample
+  arabic="كَتَبَ ٱللَّهُ ٱلصِّيَامَ"
+  transliteration="kataba llāhu ṣ-ṣiyāma"
+  translation="Allah prescribed fasting"
+  words={[
+    { ar: "كَتَبَ", tr: "kataba", en: "prescribed" },
+    { ar: "ٱللَّهُ", tr: "llāhu", en: "Allah (subject)" },
+    { ar: "ٱلصِّيَامَ", tr: "ṣ-ṣiyāma", en: "fasting (object)" }
+  ]}
+/>
+
+Here, **ٱللَّهُ** is the subject (fa'il / فَاعِلٌ) — nominative case with damma. And **ٱلصِّيَامَ** is the object (maf'ul bihi / مَفْعُولٌ بِهِ) — accusative case with fatha.
+
+Now when this becomes passive, the subject (Allah) disappears. But a sentence needs a grammatical subject. So the OBJECT gets promoted: it steps into the subject position and takes nominative case:
+
+<ArabicExample
+  arabic="كُتِبَ عَلَيْكُمُ ٱلصِّيَامُ"
+  transliteration="kutiba ʿalaykumu ṣ-ṣiyāmu"
+  translation="Fasting was prescribed for you"
+  highlight="ٱلصِّيَامُ"
+  words={[
+    { ar: "كُتِبَ", tr: "kutiba", en: "was prescribed" },
+    { ar: "عَلَيْكُمُ", tr: "ʿalaykumu", en: "upon you" },
+    { ar: "ٱلصِّيَامُ", tr: "ṣ-ṣiyāmu", en: "fasting (deputy subject)" }
+  ]}
+/>
+
+Notice: **ٱلصِّيَامُ** now ends with **damma** (ـُ), not fatha. It has been promoted from object (accusative) to deputy subject (nominative). It is no longer called the "object" — it is now the [na'ib al-fa'il](/resources/glossary/#naib-fail) (nā'ib al-fāʿil / نَائِبُ ٱلْفَاعِلِ), literally "the substitute of the doer" or "the deputy subject."
+
+**English analogy:** In "The teacher wrote the exam," "the teacher" is the subject and "the exam" is the object. In "The exam was written," "the exam" has been promoted to subject. The same promotion happens in Arabic, and the grammatical case marking (damma vs. fatha) makes this visible.
+
+<Callout type="rule" title="Deputy Subject Rule">
+When a verb is made passive:
+
+1. The original **subject (fa'il)** is removed entirely
+2. The original **object (maf'ul bihi)** becomes the **deputy subject (na'ib al-fa'il)**
+3. The deputy subject takes **nominative case (marfu')** — marked with damma (ـُ) or its equivalents
+4. The deputy subject behaves grammatically exactly like a regular subject: the verb agrees with it in gender and number
+
+This is why you see ٱلصِّيَامُ (with damma) in the passive sentence, not ٱلصِّيَامَ (with fatha).
+</Callout>
+
+### Verb Agreement with the Deputy Subject
+
+Just like with active voice subjects, the passive verb must agree with its deputy subject in gender and number:
+
+<GrammarTable>
+| Deputy Subject | Gender | Passive Verb | Why |
+|----------------|--------|--------------|-----|
+| ٱلصِّيَامُ (fasting) | masculine | كُتِبَ | Verb is masculine singular |
+| ٱلْمَيْتَةُ (dead animals) | feminine | حُرِّمَتْ | Verb takes feminine ـَتْ suffix |
+| ٱلرُّومُ (the Romans) | feminine (collective) | غُلِبَتْ | Collective nouns often take feminine |
+| ٱلْمَلَائِكَةُ (the angels) | feminine (broken plural) | أُرْسِلَتْ | Broken plurals take feminine singular |
+</GrammarTable>
+
+## Passive in Derived Verb Forms
+
+So far we have focused on Form I. But passive voice works in ALL verb forms (II through X). The principle is the same — change the internal vowels — but the specific vowel pattern depends on the form.
+
+### Past Passive in Derived Forms
+
+<GrammarTable>
+| Form | Active Pattern | Passive Pattern | Active Example | Passive Example | Meaning |
+|------|---------------|-----------------|----------------|-----------------|---------|
+| II | فَعَّلَ | فُعِّلَ | عَلَّمَ | عُلِّمَ | taught → was taught |
+| III | فَاعَلَ | فُوعِلَ | قَاتَلَ | قُوتِلَ | fought → was fought |
+| IV | أَفْعَلَ | أُفْعِلَ | أَنزَلَ | أُنزِلَ | sent down → was sent down |
+| V | تَفَعَّلَ | تُفُعِّلَ | تَعَلَّمَ | تُعُلِّمَ | learned → was taught |
+| VI | تَفَاعَلَ | تُفُوعِلَ | تَبَادَلَ | تُبُودِلَ | exchanged → was exchanged |
+| VIII | اِفْتَعَلَ | اُفْتُعِلَ | اِتَّخَذَ | اُتُّخِذَ | took → was taken |
+| X | اِسْتَفْعَلَ | اُسْتُفْعِلَ | اِسْتَخْرَجَ | اُسْتُخْرِجَ | extracted → was extracted |
+</GrammarTable>
+
+### Present Passive in Derived Forms
+
+<GrammarTable>
+| Form | Active Pattern | Passive Pattern | Active Example | Passive Example | Meaning |
+|------|---------------|-----------------|----------------|-----------------|---------|
+| II | يُفَعِّلُ | يُفَعَّلُ | يُعَلِّمُ | يُعَلَّمُ | teaches → is taught |
+| IV | يُفْعِلُ | يُفْعَلُ | يُنزِلُ | يُنزَلُ | sends down → is sent down |
+| VIII | يَفْتَعِلُ | يُفْتَعَلُ | يَتَّخِذُ | يُتَّخَذُ | takes → is taken |
+</GrammarTable>
+
+<Callout type="tip" title="The Universal Passive Principle">
+You will learn verb Forms II through X in detail in upcoming lessons. For now, the key principle is universal across ALL forms:
+
+**Past passive:** Put **damma** on the first syllable and **kasra** on the syllable before the last root letter.
+
+**Present passive:** Put **damma** on the prefix and **fatha** on the syllable before the last root letter.
+
+This one principle works for every form. The consonant skeleton never changes — only the vowel "clothing" does.
+</Callout>
+
+## Common Passive Verbs in the Quran
+
+The following passive verbs appear frequently throughout the Quran. Memorizing them will help you recognize passive constructions instantly during recitation:
+
+<GrammarTable>
+| Active | Passive | Root | Meaning (Passive) | Quranic Usage |
+|--------|---------|------|-------------------|---------------|
+| كَتَبَ | كُتِبَ | ك-ت-ب | was prescribed/written | كُتِبَ عَلَيْكُمُ ٱلصِّيَامُ |
+| قَتَلَ | قُتِلَ | ق-ت-ل | was killed | قُتِلَ ٱلْإِنسَانُ مَا أَكْفَرَهُ |
+| غَلَبَ | غُلِبَتِ | غ-ل-ب | was defeated | غُلِبَتِ ٱلرُّومُ |
+| حَرَّمَ | حُرِّمَتْ | ح-ر-م | was prohibited (Form II) | حُرِّمَتْ عَلَيْكُمُ ٱلْمَيْتَةُ |
+| أَوْتَى | أُوتِيَ | ء-ت-ي | was given (Form IV) | أُوتُوا ٱلْكِتَابَ |
+| أَنزَلَ | أُنزِلَ | ن-ز-ل | was sent down (Form IV) | أُنزِلَ إِلَيْكَ |
+| وَلَدَ | وُلِدَ | و-ل-د | was born | لَمْ يَلِدْ وَلَمْ يُولَدْ |
+| جَعَلَ | جُعِلَ | ج-ع-ل | was made | جُعِلَتِ ٱلْأَرْضُ |
+| ظَلَمَ | ظُلِمَ | ظ-ل-م | was wronged | وَهُمْ لَا يُظْلَمُونَ |
+| خَلَقَ | خُلِقَ | خ-ل-ق | was created | خُلِقَ ٱلْإِنسَانُ مِنْ عَجَلٍ |
+</GrammarTable>
+
+<Callout type="note" title="The Special Case of أُوتِيَ">
+The verb **أُوتِيَ** (ūtiya) "was given" comes from the root ء-ت-ي via Form IV **آتَى** (ātā) "he gave." Its passive is used extensively in the Quran to describe those who were given scripture: **ٱلَّذِينَ أُوتُوا ٱلْكِتَابَ** "those who were given the Book." The plural form **أُوتُوا** (ūtū) appears over 50 times in the Quran. Notice that this is a passive verb even though it does not look like the standard فُعِلَ pattern — that is because it is Form IV with a weak root.
+</Callout>
+
+## Quranic Examples with Full Analysis
+
+### Example 1: The Fasting Verse
+
+<ArabicExample
+  arabic="كُتِبَ عَلَيْكُمُ ٱلصِّيَامُ"
+  transliteration="kutiba ʿalaykumu ṣ-ṣiyāmu"
+  translation="Fasting has been prescribed for you"
+  reference="Al-Baqarah 2:183"
+  highlight="كُتِبَ"
+  words={[
+    { ar: "كُتِبَ", tr: "kutiba", en: "was prescribed" },
+    { ar: "عَلَيْكُمُ", tr: "ʿalaykumu", en: "upon you" },
+    { ar: "ٱلصِّيَامُ", tr: "ṣ-ṣiyāmu", en: "fasting" }
+  ]}
+/>
+
+**Complete morphological analysis:**
+
+| Word | Analysis |
+|------|----------|
+| كُتِبَ | Root: ك-ت-ب. Form I past passive. Pattern: فُعِلَ. 3rd person masculine singular. The damma-kasra pattern (كُتِ) identifies it as passive. |
+| عَلَيْكُمُ | Preposition عَلَى (upon) + attached pronoun كُمْ (you, m pl). "Upon you all." |
+| ٱلصِّيَامُ | Root: ص-و-م. Verbal noun (masdar) meaning "fasting." **Nominative case** (damma) because it is the **deputy subject (na'ib al-fa'il)**. In the active form, this would be the object in accusative: كَتَبَ ٱللَّهُ ٱلصِّيَامَ (with fatha). |
+
+### Example 2: The Defeat of Rome
+
+<ArabicExample
+  arabic="غُلِبَتِ ٱلرُّومُ"
+  transliteration="ghulibati r-rūmu"
+  translation="The Romans were defeated"
+  reference="Ar-Rum 30:2"
+  highlight="غُلِبَتِ"
+  words={[
+    { ar: "غُلِبَتِ", tr: "ghulibati", en: "were defeated" },
+    { ar: "ٱلرُّومُ", tr: "r-rūmu", en: "the Romans" }
+  ]}
+/>
+
+**Complete morphological analysis:**
+
+| Word | Analysis |
+|------|----------|
+| غُلِبَتِ | Root: غ-ل-ب. Form I past passive. Pattern: فُعِلَتْ (with feminine ـَتْ suffix). 3rd person feminine singular — feminine because ٱلرُّومُ (the Romans) is treated as a feminine collective noun. The kasra on the final tā (غُلِبَتِ instead of غُلِبَتْ) is for smooth connection to the next word. |
+| ٱلرُّومُ | Proper noun, "the Romans/Byzantines." **Nominative case** (damma) as the deputy subject. |
+
+**Historical note:** This verse was revealed when the Persian Sasanid Empire defeated the Byzantine Romans. The Quran then prophesied their comeback in [Ar-Rum 30:3]: **وَهُم مِّنۢ بَعْدِ غَلَبِهِمْ سَيَغْلِبُونَ** — "And they, after their defeat, will triumph."
+
+### Example 3: Prohibited Foods (Form II Passive)
+
+<ArabicExample
+  arabic="حُرِّمَتْ عَلَيْكُمُ ٱلْمَيْتَةُ"
+  transliteration="ḥurrimat ʿalaykumu l-maytatu"
+  translation="Prohibited to you are dead animals"
+  reference="Al-Ma'idah 5:3"
+  highlight="حُرِّمَتْ"
+  words={[
+    { ar: "حُرِّمَتْ", tr: "ḥurrimat", en: "were prohibited" },
+    { ar: "عَلَيْكُمُ", tr: "ʿalaykumu", en: "upon you" },
+    { ar: "ٱلْمَيْتَةُ", tr: "l-maytatu", en: "dead animals" }
+  ]}
+/>
+
+**Complete morphological analysis:**
+
+| Word | Analysis |
+|------|----------|
+| حُرِّمَتْ | Root: ح-ر-م. **Form II** past passive. Active: حَرَّمَ (ḥarrama) "he prohibited." Passive: حُرِّمَ (ḥurrima) "it was prohibited." The doubled middle letter (shadda on ر) marks Form II. Feminine suffix ـَتْ agrees with ٱلْمَيْتَةُ. |
+| عَلَيْكُمُ | Preposition عَلَى + pronoun كُمْ. "Upon you." |
+| ٱلْمَيْتَةُ | Root: م-و-ت. Noun meaning "dead animal / carrion." **Nominative case** (damma) as deputy subject. The verse continues to list several more prohibited foods, all as deputy subjects of this same passive verb. |
+
+### Example 4: Those Given the Book (Passive with Retained Object)
+
+<ArabicExample
+  arabic="وَلَمَّا جَاءَهُمْ رَسُولٌ مِّنْ عِندِ ٱللَّهِ مُصَدِّقٌ لِّمَا مَعَهُمْ نَبَذَ فَرِيقٌ مِّنَ ٱلَّذِينَ أُوتُوا ٱلْكِتَابَ"
+  transliteration="wa-lammā jāʾahum rasūlun min ʿindi llāhi muṣaddiqun limā maʿahum nabadha farīqun mina lladhīna ūtū l-kitāba"
+  translation="And when a messenger came to them from Allah confirming what was with them, a party of those who were given the Book threw it away"
+  reference="Al-Baqarah 2:101"
+  highlight="أُوتُوا"
+  words={[
+    { ar: "ٱلَّذِينَ", tr: "lladhīna", en: "those who" },
+    { ar: "أُوتُوا", tr: "ūtū", en: "were given" },
+    { ar: "ٱلْكِتَابَ", tr: "l-kitāba", en: "the Book" }
+  ]}
+/>
+
+**Complete morphological analysis of أُوتُوا ٱلْكِتَابَ:**
+
+| Word | Analysis |
+|------|----------|
+| أُوتُوا | Root: ء-ت-ي. Form IV past passive. Active: آتَى (ātā) "he gave." The plural masculine suffix ـُوا marks 3rd person masculine plural: "they were given." |
+| ٱلْكِتَابَ | Root: ك-ت-ب. Noun meaning "the Book" (the Scripture). **Accusative case** (fatha) — this is a **retained object**. |
+
+**Important grammar point:** The active verb **آتَى** takes TWO objects: آتَى ٱللَّهُ ٱلنَّاسَ ٱلْكِتَابَ "Allah gave the people the Book." When made passive, the first object (ٱلنَّاسَ "the people") becomes the deputy subject (hidden in the verb as the plural suffix ـُوا), but the SECOND object (ٱلْكِتَابَ "the Book") remains as a retained object in accusative case. This is why ٱلْكِتَابَ has fatha, not damma — it is not the deputy subject.
+
+### Example 5: Present Passive in Surah Al-Ikhlas
+
+<ArabicExample
+  arabic="لَمْ يَلِدْ وَلَمْ يُولَدْ"
+  transliteration="lam yalid wa-lam yūlad"
+  translation="He neither begets nor was He begotten"
+  reference="Al-Ikhlas 112:3"
+  highlight="يُولَدْ"
+  words={[
+    { ar: "لَمْ", tr: "lam", en: "did not" },
+    { ar: "يَلِدْ", tr: "yalid", en: "beget" },
+    { ar: "وَلَمْ", tr: "wa-lam", en: "and did not" },
+    { ar: "يُولَدْ", tr: "yūlad", en: "was begotten" }
+  ]}
+/>
+
+**Complete morphological analysis:**
+
+| Word | Analysis |
+|------|----------|
+| لَمْ | Negation particle that puts the present tense verb into **jussive mood** (majzūm) and gives it past tense meaning. |
+| يَلِدْ | Root: و-ل-د. Form I present **active**. Pattern: يَفْعِلُ → jussive يَفْعِلْ. Prefix يَ (fatha) marks active voice. "He begets." With لَمْ: "He did not beget." The initial و of the root is dropped (assimilated hollow verb). |
+| يُولَدْ | Root: و-ل-د. Form I present **passive**. Pattern: يُفْعَلُ → jussive يُفْعَلْ. Prefix يُ (**damma**) marks passive voice. The fatha on لَ confirms passive. "He was begotten." With لَمْ: "He was not begotten." |
+
+**Connection to [L3.06 Imperative](/learn/level-3/06-imperative/):** Notice that لَمْ puts the verb into jussive mood — the same mood form you studied briefly in the imperative lesson. The jussive shortens the final vowel to sukūn: يُولَدُ → يُولَدْ. This verse beautifully pairs an active verb (يَلِدْ "begets") with its passive counterpart (يُولَدْ "was begotten") to emphasize Allah's absolute uniqueness.
+
+<Callout type="tip" title="Active-Passive Pairs in the Quran">
+The Quran sometimes places active and passive forms of the same root side by side for rhetorical effect. In لَمْ يَلِدْ وَلَمْ يُولَدْ, the contrast between يَلِدْ (active, "beget") and يُولَدْ (passive, "be begotten") covers both directions: Allah neither gives birth to offspring NOR was He born from a parent. The shift from active to passive, achieved by changing just one vowel on the prefix (يَـ → يُـ), expresses a profound theological truth with remarkable economy.
+</Callout>
+
+## Summary of Passive Voice Patterns
+
+Here is a quick-reference summary of the two core passive transformations:
+
+<GrammarTable>
+| Tense | Active Pattern | Passive Pattern | Vowel Change | Example |
+|-------|---------------|-----------------|--------------|---------|
+| Past | فَعَلَ (faʿala) | فُعِلَ (fuʿila) | 1st letter: fatha → damma; 2nd letter: any → kasra | كَتَبَ → كُتِبَ |
+| Present | يَفْعَلُ / يَفْعُلُ / يَفْعِلُ | يُفْعَلُ (yufʿalu) | Prefix: fatha → damma; 2nd root letter: any → fatha | يَكْتُبُ → يُكْتَبُ |
+</GrammarTable>
+
+<Callout type="rule" title="Complete Passive Voice Summary">
+**Past passive (فُعِلَ):**
+- Damma on first root letter + kasra on second root letter
+- Suffixes identical to active voice
+- Deputy subject takes nominative case
+
+**Present passive (يُفْعَلُ):**
+- Damma on prefix letter + fatha on second root letter
+- Prefixes and suffixes identical to active voice
+- Deputy subject takes nominative case
+
+**Works for ALL verb forms (I-X):** The same damma-kasra (past) and damma-fatha (present) principle applies universally. The consonant skeleton never changes.
+</Callout>
+
+## Practice Exercises
+
+<ExerciseBox question="Exercise 1: Active to Passive Conversion" id="passive-active-to-passive">
+
+Convert the following active verbs to their passive forms. State whether each is past or present tense:
+
+1. كَتَبَ (kataba) "he wrote"
+2. يَفْتَحُ (yaftaḥu) "he opens"
+3. ضَرَبَ (ḍaraba) "he struck"
+
+**Answers:**
+
+1. كَتَبَ → **كُتِبَ** (kutiba) "it was written" — Past tense. Changed: كَـ → كُـ (fatha → damma), ـتَـ → ـتِـ (fatha → kasra).
+
+2. يَفْتَحُ → **يُفْتَحُ** (yuftaḥu) "it is opened" — Present tense. Changed: يَـ → يُـ (fatha → damma). The second root letter تَ already has fatha, which happens to match the passive pattern.
+
+3. ضَرَبَ → **ضُرِبَ** (ḍuriba) "he was struck" — Past tense. Changed: ضَـ → ضُـ (fatha → damma), ـرَـ → ـرِـ (fatha → kasra).
+</ExerciseBox>
+
+<ExerciseBox question="Exercise 2: Identify the Passive Verbs" id="passive-identify-passive">
+
+Which of the following Quranic phrases contain passive verbs? For each passive verb, identify the root and meaning:
+
+1. خَلَقَ ٱلْإِنسَانَ مِنْ عَلَقٍ (Al-Alaq 96:2)
+2. خُلِقَ ٱلْإِنسَانُ مِنْ عَجَلٍ (Al-Anbiya 21:37)
+3. قَالَ رَبِّ ٱحْكُم بِٱلْحَقِّ (Al-Anbiya 21:112)
+4. قِيلَ ٱدْخُلُوا ٱلْجَنَّةَ (Ya-Sin 36:26)
+
+**Answers:**
+
+1. **خَلَقَ** — NOT passive. Active voice (fatha-fatha: خَلَقَ). Root: خ-ل-ق. "He created."
+
+2. **خُلِقَ** — YES, passive. Damma-kasra pattern (خُلِقَ). Root: خ-ل-ق. "Was created." Deputy subject: ٱلْإِنسَانُ (nominative with damma).
+
+3. **قَالَ** — NOT passive. Active voice. Root: ق-و-ل. "He said." (This is a hollow verb, so the vowel pattern looks different, but the fatha on ق marks it as active.)
+
+4. **قِيلَ** — YES, passive. Root: ق-و-ل. Active: قَالَ "he said." Passive: قِيلَ "it was said." (This is a hollow verb passive — the waw is absorbed into the kasra, giving قِيلَ instead of the expected قُوِلَ. This is an irregular passive form specific to hollow verbs.)
+</ExerciseBox>
+
+<ExerciseBox question="Exercise 3: Deputy Subject Identification" id="passive-deputy-subject">
+
+In the phrase كُتِبَ عَلَيْكُمُ ٱلصِّيَامُ (Al-Baqarah 2:183):
+
+1. What is the deputy subject (na'ib al-fa'il)?
+2. What grammatical case is it in?
+3. How can you tell from the Arabic script?
+4. What case would this word have if the sentence were active?
+
+**Answers:**
+
+1. The deputy subject is **ٱلصِّيَامُ** (fasting).
+
+2. It is in the **nominative case (marfu')**.
+
+3. The damma (ـُ) at the end of ٱلصِّيَامُ marks nominative case. As the deputy subject, it receives the same case marking as a regular subject (fa'il).
+
+4. In the active sentence كَتَبَ ٱللَّهُ ٱلصِّيَامَ, the word would be **ٱلصِّيَامَ** with **fatha** (accusative case / manṣūb), because it would function as the direct object (maf'ul bihi) of the verb.
+</ExerciseBox>
+
+<ExerciseBox question="Exercise 4: Verse Discovery" id="passive-verse-discovery">
+
+Analyze the phrase أُنزِلَ إِلَيْكَ (what was sent down to you):
+
+1. Is this verb active or passive? How do you know?
+2. What Form (I-X) is this verb?
+3. What is the root?
+4. What is the active form of this verb?
+5. What is the implied deputy subject (not explicitly stated)?
+
+**Answers:**
+
+1. **Passive.** The damma on the alif (أُ) and kasra on the second root letter (زِ) identify it as past passive: أُنزِلَ follows the Form IV passive pattern أُفْعِلَ.
+
+2. **Form IV** (أَفْعَلَ pattern). The hamza prefix أَ is the hallmark of Form IV.
+
+3. Root: **ن-ز-ل** (nūn-zāy-lām) meaning "to descend, to come down." Form IV adds the causative meaning: "to send down, to reveal."
+
+4. Active form: **أَنزَلَ** (anzala) "he sent down." Compare: أَنزَلَ (active, fatha on أَ) vs. أُنزِلَ (passive, damma on أُ).
+
+5. The implied deputy subject is the **Quran** (ٱلْقُرْآنُ) or the **revelation** — what was sent down. In context (such as Al-Baqarah 2:4), the full phrase often reads: وَٱلَّذِينَ يُؤْمِنُونَ بِمَا أُنزِلَ إِلَيْكَ — "those who believe in what was sent down to you."
+</ExerciseBox>
+
+<ExerciseBox question="Exercise 5: Root Detective" id="passive-root-detective">
+
+Given the passive verb **حُرِّمَتْ** from Al-Ma'idah 5:3:
+
+1. Extract the root letters
+2. Identify the verb Form (I-X)
+3. What is the active form?
+4. Why is there a shadda on the middle letter?
+5. Why does the verb end with ـَتْ?
+
+**Answers:**
+
+1. Root: **ح-ر-م** (ḥā-rā-mīm) meaning "to prohibit, to make sacred."
+
+2. **Form II** (فَعَّلَ pattern). The doubled middle letter (shadda on ر) is the signature of Form II.
+
+3. Active form: **حَرَّمَ** (ḥarrama) "he prohibited." Passive: **حُرِّمَ** (ḥurrima) "it was prohibited." The transformation follows the Form II passive pattern: فَعَّلَ → فُعِّلَ (damma on first letter, kasra on doubled letter).
+
+4. The **shadda** (ـّ) on the middle letter ر indicates that the letter is **doubled** (rā is pronounced twice). This doubling is the defining feature of Form II verbs, which often carry an intensive or causative meaning compared to Form I.
+
+5. The suffix **ـَتْ** marks the verb as **3rd person feminine singular**. It agrees with the deputy subject ٱلْمَيْتَةُ (dead animals/carrion), which is a feminine noun. The verb must match its deputy subject in gender, just as it would match a regular subject.
+</ExerciseBox>
+
+## Related Lessons
+
+**Prerequisites:**
+- [L3.03 Past Tense Conjugation](/learn/level-3/03-past-tense/) — Active past tense suffixes are identical to passive
+- [L3.04 Present Tense Conjugation](/learn/level-3/04-present-tense/) — Active present tense prefixes and suffixes carry over to passive
+
+**Next Steps:**
+- [L3.10 Demonstrative Pronouns](/learn/level-3/10-demonstrative-pronouns/) — Continue building your grammar toolkit
+- [L3.12 Verb Form II](/learn/level-3/12-verb-form-ii/) — Form II passive (حُرِّمَ) is extremely common in the Quran
+- [L3.14 Verb Form IV](/learn/level-3/14-verb-form-iv/) — Form IV passive (أُنزِلَ) appears in nearly every surah
+
+**Advanced Topics:**
+- [L3.19 Active and Passive Participles](/learn/level-3/19-active-passive-participles/) — The noun forms مَفْعُولٌ (passive participle) and فَاعِلٌ (active participle) derive from these voice distinctions
+- [L3.20 Verbal Nouns](/learn/level-3/20-verbal-nouns/) — The masdar connects to both active and passive verb forms
+
+**Reference Resources:**
+- [Verb Forms Chart](/resources/verb-conjugation-tables/) — Complete passive conjugation patterns for Forms I-X
+- [Glossary: Passive Voice (al-majhul)](/resources/glossary/#majhul) — Full terminology and examples

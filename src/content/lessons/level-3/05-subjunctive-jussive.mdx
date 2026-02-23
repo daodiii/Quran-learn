@@ -1,0 +1,795 @@
+---
+title: "Subjunctive & Jussive Moods (al-Mansub & al-Majzum)"
+level: 3
+order: 5
+description: "Master the three moods of present tense verbs: indicative, subjunctive, and jussive — and the particles that trigger each mood change."
+draft: false
+---
+
+import ArabicExample from '../../../components/mdx/ArabicExample.astro';
+import GrammarTable from '../../../components/mdx/GrammarTable.astro';
+import VerbConjugation from '../../../components/mdx/VerbConjugation.astro';
+import Callout from '../../../components/mdx/Callout.astro';
+import ExerciseBox from '../../../components/mdx/ExerciseBox.astro';
+
+## Introduction
+
+One of the most powerful verses in the Quran — the entire creed of Allah's oneness — hinges on a subtle vowel change that most beginners miss entirely:
+
+<ArabicExample
+  arabic="لَمْ يَلِدْ وَلَمْ يُولَدْ"
+  transliteration="lam yalid wa-lam yūlad"
+  translation="He neither begets nor is He begotten"
+  reference="Al-Ikhlas 112:3"
+  highlight="يَلِدْ,يُولَدْ"
+  words={[
+    { ar: "لَمْ", tr: "lam", en: "did not" },
+    { ar: "يَلِدْ", tr: "yalid", en: "beget" },
+    { ar: "وَلَمْ", tr: "wa-lam", en: "and did not" },
+    { ar: "يُولَدْ", tr: "yūlad", en: "is begotten" },
+  ]}
+/>
+
+Look at the verb **يَلِدْ** (yalid). If you learned present tense in the previous lesson, you might expect it to end with a damma: **يَلِدُ** (yalidu) "he begets." But here it ends with **sukun** — no vowel at all. Why? Because the particle **لَمْ** (lam) before it CHANGED the mood of the verb from indicative to **jussive**. That tiny vowel change — from damma to sukun — signals that the action is negated in the past: "He did NOT beget."
+
+This is the concept of **verb moods** in Arabic. Present tense verbs don't just have ONE form. They have THREE forms — three "gears" — and specific particles shift the verb from one gear to another. Think of it like a car: first gear is the default (indicative), second gear is for purpose and intention (subjunctive), and third gear is for negation and conditions (jussive). The gear you're in changes how the verb ENDS.
+
+**In this lesson, you will:**
+- Understand the three moods of present tense: indicative, subjunctive, and jussive
+- Learn how mood markers differ for regular verbs, the five special verbs, and weak verbs
+- Master the five subjunctive particles (an, lan, kay, li, hatta)
+- Master the four jussive particles (lam, la an-nahiyah, lam al-amr, conditional particles)
+- Distinguish confusing particle pairs that look alike but trigger different moods
+- Analyze Surah Al-Ikhlas 112:3-4 as a worked example
+
+**Connection to previous learning:** In [L3.04 Present Tense Conjugation](/learn/level-3/04-present-tense/), you learned the 14-person present tense paradigm and noticed that the default ending is damma (ـُ). That damma marks the indicative mood — the "default gear." You also learned the four prefixes (anayta: أَنَيْتَ). Everything you learned there still applies. This lesson adds two more moods that CHANGE that final vowel when specific particles appear.
+
+**Forward connection:** This lesson is essential for [L4.03 Conditional Sentences](/learn/level-4/03-conditional-sentences/), where conditional particles put BOTH verbs in jussive mood. It also prepares you for [L4.10 Negation Particles](/learn/level-4/10-negation-particles/), where you'll see how different negation words (لَمْ, لَنْ, لَا, مَا) interact with different moods. Without understanding moods, those lessons cannot function.
+
+<Callout type="tip" title="Why This Matters in Your Quran Reading">
+لَمْ appears over 1,100 times in the Quran, and every time it triggers the jussive mood. لَنْ appears 130+ times, triggering the subjunctive. These tiny particles change verb endings — and missing that change means missing the meaning. Moods are how the Quran expresses negation, purpose, and divine commands.
+</Callout>
+
+<Callout type="note" title="Quick Win">
+In Surah Al-Ikhlas: لَمْ يَلِدْ وَلَمْ يُولَدْ — both verbs end with sukun (no vowel) because لَمْ triggers jussive mood. Without لَمْ, they'd be يَلِدُ and يُولَدُ with damma. You can now hear the mood change.
+</Callout>
+
+## The Three Moods of Present Tense
+
+**Plain English first:** In English, verbs have moods too, but we barely notice them. "He writes" is indicative (stating a fact). "I suggest that he write" is subjunctive (purpose or desire — notice "write," not "writes"). "Write!" is imperative (a command). Arabic has similar moods for present tense, and they show up as changes to the LAST vowel on the verb.
+
+Think of it like traffic lights. The **indicative** is the green light — the verb just proceeds normally with its default damma ending. The **subjunctive** is the yellow light — certain particles signal a shift to fatha, indicating purpose, desire, or future negation. The **jussive** is the red light — particles signal a full stop to sukun, indicating negation of the past or prohibition.
+
+**Arabic terminology:** The three moods are called:
+- [Indicative](/resources/glossary/#marfu) (marfu' / مَرْفُوعٌ) — literally "raised," the default mood
+- [Subjunctive](/resources/glossary/#mansub) (mansub / مَنْصُوبٌ) — literally "set up" or "erected," triggered by specific particles
+- [Jussive](/resources/glossary/#majzum) (majzum / مَجْزُومٌ) — literally "cut off," triggered by different particles
+
+### The Three Moods at a Glance
+
+Here is the same verb in all three moods. Notice how ONLY the final vowel changes:
+
+<GrammarTable
+  caption="Three Moods of يَكْتُبُ (yaktubu — he writes)"
+  headers={["Mood", "Arabic Name", "Marker", "Example", "Context"]}
+  rows={[
+    ["Indicative (default)", "مَرْفُوعٌ", "Damma (ـُ)", "يَكْتُبُ", "He writes / is writing"],
+    ["Subjunctive", "مَنْصُوبٌ", "Fatha (ـَ)", "يَكْتُبَ", "that he write / he will not write"],
+    ["Jussive", "مَجْزُومٌ", "Sukun (ـْ)", "يَكْتُبْ", "he did not write / let him write"],
+  ]}
+/>
+
+<Callout type="rule" title="The One-Letter Difference">
+For regular verbs (singular forms), the ONLY difference between the three moods is the final vowel:
+
+- **يَكْتُبُ** (yaktubu) — damma = indicative
+- **يَكْتُبَ** (yaktuba) — fatha = subjunctive
+- **يَكْتُبْ** (yaktub) — sukun = jussive
+
+One letter. One vowel. That's the entire mood system for regular verbs. When you hear or read a present tense verb, check its ending and check what particle came before it — that tells you the mood.
+</Callout>
+
+## Mood Markers for Different Verb Types
+
+The one-vowel change works perfectly for regular singular verbs. But Arabic has other verb types where mood shows up differently. There are three categories you need to know.
+
+### Category 1: Regular Verbs (Sound Singular Forms)
+
+These are the straightforward cases — singular forms that end in a consonant + short vowel. The mood simply changes the final vowel:
+
+<GrammarTable
+  caption="Regular Verbs: Mood Changes on Final Vowel"
+  headers={["Person", "Indicative (ـُ)", "Subjunctive (ـَ)", "Jussive (ـْ)"]}
+  rows={[
+    ["هُوَ (he)", "يَكْتُبُ", "يَكْتُبَ", "يَكْتُبْ"],
+    ["هِيَ (she)", "تَكْتُبُ", "تَكْتُبَ", "تَكْتُبْ"],
+    ["أَنْتَ (you m)", "تَكْتُبُ", "تَكْتُبَ", "تَكْتُبْ"],
+    ["أَنَا (I)", "أَكْتُبُ", "أَكْتُبَ", "أَكْتُبْ"],
+    ["نَحْنُ (we)", "نَكْتُبُ", "نَكْتُبَ", "نَكْتُبْ"],
+    ["هُنَّ (they f)", "يَكْتُبْنَ", "يَكْتُبْنَ", "يَكْتُبْنَ"],
+    ["أَنْتُنَّ (you f pl)", "تَكْتُبْنَ", "تَكْتُبْنَ", "تَكْتُبْنَ"],
+  ]}
+/>
+
+<Callout type="tip" title="Feminine Plural Is Mood-Proof">
+Notice that **يَكْتُبْنَ** and **تَكْتُبْنَ** (the feminine plural forms) look IDENTICAL in all three moods. The sukun is already there on the third root letter, so mood cannot change it further. These forms are called **mabniyy** (invariable for mood). You can only tell their mood from context and particles.
+</Callout>
+
+### Category 2: The Five Special Verbs (al-Af'al al-Khamsah)
+
+Remember from present tense that five conjugation forms end with the letter **nun** (نَ)? These are the dual forms and the masculine plural / feminine singular "you" forms:
+
+<GrammarTable
+  caption="The Five Special Verbs (الأَفْعَالُ الخَمْسَة)"
+  headers={["Person", "Indicative", "Subjunctive", "Jussive"]}
+  rows={[
+    ["هُمَا (they two m)", "يَكْتُبَانِ", "يَكْتُبَا", "يَكْتُبَا"],
+    ["هُمَا (they two f)", "تَكْتُبَانِ", "تَكْتُبَا", "تَكْتُبَا"],
+    ["هُمْ (they m)", "يَكْتُبُونَ", "يَكْتُبُوا", "يَكْتُبُوا"],
+    ["أَنْتُمَا (you two)", "تَكْتُبَانِ", "تَكْتُبَا", "تَكْتُبَا"],
+    ["أَنْتُمْ (you m pl)", "تَكْتُبُونَ", "تَكْتُبُوا", "تَكْتُبُوا"],
+    ["أَنْتِ (you f sg)", "تَكْتُبِينَ", "تَكْتُبِي", "تَكْتُبِي"],
+  ]}
+/>
+
+<Callout type="rule" title="The Five Special Verbs: Delete the Nun">
+For the five special verbs, mood is marked by the **presence or absence of the nun** (نَ):
+
+- **Indicative:** Nun is PRESENT — يَكْتُبُونَ, يَكْتُبَانِ, تَكْتُبِينَ
+- **Subjunctive:** Nun is DELETED — يَكْتُبُوا, يَكْتُبَا, تَكْتُبِي
+- **Jussive:** Nun is DELETED — يَكْتُبُوا, يَكْتُبَا, تَكْتُبِي
+
+Both subjunctive and jussive look THE SAME for these verbs — both delete the nun. Only context and the particle before the verb tells you which mood it is.
+</Callout>
+
+This is extremely important for reading the Quran. When you see a present tense verb like **تَنَالُوا** instead of **تَنَالُونَ**, you know a mood-changing particle must be nearby. The missing nun is your clue.
+
+### Category 3: Verbs with Weak Final Letters (Defective Verbs)
+
+Some verbs end in a weak letter — alif (ا), waw (و), or ya (ي). These behave differently in jussive mood:
+
+<GrammarTable
+  caption="Weak-Final Verbs: Jussive Drops the Weak Letter"
+  headers={["Verb", "Root", "Indicative", "Subjunctive", "Jussive"]}
+  rows={[
+    ["to walk", "م-ش-ي", "يَمْشِي", "يَمْشِيَ", "يَمْشِ"],
+    ["to call/supplicate", "د-ع-و", "يَدْعُو", "يَدْعُوَ", "يَدْعُ"],
+    ["to fear", "خ-ش-ي", "يَخْشَى", "يَخْشَى", "يَخْشَ"],
+  ]}
+/>
+
+In jussive mood, the weak final letter DROPS entirely: **يَمْشِي** becomes **يَمْشِ**, **يَدْعُو** becomes **يَدْعُ**, and **يَخْشَى** becomes **يَخْشَ**. This shortening is a key recognition feature in the Quran.
+
+### Complete Mood Table: All 13 Persons
+
+Here is the full paradigm showing all persons across all three moods, using the root **ك-ت-ب**:
+
+<VerbConjugation
+  root="ك ت ب"
+  form="Form I"
+  pattern="يَفْعُلُ — Three Moods"
+  headers={["Person", "Indicative (مَرْفُوعٌ)", "Subjunctive (مَنْصُوبٌ)", "Jussive (مَجْزُومٌ)"]}
+  rows={[
+    ["هُوَ (he)", "يَكْتُبُ", "يَكْتُبَ", "يَكْتُبْ"],
+    ["هِيَ (she)", "تَكْتُبُ", "تَكْتُبَ", "تَكْتُبْ"],
+    ["هُمَا (they two m)", "يَكْتُبَانِ", "يَكْتُبَا", "يَكْتُبَا"],
+    ["هُمَا (they two f)", "تَكْتُبَانِ", "تَكْتُبَا", "تَكْتُبَا"],
+    ["هُمْ (they m)", "يَكْتُبُونَ", "يَكْتُبُوا", "يَكْتُبُوا"],
+    ["هُنَّ (they f)", "يَكْتُبْنَ", "يَكْتُبْنَ", "يَكْتُبْنَ"],
+    ["أَنْتَ (you m)", "تَكْتُبُ", "تَكْتُبَ", "تَكْتُبْ"],
+    ["أَنْتِ (you f)", "تَكْتُبِينَ", "تَكْتُبِي", "تَكْتُبِي"],
+    ["أَنْتُمَا (you two)", "تَكْتُبَانِ", "تَكْتُبَا", "تَكْتُبَا"],
+    ["أَنْتُمْ (you m pl)", "تَكْتُبُونَ", "تَكْتُبُوا", "تَكْتُبُوا"],
+    ["أَنْتُنَّ (you f pl)", "تَكْتُبْنَ", "تَكْتُبْنَ", "تَكْتُبْنَ"],
+    ["أَنَا (I)", "أَكْتُبُ", "أَكْتُبَ", "أَكْتُبْ"],
+    ["نَحْنُ (we)", "نَكْتُبُ", "نَكْتُبَ", "نَكْتُبْ"],
+  ]}
+/>
+
+## Part 1: Subjunctive Particles (Huruf an-Nasb)
+
+**Plain English first:** Certain particles act like "switches" that flip the verb from its default indicative mood into the subjunctive. Think of these particles as road signs — when the verb sees one of these signs ahead of it, it knows to shift down to fatha. There are five main subjunctive particles, and they all relate to PURPOSE, INTENTION, or FUTURE meaning.
+
+**Arabic terminology:** These are called [huruf an-nasb](/resources/glossary/#nasb) (huruf an-nasb / حُرُوفُ ٱلنَّصْبِ) — "particles of subjunctive."
+
+### 1. أَنْ (an) — "that / to"
+
+The most common subjunctive particle. It connects a main clause to a purpose or desired action, similar to English "to" in "I want TO learn."
+
+<ArabicExample
+  arabic="يُرِيدُ ٱللَّهُ أَنْ يُخَفِّفَ عَنكُمْ"
+  transliteration="yurīdu llāhu an yukhaffifa ʿankum"
+  translation="Allah wants to lighten [the burden] for you"
+  reference="An-Nisa 4:28"
+  highlight="أَنْ,يُخَفِّفَ"
+  words={[
+    { ar: "يُرِيدُ", tr: "yurīdu", en: "wants" },
+    { ar: "ٱللَّهُ", tr: "llāhu", en: "Allah" },
+    { ar: "أَنْ", tr: "an", en: "to" },
+    { ar: "يُخَفِّفَ", tr: "yukhaffifa", en: "lighten" },
+    { ar: "عَنكُمْ", tr: "ʿankum", en: "for you" },
+  ]}
+/>
+
+Look at **يُخَفِّفَ** — it ends with **fatha** (ـَ), not damma. That's the subjunctive mood triggered by **أَنْ**. Compare with the main verb **يُرِيدُ** which keeps its indicative damma because no particle is affecting it.
+
+Another common example:
+
+<ArabicExample
+  arabic="أُرِيدُ أَنْ أَتَعَلَّمَ"
+  transliteration="urīdu an ataʿallama"
+  translation="I want to learn"
+  highlight="أَنْ,أَتَعَلَّمَ"
+  words={[
+    { ar: "أُرِيدُ", tr: "urīdu", en: "I want" },
+    { ar: "أَنْ", tr: "an", en: "to" },
+    { ar: "أَتَعَلَّمَ", tr: "ataʿallama", en: "learn" },
+  ]}
+/>
+
+Notice **أَتَعَلَّمَ** ends with fatha — subjunctive after **أَنْ**. Without **أَنْ**, it would be **أَتَعَلَّمُ** with damma.
+
+### 2. لَنْ (lan) — "will not" (emphatic future negation)
+
+This particle negates the FUTURE emphatically. "He will NEVER do it." The verb after **لَنْ** takes subjunctive (fatha):
+
+<ArabicExample
+  arabic="لَنْ تَنَالُوا۟ ٱلْبِرَّ حَتَّىٰ تُنفِقُوا۟ مِمَّا تُحِبُّونَ"
+  transliteration="lan tanālū l-birra hattā tunfiqū mimmā tuhibbūna"
+  translation="You will never attain righteousness until you spend from what you love"
+  reference="Al 'Imran 3:92"
+  highlight="لَنْ,تَنَالُوا۟,تُنفِقُوا۟"
+  words={[
+    { ar: "لَنْ", tr: "lan", en: "will never" },
+    { ar: "تَنَالُوا۟", tr: "tanālū", en: "you attain" },
+    { ar: "ٱلْبِرَّ", tr: "l-birra", en: "righteousness" },
+    { ar: "حَتَّىٰ", tr: "hattā", en: "until" },
+    { ar: "تُنفِقُوا۟", tr: "tunfiqū", en: "you spend" },
+    { ar: "مِمَّا", tr: "mimmā", en: "from what" },
+    { ar: "تُحِبُّونَ", tr: "tuhibbūna", en: "you love" },
+  ]}
+/>
+
+This verse is a goldmine for mood analysis. Watch carefully:
+
+- **تَنَالُوا۟** — This is the five-special-verb form of تَنَالُونَ. The **nun is dropped** because **لَنْ** put it in subjunctive mood. In indicative, it would be تَنَالُونَ.
+- **تُنفِقُوا۟** — Same pattern. The particle **حَتَّىٰ** (another subjunctive particle) dropped the nun. In indicative, it would be تُنفِقُونَ.
+- **تُحِبُّونَ** — This one KEEPS its nun and damma because no subjunctive particle is affecting it. It's plain indicative.
+
+<Callout type="tip" title="Spotting the Missing Nun">
+Whenever you see a verb like تَنَالُوا or تُنفِقُوا that seems to be "missing" its final نَ, look for a subjunctive or jussive particle nearby. The missing nun is your proof that a mood change has occurred. This pattern appears hundreds of times throughout the Quran.
+</Callout>
+
+### 3. كَيْ (kay) — "in order to / so that"
+
+This particle expresses purpose — "in order to do something." The verb after **كَيْ** takes subjunctive:
+
+<ArabicExample
+  arabic="لِكَيْلَا تَأْسَوْا عَلَىٰ مَا فَاتَكُمْ"
+  transliteration="li-kaylā taʾsaw ʿalā mā fātakum"
+  translation="So that you may not grieve over what has escaped you"
+  reference="Al-Hadid 57:23"
+  highlight="لِكَيْلَا,تَأْسَوْا"
+  words={[
+    { ar: "لِكَيْلَا", tr: "li-kaylā", en: "so that not" },
+    { ar: "تَأْسَوْا", tr: "taʾsaw", en: "you grieve" },
+    { ar: "عَلَىٰ", tr: "ʿalā", en: "over" },
+    { ar: "مَا", tr: "mā", en: "what" },
+    { ar: "فَاتَكُمْ", tr: "fātakum", en: "has escaped you" },
+  ]}
+/>
+
+Here **لِكَيْلَا** combines three elements: the preposition **لِ**, the purpose particle **كَيْ**, and the negation **لَا**. The verb **تَأْسَوْا** is in subjunctive — the nun of تَأْسَوْنَ has dropped.
+
+### 4. لِ (li) — "in order to" (Lam at-Ta'lil / Purpose Lam)
+
+This single letter **لِ** (lam with kasra) is one of the MOST common subjunctive triggers in the Quran. It expresses purpose — "in order to":
+
+<ArabicExample
+  arabic="لِيَعْبُدُوا۟ رَبَّ هَٰذَا ٱلْبَيْتِ"
+  transliteration="li-yaʿbudū rabba hādhā l-bayt"
+  translation="Let them worship the Lord of this House"
+  reference="Quraysh 106:3"
+  highlight="لِيَعْبُدُوا۟"
+  words={[
+    { ar: "لِيَعْبُدُوا۟", tr: "li-yaʿbudū", en: "let them worship" },
+    { ar: "رَبَّ", tr: "rabba", en: "the Lord of" },
+    { ar: "هَٰذَا", tr: "hādhā", en: "this" },
+    { ar: "ٱلْبَيْتِ", tr: "l-bayt", en: "the House" },
+  ]}
+/>
+
+The verb **يَعْبُدُوا** is subjunctive — the nun of يَعْبُدُونَ has dropped because of **لِ**. Remember this verse — we will compare it with a nearly identical verse using a DIFFERENT lam later in this lesson.
+
+Another Quranic example:
+
+<ArabicExample
+  arabic="وَمَا خَلَقْتُ ٱلْجِنَّ وَٱلْإِنسَ إِلَّا لِيَعْبُدُونِ"
+  transliteration="wa-mā khalaqtu l-jinna wa-l-insa illā li-yaʿbudūni"
+  translation="And I did not create the jinn and mankind except to worship Me"
+  reference="Adh-Dhariyat 51:56"
+  highlight="لِيَعْبُدُونِ"
+  words={[
+    { ar: "وَمَا", tr: "wa-mā", en: "and not" },
+    { ar: "خَلَقْتُ", tr: "khalaqtu", en: "I created" },
+    { ar: "ٱلْجِنَّ", tr: "l-jinna", en: "the jinn" },
+    { ar: "وَٱلْإِنسَ", tr: "wa-l-insa", en: "and mankind" },
+    { ar: "إِلَّا", tr: "illā", en: "except" },
+    { ar: "لِيَعْبُدُونِ", tr: "li-yaʿbudūni", en: "to worship Me" },
+  ]}
+/>
+
+Here **لِيَعْبُدُونِ** shows the subjunctive — the نَ of يَعْبُدُونَ was dropped by **لِ**, and then the object pronoun **نِ** (ni, meaning "Me") was attached. The **لِ** + subjunctive pattern is extremely common: it appears over 200 times in the Quran.
+
+### 5. حَتَّى (hatta) — "until / so that"
+
+This particle indicates a goal or endpoint — "until such-and-such happens":
+
+<ArabicExample
+  arabic="وَلَا تَقْرَبُوا۟ مَالَ ٱلْيَتِيمِ إِلَّا بِٱلَّتِي هِيَ أَحْسَنُ حَتَّىٰ يَبْلُغَ أَشُدَّهُ"
+  transliteration="wa-lā taqrabū māla l-yatīmi illā bi-llatī hiya aḥsanu hattā yablugha ashuddahu"
+  translation="And do not approach the orphan's wealth except in the best way until he reaches maturity"
+  reference="Al-An'am 6:152"
+  highlight="حَتَّىٰ,يَبْلُغَ"
+  words={[
+    { ar: "حَتَّىٰ", tr: "hattā", en: "until" },
+    { ar: "يَبْلُغَ", tr: "yablugha", en: "he reaches" },
+    { ar: "أَشُدَّهُ", tr: "ashuddahu", en: "his maturity" },
+  ]}
+/>
+
+The verb **يَبْلُغَ** ends with **fatha** (ـَ) — subjunctive mood triggered by **حَتَّىٰ**. Without this particle, it would be **يَبْلُغُ** with damma.
+
+### Summary: The Five Subjunctive Particles
+
+<GrammarTable
+  caption="Subjunctive Particles (حُرُوفُ ٱلنَّصْبِ)"
+  headers={["Particle", "Meaning", "Function", "Quranic Frequency"]}
+  rows={[
+    ["أَنْ", "that / to", "Connects to purpose or desired action", "Very common"],
+    ["لَنْ", "will not", "Emphatic future negation", "Common (~80 times)"],
+    ["كَيْ", "in order to", "Expresses purpose", "Less common"],
+    ["لِ", "in order to", "Purpose (lam at-ta'lil)", "Extremely common (200+)"],
+    ["حَتَّى", "until / so that", "Goal or endpoint", "Common (~100 times)"],
+  ]}
+/>
+
+<Callout type="rule" title="All Subjunctive Particles Point Forward">
+Every subjunctive particle points to something that has NOT YET happened — a purpose, an intention, a future event, or a desired outcome. The subjunctive mood is the mood of the "not yet." If the action were already complete or ongoing, indicative would be used instead.
+</Callout>
+
+## Part 2: Jussive Particles (Huruf al-Jazm)
+
+**Plain English first:** Just as subjunctive particles signal purpose and future intention, jussive particles signal NEGATION of the past, PROHIBITION (negative commands), or CONDITIONS. When one of these particles appears before a present tense verb, the verb shifts to its shortest form — sukun on the final letter, or the deletion of a weak letter.
+
+**Arabic terminology:** These are called [huruf al-jazm](/resources/glossary/#jazm) (huruf al-jazm / حُرُوفُ ٱلْجَزْمِ) — "particles of cutting off" (because the verb is "cut short").
+
+### 1. لَمْ (lam) — "did not" (past negation)
+
+This is THE single most important jussive particle — and one of the most common particles in the entire Quran, appearing over **1,100 times**. It negates the past using a present tense form in jussive mood. Yes, you read that correctly: Arabic uses a PRESENT TENSE verb form to express PAST negation.
+
+<ArabicExample
+  arabic="لَمْ يَلِدْ وَلَمْ يُولَدْ"
+  transliteration="lam yalid wa-lam yūlad"
+  translation="He neither begets nor is He begotten"
+  reference="Al-Ikhlas 112:3"
+  highlight="لَمْ,يَلِدْ,يُولَدْ"
+  words={[
+    { ar: "لَمْ", tr: "lam", en: "did not" },
+    { ar: "يَلِدْ", tr: "yalid", en: "beget" },
+    { ar: "وَلَمْ", tr: "wa-lam", en: "and did not" },
+    { ar: "يُولَدْ", tr: "yūlad", en: "is begotten" },
+  ]}
+/>
+
+Both **يَلِدْ** and **يُولَدْ** end with **sukun** — jussive mood. Without **لَمْ**, they would be **يَلِدُ** (he begets) and **يُولَدُ** (he is begotten) with damma.
+
+<Callout type="tip" title="Why This Matters">
+Every single time you encounter **لَمْ** in the Quran, the next verb MUST be in jussive mood. And **لَمْ** appears over 1,100 times. That means over 1,100 verbs in the Quran are in jussive mood just from this ONE particle. Mastering **لَمْ** alone gives you the key to understanding a massive portion of Quranic verb forms.
+</Callout>
+
+Another powerful example:
+
+<ArabicExample
+  arabic="أَلَمْ نَشْرَحْ لَكَ صَدْرَكَ"
+  transliteration="a-lam nashraḥ laka ṣadraka"
+  translation="Did We not expand for you your chest?"
+  reference="Ash-Sharh 94:1"
+  highlight="أَلَمْ,نَشْرَحْ"
+  words={[
+    { ar: "أَلَمْ", tr: "a-lam", en: "did not?" },
+    { ar: "نَشْرَحْ", tr: "nashraḥ", en: "We expand" },
+    { ar: "لَكَ", tr: "laka", en: "for you" },
+    { ar: "صَدْرَكَ", tr: "ṣadraka", en: "your chest" },
+  ]}
+/>
+
+Here **أَلَمْ** is the interrogative hamza (أَ) + **لَمْ**. The verb **نَشْرَحْ** (nashraḥ) is jussive — sukun on the final letter. The question form أَلَمْ is a rhetorical question meaning "Did We not...?" — expecting the answer "Yes, You certainly did."
+
+### 2. لَا الناهية (La an-Nahiyah) — "do not!" (prohibition)
+
+This is the **لَا** of prohibition — it creates negative commands. When someone says "Don't do this!" in Arabic, they use **لَا** + jussive:
+
+<ArabicExample
+  arabic="لَا تَقْنَطُوا۟ مِن رَّحْمَةِ ٱللَّهِ"
+  transliteration="lā taqnaṭū min raḥmati llāh"
+  translation="Do not despair of the mercy of Allah"
+  reference="Az-Zumar 39:53"
+  highlight="لَا,تَقْنَطُوا۟"
+  words={[
+    { ar: "لَا", tr: "lā", en: "do not" },
+    { ar: "تَقْنَطُوا۟", tr: "taqnaṭū", en: "despair" },
+    { ar: "مِن", tr: "min", en: "of" },
+    { ar: "رَّحْمَةِ", tr: "raḥmati", en: "the mercy of" },
+    { ar: "ٱللَّهِ", tr: "llāh", en: "Allah" },
+  ]}
+/>
+
+The verb **تَقْنَطُوا** is jussive — the nun of تَقْنَطُونَ has been dropped by the prohibitive **لَا**. This is a direct prohibition: "Do NOT despair!"
+
+<Callout type="warning" title="Two Different لَا — Don't Confuse Them!">
+Arabic has TWO types of **لَا** that look identical but function differently:
+
+- **لَا النَّافِيَة** (la an-nafiyah) — simple negation, followed by **indicative**: لَا يَعْلَمُونَ "they do not know" (damma, indicative, nun present)
+- **لَا النَّاهِيَة** (la an-nahiyah) — prohibition, followed by **jussive**: لَا تَقْنَطُوا "do not despair!" (nun dropped, jussive)
+
+How to tell them apart? **Prohibitive لَا** addresses "you" (second person) and gives a command. **Negating لَا** describes "he/she/they" and states a fact. Context is the key.
+</Callout>
+
+### 3. لَامُ الأَمْر (Lam al-Amr) — "let him... / should..." (indirect command)
+
+This lam creates indirect commands — commands directed at third person ("let him do...") or first person ("let us do..."). It looks like the letter **لِ** (lam with kasra), but when preceded by **فَ** or **وَ**, it takes sukun: **فَلْ**, **وَلْ**:
+
+<ArabicExample
+  arabic="فَلْيَعْبُدُوا۟ رَبَّ هَٰذَا ٱلْبَيْتِ"
+  transliteration="fa-l-yaʿbudū rabba hādhā l-bayt"
+  translation="So let them worship the Lord of this House"
+  reference="Quraysh 106:3"
+  highlight="فَلْيَعْبُدُوا۟"
+  words={[
+    { ar: "فَلْيَعْبُدُوا۟", tr: "fa-l-yaʿbudū", en: "so let them worship" },
+    { ar: "رَبَّ", tr: "rabba", en: "the Lord of" },
+    { ar: "هَٰذَا", tr: "hādhā", en: "this" },
+    { ar: "ٱلْبَيْتِ", tr: "l-bayt", en: "the House" },
+  ]}
+/>
+
+Now compare this verse with the subjunctive example from earlier:
+
+<GrammarTable
+  caption="Same Root, Different Moods — Quraysh 106:3"
+  headers={["Reading", "Particle", "Mood", "Meaning"]}
+  rows={[
+    ["لِيَعْبُدُوا۟", "لِ (purpose lam)", "Subjunctive", "in order that they worship"],
+    ["فَلْيَعْبُدُوا۟", "لام الأمر (command lam)", "Jussive", "so let them worship"],
+  ]}
+/>
+
+Both readings exist in Quranic recitation traditions. The point is crucial: a **لِ** followed by subjunctive expresses PURPOSE ("in order to"), while **لام الأمر** followed by jussive expresses a COMMAND ("let them"). The verb form looks identical (nun dropped in both cases), but the meaning differs based on which lam is intended.
+
+### 4. Conditional Particles (Preview)
+
+Several conditional particles also trigger jussive mood — they put BOTH the condition verb and the result verb into jussive. Here is a preview:
+
+<ArabicExample
+  arabic="إِن تَنصُرُوا۟ ٱللَّهَ يَنصُرْكُمْ"
+  transliteration="in tanṣurū llāha yanṣurkum"
+  translation="If you support Allah, He will support you"
+  reference="Muhammad 47:7"
+  highlight="إِن,تَنصُرُوا۟,يَنصُرْكُمْ"
+  words={[
+    { ar: "إِن", tr: "in", en: "if" },
+    { ar: "تَنصُرُوا۟", tr: "tanṣurū", en: "you support" },
+    { ar: "ٱللَّهَ", tr: "llāha", en: "Allah" },
+    { ar: "يَنصُرْكُمْ", tr: "yanṣurkum", en: "He will support you" },
+  ]}
+/>
+
+The conditional particle **إِنْ** (in, meaning "if") puts BOTH verbs in jussive:
+- **تَنصُرُوا** — jussive (nun of تَنْصُرُونَ dropped)
+- **يَنصُرْكُمْ** — jussive (sukun on the final root letter)
+
+We will study conditional sentences fully in [L4.03 Conditional Sentences](/learn/level-4/03-conditional-sentences/). For now, just know that conditional particles (**إِنْ**, **مَنْ**, **مَا**, and others) also trigger jussive mood.
+
+### Summary: The Jussive Particles
+
+<GrammarTable
+  caption="Jussive Particles (حُرُوفُ ٱلْجَزْمِ)"
+  headers={["Particle", "Meaning", "Function", "Quranic Frequency"]}
+  rows={[
+    ["لَمْ", "did not", "Past negation using present form", "Extremely common (1,100+)"],
+    ["لَا النَّاهِيَة", "do not!", "Prohibition (negative command)", "Very common"],
+    ["لَامُ الأَمْر", "let him.../should...", "Indirect command (3rd/1st person)", "Common"],
+    ["إِنْ / مَنْ / مَا", "if / whoever / whatever", "Conditional particles (both verbs)", "Very common"],
+  ]}
+/>
+
+## Distinguishing Similar-Looking Particles
+
+One of the trickiest aspects of Arabic mood is that several particles LOOK alike but trigger DIFFERENT moods. Here is a quick-reference guide to the most confusing pairs:
+
+<Callout type="warning" title="Confusing Pairs: Know the Difference">
+
+**1. لَمْ vs. لَنْ — both negate, but different moods and times:**
+- **لَمْ** (lam) = "did not" = PAST negation = **jussive** (sukun): لَمْ يَكْتُبْ "he did not write"
+- **لَنْ** (lan) = "will not" = FUTURE negation = **subjunctive** (fatha): لَنْ يَكْتُبَ "he will not write"
+
+**2. لِ (purpose) vs. لَامُ الأَمْر (command) — both are lam, different functions:**
+- **لِ** (li, with kasra) = "in order to" = PURPOSE = **subjunctive**: لِيَعْبُدُوا "in order that they worship"
+- **لَامُ الأَمْر** (often فَلْ or وَلْ with sukun) = "let them" = COMMAND = **jussive**: فَلْيَعْبُدُوا "let them worship"
+
+**3. لَا النَّافِيَة vs. لَا النَّاهِيَة — identical spelling, different functions:**
+- **لَا النَّافِيَة** = simple negation = **indicative**: لَا يَعْلَمُونَ "they do not know" (nun present)
+- **لَا النَّاهِيَة** = prohibition = **jussive**: لَا تَقْنَطُوا "do not despair!" (nun dropped)
+
+The key to all three pairs: **read the context**. Is this negating the past or future? Is this a purpose statement or a command? Is this a statement of fact or a prohibition?
+</Callout>
+
+## Worked Example: Al-Ikhlas 112:3-4
+
+Let's do a complete mood analysis of two full verses, applying everything we've learned:
+
+<ArabicExample
+  arabic="لَمْ يَلِدْ وَلَمْ يُولَدْ ﴿٣﴾ وَلَمْ يَكُن لَّهُ كُفُوًا أَحَدٌ ﴿٤﴾"
+  transliteration="lam yalid wa-lam yūlad. wa-lam yakun lahu kufuwan aḥad"
+  translation="He neither begets nor is He begotten. And there is no one equal to Him."
+  reference="Al-Ikhlas 112:3-4"
+  highlight="لَمْ,يَلِدْ,يُولَدْ,يَكُن"
+  words={[
+    { ar: "لَمْ", tr: "lam", en: "did not" },
+    { ar: "يَلِدْ", tr: "yalid", en: "beget" },
+    { ar: "وَلَمْ", tr: "wa-lam", en: "and did not" },
+    { ar: "يُولَدْ", tr: "yūlad", en: "is begotten" },
+    { ar: "وَلَمْ", tr: "wa-lam", en: "and not" },
+    { ar: "يَكُن", tr: "yakun", en: "is/was" },
+    { ar: "لَّهُ", tr: "lahu", en: "to Him" },
+    { ar: "كُفُوًا", tr: "kufuwan", en: "equal" },
+    { ar: "أَحَدٌ", tr: "aḥad", en: "anyone" },
+  ]}
+/>
+
+### Verb 1: يَلِدْ (yalid)
+
+| Feature | Analysis |
+|---------|----------|
+| **Root** | و-ل-د (walada — "to give birth, to beget") |
+| **Form** | Form I present tense |
+| **Indicative form** | يَلِدُ (yalidu — "he begets") |
+| **Jussive form** | يَلِدْ (yalid — sukun on dal) |
+| **Particle** | لَمْ (past negation) |
+| **Translation** | "He did not beget" |
+| **Voice** | Active (the subject performs the action) |
+
+### Verb 2: يُولَدْ (yulad)
+
+| Feature | Analysis |
+|---------|----------|
+| **Root** | و-ل-د (walada — "to give birth") |
+| **Form** | Form I present tense, **passive voice** |
+| **Indicative form** | يُولَدُ (yūladu — "he is begotten") |
+| **Jussive form** | يُولَدْ (yūlad — sukun on dal) |
+| **Particle** | لَمْ (past negation) |
+| **Translation** | "He was not begotten" |
+| **Voice** | Passive (the subject receives the action) |
+
+Notice the passive pattern: the prefix vowel changes from **يَـ** (ya-) to **يُـ** (yu-), and the internal vowels change. But the jussive ending (sukun) works exactly the same way in both active and passive.
+
+### Verb 3: يَكُن (yakun)
+
+| Feature | Analysis |
+|---------|----------|
+| **Root** | ك-و-ن (kāna — "to be") |
+| **Form** | Form I present tense |
+| **Indicative form** | يَكُونُ (yakūnu — "he is/will be") |
+| **Jussive form** | يَكُنْ (yakun — the waw DROPS!) |
+| **Particle** | لَمْ (past negation) |
+| **Translation** | "There was not / there has never been" |
+| **Special feature** | Hollow verb — the middle waw drops in jussive |
+
+<Callout type="tip" title="Hollow Verbs in Jussive">
+The verb **يَكُونُ** (yakūnu) is a "hollow" verb — its middle radical is a weak letter (waw). In jussive mood, the long vowel shortens and the waw drops entirely: **يَكُونُ** becomes **يَكُنْ**. This happens to all hollow verbs:
+
+- يَقُولُ (yaqūlu — "he says") → jussive: يَقُلْ (yaqul)
+- يَكُونُ (yakūnu — "he is") → jussive: يَكُنْ (yakun)
+- يَزُورُ (yazūru — "he visits") → jussive: يَزُرْ (yazur)
+
+When you see **لَمْ يَكُنْ** in the Quran, recognize that the "missing" waw is not a mistake — it's the jussive form of a hollow verb.
+</Callout>
+
+**Full I'rab (grammatical parsing) of these verses:**
+
+The particle **لَمْ** appears three times, and each time it puts the following verb into jussive mood. The parallelism is masterful: **لَمْ يَلِدْ** (active) is balanced against **لَمْ يُولَدْ** (passive), covering both directions — Allah neither produces offspring nor is Himself produced. Then **لَمْ يَكُنْ** adds a third dimension: no one is His equal. Three **لَمْ** particles, three jussive verbs, three complete negations of any similarity between Allah and His creation.
+
+## The Rule
+
+<Callout type="rule" title="Present Tense Mood System">
+**Three moods, triggered by specific particles:**
+
+1. **Indicative (مَرْفُوعٌ)** — the DEFAULT:
+   - No special particle needed
+   - Regular verbs: damma (يَكْتُبُ)
+   - Five special verbs: nun present (يَكْتُبُونَ)
+   - Used for: plain statements, ongoing/habitual actions
+
+2. **Subjunctive (مَنْصُوبٌ)** — triggered by أَنْ, لَنْ, كَيْ, لِ, حَتَّى:
+   - Regular verbs: fatha (يَكْتُبَ)
+   - Five special verbs: nun deleted (يَكْتُبُوا)
+   - Used for: purpose, intention, future negation, unrealized goals
+
+3. **Jussive (مَجْزُومٌ)** — triggered by لَمْ, لَا النَّاهِيَة, لَامُ الأَمْر, conditionals:
+   - Regular verbs: sukun (يَكْتُبْ)
+   - Five special verbs: nun deleted (يَكْتُبُوا)
+   - Weak-final verbs: weak letter drops (يَمْشِ, يَدْعُ)
+   - Hollow verbs: long vowel shortens (يَكُنْ)
+   - Used for: past negation, prohibition, conditions, indirect commands
+
+**Recognition shortcut:** If you see a present tense verb with an unusual ending (fatha instead of damma, sukun instead of damma, or a missing nun), look for a particle before it. That particle tells you which mood the verb is in and WHY.
+</Callout>
+
+<Callout type="warning" title="Common Mistakes with Moods">
+
+1. **Confusing لَمْ and لَنْ**: Both negate, but **لَمْ** negates the PAST (jussive) and **لَنْ** negates the FUTURE (subjunctive). لَمْ يَكْتُبْ = "he did not write." لَنْ يَكْتُبَ = "he will not write."
+
+2. **Thinking jussive verbs are imperative**: Both can end with sukun (يَكْتُبْ vs. اُكْتُبْ), but jussive KEEPS the prefix (يَ, تَ, نَ, أَ), while imperative has NO prefix. If you see a prefix, it's NOT imperative.
+
+3. **Forgetting the five special verbs**: For يَكْتُبُونَ and similar forms, mood is shown by the presence or absence of nun — NOT by a vowel change. If the nun is missing, a subjunctive or jussive particle must be nearby.
+
+4. **Missing hollow verb shortening**: When يَكُونُ becomes يَكُنْ after لَمْ, the waw hasn't "disappeared" — it's a regular jussive shortening for hollow verbs. This is extremely common in the Quran with لَمْ يَكُنْ, لَمْ يَقُلْ, etc.
+
+5. **Assuming both subjunctive and jussive mean the same thing for the five special verbs**: Both delete the nun, but the MEANING is different based on which particle triggers the mood. يَكْتُبُوا after لَنْ means "they will not write." يَكْتُبُوا after لَمْ means "they did not write."
+</Callout>
+
+## Practice Exercises
+
+<ExerciseBox question="Exercise 1: Mood Identification" id="mood-identification">
+
+Identify the mood of each verb based on its ending. Is it indicative (marfu'), subjunctive (mansub), or jussive (majzum)?
+
+1. يَذْهَبُ
+2. يَذْهَبَ
+3. يَذْهَبْ
+4. يَعْلَمُونَ
+
+**Answers:**
+
+1. **يَذْهَبُ** — **Indicative (مَرْفُوعٌ)**: The final letter has damma (ـُ), which is the default indicative marker.
+
+2. **يَذْهَبَ** — **Subjunctive (مَنْصُوبٌ)**: The final letter has fatha (ـَ), indicating a subjunctive particle (أَنْ, لَنْ, لِ, كَيْ, or حَتَّى) must appear before it.
+
+3. **يَذْهَبْ** — **Jussive (مَجْزُومٌ)**: The final letter has sukun (ـْ), indicating a jussive particle (لَمْ, لَا النَّاهِيَة, لَامُ الأَمْر, or a conditional particle) must appear before it.
+
+4. **يَعْلَمُونَ** — **Indicative (مَرْفُوعٌ)**: This is one of the five special verbs. The nun (نَ) is present, which means it's indicative. If it were subjunctive or jussive, the nun would be deleted: يَعْلَمُوا.
+</ExerciseBox>
+
+<ExerciseBox question="Exercise 2: Particle to Mood Matching" id="particle-mood-matching">
+
+For each of the following particles, state what mood it triggers (indicative, subjunctive, or jussive):
+
+1. أَنْ
+2. لَمْ
+3. لِ (purpose lam)
+4. لَنْ
+5. حَتَّى
+6. لَا النَّاهِيَة
+
+**Answers:**
+
+1. **أَنْ** — **Subjunctive (نَصْب)**: "that / to" — purpose particle. Example: أُرِيدُ أَنْ أَتَعَلَّمَ "I want to learn."
+
+2. **لَمْ** — **Jussive (جَزْم)**: "did not" — past negation. Example: لَمْ يَكْتُبْ "he did not write."
+
+3. **لِ** (purpose lam) — **Subjunctive (نَصْب)**: "in order to" — purpose. Example: لِيَعْبُدُوا "in order that they worship."
+
+4. **لَنْ** — **Subjunctive (نَصْب)**: "will not" — future negation. Example: لَنْ يَكْتُبَ "he will not write."
+
+5. **حَتَّى** — **Subjunctive (نَصْب)**: "until / so that" — goal. Example: حَتَّى يَبْلُغَ "until he reaches."
+
+6. **لَا النَّاهِيَة** — **Jussive (جَزْم)**: "do not!" — prohibition. Example: لَا تَقْنَطُوا "do not despair!"
+</ExerciseBox>
+
+<ExerciseBox question="Exercise 3: Verse Analysis — Spotting the Subjunctive" id="verse-analysis-subjunctive">
+
+Read the following verse carefully:
+
+**لَنْ تَنَالُوا۟ ٱلْبِرَّ حَتَّىٰ تُنفِقُوا۟ مِمَّا تُحِبُّونَ** — Al 'Imran 3:92
+
+Answer the following questions:
+1. Which verb is in subjunctive mood after **لَنْ**?
+2. Why does this verb look different from the indicative form?
+3. Which other verb in this verse is also in subjunctive? What particle triggers it?
+4. Which verb remains in indicative? How can you tell?
+
+**Answers:**
+
+1. The verb **تَنَالُوا۟** is in subjunctive after **لَنْ** (future negation).
+
+2. The indicative form would be **تَنَالُونَ** (with the nun نَ at the end). Because **لَنْ** triggers subjunctive mood, and this is one of the five special verbs (second person masculine plural ending in ونَ), the nun is DELETED: تَنَالُونَ → تَنَالُوا.
+
+3. The verb **تُنفِقُوا۟** is also in subjunctive, triggered by **حَتَّىٰ** ("until"). Its indicative form would be تُنفِقُونَ, but the nun has been deleted by the subjunctive particle.
+
+4. The verb **تُحِبُّونَ** ("you love") remains in **indicative** mood. You can tell because it KEEPS its nun (ونَ). No subjunctive or jussive particle is affecting it — it's simply describing a fact ("what you love").
+</ExerciseBox>
+
+<ExerciseBox question="Exercise 4: Spot the Pattern — Mood Differences" id="spot-the-pattern-mood">
+
+Compare these two sentences and explain the mood difference:
+
+**Sentence A:** هُوَ يَكْتُبُ ٱلرِّسَالَةَ — "He writes the letter."
+**Sentence B:** لَمْ يَكْتُبْ ٱلرِّسَالَةَ — "He did not write the letter."
+
+1. What mood is the verb in Sentence A? What is the mood marker?
+2. What mood is the verb in Sentence B? What is the mood marker?
+3. What changed in the verb between the two sentences?
+4. If you wanted to say "He will not write the letter" (future negation), which particle would you use, and what would the verb look like?
+
+**Answers:**
+
+1. **Sentence A:** The verb **يَكْتُبُ** is in **indicative** mood (مَرْفُوعٌ). The marker is the **damma** (ـُ) on the final letter (بُ). No special particle precedes it.
+
+2. **Sentence B:** The verb **يَكْتُبْ** is in **jussive** mood (مَجْزُومٌ). The marker is the **sukun** (ـْ) on the final letter (بْ). The particle **لَمْ** triggers jussive and shifts the meaning to past negation.
+
+3. Only the FINAL VOWEL changed: damma (ـُ) became sukun (ـْ). The prefix يَ, the root letters ك-ت-ب, and the internal vowels all remain identical. One vowel change plus one particle changes both the mood and the tense.
+
+4. For future negation, use **لَنْ** (subjunctive particle): **لَنْ يَكْتُبَ ٱلرِّسَالَةَ** — "He will not write the letter." The verb takes **fatha** (ـَ) because لَنْ triggers subjunctive mood.
+</ExerciseBox>
+
+<ExerciseBox question="Exercise 5: Mini I'rab — Parse Every Verb in Al-Ikhlas 112:3-4" id="mini-irab-ikhlas">
+
+Parse the mood of every verb in the following two verses:
+
+**لَمْ يَلِدْ وَلَمْ يُولَدْ ﴿٣﴾ وَلَمْ يَكُن لَّهُ كُفُوًا أَحَدٌ ﴿٤﴾**
+
+For each verb, provide:
+- The verb
+- Its root
+- Its indicative (default) form
+- Its mood in this verse
+- The particle triggering the mood
+- A brief translation
+
+**Answers:**
+
+**Verb 1: يَلِدْ**
+- Root: و-ل-د (to beget)
+- Indicative form: يَلِدُ (yalidu)
+- Mood: **Jussive (مَجْزُومٌ)** — sukun on the dal
+- Particle: **لَمْ** (past negation)
+- Translation: "He did not beget"
+
+**Verb 2: يُولَدْ**
+- Root: و-ل-د (to be born/begotten)
+- Indicative form: يُولَدُ (yūladu) — passive voice
+- Mood: **Jussive (مَجْزُومٌ)** — sukun on the dal
+- Particle: **لَمْ** (past negation)
+- Translation: "nor was He begotten"
+
+**Verb 3: يَكُن**
+- Root: ك-و-ن (to be)
+- Indicative form: يَكُونُ (yakūnu)
+- Mood: **Jussive (مَجْزُومٌ)** — the waw drops because this is a hollow verb; in jussive, يَكُونُ shortens to يَكُنْ
+- Particle: **لَمْ** (past negation)
+- Translation: "And there has never been for Him any equal"
+
+**Summary:** All three verbs are in jussive mood, all triggered by **لَمْ**. The first two are regular jussive (sukun on final letter), while the third shows hollow-verb jussive behavior (deletion of the long vowel). Together, they form a triple negation declaring Allah's absolute uniqueness.
+</ExerciseBox>
+
+## Related Lessons
+
+**Prerequisites:**
+- [L3.04 Present Tense Conjugation](/learn/level-3/04-present-tense/) — The 14-person indicative paradigm that this lesson modifies
+- [L3.06 Imperative](/learn/level-3/06-imperative/) — Commands share the jussive stem with deleted prefix
+
+**Next Steps:**
+- [L3.08 Subject Pronouns](/learn/level-3/08-subject-pronouns/) — Independent pronouns used alongside mood-changed verbs
+- [L3.12 Verb Form II](/learn/level-3/12-verb-form-ii/) — Moods apply identically to all derived verb forms
+
+**Advanced Topics:**
+- [L4.03 Conditional Sentences](/learn/level-4/03-conditional-sentences/) — Both condition and result verbs take jussive mood
+- [L4.04 Conditional Particles](/learn/level-4/04-conditional-particles/) — Full study of particles that trigger jussive in both clauses
+- [L4.10 Negation Particles](/learn/level-4/10-negation-particles/) — How لَمْ, لَنْ, لَا, and مَا interact with different moods
+
+**Reference Resources:**
+- [Verb Forms Chart](/resources/verb-conjugation-tables/) — All moods for Forms I-X
+- [Glossary: Indicative (marfu')](/resources/glossary/#marfu) — Default present tense mood
+- [Glossary: Subjunctive (mansub)](/resources/glossary/#mansub) — Purpose/future mood
+- [Glossary: Jussive (majzum)](/resources/glossary/#majzum) — Negation/condition mood
