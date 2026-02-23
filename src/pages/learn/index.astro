@@ -93,9 +93,9 @@ const courseSchema = {
 
           {level === 1 && lessons.length > 0 ? (
             <>
-              {/* Essential lessons (1-5) with green accent */}
+              {/* Essential lessons (1-3) with green accent */}
               <div class="lessons-grid">
-                {lessons.slice(0, 5).map(lesson => (
+                {lessons.slice(0, 3).map(lesson => (
                   <LessonCard
                     title={lesson.data.title}
                     level={level}
@@ -118,9 +118,9 @@ const courseSchema = {
                 <p class="mandatory-text">Mandatory to know if you want to benefit from this course. Skip these if you already know how to read Arabic.</p>
               </div>
 
-              {/* Remaining lessons (6-11) */}
+              {/* Remaining lessons (4-11) */}
               <div class="lessons-grid">
-                {lessons.slice(5).map(lesson => (
+                {lessons.slice(3).map(lesson => (
                   <LessonCard
                     title={lesson.data.title}
                     level={level}
