@@ -22,6 +22,10 @@ const lessons = defineCollection({
     description: z.string().optional(),
     draft: z.boolean().default(false),
 
+    // Optional date overrides (auto-derived from git history if omitted)
+    datePublished: z.coerce.date().optional(),
+    dateModified: z.coerce.date().optional(),
+
     // Navigation overrides (computed automatically if not provided)
     prevLesson: z.string().optional(),
     nextLesson: z.string().optional(),

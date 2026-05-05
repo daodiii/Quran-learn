@@ -52,6 +52,12 @@ export async function getStaticPaths() {
 
 const { lesson, computedPrevLesson, computedNextLesson } = Astro.props;
 const { Content } = await render(lesson);
+
+import { getEntryDates } from '../../lib/getEntryDates';
+const { datePublished, dateModified } = getEntryDates(
+  `src/content/lessons/${lesson.id}.mdx`,
+  lesson.data,
+);
 ---
 
 <LessonLayout
@@ -61,6 +67,8 @@ const { Content } = await render(lesson);
   description={lesson.data.description}
   nextLesson={computedNextLesson}
   prevLesson={computedPrevLesson}
+  datePublished={datePublished}
+  dateModified={dateModified}
 >
   <Content components={{ img: ResponsiveImage }} />
 </LessonLayout>

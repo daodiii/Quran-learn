@@ -57,9 +57,26 @@ const ogImageURL = new URL(image, Astro.site);
   <meta name="twitter:description" content={description} />
   <meta name="twitter:image" content={ogImageURL.href} />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <!-- RSS feed (lessons + surahs + resources) -->
+  <link rel="alternate" type="application/rss+xml" title={`${siteName} RSS`} href="/rss.xml" />
   <!-- Preload critical Arabic fonts -->
   <link rel="preload" href="/fonts/amiri-regular-arabic.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="/fonts/UthmanicHafs.woff2" as="font" type="font/woff2" crossorigin />
+  <!-- Google Fonts (non-blocking): preconnect, then stylesheet swapped on load -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,200..900;1,200..900&family=Cormorant:ital,wght@0,300..700;1,300..700&display=swap"
+    media="print"
+    onload="this.media='all'"
+  />
+  <noscript>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,200..900;1,200..900&family=Cormorant:ital,wght@0,300..700;1,300..700&display=swap"
+    />
+  </noscript>
   <!-- Prevent flash of wrong theme -->
   <script is:inline>
     (function() {
