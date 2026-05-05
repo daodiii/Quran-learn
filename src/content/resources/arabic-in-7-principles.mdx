@@ -1,0 +1,226 @@
+---
+title: "Arabic in 7 Principles"
+order: 8
+description: "Seven cheat-code principles that cover 90% of Quranic Arabic grammar — your always-open reference card."
+---
+
+import GrammarTable from '../../components/mdx/GrammarTable.astro';
+import Callout from '../../components/mdx/Callout.astro';
+import ExerciseBox from '../../components/mdx/ExerciseBox.astro';
+import ArabicExample from '../../components/mdx/ArabicExample.astro';
+
+# Arabic in 7 Principles
+
+Seven rules. Ninety percent of the Quran. Keep this page open while you study.
+
+Every rule below links to the lessons where it is taught in full. Read a rule, understand the one-liner, then return here whenever you forget.
+
+---
+
+## Principle 1 — Every Word Is a Noun, Verb, or Particle. Nothing Else.
+
+**The rule:** Every Arabic word — no exceptions — belongs to one of three categories: **ism** (noun), **fiʿl** (verb), or **ḥarf** (particle).
+
+| Category | Arabic | What it does | Quick test |
+|----------|--------|--------------|------------|
+| **Noun** اِسْمٌ | Names things, qualities, people, ideas | Can it take ال or tanween (ـٌ)? → Noun |
+| **Verb** فِعْلٌ | Shows action tied to time | Does it tell you WHEN? → Verb |
+| **Particle** حَرْفٌ | Connects — meaningless alone | Is it glue? → Particle |
+
+**Why it matters:** Once you know what *kind* of word you're reading, every other rule becomes easier — because rules apply to types, not random words.
+
+**Examples:**
+
+- **ٱللَّهُ** — noun (names Allah)
+- **كَتَبَ** — verb (he wrote — past time)
+- **فِي** — particle (in — meaningless without what follows)
+
+**Cheat shortcut:** If a word has **ال** or **tanween**, it is definitely a noun. If it has a tense prefix (يَ, تَ, نَ, أَ), it is definitely a verb.
+
+👉 Full lesson: [Level 1 — Three Word Types](/learn/level-1/04-three-word-types/)
+
+---
+
+## Principle 2 — Every Verb Comes from a 3-Letter Root
+
+**The rule:** Every Arabic verb (and most nouns) is built from a **three-letter root** (جَذْر / jadhr). The root carries the core meaning. Everything else — prefixes, suffixes, doubled letters, inserted vowels — is a **costume** worn over that root.
+
+**How to undress a verb:**
+
+1. Remove any tense prefix (يَ, تَ, نَ, أَ, اِسْتَ...)
+2. Remove any suffix (ـَ, ـُوا, ـْتُ, ـْنَا...)
+3. Remove any doubled letter (shadda marks a doubled letter — count it once)
+4. Remove any inserted long vowel (ا between letters = Form III)
+5. What remains = the 3-letter root
+
+**Example:** يَسْتَغْفِرُونَ
+
+- Remove prefix يَ and prefix اِسْتَـ... wait — strip all to find: **غ-ف-ر** = forgiveness
+
+Root ج-ذ-ر means "root." Root ك-ت-ب means "writing." Root ع-ل-م means "knowledge." Once you know the root, you can guess the meaning family of any word you encounter.
+
+👉 Full lesson: [Level 3 — The Root System](/learn/level-3/01-root-system/)
+
+---
+
+## Principle 3 — The Verb Changes; You Don't Need a Separate Pronoun
+
+**The rule:** Arabic packs WHO performed the action directly into the verb via **suffixes** (past tense) and **prefixes + suffixes** (present tense). You rarely need a separate pronoun.
+
+**Past tense suffix key:**
+
+| Suffix | Means | Example |
+|--------|-------|---------|
+| — (just fatha) | he | كَتَبَ (kataba) |
+| ـَتْ | she | كَتَبَتْ (katabat) |
+| ـُوا | they (men) | كَتَبُوا (katabū) |
+| ـْنَ | they (women) | كَتَبْنَ (katabna) |
+| ـْتَ | you (man) | كَتَبْتَ (katabta) |
+| ـْتِ | you (woman) | كَتَبْتِ (katabti) |
+| ـْتُ | I | كَتَبْتُ (katabtu) |
+| ـْنَا | we | كَتَبْنَا (katabnā) |
+| ـَا | they two | كَتَبَا (katabā) |
+
+**Present tense prefix key — remember "ANAYTA" (أَنَيْتَ):**
+
+| Prefix | Means |
+|--------|-------|
+| **أَ** | I |
+| **نَ** | we |
+| **يَ** | he / they (men) |
+| **تَ** | you / she / they (women) |
+
+**Cheat rule:** In past tense, if the suffix starts with **ت**, the actor is YOU or I. If it is **وا**, it is THEY (men). In present tense, the first letter of the verb tells you everything.
+
+👉 Full lessons: [Level 3 — Past Tense](/learn/level-3/03-past-tense/) · [Level 3 — Present Tense](/learn/level-3/04-present-tense/)
+
+---
+
+## Principle 4 — Nouns Change Endings Based on Their Job
+
+**The rule:** A noun's last vowel (or ending) tells you its **grammatical role** in the sentence. This is called **iʿrāb** (الْإِعْرَابُ) — case endings.
+
+| Case | Job | Ending (indefinite) | Ending (definite) | Memory hook |
+|------|-----|--------------------|--------------------|-------------|
+| **Nominative** مَرْفُوع | The actor (subject) | ـٌ (un) | ـُ (u) | **U** — yoU are the doer |
+| **Accusative** مَنْصُوب | Acted upon (object) | ـً (an) | ـَ (a) | **A** — hAs action done to it |
+| **Genitive** مَجْرُور | After preposition or possession | ـٍ (in) | ـِ (i) | **In** — in, from, under |
+
+<ArabicExample
+  arabic="ضَرَبَ ٱلرَّجُلُ ٱلْكَلْبَ"
+  transliteration="ḍaraba r-rajulu l-kalba"
+  translation="The man struck the dog"
+  reference="Example sentence"
+  words={[
+    { ar: "ضَرَبَ", tr: "ḍaraba", en: "struck" },
+    { ar: "ٱلرَّجُلُ", tr: "ar-rajulu", en: "the man (subject — ـُ)" },
+    { ar: "ٱلْكَلْبَ", tr: "al-kalba", en: "the dog (object — ـَ)" }
+  ]}
+/>
+
+**Cheat rule:** See ـُ or ـٌ → that word is the **actor**. See ـَ or ـً → it is **acted upon**. See ـِ or ـٍ → it follows a preposition or belongs to something.
+
+👉 Full lessons: [Level 2 — Nominative](/learn/level-2/04-nominative-case/) · [Level 2 — Accusative](/learn/level-2/05-accusative-case/) · [Level 2 — Genitive](/learn/level-2/06-genitive-case/)
+
+---
+
+## Principle 5 — Masculine Is the Default; Feminine Is Always Marked
+
+**The rule:** In Arabic, masculine is the **unmarked** form. Feminine is always signaled by a visible marker — usually **ة** (tāʾ marbūṭa) at the end of a noun, or **ـَتْ** on a past-tense verb.
+
+| Form | Example | Meaning |
+|------|---------|---------|
+| Masculine noun | كِتَابٌ (kitābun) | a book |
+| Feminine noun | مَدْرَسَةٌ (madrasatun) | a school (ة signals feminine) |
+| Masc. verb | كَتَبَ (kataba) | he wrote |
+| Fem. verb | كَتَبَتْ (katabat) | she wrote (ـَتْ suffix) |
+| Masc. adjective | كَبِيرٌ (kabīrun) | big (masculine) |
+| Fem. adjective | كَبِيرَةٌ (kabīratun) | big (feminine — ة added) |
+
+**Cheat rule:** If you see **ة** on a noun, it is feminine. If you see **ـَتْ** on a past verb, the subject is female. No marker = masculine (or default).
+
+**Exception:** Some nouns are feminine without ة — body parts that come in pairs (يَدٌ "hand," عَيْنٌ "eye") and names of certain things (شَمْسٌ "sun," أَرْضٌ "earth"). These must be memorized.
+
+👉 Full lesson: [Level 1 — Gender](/learn/level-1/07-gender-masculine-feminine/)
+
+---
+
+## Principle 6 — Definite = ال, Indefinite = Tanween. They Never Coexist.
+
+**The rule:** Every noun in Arabic is either **definite** ("the book") or **indefinite** ("a book"). The marker is always visible.
+
+| State | Marker | Example | Meaning |
+|-------|--------|---------|---------|
+| **Definite** | ال at start | ٱلْكِتَابُ (al-kitābu) | **the** book |
+| **Indefinite** | Tanween at end (ـٌ ـً ـٍ) | كِتَابٌ (kitābun) | **a** book |
+| Both? | IMPOSSIBLE | ~~ٱلْكِتَابٌ~~ | Does not exist |
+
+**Tanween is always THREE possible vowels — one for each case:**
+
+- ـٌ (nominative indefinite) — subject + indefinite
+- ـً (accusative indefinite) — object + indefinite
+- ـٍ (genitive indefinite) — after preposition + indefinite
+
+**Cheat rule:** If a word has ال, no tanween. If it has tanween, no ال. The moment you see ال, you know the noun is definite AND you know its grammatical case from the last vowel.
+
+👉 Full lesson: [Level 1 — The Definite Article](/learn/level-1/06-definite-article/)
+
+---
+
+## Principle 7 — Word Order Is Flexible; Meaning Comes from Endings
+
+**The rule:** Arabic word order is NOT fixed the way English is. In English, word position determines meaning: "The dog bit the man" ≠ "The man bit the dog." In Arabic, the **case endings** carry the meaning — word order is for **emphasis**.
+
+All three of these mean the same thing in Arabic:
+
+1. **ضَرَبَ الرَّجُلُ الْكَلْبَ** — verb first (standard verbal sentence)
+2. **الرَّجُلُ ضَرَبَ الْكَلْبَ** — subject first (nominal sentence, more emphatic)
+3. **الْكَلْبَ ضَرَبَ الرَّجُلُ** — object first (maximum emphasis on "the DOG")
+
+In all three: الرَّجُلُ has ـُ = it is the actor. الْكَلْبَ has ـَ = it receives the action. The case endings make it unambiguous no matter what order you put the words in.
+
+**Why this matters in the Quran:** When Allah says إِيَّاكَ نَعْبُدُ (iyyāka naʿbudu — "You alone we worship"), the object إِيَّاكَ is placed FIRST for maximum emphasis. In normal Arabic, the verb comes first. This inversion is the Quran saying: *"It is exclusively YOU we worship — no one else."*
+
+**Cheat rule:** Don't assume the first word is the subject. Find the word with ـُ — that is the subject. Find the word with ـَ after a verb — that is the object. Position = emphasis, not role.
+
+👉 Full lessons: [Level 2 — Nominal Sentence](/learn/level-2/01-nominal-sentence/) · [Level 4 — Word Order and Emphasis](/learn/level-4/14-word-order-emphasis/)
+
+---
+
+## Quick-Scan Summary Card
+
+| # | Principle | The one-liner |
+|---|-----------|---------------|
+| 1 | Three word types | Every word: noun, verb, or particle |
+| 2 | Root system | Every verb = 3-letter root in a costume |
+| 3 | Verb conjugation | Suffix/prefix tells you who — no pronoun needed |
+| 4 | Case endings | Last vowel tells you the word's role |
+| 5 | Gender | Masculine = default; feminine = always marked |
+| 6 | Definite/indefinite | ال = the; tanween = a; never both |
+| 7 | Word order | Order = emphasis; endings = meaning |
+
+<ExerciseBox question="Self-test: Look at this phrase — أَنْزَلَ ٱللَّهُ ٱلْكِتَابَ. Which word is the subject? Which is the object? How do you know? Is the verb past or present? What does the verb's prefix tell you?">
+
+**Subject:** ٱللَّهُ — it ends in ـُ (nominative case = actor). Principle 4.
+
+**Object:** ٱلْكِتَابَ — it ends in ـَ (accusative case = acted upon). Principle 4.
+
+**Tense:** Past — أَنْزَلَ has no tense prefix (it starts with أَ as part of Form IV hamza, not a present-tense prefix). The three-consonant pattern without a person-prefix means third person masculine singular past. Principle 3.
+
+**Verb form:** أَنْزَلَ = Form IV (أَفْعَلَ) — the hamza prefix before root ن-ز-ل means causative: "He sent it down" (caused it to descend).
+
+**Full meaning:** "Allah sent down the Book."
+
+</ExerciseBox>
+
+<ExerciseBox question="Self-test: In إِيَّاكَ نَعْبُدُ (Al-Fatiha 1:5), why does the object (إِيَّاكَ) come before the verb (نَعْبُدُ)? Which principle explains this?">
+
+**Answer:** Principle 7 — word order is flexible; position signals emphasis.
+
+Normal Arabic word order would be: نَعْبُدُ إِيَّاكَ ("we worship You").
+
+By placing إِيَّاكَ first, the Quran creates maximum emphasis: "It is **You alone** we worship." The meaning is not just "we worship You" but "we worship exclusively You and no one else."
+
+This inversion is one of the most powerful rhetorical devices in Al-Fatiha, and it is visible ONLY when you understand Principle 7.
+
+</ExerciseBox>
