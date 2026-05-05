@@ -171,11 +171,11 @@
 
 /* Dark Mode - Warm Charcoal System */
 [data-theme="dark"] {
-  /* Background Colors - Warm Charcoal with Depth */
-  --bg-primary: #1A1614;
-  --bg-secondary: #221E1C;
-  --bg-tertiary: #2D2824;
-  --bg-elevated: #312B27;
+  /* Background Colors */
+  --bg-primary: #000000;
+  --bg-secondary: #0d0d0d;
+  --bg-tertiary: #1a1a1a;
+  --bg-elevated: #1f1f1f;
 
   /* Text Colors */
   --text-primary: #F5F1EB;
@@ -1471,18 +1471,10 @@
 }
 
 /* Dark mode mesh — luminous warm tones */
-[data-theme="dark"] .mesh-bg-primary::before {
-  background:
-    radial-gradient(circle at 15% 20%, rgba(242, 217, 140, 0.08) 0%, transparent 50%),
-    radial-gradient(circle at 85% 70%, rgba(123, 104, 232, 0.06) 0%, transparent 50%),
-    radial-gradient(circle at 50% 90%, rgba(232, 155, 122, 0.05) 0%, transparent 50%);
-}
-
+[data-theme="dark"] .mesh-bg-primary::before,
 [data-theme="dark"] .mesh-bg-secondary::before {
-  background:
-    radial-gradient(ellipse at 25% 30%, rgba(232, 155, 122, 0.07) 0%, transparent 55%),
-    radial-gradient(ellipse at 75% 60%, rgba(242, 217, 140, 0.08) 0%, transparent 55%),
-    radial-gradient(circle at 45% 10%, rgba(184, 134, 11, 0.05) 0%, transparent 50%);
+  background: none;
+  animation: none;
 }
 
 @keyframes meshDrift {
