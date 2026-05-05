@@ -90,15 +90,24 @@ const features = [
 ];
 ---
 
-<BaseLayout title="Home" description="Free structured course for learning Quranic Arabic grammar. 80 lessons across 5 levels, from alphabet basics to full I'rab analysis, plus word-by-word surah breakdowns.">
+<BaseLayout
+  title="Free Quranic Arabic Grammar Course — 80 Lessons & I'rab Analysis | Quranic Grammar"
+  titleOverride={true}
+  description="Free structured course for learning Quranic Arabic grammar. 80 lessons across 5 levels, from alphabet basics to full I'rab analysis, plus word-by-word surah breakdowns."
+>
   <Fragment slot="head">
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
       "@type": "WebSite",
       "name": "Quranic Grammar",
-      "url": "https://quranic-grammar.com/",
+      "url": "https://www.quranic-grammar.com/",
       "description": "Learn Quranic Arabic grammar from beginner to advanced. Comprehensive lessons, verb forms, and detailed surah breakdowns.",
-      "inLanguage": "en"
+      "inLanguage": "en",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://www.quranic-grammar.com/?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
     })} />
   </Fragment>
   <AnnouncementTicker slot="before-header" />

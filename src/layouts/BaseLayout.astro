@@ -9,6 +9,8 @@ interface Props {
   description?: string;
   image?: string;
   type?: 'website' | 'article';
+  noindex?: boolean;
+  titleOverride?: boolean;
 }
 
 const {
@@ -16,12 +18,15 @@ const {
   description = 'Learn Quranic Arabic grammar from beginner to advanced. Comprehensive lessons, verb forms, and detailed surah breakdowns.',
   image = '/images/og-default.jpg',
   type = 'website',
+  noindex = false,
+  titleOverride = false,
 } = Astro.props;
 
 const siteName = 'Quranic Grammar';
-const fullTitle = `${title} | ${siteName}`;
+const fullTitle = titleOverride ? title : `${title} | ${siteName}`;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const ogImageURL = new URL(image, Astro.site);
+const ogImageAlt = `${fullTitle} — Quranic Arabic grammar`;
 ---
 
 <!DOCTYPE html>
@@ -38,6 +43,11 @@ const ogImageURL = new URL(image, Astro.site);
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="description" content={description} />
+  {noindex ? (
+    <meta name="robots" content="noindex,follow" />
+  ) : (
+    <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1" />
+  )}
   <meta name="theme-color" content="#1A1147" media="(prefers-color-scheme: light)" />
   <meta name="theme-color" content="#1A1614" media="(prefers-color-scheme: dark)" />
   <title>{fullTitle}</title>
@@ -49,6 +59,9 @@ const ogImageURL = new URL(image, Astro.site);
   <meta property="og:title" content={fullTitle} />
   <meta property="og:description" content={description} />
   <meta property="og:image" content={ogImageURL.href} />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content={ogImageAlt} />
   <meta property="og:site_name" content={siteName} />
   <meta property="og:locale" content="en_US" />
   <!-- Twitter Card -->
@@ -56,7 +69,10 @@ const ogImageURL = new URL(image, Astro.site);
   <meta name="twitter:title" content={fullTitle} />
   <meta name="twitter:description" content={description} />
   <meta name="twitter:image" content={ogImageURL.href} />
+  <meta name="twitter:image:alt" content={ogImageAlt} />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/manifest.webmanifest" />
   <!-- Preload critical Arabic fonts -->
   <link rel="preload" href="/fonts/amiri-regular-arabic.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="/fonts/UthmanicHafs.woff2" as="font" type="font/woff2" crossorigin />
