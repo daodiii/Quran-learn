@@ -9,7 +9,7 @@ import rehypeArabicWrap from './src/plugins/rehype-arabic-wrap.mjs';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig({
-  site: 'https://quranic-grammar.com',
+  site: 'https://www.quranic-grammar.com',
   integrations: [
     mdx({ rehypePlugins: [rehypeArabicWrap] }),
     sitemap({
