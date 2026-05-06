@@ -38,7 +38,9 @@ export async function GET(context: APIContext) {
     return {
       title: `Surah ${surah.data.name} (${surah.data.surahNumber}) — Word-by-Word Breakdown`,
       link: `/surahs/${surah.id}/`,
-      description: `Grammatical breakdown of Surah ${surah.data.name} — ${surah.data.verseCount} verses (${surah.data.difficulty}).`,
+      description:
+        surah.data.description ??
+        `Grammatical breakdown of Surah ${surah.data.name} — ${surah.data.verseCount} verses (${surah.data.difficulty}).`,
       pubDate: dates.datePublished,
       categories: ['Surah', surah.data.difficulty],
     };

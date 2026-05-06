@@ -40,6 +40,7 @@ const surahs = defineCollection({
     surahNumber: z.number().int().min(1).max(114),
     verseCount: z.number().int().positive(),
     difficulty: z.enum(['beginner', 'intermediate', 'advanced']),
+    description: z.string().optional(),
   }),
 });
 
