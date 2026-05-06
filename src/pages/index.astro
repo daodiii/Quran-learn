@@ -6,8 +6,42 @@ import CardGrid from '../components/cards/CardGrid.astro';
 import SurahCard from '../components/cards/SurahCard.astro';
 import GoldCalligraphy from '../components/decoration/GoldCalligraphy.astro';
 import AnnouncementTicker from '../components/AnnouncementTicker.astro';
+import FaqSchema from '../components/seo/FaqSchema.astro';
 import { getCollection } from 'astro:content';
 import { testimonials } from '../data/testimonials';
+
+const faqItems = [
+  {
+    question: 'How long does it take to learn Quranic Arabic grammar?',
+    answer:
+      'Most learners reach functional comprehension of common Quranic structures within 6 to 12 months of consistent study (around 30 minutes a day). The full curriculum here is 80 lessons across 5 levels. Levels 1 and 2 (alphabet, vowels, sentence types, and the three I’rab cases) typically take 2–3 months. Levels 3 and 4 (verb forms I–X, weak verbs, and advanced syntax) take another 4–6 months. Level 5 applies everything to the Quran itself. The journey continues for years — but you will start understanding verses you recite from your first month.',
+  },
+  {
+    question: 'What is the difference between Sarf and Nahw?',
+    answer:
+      'Sarf (صَرْف) is morphology — how Arabic words are built from roots using patterns. It studies verb forms (Forms I–X), conjugations, participles, and verbal nouns. Nahw (نَحْو) is syntax — how words combine into sentences. It studies I’rab cases (Marfuʻ, Mansub, Majrur), sentence types, idafa, and grammatical roles. You need both: Sarf tells you what a word is, Nahw tells you what it does in the sentence. Levels 1–2 here focus mainly on Nahw; Level 3 introduces Sarf; Levels 4–5 weave them together.',
+  },
+  {
+    question: 'Do I need to learn Modern Standard Arabic first?',
+    answer:
+      'No. You can study Quranic Arabic directly without learning Modern Standard Arabic (MSA) first. Quranic Arabic is the older, classical register of the language; MSA is the modern simplification used in newspapers and broadcasts. Their grammar overlaps heavily, but Quranic Arabic preserves richer case-ending markers, more verb forms in active use, and a different vocabulary register. If your goal is to understand the Quran in its own words, study Quranic Arabic directly — you will pick up enough MSA along the way to read modern texts if you ever need to.',
+  },
+  {
+    question: 'What is I’rab and why does it matter?',
+    answer:
+      'I’rab (إِعْرَاب) is the Arabic system of case endings that mark a word’s grammatical role. The three cases are Marfuʻ (nominative — subjects), Mansub (accusative — direct objects and predicates of inna), and Majrur (genitive — after prepositions and in idafa constructions). I’rab matters because a single vowel change can flip the meaning of a verse: who is doing what to whom is encoded in the case endings. Translation strips this layer out; understanding I’rab restores the precision of the original text.',
+  },
+  {
+    question: 'How is Quranic Arabic different from spoken Arabic dialects?',
+    answer:
+      'Spoken dialects (Egyptian, Levantine, Gulf, Maghrebi) drop most case endings, restructure sentences, and use vocabulary that has drifted far from the classical register. Knowing a dialect helps with pronunciation but does not give you Quranic comprehension. Quranic Arabic is closer to literary Classical Arabic than to any modern dialect. If you only know a dialect, expect Quranic Arabic to feel like a related but distinct language — the same way Latin relates to Italian.',
+  },
+  {
+    question: 'Is this course really free?',
+    answer:
+      'Yes. Every lesson, every surah breakdown, every resource on this site is free, with no signup required and no ads. The goal is to make a structured, technically rigorous Quranic Arabic curriculum publicly available. Your progress is stored locally in your browser — there is no account, no email collection, and nothing tracked beyond standard analytics.',
+  },
+];
 
 // Get all lessons to count them (exclude _index pages)
 const allLessons = await getCollection('lessons');
@@ -108,6 +142,7 @@ const features = [
         "query-input": "required name=search_term_string"
       }
     })} />
+    <FaqSchema items={faqItems} />
   </Fragment>
   <AnnouncementTicker slot="before-header" />
 
@@ -367,6 +402,33 @@ const features = [
       </div>
     </section>
   )}
+
+  <!-- FAQ Section -->
+  <section class="section mesh-bg mesh-bg-primary" id="faq" aria-labelledby="faq-heading">
+    <div class="container faq-container">
+      <div class="section-header">
+        <div class="section-badge">Common Questions</div>
+        <h2 id="faq-heading" class="section-title">Frequently Asked <span class="text-accent">Questions</span></h2>
+        <p class="section-subtitle">Quick answers about the curriculum, prerequisites, and what to expect from your study.</p>
+      </div>
+
+      <div class="faq-list">
+        {faqItems.map((item, idx) => (
+          <details class="faq-item" open={idx === 0}>
+            <summary class="faq-question">
+              <span>{item.question}</span>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6"/>
+              </svg>
+            </summary>
+            <div class="faq-answer">
+              <p>{item.answer}</p>
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
 </BaseLayout>
 
 <style>
@@ -1341,6 +1403,85 @@ const features = [
 
     .scroll-hint-arrow {
       animation: none;
+    }
+  }
+
+  /* ============================================
+     FAQ Section
+     ============================================ */
+  .faq-container {
+    max-inline-size: 56rem;
+  }
+
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-block-start: 2.5rem;
+  }
+
+  .faq-item {
+    background: var(--bg-elevated);
+    border: 1px solid var(--border-primary);
+    border-radius: var(--radius-lg, 12px);
+    overflow: hidden;
+    transition: border-color var(--transition-fast, 0.18s ease);
+  }
+
+  .faq-item[open] {
+    border-color: var(--accent-gold);
+  }
+
+  .faq-question {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1.125rem 1.5rem;
+    font-family: var(--font-display);
+    font-size: 1.0625rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    cursor: pointer;
+    list-style: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .faq-question::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-question:hover {
+    color: var(--accent-gold);
+  }
+
+  .faq-chevron {
+    flex-shrink: 0;
+    inline-size: 20px;
+    block-size: 20px;
+    color: var(--accent-gold);
+    transition: transform var(--transition-fast, 0.18s ease);
+  }
+
+  .faq-item[open] .faq-chevron {
+    transform: rotate(180deg);
+  }
+
+  .faq-answer {
+    padding: 0 1.5rem 1.25rem;
+    border-block-start: 1px solid var(--border-primary);
+  }
+
+  .faq-answer p {
+    margin: 1rem 0 0;
+    color: var(--text-secondary);
+    line-height: 1.75;
+    font-size: 1rem;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .faq-chevron {
+      transition: none;
     }
   }
 </style>

@@ -1,0 +1,473 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Container from '../../components/primitives/Container.astro';
+import BreadcrumbSchema from '../../components/seo/BreadcrumbSchema.astro';
+import ArticleSchema from '../../components/seo/ArticleSchema.astro';
+import FaqSchema from '../../components/seo/FaqSchema.astro';
+
+const title = 'Arabic Verb Forms (I–X): The Complete Guide';
+const description =
+  'Master the ten Arabic verb forms (Forms I through X) — what each form means, how the patterns shift the root meaning, and where to find Quranic examples. A pedagogical hub linking the full lesson series.';
+
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  { label: 'Learn', href: '/learn/' },
+  { label: 'Arabic Verb Forms' },
+];
+
+const faqItems = [
+  {
+    question: 'How many verb forms are there in Arabic?',
+    answer:
+      'Classical and Quranic Arabic use ten core derived verb forms, called Forms I through X (الأَوْزَان). Form I is the basic, unaugmented form; Forms II–X add prefixes, gemination (shadda), or vowel changes that systematically shift the meaning — making the action causative, reflexive, mutual, or sought. There are a few rare additional forms (XI–XV) found in poetry and dialect, but the Quran almost exclusively uses Forms I–X.',
+  },
+  {
+    question: 'Which Arabic verb forms appear most in the Quran?',
+    answer:
+      'Form I is by far the most common (the basic action verb). After that, Form IV (causative, “to make X happen”) and Form II (intensive or causative) dominate. Form X (“to seek X”) is also frequent, especially in supplications. Forms V, VIII, III, VI, VII, and IX appear in descending order of frequency. Form IX is nearly always a color or defect verb (e.g., اِحْمَرَّ — to turn red).',
+  },
+  {
+    question: 'What is the difference between Form I and Form IV?',
+    answer:
+      'Form I is the basic root meaning — for example, نَزَلَ (nazala) means “he descended.” Form IV adds an أَ (hamzat al-qaṭʿ) prefix and converts the verb into a causative: أَنْزَلَ (anzala) means “he caused to descend / he sent down.” The same root, shifted from intransitive to transitive, from being the action to causing the action. This pattern is everywhere in the Quran (e.g., the Quran was “sent down” by Allah).',
+  },
+  {
+    question: 'Do I need to memorize all ten verb forms before reading the Quran?',
+    answer:
+      'No. Master Forms I, II, IV, and X first — together they cover the majority of Quranic verbs. Add Forms V and VIII next. Forms III, VI, VII, and IX can be picked up as you encounter them. The signature features (shadda, alif, prefixes) are quick to recognize once you know the patterns; the master reference table compresses it all onto one page.',
+  },
+];
+---
+
+<BaseLayout title={title} description={description} type="article">
+  <Fragment slot="head">
+    <BreadcrumbSchema items={breadcrumbItems} />
+    <ArticleSchema
+      title={title}
+      description={description}
+      url={Astro.url.pathname}
+      type="LearningResource"
+      educationalLevel="Intermediate"
+      isPartOfCourse={true}
+    />
+    <FaqSchema items={faqItems} />
+  </Fragment>
+
+  <Container maxWidth="lg">
+    <article class="hub-article">
+      <header class="hub-header">
+        <p class="hub-eyebrow">Topic Hub · Sarf (Morphology)</p>
+        <h1 class="hub-title">Arabic Verb Forms (I–X)</h1>
+        <p class="hub-subtitle">
+          The ten patterns Arabic uses to derive verbs from a single root. Master these and most of the
+          Quran's verbal vocabulary becomes recognizable on sight.
+        </p>
+      </header>
+
+      <section class="hub-section">
+        <h2>What is an Arabic verb form?</h2>
+        <p>
+          Arabic builds words from three-letter <strong>roots</strong> (occasionally four). A single root —
+          for example <span lang="ar" dir="rtl">ك ت ب</span> ("k-t-b", the idea of writing) — generates
+          dozens of related words by being plugged into different <strong>patterns</strong>.
+          The ten verb patterns are called the <em>Forms</em> (Arabic: الأَوْزَان, <em>al-awzān</em>).
+          Each form takes the same three root letters and adds prefixes, internal vowels, or doubled
+          letters to systematically shift the meaning.
+        </p>
+        <p>
+          From <span lang="ar" dir="rtl">ك ت ب</span> you get
+          كَتَبَ ("he wrote", Form I),
+          كَاتَبَ ("he corresponded with", Form III),
+          اِكْتَتَبَ ("he subscribed / had something written", Form VIII), and
+          اِسْتَكْتَبَ ("he asked someone to write", Form X).
+          Same three letters; ten layers of meaning.
+        </p>
+        <p>
+          This is why verb forms matter for Quranic Arabic. Once you internalize the patterns, you
+          stop translating word-by-word and start reading verbs as <em>root + form</em>: a much smaller
+          mental load, a much sharper grasp of nuance.
+        </p>
+      </section>
+
+      <section class="hub-section">
+        <h2>The ten forms at a glance</h2>
+        <div class="table-wrap">
+          <table class="forms-table">
+            <thead>
+              <tr>
+                <th>Form</th>
+                <th>Past pattern</th>
+                <th>Signature feature</th>
+                <th>Meaning shift</th>
+                <th>Lesson</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>I</strong></td>
+                <td><span lang="ar" dir="rtl">فَعَلَ</span></td>
+                <td>Plain root</td>
+                <td>Basic action</td>
+                <td><a href="/learn/level-3/02-verb-form-i/">L3.02</a></td>
+              </tr>
+              <tr>
+                <td><strong>II</strong></td>
+                <td><span lang="ar" dir="rtl">فَعَّلَ</span></td>
+                <td>Shadda on middle letter</td>
+                <td>Intensify or cause</td>
+                <td><a href="/learn/level-3/12-verb-form-ii/">L3.12</a></td>
+              </tr>
+              <tr>
+                <td><strong>III</strong></td>
+                <td><span lang="ar" dir="rtl">فَاعَلَ</span></td>
+                <td>Long ā after 1st letter</td>
+                <td>Do with / toward someone</td>
+                <td><a href="/learn/level-3/13-verb-form-iii/">L3.13</a></td>
+              </tr>
+              <tr>
+                <td><strong>IV</strong></td>
+                <td><span lang="ar" dir="rtl">أَفْعَلَ</span></td>
+                <td>Hamza prefix (أَ)</td>
+                <td>Cause something to happen</td>
+                <td><a href="/learn/level-3/14-verb-form-iv/">L3.14</a></td>
+              </tr>
+              <tr>
+                <td><strong>V</strong></td>
+                <td><span lang="ar" dir="rtl">تَفَعَّلَ</span></td>
+                <td>Tā prefix + shadda on middle</td>
+                <td>Reflexive of Form II</td>
+                <td><a href="/learn/level-3/15-verb-form-v/">L3.15</a></td>
+              </tr>
+              <tr>
+                <td><strong>VI</strong></td>
+                <td><span lang="ar" dir="rtl">تَفَاعَلَ</span></td>
+                <td>Tā prefix + long ā</td>
+                <td>Mutual or gradual action</td>
+                <td><a href="/learn/level-3/16-verb-form-vi/">L3.16</a></td>
+              </tr>
+              <tr>
+                <td><strong>VII</strong></td>
+                <td><span lang="ar" dir="rtl">اِنْفَعَلَ</span></td>
+                <td>In- prefix</td>
+                <td>Passive result of Form I</td>
+                <td><a href="/learn/level-3/17-verb-forms-vii-viii/">L3.17</a></td>
+              </tr>
+              <tr>
+                <td><strong>VIII</strong></td>
+                <td><span lang="ar" dir="rtl">اِفْتَعَلَ</span></td>
+                <td>I- prefix + tā after 1st letter</td>
+                <td>Reflexive / for oneself</td>
+                <td><a href="/learn/level-3/17-verb-forms-vii-viii/">L3.17</a></td>
+              </tr>
+              <tr>
+                <td><strong>IX</strong></td>
+                <td><span lang="ar" dir="rtl">اِفْعَلَّ</span></td>
+                <td>I- prefix + shadda on LAST letter</td>
+                <td>Colors and defects only</td>
+                <td><a href="/learn/level-3/18-verb-forms-ix-x/">L3.18</a></td>
+              </tr>
+              <tr>
+                <td><strong>X</strong></td>
+                <td><span lang="ar" dir="rtl">اِسْتَفْعَلَ</span></td>
+                <td>Ista- prefix</td>
+                <td>Seek, request, or consider</td>
+                <td><a href="/learn/level-3/18-verb-forms-ix-x/">L3.18</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="hub-cta-line">
+          Need it as a single printable cheat sheet? See the
+          <a href="/resources/verb-forms-master-reference/">Verb Forms Master Reference</a>.
+        </p>
+      </section>
+
+      <section class="hub-section">
+        <h2>How verb forms group by purpose</h2>
+        <p>
+          Memorizing ten patterns is easier when you see how they cluster. The forms fall into four
+          functional families:
+        </p>
+
+        <div class="form-groups">
+          <div class="form-group">
+            <h3>Causative family (II, IV)</h3>
+            <p>
+              Both intensify or cause an action. Form II uses gemination (shadda on the middle root
+              letter); Form IV uses an أَ prefix. Compare
+              عَلِمَ ("he knew", Form I) →
+              عَلَّمَ ("he taught" — caused to know, Form II) →
+              أَعْلَمَ ("he informed", Form IV).
+              Form II often emphasizes intensity or repetition; Form IV pure causation.
+            </p>
+          </div>
+
+          <div class="form-group">
+            <h3>Reflexive / middle-voice family (V, VI, VII, VIII)</h3>
+            <p>
+              These forms turn the action back on the subject or describe something happening to it.
+              Form V is the reflexive of II ("learn for yourself"); Form VI is the reciprocal of III
+              ("work with each other"); Form VII is the passive-result of I ("get split open"); Form
+              VIII is reflexive but stronger ("acquire for yourself").
+            </p>
+          </div>
+
+          <div class="form-group">
+            <h3>Interactive family (III)</h3>
+            <p>
+              Form III uses a long alif after the first root letter to express doing something
+              <em>with</em> or <em>toward</em> another party.
+              قَاتَلَ (qātala) is "he fought against",
+              جَاهَدَ (jāhada) is "he strove against".
+            </p>
+          </div>
+
+          <div class="form-group">
+            <h3>Specialty forms (IX, X)</h3>
+            <p>
+              Form IX is reserved almost exclusively for colors and physical defects
+              (اِحْمَرَّ — "he turned red"). Form X carries the meaning of <em>seeking</em> or
+              <em>requesting</em>: اِسْتَغْفَرَ ("he sought forgiveness"),
+              اِسْتَكْبَرَ ("he considered himself great"). Form X is one of the most spiritually
+              charged forms in Quranic Arabic.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="hub-section">
+        <h2>Recommended learning path</h2>
+        <ol class="path-list">
+          <li>
+            <strong>Start with the root system</strong> — read
+            <a href="/learn/level-3/01-root-system/">L3.01: The Root System</a> and the
+            <a href="/resources/root-system/">Root System resource</a>. You cannot work with verb forms
+            until you can isolate roots.
+          </li>
+          <li>
+            <strong>Master Form I in detail</strong> — <a href="/learn/level-3/02-verb-form-i/">L3.02</a>
+            covers Form I plus past tense, present tense, and the moods. Most of the Quran's verbs are
+            Form I, so this lesson does most of the heavy lifting.
+          </li>
+          <li>
+            <strong>Learn the high-frequency derived forms</strong> — Forms II, IV, and X.
+            Walk through <a href="/learn/level-3/12-verb-form-ii/">L3.12 (Form II)</a>,
+            <a href="/learn/level-3/14-verb-form-iv/">L3.14 (Form IV)</a>, and
+            <a href="/learn/level-3/18-verb-forms-ix-x/">L3.18 (Forms IX–X)</a>.
+          </li>
+          <li>
+            <strong>Round out the reflexives</strong> —
+            <a href="/learn/level-3/15-verb-form-v/">L3.15 (V)</a>,
+            <a href="/learn/level-3/17-verb-forms-vii-viii/">L3.17 (VII–VIII)</a>,
+            <a href="/learn/level-3/13-verb-form-iii/">L3.13 (III)</a>, and
+            <a href="/learn/level-3/16-verb-form-vi/">L3.16 (VI)</a>.
+          </li>
+          <li>
+            <strong>Practice in context</strong> — apply the forms inside actual Quranic verses with
+            <a href="/learn/level-5/01-full-irab-analysis/">L5.01: Full I'rab Analysis</a> and the
+            <a href="/surahs/">surah breakdowns</a>.
+          </li>
+        </ol>
+      </section>
+
+      <section class="hub-section">
+        <h2>Beyond the ten core forms</h2>
+        <p>
+          Verb forms also generate <strong>derived nouns</strong>: active participles
+          (<em>ism al-fāʿil</em>), passive participles (<em>ism al-mafʿūl</em>), and verbal nouns
+          (<em>maṣdar</em>). Each form has its own characteristic noun patterns. See
+          <a href="/learn/level-3/19-active-passive-participles/">L3.19: Active &amp; Passive Participles</a>
+          and <a href="/learn/level-3/20-verbal-nouns/">L3.20: Verbal Nouns</a> for the noun side of the
+          system.
+        </p>
+        <p>
+          Weak roots (containing a hamza, alif, wāw, or yāʾ) follow modified versions of these patterns.
+          Levels 4 covers them in detail —
+          <a href="/learn/level-4/11-weak-verbs-intro/">L4.11</a> through
+          <a href="/learn/level-4/15-hamzated-verbs/">L4.15</a>.
+        </p>
+      </section>
+    </article>
+  </Container>
+</BaseLayout>
+
+<style>
+  .hub-article {
+    padding-block: var(--spacing-2xl, 3rem) var(--spacing-3xl, 4rem);
+  }
+
+  .hub-header {
+    text-align: center;
+    margin-block-end: var(--spacing-2xl, 3rem);
+  }
+
+  .hub-eyebrow {
+    font-family: var(--font-display);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent-gold);
+    margin: 0 0 0.75rem;
+  }
+
+  .hub-title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    margin: 0 0 1rem;
+  }
+
+  .hub-subtitle {
+    color: var(--text-secondary);
+    font-size: clamp(1rem, 2vw, 1.125rem);
+    line-height: 1.6;
+    max-inline-size: 48rem;
+    margin-inline: auto;
+  }
+
+  .hub-section {
+    max-inline-size: 56rem;
+    margin: 0 auto;
+    margin-block-end: var(--spacing-2xl, 3rem);
+  }
+
+  .hub-section h2 {
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
+    margin: 0 0 1rem;
+    padding-block-end: 0.5rem;
+    border-block-end: 2px solid var(--accent-gold);
+  }
+
+  .hub-section h3 {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    color: var(--text-primary);
+    margin: 0 0 0.5rem;
+  }
+
+  .hub-section p {
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin: 0 0 1rem;
+  }
+
+  .hub-section a {
+    color: var(--accent-primary);
+    text-decoration: underline;
+    text-decoration-color: color-mix(in srgb, var(--accent-primary) 40%, transparent);
+    text-underline-offset: 2px;
+  }
+
+  .hub-section a:hover {
+    text-decoration-color: var(--accent-primary);
+  }
+
+  .table-wrap {
+    overflow-x: auto;
+    margin: 1.5rem 0;
+    border-radius: var(--radius-lg, 12px);
+    border: 1px solid var(--border-primary);
+  }
+
+  .forms-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9375rem;
+  }
+
+  .forms-table th,
+  .forms-table td {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    border-block-end: 1px solid var(--border-primary);
+    color: var(--text-secondary);
+  }
+
+  .forms-table th {
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 0.8125rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  .forms-table tbody tr:last-child td {
+    border-block-end: none;
+  }
+
+  .forms-table tbody tr:hover {
+    background: var(--bg-secondary);
+  }
+
+  .form-groups {
+    display: grid;
+    gap: 1.25rem;
+    margin-block-start: 1.5rem;
+  }
+
+  .form-group {
+    background: var(--bg-elevated);
+    border: 1px solid var(--border-primary);
+    border-inline-start: 4px solid var(--accent-gold);
+    border-radius: var(--radius-lg, 12px);
+    padding: 1.25rem 1.5rem;
+  }
+
+  .form-group h3 {
+    font-size: 1.0625rem;
+    color: var(--accent-gold);
+    margin-block-end: 0.5rem;
+  }
+
+  .form-group p {
+    margin: 0;
+  }
+
+  .path-list {
+    counter-reset: path;
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0 0;
+  }
+
+  .path-list li {
+    counter-increment: path;
+    position: relative;
+    padding-inline-start: 2.5rem;
+    margin-block-end: 1rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+
+  .path-list li::before {
+    content: counter(path);
+    position: absolute;
+    inset-inline-start: 0;
+    inset-block-start: 0;
+    inline-size: 1.75rem;
+    block-size: 1.75rem;
+    border-radius: 50%;
+    background: var(--accent-gold);
+    color: #1A1147;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 0.875rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hub-cta-line {
+    font-style: italic;
+  }
+</style>
