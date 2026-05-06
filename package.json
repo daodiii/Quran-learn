@@ -4,7 +4,7 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
+    "build": "astro build && pagefind --site dist",
     "preview": "astro preview",
     "astro": "astro",
     "analyze": "npm run build && echo 'Bundle analysis complete. Check dist/_astro/ for JS files.'",
@@ -30,6 +30,7 @@
   "dependencies": {
     "@astrojs/check": "^0.9.6",
     "@astrojs/mdx": "^4.3.13",
+    "@astrojs/rss": "^4.0.18",
     "@astrojs/sitemap": "^3.7.0",
     "@capacitor/android": "^8.0.2",
     "@capacitor/app": "^8.0.0",
@@ -49,6 +50,7 @@
     "@axe-core/playwright": "^4.11.1",
     "@capacitor/assets": "^3.0.5",
     "@playwright/test": "^1.58.1",
+    "pagefind": "^1.5.2",
     "rollup-plugin-visualizer": "^6.0.5",
     "tsx": "^4.21.0"
   }
