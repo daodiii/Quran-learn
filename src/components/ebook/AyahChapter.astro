@@ -1,0 +1,49 @@
+---
+interface Props {
+  number: string;            // e.g. "Chapter 02"
+  title: string;             // e.g. "All praise belongs to the Lord"
+  folio: number;             // page number
+}
+
+const { number, title, folio } = Astro.props;
+---
+<section class="ebook-page ayah-chapter">
+  <div class="ac-number">{number}</div>
+  <h2 class="ac-title">{title}</h2>
+  <div class="ac-body"><slot /></div>
+  <div class="ebook-folio">{folio}</div>
+</section>
+
+<style>
+  .ayah-chapter {
+    background: var(--eb-canvas);
+    color: var(--eb-ink-primary);
+  }
+  .ac-number {
+    font-family: 'Geist Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.24em;
+    color: var(--eb-accent);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .ac-title {
+    font-family: 'Geist', sans-serif;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 1.2;
+    letter-spacing: -0.015em;
+    color: var(--eb-ink-primary);
+    margin: 0 0 32px;
+  }
+  .ac-body {
+    font-family: 'Geist', sans-serif;
+    font-size: 13.5px;
+    line-height: 1.6;
+    color: var(--eb-ink-secondary);
+    letter-spacing: -0.005em;
+  }
+  .ac-body :global(p) {
+    margin: 0 0 14px;
+  }
+</style>
