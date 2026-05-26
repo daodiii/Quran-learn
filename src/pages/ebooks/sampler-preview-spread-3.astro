@@ -1,0 +1,21 @@
+---
+import EbookPrint from '../../layouts/EbookPrint.astro';
+import AyahChapter from '../../components/ebook/AyahChapter.astro';
+import FeaturedVerse from '../../components/ebook/FeaturedVerse.astro';
+import WordGrid from '../../components/ebook/WordGrid.astro';
+---
+<EbookPrint title="Sample — Chapter 05">
+  <AyahChapter number="Chapter 05" title="You alone we worship; You alone we ask" folio={12}>
+    <FeaturedVerse
+      arabic="إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ"
+      transliteration="iyyāka naʿbudu wa-iyyāka nastaʿīn"
+      translation="You alone we worship, and from You alone we ask for help."
+    />
+    <WordGrid words={[
+      { ar: "إِيَّاكَ", tr: "iyyāka", gloss: "You (alone) · object pronoun" },
+      { ar: "نَعْبُدُ", tr: "naʿbudu", gloss: "we worship · present verb" },
+      { ar: "وَإِيَّاكَ", tr: "wa-iyyāka", gloss: "and You (alone)" },
+      { ar: "نَسْتَعِينُ", tr: "nastaʿīn", gloss: "we seek help · present verb" },
+    ]} />
+  </AyahChapter>
+</EbookPrint>

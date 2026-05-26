@@ -1,0 +1,25 @@
+---
+import EbookPrint from '../../layouts/EbookPrint.astro';
+import AyahChapter from '../../components/ebook/AyahChapter.astro';
+import FeaturedVerse from '../../components/ebook/FeaturedVerse.astro';
+import WordGrid from '../../components/ebook/WordGrid.astro';
+import GrammarMoment from '../../components/ebook/GrammarMoment.astro';
+---
+<EbookPrint title="Sample — Chapter 02">
+  <AyahChapter number="Chapter 02" title="All praise belongs to the Lord" folio={6}>
+    <FeaturedVerse
+      arabic="ٱلْحَمْدُ لِلَّهِ رَبِّ ٱلْعَٰلَمِينَ"
+      transliteration="al-ḥamdu lillāhi rabbi l-ʿālamīn"
+      translation="All praise belongs to Allah, Lord of all the worlds."
+    />
+    <WordGrid words={[
+      { ar: "ٱلْحَمْدُ", tr: "al-ḥamdu", gloss: "the praise · subject (nom.)" },
+      { ar: "لِلَّهِ", tr: "lillāhi", gloss: "to / for Allah · genitive" },
+      { ar: "رَبِّ", tr: "rabbi", gloss: "Lord of · iḍāfah" },
+      { ar: "ٱلْعَٰلَمِينَ", tr: "l-ʿālamīn", gloss: "the worlds · plural, genitive" },
+    ]} />
+    <GrammarMoment>
+      <em>رَبِّ ٱلْعَٰلَمِينَ</em> is an <em>iḍāfah</em> — a possessive chain. The second word is always genitive.
+    </GrammarMoment>
+  </AyahChapter>
+</EbookPrint>
