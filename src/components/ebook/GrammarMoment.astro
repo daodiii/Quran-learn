@@ -1,0 +1,44 @@
+---
+interface Props {
+  label?: string;
+}
+
+const { label = 'Grammar moment' } = Astro.props;
+---
+<aside class="grammar-moment">
+  <span class="gm-label">{label}</span>
+  <div class="gm-body"><slot /></div>
+</aside>
+
+<style>
+  .grammar-moment {
+    margin: 24px 0;
+    padding: 18px 20px;
+    background: var(--eb-callout-surface);
+    border-left: 2px solid var(--eb-accent);
+  }
+  .gm-label {
+    display: block;
+    font-family: 'Geist Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--eb-accent);
+    margin-bottom: 7px;
+    font-weight: 500;
+  }
+  .gm-body {
+    font-family: 'Geist', sans-serif;
+    font-size: 13.5px;
+    line-height: 1.6;
+    color: var(--eb-ink-secondary);
+    letter-spacing: -0.005em;
+  }
+  .gm-body :global(em) {
+    font-family: 'Amiri', serif;
+    font-style: normal;
+    font-size: 15px;
+    color: var(--eb-ink-primary);
+    padding: 0 2px;
+  }
+</style>
