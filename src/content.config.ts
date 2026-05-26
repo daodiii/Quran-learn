@@ -48,8 +48,22 @@ const resources = defineCollection({
   }),
 });
 
+const ebooks = defineCollection({
+  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/ebooks' }),
+  schema: z.object({
+    title: z.string(),
+    subtitle: z.string().optional(),
+    brand: z.string().default('Quranic Grammar'),
+    volume: z.string().optional(),
+    byline: z.string().optional(),
+    price: z.string().optional(),
+    description: z.string().optional(),
+  }),
+});
+
 export const collections = {
   lessons,
   surahs,
   resources,
+  ebooks,
 };
