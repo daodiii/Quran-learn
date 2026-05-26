@@ -1,0 +1,76 @@
+---
+interface Props {
+  title: string;
+  subtitle?: string;
+  brand?: string;
+  volume?: string;
+}
+
+const {
+  title,
+  subtitle = 'A grammatical walkthrough',
+  brand = 'Quranic Grammar',
+  volume = 'Volume One',
+} = Astro.props;
+
+const year = new Date().getFullYear();
+---
+<section class="ebook-page title-page">
+  <div class="tp-brand">{brand}</div>
+  <div class="tp-block">
+    <h1 class="tp-title">{title}</h1>
+    <p class="tp-subtitle">{subtitle}</p>
+  </div>
+  <div class="tp-colophon">
+    <div class="tp-volume">{volume}</div>
+    <div class="tp-year">© {year} {brand}</div>
+  </div>
+</section>
+
+<style>
+  .title-page {
+    display: flex;
+    flex-direction: column;
+    background: var(--eb-canvas);
+  }
+  .tp-brand {
+    font-family: 'Geist Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.28em;
+    color: var(--eb-accent);
+    text-transform: uppercase;
+  }
+  .tp-block {
+    margin-top: auto;
+    margin-bottom: auto;
+    padding: 28px 0;
+    border-top: 1px solid var(--eb-accent);
+    border-bottom: 1px solid var(--eb-accent);
+  }
+  .tp-title {
+    font-family: 'Geist', sans-serif;
+    font-weight: 500;
+    font-size: 28px;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: var(--eb-ink-primary);
+    margin: 0 0 12px;
+  }
+  .tp-subtitle {
+    font-family: 'Geist', sans-serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 14px;
+    color: var(--eb-ink-muted);
+    margin: 0;
+  }
+  .tp-colophon {
+    font-family: 'Geist Mono', monospace;
+    color: var(--eb-ink-mute-deep);
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: space-between;
+  }
+</style>
