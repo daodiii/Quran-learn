@@ -1,0 +1,9 @@
+---
+interface VocabEntry { rank: number | string; arabic: string; translit: string; gloss: string; }
+interface Props { rows: VocabEntry[]; }
+import VocabRow from './VocabRow.astro';
+const { rows } = Astro.props;
+---
+<div class="vocab-grid mode-data">
+  {rows.map(r => <VocabRow rank={r.rank} arabic={r.arabic} translit={r.translit} gloss={r.gloss} />)}
+</div>

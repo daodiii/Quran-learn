@@ -1,0 +1,15 @@
+---
+interface Props {
+  rank: number | string;
+  arabic: string;
+  translit: string;
+  gloss: string;
+}
+const { rank, arabic, translit, gloss } = Astro.props;
+---
+<div class="vocab-row">
+  <span class="vocab-rank">{rank}</span>
+  <span class="vocab-arabic">{arabic}</span>
+  <span class="vocab-translit">{translit}</span>
+  <span class="vocab-gloss">{gloss}</span>
+</div>
