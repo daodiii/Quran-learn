@@ -7,7 +7,15 @@ byline: ""
 description: "Verb tables, case endings, pronoun charts, the 200 most-used Quran words, the root system, and a 120-term grammar dictionary — designed as a desk-side reference."
 ---
 
+import MasterToc from '../../components/ebook/MasterToc.astro';
 import SectionDivider from '../../components/ebook/SectionDivider.astro';
+
+<MasterToc items={[
+  { label: 'Orientation', anchor: 'orientation', kind: 'chapter' },
+  { label: 'Section 01 — Vocabulary Quickstart', anchor: 'section-01', kind: 'section' },
+  { label: 'Section 02 — Charts', anchor: 'section-02', kind: 'section' },
+  { label: 'Section 03 — Glossary', anchor: 'section-03', kind: 'section' },
+]} />
 
 <SectionDivider number="01" name="Vocabulary Quickstart" anchor="section-01" />
 <SectionDivider number="02" name="Charts" anchor="section-02" />
