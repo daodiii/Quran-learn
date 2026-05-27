@@ -11,6 +11,8 @@ import MasterToc from '../../components/ebook/MasterToc.astro';
 import SectionDivider from '../../components/ebook/SectionDivider.astro';
 import OrientationChapter from '../../components/ebook/OrientationChapter.astro';
 import ArabicExample from '../../components/mdx/ArabicExample.astro';
+import VocabGrid from '../../components/ebook/VocabGrid.astro';
+import SectionToc from '../../components/ebook/SectionToc.astro';
 
 {/* COPYRIGHT / COLOPHON */}
 <section class="ebook-page ebook-page-folio" style="padding:1in 0.7in;">
@@ -198,8 +200,272 @@ In all three: الرَّجُلُ has ـُ = it is the actor. الْكَلْبَ 
 
 {/* === SECTION 01 === */}
 <SectionDivider number="01" name="Vocabulary Quickstart" anchor="section-01" />
-<section class="ebook-page ebook-page-folio" data-toc-anchor="vocab-200" style="padding:1in 0.7in;">
-  <p>200 Most-Used Words placeholder — Task 15</p>
+<section class="ebook-page ebook-page-folio" data-toc-anchor="vocab-200" style="padding:0.6in 0.5in;">
+  <div class="orient-number" style="margin-bottom:6px;">Section 01 · Chapter</div>
+  <h2 class="orient-title" style="margin-bottom:14px;">200 Most-Used Quran Words</h2>
+  <p class="orient-body" style="margin-bottom:18px;">The most frequent vocabulary words in the Quran, ranked by occurrence. Memorising the top 100 covers roughly half of all Quranic word tokens.</p>
+  <SectionToc items={[
+    "Tier 1 — words 1 to 50",
+    "Tier 2 — words 51 to 100",
+    "Tier 3 — words 101 to 150",
+    "Tier 4 — words 151 to 200",
+  ]} />
+</section>
+
+{/* Tier 1 — Words 1–25 */}
+<section class="ebook-page ebook-page-folio" style="padding:0.6in 0.5in 0.5in;">
+  <div class="chart-block-label" style="margin-bottom:10px;">Tier 1 · Words 1–25</div>
+  <VocabGrid rows={[
+    { rank: 1, arabic: "وَ", translit: "wa", gloss: "and; by (oaths)" },
+    { rank: 2, arabic: "فِي", translit: "fī", gloss: "in, within" },
+    { rank: 3, arabic: "مِنْ", translit: "min", gloss: "from, of" },
+    { rank: 4, arabic: "مَا", translit: "mā", gloss: "what; not (negation)" },
+    { rank: 5, arabic: "لَا", translit: "lā", gloss: "no, not" },
+    { rank: 6, arabic: "إِنَّ", translit: "inna", gloss: "indeed, verily" },
+    { rank: 7, arabic: "عَلَىٰ", translit: "ʿalā", gloss: "on, upon" },
+    { rank: 8, arabic: "إِلَىٰ", translit: "ilā", gloss: "to, toward" },
+    { rank: 9, arabic: "بِ", translit: "bi", gloss: "with, by, in" },
+    { rank: 10, arabic: "لِ", translit: "li", gloss: "for, to" },
+    { rank: 11, arabic: "أَنَّ", translit: "anna", gloss: "that (conjunction)" },
+    { rank: 12, arabic: "قَدْ", translit: "qad", gloss: "already, indeed" },
+    { rank: 13, arabic: "هُوَ", translit: "huwa", gloss: "he, it (pronoun)" },
+    { rank: 14, arabic: "هُمْ", translit: "hum", gloss: "they (masc.)" },
+    { rank: 15, arabic: "الَّذِي", translit: "alladhī", gloss: "who, which (m.sg.)" },
+    { rank: 16, arabic: "الَّذِينَ", translit: "alladhīna", gloss: "those who (m.pl.)" },
+    { rank: 17, arabic: "كَانَ", translit: "kāna", gloss: "was, is (aux. verb)" },
+    { rank: 18, arabic: "ثُمَّ", translit: "thumma", gloss: "then, thereafter" },
+    { rank: 19, arabic: "أَوْ", translit: "aw", gloss: "or" },
+    { rank: 20, arabic: "كُلُّ", translit: "kullu", gloss: "every, all" },
+    { rank: 21, arabic: "هَٰذَا", translit: "hādhā", gloss: "this (masc.)" },
+    { rank: 22, arabic: "ذَٰلِكَ", translit: "dhālika", gloss: "that (masc.)" },
+    { rank: 23, arabic: "بَعْدَ", translit: "baʿda", gloss: "after" },
+    { rank: 24, arabic: "قَبْلَ", translit: "qabla", gloss: "before" },
+    { rank: 25, arabic: "عَنْ", translit: "ʿan", gloss: "about, from, off" },
+  ]} />
+</section>
+
+{/* Tier 1 — Words 26–50 */}
+<section class="ebook-page ebook-page-folio" style="padding:0.6in 0.5in 0.5in;">
+  <div class="chart-block-label" style="margin-bottom:10px;">Tier 1 · Words 26–50</div>
+  <VocabGrid rows={[
+    { rank: 26, arabic: "لَمْ", translit: "lam", gloss: "did not (negation)" },
+    { rank: 27, arabic: "إِذَا", translit: "idhā", gloss: "when, if" },
+    { rank: 28, arabic: "مَعَ", translit: "maʿa", gloss: "with, together" },
+    { rank: 29, arabic: "حَتَّىٰ", translit: "ḥattā", gloss: "until, so that" },
+    { rank: 30, arabic: "بَيْنَ", translit: "bayna", gloss: "between, among" },
+    { rank: 31, arabic: "أَمْ", translit: "am", gloss: "or (in questions)" },
+    { rank: 32, arabic: "لَنْ", translit: "lan", gloss: "will not, never" },
+    { rank: 33, arabic: "إِلَّا", translit: "illā", gloss: "except, but" },
+    { rank: 34, arabic: "مَنْ", translit: "man", gloss: "who (relative)" },
+    { rank: 35, arabic: "كَيْفَ", translit: "kayfa", gloss: "how" },
+    { rank: 36, arabic: "أَيْنَ", translit: "ayna", gloss: "where" },
+    { rank: 37, arabic: "بَلْ", translit: "bal", gloss: "rather, nay" },
+    { rank: 38, arabic: "سَوْفَ", translit: "sawfa", gloss: "will (future particle)" },
+    { rank: 39, arabic: "لَعَلَّ", translit: "laʿalla", gloss: "perhaps, may" },
+    { rank: 40, arabic: "لَوْ", translit: "law", gloss: "if (hypothetical)" },
+    { rank: 41, arabic: "قَالَ", translit: "qāla", gloss: "he said" },
+    { rank: 42, arabic: "آمَنَ", translit: "āmana", gloss: "he believed" },
+    { rank: 43, arabic: "عَلِمَ", translit: "ʿalima", gloss: "he knew" },
+    { rank: 44, arabic: "جَعَلَ", translit: "jaʿala", gloss: "he made, appointed" },
+    { rank: 45, arabic: "أَنزَلَ", translit: "anzala", gloss: "he sent down" },
+    { rank: 46, arabic: "عَمِلَ", translit: "ʿamila", gloss: "he did, worked" },
+    { rank: 47, arabic: "كَفَرَ", translit: "kafara", gloss: "he disbelieved" },
+    { rank: 48, arabic: "رَأَى", translit: "raʾā", gloss: "he saw" },
+    { rank: 49, arabic: "أَتَى", translit: "atā", gloss: "he came" },
+    { rank: 50, arabic: "دَعَا", translit: "daʿā", gloss: "he called, invoked" },
+  ]} />
+</section>
+
+{/* Tier 2 — Words 51–75 */}
+<section class="ebook-page ebook-page-folio" style="padding:0.6in 0.5in 0.5in;">
+  <div class="chart-block-label" style="margin-bottom:10px;">Tier 2 · Words 51–75</div>
+  <VocabGrid rows={[
+    { rank: 51, arabic: "خَلَقَ", translit: "khalaqa", gloss: "he created" },
+    { rank: 52, arabic: "أَرْسَلَ", translit: "arsala", gloss: "he sent (messenger)" },
+    { rank: 53, arabic: "ذَكَرَ", translit: "dhakara", gloss: "he remembered" },
+    { rank: 54, arabic: "هَدَى", translit: "hadā", gloss: "he guided" },
+    { rank: 55, arabic: "أَرَادَ", translit: "arāda", gloss: "he wanted, willed" },
+    { rank: 56, arabic: "ضَرَبَ", translit: "ḍaraba", gloss: "he struck, set forth" },
+    { rank: 57, arabic: "وَجَدَ", translit: "wajada", gloss: "he found" },
+    { rank: 58, arabic: "تَوَلَّى", translit: "tawallā", gloss: "he turned away" },
+    { rank: 59, arabic: "أَخَذَ", translit: "akhadha", gloss: "he took, seized" },
+    { rank: 60, arabic: "كَتَبَ", translit: "kataba", gloss: "he wrote, decreed" },
+    { rank: 61, arabic: "سَمِعَ", translit: "samiʿa", gloss: "he heard" },
+    { rank: 62, arabic: "حَكَمَ", translit: "ḥakama", gloss: "he judged" },
+    { rank: 63, arabic: "شَاءَ", translit: "shāʾa", gloss: "he willed" },
+    { rank: 64, arabic: "أَنفَقَ", translit: "anfaqa", gloss: "he spent" },
+    { rank: 65, arabic: "نَصَرَ", translit: "naṣara", gloss: "he helped, gave victory" },
+    { rank: 66, arabic: "ظَلَمَ", translit: "ẓalama", gloss: "he wronged" },
+    { rank: 67, arabic: "فَعَلَ", translit: "faʿala", gloss: "he did, acted" },
+    { rank: 68, arabic: "حَسِبَ", translit: "ḥasiba", gloss: "he thought, supposed" },
+    { rank: 69, arabic: "خَافَ", translit: "khāfa", gloss: "he feared" },
+    { rank: 70, arabic: "صَلَّى", translit: "ṣallā", gloss: "he prayed" },
+    { rank: 71, arabic: "غَفَرَ", translit: "ghafara", gloss: "he forgave" },
+    { rank: 72, arabic: "أَمَرَ", translit: "amara", gloss: "he commanded" },
+    { rank: 73, arabic: "نَهَى", translit: "nahā", gloss: "he forbade" },
+    { rank: 74, arabic: "صَبَرَ", translit: "ṣabara", gloss: "he was patient" },
+    { rank: 75, arabic: "رَزَقَ", translit: "razaqa", gloss: "he provided" },
+  ]} />
+</section>
+
+{/* Tier 2 — Words 76–100 */}
+<section class="ebook-page ebook-page-folio" style="padding:0.6in 0.5in 0.5in;">
+  <div class="chart-block-label" style="margin-bottom:10px;">Tier 2 · Words 76–100</div>
+  <VocabGrid rows={[
+    { rank: 76, arabic: "شَكَرَ", translit: "shakara", gloss: "he thanked" },
+    { rank: 77, arabic: "تَابَ", translit: "tāba", gloss: "he repented" },
+    { rank: 78, arabic: "أَحَبَّ", translit: "aḥabba", gloss: "he loved" },
+    { rank: 79, arabic: "صَدَقَ", translit: "ṣadaqa", gloss: "he was truthful" },
+    { rank: 80, arabic: "وَعَدَ", translit: "waʿada", gloss: "he promised" },
+    { rank: 81, arabic: "كَذَّبَ", translit: "kadhdhaba", gloss: "he denied, lied" },
+    { rank: 82, arabic: "حَرَّمَ", translit: "ḥarrama", gloss: "he prohibited" },
+    { rank: 83, arabic: "فَتَحَ", translit: "fataḥa", gloss: "he opened, judged" },
+    { rank: 84, arabic: "بَعَثَ", translit: "baʿatha", gloss: "he raised, sent forth" },
+    { rank: 85, arabic: "شَهِدَ", translit: "shahida", gloss: "he witnessed, testified" },
+    { rank: 86, arabic: "اسْتَكْبَرَ", translit: "istakbara", gloss: "he was arrogant" },
+    { rank: 87, arabic: "أَصْلَحَ", translit: "aṣlaḥa", gloss: "he reformed, reconciled" },
+    { rank: 88, arabic: "اتَّبَعَ", translit: "ittabaʿa", gloss: "he followed" },
+    { rank: 89, arabic: "اسْتَغْفَرَ", translit: "istaghfara", gloss: "he sought forgiveness" },
+    { rank: 90, arabic: "عَبَدَ", translit: "ʿabada", gloss: "he worshipped" },
+    { rank: 91, arabic: "رَجَعَ", translit: "rajaʿa", gloss: "he returned" },
+    { rank: 92, arabic: "قَتَلَ", translit: "qatala", gloss: "he killed, fought" },
+    { rank: 93, arabic: "دَخَلَ", translit: "dakhala", gloss: "he entered" },
+    { rank: 94, arabic: "خَرَجَ", translit: "kharaja", gloss: "he went out, exited" },
+    { rank: 95, arabic: "مَشَى", translit: "mashā", gloss: "he walked" },
+    { rank: 96, arabic: "نَظَرَ", translit: "naẓara", gloss: "he looked, observed" },
+    { rank: 97, arabic: "سَأَلَ", translit: "saʾala", gloss: "he asked" },
+    { rank: 98, arabic: "أَجَابَ", translit: "ajāba", gloss: "he answered" },
+    { rank: 99, arabic: "بَدَّلَ", translit: "baddala", gloss: "he changed, replaced" },
+    { rank: 100, arabic: "أَحْسَنَ", translit: "aḥsana", gloss: "he did good, excelled" },
+  ]} />
+</section>
+
+{/* Tier 3 — Words 101–125 */}
+<section class="ebook-page ebook-page-folio" style="padding:0.6in 0.5in 0.5in;">
+  <div class="chart-block-label" style="margin-bottom:10px;">Tier 3 · Words 101–125</div>
+  <VocabGrid rows={[
+    { rank: 101, arabic: "زَادَ", translit: "zāda", gloss: "he increased" },
+    { rank: 102, arabic: "أَطَاعَ", translit: "aṭāʿa", gloss: "he obeyed" },
+    { rank: 103, arabic: "عَصَى", translit: "ʿaṣā", gloss: "he disobeyed" },
+    { rank: 104, arabic: "أَنْجَى", translit: "anjā", gloss: "he saved, delivered" },
+    { rank: 105, arabic: "ضَلَّ", translit: "ḍalla", gloss: "he strayed, went astray" },
+    { rank: 106, arabic: "اهْتَدَى", translit: "ihtadā", gloss: "he was guided" },
+    { rank: 107, arabic: "تَبَارَكَ", translit: "tabāraka", gloss: "blessed is He" },
+    { rank: 108, arabic: "سَبَّحَ", translit: "sabbaḥa", gloss: "he glorified" },
+    { rank: 109, arabic: "حَاجَّ", translit: "ḥājja", gloss: "he argued, disputed" },
+    { rank: 110, arabic: "وَرِثَ", translit: "waritha", gloss: "he inherited" },
+    { rank: 111, arabic: "أَشْرَكَ", translit: "ashraka", gloss: "he associated partners" },
+    { rank: 112, arabic: "بَشَّرَ", translit: "bashshara", gloss: "he gave good tidings" },
+    { rank: 113, arabic: "أَنْذَرَ", translit: "andhara", gloss: "he warned" },
+    { rank: 114, arabic: "سَجَدَ", translit: "sajada", gloss: "he prostrated" },
+    { rank: 115, arabic: "رَكَعَ", translit: "rakaʿa", gloss: "he bowed (in prayer)" },
+    { rank: 116, arabic: "زَكَّى", translit: "zakkā", gloss: "he purified" },
+    { rank: 117, arabic: "صَامَ", translit: "ṣāma", gloss: "he fasted" },
+    { rank: 118, arabic: "حَجَّ", translit: "ḥajja", gloss: "he performed pilgrimage" },
+    { rank: 119, arabic: "تَوَكَّلَ", translit: "tawakkala", gloss: "he relied on, trusted" },
+    { rank: 120, arabic: "اعْتَصَمَ", translit: "iʿtaṣama", gloss: "he held fast to" },
+    { rank: 121, arabic: "اللَّهُ", translit: "Allāh", gloss: "God, Allah" },
+    { rank: 122, arabic: "رَبٌّ", translit: "rabb", gloss: "Lord, Master" },
+    { rank: 123, arabic: "نَاسٌ", translit: "nās", gloss: "people, mankind" },
+    { rank: 124, arabic: "أَرْضٌ", translit: "arḍ", gloss: "earth, land" },
+    { rank: 125, arabic: "سَمَاءٌ", translit: "samāʾ", gloss: "sky, heaven" },
+  ]} />
+</section>
+
+{/* Tier 3 — Words 126–150 */}
+<section class="ebook-page ebook-page-folio" style="padding:0.6in 0.5in 0.5in;">
+  <div class="chart-block-label" style="margin-bottom:10px;">Tier 3 · Words 126–150</div>
+  <VocabGrid rows={[
+    { rank: 126, arabic: "يَوْمٌ", translit: "yawm", gloss: "day" },
+    { rank: 127, arabic: "كِتَابٌ", translit: "kitāb", gloss: "book, scripture" },
+    { rank: 128, arabic: "رَسُولٌ", translit: "rasūl", gloss: "messenger, apostle" },
+    { rank: 129, arabic: "آيَةٌ", translit: "āya", gloss: "sign, verse" },
+    { rank: 130, arabic: "قَوْمٌ", translit: "qawm", gloss: "people, nation" },
+    { rank: 131, arabic: "أَمْرٌ", translit: "amr", gloss: "command, affair, matter" },
+    { rank: 132, arabic: "نَفْسٌ", translit: "nafs", gloss: "soul, self, person" },
+    { rank: 133, arabic: "عِلْمٌ", translit: "ʿilm", gloss: "knowledge" },
+    { rank: 134, arabic: "حَقٌّ", translit: "ḥaqq", gloss: "truth, right, reality" },
+    { rank: 135, arabic: "مَاءٌ", translit: "māʾ", gloss: "water" },
+    { rank: 136, arabic: "نَارٌ", translit: "nār", gloss: "fire, hellfire" },
+    { rank: 137, arabic: "جَنَّةٌ", translit: "janna", gloss: "paradise, garden" },
+    { rank: 138, arabic: "عَذَابٌ", translit: "ʿadhāb", gloss: "punishment, torment" },
+    { rank: 139, arabic: "رَحْمَةٌ", translit: "raḥma", gloss: "mercy, compassion" },
+    { rank: 140, arabic: "مُؤْمِنٌ", translit: "muʾmin", gloss: "believer" },
+    { rank: 141, arabic: "كَافِرٌ", translit: "kāfir", gloss: "disbeliever" },
+    { rank: 142, arabic: "نَبِيٌّ", translit: "nabī", gloss: "prophet" },
+    { rank: 143, arabic: "مَلَكٌ", translit: "malak", gloss: "angel" },
+    { rank: 144, arabic: "شَيْءٌ", translit: "shayʾ", gloss: "thing, something" },
+    { rank: 145, arabic: "قَلْبٌ", translit: "qalb", gloss: "heart" },
+    { rank: 146, arabic: "دِينٌ", translit: "dīn", gloss: "religion, faith, judgment" },
+    { rank: 147, arabic: "صَلَاةٌ", translit: "ṣalāh", gloss: "prayer" },
+    { rank: 148, arabic: "زَكَاةٌ", translit: "zakāh", gloss: "charity, alms" },
+    { rank: 149, arabic: "عَمَلٌ", translit: "ʿamal", gloss: "deed, work, action" },
+    { rank: 150, arabic: "صَالِحٌ", translit: "ṣāliḥ", gloss: "righteous, good" },
+  ]} />
+</section>
+
+{/* Tier 4 — Words 151–175 */}
+<section class="ebook-page ebook-page-folio" style="padding:0.6in 0.5in 0.5in;">
+  <div class="chart-block-label" style="margin-bottom:10px;">Tier 4 · Words 151–175</div>
+  <VocabGrid rows={[
+    { rank: 151, arabic: "إِيمَانٌ", translit: "īmān", gloss: "faith, belief" },
+    { rank: 152, arabic: "كُفْرٌ", translit: "kufr", gloss: "disbelief, ingratitude" },
+    { rank: 153, arabic: "ظُلْمٌ", translit: "ẓulm", gloss: "injustice, wrongdoing" },
+    { rank: 154, arabic: "صَبْرٌ", translit: "ṣabr", gloss: "patience, perseverance" },
+    { rank: 155, arabic: "تَوْبَةٌ", translit: "tawba", gloss: "repentance" },
+    { rank: 156, arabic: "هُدًى", translit: "hudan", gloss: "guidance" },
+    { rank: 157, arabic: "ضَلَالَةٌ", translit: "ḍalāla", gloss: "misguidance, error" },
+    { rank: 158, arabic: "نُورٌ", translit: "nūr", gloss: "light" },
+    { rank: 159, arabic: "ظُلُمَاتٌ", translit: "ẓulumāt", gloss: "darkness(es)" },
+    { rank: 160, arabic: "بَاطِلٌ", translit: "bāṭil", gloss: "falsehood, vain" },
+    { rank: 161, arabic: "سَبِيلٌ", translit: "sabīl", gloss: "path, way" },
+    { rank: 162, arabic: "صِرَاطٌ", translit: "ṣirāṭ", gloss: "path (straight)" },
+    { rank: 163, arabic: "مِثْلٌ", translit: "mithl", gloss: "like, similar, example" },
+    { rank: 164, arabic: "عَبْدٌ", translit: "ʿabd", gloss: "servant, slave" },
+    { rank: 165, arabic: "وَلِيٌّ", translit: "walī", gloss: "ally, guardian, friend" },
+    { rank: 166, arabic: "عَدُوٌّ", translit: "ʿaduww", gloss: "enemy" },
+    { rank: 167, arabic: "شَيْطَانٌ", translit: "shayṭān", gloss: "Satan, devil" },
+    { rank: 168, arabic: "مَوْتٌ", translit: "mawt", gloss: "death" },
+    { rank: 169, arabic: "حَيَاةٌ", translit: "ḥayāh", gloss: "life" },
+    { rank: 170, arabic: "دُنْيَا", translit: "dunyā", gloss: "worldly life, this world" },
+    { rank: 171, arabic: "آخِرَةٌ", translit: "ākhira", gloss: "hereafter, afterlife" },
+    { rank: 172, arabic: "سَاعَةٌ", translit: "sāʿa", gloss: "hour (Day of Judgment)" },
+    { rank: 173, arabic: "قِيَامَةٌ", translit: "qiyāma", gloss: "resurrection" },
+    { rank: 174, arabic: "حِسَابٌ", translit: "ḥisāb", gloss: "reckoning, account" },
+    { rank: 175, arabic: "ثَوَابٌ", translit: "thawāb", gloss: "reward" },
+  ]} />
+</section>
+
+{/* Tier 4 — Words 176–200 */}
+<section class="ebook-page ebook-page-folio" style="padding:0.6in 0.5in 0.5in;">
+  <div class="chart-block-label" style="margin-bottom:10px;">Tier 4 · Words 176–200</div>
+  <VocabGrid rows={[
+    { rank: 176, arabic: "عِقَابٌ", translit: "ʿiqāb", gloss: "punishment, penalty" },
+    { rank: 177, arabic: "حِكْمَةٌ", translit: "ḥikma", gloss: "wisdom" },
+    { rank: 178, arabic: "فَضْلٌ", translit: "faḍl", gloss: "grace, bounty, favor" },
+    { rank: 179, arabic: "نِعْمَةٌ", translit: "niʿma", gloss: "blessing, favor" },
+    { rank: 180, arabic: "شُكْرٌ", translit: "shukr", gloss: "gratitude, thanks" },
+    { rank: 181, arabic: "بَيْتٌ", translit: "bayt", gloss: "house, home" },
+    { rank: 182, arabic: "مَسْجِدٌ", translit: "masjid", gloss: "mosque, place of prostration" },
+    { rank: 183, arabic: "جَبَلٌ", translit: "jabal", gloss: "mountain" },
+    { rank: 184, arabic: "بَحْرٌ", translit: "baḥr", gloss: "sea, ocean" },
+    { rank: 185, arabic: "شَمْسٌ", translit: "shams", gloss: "sun" },
+    { rank: 186, arabic: "قَمَرٌ", translit: "qamar", gloss: "moon" },
+    { rank: 187, arabic: "لَيْلٌ", translit: "layl", gloss: "night" },
+    { rank: 188, arabic: "نَهَارٌ", translit: "nahār", gloss: "daytime, day" },
+    { rank: 189, arabic: "وَلَدٌ", translit: "walad", gloss: "child, offspring" },
+    { rank: 190, arabic: "أُمٌّ", translit: "umm", gloss: "mother" },
+    { rank: 191, arabic: "أَبٌ", translit: "ab", gloss: "father" },
+    { rank: 192, arabic: "أَخٌ", translit: "akh", gloss: "brother" },
+    { rank: 193, arabic: "زَوْجٌ", translit: "zawj", gloss: "spouse, pair" },
+    { rank: 194, arabic: "مَالٌ", translit: "māl", gloss: "wealth, property" },
+    { rank: 195, arabic: "رِزْقٌ", translit: "rizq", gloss: "provision, sustenance" },
+    { rank: 196, arabic: "طَعَامٌ", translit: "ṭaʿām", gloss: "food" },
+    { rank: 197, arabic: "ذَنْبٌ", translit: "dhanb", gloss: "sin, fault" },
+    { rank: 198, arabic: "إِثْمٌ", translit: "ithm", gloss: "sin, crime" },
+    { rank: 199, arabic: "تَقْوَىٰ", translit: "taqwā", gloss: "God-consciousness, piety" },
+    { rank: 200, arabic: "جِهَادٌ", translit: "jihād", gloss: "striving, struggle" },
+  ]} />
 </section>
 
 {/* === SECTION 02 === */}
