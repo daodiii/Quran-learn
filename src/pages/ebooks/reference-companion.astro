@@ -1,0 +1,29 @@
+---
+import { getEntry, render } from 'astro:content';
+import EbookPrint from '../../layouts/EbookPrint.astro';
+import CoverPage from '../../components/ebook/CoverPage.astro';
+import TitlePage from '../../components/ebook/TitlePage.astro';
+import BackCover from '../../components/ebook/BackCover.astro';
+
+const entry = await getEntry('ebooks', 'reference-companion');
+if (!entry) throw new Error('Ebook content not found: reference-companion');
+const { Content } = await render(entry);
+const { title, subtitle, brand, volume, byline, description } = entry.data;
+---
+<EbookPrint title={title} description={description}>
+  <CoverPage
+    title={title}
+    subtitle={subtitle}
+    brand={brand}
+    volume={volume}
+    byline={byline}
+  />
+  <TitlePage
+    title={title}
+    subtitle={subtitle}
+    brand={brand}
+    volume={volume}
+  />
+  <Content />
+  <BackCover brand={brand} />
+</EbookPrint>
