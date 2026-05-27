@@ -1,0 +1,23 @@
+---
+interface Props {
+  section?: string;
+  letter?: string;
+  letterName?: string;
+  page?: number;
+}
+const { section, letter, letterName, page } = Astro.props;
+const isGlossary = !!letter;
+---
+<header class="eb-running">
+  <span class="eb-running-left">Quranic Grammar · Reference Companion</span>
+  {isGlossary ? (
+    <span class="eb-running-right">
+      <span class="eb-running-letter">{letter}</span>
+      <span class="eb-running-letter-name">{letterName}</span>
+    </span>
+  ) : (
+    <span class="eb-running-right">
+      {section}{page != null ? ` · ${page}` : ''}
+    </span>
+  )}
+</header>
