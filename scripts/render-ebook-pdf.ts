@@ -1,15 +1,16 @@
 /**
  * scripts/render-ebook-pdf.ts
  *
- * Renders the sampler ebook (and listing preview images) to PDF/PNG
+ * Renders ebook(s) (and listing preview images) to PDF/PNG
  * by serving the built static site locally and using Playwright.
  *
  * Uses the system Chrome installation via channel: 'chrome' to avoid
  * needing a separate Playwright Chromium download.
  *
  * Usage:
- *   npm run build            # produce dist/
- *   npx tsx scripts/render-ebook-pdf.ts
+ *   npm run build                                  # produce dist/
+ *   npx tsx scripts/render-ebook-pdf.ts            # render all ebooks
+ *   npx tsx scripts/render-ebook-pdf.ts sampler   # render a single ebook by slug
  */
 
 import { chromium, type Browser, type Page } from 'playwright';
@@ -22,6 +23,25 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const DIST = path.resolve(__dirname, '..', 'dist');
 const OUT_DIR = path.resolve(__dirname, '..', 'dist', 'ebooks');
 const PORT = 4322;
+
+interface EbookTarget {
+  slug: string;          // route slug under /ebooks/
+  pdfName: string;       // output filename in dist/ebooks/
+  listingPrefix: string; // prefix for listing PNGs
+}
+
+const EBOOKS: EbookTarget[] = [
+  {
+    slug: 'sampler',
+    pdfName: 'al-fatiha-sampler.pdf',
+    listingPrefix: 'listing',
+  },
+  {
+    slug: 'reference-companion',
+    pdfName: 'reference-companion.pdf',
+    listingPrefix: 'reference-companion-listing',
+  },
+];
 
 // ---------- mini static file server ----------
 async function startServer(): Promise<{ close: () => void }> {
@@ -53,11 +73,11 @@ async function startServer(): Promise<{ close: () => void }> {
 }
 
 // ---------- render targets ----------
-async function renderPdf(page: Page) {
+async function renderPdf(page: Page, target: EbookTarget) {
   await page.emulateMedia({ media: 'print' });
-  await page.goto(`http://localhost:${PORT}/ebooks/sampler/`, { waitUntil: 'networkidle' });
+  await page.goto(`http://localhost:${PORT}/ebooks/${target.slug}/`, { waitUntil: 'networkidle' });
   await page.evaluate(() => document.fonts.ready);
-  const out = path.join(OUT_DIR, 'al-fatiha-sampler.pdf');
+  const out = path.join(OUT_DIR, target.pdfName);
   await page.pdf({
     path: out,
     width: '5.5in',
@@ -69,18 +89,21 @@ async function renderPdf(page: Page) {
   console.log(`PDF written: ${out}`);
 }
 
-async function renderListingImages(page: Page) {
-  const targets = [
-    { route: '/ebooks/sampler-preview-cover/',    out: 'listing-cover.png',    width: 1600, height: 2400 },
-    { route: '/ebooks/sampler-preview-spread-1/', out: 'listing-spread-1.png', width: 1200, height: 1500 },
-    { route: '/ebooks/sampler-preview-spread-2/', out: 'listing-spread-2.png', width: 1200, height: 1500 },
-    { route: '/ebooks/sampler-preview-spread-3/', out: 'listing-spread-3.png', width: 1200, height: 1500 },
+async function renderListingImages(page: Page, target: EbookTarget) {
+  const sizes = [
+    { suffix: 'cover',    out: `${target.listingPrefix}-cover.png`,    width: 1600, height: 2400 },
+    { suffix: 'spread-1', out: `${target.listingPrefix}-spread-1.png`, width: 1200, height: 1500 },
+    { suffix: 'spread-2', out: `${target.listingPrefix}-spread-2.png`, width: 1200, height: 1500 },
+    { suffix: 'spread-3', out: `${target.listingPrefix}-spread-3.png`, width: 1200, height: 1500 },
   ];
-  for (const t of targets) {
-    await page.setViewportSize({ width: t.width, height: t.height });
-    await page.goto(`http://localhost:${PORT}${t.route}`, { waitUntil: 'networkidle' });
+  for (const s of sizes) {
+    await page.setViewportSize({ width: s.width, height: s.height });
+    await page.goto(
+      `http://localhost:${PORT}/ebooks/${target.slug}-preview-${s.suffix}/`,
+      { waitUntil: 'networkidle' }
+    );
     await page.evaluate(() => document.fonts.ready);
-    const out = path.join(OUT_DIR, t.out);
+    const out = path.join(OUT_DIR, s.out);
     await page.screenshot({ path: out, fullPage: false, omitBackground: false });
     console.log(`Image written: ${out}`);
   }
@@ -89,6 +112,16 @@ async function renderListingImages(page: Page) {
 // ---------- main ----------
 async function main() {
   await fs.mkdir(OUT_DIR, { recursive: true });
+  const slugFilter = process.argv[2];
+
+  const targets = slugFilter
+    ? EBOOKS.filter(e => e.slug === slugFilter)
+    : EBOOKS;
+
+  if (targets.length === 0) {
+    throw new Error(`No ebook target matches slug "${slugFilter}". Known: ${EBOOKS.map(e => e.slug).join(', ')}`);
+  }
+
   const srv = await startServer();
   let browser: Browser | null = null;
   try {
@@ -96,8 +129,11 @@ async function main() {
     // a separate Playwright Chromium binary.
     browser = await chromium.launch({ channel: 'chrome' });
     const page = await browser.newPage();
-    await renderPdf(page);
-    await renderListingImages(page);
+    for (const t of targets) {
+      console.log(`\n=== Rendering: ${t.slug} ===`);
+      await renderPdf(page, t);
+      await renderListingImages(page, t);
+    }
   } finally {
     if (browser) await browser.close();
     srv.close();
