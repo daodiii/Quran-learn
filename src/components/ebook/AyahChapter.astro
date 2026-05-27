@@ -43,7 +43,6 @@ const { number, title, folio } = Astro.props;
     color: var(--eb-ink-secondary);
     letter-spacing: -0.005em;
   }
-  .ac-body :global(p) {
-    margin: 0 0 14px;
-  }
+  /* .ac-body p { margin } and .ac-body em { font-family } live in
+     ebook-print.css so they also apply to inline .ac-body sections in MDX. */
 </style>
