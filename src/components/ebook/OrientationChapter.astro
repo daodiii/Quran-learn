@@ -7,7 +7,7 @@ interface Props {
 }
 const { number, title, folio, anchor } = Astro.props;
 ---
-<section class="ebook-page orient-chapter" data-toc-anchor={anchor}>
+<section class="ebook-page ebook-page-folio orient-chapter" data-toc-anchor={anchor}>
   <div class="orient-number">Principle {number}</div>
   <h2 class="orient-title">{title}</h2>
   <div class="orient-body"><slot /></div>
