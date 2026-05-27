@@ -1,0 +1,12 @@
+---
+interface Props {
+  letter: string;
+  letterName: string;
+  anchor?: string;
+}
+const { letter, letterName, anchor } = Astro.props;
+---
+<div class="glossary-letter" data-toc-anchor={anchor} data-glossary-letter={letter} data-glossary-letter-name={letterName}>
+  <span class="glossary-letter-ar">{letter}</span>
+  <span class="glossary-letter-name">{letterName}</span>
+</div>

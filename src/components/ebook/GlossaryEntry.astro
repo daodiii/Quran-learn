@@ -1,0 +1,43 @@
+---
+interface Example {
+  arabic: string;
+  translit: string;
+  trans: string;
+  ref: string;
+}
+interface Props {
+  termMono: string;
+  term: string;
+  arabic: string;
+  translit: string;
+  refs?: string;
+  def: string;
+  example?: Example;
+  note?: string;
+}
+const { termMono, term, arabic, translit, refs, def, example, note } = Astro.props;
+---
+<article class="glossary-entry">
+  <header class="glossary-entry-head">
+    <div>
+      <span class="glossary-entry-term-mono">{termMono}</span>
+      <span class="glossary-entry-term">{term}</span>
+    </div>
+    {refs && <span class="glossary-entry-refs">{refs}</span>}
+  </header>
+  <div class="glossary-entry-translit">
+    <span class="glossary-entry-translit-ar">{arabic}</span>
+    <span>{translit}</span>
+  </div>
+  <p class="glossary-entry-def">{def}</p>
+  {example && (
+    <div class="glossary-entry-example">
+      <div class="glossary-entry-example-label">◆ Quranic example</div>
+      <div class="glossary-entry-example-ar">{example.arabic}</div>
+      <div class="glossary-entry-example-translit">{example.translit}</div>
+      <div class="glossary-entry-example-trans">"{example.trans}"</div>
+      <div class="glossary-entry-example-ref">— {example.ref}</div>
+    </div>
+  )}
+  {note && <p class="glossary-entry-note">{note}</p>}
+</article>
