@@ -1,0 +1,13 @@
+---
+interface Props {
+  label?: string;
+  items: string[];
+}
+const { label = 'In this chapter', items } = Astro.props;
+---
+<aside class="section-toc">
+  <div class="section-toc-label">{label}</div>
+  <ul>
+    {items.map(text => <li>{text}</li>)}
+  </ul>
+</aside>
