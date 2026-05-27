@@ -1,0 +1,113 @@
+---
+interface Props {
+  title: string;
+  subtitle?: string;
+  brand?: string;
+  volume?: string;
+  byline?: string;
+  sublabel?: string;
+}
+
+const {
+  title,
+  subtitle = 'A Quick-Reference Kit for Classical Arabic',
+  brand = 'Quranic Grammar',
+  volume = 'Volume Three',
+  byline,
+  sublabel = 'Reference',
+} = Astro.props;
+---
+<section class="cover">
+  <div class="cover-brand">{brand}</div>
+  <div class="cover-sublabel">{sublabel}</div>
+  <div class="cover-center">
+    <div class="cover-ornament">§</div>
+    <h1 class="cover-title">{title}</h1>
+    <p class="cover-subtitle">{subtitle}</p>
+  </div>
+  <div class="cover-footer">
+    {byline && <div class="cover-byline">{byline}</div>}
+    <div class="cover-volume">{volume}</div>
+  </div>
+</section>
+
+<style>
+  .cover {
+    width: 5.5in;
+    height: 8.5in;
+    padding: 11% 10% 9%;
+    background: #0f1115;
+    color: #efe7d4;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    page-break-after: always;
+    break-after: page;
+  }
+  .cover-brand {
+    font-family: 'Geist Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.28em;
+    color: #d4a85f;
+    text-transform: uppercase;
+    text-align: center;
+  }
+  .cover-sublabel {
+    font-family: 'Geist Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.32em;
+    color: #8a8275;
+    text-transform: uppercase;
+    text-align: center;
+    margin-top: 6px;
+  }
+  .cover-center {
+    margin-top: auto;
+    margin-bottom: auto;
+    padding: 38px 0 32px;
+    border-top: 1px solid #d4a85f;
+    border-bottom: 1px solid #d4a85f;
+    text-align: center;
+  }
+  .cover-ornament {
+    font-family: 'Geist Mono', monospace;
+    color: #d4a85f;
+    font-size: 36px;
+    line-height: 1;
+    margin-bottom: 22px;
+  }
+  .cover-title {
+    font-family: 'Geist', sans-serif;
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 1.12;
+    letter-spacing: -0.02em;
+    color: #efe7d4;
+    margin: 0 0 14px;
+  }
+  .cover-subtitle {
+    font-family: 'Geist', sans-serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 13px;
+    color: #8a8275;
+    letter-spacing: -0.005em;
+    margin: 0;
+  }
+  .cover-footer { text-align: center; }
+  .cover-byline {
+    font-family: 'Geist Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: #8a8275;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .cover-volume {
+    font-family: 'Geist Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    color: #5c5a52;
+    text-transform: uppercase;
+  }
+</style>
