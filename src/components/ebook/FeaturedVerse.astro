@@ -1,0 +1,45 @@
+---
+interface Props {
+  arabic: string;
+  transliteration: string;
+  translation: string;
+}
+
+const { arabic, transliteration, translation } = Astro.props;
+---
+<div class="featured">
+  <div class="fv-arabic eb-arabic">{arabic}</div>
+  <div class="fv-trans">{transliteration}</div>
+  <div class="fv-english">{translation}</div>
+</div>
+
+<style>
+  .featured {
+    text-align: center;
+    padding: 28px 0 24px;
+    border-top: 1px solid var(--eb-hairline);
+    border-bottom: 1px solid var(--eb-hairline);
+    margin-bottom: 28px;
+  }
+  .fv-arabic {
+    font-family: 'Amiri Quran', 'Amiri', serif;
+    font-size: 38px;
+    line-height: 1.8;
+    color: var(--eb-ink-primary);
+    margin-bottom: 16px;
+  }
+  .fv-trans {
+    font-family: 'Geist', sans-serif;
+    font-style: italic;
+    font-size: 14px;
+    color: var(--eb-ink-muted);
+    margin-bottom: 6px;
+    letter-spacing: -0.005em;
+  }
+  .fv-english {
+    font-family: 'Geist', sans-serif;
+    font-size: 14px;
+    color: var(--eb-ink-secondary);
+    letter-spacing: -0.005em;
+  }
+</style>

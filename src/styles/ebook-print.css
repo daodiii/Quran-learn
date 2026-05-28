@@ -1,0 +1,185 @@
+/* ============================================
+   EBOOK PRINT STYLESHEET
+   For PDF-rendered books only. Not used by the website.
+   ============================================ */
+
+/* Self-hosted fonts */
+@font-face {
+  font-family: 'Geist';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url('/fonts/geist-400.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Geist';
+  font-style: normal;
+  font-weight: 500;
+  font-display: block;
+  src: url('/fonts/geist-500.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Geist';
+  font-style: italic;
+  font-weight: 400;
+  font-display: block;
+  src: url('/fonts/geist-italic-400.woff2') format('woff2');
+}
+/* Geist's basic Latin file misses macron-vowels (ā ī ū) used heavily in
+   transliterations. fontsource ships them in the latin-ext subset. */
+@font-face {
+  font-family: 'Geist';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url('/fonts/geist-latin-ext-400.woff2') format('woff2');
+  unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Geist';
+  font-style: normal;
+  font-weight: 500;
+  font-display: block;
+  src: url('/fonts/geist-latin-ext-500.woff2') format('woff2');
+  unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Geist';
+  font-style: italic;
+  font-weight: 400;
+  font-display: block;
+  src: url('/fonts/geist-latin-ext-italic-400.woff2') format('woff2');
+  unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* Geist (even latin-ext) lacks dot-below letters (ḍ ḥ ṣ ṭ) used in scholarly
+   Arabic transliteration and the half-ring modifier letters (ʾ ʿ). Use Noto
+   Sans as a per-character fallback for exactly those Unicode ranges. */
+@font-face {
+  font-family: 'Geist';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url('/fonts/noto-sans-fallback-400.woff2') format('woff2');
+  unicode-range: U+02B0-02FF, U+1E00-1EFF;
+}
+@font-face {
+  font-family: 'Geist';
+  font-style: italic;
+  font-weight: 400;
+  font-display: block;
+  src: url('/fonts/noto-sans-fallback-italic-400.woff2') format('woff2');
+  unicode-range: U+02B0-02FF, U+1E00-1EFF;
+}
+@font-face {
+  font-family: 'Geist Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url('/fonts/geist-mono-400.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Geist Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: block;
+  src: url('/fonts/geist-mono-500.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Amiri';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url('/fonts/amiri-400.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Amiri';
+  font-style: normal;
+  font-weight: 700;
+  font-display: block;
+  src: url('/fonts/amiri-700.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Amiri Quran';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url('/fonts/amiri-quran-400.woff2') format('woff2');
+}
+
+/* Design tokens */
+:root {
+  --eb-canvas: #0f1115;
+  --eb-canvas-deep: #0a0b0d;
+  --eb-ink-primary: #efe7d4;
+  --eb-ink-secondary: #c8c0ad;
+  --eb-ink-muted: #8a8275;
+  --eb-ink-mute-deep: #5c5a52;
+  --eb-accent: #d4a85f;
+  --eb-hairline: #2a2c33;
+  --eb-callout-surface: rgba(212, 168, 95, 0.06);
+}
+
+/* Page geometry */
+@page {
+  size: 5.5in 8.5in;
+  margin: 0;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--eb-canvas);
+  color: var(--eb-ink-primary);
+  font-family: 'Geist', sans-serif;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+.ebook-page {
+  width: 5.5in;
+  height: 8.5in;
+  padding: 0.6in 0.5in 0.5in;
+  position: relative;
+  page-break-after: always;
+  break-after: page;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.ebook-page:last-child {
+  page-break-after: auto;
+  break-after: auto;
+}
+
+.ebook-folio {
+  position: absolute;
+  bottom: 0.25in;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-family: 'Geist Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  color: var(--eb-ink-mute-deep);
+}
+
+/* Helpers */
+.eb-arabic { direction: rtl; }
+.eb-uppercase { text-transform: uppercase; }
+
+/* Markdown-emitted <strong> would default to font-weight: 700, but only
+   Geist 400 and 500 are loaded — map bold to Medium so Chromium doesn't
+   synthesize bold or fall back to Helvetica. */
+strong, b { font-weight: 500; }
+
+/* Body-prose <em> styling lives here (not in AyahChapter.astro) so it also
+   applies to raw .ac-body sections inlined directly in MDX (intro pages,
+   the where-to-next page). Astro's scoped CSS only matches actual component
+   instances, which would miss the inline sections. */
+.ac-body em {
+  font-family: 'Geist', 'Amiri', sans-serif;
+  font-style: italic;
+}
+.ac-body p {
+  margin: 0 0 14px;
+}

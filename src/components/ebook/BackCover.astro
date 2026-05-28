@@ -1,0 +1,68 @@
+---
+interface Props {
+  brand?: string;
+  tagline?: string;
+}
+
+const {
+  brand = 'Quranic Grammar',
+  tagline = 'A small library of books that teach the language of the Quran.',
+} = Astro.props;
+---
+<section class="back-cover">
+  <div class="bc-block">
+    <div class="bc-ornament">◆</div>
+    <div class="bc-brand">{brand}</div>
+    <p class="bc-tagline">{tagline}</p>
+  </div>
+  <div class="bc-footer">quranic-grammar.com</div>
+</section>
+
+<style>
+  .back-cover {
+    width: 5.5in;
+    height: 8.5in;
+    padding: 11% 10% 9%;
+    background: #0f1115;
+    color: #efe7d4;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    page-break-before: always;
+    break-before: page;
+  }
+  .bc-block {
+    margin: auto;
+    text-align: center;
+  }
+  .bc-ornament {
+    color: #d4a85f;
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+  .bc-brand {
+    font-family: 'Geist Mono', monospace;
+    font-size: 14px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: #efe7d4;
+    margin-bottom: 14px;
+  }
+  .bc-tagline {
+    font-family: 'Geist', sans-serif;
+    font-style: italic;
+    font-size: 12px;
+    color: #8a8275;
+    line-height: 1.55;
+    max-width: 280px;
+    margin: 0 auto;
+  }
+  .bc-footer {
+    text-align: center;
+    font-family: 'Geist Mono', monospace;
+    font-size: 10px;
+    color: #5c5a52;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+</style>

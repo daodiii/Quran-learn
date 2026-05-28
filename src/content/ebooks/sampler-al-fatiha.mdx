@@ -1,0 +1,200 @@
+---
+title: How to Understand Surah Al-Fatiha
+subtitle: A grammatical walkthrough
+brand: Quranic Grammar
+volume: Volume One
+description: A self-contained word-by-word grammatical walkthrough of Surah Al-Fatiha for readers who know the Quran but have never studied Arabic grammar.
+---
+
+import AyahChapter from '../../components/ebook/AyahChapter.astro';
+import FeaturedVerse from '../../components/ebook/FeaturedVerse.astro';
+import WordGrid from '../../components/ebook/WordGrid.astro';
+import GrammarMoment from '../../components/ebook/GrammarMoment.astro';
+import Glossary from '../../components/ebook/Glossary.astro';
+
+<section class="ebook-page intro-page">
+  <div class="ac-number">Introduction</div>
+  <h2 class="ac-title">Reading the Quran with grammatical eyes</h2>
+  <div class="ac-body">
+    <p>If you have ever read Surah Al-Fatiha — recited it in prayer, listened to a reciter on a phone, found it printed at the front of a mushaf — then this book is for you. It assumes you can sound the words out. It does not assume you know what they do.</p>
+    <p>Most translations of the Quran are honest about what each verse *means*. Very few translations explain what the Arabic *is*. There is a difference. The meaning is what a translator landed on. The grammar is the engine that produced it.</p>
+    <p>This short book walks through Surah Al-Fatiha one verse at a time. Each chapter takes a single verse, breaks it into its words, and surfaces the one or two grammatical concepts that shape its meaning. The goal is not for you to memorise rules. The goal is for you to read a verse you have heard a thousand times and, for the first time, see what is actually holding it together.</p>
+    <p>Surah Al-Fatiha is short, but it touches almost every basic grammatical concept Arabic has: the definite article, the genitive case, possessive chains, adjective agreement, restriction through word order, the imperative, relative pronouns. By the end of these seven chapters you will have met all of them — not as items in a textbook, but as living parts of a surah you already know.</p>
+  </div>
+</section>
+
+<section class="ebook-page intro-page">
+  <div class="ac-number">How to read each chapter</div>
+  <h2 class="ac-title">The shape of every page</h2>
+  <div class="ac-body">
+    <p>Each chapter follows the same rhythm. First, the verse appears in full — Arabic, transliteration, English. Sit with it for a moment.</p>
+    <p>Then comes a three-column breakdown: each word, its sound, and a short note about the grammatical role it plays. Read this slowly. The grammar notes are intentionally compact; they are meant to be returned to, not absorbed at first pass.</p>
+    <p>After the breakdown, you will find a *Grammar moment* — a short box that names the single most important concept that verse is teaching. These add up. By the time you reach verse 7 you will have encountered seven foundational ideas, each anchored to a moment in the surah where the idea actually does something.</p>
+    <p>Each chapter closes with a short reflective paragraph — what the grammar reveals about the meaning. This is where the book treats the surah as something to be understood, not just decoded.</p>
+    <p>At the end of the book there is a glossary of every Arabic grammar term used, and a note on where to go next if you want to take this further.</p>
+  </div>
+</section>
+
+<AyahChapter number="Chapter 01" title="In the name of the All-Merciful" folio={4}>
+  <FeaturedVerse
+    arabic="بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ"
+    transliteration="bismi llāhi r-raḥmāni r-raḥīm"
+    translation="In the name of Allah, the All-Merciful, the Especially Merciful."
+  />
+  <WordGrid words={[
+    { ar: "بِسْمِ", tr: "bismi", gloss: "in the name · genitive" },
+    { ar: "ٱللَّهِ", tr: "llāhi", gloss: "Allah · genitive" },
+    { ar: "ٱلرَّحْمَٰنِ", tr: "r-raḥmāni", gloss: "the All-Merciful · adjective" },
+    { ar: "ٱلرَّحِيمِ", tr: "r-raḥīmi", gloss: "the Especially Merciful · adjective" },
+  ]} />
+  <GrammarMoment>
+    <em>بِسْمِ</em> is two pieces glued together: the preposition <em>بِـ</em> (with, in) and the noun <em>اِسْم</em> (name). Whenever a preposition attaches to a noun, the noun takes the genitive case — that's why the word ends in a <em>kasrah</em> (the small dash beneath the letter). The same case ending then ripples down through every word that follows, because each of them describes <em>اللَّهِ</em>.
+  </GrammarMoment>
+  <p>The whole verse is a single prepositional phrase, not a complete sentence. Arabic readers feel the suspense in this — *in the name of God, the All-Merciful, the Especially Merciful…* waits, leaning forward, for the act that the next verse will declare. The grammar itself is reverent. Before any verb of praise or supplication, the speaker first names the One in whose name the action is being undertaken.</p>
+  <p>This sets the pattern for the entire surah: every grammatical choice here is doing theological work. The two divine names that close the verse aren't adjectives stacked for poetic emphasis — they are precisely calibrated. <em>الرَّحْمَن</em> denotes encompassing, structural mercy (the kind that gives existence). <em>الرَّحِيم</em> denotes intentional, addressed mercy (the kind that responds to a worshipper).</p>
+</AyahChapter>
+
+<AyahChapter number="Chapter 02" title="All praise belongs to the Lord" folio={6}>
+  <FeaturedVerse
+    arabic="ٱلْحَمْدُ لِلَّهِ رَبِّ ٱلْعَٰلَمِينَ"
+    transliteration="al-ḥamdu lillāhi rabbi l-ʿālamīn"
+    translation="All praise belongs to Allah, Lord of all the worlds."
+  />
+  <WordGrid words={[
+    { ar: "ٱلْحَمْدُ", tr: "al-ḥamdu", gloss: "the praise · subject (nom.)" },
+    { ar: "لِلَّهِ", tr: "lillāhi", gloss: "to / for Allah · genitive" },
+    { ar: "رَبِّ", tr: "rabbi", gloss: "Lord of · iḍāfah" },
+    { ar: "ٱلْعَٰلَمِينَ", tr: "l-ʿālamīn", gloss: "the worlds · plural, genitive" },
+  ]} />
+  <GrammarMoment>
+    <em>رَبِّ ٱلْعَٰلَمِينَ</em> is an <em>iḍāfah</em> — a possessive chain. The first word ("Lord of") is the possessed; the second ("the worlds") is the possessor. In every Arabic iḍāfah, the possessor takes the genitive case, which is why <em>ٱلْعَٰلَمِينَ</em> ends in <em>-īn</em> (the sound masculine plural genitive ending) rather than <em>-ūn</em> (its nominative form).
+  </GrammarMoment>
+  <p>The sentence opens with the definite article <em>al-</em> on <em>ḥamdu</em>. This is the article doing work most translations cannot convey: not "praise belongs to Allah" but *the* praise — every instance of it, in every world, by every being capable of it. The definite article in Arabic, when applied to an abstract noun, generalises rather than specifies.</p>
+  <p>The verb is invisible. There is no "is" or "belongs" in the Arabic. Two nominal phrases sit beside each other and let the reader supply the relationship. This is the bedrock pattern of nominal sentences in Arabic — equivalence by adjacency.</p>
+</AyahChapter>
+
+<AyahChapter number="Chapter 03" title="The two names of mercy, again" folio={8}>
+  <FeaturedVerse
+    arabic="ٱلرَّحْمَٰنِ ٱلرَّحِيمِ"
+    transliteration="ar-raḥmāni r-raḥīm"
+    translation="The All-Merciful, the Especially Merciful."
+  />
+  <WordGrid words={[
+    { ar: "ٱلرَّحْمَٰنِ", tr: "ar-raḥmāni", gloss: "the All-Merciful · adjective (gen.)" },
+    { ar: "ٱلرَّحِيمِ", tr: "r-raḥīmi", gloss: "the Especially Merciful · adjective (gen.)" },
+  ]} />
+  <GrammarMoment>
+    These are not new words — they returned. In Arabic grammar an adjective must agree with the noun it describes in four ways: gender, number, definiteness, and case. <em>ٱلرَّحْمَٰنِ</em> and <em>ٱلرَّحِيمِ</em> both end in a kasrah because they continue describing <em>اللَّهِ</em> from verse 1 (and <em>رَبِّ ٱلْعَٰلَمِينَ</em> from verse 2), both of which are genitive.
+  </GrammarMoment>
+  <p>Verse 3 is the shortest in the surah — two words. After the broad theological claim of verse 2 (*Lord of all the worlds*), the grammar pulls back to the intimate. Mercy. Mercy. Said twice, in slightly different forms, because Arabic distinguishes between mercy as a universal property of the cosmos and mercy as a personal attention paid to a single person at a single moment.</p>
+  <p>You have already met these two words — once in the bismillāh, and now again here. The repetition is intentional. Arabic literature often binds passages together by recalling earlier words; the Quran does this systematically.</p>
+</AyahChapter>
+
+<AyahChapter number="Chapter 04" title="Master of the day of reckoning" folio={10}>
+  <FeaturedVerse
+    arabic="مَٰلِكِ يَوْمِ ٱلدِّينِ"
+    transliteration="māliki yawmi d-dīn"
+    translation="Master of the day of recompense."
+  />
+  <WordGrid words={[
+    { ar: "مَٰلِكِ", tr: "māliki", gloss: "Master of · iḍāfah (gen.)" },
+    { ar: "يَوْمِ", tr: "yawmi", gloss: "day of · iḍāfah (gen.)" },
+    { ar: "ٱلدِّينِ", tr: "d-dīn", gloss: "the recompense · gen." },
+  ]} />
+  <GrammarMoment>
+    This verse contains an <em>iḍāfah</em> chain three terms long: <em>مَٰلِكِ</em> owns <em>يَوْمِ</em>, which in turn owns <em>ٱلدِّين</em>. In a chain like this only the very last word receives the definite article; every word in the middle gets its definiteness from being possessed by something definite at the end. That's why <em>مَٰلِكِ</em> and <em>يَوْمِ</em> have no <em>al-</em> on them but still translate as "the Master" and "the day".
+  </GrammarMoment>
+  <p>Verse 4 is the structural pivot of Surah Al-Fatiha. The first three verses described who God is: a Lord, a Mercy, a Mercy again. This verse names what He does: He governs the day of reckoning. The grammar matches the shift — the previous chain of adjectives ends, and a new genitive structure begins.</p>
+  <p>The word <em>dīn</em> often gets translated as "religion" in modern usage, but its grammatical and Quranic register here is "judgment, recompense, the consequences that follow from a moral account." The day named here is the day those accounts are settled.</p>
+</AyahChapter>
+
+<AyahChapter number="Chapter 05" title="You alone we worship; You alone we ask" folio={12}>
+  <FeaturedVerse
+    arabic="إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ"
+    transliteration="iyyāka naʿbudu wa-iyyāka nastaʿīn"
+    translation="You alone we worship, and from You alone we ask for help."
+  />
+  <WordGrid words={[
+    { ar: "إِيَّاكَ", tr: "iyyāka", gloss: "You (alone) · object pronoun" },
+    { ar: "نَعْبُدُ", tr: "naʿbudu", gloss: "we worship · present verb" },
+    { ar: "وَإِيَّاكَ", tr: "wa-iyyāka", gloss: "and You (alone)" },
+    { ar: "نَسْتَعِينُ", tr: "nastaʿīn", gloss: "we seek help · present verb" },
+  ]} />
+  <GrammarMoment>
+    Word order matters in Arabic. The normal order is verb–subject–object. But this verse fronts the object: <em>إِيَّاكَ</em> ("you") comes *before* the verb. In Arabic, putting an object before its verb is a way of saying "only this, nothing else" — what grammarians call <em>ḥaṣr</em> (restriction). The translation has to add the word "alone" to convey what the Arabic conveys with pure word order.
+  </GrammarMoment>
+  <p>This verse is the hinge of the surah. The first four verses spoke *about* God in the third person — *He is the Lord, the Merciful, the Master*. From this verse onward the surah speaks *to* God in the second person — *You we worship, You we ask*. The grammar marks the shift cleanly: a new pronoun, a new direction of address.</p>
+  <p>The verbs are first-person plural — *we worship, we ask*. Not *I*. Even a person reciting this surah alone is invited to speak in the plural, joining a vast invisible congregation of worshippers across time and place.</p>
+</AyahChapter>
+
+<AyahChapter number="Chapter 06" title="Guide us to the straight path" folio={14}>
+  <FeaturedVerse
+    arabic="ٱهْدِنَا ٱلصِّرَٰطَ ٱلْمُسْتَقِيمَ"
+    transliteration="ihdinā ṣ-ṣirāṭa l-mustaqīm"
+    translation="Guide us to the straight path."
+  />
+  <WordGrid words={[
+    { ar: "ٱهْدِ", tr: "ihdi", gloss: "guide · imperative" },
+    { ar: "نَا", tr: "nā", gloss: "us · object pronoun" },
+    { ar: "ٱلصِّرَٰطَ", tr: "ṣ-ṣirāṭa", gloss: "the path · object (acc.)" },
+    { ar: "ٱلْمُسْتَقِيمَ", tr: "l-mustaqīm", gloss: "the straight · adjective (acc.)" },
+  ]} />
+  <GrammarMoment>
+    <em>ٱهْدِنَا</em> is the first imperative verb in the surah — a command, but a command spoken upward, to God. In Arabic grammar this is still the imperative form; the politeness lives in the speaker's posture, not in any softening of the verb itself. The attached pronoun <em>نَا</em> ("us") is the direct object of the verb. Then <em>ٱلصِّرَٰطَ</em> is a second direct object — the path being requested. Arabic verbs of guidance and giving routinely take two objects like this.
+  </GrammarMoment>
+  <p>Notice the adjective. <em>ٱلْمُسْتَقِيمَ</em> ("the straight") agrees with <em>ٱلصِّرَٰط</em> in every dimension: masculine, singular, definite, accusative. All four boxes ticked. This is the deepest rule of Arabic adjective agreement, and the Quran follows it without exception.</p>
+  <p>Up to this point the surah has been declarative — describing, naming, addressing. This verse turns to supplication. The fundamental need of the human being, the verse implies, is not knowledge or wealth or rescue from danger, but direction.</p>
+</AyahChapter>
+
+<AyahChapter number="Chapter 07" title="The path of those You have favoured" folio={16}>
+  <FeaturedVerse
+    arabic="صِرَٰطَ ٱلَّذِينَ أَنْعَمْتَ عَلَيْهِمْ غَيْرِ ٱلْمَغْضُوبِ عَلَيْهِمْ وَلَا ٱلضَّآلِّينَ"
+    transliteration="ṣirāṭa lladhīna anʿamta ʿalayhim ghayri l-maghḍūbi ʿalayhim wa-la ḍ-ḍāllīn"
+    translation="The path of those You have favoured — not of those who incurred wrath, nor of those who went astray."
+  />
+  <WordGrid words={[
+    { ar: "صِرَٰطَ", tr: "ṣirāṭa", gloss: "the path of · iḍāfah" },
+    { ar: "ٱلَّذِينَ", tr: "lladhīna", gloss: "those who · relative pronoun" },
+    { ar: "أَنْعَمْتَ", tr: "anʿamta", gloss: "You favoured · past verb" },
+    { ar: "عَلَيْهِمْ", tr: "ʿalayhim", gloss: "upon them" },
+    { ar: "غَيْرِ", tr: "ghayri", gloss: "not of · exception" },
+    { ar: "ٱلْمَغْضُوبِ", tr: "l-maghḍūbi", gloss: "those wrath fell on" },
+    { ar: "وَلَا", tr: "wa-lā", gloss: "and not" },
+    { ar: "ٱلضَّآلِّينَ", tr: "ḍ-ḍāllīn", gloss: "those astray" },
+  ]} />
+  <GrammarMoment>
+    <em>ٱلَّذِينَ</em> is a relative pronoun — "those who." A relative pronoun in Arabic introduces a clause that describes the noun before it. Here, <em>صِرَٰطَ</em> ("the path of") is followed by <em>ٱلَّذِينَ أَنْعَمْتَ عَلَيْهِمْ</em> ("those upon whom You have bestowed favour"). The whole clause works as a single grammatical unit describing the path.
+  </GrammarMoment>
+  <p>This is the longest verse of the surah, and grammatically the densest. It contains an iḍāfah (<em>ṣirāṭa lladhīna</em>), a past-tense verb with an attached pronoun (<em>anʿamta</em>), a prepositional phrase (<em>ʿalayhim</em>), and a long exception structure (<em>ghayri… wa-lā…</em>) that names what the path is *not*.</p>
+  <p>The surah ends with two negatives. After six verses of declaration and request, the final breath is a definition by exclusion. The path is the one *those who were favoured* walked. It is not the path *those who incurred wrath* walked. It is not the path *those who lost their way* walked. The grammar makes the request precise: not just any path, this exact one, named by its travellers.</p>
+</AyahChapter>
+
+<Glossary folio={18} entries={[
+  { ar: "إِضَافَة", tr: "iḍāfah", def: "A possessive chain: noun A 'of' noun B. The second noun is always genitive." },
+  { ar: "اسْم", tr: "ism", def: "A noun. The category covers nouns proper, adjectives, and most pronouns." },
+  { ar: "اسْم مَوْصُول", tr: "ism mawṣūl", def: "A relative pronoun: 'who, which, that' — introduces a clause that describes a noun." },
+  { ar: "أَمْر", tr: "amr", def: "The imperative form of a verb — a command." },
+  { ar: "جَرّ", tr: "jarr", def: "The genitive case. Marked by a kasrah ending; used after prepositions and in iḍāfah." },
+  { ar: "حَرْف", tr: "ḥarf", def: "A particle. The category covers prepositions, conjunctions, and other small grammatical words." },
+  { ar: "حَصْر", tr: "ḥaṣr", def: "Restriction. A grammatical technique — often via word order — that means 'only this, nothing else'." },
+  { ar: "صِفَة", tr: "ṣifah", def: "An adjective. Must agree with its noun in gender, number, definiteness, and case." },
+  { ar: "ضَمِير", tr: "ḍamīr", def: "A pronoun, attached or independent." },
+  { ar: "فِعْل", tr: "fiʿl", def: "A verb." },
+  { ar: "كَسْرَة", tr: "kasrah", def: "The short 'i' vowel — a small diagonal stroke beneath a letter. Marks the genitive case on a noun." },
+  { ar: "مُبْتَدَأ", tr: "mubtadaʾ", def: "The subject of a nominal sentence (one beginning with a noun rather than a verb)." },
+  { ar: "نَصْب", tr: "naṣb", def: "The accusative case. Marked by a fatḥah ending; used on direct objects, among other roles." },
+  { ar: "هَمْزَة الْوَصْل", tr: "hamzat al-waṣl", def: "A 'connecting alif' written as ا that drops out when preceded by another vowel." },
+]} />
+
+<section class="ebook-page intro-page">
+  <div class="ac-number">Where to go next</div>
+  <h2 class="ac-title">If this opened a door</h2>
+  <div class="ac-body">
+    <p>Surah Al-Fatiha is seven verses. The Quran has six thousand more. Every one of them is built from the same grammatical pieces you have just met — multiplied, varied, combined in ways the Fatiha barely hints at.</p>
+    <p>If reading this book made you want to keep going, two next steps:</p>
+    <p>**The Foundation Book** — also from Quranic Grammar — takes the eleven foundation lessons of Quranic Arabic (alphabet, vowels, word types, the three-case system, sentence shapes) and walks you through them at the same pace as this book. It is the natural next read.</p>
+    <p>**quranic-grammar.com** — the free companion website to this book. The same content presented as an interactive curriculum, with exercises and quizzes the printed page cannot offer.</p>
+    <p>Whichever path you choose, the rule is the same: slow down, read what is in front of you, and trust that the grammar will gradually become invisible. When it does, what remains is the Quran itself, in the voice it was written in.</p>
+  </div>
+  <div class="ebook-folio">20</div>
+</section>
