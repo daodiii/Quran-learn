@@ -477,6 +477,132 @@ strong, b { font-weight: 500; }
 .chart-block.verb-table { page-break-inside: auto; }
 
 /* ============================================
+   VERB CONJUGATION — print overrides.
+   Strip the screen-only frosted-glass / large
+   golden header and tighten row metrics so a
+   13-row paradigm + label fits within a single
+   page-folio (8.5in tall).
+   ============================================ */
+.chart-block.verb-table { margin: 10px 0 12px; padding-top: 8px; }
+/* Form-opener pages — when an .ebook-page contains a verb-table, the orient
+   header takes too much vertical space and clips the last rows of the 13-row
+   Past paradigm. Tighten the heading metrics on those pages only. */
+.ebook-page:has(.chart-block.verb-table) .orient-number { margin-bottom: 3px; font-size: 9px; }
+.ebook-page:has(.chart-block.verb-table) .orient-title { font-size: 14px; margin: 0 0 6px; line-height: 1.15; }
+.ebook-page:has(.chart-block.verb-table) .orient-body { font-size: 9.5px; line-height: 1.4; }
+.ebook-page:has(.chart-block.verb-table) .orient-body p { margin: 0 0 4px; }
+.ebook-page:has(.chart-block.verb-table) { padding-top: 0.45in !important; padding-bottom: 0.4in !important; }
+.chart-block.verb-table .verb-conjugation {
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border: none;
+  border-radius: 0;
+  margin: 0;
+  box-shadow: none;
+  overflow: visible;
+}
+.chart-block.verb-table .verb-header {
+  background: transparent;
+  padding: 0 0 3px;
+  text-align: left;
+  border-block-end: 1px solid var(--eb-hairline);
+  margin-bottom: 3px;
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+.chart-block.verb-table .verb-root {
+  font-family: 'Amiri', serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--eb-accent);
+  letter-spacing: 0.08em;
+  margin: 0;
+  filter: none;
+  line-height: 1.2;
+}
+.chart-block.verb-table .verb-meta {
+  gap: 6px;
+}
+.chart-block.verb-table .verb-form {
+  font-family: 'Geist Mono', monospace;
+  font-size: 7.5px;
+  font-weight: 500;
+  color: var(--eb-ink-muted);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+.chart-block.verb-table .verb-pattern {
+  font-family: 'Amiri', serif;
+  font-size: 10px;
+  color: var(--eb-accent);
+  line-height: 1.2;
+}
+.chart-block.verb-table .table-wrapper {
+  background: transparent;
+  overflow: visible;
+}
+.chart-block.verb-table .verb-table {
+  background: transparent;
+  border-collapse: collapse;
+  width: 100%;
+  table-layout: fixed;
+}
+.chart-block.verb-table .verb-table th[scope="col"] {
+  background: transparent;
+  color: var(--eb-ink-muted);
+  font-family: 'Geist Mono', monospace;
+  font-weight: 500;
+  font-size: 7px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 3px 5px;
+  border-block-end: 1px solid var(--eb-hairline);
+  line-height: 1.2;
+}
+.chart-block.verb-table .verb-table th[scope="row"] {
+  background: transparent;
+  color: var(--eb-ink-primary);
+  font-family: 'Geist', sans-serif;
+  font-weight: 400;
+  font-size: 8px;
+  padding: 1.5px 5px;
+  border-block-end: 1px solid var(--eb-hairline);
+  line-height: 1.2;
+  vertical-align: middle;
+}
+.chart-block.verb-table .verb-table td {
+  font-family: 'Amiri', serif;
+  font-size: 9.5px;
+  color: var(--eb-ink-primary);
+  padding: 1.5px 5px;
+  border-block-end: 1px solid var(--eb-hairline);
+  line-height: 1.25;
+  vertical-align: middle;
+}
+/* The third column is transliteration — use Geist (with Noto Sans fallback for diacritics). */
+.chart-block.verb-table .verb-table td:last-child {
+  font-family: 'Geist', 'Noto Sans', sans-serif;
+  font-size: 8px;
+  color: var(--eb-ink-secondary);
+}
+/* Column widths so Arabic gets enough room and labels stay compact */
+.chart-block.verb-table .verb-table th[scope="row"],
+.chart-block.verb-table .verb-table td:first-child {
+  width: 32%;
+}
+.chart-block.verb-table .verb-table th[scope="col"]:nth-child(2),
+.chart-block.verb-table .verb-table td:nth-child(2) {
+  width: 36%;
+}
+.chart-block.verb-table .verb-table th[scope="col"]:last-child,
+.chart-block.verb-table .verb-table td:last-child {
+  width: 32%;
+}
+
+/* ============================================
    GLOSSARY — compact dictionary entry template.
    ============================================ */
 .glossary-letter {

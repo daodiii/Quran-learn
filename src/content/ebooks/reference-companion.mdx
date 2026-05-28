@@ -15,6 +15,7 @@ import VocabGrid from '../../components/ebook/VocabGrid.astro';
 import SectionToc from '../../components/ebook/SectionToc.astro';
 import ChartBlock from '../../components/ebook/ChartBlock.astro';
 import GrammarTable from '../../components/mdx/GrammarTable.astro';
+import VerbConjugation from '../../components/mdx/VerbConjugation.astro';
 import Callout from '../../components/mdx/Callout.astro';
 
 {/* COPYRIGHT / COLOPHON */}
@@ -971,8 +972,831 @@ In all three: الرَّجُلُ has ـُ = it is the actor. الْكَلْبَ 
     The masculine plural <strong>الَّذِينَ</strong> ("those who") is the most frequently used relative pronoun in the Quran, often describing believers: <strong>الَّذِينَ آمَنُوا</strong> (alladhīna āmanū, "those who believe").
   </Callout>
 </section>
-<section class="ebook-page ebook-page-folio" data-toc-anchor="ch-verb-conjugations" style="padding:1in 0.7in;">
-  <p>Verb Conjugations placeholder — Task 18</p>
+{/* === CHAPTER: VERB CONJUGATIONS === */}
+<section class="ebook-page ebook-page-folio" data-toc-anchor="ch-verb-conjugations" style="padding:0.6in 0.5in;">
+  <div class="orient-number">Section 02 · Chapter</div>
+  <h2 class="orient-title">Verb Conjugations (Forms I–X)</h2>
+  <p class="orient-body">
+    Every Arabic verb belongs to one of ten morphological <strong>forms</strong> (وَزْن, wazn). Each form layers a predictable pattern onto a three-letter root and shifts the meaning in a systematic way — intensifying, causing, reflecting, seeking. Master a form's pattern once and you can conjugate any root that follows it. The charts below cover the three tenses — <strong>al-māḍī</strong> (past), <strong>al-muḍāriʿ</strong> (present), <strong>al-amr</strong> (imperative) — for one representative root in each form.
+  </p>
+  <SectionToc items={[
+    "Form I (فَعَلَ) — basic action",
+    "Form II (فَعَّلَ) — intensive / causative",
+    "Form III (فَاعَلَ) — mutual / associative",
+    "Form IV (أَفْعَلَ) — causative",
+    "Form V (تَفَعَّلَ) — reflexive of II",
+    "Form VI (تَفَاعَلَ) — reflexive of III",
+    "Form VII (اِنْفَعَلَ) — passive / reflexive",
+    "Form VIII (اِفْتَعَلَ) — reflexive / reciprocal",
+    "Form IX (اِفْعَلَّ) — colours and defects",
+    "Form X (اِسْتَفْعَلَ) — seeking / requesting",
+  ]} />
+</section>
+
+{/* === FORM I === */}
+<section class="ebook-page ebook-page-folio" style="padding:0.6in 0.5in;">
+  <div class="orient-number">Form I</div>
+  <h3 class="orient-title">فَعَلَ — Basic action</h3>
+  <p class="orient-body" style="margin-bottom:14px;">Form I is the simplest and most common verb pattern. It carries the basic, unadorned meaning of the root — the foundation from which all other forms are derived. Example root: <strong>ك ت ب</strong> (k-t-b, "to write").</p>
+  <ChartBlock label="Chart · Form I — Past Tense (al-māḍī)" verbTable>
+    <VerbConjugation
+      root="ك ت ب"
+      form="Form I"
+      pattern="فَعَلَ"
+      headers={["الضَّمِير (Pronoun)", "الْمَاضِي (Past)", "النُّطْق (Pronunciation)"]}
+      rows={[
+        ["هُوَ (He)", "كَتَبَ", "kataba"],
+        ["هِيَ (She)", "كَتَبَتْ", "katabat"],
+        ["هُمَا (They two - m)", "كَتَبَا", "katabā"],
+        ["هُمَا (They two - f)", "كَتَبَتَا", "katabatā"],
+        ["هُمْ (They - m)", "كَتَبُوا", "katabū"],
+        ["هُنَّ (They - f)", "كَتَبْنَ", "katabna"],
+        ["أَنْتَ (You - m)", "كَتَبْتَ", "katabta"],
+        ["أَنْتِ (You - f)", "كَتَبْتِ", "katabti"],
+        ["أَنْتُمَا (You two)", "كَتَبْتُمَا", "katabtumā"],
+        ["أَنْتُمْ (You - m pl)", "كَتَبْتُمْ", "katabtum"],
+        ["أَنْتُنَّ (You - f pl)", "كَتَبْتُنَّ", "katabtunna"],
+        ["أَنَا (I)", "كَتَبْتُ", "katabtu"],
+        ["نَحْنُ (We)", "كَتَبْنَا", "katabnā"],
+      ]}
+    />
+  </ChartBlock>
+</section>
+
+<section class="ebook-page ebook-page-folio" style="padding:0.6in 0.5in;">
+  <ChartBlock label="Chart · Form I — Present Tense (al-muḍāriʿ)" verbTable>
+    <VerbConjugation
+      root="ك ت ب"
+      form="Form I"
+      pattern="يَفْعُلُ"
+      headers={["الضَّمِير (Pronoun)", "الْمُضَارِع (Present)", "النُّطْق (Pronunciation)"]}
+      rows={[
+        ["هُوَ (He)", "يَكْتُبُ", "yaktubu"],
+        ["هِيَ (She)", "تَكْتُبُ", "taktubu"],
+        ["هُمَا (They two - m)", "يَكْتُبَانِ", "yaktubāni"],
+        ["هُمَا (They two - f)", "تَكْتُبَانِ", "taktubāni"],
+        ["هُمْ (They - m)", "يَكْتُبُونَ", "yaktubūna"],
+        ["هُنَّ (They - f)", "يَكْتُبْنَ", "yaktubna"],
+        ["أَنْتَ (You - m)", "تَكْتُبُ", "taktubu"],
+        ["أَنْتِ (You - f)", "تَكْتُبِينَ", "taktubīna"],
+        ["أَنْتُمَا (You two)", "تَكْتُبَانِ", "taktubāni"],
+        ["أَنْتُمْ (You - m pl)", "تَكْتُبُونَ", "taktubūna"],
+        ["أَنْتُنَّ (You - f pl)", "تَكْتُبْنَ", "taktubna"],
+        ["أَنَا (I)", "أَكْتُبُ", "aktubu"],
+        ["نَحْنُ (We)", "نَكْتُبُ", "naktubu"],
+      ]}
+    />
+  </ChartBlock>
+</section>
+
+<section class="ebook-page ebook-page-folio" style="padding:0.6in 0.5in;">
+  <ChartBlock label="Chart · Form I — Imperative (al-amr)" verbTable>
+    <VerbConjugation
+      root="ك ت ب"
+      form="Form I"
+      pattern="اُكْتُبْ"
+      headers={["الضَّمِير (Pronoun)", "الْأَمْر (Imperative)", "النُّطْق (Pronunciation)"]}
+      rows={[
+        ["أَنْتَ (You - m)", "اُكْتُبْ", "uktub"],
+        ["أَنْتِ (You - f)", "اُكْتُبِي", "uktubī"],
+        ["أَنْتُمَا (You two)", "اُكْتُبَا", "uktubā"],
+        ["أَنْتُمْ (You - m pl)", "اُكْتُبُوا", "uktubū"],
+        ["أَنْتُنَّ (You - f pl)", "اُكْتُبْنَ", "uktubna"],
+      ]}
+    />
+  </ChartBlock>
+  <ArabicExample
+    arabic="وَكَتَبْنَا عَلَيْهِمْ فِيهَا أَنَّ النَّفْسَ بِالنَّفْسِ"
+    transliteration="wa-katabnā ʿalayhim fīhā anna n-nafsa bi-n-nafs"
+    translation="And We ordained for them therein: a life for a life."
+    reference="Al-Māʾidah 5:45"
+    highlight="كَتَبْنَا"
+  />
+</section>
+
+{/* === FORM II === */}
+<section class="ebook-page ebook-page-folio" style="padding:0.6in 0.5in;">
+  <div class="orient-number">Form II</div>
+  <h3 class="orient-title">فَعَّلَ — Intensive / causative</h3>
+  <p class="orient-body" style="margin-bottom:14px;">Form II takes the basic action of Form I and intensifies or causes it. The signature feature is the <strong>doubled middle radical</strong> (marked by شَدَّة). Example: كَسَرَ (to break) becomes كَسَّرَ (to shatter into pieces); عَلِمَ (to know) becomes عَلَّمَ (to teach). Example root: <strong>ع ل م</strong> (ʿ-l-m).</p>
+  <ChartBlock label="Chart · Form II — Past Tense (al-māḍī)" verbTable>
+    <VerbConjugation
+      root="ع ل م"
+      form="Form II"
+      pattern="فَعَّلَ"
+      headers={["الضَّمِير (Pronoun)", "الْمَاضِي (Past)", "النُّطْق (Pronunciation)"]}
+      rows={[
+        ["هُوَ (He)", "عَلَّمَ", "ʿallama"],
+        ["هِيَ (She)", "عَلَّمَتْ", "ʿallamat"],
+        ["هُمَا (They two - m)", "عَلَّمَا", "ʿallamā"],
+        ["هُمَا (They two - f)", "عَلَّمَتَا", "ʿallamatā"],
+        ["هُمْ (They - m)", "عَلَّمُوا", "ʿallamū"],
+        ["هُنَّ (They - f)", "عَلَّمْنَ", "ʿallamna"],
+        ["أَنْتَ (You - m)", "عَلَّمْتَ", "ʿallamta"],
+        ["أَنْتِ (You - f)", "عَلَّمْتِ", "ʿallamti"],
+        ["أَنْتُمَا (You two)", "عَلَّمْتُمَا", "ʿallamtumā"],
+        ["أَنْتُمْ (You - m pl)", "عَلَّمْتُمْ", "ʿallamtum"],
+        ["أَنْتُنَّ (You - f pl)", "عَلَّمْتُنَّ", "ʿallamtunna"],
+        ["أَنَا (I)", "عَلَّمْتُ", "ʿallamtu"],
+        ["نَحْنُ (We)", "عَلَّمْنَا", "ʿallamnā"],
+      ]}
+    />
+  </ChartBlock>
+</section>
+
+<section class="ebook-page ebook-page-folio" style="padding:0.6in 0.5in;">
+  <ChartBlock label="Chart · Form II — Present Tense (al-muḍāriʿ)" verbTable>
+    <VerbConjugation
+      root="ع ل م"
+      form="Form II"
+      pattern="يُفَعِّلُ"
+      headers={["الضَّمِير (Pronoun)", "الْمُضَارِع (Present)", "النُّطْق (Pronunciation)"]}
+      rows={[
+        ["هُوَ (He)", "يُعَلِّمُ", "yuʿallimu"],
+        ["هِيَ (She)", "تُعَلِّمُ", "tuʿallimu"],
+        ["هُمَا (They two - m)", "يُعَلِّمَانِ", "yuʿallimāni"],
+        ["هُمَا (They two - f)", "تُعَلِّمَانِ", "tuʿallimāni"],
+        ["هُمْ (They - m)", "يُعَلِّمُونَ", "yuʿallimūna"],
+        ["هُنَّ (They - f)", "يُعَلِّمْنَ", "yuʿallimna"],
+        ["أَنْتَ (You - m)", "تُعَلِّمُ", "tuʿallimu"],
+        ["أَنْتِ (You - f)", "تُعَلِّمِينَ", "tuʿallimīna"],
+        ["أَنْتُمَا (You two)", "تُعَلِّمَانِ", "tuʿallimāni"],
+        ["أَنْتُمْ (You - m pl)", "تُعَلِّمُونَ", "tuʿallimūna"],
+        ["أَنْتُنَّ (You - f pl)", "تُعَلِّمْنَ", "tuʿallimna"],
+        ["أَنَا (I)", "أُعَلِّمُ", "uʿallimu"],
+        ["نَحْنُ (We)", "نُعَلِّمُ", "nuʿallimu"],
+      ]}
+    />
+  </ChartBlock>
+</section>
+
+<section class="ebook-page ebook-page-folio" style="padding:0.6in 0.5in;">
+  <ChartBlock label="Chart · Form II — Imperative (al-amr)" verbTable>
+    <VerbConjugation
+      root="ع ل م"
+      form="Form II"
+      pattern="فَعِّلْ"
+      headers={["الضَّمِير (Pronoun)", "الْأَمْر (Imperative)", "النُّطْق (Pronunciation)"]}
+      rows={[
+        ["أَنْتَ (You - m)", "عَلِّمْ", "ʿallim"],
+        ["أَنْتِ (You - f)", "عَلِّمِي", "ʿallimī"],
+        ["أَنْتُمَا (You two)", "عَلِّمَا", "ʿallimā"],
+        ["أَنْتُمْ (You - m pl)", "عَلِّمُوا", "ʿallimū"],
+        ["أَنْتُنَّ (You - f pl)", "عَلِّمْنَ", "ʿallimna"],
+      ]}
+    />
+  </ChartBlock>
+  <ArabicExample
+    arabic="وَعَلَّمَ آدَمَ الْأَسْمَاءَ كُلَّهَا"
+    transliteration="wa-ʿallama ādama l-asmāʾa kullahā"
+    translation="And He taught Adam all the names."
+    reference="Al-Baqarah 2:31"
+    highlight="عَلَّمَ"
+  />
+</section>
+
+{/* === FORM III === */}
+<section class="ebook-page ebook-page-folio" style="padding:0.6in 0.5in;">
+  <div class="orient-number">Form III</div>
+  <h3 class="orient-title">فَاعَلَ — Mutual / associative</h3>
+  <p class="orient-body" style="margin-bottom:14px;">Form III inserts a long <strong>alif</strong> (ا) between the first and second root letters. It typically expresses attempting an action or doing something mutually with someone. Example: قَتَلَ (to kill) becomes قَاتَلَ (to fight/battle with). Example root: <strong>ج ه د</strong> (j-h-d, "effort, struggle").</p>
+  <ChartBlock label="Chart · Form III — Past Tense (al-māḍī)" verbTable>
+    <VerbConjugation
+      root="ج ه د"
+      form="Form III"
+      pattern="فَاعَلَ"
+      headers={["الضَّمِير (Pronoun)", "الْمَاضِي (Past)", "النُّطْق (Pronunciation)"]}
+      rows={[
+        ["هُوَ (He)", "جَاهَدَ", "jāhada"],
+        ["هِيَ (She)", "جَاهَدَتْ", "jāhadat"],
+        ["هُمَا (They two - m)", "جَاهَدَا", "jāhadā"],
+        ["هُمَا (They two - f)", "جَاهَدَتَا", "jāhadatā"],
+        ["هُمْ (They - m)", "جَاهَدُوا", "jāhadū"],
+        ["هُنَّ (They - f)", "جَاهَدْنَ", "jāhadna"],
+        ["أَنْتَ (You - m)", "جَاهَدْتَ", "jāhadta"],
+        ["أَنْتِ (You - f)", "جَاهَدْتِ", "jāhadti"],
+        ["أَنْتُمَا (You two)", "جَاهَدْتُمَا", "jāhadtumā"],
+        ["أَنْتُمْ (You - m pl)", "جَاهَدْتُمْ", "jāhadtum"],
+        ["أَنْتُنَّ (You - f pl)", "جَاهَدْتُنَّ", "jāhadtunna"],
+        ["أَنَا (I)", "جَاهَدْتُ", "jāhadtu"],
+        ["نَحْنُ (We)", "جَاهَدْنَا", "jāhadnā"],
+      ]}
+    />
+  </ChartBlock>
+</section>
+
+<section class="ebook-page ebook-page-folio" style="padding:0.6in 0.5in;">
+  <ChartBlock label="Chart · Form III — Present Tense (al-muḍāriʿ)" verbTable>
+    <VerbConjugation
+      root="ج ه د"
+      form="Form III"
+      pattern="يُفَاعِلُ"
+      headers={["الضَّمِير (Pronoun)", "الْمُضَارِع (Present)", "النُّطْق (Pronunciation)"]}
+      rows={[
+        ["هُوَ (He)", "يُجَاهِدُ", "yujāhidu"],
+        ["هِيَ (She)", "تُجَاهِدُ", "tujāhidu"],
+        ["هُمَا (They two - m)", "يُجَاهِدَانِ", "yujāhidāni"],
+        ["هُمَا (They two - f)", "تُجَاهِدَانِ", "tujāhidāni"],
+        ["هُمْ (They - m)", "يُجَاهِدُونَ", "yujāhidūna"],
+        ["هُنَّ (They - f)", "يُجَاهِدْنَ", "yujāhidna"],
+        ["أَنْتَ (You - m)", "تُجَاهِدُ", "tujāhidu"],
+        ["أَنْتِ (You - f)", "تُجَاهِدِينَ", "tujāhidīna"],
+        ["أَنْتُمَا (You two)", "تُجَاهِدَانِ", "tujāhidāni"],
+        ["أَنْتُمْ (You - m pl)", "تُجَاهِدُونَ", "tujāhidūna"],
+        ["أَنْتُنَّ (You - f pl)", "تُجَاهِدْنَ", "tujāhidna"],
+        ["أَنَا (I)", "أُجَاهِدُ", "ujāhidu"],
+        ["نَحْنُ (We)", "نُجَاهِدُ", "nujāhidu"],
+      ]}
+    />
+  </ChartBlock>
+</section>
+
+<section class="ebook-page ebook-page-folio" style="padding:0.6in 0.5in;">
+  <ChartBlock label="Chart · Form III — Imperative (al-amr)" verbTable>
+    <VerbConjugation
+      root="ج ه د"
+      form="Form III"
+      pattern="فَاعِلْ"
+      headers={["الضَّمِير (Pronoun)", "الْأَمْر (Imperative)", "النُّطْق (Pronunciation)"]}
+      rows={[
+        ["أَنْتَ (You - m)", "جَاهِدْ", "jāhid"],
+        ["أَنْتِ (You - f)", "جَاهِدِي", "jāhidī"],
+        ["أَنْتُمَا (You two)", "جَاهِدَا", "jāhidā"],
+        ["أَنْتُمْ (You - m pl)", "جَاهِدُوا", "jāhidū"],
+        ["أَنْتُنَّ (You - f pl)", "جَاهِدْنَ", "jāhidna"],
+      ]}
+    />
+  </ChartBlock>
+  <ArabicExample
+    arabic="وَجَاهِدُوا فِي اللَّهِ حَقَّ جِهَادِهِ"
+    transliteration="wa-jāhidū fī llāhi ḥaqqa jihādih"
+    translation="And strive for Allah with the striving due to Him."
+    reference="Al-Ḥajj 22:78"
+    highlight="جَاهِدُوا"
+  />
+</section>
+
+{/* === FORM IV === */}
+<section class="ebook-page ebook-page-folio" style="padding:0.6in 0.5in;">
+  <div class="orient-number">Form IV</div>
+  <h3 class="orient-title">أَفْعَلَ — Causative</h3>
+  <p class="orient-body" style="margin-bottom:14px;">Form IV adds a <strong>hamza</strong> (أ) prefix to express causation — making the basic action happen. It's the most common causative form in the Quran, especially with divine actions (أَنْزَلَ, أَعْطَى, أَحْيَا). Example: نَزَلَ (to descend) becomes أَنْزَلَ (to send down). Example root: <strong>ن ز ل</strong> (n-z-l).</p>
+  <ChartBlock label="Chart · Form IV — Past Tense (al-māḍī)" verbTable>
+    <VerbConjugation
+      root="ن ز ل"
+      form="Form IV"
+      pattern="أَفْعَلَ"
+      headers={["الضَّمِير (Pronoun)", "الْمَاضِي (Past)", "النُّطْق (Pronunciation)"]}
+      rows={[
+        ["هُوَ (He)", "أَنْزَلَ", "anzala"],
+        ["هِيَ (She)", "أَنْزَلَتْ", "anzalat"],
+        ["هُمَا (They two - m)", "أَنْزَلَا", "anzalā"],
+        ["هُمَا (They two - f)", "أَنْزَلَتَا", "anzalatā"],
+        ["هُمْ (They - m)", "أَنْزَلُوا", "anzalū"],
+        ["هُنَّ (They - f)", "أَنْزَلْنَ", "anzalna"],
+        ["أَنْتَ (You - m)", "أَنْزَلْتَ", "anzalta"],
+        ["أَنْتِ (You - f)", "أَنْزَلْتِ", "anzalti"],
+        ["أَنْتُمَا (You two)", "أَنْزَلْتُمَا", "anzaltumā"],
+        ["أَنْتُمْ (You - m pl)", "أَنْزَلْتُمْ", "anzaltum"],
+        ["أَنْتُنَّ (You - f pl)", "أَنْزَلْتُنَّ", "anzaltunna"],
+        ["أَنَا (I)", "أَنْزَلْتُ", "anzaltu"],
+        ["نَحْنُ (We)", "أَنْزَلْنَا", "anzalnā"],
+      ]}
+    />
+  </ChartBlock>
+</section>
+
+<section class="ebook-page ebook-page-folio" style="padding:0.6in 0.5in;">
+  <ChartBlock label="Chart · Form IV — Present Tense (al-muḍāriʿ)" verbTable>
+    <VerbConjugation
+      root="ن ز ل"
+      form="Form IV"
+      pattern="يُفْعِلُ"
+      headers={["الضَّمِير (Pronoun)", "الْمُضَارِع (Present)", "النُّطْق (Pronunciation)"]}
+      rows={[
+        ["هُوَ (He)", "يُنْزِلُ", "yunzilu"],
+        ["هِيَ (She)", "تُنْزِلُ", "tunzilu"],
+        ["هُمَا (They two - m)", "يُنْزِلَانِ", "yunzilāni"],
+        ["هُمَا (They two - f)", "تُنْزِلَانِ", "tunzilāni"],
+        ["هُمْ (They - m)", "يُنْزِلُونَ", "yunzilūna"],
+        ["هُنَّ (They - f)", "يُنْزِلْنَ", "yunzilna"],
+        ["أَنْتَ (You - m)", "تُنْزِلُ", "tunzilu"],
+        ["أَنْتِ (You - f)", "تُنْزِلِينَ", "tunzilīna"],
+        ["أَنْتُمَا (You two)", "تُنْزِلَانِ", "tunzilāni"],
+        ["أَنْتُمْ (You - m pl)", "تُنْزِلُونَ", "tunzilūna"],
+        ["أَنْتُنَّ (You - f pl)", "تُنْزِلْنَ", "tunzilna"],
+        ["أَنَا (I)", "أُنْزِلُ", "unzilu"],
+        ["نَحْنُ (We)", "نُنْزِلُ", "nunzilu"],
+      ]}
+    />
+  </ChartBlock>
+</section>
+
+<section class="ebook-page ebook-page-folio" style="padding:0.6in 0.5in;">
+  <ChartBlock label="Chart · Form IV — Imperative (al-amr)" verbTable>
+    <VerbConjugation
+      root="ن ز ل"
+      form="Form IV"
+      pattern="أَفْعِلْ"
+      headers={["الضَّمِير (Pronoun)", "الْأَمْر (Imperative)", "النُّطْق (Pronunciation)"]}
+      rows={[
+        ["أَنْتَ (You - m)", "أَنْزِلْ", "anzil"],
+        ["أَنْتِ (You - f)", "أَنْزِلِي", "anzilī"],
+        ["أَنْتُمَا (You two)", "أَنْزِلَا", "anzilā"],
+        ["أَنْتُمْ (You - m pl)", "أَنْزِلُوا", "anzilū"],
+        ["أَنْتُنَّ (You - f pl)", "أَنْزِلْنَ", "anzilna"],
+      ]}
+    />
+  </ChartBlock>
+  <ArabicExample
+    arabic="إِنَّا أَنْزَلْنَاهُ فِي لَيْلَةِ الْقَدْرِ"
+    transliteration="innā anzalnāhu fī laylati l-qadr"
+    translation="Indeed, We sent it down during the Night of Decree."
+    reference="Al-Qadr 97:1"
+    highlight="أَنْزَلْنَاهُ"
+  />
+</section>
+
+{/* === FORM V === */}
+<section class="ebook-page ebook-page-folio" style="padding:0.6in 0.5in;">
+  <div class="orient-number">Form V</div>
+  <h3 class="orient-title">تَفَعَّلَ — Reflexive of Form II</h3>
+  <p class="orient-body" style="margin-bottom:14px;">Form V is the reflexive counterpart of Form II: it adds a <strong>تَـ</strong> prefix to the doubled-middle pattern. Where Form II is "to teach" (عَلَّمَ), Form V is "to learn" (تَعَلَّمَ — to cause oneself to know). Example root: <strong>ع ل م</strong> (ʿ-l-m).</p>
+  <ChartBlock label="Chart · Form V — Past Tense (al-māḍī)" verbTable>
+    <VerbConjugation
+      root="ع ل م"
+      form="Form V"
+      pattern="تَفَعَّلَ"
+      headers={["الضَّمِير (Pronoun)", "الْمَاضِي (Past)", "النُّطْق (Pronunciation)"]}
+      rows={[
+        ["هُوَ (He)", "تَعَلَّمَ", "taʿallama"],
+        ["هِيَ (She)", "تَعَلَّمَتْ", "taʿallamat"],
+        ["هُمَا (They two - m)", "تَعَلَّمَا", "taʿallamā"],
+        ["هُمَا (They two - f)", "تَعَلَّمَتَا", "taʿallamatā"],
+        ["هُمْ (They - m)", "تَعَلَّمُوا", "taʿallamū"],
+        ["هُنَّ (They - f)", "تَعَلَّمْنَ", "taʿallamna"],
+        ["أَنْتَ (You - m)", "تَعَلَّمْتَ", "taʿallamta"],
+        ["أَنْتِ (You - f)", "تَعَلَّمْتِ", "taʿallamti"],
+        ["أَنْتُمَا (You two)", "تَعَلَّمْتُمَا", "taʿallamtumā"],
+        ["أَنْتُمْ (You - m pl)", "تَعَلَّمْتُمْ", "taʿallamtum"],
+        ["أَنْتُنَّ (You - f pl)", "تَعَلَّمْتُنَّ", "taʿallamtunna"],
+        ["أَنَا (I)", "تَعَلَّمْتُ", "taʿallamtu"],
+        ["نَحْنُ (We)", "تَعَلَّمْنَا", "taʿallamnā"],
+      ]}
+    />
+  </ChartBlock>
+</section>
+
+<section class="ebook-page ebook-page-folio" style="padding:0.6in 0.5in;">
+  <ChartBlock label="Chart · Form V — Present Tense (al-muḍāriʿ)" verbTable>
+    <VerbConjugation
+      root="ع ل م"
+      form="Form V"
+      pattern="يَتَفَعَّلُ"
+      headers={["الضَّمِير (Pronoun)", "الْمُضَارِع (Present)", "النُّطْق (Pronunciation)"]}
+      rows={[
+        ["هُوَ (He)", "يَتَعَلَّمُ", "yataʿallamu"],
+        ["هِيَ (She)", "تَتَعَلَّمُ", "tataʿallamu"],
+        ["هُمَا (They two - m)", "يَتَعَلَّمَانِ", "yataʿallamāni"],
+        ["هُمَا (They two - f)", "تَتَعَلَّمَانِ", "tataʿallamāni"],
+        ["هُمْ (They - m)", "يَتَعَلَّمُونَ", "yataʿallamūna"],
+        ["هُنَّ (They - f)", "يَتَعَلَّمْنَ", "yataʿallamna"],
+        ["أَنْتَ (You - m)", "تَتَعَلَّمُ", "tataʿallamu"],
+        ["أَنْتِ (You - f)", "تَتَعَلَّمِينَ", "tataʿallamīna"],
+        ["أَنْتُمَا (You two)", "تَتَعَلَّمَانِ", "tataʿallamāni"],
+        ["أَنْتُمْ (You - m pl)", "تَتَعَلَّمُونَ", "tataʿallamūna"],
+        ["أَنْتُنَّ (You - f pl)", "تَتَعَلَّمْنَ", "tataʿallamna"],
+        ["أَنَا (I)", "أَتَعَلَّمُ", "ataʿallamu"],
+        ["نَحْنُ (We)", "نَتَعَلَّمُ", "nataʿallamu"],
+      ]}
+    />
+  </ChartBlock>
+</section>
+
+<section class="ebook-page ebook-page-folio" style="padding:0.6in 0.5in;">
+  <ChartBlock label="Chart · Form V — Imperative (al-amr)" verbTable>
+    <VerbConjugation
+      root="ع ل م"
+      form="Form V"
+      pattern="تَفَعَّلْ"
+      headers={["الضَّمِير (Pronoun)", "الْأَمْر (Imperative)", "النُّطْق (Pronunciation)"]}
+      rows={[
+        ["أَنْتَ (You - m)", "تَعَلَّمْ", "taʿallam"],
+        ["أَنْتِ (You - f)", "تَعَلَّمِي", "taʿallamī"],
+        ["أَنْتُمَا (You two)", "تَعَلَّمَا", "taʿallamā"],
+        ["أَنْتُمْ (You - m pl)", "تَعَلَّمُوا", "taʿallamū"],
+        ["أَنْتُنَّ (You - f pl)", "تَعَلَّمْنَ", "taʿallamna"],
+      ]}
+    />
+  </ChartBlock>
+  <ArabicExample
+    arabic="وَيَتَعَلَّمُونَ مَا يَضُرُّهُمْ وَلَا يَنْفَعُهُمْ"
+    transliteration="wa-yataʿallamūna mā yaḍurruhum wa-lā yanfaʿuhum"
+    translation="And they learn what harms them and does not benefit them."
+    reference="Al-Baqarah 2:102"
+    highlight="يَتَعَلَّمُونَ"
+  />
+</section>
+
+{/* === FORM VI === */}
+<section class="ebook-page ebook-page-folio" style="padding:0.6in 0.5in;">
+  <div class="orient-number">Form VI</div>
+  <h3 class="orient-title">تَفَاعَلَ — Reflexive of Form III</h3>
+  <p class="orient-body" style="margin-bottom:14px;">Form VI is the reflexive counterpart of Form III: it adds the <strong>تَـ</strong> prefix to the long-ā pattern to express mutual or reciprocal action, or something happening gradually and intensively to the subject itself. Example root: <strong>ب ر ك</strong> (b-r-k, "blessing").</p>
+  <ChartBlock label="Chart · Form VI — Past Tense (al-māḍī)" verbTable>
+    <VerbConjugation
+      root="ب ر ك"
+      form="Form VI"
+      pattern="تَفَاعَلَ"
+      headers={["الضَّمِير (Pronoun)", "الْمَاضِي (Past)", "النُّطْق (Pronunciation)"]}
+      rows={[
+        ["هُوَ (He)", "تَبَارَكَ", "tabāraka"],
+        ["هِيَ (She)", "تَبَارَكَتْ", "tabārakat"],
+        ["هُمَا (They two - m)", "تَبَارَكَا", "tabārakā"],
+        ["هُمَا (They two - f)", "تَبَارَكَتَا", "tabārakatā"],
+        ["هُمْ (They - m)", "تَبَارَكُوا", "tabārakū"],
+        ["هُنَّ (They - f)", "تَبَارَكْنَ", "tabārakna"],
+        ["أَنْتَ (You - m)", "تَبَارَكْتَ", "tabārakta"],
+        ["أَنْتِ (You - f)", "تَبَارَكْتِ", "tabārakti"],
+        ["أَنْتُمَا (You two)", "تَبَارَكْتُمَا", "tabāraktumā"],
+        ["أَنْتُمْ (You - m pl)", "تَبَارَكْتُمْ", "tabāraktum"],
+        ["أَنْتُنَّ (You - f pl)", "تَبَارَكْتُنَّ", "tabāraktunna"],
+        ["أَنَا (I)", "تَبَارَكْتُ", "tabāraktu"],
+        ["نَحْنُ (We)", "تَبَارَكْنَا", "tabāraknā"],
+      ]}
+    />
+  </ChartBlock>
+</section>
+
+<section class="ebook-page ebook-page-folio" style="padding:0.6in 0.5in;">
+  <ChartBlock label="Chart · Form VI — Present Tense (al-muḍāriʿ)" verbTable>
+    <VerbConjugation
+      root="ب ر ك"
+      form="Form VI"
+      pattern="يَتَفَاعَلُ"
+      headers={["الضَّمِير (Pronoun)", "الْمُضَارِع (Present)", "النُّطْق (Pronunciation)"]}
+      rows={[
+        ["هُوَ (He)", "يَتَبَارَكُ", "yatabāraku"],
+        ["هِيَ (She)", "تَتَبَارَكُ", "tatabāraku"],
+        ["هُمَا (They two - m)", "يَتَبَارَكَانِ", "yatabārakāni"],
+        ["هُمَا (They two - f)", "تَتَبَارَكَانِ", "tatabārakāni"],
+        ["هُمْ (They - m)", "يَتَبَارَكُونَ", "yatabārakūna"],
+        ["هُنَّ (They - f)", "يَتَبَارَكْنَ", "yatabārakna"],
+        ["أَنْتَ (You - m)", "تَتَبَارَكُ", "tatabāraku"],
+        ["أَنْتِ (You - f)", "تَتَبَارَكِينَ", "tatabārakīna"],
+        ["أَنْتُمَا (You two)", "تَتَبَارَكَانِ", "tatabārakāni"],
+        ["أَنْتُمْ (You - m pl)", "تَتَبَارَكُونَ", "tatabārakūna"],
+        ["أَنْتُنَّ (You - f pl)", "تَتَبَارَكْنَ", "tatabārakna"],
+        ["أَنَا (I)", "أَتَبَارَكُ", "atabāraku"],
+        ["نَحْنُ (We)", "نَتَبَارَكُ", "natabāraku"],
+      ]}
+    />
+  </ChartBlock>
+</section>
+
+<section class="ebook-page ebook-page-folio" style="padding:0.6in 0.5in;">
+  <ChartBlock label="Chart · Form VI — Imperative (al-amr)" verbTable>
+    <VerbConjugation
+      root="ب ر ك"
+      form="Form VI"
+      pattern="تَفَاعَلْ"
+      headers={["الضَّمِير (Pronoun)", "الْأَمْر (Imperative)", "النُّطْق (Pronunciation)"]}
+      rows={[
+        ["أَنْتَ (You - m)", "تَبَارَكْ", "tabārak"],
+        ["أَنْتِ (You - f)", "تَبَارَكِي", "tabārakī"],
+        ["أَنْتُمَا (You two)", "تَبَارَكَا", "tabārakā"],
+        ["أَنْتُمْ (You - m pl)", "تَبَارَكُوا", "tabārakū"],
+        ["أَنْتُنَّ (You - f pl)", "تَبَارَكْنَ", "tabārakna"],
+      ]}
+    />
+  </ChartBlock>
+  <ArabicExample
+    arabic="تَبَارَكَ الَّذِي بِيَدِهِ الْمُلْكُ"
+    transliteration="tabāraka lladhī biyadihi l-mulk"
+    translation="Blessed is He in whose hand is dominion."
+    reference="Al-Mulk 67:1"
+    highlight="تَبَارَكَ"
+  />
+</section>
+
+{/* === FORM VII === */}
+<section class="ebook-page ebook-page-folio" style="padding:0.6in 0.5in;">
+  <div class="orient-number">Form VII</div>
+  <h3 class="orient-title">اِنْفَعَلَ — Passive / reflexive</h3>
+  <p class="orient-body" style="margin-bottom:14px;">Form VII adds the prefix <strong>اِنْـ</strong> (in-) to express the passive or reflexive of Form I — often something happening to the subject naturally or inevitably. Example: كَسَرَ (to break) becomes اِنْكَسَرَ (to become broken). Example root: <strong>ف ط ر</strong> (f-ṭ-r, "to split, cleave").</p>
+  <ChartBlock label="Chart · Form VII — Past Tense (al-māḍī)" verbTable>
+    <VerbConjugation
+      root="ف ط ر"
+      form="Form VII"
+      pattern="اِنْفَعَلَ"
+      headers={["الضَّمِير (Pronoun)", "الْمَاضِي (Past)", "النُّطْق (Pronunciation)"]}
+      rows={[
+        ["هُوَ (He)", "اِنْفَطَرَ", "infaṭara"],
+        ["هِيَ (She)", "اِنْفَطَرَتْ", "infaṭarat"],
+        ["هُمَا (They two - m)", "اِنْفَطَرَا", "infaṭarā"],
+        ["هُمَا (They two - f)", "اِنْفَطَرَتَا", "infaṭaratā"],
+        ["هُمْ (They - m)", "اِنْفَطَرُوا", "infaṭarū"],
+        ["هُنَّ (They - f)", "اِنْفَطَرْنَ", "infaṭarna"],
+        ["أَنْتَ (You - m)", "اِنْفَطَرْتَ", "infaṭarta"],
+        ["أَنْتِ (You - f)", "اِنْفَطَرْتِ", "infaṭarti"],
+        ["أَنْتُمَا (You two)", "اِنْفَطَرْتُمَا", "infaṭartumā"],
+        ["أَنْتُمْ (You - m pl)", "اِنْفَطَرْتُمْ", "infaṭartum"],
+        ["أَنْتُنَّ (You - f pl)", "اِنْفَطَرْتُنَّ", "infaṭartunna"],
+        ["أَنَا (I)", "اِنْفَطَرْتُ", "infaṭartu"],
+        ["نَحْنُ (We)", "اِنْفَطَرْنَا", "infaṭarnā"],
+      ]}
+    />
+  </ChartBlock>
+</section>
+
+<section class="ebook-page ebook-page-folio" style="padding:0.6in 0.5in;">
+  <ChartBlock label="Chart · Form VII — Present Tense (al-muḍāriʿ)" verbTable>
+    <VerbConjugation
+      root="ف ط ر"
+      form="Form VII"
+      pattern="يَنْفَعِلُ"
+      headers={["الضَّمِير (Pronoun)", "الْمُضَارِع (Present)", "النُّطْق (Pronunciation)"]}
+      rows={[
+        ["هُوَ (He)", "يَنْفَطِرُ", "yanfaṭiru"],
+        ["هِيَ (She)", "تَنْفَطِرُ", "tanfaṭiru"],
+        ["هُمَا (They two - m)", "يَنْفَطِرَانِ", "yanfaṭirāni"],
+        ["هُمَا (They two - f)", "تَنْفَطِرَانِ", "tanfaṭirāni"],
+        ["هُمْ (They - m)", "يَنْفَطِرُونَ", "yanfaṭirūna"],
+        ["هُنَّ (They - f)", "يَنْفَطِرْنَ", "yanfaṭirna"],
+        ["أَنْتَ (You - m)", "تَنْفَطِرُ", "tanfaṭiru"],
+        ["أَنْتِ (You - f)", "تَنْفَطِرِينَ", "tanfaṭirīna"],
+        ["أَنْتُمَا (You two)", "تَنْفَطِرَانِ", "tanfaṭirāni"],
+        ["أَنْتُمْ (You - m pl)", "تَنْفَطِرُونَ", "tanfaṭirūna"],
+        ["أَنْتُنَّ (You - f pl)", "تَنْفَطِرْنَ", "tanfaṭirna"],
+        ["أَنَا (I)", "أَنْفَطِرُ", "anfaṭiru"],
+        ["نَحْنُ (We)", "نَنْفَطِرُ", "nanfaṭiru"],
+      ]}
+    />
+  </ChartBlock>
+</section>
+
+<section class="ebook-page ebook-page-folio" style="padding:0.6in 0.5in;">
+  <ChartBlock label="Chart · Form VII — Imperative (al-amr)" verbTable>
+    <VerbConjugation
+      root="ف ط ر"
+      form="Form VII"
+      pattern="اِنْفَعِلْ"
+      headers={["الضَّمِير (Pronoun)", "الْأَمْر (Imperative)", "النُّطْق (Pronunciation)"]}
+      rows={[
+        ["أَنْتَ (You - m)", "اِنْفَطِرْ", "infaṭir"],
+        ["أَنْتِ (You - f)", "اِنْفَطِرِي", "infaṭirī"],
+        ["أَنْتُمَا (You two)", "اِنْفَطِرَا", "infaṭirā"],
+        ["أَنْتُمْ (You - m pl)", "اِنْفَطِرُوا", "infaṭirū"],
+        ["أَنْتُنَّ (You - f pl)", "اِنْفَطِرْنَ", "infaṭirna"],
+      ]}
+    />
+  </ChartBlock>
+  <ArabicExample
+    arabic="إِذَا السَّمَاءُ انْفَطَرَتْ"
+    transliteration="idhā s-samāʾu infaṭarat"
+    translation="When the sky breaks apart."
+    reference="Al-Infiṭār 82:1"
+    highlight="انْفَطَرَتْ"
+  />
+</section>
+
+{/* === FORM VIII === */}
+<section class="ebook-page ebook-page-folio" style="padding:0.6in 0.5in;">
+  <div class="orient-number">Form VIII</div>
+  <h3 class="orient-title">اِفْتَعَلَ — Reflexive / reciprocal</h3>
+  <p class="orient-body" style="margin-bottom:14px;">Form VIII inserts a <strong>ت</strong> (tāʾ) after the first root letter and adds the prefix <strong>اِ</strong>. It often expresses reflexive action or doing something for oneself — and intensifies the basic meaning. Example: سَمِعَ (to hear) becomes اِسْتَمَعَ (to listen attentively). Example root: <strong>س م ع</strong> (s-m-ʿ).</p>
+  <ChartBlock label="Chart · Form VIII — Past Tense (al-māḍī)" verbTable>
+    <VerbConjugation
+      root="س م ع"
+      form="Form VIII"
+      pattern="اِفْتَعَلَ"
+      headers={["الضَّمِير (Pronoun)", "الْمَاضِي (Past)", "النُّطْق (Pronunciation)"]}
+      rows={[
+        ["هُوَ (He)", "اِسْتَمَعَ", "istamaʿa"],
+        ["هِيَ (She)", "اِسْتَمَعَتْ", "istamaʿat"],
+        ["هُمَا (They two - m)", "اِسْتَمَعَا", "istamaʿā"],
+        ["هُمَا (They two - f)", "اِسْتَمَعَتَا", "istamaʿatā"],
+        ["هُمْ (They - m)", "اِسْتَمَعُوا", "istamaʿū"],
+        ["هُنَّ (They - f)", "اِسْتَمَعْنَ", "istamaʿna"],
+        ["أَنْتَ (You - m)", "اِسْتَمَعْتَ", "istamaʿta"],
+        ["أَنْتِ (You - f)", "اِسْتَمَعْتِ", "istamaʿti"],
+        ["أَنْتُمَا (You two)", "اِسْتَمَعْتُمَا", "istamaʿtumā"],
+        ["أَنْتُمْ (You - m pl)", "اِسْتَمَعْتُمْ", "istamaʿtum"],
+        ["أَنْتُنَّ (You - f pl)", "اِسْتَمَعْتُنَّ", "istamaʿtunna"],
+        ["أَنَا (I)", "اِسْتَمَعْتُ", "istamaʿtu"],
+        ["نَحْنُ (We)", "اِسْتَمَعْنَا", "istamaʿnā"],
+      ]}
+    />
+  </ChartBlock>
+</section>
+
+<section class="ebook-page ebook-page-folio" style="padding:0.6in 0.5in;">
+  <ChartBlock label="Chart · Form VIII — Present Tense (al-muḍāriʿ)" verbTable>
+    <VerbConjugation
+      root="س م ع"
+      form="Form VIII"
+      pattern="يَفْتَعِلُ"
+      headers={["الضَّمِير (Pronoun)", "الْمُضَارِع (Present)", "النُّطْق (Pronunciation)"]}
+      rows={[
+        ["هُوَ (He)", "يَسْتَمِعُ", "yastamiʿu"],
+        ["هِيَ (She)", "تَسْتَمِعُ", "tastamiʿu"],
+        ["هُمَا (They two - m)", "يَسْتَمِعَانِ", "yastamiʿāni"],
+        ["هُمَا (They two - f)", "تَسْتَمِعَانِ", "tastamiʿāni"],
+        ["هُمْ (They - m)", "يَسْتَمِعُونَ", "yastamiʿūna"],
+        ["هُنَّ (They - f)", "يَسْتَمِعْنَ", "yastamiʿna"],
+        ["أَنْتَ (You - m)", "تَسْتَمِعُ", "tastamiʿu"],
+        ["أَنْتِ (You - f)", "تَسْتَمِعِينَ", "tastamiʿīna"],
+        ["أَنْتُمَا (You two)", "تَسْتَمِعَانِ", "tastamiʿāni"],
+        ["أَنْتُمْ (You - m pl)", "تَسْتَمِعُونَ", "tastamiʿūna"],
+        ["أَنْتُنَّ (You - f pl)", "تَسْتَمِعْنَ", "tastamiʿna"],
+        ["أَنَا (I)", "أَسْتَمِعُ", "astamiʿu"],
+        ["نَحْنُ (We)", "نَسْتَمِعُ", "nastamiʿu"],
+      ]}
+    />
+  </ChartBlock>
+</section>
+
+<section class="ebook-page ebook-page-folio" style="padding:0.6in 0.5in;">
+  <ChartBlock label="Chart · Form VIII — Imperative (al-amr)" verbTable>
+    <VerbConjugation
+      root="س م ع"
+      form="Form VIII"
+      pattern="اِفْتَعِلْ"
+      headers={["الضَّمِير (Pronoun)", "الْأَمْر (Imperative)", "النُّطْق (Pronunciation)"]}
+      rows={[
+        ["أَنْتَ (You - m)", "اِسْتَمِعْ", "istamiʿ"],
+        ["أَنْتِ (You - f)", "اِسْتَمِعِي", "istamiʿī"],
+        ["أَنْتُمَا (You two)", "اِسْتَمِعَا", "istamiʿā"],
+        ["أَنْتُمْ (You - m pl)", "اِسْتَمِعُوا", "istamiʿū"],
+        ["أَنْتُنَّ (You - f pl)", "اِسْتَمِعْنَ", "istamiʿna"],
+      ]}
+    />
+  </ChartBlock>
+  <ArabicExample
+    arabic="وَإِذَا قُرِئَ الْقُرْآنُ فَاسْتَمِعُوا لَهُ"
+    transliteration="wa-idhā quriʾa l-qurʾānu fa-stamiʿū lah"
+    translation="So when the Quran is recited, then listen to it."
+    reference="Al-Aʿrāf 7:204"
+    highlight="فَاسْتَمِعُوا"
+  />
+</section>
+
+{/* === FORM IX === */}
+<section class="ebook-page ebook-page-folio" style="padding:0.6in 0.5in;">
+  <div class="orient-number">Form IX</div>
+  <h3 class="orient-title">اِفْعَلَّ — Colours and defects</h3>
+  <p class="orient-body" style="margin-bottom:14px;">Form IX is a specialised pattern used almost exclusively for <strong>colours</strong> and <strong>physical states or defects</strong>. It doubles the final root letter and adds the prefix <strong>اِ</strong>. Rare in the Quran but important for descriptive language. Example root: <strong>ح م ر</strong> (ḥ-m-r, "redness").</p>
+  <ChartBlock label="Chart · Form IX — Past Tense (al-māḍī)" verbTable>
+    <VerbConjugation
+      root="ح م ر"
+      form="Form IX"
+      pattern="اِفْعَلَّ"
+      headers={["الضَّمِير (Pronoun)", "الْمَاضِي (Past)", "النُّطْق (Pronunciation)"]}
+      rows={[
+        ["هُوَ (He)", "اِحْمَرَّ", "iḥmarra"],
+        ["هِيَ (She)", "اِحْمَرَّتْ", "iḥmarrat"],
+        ["هُمَا (They two - m)", "اِحْمَرَّا", "iḥmarrā"],
+        ["هُمَا (They two - f)", "اِحْمَرَّتَا", "iḥmarratā"],
+        ["هُمْ (They - m)", "اِحْمَرُّوا", "iḥmarrū"],
+        ["هُنَّ (They - f)", "اِحْمَرَرْنَ", "iḥmararna"],
+        ["أَنْتَ (You - m)", "اِحْمَرَرْتَ", "iḥmararta"],
+        ["أَنْتِ (You - f)", "اِحْمَرَرْتِ", "iḥmararti"],
+        ["أَنْتُمَا (You two)", "اِحْمَرَرْتُمَا", "iḥmarartumā"],
+        ["أَنْتُمْ (You - m pl)", "اِحْمَرَرْتُمْ", "iḥmarartum"],
+        ["أَنْتُنَّ (You - f pl)", "اِحْمَرَرْتُنَّ", "iḥmarartunna"],
+        ["أَنَا (I)", "اِحْمَرَرْتُ", "iḥmarartu"],
+        ["نَحْنُ (We)", "اِحْمَرَرْنَا", "iḥmararnā"],
+      ]}
+    />
+  </ChartBlock>
+</section>
+
+<section class="ebook-page ebook-page-folio" style="padding:0.6in 0.5in;">
+  <ChartBlock label="Chart · Form IX — Present Tense (al-muḍāriʿ)" verbTable>
+    <VerbConjugation
+      root="ح م ر"
+      form="Form IX"
+      pattern="يَفْعَلُّ"
+      headers={["الضَّمِير (Pronoun)", "الْمُضَارِع (Present)", "النُّطْق (Pronunciation)"]}
+      rows={[
+        ["هُوَ (He)", "يَحْمَرُّ", "yaḥmarru"],
+        ["هِيَ (She)", "تَحْمَرُّ", "taḥmarru"],
+        ["هُمَا (They two - m)", "يَحْمَرَّانِ", "yaḥmarrāni"],
+        ["هُمَا (They two - f)", "تَحْمَرَّانِ", "taḥmarrāni"],
+        ["هُمْ (They - m)", "يَحْمَرُّونَ", "yaḥmarrūna"],
+        ["هُنَّ (They - f)", "يَحْمَرِرْنَ", "yaḥmarirna"],
+        ["أَنْتَ (You - m)", "تَحْمَرُّ", "taḥmarru"],
+        ["أَنْتِ (You - f)", "تَحْمَرِّينَ", "taḥmarrīna"],
+        ["أَنْتُمَا (You two)", "تَحْمَرَّانِ", "taḥmarrāni"],
+        ["أَنْتُمْ (You - m pl)", "تَحْمَرُّونَ", "taḥmarrūna"],
+        ["أَنْتُنَّ (You - f pl)", "تَحْمَرِرْنَ", "taḥmarirna"],
+        ["أَنَا (I)", "أَحْمَرُّ", "aḥmarru"],
+        ["نَحْنُ (We)", "نَحْمَرُّ", "naḥmarru"],
+      ]}
+    />
+  </ChartBlock>
+</section>
+
+<section class="ebook-page ebook-page-folio" style="padding:0.6in 0.5in;">
+  <ChartBlock label="Chart · Form IX — Imperative (al-amr)" verbTable>
+    <VerbConjugation
+      root="ح م ر"
+      form="Form IX"
+      pattern="اِفْعَلَّ"
+      headers={["الضَّمِير (Pronoun)", "الْأَمْر (Imperative)", "النُّطْق (Pronunciation)"]}
+      rows={[
+        ["أَنْتَ (You - m)", "اِحْمَرَّ", "iḥmarr"],
+        ["أَنْتِ (You - f)", "اِحْمَرِّي", "iḥmarrī"],
+        ["أَنْتُمَا (You two)", "اِحْمَرَّا", "iḥmarrā"],
+        ["أَنْتُمْ (You - m pl)", "اِحْمَرُّوا", "iḥmarrū"],
+        ["أَنْتُنَّ (You - f pl)", "اِحْمَرِرْنَ", "iḥmarirna"],
+      ]}
+    />
+  </ChartBlock>
+  <Callout type="note" title="Other Form IX verbs">
+    Other colours: <strong>اِسْوَدَّ</strong> (iswadda, "to become black"), <strong>اِبْيَضَّ</strong> (ibyaḍḍa, "to become white"), <strong>اِصْفَرَّ</strong> (iṣfarra, "to become yellow"), <strong>اِخْضَرَّ</strong> (ikhḍarra, "to become green"). Physical defects: <strong>اِعْوَرَّ</strong> (to become one-eyed), <strong>اِعْوَجَّ</strong> (to become crooked).
+  </Callout>
+</section>
+
+{/* === FORM X === */}
+<section class="ebook-page ebook-page-folio" style="padding:0.6in 0.5in;">
+  <div class="orient-number">Form X</div>
+  <h3 class="orient-title">اِسْتَفْعَلَ — Seeking / requesting</h3>
+  <p class="orient-body" style="margin-bottom:14px;">Form X adds the prefix <strong>اِسْتَـ</strong> (ista-) to express seeking, requesting, or considering something to be the case. It's very common in Quranic supplications. Example: غَفَرَ (to forgive) becomes اِسْتَغْفَرَ (to seek forgiveness); حَسُنَ (to be good) becomes اِسْتَحْسَنَ (to consider good). Example root: <strong>غ ف ر</strong> (gh-f-r).</p>
+  <ChartBlock label="Chart · Form X — Past Tense (al-māḍī)" verbTable>
+    <VerbConjugation
+      root="غ ف ر"
+      form="Form X"
+      pattern="اِسْتَفْعَلَ"
+      headers={["الضَّمِير (Pronoun)", "الْمَاضِي (Past)", "النُّطْق (Pronunciation)"]}
+      rows={[
+        ["هُوَ (He)", "اِسْتَغْفَرَ", "istaghfara"],
+        ["هِيَ (She)", "اِسْتَغْفَرَتْ", "istaghfarat"],
+        ["هُمَا (They two - m)", "اِسْتَغْفَرَا", "istaghfarā"],
+        ["هُمَا (They two - f)", "اِسْتَغْفَرَتَا", "istaghfaratā"],
+        ["هُمْ (They - m)", "اِسْتَغْفَرُوا", "istaghfarū"],
+        ["هُنَّ (They - f)", "اِسْتَغْفَرْنَ", "istaghfarna"],
+        ["أَنْتَ (You - m)", "اِسْتَغْفَرْتَ", "istaghfarta"],
+        ["أَنْتِ (You - f)", "اِسْتَغْفَرْتِ", "istaghfarti"],
+        ["أَنْتُمَا (You two)", "اِسْتَغْفَرْتُمَا", "istaghfartumā"],
+        ["أَنْتُمْ (You - m pl)", "اِسْتَغْفَرْتُمْ", "istaghfartum"],
+        ["أَنْتُنَّ (You - f pl)", "اِسْتَغْفَرْتُنَّ", "istaghfartunna"],
+        ["أَنَا (I)", "اِسْتَغْفَرْتُ", "istaghfartu"],
+        ["نَحْنُ (We)", "اِسْتَغْفَرْنَا", "istaghfarnā"],
+      ]}
+    />
+  </ChartBlock>
+</section>
+
+<section class="ebook-page ebook-page-folio" style="padding:0.6in 0.5in;">
+  <ChartBlock label="Chart · Form X — Present Tense (al-muḍāriʿ)" verbTable>
+    <VerbConjugation
+      root="غ ف ر"
+      form="Form X"
+      pattern="يَسْتَفْعِلُ"
+      headers={["الضَّمِير (Pronoun)", "الْمُضَارِع (Present)", "النُّطْق (Pronunciation)"]}
+      rows={[
+        ["هُوَ (He)", "يَسْتَغْفِرُ", "yastaghfiru"],
+        ["هِيَ (She)", "تَسْتَغْفِرُ", "tastaghfiru"],
+        ["هُمَا (They two - m)", "يَسْتَغْفِرَانِ", "yastaghfirāni"],
+        ["هُمَا (They two - f)", "تَسْتَغْفِرَانِ", "tastaghfirāni"],
+        ["هُمْ (They - m)", "يَسْتَغْفِرُونَ", "yastaghfirūna"],
+        ["هُنَّ (They - f)", "يَسْتَغْفِرْنَ", "yastaghfirna"],
+        ["أَنْتَ (You - m)", "تَسْتَغْفِرُ", "tastaghfiru"],
+        ["أَنْتِ (You - f)", "تَسْتَغْفِرِينَ", "tastaghfirīna"],
+        ["أَنْتُمَا (You two)", "تَسْتَغْفِرَانِ", "tastaghfirāni"],
+        ["أَنْتُمْ (You - m pl)", "تَسْتَغْفِرُونَ", "tastaghfirūna"],
+        ["أَنْتُنَّ (You - f pl)", "تَسْتَغْفِرْنَ", "tastaghfirna"],
+        ["أَنَا (I)", "أَسْتَغْفِرُ", "astaghfiru"],
+        ["نَحْنُ (We)", "نَسْتَغْفِرُ", "nastaghfiru"],
+      ]}
+    />
+  </ChartBlock>
+</section>
+
+<section class="ebook-page ebook-page-folio" style="padding:0.6in 0.5in;">
+  <ChartBlock label="Chart · Form X — Imperative (al-amr)" verbTable>
+    <VerbConjugation
+      root="غ ف ر"
+      form="Form X"
+      pattern="اِسْتَفْعِلْ"
+      headers={["الضَّمِير (Pronoun)", "الْأَمْر (Imperative)", "النُّطْق (Pronunciation)"]}
+      rows={[
+        ["أَنْتَ (You - m)", "اِسْتَغْفِرْ", "istaghfir"],
+        ["أَنْتِ (You - f)", "اِسْتَغْفِرِي", "istaghfirī"],
+        ["أَنْتُمَا (You two)", "اِسْتَغْفِرَا", "istaghfirā"],
+        ["أَنْتُمْ (You - m pl)", "اِسْتَغْفِرُوا", "istaghfirū"],
+        ["أَنْتُنَّ (You - f pl)", "اِسْتَغْفِرْنَ", "istaghfirna"],
+      ]}
+    />
+  </ChartBlock>
+  <ArabicExample
+    arabic="وَاسْتَغْفِرُوا اللَّهَ إِنَّ اللَّهَ غَفُورٌ رَحِيمٌ"
+    transliteration="wa-staghfirū llāha inna llāha ghafūrun raḥīm"
+    translation="And seek forgiveness of Allah — indeed, Allah is Forgiving and Merciful."
+    reference="Al-Baqarah 2:199"
+    highlight="اسْتَغْفِرُوا"
+  />
 </section>
 <section class="ebook-page ebook-page-folio" data-toc-anchor="ch-verb-forms" style="padding:1in 0.7in;">
   <p>Verb Forms Master placeholder — Task 19</p>
