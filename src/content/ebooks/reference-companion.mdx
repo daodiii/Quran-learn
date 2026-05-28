@@ -13,6 +13,9 @@ import OrientationChapter from '../../components/ebook/OrientationChapter.astro'
 import ArabicExample from '../../components/mdx/ArabicExample.astro';
 import VocabGrid from '../../components/ebook/VocabGrid.astro';
 import SectionToc from '../../components/ebook/SectionToc.astro';
+import ChartBlock from '../../components/ebook/ChartBlock.astro';
+import GrammarTable from '../../components/mdx/GrammarTable.astro';
+import Callout from '../../components/mdx/Callout.astro';
 
 {/* COPYRIGHT / COLOPHON */}
 <section class="ebook-page ebook-page-folio" style="padding:1in 0.7in;">
@@ -470,8 +473,285 @@ In all three: الرَّجُلُ has ـُ = it is the actor. الْكَلْبَ 
 
 {/* === SECTION 02 === */}
 <SectionDivider number="02" name="Charts" anchor="section-02" />
-<section class="ebook-page ebook-page-folio" data-toc-anchor="ch-case-endings" style="padding:1in 0.7in;">
-  <p>Case Endings placeholder — Task 16</p>
+{/* === CHAPTER: CASE ENDINGS === */}
+<section class="ebook-page ebook-page-folio" data-toc-anchor="ch-case-endings" style="padding:0.6in 0.5in;">
+  <div class="orient-number">Section 02 · Chapter</div>
+  <h2 class="orient-title">Case Endings (Iʿrāb)</h2>
+  <p class="orient-body">
+    A comprehensive reference for <strong>iʿrāb</strong> (الْإِعْرَابُ) — the system of case endings that marks grammatical function in Classical Arabic. Every Arabic noun shifts its final vowel based on the job it does in the sentence; this chapter shows every major pattern in a single set of charts.
+  </p>
+  <SectionToc items={[
+    "Overview — the three cases",
+    "Singular nouns — triptote",
+    "Singular nouns — diptote",
+    "Dual nouns",
+    "Sound masculine plural",
+    "Sound feminine plural",
+    "Broken plurals",
+    "The five nouns",
+    "All patterns at a glance",
+  ]} />
+</section>
+
+{/* Overview — three cases */}
+<section class="ebook-page ebook-page-folio" style="padding:0.6in 0.5in 0.5in;">
+  <h3 style="font-family:'Geist',sans-serif;font-weight:500;font-size:16px;color:#efe7d4;margin:0 0 12px;">Overview — the three cases</h3>
+  <p class="orient-body" style="margin-bottom:14px;">Arabic nouns change their endings based on grammatical function within a sentence. These changes are called <strong>case endings</strong> (حَرَكَاتُ الْإِعْرَابِ).</p>
+  <ChartBlock label="Chart · The Three Cases">
+    <GrammarTable
+      caption="The Three Cases"
+      headers={["Case (English)", "Arabic Name", "Primary Function", "Typical Marker"]}
+      rows={[
+        ["Nominative", "الرَّفْعُ (ar-rafʿu)", "Subject of verb or sentence", "ـُ (ḍammah)"],
+        ["Accusative", "النَّصْبُ (an-naṣbu)", "Direct object, adverb", "ـَ (fatḥah)"],
+        ["Genitive", "الجَرُّ (al-jarru)", "After preposition, possessed noun", "ـِ (kasrah)"],
+      ]}
+      rtl={false}
+    />
+  </ChartBlock>
+  <Callout type="note" title="How to use this chapter">
+    Each chart in this chapter covers a single noun pattern. Start with the triptote — the most common — and use the summary tables at the end to compare every pattern side by side.
+  </Callout>
+</section>
+
+{/* Singular triptote */}
+<section class="ebook-page ebook-page-folio" style="padding:0.6in 0.5in 0.5in;">
+  <h3 style="font-family:'Geist',sans-serif;font-weight:500;font-size:16px;color:#efe7d4;margin:0 0 12px;">Singular nouns — triptote (الْمُفْرَدُ)</h3>
+  <p class="orient-body" style="margin-bottom:14px;">Most singular nouns follow the <strong>triptote</strong> pattern — they take all three cases with <strong>tanwīn</strong> (التَّنْوِينُ) when indefinite.</p>
+  <ChartBlock label="Chart · Triptote Singular">
+    <GrammarTable
+      caption="Singular Noun Case Endings (Triptote)"
+      headers={["Case", "Indefinite", "Definite", "Example (indefinite)", "Example (definite)"]}
+      rows={[
+        ["Nominative", "ـٌ (-un)", "ـُ (-u)", "كِتَابٌ (kitābun) 'a book'", "الْكِتَابُ (al-kitābu) 'the book'"],
+        ["Accusative", "ـًا (-an)", "ـَ (-a)", "كِتَابًا (kitāban) 'a book'", "الْكِتَابَ (al-kitāba) 'the book'"],
+        ["Genitive", "ـٍ (-in)", "ـِ (-i)", "كِتَابٍ (kitābin) 'a book'", "الْكِتَابِ (al-kitābi) 'the book'"],
+      ]}
+      rtl={false}
+    />
+  </ChartBlock>
+  <ArabicExample
+    arabic="إِنَّ اللَّهَ عَلَىٰ كُلِّ شَيْءٍ قَدِيرٌ"
+    transliteration="inna llāha ʿalā kulli shayʾin qadīrun"
+    translation="Indeed, Allah is over all things competent."
+    reference="Surah Al-Baqarah 2:20"
+    highlight="شَيْءٍ,قَدِيرٌ"
+  />
+</section>
+
+{/* Singular diptote */}
+<section class="ebook-page ebook-page-folio" style="padding:0.6in 0.5in 0.5in;">
+  <h3 style="font-family:'Geist',sans-serif;font-weight:500;font-size:16px;color:#efe7d4;margin:0 0 12px;">Singular nouns — diptote (المَمْنُوعُ مِنَ الصَّرْفِ)</h3>
+  <p class="orient-body" style="margin-bottom:14px;">Some nouns are <strong>diptote</strong> — they never take tanwīn when indefinite and use <strong>fatḥah</strong> instead of kasrah in the genitive. Common diptote families include proper names (أَحْمَدُ, مَرْيَمُ), adjectives on the pattern أَفْعَلُ (أَكْبَرُ, أَحْسَنُ), and broken plurals on patterns مَفَاعِلُ or فَوَاعِلُ (مَسَاجِدُ, صَحَارَى).</p>
+  <ChartBlock label="Chart · Diptote Singular">
+    <GrammarTable
+      caption="Diptote Case Endings"
+      headers={["Case", "Indefinite", "Definite"]}
+      rows={[
+        ["Nominative", "ـُ (-u)", "ـُ (-u)"],
+        ["Accusative", "ـَ (-a)", "ـَ (-a)"],
+        ["Genitive", "ـَ (-a)", "ـِ (-i)"],
+      ]}
+      rtl={false}
+    />
+  </ChartBlock>
+  <ArabicExample
+    arabic="وَلِلَّهِ الْأَسْمَاءُ الْحُسْنَىٰ فَادْعُوهُ بِهَا"
+    transliteration="wa li-llāhi l-asmāʾu l-ḥusnā fa-dʿūhu bihā"
+    translation="And to Allah belong the best names, so invoke Him by them."
+    reference="Surah Al-A'raf 7:180"
+    highlight="الْحُسْنَىٰ"
+  />
+</section>
+
+{/* Dual nouns */}
+<section class="ebook-page ebook-page-folio" style="padding:0.6in 0.5in 0.5in;">
+  <h3 style="font-family:'Geist',sans-serif;font-weight:500;font-size:16px;color:#efe7d4;margin:0 0 12px;">Dual nouns (الْمُثَنَّى)</h3>
+  <p class="orient-body" style="margin-bottom:14px;">The dual indicates exactly two of something. It has only <strong>two case forms</strong>: one for nominative, one for accusative/genitive.</p>
+  <ChartBlock label="Chart · Dual Nouns">
+    <GrammarTable
+      caption="Dual Noun Case Endings"
+      headers={["Case", "Ending", "Example"]}
+      rows={[
+        ["Nominative", "ـَانِ (-āni) indefinite / definite", "رَجُلَانِ (rajulāni) — الرَّجُلَانِ (ar-rajulāni)"],
+        ["Accusative/Genitive", "ـَيْنِ (-ayni) indefinite / definite", "رَجُلَيْنِ (rajulayni) — الرَّجُلَيْنِ (ar-rajulayni)"],
+      ]}
+      rtl={false}
+    />
+  </ChartBlock>
+  <Callout type="rule">
+    The dual suffix includes the letter <strong>nūn</strong>, which <strong>drops</strong> when the noun is in <strong>iḍāfah</strong> (possessive construct). Example: كِتَابَانِ (kitābāni) "two books" → كِتَابَا الطَّالِبِ (kitābā aṭ-ṭālibi) "the student's two books".
+  </Callout>
+  <ArabicExample
+    arabic="فَإِن كَانَتَا اثْنَتَيْنِ فَلَهُمَا الثُّلُثَانِ"
+    transliteration="fa-in kānatā ithnatayni fa-lahumā th-thuluthāni"
+    translation="But if there are two [daughters], for them is two-thirds."
+    reference="Surah An-Nisa 4:11"
+    highlight="اثْنَتَيْنِ,الثُّلُثَانِ"
+  />
+</section>
+
+{/* Sound masculine plural */}
+<section class="ebook-page ebook-page-folio" style="padding:0.6in 0.5in 0.5in;">
+  <h3 style="font-family:'Geist',sans-serif;font-weight:500;font-size:16px;color:#efe7d4;margin:0 0 12px;">Sound masculine plural (جَمْعُ الْمُذَكَّرِ السَّالِمِ)</h3>
+  <p class="orient-body" style="margin-bottom:14px;">The sound masculine plural applies to male human nouns (مُسْلِمُونَ "Muslims") and masculine adjectives (صَالِحُونَ "righteous ones"). Like the dual, it has only two case forms.</p>
+  <ChartBlock label="Chart · Sound Masculine Plural">
+    <GrammarTable
+      caption="Sound Masculine Plural Endings"
+      headers={["Case", "Ending", "Example"]}
+      rows={[
+        ["Nominative", "ـُونَ (-ūna) indefinite / definite", "مُسْلِمُونَ (muslimūna) — المُسْلِمُونَ (al-muslimūna)"],
+        ["Accusative/Genitive", "ـِينَ (-īna) indefinite / definite", "مُسْلِمِينَ (muslimīna) — المُسْلِمِينَ (al-muslimīna)"],
+      ]}
+      rtl={false}
+    />
+  </ChartBlock>
+  <Callout type="rule">
+    Like the dual, the <strong>nūn</strong> drops in <strong>iḍāfah</strong>: مُسْلِمُونَ (muslimūna) → مُسْلِمُو المَدِينَةِ (muslimū al-madīnati) "the Muslims of the city".
+  </Callout>
+  <ArabicExample
+    arabic="وَالْمُؤْمِنُونَ وَالْمُؤْمِنَاتُ بَعْضُهُمْ أَوْلِيَاءُ بَعْضٍ"
+    transliteration="wa-l-muʾminūna wa-l-muʾminātu baʿḍuhum awliyāʾu baʿḍin"
+    translation="The believing men and believing women are allies of one another."
+    reference="Surah At-Tawbah 9:71"
+    highlight="الْمُؤْمِنُونَ"
+  />
+</section>
+
+{/* Sound feminine plural */}
+<section class="ebook-page ebook-page-folio" style="padding:0.6in 0.5in 0.5in;">
+  <h3 style="font-family:'Geist',sans-serif;font-weight:500;font-size:16px;color:#efe7d4;margin:0 0 12px;">Sound feminine plural (جَمْعُ الْمُؤَنَّثِ السَّالِمِ)</h3>
+  <p class="orient-body" style="margin-bottom:14px;">The sound feminine plural ending <strong>ـَاتٌ</strong> applies to female nouns (مُسْلِمَاتٌ "Muslim women"), many non-human plurals, and some abstract nouns.</p>
+  <ChartBlock label="Chart · Sound Feminine Plural">
+    <GrammarTable
+      caption="Sound Feminine Plural Endings"
+      headers={["Case", "Indefinite", "Definite"]}
+      rows={[
+        ["Nominative", "ـَاتٌ (-ātun)", "ـَاتُ (-ātu)"],
+        ["Accusative", "ـَاتٍ (-ātin)", "ـَاتِ (-āti)"],
+        ["Genitive", "ـَاتٍ (-ātin)", "ـَاتِ (-āti)"],
+      ]}
+      rtl={false}
+    />
+  </ChartBlock>
+  <Callout type="note">
+    Unlike the masculine plural, the sound feminine plural has <strong>three separate case forms</strong>, but accusative and genitive share the same ending.
+  </Callout>
+  <ArabicExample
+    arabic="إِنَّ الْمُسْلِمِينَ وَالْمُسْلِمَاتِ وَالْمُؤْمِنِينَ وَالْمُؤْمِنَاتِ"
+    transliteration="inna l-muslimīna wa-l-muslimāti wa-l-muʾminīna wa-l-muʾmināti"
+    translation="Indeed, the Muslim men and Muslim women, the believing men and believing women..."
+    reference="Surah Al-Ahzab 33:35"
+    highlight="الْمُسْلِمَاتِ,الْمُؤْمِنَاتِ"
+  />
+</section>
+
+{/* Broken plurals */}
+<section class="ebook-page ebook-page-folio" style="padding:0.6in 0.5in 0.5in;">
+  <h3 style="font-family:'Geist',sans-serif;font-weight:500;font-size:16px;color:#efe7d4;margin:0 0 12px;">Broken plurals (جَمْعُ التَّكْسِيرِ)</h3>
+  <p class="orient-body" style="margin-bottom:14px;">Broken plurals change the internal structure of the word. They follow the <strong>same case endings as singular nouns</strong> — either triptote or diptote depending on the pattern. Common patterns: فُعُولٌ (بُيُوتٌ "houses"), فِعَالٌ (رِجَالٌ "men"), أَفْعَالٌ (أَوْلَادٌ "children"), فُعَلَاءُ (عُلَمَاءُ "scholars" — diptote).</p>
+  <ChartBlock label="Chart · Broken Plurals">
+    <GrammarTable
+      caption="Broken Plural Case Endings"
+      headers={["Case", "Triptote Indef.", "Triptote Def.", "Diptote Indef.", "Diptote Def."]}
+      rows={[
+        ["Nominative", "ـٌ (-un)", "ـُ (-u)", "ـُ (-u)", "ـُ (-u)"],
+        ["Accusative", "ـًا (-an)", "ـَ (-a)", "ـَ (-a)", "ـَ (-a)"],
+        ["Genitive", "ـٍ (-in)", "ـِ (-i)", "ـَ (-a)", "ـِ (-i)"],
+      ]}
+      rtl={false}
+    />
+  </ChartBlock>
+  <ArabicExample
+    arabic="وَإِذْ قَالَ رَبُّكَ لِلْمَلَائِكَةِ إِنِّي جَاعِلٌ فِي الْأَرْضِ خَلِيفَةً"
+    transliteration="wa-idh qāla rabbuka li-l-malāʾikati innī jāʿilun fī l-arḍi khalīfatan"
+    translation="And [mention] when your Lord said to the angels, 'Indeed, I will make upon the earth a successive authority.'"
+    reference="Surah Al-Baqarah 2:30"
+    highlight="لِلْمَلَائِكَةِ"
+  />
+</section>
+
+{/* The five nouns */}
+<section class="ebook-page ebook-page-folio" style="padding:0.6in 0.5in 0.5in;">
+  <h3 style="font-family:'Geist',sans-serif;font-weight:500;font-size:16px;color:#efe7d4;margin:0 0 12px;">The five nouns (الْأَسْمَاءُ الْخَمْسَةُ)</h3>
+  <p class="orient-body" style="margin-bottom:10px;">Five special nouns use <strong>long vowels</strong> instead of short vowel case endings when they are (1) singular, (2) indefinite or in iḍāfah, and (3) not followed by the first-person possessive suffix (ـي). The five are: أَبٌ (father), أَخٌ (brother), حَمٌ (father-in-law), فُو (mouth), ذُو (possessor of).</p>
+  <ChartBlock label="Chart · The Five Nouns">
+    <GrammarTable
+      caption="Five Nouns Case Endings"
+      headers={["Case", "Ending Pattern", "Example: أَبٌ (father)"]}
+      rows={[
+        ["Nominative", "Long ū (ـُو)", "أَبُوهُ (abūhu) 'his father'"],
+        ["Accusative", "Long ā (ـَا)", "أَبَاهُ (abāhu) 'his father'"],
+        ["Genitive", "Long ī (ـِي)", "أَبِيهِ (abīhi) 'his father'"],
+      ]}
+      rtl={false}
+    />
+  </ChartBlock>
+  <Callout type="rule" title="When five nouns use regular endings">
+    These nouns revert to <strong>regular singular case endings</strong> when definite with the article ال (rare usage), or followed by the suffix ـِي ("my"): أَبِي (abī) "my father" — same form in all cases.
+  </Callout>
+</section>
+
+{/* Summary tables — nominative + accusative on one page */}
+<section class="ebook-page ebook-page-folio" style="padding:0.6in 0.5in 0.5in;">
+  <h3 style="font-family:'Geist',sans-serif;font-weight:500;font-size:16px;color:#efe7d4;margin:0 0 12px;">All patterns at a glance — nominative & accusative</h3>
+  <p class="orient-body" style="margin-bottom:14px;">The two summary tables below compare every noun pattern's nominative and accusative endings side by side. The genitive summary follows on the next page.</p>
+  <ChartBlock label="Chart · Nominative (الرَّفْعُ) Markers">
+    <GrammarTable
+      caption="Nominative Case Markers (الرَّفْعُ)"
+      headers={["Word Type", "Indefinite", "Definite", "Example"]}
+      rows={[
+        ["Singular (triptote)", "ـٌ (-un)", "ـُ (-u)", "مُؤْمِنٌ / الْمُؤْمِنُ"],
+        ["Singular (diptote)", "ـُ (-u)", "ـُ (-u)", "أَكْبَرُ / الْأَكْبَرُ"],
+        ["Dual", "ـَانِ (-āni)", "ـَانِ (-āni)", "مُؤْمِنَانِ / الْمُؤْمِنَانِ"],
+        ["Sound Masc. Plural", "ـُونَ (-ūna)", "ـُونَ (-ūna)", "مُؤْمِنُونَ / الْمُؤْمِنُونَ"],
+        ["Sound Fem. Plural", "ـَاتٌ (-ātun)", "ـَاتُ (-ātu)", "مُؤْمِنَاتٌ / الْمُؤْمِنَاتُ"],
+        ["Broken Plural", "Like singular", "Like singular", "رِجَالٌ / الرِّجَالُ"],
+        ["Five Nouns", "ـُو (-ū)", "ـُو (-ū)", "أَبُوهُ"],
+      ]}
+      rtl={false}
+    />
+  </ChartBlock>
+  <ChartBlock label="Chart · Accusative (النَّصْبُ) Markers">
+    <GrammarTable
+      caption="Accusative Case Markers (النَّصْبُ)"
+      headers={["Word Type", "Indefinite", "Definite", "Example"]}
+      rows={[
+        ["Singular (triptote)", "ـًا (-an)", "ـَ (-a)", "مُؤْمِنًا / الْمُؤْمِنَ"],
+        ["Singular (diptote)", "ـَ (-a)", "ـَ (-a)", "أَكْبَرَ / الْأَكْبَرَ"],
+        ["Dual", "ـَيْنِ (-ayni)", "ـَيْنِ (-ayni)", "مُؤْمِنَيْنِ / الْمُؤْمِنَيْنِ"],
+        ["Sound Masc. Plural", "ـِينَ (-īna)", "ـِينَ (-īna)", "مُؤْمِنِينَ / الْمُؤْمِنِينَ"],
+        ["Sound Fem. Plural", "ـَاتٍ (-ātin)", "ـَاتِ (-āti)", "مُؤْمِنَاتٍ / الْمُؤْمِنَاتِ"],
+        ["Broken Plural", "Like singular", "Like singular", "رِجَالًا / الرِّجَالَ"],
+        ["Five Nouns", "ـَا (-ā)", "ـَا (-ā)", "أَبَاهُ"],
+      ]}
+      rtl={false}
+    />
+  </ChartBlock>
+</section>
+
+{/* Summary tables — genitive + key observations */}
+<section class="ebook-page ebook-page-folio" style="padding:0.6in 0.5in 0.5in;">
+  <h3 style="font-family:'Geist',sans-serif;font-weight:500;font-size:16px;color:#efe7d4;margin:0 0 12px;">All patterns at a glance — genitive</h3>
+  <ChartBlock label="Chart · Genitive (الجَرُّ) Markers">
+    <GrammarTable
+      caption="Genitive Case Markers (الجَرُّ)"
+      headers={["Word Type", "Indefinite", "Definite", "Example"]}
+      rows={[
+        ["Singular (triptote)", "ـٍ (-in)", "ـِ (-i)", "مُؤْمِنٍ / الْمُؤْمِنِ"],
+        ["Singular (diptote)", "ـَ (-a)", "ـِ (-i)", "أَكْبَرَ / الْأَكْبَرِ"],
+        ["Dual", "ـَيْنِ (-ayni)", "ـَيْنِ (-ayni)", "مُؤْمِنَيْنِ / الْمُؤْمِنَيْنِ"],
+        ["Sound Masc. Plural", "ـِينَ (-īna)", "ـِينَ (-īna)", "مُؤْمِنِينَ / الْمُؤْمِنِينَ"],
+        ["Sound Fem. Plural", "ـَاتٍ (-ātin)", "ـَاتِ (-āti)", "مُؤْمِنَاتٍ / الْمُؤْمِنَاتِ"],
+        ["Broken Plural", "Like singular", "Like singular", "رِجَالٍ / الرِّجَالِ"],
+        ["Five Nouns", "ـِي (-ī)", "ـِي (-ī)", "أَبِيهِ"],
+      ]}
+      rtl={false}
+    />
+  </ChartBlock>
+  <Callout type="tip" title="Key observations">
+    <strong>Dual</strong> and <strong>sound masculine plural</strong> share the same ending for accusative AND genitive. <strong>Sound feminine plural</strong> shares accusative and genitive endings. <strong>Diptote</strong> indefinite genitive looks like accusative (ـَ). <strong>Five nouns</strong> use long vowels: و for nominative, ا for accusative, ي for genitive. <strong>Broken plurals</strong> follow singular patterns exactly.
+  </Callout>
 </section>
 <section class="ebook-page ebook-page-folio" data-toc-anchor="ch-pronouns" style="padding:1in 0.7in;">
   <p>Pronouns placeholder — Task 17</p>
