@@ -86,7 +86,8 @@ async function extractPageNumbers(page: Page, target: EbookTarget): Promise<Reco
     anchors.forEach(el => {
       const anchor = el.getAttribute('data-toc-anchor');
       if (!anchor) return;
-      const top = (el as HTMLElement).offsetTop;
+      const rect = (el as HTMLElement).getBoundingClientRect();
+      const top = rect.top + window.scrollY;
       const pageNumber = Math.floor(top / PAGE_HEIGHT_PX) + 1;
       map[anchor] = pageNumber;
     });
