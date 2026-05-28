@@ -1,0 +1,12 @@
+---
+interface Props {
+  label: string;
+  verbTable?: boolean;
+}
+const { label, verbTable = false } = Astro.props;
+---
+<div class={`chart-block mode-data ${verbTable ? 'verb-table' : ''}`}>
+  <div class="chart-block-label">{label}</div>
+  <slot />
+  <div class="chart-block-end"></div>
+</div>

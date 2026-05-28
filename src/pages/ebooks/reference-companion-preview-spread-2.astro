@@ -1,0 +1,109 @@
+---
+import EbookPrint from '../../layouts/EbookPrint.astro';
+import GlossaryEntry from '../../components/ebook/GlossaryEntry.astro';
+import GlossaryLetterDivider from '../../components/ebook/GlossaryLetterDivider.astro';
+---
+<EbookPrint title="Reference Companion — Spread 2 Preview">
+  <div class="spread-frame">
+    <div class="spread-page">
+      <section class="ebook-page ebook-page-folio mode-data preview-section">
+        <GlossaryLetterDivider letter="أ" letterName="Alif" />
+        <GlossaryEntry
+          termMono="JADHR"
+          term="Root"
+          arabic="جَذْر"
+          translit="jadhr"
+          refs="L3.01"
+          def="The three (or sometimes four) core consonants that form the semantic foundation of Arabic words. All Arabic words are built by applying vowel patterns to these root letters."
+          example={{
+            arabic: "قَالَ رَبِّ اشْرَحْ لِي صَدْرِي",
+            translit: "qāla rabbi shraḥ lī ṣadrī",
+            trans: "He said: My Lord, expand for me my breast",
+            ref: "Ta-Ha 20:25"
+          }}
+          note="The word قَالَ (qāla — he said) comes from the root ق و ل (q-w-l), meaning 'to say.' Most Arabic roots have three letters (trilateral)."
+        />
+        <GlossaryEntry
+          termMono="NASB"
+          term="Accusative Case"
+          arabic="نَصْب"
+          translit="naṣb"
+          refs="L2.05, L2.10"
+          def="The grammatical case used for direct objects, predicates of inna and her sisters, and circumstantial expressions. Marked by fatha (ـَ) on singular nouns."
+          example={{
+            arabic: "إِنَّا أَعْطَيْنَاكَ الْكَوْثَرَ",
+            translit: "innā aʿṭaynāka l-kawthara",
+            trans: "Indeed, We have granted you al-Kawthar",
+            ref: "Al-Kawthar 108:1"
+          }}
+          note="الْكَوْثَرَ is in the accusative case because it's the direct object of أَعْطَيْنَا (we granted)."
+        />
+      </section>
+    </div>
+    <div class="spread-page">
+      <section class="ebook-page ebook-page-folio mode-data preview-section">
+        <GlossaryEntry
+          termMono="ISM AL-FAIL"
+          term="Active Participle"
+          arabic="اِسْمُ الْفَاعِلِ"
+          translit="ism al-fāʿil"
+          refs="L3.19"
+          def="A derived noun indicating the doer of an action. For Form I verbs, it follows the pattern فَاعِل (fāʿil). The active participle functions as both a noun and adjective."
+          example={{
+            arabic: "الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ",
+            translit: "al-ḥamdu li-llāhi rabbi l-ʿālamīna",
+            trans: "All praise is for Allah, Lord of all worlds",
+            ref: "Al-Fatiha 1:2"
+          }}
+          note="رَبّ (rabb — lord/sustainer) is an active participle from the root ر ب ب, indicating 'the one who sustains.'"
+        />
+        <GlossaryEntry
+          termMono="ISM AL-ISHARAH"
+          term="Demonstrative Pronoun"
+          arabic="اِسْم الإِشَارَة"
+          translit="ism al-ishārah"
+          refs="L2.17"
+          def="A pronoun that points to something specific, near or far. Common examples include هَذَا (this — masc.), هَذِهِ (this — fem.), ذَلِكَ (that — masc.), تِلْكَ (that — fem.)."
+          example={{
+            arabic: "ذَٰلِكَ الْكِتَابُ لَا رَيْبَ ۛ فِيهِ",
+            translit: "dhālika l-kitābu lā rayba fīhi",
+            trans: "That is the Book about which there is no doubt",
+            ref: "Al-Baqarah 2:2"
+          }}
+          note="ذَٰلِكَ (dhālika — that) points to the Quran, indicating something specific and significant."
+        />
+      </section>
+    </div>
+  </div>
+</EbookPrint>
+
+<style is:global>
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: #0a0b0d;
+  }
+  .spread-frame {
+    width: 1200px;
+    height: 1500px;
+    background: #0a0b0d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  .spread-page {
+    width: 528px;
+    height: 816px;
+    flex-shrink: 0;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.55), 0 0 0 1px #1c1e24;
+    overflow: hidden;
+    background: #0f1115;
+  }
+  .spread-page .preview-section {
+    page-break-after: auto !important;
+    break-after: auto !important;
+  }
+</style>

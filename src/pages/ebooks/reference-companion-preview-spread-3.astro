@@ -1,0 +1,97 @@
+---
+import EbookPrint from '../../layouts/EbookPrint.astro';
+import ChartBlock from '../../components/ebook/ChartBlock.astro';
+import VerbConjugation from '../../components/mdx/VerbConjugation.astro';
+---
+<EbookPrint title="Reference Companion — Spread 3 Preview">
+  <div class="spread-frame">
+    <div class="spread-page">
+      <section class="ebook-page ebook-page-folio preview-section" style="padding:0.6in 0.5in;">
+        <div class="orient-number">Form II</div>
+        <h3 class="orient-title">فَعَّلَ — Intensive / causative</h3>
+        <p class="orient-body" style="margin-bottom:14px;">Form II takes the basic action of Form I and intensifies or causes it. The signature feature is the <strong>doubled middle radical</strong> (marked by شَدَّة). Example: كَسَرَ (to break) becomes كَسَّرَ (to shatter into pieces); عَلِمَ (to know) becomes عَلَّمَ (to teach). Example root: <strong>ع ل م</strong> (ʿ-l-m).</p>
+        <ChartBlock label="Chart · Form II — Past Tense (al-māḍī)" verbTable>
+          <VerbConjugation
+            root="ع ل م"
+            form="Form II"
+            pattern="فَعَّلَ"
+            headers={["الضَّمِير (Pronoun)", "الْمَاضِي (Past)", "النُّطْق (Pronunciation)"]}
+            rows={[
+              ["هُوَ (He)", "عَلَّمَ", "ʿallama"],
+              ["هِيَ (She)", "عَلَّمَتْ", "ʿallamat"],
+              ["هُمَا (They two - m)", "عَلَّمَا", "ʿallamā"],
+              ["هُمَا (They two - f)", "عَلَّمَتَا", "ʿallamatā"],
+              ["هُمْ (They - m)", "عَلَّمُوا", "ʿallamū"],
+              ["هُنَّ (They - f)", "عَلَّمْنَ", "ʿallamna"],
+              ["أَنْتَ (You - m)", "عَلَّمْتَ", "ʿallamta"],
+              ["أَنْتِ (You - f)", "عَلَّمْتِ", "ʿallamti"],
+              ["أَنْتُمَا (You two)", "عَلَّمْتُمَا", "ʿallamtumā"],
+              ["أَنْتُمْ (You - m pl)", "عَلَّمْتُمْ", "ʿallamtum"],
+              ["أَنْتُنَّ (You - f pl)", "عَلَّمْتُنَّ", "ʿallamtunna"],
+              ["أَنَا (I)", "عَلَّمْتُ", "ʿallamtu"],
+              ["نَحْنُ (We)", "عَلَّمْنَا", "ʿallamnā"],
+            ]}
+          />
+        </ChartBlock>
+      </section>
+    </div>
+    <div class="spread-page">
+      <section class="ebook-page ebook-page-folio preview-section" style="padding:0.6in 0.5in;">
+        <ChartBlock label="Chart · Form II — Present Tense (al-muḍāriʿ)" verbTable>
+          <VerbConjugation
+            root="ع ل م"
+            form="Form II"
+            pattern="يُفَعِّلُ"
+            headers={["الضَّمِير (Pronoun)", "الْمُضَارِع (Present)", "النُّطْق (Pronunciation)"]}
+            rows={[
+              ["هُوَ (He)", "يُعَلِّمُ", "yuʿallimu"],
+              ["هِيَ (She)", "تُعَلِّمُ", "tuʿallimu"],
+              ["هُمَا (They two - m)", "يُعَلِّمَانِ", "yuʿallimāni"],
+              ["هُمَا (They two - f)", "تُعَلِّمَانِ", "tuʿallimāni"],
+              ["هُمْ (They - m)", "يُعَلِّمُونَ", "yuʿallimūna"],
+              ["هُنَّ (They - f)", "يُعَلِّمْنَ", "yuʿallimna"],
+              ["أَنْتَ (You - m)", "تُعَلِّمُ", "tuʿallimu"],
+              ["أَنْتِ (You - f)", "تُعَلِّمِينَ", "tuʿallimīna"],
+              ["أَنْتُمَا (You two)", "تُعَلِّمَانِ", "tuʿallimāni"],
+              ["أَنْتُمْ (You - m pl)", "تُعَلِّمُونَ", "tuʿallimūna"],
+              ["أَنْتُنَّ (You - f pl)", "تُعَلِّمْنَ", "tuʿallimna"],
+              ["أَنَا (I)", "أُعَلِّمُ", "uʿallimu"],
+              ["نَحْنُ (We)", "نُعَلِّمُ", "nuʿallimu"],
+            ]}
+          />
+        </ChartBlock>
+      </section>
+    </div>
+  </div>
+</EbookPrint>
+
+<style is:global>
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: #0a0b0d;
+  }
+  .spread-frame {
+    width: 1200px;
+    height: 1500px;
+    background: #0a0b0d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  .spread-page {
+    width: 528px;
+    height: 816px;
+    flex-shrink: 0;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.55), 0 0 0 1px #1c1e24;
+    overflow: hidden;
+    background: #0f1115;
+  }
+  .spread-page .preview-section {
+    page-break-after: auto !important;
+    break-after: auto !important;
+  }
+</style>

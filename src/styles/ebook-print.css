@@ -70,6 +70,16 @@
   src: url('/fonts/noto-sans-fallback-italic-400.woff2') format('woff2');
   unicode-range: U+02B0-02FF, U+1E00-1EFF;
 }
+/* Geist weight 500 also needs the Noto Sans transliteration fallback. Reuse
+   the 400 file — small per-character glyphs render fine without a true bold. */
+@font-face {
+  font-family: 'Geist';
+  font-style: normal;
+  font-weight: 500;
+  font-display: block;
+  src: url('/fonts/noto-sans-fallback-400.woff2') format('woff2');
+  unicode-range: U+02B0-02FF, U+1E00-1EFF;
+}
 @font-face {
   font-family: 'Geist Mono';
   font-style: normal;
@@ -83,6 +93,41 @@
   font-weight: 500;
   font-display: block;
   src: url('/fonts/geist-mono-500.woff2') format('woff2');
+}
+/* Geist Mono's basic Latin file also misses macron-vowels and transliteration
+   chars — wire up the same latin-ext and Noto Sans fallback subsets we use for
+   the proportional Geist. */
+@font-face {
+  font-family: 'Geist Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url('/fonts/geist-mono-latin-ext-400.woff2') format('woff2');
+  unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Geist Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: block;
+  src: url('/fonts/geist-mono-latin-ext-500.woff2') format('woff2');
+  unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Geist Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url('/fonts/noto-sans-fallback-400.woff2') format('woff2');
+  unicode-range: U+02B0-02FF, U+1E00-1EFF;
+}
+@font-face {
+  font-family: 'Geist Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: block;
+  src: url('/fonts/noto-sans-fallback-400.woff2') format('woff2');
+  unicode-range: U+02B0-02FF, U+1E00-1EFF;
 }
 @font-face {
   font-family: 'Amiri';
@@ -117,6 +162,13 @@
   --eb-accent: #d4a85f;
   --eb-hairline: #2a2c33;
   --eb-callout-surface: rgba(212, 168, 95, 0.06);
+
+  /* Density modes (set per-block via wrapper class) */
+  --eb-body-size: 13.5px;
+  --eb-body-leading: 1.6;
+  --eb-margin-top: 0.6in;
+  --eb-margin-side: 0.5in;
+  --eb-margin-bottom: 0.5in;
 }
 
 /* Page geometry */
@@ -130,7 +182,7 @@ html, body {
   padding: 0;
   background: var(--eb-canvas);
   color: var(--eb-ink-primary);
-  font-family: 'Geist', sans-serif;
+  font-family: 'Geist', 'Amiri', sans-serif;
   -webkit-print-color-adjust: exact;
   print-color-adjust: exact;
 }
@@ -157,7 +209,7 @@ html, body {
   left: 0;
   right: 0;
   text-align: center;
-  font-family: 'Geist Mono', monospace;
+  font-family: 'Geist Mono', 'Amiri', monospace;
   font-size: 11px;
   letter-spacing: 0.22em;
   color: var(--eb-ink-mute-deep);
@@ -183,3 +235,616 @@ strong, b { font-weight: 500; }
 .ac-body p {
   margin: 0 0 14px;
 }
+
+/* ============================================
+   AUTO-FOLIO (Reference Companion only) — opt-in
+   via .ebook-page-folio class. Uses a named page
+   so the Sampler's hand-numbered folio behavior
+   is unchanged. Chromium supports @page named pages
+   and the @bottom-center margin box for paged media.
+   ============================================ */
+.ebook-page-folio { page: refbody; }
+@page refbody {
+  @bottom-center {
+    content: counter(page);
+    font-family: 'Geist Mono', 'Amiri', monospace;
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    color: #5c5a52;
+  }
+}
+
+/* ============================================
+   DATA MODE — denser typography for charts,
+   glossary, vocab rows. Toggled via .mode-data
+   wrapper class. Keeps fonts/colors identical.
+   ============================================ */
+.mode-data {
+  --eb-body-size: 10px;
+  --eb-body-leading: 1.35;
+}
+.mode-data .chart-block,
+.mode-data table {
+  font-size: var(--eb-body-size);
+  line-height: var(--eb-body-leading);
+}
+.mode-data .callout { padding: 8px 12px; }
+
+/* ============================================
+   RUNNING HEADERS — top of every page except
+   cover/title/section dividers. Driven by
+   <RunningHeader> component placed at top of
+   each .ebook-page.
+   ============================================ */
+.eb-running {
+  position: absolute;
+  top: 0.28in;
+  left: 0.5in;
+  right: 0.5in;
+  display: flex;
+  justify-content: space-between;
+  font-family: 'Geist Mono', 'Amiri', monospace;
+  font-size: 9px;
+  letter-spacing: 0.22em;
+  color: var(--eb-ink-mute-deep);
+  text-transform: uppercase;
+}
+.eb-running-letter {
+  font-family: 'Amiri Quran', serif;
+  font-size: 28px;
+  color: var(--eb-accent);
+  letter-spacing: 0;
+  text-transform: none;
+  line-height: 1;
+}
+.eb-running-letter-name {
+  font-family: 'Geist Mono', 'Amiri', monospace;
+  font-size: 9px;
+  letter-spacing: 0.22em;
+  color: var(--eb-ink-mute-deep);
+  margin-left: 8px;
+  align-self: center;
+}
+
+/* ============================================
+   SECTION DIVIDER spread — section number large,
+   section name below, gold hairlines bracket.
+   ============================================ */
+.section-divider {
+  background: var(--eb-canvas);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1.2in 0.6in;
+  text-align: center;
+}
+.section-divider-rule-top,
+.section-divider-rule-bottom {
+  width: 70%;
+  height: 1px;
+  background: var(--eb-accent);
+}
+.section-divider-inner {
+  padding: 38px 0;
+}
+.section-divider-number {
+  font-family: 'Geist Mono', 'Amiri', monospace;
+  font-size: 90px;
+  font-weight: 400;
+  color: var(--eb-accent);
+  letter-spacing: 0.05em;
+  line-height: 1;
+  margin-bottom: 22px;
+}
+.section-divider-name {
+  font-family: 'Geist', 'Amiri', sans-serif;
+  font-weight: 500;
+  font-size: 22px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--eb-ink-primary);
+}
+.section-divider-blank {
+  background: var(--eb-canvas);
+}
+
+/* ============================================
+   MASTER TOC — front-of-book contents list,
+   page-numbered (numbers injected post-render).
+   ============================================ */
+.master-toc {
+  padding: 0.9in 0.6in 0.6in;
+}
+.master-toc-title {
+  font-family: 'Geist Mono', 'Amiri', monospace;
+  font-size: 10px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--eb-accent);
+  margin-bottom: 8px;
+}
+.master-toc-h {
+  font-family: 'Geist', 'Amiri', sans-serif;
+  font-weight: 500;
+  font-size: 22px;
+  color: var(--eb-ink-primary);
+  letter-spacing: -0.015em;
+  margin: 0 0 28px;
+}
+.master-toc ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.master-toc li {
+  display: flex;
+  align-items: baseline;
+  font-family: 'Geist', 'Amiri', sans-serif;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--eb-ink-secondary);
+  margin: 0 0 6px;
+}
+.master-toc li.section {
+  font-family: 'Geist Mono', 'Amiri', monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 10px;
+  color: var(--eb-accent);
+  margin-top: 18px;
+  margin-bottom: 8px;
+}
+.master-toc li.subsection {
+  font-family: 'Geist', 'Amiri', sans-serif;
+  font-size: 10.5px;
+  line-height: 1.35;
+  color: var(--eb-ink-muted);
+  padding-left: 18px;
+  margin-bottom: 2px;
+}
+.master-toc li.subsection .toc-label {
+  letter-spacing: 0.02em;
+}
+.master-toc li .toc-label { flex: 0 0 auto; }
+.master-toc li .toc-dots {
+  flex: 1 1 auto;
+  border-bottom: 1px dotted var(--eb-hairline);
+  margin: 0 8px;
+  transform: translateY(-3px);
+}
+.master-toc li .toc-page {
+  flex: 0 0 auto;
+  font-family: 'Geist Mono', 'Amiri', monospace;
+  font-size: 11px;
+  color: var(--eb-ink-muted);
+}
+
+/* ============================================
+   SECTION TOC — per-chapter bulleted list,
+   no page numbers; placed at top of chapters.
+   ============================================ */
+.section-toc {
+  margin: 0 0 28px;
+  padding: 12px 16px;
+  border-left: 2px solid var(--eb-accent);
+  background: var(--eb-callout-surface);
+}
+.section-toc-label {
+  font-family: 'Geist Mono', 'Amiri', monospace;
+  font-size: 9px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--eb-accent);
+  margin-bottom: 6px;
+}
+.section-toc ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.section-toc li {
+  font-family: 'Geist', 'Amiri', sans-serif;
+  font-size: 11px;
+  line-height: 1.5;
+  color: var(--eb-ink-secondary);
+  margin: 0 0 3px;
+}
+
+/* ============================================
+   VOCAB GRID — 4-col rows (rank/arabic/translit/gloss)
+   for the 200-most-used-words section.
+   ============================================ */
+.vocab-grid { width: 100%; }
+.vocab-row {
+  display: grid;
+  grid-template-columns: 28px 1fr 1fr 1.6fr;
+  column-gap: 12px;
+  align-items: baseline;
+  padding: 6px 0;
+  border-bottom: 1px solid var(--eb-hairline);
+}
+.vocab-rank {
+  font-family: 'Geist Mono', 'Amiri', monospace;
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  color: var(--eb-ink-mute-deep);
+  text-align: right;
+}
+.vocab-arabic {
+  font-family: 'Amiri', serif;
+  font-size: 16px;
+  direction: rtl;
+  text-align: right;
+  color: var(--eb-ink-primary);
+}
+.vocab-translit {
+  font-family: 'Geist Mono', 'Amiri', monospace;
+  font-size: 9.5px;
+  color: var(--eb-ink-secondary);
+  letter-spacing: 0.02em;
+}
+.vocab-gloss {
+  font-family: 'Geist', 'Amiri', sans-serif;
+  font-size: 10.5px;
+  color: var(--eb-ink-primary);
+}
+
+/* ============================================
+   CHART BLOCK — wraps GrammarTable / VerbConjugation
+   with gold-hairline brackets and Geist Mono label.
+   ============================================ */
+.chart-block {
+  margin: 18px 0 22px;
+  padding: 12px 0 0;
+  border-top: 1px solid var(--eb-accent);
+}
+.chart-block-label {
+  font-family: 'Geist Mono', 'Amiri', monospace;
+  font-size: 9px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--eb-accent);
+  margin-bottom: 10px;
+}
+.chart-block-end {
+  margin-top: 10px;
+  height: 1px;
+  background: var(--eb-hairline);
+}
+.chart-block table { width: 100%; border-collapse: collapse; }
+.chart-block th,
+.chart-block td {
+  padding: 4px 8px;
+  text-align: left;
+  font-size: 10px;
+  line-height: 1.35;
+  border-bottom: 1px solid var(--eb-hairline);
+  vertical-align: top;
+}
+.chart-block th {
+  font-family: 'Geist Mono', 'Amiri', monospace;
+  font-size: 8.5px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--eb-ink-muted);
+}
+.chart-block { page-break-inside: avoid; }
+.chart-block.verb-table { page-break-inside: auto; }
+
+/* ============================================
+   VERB CONJUGATION — print overrides.
+   Strip the screen-only frosted-glass / large
+   golden header and tighten row metrics so a
+   13-row paradigm + label fits within a single
+   page-folio (8.5in tall).
+   ============================================ */
+.chart-block.verb-table { margin: 10px 0 12px; padding-top: 8px; }
+/* Form-opener pages — when an .ebook-page contains a verb-table, the orient
+   header takes too much vertical space and clips the last rows of the 13-row
+   Past paradigm. Tighten the heading metrics on those pages only. */
+.ebook-page:has(.chart-block.verb-table) .orient-number { margin-bottom: 3px; font-size: 9px; }
+.ebook-page:has(.chart-block.verb-table) .orient-title { font-size: 14px; margin: 0 0 6px; line-height: 1.15; }
+.ebook-page:has(.chart-block.verb-table) .orient-body { font-size: 9.5px; line-height: 1.4; }
+.ebook-page:has(.chart-block.verb-table) .orient-body p { margin: 0 0 4px; }
+.ebook-page:has(.chart-block.verb-table) { padding-top: 0.45in !important; padding-bottom: 0.4in !important; }
+.chart-block.verb-table .verb-conjugation {
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border: none;
+  border-radius: 0;
+  margin: 0;
+  box-shadow: none;
+  overflow: visible;
+}
+.chart-block.verb-table .verb-header {
+  background: transparent;
+  padding: 0 0 3px;
+  text-align: left;
+  border-block-end: 1px solid var(--eb-hairline);
+  margin-bottom: 3px;
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+.chart-block.verb-table .verb-root {
+  font-family: 'Amiri', serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--eb-accent);
+  letter-spacing: 0.08em;
+  margin: 0;
+  filter: none;
+  line-height: 1.2;
+}
+.chart-block.verb-table .verb-meta {
+  gap: 6px;
+}
+.chart-block.verb-table .verb-form {
+  font-family: 'Geist Mono', 'Amiri', monospace;
+  font-size: 7.5px;
+  font-weight: 500;
+  color: var(--eb-ink-muted);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+.chart-block.verb-table .verb-pattern {
+  font-family: 'Amiri', serif;
+  font-size: 10px;
+  color: var(--eb-accent);
+  line-height: 1.2;
+}
+.chart-block.verb-table .table-wrapper {
+  background: transparent;
+  overflow: visible;
+}
+.chart-block.verb-table .verb-table {
+  background: transparent;
+  border-collapse: collapse;
+  width: 100%;
+  table-layout: fixed;
+}
+.chart-block.verb-table .verb-table th[scope="col"] {
+  background: transparent;
+  color: var(--eb-ink-muted);
+  font-family: 'Geist Mono', 'Amiri', monospace;
+  font-weight: 500;
+  font-size: 7px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 3px 5px;
+  border-block-end: 1px solid var(--eb-hairline);
+  line-height: 1.2;
+}
+.chart-block.verb-table .verb-table th[scope="row"] {
+  background: transparent;
+  color: var(--eb-ink-primary);
+  font-family: 'Geist', 'Amiri', sans-serif;
+  font-weight: 400;
+  font-size: 8px;
+  padding: 1.5px 5px;
+  border-block-end: 1px solid var(--eb-hairline);
+  line-height: 1.2;
+  vertical-align: middle;
+}
+.chart-block.verb-table .verb-table td {
+  font-family: 'Amiri', serif;
+  font-size: 9.5px;
+  color: var(--eb-ink-primary);
+  padding: 1.5px 5px;
+  border-block-end: 1px solid var(--eb-hairline);
+  line-height: 1.25;
+  vertical-align: middle;
+}
+/* The third column is transliteration — use Geist (Noto Sans glyphs for
+   transliteration diacritics are wired into the Geist @font-face already). */
+.chart-block.verb-table .verb-table td:last-child {
+  font-family: 'Geist', 'Amiri', sans-serif;
+  font-size: 8px;
+  color: var(--eb-ink-secondary);
+}
+/* Column widths so Arabic gets enough room and labels stay compact */
+.chart-block.verb-table .verb-table th[scope="row"],
+.chart-block.verb-table .verb-table td:first-child {
+  width: 32%;
+}
+.chart-block.verb-table .verb-table th[scope="col"]:nth-child(2),
+.chart-block.verb-table .verb-table td:nth-child(2) {
+  width: 36%;
+}
+.chart-block.verb-table .verb-table th[scope="col"]:last-child,
+.chart-block.verb-table .verb-table td:last-child {
+  width: 32%;
+}
+/* VerbConjugation ships a max-width:640px mobile layout that stacks rows and
+   inserts an `attr(data-label)` pseudo-element before each cell. The print
+   viewport (5.5in ≈ 528px) is narrower than that breakpoint, so the mobile
+   layout would otherwise leak in — duplicating "(Past)" / "(Present)" labels
+   in a fallback serif font once per row. Restore the desktop layout here. */
+.chart-block.verb-table .verb-table thead {
+  position: static !important;
+  inline-size: auto !important;
+  block-size: auto !important;
+  width: auto !important;
+  height: auto !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  overflow: visible !important;
+  clip: auto !important;
+  white-space: normal !important;
+  border: 0 !important;
+}
+.chart-block.verb-table .verb-table tbody tr {
+  display: table-row !important;
+  margin: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+}
+.chart-block.verb-table .verb-table tbody tr th[scope="row"],
+.chart-block.verb-table .verb-table tbody tr td {
+  display: table-cell !important;
+  justify-content: initial !important;
+  align-items: initial !important;
+  background: transparent !important;
+}
+.chart-block.verb-table .verb-table td::before {
+  content: none !important;
+  display: none !important;
+}
+
+/* ============================================
+   GLOSSARY — compact dictionary entry template.
+   ============================================ */
+.glossary-letter {
+  display: flex;
+  align-items: baseline;
+  gap: 18px;
+  padding: 28px 0 14px;
+  border-bottom: 1px solid var(--eb-accent);
+  margin: 16px 0 18px;
+}
+.glossary-letter-ar {
+  font-family: 'Amiri Quran', serif;
+  font-size: 84px;
+  color: var(--eb-accent);
+  line-height: 0.9;
+}
+.glossary-letter-name {
+  font-family: 'Geist Mono', 'Amiri', monospace;
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--eb-ink-muted);
+}
+.glossary-entry {
+  margin: 0 0 22px;
+  page-break-inside: avoid;
+}
+.glossary-entry-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 2px;
+}
+.glossary-entry-term {
+  font-family: 'Geist', 'Amiri', sans-serif;
+  font-weight: 500;
+  font-size: 13px;
+  color: var(--eb-ink-primary);
+  letter-spacing: -0.005em;
+}
+.glossary-entry-term-mono {
+  font-family: 'Geist Mono', 'Amiri', monospace;
+  font-size: 9.5px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--eb-accent);
+  margin-right: 8px;
+}
+.glossary-entry-refs {
+  font-family: 'Geist Mono', 'Amiri', monospace;
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--eb-ink-muted);
+}
+.glossary-entry-translit {
+  font-family: 'Geist', 'Amiri', sans-serif;
+  font-size: 11px;
+  color: var(--eb-ink-muted);
+  margin: 0 0 8px;
+}
+.glossary-entry-translit-ar {
+  font-family: 'Amiri', serif;
+  font-size: 14px;
+  color: var(--eb-ink-primary);
+  margin-right: 8px;
+}
+.glossary-entry-def {
+  font-family: 'Geist', 'Amiri', sans-serif;
+  font-size: 11px;
+  line-height: 1.5;
+  color: var(--eb-ink-secondary);
+  margin: 0 0 8px;
+}
+.glossary-entry-example {
+  border-left: 1px solid var(--eb-accent);
+  padding: 4px 12px;
+  margin: 0 0 6px;
+}
+.glossary-entry-example-label {
+  font-family: 'Geist Mono', 'Amiri', monospace;
+  font-size: 8.5px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--eb-accent);
+  margin-bottom: 4px;
+}
+.glossary-entry-example-ar {
+  font-family: 'Amiri Quran', serif;
+  font-size: 14px;
+  direction: rtl;
+  text-align: right;
+  color: var(--eb-ink-primary);
+}
+.glossary-entry-example-translit {
+  font-family: 'Geist Mono', 'Amiri', monospace;
+  font-size: 9.5px;
+  color: var(--eb-ink-muted);
+  margin: 2px 0;
+}
+.glossary-entry-example-trans {
+  font-family: 'Geist', 'Amiri', sans-serif;
+  font-style: italic;
+  font-size: 10.5px;
+  color: var(--eb-ink-secondary);
+}
+.glossary-entry-example-ref {
+  font-family: 'Geist Mono', 'Amiri', monospace;
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--eb-ink-mute-deep);
+  margin-top: 2px;
+}
+.glossary-entry-note {
+  font-family: 'Geist', 'Amiri', sans-serif;
+  font-size: 10.5px;
+  line-height: 1.5;
+  color: var(--eb-ink-secondary);
+  margin: 6px 0 0;
+}
+
+/* ============================================
+   ORIENTATION CHAPTER — numbered principle layout.
+   ============================================ */
+.orient-chapter { padding: 0.6in 0.5in 0.5in; }
+.orient-number {
+  font-family: 'Geist Mono', 'Amiri', monospace;
+  font-size: 11px;
+  letter-spacing: 0.24em;
+  color: var(--eb-accent);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.orient-title {
+  font-family: 'Geist', 'Amiri', sans-serif;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+  color: var(--eb-ink-primary);
+  margin: 0 0 24px;
+}
+.orient-body {
+  font-family: 'Geist', 'Amiri', sans-serif;
+  font-size: 12.5px;
+  line-height: 1.65;
+  color: var(--eb-ink-secondary);
+  letter-spacing: -0.005em;
+}
+.orient-body p { margin: 0 0 14px; }
+.orient-body em { font-style: italic; }

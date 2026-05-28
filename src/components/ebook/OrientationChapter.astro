@@ -1,0 +1,15 @@
+---
+interface Props {
+  number: string;
+  title: string;
+  folio?: number;
+  anchor?: string;
+}
+const { number, title, folio, anchor } = Astro.props;
+---
+<section class="ebook-page ebook-page-folio orient-chapter" data-toc-anchor={anchor}>
+  <div class="orient-number">Principle {number}</div>
+  <h2 class="orient-title">{title}</h2>
+  <div class="orient-body"><slot /></div>
+  {folio != null && <div class="ebook-folio">{folio}</div>}
+</section>

@@ -1,0 +1,24 @@
+---
+interface TocItem {
+  label: string;
+  anchor: string;
+  kind?: 'section' | 'chapter' | 'subsection';
+}
+interface Props {
+  items: TocItem[];
+}
+const { items } = Astro.props;
+---
+<section class="ebook-page ebook-page-folio master-toc">
+  <div class="master-toc-title">Contents</div>
+  <h2 class="master-toc-h">Quranic Grammar Reference Companion</h2>
+  <ol>
+    {items.map(item => (
+      <li class={item.kind ?? 'chapter'}>
+        <span class="toc-label">{item.label}</span>
+        <span class="toc-dots"></span>
+        <span class="toc-page" data-toc-page-for={item.anchor}>—</span>
+      </li>
+    ))}
+  </ol>
+</section>
