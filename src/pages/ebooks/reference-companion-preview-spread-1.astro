@@ -1,10 +1,66 @@
 ---
 import EbookPrint from '../../layouts/EbookPrint.astro';
+import ReferenceCover from '../../components/ebook/ReferenceCover.astro';
+import OrientationChapter from '../../components/ebook/OrientationChapter.astro';
 ---
 <EbookPrint title="Reference Companion — Spread 1 Preview">
-  <div class="ebook-page">
-    <p style="padding:1in;font-family:'Geist',sans-serif;color:#efe7d4;">
-      Spread 1 preview — TBD (real content in Task 23).
-    </p>
+  <div class="spread-frame">
+    <div class="spread-page">
+      <ReferenceCover
+        title="Quranic Grammar Reference Companion"
+        subtitle="A Quick-Reference Kit for Classical Arabic"
+        brand="Quranic Grammar"
+        volume="Volume Three"
+      />
+    </div>
+    <div class="spread-page">
+      <OrientationChapter number="01" title="Every Word Is a Noun, Verb, or Particle. Nothing Else.">
+        <p>Seven rules. Ninety percent of the Quran. Keep this orientation close while you study — each principle is a cheat-code that unlocks a whole category of meaning.</p>
+        <p><strong>The rule:</strong> Every Arabic word — no exceptions — belongs to one of three categories: <strong>ism</strong> (noun), <strong>fiʿl</strong> (verb), or <strong>ḥarf</strong> (particle).</p>
+        <p><strong>Why it matters:</strong> Once you know what <em>kind</em> of word you're reading, every other rule becomes easier — because rules apply to types, not random words.</p>
+        <p><strong>Examples:</strong></p>
+        <ul>
+          <li><strong>ٱللَّهُ</strong> — noun (names Allah)</li>
+          <li><strong>كَتَبَ</strong> — verb (he wrote — past time)</li>
+          <li><strong>فِي</strong> — particle (in — meaningless without what follows)</li>
+        </ul>
+        <p><strong>Cheat shortcut:</strong> If a word has <strong>ال</strong> or <strong>tanween</strong>, it is definitely a noun. If it has a tense prefix (يَ, تَ, نَ, أَ), it is definitely a verb.</p>
+      </OrientationChapter>
+    </div>
   </div>
 </EbookPrint>
+
+<style is:global>
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: #0a0b0d;
+  }
+  .spread-frame {
+    width: 1200px;
+    height: 1500px;
+    background: #0a0b0d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  .spread-page {
+    width: 528px;
+    height: 816px;
+    flex-shrink: 0;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.55), 0 0 0 1px #1c1e24;
+    overflow: hidden;
+    background: #0f1115;
+  }
+  /* Neutralize page-break rules inside the preview frame so two
+     pages sit side by side instead of forcing print breaks. */
+  .spread-page .ebook-page,
+  .spread-page section.ebook-page,
+  .spread-page .cover {
+    page-break-after: auto !important;
+    break-after: auto !important;
+  }
+</style>
