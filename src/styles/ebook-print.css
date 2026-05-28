@@ -190,7 +190,7 @@ html, body {
 .ebook-page {
   width: 5.5in;
   height: 8.5in;
-  padding: 0.6in 0.5in 0.5in;
+  padding: 0.6in 0.5in 0.6in;
   position: relative;
   page-break-after: always;
   break-after: page;
@@ -202,6 +202,64 @@ html, body {
   page-break-after: auto;
   break-after: auto;
 }
+
+/* Stricter overflow prevention for body content pages (Reference Companion) —
+   max-height + overflow:hidden caps content visually inside the 8.5in trim
+   even when Chromium's paged-media flow tries to bleed past. */
+.ebook-page-folio {
+  max-height: 8.5in;
+  overflow: hidden;
+  page-break-after: always;
+  break-after: page;
+}
+
+/* Heavy content containers — keep them intact across page breaks rather than
+   letting Chromium split mid-row/mid-example past the bottom margin. */
+.glossary-entry-example,
+.chart-block .verb-conjugation-table,
+.vocab-grid {
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+/* ============================================
+   FOLIO-PAGE DENSITY TIGHTENING
+   The Reference Companion's per-page sections (charts +
+   ArabicExample + Callout stacks) frequently bleed past
+   the 8.5in trim. Compress block margins and component
+   padding only inside .ebook-page-folio pages to reclaim
+   vertical space without touching the Sampler.
+   ============================================ */
+.ebook-page-folio .chart-block { margin: 12px 0 14px; padding-top: 10px; }
+.ebook-page-folio .chart-block-label { margin-bottom: 6px; }
+.ebook-page-folio .chart-block-end { margin-top: 6px; }
+.ebook-page-folio .chart-block th,
+.ebook-page-folio .chart-block td { padding: 3px 8px; }
+/* Callout + ArabicExample are website components with !important-ish scoped
+   styles. Force compact print metrics via !important and target both the
+   class and the [class*=arabic-example] selectors to win Astro's scoped
+   selector specificity. */
+.ebook-page-folio .callout { margin: 10px 0 !important; padding: 8px 12px !important; }
+.ebook-page-folio .arabic-example {
+  margin: 10px 0 !important;
+  padding: 8px 12px !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  gap: 4px !important;
+}
+.ebook-page-folio .arabic-example .arabic-text { font-size: 16px !important; line-height: 1.7 !important; }
+.ebook-page-folio .arabic-example .translation { font-size: 11px !important; line-height: 1.45 !important; margin: 4px 0 !important; }
+.ebook-page-folio .arabic-example .reference { font-size: 9.5px !important; margin: 2px 0 0 !important; }
+.ebook-page-folio .orient-body p { margin-bottom: 10px; }
+.ebook-page-folio .orient-title { margin-bottom: 16px; }
+.ebook-page-folio .glossary-entry { margin-bottom: 12px; }
+.ebook-page-folio .glossary-entry-def { margin-bottom: 6px; line-height: 1.42; }
+.ebook-page-folio .glossary-entry-translit { margin-bottom: 5px; }
+.ebook-page-folio .glossary-entry-example { padding: 3px 10px; margin-bottom: 4px; }
+.ebook-page-folio .glossary-entry-note { margin-top: 4px; line-height: 1.42; }
+.ebook-page-folio .glossary-letter { padding: 14px 0 8px; margin: 8px 0 12px; }
+.ebook-page-folio .glossary-letter-ar { font-size: 56px; }
 
 .ebook-folio {
   position: absolute;
@@ -345,10 +403,6 @@ strong, b { font-weight: 500; }
   text-transform: uppercase;
   color: var(--eb-ink-primary);
 }
-.section-divider-blank {
-  background: var(--eb-canvas);
-}
-
 /* ============================================
    MASTER TOC — front-of-book contents list,
    page-numbered (numbers injected post-render).
