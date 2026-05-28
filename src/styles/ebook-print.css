@@ -70,6 +70,16 @@
   src: url('/fonts/noto-sans-fallback-italic-400.woff2') format('woff2');
   unicode-range: U+02B0-02FF, U+1E00-1EFF;
 }
+/* Geist weight 500 also needs the Noto Sans transliteration fallback. Reuse
+   the 400 file — small per-character glyphs render fine without a true bold. */
+@font-face {
+  font-family: 'Geist';
+  font-style: normal;
+  font-weight: 500;
+  font-display: block;
+  src: url('/fonts/noto-sans-fallback-400.woff2') format('woff2');
+  unicode-range: U+02B0-02FF, U+1E00-1EFF;
+}
 @font-face {
   font-family: 'Geist Mono';
   font-style: normal;
@@ -83,6 +93,41 @@
   font-weight: 500;
   font-display: block;
   src: url('/fonts/geist-mono-500.woff2') format('woff2');
+}
+/* Geist Mono's basic Latin file also misses macron-vowels and transliteration
+   chars — wire up the same latin-ext and Noto Sans fallback subsets we use for
+   the proportional Geist. */
+@font-face {
+  font-family: 'Geist Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url('/fonts/geist-mono-latin-ext-400.woff2') format('woff2');
+  unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Geist Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: block;
+  src: url('/fonts/geist-mono-latin-ext-500.woff2') format('woff2');
+  unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Geist Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url('/fonts/noto-sans-fallback-400.woff2') format('woff2');
+  unicode-range: U+02B0-02FF, U+1E00-1EFF;
+}
+@font-face {
+  font-family: 'Geist Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: block;
+  src: url('/fonts/noto-sans-fallback-400.woff2') format('woff2');
+  unicode-range: U+02B0-02FF, U+1E00-1EFF;
 }
 @font-face {
   font-family: 'Amiri';
@@ -137,7 +182,7 @@ html, body {
   padding: 0;
   background: var(--eb-canvas);
   color: var(--eb-ink-primary);
-  font-family: 'Geist', sans-serif;
+  font-family: 'Geist', 'Amiri', sans-serif;
   -webkit-print-color-adjust: exact;
   print-color-adjust: exact;
 }
@@ -164,7 +209,7 @@ html, body {
   left: 0;
   right: 0;
   text-align: center;
-  font-family: 'Geist Mono', monospace;
+  font-family: 'Geist Mono', 'Amiri', monospace;
   font-size: 11px;
   letter-spacing: 0.22em;
   color: var(--eb-ink-mute-deep);
@@ -202,7 +247,7 @@ strong, b { font-weight: 500; }
 @page refbody {
   @bottom-center {
     content: counter(page);
-    font-family: 'Geist Mono', monospace;
+    font-family: 'Geist Mono', 'Amiri', monospace;
     font-size: 10px;
     letter-spacing: 0.22em;
     color: #5c5a52;
@@ -238,7 +283,7 @@ strong, b { font-weight: 500; }
   right: 0.5in;
   display: flex;
   justify-content: space-between;
-  font-family: 'Geist Mono', monospace;
+  font-family: 'Geist Mono', 'Amiri', monospace;
   font-size: 9px;
   letter-spacing: 0.22em;
   color: var(--eb-ink-mute-deep);
@@ -253,7 +298,7 @@ strong, b { font-weight: 500; }
   line-height: 1;
 }
 .eb-running-letter-name {
-  font-family: 'Geist Mono', monospace;
+  font-family: 'Geist Mono', 'Amiri', monospace;
   font-size: 9px;
   letter-spacing: 0.22em;
   color: var(--eb-ink-mute-deep);
@@ -284,7 +329,7 @@ strong, b { font-weight: 500; }
   padding: 38px 0;
 }
 .section-divider-number {
-  font-family: 'Geist Mono', monospace;
+  font-family: 'Geist Mono', 'Amiri', monospace;
   font-size: 90px;
   font-weight: 400;
   color: var(--eb-accent);
@@ -293,7 +338,7 @@ strong, b { font-weight: 500; }
   margin-bottom: 22px;
 }
 .section-divider-name {
-  font-family: 'Geist', sans-serif;
+  font-family: 'Geist', 'Amiri', sans-serif;
   font-weight: 500;
   font-size: 22px;
   letter-spacing: 0.04em;
@@ -312,7 +357,7 @@ strong, b { font-weight: 500; }
   padding: 0.9in 0.6in 0.6in;
 }
 .master-toc-title {
-  font-family: 'Geist Mono', monospace;
+  font-family: 'Geist Mono', 'Amiri', monospace;
   font-size: 10px;
   letter-spacing: 0.28em;
   text-transform: uppercase;
@@ -320,7 +365,7 @@ strong, b { font-weight: 500; }
   margin-bottom: 8px;
 }
 .master-toc-h {
-  font-family: 'Geist', sans-serif;
+  font-family: 'Geist', 'Amiri', sans-serif;
   font-weight: 500;
   font-size: 22px;
   color: var(--eb-ink-primary);
@@ -335,14 +380,14 @@ strong, b { font-weight: 500; }
 .master-toc li {
   display: flex;
   align-items: baseline;
-  font-family: 'Geist', sans-serif;
+  font-family: 'Geist', 'Amiri', sans-serif;
   font-size: 12px;
   line-height: 1.5;
   color: var(--eb-ink-secondary);
   margin: 0 0 6px;
 }
 .master-toc li.section {
-  font-family: 'Geist Mono', monospace;
+  font-family: 'Geist Mono', 'Amiri', monospace;
   text-transform: uppercase;
   letter-spacing: 0.18em;
   font-size: 10px;
@@ -359,7 +404,7 @@ strong, b { font-weight: 500; }
 }
 .master-toc li .toc-page {
   flex: 0 0 auto;
-  font-family: 'Geist Mono', monospace;
+  font-family: 'Geist Mono', 'Amiri', monospace;
   font-size: 11px;
   color: var(--eb-ink-muted);
 }
@@ -375,7 +420,7 @@ strong, b { font-weight: 500; }
   background: var(--eb-callout-surface);
 }
 .section-toc-label {
-  font-family: 'Geist Mono', monospace;
+  font-family: 'Geist Mono', 'Amiri', monospace;
   font-size: 9px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
@@ -388,7 +433,7 @@ strong, b { font-weight: 500; }
   padding: 0;
 }
 .section-toc li {
-  font-family: 'Geist', sans-serif;
+  font-family: 'Geist', 'Amiri', sans-serif;
   font-size: 11px;
   line-height: 1.5;
   color: var(--eb-ink-secondary);
@@ -409,7 +454,7 @@ strong, b { font-weight: 500; }
   border-bottom: 1px solid var(--eb-hairline);
 }
 .vocab-rank {
-  font-family: 'Geist Mono', monospace;
+  font-family: 'Geist Mono', 'Amiri', monospace;
   font-size: 9px;
   letter-spacing: 0.18em;
   color: var(--eb-ink-mute-deep);
@@ -423,13 +468,13 @@ strong, b { font-weight: 500; }
   color: var(--eb-ink-primary);
 }
 .vocab-translit {
-  font-family: 'Geist Mono', monospace;
+  font-family: 'Geist Mono', 'Amiri', monospace;
   font-size: 9.5px;
   color: var(--eb-ink-secondary);
   letter-spacing: 0.02em;
 }
 .vocab-gloss {
-  font-family: 'Geist', sans-serif;
+  font-family: 'Geist', 'Amiri', sans-serif;
   font-size: 10.5px;
   color: var(--eb-ink-primary);
 }
@@ -444,7 +489,7 @@ strong, b { font-weight: 500; }
   border-top: 1px solid var(--eb-accent);
 }
 .chart-block-label {
-  font-family: 'Geist Mono', monospace;
+  font-family: 'Geist Mono', 'Amiri', monospace;
   font-size: 9px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
@@ -467,7 +512,7 @@ strong, b { font-weight: 500; }
   vertical-align: top;
 }
 .chart-block th {
-  font-family: 'Geist Mono', monospace;
+  font-family: 'Geist Mono', 'Amiri', monospace;
   font-size: 8.5px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -526,7 +571,7 @@ strong, b { font-weight: 500; }
   gap: 6px;
 }
 .chart-block.verb-table .verb-form {
-  font-family: 'Geist Mono', monospace;
+  font-family: 'Geist Mono', 'Amiri', monospace;
   font-size: 7.5px;
   font-weight: 500;
   color: var(--eb-ink-muted);
@@ -553,7 +598,7 @@ strong, b { font-weight: 500; }
 .chart-block.verb-table .verb-table th[scope="col"] {
   background: transparent;
   color: var(--eb-ink-muted);
-  font-family: 'Geist Mono', monospace;
+  font-family: 'Geist Mono', 'Amiri', monospace;
   font-weight: 500;
   font-size: 7px;
   letter-spacing: 0.14em;
@@ -565,7 +610,7 @@ strong, b { font-weight: 500; }
 .chart-block.verb-table .verb-table th[scope="row"] {
   background: transparent;
   color: var(--eb-ink-primary);
-  font-family: 'Geist', sans-serif;
+  font-family: 'Geist', 'Amiri', sans-serif;
   font-weight: 400;
   font-size: 8px;
   padding: 1.5px 5px;
@@ -582,9 +627,10 @@ strong, b { font-weight: 500; }
   line-height: 1.25;
   vertical-align: middle;
 }
-/* The third column is transliteration — use Geist (with Noto Sans fallback for diacritics). */
+/* The third column is transliteration — use Geist (Noto Sans glyphs for
+   transliteration diacritics are wired into the Geist @font-face already). */
 .chart-block.verb-table .verb-table td:last-child {
-  font-family: 'Geist', 'Noto Sans', sans-serif;
+  font-family: 'Geist', 'Amiri', sans-serif;
   font-size: 8px;
   color: var(--eb-ink-secondary);
 }
@@ -600,6 +646,42 @@ strong, b { font-weight: 500; }
 .chart-block.verb-table .verb-table th[scope="col"]:last-child,
 .chart-block.verb-table .verb-table td:last-child {
   width: 32%;
+}
+/* VerbConjugation ships a max-width:640px mobile layout that stacks rows and
+   inserts an `attr(data-label)` pseudo-element before each cell. The print
+   viewport (5.5in ≈ 528px) is narrower than that breakpoint, so the mobile
+   layout would otherwise leak in — duplicating "(Past)" / "(Present)" labels
+   in a fallback serif font once per row. Restore the desktop layout here. */
+.chart-block.verb-table .verb-table thead {
+  position: static !important;
+  inline-size: auto !important;
+  block-size: auto !important;
+  width: auto !important;
+  height: auto !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  overflow: visible !important;
+  clip: auto !important;
+  white-space: normal !important;
+  border: 0 !important;
+}
+.chart-block.verb-table .verb-table tbody tr {
+  display: table-row !important;
+  margin: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+}
+.chart-block.verb-table .verb-table tbody tr th[scope="row"],
+.chart-block.verb-table .verb-table tbody tr td {
+  display: table-cell !important;
+  justify-content: initial !important;
+  align-items: initial !important;
+  background: transparent !important;
+}
+.chart-block.verb-table .verb-table td::before {
+  content: none !important;
+  display: none !important;
 }
 
 /* ============================================
@@ -620,7 +702,7 @@ strong, b { font-weight: 500; }
   line-height: 0.9;
 }
 .glossary-letter-name {
-  font-family: 'Geist Mono', monospace;
+  font-family: 'Geist Mono', 'Amiri', monospace;
   font-size: 11px;
   letter-spacing: 0.28em;
   text-transform: uppercase;
@@ -637,14 +719,14 @@ strong, b { font-weight: 500; }
   margin-bottom: 2px;
 }
 .glossary-entry-term {
-  font-family: 'Geist', sans-serif;
+  font-family: 'Geist', 'Amiri', sans-serif;
   font-weight: 500;
   font-size: 13px;
   color: var(--eb-ink-primary);
   letter-spacing: -0.005em;
 }
 .glossary-entry-term-mono {
-  font-family: 'Geist Mono', monospace;
+  font-family: 'Geist Mono', 'Amiri', monospace;
   font-size: 9.5px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -652,14 +734,14 @@ strong, b { font-weight: 500; }
   margin-right: 8px;
 }
 .glossary-entry-refs {
-  font-family: 'Geist Mono', monospace;
+  font-family: 'Geist Mono', 'Amiri', monospace;
   font-size: 9px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--eb-ink-muted);
 }
 .glossary-entry-translit {
-  font-family: 'Geist', sans-serif;
+  font-family: 'Geist', 'Amiri', sans-serif;
   font-size: 11px;
   color: var(--eb-ink-muted);
   margin: 0 0 8px;
@@ -671,7 +753,7 @@ strong, b { font-weight: 500; }
   margin-right: 8px;
 }
 .glossary-entry-def {
-  font-family: 'Geist', sans-serif;
+  font-family: 'Geist', 'Amiri', sans-serif;
   font-size: 11px;
   line-height: 1.5;
   color: var(--eb-ink-secondary);
@@ -683,7 +765,7 @@ strong, b { font-weight: 500; }
   margin: 0 0 6px;
 }
 .glossary-entry-example-label {
-  font-family: 'Geist Mono', monospace;
+  font-family: 'Geist Mono', 'Amiri', monospace;
   font-size: 8.5px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
@@ -698,19 +780,19 @@ strong, b { font-weight: 500; }
   color: var(--eb-ink-primary);
 }
 .glossary-entry-example-translit {
-  font-family: 'Geist Mono', monospace;
+  font-family: 'Geist Mono', 'Amiri', monospace;
   font-size: 9.5px;
   color: var(--eb-ink-muted);
   margin: 2px 0;
 }
 .glossary-entry-example-trans {
-  font-family: 'Geist', sans-serif;
+  font-family: 'Geist', 'Amiri', sans-serif;
   font-style: italic;
   font-size: 10.5px;
   color: var(--eb-ink-secondary);
 }
 .glossary-entry-example-ref {
-  font-family: 'Geist Mono', monospace;
+  font-family: 'Geist Mono', 'Amiri', monospace;
   font-size: 9px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -718,7 +800,7 @@ strong, b { font-weight: 500; }
   margin-top: 2px;
 }
 .glossary-entry-note {
-  font-family: 'Geist', sans-serif;
+  font-family: 'Geist', 'Amiri', sans-serif;
   font-size: 10.5px;
   line-height: 1.5;
   color: var(--eb-ink-secondary);
@@ -730,7 +812,7 @@ strong, b { font-weight: 500; }
    ============================================ */
 .orient-chapter { padding: 0.6in 0.5in 0.5in; }
 .orient-number {
-  font-family: 'Geist Mono', monospace;
+  font-family: 'Geist Mono', 'Amiri', monospace;
   font-size: 11px;
   letter-spacing: 0.24em;
   color: var(--eb-accent);
@@ -738,7 +820,7 @@ strong, b { font-weight: 500; }
   margin-bottom: 8px;
 }
 .orient-title {
-  font-family: 'Geist', sans-serif;
+  font-family: 'Geist', 'Amiri', sans-serif;
   font-weight: 500;
   font-size: 22px;
   line-height: 1.2;
@@ -747,7 +829,7 @@ strong, b { font-weight: 500; }
   margin: 0 0 24px;
 }
 .orient-body {
-  font-family: 'Geist', sans-serif;
+  font-family: 'Geist', 'Amiri', sans-serif;
   font-size: 12.5px;
   line-height: 1.65;
   color: var(--eb-ink-secondary);
