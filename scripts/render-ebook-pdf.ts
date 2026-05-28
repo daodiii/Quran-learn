@@ -73,6 +73,64 @@ async function startServer(): Promise<{ close: () => void }> {
 }
 
 // ---------- render targets ----------
+async function extractPageNumbers(page: Page, target: EbookTarget): Promise<Record<string, number>> {
+  await page.emulateMedia({ media: 'print' });
+  await page.goto(`http://localhost:${PORT}/ebooks/${target.slug}/`, { waitUntil: 'networkidle' });
+  await page.evaluate(() => document.fonts.ready);
+
+  // 5.5" x 8.5" at 96dpi = 528 x 816 CSS pixels per page.
+  return await page.evaluate(() => {
+    const PAGE_HEIGHT_PX = 816;
+    const map: Record<string, number> = {};
+    const anchors = document.querySelectorAll('[data-toc-anchor]');
+    anchors.forEach(el => {
+      const anchor = el.getAttribute('data-toc-anchor');
+      if (!anchor) return;
+      const top = (el as HTMLElement).offsetTop;
+      const pageNumber = Math.floor(top / PAGE_HEIGHT_PX) + 1;
+      map[anchor] = pageNumber;
+    });
+    return map;
+  });
+}
+
+async function renderPdfWithToc(page: Page, target: EbookTarget) {
+  let pageMap: Record<string, number> = {};
+  try {
+    pageMap = await extractPageNumbers(page, target);
+    console.log(`Extracted ${Object.keys(pageMap).length} TOC anchors for ${target.slug}`);
+  } catch (err) {
+    console.warn(`Pass 1 (TOC extraction) failed for ${target.slug}; rendering without TOC page numbers.`, err);
+  }
+
+  await page.emulateMedia({ media: 'print' });
+  await page.goto(`http://localhost:${PORT}/ebooks/${target.slug}/`, { waitUntil: 'networkidle' });
+  await page.evaluate(() => document.fonts.ready);
+
+  if (Object.keys(pageMap).length > 0) {
+    await page.evaluate((map) => {
+      const slots = document.querySelectorAll('[data-toc-page-for]');
+      slots.forEach(s => {
+        const anchor = s.getAttribute('data-toc-page-for');
+        if (!anchor) return;
+        const num = map[anchor];
+        if (num != null) s.textContent = String(num);
+      });
+    }, pageMap);
+  }
+
+  const out = path.join(OUT_DIR, target.pdfName);
+  await page.pdf({
+    path: out,
+    width: '5.5in',
+    height: '8.5in',
+    printBackground: true,
+    preferCSSPageSize: true,
+    margin: { top: 0, right: 0, bottom: 0, left: 0 },
+  });
+  console.log(`PDF written: ${out}`);
+}
+
 async function renderPdf(page: Page, target: EbookTarget) {
   await page.emulateMedia({ media: 'print' });
   await page.goto(`http://localhost:${PORT}/ebooks/${target.slug}/`, { waitUntil: 'networkidle' });
@@ -131,7 +189,11 @@ async function main() {
     const page = await browser.newPage();
     for (const t of targets) {
       console.log(`\n=== Rendering: ${t.slug} ===`);
-      await renderPdf(page, t);
+      if (t.slug === 'sampler') {
+        await renderPdf(page, t);
+      } else {
+        await renderPdfWithToc(page, t);
+      }
       await renderListingImages(page, t);
     }
   } finally {
