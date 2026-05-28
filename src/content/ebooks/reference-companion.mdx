@@ -1798,11 +1798,231 @@ In all three: الرَّجُلُ has ـُ = it is the actor. الْكَلْبَ 
     highlight="اسْتَغْفِرُوا"
   />
 </section>
-<section class="ebook-page ebook-page-folio" data-toc-anchor="ch-verb-forms" style="padding:1in 0.7in;">
-  <p>Verb Forms Master placeholder — Task 19</p>
+{/* === CHAPTER: VERB FORMS MASTER === */}
+<section class="ebook-page ebook-page-folio" data-toc-anchor="ch-verb-forms" style="padding:0.6in 0.5in;">
+  <div class="orient-number">Section 02 · Chapter</div>
+  <h2 class="orient-title">Verb Forms Master Reference</h2>
+  <p class="orient-body">
+    This is the cheat sheet — every one of the ten Arabic verb forms in a single table, with the pattern that builds it, the visual signature that identifies it on sight, the meaning shift it produces, and a Quranic example. The chapter that follows distils the same ten forms into a thirty-second identification routine, a side-by-side comparison of the two causatives that beginners most often confuse, and three root-family trees that show how a single root generates an entire vocabulary across multiple forms.
+  </p>
+  <SectionToc items={[
+    "The 10 Forms at a Glance",
+    "30-Second Form Identification",
+    "Causative Forms Side by Side — II vs IV",
+    "Root Family Tree — ع ل م (knowledge)",
+    "Form I Present-Tense Vowel Patterns",
+  ]} />
 </section>
-<section class="ebook-page ebook-page-folio" data-toc-anchor="ch-root-system" style="padding:1in 0.7in;">
-  <p>Root System placeholder — Task 19</p>
+
+<section class="ebook-page ebook-page-folio" style="padding:0.6in 0.5in;">
+  <h3 style="font-family:'Geist',sans-serif;font-weight:500;font-size:16px;color:#efe7d4;margin:0 0 12px;">The 10 Forms at a Glance</h3>
+  <ChartBlock label="Chart · The 10 Verb Forms — Master Overview">
+    <GrammarTable
+      caption="The Ten Arabic Verb Forms"
+      headers={["Form", "Past pattern", "Present pattern", "Signature", "Meaning shift", "Quranic example"]}
+      rows={[
+        ["I", "فَعَلَ", "يَفْعَلُ / يَفْعِلُ / يَفْعُلُ", "Plain root", "Basic action", "كَتَبَ — he wrote"],
+        ["II", "فَعَّلَ", "يُفَعِّلُ", "Shadda on middle letter", "Intensify / cause", "عَلَّمَ — he taught"],
+        ["III", "فَاعَلَ", "يُفَاعِلُ", "Long ā after 1st root letter", "Do with/toward another", "جَاهَدَ — he strove"],
+        ["IV", "أَفْعَلَ", "يُفْعِلُ", "أَ prefix (fatḥa-hamza)", "Cause something", "أَنْزَلَ — he sent down"],
+        ["V", "تَفَعَّلَ", "يَتَفَعَّلُ", "تَ + shadda on middle", "Reflexive of II", "تَعَلَّمَ — he learned"],
+        ["VI", "تَفَاعَلَ", "يَتَفَاعَلُ", "تَ + long ā", "Mutual / gradual", "تَبَارَكَ — He is supremely blessed"],
+        ["VII", "اِنْفَعَلَ", "يَنْفَعِلُ", "اِنْ prefix", "Passive result of I", "اِنْفَطَرَ — it split open"],
+        ["VIII", "اِفْتَعَلَ", "يَفْتَعِلُ", "اِ + ت inserted after 1st letter", "Reflexive / for oneself", "اِجْتَمَعَ — they gathered"],
+        ["IX", "اِفْعَلَّ", "يَفْعَلُّ", "اِ + shadda on LAST letter", "Colours and defects only", "اِحْمَرَّ — he turned red"],
+        ["X", "اِسْتَفْعَلَ", "يَسْتَفْعِلُ", "اِسْتَ prefix", "Seek / request / consider", "اِسْتَغْفَرَ — he sought forgiveness"],
+      ]}
+      rtl={false}
+    />
+  </ChartBlock>
+  <Callout type="tip" title="Which Forms to Master First">
+    **Tier 1 — start here (covers 80%+ of Quranic verbs):** Form I, Form II, Form IV, Form X. **Tier 2 — learn next:** Form V, Form VIII, Form III. **Tier 3 — learn last:** Form VI, Form VII, Form IX. Form IX is nearly always a colour verb — if you see اِفْعَلَّ, think "turning a colour."
+  </Callout>
+</section>
+
+<section class="ebook-page ebook-page-folio" style="padding:0.6in 0.5in;">
+  <h3 style="font-family:'Geist',sans-serif;font-weight:500;font-size:16px;color:#efe7d4;margin:0 0 12px;">30-Second Form Identification</h3>
+  <p class="orient-body" style="margin-bottom:14px;">When you encounter an unfamiliar verb, work from the <strong>outside in</strong>. Check the prefix first; that alone tells you forms V through X. If there is no prefix, look <strong>inside</strong> the root for a shadda or a long ā — those identify II, III, and VI. No additions at all means Form I.</p>
+  <ChartBlock label="Chart · Form Identification Decoder">
+    <GrammarTable
+      caption="Visual Cues for Each Form"
+      headers={["Cue", "Form"]}
+      rows={[
+        ["Starts with اِسْتَ", "X"],
+        ["Starts with اِنْ", "VII"],
+        ["Starts with اِ + ت inserted after 1st root letter", "VIII"],
+        ["Starts with اِ + shadda on LAST root letter", "IX"],
+        ["Starts with تَ + shadda on middle letter", "V"],
+        ["Starts with تَ + long ā after 1st root letter", "VI"],
+        ["Shadda on middle letter, no prefix", "II"],
+        ["Long ā between 1st and 2nd root letters, no prefix", "III"],
+        ["Starts with أَ (fatḥa-hamza) before the root", "IV"],
+        ["None of the above — plain root", "I"],
+      ]}
+      rtl={false}
+    />
+  </ChartBlock>
+  <Callout type="rule" title="The Causative Confusion — II vs IV">
+    Both Form II (فَعَّلَ) and Form IV (أَفْعَلَ) can be translated as "to cause," and beginners mix them up constantly. The visible difference is decisive: Form II <strong>doubles the middle root letter</strong> (you will always see a shadda — ّ — on letter two). Form IV <strong>adds a hamza with fatḥa</strong> (أَ) before the root and leaves the middle letter alone. The nuance also differs: Form II tends to be intensive, repeated, or directed at an object (عَلَّمَ — "he taught"), while Form IV is purer causation — bring about a result (أَعْلَمَ — "he informed"; أَنْزَلَ — "He sent down").
+  </Callout>
+</section>
+
+<section class="ebook-page ebook-page-folio" style="padding:0.6in 0.5in;">
+  <h3 style="font-family:'Geist',sans-serif;font-weight:500;font-size:16px;color:#efe7d4;margin:0 0 12px;">Root Family Tree — ع ل م (knowledge)</h3>
+  <p class="orient-body" style="margin-bottom:14px;">This single root appears more than 750 times in the Quran. Watch how the same three letters pass through different verb forms and noun patterns to generate an entire vocabulary of teaching, learning, scholarship, and divine omniscience.</p>
+  <ChartBlock label="Chart · Derivatives of ع ل م">
+    <GrammarTable
+      caption="One Root, an Entire Family"
+      headers={["Form / Pattern", "Word", "Pattern", "Meaning"]}
+      rows={[
+        ["I", "عَلِمَ (ʿalima)", "فَعِلَ", "he knew"],
+        ["II", "عَلَّمَ (ʿallama)", "فَعَّلَ", "he taught"],
+        ["V", "تَعَلَّمَ (taʿallama)", "تَفَعَّلَ", "he learned"],
+        ["Noun I", "عِلْمٌ (ʿilm)", "فِعْلٌ", "knowledge (abstract)"],
+        ["Active participle", "عَالِمٌ (ʿālim)", "فَاعِلٌ", "a scholar / one who knows"],
+        ["Intensive noun", "عَلِيمٌ (ʿalīm)", "فَعِيلٌ", "All-Knowing (a name of Allah)"],
+        ["Passive participle", "مَعْلُومٌ (maʿlūm)", "مَفْعُولٌ", "something known"],
+        ["Place / time noun", "مَعْلَمٌ (maʿlam)", "مَفْعَلٌ", "landmark / place of knowledge"],
+      ]}
+      rtl={false}
+    />
+  </ChartBlock>
+  <p class="orient-body" style="margin-top:14px;">Every Arabic noun of knowledge, every scholar's title, every verb of teaching or learning traces back to these three root letters. <strong>When you know the root, you know the family.</strong></p>
+</section>
+
+<section class="ebook-page ebook-page-folio" style="padding:0.6in 0.5in;">
+  <h3 style="font-family:'Geist',sans-serif;font-weight:500;font-size:16px;color:#efe7d4;margin:0 0 12px;">Form I Present-Tense Vowel Patterns</h3>
+  <p class="orient-body" style="margin-bottom:14px;">Form I is the only form whose present-tense middle vowel is unpredictable — it can be ḍamma, kasra, or fatḥa depending on the verb. There is no rule; the pattern is a property of each individual verb and you must learn it together with the verb. Arabic dictionaries always list both the past and the present so you know which middle vowel to use.</p>
+  <ChartBlock label="Chart · Form I — The Five Past → Present Patterns">
+    <GrammarTable
+      caption="Form I Vowel Combinations"
+      headers={["Past → Present", "Middle vowel (present)", "Example", "Meaning"]}
+      rows={[
+        ["فَعَلَ → يَفْعُلُ", "ḍamma (-u-)", "كَتَبَ → يَكْتُبُ", "wrote → writes"],
+        ["فَعَلَ → يَفْعِلُ", "kasra (-i-)", "جَلَسَ → يَجْلِسُ", "sat → sits"],
+        ["فَعَلَ → يَفْعَلُ", "fatḥa (-a-)", "ذَهَبَ → يَذْهَبُ", "went → goes"],
+        ["فَعِلَ → يَفْعَلُ", "fatḥa (-a-)", "عَلِمَ → يَعْلَمُ", "knew → knows"],
+        ["فَعُلَ → يَفْعُلُ", "ḍamma (-u-)", "كَرُمَ → يَكْرُمُ", "was noble → is noble"],
+      ]}
+      rtl={false}
+    />
+  </ChartBlock>
+  <Callout type="note" title="Practical Habit">
+    When you learn a new Form I verb, always memorise it as a <strong>pair</strong> — past plus present — never just the past. Otherwise you will guess the middle vowel and get it wrong roughly two times out of three.
+  </Callout>
+</section>
+
+{/* === CHAPTER: ROOT SYSTEM === */}
+<section class="ebook-page ebook-page-folio" data-toc-anchor="ch-root-system" style="padding:0.6in 0.5in;">
+  <div class="orient-number">Section 02 · Chapter</div>
+  <h2 class="orient-title">The Root System</h2>
+  <p class="orient-body">
+    Arabic roots work like LEGO bricks. Each root — almost always three consonants, occasionally four — carries a core idea, and a closed set of <strong>patterns</strong> stamps that idea into nouns, verbs, participles, places, and instruments. Once you understand the system you can decode thousands of Quranic words you have never seen before by recognising the family they belong to. This chapter explains what a root is, walks through the trilateral and quadrilateral patterns, lists the most common derivation moulds, and teaches the dictionary-lookup workflow you will use for the rest of your life.
+  </p>
+  <SectionToc items={[
+    "What Is a Root?",
+    "Trilateral and Quadrilateral Roots",
+    "Common Derivation Patterns",
+    "Looking Up a Word — The Six-Step Workflow",
+  ]} />
+</section>
+
+<section class="ebook-page ebook-page-folio" style="padding:0.6in 0.5in;">
+  <h3 style="font-family:'Geist',sans-serif;font-weight:500;font-size:16px;color:#efe7d4;margin:0 0 12px;">What Is a Root?</h3>
+  <p class="orient-body" style="margin-bottom:14px;">A <strong>root</strong> (جَذْرٌ, <em>jadhr</em>) is a cluster of consonants — almost always three, occasionally four — that carries a single core meaning. Every word derived from a given root shares a family resemblance. The root <strong>ك ت ب</strong> (k-t-b), for example, carries the core idea of "writing," and from it the language builds an entire household of related words.</p>
+  <ChartBlock label="Chart · The Family of ك ت ب (writing)">
+    <GrammarTable
+      caption="One Root, Many Words"
+      headers={["Word", "Pronunciation", "Pattern", "Meaning"]}
+      rows={[
+        ["كَتَبَ", "kataba", "فَعَلَ (Form I past)", "he wrote"],
+        ["يَكْتُبُ", "yaktubu", "يَفْعُلُ (Form I present)", "he writes"],
+        ["كِتَابٌ", "kitābun", "فِعَالٌ", "a book (something written)"],
+        ["كَاتِبٌ", "kātibun", "فَاعِلٌ", "a writer (one who writes)"],
+        ["مَكْتُوبٌ", "maktūbun", "مَفْعُولٌ", "written (something written)"],
+        ["مَكْتَبٌ", "maktabun", "مَفْعَلٌ", "a desk / office (place for writing)"],
+      ]}
+      rtl={false}
+    />
+  </ChartBlock>
+  <p class="orient-body" style="margin-top:14px;">When you encounter an unfamiliar word in the Quran, identifying its root unlocks three things at once: a clue to its meaning, a way to look it up (Arabic dictionaries are organised by root, not alphabetically), and a thread that connects it to the other forms of the same root that appear elsewhere in the Book.</p>
+</section>
+
+<section class="ebook-page ebook-page-folio" style="padding:0.6in 0.5in;">
+  <h3 style="font-family:'Geist',sans-serif;font-weight:500;font-size:16px;color:#efe7d4;margin:0 0 12px;">Trilateral and Quadrilateral Roots</h3>
+  <p class="orient-body" style="margin-bottom:14px;">About <strong>95% of Quranic vocabulary</strong> comes from <strong>trilateral</strong> (three-consonant) roots. Arabic grammarians use the template <strong>ف ع ل</strong> (f-ʿ-l) as a stand-in for any trilateral root: <strong>ف</strong> represents the first root letter, <strong>ع</strong> the second, and <strong>ل</strong> the third. The remaining 5% are <strong>quadrilateral</strong> (four-consonant) roots, often onomatopoeic or expressive — words like <strong>زَلْزَلَ</strong> (z-l-z-l, to shake / earthquake) and <strong>وَسْوَسَ</strong> (w-s-w-s, to whisper, as the Shayṭān does).</p>
+  <ChartBlock label="Chart · The Active-Participle Pattern (فَاعِلٌ) across Five Roots">
+    <GrammarTable
+      caption="The فَاعِلٌ Pattern in Action"
+      headers={["Root", "Root meaning", "فَاعِلٌ form", "Meaning"]}
+      rows={[
+        ["ك ت ب", "writing", "كَاتِبٌ", "writer"],
+        ["ع ل م", "knowing", "عَالِمٌ", "scholar / knower"],
+        ["ق ر أ", "reading", "قَارِئٌ", "reader / reciter"],
+        ["ع ب د", "worshipping", "عَابِدٌ", "worshipper"],
+        ["س م ع", "hearing", "سَامِعٌ", "hearer"],
+      ]}
+      rtl={false}
+    />
+  </ChartBlock>
+  <p class="orient-body" style="margin-top:14px;">The pattern stays the same; only the root letters change. This is the key to Arabic morphology — and to the quadrilateral roots too, as the verse below shows.</p>
+  <ArabicExample
+    arabic="إِذَا زُلْزِلَتِ الْأَرْضُ زِلْزَالَهَا"
+    transliteration="ithā zulzilati l-arḍu zilzālahā"
+    translation="When the earth is shaken with its [final] earthquake."
+    reference="Al-Zalzalah 99:1"
+    highlight="زُلْزِلَتِ,زِلْزَالَهَا"
+  />
+</section>
+
+<section class="ebook-page ebook-page-folio" style="padding:0.6in 0.5in;">
+  <h3 style="font-family:'Geist',sans-serif;font-weight:500;font-size:16px;color:#efe7d4;margin:0 0 12px;">Common Derivation Patterns</h3>
+  <p class="orient-body" style="margin-bottom:14px;">These are the most frequent moulds you will meet in Quranic Arabic. Knowing them lets you categorise an unfamiliar word at a glance — verb or noun, doer or done-to, place or instrument, basic or causative.</p>
+  <ChartBlock label="Chart · Major Derivation Patterns (using root ك ت ب)">
+    <GrammarTable
+      caption="Major Patterns at a Glance"
+      headers={["Pattern", "Function", "ك ت ب example", "Translation"]}
+      rows={[
+        ["فَعَلَ", "Past-tense verb (he did)", "كَتَبَ", "he wrote"],
+        ["يَفْعَلُ", "Present-tense verb (he does)", "يَكْتُبُ", "he writes"],
+        ["فَاعِلٌ", "Active participle (the doer)", "كَاتِبٌ", "writer"],
+        ["مَفْعُولٌ", "Passive participle (the done-to)", "مَكْتُوبٌ", "written"],
+        ["فِعْلٌ", "Verbal noun (the action itself)", "كِتَابَةٌ", "writing (act of)"],
+        ["فَعَّالٌ", "Intensive doer (does it a lot)", "كَتَّابٌ", "scribe / clerk"],
+        ["مَفْعَلٌ", "Place or time of the action", "مَكْتَبٌ", "desk / office"],
+        ["أَفْعَلَ", "Causative verb (made someone do)", "أَكْتَبَ", "made someone write"],
+        ["تَفَعَّلَ", "Reflexive verb (did it to oneself)", "تَكَتَّبَ", "enrolled / registered"],
+        ["اِفْتَعَلَ", "Intensive or reciprocal verb", "اِكْتَتَبَ", "copied down"],
+      ]}
+      rtl={false}
+    />
+  </ChartBlock>
+  <Callout type="rule" title="Pattern Recognition at a Glance">
+    A <strong>مَ</strong> prefix on a noun usually marks a <strong>place, time, or instrument</strong> (مَسْجِدٌ — masjid, place of prostration). A <strong>تَ</strong> prefix on a verb often marks <strong>reflexive or reciprocal</strong> action (تَعَلَّمَ — taught oneself / learned). An <strong>اِ</strong> prefix often marks <strong>middle voice or intensive</strong> action (اِسْتَغْفَرَ — sought forgiveness). A doubled middle letter typically signals <strong>intensive or causative</strong> meaning (عَلَّمَ — taught, made someone know).
+  </Callout>
+</section>
+
+<section class="ebook-page ebook-page-folio" style="padding:0.6in 0.5in;">
+  <h3 style="font-family:'Geist',sans-serif;font-weight:500;font-size:16px;color:#efe7d4;margin:0 0 12px;">Looking Up a Word — The Six-Step Workflow</h3>
+  <p class="orient-body" style="margin-bottom:14px;">This is the most practical skill for independent Quran study. Arabic dictionaries do not organise words alphabetically the way English ones do; they organise them by <strong>root</strong>, so you must extract the root from any word form you encounter before you can look it up.</p>
+  <ChartBlock label="Chart · From Inflected Word to Dictionary Entry">
+    <GrammarTable
+      caption="The Six-Step Lookup Workflow"
+      headers={["Step", "What to do", "Example: وَالْمُسْلِمُونَ"]}
+      rows={[
+        ["1", "Strip prefixes: conjunctions (وَ, فَ), the article (الْ), and prepositions (بِ, لِ, كَ).", "→ مُسْلِمُونَ"],
+        ["2", "Strip suffixes: plural endings (ـُونَ, ـِينَ), pronoun suffixes (ـهُ, ـهَا), and tanwīn.", "→ مُسْلِم"],
+        ["3", "Remove pattern letters: مُ-, تَ-, اِ-, أَ-, inserted ت, doubled letters. Leave only the 3 (or 4) root consonants.", "مُ is a pattern prefix → root letters are س ل م"],
+        ["4", "Watch for weak letters. ا in hollow verbs traces back to و or ي (قَالَ → ق و ل); a final ـى often traces back to ي (هَدَى → ه د ي).", "Not weak — clean trilateral root س ل م"],
+        ["5", "Arrange the root in dictionary order (ا ب ت ث ج ح خ د ذ ر ز س ش ص ض ط ظ ع غ ف ق ك ل م ن ه و ي) and look up the entry.", "Open Hans Wehr at س, then س ل, then س ل م"],
+        ["6", "Read the family of derivatives under the root entry and choose the meaning that fits your verse's context.", "س ل م → safety, peace, submission → مُسْلِم = one who submits"],
+      ]}
+      rtl={false}
+    />
+  </ChartBlock>
+  <Callout type="warning" title="Common Mistakes to Avoid">
+    Do not keep <strong>pattern letters</strong> as part of the root — the مُ in مُسْلِمٌ belongs to the مُفْعِلٌ mould, not to the root. Do not confuse <strong>long vowels with root consonants</strong> — the ا in قَالَ stands in for the original و, so the root is ق و ل, not ق ا ل. And always <strong>split off attached pronouns</strong> before looking up the head word: رَبُّهُ is رَبُّ (lord) + ـهُ (his), and you look up رَبُّ.
+  </Callout>
 </section>
 
 {/* === SECTION 03 === */}
