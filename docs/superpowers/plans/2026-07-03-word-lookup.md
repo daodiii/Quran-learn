@@ -858,7 +858,9 @@ git add scripts/lib/word-index.ts scripts/lib/word-index.test.ts
 git commit -m "feat(word-lookup): packed index aggregation with overrides, glosses, alt keys"
 ```
 
----### Task 5: Build script + npm wiring + generate the dataset
+---
+
+### Task 5: Build script + npm wiring + generate the dataset
 
 **Files:**
 - Create: `scripts/build-word-lookup.ts`
