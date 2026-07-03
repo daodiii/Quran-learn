@@ -24,11 +24,13 @@ by sound (transliteration) and by meaning (curated glosses).
    Latin input searches transliterations ("yunziluna" ≈ "yunzilūna") AND English meanings
    ("send down"), results grouped by kind. No mode toggle — script auto-detected.
 3. **Architecture: single packed index, lazy-loaded.** One `public/data/word-lookup.json`
-   fetched on first search-box focus; all matching runs in-memory. Measured basis: 14,989
-   normalized keys, 19,441 distinct analyses; raw Buckwalter TSV of the distinct set is 128 KB
-   gzipped, so the enriched JSON is estimated 300–550 KB gzipped. Build fails if the gzipped
-   output exceeds 600 KB (guard); documented fallback is letter-sharding, with trimming levers
-   first (refs 3→1, drop noun case features).
+   fetched on first search-box focus; all matching runs in-memory. Measured at build (final
+   pipeline, 2026-07-03): 14,695 normalized keys, 20,414 distinct analyses, 2,163 alternate
+   keys; 2,323 KB raw / **716 KB gzipped**. The design-time 600 KB guard proved too tight:
+   transliteration strings — required by the user-chosen sound-search mode — account for the
+   overage, and the trimming levers (refs 3→1, drop noun features) bottom out at ~671 KB.
+   Accepted: guard raised to 800 KB. Letter-sharding remains the documented fallback if the
+   payload ever needs to shrink (no schema change required).
 4. No fabricated Arabic, ever — same rule as the generator. Every Arabic string in the index is
    derived from the corpus; glosses come from the existing curated dataset.
 

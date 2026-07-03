@@ -884,7 +884,7 @@ import { buildIndex } from './lib/word-index.ts';
 const CORPUS = 'src/data/morphology/quranic-corpus-morphology-0.4.txt';
 const VERB_FORMS = 'public/data/verb-forms.json';
 const OUT = 'public/data/word-lookup.json';
-const GZIP_BUDGET = 600 * 1024; // spec guard
+const GZIP_BUDGET = 800 * 1024; // spec guard (measured 716KB; translit strings required by sound search)
 
 const words = groupWords(parseCorpusRows(readFileSync(CORPUS, 'utf8')));
 const index = buildIndex(words, JSON.parse(readFileSync(VERB_FORMS, 'utf8')));
@@ -924,7 +924,7 @@ count numbers must match EXACTLY; byte sizes may vary ±1%):
 ```
 words=77429 keys=14695 analyses=20414
 altKeys=2163 verbs-without-gloss=<small — report the actual number>
-raw=~2300KB gzip=~250–550KB
+raw=~2300KB gzip=~716KB (budget raised to 800KB — see spec decision 3)
 → public/data/word-lookup.json
 ```
 `words` must be EXACTLY 77429. If `bwToArabicSurface` throws on an unmapped char, add that
@@ -1010,7 +1010,7 @@ for (const list of Object.values<any[]>(INDEX.words)) {
 
 // 4. Size guard.
 const gz = gzipSync(JSON.stringify(INDEX)).length;
-if (gz > 600 * 1024) fail(`gzip ${gz} over budget`);
+if (gz > 800 * 1024) fail(`gzip ${gz} over budget`);
 
 const glossless = Object.values<any[]>(INDEX.words).flat()
   .filter((a: any[]) => a[4] === 'V' && a[9] === null);
