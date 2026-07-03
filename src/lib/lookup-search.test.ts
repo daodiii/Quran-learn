@@ -61,3 +61,17 @@ test('suggestion entries expose display fields', () => {
   assert.equal(s.total, 87);
   assert.equal(s.hint, 'to believe');
 });
+test('latin: sound results are the true top-N by frequency, not first-encountered', () => {
+  const words: Record<string, any[]> = {};
+  for (let i = 0; i < 25; i++) {
+    words[`كلمة${i}`] = [[`كَلِمَة${i}`, `taword${i}`, null, '', 'N', 0, '', [], [], null, i + 1, ['1:1']]];
+  }
+  words['تعملون'] = [['تَعْمَلُونَ', 'taʿmalūna', 'عمل', 'عَمِلَ', 'V', 1, 'IMPF|2MP',
+    [], [], 'to do', 999, ['2:1']]];
+  const p2 = prepareIndex({ meta: { source: 't', words: 26, analyses: 26, version: 1 },
+    words, altKeys: {} } as any);
+  const r = search(p2, 'ta');
+  assert.equal(r.kind, 'latin');
+  assert.equal((r as any).sound[0].key, 'تعملون'); // total 999 wins despite being inserted last
+  assert.equal((r as any).sound.length, 20);       // cap applied after sorting
+});

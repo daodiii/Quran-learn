@@ -55,6 +55,9 @@ function searchArabic(p: Prepared, q: string): ArabicResult {
   const k = normalizeArabic(q);
   const canonical = p.data.words[k] ? k : p.data.altKeys[k];
   const exact = canonical ? { key: canonical, analyses: p.data.words[canonical] } : null;
+  // p.keys is pre-sorted by total desc, so filter-then-slice IS the true top-N
+  // here — unlike the Latin routes, whose scan lists are in insertion order
+  // and must therefore sort before capping.
   const suggestions = exact || !k ? [] :
     p.keys.filter(w => w.startsWith(k) && w !== k).slice(0, 8).map(w => p.refs.get(w)!);
   const didYouMean = exact || suggestions.length ? [] : nearestByPrefix(p, k);
@@ -72,13 +75,12 @@ function nearestByPrefix(p: Prepared, k: string): KeyRef[] {
 
 function searchLatin(p: Prepared, q: string): LatinResult {
   const f = foldLatin(q);
-  const ql = q.trim().toLowerCase();
+  const ql = q.toLowerCase();
   const sound: KeyRef[] = [];
   const seen = new Set<string>();
   if (f.length >= 2) {
     for (const [fold, key] of p.folds) {
       if (fold.startsWith(f) && !seen.has(key)) { seen.add(key); sound.push(p.refs.get(key)!); }
-      if (sound.length >= 20) break;
     }
   }
   const meaning: KeyRef[] = [];
@@ -86,10 +88,11 @@ function searchLatin(p: Prepared, q: string): LatinResult {
   if (ql.length >= 3) {
     for (const [gloss, key] of p.glossed) {
       if (gloss.includes(ql) && !seenM.has(key)) { seenM.add(key); meaning.push(p.refs.get(key)!); }
-      if (meaning.length >= 20) break;
     }
   }
+  // Sort BEFORE capping: the scans collect in insertion order, and truncating
+  // first would drop high-frequency matches (e.g. "ta" losing taʿmalūna).
   sound.sort((a, b) => b.total - a.total);
   meaning.sort((a, b) => b.total - a.total);
-  return { kind: 'latin', sound, meaning };
+  return { kind: 'latin', sound: sound.slice(0, 20), meaning: meaning.slice(0, 20) };
 }
