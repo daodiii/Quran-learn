@@ -783,7 +783,7 @@ export function buildIndex(words: WordOccurrence[], verbForms: { roots: any[] })
     for (const stem of w.stems) {
       const a = analysisFieldsForStem(stem, glosses);
       const id = [surfaceAr, a.lemma, a.root ?? '', a.pos, a.form, a.feat,
-                  prefixes.join(','), suffixes.join(',')].join('');
+                  prefixes.join(','), suffixes.join(',')].join('\u0001'); // visible escape: raw control chars get lost in copies
       let e = acc.get(id);
       if (!e) {
         e = { surfaceAr, translit: bwToTranslitSurface(w.surfaceBw), ...a,

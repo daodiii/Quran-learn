@@ -53,8 +53,9 @@ export function buildIndex(words: WordOccurrence[], verbForms: { roots: any[] })
     const suffixes = w.suffixes.map(s => `${bwToArabicSurface(s.formBw)}|${s.feature}`);
     for (const stem of w.stems) {
       const a = analysisFieldsForStem(stem, glosses);
+      // \u0001 separator: bare concatenation could alias adjacent fields.
       const id = [surfaceAr, a.lemma, a.root ?? '', a.pos, a.form, a.feat,
-                  prefixes.join(','), suffixes.join(',')].join('');
+                  prefixes.join(','), suffixes.join(',')].join('\u0001');
       let e = acc.get(id);
       if (!e) {
         e = { surfaceAr, translit: bwToTranslitSurface(w.surfaceBw), ...a,
