@@ -225,10 +225,14 @@ export function deriveAltKeys(vocalized: string): string[] {
   //   وٰ → ا (الصلوٰة → الصلاة)      ءٰ → ا or ءا (قرءٰن → قران / قرءان)
   //   Cٰ → Cا for consonants up to و — deliberately EXCLUDES ى (U+0649),
   //   where the superscript alef only marks pronunciation (عَلَىٰ).
-  const daggerA = (s: string) => s
+  // Strip harakat (U+064B–U+065F) but preserve the dagger alif (U+0670) first —
+  // in vocalized text a fatha sits between consonant and dagger (كِتَٰب), so the
+  // adjacency regexes below would never fire on the raw string.
+  const stripHarakat = (s: string) => s.replace(/[ً-ٟ]/g, '');
+  const daggerA = (s: string) => stripHarakat(s)
     .replace(/وٰ/g, 'ا').replace(/ءٰ/g, 'ا')
     .replace(/([ء-و])ٰ/g, '$1ا');
-  const daggerB = (s: string) => s
+  const daggerB = (s: string) => stripHarakat(s)
     .replace(/ءٰ/g, 'ءا').replace(/وٰ/g, 'ا')
     .replace(/([ء-و])ٰ/g, '$1ا');
   const out = new Set<string>();
