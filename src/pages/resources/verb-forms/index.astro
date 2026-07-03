@@ -1,0 +1,426 @@
+---
+import { readFileSync } from 'node:fs';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Container from '../../../components/primitives/Container.astro';
+
+// Build-time read of the shipped dataset: prerenders the root index + chips
+// (SEO, graceful no-JS); the client script fetches the same JSON on demand.
+const data = JSON.parse(readFileSync('public/data/verb-forms.json', 'utf8'));
+const triRoots = data.roots.filter((r: any) => !r.quad);
+const quadRoots = data.roots.filter((r: any) => r.quad);
+const topRoots = triRoots.slice(0, 18);
+
+const LETTER_ORDER = [...'ءبتثجحخدذرزسشصضطظعغفقكلمنهوي'];
+const byLetter = LETTER_ORDER.map(letter => ({
+  letter,
+  roots: triRoots
+    .filter((r: any) => r.root.startsWith(letter))
+    .sort((a: any, b: any) => a.root.localeCompare(b.root, 'ar')),
+})).filter(g => g.roots.length > 0);
+
+const FORMS = [
+  { n: 1,  past: 'فَعَلَ',       present: 'يَفْعَلُ',      shift: 'basic action' },
+  { n: 2,  past: 'فَعَّلَ',      present: 'يُفَعِّلُ',     shift: 'intensify, cause' },
+  { n: 3,  past: 'فَاعَلَ',      present: 'يُفَاعِلُ',     shift: 'do with or toward someone' },
+  { n: 4,  past: 'أَفْعَلَ',     present: 'يُفْعِلُ',      shift: 'cause something' },
+  { n: 5,  past: 'تَفَعَّلَ',     present: 'يَتَفَعَّلُ',    shift: 'reflexive of II' },
+  { n: 6,  past: 'تَفَاعَلَ',     present: 'يَتَفَاعَلُ',    shift: 'mutual, gradual' },
+  { n: 7,  past: 'اِنْفَعَلَ',    present: 'يَنْفَعِلُ',     shift: 'passive result' },
+  { n: 8,  past: 'اِفْتَعَلَ',    present: 'يَفْتَعِلُ',     shift: 'do for oneself' },
+  { n: 9,  past: 'اِفْعَلَّ',     present: 'يَفْعَلُّ',      shift: 'colors and defects' },
+  { n: 10, past: 'اِسْتَفْعَلَ',  present: 'يَسْتَفْعِلُ',   shift: 'seek, request' },
+];
+const ROMAN = ['I','II','III','IV','V','VI','VII','VIII','IX','X','XI','XII'];
+---
+
+<BaseLayout
+  title="Verb Form Generator"
+  description={`Explore all ${data.meta.roots} verbal roots of the Quran across the ten Arabic verb forms: real attested verbs with meanings, occurrence counts, and verse references.`}
+>
+  <Container size="md" class="vf-container">
+    <header class="vf-header">
+      <h1 class="vf-title">Verb Form Generator</h1>
+      <p class="vf-intro">
+        Pick any of the <strong>{data.meta.roots} verbal roots</strong> used in the
+        Quran and watch it move through the ten verb forms. Every word shown is a
+        real Quranic verb; greyed forms are not used in the Quran for that root.
+      </p>
+    </header>
+
+    <div class="vf-search-wrap">
+      <label class="sr-only" for="vf-search">Search roots by Arabic, transliteration, or meaning</label>
+      <input id="vf-search" class="vf-search" type="search" autocomplete="off"
+        spellcheck="false"
+        placeholder="Search: نزل · nzl · send down" />
+      <div id="vf-suggestions" class="vf-suggestions" role="listbox" aria-label="Matching roots" hidden></div>
+    </div>
+
+    <div class="vf-chips" aria-label="Most frequent roots">
+      {topRoots.map((r: any) => (
+        <button class="vf-chip" data-root={r.root}>
+          <span lang="ar" dir="rtl">{[...r.root].join(' · ')}</span>
+          <span class="vf-chip-count">{r.totalCount}×</span>
+        </button>
+      ))}
+    </div>
+
+    <section id="vf-result" class="vf-result" aria-live="polite" hidden></section>
+
+    <section class="vf-index">
+      <h2 class="vf-index-title">All roots by first letter</h2>
+      {byLetter.map(group => (
+        <details class="vf-letter">
+          <summary>
+            <span lang="ar" dir="rtl" class="vf-letter-ar">{group.letter}</span>
+            <span class="vf-letter-count">{group.roots.length} roots</span>
+          </summary>
+          <div class="vf-letter-roots">
+            {group.roots.map((r: any) => (
+              <button class="vf-root-link" data-root={r.root} lang="ar" dir="rtl">
+                {[...r.root].join('·')}
+              </button>
+            ))}
+          </div>
+        </details>
+      ))}
+      {quadRoots.length > 0 && (
+        <details class="vf-letter">
+          <summary>
+            <span class="vf-letter-ar" lang="ar" dir="rtl">رباعي</span>
+            <span class="vf-letter-count">four-letter roots · {quadRoots.length}</span>
+          </summary>
+          <div class="vf-letter-roots">
+            {quadRoots.map((r: any) => (
+              <button class="vf-root-link" data-root={r.root} lang="ar" dir="rtl">
+                {[...r.root].join('·')}
+              </button>
+            ))}
+          </div>
+        </details>
+      )}
+    </section>
+
+    <footer class="vf-attribution">
+      Morphological data: <a href="https://corpus.quran.com" rel="noopener">Quranic
+      Arabic Corpus</a> (Kais Dukes, GNU GPL). English glosses © Quranic Grammar.
+    </footer>
+  </Container>
+</BaseLayout>
+
+<script id="vf-forms-meta" type="application/json" set:html={JSON.stringify({ FORMS, ROMAN })} />
+
+<script>
+  const { FORMS, ROMAN } = JSON.parse(
+    document.getElementById('vf-forms-meta')?.textContent || '{}');
+
+  // All dynamic rendering builds real DOM nodes; dataset strings only ever
+  // land in textContent or attribute values. No HTML strings anywhere.
+  type Kid = Node | string | null | undefined;
+  function h(tag: string, attrs: Record<string, string> = {}, ...kids: Kid[]): HTMLElement {
+    const node = document.createElement(tag);
+    for (const [k, v] of Object.entries(attrs)) node.setAttribute(k, v);
+    for (const kid of kids) {
+      if (kid === null || kid === undefined) continue;
+      node.append(typeof kid === 'string' ? document.createTextNode(kid) : kid);
+    }
+    return node;
+  }
+
+  const resultEl = document.getElementById('vf-result')!;
+  let DATA: any = null;
+  let loading: Promise<any> | null = null;
+  function loadData() {
+    if (DATA) return Promise.resolve(DATA);
+    loading ??= fetch('/data/verb-forms.json')
+      .then(res => { if (!res.ok) throw new Error(String(res.status)); return res.json(); })
+      .then(json => (DATA = json))
+      .catch(err => {
+        loading = null;
+        resultEl.replaceChildren(h('p', { class: 'vf-load-error' },
+          'The verb data could not be loaded. Check your connection and try again.'));
+        resultEl.hidden = false;
+        throw err;
+      });
+    return loading;
+  }
+
+  const AR_DIACRITICS = /[ً-ْٰ]/g;
+  const normalizeAr = (s: string) =>
+    s.replace(AR_DIACRITICS, '').replace(/[أإآٱؤئ]/g, 'ء').replace(/[·\s\-]/g, '');
+  const normalizeLatin = (s: string) => s.toLowerCase().replace(/[\s\-'ʼ’]/g, '');
+
+  function findMatches(q: string, roots: any[]) {
+    const isArabic = /[؀-ۿ]/.test(q);
+    if (isArabic) {
+      const nq = normalizeAr(q);
+      return roots.filter(r => normalizeAr(r.root).includes(nq));
+    }
+    const nq = normalizeLatin(q);
+    const ql = q.toLowerCase();
+    return roots.filter(r =>
+      normalizeLatin(r.translit).includes(nq) ||
+      Object.values(r.forms).some((list: any) => list.some((e: any) =>
+        (e.meaning ?? '').toLowerCase().includes(ql) ||
+        normalizeLatin(e.translit).includes(nq))));
+  }
+
+  function entryNode(e: any): HTMLElement {
+    const pair = e.present ? `${e.past} / ${e.present}` : String(e.past);
+    const exampleHref = `https://quran.com/${encodeURIComponent(String(e.example).replace(':', '/'))}`;
+    return h('div', { class: 'vf-entry' },
+      h('p', { class: 'vf-verb', lang: 'ar', dir: 'rtl' }, pair),
+      h('p', { class: 'vf-translit' }, String(e.translit ?? '')),
+      e.meaning === null
+        ? h('p', { class: 'vf-meaning' }, h('em', {}, 'meaning coming soon'))
+        : h('p', { class: 'vf-meaning' }, String(e.meaning)),
+      h('p', { class: 'vf-meta-line' },
+        h('span', { class: 'vf-count' }, `${Number(e.count)}× in the Quran`),
+        h('a', { class: 'vf-example', href: exampleHref, target: '_blank', rel: 'noopener' },
+          `e.g. ${e.example}`)));
+  }
+
+  function rowNode(i: number, cls: string, head: Kid[], body: Kid[]): HTMLElement {
+    const row = h('li', { class: `vf-row ${cls}`, style: `--i:${i}` },
+      h('div', { class: 'vf-row-head' }, ...head));
+    if (body.length) row.append(h('div', { class: 'vf-row-body' }, ...body));
+    return row;
+  }
+
+  function renderRoot(root: any) {
+    const formKeys = Object.keys(root.forms);
+    const formsUsed = formKeys.filter(f => Number(f) <= 10).length;
+    const rareKeys = formKeys.filter(f => Number(f) > 10).sort();
+    const rows: HTMLElement[] = [];
+    let i = 0;
+
+    if (root.quad) {
+      for (const [f, list] of Object.entries<any>(root.forms)) {
+        rows.push(rowNode(i++, 'vf-row-attested',
+          [h('span', { class: 'vf-badge vf-badge-gold' }, `Q${f}`)],
+          list.map(entryNode)));
+      }
+    } else {
+      for (const fm of FORMS) {
+        const list = root.forms[String(fm.n)];
+        if (!list) {
+          const row = rowNode(i++, 'vf-row-empty',
+            [h('span', { class: 'vf-badge' }, ROMAN[fm.n - 1]),
+             h('span', { class: 'vf-pattern', lang: 'ar', dir: 'rtl' }, `${fm.past} / ${fm.present}`)],
+            []);
+          row.append(h('p', { class: 'vf-empty-note' }, 'not used in the Quran for this root'));
+          rows.push(row);
+        } else {
+          rows.push(rowNode(i++, 'vf-row-attested',
+            [h('span', { class: 'vf-badge vf-badge-gold' }, ROMAN[fm.n - 1]),
+             h('span', { class: 'vf-pattern', lang: 'ar', dir: 'rtl' }, fm.past),
+             h('span', { class: 'vf-shift' }, fm.shift)],
+            list.map(entryNode)));
+        }
+      }
+      for (const f of rareKeys) {
+        rows.push(rowNode(i++, 'vf-row-attested',
+          [h('span', { class: 'vf-badge vf-badge-gold' }, ROMAN[Number(f) - 1] ?? f),
+           h('span', { class: 'vf-shift' }, 'rare form, beyond the classical ten')],
+          (root.forms[f] as any[]).map(entryNode)));
+      }
+    }
+
+    resultEl.replaceChildren(
+      h('div', { class: 'vf-root-header' },
+        h('p', { class: 'vf-root-letters', lang: 'ar', dir: 'rtl' }, [...root.root].join(' · ')),
+        h('p', { class: 'vf-root-stats' },
+          `${root.translit} · ${root.quad ? 'four-letter root' : `${formsUsed} of 10 forms`} · ${Number(root.totalCount)}× in the Quran`)),
+      h('ol', { class: 'vf-grid' }, ...rows));
+    resultEl.hidden = false;
+    history.replaceState(null, '', `#root=${encodeURIComponent(root.root)}`);
+    resultEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  async function selectRoot(rootStr: string) {
+    const data = await loadData().catch(() => null);
+    if (!data) return;
+    const root = data.roots.find((r: any) => r.root === rootStr);
+    if (root) renderRoot(root);
+  }
+
+  document.addEventListener('click', (ev) => {
+    const btn = (ev.target as HTMLElement).closest('[data-root]') as HTMLElement | null;
+    if (btn) selectRoot(btn.dataset.root!);
+  });
+
+  const searchEl = document.getElementById('vf-search') as HTMLInputElement;
+  const sugEl = document.getElementById('vf-suggestions')!;
+  searchEl?.addEventListener('input', async () => {
+    const q = searchEl.value.trim();
+    if (q.length < 2) { sugEl.hidden = true; return; }
+    const data = await loadData().catch(() => null);
+    if (!data) return;
+    const matches = findMatches(q, data.roots).slice(0, 12);
+    sugEl.replaceChildren(...(matches.length
+      ? matches.map((r: any) =>
+          h('button', { class: 'vf-sug', role: 'option', 'data-root': r.root },
+            h('span', { lang: 'ar', dir: 'rtl' }, [...r.root].join(' · ')),
+            h('span', { class: 'vf-sug-tl' }, String(r.translit)),
+            h('span', { class: 'vf-sug-count' }, `${Number(r.totalCount)}×`)))
+      : [h('p', { class: 'vf-sug-none' }, 'no roots match; try ktb, نصر, or a meaning like guide')]));
+    sugEl.hidden = false;
+  });
+  searchEl?.addEventListener('keydown', (ev) => {
+    if (ev.key === 'Enter') (sugEl.querySelector('[data-root]') as HTMLElement | null)?.click();
+    if (ev.key === 'Escape') sugEl.hidden = true;
+  });
+  document.addEventListener('click', (ev) => {
+    if (!(ev.target as HTMLElement).closest('.vf-search-wrap')) sugEl.hidden = true;
+  });
+
+  const hash = new URLSearchParams(location.hash.slice(1));
+  const initialRoot = hash.get('root');
+  if (initialRoot) selectRoot(initialRoot);
+</script>
+
+<style>
+  .vf-container { padding-block: var(--spacing-2xl) var(--spacing-3xl); }
+  .vf-header { text-align: center; margin-block-end: var(--spacing-2xl); }
+  .vf-title { font-size: 2.25rem; font-weight: 700; color: var(--color-text-primary);
+    letter-spacing: -0.02em; margin-block-end: var(--spacing-md); }
+  .vf-intro { font-size: 1.125rem; line-height: 1.6; color: var(--color-text-secondary);
+    max-inline-size: 620px; margin-inline: auto; }
+
+  .vf-search-wrap { position: relative; max-inline-size: 480px; margin-inline: auto; }
+  .vf-search { inline-size: 100%; padding: var(--spacing-sm) var(--spacing-md);
+    font-size: 1.125rem; font-family: inherit;
+    background: var(--color-background-secondary);
+    border: 1px solid var(--color-border-primary); border-radius: var(--radius-md);
+    color: var(--color-text-primary);
+    transition: border-color 160ms var(--vf-ease); }
+  .vf-search:focus { outline: 2px solid var(--color-border-focus); outline-offset: 1px; }
+  .vf-suggestions { position: absolute; inset-inline: 0; top: calc(100% + 4px);
+    background: var(--color-background-elevated);
+    border: 1px solid var(--color-border-primary); border-radius: var(--radius-md);
+    box-shadow: 0 8px 24px rgb(0 0 0 / 0.14); z-index: 20; overflow: hidden; }
+  .vf-sug { display: flex; align-items: center; gap: var(--spacing-sm);
+    inline-size: 100%; padding: var(--spacing-sm) var(--spacing-md);
+    background: none; border: 0; cursor: pointer; font-family: inherit;
+    color: var(--color-text-primary); font-size: 1rem; text-align: start; }
+  .vf-sug:focus-visible { outline: 2px solid var(--color-border-focus); outline-offset: -2px; }
+  .vf-sug [lang="ar"] { font-family: var(--font-arabic); font-size: 1.25rem; }
+  .vf-sug-tl { color: var(--color-text-secondary); }
+  .vf-sug-count { margin-inline-start: auto; color: var(--color-text-tertiary); font-size: 0.85rem; }
+  .vf-sug-none { padding: var(--spacing-sm) var(--spacing-md);
+    color: var(--color-text-tertiary); margin: 0; font-size: 0.95rem; }
+
+  .vf-chips { display: flex; flex-wrap: wrap; gap: var(--spacing-xs);
+    justify-content: center; margin-block: var(--spacing-lg) var(--spacing-2xl); }
+  .vf-chip { display: inline-flex; align-items: baseline; gap: 0.4em;
+    padding: 0.35em 0.8em; background: var(--color-background-secondary);
+    border: 1px solid var(--color-border-primary); border-radius: var(--radius-full);
+    cursor: pointer; color: var(--color-text-primary); font-family: var(--font-arabic);
+    font-size: 1.05rem;
+    transition: border-color 160ms var(--vf-ease), transform 160ms var(--vf-ease); }
+  .vf-chip:active { transform: scale(0.97); }
+  .vf-chip-count { font-family: var(--font-sans); font-size: 0.75rem;
+    color: var(--color-text-tertiary); }
+
+  .vf-result { margin-block-end: var(--spacing-3xl); scroll-margin-top: 90px; }
+  .vf-load-error { text-align: center; color: var(--color-text-secondary);
+    border: 1px solid var(--color-border-primary); border-radius: var(--radius-md);
+    padding: var(--spacing-lg); }
+  .vf-root-header { text-align: center; margin-block: var(--spacing-xl); }
+  .vf-root-letters { font-family: var(--font-arabic); font-size: 2.5rem; line-height: 1.4;
+    color: var(--color-text-primary); margin: 0 0 var(--spacing-xs); }
+  .vf-root-stats { color: var(--color-text-secondary); margin: 0; }
+
+  .vf-grid { list-style: none; margin: 0; padding: 0;
+    border: 1px solid var(--color-border-primary); border-radius: var(--radius-lg);
+    overflow: hidden; }
+  .vf-row { padding: var(--spacing-md); }
+  .vf-row + .vf-row { border-block-start: 1px solid var(--color-border-secondary); }
+  .vf-row-attested { background: var(--color-background-secondary); }
+  .vf-row-empty { opacity: 0.55; }
+  .vf-row-head { display: flex; align-items: center; gap: var(--spacing-sm); flex-wrap: wrap; }
+  .vf-badge { display: inline-grid; place-items: center; min-inline-size: 2.4em;
+    padding: 0.15em 0.5em; border-radius: var(--radius-sm); font-size: 0.85rem;
+    font-weight: 700; letter-spacing: 0.06em;
+    background: var(--color-background-tertiary); color: var(--color-text-secondary); }
+  .vf-badge-gold { background: color-mix(in oklab, var(--accent-gold) 16%, transparent);
+    color: var(--accent-gold); }
+  .vf-pattern { font-family: var(--font-arabic); font-size: 1.15rem;
+    color: var(--color-text-tertiary); }
+  .vf-shift { margin-inline-start: auto; font-size: 0.85rem;
+    color: var(--color-text-tertiary); font-style: italic; }
+  .vf-empty-note { margin: var(--spacing-xs) 0 0; font-size: 0.9rem;
+    color: var(--color-text-tertiary); }
+
+  .vf-entry { margin-block-start: var(--spacing-sm); }
+  .vf-entry + .vf-entry { border-block-start: 1px dashed var(--color-border-secondary);
+    padding-block-start: var(--spacing-sm); }
+  .vf-verb { font-family: var(--font-arabic); font-size: 1.9rem; line-height: 1.9;
+    color: var(--color-text-primary); margin: 0; }
+  .vf-translit { color: var(--color-text-secondary); font-style: italic;
+    margin: 0 0 var(--spacing-xs); }
+  .vf-meaning { color: var(--color-text-primary); font-size: 1.05rem; margin: 0; }
+  .vf-meta-line { display: flex; gap: var(--spacing-md); align-items: baseline;
+    margin: var(--spacing-xs) 0 0; font-size: 0.85rem; }
+  .vf-count { color: var(--color-text-tertiary); }
+  .vf-example { color: var(--accent-gold); text-decoration: none; }
+
+  .vf-index-title { font-size: 1.35rem; color: var(--color-text-primary);
+    margin-block-end: var(--spacing-md); }
+  .vf-letter { border-block-end: 1px solid var(--color-border-secondary); }
+  .vf-letter summary { display: flex; align-items: baseline; gap: var(--spacing-md);
+    padding: var(--spacing-sm) 0; cursor: pointer; list-style: none; }
+  .vf-letter summary::-webkit-details-marker { display: none; }
+  .vf-letter-ar { font-family: var(--font-arabic); font-size: 1.5rem;
+    color: var(--color-text-primary); }
+  .vf-letter-count { color: var(--color-text-tertiary); font-size: 0.9rem; }
+  .vf-letter-roots { display: flex; flex-wrap: wrap; gap: var(--spacing-xs);
+    padding-block: 0 var(--spacing-md); }
+  .vf-root-link { font-family: var(--font-arabic); font-size: 1.1rem; cursor: pointer;
+    background: none; border: 1px solid transparent; border-radius: var(--radius-sm);
+    padding: 0.15em 0.45em; color: var(--color-text-secondary);
+    transition: color 160ms var(--vf-ease), border-color 160ms var(--vf-ease),
+      transform 160ms var(--vf-ease); }
+  .vf-root-link:active { transform: scale(0.97); }
+
+  .vf-attribution { margin-block-start: var(--spacing-3xl); text-align: center;
+    font-size: 0.85rem; color: var(--color-text-tertiary); }
+  .vf-attribution a { color: inherit; }
+
+  .sr-only { position: absolute; inline-size: 1px; block-size: 1px; overflow: hidden;
+    clip-path: inset(50%); white-space: nowrap; }
+
+  :root { --vf-ease: cubic-bezier(0.23, 1, 0.32, 1); }
+
+  @media (hover: hover) and (pointer: fine) {
+    .vf-chip:hover { border-color: var(--accent-gold);
+      background: var(--color-background-tertiary); }
+    .vf-sug:hover { background: var(--color-background-tertiary); }
+    .vf-root-link:hover { color: var(--color-text-primary);
+      border-color: var(--color-border-primary); }
+    .vf-example:hover { text-decoration: underline; }
+  }
+
+  /* Row reveal: quick 35ms cascade, transform+opacity only */
+  .vf-row { animation: vf-row-in 260ms var(--vf-ease) both;
+    animation-delay: calc(var(--i, 0) * 35ms); }
+  @keyframes vf-row-in {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: none; }
+  }
+  .vf-row-empty { animation-name: vf-row-in-dim; }
+  @keyframes vf-row-in-dim {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 0.55; transform: none; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .vf-row { animation-duration: 1ms; animation-delay: 0ms; }
+    .vf-chip:active, .vf-root-link:active { transform: none; }
+  }
+
+  @media (max-width: 640px) {
+    .vf-title { font-size: 1.85rem; }
+    .vf-shift { margin-inline-start: 0; inline-size: 100%; }
+    .vf-verb { font-size: 1.6rem; }
+  }
+</style>

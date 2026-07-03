@@ -67,6 +67,20 @@ const resourceIcons = {
     </header>
 
     <CardGrid minCardWidth={320} gap="md">
+      <ResourceCard
+        title="Verb Form Generator"
+        description="Pick any Quranic root and watch it move through the ten verb forms: real attested verbs with meanings, counts, and verse references."
+        href="/resources/verb-forms/"
+        data-testid="resource-verb-forms"
+      >
+        <Fragment slot="icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 3v18" stroke-linecap="round"/>
+            <path d="M5 8c2.5-3 4.5-3 7 0s4.5 3 7 0" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M5 16c2.5-3 4.5-3 7 0s4.5 3 7 0" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </Fragment>
+      </ResourceCard>
       {sorted.map(resource => (
         <ResourceCard
           title={resource.data.title}
