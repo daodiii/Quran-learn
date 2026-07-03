@@ -160,16 +160,18 @@ function merge() {
       }),
     ])),
   }));
+  const entryCount = roots.reduce(
+    (n: number, r: any) => n + Object.values(r.forms).reduce((m: number, l: any) => m + l.length, 0), 0);
   mkdirSync('public/data', { recursive: true });
   writeFileSync(PUBLIC_JSON, JSON.stringify({
     meta: {
       roots: roots.length,
-      entries: skeleton.meta.entries,
+      entries: entryCount,
       source: 'Quranic Arabic Corpus v0.4 (Kais Dukes, GPL) — corpus.quran.com',
     },
     roots,
   }));
-  console.log(`merged ${roots.length} roots, ${skeleton.meta.entries} entries, ${missing} missing glosses → ${PUBLIC_JSON}`);
+  console.log(`merged ${roots.length} roots, ${entryCount} entries, ${missing} missing glosses → ${PUBLIC_JSON}`);
 }
 
 const cmd = process.argv[2];
