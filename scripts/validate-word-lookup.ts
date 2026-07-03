@@ -32,6 +32,11 @@ for (const w of words) {
   }
 }
 
+// 1b. Count conservation: every corpus stem is packed into exactly one analysis count.
+const totalStems = words.reduce((n, w) => n + w.stems.length, 0);
+const sumCount = Object.values<any[]>(INDEX.words).flat().reduce((n, a) => n + a[10], 0);
+if (sumCount !== totalStems) fail(`count drift: sum=${sumCount} vs corpus stems=${totalStems}`);
+
 // 2. Spot checks (spec).
 const q = (s: string) => {
   const k = normalizeArabic(s);
@@ -53,9 +58,29 @@ for (const list of Object.values<any[]>(INDEX.words)) {
   }
 }
 
+// 3b. Packed-shape integrity: the page reads columns positionally and would
+// render undefined/NaN silently if a column ever shifts.
+const refRe = /^\d+:\d+$/;
+for (const list of Object.values<any[]>(INDEX.words)) {
+  for (const a of list) {
+    if (a.length !== 12) { fail(`bad arity ${a.length}: ${a[0]}`); continue; }
+    const [s, t, rt, lem, pos, form, feat, pre, suf, gl, cnt, refs] = a;
+    if (typeof s !== 'string' || typeof t !== 'string' || !(rt === null || typeof rt === 'string')
+      || typeof lem !== 'string' || typeof pos !== 'string' || typeof form !== 'number'
+      || typeof feat !== 'string' || !Array.isArray(pre) || !Array.isArray(suf)
+      || !(gl === null || typeof gl === 'string') || !(Number.isInteger(cnt) && cnt >= 1)
+      || !Array.isArray(refs) || refs.length === 0 || refs.length > 3
+      || refs.some((r: any) => !refRe.test(r))) fail(`shape: ${s}`);
+    if (/[ -]/.test(s + t + feat + pre.join('') + suf.join(''))) fail(`control char: ${s}`);
+  }
+}
+
 // 4. Size guard.
 const gz = gzipSync(JSON.stringify(INDEX)).length;
 if (gz > 800 * 1024) fail(`gzip ${gz} over budget`);
+
+if (INDEX.meta.words !== Object.keys(INDEX.words).length
+ || INDEX.meta.analyses !== Object.values<any[]>(INDEX.words).flat().length) fail('meta counts stale');
 
 const glossless = Object.values<any[]>(INDEX.words).flat()
   .filter((a: any[]) => a[4] === 'V' && a[9] === null);
