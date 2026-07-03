@@ -1,0 +1,119 @@
+// scripts/lib/word-index.ts
+// Aggregates word occurrences into the packed lookup index (spec: Output contract).
+import { FORM_OVERRIDES } from './form-overrides.ts';
+import { bwToArabic } from './buckwalter.ts';
+import { bwToArabicSurface, bwToTranslitSurface } from './bw-surface.ts';
+import { normalizeArabic, deriveAltKeys } from '../../src/lib/arabic-normalize.ts';
+import type { WordOccurrence, WordStem } from './group-words.ts';
+
+export type PackedAnalysis = [
+  string, string, string | null, string, string, number, string,
+  string[], string[], string | null, number, string[],
+];
+export interface LookupIndex {
+  meta: { source: string; words: number; analyses: number; version: number };
+  words: Record<string, PackedAnalysis[]>;
+  altKeys: Record<string, string>;
+}
+
+// Corpus ROOT: fields write hamza as A (same quirk handled in build-verb-dataset.ts —
+// duplicated here rather than refactoring a shipped pipeline).
+function rootToArabic(rootBw: string): string {
+  return [...rootBw].map(c => (c === 'A' ? 'ء' : bwToArabicSurface(c))).join('');
+}
+
+// Gloss join (build-time, one source of truth = public/data/verb-forms.json):
+//   root|form            → meaning, only when that form has exactly one entry
+//   root|form|past       → meaning, disambiguates the 7 lemma-merged forms
+export function buildGlossMap(verbForms: { roots: any[] }): Map<string, string> {
+  const map = new Map<string, string>();
+  for (const r of verbForms.roots) {
+    for (const [form, list] of Object.entries<any>(r.forms)) {
+      if (list.length === 1 && list[0].meaning) map.set(`${r.root}|${form}`, list[0].meaning);
+      for (const e of list) if (e.meaning) map.set(`${r.root}|${form}|${e.past}`, e.meaning);
+    }
+  }
+  return map;
+}
+
+interface Acc {
+  surfaceAr: string; translit: string; root: string | null; lemma: string;
+  pos: string; form: number; feat: string; prefixes: string[]; suffixes: string[];
+  gloss: string | null; count: number; refs: string[];
+}
+
+export function buildIndex(words: WordOccurrence[], verbForms: { roots: any[] }): LookupIndex {
+  const glosses = buildGlossMap(verbForms);
+  const acc = new Map<string, Acc>();
+  const surfaceOfKey = new Map<string, string>(); // canonical key → one vocalized surface
+
+  for (const w of words) {
+    const surfaceAr = bwToArabicSurface(w.surfaceBw);
+    const prefixes = w.prefixes.map(p => `${bwToArabicSurface(p.formBw)}|${p.feature}`);
+    const suffixes = w.suffixes.map(s => `${bwToArabicSurface(s.formBw)}|${s.feature}`);
+    for (const stem of w.stems) {
+      const a = analysisFieldsForStem(stem, glosses);
+      const id = [surfaceAr, a.lemma, a.root ?? '', a.pos, a.form, a.feat,
+                  prefixes.join(','), suffixes.join(',')].join('');
+      let e = acc.get(id);
+      if (!e) {
+        e = { surfaceAr, translit: bwToTranslitSurface(w.surfaceBw), ...a,
+              prefixes, suffixes, count: 0, refs: [] };
+        acc.set(id, e);
+      }
+      e.count++;
+      if (e.refs.length < 3 && !e.refs.includes(w.location)) e.refs.push(w.location);
+    }
+    const key = normalizeArabic(surfaceAr);
+    if (!surfaceOfKey.has(key)) surfaceOfKey.set(key, surfaceAr);
+  }
+
+  const out: Record<string, PackedAnalysis[]> = {};
+  for (const e of acc.values()) {
+    const key = normalizeArabic(e.surfaceAr);
+    (out[key] ??= []).push([e.surfaceAr, e.translit, e.root, e.lemma, e.pos,
+      e.form, e.feat, e.prefixes, e.suffixes, e.gloss, e.count, e.refs]);
+  }
+  for (const list of Object.values(out)) list.sort((x, y) => y[10] - x[10]);
+
+  // Alternate spellings: derived per vocalized surface; a real word always wins
+  // over an alternate; among alternates the higher-frequency canonical wins.
+  const totals = new Map(Object.entries(out).map(([k, l]) =>
+    [k, l.reduce((n, a) => n + a[10], 0)]));
+  const altKeys: Record<string, string> = {};
+  for (const [key, list] of Object.entries(out)) {
+    for (const a of list) {
+      for (const alt of deriveAltKeys(a[0])) {
+        if (out[alt]) continue;
+        const prev = altKeys[alt];
+        if (!prev || (totals.get(key) ?? 0) > (totals.get(prev) ?? 0)) altKeys[alt] = key;
+      }
+    }
+  }
+
+  return {
+    meta: {
+      source: 'Quranic Arabic Corpus v0.4 (Kais Dukes, GPL) — corpus.quran.com',
+      words: Object.keys(out).length,
+      analyses: Object.values(out).reduce((n, l) => n + l.length, 0),
+      version: 1,
+    },
+    words: out,
+    altKeys,
+  };
+}
+
+export function analysisFieldsForStem(
+  stem: WordStem, glosses: Map<string, string>,
+): { root: string | null; lemma: string; pos: string; form: number; feat: string; gloss: string | null } {
+  const isVerb = stem.pos === 'V';
+  const ov = isVerb ? FORM_OVERRIDES[`${stem.rootBw}|${stem.formNo}|${stem.lemmaBw}`] : undefined;
+  const form = isVerb ? (ov?.form ?? stem.formNo) : 0;
+  const lemmaBw = ov?.mergeInto ?? stem.lemmaBw;
+  const root = stem.rootBw ? rootToArabic(stem.rootBw) : null;
+  const lemma = lemmaBw ? bwToArabic(lemmaBw) : '';
+  const gloss = isVerb && root
+    ? glosses.get(`${root}|${form}|${lemma}`) ?? glosses.get(`${root}|${form}`) ?? null
+    : null;
+  return { root, lemma, pos: stem.pos, form, feat: stem.featureTokens.join('|'), gloss };
+}
