@@ -112,3 +112,11 @@ test('groupWords: out-of-order rows throw instead of silently splitting a word',
     '(1:1:1:2)\tsomi\tN\tSTEM|POS:N|LEM:{som|ROOT:smw|M|GEN');
   assert.throws(() => groupWords(rows), /out of order/);
 });
+
+test('parseCorpusRows: CRLF line endings do not pollute the last feature token', () => {
+  const rows = parseCorpusRows(
+    '(2:4:4:1)\t>unzila\tV\tSTEM|POS:V|PERF|PASS|(IV)|LEM:>anzala|ROOT:nzl|3MS\r\n' +
+    '(1:1:1:1)\tbi\tP\tPREFIX|bi+\r\n');
+  assert.equal(rows[0].features.at(-1), '3MS');
+  assert.equal(rows[1].features.at(-1), 'bi+');
+});

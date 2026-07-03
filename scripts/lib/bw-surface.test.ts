@@ -40,3 +40,7 @@ test('translit: orthographic gemination not tripled (Allah)', () => {
 test('translit: medial wasla silent in liaison', () => {
   assert.equal(bwToTranslitSurface('bi{logayobi'), 'bilghaybi');
 });
+
+test('surface: embedded space preserved (Ilyas, 37:130)', () => {
+  assert.equal(bwToArabicSurface('<ilo yaAsiyna'), 'إِلْ يَاسِينَ');
+});

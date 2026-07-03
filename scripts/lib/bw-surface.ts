@@ -12,6 +12,7 @@ const BW_SURFACE: Record<string, string> = {
   m: 'م', n: 'ن', h: 'ه', w: 'و', y: 'ي', Y: 'ى', '{': 'ٱ',
   '`': 'ٰ', F: 'ً', N: 'ٌ', K: 'ٍ', a: 'َ', u: 'ُ', i: 'ِ',
   '~': 'ّ', o: 'ْ', '_': 'ـ',
+  ' ': ' ', // 37:130 إِلْ يَاسِينَ — the one corpus FORM with an embedded space
   // Tanzil extended Buckwalter — Uthmani annotation marks:
   '^': 'ٓ', // maddah above
   '#': 'ٔ', // hamza above

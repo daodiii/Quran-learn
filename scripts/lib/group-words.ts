@@ -30,7 +30,7 @@ const ROMAN: Record<string, number> = {
 
 export function parseCorpusRows(text: string): CorpusRow[] {
   const rows: CorpusRow[] = [];
-  for (const line of text.split('\n')) {
+  for (const line of text.split(/\r?\n/)) {
     if (!line || line.startsWith('#') || line.startsWith('LOCATION')) continue;
     const cols = line.split('\t');
     if (cols.length < 4) continue;

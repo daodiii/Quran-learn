@@ -22,13 +22,17 @@ function rootToArabic(rootBw: string): string {
   return [...rootBw].map(c => (c === 'A' ? 'ء' : bwToArabicSurface(c))).join('');
 }
 
+export interface VerbFormsData {
+  roots: { root: string; forms: Record<string, { past: string; meaning: string | null }[]> }[];
+}
+
 // Gloss join (build-time, one source of truth = public/data/verb-forms.json):
 //   root|form            → meaning, only when that form has exactly one entry
 //   root|form|past       → meaning, disambiguates the 7 lemma-merged forms
-export function buildGlossMap(verbForms: { roots: any[] }): Map<string, string> {
+export function buildGlossMap(verbForms: VerbFormsData): Map<string, string> {
   const map = new Map<string, string>();
   for (const r of verbForms.roots) {
-    for (const [form, list] of Object.entries<any>(r.forms)) {
+    for (const [form, list] of Object.entries(r.forms)) {
       if (list.length === 1 && list[0].meaning) map.set(`${r.root}|${form}`, list[0].meaning);
       for (const e of list) if (e.meaning) map.set(`${r.root}|${form}|${e.past}`, e.meaning);
     }
@@ -42,10 +46,9 @@ interface Acc {
   gloss: string | null; count: number; refs: string[];
 }
 
-export function buildIndex(words: WordOccurrence[], verbForms: { roots: any[] }): LookupIndex {
+export function buildIndex(words: WordOccurrence[], verbForms: VerbFormsData): LookupIndex {
   const glosses = buildGlossMap(verbForms);
   const acc = new Map<string, Acc>();
-  const surfaceOfKey = new Map<string, string>(); // canonical key → one vocalized surface
 
   for (const w of words) {
     const surfaceAr = bwToArabicSurface(w.surfaceBw);
@@ -65,8 +68,6 @@ export function buildIndex(words: WordOccurrence[], verbForms: { roots: any[] })
       e.count++;
       if (e.refs.length < 3 && !e.refs.includes(w.location)) e.refs.push(w.location);
     }
-    const key = normalizeArabic(surfaceAr);
-    if (!surfaceOfKey.has(key)) surfaceOfKey.set(key, surfaceAr);
   }
 
   const out: Record<string, PackedAnalysis[]> = {};
@@ -87,7 +88,11 @@ export function buildIndex(words: WordOccurrence[], verbForms: { roots: any[] })
       for (const alt of deriveAltKeys(a[0])) {
         if (out[alt]) continue;
         const prev = altKeys[alt];
-        if (!prev || (totals.get(key) ?? 0) > (totals.get(prev) ?? 0)) altKeys[alt] = key;
+        const tk = totals.get(key) ?? 0;
+        const tp = prev ? totals.get(prev) ?? 0 : -1;
+        // frequency wins; on ties the lexicographically smaller key, so the
+        // choice is stable under any future re-ordering of the corpus walk
+        if (!prev || tk > tp || (tk === tp && key < prev)) altKeys[alt] = key;
       }
     }
   }
