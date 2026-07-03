@@ -57,3 +57,10 @@ test('deriveAltKeys: no alternates when spelling is already modern', () => {
   assert.deepEqual(deriveAltKeys('يُؤْمِنُونَ'), []);
   assert.deepEqual(deriveAltKeys('عَلَىٰ'), []); // alif-maqsura dagger is NOT a spelling gap
 });
+test('foldLatin: plain ascii passes through unchanged (idempotent)', () => {
+  assert.equal(foldLatin('malik'), 'malik');
+  assert.equal(foldLatin(foldLatin('yunzilūna')), 'yunziluna');
+});
+test('deriveAltKeys: quran case pins the exact alternate set', () => {
+  assert.deepEqual(deriveAltKeys('قُرْءَٰن').sort(), ['قرءان', 'قران'].sort());
+});

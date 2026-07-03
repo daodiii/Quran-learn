@@ -31,10 +31,13 @@ const LATIN_FOLD: Record<string, string> = {
 }
 
 export function foldLatin(input: string): string {
+  // Orphan combining diacritics from exotic pastes (e.g. h + U+0331) survive NFC;
+  // drop them so folds stay ASCII.
   return [...input.normalize('NFC').toLowerCase()]
     .map(c => LATIN_FOLD[c] ?? c)
     .join('')
-    .replace(/[\s\-·.]/g, '');
+    .replace(/[\s\-·.]/g, '')
+    .replace(/[̀-ͯ]/g, '');
 }
 
 // Classical (Uthmani) orthography -> the spelling a modern hand types.
