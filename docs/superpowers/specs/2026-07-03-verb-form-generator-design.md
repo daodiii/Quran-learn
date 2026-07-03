@@ -50,7 +50,7 @@ Two layers merged at build time into one static JSON.
 
 ### Merged output + contract
 
-`scripts/build-verb-dataset.ts merge` emits `src/data/verb-forms.json`:
+`scripts/build-verb-dataset.ts merge` emits `public/data/verb-forms.json` (runtime-fetched static asset, bundled into Capacitor builds). Quadriliteral roots (زلزل، وسوس…) are included flagged `"quad": true` and render as a separate "Four-letter roots" appendix (attested rows only — the I–X frame is triliteral). Shape:
 
 ```jsonc
 {
@@ -61,14 +61,14 @@ Two layers merged at build time into one static JSON.
       "translit": "n-z-l",
       "totalCount": 293,
       "forms": {
-        "4": {
+        "4": [{
           "past": "أَنْزَلَ",      // fully vocalized, attested lemma
           "present": "يُنْزِلُ",   // fully vocalized
           "translit": "anzala / yunzilu",
           "meaning": "to send down, reveal",
           "count": 190,
-          "example": "2:23"      // surah:ayah of a representative occurrence
-        }
+          "example": "2:23"      // surah:ayah of first occurrence
+        }]                       // array: rare (root, form) slots hold 2 lemmas
       }
     }
   ]
