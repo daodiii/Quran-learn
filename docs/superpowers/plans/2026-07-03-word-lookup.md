@@ -919,11 +919,12 @@ existing ones until then: `npx tsx --test src/lib/arabic-normalize.test.ts scrip
 - [ ] **Step 3: Run the build**
 
 Run: `npm run lookup:build`
-Expected output shape (numbers must be in these ranges, else stop and investigate):
+Expected output (measured on the completed Task-4 pipeline over the real corpus — the four
+count numbers must match EXACTLY; byte sizes may vary ±1%):
 ```
-words=77429 keys=~14989 analyses=~19400–19600
-altKeys=~500–3000 verbs-without-gloss=~0–40
-raw=~2000–3500KB gzip=~250–550KB
+words=77429 keys=14695 analyses=20414
+altKeys=2163 verbs-without-gloss=<small — report the actual number>
+raw=~2300KB gzip=~250–550KB
 → public/data/word-lookup.json
 ```
 `words` must be EXACTLY 77429. If `bwToArabicSurface` throws on an unmapped char, add that
