@@ -1,0 +1,208 @@
+---
+import { readFileSync } from 'node:fs';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Container from '../../../components/primitives/Container.astro';
+
+// Build-time read for intro copy (SEO); the client fetches the same JSON on demand.
+const meta = JSON.parse(readFileSync('public/data/word-lookup.json', 'utf8')).meta;
+
+// Real Quranic surfaces (verified against the corpus) — never invent examples.
+const EXAMPLES = [
+  { q: 'يُؤْمِنُونَ', note: 'a conjugated verb' },
+  { q: 'ٱلصَّلَوٰةَ', note: 'pasted from a mushaf' },
+  { q: 'أَنزَلْنَٰهُ', note: 'verb + two pronouns' },
+  { q: 'مَٰلِكِ', note: 'try bare ملك too' },
+  { q: 'بِسْمِ', note: 'prefix + noun' },
+  { q: 'الٓمٓ', note: 'the mysterious letters' },
+];
+---
+
+<BaseLayout
+  title="Word Lookup"
+  description={`Type any word of the Quran — Arabic, transliteration, or English meaning — and see its root, part of speech, verb form, grammar, and morpheme breakdown. Covers all ${meta.words.toLocaleString('en-US')} written word forms.`}
+>
+  <Container size="md" class="wl-container">
+    <header class="wl-header">
+      <h1 class="wl-title">Word Lookup</h1>
+      <p class="wl-intro">
+        See a word in the Quran and want to understand it? Paste or type it —
+        with or without vowel marks — or search by sound
+        (<em>yuminuna</em>) or by meaning (<em>believe</em>). Every one of the
+        Quran's <strong>{meta.words.toLocaleString('en-US')} written word forms</strong> is here,
+        analyzed down to its root.
+      </p>
+    </header>
+
+    <div class="wl-search-wrap">
+      <label class="sr-only" for="wl-search">Search any Quranic word by Arabic, sound, or meaning</label>
+      <input id="wl-search" class="wl-search" type="search" name="word-search"
+        autocomplete="off" spellcheck="false" dir="auto"
+        placeholder="يُؤْمِنُونَ · yuminuna · believe…" />
+      <div id="wl-suggestions" class="wl-suggestions" role="listbox"
+        aria-label="Matching words" hidden></div>
+    </div>
+
+    <div class="wl-chips" aria-label="Example words">
+      {EXAMPLES.map(e => (
+        <button class="wl-chip" data-q={e.q}>
+          <span lang="ar" dir="rtl">{e.q}</span>
+          <span class="wl-chip-note">{e.note}</span>
+        </button>
+      ))}
+    </div>
+
+    <section id="wl-result" class="wl-result" aria-live="polite" hidden></section>
+
+    <noscript>
+      <p class="wl-noscript">Word Lookup needs JavaScript to search. The
+        <a href="/resources/verb-forms/">Verb Form Generator</a> and the other
+        <a href="/resources/">reference resources</a> work without it.</p>
+    </noscript>
+
+    <footer class="wl-attribution">
+      Morphological data: <a href="https://corpus.quran.com" rel="noopener">Quranic
+      Arabic Corpus</a> (Kais Dukes, GNU GPL). English glosses © Quranic Grammar.
+    </footer>
+  </Container>
+</BaseLayout>
+
+<style>
+  .wl-container { padding-block: var(--spacing-2xl) var(--spacing-3xl); }
+  .wl-header { text-align: center; margin-block-end: var(--spacing-2xl); }
+  .wl-title { font-size: 2.25rem; font-weight: 700; color: var(--color-text-primary);
+    letter-spacing: -0.02em; margin-block-end: var(--spacing-md); text-wrap: balance; }
+  .wl-intro { font-size: 1.125rem; line-height: 1.6; color: var(--color-text-secondary);
+    max-inline-size: 620px; margin-inline: auto; }
+
+  .wl-search-wrap { position: relative; max-inline-size: 520px; margin-inline: auto; }
+  .wl-search { inline-size: 100%; padding: var(--spacing-sm) var(--spacing-md);
+    font-size: 1.25rem; font-family: inherit;
+    background: var(--color-background-secondary);
+    border: 1px solid var(--color-border-primary); border-radius: var(--radius-md);
+    color: var(--color-text-primary);
+    transition: border-color 160ms var(--wl-ease); }
+  .wl-search:focus { outline: 2px solid var(--color-border-focus); outline-offset: 1px; }
+  .wl-suggestions { position: absolute; inset-inline: 0; top: calc(100% + 4px);
+    background: var(--color-background-elevated);
+    border: 1px solid var(--color-border-primary); border-radius: var(--radius-md);
+    box-shadow: 0 8px 24px rgb(0 0 0 / 0.14); z-index: 20; overflow: hidden; }
+  .wl-sug { display: flex; align-items: center; gap: var(--spacing-sm);
+    inline-size: 100%; padding: var(--spacing-sm) var(--spacing-md);
+    background: none; border: 0; cursor: pointer; font-family: inherit;
+    color: var(--color-text-primary); font-size: 1rem; text-align: start; }
+  .wl-sug:focus-visible { outline: 2px solid var(--color-border-focus); outline-offset: -2px; }
+  .wl-sug [lang="ar"] { font-family: var(--font-arabic); font-size: 1.3rem; }
+  .wl-sug-hint { color: var(--color-text-secondary); font-style: italic;
+    overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .wl-sug-count { margin-inline-start: auto; color: var(--color-text-tertiary);
+    font-size: 0.85rem; flex-shrink: 0; }
+  .wl-sug-none { padding: var(--spacing-sm) var(--spacing-md);
+    color: var(--color-text-tertiary); margin: 0; font-size: 0.95rem; }
+  .wl-group-label { margin: 0; padding: var(--spacing-xs) var(--spacing-md);
+    font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--color-text-tertiary); background: var(--color-background-secondary); }
+
+  .wl-chips { display: flex; flex-wrap: wrap; gap: var(--spacing-xs);
+    justify-content: center; margin-block: var(--spacing-lg) var(--spacing-2xl); }
+  .wl-chip { display: inline-flex; align-items: baseline; gap: 0.5em;
+    padding: 0.35em 0.8em; background: var(--color-background-secondary);
+    border: 1px solid var(--color-border-primary); border-radius: var(--radius-full);
+    cursor: pointer; color: var(--color-text-primary); font-family: var(--font-arabic);
+    font-size: 1.05rem;
+    transition: border-color 160ms var(--wl-ease), transform 160ms var(--wl-ease); }
+  .wl-chip:active { transform: scale(0.97); }
+  .wl-chip, .wl-sug { touch-action: manipulation; }
+  .wl-chip:focus-visible { outline: 2px solid var(--color-border-focus); outline-offset: 1px; }
+  .wl-chip-note { font-family: var(--font-sans); font-size: 0.75rem;
+    color: var(--color-text-tertiary); }
+
+  .wl-result { margin-block-end: var(--spacing-3xl); scroll-margin-top: 90px;
+    max-inline-size: 640px; margin-inline: auto; }
+  .wl-load-error, .wl-empty { text-align: center; color: var(--color-text-secondary);
+    border: 1px solid var(--color-border-primary); border-radius: var(--radius-md);
+    padding: var(--spacing-lg); }
+  .wl-empty-hint { font-size: 0.9rem; color: var(--color-text-tertiary);
+    margin: var(--spacing-xs) 0 0; }
+
+  .wl-cards { list-style: none; margin: 0; padding: 0; display: grid;
+    gap: var(--spacing-md); }
+  .wl-card { border: 1px solid var(--color-border-primary); border-radius: var(--radius-lg);
+    background: var(--color-background-secondary); padding: var(--spacing-lg);
+    animation: wl-card-in 260ms var(--wl-ease) both;
+    animation-delay: calc(var(--i, 0) * 45ms); }
+  .wl-word { font-family: var(--font-arabic); font-size: 2.4rem; line-height: 1.9;
+    color: var(--color-text-primary); margin: 0; }
+  .wl-translit { color: var(--color-text-secondary); font-style: italic;
+    margin: 0 0 var(--spacing-sm); }
+  .wl-analysis + .wl-analysis { border-block-start: 1px dashed var(--color-border-secondary);
+    margin-block-start: var(--spacing-sm); padding-block-start: var(--spacing-sm); }
+  .wl-grammar { color: var(--color-text-primary); font-size: 0.95rem;
+    margin: 0 0 var(--spacing-xs); }
+  .wl-badge { display: inline-grid; place-items: center; min-inline-size: 2.2em;
+    padding: 0.15em 0.5em; margin-inline-end: 0.5em; border-radius: var(--radius-sm);
+    font-size: 0.8rem; font-weight: 700; letter-spacing: 0.06em;
+    background: color-mix(in oklab, var(--accent-gold) 16%, transparent);
+    color: var(--accent-gold); }
+  .wl-breakdown { display: flex; flex-wrap: wrap; gap: var(--spacing-xs);
+    margin: 0 0 var(--spacing-xs); padding: 0; list-style: none; direction: rtl;
+    justify-content: flex-end; }
+  .wl-morpheme { display: inline-flex; flex-direction: column; align-items: center;
+    gap: 0.1em; padding: 0.3em 0.6em; border: 1px solid var(--color-border-secondary);
+    border-radius: var(--radius-sm); }
+  .wl-morpheme [lang="ar"] { font-family: var(--font-arabic); font-size: 1.15rem;
+    color: var(--color-text-primary); }
+  .wl-morpheme-label { font-size: 0.7rem; color: var(--color-text-tertiary);
+    direction: ltr; }
+  .wl-morpheme-stem [lang="ar"] { color: var(--accent-gold); }
+  .wl-meaning { color: var(--color-text-primary); font-size: 1.05rem;
+    margin: 0 0 var(--spacing-xs); }
+  .wl-meaning-soon { font-style: italic; color: var(--color-text-tertiary); }
+  .wl-meta-line { display: flex; flex-wrap: wrap; gap: var(--spacing-md);
+    align-items: baseline; margin: 0; font-size: 0.85rem; }
+  .wl-root-chip { display: inline-flex; align-items: baseline; gap: 0.4em;
+    padding: 0.15em 0.6em; border: 1px solid var(--color-border-secondary);
+    border-radius: var(--radius-full); text-decoration: none;
+    color: var(--color-text-primary); }
+  .wl-root-chip[href] { border-color: color-mix(in oklab, var(--accent-gold) 45%, transparent); }
+  .wl-root-chip [lang="ar"] { font-family: var(--font-arabic); font-size: 1.05rem; }
+  .wl-root-chip-label { font-size: 0.75rem; color: var(--color-text-tertiary); }
+  .wl-root-chip:focus-visible { outline: 2px solid var(--color-border-focus);
+    outline-offset: 1px; }
+  .wl-count { color: var(--color-text-tertiary); }
+  .wl-example { color: var(--accent-gold); text-decoration: none; }
+  .wl-result-heading { font-size: 0.85rem; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--color-text-tertiary);
+    margin: var(--spacing-lg) 0 var(--spacing-sm); }
+
+  .wl-noscript { text-align: center; color: var(--color-text-secondary);
+    border: 1px solid var(--color-border-primary); border-radius: var(--radius-md);
+    padding: var(--spacing-lg); }
+  .wl-noscript a, .wl-attribution a { color: inherit; }
+  .wl-attribution { margin-block-start: var(--spacing-3xl); text-align: center;
+    font-size: 0.85rem; color: var(--color-text-tertiary); }
+
+  .sr-only { position: absolute; inline-size: 1px; block-size: 1px; overflow: hidden;
+    clip-path: inset(50%); white-space: nowrap; }
+
+  :root { --wl-ease: cubic-bezier(0.23, 1, 0.32, 1); }
+
+  @keyframes wl-card-in {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: none; }
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .wl-chip:hover { border-color: var(--accent-gold);
+      background: var(--color-background-tertiary); }
+    .wl-sug:hover { background: var(--color-background-tertiary); }
+    .wl-root-chip[href]:hover { border-color: var(--accent-gold); }
+    .wl-example:hover { text-decoration: underline; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .wl-card { animation-duration: 1ms; animation-delay: 0ms; }
+    .wl-chip:active { transform: none; }
+  }
+  @media (max-width: 640px) {
+    .wl-title { font-size: 1.85rem; }
+    .wl-word { font-size: 1.9rem; }
+  }
+</style>
