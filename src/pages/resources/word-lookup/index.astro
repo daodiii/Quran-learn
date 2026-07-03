@@ -66,6 +66,231 @@ const EXAMPLES = [
   </Container>
 </BaseLayout>
 
+<script>
+  import { prepareIndex, search } from '../../../lib/lookup-search.ts';
+  import type { Prepared } from '../../../lib/lookup-search.ts';
+  import { grammarLine, affixLabel, posLabel } from '../../../lib/grammar-labels.ts';
+
+  // DOM is built with real nodes only — the repo blocks innerHTML.
+  type Kid = Node | string | null | undefined;
+  function h(tag: string, attrs: Record<string, string> = {}, ...kids: Kid[]): HTMLElement {
+    const node = document.createElement(tag);
+    for (const [k, v] of Object.entries(attrs)) node.setAttribute(k, v);
+    for (const kid of kids) {
+      if (kid === null || kid === undefined) continue;
+      node.append(typeof kid === 'string' ? document.createTextNode(kid) : kid);
+    }
+    return node;
+  }
+
+  const resultEl = document.getElementById('wl-result')!;
+  const searchEl = document.getElementById('wl-search') as HTMLInputElement;
+  const sugEl = document.getElementById('wl-suggestions')!;
+
+  let PREP: Prepared | null = null;
+  let loading: Promise<Prepared> | null = null;
+  function loadData(): Promise<Prepared> {
+    if (PREP) return Promise.resolve(PREP);
+    loading ??= fetch('/data/word-lookup.json')
+      .then(res => { if (!res.ok) throw new Error(String(res.status)); return res.json(); })
+      .then(json => (PREP = prepareIndex(json)))
+      .catch(err => {
+        loading = null;
+        resultEl.replaceChildren(h('p', { class: 'wl-load-error' },
+          'The word data could not be loaded. Check your connection and try again.'));
+        resultEl.hidden = false;
+        throw err;
+      });
+    return loading;
+  }
+  // Warm the (~2 MB, cached) index as soon as the user shows intent.
+  searchEl?.addEventListener('focus', () => { loadData().catch(() => {}); }, { once: true });
+
+  function sugRow(ref: { key: string; surface: string; total: number; hint: string | null }) {
+    return h('button', { class: 'wl-sug', role: 'option', 'data-key': ref.key },
+      h('span', { lang: 'ar', dir: 'rtl' }, ref.surface),
+      ref.hint ? h('span', { class: 'wl-sug-hint' }, ref.hint) : null,
+      h('span', { class: 'wl-sug-count' }, `${ref.total}×`));
+  }
+
+  function morpheme(ar: string, label: string, extraClass = ''): HTMLElement {
+    return h('li', { class: `wl-morpheme ${extraClass}`.trim() },
+      ar ? h('span', { lang: 'ar', dir: 'rtl' }, ar) : null,
+      h('span', { class: 'wl-morpheme-label' }, label));
+  }
+
+  function analysisNode(a: any[]): HTMLElement {
+    const [surface, , root, lemma, pos, form, feat, prefixes, suffixes, gloss, count, refs] = a;
+    const wrap = h('div', { class: 'wl-analysis' });
+    const grammar = h('p', { class: 'wl-grammar' });
+    if (form > 0) grammar.append(h('span', { class: 'wl-badge' },
+      ['I','II','III','IV','V','VI','VII','VIII','IX','X','XI','XII'][form - 1] ?? String(form)));
+    grammar.append(grammarLine(pos, form, feat));
+    wrap.append(grammar);
+
+    if (prefixes.length || suffixes.length) {
+      const bd = h('ul', { class: 'wl-breakdown', 'aria-label': 'word breakdown' });
+      let stemAr = surface;
+      for (const p of prefixes) {
+        const [ar, code] = String(p).split('|');
+        if (ar) stemAr = stemAr.startsWith(ar) ? stemAr.slice(ar.length) : stemAr;
+        bd.append(morpheme(ar, affixLabel(code)));
+      }
+      let tail: HTMLElement[] = [];
+      for (const s of [...suffixes].reverse()) {
+        const [ar, code] = String(s).split('|');
+        // 43 suffixes are the elided "my" (ي absorbed into the stem's kasra):
+        // ar is '' — slicing with -0 would wipe the whole stem.
+        if (ar && stemAr.endsWith(ar)) stemAr = stemAr.slice(0, -ar.length);
+        tail.unshift(morpheme(ar, affixLabel(code)));
+      }
+      bd.append(morpheme(stemAr, lemma ? `stem of ${posLabel(pos)}` : posLabel(pos), 'wl-morpheme-stem'));
+      for (const t of tail) bd.append(t);
+      wrap.append(bd);
+    }
+
+    wrap.append(gloss
+      ? h('p', { class: 'wl-meaning' }, String(gloss))
+      : h('p', { class: 'wl-meaning wl-meaning-soon' }, 'meaning coming soon'));
+
+    const metaLine = h('p', { class: 'wl-meta-line' });
+    if (root) {
+      const rootDots = [...String(root)].join(' · ');
+      metaLine.append(pos === 'V'
+        ? h('a', { class: 'wl-root-chip',
+            href: `/resources/verb-forms/#root=${encodeURIComponent(String(root))}` },
+            h('span', { lang: 'ar', dir: 'rtl' }, rootDots),
+            h('span', { class: 'wl-root-chip-label' }, 'open in generator'))
+        : h('span', { class: 'wl-root-chip' },
+            h('span', { lang: 'ar', dir: 'rtl' }, rootDots),
+            h('span', { class: 'wl-root-chip-label' }, 'root')));
+    }
+    metaLine.append(h('span', { class: 'wl-count' }, `${Number(count)}× in the Quran`));
+    for (const r of refs) {
+      metaLine.append(h('a', { class: 'wl-example', target: '_blank', rel: 'noopener',
+        href: `https://quran.com/${encodeURIComponent(String(r).replace(':', '/'))}` },
+        String(r)));
+    }
+    wrap.append(metaLine);
+    return wrap;
+  }
+
+  function cardNode(i: number, surface: string, translit: string, analyses: any[][]): HTMLElement {
+    return h('li', { class: 'wl-card', style: `--i:${i}` },
+      h('p', { class: 'wl-word', lang: 'ar', dir: 'rtl' }, surface),
+      h('p', { class: 'wl-translit', translate: 'no' }, translit),
+      ...analyses.map(analysisNode));
+  }
+
+  function renderKey(key: string) {
+    if (!PREP) return;
+    const analyses = PREP.data.words[key];
+    if (!analyses) return;
+    // Group by vocalized variant — homographs each get a card.
+    const byVariant = new Map<string, any[][]>();
+    for (const a of analyses) {
+      const list = byVariant.get(a[0]) ?? [];
+      list.push(a);
+      byVariant.set(a[0], list);
+    }
+    const cards = [...byVariant.entries()].map(([surface, list], i) =>
+      cardNode(i, surface, String(list[0][1]), list));
+    resultEl.replaceChildren(
+      byVariant.size > 1
+        ? h('p', { class: 'wl-result-heading' },
+            `${byVariant.size} written forms match`)
+        : h('p', { class: 'wl-result-heading' }, 'match'),
+      h('ul', { class: 'wl-cards' }, ...cards));
+    resultEl.hidden = false;
+    sugEl.hidden = true;
+    history.replaceState(null, '', `#q=${encodeURIComponent(searchEl.value.trim() || key)}`);
+    resultEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  function renderEmpty(didYouMean: any[]) {
+    const empty = h('div', { class: 'wl-empty' },
+      h('p', {}, 'No word in the Quran matches that exactly.'),
+      h('p', { class: 'wl-empty-hint' },
+        'Tip: paste the word straight from a digital mushaf — vowel marks are fine.'));
+    if (didYouMean.length) {
+      empty.append(h('p', { class: 'wl-result-heading' }, 'did you mean'),
+        h('div', {}, ...didYouMean.map(sugRow)));
+    }
+    resultEl.replaceChildren(empty);
+    resultEl.hidden = false;
+  }
+
+  async function runSearch(raw: string, { select = false } = {}) {
+    const q = raw.trim();
+    if (q.length < 2) { sugEl.hidden = true; return; }
+    const p = await loadData().catch(() => null);
+    if (!p) return;
+    const r = search(p, q);
+    if (r.kind === 'arabic') {
+      if (r.exact) {
+        if (select) { renderKey(r.exact.key); return; }
+        sugEl.replaceChildren(sugRow(p.refs.get(r.exact.key)!), ...r.suggestions.map(sugRow));
+        sugEl.hidden = false;
+        return;
+      }
+      if (r.suggestions.length) {
+        sugEl.replaceChildren(...r.suggestions.map(sugRow));
+        sugEl.hidden = false;
+      } else { sugEl.hidden = true; renderEmpty(r.didYouMean); }
+      return;
+    }
+    const rows: HTMLElement[] = [];
+    if (r.sound.length) {
+      rows.push(h('p', { class: 'wl-group-label' }, 'matches by sound'),
+        ...r.sound.slice(0, 8).map(sugRow));
+    }
+    if (r.meaning.length) {
+      rows.push(h('p', { class: 'wl-group-label' }, 'matches by meaning'),
+        ...r.meaning.slice(0, 8).map(sugRow));
+    }
+    if (!rows.length) rows.push(h('p', { class: 'wl-sug-none' },
+      'nothing matches — try Arabic, a sound like "yuminuna", or a meaning like "believe"'));
+    sugEl.replaceChildren(...rows);
+    sugEl.hidden = false;
+  }
+
+  searchEl?.addEventListener('input', () => runSearch(searchEl.value));
+  searchEl?.addEventListener('keydown', (ev) => {
+    if (ev.key === 'Enter') {
+      const first = sugEl.querySelector('[data-key]') as HTMLElement | null;
+      if (first) first.click();
+      else runSearch(searchEl.value, { select: true });
+    }
+    if (ev.key === 'Escape') sugEl.hidden = true;
+    if (ev.key === 'ArrowDown') {
+      (sugEl.querySelector('[data-key]') as HTMLElement | null)?.focus();
+      ev.preventDefault();
+    }
+  });
+  sugEl?.addEventListener('keydown', (ev) => {
+    const items = [...sugEl.querySelectorAll('[data-key]')] as HTMLElement[];
+    const i = items.indexOf(document.activeElement as HTMLElement);
+    if (ev.key === 'ArrowDown' && i < items.length - 1) { items[i + 1].focus(); ev.preventDefault(); }
+    if (ev.key === 'ArrowUp') { (i > 0 ? items[i - 1] : searchEl).focus(); ev.preventDefault(); }
+    if (ev.key === 'Escape') { sugEl.hidden = true; searchEl.focus(); }
+  });
+  document.addEventListener('click', async (ev) => {
+    const sug = (ev.target as HTMLElement).closest('[data-key]') as HTMLElement | null;
+    if (sug) { await loadData().catch(() => null); renderKey(sug.dataset.key!); return; }
+    const chip = (ev.target as HTMLElement).closest('[data-q]') as HTMLElement | null;
+    if (chip) {
+      searchEl.value = chip.dataset.q!;
+      await runSearch(chip.dataset.q!, { select: true });
+      return;
+    }
+    if (!(ev.target as HTMLElement).closest('.wl-search-wrap')) sugEl.hidden = true;
+  });
+
+  const hash = new URLSearchParams(location.hash.slice(1));
+  const initialQ = hash.get('q');
+  if (initialQ) { searchEl.value = initialQ; runSearch(initialQ, { select: true }); }
+</script>
+
 <style>
   .wl-container { padding-block: var(--spacing-2xl) var(--spacing-3xl); }
   .wl-header { text-align: center; margin-block-end: var(--spacing-2xl); }
