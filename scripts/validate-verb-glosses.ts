@@ -4,6 +4,7 @@
 //   --all-batches  validate every output batch present
 //   --merged       validate public/data/verb-forms.json against the skeleton
 import { readFileSync, readdirSync } from 'node:fs';
+import { MERGE_COUNT } from './lib/form-overrides.ts';
 
 const AR_VOCALIZED = /^[ء-يٰٱـً-ْ]+$/; // letters + harakat
 const TL = /^[a-zāīūḥṣḍṭẓʿʾ'’\- \/]+$/;
@@ -31,12 +32,15 @@ function isFullyVocalized(s: string): boolean {
 }
 
 function validateGloss(g: any, where: string) {
-  for (const k of ['past', 'present'] as const) {
+  // present === null is legal for frozen (jāmid) verbs like لَيْسَ / نِعْمَ —
+  // the citation is past-only and translit is the single past word.
+  const frozen = g.present === null;
+  for (const k of frozen ? (['past'] as const) : (['past', 'present'] as const)) {
     const v = String(g[k] ?? '').normalize('NFC');
     if (!AR_VOCALIZED.test(v)) fail(`${where}: ${k} bad charset: ${g[k]}`);
     else if (!isFullyVocalized(v)) fail(`${where}: ${k} under-vocalized: ${g[k]}`);
   }
-  if (!TL.test(g.translit ?? '') || !(g.translit ?? '').includes(' / '))
+  if (!TL.test(g.translit ?? '') || (g.translit ?? '').includes(' / ') === frozen)
     fail(`${where}: translit malformed: ${g.translit}`);
   if (!MEANING.test(g.meaning ?? '') || !/^to /.test(g.meaning ?? ''))
     fail(`${where}: meaning malformed: ${g.meaning}`);
@@ -81,12 +85,13 @@ function validateMerged() {
         if (!maxAyah.has(s) || a < 1 || a > (maxAyah.get(s) ?? 0))
           fail(`${r.root}:${form} bad example ref ${e.example}`);
         if (e.meaning === null) { missing++; continue; }
-        validateGloss(e, `${r.root}:${form}`);
+        validateGloss({ ...e, present: e.present ?? null }, `${r.root}:${form}`);
       }
     }
   }
-  if (entries !== skeleton.meta.entries)
-    fail(`entry count drift: merged ${entries} vs skeleton ${skeleton.meta.entries}`);
+  const expected = skeleton.meta.entries - MERGE_COUNT; // form-override merges
+  if (entries !== expected)
+    fail(`entry count drift: merged ${entries} vs expected ${expected}`);
   console.log(`merged: ${entries} entries, ${missing} missing glosses, ${failures} failures`);
   if (missing > 0) console.warn(`WARN: ${missing} entries awaiting glosses (allowed pre-ship, not at ship)`);
 }

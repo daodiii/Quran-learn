@@ -59,6 +59,10 @@ Rules — violations fail validation:
    word-initial hamza LETTER (ʾ) is dropped, never a vowel.
 8. NEVER invent forms not in the input. NEVER drop an entry. Output gloss
    count must equal input entry count exactly.
+9. **Frozen (jāmid) verbs** with no real imperfect — لَيْسَ، نِعْمَ، بِئْسَ، عَسَى —
+   get `"present": null` and a single-word translit (e.g. `"laysa"`). Do NOT
+   invent theoretical presents like يَلِيسُ. The past citation keeps its
+   dictionary form. Meaning still starts with "to " ("to not be").
 
 Write your output with the Write tool to
 `src/data/morphology/glosses/output/<batch>.json` (the `<batch>` name is in

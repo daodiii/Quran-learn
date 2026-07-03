@@ -5,6 +5,7 @@
 import { readFileSync, writeFileSync, mkdirSync, readdirSync } from 'node:fs';
 import { parseCorpus, groupVerbs } from './lib/extract-verbs.ts';
 import { bwToArabic, bwToTranslit } from './lib/buckwalter.ts';
+import { FORM_OVERRIDES } from './lib/form-overrides.ts';
 
 const CORPUS = 'src/data/morphology/quranic-corpus-morphology-0.4.txt';
 const SKELETON = 'src/data/morphology/verb-skeleton.json';
@@ -100,6 +101,34 @@ function slice() {
   flush();
 }
 
+// Apply FORM_OVERRIDES to a skeleton root: move mislabeled entries to their
+// true form (tracking the original gloss key), or merge them into the
+// canonical lemma's entry (counts add; the canonical gloss wins).
+function applyOverrides(r: any): any {
+  const forms: Record<string, any[]> = {};
+  for (const [form, list] of Object.entries<any>(r.forms))
+    forms[form] = list.map((e: any) => ({ ...e, glossKey: `${r.root}|${form}|${e.lemma}` }));
+  for (const [form, list] of Object.entries(forms)) {
+    for (const e of [...list]) {
+      const ov = FORM_OVERRIDES[`${r.root}|${form}|${e.lemma}`];
+      if (!ov) continue;
+      forms[form] = forms[form].filter(x => x !== e);
+      const targetForm = String(ov.form);
+      forms[targetForm] ??= [];
+      if (ov.mergeInto) {
+        const target = forms[targetForm].find(x => x.lemma === ov.mergeInto);
+        if (!target) throw new Error(`override target missing: ${r.root}|${targetForm}|${ov.mergeInto}`);
+        target.count += e.count;
+        if (e.example < target.example) { /* keep target example: canonical citation context */ }
+      } else {
+        forms[targetForm].push(e);
+      }
+    }
+    if (!forms[form].length) delete forms[form];
+  }
+  return { ...r, forms };
+}
+
 function merge() {
   const skeleton = JSON.parse(readFileSync(SKELETON, 'utf8'));
   const glossMap = new Map<string, any>();
@@ -110,7 +139,7 @@ function merge() {
     for (const g of b.glosses) glossMap.set(`${g.root}|${g.form}|${g.lemma}`, g);
   }
   let missing = 0;
-  const roots = skeleton.roots.map((r: any) => ({
+  const roots = skeleton.roots.map(applyOverrides).map((r: any) => ({
     root: r.rootAr,
     translit: r.rootTranslit,
     quad: r.quad,
@@ -118,7 +147,7 @@ function merge() {
     forms: Object.fromEntries(Object.entries(r.forms).map(([form, list]: [string, any]) => [
       form,
       list.map((e: any) => {
-        const g = glossMap.get(`${r.root}|${form}|${e.lemma}`);
+        const g = glossMap.get(e.glossKey);
         if (!g) missing++;
         return {
           past: (g?.past ?? e.draftPast).normalize('NFC'),
