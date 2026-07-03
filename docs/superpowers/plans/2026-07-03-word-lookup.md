@@ -998,7 +998,7 @@ if (q('الصلاة') !== q('ٱلصَّلَوٰةَ')) fail('spot: both spelling
 if (!q('انزل')?.some((a: any[]) => a[5] === 4 && a[9])) fail('spot: انزل → Form IV with gloss');
 if (!(q('من')?.length >= 4)) fail('spot: من homographs');
 if (!q('الم')?.some((a: any[]) => a[4] === 'INL')) fail('spot: الم muqattaat'); // key shared with أَلَمْ — INL is not row 0
-if (!q('يؤمنون')?.some((a: any[]) => a[9] === 'to believe')) fail('spot: يؤمنون gloss');
+if (!q('يؤمنون')?.some((a: any[]) => a[9] === 'to believe, have faith')) fail('spot: يؤمنون gloss'); // exact curated string from verb-forms.json
 
 // 3. Every transliteration folds to plain ASCII (locks the LATIN_FOLD table).
 for (const list of Object.values<any[]>(INDEX.words)) {
