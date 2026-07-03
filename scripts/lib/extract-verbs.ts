@@ -3,8 +3,9 @@ export interface VerbToken {
   form: number;     // 1–12 (corpus roman numerals; 1 when absent)
   lemma: string;    // Buckwalter
   root: string;     // Buckwalter
+  passive: boolean; // PASS feature present
 }
-export interface LemmaEntry { lemma: string; count: number; example: string; }
+export interface LemmaEntry { lemma: string; count: number; passCount: number; example: string; }
 export interface RootGroup {
   root: string;
   quad: boolean;
@@ -33,7 +34,8 @@ export function parseCorpus(text: string): VerbToken[] {
       else if (f.startsWith('ROOT:')) root = f.slice(5);
     }
     if (!lemma || !root) continue; // rare untagged tokens: counted in caller's stats
-    tokens.push({ location: `${loc[1]}:${loc[2]}`, form, lemma, root });
+    tokens.push({ location: `${loc[1]}:${loc[2]}`, form, lemma, root,
+      passive: features.includes('PASS') });
   }
   return tokens;
 }
@@ -51,10 +53,11 @@ export function groupVerbs(tokens: VerbToken[]): RootGroup[] {
     rg.forms[key] ??= [];
     let entry = rg.forms[key].find(e => e.lemma === t.lemma);
     if (!entry) {
-      entry = { lemma: t.lemma, count: 0, example: t.location };
+      entry = { lemma: t.lemma, count: 0, passCount: 0, example: t.location };
       rg.forms[key].push(entry);
     }
     entry.count++;
+    if (t.passive) entry.passCount++;
   }
   return [...byRoot.values()].sort((a, b) => b.totalCount - a.totalCount);
 }

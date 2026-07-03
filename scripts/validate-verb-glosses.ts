@@ -12,17 +12,29 @@ const MEANING = /^[a-zA-Z0-9(),;'’\- ]{3,80}$/;
 let failures = 0;
 const fail = (msg: string) => { failures++; console.error(`FAIL ${msg}`); };
 
-function diacriticDensity(s: string): number {
-  const marks = (s.match(/[ً-ْٰ]/g) ?? []).length;
-  const letters = (s.match(/[ء-ي]/g) ?? []).length;
-  return letters ? marks / letters : 0;
+// Full vocalization: every letter carries a mark except inherently unmarked
+// carriers (آ ا ى ٱ) and long-vowel و/ي (preceded by damma/kasra).
+function isFullyVocalized(s: string): boolean {
+  const chars = [...s];
+  let required = 0, marks = 0;
+  for (let i = 0; i < chars.length; i++) {
+    const c = chars[i];
+    if (/[ً-ْٰ]/.test(c)) { marks++; continue; }
+    if (!/[ء-يآ]/.test(c)) continue;
+    if ('اآىٱ'.includes(c)) continue;
+    const prev = chars[i - 1];
+    if (c === 'و' && prev === 'ُ') continue;
+    if (c === 'ي' && prev === 'ِ') continue;
+    required++;
+  }
+  return marks >= required && required > 0;
 }
 
 function validateGloss(g: any, where: string) {
   for (const k of ['past', 'present'] as const) {
     const v = String(g[k] ?? '').normalize('NFC');
     if (!AR_VOCALIZED.test(v)) fail(`${where}: ${k} bad charset: ${g[k]}`);
-    else if (diacriticDensity(v) < 0.5) fail(`${where}: ${k} under-vocalized: ${g[k]}`);
+    else if (!isFullyVocalized(v)) fail(`${where}: ${k} under-vocalized: ${g[k]}`);
   }
   if (!TL.test(g.translit ?? '') || !(g.translit ?? '').includes(' / '))
     fail(`${where}: translit malformed: ${g.translit}`);

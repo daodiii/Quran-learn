@@ -47,3 +47,15 @@ test('quadriliteral roots are flagged', () => {
   const zlzl = grouped.find(r => r.root === 'zlzl');
   assert.ok(zlzl?.quad === true);
 });
+
+test('passive tokens counted per entry (voice ground truth)', () => {
+  const grouped = groupVerbs(parseCorpus(raw));
+  const qwl = grouped.find(r => r.root === 'qwl')!;
+  const qaAla = qwl.forms['1'].find(e => e.lemma === 'qaAla')!;
+  // fixture contains qiyla (2:11, PASS) among qaAla tokens → mixed voice
+  assert.ok(qaAla.passCount >= 1);
+  assert.ok(qaAla.passCount < qaAla.count);
+  const zlzl = grouped.find(r => r.root === 'zlzl')!;
+  const z = Object.values(zlzl.forms)[0][0];
+  assert.equal(z.passCount, z.count); // zulzila fixture rows are all passive
+});

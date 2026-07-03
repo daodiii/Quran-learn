@@ -54,6 +54,10 @@ function extract() {
           lemma: e.lemma,
           draftPast: bwToArabic(e.lemma),
           draftTranslit: bwToTranslit(e.lemma),
+          // Voice ground truth from corpus PASS tags — corpus lemma
+          // vocalization is NOT reliable (e.g. *uk~ira groups active tokens).
+          voice: e.passCount === e.count ? 'passive-only'
+               : e.passCount === 0 ? 'active' : 'mixed',
           count: e.count,
           example: e.example,
         }))]),

@@ -44,10 +44,20 @@ Rules — violations fail validation:
 5. `meaning`: 2–8 word English infinitive gloss starting with "to …",
    reflecting how the QURAN uses this verb (its dominant Quranic sense(s),
    not rare classical senses). Up to two senses separated by a comma. No
-   trailing period. For passive-only lemmas (vocalized passively in the
-   input, e.g. زُلْزِلَ), keep the passive citation and gloss it passively
-   ("to be shaken violently").
-6. NEVER invent forms not in the input. NEVER drop an entry. Output gloss
+   trailing period.
+6. **Voice**: each entry carries a `voice` field computed from the corpus:
+   - `"active"` or `"mixed"` → cite ACTIVE past/present and active meaning,
+     even if `draftPast` looks passive (corpus lemma vocalization is not
+     reliable — e.g. ذُكِّرَ groups active فَذَكِّرْ tokens; cite ذَكَّرَ/يُذَكِّرُ).
+   - `"passive-only"` → cite the passive (e.g. زُلْزِلَ/يُزَلْزَلُ) and gloss it
+     passively ("to be shaken violently").
+7. **Hamzat al-wasl** (Forms VII–X, VIII, and Form I imperatives don't occur
+   as citations, but VII–X pasts do): the Arabic citation carries the helper
+   vowel on the alif — اِنْفَطَرَ، اِتَّخَذَ، اِسْتَغْفَرَ (kasra; damma اُ for passives like
+   اُؤْتُمِنَ) — and the transliteration KEEPS that initial vowel: infaṭara,
+   ittakhadha, istaghfara, uʾtumina. Never write ttakhadha/stakhraja — only a
+   word-initial hamza LETTER (ʾ) is dropped, never a vowel.
+8. NEVER invent forms not in the input. NEVER drop an entry. Output gloss
    count must equal input entry count exactly.
 
 Write your output with the Write tool to
