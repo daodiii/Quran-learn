@@ -78,6 +78,22 @@ export const FORM_OVERRIDES: Record<string, FormOverride> = {
     form: 5,
     why: '53:8 fa-tadallā is Form V; corpus left it untagged',
   },
+  'jfw|1|tatajaAfaY`': {
+    form: 6,
+    why: '32:16 tatajāfā junūbuhum is Form VI tajāfā; corpus left it untagged',
+  },
+  'dsw|1|das~aY`': {
+    form: 2,
+    why: '91:10 dassāhā is Form II dassā; corpus left it untagged',
+  },
+  'lZy|1|talaZ~aY`': {
+    form: 5,
+    why: '92:14 talaẓẓā is Form V; corpus left it untagged',
+  },
+  'Hry|1|taHar~a': {
+    form: 5,
+    why: '72:14 fa-taḥarraw is Form V taḥarrā; corpus left it untagged',
+  },
 };
 
 export const MERGE_COUNT = Object.values(FORM_OVERRIDES).filter(o => o.mergeInto).length;
