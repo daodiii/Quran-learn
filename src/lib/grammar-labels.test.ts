@@ -22,8 +22,8 @@ test('grammarLine: noun with case', () => {
 test('grammarLine: unknown token shown raw', () => {
   assert.equal(grammarLine('N', 0, 'M|WEIRD'), 'noun — masculine, WEIRD');
 });
-test('grammarLine: bare single-letter number token is NOT misread as plural', () => {
-  assert.equal(grammarLine('T', 0, 'P'), 'time adverb — P');
+test('grammarLine: bare number token renders as plural (gender-unmarked nominals)', () => {
+  assert.equal(grammarLine('DEM', 0, 'P'), 'demonstrative — plural');
 });
 test('affixLabel: prefixes and pronoun suffixes', () => {
   assert.equal(affixLabel('w:CONJ+'), 'wa- (and)');

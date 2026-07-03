@@ -41,6 +41,9 @@ function tokenLabel(t: string): string {
     return [PERSON[m[1] ?? ''], GENDER[m[2] ?? ''], NUMBER[m[3] ?? '']]
       .filter(Boolean).join(' ');
   }
+  // Bare number feature: gender-unmarked plurals like أُو۟لَٰٓئِكَ (DEM|...|P).
+  // Verified against the shipped dataset: bare S/D never occur; bare P = plural.
+  if (t === 'S' || t === 'D' || t === 'P') return NUMBER[t];
   return t;
 }
 
