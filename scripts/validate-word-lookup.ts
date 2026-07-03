@@ -71,7 +71,7 @@ for (const list of Object.values<any[]>(INDEX.words)) {
       || !(gl === null || typeof gl === 'string') || !(Number.isInteger(cnt) && cnt >= 1)
       || !Array.isArray(refs) || refs.length === 0 || refs.length > 3
       || refs.some((r: any) => !refRe.test(r))) fail(`shape: ${s}`);
-    if (/[ -]/.test(s + t + feat + pre.join('') + suf.join(''))) fail(`control char: ${s}`);
+    if (/[\u0000-\u001F\u007F]/.test(s + t + feat + pre.join('') + suf.join(''))) fail(`control char: ${s}`);
   }
 }
 
