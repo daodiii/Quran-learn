@@ -49,9 +49,9 @@ const ROMAN = ['I','II','III','IV','V','VI','VII','VIII','IX','X','XI','XII'];
 
     <div class="vf-search-wrap">
       <label class="sr-only" for="vf-search">Search roots by Arabic, transliteration, or meaning</label>
-      <input id="vf-search" class="vf-search" type="search" autocomplete="off"
-        spellcheck="false"
-        placeholder="Search: نزل · nzl · send down" />
+      <input id="vf-search" class="vf-search" type="search" name="root-search"
+        autocomplete="off" spellcheck="false"
+        placeholder="Search: نزل · nzl · send down…" />
       <div id="vf-suggestions" class="vf-suggestions" role="listbox" aria-label="Matching roots" hidden></div>
     </div>
 
@@ -169,7 +169,7 @@ const ROMAN = ['I','II','III','IV','V','VI','VII','VIII','IX','X','XI','XII'];
     const exampleHref = `https://quran.com/${encodeURIComponent(String(e.example).replace(':', '/'))}`;
     return h('div', { class: 'vf-entry' },
       h('p', { class: 'vf-verb', lang: 'ar', dir: 'rtl' }, pair),
-      h('p', { class: 'vf-translit' }, String(e.translit ?? '')),
+      h('p', { class: 'vf-translit', translate: 'no' }, String(e.translit ?? '')),
       e.meaning === null
         ? h('p', { class: 'vf-meaning' }, h('em', {}, 'meaning coming soon'))
         : h('p', { class: 'vf-meaning' }, String(e.meaning)),
@@ -282,7 +282,7 @@ const ROMAN = ['I','II','III','IV','V','VI','VII','VIII','IX','X','XI','XII'];
   .vf-container { padding-block: var(--spacing-2xl) var(--spacing-3xl); }
   .vf-header { text-align: center; margin-block-end: var(--spacing-2xl); }
   .vf-title { font-size: 2.25rem; font-weight: 700; color: var(--color-text-primary);
-    letter-spacing: -0.02em; margin-block-end: var(--spacing-md); }
+    letter-spacing: -0.02em; margin-block-end: var(--spacing-md); text-wrap: balance; }
   .vf-intro { font-size: 1.125rem; line-height: 1.6; color: var(--color-text-secondary);
     max-inline-size: 620px; margin-inline: auto; }
 
@@ -318,6 +318,9 @@ const ROMAN = ['I','II','III','IV','V','VI','VII','VIII','IX','X','XI','XII'];
     font-size: 1.05rem;
     transition: border-color 160ms var(--vf-ease), transform 160ms var(--vf-ease); }
   .vf-chip:active { transform: scale(0.97); }
+  .vf-chip, .vf-root-link, .vf-sug, .vf-letter summary { touch-action: manipulation; }
+  .vf-chip:focus-visible, .vf-root-link:focus-visible {
+    outline: 2px solid var(--color-border-focus); outline-offset: 1px; }
   .vf-chip-count { font-family: var(--font-sans); font-size: 0.75rem;
     color: var(--color-text-tertiary); }
 
