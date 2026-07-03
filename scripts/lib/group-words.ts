@@ -47,9 +47,12 @@ export function parseCorpusRows(text: string): CorpusRow[] {
 export function groupWords(rows: CorpusRow[]): WordOccurrence[] {
   const words: WordOccurrence[] = [];
   let cur: WordOccurrence | null = null;
+  const seen = new Set<string>();
   for (const r of rows) {
     const key = `${r.surah}:${r.ayah}:${r.word}`;
     if (!cur || cur.key !== key) {
+      if (seen.has(key)) throw new Error(`corpus rows out of order: ${key} reappeared`);
+      seen.add(key);
       cur = { key, location: `${r.surah}:${r.ayah}`, surfaceBw: '',
               prefixes: [], stems: [], suffixes: [] };
       words.push(cur);
@@ -73,7 +76,11 @@ export function groupWords(rows: CorpusRow[]): WordOccurrence[] {
           else featureTokens.push(f);
         }
       }
-      if (pos === 'V' && formNo === 0) formNo = 1; // corpus omits (I)
+      if (pos === 'V') {
+        if (formNo === 0) formNo = 1; // corpus omits (I)
+      } else {
+        formNo = 0; // participles carry derived-form tags; formNo is verb-only by contract
+      }
       cur.stems.push({ lemmaBw, rootBw, pos, formNo, featureTokens });
     } else {
       throw new Error(`unknown segment kind "${kind}" at ${key}`);

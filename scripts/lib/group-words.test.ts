@@ -82,3 +82,33 @@ test('groupWords: verb without roman numeral defaults to form 1', () => {
     '(9:9:9:1)\tkataba\tV\tSTEM|POS:V|PERF|LEM:kataba|ROOT:ktb|3MS');
   assert.equal(groupWords(rows)[0].stems[0].formNo, 1);
 });
+
+test('groupWords: participle derived-form tag does NOT set formNo (verb-only contract)', () => {
+  const rows = parseCorpusRows(
+    '(9:9:9:1)\tmut~aqiyna\tN\tSTEM|POS:N|ACT|PCPL|(VIII)|LEM:mut~aqiyn|ROOT:wqy|MP');
+  assert.equal(groupWords(rows)[0].stems[0].formNo, 0);
+});
+
+test('groupWords: empty-FORM suffix row (elided pronoun) is kept, not dropped', () => {
+  const rows = parseCorpusRows(
+    '(2:54:5:1)\tbAri\tN\tSTEM|POS:N|LEM:bAri}|ROOT:br\'|M|GEN\n' +
+    '(2:54:5:2)\tkumo\tPRON\tSUFFIX|PRON:2MP\n' +
+    '(2:54:5:3)\t\tPRON\tSUFFIX|PRON:1S');
+  const w = groupWords(rows)[0];
+  assert.equal(w.suffixes.length, 2);
+  assert.equal(w.suffixes[1].formBw, '');
+  assert.equal(w.surfaceBw, 'bArikumo');
+});
+
+test('groupWords: unknown segment kind throws', () => {
+  const rows = parseCorpusRows('(9:9:9:1)\tfoo\tX\tFOO|bar');
+  assert.throws(() => groupWords(rows), /unknown segment kind/);
+});
+
+test('groupWords: out-of-order rows throw instead of silently splitting a word', () => {
+  const rows = parseCorpusRows(
+    '(1:1:1:1)\tbi\tP\tPREFIX|bi+\n' +
+    '(1:1:2:1)\tsomething\tN\tSTEM|POS:N|LEM:x\n' +
+    '(1:1:1:2)\tsomi\tN\tSTEM|POS:N|LEM:{som|ROOT:smw|M|GEN');
+  assert.throws(() => groupWords(rows), /out of order/);
+});
