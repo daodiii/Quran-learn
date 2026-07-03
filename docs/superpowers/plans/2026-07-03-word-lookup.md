@@ -997,7 +997,7 @@ if (!q('الصلاة')) fail('spot: modern typed الصلاة');
 if (q('الصلاة') !== q('ٱلصَّلَوٰةَ')) fail('spot: both spellings must resolve to one entry');
 if (!q('انزل')?.some((a: any[]) => a[5] === 4 && a[9])) fail('spot: انزل → Form IV with gloss');
 if (!(q('من')?.length >= 4)) fail('spot: من homographs');
-if (q('الم')?.[0][4] !== 'INL') fail('spot: الم muqattaat');
+if (!q('الم')?.some((a: any[]) => a[4] === 'INL')) fail('spot: الم muqattaat'); // key shared with أَلَمْ — INL is not row 0
 if (!q('يؤمنون')?.some((a: any[]) => a[9] === 'to believe')) fail('spot: يؤمنون gloss');
 
 // 3. Every transliteration folds to plain ASCII (locks the LATIN_FOLD table).
@@ -1665,7 +1665,7 @@ git commit -m "feat(word-lookup): page shell and styles"
 
   function morpheme(ar: string, label: string, extraClass = ''): HTMLElement {
     return h('li', { class: `wl-morpheme ${extraClass}`.trim() },
-      h('span', { lang: 'ar', dir: 'rtl' }, ar),
+      ar ? h('span', { lang: 'ar', dir: 'rtl' }, ar) : null,
       h('span', { class: 'wl-morpheme-label' }, label));
   }
 
@@ -1683,13 +1683,15 @@ git commit -m "feat(word-lookup): page shell and styles"
       let stemAr = surface;
       for (const p of prefixes) {
         const [ar, code] = String(p).split('|');
-        stemAr = stemAr.startsWith(ar) ? stemAr.slice(ar.length) : stemAr;
+        if (ar) stemAr = stemAr.startsWith(ar) ? stemAr.slice(ar.length) : stemAr;
         bd.append(morpheme(ar, affixLabel(code)));
       }
       let tail: HTMLElement[] = [];
       for (const s of [...suffixes].reverse()) {
         const [ar, code] = String(s).split('|');
-        stemAr = stemAr.endsWith(ar) ? stemAr.slice(0, -ar.length) : stemAr;
+        // 43 suffixes are the elided "my" (ي absorbed into the stem's kasra):
+        // ar is '' — slicing with -0 would wipe the whole stem.
+        if (ar && stemAr.endsWith(ar)) stemAr = stemAr.slice(0, -ar.length);
         tail.unshift(morpheme(ar, affixLabel(code)));
       }
       bd.append(morpheme(stemAr, lemma ? `stem of ${posLabel(pos)}` : posLabel(pos), 'wl-morpheme-stem'));
