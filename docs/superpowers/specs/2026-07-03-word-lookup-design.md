@@ -45,9 +45,12 @@ by sound (transliteration) and by meaning (curated glosses).
     3rd person masculine plural" / "noun, genitive, from the root ن-ز-ل". Tags the humanizer
     map doesn't know are shown as their raw corpus code rather than dropped (honest, debuggable).
   - Morpheme breakdown when the word has attachments:
-    `فَ (so) + سَ (will) + يَكْفِي + كَ (you) + هُمُ (them)`. Segmentation from the corpus;
-    prefix/pronoun mini-glosses from a small static grammar map in the page (reference content,
-    not corpus-derived — acceptable, it is grammar teaching, not Quran text).
+    `فَ (so) + سَ (will) + يَكْفِي + كَ (you) + هُمُ (them)`. Segmentation and the Arabic
+    segment text come from the corpus; the mini-glosses from a small static grammar map in the
+    page (reference content, not corpus-derived — acceptable, it is grammar teaching, not
+    Quran text). Pronoun suffixes are labeled role-neutrally ("we / us / our") because the
+    corpus tags subject endings as PRON suffixes too; claiming subject vs object would need a
+    form-level heuristic — deferred (recorded under out of scope).
   - Meaning: curated gloss (verbs); italic "meaning coming soon" otherwise (generator pattern).
   - Root chip: verbs → link to `/resources/verb-forms/#root=<rootAr>`; non-verbs → plain root
     display; omitted entirely for the 1,345 root-less analyses (particles, pronouns, etc.).
@@ -63,7 +66,9 @@ by sound (transliteration) and by meaning (curated glosses).
 
 ### Build script — `scripts/build-word-lookup.ts` (`npm run lookup:build`)
 
-1. Parse the corpus with the existing `parseCorpus` (`scripts/lib/extract-verbs.ts`).
+1. Parse the corpus with a new general row parser in `scripts/lib/group-words.ts` — the
+   existing `parseCorpus` (`scripts/lib/extract-verbs.ts`) is verbs-only and drops
+   word/segment numbers, so it stays untouched and the verb pipeline is not disturbed.
 2. **Group rows by word location `(surah:ayah:word)`** — new lib `scripts/lib/group-words.ts`.
    A written word = concatenation of its segment FORMs in order (PREFIX* STEM+ SUFFIX*).
    ~500 words carry TWO stems (compounds like بِئْسَمَا) → both stems kept, producing two
@@ -91,14 +96,17 @@ by sound (transliteration) and by meaning (curated glosses).
       // [2] root (Arabic) | null           [3] lemma (Arabic)
       // [4] POS code (corpus tag, e.g. "V","N","PN","P","PRON")
       // [5] verb form number | 0           [6] feature tokens (compact string, e.g. "IMPF|3MP|MOOD:JUS|PASS")
-      // [7] prefix feature strings in corpus order (e.g. ["fa+","sa+"], corpus values like
-      //     "wa:CONJ+", "Al+") — empty array if none
-      // [8] suffix feature strings in order — empty array if none. Plural because words like
-      //     يَكْفِيكَهُمُ carry TWO attached pronouns; also covers "+n:EMPH".
+      // [7] prefixes in corpus order, each "arabicSegment|featureCode"
+      //     (e.g. "وَ|w:CONJ+", "ٱل|Al+") — empty array if none
+      // [8] suffixes, same format (e.g. "هُ|PRON:3MS") — empty array if none. Plural because
+      //     words like أَنزَلْنَٰهُ carry TWO attached pronouns; also covers "+n:EMPH". Note:
+      //     the corpus tags SUBJECT endings (ونَ of يُؤْمِنُونَ, نَٰ of أَنزَلْنَٰهُ) as PRON
+      //     suffixes too — traditional grammar treats them as attached subject pronouns.
+      //     Storing the real Arabic segment (نَٰ vs نِي) is what keeps them distinguishable.
       // [9] gloss | null                   [10] occurrence count
       // [11] example refs, ≤3 (e.g. ["2:255","3:5"])
-      // (row below is illustrative — real values come from the build)
-      ["يُنزِلُ", "yunzilu", "نزل", "أَنزَلَ", "V", 4, "IMPF|3MS", [], [], "to send down", 293, ["2:22"]]
+      // (verified real row shape — values recomputed by the build)
+      ["يُؤْمِنُونَ", "yuʾminūna", "ءمن", "آمَنَ", "V", 4, "IMPF|3MP", [], ["ونَ|PRON:3MP"], "to believe", 87, ["2:3"]]
     ]
   },
   "altKeys": { "<alternateSpelling>": "<canonicalKey>" }
