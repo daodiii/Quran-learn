@@ -1,0 +1,433 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Container from '../../components/primitives/Container.astro';
+import BreadcrumbSchema from '../../components/seo/BreadcrumbSchema.astro';
+import ArticleSchema from '../../components/seo/ArticleSchema.astro';
+import FaqSchema from '../../components/seo/FaqSchema.astro';
+
+const title = 'Arabic I’rab Cases (Marfuʻ, Mansub, Majrur): The Complete Guide';
+const description =
+  'Understand Arabic case endings — Marfuʻ (nominative), Mansub (accusative), and Majrur (genitive). Learn what triggers each case, how the markers shift across singular/dual/plural, and where each appears in the Quran.';
+
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  { label: 'Learn', href: '/learn/' },
+  { label: 'I’rab Cases' },
+];
+
+const faqItems = [
+  {
+    question: 'What is I’rab in Arabic grammar?',
+    answer:
+      'I’rab (إِعْرَاب) is the system of case endings — the small vowel marks (and longer letter changes) at the end of Arabic nouns, adjectives, and verbs that signal their grammatical role. The three nominal cases are Marfuʻ (nominative — for subjects), Mansub (accusative — for objects and predicates of inna), and Majrur (genitive — after prepositions and inside idafa). Verbs have their own parallel system (Marfuʻ, Mansub, Majzum). I’rab is what makes Arabic word order flexible: meaning rides on case endings, not position.',
+  },
+  {
+    question: 'What are the three Arabic cases?',
+    answer:
+      'The three cases for nouns and adjectives are Marfuʻ (nominative — typically marked by ḍamma /-u/), Mansub (accusative — typically marked by fatḥa /-a/), and Majrur (genitive — typically marked by kasra /-i/). Each case is triggered by a specific grammatical role: subjects are Marfuʻ, direct objects are Mansub, and anything after a preposition or in the second slot of an idafa is Majrur.',
+  },
+  {
+    question: 'Why does I’rab matter for understanding the Quran?',
+    answer:
+      'Translations strip out the case endings, but the Quran’s precision rides on them. A single vowel change at the end of a word can flip subject and object, restrict meaning, or signal a rhetorical emphasis. Knowing I’rab lets you see who is doing what to whom, why a phrase is fronted, and what the unspoken implications are. It is the difference between reading the Quran and reading a paraphrase of it.',
+  },
+  {
+    question: 'How do I memorize the case endings?',
+    answer:
+      'Don’t memorize endings in isolation — memorize the triggers. Subjects of nominal sentences and verbal sentences trigger Marfuʻ. The verbs of inna and her sisters, direct objects, and circumstantial accusatives trigger Mansub. Prepositions and idafa trigger Majrur. Once you internalize the triggers, the endings follow automatically. The Case Endings Chart on the resources page is a single-page lookup card.',
+  },
+];
+---
+
+<BaseLayout title={title} description={description} type="article">
+  <Fragment slot="head">
+    <BreadcrumbSchema items={breadcrumbItems} />
+    <ArticleSchema
+      title={title}
+      description={description}
+      url={Astro.url.pathname}
+      type="LearningResource"
+      educationalLevel="Beginner"
+      isPartOfCourse={true}
+    />
+    <FaqSchema items={faqItems} />
+  </Fragment>
+
+  <Container maxWidth="lg">
+    <article class="hub-article">
+      <header class="hub-header">
+        <p class="hub-eyebrow">Topic Hub · Nahw (Syntax)</p>
+        <h1 class="hub-title">I’rab Cases: Marfuʻ, Mansub, Majrur</h1>
+        <p class="hub-subtitle">
+          The three cases that control nearly every noun and adjective in Quranic Arabic. Master the
+          triggers and the endings follow automatically.
+        </p>
+      </header>
+
+      <section class="hub-section">
+        <h2>What is I’rab?</h2>
+        <p>
+          <strong>I’rab</strong> (<span lang="ar" dir="rtl">إِعْرَاب</span>) is the Arabic system of
+          <em>case endings</em>. Every noun, adjective, and present-tense verb in classical Arabic carries
+          a small vowel mark — or longer suffix change — at its end, signalling its role in the sentence.
+          That ending is its <em>case</em>.
+        </p>
+        <p>
+          Arabic is a word-order-flexible language. The same three words can be reordered without changing
+          who did what to whom — because the case endings themselves carry the role information. Once you
+          can read I’rab, you stop relying on word order and start reading the language the way it was
+          designed to be read.
+        </p>
+        <p>
+          Nouns and adjectives use three cases:
+          <strong>Marfuʻ</strong> (nominative),
+          <strong>Mansub</strong> (accusative), and
+          <strong>Majrur</strong> (genitive).
+          Verbs use a parallel three-case system —
+          <strong>Marfuʻ</strong> (indicative),
+          <strong>Mansub</strong> (subjunctive), and
+          <strong>Majzum</strong> (jussive) — covered in the verb-mood lessons.
+        </p>
+      </section>
+
+      <section class="hub-section">
+        <h2>The three cases at a glance</h2>
+        <div class="table-wrap">
+          <table class="cases-table">
+            <thead>
+              <tr>
+                <th>Case</th>
+                <th>Marker (singular)</th>
+                <th>Triggered by</th>
+                <th>Quranic example</th>
+                <th>Lesson</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Marfuʻ</strong><br/><span class="ar-inline" lang="ar" dir="rtl">مَرْفُوع</span></td>
+                <td><span lang="ar" dir="rtl">ـُ</span> (ḍamma /u/)</td>
+                <td>Subject of nominal or verbal sentence; predicate of nominal sentence</td>
+                <td>اللَّهُ — "Allah" (subject)</td>
+                <td><a href="/learn/level-2/04-nominative-case/">L2.04</a></td>
+              </tr>
+              <tr>
+                <td><strong>Mansub</strong><br/><span class="ar-inline" lang="ar" dir="rtl">مَنْصُوب</span></td>
+                <td><span lang="ar" dir="rtl">ـَ</span> (fatḥa /a/)</td>
+                <td>Direct object; predicate of inna; circumstantial; absolute object</td>
+                <td>الْكَوْثَرَ — "Al-Kawthar" (direct object)</td>
+                <td><a href="/learn/level-2/05-accusative-case/">L2.05</a></td>
+              </tr>
+              <tr>
+                <td><strong>Majrur</strong><br/><span class="ar-inline" lang="ar" dir="rtl">مَجْرُور</span></td>
+                <td><span lang="ar" dir="rtl">ـِ</span> (kasra /i/)</td>
+                <td>After preposition; second slot of idafa</td>
+                <td>بِسْمِ — "in the name of" (after the preposition بِ)</td>
+                <td><a href="/learn/level-2/06-genitive-case/">L2.06</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="hub-cta-line">
+          Need every case ending across singular, dual, and plural in one place? See the
+          <a href="/resources/case-endings-chart/">Case Endings Chart</a>.
+        </p>
+      </section>
+
+      <section class="hub-section">
+        <h2>Marfuʻ — the case of the subject</h2>
+        <p>
+          Marfuʻ (<span lang="ar" dir="rtl">مَرْفُوع</span>, "raised") marks the actor or topic of a
+          sentence. Use it for:
+        </p>
+        <ul class="case-list">
+          <li>The <strong>mubtada’</strong> (subject) and <strong>khabar</strong> (predicate) of a nominal sentence — both are Marfuʻ.</li>
+          <li>The <strong>fāʿil</strong> (subject) of a verbal sentence.</li>
+          <li>The <strong>ism kāna</strong> — the noun governed by kāna and her sisters.</li>
+          <li>The <strong>khabar inna</strong> — the predicate of inna and her sisters.</li>
+        </ul>
+        <p>
+          Marfuʻ is signalled by a ḍamma in the singular, by ـَانِ in the dual, and by ـُونَ in the
+          sound masculine plural. Walk through the full pattern in
+          <a href="/learn/level-2/04-nominative-case/">L2.04: The Nominative Case (Marfuʻ)</a>.
+        </p>
+      </section>
+
+      <section class="hub-section">
+        <h2>Mansub — the case of the object</h2>
+        <p>
+          Mansub (<span lang="ar" dir="rtl">مَنْصُوب</span>, "set up") marks the receiver of an action
+          and a handful of specialized roles. Use it for:
+        </p>
+        <ul class="case-list">
+          <li>The <strong>direct object</strong> (mafʿūl bihi) of a verb.</li>
+          <li>The <strong>khabar kāna</strong> — the predicate after kāna and her sisters.</li>
+          <li>The <strong>ism inna</strong> — the noun after inna and her sisters.</li>
+          <li>The <strong>ḥāl</strong> (circumstantial accusative) and <strong>tamyīz</strong> (specification).</li>
+          <li>The <strong>mafʿūl muṭlaq</strong> (absolute object) and <strong>mafʿūl li-ajlih</strong> (causal accusative).</li>
+        </ul>
+        <p>
+          Mansub is signalled by a fatḥa in the singular, ـَيْنِ in the dual, and ـِينَ in the sound
+          masculine plural. The accusative is the workhorse of Arabic syntax — see
+          <a href="/learn/level-2/05-accusative-case/">L2.05: The Accusative Case (Mansub)</a> and the
+          advanced accusatives in Level 4 (<a href="/learn/level-4/01-hal-clauses/">Ḥāl</a>,
+          <a href="/learn/level-4/02-tamyiz/">Tamyīz</a>,
+          <a href="/learn/level-4/07-maf-ul-mutlaq/">Mafʿūl Muṭlaq</a>).
+        </p>
+      </section>
+
+      <section class="hub-section">
+        <h2>Majrur — the case after prepositions and in idafa</h2>
+        <p>
+          Majrur (<span lang="ar" dir="rtl">مَجْرُور</span>, "dragged") marks two things: any noun
+          following a preposition, and the second noun in an idafa (possessive) construction. Use it for:
+        </p>
+        <ul class="case-list">
+          <li>Any noun preceded by a <strong>preposition</strong> (مِن, إِلَى, عَن, عَلَى, في, بِ, كَ, لِ, etc.).</li>
+          <li>The <strong>muḍāf ilayhi</strong> — the second noun in any idafa chain.</li>
+          <li>An <strong>adjective or apposition</strong> following a Majrur noun (case agreement).</li>
+        </ul>
+        <p>
+          Majrur is signalled by a kasra in the singular, ـَيْنِ in the dual, and ـِينَ in the sound
+          masculine plural — note that dual and sound masculine plural use the same form for Mansub and
+          Majrur. Read more in
+          <a href="/learn/level-2/06-genitive-case/">L2.06: The Genitive Case (Majrur)</a>,
+          <a href="/learn/level-2/07-prepositions-genitive/">L2.07: Prepositions &amp; the Genitive</a>,
+          and <a href="/learn/level-2/08-possessive-idafah/">L2.08: Possessive Idafah</a>.
+        </p>
+      </section>
+
+      <section class="hub-section">
+        <h2>How to read I’rab in any verse</h2>
+        <p>
+          Once you know the triggers, parsing a verse becomes mechanical. Use this 4-step routine on
+          every word:
+        </p>
+        <ol class="path-list">
+          <li>
+            <strong>Identify the part of speech</strong> — noun, verb, particle, or pronoun. Particles
+            and pronouns don't take I’rab the same way; nouns and verbs do.
+          </li>
+          <li>
+            <strong>Find what's governing it</strong> — is there a preposition before it? An idafa? Is it
+            the subject of a verb? The object of a verb? Inside an inna structure?
+          </li>
+          <li>
+            <strong>Apply the case rule</strong> — preposition → Majrur; direct object → Mansub; subject
+            → Marfuʻ. The ending should match.
+          </li>
+          <li>
+            <strong>Confirm with the marker</strong> — read the actual vowel/suffix on the word. If it
+            matches your prediction, you’ve correctly parsed it.
+          </li>
+        </ol>
+        <p>
+          Practice this in
+          <a href="/learn/level-5/01-full-irab-analysis/">L5.01: Full I’rab Analysis</a> and across the
+          <a href="/surahs/">word-by-word surah breakdowns</a> — every word is parsed with its full
+          I’rab justification.
+        </p>
+      </section>
+
+      <section class="hub-section">
+        <h2>Recommended learning path</h2>
+        <ol class="path-list">
+          <li>
+            <a href="/learn/level-1/10-case-endings/">L1.10: Case Endings Introduction</a> — the gentle
+            first pass at what those vowel marks are doing.
+          </li>
+          <li>
+            <a href="/learn/level-2/04-nominative-case/">L2.04: Marfuʻ</a> — full treatment of the
+            nominative case, with all the markers.
+          </li>
+          <li>
+            <a href="/learn/level-2/05-accusative-case/">L2.05: Mansub</a> — accusative, with all of its
+            triggers.
+          </li>
+          <li>
+            <a href="/learn/level-2/06-genitive-case/">L2.06: Majrur</a> — genitive, plus
+            <a href="/learn/level-2/07-prepositions-genitive/">L2.07</a> and
+            <a href="/learn/level-2/08-possessive-idafah/">L2.08</a> for the two main triggers.
+          </li>
+          <li>
+            <a href="/learn/level-2/10-inna-sisters/">L2.10: Inna and her sisters</a> +
+            <a href="/learn/level-2/11-kaana-sisters/">L2.11: Kāna and her sisters</a> — these particles
+            flip case assignments and are everywhere in the Quran.
+          </li>
+          <li>
+            <a href="/learn/level-5/01-full-irab-analysis/">L5.01: Full I’rab Analysis</a> — the capstone
+            where you combine everything to parse complete verses.
+          </li>
+        </ol>
+      </section>
+    </article>
+  </Container>
+</BaseLayout>
+
+<style>
+  .hub-article {
+    padding-block: var(--spacing-2xl, 3rem) var(--spacing-3xl, 4rem);
+  }
+
+  .hub-header {
+    text-align: center;
+    margin-block-end: var(--spacing-2xl, 3rem);
+  }
+
+  .hub-eyebrow {
+    font-family: var(--font-display);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent-gold);
+    margin: 0 0 0.75rem;
+  }
+
+  .hub-title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    margin: 0 0 1rem;
+  }
+
+  .hub-subtitle {
+    color: var(--text-secondary);
+    font-size: clamp(1rem, 2vw, 1.125rem);
+    line-height: 1.6;
+    max-inline-size: 48rem;
+    margin-inline: auto;
+  }
+
+  .hub-section {
+    max-inline-size: 56rem;
+    margin: 0 auto;
+    margin-block-end: var(--spacing-2xl, 3rem);
+  }
+
+  .hub-section h2 {
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
+    margin: 0 0 1rem;
+    padding-block-end: 0.5rem;
+    border-block-end: 2px solid var(--accent-gold);
+  }
+
+  .hub-section p {
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin: 0 0 1rem;
+  }
+
+  .hub-section a {
+    color: var(--accent-primary);
+    text-decoration: underline;
+    text-decoration-color: color-mix(in srgb, var(--accent-primary) 40%, transparent);
+    text-underline-offset: 2px;
+  }
+
+  .hub-section a:hover {
+    text-decoration-color: var(--accent-primary);
+  }
+
+  .table-wrap {
+    overflow-x: auto;
+    margin: 1.5rem 0;
+    border-radius: var(--radius-lg, 12px);
+    border: 1px solid var(--border-primary);
+  }
+
+  .cases-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9375rem;
+  }
+
+  .cases-table th,
+  .cases-table td {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    border-block-end: 1px solid var(--border-primary);
+    color: var(--text-secondary);
+    vertical-align: top;
+  }
+
+  .cases-table th {
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 0.8125rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  .cases-table tbody tr:last-child td {
+    border-block-end: none;
+  }
+
+  .cases-table tbody tr:hover {
+    background: var(--bg-secondary);
+  }
+
+  .ar-inline {
+    font-family: 'Amiri', serif;
+    font-size: 1rem;
+    color: var(--accent-gold);
+  }
+
+  .case-list {
+    margin: 0.75rem 0 1rem;
+    padding-inline-start: 1.5rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+  }
+
+  .case-list li {
+    margin-block-end: 0.375rem;
+  }
+
+  .path-list {
+    counter-reset: path;
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0 0;
+  }
+
+  .path-list li {
+    counter-increment: path;
+    position: relative;
+    padding-inline-start: 2.5rem;
+    margin-block-end: 1rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+
+  .path-list li::before {
+    content: counter(path);
+    position: absolute;
+    inset-inline-start: 0;
+    inset-block-start: 0;
+    inline-size: 1.75rem;
+    block-size: 1.75rem;
+    border-radius: 50%;
+    background: var(--accent-gold);
+    color: #1A1147;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 0.875rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hub-cta-line {
+    font-style: italic;
+  }
+</style>

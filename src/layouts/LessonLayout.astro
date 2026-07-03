@@ -15,9 +15,11 @@ interface Props {
   description?: string;
   nextLesson?: string;
   prevLesson?: string;
+  datePublished?: Date;
+  dateModified?: Date;
 }
 
-const { title, titleArabic, level, description, nextLesson, prevLesson } = Astro.props;
+const { title, titleArabic, level, description, nextLesson, prevLesson, datePublished, dateModified } = Astro.props;
 
 // Get the lesson slug from the URL path
 const lessonSlug = Astro.url.pathname.replace(/^\/learn\//, '').replace(/\/$/, '');
@@ -65,6 +67,9 @@ const educationalLevels: Record<number, string> = {
       url={Astro.url.pathname}
       type="LearningResource"
       educationalLevel={educationalLevels[level]}
+      datePublished={datePublished}
+      dateModified={dateModified}
+      isPartOfCourse={true}
     />
     {prevLesson && <link rel="prev" href={new URL(prevLesson, Astro.site).href} />}
     {nextLesson && <link rel="next" href={new URL(nextLesson, Astro.site).href} />}

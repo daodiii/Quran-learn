@@ -5,17 +5,34 @@ interface Props {
   url: string;
   type?: 'Article' | 'LearningResource';
   educationalLevel?: string;
+  datePublished?: Date;
+  dateModified?: Date;
+  isPartOfCourse?: boolean;
 }
 
-const { title, description, url, type = 'Article', educationalLevel } = Astro.props;
+const {
+  title,
+  description,
+  url,
+  type = 'Article',
+  educationalLevel,
+  datePublished,
+  dateModified,
+  isPartOfCourse = false,
+} = Astro.props;
 const siteUrl = Astro.site?.href.replace(/\/$/, '') || '';
+const fullUrl = `${siteUrl}${url}`;
 
 const jsonLd: Record<string, unknown> = {
   "@context": "https://schema.org",
   "@type": type,
   "headline": title,
   "description": description,
-  "url": `${siteUrl}${url}`,
+  "url": fullUrl,
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": fullUrl,
+  },
   "inLanguage": "en",
   "publisher": {
     "@type": "Organization",
@@ -26,6 +43,23 @@ const jsonLd: Record<string, unknown> = {
 
 if (educationalLevel) {
   jsonLd.educationalLevel = educationalLevel;
+}
+
+if (datePublished) {
+  jsonLd.datePublished = datePublished.toISOString();
+}
+
+if (dateModified) {
+  jsonLd.dateModified = dateModified.toISOString();
+}
+
+if (isPartOfCourse) {
+  jsonLd.isPartOf = {
+    "@type": "Course",
+    "@id": `${siteUrl}/learn/#course`,
+    "name": "Quranic Arabic Grammar",
+    "url": `${siteUrl}/learn/`,
+  };
 }
 ---
 
