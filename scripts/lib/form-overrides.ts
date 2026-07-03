@@ -42,6 +42,30 @@ export const FORM_OVERRIDES: Record<string, FormOverride> = {
     form: 5, mergeInto: 'yataman~a',
     why: '22:52 tamannā is Form V; corpus left it untagged',
   },
+  'rDE|1|yuroDiEo': {
+    form: 4, mergeInto: '>aroDaEato',
+    why: '2:233 yurḍiʿna is Form IV arḍaʿa (causative); corpus left it untagged',
+  },
+  'mry|1|tamaAra': {
+    form: 3, mergeInto: 'tumaAri',
+    why: '42:18/53:12 yumārūna are Form III mārā (54:36 VI token subsumed); corpus left them untagged',
+  },
+  'ETw|1|taEaATaY`': {
+    form: 6,
+    why: '54:29 fa-taʿāṭā is Form VI; corpus left it untagged',
+  },
+  'rsw|1|>arosaY`': {
+    form: 4,
+    why: '79:32 arsāhā is Form IV arsā (to anchor); corpus left it untagged',
+  },
+  'Hdd|1|yuHaA^d~u': {
+    form: 3, mergeInto: 'HaA^d~a',
+    why: '58:5 yuḥāddūna is Form III ḥādda (to oppose); corpus left it untagged',
+  },
+  'lhw|1|talah~aY`': {
+    form: 5,
+    why: '80:10 talahhā is Form V; corpus left it untagged',
+  },
 };
 
 export const MERGE_COUNT = Object.values(FORM_OVERRIDES).filter(o => o.mergeInto).length;
