@@ -14,7 +14,9 @@ export default defineConfig({
   projects: [
     {
       name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
+      // System Chrome: avoids the ~500 MB Chromium download (disk is tight
+      // on this machine; same approach as scripts/render-ebook-pdf.ts).
+      use: { ...devices['Desktop Chrome'], channel: 'chrome' },
     },
   ],
   webServer: {
