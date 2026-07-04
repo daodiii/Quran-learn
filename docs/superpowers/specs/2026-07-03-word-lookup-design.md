@@ -41,7 +41,7 @@ by sound (transliteration) and by meaning (curated glosses).
 - **Arabic query** → normalized exact match; prefix matches feed autocomplete (~8 suggestions).
 - **Latin query** → two result groups, labelled: "matches by sound", "matches by meaning".
 - **Result cards**, one per vocalized variant of the matched written word, every homograph
-  analysis shown (e.g. bare ملك lists مَلَك / مُلْك / مَلِك / مَلَكَ …):
+  analysis shown (e.g. bare ملك lists مَلَك / مُلْك / مَلِك / مَٰلِك …):
   - Arabic word large (Amiri, `lang="ar" dir="rtl"`), transliteration beneath (`translate="no"`).
   - Grammar line humanized client-side from packed feature tokens: "verb, Form IV — imperfect,
     3rd person masculine plural" / "noun, genitive, from the root ن-ز-ل". Tags the humanizer
@@ -74,8 +74,9 @@ by sound (transliteration) and by meaning (curated glosses).
 2. **Group rows by word location `(surah:ayah:word)`** — new lib `scripts/lib/group-words.ts`.
    A written word = concatenation of its segment FORMs in order (PREFIX* STEM+ SUFFIX*).
    ~500 words carry TWO stems (compounds like بِئْسَمَا) → both stems kept, producing two
-   analyses that share the same surface. Suffix PRON rows = attached object/possessive
-   pronouns; subject endings are already inside the STEM form.
+   analyses that share the same surface. Suffix PRON rows include attached object/possessive
+   pronouns AND subject endings (the corpus tags ونَ of يُؤْمِنُونَ as a PRON suffix — see the
+   output-contract note on column [8]).
 3. Per distinct `(vocalized surface, lemma, root, POS, features-signature)`: aggregate count,
    collect first ≤3 refs.
 4. **Verb corrections**: apply `FORM_OVERRIDES` (existing table) to verb form numbers.
