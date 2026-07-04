@@ -21,7 +21,6 @@ const EXAMPLES = [
   title="Word Lookup"
   description={`Type any word of the Quran — Arabic, transliteration, or English meaning — and see its root, part of speech, verb form, grammar, and morpheme breakdown. Covers all ${meta.words.toLocaleString('en-US')} written word forms.`}
 >
-  <link slot="head" rel="preload" href="/data/word-lookup.json" as="fetch" crossorigin="anonymous" />
   <Container size="md" class="wl-container">
     <header class="wl-header">
       <h1 class="wl-title">Word Lookup</h1>
@@ -104,9 +103,6 @@ const EXAMPLES = [
       });
     return loading;
   }
-  // Preload the index eagerly so it is ready when the user types.
-  // The focus listener is kept as a fallback for cached-miss scenarios.
-  loadData().catch(() => {});
   searchEl?.addEventListener('focus', () => { loadData().catch(() => {}); }, { once: true });
 
   function sugRow(ref: { key: string; surface: string; total: number; hint: string | null }) {
@@ -127,7 +123,7 @@ const EXAMPLES = [
     const wrap = h('div', { class: 'wl-analysis' });
     const grammar = h('p', { class: 'wl-grammar' });
     if (form > 0) grammar.append(h('span', { class: 'wl-badge' },
-      'Form ' + (['I','II','III','IV','V','VI','VII','VIII','IX','X','XI','XII'][form - 1] ?? String(form))));
+      ['I','II','III','IV','V','VI','VII','VIII','IX','X','XI','XII'][form - 1] ?? String(form)));
     // The badge already carries the form — passing 0 keeps it out of the prose too.
     grammar.append(grammarLine(pos, 0, feat));
     wrap.append(grammar);
