@@ -125,7 +125,8 @@ const EXAMPLES = [
     const grammar = h('p', { class: 'wl-grammar' });
     if (form > 0) grammar.append(h('span', { class: 'wl-badge' },
       ['I','II','III','IV','V','VI','VII','VIII','IX','X','XI','XII'][form - 1] ?? String(form)));
-    grammar.append(grammarLine(pos, form, feat));
+    // The badge already carries the form — passing 0 keeps it out of the prose too.
+    grammar.append(grammarLine(pos, 0, feat));
     wrap.append(grammar);
 
     if (prefixes.length || suffixes.length) {
