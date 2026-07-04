@@ -37,7 +37,8 @@ const EXAMPLES = [
       <label class="sr-only" for="wl-search">Search any Quranic word by Arabic, sound, or meaning</label>
       <input id="wl-search" class="wl-search" type="search" name="word-search"
         autocomplete="off" spellcheck="false" dir="auto"
-        placeholder="يُؤْمِنُونَ · yuminuna · believe…" />
+        placeholder="يُؤْمِنُونَ · yuminuna · believe…"
+        role="combobox" aria-autocomplete="list" aria-controls="wl-suggestions" aria-expanded="false" />
       <div id="wl-suggestions" class="wl-suggestions" role="listbox"
         aria-label="Matching words" hidden></div>
     </div>
@@ -73,8 +74,7 @@ const EXAMPLES = [
 
   // DOM is built with real nodes only — the repo blocks innerHTML.
   type Kid = Node | string | null | undefined;
-  function h(tag: string, attrs: Record<string, string> = {}, ...kids: Kid[]): HTMLElement {
-    const node = document.createElement(tag);
+  function h(tag: string, attrs: Record<string, string> = {}, ...kids: Kid[]): HTMLElement {    const node = document.createElement(tag);
     for (const [k, v] of Object.entries(attrs)) node.setAttribute(k, v);
     for (const kid of kids) {
       if (kid === null || kid === undefined) continue;
@@ -82,10 +82,16 @@ const EXAMPLES = [
     }
     return node;
   }
+  const scrollBehavior = (): ScrollBehavior =>
+    matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
 
   const resultEl = document.getElementById('wl-result')!;
   const searchEl = document.getElementById('wl-search') as HTMLInputElement;
   const sugEl = document.getElementById('wl-suggestions')!;
+  function setSugHidden(hidden: boolean) {
+    sugEl.hidden = hidden;
+    searchEl?.setAttribute('aria-expanded', String(!hidden));
+  }
 
   let PREP: Prepared | null = null;
   let loading: Promise<Prepared> | null = null;
@@ -202,9 +208,9 @@ const EXAMPLES = [
         : h('p', { class: 'wl-result-heading' }, 'match'),
       h('ul', { class: 'wl-cards' }, ...cards));
     resultEl.hidden = false;
-    sugEl.hidden = true;
+    setSugHidden(true);
     history.replaceState(null, '', `#q=${encodeURIComponent(searchEl.value.trim() || key)}`);
-    resultEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    resultEl.scrollIntoView({ behavior: scrollBehavior(), block: 'start' });
   }
 
   function renderEmpty(didYouMean: any[]) {
@@ -222,7 +228,7 @@ const EXAMPLES = [
 
   async function runSearch(raw: string, { select = false } = {}) {
     const q = raw.trim();
-    if (q.length < 2) { sugEl.hidden = true; return; }
+    if (q.length < 2) { setSugHidden(true); return; }
     const p = await loadData().catch(() => null);
     if (!p) return;
     const r = search(p, q);
@@ -230,13 +236,13 @@ const EXAMPLES = [
       if (r.exact) {
         if (select) { renderKey(r.exact.key); return; }
         sugEl.replaceChildren(sugRow(p.refs.get(r.exact.key)!), ...r.suggestions.map(sugRow));
-        sugEl.hidden = false;
+        setSugHidden(false);
         return;
       }
       if (r.suggestions.length) {
         sugEl.replaceChildren(...r.suggestions.map(sugRow));
-        sugEl.hidden = false;
-      } else { sugEl.hidden = true; renderEmpty(r.didYouMean); }
+        setSugHidden(false);
+      } else { setSugHidden(true); renderEmpty(r.didYouMean); }
       return;
     }
     const rows: HTMLElement[] = [];
@@ -251,7 +257,7 @@ const EXAMPLES = [
     if (!rows.length) rows.push(h('p', { class: 'wl-sug-none' },
       'nothing matches — try Arabic, a sound like "yuminuna", or a meaning like "believe"'));
     sugEl.replaceChildren(...rows);
-    sugEl.hidden = false;
+    setSugHidden(false);
   }
 
   searchEl?.addEventListener('input', () => runSearch(searchEl.value));
@@ -261,7 +267,7 @@ const EXAMPLES = [
       if (first) first.click();
       else runSearch(searchEl.value, { select: true });
     }
-    if (ev.key === 'Escape') sugEl.hidden = true;
+    if (ev.key === 'Escape') setSugHidden(true);
     if (ev.key === 'ArrowDown') {
       (sugEl.querySelector('[data-key]') as HTMLElement | null)?.focus();
       ev.preventDefault();
@@ -272,7 +278,7 @@ const EXAMPLES = [
     const i = items.indexOf(document.activeElement as HTMLElement);
     if (ev.key === 'ArrowDown' && i < items.length - 1) { items[i + 1].focus(); ev.preventDefault(); }
     if (ev.key === 'ArrowUp') { (i > 0 ? items[i - 1] : searchEl).focus(); ev.preventDefault(); }
-    if (ev.key === 'Escape') { sugEl.hidden = true; searchEl.focus(); }
+    if (ev.key === 'Escape') { setSugHidden(true); searchEl.focus(); }
   });
   document.addEventListener('click', async (ev) => {
     const sug = (ev.target as HTMLElement).closest('[data-key]') as HTMLElement | null;
@@ -283,7 +289,7 @@ const EXAMPLES = [
       await runSearch(chip.dataset.q!, { select: true });
       return;
     }
-    if (!(ev.target as HTMLElement).closest('.wl-search-wrap')) sugEl.hidden = true;
+    if (!(ev.target as HTMLElement).closest('.wl-search-wrap')) setSugHidden(true);
   });
 
   const hash = new URLSearchParams(location.hash.slice(1));
@@ -321,6 +327,7 @@ const EXAMPLES = [
     overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
   .wl-sug-count { margin-inline-start: auto; color: var(--color-text-tertiary);
     font-size: 0.85rem; flex-shrink: 0; }
+  .wl-sug-count, .wl-count { font-variant-numeric: tabular-nums; }
   .wl-sug-none { padding: var(--spacing-sm) var(--spacing-md);
     color: var(--color-text-tertiary); margin: 0; font-size: 0.95rem; }
   .wl-group-label { margin: 0; padding: var(--spacing-xs) var(--spacing-md);
