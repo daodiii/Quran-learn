@@ -1896,7 +1896,7 @@ test.describe('Word Lookup', () => {
     const result = page.locator('#wl-result');
     await expect(result).toBeVisible();
     await expect(result.locator('.wl-meaning').first()).toContainText('believe');
-    await expect(result.locator('.wl-grammar').first()).toContainText('Form IV');
+    await expect(result.locator('.wl-badge').first()).toHaveText('IV'); // bare Roman badge is the single form indicator
     await expect(result.locator('.wl-morpheme').first()).toBeVisible();
     await result.locator('a.wl-root-chip').first().click();
     await expect(page).toHaveURL(/\/resources\/verb-forms\/#root=/);
@@ -1908,6 +1908,7 @@ test.describe('Word Lookup', () => {
     await page.fill('#wl-search', 'ملك');
     await page.press('#wl-search', 'Enter');
     const cards = page.locator('#wl-result .wl-card');
+    await expect(cards.nth(1)).toBeVisible(); // auto-waits until at least two cards rendered
     expect(await cards.count()).toBeGreaterThanOrEqual(2);
   });
 
