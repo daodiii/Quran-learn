@@ -92,6 +92,20 @@ const resourceIcons = {
           </svg>
         </Fragment>
       </ResourceCard>
+      <ResourceCard
+        title="Word Lookup"
+        description="Type any word of the Quran — Arabic, sound, or meaning — and see its root, verb form, grammar, and morpheme breakdown."
+        href="/resources/word-lookup/"
+        data-testid="resource-word-lookup"
+      >
+        <Fragment slot="icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="7" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M21 21l-4.35-4.35" stroke-linecap="round"/>
+            <path d="M8.5 11h5M11 8.5v5" stroke-linecap="round"/>
+          </svg>
+        </Fragment>
+      </ResourceCard>
       {sorted.map(resource => (
         <ResourceCard
           title={resource.data.title}
