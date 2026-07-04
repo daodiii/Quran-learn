@@ -83,14 +83,15 @@ by sound (transliteration) and by meaning (curated glosses).
    `(rootAr, form)`. Where a form has multiple lemma entries (the 7 lemma merges), disambiguate
    by matching the entry's past-citation string against `bwToArabic(lemma)`. A verb analysis
    that finds no gloss gets `null` (must be logged by the validator, expected ≈0).
-6. Emit packed JSON; print raw + gzip size; **exit non-zero if gzip > 600 KB**.
+6. Emit packed JSON; print raw + gzip size; **exit non-zero if gzip > 800 KB** (guard raised
+   from the original 600 KB — see decision 3).
 
 ### Output contract — `public/data/word-lookup.json`
 
 ```jsonc
 {
   "meta": { "source": "Quranic Arabic Corpus v0.4 (Kais Dukes, GPL) — corpus.quran.com",
-            "words": 14989, "analyses": 19441, "version": 1 },
+            "words": 14695, "analyses": 20414, "version": 1 },
   "words": {
     "<normalizedArabic>": [
       // packed analysis — fixed column order:
