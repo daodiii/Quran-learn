@@ -486,6 +486,9 @@ test('word lookup page passes contrast checks with results open', async ({ page 
   await page.goto('/resources/word-lookup/#q=' + encodeURIComponent('بسم'));
   await page.waitForLoadState('networkidle');
   await page.locator('#wl-result .wl-card').first().waitFor();
+  // Open the suggestions dropdown too, so axe audits both rendered states.
+  await page.fill('#wl-search', 'بس');
+  await page.locator('.wl-sug').first().waitFor();
   await enableDarkMode(page);
   const accessibilityScanResults = await new AxeBuilder({ page })
     .withTags(['wcag2aaa', 'wcag21aaa'])
