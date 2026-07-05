@@ -58,4 +58,34 @@ test.describe('Verb Form Generator', () => {
     await expect(page.locator('#vf-suggestions')).toBeHidden();
     await expect(search).toHaveAttribute('aria-expanded', 'false');
   });
+
+  test('suggestions support arrow-key navigation with focus return', async ({ page }) => {
+    await page.goto('/resources/verb-forms/');
+    const search = page.locator('#vf-search');
+    await search.fill('نز');
+    await expect(page.locator('.vf-sug').nth(1)).toBeVisible();
+    await search.press('ArrowDown');
+    await expect(page.locator('.vf-sug').first()).toBeFocused();
+    await page.keyboard.press('ArrowDown');
+    await expect(page.locator('.vf-sug').nth(1)).toBeFocused();
+    await page.keyboard.press('ArrowUp');
+    await expect(page.locator('.vf-sug').first()).toBeFocused();
+    await page.keyboard.press('ArrowUp');
+    await expect(search).toBeFocused();
+    await search.press('ArrowDown');
+    await page.keyboard.press('Escape');
+    await expect(page.locator('#vf-suggestions')).toBeHidden();
+    await expect(search).toBeFocused();
+    await expect(search).toHaveAttribute('aria-expanded', 'false');
+  });
+
+  test('selecting a suggestion closes the listbox', async ({ page }) => {
+    await page.goto('/resources/verb-forms/');
+    const search = page.locator('#vf-search');
+    await search.fill('نزل');
+    await page.locator('.vf-sug').first().click();
+    await expect(page.locator('#vf-result')).toBeVisible();
+    await expect(page.locator('#vf-suggestions')).toBeHidden();
+    await expect(search).toHaveAttribute('aria-expanded', 'false');
+  });
 });
