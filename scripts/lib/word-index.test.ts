@@ -2,7 +2,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { parseCorpusRows, groupWords } from './group-words.ts';
-import { buildGlossMap, buildIndex } from './word-index.ts';
+import { buildGlossMap, buildIndex, buildNounGlossMap } from './word-index.ts';
 
 // Minimal but REAL slice of verb-forms.json shape (values from the shipped dataset).
 const VERB_FORMS = {
@@ -74,6 +74,27 @@ test('buildIndex: noun analysis — no gloss, prefix stored with arabic segment'
   assert.equal(a[9], null);
   assert.deepEqual(a[7], ['بِ|bi+']);
   assert.equal(a[2], 'سمو');              // root smw
+});
+
+test('buildNounGlossMap: keys batches by lemma|pos', () => {
+  const m = buildNounGlossMap([
+    { batch: 'batch-01', glosses: [{ lemma: 'اسْم', pos: 'N', meaning: 'name' }] },
+  ]);
+  assert.equal(m.get('اسْم|N'), 'name');
+  assert.equal(m.size, 1);
+});
+
+test('buildIndex: noun analysis picks up curated gloss via lemma|pos', () => {
+  const nounGlosses = new Map([['اسْم|N', 'name']]);
+  const idx = buildIndex(groupWords(parseCorpusRows(ROWS)), VERB_FORMS, nounGlosses);
+  const [noun] = idx.words['بسم'];
+  assert.equal(noun[9], 'name');
+  // verbs keep their verb-forms.json gloss and never read the noun map
+  const [verb] = idx.words['يؤمنون'];
+  assert.equal(verb[9], 'to believe');
+  // rootless INL has lemma '' — must stay unglossed even if map is present
+  const [inl] = idx.words['الم'];
+  assert.equal(inl[9], null);
 });
 
 test('buildIndex: rootless INL analysis', () => {
