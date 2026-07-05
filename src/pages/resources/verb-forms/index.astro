@@ -237,6 +237,7 @@ const ROMAN = ['I','II','III','IV','V','VI','VII','VIII','IX','X','XI','XII'];
           `${root.translit} · ${root.quad ? 'four-letter root' : `${formsUsed} of 10 forms`} · ${Number(root.totalCount)}× in the Quran`)),
       h('ol', { class: 'vf-grid' }, ...rows));
     resultEl.hidden = false;
+    setSugHidden(true);
     history.replaceState(null, '', `#root=${encodeURIComponent(root.root)}`);
     resultEl.scrollIntoView({ behavior: scrollBehavior(), block: 'start' });
   }
@@ -277,6 +278,17 @@ const ROMAN = ['I','II','III','IV','V','VI','VII','VIII','IX','X','XI','XII'];
   searchEl?.addEventListener('keydown', (ev) => {
     if (ev.key === 'Enter') (sugEl.querySelector('[data-root]') as HTMLElement | null)?.click();
     if (ev.key === 'Escape') setSugHidden(true);
+    if (ev.key === 'ArrowDown') {
+      (sugEl.querySelector('[data-root]') as HTMLElement | null)?.focus();
+      ev.preventDefault();
+    }
+  });
+  sugEl?.addEventListener('keydown', (ev) => {
+    const items = [...sugEl.querySelectorAll('[data-root]')] as HTMLElement[];
+    const i = items.indexOf(document.activeElement as HTMLElement);
+    if (ev.key === 'ArrowDown' && i < items.length - 1) { items[i + 1].focus(); ev.preventDefault(); }
+    if (ev.key === 'ArrowUp') { (i > 0 ? items[i - 1] : searchEl).focus(); ev.preventDefault(); }
+    if (ev.key === 'Escape') { setSugHidden(true); searchEl.focus(); }
   });
   document.addEventListener('click', (ev) => {
     if (!(ev.target as HTMLElement).closest('.vf-search-wrap')) setSugHidden(true);
