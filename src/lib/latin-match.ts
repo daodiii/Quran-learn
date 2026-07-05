@@ -36,3 +36,63 @@ export function stem(word: string): string {
   if (w.length > 3 && w[w.length - 1] === w[w.length - 2]) w = w.slice(0, -1);
   return w;
 }
+
+export interface GlossToken { text: string; stem: string; start: number; end: number }
+export interface PreparedGloss { raw: string; lower: string; tokens: GlossToken[] }
+export interface QueryToken { text: string; stem: string }
+export interface GlossMatch { tier: 1 | 2 | 3; ranges: [number, number][] }
+
+const WORD_RE = /[a-z0-9']+/g;
+
+export function prepareGloss(raw: string): PreparedGloss {
+  const lower = raw.toLowerCase();
+  const tokens: GlossToken[] = [];
+  for (const m of lower.matchAll(WORD_RE))
+    tokens.push({ text: m[0], stem: stem(m[0]), start: m.index!, end: m.index! + m[0].length });
+  return { raw, lower, tokens };
+}
+
+// 1-char tokens are noise ("a", "o") — dropped here so they can never match.
+export function prepareQuery(rawQuery: string): QueryToken[] {
+  const out: QueryToken[] = [];
+  for (const m of rawQuery.toLowerCase().matchAll(WORD_RE))
+    if (m[0].length >= 2) out.push({ text: m[0], stem: stem(m[0]) });
+  return out;
+}
+
+function mergeRanges(ranges: [number, number][]): [number, number][] {
+  const sorted = [...ranges].sort((a, b) => a[0] - b[0]);
+  const out: [number, number][] = [];
+  for (const r of sorted) {
+    const last = out[out.length - 1];
+    // gap of 1 = the space between adjacent matched words — mark them as one
+    if (last && r[0] <= last[1] + 1) last[1] = Math.max(last[1], r[1]);
+    else out.push([r[0], r[1]]);
+  }
+  return out;
+}
+
+// Tiers: 1 whole-word (token or stem equality) · 2 token-prefix (query ≥3
+// chars) · 3 raw substring (query ≥3 chars). Every query token must match;
+// the gloss ranks at its WORST token tier.
+export function matchGloss(queryTokens: QueryToken[], gloss: PreparedGloss): GlossMatch | null {
+  if (!queryTokens.length) return null;
+  let worst: 1 | 2 | 3 = 1;
+  const ranges: [number, number][] = [];
+  for (const qt of queryTokens) {
+    let hit: { tier: 1 | 2 | 3; range: [number, number] } | null = null;
+    for (const t of gloss.tokens) {
+      if (t.text === qt.text || t.stem === qt.stem) { hit = { tier: 1, range: [t.start, t.end] }; break; }
+      if (!hit && qt.text.length >= 3 && t.text.startsWith(qt.text))
+        hit = { tier: 2, range: [t.start, t.end] };
+    }
+    if (!hit && qt.text.length >= 3) {
+      const i = gloss.lower.indexOf(qt.text);
+      if (i >= 0) hit = { tier: 3, range: [i, i + qt.text.length] };
+    }
+    if (!hit) return null;
+    if (hit.tier > worst) worst = hit.tier;
+    ranges.push(hit.range);
+  }
+  return { tier: worst, ranges: mergeRanges(ranges) };
+}
