@@ -65,7 +65,7 @@ function mergeRanges(ranges: [number, number][]): [number, number][] {
   const out: [number, number][] = [];
   for (const r of sorted) {
     const last = out[out.length - 1];
-    // gap of 1 = the space between adjacent matched words — mark them as one
+    // gap ≤1 (space, hyphen, any single separator) — mark adjacent words as one
     if (last && r[0] <= last[1] + 1) last[1] = Math.max(last[1], r[1]);
     else out.push([r[0], r[1]]);
   }

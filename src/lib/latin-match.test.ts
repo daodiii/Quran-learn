@@ -52,7 +52,9 @@ test('match: prefix is tier 2 (bel → believe)', () => {
   assert.equal(matchGloss(q('bel'), g('to believe'))!.tier, 2);
 });
 test('match: substring is tier 3 (eliev → believe)', () => {
-  assert.equal(matchGloss(q('eliev'), g('to believe'))!.tier, 3);
+  const m = matchGloss(q('eliev'), g('to believe'))!;
+  assert.equal(m.tier, 3);
+  assert.deepEqual(m.ranges, [[4, 9]]); // 'to believe'.slice(4,9) === 'eliev'
 });
 test('match: multi-word requires every token; adjacent ranges merge', () => {
   const m = matchGloss(q('send down'), g('to send down gradually'))!;
@@ -73,4 +75,8 @@ test('match: 1-char and empty queries never match', () => {
 });
 test('match: irregular verb reaches the gloss (sent → send)', () => {
   assert.equal(matchGloss(q('sent'), g('to send down, reveal'))!.tier, 1);
+});
+test('match: ranges index into RAW for mixed-case glosses', () => {
+  const m = matchGloss(q('god'), g('Allah, God'))!;
+  assert.deepEqual(m.ranges, [[7, 10]]); // 'Allah, God'.slice(7,10) === 'God'
 });
