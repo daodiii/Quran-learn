@@ -1,6 +1,6 @@
 // scripts/build-word-lookup.ts
 // Word Lookup dataset: corpus + curated verb/noun glosses → public/data/word-lookup.json
-import { readFileSync, readdirSync, writeFileSync, mkdirSync } from 'node:fs';
+import { existsSync, readFileSync, readdirSync, writeFileSync, mkdirSync } from 'node:fs';
 import { gzipSync } from 'node:zlib';
 import { parseCorpusRows, groupWords } from './lib/group-words.ts';
 import { buildIndex, buildNounGlossMap } from './lib/word-index.ts';
@@ -11,6 +11,9 @@ const NOUN_GLOSSES_DIR = 'src/data/morphology/glosses-nouns/output';
 const OUT = 'public/data/word-lookup.json';
 const GZIP_BUDGET = 800 * 1024; // spec guard (actual output ~716 KB; plan estimate was 600 KB)
 
+if (!existsSync(NOUN_GLOSSES_DIR))
+  throw new Error(`noun gloss dir missing: ${NOUN_GLOSSES_DIR} — the curated batches are ` +
+    `committed to the repo; regenerate inputs with scripts/build-noun-gloss-batches.ts`);
 const nounBatches = readdirSync(NOUN_GLOSSES_DIR)
   .filter(f => /^batch-\d+\.json$/.test(f)).sort()
   .map(f => JSON.parse(readFileSync(`${NOUN_GLOSSES_DIR}/${f}`, 'utf8')));

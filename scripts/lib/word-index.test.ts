@@ -76,7 +76,7 @@ test('buildIndex: passive verb keeps PASS token and gets same lemma gloss', () =
   assert.equal(a[9], 'to send down');
 });
 
-test('buildIndex: noun analysis — no gloss, prefix stored with arabic segment', () => {
+test('buildIndex: noun analysis — no gloss without a curated map, prefix stored with arabic segment', () => {
   const [a] = makeIndex().words['بسم'];
   assert.equal(a[4], 'N');
   assert.equal(a[9], null);

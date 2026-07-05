@@ -10,16 +10,17 @@ A user sees a word in the Quran — pasted from a digital mushaf (Uthmani, vocal
 hand (bare, modern spelling) — and wants to understand it. They enter it on
 `/resources/word-lookup/` and get every attested analysis of that written word: root, part of
 speech, verb form, readable grammar features, morpheme breakdown (prefixes / stem / attached
-pronoun), curated meaning (verbs in v1), occurrence count, and example verse refs. Verb results
+pronoun), curated meaning (verbs since v1; top-305 noun/particle lemmas since Phase 2), occurrence count, and example verse refs. Verb results
 deep-link into the Verb Form Generator via its existing `#root=` hash. Latin input searches both
 by sound (transliteration) and by meaning (curated glosses).
 
 ## User-approved decisions
 
 1. **Scope: all words, verb meanings first.** Every one of the 77,429 corpus words is findable
-   now (root / POS / lemma / features). Curated English glosses exist only for verbs in v1
-   (joined from `verb-forms.json`); noun/particle gloss curation is a follow-up phase using the
-   same subagent batch pipeline as the verb project.
+   now (root / POS / lemma / features). v1 shipped curated English glosses for verbs only
+   (joined from `verb-forms.json`); Phase 2 (2026-07-05) added the top 305 non-verb lemmas by
+   frequency (80% of non-verb occurrences) via the same subagent batch pipeline — the tail
+   (~3.4k lemmas) continues in later rounds.
 2. **Input: Arabic + both Latin modes.** Arabic (vocalized or bare, Uthmani or modern spelling);
    Latin input searches transliterations ("yunziluna" ≈ "yunzilūna") AND English meanings
    ("send down"), results grouped by kind. No mode toggle — script auto-detected.
@@ -53,7 +54,8 @@ by sound (transliteration) and by meaning (curated glosses).
     Quran text). Pronoun suffixes are labeled role-neutrally ("we / us / our") because the
     corpus tags subject endings as PRON suffixes too; claiming subject vs object would need a
     form-level heuristic — deferred (recorded under out of scope).
-  - Meaning: curated gloss (verbs); italic "meaning coming soon" otherwise (generator pattern).
+  - Meaning: curated gloss (verbs; glossed noun/particle lemmas since Phase 2); italic
+    "meaning coming soon" for the still-unglossed tail (generator pattern).
   - Root chip: verbs → link to `/resources/verb-forms/#root=<rootAr>`; non-verbs → plain root
     display; omitted entirely for the 1,345 root-less analyses (particles, pronouns, etc.).
   - `N× in the Quran` + up to 3 example refs linking to quran.com (generator's exact pattern).
@@ -159,10 +161,13 @@ the corpus file header retained in-repo.
 ## Phasing
 
 - **v1 (this spec)**: everything above; verb glosses only.
-- **Phase 2 (separate effort, not planned here)**: gloss curation for ~2k+ non-verb lemmas via
-  the subagent batch pipeline (`orchestration-fable-brain-cheap-subagents`), then rebuild the
-  index — meaning search automatically widens to nouns/particles. No schema change needed
-  (column [9] simply stops being null).
+- **Phase 2 (SHIPPED 2026-07-05, top-305 milestone)**: noun/particle gloss curation via the
+  subagent batch pipeline (`orchestration-fable-brain-cheap-subagents`) — store at
+  `src/data/morphology/glosses-nouns/` keyed `lemma|pos`, joined in `buildNounGlossMap`. As
+  predicted, no schema change (column [9] simply stops being null) and meaning search widened
+  automatically. Actual glossless workload was 3,681 lemmas (design estimate ~2k+); the top 305
+  by frequency cover 80% of non-verb occurrences. The tail (~3.4k lemmas) and 187 root-less
+  lemma-less analyses continue in later rounds.
 
 ## Testing
 
@@ -185,7 +190,7 @@ TDD throughout, repo conventions (`tsx --test`, `npm run test:lookup`):
 
 ## Out of scope (recorded for later)
 
-- Noun/particle gloss curation (Phase 2 above).
+- Noun/particle gloss tail beyond the top 305 (Phase 2 above; 6,998 analyses still pending).
 - Transliteration display-style preferences; virtual Arabic keyboard.
 - Per-word static SEO pages (mirrors the generator's deferred per-root pages).
 - Verse-context view (showing the full ayah around an occurrence).

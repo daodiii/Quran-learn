@@ -50,7 +50,9 @@ export function buildNounGlossMap(batches: NounGlossBatch[]): Map<string, string
   const map = new Map<string, string>();
   for (const b of batches)
     for (const g of b.glosses)
-      if (g.meaning) map.set(`${g.lemma}|${g.pos}`, g.meaning);
+      // NFC like the verb merge path — validation normalizes before checking,
+      // so the artifact must store the same form it validated.
+      if (g.meaning) map.set(`${g.lemma}|${g.pos}`, g.meaning.normalize('NFC'));
   return map;
 }
 
