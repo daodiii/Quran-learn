@@ -400,6 +400,20 @@ const ROMAN = ['I','II','III','IV','V','VI','VII','VIII','IX','X','XI','XII'];
   .vf-attribution a { color: inherit; }
   .vf-crosslink { margin: 0 0 var(--spacing-sm); }
 
+  /* Tertiary text (#9b8b7e) is 5.91:1 on the near-black dark bg — below the
+     7:1 AAA threshold. Promote to secondary in dark mode (same fix as the
+     word-lookup page). :global() because data-theme lives on <html>. */
+  :global([data-theme="dark"]) .vf-sug-count,
+  :global([data-theme="dark"]) .vf-sug-none,
+  :global([data-theme="dark"]) .vf-chip-count,
+  :global([data-theme="dark"]) .vf-pattern,
+  :global([data-theme="dark"]) .vf-shift,
+  :global([data-theme="dark"]) .vf-empty-note,
+  :global([data-theme="dark"]) .vf-count,
+  :global([data-theme="dark"]) .vf-letter-count,
+  :global([data-theme="dark"]) .vf-attribution,
+  :global([data-theme="dark"]) .vf-attribution a { color: var(--color-text-secondary); }
+
   .sr-only { position: absolute; inline-size: 1px; block-size: 1px; overflow: hidden;
     clip-path: inset(50%); white-space: nowrap; }
 
