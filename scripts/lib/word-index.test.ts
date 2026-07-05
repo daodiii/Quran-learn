@@ -13,6 +13,9 @@ const VERB_FORMS = {
     { root: 'نزل', translit: 'n-z-l', quad: false, totalCount: 293, forms: {
       '4': [{ past: 'أَنْزَلَ', present: 'يُنْزِلُ', translit: 'anzala / yunzilu',
               meaning: 'to send down', count: 190, example: '2:22' }] } },
+    { root: 'شيء', translit: 'sh-y-ʾ', quad: false, totalCount: 519, forms: {
+      '1': [{ past: 'شَاءَ', present: 'يَشَاءُ', translit: 'shāʾa / yashāʾu',
+              meaning: 'to will, wish', count: 236, example: '2:20' }] } },
   ],
 };
 
@@ -29,6 +32,11 @@ const ROWS = [
   '(1:1:1:1)\tbi\tP\tPREFIX|bi+',
   '(1:1:1:2)\tsomi\tN\tSTEM|POS:N|LEM:{som|ROOT:smw|M|GEN',
   '(2:1:1:1)\tAl^m^\tINL\tSTEM|POS:INL',
+  // Annotation-mark lemmas (real corpus rows): maddah ^, dagger alif `, small zero @
+  "(2:19:4:1)\t{l\tDET\tPREFIX|Al+",
+  "(2:19:4:2)\ts~amaA^'i\tN\tSTEM|POS:N|LEM:samaA^'|ROOT:smw|F|GEN",
+  '(2:5:1:1)\t>uw@la`^}ika\tDEM\tSTEM|POS:DEM|LEM:>uwla`^}ik|P',
+  "(2:20:15:1)\t$aA^'a\tV\tSTEM|POS:V|PERF|LEM:$aA^'a|ROOT:$yA|3MS",
 ].join('\n');
 
 function makeIndex() {
@@ -111,6 +119,28 @@ test('buildIndex: altKeys derived for uthmani spellings', () => {
   const idx = buildIndex(groupWords(rows), { roots: [] });
   assert.equal(idx.altKeys['الصلاة'], 'الصلوة');
   assert.ok(idx.words['الصلوة']);
+});
+
+test('buildIndex: annotation-mark lemmas render as Uthmani marks, not raw BW', () => {
+  const all = Object.values(makeIndex().words).flat();
+  const sky = all.find(a => a[0] === 'ٱلسَّمَآءِ');
+  assert.equal(sky?.[3], 'سَمَآء');
+  const dem = all.find(a => a[4] === 'DEM');
+  assert.equal(dem?.[3], 'أُولَٰٓئِك');
+  for (const a of all) assert.doesNotMatch(a[3], /[\^#:@"\[\];,.!+%-]/);
+});
+
+test('buildIndex: verb with annotation lemma still glossed via root|form fallback', () => {
+  const v = Object.values(makeIndex().words).flat().find(a => a[2] === 'شيء');
+  assert.equal(v?.[3], 'شَآءَ');
+  assert.equal(v?.[9], 'to will, wish');
+});
+
+test('buildIndex: noun gloss joins on the Uthmani-mark lemma key', () => {
+  const nounGlosses = new Map([['سَمَآء|N', 'sky, heaven']]);
+  const idx = buildIndex(groupWords(parseCorpusRows(ROWS)), VERB_FORMS, nounGlosses);
+  const sky = Object.values(idx.words).flat().find(a => a[0] === 'ٱلسَّمَآءِ');
+  assert.equal(sky?.[9], 'sky, heaven');
 });
 
 test('buildIndex: meta counts', () => {
