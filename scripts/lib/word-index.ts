@@ -1,7 +1,7 @@
 // scripts/lib/word-index.ts
 // Aggregates word occurrences into the packed lookup index (spec: Output contract).
 import { FORM_OVERRIDES } from './form-overrides.ts';
-import { bwToArabic } from './buckwalter.ts';
+import { bwLemmaToArabic } from './buckwalter.ts';
 import { bwToArabicSurface, bwToTranslitSurface } from './bw-surface.ts';
 import { normalizeArabic, deriveAltKeys } from '../../src/lib/arabic-normalize.ts';
 import type { WordOccurrence, WordStem } from './group-words.ts';
@@ -135,7 +135,7 @@ export function analysisFieldsForStem(
   const form = isVerb ? (ov?.form ?? stem.formNo) : 0;
   const lemmaBw = ov?.mergeInto ?? stem.lemmaBw;
   const root = stem.rootBw ? rootToArabic(stem.rootBw) : null;
-  const lemma = lemmaBw ? bwToArabic(lemmaBw) : '';
+  const lemma = lemmaBw ? bwLemmaToArabic(lemmaBw) : '';
   const gloss = isVerb && root
     ? glosses.get(`${root}|${form}|${lemma}`) ?? glosses.get(`${root}|${form}`) ?? null
     : !isVerb && lemma
