@@ -1,7 +1,7 @@
 // src/lib/verb-search.ts
 // Pure matching over verb-forms.json roots — extracted from the generator
 // page so behavior is unit-tested; the page is DOM glue only.
-import { foldLatin } from './arabic-normalize.ts';
+import { foldLatin, isArabicQuery } from './arabic-normalize.ts';
 import { prepareGloss, prepareQuery, matchGloss } from './latin-match.ts';
 import type { PreparedGloss } from './latin-match.ts';
 
@@ -37,6 +37,8 @@ export function prepareVerbs(roots: VerbRoot[]): PreparedVerbs {
         formNo, entry, fold: foldLatin(entry.translit),
         gloss: entry.meaning ? prepareGloss(entry.meaning) : null,
       })));
+    // Every root carries ≥1 entry (guaranteed by extract-verbs); an empty
+    // forms map would make `top` undefined and throw at page load.
     const top = entries.reduce((a, b) => (b.entry.count > a.entry.count ? b : a), entries[0]);
     return { root, rootNorm: normalizeRoot(root.root), rootFold: foldLatin(root.translit),
              entries, top: { formNo: top.formNo, entry: top.entry } };
@@ -47,7 +49,7 @@ export function prepareVerbs(roots: VerbRoot[]): PreparedVerbs {
 export function searchVerbs(p: PreparedVerbs, rawQuery: string, cap = 12): VerbMatch[] {
   const q = rawQuery.trim();
   const out: Array<VerbMatch & { rank: number }> = [];
-  if (/[؀-ۿ]/.test(q)) {
+  if (isArabicQuery(q)) {
     const nq = normalizeRoot(q);
     if (!nq) return [];
     for (const it of p.items) {
