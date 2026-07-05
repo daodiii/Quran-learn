@@ -99,8 +99,10 @@ const IRREGULAR: Record<string, string> = {
 // trailing e strip, doubled-final-consonant collapse.
 export function stem(word: string): string {
   let w = word.toLowerCase();
+  // Irregulars REJOIN the pipeline (no early return): the canonical form must
+  // reduce exactly like a directly-stemmed query ('gave'→'give'→'giv' ≡ 'give'→'giv').
   const irr = IRREGULAR[w];
-  if (irr) return irr;
+  if (irr) w = irr;
   if (w.length > 4 && (w.endsWith('ies') || w.endsWith('ied'))) w = w.slice(0, -3) + 'y';
   if (w.length > 3 && /(s|x|z|ch|sh)es$/.test(w)) w = w.slice(0, -2);
   else if (w.length > 3 && w.endsWith('s') && !w.endsWith('ss')) w = w.slice(0, -1);
