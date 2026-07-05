@@ -30,6 +30,16 @@ test.describe('Word Lookup', () => {
     await expect(page.locator('#vf-result .vf-row-attested').first()).toBeVisible();
   });
 
+  test('noun card shows curated gloss instead of placeholder', async ({ page }) => {
+    await page.goto('/resources/word-lookup/');
+    await page.fill('#wl-search', 'بسم');
+    await page.press('#wl-search', 'Enter');
+    const card = page.locator('#wl-result .wl-card').first();
+    await expect(card).toBeVisible();
+    await expect(card.locator('.wl-meaning')).toContainText('name');
+    await expect(card.locator('.wl-meaning-soon')).toHaveCount(0);
+  });
+
   test('homograph lists multiple written forms', async ({ page }) => {
     await page.goto('/resources/word-lookup/');
     await page.fill('#wl-search', 'ملك');

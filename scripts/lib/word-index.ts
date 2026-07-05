@@ -1,7 +1,7 @@
 // scripts/lib/word-index.ts
 // Aggregates word occurrences into the packed lookup index (spec: Output contract).
 import { FORM_OVERRIDES } from './form-overrides.ts';
-import { bwToArabic } from './buckwalter.ts';
+import { bwLemmaToArabic } from './buckwalter.ts';
 import { bwToArabicSurface, bwToTranslitSurface } from './bw-surface.ts';
 import { normalizeArabic, deriveAltKeys } from '../../src/lib/arabic-normalize.ts';
 import type { WordOccurrence, WordStem } from './group-words.ts';
@@ -40,13 +40,32 @@ export function buildGlossMap(verbForms: VerbFormsData): Map<string, string> {
   return map;
 }
 
+// Non-verb glosses are curated per lemma (src/data/morphology/glosses-nouns/output/):
+// one meaning per lemma|pos — the corpus lemma already disambiguates homographs.
+export interface NounGlossBatch {
+  batch: string;
+  glosses: { lemma: string; pos: string; meaning: string }[];
+}
+export function buildNounGlossMap(batches: NounGlossBatch[]): Map<string, string> {
+  const map = new Map<string, string>();
+  for (const b of batches)
+    for (const g of b.glosses)
+      // NFC like the verb merge path — validation normalizes before checking,
+      // so the artifact must store the same form it validated.
+      if (g.meaning) map.set(`${g.lemma}|${g.pos}`, g.meaning.normalize('NFC'));
+  return map;
+}
+
 interface Acc {
   surfaceAr: string; translit: string; root: string | null; lemma: string;
   pos: string; form: number; feat: string; prefixes: string[]; suffixes: string[];
   gloss: string | null; count: number; refs: string[];
 }
 
-export function buildIndex(words: WordOccurrence[], verbForms: VerbFormsData): LookupIndex {
+export function buildIndex(
+  words: WordOccurrence[], verbForms: VerbFormsData,
+  nounGlosses: Map<string, string> = new Map(),
+): LookupIndex {
   const glosses = buildGlossMap(verbForms);
   const acc = new Map<string, Acc>();
 
@@ -55,7 +74,7 @@ export function buildIndex(words: WordOccurrence[], verbForms: VerbFormsData): L
     const prefixes = w.prefixes.map(p => `${bwToArabicSurface(p.formBw)}|${p.feature}`);
     const suffixes = w.suffixes.map(s => `${bwToArabicSurface(s.formBw)}|${s.feature}`);
     for (const stem of w.stems) {
-      const a = analysisFieldsForStem(stem, glosses);
+      const a = analysisFieldsForStem(stem, glosses, nounGlosses);
       // \u0001 separator: bare concatenation could alias adjacent fields.
       const id = [surfaceAr, a.lemma, a.root ?? '', a.pos, a.form, a.feat,
                   prefixes.join(','), suffixes.join(',')].join('\u0001');
@@ -111,15 +130,18 @@ export function buildIndex(words: WordOccurrence[], verbForms: VerbFormsData): L
 
 export function analysisFieldsForStem(
   stem: WordStem, glosses: Map<string, string>,
+  nounGlosses: Map<string, string> = new Map(),
 ): { root: string | null; lemma: string; pos: string; form: number; feat: string; gloss: string | null } {
   const isVerb = stem.pos === 'V';
   const ov = isVerb ? FORM_OVERRIDES[`${stem.rootBw}|${stem.formNo}|${stem.lemmaBw}`] : undefined;
   const form = isVerb ? (ov?.form ?? stem.formNo) : 0;
   const lemmaBw = ov?.mergeInto ?? stem.lemmaBw;
   const root = stem.rootBw ? rootToArabic(stem.rootBw) : null;
-  const lemma = lemmaBw ? bwToArabic(lemmaBw) : '';
+  const lemma = lemmaBw ? bwLemmaToArabic(lemmaBw) : '';
   const gloss = isVerb && root
     ? glosses.get(`${root}|${form}|${lemma}`) ?? glosses.get(`${root}|${form}`) ?? null
-    : null;
+    : !isVerb && lemma
+      ? nounGlosses.get(`${lemma}|${stem.pos}`) ?? null
+      : null;
   return { root, lemma, pos: stem.pos, form, feat: stem.featureTokens.join('|'), gloss };
 }

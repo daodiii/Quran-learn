@@ -42,6 +42,36 @@ export function bwToArabic(bw: string): string {
   return fillSukun(out.replace(/^ٱ/, 'ا')).normalize('NFC');
 }
 
+// Tanzil extended Buckwalter — Uthmani annotation marks. Single source shared
+// by bw-surface.ts (all 14 occur in surfaces) and bwLemmaToArabic (lemmas
+// carry a subset: ^ # @ [ , .).
+export const BW_ANNOTATION_MARKS: Record<string, string> = {
+  '^': 'ٓ', // maddah above
+  '#': 'ٔ', // hamza above
+  ':': 'ۜ', // small high seen
+  '@': '۟', // small high rounded zero
+  '"': '۠', // small high upright rectangular zero
+  '[': 'ۢ', // small high meem (isolated)
+  ';': 'ۣ', // small low seen
+  ',': 'ۥ', // small waw
+  '.': 'ۦ', // small ya
+  '!': 'ۨ', // small high noon
+  '-': '۪', // empty centre low stop
+  '+': '۫', // empty centre high stop
+  '%': '۬', // rounded high stop with filled centre
+  ']': 'ۭ', // small low meem
+};
+
+// Lemma display for annotation-bearing corpus lemmas (samaA^' → سَمَآء): map
+// the Uthmani marks like surfaces do, then apply the same dictionary
+// conventions as bwToArabic; NFC then composes e.g. alif + maddah → آ.
+// bwToArabic itself stays annotation-naive — build-verb-dataset's draftPast
+// depends on it and the shipped verb-forms.json rendering must not drift.
+// Trailing homograph digits (huwd2) pass through: they disambiguate lemma keys.
+export function bwLemmaToArabic(bw: string): string {
+  return bwToArabic([...bw].map(c => BW_ANNOTATION_MARKS[c] ?? c).join(''));
+}
+
 const BW_CONSONANT_TL: Record<string, string> = {
   "'": 'ʾ', '>': 'ʾ', '<': 'ʾ', '&': 'ʾ', '}': 'ʾ',
   b: 'b', t: 't', v: 'th', j: 'j', H: 'ḥ', x: 'kh', d: 'd', '*': 'dh',

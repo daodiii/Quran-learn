@@ -2,7 +2,7 @@
 // Converters for corpus FORM strings (surface text, Tanzil Uthmani in extended
 // Buckwalter). Unlike buckwalter.ts (lemma display), surfaces carry their exact
 // diacritics and Quranic annotation marks — convert strictly, never guess.
-import { bwToTranslit } from './buckwalter.ts';
+import { bwToTranslit, BW_ANNOTATION_MARKS } from './buckwalter.ts';
 
 const BW_SURFACE: Record<string, string> = {
   "'": 'ء', '>': 'أ', '<': 'إ', '&': 'ؤ', '}': 'ئ', '|': 'آ',
@@ -13,21 +13,8 @@ const BW_SURFACE: Record<string, string> = {
   '`': 'ٰ', F: 'ً', N: 'ٌ', K: 'ٍ', a: 'َ', u: 'ُ', i: 'ِ',
   '~': 'ّ', o: 'ْ', '_': 'ـ',
   ' ': ' ', // 37:130 إِلْ يَاسِينَ — the one corpus FORM with an embedded space
-  // Tanzil extended Buckwalter — Uthmani annotation marks:
-  '^': 'ٓ', // maddah above
-  '#': 'ٔ', // hamza above
-  ':': 'ۜ', // small high seen
-  '@': '۟', // small high rounded zero
-  '"': '۠', // small high upright rectangular zero
-  '[': 'ۢ', // small high meem (isolated)
-  ';': 'ۣ', // small low seen
-  ',': 'ۥ', // small waw
-  '.': 'ۦ', // small ya
-  '!': 'ۨ', // small high noon
-  '-': '۪', // empty centre low stop
-  '+': '۫', // empty centre high stop
-  '%': '۬', // rounded high stop with filled centre
-  ']': 'ۭ', // small low meem
+  // Tanzil extended Buckwalter — Uthmani annotation marks (shared table):
+  ...BW_ANNOTATION_MARKS,
 };
 
 export function bwToArabicSurface(bw: string): string {
@@ -45,7 +32,7 @@ export function bwToArabicSurface(bw: string): string {
 // Draft-quality transliteration of a whole surface. Known cosmetic limits
 // (accepted in the spec): rare non-article "al…" words gain a hyphen; tanwin
 // before pause is rendered fully voweled. Sound-search folds hide most of this.
-const MARK_CHARS = new Set([...'^#:@"[];,.!-+%]']);
+const MARK_CHARS = new Set(Object.keys(BW_ANNOTATION_MARKS));
 
 export function bwToTranslitSurface(bw: string): string {
   let s = [...bw].filter(c => !MARK_CHARS.has(c)).join('');
