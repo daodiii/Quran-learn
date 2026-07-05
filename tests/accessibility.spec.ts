@@ -495,3 +495,17 @@ test('word lookup page passes contrast checks with results open', async ({ page 
     .analyze();
   expect(accessibilityScanResults.violations).toEqual([]);
 });
+
+test('verb forms page passes contrast checks with grid open', async ({ page }) => {
+  await page.goto('/resources/verb-forms/#root=' + encodeURIComponent('نزل'));
+  await page.waitForLoadState('networkidle');
+  await page.locator('#vf-result .vf-grid').waitFor();
+  // Open the suggestions dropdown too, so axe audits both rendered states.
+  await page.fill('#vf-search', 'كتب');
+  await page.locator('.vf-sug').first().waitFor();
+  await enableDarkMode(page);
+  const accessibilityScanResults = await new AxeBuilder({ page })
+    .withTags(['wcag2aaa', 'wcag21aaa'])
+    .analyze();
+  expect(accessibilityScanResults.violations).toEqual([]);
+});

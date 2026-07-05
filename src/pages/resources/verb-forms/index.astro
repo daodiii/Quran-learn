@@ -51,7 +51,8 @@ const ROMAN = ['I','II','III','IV','V','VI','VII','VIII','IX','X','XI','XII'];
       <label class="sr-only" for="vf-search">Search roots by Arabic, transliteration, or meaning</label>
       <input id="vf-search" class="vf-search" type="search" name="root-search"
         autocomplete="off" spellcheck="false"
-        placeholder="Search: نزل · nzl · send down…" />
+        placeholder="Search: نزل · nzl · send down…"
+        role="combobox" aria-autocomplete="list" aria-controls="vf-suggestions" aria-expanded="false" />
       <div id="vf-suggestions" class="vf-suggestions" role="listbox" aria-label="Matching roots" hidden></div>
     </div>
 
@@ -127,6 +128,8 @@ const ROMAN = ['I','II','III','IV','V','VI','VII','VIII','IX','X','XI','XII'];
     }
     return node;
   }
+  const scrollBehavior = (): ScrollBehavior =>
+    matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
 
   const resultEl = document.getElementById('vf-result')!;
   let DATA: any = null;
@@ -234,8 +237,9 @@ const ROMAN = ['I','II','III','IV','V','VI','VII','VIII','IX','X','XI','XII'];
           `${root.translit} · ${root.quad ? 'four-letter root' : `${formsUsed} of 10 forms`} · ${Number(root.totalCount)}× in the Quran`)),
       h('ol', { class: 'vf-grid' }, ...rows));
     resultEl.hidden = false;
+    setSugHidden(true);
     history.replaceState(null, '', `#root=${encodeURIComponent(root.root)}`);
-    resultEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    resultEl.scrollIntoView({ behavior: scrollBehavior(), block: 'start' });
   }
 
   async function selectRoot(rootStr: string) {
@@ -252,9 +256,13 @@ const ROMAN = ['I','II','III','IV','V','VI','VII','VIII','IX','X','XI','XII'];
 
   const searchEl = document.getElementById('vf-search') as HTMLInputElement;
   const sugEl = document.getElementById('vf-suggestions')!;
+  function setSugHidden(hidden: boolean) {
+    sugEl.hidden = hidden;
+    searchEl?.setAttribute('aria-expanded', String(!hidden));
+  }
   searchEl?.addEventListener('input', async () => {
     const q = searchEl.value.trim();
-    if (q.length < 2) { sugEl.hidden = true; return; }
+    if (q.length < 2) { setSugHidden(true); return; }
     const data = await loadData().catch(() => null);
     if (!data) return;
     const matches = findMatches(q, data.roots).slice(0, 12);
@@ -265,14 +273,25 @@ const ROMAN = ['I','II','III','IV','V','VI','VII','VIII','IX','X','XI','XII'];
             h('span', { class: 'vf-sug-tl' }, String(r.translit)),
             h('span', { class: 'vf-sug-count' }, `${Number(r.totalCount)}×`)))
       : [h('p', { class: 'vf-sug-none' }, 'no roots match; try ktb, نصر, or a meaning like guide')]));
-    sugEl.hidden = false;
+    setSugHidden(false);
   });
   searchEl?.addEventListener('keydown', (ev) => {
     if (ev.key === 'Enter') (sugEl.querySelector('[data-root]') as HTMLElement | null)?.click();
-    if (ev.key === 'Escape') sugEl.hidden = true;
+    if (ev.key === 'Escape') setSugHidden(true);
+    if (ev.key === 'ArrowDown') {
+      (sugEl.querySelector('[data-root]') as HTMLElement | null)?.focus();
+      ev.preventDefault();
+    }
+  });
+  sugEl?.addEventListener('keydown', (ev) => {
+    const items = [...sugEl.querySelectorAll('[data-root]')] as HTMLElement[];
+    const i = items.indexOf(document.activeElement as HTMLElement);
+    if (ev.key === 'ArrowDown' && i < items.length - 1) { items[i + 1].focus(); ev.preventDefault(); }
+    if (ev.key === 'ArrowUp') { (i > 0 ? items[i - 1] : searchEl).focus(); ev.preventDefault(); }
+    if (ev.key === 'Escape') { setSugHidden(true); searchEl.focus(); }
   });
   document.addEventListener('click', (ev) => {
-    if (!(ev.target as HTMLElement).closest('.vf-search-wrap')) sugEl.hidden = true;
+    if (!(ev.target as HTMLElement).closest('.vf-search-wrap')) setSugHidden(true);
   });
 
   const hash = new URLSearchParams(location.hash.slice(1));
@@ -308,6 +327,7 @@ const ROMAN = ['I','II','III','IV','V','VI','VII','VIII','IX','X','XI','XII'];
   .vf-sug [lang="ar"] { font-family: var(--font-arabic); font-size: 1.25rem; }
   .vf-sug-tl { color: var(--color-text-secondary); }
   .vf-sug-count { margin-inline-start: auto; color: var(--color-text-tertiary); font-size: 0.85rem; }
+  .vf-sug-count, .vf-count, .vf-chip-count { font-variant-numeric: tabular-nums; }
   .vf-sug-none { padding: var(--spacing-sm) var(--spacing-md);
     color: var(--color-text-tertiary); margin: 0; font-size: 0.95rem; }
 
@@ -391,6 +411,20 @@ const ROMAN = ['I','II','III','IV','V','VI','VII','VIII','IX','X','XI','XII'];
     font-size: 0.85rem; color: var(--color-text-tertiary); }
   .vf-attribution a { color: inherit; }
   .vf-crosslink { margin: 0 0 var(--spacing-sm); }
+
+  /* Tertiary text (#9b8b7e) is 5.91:1 on the near-black dark bg — below the
+     7:1 AAA threshold. Promote to secondary in dark mode (same fix as the
+     word-lookup page). :global() because data-theme lives on <html>. */
+  :global([data-theme="dark"]) .vf-sug-count,
+  :global([data-theme="dark"]) .vf-sug-none,
+  :global([data-theme="dark"]) .vf-chip-count,
+  :global([data-theme="dark"]) .vf-pattern,
+  :global([data-theme="dark"]) .vf-shift,
+  :global([data-theme="dark"]) .vf-empty-note,
+  :global([data-theme="dark"]) .vf-count,
+  :global([data-theme="dark"]) .vf-letter-count,
+  :global([data-theme="dark"]) .vf-attribution,
+  :global([data-theme="dark"]) .vf-attribution a { color: var(--color-text-secondary); }
 
   .sr-only { position: absolute; inline-size: 1px; block-size: 1px; overflow: hidden;
     clip-path: inset(50%); white-space: nowrap; }
