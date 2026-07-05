@@ -49,12 +49,15 @@ test.describe('Word Lookup', () => {
     expect(await cards.count()).toBeGreaterThanOrEqual(2);
   });
 
-  test('latin input: sound and meaning groups', async ({ page }) => {
+  test('latin input: sound and meaning groups with highlighted meanings', async ({ page }) => {
     await page.goto('/resources/word-lookup/');
     await page.fill('#wl-search', 'yuminuna');
     await expect(page.locator('.wl-group-label').first()).toContainText('by sound');
-    await page.fill('#wl-search', 'believe');
+    await page.fill('#wl-search', 'believed');   // stemmed form
+    const meaningRow = page.locator('.wl-sug').first();
     await expect(page.locator('.wl-group-label', { hasText: 'by meaning' })).toBeVisible();
+    await expect(meaningRow.locator('mark')).toContainText('believe');
+    await expect(meaningRow.locator('.wl-sug-sub')).toContainText('·');
   });
 
   test('no match shows did-you-mean guidance', async ({ page }) => {
@@ -69,9 +72,14 @@ test.describe('Word Lookup', () => {
     await expect(page.locator('#wl-result .wl-word').first()).toContainText('بِسْمِ');
   });
 
-  test('example chip renders a card without typing', async ({ page }) => {
+  test('english example chip opens the meaning group', async ({ page }) => {
     await page.goto('/resources/word-lookup/');
-    await page.locator('.wl-chip').first().click();
+    await page.locator('.wl-chip', { hasText: 'mercy' }).click();
+    await expect(page.locator('.wl-group-label', { hasText: 'by meaning' })).toBeVisible();
+  });
+  test('arabic example chip still renders a card without typing', async ({ page }) => {
+    await page.goto('/resources/word-lookup/');
+    await page.locator('.wl-chip', { hasText: 'بِسْمِ' }).click();
     await expect(page.locator('#wl-result .wl-card').first()).toBeVisible();
   });
 
