@@ -28,6 +28,8 @@ export function prepareIndex(data: LookupIndexData): Prepared {
   const refs = new Map<string, KeyRef>();
   const folds: Array<[string, string]> = [];
   const glossed: Array<{ gloss: PreparedGloss; key: string }> = [];
+  // 1,742 unique gloss strings back ~10k glossed entries — share PreparedGloss.
+  const glossCache = new Map<string, PreparedGloss>();
   for (const [key, list] of Object.entries(data.words)) {
     const total = list.reduce((n, a) => n + a[10], 0);
     refs.set(key, {
@@ -42,7 +44,9 @@ export function prepareIndex(data: LookupIndexData): Prepared {
       if (f && !seenFold.has(f)) { seenFold.add(f); folds.push([f, key]); }
       if (a[9] && !seenGloss.has(a[9])) {
         seenGloss.add(a[9]);
-        glossed.push({ gloss: prepareGloss(a[9]), key });
+        let pg = glossCache.get(a[9]);
+        if (!pg) { pg = prepareGloss(a[9]); glossCache.set(a[9], pg); }
+        glossed.push({ gloss: pg, key });
       }
     }
   }
@@ -57,6 +61,8 @@ export interface ArabicResult {
   didYouMean: KeyRef[];
 }
 export interface MeaningRef extends KeyRef {
+  // The best-tier MATCHED gloss — meaning rows must render THIS (with ranges),
+  // not the inherited `hint` (which is just the first glossed analysis).
   gloss: string; ranges: [number, number][]; tier: 1 | 2 | 3;
 }
 export interface LatinResult { kind: 'latin'; sound: KeyRef[]; meaning: MeaningRef[] }
@@ -109,10 +115,14 @@ function searchLatin(p: Prepared, q: string): LatinResult {
       if (!prev || m.tier < prev.tier) best.set(key, { gloss, tier: m.tier, ranges: m.ranges });
     }
   }
-  const meaning: MeaningRef[] = [...best.entries()].map(([key, b]) =>
-    ({ ...p.refs.get(key)!, gloss: b.gloss.raw, ranges: b.ranges, tier: b.tier }));
-  // Sort BEFORE capping (see prior comment); tier outranks frequency.
+  // Sort BEFORE capping (scan lists are insertion-ordered — see searchArabic
+  // note); tier outranks frequency. Materialize refs only for the capped 20:
+  // stop-word-shaped queries can match thousands of keys.
+  const meaning: MeaningRef[] = [...best.entries()]
+    .sort((a, b) => a[1].tier - b[1].tier
+      || p.refs.get(b[0])!.total - p.refs.get(a[0])!.total)
+    .slice(0, 20)
+    .map(([key, b]) => ({ ...p.refs.get(key)!, gloss: b.gloss.raw, ranges: b.ranges, tier: b.tier }));
   sound.sort((a, b) => b.total - a.total);
-  meaning.sort((a, b) => a.tier - b.tier || b.total - a.total);
-  return { kind: 'latin', sound: sound.slice(0, 20), meaning: meaning.slice(0, 20) };
+  return { kind: 'latin', sound: sound.slice(0, 20), meaning };
 }
