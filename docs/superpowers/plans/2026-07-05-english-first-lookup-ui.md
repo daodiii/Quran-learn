@@ -62,7 +62,12 @@ for (const [a, b] of NOT_EQUAL) {
 test('stem: short words survive un-mangled', () => {
   assert.equal(stem('go'), 'go');
   assert.equal(stem('is'), 'is');
-  assert.equal(stem('bless'), stem('bless')); // -ss never plural-stripped
+  // -ss is not plural-stripped; the final double-s collapses to one.
+  assert.equal(stem('bless'), 'bles');
+});
+
+test('stem: object-prototype property names are not irregulars', () => {
+  assert.equal(stem('constructor'), 'constructor');
 });
 ```
 
@@ -95,13 +100,14 @@ const IRREGULAR: Record<string, string> = {
 };
 
 // Pipeline order is load-bearing (see families/family test): irregulars,
-// ies/ied → y, plural -es/-s, one derivational suffix, trailing i → y,
-// trailing e strip, doubled-final-consonant collapse.
+// ies/ied → y, plural -es/-s, one suffix, trailing i → y,
+// trailing e strip, doubled-final-letter collapse.
 export function stem(word: string): string {
   let w = word.toLowerCase();
   // Irregulars REJOIN the pipeline (no early return): the canonical form must
   // reduce exactly like a directly-stemmed query ('gave'→'give'→'giv' ≡ 'give'→'giv').
-  const irr = IRREGULAR[w];
+  // hasOwn guard: bare index would hit Object.prototype ('constructor' etc.).
+  const irr = Object.hasOwn(IRREGULAR, w) ? IRREGULAR[w] : undefined;
   if (irr) w = irr;
   if (w.length > 4 && (w.endsWith('ies') || w.endsWith('ied'))) w = w.slice(0, -3) + 'y';
   if (w.length > 3 && /(s|x|z|ch|sh)es$/.test(w)) w = w.slice(0, -2);
@@ -163,7 +169,9 @@ test('match: prefix is tier 2 (bel → believe)', () => {
   assert.equal(matchGloss(q('bel'), g('to believe'))!.tier, 2);
 });
 test('match: substring is tier 3 (eliev → believe)', () => {
-  assert.equal(matchGloss(q('eliev'), g('to believe'))!.tier, 3);
+  const m = matchGloss(q('eliev'), g('to believe'))!;
+  assert.equal(m.tier, 3);
+  assert.deepEqual(m.ranges, [[4, 9]]); // 'to believe'.slice(4,9) === 'eliev'
 });
 test('match: multi-word requires every token; adjacent ranges merge', () => {
   const m = matchGloss(q('send down'), g('to send down gradually'))!;
@@ -184,6 +192,10 @@ test('match: 1-char and empty queries never match', () => {
 });
 test('match: irregular verb reaches the gloss (sent → send)', () => {
   assert.equal(matchGloss(q('sent'), g('to send down, reveal'))!.tier, 1);
+});
+test('match: ranges index into RAW for mixed-case glosses', () => {
+  const m = matchGloss(q('god'), g('Allah, God'))!;
+  assert.deepEqual(m.ranges, [[7, 10]]); // 'Allah, God'.slice(7,10) === 'God'
 });
 ```
 
@@ -223,7 +235,7 @@ function mergeRanges(ranges: [number, number][]): [number, number][] {
   const out: [number, number][] = [];
   for (const r of sorted) {
     const last = out[out.length - 1];
-    // gap of 1 = the space between adjacent matched words — mark them as one
+    // gap ≤1 (space, hyphen, any single separator) — mark adjacent words as one
     if (last && r[0] <= last[1] + 1) last[1] = Math.max(last[1], r[1]);
     else out.push([r[0], r[1]]);
   }
@@ -289,20 +301,25 @@ test('latin: meaning result carries matched gloss, ranges, tier', () => {
   assert.deepEqual(m.ranges, [[3, 10]]);
 });
 test('latin: tier ranks above frequency', () => {
-  // 'know' is a whole word of 'to know' (tier 1, total 85) and a prefix of
-  // nothing else in the fixture; add a substring-only decoy with higher total.
+  // 'know' whole-word-matches 'to know' (tier 1, total 85). The decoy gloss
+  // must be TRUE tier 3: 'unknown' — stem stays 'unknown' (no irregular, no
+  // suffix strip), doesn't start with 'know', so only the mid-token substring
+  // hits. (NOT 'well-known': 'known' is an IRREGULAR entry stemming to 'know',
+  // which would be tier 1 — caught during execution.)
   const p3 = prepareIndex({
     meta: { source: 't', words: 2, analyses: 2, version: 1 },
     words: {
       'يعلمون': [['يَعْلَمُونَ', 'yaʿlamūna', 'علم', 'عَلِمَ', 'V', 1, 'IMPF|3MP',
                   [], [], 'to know', 85, ['2:13']]],
-      'معروف': [['مَعْرُوف', 'maʿrūf', 'عرف', 'مَعْرُوف', 'N', 0, 'M',
-                  [], [], 'well-known, acknowledged', 999, ['2:178']]],
+      'مجهول': [['مَجْهُول', 'majhūl', 'جهل', 'مَجْهُول', 'N', 0, 'M',
+                  [], [], 'unknown, obscure', 999, ['2:178']]],
     }, altKeys: {},
   } as any);
   const r = search(p3, 'know') as any;
   assert.equal(r.meaning[0].key, 'يعلمون');   // tier 1 beats total 999
-  assert.equal(r.meaning[1].key, 'معروف');    // tier 3 substring ("known")
+  assert.equal(r.meaning[0].tier, 1);
+  assert.equal(r.meaning[1].key, 'مجهول');    // tier 3 mid-token substring
+  assert.equal(r.meaning[1].tier, 3);
 });
 test('latin: two-char whole-word query matches (go)', () => {
   const p4 = prepareIndex({
