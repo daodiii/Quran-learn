@@ -43,4 +43,19 @@ test.describe('Verb Form Generator', () => {
     await expect(page).toHaveURL(/\/resources\/verb-forms\/$/);
     await expect(page.locator('h1')).toContainText('Verb Form Generator');
   });
+
+  test('search combobox exposes expanded state to assistive tech', async ({ page }) => {
+    await page.goto('/resources/verb-forms/');
+    const search = page.locator('#vf-search');
+    await expect(search).toHaveAttribute('role', 'combobox');
+    await expect(search).toHaveAttribute('aria-autocomplete', 'list');
+    await expect(search).toHaveAttribute('aria-controls', 'vf-suggestions');
+    await expect(search).toHaveAttribute('aria-expanded', 'false');
+    await search.fill('نزل');
+    await expect(page.locator('.vf-sug').first()).toBeVisible();
+    await expect(search).toHaveAttribute('aria-expanded', 'true');
+    await search.press('Escape');
+    await expect(page.locator('#vf-suggestions')).toBeHidden();
+    await expect(search).toHaveAttribute('aria-expanded', 'false');
+  });
 });
