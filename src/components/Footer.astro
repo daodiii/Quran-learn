@@ -34,6 +34,7 @@ const currentYear = new Date().getFullYear();
     <!-- Bottom Bar -->
     <div class="footer-bottom">
       <p class="footer-copyright">&copy; {currentYear} Quranic Arabic</p>
+      <p class="footer-credit">Nettsiden er laget av <a href="https://www.idweb.no" target="_blank" rel="noopener noreferrer">IDweb</a></p>
     </div>
   </div>
 </footer>
@@ -166,6 +167,27 @@ const currentYear = new Date().getFullYear();
   }
 
   :global([data-theme="light"]) .footer-copyright {
+    color: #6B5B7E;
+  }
+
+  .footer-credit {
+    font-family: var(--font-display);
+    font-size: 0.8125rem;
+    color: rgba(255, 255, 255, 0.5);
+    margin-block-start: 0.5rem;
+  }
+
+  .footer-credit a {
+    color: var(--accent-gold);
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .footer-credit a:hover {
+    text-decoration: underline;
+  }
+
+  :global([data-theme="light"]) .footer-credit {
     color: #6B5B7E;
   }
 </style>
