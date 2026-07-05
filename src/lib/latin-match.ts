@@ -17,13 +17,13 @@ const IRREGULAR: Record<string, string> = {
 };
 
 // Pipeline order is load-bearing (see families/family test): irregulars,
-// ies/ied → y, plural -es/-s, one derivational suffix, trailing i → y,
-// trailing e strip, doubled-final-consonant collapse.
+// ies/ied → y, plural -es/-s, one suffix, trailing i → y,
+// trailing e strip, doubled-final-letter collapse.
 export function stem(word: string): string {
   let w = word.toLowerCase();
   // Irregulars REJOIN the pipeline (no early return): the canonical form must
   // reduce exactly like a directly-stemmed query ('gave'→'give'→'giv' ≡ 'give'→'giv').
-  const irr = IRREGULAR[w];
+  const irr = Object.hasOwn(IRREGULAR, w) ? IRREGULAR[w] : undefined;
   if (irr) w = irr;
   if (w.length > 4 && (w.endsWith('ies') || w.endsWith('ied'))) w = w.slice(0, -3) + 'y';
   if (w.length > 3 && /(s|x|z|ch|sh)es$/.test(w)) w = w.slice(0, -2);

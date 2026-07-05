@@ -29,5 +29,10 @@ for (const [a, b] of NOT_EQUAL) {
 test('stem: short words survive un-mangled', () => {
   assert.equal(stem('go'), 'go');
   assert.equal(stem('is'), 'is');
-  assert.equal(stem('bless'), stem('bless')); // -ss never plural-stripped
+  // -ss is not plural-stripped; the final double-s collapses to one.
+  assert.equal(stem('bless'), 'bles');
+});
+
+test('stem: object-prototype property names are not irregulars', () => {
+  assert.equal(stem('constructor'), 'constructor');
 });
