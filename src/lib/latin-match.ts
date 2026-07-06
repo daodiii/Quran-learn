@@ -60,7 +60,10 @@ export function prepareGloss(raw: string): PreparedGloss {
 // 1-char tokens are noise ("a", "o") — dropped here so they can never match.
 export function prepareQuery(rawQuery: string): QueryToken[] {
   const out: QueryToken[] = [];
-  for (const m of rawQuery.toLowerCase().matchAll(WORD_RE))
+  // Same paste-hardening as foldLatin: NFD decomposes precomposed chars (é → e
+  // + combining acute), then the strip removes the orphan combining mark so
+  // tokens stay ASCII-comparable with the glosses.
+  for (const m of rawQuery.normalize('NFD').toLowerCase().replace(/[̀-ͯ]/g, '').matchAll(WORD_RE))
     if (m[0].length >= 2) out.push({ text: m[0], stem: stem(m[0]) });
   return out;
 }

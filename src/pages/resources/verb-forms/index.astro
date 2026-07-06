@@ -472,7 +472,7 @@ const ROMAN = ['I','II','III','IV','V','VI','VII','VIII','IX','X','XI','XII'];
 
   /* Tertiary text (#9b8b7e) is 5.91:1 on the near-black dark bg — below the
      7:1 AAA threshold. Promote to secondary in dark mode (same fix as the
-     word-lookup page). :global() because data-theme lives on <html>. */
+     word-lookup page). Plain [data-theme="dark"] prefixes — this whole block is is:global. */
   [data-theme="dark"] .vf-sug-sub,
   [data-theme="dark"] .vf-sug-none,
   [data-theme="dark"] .vf-chip-count,

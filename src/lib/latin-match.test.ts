@@ -80,3 +80,8 @@ test('match: ranges index into RAW for mixed-case glosses', () => {
   const m = matchGloss(q('god'), g('Allah, God'))!;
   assert.deepEqual(m.ranges, [[7, 10]]); // 'Allah, God'.slice(7,10) === 'God'
 });
+test('match: NFD-pasted query with combining marks still matches', () => {
+  // 'believe' with a combining acute on the first e (exotic paste artifact)
+  const nfd = 'beliéved'.normalize('NFD');
+  assert.equal(matchGloss(q(nfd), g('to believe'))!.tier, 1);
+});
