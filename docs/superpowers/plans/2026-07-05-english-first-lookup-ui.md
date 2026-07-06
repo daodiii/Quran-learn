@@ -864,9 +864,9 @@ e. Replace the input handler's row construction (lines 263–277) with:
       ? matches.map((m) =>
           h('button', { class: 'vf-sug', role: 'option', 'data-root': m.root.root },
             h('span', { class: 'vf-sug-en' },
-              h('p', { class: 'vf-sug-meaning' },
+              h('span', { class: 'vf-sug-meaning' },
                 marked(m.meaning ?? '', m.reason === 'meaning' ? m.ranges : null)),
-              h('p', { class: 'vf-sug-sub', translate: 'no' },
+              h('span', { class: 'vf-sug-sub', translate: 'no' },
                 `${m.root.translit} · form ${ROMAN[Number(m.formNo) - 1] ?? m.formNo} · ${m.root.totalCount}×`)),
             h('span', { lang: 'ar', dir: 'rtl' }, [...m.root.root].join(' · '))))
       : [h('p', { class: 'vf-sug-none' },
@@ -896,13 +896,22 @@ Replace `.vf-sug [lang="ar"]` / `.vf-sug-tl` (lines 327–328) with:
   .vf-sug [lang="ar"] { font-family: var(--font-arabic); font-size: 1.5rem;
     line-height: 1.8; flex-shrink: 0; }
   .vf-sug-en { min-inline-size: 0; }
-  .vf-sug-meaning { margin: 0; color: var(--color-text-primary);
+  .vf-sug-meaning { display: block; margin: 0; color: var(--color-text-primary);
     overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-  .vf-sug-sub { margin: 0; font-size: 0.8rem; color: var(--color-text-tertiary);
+  .vf-sug-sub { display: block; margin: 0; font-size: 0.8rem;
+    color: var(--color-text-tertiary);
     font-variant-numeric: tabular-nums; font-style: italic; }
-  mark { background: color-mix(in oklab, var(--accent-gold) 30%, transparent);
+  .vf-sug-meaning mark { background: color-mix(in oklab, var(--accent-gold) 30%, transparent);
     color: inherit; border-radius: 2px; padding: 0 0.08em; }
 ```
+
+> Execution note (from Task 5's review): both pages' `<style>` blocks are now
+> `is:global` — runtime-created DOM (`document.createElement`) never receives
+> Astro's `data-astro-cid` scoping attribute, so scoped rules silently never
+> applied to ANY dynamic content (this was true in production since launch).
+> Dark-mode overrides use plain `[data-theme="dark"]` prefixes now. Suggestion
+> sub-elements are `<span display:block>`, never `<p>` (invalid inside
+> `<button>`). Line-number references in Tasks 6–8 are stale — anchor on names.
 
 Add after the `.vf-chip-count` rule (line 347) — query chips mirror the wl chips:
 
