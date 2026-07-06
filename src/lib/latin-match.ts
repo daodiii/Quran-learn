@@ -40,7 +40,12 @@ export function stem(word: string): string {
 export interface GlossToken { text: string; stem: string; start: number; end: number }
 export interface PreparedGloss { raw: string; lower: string; tokens: GlossToken[] }
 export interface QueryToken { text: string; stem: string }
-export interface GlossMatch { tier: 1 | 2 | 3; ranges: [number, number][] }
+export interface GlossMatch {
+  tier: 1 | 2 | 3;
+  // Sorted ascending, non-overlapping, end-exclusive indices into `lower`
+  // (== indices into `raw` for these ASCII glosses) — mark-rendering relies on this.
+  ranges: [number, number][];
+}
 
 const WORD_RE = /[a-z0-9']+/g;
 

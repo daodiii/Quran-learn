@@ -43,8 +43,8 @@ const EXAMPLES = [
         aria-label="Matching words" hidden></div>
     </div>
 
-    <div class="wl-chips" aria-label="Example searches">
-      <span class="wl-chips-label">Works with</span>
+    <div class="wl-chips" role="group" aria-labelledby="wl-chips-label">
+      <span class="wl-chips-label" id="wl-chips-label">Works with</span>
       {EXAMPLES.map(e => (
         <button class:list={['wl-chip', { 'wl-chip-latin': e.latin }]} data-q={e.q}>
           {e.latin ? <span>{e.q}</span> : <span lang="ar" dir="rtl">{e.q}</span>}
@@ -70,7 +70,7 @@ const EXAMPLES = [
 
 <script>
   import { prepareIndex, search } from '../../../lib/lookup-search.ts';
-  import type { Prepared } from '../../../lib/lookup-search.ts';
+  import type { Prepared, KeyRef, MeaningRef } from '../../../lib/lookup-search.ts';
   import { grammarLine, affixLabel, posLabel } from '../../../lib/grammar-labels.ts';
 
   // DOM is built with real nodes only — the repo blocks innerHTML.
@@ -126,16 +126,15 @@ const EXAMPLES = [
   }
   searchEl?.addEventListener('focus', () => { loadData().catch(() => {}); }, { once: true });
 
-  type SugRef = { key: string; surface: string; translit: string; total: number;
-                  hint: string | null; gloss?: string; ranges?: [number, number][] | null };
+  type SugRef = KeyRef & Partial<Pick<MeaningRef, 'gloss' | 'ranges'>>;
   function sugRow(ref: SugRef) {
     const glossText = ref.gloss ?? ref.hint;
     return h('button', { class: 'wl-sug', role: 'option', 'data-key': ref.key },
       h('span', { class: 'wl-sug-en' },
         glossText
-          ? h('p', { class: 'wl-sug-gloss' }, marked(glossText, ref.ranges ?? null))
-          : h('p', { class: 'wl-sug-gloss wl-sug-gloss-soon' }, 'meaning coming soon'),
-        h('p', { class: 'wl-sug-sub', translate: 'no' }, `${ref.translit} · ${ref.total}×`)),
+          ? h('span', { class: 'wl-sug-gloss' }, marked(glossText, ref.ranges ?? null))
+          : h('span', { class: 'wl-sug-gloss wl-sug-gloss-soon' }, 'meaning coming soon'),
+        h('span', { class: 'wl-sug-sub', translate: 'no' }, `${ref.translit} · ${ref.total}×`)),
       h('span', { lang: 'ar', dir: 'rtl' }, ref.surface));
   }
 
@@ -318,7 +317,7 @@ const EXAMPLES = [
   if (initialQ) { searchEl.value = initialQ; runSearch(initialQ, { select: true }); }
 </script>
 
-<style>
+<style is:global>
   .wl-container { padding-block: var(--spacing-2xl) var(--spacing-3xl); }
   .wl-header { text-align: center; margin-block-end: var(--spacing-2xl); }
   .wl-title { font-size: 2.25rem; font-weight: 700; color: var(--color-text-primary);
@@ -346,12 +345,12 @@ const EXAMPLES = [
   .wl-sug [lang="ar"] { font-family: var(--font-arabic); font-size: 1.5rem;
     line-height: 1.8; flex-shrink: 0; }
   .wl-sug-en { min-inline-size: 0; }
-  .wl-sug-gloss { margin: 0; color: var(--color-text-primary);
+  .wl-sug-gloss { display: block; margin: 0; color: var(--color-text-primary);
     overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
   .wl-sug-gloss-soon { font-style: italic; color: var(--color-text-tertiary); }
-  .wl-sug-sub { margin: 0; font-size: 0.8rem; color: var(--color-text-tertiary);
+  .wl-sug-sub { display: block; margin: 0; font-size: 0.8rem; color: var(--color-text-tertiary);
     font-variant-numeric: tabular-nums; font-style: italic; }
-  mark { background: color-mix(in oklab, var(--accent-gold) 30%, transparent);
+  .wl-sug-gloss mark { background: color-mix(in oklab, var(--accent-gold) 30%, transparent);
     color: inherit; border-radius: 2px; padding: 0 0.08em; }
   .wl-sug-none { padding: var(--spacing-sm) var(--spacing-md);
     color: var(--color-text-tertiary); margin: 0; font-size: 0.95rem; }
@@ -448,17 +447,17 @@ const EXAMPLES = [
 
   /* WCAG AAA contrast (7:1) overrides for dark mode — the global --color-text-tertiary
      (#9b8b7e on #000) is 6.4:1, below AAA. Bump elements that axe tests at small sizes. */
-  :global([data-theme="dark"]) .wl-chip-note,
-  :global([data-theme="dark"]) .wl-attribution,
-  :global([data-theme="dark"]) .wl-attribution a,
-  :global([data-theme="dark"]) .wl-sug-sub,
-  :global([data-theme="dark"]) .wl-count,
-  :global([data-theme="dark"]) .wl-morpheme-label,
-  :global([data-theme="dark"]) .wl-root-chip-label,
-  :global([data-theme="dark"]) .wl-result-heading,
-  :global([data-theme="dark"]) .wl-empty-hint,
-  :global([data-theme="dark"]) .wl-sug-none,
-  :global([data-theme="dark"]) .wl-meaning-soon { color: var(--color-text-secondary); }
+  [data-theme="dark"] .wl-chip-note,
+  [data-theme="dark"] .wl-attribution,
+  [data-theme="dark"] .wl-attribution a,
+  [data-theme="dark"] .wl-sug-sub,
+  [data-theme="dark"] .wl-count,
+  [data-theme="dark"] .wl-morpheme-label,
+  [data-theme="dark"] .wl-root-chip-label,
+  [data-theme="dark"] .wl-result-heading,
+  [data-theme="dark"] .wl-empty-hint,
+  [data-theme="dark"] .wl-sug-none,
+  [data-theme="dark"] .wl-meaning-soon { color: var(--color-text-secondary); }
 
   @keyframes wl-card-in {
     from { opacity: 0; transform: translateY(6px); }
