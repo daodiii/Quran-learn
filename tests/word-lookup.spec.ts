@@ -89,4 +89,15 @@ test.describe('Word Lookup', () => {
     await expect(page).toHaveURL(/\/resources\/word-lookup\/$/);
     await expect(page.locator('h1')).toContainText('Word Lookup');
   });
+
+  test('card order: meaning precedes breakdown; morpheme grid is aligned', async ({ page }) => {
+    await page.goto('/resources/word-lookup/#q=' + encodeURIComponent('بسم'));
+    const analysis = page.locator('#wl-result .wl-analysis').first();
+    await expect(analysis).toBeVisible();
+    const first = analysis.locator('.wl-meaning, .wl-breakdown').first();
+    await expect(first).toHaveClass(/wl-meaning/);   // meaning now renders first
+    const morpheme = analysis.locator('.wl-morpheme').first();
+    await expect(morpheme.locator('.wl-morpheme-label')).toBeVisible();
+    await expect(morpheme.locator('[lang="ar"]')).toBeVisible();
+  });
 });

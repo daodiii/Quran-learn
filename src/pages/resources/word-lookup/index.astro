@@ -140,8 +140,8 @@ const EXAMPLES = [
 
   function morpheme(ar: string, label: string, extraClass = ''): HTMLElement {
     return h('li', { class: `wl-morpheme ${extraClass}`.trim() },
-      ar ? h('span', { lang: 'ar', dir: 'rtl' }, ar) : null,
-      h('span', { class: 'wl-morpheme-label' }, label));
+      h('span', { class: 'wl-morpheme-label' }, label),
+      ar ? h('span', { lang: 'ar', dir: 'rtl' }, ar) : h('span', {}));
   }
 
   function analysisNode(a: any[]): HTMLElement {
@@ -153,6 +153,9 @@ const EXAMPLES = [
     // The badge already carries the form — passing 0 keeps it out of the prose too.
     grammar.append(grammarLine(pos, 0, feat));
     wrap.append(grammar);
+    wrap.append(gloss
+      ? h('p', { class: 'wl-meaning' }, String(gloss))
+      : h('p', { class: 'wl-meaning wl-meaning-soon' }, 'meaning coming soon'));
 
     if (prefixes.length || suffixes.length) {
       const bd = h('ul', { class: 'wl-breakdown', 'aria-label': 'word breakdown' });
@@ -174,10 +177,6 @@ const EXAMPLES = [
       for (const t of tail) bd.append(t);
       wrap.append(bd);
     }
-
-    wrap.append(gloss
-      ? h('p', { class: 'wl-meaning' }, String(gloss))
-      : h('p', { class: 'wl-meaning wl-meaning-soon' }, 'meaning coming soon'));
 
     const metaLine = h('p', { class: 'wl-meta-line' });
     if (root) {
@@ -395,26 +394,28 @@ const EXAMPLES = [
     margin: 0 0 var(--spacing-sm); }
   .wl-analysis + .wl-analysis { border-block-start: 1px dashed var(--color-border-secondary);
     margin-block-start: var(--spacing-sm); padding-block-start: var(--spacing-sm); }
-  .wl-grammar { color: var(--color-text-primary); font-size: 0.95rem;
+  .wl-grammar { color: var(--color-text-tertiary); font-size: 0.95rem;
     margin: 0 0 var(--spacing-xs); }
   .wl-badge { display: inline-grid; place-items: center; min-inline-size: 2.2em;
     padding: 0.15em 0.5em; margin-inline-end: 0.5em; border-radius: var(--radius-sm);
     font-size: 0.8rem; font-weight: 700; letter-spacing: 0.06em;
     background: color-mix(in oklab, var(--accent-gold) 16%, transparent);
     color: var(--accent-gold); }
-  .wl-breakdown { display: flex; flex-wrap: wrap; gap: var(--spacing-xs);
-    margin: 0 0 var(--spacing-xs); padding: 0; list-style: none; direction: rtl;
-    justify-content: flex-end; }
-  .wl-morpheme { display: inline-flex; flex-direction: column; align-items: center;
-    gap: 0.1em; padding: 0.3em 0.6em; border: 1px solid var(--color-border-secondary);
-    border-radius: var(--radius-sm); }
-  .wl-morpheme [lang="ar"] { font-family: var(--font-arabic); font-size: 1.15rem;
-    color: var(--color-text-primary); }
-  .wl-morpheme-label { font-size: 0.7rem; color: var(--color-text-tertiary);
-    direction: ltr; }
+  .wl-breakdown { margin: 0 0 var(--spacing-sm); padding: 0; list-style: none;
+    border: 1px solid var(--color-border-secondary); border-radius: var(--radius-md);
+    overflow: hidden; }
+  .wl-morpheme { display: grid; grid-template-columns: minmax(0, 1fr) auto;
+    gap: var(--spacing-md); align-items: center;
+    padding: 0.35em var(--spacing-md); }
+  .wl-morpheme + .wl-morpheme { border-block-start: 1px solid var(--color-border-secondary); }
+  .wl-morpheme [lang="ar"] { font-family: var(--font-arabic); font-size: 1.4rem;
+    line-height: 1.8; color: var(--color-text-primary); }
+  .wl-morpheme-label { font-size: 0.8rem; color: var(--color-text-tertiary); }
   .wl-morpheme-stem [lang="ar"] { color: var(--accent-gold); }
-  .wl-meaning { color: var(--color-text-primary); font-size: 1.05rem;
-    margin: 0 0 var(--spacing-xs); }
+  .wl-morpheme-stem .wl-morpheme-label { color: var(--color-text-secondary);
+    font-weight: 500; }
+  .wl-meaning { color: var(--color-text-primary); font-size: 1.0625rem; font-weight: 500;
+    margin: 0 0 var(--spacing-sm); }
   .wl-meaning-soon { font-style: italic; color: var(--color-text-tertiary); }
   .wl-meta-line { display: flex; flex-wrap: wrap; gap: var(--spacing-md);
     align-items: baseline; margin: 0; font-size: 0.85rem; }
@@ -423,7 +424,7 @@ const EXAMPLES = [
     border-radius: var(--radius-full); text-decoration: none;
     color: var(--color-text-primary); }
   .wl-root-chip[href] { border-color: color-mix(in oklab, var(--accent-gold) 45%, transparent); }
-  .wl-root-chip [lang="ar"] { font-family: var(--font-arabic); font-size: 1.05rem; }
+  .wl-root-chip [lang="ar"] { font-family: var(--font-arabic); font-size: 1.25rem; }
   .wl-root-chip-label { font-size: 0.75rem; color: var(--color-text-tertiary); }
   .wl-root-chip:focus-visible { outline: 2px solid var(--color-border-focus);
     outline-offset: 1px; }
@@ -457,7 +458,8 @@ const EXAMPLES = [
   [data-theme="dark"] .wl-result-heading,
   [data-theme="dark"] .wl-empty-hint,
   [data-theme="dark"] .wl-sug-none,
-  [data-theme="dark"] .wl-meaning-soon { color: var(--color-text-secondary); }
+  [data-theme="dark"] .wl-meaning-soon,
+  [data-theme="dark"] .wl-grammar { color: var(--color-text-secondary); }
 
   @keyframes wl-card-in {
     from { opacity: 0; transform: translateY(6px); }
@@ -476,6 +478,7 @@ const EXAMPLES = [
   }
   @media (max-width: 640px) {
     .wl-title { font-size: 1.85rem; }
-    .wl-word { font-size: 1.9rem; }
+    .wl-word { font-size: 2rem; }
+    .wl-morpheme [lang="ar"] { font-size: 1.3rem; }
   }
 </style>
