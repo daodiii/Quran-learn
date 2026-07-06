@@ -100,4 +100,11 @@ test.describe('Word Lookup', () => {
     await expect(morpheme.locator('.wl-morpheme-label')).toBeVisible();
     await expect(morpheme.locator('[lang="ar"]')).toBeVisible();
   });
+
+  test('elided suffix renders label-only morpheme row', async ({ page }) => {
+    await page.goto('/resources/word-lookup/#q=' + encodeURIComponent('رب'));
+    const elided = page.locator('.wl-morpheme', { hasText: '— elided' }).first();
+    await expect(elided).toBeVisible();
+    await expect(elided.locator('[lang="ar"]')).toHaveCount(0);
+  });
 });
