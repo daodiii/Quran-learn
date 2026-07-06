@@ -107,6 +107,15 @@ const EXAMPLES = [
     sugEl.hidden = hidden;
     searchEl?.setAttribute('aria-expanded', String(!hidden));
   }
+  // Fills the popup and keeps its ARIA role valid: role="listbox" only holds
+  // option children, so when the sole child is the non-option "nothing matches"
+  // note we drop the role rather than nest an invalid child under it.
+  function fillSug(rows: HTMLElement[]) {
+    const onlyNote = rows.length === 1 && rows[0].classList.contains('wl-sug-none');
+    if (onlyNote) sugEl.removeAttribute('role');
+    else sugEl.setAttribute('role', 'listbox');
+    sugEl.replaceChildren(...rows);
+  }
 
   let PREP: Prepared | null = null;
   let loading: Promise<Prepared> | null = null;
@@ -169,9 +178,10 @@ const EXAMPLES = [
       for (const s of [...suffixes].reverse()) {
         const [ar, code] = String(s).split('|');
         // 43 suffixes are the elided "my" (ي absorbed into the stem's kasra):
-        // ar is '' — slicing with -0 would wipe the whole stem.
+        // ar is '' — slicing with -0 would wipe the whole stem. Flag the empty
+        // Arabic column so the reader knows it's absorbed, not missing data.
         if (ar && stemAr.endsWith(ar)) stemAr = stemAr.slice(0, -ar.length);
-        tail.unshift(morpheme(ar, affixLabel(code)));
+        tail.unshift(morpheme(ar, ar ? affixLabel(code) : `${affixLabel(code)} — elided`));
       }
       bd.append(morpheme(stemAr, lemma ? `stem of ${posLabel(pos)}` : posLabel(pos), 'wl-morpheme-stem'));
       for (const t of tail) bd.append(t);
@@ -254,12 +264,12 @@ const EXAMPLES = [
     if (r.kind === 'arabic') {
       if (r.exact) {
         if (select) { renderKey(r.exact.key); return; }
-        sugEl.replaceChildren(sugRow(p.refs.get(r.exact.key)!), ...r.suggestions.map(sugRow));
+        fillSug([sugRow(p.refs.get(r.exact.key)!), ...r.suggestions.map(sugRow)]);
         setSugHidden(false);
         return;
       }
       if (r.suggestions.length) {
-        sugEl.replaceChildren(...r.suggestions.map(sugRow));
+        fillSug(r.suggestions.map(sugRow));
         setSugHidden(false);
       } else { setSugHidden(true); renderEmpty(r.didYouMean); }
       return;
@@ -274,8 +284,8 @@ const EXAMPLES = [
         ...r.meaning.slice(0, 8).map(sugRow));
     }
     if (!rows.length) rows.push(h('p', { class: 'wl-sug-none' },
-      'nothing matches — try Arabic, a sound like "yuminuna", or a meaning like "believe"'));
-    sugEl.replaceChildren(...rows);
+      'nothing matches — try Arabic, a sound like “yuminuna”, or a meaning like “believe”'));
+    fillSug(rows);
     setSugHidden(false);
   }
 
@@ -339,7 +349,9 @@ const EXAMPLES = [
   .wl-sug { display: flex; align-items: center; justify-content: space-between;
     gap: var(--spacing-sm); inline-size: 100%; padding: var(--spacing-sm) var(--spacing-md);
     background: none; border: 0; cursor: pointer; font-family: inherit;
-    color: var(--color-text-primary); font-size: 1rem; text-align: start; }
+    color: var(--color-text-primary); font-size: 1rem; text-align: start;
+    transition: background-color 120ms var(--wl-ease); }
+  .wl-sug:active { background: var(--color-background-tertiary); }
   .wl-sug:focus-visible { outline: 2px solid var(--color-border-focus); outline-offset: -2px; }
   .wl-sug [lang="ar"] { font-family: var(--font-arabic); font-size: 1.5rem;
     line-height: 1.8; flex-shrink: 0; }
@@ -349,8 +361,9 @@ const EXAMPLES = [
   .wl-sug-gloss-soon { font-style: italic; color: var(--color-text-tertiary); }
   .wl-sug-sub { display: block; margin: 0; font-size: 0.8rem; color: var(--color-text-tertiary);
     font-variant-numeric: tabular-nums; font-style: italic; }
-  .wl-sug-gloss mark { background: color-mix(in oklab, var(--accent-gold) 30%, transparent);
-    color: inherit; border-radius: 2px; padding: 0 0.08em; }
+  .wl-sug-gloss mark { background: color-mix(in oklab, var(--accent-gold) 28%, transparent);
+    color: inherit; border-radius: 3px; padding: 0.02em 0.12em;
+    box-decoration-break: clone; -webkit-box-decoration-break: clone; }
   .wl-sug-none { padding: var(--spacing-sm) var(--spacing-md);
     color: var(--color-text-tertiary); margin: 0; font-size: 0.95rem; }
   .wl-group-label { margin: 0; padding: var(--spacing-xs) var(--spacing-md);
@@ -388,10 +401,13 @@ const EXAMPLES = [
     background: var(--color-background-secondary); padding: var(--spacing-lg);
     animation: wl-card-in 260ms var(--wl-ease) both;
     animation-delay: calc(var(--i, 0) * 45ms); }
-  .wl-word { font-family: var(--font-arabic); font-size: 2.4rem; line-height: 1.9;
-    color: var(--color-text-primary); margin: 0; }
+  /* Word + translit share the card's left spine with the grammar line and
+     meaning below them; text-align:left (not logical end) pins the RTL word
+     to the left so the whole left edge reads as one column. */
+  .wl-word { font-family: var(--font-arabic); font-size: 2.4rem; line-height: 1.55;
+    color: var(--color-text-primary); margin: 0; text-align: left; }
   .wl-translit { color: var(--color-text-secondary); font-style: italic;
-    margin: 0 0 var(--spacing-sm); }
+    margin: 0.1em 0 var(--spacing-md); }
   .wl-analysis + .wl-analysis { border-block-start: 1px dashed var(--color-border-secondary);
     margin-block-start: var(--spacing-sm); padding-block-start: var(--spacing-sm); }
   .wl-grammar { color: var(--color-text-tertiary); font-size: 0.95rem;
@@ -458,6 +474,7 @@ const EXAMPLES = [
   [data-theme="dark"] .wl-result-heading,
   [data-theme="dark"] .wl-empty-hint,
   [data-theme="dark"] .wl-sug-none,
+  [data-theme="dark"] .wl-sug-gloss-soon,
   [data-theme="dark"] .wl-meaning-soon,
   [data-theme="dark"] .wl-grammar { color: var(--color-text-secondary); }
 
