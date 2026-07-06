@@ -283,10 +283,10 @@ const ROMAN = ['I','II','III','IV','V','VI','VII','VIII','IX','X','XI','XII'];
               h('span', { class: 'vf-sug-meaning' },
                 marked(m.meaning ?? '', m.reason === 'meaning' ? m.ranges : null)),
               h('span', { class: 'vf-sug-sub', translate: 'no' },
-                `${m.root.translit} · form ${ROMAN[Number(m.formNo) - 1] ?? m.formNo} · ${m.root.totalCount}×`)),
+                `${m.root.translit} · form ${m.root.quad ? `Q${m.formNo}` : ROMAN[Number(m.formNo) - 1] ?? m.formNo} · ${m.root.totalCount}×`)),
             h('span', { lang: 'ar', dir: 'rtl' }, [...m.root.root].join(' · '))))
       : [h('p', { class: 'vf-sug-none' },
-          'no roots match; try ktb, نصر, or a meaning like guide')]));
+          'no roots match; try nzl, نصر, or a meaning like guide')]));
     setSugHidden(false);
   }
   searchEl?.addEventListener('input', () => runSearch(searchEl.value.trim()));
@@ -295,7 +295,8 @@ const ROMAN = ['I','II','III','IV','V','VI','VII','VIII','IX','X','XI','XII'];
     const btn = (ev.target as HTMLElement).closest('[data-root]') as HTMLElement | null;
     if (btn) { selectRoot(btn.dataset.root!); return; }
     const qchip = (ev.target as HTMLElement).closest('[data-q]') as HTMLElement | null;
-    if (qchip) { searchEl.value = qchip.dataset.q!; searchEl.focus(); runSearch(qchip.dataset.q!); }
+    if (qchip) { searchEl.value = qchip.dataset.q!; searchEl.focus(); runSearch(qchip.dataset.q!); return; }
+    if (!(ev.target as HTMLElement).closest('.vf-search-wrap')) setSugHidden(true);
   });
   searchEl?.addEventListener('keydown', (ev) => {
     if (ev.key === 'Enter') (sugEl.querySelector('[data-root]') as HTMLElement | null)?.click();
@@ -312,10 +313,6 @@ const ROMAN = ['I','II','III','IV','V','VI','VII','VIII','IX','X','XI','XII'];
     if (ev.key === 'ArrowUp') { (i > 0 ? items[i - 1] : searchEl).focus(); ev.preventDefault(); }
     if (ev.key === 'Escape') { setSugHidden(true); searchEl.focus(); }
   });
-  document.addEventListener('click', (ev) => {
-    if (!(ev.target as HTMLElement).closest('.vf-search-wrap')) setSugHidden(true);
-  });
-
   const hash = new URLSearchParams(location.hash.slice(1));
   const initialRoot = hash.get('root');
   if (initialRoot) selectRoot(initialRoot);

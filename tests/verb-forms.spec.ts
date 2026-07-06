@@ -103,4 +103,13 @@ test.describe('Verb Form Generator', () => {
     await expect(page.locator('.vf-sug .vf-sug-meaning').first()).toBeVisible();
     await expect(page.locator('#vf-search')).toHaveValue('guide');
   });
+
+  test('query chip opens suggestions when data is already cached', async ({ page }) => {
+    await page.goto('/resources/verb-forms/');
+    await page.fill('#vf-search', 'نزل');           // warms the cache
+    await page.press('#vf-search', 'Escape');
+    await page.locator('.vf-qchip', { hasText: 'nzl' }).click();
+    await expect(page.locator('#vf-suggestions')).toBeVisible();
+    await expect(page.locator('.vf-sug').first()).toBeVisible();
+  });
 });
