@@ -88,4 +88,19 @@ test.describe('Verb Form Generator', () => {
     await expect(page.locator('#vf-suggestions')).toBeHidden();
     await expect(search).toHaveAttribute('aria-expanded', 'false');
   });
+
+  test('english meaning search echoes the matched meaning', async ({ page }) => {
+    await page.goto('/resources/verb-forms/');
+    await page.fill('#vf-search', 'sent down');   // stemmed + multi-word
+    const row = page.locator('.vf-sug').first();
+    await expect(row.locator('.vf-sug-meaning mark')).toContainText('send down');
+    await row.click();
+    await expect(page.locator('#vf-result .vf-row-attested').first()).toBeVisible();
+  });
+  test('query example chip fills the box and opens suggestions', async ({ page }) => {
+    await page.goto('/resources/verb-forms/');
+    await page.locator('.vf-qchip', { hasText: 'guide' }).click();
+    await expect(page.locator('.vf-sug .vf-sug-meaning').first()).toBeVisible();
+    await expect(page.locator('#vf-search')).toHaveValue('guide');
+  });
 });

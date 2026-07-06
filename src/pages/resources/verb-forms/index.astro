@@ -18,6 +18,13 @@ const byLetter = LETTER_ORDER.map(letter => ({
     .sort((a: any, b: any) => a.root.localeCompare(b.root, 'ar')),
 })).filter(g => g.roots.length > 0);
 
+const QUERY_EXAMPLES = [
+  { q: 'guide', note: 'by meaning', latin: true },
+  { q: 'send down', note: 'by meaning', latin: true },
+  { q: 'nzl', note: 'by sound', latin: true },
+  { q: 'نصر', note: 'Arabic root' },
+];
+
 const FORMS = [
   { n: 1,  past: 'فَعَلَ',       present: 'يَفْعَلُ',      shift: 'basic action' },
   { n: 2,  past: 'فَعَّلَ',      present: 'يُفَعِّلُ',     shift: 'intensify, cause' },
@@ -54,6 +61,16 @@ const ROMAN = ['I','II','III','IV','V','VI','VII','VIII','IX','X','XI','XII'];
         placeholder="Search: نزل · nzl · send down…"
         role="combobox" aria-autocomplete="list" aria-controls="vf-suggestions" aria-expanded="false" />
       <div id="vf-suggestions" class="vf-suggestions" role="listbox" aria-label="Matching roots" hidden></div>
+    </div>
+
+    <div class="vf-qchips" role="group" aria-labelledby="vf-qchips-label">
+      <span class="vf-qchips-label" id="vf-qchips-label">Works with</span>
+      {QUERY_EXAMPLES.map(e => (
+        <button class:list={['vf-qchip', { 'vf-qchip-latin': e.latin }]} data-q={e.q}>
+          {e.latin ? <span>{e.q}</span> : <span lang="ar" dir="rtl">{e.q}</span>}
+          <span class="vf-qchip-note">{e.note}</span>
+        </button>
+      ))}
     </div>
 
     <div class="vf-chips" aria-label="Most frequent roots">
@@ -113,6 +130,9 @@ const ROMAN = ['I','II','III','IV','V','VI','VII','VIII','IX','X','XI','XII'];
 <script id="vf-forms-meta" type="application/json" set:html={JSON.stringify({ FORMS, ROMAN })} />
 
 <script>
+  import { prepareVerbs, searchVerbs } from '../../../lib/verb-search.ts';
+  import type { PreparedVerbs } from '../../../lib/verb-search.ts';
+
   const { FORMS, ROMAN } = JSON.parse(
     document.getElementById('vf-forms-meta')?.textContent || '{}');
 
@@ -131,14 +151,29 @@ const ROMAN = ['I','II','III','IV','V','VI','VII','VIII','IX','X','XI','XII'];
   const scrollBehavior = (): ScrollBehavior =>
     matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
 
+  // Wraps matched ranges in <mark>; real nodes only (no innerHTML).
+  function marked(text: string, ranges: [number, number][] | null): HTMLElement {
+    const span = h('span', {});
+    if (!ranges?.length) { span.append(text); return span; }
+    let pos = 0;
+    for (const [s, e] of ranges) {
+      if (s > pos) span.append(text.slice(pos, s));
+      span.append(h('mark', {}, text.slice(s, e)));
+      pos = e;
+    }
+    if (pos < text.length) span.append(text.slice(pos));
+    return span;
+  }
+
   const resultEl = document.getElementById('vf-result')!;
   let DATA: any = null;
+  let VPREP: PreparedVerbs | null = null;
   let loading: Promise<any> | null = null;
   function loadData() {
     if (DATA) return Promise.resolve(DATA);
     loading ??= fetch('/data/verb-forms.json')
       .then(res => { if (!res.ok) throw new Error(String(res.status)); return res.json(); })
-      .then(json => (DATA = json))
+      .then(json => { DATA = json; VPREP = prepareVerbs(json.roots); return DATA; })
       .catch(err => {
         loading = null;
         resultEl.replaceChildren(h('p', { class: 'vf-load-error' },
@@ -147,26 +182,6 @@ const ROMAN = ['I','II','III','IV','V','VI','VII','VIII','IX','X','XI','XII'];
         throw err;
       });
     return loading;
-  }
-
-  const AR_DIACRITICS = /[ً-ْٰ]/g;
-  const normalizeAr = (s: string) =>
-    s.replace(AR_DIACRITICS, '').replace(/[أإآٱؤئ]/g, 'ء').replace(/[·\s\-]/g, '');
-  const normalizeLatin = (s: string) => s.toLowerCase().replace(/[\s\-'ʼ’]/g, '');
-
-  function findMatches(q: string, roots: any[]) {
-    const isArabic = /[؀-ۿ]/.test(q);
-    if (isArabic) {
-      const nq = normalizeAr(q);
-      return roots.filter(r => normalizeAr(r.root).includes(nq));
-    }
-    const nq = normalizeLatin(q);
-    const ql = q.toLowerCase();
-    return roots.filter(r =>
-      normalizeLatin(r.translit).includes(nq) ||
-      Object.values(r.forms).some((list: any) => list.some((e: any) =>
-        (e.meaning ?? '').toLowerCase().includes(ql) ||
-        normalizeLatin(e.translit).includes(nq))));
   }
 
   function entryNode(e: any): HTMLElement {
@@ -249,31 +264,38 @@ const ROMAN = ['I','II','III','IV','V','VI','VII','VIII','IX','X','XI','XII'];
     if (root) renderRoot(root);
   }
 
-  document.addEventListener('click', (ev) => {
-    const btn = (ev.target as HTMLElement).closest('[data-root]') as HTMLElement | null;
-    if (btn) selectRoot(btn.dataset.root!);
-  });
-
   const searchEl = document.getElementById('vf-search') as HTMLInputElement;
   const sugEl = document.getElementById('vf-suggestions')!;
   function setSugHidden(hidden: boolean) {
     sugEl.hidden = hidden;
     searchEl?.setAttribute('aria-expanded', String(!hidden));
   }
-  searchEl?.addEventListener('input', async () => {
-    const q = searchEl.value.trim();
+
+  async function runSearch(q: string) {
     if (q.length < 2) { setSugHidden(true); return; }
     const data = await loadData().catch(() => null);
-    if (!data) return;
-    const matches = findMatches(q, data.roots).slice(0, 12);
+    if (!data || !VPREP) return;
+    const matches = searchVerbs(VPREP, q, 12);
     sugEl.replaceChildren(...(matches.length
-      ? matches.map((r: any) =>
-          h('button', { class: 'vf-sug', role: 'option', 'data-root': r.root },
-            h('span', { lang: 'ar', dir: 'rtl' }, [...r.root].join(' · ')),
-            h('span', { class: 'vf-sug-tl' }, String(r.translit)),
-            h('span', { class: 'vf-sug-count' }, `${Number(r.totalCount)}×`)))
-      : [h('p', { class: 'vf-sug-none' }, 'no roots match; try ktb, نصر, or a meaning like guide')]));
+      ? matches.map((m) =>
+          h('button', { class: 'vf-sug', role: 'option', 'data-root': m.root.root },
+            h('span', { class: 'vf-sug-en' },
+              h('span', { class: 'vf-sug-meaning' },
+                marked(m.meaning ?? '', m.reason === 'meaning' ? m.ranges : null)),
+              h('span', { class: 'vf-sug-sub', translate: 'no' },
+                `${m.root.translit} · form ${ROMAN[Number(m.formNo) - 1] ?? m.formNo} · ${m.root.totalCount}×`)),
+            h('span', { lang: 'ar', dir: 'rtl' }, [...m.root.root].join(' · '))))
+      : [h('p', { class: 'vf-sug-none' },
+          'no roots match; try ktb, نصر, or a meaning like guide')]));
     setSugHidden(false);
+  }
+  searchEl?.addEventListener('input', () => runSearch(searchEl.value.trim()));
+
+  document.addEventListener('click', (ev) => {
+    const btn = (ev.target as HTMLElement).closest('[data-root]') as HTMLElement | null;
+    if (btn) { selectRoot(btn.dataset.root!); return; }
+    const qchip = (ev.target as HTMLElement).closest('[data-q]') as HTMLElement | null;
+    if (qchip) { searchEl.value = qchip.dataset.q!; searchEl.focus(); runSearch(qchip.dataset.q!); }
   });
   searchEl?.addEventListener('keydown', (ev) => {
     if (ev.key === 'Enter') (sugEl.querySelector('[data-root]') as HTMLElement | null)?.click();
@@ -319,15 +341,22 @@ const ROMAN = ['I','II','III','IV','V','VI','VII','VIII','IX','X','XI','XII'];
     background: var(--color-background-elevated);
     border: 1px solid var(--color-border-primary); border-radius: var(--radius-md);
     box-shadow: 0 8px 24px rgb(0 0 0 / 0.14); z-index: 20; overflow: hidden; }
-  .vf-sug { display: flex; align-items: center; gap: var(--spacing-sm);
-    inline-size: 100%; padding: var(--spacing-sm) var(--spacing-md);
+  .vf-sug { display: flex; align-items: center; justify-content: space-between;
+    gap: var(--spacing-sm); inline-size: 100%; padding: var(--spacing-sm) var(--spacing-md);
     background: none; border: 0; cursor: pointer; font-family: inherit;
     color: var(--color-text-primary); font-size: 1rem; text-align: start; }
   .vf-sug:focus-visible { outline: 2px solid var(--color-border-focus); outline-offset: -2px; }
-  .vf-sug [lang="ar"] { font-family: var(--font-arabic); font-size: 1.25rem; }
-  .vf-sug-tl { color: var(--color-text-secondary); }
-  .vf-sug-count { margin-inline-start: auto; color: var(--color-text-tertiary); font-size: 0.85rem; }
-  .vf-sug-count, .vf-count, .vf-chip-count { font-variant-numeric: tabular-nums; }
+  .vf-sug [lang="ar"] { font-family: var(--font-arabic); font-size: 1.5rem;
+    line-height: 1.8; flex-shrink: 0; }
+  .vf-sug-en { min-inline-size: 0; }
+  .vf-sug-meaning { display: block; margin: 0; color: var(--color-text-primary);
+    overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .vf-sug-sub { display: block; margin: 0; font-size: 0.8rem;
+    color: var(--color-text-tertiary);
+    font-variant-numeric: tabular-nums; font-style: italic; }
+  .vf-sug-meaning mark { background: color-mix(in oklab, var(--accent-gold) 30%, transparent);
+    color: inherit; border-radius: 2px; padding: 0 0.08em; }
+  .vf-count, .vf-chip-count { font-variant-numeric: tabular-nums; }
   .vf-sug-none { padding: var(--spacing-sm) var(--spacing-md);
     color: var(--color-text-tertiary); margin: 0; font-size: 0.95rem; }
 
@@ -337,13 +366,29 @@ const ROMAN = ['I','II','III','IV','V','VI','VII','VIII','IX','X','XI','XII'];
     padding: 0.35em 0.8em; background: var(--color-background-secondary);
     border: 1px solid var(--color-border-primary); border-radius: var(--radius-full);
     cursor: pointer; color: var(--color-text-primary); font-family: var(--font-arabic);
-    font-size: 1.05rem;
+    font-size: 1.25rem;
     transition: border-color 160ms var(--vf-ease), transform 160ms var(--vf-ease); }
   .vf-chip:active { transform: scale(0.97); }
-  .vf-chip, .vf-root-link, .vf-sug, .vf-letter summary { touch-action: manipulation; }
+  .vf-chip, .vf-root-link, .vf-sug, .vf-letter summary, .vf-qchip { touch-action: manipulation; }
   .vf-chip:focus-visible, .vf-root-link:focus-visible {
     outline: 2px solid var(--color-border-focus); outline-offset: 1px; }
   .vf-chip-count { font-family: var(--font-sans); font-size: 0.75rem;
+    color: var(--color-text-tertiary); }
+
+  .vf-qchips { display: flex; flex-wrap: wrap; gap: var(--spacing-xs);
+    justify-content: center; margin-block: var(--spacing-md) 0; }
+  .vf-qchips-label { align-self: center; font-size: 0.8rem; letter-spacing: 0.06em;
+    text-transform: uppercase; color: var(--color-text-tertiary); }
+  .vf-qchip { display: inline-flex; align-items: baseline; gap: 0.5em;
+    padding: 0.35em 0.8em; background: var(--color-background-secondary);
+    border: 1px solid var(--color-border-primary); border-radius: var(--radius-full);
+    cursor: pointer; color: var(--color-text-primary);
+    font-family: var(--font-arabic); font-size: 1.25rem;
+    transition: border-color 160ms var(--vf-ease), transform 160ms var(--vf-ease); }
+  .vf-qchip-latin { font-family: var(--font-sans); font-size: 1rem; }
+  .vf-qchip:active { transform: scale(0.97); }
+  .vf-qchip:focus-visible { outline: 2px solid var(--color-border-focus); outline-offset: 1px; }
+  .vf-qchip-note { font-family: var(--font-sans); font-size: 0.75rem;
     color: var(--color-text-tertiary); }
 
   .vf-result { margin-block-end: var(--spacing-3xl); scroll-margin-top: 90px; }
@@ -415,7 +460,7 @@ const ROMAN = ['I','II','III','IV','V','VI','VII','VIII','IX','X','XI','XII'];
   /* Tertiary text (#9b8b7e) is 5.91:1 on the near-black dark bg — below the
      7:1 AAA threshold. Promote to secondary in dark mode (same fix as the
      word-lookup page). :global() because data-theme lives on <html>. */
-  [data-theme="dark"] .vf-sug-count,
+  [data-theme="dark"] .vf-sug-sub,
   [data-theme="dark"] .vf-sug-none,
   [data-theme="dark"] .vf-chip-count,
   [data-theme="dark"] .vf-pattern,
@@ -424,7 +469,9 @@ const ROMAN = ['I','II','III','IV','V','VI','VII','VIII','IX','X','XI','XII'];
   [data-theme="dark"] .vf-count,
   [data-theme="dark"] .vf-letter-count,
   [data-theme="dark"] .vf-attribution,
-  [data-theme="dark"] .vf-attribution a { color: var(--color-text-secondary); }
+  [data-theme="dark"] .vf-attribution a,
+  [data-theme="dark"] .vf-qchips-label,
+  [data-theme="dark"] .vf-qchip-note { color: var(--color-text-secondary); }
 
   .sr-only { position: absolute; inline-size: 1px; block-size: 1px; overflow: hidden;
     clip-path: inset(50%); white-space: nowrap; }
@@ -434,6 +481,7 @@ const ROMAN = ['I','II','III','IV','V','VI','VII','VIII','IX','X','XI','XII'];
   @media (hover: hover) and (pointer: fine) {
     .vf-chip:hover { border-color: var(--accent-gold);
       background: var(--color-background-tertiary); }
+    .vf-qchip:hover { border-color: var(--accent-gold); background: var(--color-background-tertiary); }
     .vf-sug:hover { background: var(--color-background-tertiary); }
     .vf-root-link:hover { color: var(--color-text-primary);
       border-color: var(--color-border-primary); }
@@ -455,7 +503,7 @@ const ROMAN = ['I','II','III','IV','V','VI','VII','VIII','IX','X','XI','XII'];
 
   @media (prefers-reduced-motion: reduce) {
     .vf-row { animation-duration: 1ms; animation-delay: 0ms; }
-    .vf-chip:active, .vf-root-link:active { transform: none; }
+    .vf-chip:active, .vf-root-link:active, .vf-qchip:active { transform: none; }
   }
 
   @media (max-width: 640px) {
