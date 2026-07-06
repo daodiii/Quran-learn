@@ -112,4 +112,13 @@ test.describe('Verb Form Generator', () => {
     await expect(page.locator('#vf-suggestions')).toBeVisible();
     await expect(page.locator('.vf-sug').first()).toBeVisible();
   });
+
+  test('attested row exposes english block and arabic spine with wazn echo', async ({ page }) => {
+    await page.goto('/resources/verb-forms/#root=' + encodeURIComponent('نزل'));
+    const row = page.locator('#vf-result .vf-row-attested').first();
+    await expect(row.locator('.vf-entry-en .vf-meaning')).toBeVisible();
+    await expect(row.locator('.vf-entry-ar .vf-verb')).toBeVisible();
+    await expect(row.locator('.vf-wazn').first()).toBeVisible();
+    await expect(page.locator('#vf-result .vf-row')).toHaveCount(10);
+  });
 });

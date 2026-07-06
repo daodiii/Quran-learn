@@ -184,24 +184,26 @@ const ROMAN = ['I','II','III','IV','V','VI','VII','VIII','IX','X','XI','XII'];
     return loading;
   }
 
-  function entryNode(e: any): HTMLElement {
+  function entryNode(e: any, pattern?: string): HTMLElement {
     const pair = e.present ? `${e.past} / ${e.present}` : String(e.past);
     const exampleHref = `https://quran.com/${encodeURIComponent(String(e.example).replace(':', '/'))}`;
     return h('div', { class: 'vf-entry' },
-      h('p', { class: 'vf-verb', lang: 'ar', dir: 'rtl' }, pair),
-      h('p', { class: 'vf-translit', translate: 'no' }, String(e.translit ?? '')),
-      e.meaning === null
-        ? h('p', { class: 'vf-meaning' }, h('em', {}, 'meaning coming soon'))
-        : h('p', { class: 'vf-meaning' }, String(e.meaning)),
-      h('p', { class: 'vf-meta-line' },
-        h('span', { class: 'vf-count' }, `${Number(e.count)}× in the Quran`),
-        h('a', { class: 'vf-example', href: exampleHref, target: '_blank', rel: 'noopener' },
-          `e.g. ${e.example}`)));
+      h('div', { class: 'vf-entry-en' },
+        e.meaning === null
+          ? h('p', { class: 'vf-meaning' }, h('em', {}, 'meaning coming soon'))
+          : h('p', { class: 'vf-meaning' }, String(e.meaning)),
+        h('p', { class: 'vf-translit', translate: 'no' }, String(e.translit ?? '')),
+        h('p', { class: 'vf-meta-line' },
+          h('span', { class: 'vf-count' }, `${Number(e.count)}× in the Quran`),
+          h('a', { class: 'vf-example', href: exampleHref, target: '_blank', rel: 'noopener' },
+            `e.g. ${e.example}`))),
+      h('div', { class: 'vf-entry-ar' },
+        h('p', { class: 'vf-verb', lang: 'ar', dir: 'rtl' }, pair),
+        pattern ? h('p', { class: 'vf-wazn', lang: 'ar', dir: 'rtl' }, pattern) : null));
   }
 
   function rowNode(i: number, cls: string, head: Kid[], body: Kid[]): HTMLElement {
-    const row = h('li', { class: `vf-row ${cls}`, style: `--i:${i}` },
-      h('div', { class: 'vf-row-head' }, ...head));
+    const row = h('li', { class: `vf-row ${cls}`, style: `--i:${i}` }, ...head);
     if (body.length) row.append(h('div', { class: 'vf-row-body' }, ...body));
     return row;
   }
@@ -217,31 +219,29 @@ const ROMAN = ['I','II','III','IV','V','VI','VII','VIII','IX','X','XI','XII'];
       for (const [f, list] of Object.entries<any>(root.forms)) {
         rows.push(rowNode(i++, 'vf-row-attested',
           [h('span', { class: 'vf-badge vf-badge-gold' }, `Q${f}`)],
-          list.map(entryNode)));
+          (list as any[]).map((e) => entryNode(e))));
       }
     } else {
       for (const fm of FORMS) {
         const list = root.forms[String(fm.n)];
         if (!list) {
-          const row = rowNode(i++, 'vf-row-empty',
+          rows.push(rowNode(i++, 'vf-row-empty',
             [h('span', { class: 'vf-badge' }, ROMAN[fm.n - 1]),
+             h('p', { class: 'vf-empty-note' }, 'not used in the Quran for this root'),
              h('span', { class: 'vf-pattern', lang: 'ar', dir: 'rtl' }, `${fm.past} / ${fm.present}`)],
-            []);
-          row.append(h('p', { class: 'vf-empty-note' }, 'not used in the Quran for this root'));
-          rows.push(row);
+            []));
         } else {
           rows.push(rowNode(i++, 'vf-row-attested',
             [h('span', { class: 'vf-badge vf-badge-gold' }, ROMAN[fm.n - 1]),
-             h('span', { class: 'vf-pattern', lang: 'ar', dir: 'rtl' }, fm.past),
-             h('span', { class: 'vf-shift' }, fm.shift)],
-            list.map(entryNode)));
+             h('p', { class: 'vf-shift' }, fm.shift)],
+            (list as any[]).map((e, j) => entryNode(e, j === 0 ? fm.past : undefined))));
         }
       }
       for (const f of rareKeys) {
         rows.push(rowNode(i++, 'vf-row-attested',
           [h('span', { class: 'vf-badge vf-badge-gold' }, ROMAN[Number(f) - 1] ?? f),
-           h('span', { class: 'vf-shift' }, 'rare form, beyond the classical ten')],
-          (root.forms[f] as any[]).map(entryNode)));
+           h('p', { class: 'vf-shift' }, 'rare form, beyond the classical ten')],
+          (root.forms[f] as any[]).map((e) => entryNode(e))));
       }
     }
 
@@ -393,41 +393,50 @@ const ROMAN = ['I','II','III','IV','V','VI','VII','VIII','IX','X','XI','XII'];
     border: 1px solid var(--color-border-primary); border-radius: var(--radius-md);
     padding: var(--spacing-lg); }
   .vf-root-header { text-align: center; margin-block: var(--spacing-xl); }
-  .vf-root-letters { font-family: var(--font-arabic); font-size: 2.5rem; line-height: 1.4;
+  .vf-root-letters { font-family: var(--font-arabic); font-size: 2.75rem; line-height: 1.4;
     color: var(--color-text-primary); margin: 0 0 var(--spacing-xs); }
   .vf-root-stats { color: var(--color-text-secondary); margin: 0; }
 
   .vf-grid { list-style: none; margin: 0; padding: 0;
     border: 1px solid var(--color-border-primary); border-radius: var(--radius-lg);
     overflow: hidden; }
-  .vf-row { padding: var(--spacing-md); }
+  .vf-row { padding: var(--spacing-md) var(--spacing-lg);
+    display: grid; grid-template-columns: 3.2em minmax(0, 1fr);
+    column-gap: var(--spacing-md); align-items: start; }
   .vf-row + .vf-row { border-block-start: 1px solid var(--color-border-secondary); }
   .vf-row-attested { background: var(--color-background-secondary); }
   .vf-row-empty { opacity: 0.55; }
-  .vf-row-head { display: flex; align-items: center; gap: var(--spacing-sm); flex-wrap: wrap; }
   .vf-badge { display: inline-grid; place-items: center; min-inline-size: 2.4em;
     padding: 0.15em 0.5em; border-radius: var(--radius-sm); font-size: 0.85rem;
     font-weight: 700; letter-spacing: 0.06em;
     background: var(--color-background-tertiary); color: var(--color-text-secondary); }
+  .vf-badge { margin-block-start: 0.3em; }
   .vf-badge-gold { background: color-mix(in oklab, var(--accent-gold) 16%, transparent);
     color: var(--accent-gold); }
-  .vf-pattern { font-family: var(--font-arabic); font-size: 1.15rem;
-    color: var(--color-text-tertiary); }
-  .vf-shift { margin-inline-start: auto; font-size: 0.85rem;
-    color: var(--color-text-tertiary); font-style: italic; }
-  .vf-empty-note { margin: var(--spacing-xs) 0 0; font-size: 0.9rem;
-    color: var(--color-text-tertiary); }
-
-  .vf-entry { margin-block-start: var(--spacing-sm); }
+  .vf-shift { font-size: 0.85rem; color: var(--color-text-tertiary);
+    font-style: italic; margin: 0; align-self: center; }
+  .vf-row-body { grid-column: 2; }
+  .vf-row-empty { grid-template-columns: 3.2em minmax(0, 1fr) auto;
+    align-items: center; }
+  .vf-empty-note { margin: 0; font-size: 0.9rem; color: var(--color-text-tertiary); }
+  .vf-pattern { font-family: var(--font-arabic); font-size: 1.25rem;
+    line-height: 1.8; color: var(--color-text-tertiary); }
+  .vf-entry { display: grid; grid-template-columns: minmax(0, 1fr) auto;
+    column-gap: var(--spacing-lg); align-items: center;
+    margin-block-start: var(--spacing-sm); }
   .vf-entry + .vf-entry { border-block-start: 1px dashed var(--color-border-secondary);
     padding-block-start: var(--spacing-sm); }
-  .vf-verb { font-family: var(--font-arabic); font-size: 1.9rem; line-height: 1.9;
+  .vf-entry-ar { text-align: end; }
+  .vf-verb { font-family: var(--font-arabic); font-size: 2.125rem; line-height: 1.9;
     color: var(--color-text-primary); margin: 0; }
+  .vf-wazn { font-family: var(--font-arabic); font-size: 1.25rem; line-height: 1.8;
+    color: var(--color-text-tertiary); margin: 0; }
+  .vf-meaning { color: var(--color-text-primary); font-size: 1.0625rem;
+    font-weight: 500; margin: 0; }
   .vf-translit { color: var(--color-text-secondary); font-style: italic;
-    margin: 0 0 var(--spacing-xs); }
-  .vf-meaning { color: var(--color-text-primary); font-size: 1.05rem; margin: 0; }
+    margin: 0.15em 0 0; font-size: 0.9rem; }
   .vf-meta-line { display: flex; gap: var(--spacing-md); align-items: baseline;
-    margin: var(--spacing-xs) 0 0; font-size: 0.85rem; }
+    margin: 0.25em 0 0; font-size: 0.85rem; }
   .vf-count { color: var(--color-text-tertiary); }
   .vf-example { color: var(--accent-gold); text-decoration: none; }
 
@@ -442,7 +451,7 @@ const ROMAN = ['I','II','III','IV','V','VI','VII','VIII','IX','X','XI','XII'];
   .vf-letter-count { color: var(--color-text-tertiary); font-size: 0.9rem; }
   .vf-letter-roots { display: flex; flex-wrap: wrap; gap: var(--spacing-xs);
     padding-block: 0 var(--spacing-md); }
-  .vf-root-link { font-family: var(--font-arabic); font-size: 1.1rem; cursor: pointer;
+  .vf-root-link { font-family: var(--font-arabic); font-size: 1.3rem; cursor: pointer;
     background: none; border: 1px solid transparent; border-radius: var(--radius-sm);
     padding: 0.15em 0.45em; color: var(--color-text-secondary);
     transition: color 160ms var(--vf-ease), border-color 160ms var(--vf-ease),
@@ -461,6 +470,7 @@ const ROMAN = ['I','II','III','IV','V','VI','VII','VIII','IX','X','XI','XII'];
   [data-theme="dark"] .vf-sug-none,
   [data-theme="dark"] .vf-chip-count,
   [data-theme="dark"] .vf-pattern,
+  [data-theme="dark"] .vf-wazn,
   [data-theme="dark"] .vf-shift,
   [data-theme="dark"] .vf-empty-note,
   [data-theme="dark"] .vf-count,
@@ -505,7 +515,11 @@ const ROMAN = ['I','II','III','IV','V','VI','VII','VIII','IX','X','XI','XII'];
 
   @media (max-width: 640px) {
     .vf-title { font-size: 1.85rem; }
-    .vf-shift { margin-inline-start: 0; inline-size: 100%; }
-    .vf-verb { font-size: 1.6rem; }
+    .vf-row { grid-template-columns: 2.6em minmax(0, 1fr); }
+    .vf-entry { grid-template-columns: 1fr; }
+    .vf-entry-ar { text-align: start; order: -1; margin-block-end: 0.25em; }
+    .vf-verb { font-size: 1.8rem; }
+    .vf-row-empty { grid-template-columns: 2.6em minmax(0, 1fr); }
+    .vf-row-empty .vf-pattern { grid-column: 2; }
   }
 </style>
