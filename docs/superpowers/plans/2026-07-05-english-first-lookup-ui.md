@@ -876,16 +876,21 @@ e. Replace the input handler's row construction (lines 263–277) with:
   searchEl?.addEventListener('input', () => runSearch(searchEl.value.trim()));
 ```
 
-f. Extend the document click handler (line 252–255) to cover query chips:
+f. MERGE the page's two document click listeners into ONE (the separate
+outside-click closer must be deleted — chips sit outside `.vf-search-wrap`,
+so a second listener re-hides the dropdown the chip just opened on a warm
+cache; caught by review + warm-cache e2e):
 
 ```ts
   document.addEventListener('click', (ev) => {
     const btn = (ev.target as HTMLElement).closest('[data-root]') as HTMLElement | null;
     if (btn) { selectRoot(btn.dataset.root!); return; }
     const qchip = (ev.target as HTMLElement).closest('[data-q]') as HTMLElement | null;
-    if (qchip) { searchEl.value = qchip.dataset.q!; searchEl.focus(); runSearch(qchip.dataset.q!); }
+    if (qchip) { searchEl.value = qchip.dataset.q!; searchEl.focus(); runSearch(qchip.dataset.q!); return; }
+    if (!(ev.target as HTMLElement).closest('.vf-search-wrap')) setSugHidden(true);
   });
 ```
+Suggestion sub-line form label: `m.root.quad ? \`Q${m.formNo}\` : ROMAN[…]`.
 
 - [ ] **Step 4: Styles**
 
