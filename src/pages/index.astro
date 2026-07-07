@@ -1,9 +1,9 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Button from '../components/primitives/Button.astro';
-import CourseCard from '../components/cards/CourseCard.astro';
 import CardGrid from '../components/cards/CardGrid.astro';
 import SurahCard from '../components/cards/SurahCard.astro';
+import ResumeBand from '../components/ResumeBand.astro';
 import GoldCalligraphy from '../components/decoration/GoldCalligraphy.astro';
 import AnnouncementTicker from '../components/AnnouncementTicker.astro';
 import FaqSchema from '../components/seo/FaqSchema.astro';
@@ -92,6 +92,15 @@ const lessonCounts = await Promise.all(
     return lessons.length;
   })
 );
+
+// Curriculum-ordered manifest for the ResumeBand (continue affordance)
+const sortedLessons = allLessons
+  .filter(l => !l.id.endsWith('_index'))
+  .sort((a, b) => a.data.level - b.data.level || a.data.order - b.data.order);
+const resumeManifest = sortedLessons.map(l =>
+  ({ id: l.id, title: l.data.title, level: l.data.level, order: l.data.order }));
+const resumeTotals = Object.fromEntries(
+  levelGroups.map((level, i) => [level.num, lessonCounts[i]]));
 
 const featuredSurahs = [
   { name: 'Al-Fatiha', nameAr: 'الفاتحة', num: 1, verses: 7, slug: '001-al-fatiha', difficulty: 'beginner' as const },
@@ -216,7 +225,6 @@ const features = [
     <div class="container">
       <div class="importance-grid">
         <div class="importance-content">
-          <div class="section-badge">The Divine Foundation</div>
           <h2 class="importance-title">Why Quranic <span class="text-accent">Grammar?</span></h2>
           <div class="importance-narrative">
             <p>
@@ -227,43 +235,43 @@ const features = [
             </p>
           </div>
           
-          <div class="importance-features">
-            <div class="i-feature">
-              <div class="i-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-              <div class="i-text">
+          <ol class="importance-list">
+            <li>
+              <span class="il-num" aria-hidden="true">1</span>
+              <div class="il-text">
                 <h3>Preserve Meaning</h3>
                 <p>A single vowel change in I'rab can alter the entire theological meaning of a verse.</p>
               </div>
-            </div>
-            <div class="i-feature">
-              <div class="i-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
-              <div class="i-text">
+            </li>
+            <li>
+              <span class="il-num" aria-hidden="true">2</span>
+              <div class="il-text">
                 <h3>Connect Heart & Mind</h3>
                 <p>When you understand the grammar, the Quran speaks directly to your intellect.</p>
               </div>
-            </div>
-            <div class="i-feature">
-              <div class="i-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4v11h7m1 0h7V4h-7m-1 11v3M4 20h16"/></svg></div>
-              <div class="i-text">
+            </li>
+            <li>
+              <span class="il-num" aria-hidden="true">3</span>
+              <div class="il-text">
                 <h3>Direct Dialogue</h3>
                 <p>Bypass the limitations of translations and converse with the Text in its original depth.</p>
               </div>
-            </div>
-            <div class="i-feature">
-              <div class="i-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg></div>
-              <div class="i-text">
+            </li>
+            <li>
+              <span class="il-num" aria-hidden="true">4</span>
+              <div class="il-text">
                 <h3>Appreciate Eloquence</h3>
                 <p>Recognize the Balaghah (Rhetoric) and divine selection of every particle and word.</p>
               </div>
-            </div>
-            <div class="i-feature">
-              <div class="i-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
-              <div class="i-text">
+            </li>
+            <li>
+              <span class="il-num" aria-hidden="true">5</span>
+              <div class="il-text">
                 <h3>Understanding the Miracles of the Quran</h3>
                 <p>Why no one has been able to replicate the Quran for over 1400 years.</p>
               </div>
-            </div>
-          </div>
+            </li>
+          </ol>
         </div>
         <div class="importance-visual">
           <div class="visual-card">
@@ -281,37 +289,25 @@ const features = [
       <div class="section-header">
         <h2 class="section-title">The Learning Path</h2>
         <p class="section-subtitle">A structured journey through 5 comprehensive levels of Quranic Arabic mastery.</p>
-        <div class="scroll-hint" aria-hidden="true">
-          <span class="scroll-hint-text">Scroll to explore</span>
-          <svg class="scroll-hint-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M5 12h14M12 5l7 7-7 7"/>
-          </svg>
-        </div>
       </div>
 
-      <div class="levels-scroll-wrapper">
-        <div class="levels-scroll-container">
-          <div class="levels-grid-horizontal">
-            {levelGroups.map((level, index) => (
-              <div class="level-card-wrapper">
-                <CourseCard
-                  title={level.title}
-                  level={level.num}
-                  lessonsCompleted={0}
-                  totalLessons={lessonCounts[index]}
-                  href={`/learn/#level-${level.num}`}
-                >
-                  {level.desc}
-                </CourseCard>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
+      <ol class="journey-band" aria-label="The five levels in order">
+        {levelGroups.map((level, index) => (
+          <li class="journey-node">
+            <a href={`/learn/#level-${level.num}`} class="journey-link">
+              <span class="journey-circle" style={`background: var(--level-${level.num}-bg); color: var(--level-${level.num}-text);`}>{level.num}</span>
+              <span class="journey-name">{level.title}</span>
+              <span class="journey-count">{lessonCounts[index]} lessons</span>
+            </a>
+          </li>
+        ))}
+      </ol>
+
+      <ResumeBand manifest={resumeManifest} totals={resumeTotals} />
 
       <div class="section-cta">
         <Button href="/learn/" variant="gold" size="md">
-          View Detailed Curriculum
+          View the full curriculum
         </Button>
       </div>
     </div>
@@ -407,7 +403,6 @@ const features = [
   <section class="section mesh-bg mesh-bg-primary" id="faq" aria-labelledby="faq-heading">
     <div class="container faq-container">
       <div class="section-header">
-        <div class="section-badge">Common Questions</div>
         <h2 id="faq-heading" class="section-title">Frequently Asked <span class="text-accent">Questions</span></h2>
         <p class="section-subtitle">Quick answers about the curriculum, prerequisites, and what to expect from your study.</p>
       </div>
@@ -792,21 +787,6 @@ const features = [
     }
   }
 
-  .section-badge {
-    display: inline-block;
-    padding: var(--spacing-xs) var(--spacing-lg);
-    background: linear-gradient(135deg, var(--accent-gold-light) 0%, var(--accent-primary-light) 100%);
-    color: var(--accent-gold);
-    font-family: var(--font-display);
-    font-size: 0.75rem;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    border-radius: var(--radius-full, 100px);
-    margin-block-end: var(--spacing-lg);
-    border: 1px solid rgba(184, 134, 11, 0.15);
-  }
-
   .importance-title {
     font-family: var(--font-display);
     font-size: clamp(2rem, 5vw, 3.5rem);
@@ -837,84 +817,33 @@ const features = [
     color: var(--color-text-primary);
   }
 
-  .importance-features {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--spacing-xl);
+  /* Editorial numbered list: no boxes, hairline rows, gold serif numerals */
+  .importance-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
   }
 
-  @media (min-width: 640px) {
-    .importance-features {
-      grid-template-columns: 1fr 1fr;
-    }
-  }
-
-  @media (min-width: 1024px) {
-    .importance-features {
-      grid-template-columns: 1fr;
-    }
-  }
-
-  .i-feature {
+  .importance-list li {
     display: flex;
     gap: var(--spacing-lg);
-    /* Frosted glass effect */
-    background: var(--glass-bg-elevated);
-    backdrop-filter: blur(var(--glass-blur));
-    -webkit-backdrop-filter: blur(var(--glass-blur));
-    padding: var(--spacing-xl) var(--spacing-xl) var(--spacing-xl) var(--spacing-2xl);
-    border-radius: var(--radius-xl);
-    box-shadow: var(--shadow-float);
-    border: 1px solid var(--glass-border-light);
-    position: relative;
-    overflow: hidden;
-    transition: transform var(--transition-base), box-shadow var(--transition-base);
+    align-items: baseline;
+    padding-block: var(--spacing-md);
+    border-block-start: 1px solid var(--border-primary);
   }
 
-  :global([data-theme="dark"]) .i-feature {
-    border-color: var(--glass-border-light);
-  }
-
-  .i-feature::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 5px;
-    height: 100%;
-    background: var(--gradient-gold);
-    border-radius: 0 3px 3px 0;
-  }
-
-  .i-feature:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-xl);
-    border-color: var(--accent-gold);
-  }
-
-  .i-icon {
+  .il-num {
     flex-shrink: 0;
-    width: 48px;
-    height: 48px;
-    background: linear-gradient(135deg, var(--accent-gold-light) 0%, var(--color-background-secondary) 100%);
-    border-radius: 14px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    font-family: var(--font-display);
+    font-size: 1.75rem;
+    font-weight: 700;
+    line-height: 1;
     color: var(--accent-gold);
-    transition: transform var(--transition-fast);
+    inline-size: 2rem;
+    font-variant-numeric: tabular-nums;
   }
 
-  .i-feature:hover .i-icon {
-    transform: scale(1.08) rotate(3deg);
-  }
-
-  .i-icon svg {
-    width: 24px;
-    height: 24px;
-  }
-
-  .i-text h3 {
+  .il-text h3 {
     font-family: var(--font-display);
     font-size: 1.125rem;
     font-weight: 700;
@@ -922,9 +851,10 @@ const features = [
     color: var(--color-text-primary);
   }
 
-  .i-text p {
+  .il-text p {
     font-size: 0.9375rem;
     color: var(--color-text-secondary);
+    margin: 0;
   }
 
   .importance-visual {
@@ -997,113 +927,114 @@ const features = [
     z-index: 1;
   }
 
-  /* Levels Horizontal Scroll */
-  .levels-scroll-wrapper {
+  /* Journey band: five sequenced level nodes on a continuous gold line */
+  .journey-band {
+    list-style: none;
+    margin: var(--spacing-xl) 0 0;
+    padding: 0;
     position: relative;
-  }
-
-  .levels-scroll-wrapper::after {
-    content: '';
-    position: absolute;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    width: 60px;
-    background: linear-gradient(to right, transparent, var(--color-background-primary));
-    pointer-events: none;
-    z-index: 1;
-    transition: opacity 0.3s ease;
-  }
-
-  .levels-scroll-wrapper.scrolled-end::after {
-    opacity: 0;
-  }
-
-  .levels-scroll-container {
-    margin-inline: calc(var(--spacing-lg) * -1);
-    padding-inline: var(--spacing-lg);
-    overflow-x: auto;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-    scroll-snap-type: x mandatory;
-    padding-block: var(--spacing-xl);
-  }
-
-  .levels-scroll-container::-webkit-scrollbar {
-    display: none;
-  }
-
-  /* Scroll Hint */
-  .scroll-hint {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.375rem;
-    margin-block-start: var(--spacing-md);
-    transition: opacity 0.4s ease;
-  }
-
-  .scroll-hint.hidden {
-    opacity: 0;
-    pointer-events: none;
-  }
-
-  .scroll-hint-text {
-    font-family: var(--font-display);
-    font-size: 0.75rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--color-text-tertiary);
-  }
-
-  .scroll-hint-arrow {
-    width: 16px;
-    height: 16px;
-    color: var(--accent-gold);
-    animation: nudgeRight 1.5s ease-in-out infinite;
-  }
-
-  @keyframes nudgeRight {
-    0%, 100% { transform: translateX(0); }
-    50% { transform: translateX(5px); }
-  }
-
-  .levels-grid-horizontal {
-    display: flex;
-    align-items: stretch;
-    gap: var(--spacing-md);
-    width: max-content;
-    padding-inline-end: var(--spacing-md);
-  }
-
-  .level-card-wrapper {
-    width: 260px;
-    scroll-snap-align: center;
-    display: flex;
-  }
-
-  @media (min-width: 640px) {
-    .level-card-wrapper {
-      width: 280px;
-    }
-  }
-
-  @media (min-width: 1280px) {
-    .level-card-wrapper {
-      width: 300px;
-    }
-  }
-
-  /* Force level cards to equal height */
-  .level-card-wrapper :global(.card) {
     display: flex;
     flex-direction: column;
-    width: 100%;
+    gap: var(--spacing-lg);
   }
 
-  .level-card-wrapper :global(.course-card-description) {
-    flex: 1;
+  /* Vertical timeline on mobile */
+  .journey-band::before {
+    content: '';
+    position: absolute;
+    inset-block: 1.375rem;
+    inset-inline-start: 1.375rem;
+    inline-size: 1px;
+    background: var(--accent-gold);
+    opacity: 0.45;
+  }
+
+  .journey-node { position: relative; }
+
+  .journey-link {
+    display: grid;
+    grid-template-columns: 2.75rem 1fr;
+    grid-template-areas: 'circle name' 'circle count';
+    column-gap: var(--spacing-md);
+    align-items: center;
+    text-decoration: none;
+    transition: transform 160ms cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .journey-link:active { transform: scale(0.99); }
+
+  .journey-circle {
+    grid-area: circle;
+    inline-size: 2.75rem;
+    block-size: 2.75rem;
+    display: grid;
+    place-items: center;
+    border-radius: var(--radius-full);
+    font-family: var(--font-display);
+    font-size: 1.125rem;
+    font-weight: 700;
+    border: 1px solid var(--border-primary);
+    position: relative;
+    z-index: 1;
+  }
+
+  .journey-name {
+    grid-area: name;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    align-self: end;
+  }
+
+  .journey-count {
+    grid-area: count;
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    font-variant-numeric: tabular-nums;
+    align-self: start;
+  }
+
+  /* Horizontal band on desktop */
+  @media (min-width: 900px) {
+    .journey-band {
+      flex-direction: row;
+      justify-content: space-between;
+      gap: var(--spacing-md);
+      padding-block: var(--spacing-md);
+    }
+
+    .journey-band::before {
+      inset-block: auto;
+      inset-block-start: calc(var(--spacing-md) + 1.375rem);
+      inset-inline: 3rem;
+      inline-size: auto;
+      block-size: 1px;
+    }
+
+    .journey-node { flex: 1; }
+
+    .journey-link {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.375rem;
+      text-align: center;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      .journey-link:hover .journey-circle {
+        border-color: var(--accent-gold);
+        transform: translateY(-2px);
+      }
+    }
+
+    .journey-circle {
+      transition: transform 200ms cubic-bezier(0.23, 1, 0.32, 1),
+                  border-color 200ms cubic-bezier(0.23, 1, 0.32, 1);
+    }
+
+    .journey-name { align-self: center; }
+    .journey-count { align-self: center; }
   }
 
   /* Sections */
@@ -1179,71 +1110,32 @@ const features = [
     }
   }
 
+  /* Plain columns: freestanding Arabic glyph, no icon boxes, no hover card */
   .feature-card {
-    text-align: center;
-    padding: var(--spacing-xl);
-    border-radius: var(--radius-xl);
-    border: 1px solid transparent;
-    transition: all var(--transition-fast);
-  }
-
-  .feature-card:hover {
-    background: var(--glass-bg-elevated);
-    backdrop-filter: blur(var(--glass-blur));
-    -webkit-backdrop-filter: blur(var(--glass-blur));
-    box-shadow: var(--shadow-md);
-    border-color: var(--glass-border-subtle);
+    text-align: start;
+    padding: 0;
   }
 
   .feature-icon {
-    inline-size: 60px;
-    block-size: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-inline: auto;
-    margin-block-end: var(--spacing-lg);
-    background: var(--color-accent-primary-light);
-    border-radius: var(--radius-xl);
-    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
-    box-shadow: 0 4px 12px rgba(184, 134, 11, 0.08);
-  }
-
-  .feature-card:hover .feature-icon {
-    transform: scale(1.1) rotate(3deg);
-    box-shadow: 0 6px 20px rgba(184, 134, 11, 0.15);
+    display: block;
+    margin-block-end: var(--spacing-md);
   }
 
   .feature-icon .arabic {
-    font-size: 1.125rem;
+    font-size: 2rem;
     color: var(--color-accent-primary);
-    line-height: 1.5;
+    line-height: 1.4;
   }
 
-  /* Unique colors for each feature card */
-  .feature-card:nth-child(1) .feature-icon {
-    background: var(--color-accent-primary-light);
-  }
+  /* Unique glyph color per column */
   .feature-card:nth-child(1) .feature-icon .arabic {
     color: var(--color-accent-primary);
-  }
-
-  .feature-card:nth-child(2) .feature-icon {
-    background: var(--color-accent-secondary-light);
   }
   .feature-card:nth-child(2) .feature-icon .arabic {
     color: var(--color-accent-secondary);
   }
-
-  .feature-card:nth-child(3) .feature-icon {
-    background: var(--color-accent-gold-light);
-  }
   .feature-card:nth-child(3) .feature-icon .arabic {
     color: var(--color-accent-gold);
-  }
-
-  .feature-card:nth-child(4) .feature-icon {
-    background: var(--color-accent-purple-light);
   }
   .feature-card:nth-child(4) .feature-icon .arabic {
     color: var(--color-accent-purple);
@@ -1351,12 +1243,7 @@ const features = [
       margin-block-end: var(--spacing-lg);
     }
 
-    .i-feature {
-      padding: var(--spacing-md) var(--spacing-md) var(--spacing-md) var(--spacing-lg);
-      gap: var(--spacing-md);
-    }
-
-    .importance-features {
+    .importance-list li {
       gap: var(--spacing-md);
     }
 
@@ -1401,9 +1288,6 @@ const features = [
       transition: none;
     }
 
-    .scroll-hint-arrow {
-      animation: none;
-    }
   }
 
   /* ============================================
@@ -1486,14 +1370,3 @@ const features = [
   }
 </style>
 
-<script>
-  const scrollContainer = document.querySelector('.levels-scroll-container');
-  const scrollWrapper = document.querySelector('.levels-scroll-wrapper');
-  const scrollHint = document.querySelector('.scroll-hint');
-
-  scrollContainer?.addEventListener('scroll', () => {
-    scrollHint?.classList.add('hidden');
-    const atEnd = scrollContainer.scrollLeft + scrollContainer.clientWidth >= scrollContainer.scrollWidth - 20;
-    scrollWrapper?.classList.toggle('scrolled-end', atEnd);
-  }, { passive: true });
-</script>
