@@ -410,11 +410,13 @@
     block-size: auto;
   }
 
-  /* Prevent wide tables from causing overflow */
-  table {
+  /* Rehype wraps every markdown table (src/lib/rehype-table-scroll.mjs) */
+  .table-scroll {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
+    max-inline-size: 100%;
   }
+  .table-scroll > table { min-inline-size: max-content; }
 
   /* Ensure pre/code blocks don't overflow */
   pre,
