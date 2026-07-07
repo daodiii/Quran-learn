@@ -35,7 +35,8 @@ console.log(`words=${words.length} keys=${index.meta.words} analyses=${index.met
 console.log(`altKeys=${Object.keys(index.altKeys).length} verbs-without-gloss=${glossless.length}`);
 console.log(`noun-glosses=${nounGlosses.size} lemmas → ${nounGlossed.length} analyses glossed, ` +
   `${nounGlossless.length} non-verb analyses still pending`);
-console.log(`surface-glosses=${surfaceGlosses.size}`);
+const surfaceGlossed = all.filter(a => a[4] !== 'V' && a[9] !== null && !a[3]);
+console.log(`surface-glosses=${surfaceGlosses.size} keys → ${surfaceGlossed.length} analyses glossed`);
 console.log(`raw=${(json.length / 1024).toFixed(0)}KB gzip=${(gz / 1024).toFixed(0)}KB`);
 if (gz > GZIP_BUDGET) {
   console.error(`FAIL: gzip ${gz} exceeds ${GZIP_BUDGET} budget (spec: trim refs or shard)`);

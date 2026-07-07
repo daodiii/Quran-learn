@@ -66,6 +66,8 @@ export function buildSurfaceGlossMap(batches: SurfaceGlossBatch[]): Map<string, 
   const map = new Map<string, string>();
   for (const b of batches)
     for (const g of b.glosses)
+      // Key NFC'd too: curator hand-edits may denormalize what the extractor
+      // emitted verbatim; the join side normalizes identically.
       if (g.meaning)
         map.set(`${g.surface.normalize('NFC')}|${g.pos}`, g.meaning.normalize('NFC'));
   return map;

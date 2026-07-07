@@ -154,7 +154,7 @@ test('buildIndex: meta counts', () => {
 test('buildSurfaceGlossMap keys surface|pos, NFC-normalized', () => {
   const map = buildSurfaceGlossMap([
     { batch: 'batch-s01', glosses: [{ surface: 'وَيْكَأَنَّ', pos: 'INT', meaning: 'ah, as if' }] },
-  ] as any);
+  ]);
   assert.equal(map.get('وَيْكَأَنَّ'.normalize('NFC') + '|INT'), 'ah, as if');
 });
 
