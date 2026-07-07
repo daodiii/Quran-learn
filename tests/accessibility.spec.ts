@@ -509,3 +509,14 @@ test('verb forms page passes contrast checks with grid open', async ({ page }) =
     .analyze();
   expect(accessibilityScanResults.violations).toEqual([]);
 });
+
+test('surah page dark mode has no color-contrast violations', async ({ page }) => {
+  await page.goto('/surahs/093-ad-duha/');
+  await page.evaluate(() => {
+    localStorage.setItem('theme', 'dark');
+    document.documentElement.setAttribute('data-theme', 'dark');
+  });
+  const results = await new AxeBuilder({ page }).withTags(['wcag2aa']).analyze();
+  const contrast = results.violations.filter(v => v.id === 'color-contrast');
+  expect(contrast.map(v => v.nodes.map(n => n.html).slice(0, 3))).toEqual([]);
+});
