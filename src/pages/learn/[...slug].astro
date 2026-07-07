@@ -45,13 +45,16 @@ export async function getStaticPaths() {
         // Use computed prev/next, fallback to frontmatter
         computedPrevLesson: prevLesson || lesson.data.prevLesson,
         computedNextLesson: nextLesson || lesson.data.nextLesson,
+        positionInLevel: levelLessons
+          ? { index: levelLessons.indexOf(lesson) + 1, total: levelLessons.length }
+          : undefined,
       },
     };
   });
 }
 
-const { lesson, computedPrevLesson, computedNextLesson } = Astro.props;
-const { Content } = await render(lesson);
+const { lesson, computedPrevLesson, computedNextLesson, positionInLevel } = Astro.props;
+const { Content, headings } = await render(lesson);
 
 import { getEntryDates } from '../../lib/getEntryDates';
 const { datePublished, dateModified } = getEntryDates(
@@ -69,6 +72,8 @@ const { datePublished, dateModified } = getEntryDates(
   prevLesson={computedPrevLesson}
   datePublished={datePublished}
   dateModified={dateModified}
+  headings={headings}
+  positionInLevel={positionInLevel}
 >
   <Content components={{ img: ResponsiveImage }} />
 </LessonLayout>
