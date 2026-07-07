@@ -1,10 +1,10 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Container from '../../components/primitives/Container.astro';
-import CourseCard from '../../components/cards/CourseCard.astro';
-import LessonCard from '../../components/cards/LessonCard.astro';
-import CardGrid from '../../components/cards/CardGrid.astro';
+import LessonRow from '../../components/LessonRow.astro';
+import ResumeBand from '../../components/ResumeBand.astro';
 import { getCollection } from 'astro:content';
+import { CURRICULUM_MAP, clusterForLesson } from '../../data/curriculum-map';
 
 const allLessons = await getCollection('lessons');
 
@@ -17,6 +17,18 @@ const levelNames: Record<number, { title: string; titleAr: string; desc: string 
 };
 
 const levels: (1 | 2 | 3 | 4 | 5)[] = [1, 2, 3, 4, 5];
+
+// Group + sort once; every lesson must belong to a cluster (throws on drift).
+const byLevel = new Map<number, typeof allLessons>();
+for (const l of allLessons) {
+  byLevel.set(l.data.level, [...(byLevel.get(l.data.level) ?? []), l]);
+}
+for (const list of byLevel.values()) list.sort((a, b) => a.data.order - b.data.order);
+for (const l of allLessons) clusterForLesson(l.data.level, l.data.order);
+
+const manifest = [...byLevel.entries()].sort((a, b) => a[0] - b[0])
+  .flatMap(([, list]) => list.map(l => ({ id: l.id, title: l.data.title, level: l.data.level, order: l.data.order })));
+const totals = Object.fromEntries([...byLevel.entries()].map(([lv, list]) => [lv, list.length]));
 
 const courseSchema = {
   "@context": "https://schema.org",
@@ -52,117 +64,59 @@ const courseSchema = {
       <p class="page-subtitle">80 lessons across 5 levels, from the Arabic alphabet to full Quranic analysis.</p>
     </header>
 
-    <!-- Level Overview Cards -->
-    <CardGrid minCardWidth={280} gap="md">
-      {levels.map(level => {
-        const info = levelNames[level];
-        const lessons = allLessons
-          .filter(l => l.data.level === level)
-          .sort((a, b) => a.data.order - b.data.order);
+    <ResumeBand manifest={manifest} totals={totals} />
 
-        return (
-          <CourseCard
-            title={info.title}
-            level={level}
-            lessonsCompleted={0}
-            totalLessons={lessons.length}
-            href={`#level-${level}`}
-            data-level={level}
-          >
-            <p class="level-arabic" dir="rtl" lang="ar">{info.titleAr}</p>
-            <p>{info.desc}</p>
-          </CourseCard>
-        );
-      })}
-    </CardGrid>
+    <div class="map-layout">
+      <nav class="level-rail" data-level-rail aria-label="Levels">
+        {levels.map(level => (
+          <a href={`#level-${level}`} class="rail-item" data-rail-level={level}>
+            <span class="rail-name">Level {level} · {levelNames[level].title}</span>
+            <span class="rail-count" data-rail-count>0 of {totals[level]}</span>
+            <span class="rail-bar" role="progressbar" aria-label={`Level ${level} progress`}
+                  aria-valuemin="0" aria-valuemax={totals[level]} aria-valuenow="0">
+              <span class="progress-fill"></span>
+            </span>
+          </a>
+        ))}
+      </nav>
 
-    <!-- Level Sections with Lesson Lists -->
-    {levels.map(level => {
-      const info = levelNames[level];
-      const lessons = allLessons
-        .filter(l => l.data.level === level)
-        .sort((a, b) => a.data.order - b.data.order);
-
-      return (
-        <section id={`level-${level}`} class="level-section" data-level={level}>
-          <div class="level-header">
-            <h2 class="level-title">
-              <span class="level-number">Level {level}</span>
-              {info.title}
-            </h2>
-            <span class="level-arabic" dir="rtl" lang="ar">{info.titleAr}</span>
-          </div>
-
-          {level === 1 && lessons.length > 0 ? (
-            <>
-              {/* Essential lessons (1-3) with green accent */}
-              <div class="lessons-grid">
-                {lessons.slice(0, 3).map(lesson => (
-                  <LessonCard
-                    title={lesson.data.title}
-                    level={level}
-                    completed={false}
-                    href={`/learn/${lesson.id}/`}
-                    data-lesson-id={lesson.id}
-                    class="lesson-essential"
-                  >
-                    {lesson.data.description}
-                  </LessonCard>
-                ))}
-              </div>
-
-              {/* Mandatory banner */}
-              <div class="mandatory-banner">
-                <svg class="mandatory-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                  <path d="m9 12 2 2 4-4"/>
-                </svg>
-                <p class="mandatory-text">Mandatory to know if you want to benefit from this course. Skip these if you already know how to read Arabic.</p>
-              </div>
-
-              {/* Remaining lessons (4-11) */}
-              <div class="lessons-grid">
-                {lessons.slice(3).map(lesson => (
-                  <LessonCard
-                    title={lesson.data.title}
-                    level={level}
-                    completed={false}
-                    href={`/learn/${lesson.id}/`}
-                    data-lesson-id={lesson.id}
-                  >
-                    {lesson.data.description}
-                  </LessonCard>
-                ))}
-              </div>
-            </>
-          ) : lessons.length > 0 ? (
-            <div class="lessons-grid">
-              {lessons.map(lesson => (
-                <LessonCard
-                  title={lesson.data.title}
-                  level={level}
-                  completed={false}
-                  href={`/learn/${lesson.id}/`}
-                  data-lesson-id={lesson.id}
-                >
-                  {lesson.data.description}
-                </LessonCard>
-              ))}
+      <div class="map-main">
+        {CURRICULUM_MAP.map(({ level, clusters }) => (
+          <section id={`level-${level}`} class="level-section" data-level={level}>
+            <div class="level-header">
+              <h2 class="level-title">
+                <span class="level-number">Level {level}</span>
+                {levelNames[level].title}
+              </h2>
+              <span class="level-arabic" dir="rtl" lang="ar">{levelNames[level].titleAr}</span>
             </div>
-          ) : (
-            <p class="no-lessons">Lessons coming soon.</p>
-          )}
-        </section>
-      );
-    })}
+            <p class="level-desc">{levelNames[level].desc}</p>
+
+            {clusters.map(cluster => (
+              <div class="cluster">
+                {!cluster.checkpoint && <h3 class="cluster-title">{cluster.title}</h3>}
+                {cluster.note && <p class="cluster-note">{cluster.note}</p>}
+                <div class="cluster-rows">
+                  {cluster.lessons.map(order => {
+                    const lesson = byLevel.get(level)!.find(l => l.data.order === order)!;
+                    return <LessonRow id={lesson.id} title={lesson.data.title}
+                      description={lesson.data.description} level={level} order={order}
+                      checkpoint={cluster.checkpoint} essential={cluster.essential} />;
+                  })}
+                </div>
+              </div>
+            ))}
+          </section>
+        ))}
+      </div>
+    </div>
   </Container>
 </BaseLayout>
 
 <style>
   .page-header {
     padding-block-start: var(--spacing-2xl);
-    padding-block-end: var(--spacing-xl);
-    text-align: center;
+    padding-block-end: var(--spacing-md);
   }
 
   .page-title {
@@ -179,31 +133,111 @@ const courseSchema = {
     font-size: clamp(1rem, 2vw, 1.125rem);
     color: var(--color-text-secondary);
     max-inline-size: 48rem;
-    margin-inline: auto;
   }
 
-  /* Level Arabic in CourseCard */
-  .level-arabic {
-    font-family: 'Amiri', serif;
-    font-size: 1.125rem;
+  /* Map layout: sticky rail beside clustered rows on desktop */
+  .map-layout { display: block; }
+
+  @media (min-width: 1024px) {
+    .map-layout {
+      display: grid;
+      grid-template-columns: 15rem 1fr;
+      gap: var(--spacing-2xl);
+      align-items: start;
+    }
+    .level-rail {
+      position: sticky;
+      top: 6rem;
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-xs);
+      overflow-x: visible;
+      border-block-end: none;
+      padding-block: 0;
+    }
+  }
+
+  /* Mobile: horizontal chip strip pinned under the sticky header */
+  .level-rail {
+    display: flex;
+    gap: var(--spacing-sm);
+    overflow-x: auto;
+    padding-block: var(--spacing-sm);
+    -webkit-overflow-scrolling: touch;
+  }
+
+  @media (max-width: 1023px) {
+    .level-rail {
+      position: sticky;
+      top: 4.25rem;
+      background: var(--bg-primary);
+      z-index: 10;
+      border-block-end: 1px solid var(--border-primary);
+    }
+    .rail-item { min-inline-size: 10rem; flex-shrink: 0; }
+  }
+
+  .rail-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding: 0.625rem 0.75rem;
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    transition: background 200ms cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .rail-item:hover { background: var(--bg-secondary); }
+  }
+  .rail-item.active { background: var(--bg-secondary); }
+
+  .rail-name { font-size: 0.9375rem; font-weight: 600; color: var(--color-text-primary); }
+  .rail-count {
+    font-size: 0.8125rem;
     color: var(--color-text-secondary);
-    margin-block-end: var(--spacing-xs);
-    line-height: 1.6;
+    font-variant-numeric: tabular-nums;
+  }
+  .rail-bar {
+    display: block;
+    block-size: 3px;
+    border-radius: var(--radius-full);
+    background: var(--border-primary);
+    overflow: hidden;
+  }
+  .rail-bar .progress-fill {
+    display: block;
+    block-size: 100%;
+    inline-size: 0;
+    background: var(--accent-gold);
+    transition: inline-size 300ms cubic-bezier(0.23, 1, 0.32, 1);
   }
 
-  /* Level Section */
+  /* Level sections */
   .level-section {
-    margin-block-start: var(--spacing-3xl);
-    scroll-margin-block-start: 5rem;
+    margin-block-start: var(--spacing-2xl);
+    scroll-margin-block-start: 9rem;
   }
+  @media (min-width: 1024px) {
+    .level-section { scroll-margin-block-start: 6rem; }
+  }
+  .level-section:first-of-type { margin-block-start: var(--spacing-lg); }
 
   .level-header {
     display: flex;
     flex-direction: column;
     gap: var(--spacing-xs);
-    margin-block-end: var(--spacing-lg);
-    padding-block-end: var(--spacing-md);
-    border-block-end: 3px solid var(--accent-gold);
+    padding-block-end: var(--spacing-sm);
+    border-block-end: 1px solid var(--border-primary);
+    position: relative;
+  }
+  .level-header::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    inline-size: 2.5rem;
+    block-size: 2px;
+    background: var(--accent-gold);
   }
 
   .level-title {
@@ -216,14 +250,13 @@ const courseSchema = {
     gap: var(--spacing-sm);
     flex-wrap: wrap;
     letter-spacing: -0.02em;
+    margin: 0;
   }
 
   .level-number {
     font-family: var(--font-display);
-    font-size: 0.875rem;
+    font-size: 1rem;
     font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
     color: var(--accent-gold);
   }
 
@@ -233,139 +266,56 @@ const courseSchema = {
     color: var(--accent-gold);
   }
 
-  /* Lessons Grid */
-  .lessons-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
-    gap: var(--spacing-md);
+  .level-desc {
+    color: var(--color-text-secondary);
+    max-inline-size: 60ch;
+    margin-block: var(--spacing-sm) 0;
   }
 
-  @media (min-width: 768px) {
-    .lessons-grid {
-      grid-template-columns: repeat(auto-fill, minmax(min(100%, 360px), 1fr));
-    }
-  }
-
-  /* Essential lesson cards - green accent */
-  .lessons-grid :global(.lesson-essential .card) {
-    border-left: 4px solid var(--accent-primary);
-    background: var(--accent-primary-light);
-  }
-
-  :global([data-theme="dark"]) .lessons-grid :global(.lesson-essential .card) {
-    border-left-color: var(--accent-primary);
-    background: var(--accent-primary-light);
-  }
-
-  .lessons-grid :global(.lesson-essential .card:hover) {
-    border-left-color: var(--accent-primary);
-  }
-
-  /* Mandatory banner */
-  .mandatory-banner {
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-md);
-    padding: var(--spacing-md) var(--spacing-lg);
-    margin-block: var(--spacing-xl);
-    background: var(--accent-primary-light);
-    border: 1px solid var(--accent-primary);
-    border-radius: var(--radius-lg);
-  }
-
-  .mandatory-icon {
-    color: var(--accent-primary);
-    flex-shrink: 0;
-  }
-
-  .mandatory-text {
-    margin: 0;
+  /* Clusters */
+  .cluster { margin-block-start: var(--spacing-lg); }
+  .cluster-title {
     font-size: 0.9375rem;
     font-weight: 600;
-    color: var(--accent-primary);
+    color: var(--color-text-secondary);
+    margin: 0 0 var(--spacing-xs);
   }
-
-  :global([data-theme="dark"]) .mandatory-banner {
-    background: var(--accent-primary-light);
-    border-color: var(--accent-primary);
-  }
-
-  .no-lessons {
+  .cluster-note {
     font-size: 0.875rem;
     color: var(--color-text-tertiary);
-    font-style: italic;
-    padding: var(--spacing-lg);
-    text-align: center;
+    margin: 0 0 var(--spacing-xs);
   }
-
-  /* Completed lesson styling */
-  .lessons-grid :global([data-lesson-id].completed) {
-    opacity: 0.8;
-  }
+  .cluster-rows { display: flex; flex-direction: column; }
 </style>
 
 <script>
   import { getCompletedLessons } from '../../lib/progress';
 
-  // Populate lesson completion states from localStorage
-  // Run immediately — module scripts are deferred and execute after DOM is parsed
-  const completedLessons = getCompletedLessons();
-
-  // Update LessonCard completion states
-  const lessonCards = document.querySelectorAll('[data-lesson-id]');
-  lessonCards.forEach(card => {
-    const lessonId = card.getAttribute('data-lesson-id');
-    if (completedLessons.includes(lessonId!)) {
-      card.classList.add('completed');
-
-      // Replace checkmark SVG with completed version
-      const checkmarkCircle = card.querySelector('.checkmark-circle');
-      if (checkmarkCircle) {
-        checkmarkCircle.classList.remove('incomplete');
-        checkmarkCircle.classList.add('completed');
-        const svg = checkmarkCircle.querySelector('svg');
-        if (svg) {
-          svg.innerHTML = `
-            <circle cx="12" cy="12" r="11" fill="var(--color-accent-primary)"/>
-            <path d="M7 12l3 3 7-7" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-          `;
-        }
-      }
-    }
+  const completed = new Set(getCompletedLessons());
+  document.querySelectorAll<HTMLElement>('[data-lesson-row]').forEach(row => {
+    if (completed.has(row.dataset.lessonId!)) row.classList.add('completed');
   });
 
-  // Calculate level progress and update overview cards
-  const levelOverviews = document.querySelectorAll('[data-level]');
-  levelOverviews.forEach(card => {
-    const levelAttr = card.getAttribute('data-level');
-    if (!levelAttr) return;
+  document.querySelectorAll<HTMLElement>('[data-rail-level]').forEach(item => {
+    const level = item.dataset.railLevel!;
+    const rows = document.querySelectorAll(`[data-lesson-id^="level-${level}/"]`);
+    const done = [...rows].filter(r => r.classList.contains('completed')).length;
+    const bar = item.querySelector('[role="progressbar"]')!;
+    bar.setAttribute('aria-valuenow', String(done));
+    (bar.querySelector('.progress-fill') as HTMLElement).style.inlineSize =
+      `${rows.length ? (done / rows.length) * 100 : 0}%`;
+    item.querySelector('[data-rail-count]')!.textContent = `${done} of ${rows.length}`;
+  });
 
-    const level = parseInt(levelAttr, 10);
-
-    // Find all lessons for this level
-    const levelLessonCards = Array.from(document.querySelectorAll('[data-lesson-id]')).filter(lessonCard => {
-      const lessonId = lessonCard.getAttribute('data-lesson-id');
-      return lessonId && lessonId.startsWith(`level-${level}/`);
+  // Scrollspy: highlight the rail item for the level currently in view.
+  const sections = document.querySelectorAll<HTMLElement>('section.level-section');
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      const item = document.querySelector(`[data-rail-level="${(e.target as HTMLElement).dataset.level}"]`);
+      document.querySelectorAll('.rail-item.active').forEach(a => a.classList.remove('active'));
+      item?.classList.add('active');
     });
-
-    const completed = levelLessonCards.filter(l => l.classList.contains('completed')).length;
-    const total = levelLessonCards.length;
-
-    // Update progress bar if present in the overview card
-    const progressBar = card.querySelector('[role="progressbar"]');
-    if (progressBar && total > 0) {
-      progressBar.setAttribute('aria-valuenow', String(completed));
-
-      const fill = progressBar.querySelector('.progress-fill');
-      if (fill) {
-        (fill as HTMLElement).style.inlineSize = `${(completed / total) * 100}%`;
-      }
-    }
-
-    // Update lessons completed text if present
-    const progressText = card.querySelector('.course-card-progress-text');
-    if (progressText) {
-      progressText.textContent = `${completed} of ${total} lessons`;
-    }
-  });
+  }, { rootMargin: '-20% 0px -70% 0px' });
+  sections.forEach(s => io.observe(s));
 </script>
