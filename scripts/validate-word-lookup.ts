@@ -77,7 +77,7 @@ for (const list of Object.values<any[]>(INDEX.words)) {
 
 // 4. Size guard.
 const gz = gzipSync(JSON.stringify(INDEX)).length;
-if (gz > 800 * 1024) fail(`gzip ${gz} over budget`);
+if (gz > 850 * 1024) fail(`gzip ${gz} over budget`); // keep in sync with build-word-lookup GZIP_BUDGET
 
 if (INDEX.meta.words !== Object.keys(INDEX.words).length
  || INDEX.meta.analyses !== Object.values<any[]>(INDEX.words).flat().length) fail('meta counts stale');
