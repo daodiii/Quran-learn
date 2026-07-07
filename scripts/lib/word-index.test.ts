@@ -2,7 +2,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { parseCorpusRows, groupWords } from './group-words.ts';
-import { buildGlossMap, buildIndex, buildNounGlossMap } from './word-index.ts';
+import { buildGlossMap, buildIndex, buildNounGlossMap, buildSurfaceGlossMap } from './word-index.ts';
 
 // Minimal but REAL slice of verb-forms.json shape (values from the shipped dataset).
 const VERB_FORMS = {
@@ -149,4 +149,47 @@ test('buildIndex: meta counts', () => {
   assert.equal(idx.meta.analyses,
     Object.values(idx.words).reduce((n, l) => n + l.length, 0));
   assert.match(idx.meta.source, /Quranic Arabic Corpus/);
+});
+
+test('buildSurfaceGlossMap keys surface|pos, NFC-normalized', () => {
+  const map = buildSurfaceGlossMap([
+    { batch: 'batch-s01', glosses: [{ surface: 'وَيْكَأَنَّ', pos: 'INT', meaning: 'ah, as if' }] },
+  ] as any);
+  assert.equal(map.get('وَيْكَأَنَّ'.normalize('NFC') + '|INT'), 'ah, as if');
+});
+
+// Real corpus row for هُوَ (huwa, 3MS pronoun, standalone stem, no LEM: field):
+// (2:29:1:1)	huwa	PRON	STEM|POS:PRON|3MS
+const HUWA_ROW = '(2:29:1:1)\thuwa\tPRON\tSTEM|POS:PRON|3MS';
+
+test('buildIndex: surface gloss fills lemmaless non-INL analyses only', () => {
+  // Rows include the existing INL fixture (Al^m^) and the real huwa PRON row.
+  const rows = parseCorpusRows(
+    '(2:1:1:1)\tAl^m^\tINL\tSTEM|POS:INL\n' +
+    HUWA_ROW + '\n' +
+    '(1:1:1:1)\tbi\tP\tPREFIX|bi+\n' +
+    '(1:1:1:2)\tsomi\tN\tSTEM|POS:N|LEM:{som|ROOT:smw|M|GEN',
+  );
+  const inlSurface = 'الٓمٓ';   // bwToArabicSurface('Al^m^')
+  const pronSurface = 'هُوَ';   // bwToArabicSurface('huwa')
+  const surfaceGlosses = new Map([
+    [`${inlSurface.normalize('NFC')}|INL`, 'mysterious letters'],
+    [`${pronSurface.normalize('NFC')}|PRON`, 'he'],
+  ]);
+  const idx = buildIndex(groupWords(rows), { roots: [] }, new Map(), surfaceGlosses);
+
+  // INL must stay unglossed even when its surface|pos is in the map
+  const [inl] = idx.words['الم'];
+  assert.equal(inl[9], null);
+
+  // PRON (lemmaless) picks up the surface gloss
+  const allAnalyses = Object.values(idx.words).flat();
+  const pron = allAnalyses.find(a => a[4] === 'PRON' && a[0] === pronSurface);
+  assert.ok(pron, 'huwa PRON analysis must exist in index');
+  assert.equal(pron![9], 'he');
+
+  // Lemma-carrying analysis (the noun بسم) must NOT pick up a surface gloss
+  const noun = allAnalyses.find(a => a[4] === 'N');
+  assert.ok(noun, 'noun analysis must exist');
+  assert.equal(noun![9], null);
 });

@@ -56,6 +56,21 @@ export function buildNounGlossMap(batches: NounGlossBatch[]): Map<string, string
   return map;
 }
 
+// Lemmaless particles are curated per vocalized surface (batch-sNN files):
+// keyed surface|pos. INL (muqatta'at) is never glossed — spec: out of scope.
+export interface SurfaceGlossBatch {
+  batch: string;
+  glosses: { surface: string; pos: string; meaning: string }[];
+}
+export function buildSurfaceGlossMap(batches: SurfaceGlossBatch[]): Map<string, string> {
+  const map = new Map<string, string>();
+  for (const b of batches)
+    for (const g of b.glosses)
+      if (g.meaning)
+        map.set(`${g.surface.normalize('NFC')}|${g.pos}`, g.meaning.normalize('NFC'));
+  return map;
+}
+
 interface Acc {
   surfaceAr: string; translit: string; root: string | null; lemma: string;
   pos: string; form: number; feat: string; prefixes: string[]; suffixes: string[];
@@ -65,6 +80,7 @@ interface Acc {
 export function buildIndex(
   words: WordOccurrence[], verbForms: VerbFormsData,
   nounGlosses: Map<string, string> = new Map(),
+  surfaceGlosses: Map<string, string> = new Map(),
 ): LookupIndex {
   const glosses = buildGlossMap(verbForms);
   const acc = new Map<string, Acc>();
@@ -75,6 +91,9 @@ export function buildIndex(
     const suffixes = w.suffixes.map(s => `${bwToArabicSurface(s.formBw)}|${s.feature}`);
     for (const stem of w.stems) {
       const a = analysisFieldsForStem(stem, glosses, nounGlosses);
+      if (a.gloss === null && !a.lemma && a.pos !== 'INL') {
+        a.gloss = surfaceGlosses.get(`${surfaceAr.normalize('NFC')}|${a.pos}`) ?? null;
+      }
       // \u0001 separator: bare concatenation could alias adjacent fields.
       const id = [surfaceAr, a.lemma, a.root ?? '', a.pos, a.form, a.feat,
                   prefixes.join(','), suffixes.join(',')].join('\u0001');
