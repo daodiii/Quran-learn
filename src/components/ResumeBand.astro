@@ -1,0 +1,64 @@
+---
+// Continue-where-you-left-off band. Server renders it hidden with a JSON
+// manifest of the full curriculum order; the client reveals and fills it
+// only when localStorage progress exists, so new users never see it.
+interface ManifestEntry { id: string; title: string; level: number; order: number }
+interface Props { manifest: ManifestEntry[]; totals: Record<number, number> }
+const { manifest, totals } = Astro.props;
+---
+<div class="resume-band" hidden data-resume-band>
+  <div class="resume-copy">
+    <p class="resume-label">Continue where you left off</p>
+    <p class="resume-title" data-resume-title></p>
+  </div>
+  <a class="resume-cta" data-resume-link href="/learn/" aria-label="Resume lesson">Resume &rarr;</a>
+</div>
+<script type="application/json" data-resume-manifest set:html={JSON.stringify({ manifest, totals })} />
+<script>
+  import { getCompletedLessons } from '../lib/progress';
+
+  const el = document.querySelector('[data-resume-band]') as HTMLElement | null;
+  const dataEl = document.querySelector('[data-resume-manifest]');
+  if (el && dataEl) {
+    const { manifest, totals } = JSON.parse(dataEl.textContent || '{}');
+    const done = new Set(getCompletedLessons());
+    if (done.size > 0) {
+      const next = manifest.find((m: { id: string }) => !done.has(m.id));
+      const title = el.querySelector('[data-resume-title]')!;
+      const link = el.querySelector('[data-resume-link]') as HTMLAnchorElement;
+      if (!next) {
+        title.textContent = 'All lessons complete. Revisit any time.';
+      } else {
+        title.textContent = `Level ${next.level} · Lesson ${next.order} of ${totals[next.level]}: ${next.title}`;
+        link.href = `/learn/${next.id}/`;
+      }
+      el.hidden = false;
+    }
+  }
+</script>
+<style>
+  .resume-band {
+    display: flex; align-items: center; justify-content: space-between; gap: var(--space-md);
+    padding: var(--space-md) var(--space-lg);
+    border: 1px solid var(--accent-gold); border-radius: var(--radius-lg);
+    background: var(--accent-gold-light);
+    margin-block: var(--space-lg);
+  }
+  .resume-label { margin: 0; font-size: 0.8125rem; color: var(--text-secondary); }
+  .resume-title { margin: 0; font-weight: 600; font-size: 1rem; color: var(--text-primary); }
+  .resume-cta {
+    flex-shrink: 0; font-weight: 700; color: var(--accent-gold);
+    padding: 0.5rem 1rem; border-radius: var(--radius-full);
+    border: 1px solid var(--accent-gold); text-decoration: none;
+    transition: background 200ms cubic-bezier(0.23, 1, 0.32, 1),
+                color 200ms cubic-bezier(0.23, 1, 0.32, 1),
+                transform 160ms cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .resume-cta:hover { background: var(--accent-gold); color: var(--text-inverse); }
+  }
+  .resume-cta:active { transform: scale(0.97); }
+  @media (max-width: 640px) {
+    .resume-band { flex-direction: column; align-items: flex-start; }
+  }
+</style>
