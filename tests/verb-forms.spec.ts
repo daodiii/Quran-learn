@@ -88,4 +88,51 @@ test.describe('Verb Form Generator', () => {
     await expect(page.locator('#vf-suggestions')).toBeHidden();
     await expect(search).toHaveAttribute('aria-expanded', 'false');
   });
+
+  test('english meaning search echoes the matched meaning', async ({ page }) => {
+    await page.goto('/resources/verb-forms/');
+    await page.fill('#vf-search', 'sent down');   // stemmed + multi-word
+    const row = page.locator('.vf-sug').first();
+    await expect(row.locator('.vf-sug-meaning mark')).toContainText('send down');
+    await row.click();
+    await expect(page.locator('#vf-result .vf-row-attested').first()).toBeVisible();
+  });
+  test('query example chip fills the box and opens suggestions', async ({ page }) => {
+    await page.goto('/resources/verb-forms/');
+    await page.locator('.vf-qchip', { hasText: 'guide' }).click();
+    await expect(page.locator('.vf-sug .vf-sug-meaning').first()).toBeVisible();
+    await expect(page.locator('#vf-search')).toHaveValue('guide');
+  });
+
+  test('query chip opens suggestions when data is already cached', async ({ page }) => {
+    await page.goto('/resources/verb-forms/');
+    await page.fill('#vf-search', 'نزل');           // warms the cache
+    await page.press('#vf-search', 'Escape');
+    await page.locator('.vf-qchip', { hasText: 'nzl' }).click();
+    await expect(page.locator('#vf-suggestions')).toBeVisible();
+    await expect(page.locator('.vf-sug').first()).toBeVisible();
+  });
+
+  test('attested row exposes english block and arabic spine with wazn echo', async ({ page }) => {
+    await page.goto('/resources/verb-forms/#root=' + encodeURIComponent('نزل'));
+    const row = page.locator('#vf-result .vf-row-attested').first();
+    await expect(row.locator('.vf-entry-en .vf-meaning')).toBeVisible();
+    await expect(row.locator('.vf-entry-ar .vf-verb')).toBeVisible();
+    await expect(row.locator('.vf-wazn').first()).toBeVisible();
+    await expect(page.locator('#vf-result .vf-row')).toHaveCount(10);
+  });
+
+  test('multi-entry form renders dashed separator and single wazn echo', async ({ page }) => {
+    await page.route('**/data/verb-forms.json', async (route) => {
+      const res = await route.fetch();
+      const json = await res.json();
+      const nzl = json.roots.find((r: any) => r.root === 'نزل');
+      nzl.forms['1'] = [...nzl.forms['1'], { ...nzl.forms['1'][0], count: 1 }];
+      await route.fulfill({ response: res, json });
+    });
+    await page.goto('/resources/verb-forms/#root=' + encodeURIComponent('نزل'));
+    const firstRow = page.locator('#vf-result .vf-row-attested').first();
+    await expect(firstRow.locator('.vf-entry')).toHaveCount(2);
+    await expect(firstRow.locator('.vf-wazn')).toHaveCount(1); // echo on first entry only
+  });
 });

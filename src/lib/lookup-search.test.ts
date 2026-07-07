@@ -75,3 +75,47 @@ test('latin: sound results are the true top-N by frequency, not first-encountere
   assert.equal((r as any).sound[0].key, 'تعملون'); // total 999 wins despite being inserted last
   assert.equal((r as any).sound.length, 20);       // cap applied after sorting
 });
+test('latin: meaning result carries matched gloss, ranges, tier', () => {
+  const r = search(P, 'believed');
+  assert.equal(r.kind, 'latin');
+  const m = (r as any).meaning[0];
+  assert.equal(m.key, 'يؤمنون');
+  assert.equal(m.gloss, 'to believe');
+  assert.equal(m.tier, 1);
+  assert.deepEqual(m.ranges, [[3, 10]]);
+});
+test('latin: tier ranks above frequency', () => {
+  // 'know' whole-word-matches 'to know' (tier 1, total 85). The decoy gloss
+  // must be TRUE tier 3: 'unknown' — stem stays 'unknown' (no irregular, no
+  // suffix strip), doesn't start with 'know', so only the mid-token substring
+  // hits. (NOT 'well-known': 'known' is an IRREGULAR entry stemming to 'know',
+  // which would be tier 1 — caught during execution.)
+  const p3 = prepareIndex({
+    meta: { source: 't', words: 2, analyses: 2, version: 1 },
+    words: {
+      'يعلمون': [['يَعْلَمُونَ', 'yaʿlamūna', 'علم', 'عَلِمَ', 'V', 1, 'IMPF|3MP',
+                  [], [], 'to know', 85, ['2:13']]],
+      'مجهول': [['مَجْهُول', 'majhūl', 'جهل', 'مَجْهُول', 'N', 0, 'M',
+                  [], [], 'unknown, obscure', 999, ['2:178']]],
+    }, altKeys: {},
+  } as any);
+  const r = search(p3, 'know') as any;
+  assert.equal(r.meaning[0].key, 'يعلمون');   // tier 1 beats total 999
+  assert.equal(r.meaning[0].tier, 1);
+  assert.equal(r.meaning[1].key, 'مجهول');    // tier 3 mid-token substring
+  assert.equal(r.meaning[1].tier, 3);
+});
+test('latin: two-char whole-word query matches (go)', () => {
+  const p4 = prepareIndex({
+    meta: { source: 't', words: 1, analyses: 1, version: 1 },
+    words: { 'ذهب': [['ذَهَبَ', 'dhahaba', 'ذهب', 'ذَهَبَ', 'V', 1, 'PERF',
+                     [], [], 'to go, take away', 35, ['2:17']]] }, altKeys: {},
+  } as any);
+  assert.equal((search(p4, 'go') as any).meaning[0].key, 'ذهب');
+});
+test('suggestion refs expose translit + pos for row rendering', () => {
+  const s = search(P, 'يؤم').suggestions[0];
+  assert.equal((s as any).translit, 'yuʾminūna');
+  assert.equal((s as any).pos, 'V');
+  assert.equal((s as any).form, 4);
+});

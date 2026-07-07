@@ -6,14 +6,14 @@ import Container from '../../../components/primitives/Container.astro';
 // Build-time read for intro copy (SEO); the client fetches the same JSON on demand.
 const meta = JSON.parse(readFileSync('public/data/word-lookup.json', 'utf8')).meta;
 
-// Real Quranic surfaces (verified against the corpus) — never invent examples.
+// Real Quranic surfaces + real gloss vocabulary — never invent examples.
 const EXAMPLES = [
+  { q: 'mercy', note: 'search by meaning', latin: true },
+  { q: 'believe', note: 'search by meaning', latin: true },
+  { q: 'rahma', note: 'search by sound', latin: true },
   { q: 'يُؤْمِنُونَ', note: 'a conjugated verb' },
   { q: 'ٱلصَّلَوٰةَ', note: 'pasted from a mushaf' },
-  { q: 'أَنزَلْنَٰهُ', note: 'verb + two pronouns' },
-  { q: 'مَٰلِكِ', note: 'try bare ملك too' },
   { q: 'بِسْمِ', note: 'prefix + noun' },
-  { q: 'الٓمٓ', note: 'the mysterious letters' },
 ];
 ---
 
@@ -43,10 +43,11 @@ const EXAMPLES = [
         aria-label="Matching words" hidden></div>
     </div>
 
-    <div class="wl-chips" aria-label="Example words">
+    <div class="wl-chips" role="group" aria-labelledby="wl-chips-label">
+      <span class="wl-chips-label" id="wl-chips-label">Works with</span>
       {EXAMPLES.map(e => (
-        <button class="wl-chip" data-q={e.q}>
-          <span lang="ar" dir="rtl">{e.q}</span>
+        <button class:list={['wl-chip', { 'wl-chip-latin': e.latin }]} data-q={e.q}>
+          {e.latin ? <span>{e.q}</span> : <span lang="ar" dir="rtl">{e.q}</span>}
           <span class="wl-chip-note">{e.note}</span>
         </button>
       ))}
@@ -69,7 +70,7 @@ const EXAMPLES = [
 
 <script>
   import { prepareIndex, search } from '../../../lib/lookup-search.ts';
-  import type { Prepared } from '../../../lib/lookup-search.ts';
+  import type { Prepared, KeyRef, MeaningRef } from '../../../lib/lookup-search.ts';
   import { grammarLine, affixLabel, posLabel } from '../../../lib/grammar-labels.ts';
 
   // DOM is built with real nodes only — the repo blocks innerHTML.
@@ -82,6 +83,20 @@ const EXAMPLES = [
     }
     return node;
   }
+  // Wraps matched ranges in <mark>; real nodes only (repo blocks innerHTML).
+  function marked(text: string, ranges: [number, number][] | null): HTMLElement {
+    const span = h('span', {});
+    if (!ranges?.length) { span.append(text); return span; }
+    let pos = 0;
+    for (const [s, e] of ranges) {
+      if (s > pos) span.append(text.slice(pos, s));
+      span.append(h('mark', {}, text.slice(s, e)));
+      pos = e;
+    }
+    if (pos < text.length) span.append(text.slice(pos));
+    return span;
+  }
+
   const scrollBehavior = (): ScrollBehavior =>
     matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
 
@@ -91,6 +106,15 @@ const EXAMPLES = [
   function setSugHidden(hidden: boolean) {
     sugEl.hidden = hidden;
     searchEl?.setAttribute('aria-expanded', String(!hidden));
+  }
+  // Fills the popup and keeps its ARIA role valid: role="listbox" only holds
+  // option children, so when the sole child is the non-option "nothing matches"
+  // note we drop the role rather than nest an invalid child under it.
+  function fillSug(rows: HTMLElement[]) {
+    const onlyNote = rows.length === 1 && rows[0].classList.contains('wl-sug-none');
+    if (onlyNote) sugEl.removeAttribute('role');
+    else sugEl.setAttribute('role', 'listbox');
+    sugEl.replaceChildren(...rows);
   }
 
   let PREP: Prepared | null = null;
@@ -111,17 +135,22 @@ const EXAMPLES = [
   }
   searchEl?.addEventListener('focus', () => { loadData().catch(() => {}); }, { once: true });
 
-  function sugRow(ref: { key: string; surface: string; total: number; hint: string | null }) {
+  type SugRef = KeyRef & Partial<Pick<MeaningRef, 'gloss' | 'ranges'>>;
+  function sugRow(ref: SugRef) {
+    const glossText = ref.gloss ?? ref.hint;
     return h('button', { class: 'wl-sug', role: 'option', 'data-key': ref.key },
-      h('span', { lang: 'ar', dir: 'rtl' }, ref.surface),
-      ref.hint ? h('span', { class: 'wl-sug-hint' }, ref.hint) : null,
-      h('span', { class: 'wl-sug-count' }, `${ref.total}×`));
+      h('span', { class: 'wl-sug-en' },
+        glossText
+          ? h('span', { class: 'wl-sug-gloss' }, marked(glossText, ref.ranges ?? null))
+          : h('span', { class: 'wl-sug-gloss wl-sug-gloss-soon' }, 'meaning coming soon'),
+        h('span', { class: 'wl-sug-sub', translate: 'no' }, `${ref.translit} · ${ref.total}×`)),
+      h('span', { lang: 'ar', dir: 'rtl' }, ref.surface));
   }
 
   function morpheme(ar: string, label: string, extraClass = ''): HTMLElement {
     return h('li', { class: `wl-morpheme ${extraClass}`.trim() },
-      ar ? h('span', { lang: 'ar', dir: 'rtl' }, ar) : null,
-      h('span', { class: 'wl-morpheme-label' }, label));
+      h('span', { class: 'wl-morpheme-label' }, label),
+      ar ? h('span', { lang: 'ar', dir: 'rtl' }, ar) : h('span', {}));
   }
 
   function analysisNode(a: any[]): HTMLElement {
@@ -133,6 +162,9 @@ const EXAMPLES = [
     // The badge already carries the form — passing 0 keeps it out of the prose too.
     grammar.append(grammarLine(pos, 0, feat));
     wrap.append(grammar);
+    wrap.append(gloss
+      ? h('p', { class: 'wl-meaning' }, String(gloss))
+      : h('p', { class: 'wl-meaning wl-meaning-soon' }, 'meaning coming soon'));
 
     if (prefixes.length || suffixes.length) {
       const bd = h('ul', { class: 'wl-breakdown', 'aria-label': 'word breakdown' });
@@ -146,18 +178,15 @@ const EXAMPLES = [
       for (const s of [...suffixes].reverse()) {
         const [ar, code] = String(s).split('|');
         // 43 suffixes are the elided "my" (ي absorbed into the stem's kasra):
-        // ar is '' — slicing with -0 would wipe the whole stem.
+        // ar is '' — slicing with -0 would wipe the whole stem. Flag the empty
+        // Arabic column so the reader knows it's absorbed, not missing data.
         if (ar && stemAr.endsWith(ar)) stemAr = stemAr.slice(0, -ar.length);
-        tail.unshift(morpheme(ar, affixLabel(code)));
+        tail.unshift(morpheme(ar, ar ? affixLabel(code) : `${affixLabel(code)} — elided`));
       }
       bd.append(morpheme(stemAr, lemma ? `stem of ${posLabel(pos)}` : posLabel(pos), 'wl-morpheme-stem'));
       for (const t of tail) bd.append(t);
       wrap.append(bd);
     }
-
-    wrap.append(gloss
-      ? h('p', { class: 'wl-meaning' }, String(gloss))
-      : h('p', { class: 'wl-meaning wl-meaning-soon' }, 'meaning coming soon'));
 
     const metaLine = h('p', { class: 'wl-meta-line' });
     if (root) {
@@ -235,12 +264,12 @@ const EXAMPLES = [
     if (r.kind === 'arabic') {
       if (r.exact) {
         if (select) { renderKey(r.exact.key); return; }
-        sugEl.replaceChildren(sugRow(p.refs.get(r.exact.key)!), ...r.suggestions.map(sugRow));
+        fillSug([sugRow(p.refs.get(r.exact.key)!), ...r.suggestions.map(sugRow)]);
         setSugHidden(false);
         return;
       }
       if (r.suggestions.length) {
-        sugEl.replaceChildren(...r.suggestions.map(sugRow));
+        fillSug(r.suggestions.map(sugRow));
         setSugHidden(false);
       } else { setSugHidden(true); renderEmpty(r.didYouMean); }
       return;
@@ -255,8 +284,8 @@ const EXAMPLES = [
         ...r.meaning.slice(0, 8).map(sugRow));
     }
     if (!rows.length) rows.push(h('p', { class: 'wl-sug-none' },
-      'nothing matches — try Arabic, a sound like "yuminuna", or a meaning like "believe"'));
-    sugEl.replaceChildren(...rows);
+      'nothing matches — try Arabic, a sound like “yuminuna”, or a meaning like “believe”'));
+    fillSug(rows);
     setSugHidden(false);
   }
 
@@ -297,7 +326,7 @@ const EXAMPLES = [
   if (initialQ) { searchEl.value = initialQ; runSearch(initialQ, { select: true }); }
 </script>
 
-<style>
+<style is:global>
   .wl-container { padding-block: var(--spacing-2xl) var(--spacing-3xl); }
   .wl-header { text-align: center; margin-block-end: var(--spacing-2xl); }
   .wl-title { font-size: 2.25rem; font-weight: 700; color: var(--color-text-primary);
@@ -317,17 +346,24 @@ const EXAMPLES = [
     background: var(--color-background-elevated);
     border: 1px solid var(--color-border-primary); border-radius: var(--radius-md);
     box-shadow: 0 8px 24px rgb(0 0 0 / 0.14); z-index: 20; overflow: hidden; }
-  .wl-sug { display: flex; align-items: center; gap: var(--spacing-sm);
-    inline-size: 100%; padding: var(--spacing-sm) var(--spacing-md);
+  .wl-sug { display: flex; align-items: center; justify-content: space-between;
+    gap: var(--spacing-sm); inline-size: 100%; padding: var(--spacing-sm) var(--spacing-md);
     background: none; border: 0; cursor: pointer; font-family: inherit;
-    color: var(--color-text-primary); font-size: 1rem; text-align: start; }
+    color: var(--color-text-primary); font-size: 1rem; text-align: start;
+    transition: background-color 120ms var(--wl-ease); }
+  .wl-sug:active { background: var(--color-background-tertiary); }
   .wl-sug:focus-visible { outline: 2px solid var(--color-border-focus); outline-offset: -2px; }
-  .wl-sug [lang="ar"] { font-family: var(--font-arabic); font-size: 1.3rem; }
-  .wl-sug-hint { color: var(--color-text-secondary); font-style: italic;
+  .wl-sug [lang="ar"] { font-family: var(--font-arabic); font-size: 1.5rem;
+    line-height: 1.8; flex-shrink: 0; }
+  .wl-sug-en { min-inline-size: 0; }
+  .wl-sug-gloss { display: block; margin: 0; color: var(--color-text-primary);
     overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-  .wl-sug-count { margin-inline-start: auto; color: var(--color-text-tertiary);
-    font-size: 0.85rem; flex-shrink: 0; }
-  .wl-sug-count, .wl-count { font-variant-numeric: tabular-nums; }
+  .wl-sug-gloss-soon { font-style: italic; color: var(--color-text-tertiary); }
+  .wl-sug-sub { display: block; margin: 0; font-size: 0.8rem; color: var(--color-text-tertiary);
+    font-variant-numeric: tabular-nums; font-style: italic; }
+  .wl-sug-gloss mark { background: color-mix(in oklab, var(--accent-gold) 28%, transparent);
+    color: inherit; border-radius: 3px; padding: 0.02em 0.12em;
+    box-decoration-break: clone; -webkit-box-decoration-break: clone; }
   .wl-sug-none { padding: var(--spacing-sm) var(--spacing-md);
     color: var(--color-text-tertiary); margin: 0; font-size: 0.95rem; }
   .wl-group-label { margin: 0; padding: var(--spacing-xs) var(--spacing-md);
@@ -340,13 +376,16 @@ const EXAMPLES = [
     padding: 0.35em 0.8em; background: var(--color-background-secondary);
     border: 1px solid var(--color-border-primary); border-radius: var(--radius-full);
     cursor: pointer; color: var(--color-text-primary); font-family: var(--font-arabic);
-    font-size: 1.05rem;
+    font-size: 1.25rem;
     transition: border-color 160ms var(--wl-ease), transform 160ms var(--wl-ease); }
   .wl-chip:active { transform: scale(0.97); }
   .wl-chip, .wl-sug { touch-action: manipulation; }
   .wl-chip:focus-visible { outline: 2px solid var(--color-border-focus); outline-offset: 1px; }
   .wl-chip-note { font-family: var(--font-sans); font-size: 0.75rem;
     color: var(--color-text-tertiary); }
+  .wl-chips-label { align-self: center; font-size: 0.8rem; letter-spacing: 0.06em;
+    text-transform: uppercase; color: var(--color-text-tertiary); }
+  .wl-chip-latin { font-family: var(--font-sans); font-size: 1rem; }
 
   .wl-result { margin-block-end: var(--spacing-3xl); scroll-margin-top: 90px;
     max-inline-size: 640px; margin-inline: auto; }
@@ -362,32 +401,37 @@ const EXAMPLES = [
     background: var(--color-background-secondary); padding: var(--spacing-lg);
     animation: wl-card-in 260ms var(--wl-ease) both;
     animation-delay: calc(var(--i, 0) * 45ms); }
-  .wl-word { font-family: var(--font-arabic); font-size: 2.4rem; line-height: 1.9;
-    color: var(--color-text-primary); margin: 0; }
+  /* Word + translit share the card's left spine with the grammar line and
+     meaning below them; text-align:left (not logical end) pins the RTL word
+     to the left so the whole left edge reads as one column. */
+  .wl-word { font-family: var(--font-arabic); font-size: 2.4rem; line-height: 1.55;
+    color: var(--color-text-primary); margin: 0; text-align: left; }
   .wl-translit { color: var(--color-text-secondary); font-style: italic;
-    margin: 0 0 var(--spacing-sm); }
+    margin: 0.1em 0 var(--spacing-md); }
   .wl-analysis + .wl-analysis { border-block-start: 1px dashed var(--color-border-secondary);
     margin-block-start: var(--spacing-sm); padding-block-start: var(--spacing-sm); }
-  .wl-grammar { color: var(--color-text-primary); font-size: 0.95rem;
+  .wl-grammar { color: var(--color-text-tertiary); font-size: 0.95rem;
     margin: 0 0 var(--spacing-xs); }
   .wl-badge { display: inline-grid; place-items: center; min-inline-size: 2.2em;
     padding: 0.15em 0.5em; margin-inline-end: 0.5em; border-radius: var(--radius-sm);
     font-size: 0.8rem; font-weight: 700; letter-spacing: 0.06em;
     background: color-mix(in oklab, var(--accent-gold) 16%, transparent);
     color: var(--accent-gold); }
-  .wl-breakdown { display: flex; flex-wrap: wrap; gap: var(--spacing-xs);
-    margin: 0 0 var(--spacing-xs); padding: 0; list-style: none; direction: rtl;
-    justify-content: flex-end; }
-  .wl-morpheme { display: inline-flex; flex-direction: column; align-items: center;
-    gap: 0.1em; padding: 0.3em 0.6em; border: 1px solid var(--color-border-secondary);
-    border-radius: var(--radius-sm); }
-  .wl-morpheme [lang="ar"] { font-family: var(--font-arabic); font-size: 1.15rem;
-    color: var(--color-text-primary); }
-  .wl-morpheme-label { font-size: 0.7rem; color: var(--color-text-tertiary);
-    direction: ltr; }
+  .wl-breakdown { margin: 0 0 var(--spacing-sm); padding: 0; list-style: none;
+    border: 1px solid var(--color-border-secondary); border-radius: var(--radius-md);
+    overflow: hidden; }
+  .wl-morpheme { display: grid; grid-template-columns: minmax(0, 1fr) auto;
+    gap: var(--spacing-md); align-items: center;
+    padding: 0.35em var(--spacing-md); }
+  .wl-morpheme + .wl-morpheme { border-block-start: 1px solid var(--color-border-secondary); }
+  .wl-morpheme [lang="ar"] { font-family: var(--font-arabic); font-size: 1.4rem;
+    line-height: 1.8; color: var(--color-text-primary); }
+  .wl-morpheme-label { font-size: 0.8rem; color: var(--color-text-tertiary); }
   .wl-morpheme-stem [lang="ar"] { color: var(--accent-gold); }
-  .wl-meaning { color: var(--color-text-primary); font-size: 1.05rem;
-    margin: 0 0 var(--spacing-xs); }
+  .wl-morpheme-stem .wl-morpheme-label { color: var(--color-text-secondary);
+    font-weight: 500; }
+  .wl-meaning { color: var(--color-text-primary); font-size: 1.0625rem; font-weight: 500;
+    margin: 0 0 var(--spacing-sm); }
   .wl-meaning-soon { font-style: italic; color: var(--color-text-tertiary); }
   .wl-meta-line { display: flex; flex-wrap: wrap; gap: var(--spacing-md);
     align-items: baseline; margin: 0; font-size: 0.85rem; }
@@ -396,11 +440,11 @@ const EXAMPLES = [
     border-radius: var(--radius-full); text-decoration: none;
     color: var(--color-text-primary); }
   .wl-root-chip[href] { border-color: color-mix(in oklab, var(--accent-gold) 45%, transparent); }
-  .wl-root-chip [lang="ar"] { font-family: var(--font-arabic); font-size: 1.05rem; }
+  .wl-root-chip [lang="ar"] { font-family: var(--font-arabic); font-size: 1.25rem; }
   .wl-root-chip-label { font-size: 0.75rem; color: var(--color-text-tertiary); }
   .wl-root-chip:focus-visible { outline: 2px solid var(--color-border-focus);
     outline-offset: 1px; }
-  .wl-count { color: var(--color-text-tertiary); }
+  .wl-count { color: var(--color-text-tertiary); font-variant-numeric: tabular-nums; }
   .wl-example { color: var(--accent-gold); text-decoration: none; }
   .wl-result-heading { font-size: 0.85rem; letter-spacing: 0.08em;
     text-transform: uppercase; color: var(--color-text-tertiary);
@@ -420,17 +464,20 @@ const EXAMPLES = [
 
   /* WCAG AAA contrast (7:1) overrides for dark mode — the global --color-text-tertiary
      (#9b8b7e on #000) is 6.4:1, below AAA. Bump elements that axe tests at small sizes. */
-  :global([data-theme="dark"]) .wl-chip-note,
-  :global([data-theme="dark"]) .wl-attribution,
-  :global([data-theme="dark"]) .wl-attribution a,
-  :global([data-theme="dark"]) .wl-sug-count,
-  :global([data-theme="dark"]) .wl-count,
-  :global([data-theme="dark"]) .wl-morpheme-label,
-  :global([data-theme="dark"]) .wl-root-chip-label,
-  :global([data-theme="dark"]) .wl-result-heading,
-  :global([data-theme="dark"]) .wl-empty-hint,
-  :global([data-theme="dark"]) .wl-sug-none,
-  :global([data-theme="dark"]) .wl-meaning-soon { color: var(--color-text-secondary); }
+  [data-theme="dark"] .wl-chips-label,
+  [data-theme="dark"] .wl-chip-note,
+  [data-theme="dark"] .wl-attribution,
+  [data-theme="dark"] .wl-attribution a,
+  [data-theme="dark"] .wl-sug-sub,
+  [data-theme="dark"] .wl-count,
+  [data-theme="dark"] .wl-morpheme-label,
+  [data-theme="dark"] .wl-root-chip-label,
+  [data-theme="dark"] .wl-result-heading,
+  [data-theme="dark"] .wl-empty-hint,
+  [data-theme="dark"] .wl-sug-none,
+  [data-theme="dark"] .wl-sug-gloss-soon,
+  [data-theme="dark"] .wl-meaning-soon,
+  [data-theme="dark"] .wl-grammar { color: var(--color-text-secondary); }
 
   @keyframes wl-card-in {
     from { opacity: 0; transform: translateY(6px); }
@@ -449,6 +496,7 @@ const EXAMPLES = [
   }
   @media (max-width: 640px) {
     .wl-title { font-size: 1.85rem; }
-    .wl-word { font-size: 1.9rem; }
+    .wl-word { font-size: 2rem; }
+    .wl-morpheme [lang="ar"] { font-size: 1.3rem; }
   }
 </style>
