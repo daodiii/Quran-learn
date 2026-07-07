@@ -20,7 +20,10 @@ function validateBatch(nn: string) {
     readFileSync(`src/data/morphology/glosses-nouns/output/batch-${nn}.json`, 'utf8'));
   if (output.batch !== `batch-${nn}`) fail(`batch-${nn}: batch field says ${output.batch}`);
 
-  const keyOf = (x: any) => `${x.lemma ?? x.surface}|${x.pos}`;
+  // Batch-type-aware: a lemma-batch output that misnames its field `surface`
+  // (or vice versa) must FAIL parity here, not silently drop at the join.
+  const field = nn.startsWith('s') ? 'surface' : 'lemma';
+  const keyOf = (x: any) => `${x[field]}|${x.pos}`;
   const expect = new Set<string>();
   for (const e of input.entries) expect.add(keyOf(e));
 
