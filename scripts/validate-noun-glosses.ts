@@ -20,12 +20,13 @@ function validateBatch(nn: string) {
     readFileSync(`src/data/morphology/glosses-nouns/output/batch-${nn}.json`, 'utf8'));
   if (output.batch !== `batch-${nn}`) fail(`batch-${nn}: batch field says ${output.batch}`);
 
+  const keyOf = (x: any) => `${x.lemma ?? x.surface}|${x.pos}`;
   const expect = new Set<string>();
-  for (const e of input.entries) expect.add(`${e.lemma}|${e.pos}`);
+  for (const e of input.entries) expect.add(keyOf(e));
 
   const got = new Set<string>();
   for (const g of output.glosses ?? []) {
-    const key = `${g.lemma}|${g.pos}`;
+    const key = keyOf(g);
     if (!expect.has(key)) fail(`batch-${nn}: unexpected entry ${key}`);
     if (got.has(key)) fail(`batch-${nn}: duplicate entry ${key}`);
     got.add(key);
@@ -44,8 +45,8 @@ if (args[0] === '--batch') {
   validateBatch(args[1]);
 } else if (args[0] === '--all-batches') {
   const outs = readdirSync('src/data/morphology/glosses-nouns/output')
-    .filter(f => /^batch-\d+\.json$/.test(f))
-    .map(f => f.match(/(\d+)/)![1])
+    .filter(f => /^batch-s?\d+\.json$/.test(f))
+    .map(f => f.match(/^batch-(s?\d+)\.json$/)![1])
     .sort();
   if (outs.length === 0) fail('no output batches found');
   for (const nn of outs) validateBatch(nn);
