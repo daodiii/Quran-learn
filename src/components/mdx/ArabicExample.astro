@@ -41,7 +41,12 @@ interface Props {
   words?: WordEntry[];      // Optional word-by-word interlinear data
 }
 
+import { parseAyahRef, ayahAudioUrl } from '../../lib/ayah-ref';
+
 const { arabic, transliteration, translation, reference, highlight, words } = Astro.props;
+
+// Recitation audio is derived from the reference when it names an ayah.
+const ayah = reference ? parseAyahRef(reference) : null;
 
 // Process highlight if provided
 const highlightWords = highlight ? highlight.split(',').map(w => w.trim()) : [];
@@ -84,9 +89,46 @@ const hasWords = words && words.length > 0;
   <p class="translation" dir="ltr">{translation}</p>
 
   {reference && (
-    <p class="reference" dir="ltr">&mdash; {reference}</p>
+    <p class="reference" dir="ltr">
+      &mdash; {reference}
+      {ayah && (
+        <button class="ayah-play" type="button" data-audio-src={ayahAudioUrl(ayah)}
+                aria-label={`Play recitation of verse ${ayah.surah}:${ayah.ayah}`}>
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+          <span class="ayah-play-label">Listen</span>
+        </button>
+      )}
+    </p>
   )}
 </div>
+
+<script>
+  // One delegated handler per page (Astro dedupes component scripts).
+  let current: HTMLAudioElement | null = null;
+  let currentBtn: HTMLElement | null = null;
+
+  document.addEventListener('click', (e) => {
+    const btn = (e.target as HTMLElement).closest('.ayah-play') as HTMLElement | null;
+    if (!btn || btn.hasAttribute('disabled')) return;
+    if (currentBtn === btn && current) {
+      if (current.paused) { current.play(); btn.classList.add('playing'); }
+      else { current.pause(); btn.classList.remove('playing'); }
+      return;
+    }
+    current?.pause();
+    currentBtn?.classList.remove('playing');
+    current = new Audio(btn.dataset.audioSrc!); // fetched on demand, never preloaded
+    currentBtn = btn;
+    btn.classList.add('playing');
+    current.play().catch(() => { btn.classList.add('unavailable'); btn.setAttribute('disabled', ''); });
+    current.addEventListener('ended', () => btn.classList.remove('playing'));
+    current.addEventListener('error', () => {
+      btn.classList.add('unavailable');
+      btn.setAttribute('disabled', '');
+      btn.classList.remove('playing');
+    });
+  });
+</script>
 
 <style>
   .arabic-example {
@@ -258,5 +300,40 @@ const hasWords = words && words.length > 0;
       font-size: 0.75rem;
       max-inline-size: 6rem;
     }
+  }
+
+  .ayah-play {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    margin-inline-start: 0.625rem;
+    font-family: var(--font-sans);
+    font-size: 0.8125rem;
+    color: var(--accent-primary);
+    background: none;
+    border: 1px solid var(--border-primary);
+    border-radius: var(--radius-full);
+    padding: 0.125rem 0.625rem;
+    cursor: pointer;
+    vertical-align: middle;
+    transition: color 200ms cubic-bezier(0.23, 1, 0.32, 1),
+                border-color 200ms cubic-bezier(0.23, 1, 0.32, 1),
+                transform 160ms cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .ayah-play:hover { border-color: var(--accent-primary); }
+  }
+
+  .ayah-play:active { transform: scale(0.97); }
+
+  .ayah-play.playing {
+    color: var(--accent-gold);
+    border-color: var(--accent-gold);
+  }
+
+  .ayah-play.unavailable {
+    opacity: 0.4;
+    cursor: default;
   }
 </style>

@@ -104,6 +104,11 @@ const courseSchema = {
               <span class="level-arabic" dir="rtl" lang="ar">{levelNames[level].titleAr}</span>
             </div>
             <p class="level-desc">{levelNames[level].desc}</p>
+            <p class="level-links">
+              <a href={`/learn/level-${level}/vocabulary/`}>Vocabulary</a>
+              <span aria-hidden="true">·</span>
+              <a href={`/learn/level-${level}/quiz/`}>Quiz</a>
+            </p>
 
             {clusters.map(cluster => (
               <div class="cluster">
@@ -283,6 +288,21 @@ const courseSchema = {
     max-inline-size: 60ch;
     margin-block: var(--spacing-sm) 0;
   }
+
+  .level-links {
+    display: flex;
+    gap: var(--spacing-sm);
+    font-size: 0.9375rem;
+    margin-block: var(--spacing-xs) 0;
+    color: var(--color-text-tertiary);
+  }
+
+  .level-links a {
+    color: var(--accent-primary);
+    text-decoration: none;
+  }
+
+  .level-links a:hover { text-decoration: underline; }
 
   /* Clusters */
   .cluster { margin-block-start: var(--spacing-lg); }

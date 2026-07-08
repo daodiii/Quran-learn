@@ -4,6 +4,8 @@ import BaseLayout from './BaseLayout.astro';
 import CourseNavigator from '../components/navigation/CourseNavigator.astro';
 import NavigatorToggle from '../components/navigation/NavigatorToggle.astro';
 import Breadcrumbs from '../components/navigation/Breadcrumbs.astro';
+import VocabList from '../components/VocabList.astro';
+import vocabData from '../data/vocab/lessons.json';
 import BreadcrumbSchema from '../components/seo/BreadcrumbSchema.astro';
 import ArticleSchema from '../components/seo/ArticleSchema.astro';
 import { getCollection } from 'astro:content';
@@ -36,6 +38,10 @@ const currentLesson = allLessons.find(lesson => {
 });
 
 const currentLessonSlug = currentLesson?.id || '';
+
+// New high-frequency words this lesson introduced (empty for most checkpoints
+// and any lesson whose example words were all taught earlier).
+const lessonVocab = (vocabData as Record<string, any[]>)[currentLessonSlug || lessonSlug] ?? [];
 
 // Build breadcrumb items
 const breadcrumbItems = [
@@ -112,6 +118,17 @@ const educationalLevels: Record<number, string> = {
         <div class="lesson-content">
           <slot />
         </div>
+
+        {lessonVocab.length > 0 && (
+          <section class="vocab-section" data-vocab-section aria-labelledby="vocab-heading">
+            <h2 id="vocab-heading" class="vocab-heading">Words from this lesson</h2>
+            <p class="vocab-sub">High-frequency Quran vocabulary you just saw in context.</p>
+            <VocabList entries={lessonVocab} />
+            <p class="vocab-review-link">
+              <a href={`/learn/level-${level}/vocabulary/`}>Review all Level {level} vocabulary &rarr;</a>
+            </p>
+          </section>
+        )}
 
         <!-- Mark Complete Button -->
         <div class="complete-section" id="complete-section" data-lesson-slug={lessonSlug}>
@@ -301,6 +318,37 @@ const educationalLevels: Record<number, string> = {
     font-size: 0.875rem;
     color: var(--text-secondary);
     font-variant-numeric: tabular-nums;
+  }
+
+  .vocab-section { margin-block-start: 3rem; }
+
+  .vocab-heading {
+    font-family: var(--font-display);
+    font-size: 1.625rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0 0 0.25rem;
+    letter-spacing: -0.01em;
+  }
+
+  .vocab-sub {
+    color: var(--text-secondary);
+    font-size: 0.9375rem;
+    margin: 0 0 1rem;
+  }
+
+  .vocab-review-link {
+    margin-block-start: 0.75rem;
+    font-size: 0.9375rem;
+  }
+
+  .vocab-review-link a {
+    color: var(--accent-primary);
+    text-decoration: none;
+  }
+
+  .vocab-review-link a:hover {
+    text-decoration: underline;
   }
 
   .level-badge-1 { background: var(--level-1-bg); color: var(--level-1-text); }
