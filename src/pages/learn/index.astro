@@ -18,13 +18,26 @@ const levelNames: Record<number, { title: string; titleAr: string; desc: string 
 
 const levels: (1 | 2 | 3 | 4 | 5)[] = [1, 2, 3, 4, 5];
 
-// Group + sort once; every lesson must belong to a cluster (throws on drift).
+// Group + sort once. Two-way drift guard, both directions throw at build:
+// every lesson must belong to a cluster, and every cluster order must
+// resolve to a real lesson file.
 const byLevel = new Map<number, typeof allLessons>();
 for (const l of allLessons) {
-  byLevel.set(l.data.level, [...(byLevel.get(l.data.level) ?? []), l]);
+  const list = byLevel.get(l.data.level) ?? [];
+  list.push(l);
+  byLevel.set(l.data.level, list);
+  clusterForLesson(l.data.level, l.data.order);
 }
 for (const list of byLevel.values()) list.sort((a, b) => a.data.order - b.data.order);
-for (const l of allLessons) clusterForLesson(l.data.level, l.data.order);
+for (const { level, clusters } of CURRICULUM_MAP) {
+  for (const cluster of clusters) {
+    for (const order of cluster.lessons) {
+      if (!byLevel.get(level)?.some(l => l.data.order === order)) {
+        throw new Error(`curriculum-map: level ${level} lesson ${order} (cluster "${cluster.title}") has no matching file in src/content/lessons/`);
+      }
+    }
+  }
+}
 
 const manifest = [...byLevel.entries()].sort((a, b) => a[0] - b[0])
   .flatMap(([, list]) => list.map(l => ({ id: l.id, title: l.data.title, level: l.data.level, order: l.data.order })));

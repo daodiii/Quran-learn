@@ -28,6 +28,8 @@ const { manifest, totals } = Astro.props;
       const link = el.querySelector('[data-resume-link]') as HTMLAnchorElement;
       if (!next) {
         title.textContent = 'All lessons complete. Revisit any time.';
+        link.textContent = 'Browse lessons →';
+        link.setAttribute('aria-label', 'Browse all lessons');
       } else {
         title.textContent = `Level ${next.level} · Lesson ${next.order} of ${totals[next.level]}: ${next.title}`;
         link.href = `/learn/${next.id}/`;
