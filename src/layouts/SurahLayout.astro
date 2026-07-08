@@ -36,15 +36,15 @@ const breadcrumbItems = [
   <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
     <!-- Breadcrumb -->
     <nav class="text-sm mb-6" style="color: var(--text-tertiary);">
-      <a href="/" style="color: var(--text-tertiary); transition: color var(--transition-fast);" onmouseenter="this.style.color='var(--accent-primary)'" onmouseleave="this.style.color='var(--text-tertiary)'">Home</a>
+      <a href="/" class="surah-nav-link">Home</a>
       <span class="mx-2">/</span>
-      <a href="/surahs/" style="color: var(--text-tertiary); transition: color var(--transition-fast);" onmouseenter="this.style.color='var(--accent-primary)'" onmouseleave="this.style.color='var(--text-tertiary)'">Surahs</a>
+      <a href="/surahs/" class="surah-nav-link">Surahs</a>
       <span class="mx-2">/</span>
       <span style="color: var(--text-primary);">Surah {name}</span>
     </nav>
 
     <!-- Surah Header -->
-    <div class="text-center mb-10">
+    <div class="mb-10">
       <div class="inline-flex items-center gap-3 mb-4">
         <span class="text-sm font-medium px-3 py-1 rounded-full" style="color: var(--text-tertiary); background-color: var(--bg-tertiary);">
           Surah {surahNumber}
@@ -61,7 +61,7 @@ const breadcrumbItems = [
       <h1 class="text-3xl font-bold" style="color: var(--text-primary);">Surah {name}</h1>
       <p class="arabic-lg mt-2" style="color: var(--accent-gold);">{nameArabic}</p>
       {description && (
-        <p class="mt-4 mx-auto text-lg" style="color: var(--text-secondary); max-inline-size: 42rem;">{description}</p>
+        <p class="mt-4 text-lg" style="color: var(--text-secondary); max-inline-size: 42rem;">{description}</p>
       )}
     </div>
 
@@ -72,7 +72,7 @@ const breadcrumbItems = [
 
     <!-- Back to Surahs -->
     <div class="mt-12 pt-8 text-center" style="border-top: 1px solid var(--border-primary);">
-      <a href="/surahs/" class="inline-flex items-center gap-2 font-medium" style="color: var(--accent-primary); transition: color var(--transition-fast);" onmouseenter="this.style.color='var(--accent-primary-hover)'" onmouseleave="this.style.color='var(--accent-primary)'">
+      <a href="/surahs/" class="inline-flex items-center gap-2 font-medium surah-back-link">
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
         </svg>
@@ -83,6 +83,24 @@ const breadcrumbItems = [
 </BaseLayout>
 
 <style>
+  .surah-nav-link {
+    color: var(--text-tertiary);
+    transition: color var(--transition-fast);
+  }
+
+  .surah-nav-link:hover {
+    color: var(--accent-primary);
+  }
+
+  .surah-back-link {
+    color: var(--accent-primary);
+    transition: color var(--transition-fast);
+  }
+
+  .surah-back-link:hover {
+    color: var(--accent-primary-hover);
+  }
+
   .surah-content :global(h1),
   .surah-content :global(h2),
   .surah-content :global(h3),
