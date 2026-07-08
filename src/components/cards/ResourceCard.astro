@@ -35,7 +35,7 @@ const isExternalLink = href.startsWith('http');
   </div>
 
   <div class="resource-card-content">
-    <h3 class="resource-card-title">{title}</h3>
+    <h2 class="resource-card-title">{title}</h2>
     {description && (
       <p class="resource-card-description">{description}</p>
     )}
@@ -88,6 +88,7 @@ const isExternalLink = href.startsWith('http');
   }
 
   .resource-card-description {
+    font-family: var(--font-sans);
     font-size: 0.875rem;
     line-height: 1.5;
     color: var(--color-text-secondary);

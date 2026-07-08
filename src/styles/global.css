@@ -180,7 +180,7 @@
   /* Text Colors */
   --text-primary: #F5F1EB;
   --text-secondary: #D4C5B8;
-  --text-tertiary: #9B8B7E;
+  --text-tertiary: #bbafa4;
   --text-inverse: #1A1614;
 
   /* Border Colors */
@@ -410,11 +410,13 @@
     block-size: auto;
   }
 
-  /* Prevent wide tables from causing overflow */
-  table {
+  /* Rehype wraps every markdown table (src/lib/rehype-table-scroll.mjs) */
+  .table-scroll {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
+    max-inline-size: 100%;
   }
+  .table-scroll > table { min-inline-size: max-content; }
 
   /* Ensure pre/code blocks don't overflow */
   pre,
@@ -701,7 +703,7 @@
     display: block;
   }
 
-  /* Level Badges */
+  /* Level Badges (single consumer: LessonLayout; sentence case by design) */
   .level-badge {
     display: inline-flex;
     align-items: center;
@@ -710,14 +712,8 @@
     border-radius: var(--radius-full);
     font-size: 0.75rem;
     font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
   }
 
-  .level-badge:hover {
-    transform: scale(1.05);
-  }
 
   .level-badge-1 {
     background-color: var(--level-1-bg);

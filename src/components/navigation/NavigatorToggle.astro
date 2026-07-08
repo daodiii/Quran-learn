@@ -23,6 +23,7 @@ const { class: className, variant = 'header' } = Astro.props;
   <svg class="close-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
     <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
   </svg>
+  <span class="toggle-label">Lessons</span>
 </button>
 
 <style>
@@ -37,7 +38,8 @@ const { class: className, variant = 'header' } = Astro.props;
     background: transparent;
     color: var(--text-secondary);
     cursor: pointer;
-    transition: all var(--transition-fast);
+    transition: background var(--transition-fast), color var(--transition-fast),
+                border-color var(--transition-fast);
   }
 
   .navigator-toggle:hover {
@@ -69,24 +71,35 @@ const { class: className, variant = 'header' } = Astro.props;
     display: block;
   }
 
-  /* Header variant: visible on all screen sizes */
+  /* Header variant: visible on all screen sizes, icon only */
   .navigator-toggle--header {
     display: flex;
   }
 
-  /* Floating variant: fixed position for quick access */
+  .navigator-toggle--header .toggle-label {
+    display: none;
+  }
+
+  /* Floating variant: labeled pill for discoverability */
   .navigator-toggle--floating {
     position: fixed;
     inset-block-end: 1.5rem;
     inset-inline-start: 1.5rem;
     z-index: 30;
-    inline-size: 48px;
+    inline-size: auto;
     block-size: 48px;
+    padding-inline: 1rem 1.125rem;
+    gap: 0.5rem;
     border-radius: var(--radius-full);
     background: var(--accent-primary);
     color: var(--text-inverse);
     border: none;
     box-shadow: var(--shadow-lg);
+  }
+
+  .toggle-label {
+    font-size: 0.875rem;
+    font-weight: 600;
   }
 
   .navigator-toggle--floating:hover {

@@ -5,13 +5,14 @@ import sitemap from '@astrojs/sitemap';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import rehypeArabicWrap from './src/plugins/rehype-arabic-wrap.mjs';
+import rehypeTableScroll from './src/lib/rehype-table-scroll.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig({
   site: 'https://www.quranic-grammar.com',
   integrations: [
-    mdx({ rehypePlugins: [rehypeArabicWrap] }),
+    mdx({ rehypePlugins: [rehypeArabicWrap, rehypeTableScroll] }),
     sitemap({
       serialize(item) {
         item.lastmod = new Date().toISOString();
