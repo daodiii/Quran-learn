@@ -51,6 +51,8 @@ export const CURRICULUM_MAP: LevelMap[] = [
     { title: 'Narrative & dialogue', lessons: [9, 10, 11] },
     { title: 'Rhetoric in action', lessons: [12, 13, 14] },
     { title: 'Synthesis', lessons: [15, 16] },
+    { title: 'Capstone', lessons: [17], checkpoint: true,
+      note: 'A passage you have never analyzed on this site — prove the method on unseen text.' },
   ]},
 ];
 

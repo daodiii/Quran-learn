@@ -29,6 +29,6 @@ for (const lf of lessonFiles) {
 mkdirSync('src/data/vocab', { recursive: true });
 writeFileSync(OUT, JSON.stringify(out) + '\n');
 console.log(`lessons=${lessonFiles.length} withVocab=${lessonFiles.length - empty} words=${total} uniqueRegistry=${registry.size}`);
-if (lessonFiles.length !== 80) { console.error(`FAIL: expected 80 lessons, saw ${lessonFiles.length}`); process.exit(1); }
+if (lessonFiles.length !== 81) { console.error(`FAIL: expected 81 lessons, saw ${lessonFiles.length}`); process.exit(1); }
 if (total < 300) { console.error(`FAIL: implausibly few vocab words (${total}) — extraction regression?`); process.exit(1); }
 console.log(`→ ${OUT}`);

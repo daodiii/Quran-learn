@@ -1,14 +1,14 @@
 import { test, expect } from '@playwright/test';
 
-test('renders all 80 lessons as rows grouped in 5 levels', async ({ page }) => {
+test('renders all 81 lessons as rows grouped in 5 levels', async ({ page }) => {
   await page.goto('/learn/');
-  await expect(page.locator('[data-lesson-row]')).toHaveCount(80);
+  await expect(page.locator('[data-lesson-row]')).toHaveCount(81);
   await expect(page.locator('section.level-section')).toHaveCount(5);
 });
 
 test('checkpoints are visually distinct rows', async ({ page }) => {
   await page.goto('/learn/');
-  await expect(page.locator('[data-lesson-row][data-checkpoint]')).toHaveCount(4);
+  await expect(page.locator('[data-lesson-row][data-checkpoint]')).toHaveCount(5);
 });
 
 test('every level ends with a reading-track block; all 38 analyses are placed', async ({ page }) => {
