@@ -11,6 +11,14 @@ test('checkpoints are visually distinct rows', async ({ page }) => {
   await expect(page.locator('[data-lesson-row][data-checkpoint]')).toHaveCount(4);
 });
 
+test('every level ends with a reading-track block; all 38 analyses are placed', async ({ page }) => {
+  await page.goto('/learn/');
+  await expect(page.locator('[data-reading-track]')).toHaveCount(5);
+  await expect(page.locator('[data-reading-row]')).toHaveCount(38);
+  const firstRow = page.locator('[data-reading-row]').first();
+  await expect(firstRow).toHaveAttribute('href', /^\/surahs\/\d{3}-/);
+});
+
 test('heading hierarchy has no skips', async ({ page }) => {
   await page.goto('/learn/');
   const levels = await page.locator('h1, h2, h3').evaluateAll(hs => hs.map(h => Number(h.tagName[1])));
