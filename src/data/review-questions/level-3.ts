@@ -1,4 +1,5 @@
-// Level-3 cumulative review: sources from levels 1 and 2.
+// Level-3 cumulative review: sources exclusively level-2 lessons (the
+// level-2 review already drills level-1 material).
 // All Arabic strings copied verbatim from the cited lesson MDX files.
 import type { ReviewQuestion } from './index.ts';
 
@@ -83,7 +84,7 @@ export const LEVEL_3_REVIEW: ReviewQuestion[] = [
   },
   {
     id: 7,
-    question: 'In وَأَنْزَلْنَا مِنَ ٱلسَّمَاءِ مَاءً (a verse from the Quran), what causes ٱلسَّمَاءِ to take kasra here?',
+    question: 'In وَأَنْزَلْنَا مِنَ ٱلسَّمَاءِ مَاءً (Al-Mu\'minun 23:18), what causes ٱلسَّمَاءِ to take kasra here?',
     options: [
       'It is the mafʿūl bihi of أَنْزَلْنَا',
       'It is the second noun in an idafah construction',

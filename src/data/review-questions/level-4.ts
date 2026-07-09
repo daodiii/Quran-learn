@@ -1,4 +1,6 @@
-// Level-4 cumulative review: sources from levels 1, 2, and 3 (weighted toward 2–3).
+// Level-4 cumulative review: sources exclusively level-3 lessons — the
+// morphology block whose retention matters most entering level 4 (levels
+// 1–2 stay in rotation via the earlier reviews).
 // All Arabic strings copied verbatim from the cited lesson MDX files.
 import type { ReviewQuestion } from './index.ts';
 
