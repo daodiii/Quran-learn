@@ -2,7 +2,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { CURRICULUM_MAP, clusterForLesson } from './curriculum-map.ts';
 
-const LESSON_COUNTS: Record<number, number> = { 1: 11, 2: 12, 3: 22, 4: 19, 5: 16 };
+const LESSON_COUNTS: Record<number, number> = { 1: 11, 2: 12, 3: 22, 4: 19, 5: 17 };
 
 test('every level covers exactly its lesson orders, no gaps or dupes', () => {
   for (const level of CURRICULUM_MAP) {
@@ -19,10 +19,9 @@ test('clusters are contiguous ascending runs', () => {
       c.lessons.forEach((o, i) => i > 0 && assert.equal(o, c.lessons[i - 1] + 1, `${level.level}/${c.title}`));
 });
 
-test('each level with a checkpoint marks exactly one, as its last cluster', () => {
+test('every level marks exactly one checkpoint, as its last cluster', () => {
   for (const level of CURRICULUM_MAP) {
     const cps = level.clusters.filter(c => c.checkpoint);
-    if (level.level === 5) { assert.equal(cps.length, 0); continue; }
     assert.equal(cps.length, 1, `level ${level.level}`);
     assert.equal(level.clusters.at(-1)?.checkpoint, true, `level ${level.level} checkpoint must be last`);
   }

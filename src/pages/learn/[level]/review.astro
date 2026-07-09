@@ -1,0 +1,52 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Container from '../../../components/primitives/Container.astro';
+import Quiz from '../../../components/Quiz.astro';
+import { REVIEW_QUESTIONS } from '../../../data/review-questions';
+
+export async function getStaticPaths() {
+  return [2, 3, 4, 5].map(n => ({ params: { level: `level-${n}` } }));
+}
+
+const { level } = Astro.params;
+const levelNum = Number(level!.split('-')[1]) as 2 | 3 | 4 | 5;
+
+// Strip the source field: Quiz.astro serializes its questions into the page,
+// and the quiz UI has no use for provenance metadata.
+const questions = REVIEW_QUESTIONS[levelNum].map(({ source, ...q }) => q);
+---
+
+<BaseLayout
+  title={`Level ${levelNum} Cumulative Review`}
+  description={`Ten interleaved review questions drawn from levels 1–${levelNum - 1} — retrieval practice on earlier grammar before you move on.`}
+>
+  <Container maxWidth="md">
+    <div class="review-intro">
+      <p class="review-note">
+        Every question here revisits a lesson from an <em>earlier</em> level.
+        Mixing old topics back in is deliberate: retrieving them now is what
+        makes them stick.
+      </p>
+    </div>
+    <Quiz
+      title={`Level ${levelNum} Cumulative Review`}
+      questions={questions}
+      level={levelNum}
+      scopeLabel={levelNum === 2 ? 'Level 1 grammar' : `grammar from levels 1–${levelNum - 1}`}
+    />
+  </Container>
+</BaseLayout>
+
+<style>
+  .review-intro {
+    padding-block-start: var(--spacing-2xl);
+  }
+
+  .review-note {
+    color: var(--color-text-secondary);
+    font-size: 0.9375rem;
+    max-inline-size: 55ch;
+    margin: 0 auto;
+    text-align: center;
+  }
+</style>

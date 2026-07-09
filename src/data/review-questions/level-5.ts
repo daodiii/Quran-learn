@@ -1,0 +1,136 @@
+// Level-5 cumulative review: sources from levels 1–4 (weighted toward 3–4).
+// All Arabic strings copied verbatim from the cited lesson MDX files.
+import type { ReviewQuestion } from './index.ts';
+
+export const LEVEL_5_REVIEW: ReviewQuestion[] = [
+  {
+    id: 1,
+    question: 'In إِذَا زُلْزِلَتِ ٱلْأَرْضُ زِلْزَالَهَا (Al-Zilzal 99:1), زِلْزَالَهَا is a mafʿūl muṭlaq (absolute object). What makes it a mafʿūl muṭlaq rather than a regular direct object?',
+    options: [
+      'It follows a preposition, which is the mark of an absolute object',
+      'It is from the same root as the verb زُلْزِلَتِ and intensifies the verbal action rather than naming a separate entity',
+      'It is in the nominative case, which is unique to absolute objects',
+      'It contains an attached pronoun, which distinguishes absolute objects',
+    ],
+    correctAnswer: 1,
+    explanation: 'A mafʿūl muṭlaq must be the masdar from the same root as its verb; زِلْزَالَهَا comes from root ز-ل-ز-ل, the same as زُلْزِلَتِ, and emphasises the earthquake\'s overwhelming nature rather than naming a distinct object. (Lesson: The Mafʿūl Muṭlaq.)',
+    source: 'level-4/07-maf-ul-mutlaq',
+  },
+  {
+    id: 2,
+    question: 'In إِن تَنْصُرُوا۟ ٱللَّهَ يَنصُرْكُمْ (Muhammad 47:7), both تَنْصُرُوا۟ and يَنصُرْكُمْ are in the jussive mood. What triggers the jussive in both clauses?',
+    options: [
+      'The word ٱللَّهَ in accusative case causes both verbs to shift to jussive',
+      'The conditional particle إِن requires both the condition verb and the result verb to take jussive mood',
+      'The future meaning of the sentence automatically puts verbs in jussive',
+      'The waw suffix on تَنْصُرُوا۟ is the jussive marker',
+    ],
+    correctAnswer: 1,
+    explanation: 'When the conditional particle إِن ("if") introduces a sentence, both the condition clause and the result clause verbs must take jussive mood (majzūm); this is the defining feature of إِن-conditionals. (Lesson: Conditional Sentences.)',
+    source: 'level-4/03-conditional-sentences',
+  },
+  {
+    id: 3,
+    question: 'In وَجَاءُوا أَبَاهُمْ عِشَآءً يَبْكُونَ (Yusuf 12:16), the verb يَبْكُونَ describes the state of the subject while performing the main action. What grammatical element does يَبْكُونَ function as here?',
+    options: [
+      'A khabar (predicate) of a nominal sentence embedded after وَجَاءُوا',
+      'A mafʿūl bihi (direct object) of جَاءُوا',
+      'A ḥāl (circumstantial clause) describing the condition of the subject at the time of the main verb',
+      'A conditional clause introduced by the waw of conjunction',
+    ],
+    correctAnswer: 2,
+    explanation: 'A ḥāl (circumstantial expression) describes the state of the subject or object at the time of the main action; يَبْكُونَ ("weeping") tells us the condition in which they came — it is a verbal ḥāl. (Lesson: Ḥāl Clauses.)',
+    source: 'level-4/01-hal-clauses',
+  },
+  {
+    id: 4,
+    question: 'In قُلْ يَٰٓأَيُّهَا ٱلْكَٰفِرُونَ لَآ أَعْبُدُ مَا تَعْبُدُونَ (Al-Kafirun 109:1-2), the particle لَآ negates the present tense verb. Which negation particle negates completed past actions, and which negates the present continuing into the future?',
+    options: [
+      'لَآ negates past; مَا negates future',
+      'لَمْ negates the past (with jussive verb); لَنْ negates the future (with subjunctive verb)',
+      'لَا negates past; لَنْ negates present',
+      'مَا negates past; لَا negates future',
+    ],
+    correctAnswer: 1,
+    explanation: 'Arabic has distinct negation particles by tense: لَمْ + jussive negates the past ("did not"), لَا + indicative negates the present ("does not"), and لَنْ + subjunctive negates the future ("will not"). (Lesson: Negation Particles.)',
+    source: 'level-4/10-negation-particles',
+  },
+  {
+    id: 5,
+    question: 'In قُلْ هُوَ ٱللَّهُ أَحَدٌ (Al-Ikhlas 112:1), the verb قُلْ is the imperative of قَالَ. قَالَ is a hollow verb from root ق-و-ل. In the imperative form قُلْ, what has happened to the middle letter و?',
+    options: [
+      'The و has become a long ā vowel, as in the past tense form',
+      'The و has become a long ū vowel, as in the present tense',
+      'The و has remained but is written silently as a small alif',
+      'The و has dropped entirely — the imperative is built on the jussive stem, whose final sukūn forces the long middle vowel to shorten away',
+    ],
+    correctAnswer: 3,
+    explanation: 'Hollow verbs drop their middle weak letter whenever the final root letter carries sukūn; the imperative of قَالَ is built on the jussive stem, giving قُلْ with the و contracted away entirely. (Lesson: Hollow Verbs.)',
+    source: 'level-4/12-hollow-verbs',
+  },
+  {
+    id: 6,
+    question: 'In لَمْ يَلِدْ وَلَمْ يُولَدْ (Al-Ikhlas 112:3), what are the three root letters of يَلِدْ?',
+    options: [
+      'ل-د-ن',
+      'و-ل-د',
+      'ي-ل-د',
+      'ل-و-د',
+    ],
+    correctAnswer: 1,
+    explanation: 'يَلِدْ is a present tense verb from root و-ل-د ("to give birth, to beget"); the initial و drops in the Form I present tense, and after لَمْ the verb stands in jussive as يَلِدْ. (Lesson: Introduction to Case Endings, which walks this verse of Al-Ikhlas.)',
+    source: 'level-1/10-case-endings',
+  },
+  {
+    id: 7,
+    question: 'In تِلْكَ ٱلرُّسُلُ فَضَّلْنَا بَعْضَهُمْ عَلَىٰ بَعْضٍۢ (Al-Baqarah 2:253), تِلْكَ is a demonstrative pronoun. What gender and distance does تِلْكَ signal?',
+    options: [
+      'Masculine singular near ("this")',
+      'Plural far ("those — rational beings")',
+      'Feminine singular far ("that — feminine")',
+      'Masculine dual near',
+    ],
+    correctAnswer: 2,
+    explanation: 'تِلْكَ is the far demonstrative for the feminine singular ("that — f"); it contrasts with ذَٰلِكَ (far masculine singular) and هَٰذِهِ (near feminine singular). (Lesson: Demonstrative Pronouns.)',
+    source: 'level-3/10-demonstrative-pronouns',
+  },
+  {
+    id: 8,
+    question: 'In ٱلْحَمْدُ لِلَّهِ رَبِّ ٱلْعَٰلَمِينَ ۝ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ (Al-Fatiha 1:2-3), ٱلرَّحْمَٰنِ and ٱلرَّحِيمِ are both active participles from root ر-ح-م. Which pattern is ٱلرَّحِيمِ following?',
+    options: [
+      'فَاعِلٌ (fāʿilun) — the standard Form I active participle',
+      'فَعِيلٌ (faʿīlun) — an intensive active participle pattern',
+      'مُفَعِّلٌ (mufaʿʿilun) — the Form II active participle',
+      'مَفْعُولٌ (mafʿūlun) — the passive participle pattern',
+    ],
+    correctAnswer: 1,
+    explanation: 'ٱلرَّحِيمِ follows the فَعِيلٌ (faʿīl) intensive participle pattern, one of several Arabic patterns that intensify the basic active participle فَاعِل; it means "the Ever-Merciful" rather than simply "one who shows mercy." (Lesson: Active and Passive Participles.)',
+    source: 'level-3/19-active-passive-participles',
+  },
+  {
+    id: 9,
+    question: 'In مَٰلِكِ يَوْمِ ٱلدِّينِ (Al-Fatiha 1:4), مَٰلِكِ is the first term (muḍāf) of an idafah chain, yet it carries kasra. What determines the case of the first term of an idafah?',
+    options: [
+      'The first term of an idafah always takes genitive, simply by being in the construction',
+      'The second term ٱلدِّينِ transfers its genitive case backward through the chain',
+      'The first term takes its case from its own role in the sentence — here مَٰلِكِ is genitive because it describes ٱللَّهِ, itself genitive in لِلَّهِ',
+      'The first term of an idafah is always nominative because it acts as a topic',
+    ],
+    correctAnswer: 2,
+    explanation: 'An idafah fixes only the second term in genitive; the first term (muḍāf) takes whatever case its own role in the sentence assigns. مَٰلِكِ describes ٱللَّهِ — genitive after the lam in لِلَّهِ — so it agrees in genitive. (Lesson: The Possessive Construction.)',
+    source: 'level-2/08-possessive-idafah',
+  },
+  {
+    id: 10,
+    question: 'In إِنَّ ٱلْمُسْلِمِينَ وَٱلْمُسْلِمَٰتِ (Al-Ahzab 33:35), the word ٱلْمُسْلِمِينَ ends in ـِينَ. For a sound masculine plural, what does this ending tell you, and which ending marks the nominative instead?',
+    options: [
+      'ـِينَ marks the nominative; the genitive would use ـُونَ',
+      'ـِينَ marks genitive or accusative; the nominative uses ـُونَ',
+      'ـِينَ marks the dual; the nominative uses ـَانِ',
+      'ـِينَ marks the sound feminine plural; the nominative uses ـَاتُ',
+    ],
+    correctAnswer: 1,
+    explanation: 'Sound masculine plurals show only two case forms: ـُونَ for nominative (مُسْلِمُونَ) and ـِينَ for both genitive and accusative; here ٱلْمُسْلِمِينَ is accusative as the ism of إِنَّ. (Lesson: Singular, Dual and Plural.)',
+    source: 'level-1/08-singular-dual-plural',
+  },
+];

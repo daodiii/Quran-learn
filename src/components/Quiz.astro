@@ -17,13 +17,17 @@ interface Props {
   questions: QuizQuestion[];
   passingScore?: number; // Percentage required to pass (default: 70)
   level: number;
+  /** Overrides "Level N grammar" in the start-screen copy (e.g. cumulative
+   *  reviews test earlier levels, not the current one). */
+  scopeLabel?: string;
 }
 
 const {
   title,
   questions,
   passingScore = 70,
-  level
+  level,
+  scopeLabel
 } = Astro.props;
 
 const totalQuestions = questions.length;
@@ -42,7 +46,7 @@ const totalQuestions = questions.length;
     <div class="quiz-start" data-testid="quiz-start">
       <div class="start-info">
         <p class="start-text">
-          This quiz contains <strong>{totalQuestions} questions</strong> to test your knowledge of Level {level} grammar.
+          This quiz contains <strong>{totalQuestions} questions</strong> to test your knowledge of {scopeLabel ?? `Level ${level} grammar`}.
         </p>
         <p class="start-text">
           You need <strong>{passingScore}% or higher</strong> to pass.

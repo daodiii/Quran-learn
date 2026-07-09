@@ -5,6 +5,7 @@ import CourseNavigator from '../components/navigation/CourseNavigator.astro';
 import NavigatorToggle from '../components/navigation/NavigatorToggle.astro';
 import Breadcrumbs from '../components/navigation/Breadcrumbs.astro';
 import VocabList from '../components/VocabList.astro';
+import ReadingTrack from '../components/ReadingTrack.astro';
 import vocabData from '../data/vocab/lessons.json';
 import BreadcrumbSchema from '../components/seo/BreadcrumbSchema.astro';
 import ArticleSchema from '../components/seo/ArticleSchema.astro';
@@ -128,6 +129,10 @@ const educationalLevels: Record<number, string> = {
               <a href={`/learn/level-${level}/vocabulary/`}>Review all Level {level} vocabulary &rarr;</a>
             </p>
           </section>
+        )}
+
+        {positionInLevel && positionInLevel.index === positionInLevel.total && (
+          <ReadingTrack level={level} />
         )}
 
         <!-- Mark Complete Button -->

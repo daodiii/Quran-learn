@@ -1,0 +1,136 @@
+// Level-2 cumulative review: sources exclusively level-1 lessons.
+// All Arabic strings copied verbatim from the cited lesson MDX files.
+import type { ReviewQuestion } from './index.ts';
+
+export const LEVEL_2_REVIEW: ReviewQuestion[] = [
+  {
+    id: 1,
+    question: 'In ٱللَّهُ ٱلصَّمَدُ (Al-Ikhlas 112:2), what case is ٱللَّهُ and what marks it?',
+    options: [
+      'Nominative — marked by damma (ـُ) as the subject of a nominal sentence',
+      'Accusative — marked by fatha (ـَ) because it follows a verb',
+      'Genitive — marked by kasra (ـِ) after a preposition',
+      'Accusative — marked by fatha (ـَ) because it follows إِنَّ',
+    ],
+    correctAnswer: 0,
+    explanation: 'ٱللَّهُ is the mubtadaʾ (subject) of a nominal sentence, so it takes the nominative case, signalled by the damma (ـُ) on its final letter. (Lesson: Introduction to Case Endings.)',
+    source: 'level-1/10-case-endings',
+  },
+  {
+    id: 2,
+    question: 'In بِسْمِ ٱللَّهِ (Bismillah), why does ٱللَّهِ carry a kasra ending?',
+    options: [
+      'It is the subject of a verbal sentence',
+      'It is in the genitive case as the second noun in a possessive construction (idafah)',
+      'It is in the accusative case as the object of a verb',
+      'It is the predicate of a nominal sentence',
+    ],
+    correctAnswer: 1,
+    explanation: 'ٱللَّهِ follows اِسْمِ in an idafah (possessive) chain; the second noun in idafah always takes the genitive case marked by kasra. (Lesson: Introduction to Case Endings.)',
+    source: 'level-1/10-case-endings',
+  },
+  {
+    id: 3,
+    question: 'In وَٱلْعَصْرِ (Al-Asr 103:1), which of the following correctly identifies the word type of وَ and ٱلْعَصْرِ?',
+    options: [
+      'وَ is a verb (fiʿl); ٱلْعَصْرِ is a particle (ḥarf)',
+      'وَ is a particle (ḥarf); ٱلْعَصْرِ is a noun (ism)',
+      'Both words are nouns (ism)',
+      'وَ is a noun (ism); ٱلْعَصْرِ is a verb (fiʿl)',
+    ],
+    correctAnswer: 1,
+    explanation: 'وَ is a particle (ḥarf) — a connector that cannot stand alone — while ٱلْعَصْرِ is a noun (ism) recognisable by its definite article ال and its ability to take case endings. (Lesson: Three Word Types.)',
+    source: 'level-1/04-three-word-types',
+  },
+  {
+    id: 4,
+    question: 'In إِنَّ ٱلْإِنسَٰنَ لَفِيْ خُسْرٍ (Al-Asr 103:2), what word type is إِنَّ?',
+    options: [
+      'Noun (ism) — it names an abstract idea',
+      'Verb (fiʿl) — it describes a state in the present',
+      'Particle (ḥarf) — it functions only in connection with other words',
+      'Verb (fiʿl) — it expresses emphasis and is bound to time',
+    ],
+    correctAnswer: 2,
+    explanation: 'إِنَّ is a particle (ḥarf): it has meaning only in relation to the words around it and fails both the tanween test and the time test that identify nouns and verbs. (Lesson: Three Word Types.)',
+    source: 'level-1/04-three-word-types',
+  },
+  {
+    id: 5,
+    question: 'In ٱلرَّحْمَٰنِ ٱلرَّحِيمِ (Al-Fatiha 1:3), the ال prefix on ٱلرَّحْمَٰنِ is pronounced "ar-" not "al-". Why?',
+    options: [
+      'Because ر is a moon letter and absorbs the lam of ال',
+      'Because ر is a sun letter and assimilates the lam of ال',
+      'Because the word is in the genitive case',
+      'Because the word is feminine and feminine nouns change the pronunciation of ال',
+    ],
+    correctAnswer: 1,
+    explanation: 'ر is a sun letter (ḥarf shamsī): the lam of ال assimilates to the following sun letter and is replaced by doubling that letter, so "al-raḥmān" becomes "ar-raḥmān." (Lesson: The Definite Article.)',
+    source: 'level-1/06-definite-article',
+  },
+  {
+    id: 6,
+    question: 'In ذَٰلِكَ ٱلْكِتَابُ لَا رَيْبَ فِيهِ (Al-Baqarah 2:2), what is the three-letter root of ٱلْكِتَابُ?',
+    options: [
+      'ك-ب-ر',
+      'ك-ت-ب',
+      'ك-ت-م',
+      'ك-ب-ت',
+    ],
+    correctAnswer: 1,
+    explanation: 'ٱلْكِتَابُ comes from the root ك-ت-ب (k-t-b), the "writing" root that also yields كَتَبَ ("he wrote"), كَاتِبٌ ("writer"), and مَكْتَبَةٌ ("library"). (Lesson: Root System Preview.)',
+    source: 'level-1/05-root-system-preview',
+  },
+  {
+    id: 7,
+    question: 'In إِذَا جَآءَ نَصْرُ ٱللَّهِ وَٱلْفَتْحُ (An-Nasr 110:1), both نَصْرُ and ٱلْفَتْحُ are masculine. How do you know they are masculine and not feminine?',
+    options: [
+      'They both carry damma endings',
+      'They are definite nouns, and all definite nouns are masculine',
+      'Neither word ends with the taa marbuta (ة), the primary feminine marker',
+      'They follow a verb, and verbs only agree with masculine nouns',
+    ],
+    correctAnswer: 2,
+    explanation: 'The absence of taa marbuta (ة) is the primary test for masculine gender; nouns lacking this marker are masculine by default unless they belong to known feminine exceptions. (Lesson: Gender in Arabic.)',
+    source: 'level-1/07-gender-masculine-feminine',
+  },
+  {
+    id: 8,
+    question: 'In وَٱلنَّجْمُ وَٱلشَّجَرُ يَسْجُدَانِ (Ar-Rahman 55:6), the verb يَسْجُدَانِ ends in ـَانِ. What number does this ending signal?',
+    options: [
+      'Singular masculine — the ـَانِ marks subject agreement',
+      'Sound masculine plural — the ـَانِ is the plural suffix',
+      'Dual — the ـَانِ ending marks exactly two subjects',
+      'Feminine plural — the ـَانِ marks a group of feminine nouns',
+    ],
+    correctAnswer: 2,
+    explanation: 'The ـَانِ suffix on both dual nouns (nominative dual ending) and agreeing verbs signals exactly two of something — the dual form Arabic uses specifically for pairs. (Lesson: Singular, Dual and Plural.)',
+    source: 'level-1/08-singular-dual-plural',
+  },
+  {
+    id: 9,
+    question: 'In قُلْ يَٰٓأَيُّهَا ٱلْكَٰفِرُونَ (Al-Kafirun 109:1), what sentence type does this exemplify and how can you tell?',
+    options: [
+      'Nominal sentence — ٱلْكَٰفِرُونَ is the subject',
+      'Verbal sentence — it starts with the verb قُلْ',
+      'Nominal sentence — it contains no verb',
+      'Verbal sentence — it starts with the noun قُلْ',
+    ],
+    correctAnswer: 1,
+    explanation: 'A verbal sentence (jumlah fiʿliyyah) begins with a verb; here قُلْ (qul, "say!") is the opening command verb, identifying the sentence as verbal. (Lesson: Introduction to Simple Sentences.)',
+    source: 'level-1/09-simple-sentences',
+  },
+  {
+    id: 10,
+    question: 'In إِنَّ ٱلْمُسْلِمِينَ وَٱلْمُسْلِمَٰتِ (Al-Ahzab 33:35), ٱلْمُسْلِمَٰتِ ends in ـَاتِ. Which plural type is this and what case does the ـِ ending indicate?',
+    options: [
+      'Sound masculine plural in nominative case',
+      'Broken (irregular) plural in genitive case',
+      'Sound feminine plural in genitive/accusative case — the ـَاتِ ending with kasra marks genitive or accusative',
+      'Dual plural in nominative case',
+    ],
+    correctAnswer: 2,
+    explanation: 'ٱلْمُسْلِمَٰتِ is the sound feminine plural (jamʿ muʾannath sālim) formed by replacing ة with ـَاتٌ; the kasra on the final ت marks it as genitive (or accusative, since both cases share this ending). (Lesson: Singular, Dual and Plural.)',
+    source: 'level-1/08-singular-dual-plural',
+  },
+];
