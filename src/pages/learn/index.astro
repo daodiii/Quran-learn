@@ -109,6 +109,12 @@ const courseSchema = {
               <a href={`/learn/level-${level}/vocabulary/`}>Vocabulary</a>
               <span aria-hidden="true">·</span>
               <a href={`/learn/level-${level}/quiz/`}>Quiz</a>
+              {level >= 2 && (
+                <>
+                  <span aria-hidden="true">·</span>
+                  <a href={`/learn/level-${level}/review/`}>Review</a>
+                </>
+              )}
             </p>
 
             {clusters.map(cluster => (
