@@ -46,6 +46,7 @@ const totals = Object.fromEntries([...byLevel.entries()].map(([lv, list]) => [lv
 const totalLessons = allLessons.length;
 if (totalLessons !== 81) throw new Error(`learn: expected 81 lessons, found ${totalLessons} — update the page copy (dek, finale, foot) with the new count`);
 const firstLesson = manifest[0];
+if (!firstLesson) throw new Error('learn: manifest is empty — no lessons found');
 const boot = {
   manifest,
   totals,
@@ -372,6 +373,8 @@ initCapacitor();
 
 (function(){
 'use strict';
+var bootEl=document.getElementById('learn-boot'),BOOT;
+try{BOOT=JSON.parse(bootEl.textContent);}catch(e){return;} /* no .js class → static catalog layout stays visible */
 document.documentElement.classList.add('js');
 var RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
 var SMALL=matchMedia('(max-width: 760px)').matches;
@@ -382,7 +385,6 @@ addEventListener('load',function(){setTimeout(function(){veil.classList.add('gon
 setTimeout(function(){veil.classList.add('gone');},2600);
 
 /* ---------- lesson stars (same 5 constellations) ---------- */
-var BOOT=JSON.parse(document.getElementById('learn-boot').textContent);
 var COUNTS=BOOT.totals;
 var NAMES={},AR={};
 Object.keys(BOOT.names).forEach(function(l){NAMES[l]=BOOT.names[l].en;AR[l]=BOOT.names[l].ar;});
