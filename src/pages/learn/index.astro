@@ -1,6 +1,5 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import Container from '../../components/primitives/Container.astro';
+import '../../styles/night.css';
 import LessonRow from '../../components/LessonRow.astro';
 import ReadingTrack from '../../components/ReadingTrack.astro';
 import ResumeBand from '../../components/ResumeBand.astro';
@@ -9,7 +8,7 @@ import { CURRICULUM_MAP, clusterForLesson } from '../../data/curriculum-map';
 
 const allLessons = await getCollection('lessons');
 
-const levelNames: Record<number, { title: string; titleAr: string; desc: string }> = {
+const levelNames: Record<1|2|3|4|5, { title: string; titleAr: string; desc: string }> = {
   1: { title: 'Foundation', titleAr: 'الأساسيات', desc: 'Build your foundation in Arabic: alphabet, vowels, basic word structures, and sentence types.' },
   2: { title: 'Core Grammar', titleAr: 'القواعد الأساسية', desc: 'Master the essential grammar: I\'rab cases (Marfu\', Mansub, Majrur), Idafah, and sentence analysis.' },
   3: { title: 'Intermediate', titleAr: 'القواعد المتوسطة', desc: 'Verb forms I through X, full conjugations, Inna & Kaana sisters, and passive voice.' },
@@ -42,7 +41,20 @@ for (const { level, clusters } of CURRICULUM_MAP) {
 
 const manifest = [...byLevel.entries()].sort((a, b) => a[0] - b[0])
   .flatMap(([, list]) => list.map(l => ({ id: l.id, title: l.data.title, level: l.data.level, order: l.data.order })));
-const totals = Object.fromEntries([...byLevel.entries()].map(([lv, list]) => [lv, list.length]));
+const totals = Object.fromEntries([...byLevel.entries()].map(([lv, list]) => [lv, list.length])) as Record<number, number>;
+
+const totalLessons = allLessons.length;
+if (totalLessons !== 81) throw new Error(`learn: expected 81 lessons, found ${totalLessons} — update the page copy (dek, finale, foot) with the new count`);
+const firstLesson = manifest[0];
+const boot = {
+  manifest,
+  totals,
+  names: Object.fromEntries(([1,2,3,4,5] as const).map(l => [l, { en: levelNames[l].title, ar: levelNames[l].titleAr }])),
+};
+const title = 'Grammar Lessons | Quranic Grammar';
+const description = "Browse all 81 Quranic Arabic grammar lessons across 5 levels. From the Arabic alphabet and vowels to verb forms I-X, I'rab case endings, and applied Quranic analysis.";
+const canonicalURL = new URL('/learn/', Astro.site);
+const ogImageURL = new URL('/images/og-default.jpg', Astro.site);
 
 const courseSchema = {
   "@context": "https://schema.org",
@@ -68,295 +80,520 @@ const courseSchema = {
 };
 ---
 
-<BaseLayout title="Grammar Lessons" description="Browse all 81 Quranic Arabic grammar lessons across 5 levels. From the Arabic alphabet and vowels to verb forms I-X, I'rab case endings, and applied Quranic analysis.">
-  <Fragment slot="head">
-    <script type="application/ld+json" set:html={JSON.stringify(courseSchema)} />
-  </Fragment>
-  <Container maxWidth="xl">
-    <header class="page-header">
-      <h1 class="page-title">Grammar Curriculum</h1>
-      <p class="page-subtitle">81 lessons across 5 levels, from the Arabic alphabet to a cold-read capstone.</p>
-    </header>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <!-- Google Analytics (GA4) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1MSBYYQT5Z" is:inline></script>
+  <script is:inline>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-1MSBYYQT5Z');
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="description" content={description} />
+  <meta name="theme-color" content="#05070e" />
+  <title>{title}</title>
+  <link rel="canonical" href={canonicalURL.href} />
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={canonicalURL.href} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={ogImageURL.href} />
+  <meta property="og:site_name" content="Quranic Grammar" />
+  <meta property="og:locale" content="en_US" />
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={ogImageURL.href} />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="alternate" type="application/rss+xml" title="Quranic Grammar RSS" href="/rss.xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Amiri+Quran&family=Amiri:ital,wght@0,400;0,700;1,400&family=Marcellus&family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <!-- Keep the stored theme in sync for the rest of the site (this page is always night) -->
+  <script is:inline>
+    (function() {
+      const theme = localStorage.getItem('theme') ||
+        (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
+  <script src="https://analytics.ahrefs.com/analytics.js" data-key="sW/uZfxMauSpqoKnSL6i6g" async is:inline></script>
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(courseSchema).replace(/<\//g, '<\\/')} />
+  <style is:global>
+/* ============================================================
+   THE SKY TOUR · learn section page
+   body, canvas, driver, cards, intro, finale, rail + catalog
+   :root / reset / a / nav / btn / footer are from night.css
+   ============================================================ */
 
-    <ResumeBand manifest={manifest} totals={totals} />
+body{background:var(--bg-0);color:var(--ink);font-family:var(--font-body);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 
-    <div class="map-layout">
-      <nav class="level-rail" data-level-rail aria-label="Levels">
-        {levels.map(level => (
-          <a href={`#level-${level}`} class="rail-item" data-rail-level={level}>
-            <span class="rail-name">Level {level} · {levelNames[level].title}</span>
-            <span class="rail-count" data-rail-count>0 of {totals[level]}</span>
-            <span class="rail-bar" role="progressbar" aria-label={`Level ${level} progress`}
-                  aria-valuemin="0" aria-valuemax={totals[level]} aria-valuenow="0">
-              <span class="progress-fill"></span>
-            </span>
-          </a>
-        ))}
-      </nav>
+#driver{position:relative}
+#view{position:sticky;top:0;height:100svh;overflow:hidden;background:radial-gradient(1200px 760px at 60% -12%,#0d1430 0%,transparent 60%),linear-gradient(180deg,#05070e,#070b16)}
+#skycv{position:absolute;inset:0;display:block}
+#dawn{position:absolute;inset:0;opacity:0;pointer-events:none;background:radial-gradient(1300px 800px at 50% 116%,rgba(244,180,92,.42) 0%,rgba(200,110,50,.16) 40%,transparent 70%)}
 
-      <div class="map-main">
-        {CURRICULUM_MAP.map(({ level, clusters }) => (
-          <section id={`level-${level}`} class="level-section" data-level={level}>
-            <div class="level-header">
-              <h2 class="level-title">
-                <span class="level-number">Level {level}</span>
-                {levelNames[level].title}
-              </h2>
-              <span class="level-arabic" dir="rtl" lang="ar">{levelNames[level].titleAr}</span>
-            </div>
-            <p class="level-desc">{levelNames[level].desc}</p>
-            <p class="level-links">
-              <a href={`/learn/level-${level}/vocabulary/`}>Vocabulary</a>
-              <span aria-hidden="true">·</span>
-              <a href={`/learn/level-${level}/quiz/`}>Quiz</a>
-              {level >= 2 && (
-                <>
-                  <span aria-hidden="true">·</span>
-                  <a href={`/learn/level-${level}/review/`}>Review</a>
-                </>
-              )}
-            </p>
+/* cards */
+.card{position:absolute;left:var(--pad-x);bottom:clamp(24px,6vh,64px);z-index:6;max-width:min(480px,86vw);opacity:0;transform:translateY(18px);pointer-events:none;transition:none}
+.card .rn{font-family:var(--font-mono);font-size:10px;letter-spacing:.4em;color:var(--gold);text-transform:uppercase}
+.card h2{font-family:var(--font-display);font-weight:400;font-size:clamp(30px,3.8vw,52px);line-height:1.1;margin-top:8px;display:flex;gap:16px;align-items:baseline;flex-wrap:wrap}
+.card h2 [lang="ar"]{font-size:.62em;color:var(--gold)}
+.card p{color:var(--ink-dim);font-weight:300;font-size:clamp(14px,1.3vw,16.5px);line-height:1.75;margin-top:10px;text-shadow:0 2px 24px rgba(5,7,14,.9)}
+.card .chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.card .chips span{font-family:var(--font-mono);font-size:9px;letter-spacing:.18em;color:var(--ink-dim);text-transform:uppercase;border:1px solid var(--hairline);border-radius:999px;padding:5px 12px}
+.card .ct{font-family:var(--font-mono);font-size:10px;letter-spacing:.26em;color:var(--gold-bright);text-transform:uppercase;margin-top:14px}
 
-            {clusters.map(cluster => (
-              <div class="cluster">
-                {!cluster.checkpoint && <h3 class="cluster-title">{cluster.title}</h3>}
-                {cluster.note && <p class="cluster-note">{cluster.note}</p>}
-                <div class="cluster-rows">
-                  {cluster.lessons.map(order => {
-                    const lesson = byLevel.get(level)!.find(l => l.data.order === order)!;
-                    return <LessonRow id={lesson.id} title={lesson.data.title}
-                      description={lesson.data.description} level={level} order={order}
-                      checkpoint={cluster.checkpoint} essential={cluster.essential} />;
-                  })}
-                </div>
-              </div>
-            ))}
+/* intro + finale */
+#intro{position:absolute;inset:0;display:grid;place-items:center;text-align:center;z-index:6;pointer-events:none}
+#intro h1{font-family:var(--font-display);font-weight:400;font-size:clamp(42px,6vw,84px);line-height:1.08;max-width:15ch}
+#intro h1 em{font-style:normal;color:var(--gold-bright)}
+#intro .dek{color:var(--ink-dim);font-weight:300;font-size:clamp(15px,1.4vw,18px);max-width:50ch;margin:18px auto 0;line-height:1.8}
+#intro .cue{margin-top:32px;display:flex;flex-direction:column;align-items:center;gap:10px;font-family:var(--font-mono);font-size:10px;letter-spacing:.4em;color:var(--ink-faint);text-transform:uppercase}
+#intro .cue .line{width:1px;height:44px;background:linear-gradient(180deg,transparent,var(--gold));position:relative;overflow:hidden}
+#intro .cue .line::after{content:'';position:absolute;left:0;top:-40%;width:100%;height:40%;background:var(--gold-bright);animation:cuedrop 2.2s var(--ease-io) infinite}
+@keyframes cuedrop{0%{top:-40%}70%,100%{top:110%}}
+@media (prefers-reduced-motion:reduce){#intro .cue .line::after{animation:none}}
+#finale{position:absolute;inset:0;display:grid;place-items:center;text-align:center;z-index:6;opacity:0;pointer-events:none}
+#finale h2{font-family:var(--font-display);font-weight:400;font-size:clamp(34px,4.8vw,64px);line-height:1.14;max-width:20ch}
+#finale h2 em{font-style:normal;color:var(--gold-bright)}
+#finale .ctas{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:38px}
+#finale.live{pointer-events:auto}
 
-            <ReadingTrack level={level} />
-          </section>
-        ))}
+/* progress rail */
+#rail{position:absolute;right:clamp(14px,2.4vw,34px);top:50%;transform:translateY(-50%);z-index:7;display:flex;flex-direction:column;gap:16px}
+#rail span{width:8px;height:8px;border-radius:50%;border:1px solid rgba(228,209,164,.4);transition:all .5s;position:relative}
+#rail span.hot{background:var(--gold-bright);border-color:var(--gold-bright);box-shadow:0 0 12px var(--gold-glow)}
+#rail span i{position:absolute;right:18px;top:50%;transform:translateY(-50%);font-style:normal;font-family:var(--font-mono);font-size:8.5px;letter-spacing:.26em;color:var(--ink-faint);text-transform:uppercase;white-space:nowrap;opacity:0;transition:opacity .4s}
+#rail span.hot i{opacity:1;color:var(--gold-bright)}
+@media (max-width:900px){#rail{display:none}}
+
+/* flat fallback (reduced motion / small screens) — paired with html:not(.js) mirrors */
+.flat #driver, html:not(.js) #driver{height:auto!important}
+.flat #view, html:not(.js) #view{position:static;height:56svh}
+.flat .card,.flat #intro,.flat #finale,
+html:not(.js) .card, html:not(.js) #intro, html:not(.js) #finale{position:static;opacity:1!important;transform:none!important;pointer-events:auto;max-width:720px;margin:40px auto;padding:0 var(--pad-x)}
+.flat #intro, html:not(.js) #intro{display:block;text-align:left;padding-top:30px}
+.flat #rail, html:not(.js) #rail{display:none}
+
+/* Token shim so LessonRow / ReadingTrack / ResumeBand render on midnight
+   without importing the themed global.css. Values map site tokens → night tokens. */
+:root{
+  --text-primary:var(--ink);--text-secondary:var(--ink-dim);--text-tertiary:var(--ink-faint);
+  --text-inverse:#221503;
+  --bg-secondary:rgba(228,209,164,.05);--border-primary:var(--hairline);
+  --accent-gold:var(--gold);--accent-gold-light:rgba(227,179,92,.1);--accent-primary:var(--gold-bright);
+  --radius-md:10px;--radius-lg:14px;--radius-full:999px;
+  --space-md:16px;--space-lg:24px;--space-xl:36px;
+  --font-display:'Marcellus',serif;--font-arabic:'Amiri',serif;
+  --level-1-bg:rgba(227,179,92,.14);--level-1-text:var(--gold-bright);
+  --level-2-bg:rgba(227,179,92,.14);--level-2-text:var(--gold-bright);
+  --level-3-bg:rgba(227,179,92,.14);--level-3-text:var(--gold-bright);
+  --level-4-bg:rgba(227,179,92,.14);--level-4-text:var(--gold-bright);
+  --level-5-bg:rgba(227,179,92,.14);--level-5-text:var(--gold-bright);
+}
+
+/* Catalog section */
+.catalog{position:relative;z-index:8;background:linear-gradient(180deg,#05070e,#070a13);border-top:1px solid var(--hairline-soft)}
+.catalog-inner{max-width:880px;margin:0 auto;padding:clamp(60px,9vh,110px) var(--pad-x) 30px}
+.catalog-title{font-family:var(--font-display);font-weight:400;font-size:clamp(28px,3.4vw,44px);line-height:1.15}
+.catalog-sub{color:var(--ink-dim);font-weight:300;margin-top:8px}
+.catalog .level-section{margin-top:clamp(44px,7vh,72px);scroll-margin-top:90px}
+.catalog .level-header{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;border-bottom:1px solid var(--hairline);padding-bottom:10px}
+.catalog .level-title{font-family:var(--font-display);font-weight:400;font-size:clamp(21px,2.4vw,28px);display:flex;align-items:baseline;gap:14px}
+.catalog .level-number{font-family:var(--font-mono);font-size:11px;letter-spacing:.3em;color:var(--gold);text-transform:uppercase}
+.catalog .level-arabic{font-family:var(--font-ar);font-size:20px;color:var(--gold)}
+.catalog .level-desc{color:var(--ink-dim);font-weight:300;max-width:60ch;margin-top:10px}
+.catalog .level-links{display:flex;gap:12px;font-family:var(--font-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint);margin-top:6px}
+.catalog .level-links a{color:var(--gold-bright)}
+.catalog .level-links a:hover{text-decoration:underline}
+.catalog .cluster{margin-top:26px}
+.catalog .cluster-title{font-family:var(--font-mono);font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--ink-dim);font-weight:400;margin-bottom:6px}
+.catalog .cluster-note{font-size:13px;color:var(--ink-faint);margin-bottom:6px}
+.catalog .cluster-rows{display:flex;flex-direction:column}
+  </style>
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<div id="veil" aria-hidden="true">
+  <svg viewBox="0 0 40 40" fill="none"><path d="M20 2l3.4 10.2L34 8.8l-6.8 8.6L38 20l-10.8 2.6L34 31.2l-10.6-3.4L20 38l-3.4-10.2L6 31.2l6.8-8.6L2 20l10.8-2.6L6 8.8l10.6 3.4z" fill="#e3b35c"/></svg>
+</div>
+
+<header class="nav">
+  <a class="brand" href="/" aria-label="Quranic Grammar, home">
+    <svg viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M20 2l3.4 10.2L34 8.8l-6.8 8.6L38 20l-10.8 2.6L34 31.2l-10.6-3.4L20 38l-3.4-10.2L6 31.2l6.8-8.6L2 20l10.8-2.6L6 8.8l10.6 3.4z" fill="#e3b35c"/></svg>
+    Quranic Grammar
+  </a>
+  <nav class="nav-links" aria-label="Primary">
+    <a class="active" href="/learn/" aria-current="page">LEARN</a><a href="/surahs/">SURAHS</a><a href="/resources/">RESOURCES</a><a href="/about/">ABOUT</a>
+  </nav>
+</header>
+
+<main id="main-content">
+
+<div id="driver">
+  <div id="view">
+    <canvas id="skycv" aria-hidden="true"></canvas>
+    <div id="dawn" aria-hidden="true"></div>
+
+    <div id="intro">
+      <div>
+        <h1>Five levels, <em>one mission</em>.</h1>
+        <p class="dek">Understand every word of the Quran you recite. Eighty-one lessons run from the alphabet to full verse analysis<span data-dek-progress></span>.</p>
+        <div class="cue" aria-hidden="true"><span>Scroll to begin</span><span class="line"></span></div>
       </div>
     </div>
-  </Container>
-</BaseLayout>
 
-<style>
-  .page-header {
-    padding-block-start: var(--spacing-2xl);
-    padding-block-end: var(--spacing-md);
-  }
+    <div class="card" data-stop="1">
+      <span class="rn">Level 1 · {totals[1]} lessons</span>
+      <h2>Foundation <span lang="ar" dir="rtl">الأساسيات</span></h2>
+      <p>Read Arabic script with confidence: the alphabet, every vowel mark, and the three kinds of word. It ends with you reading Surah Al-Ikhlas in the original.</p>
+      <div class="chips"><span>Reading essentials</span><span>Word basics</span><span>Sentences &amp; cases</span><span>Checkpoint: Al-Ikhlas</span></div>
+      <div class="ct" data-ct>Not started</div>
+    </div>
 
-  .page-title {
-    font-family: var(--font-display);
-    font-size: clamp(2rem, 5vw, 3rem);
-    font-weight: 700;
-    color: var(--color-text-primary);
-    margin-block-end: var(--spacing-sm);
-    letter-spacing: -0.03em;
-    line-height: 1.1;
-  }
+    <div class="card" data-stop="2">
+      <span class="rn">Level 2 · {totals[2]} lessons</span>
+      <h2>Core Grammar <span lang="ar" dir="rtl">القواعد الأساسية</span></h2>
+      <p>How every Arabic sentence works: the three cases, possession, description, and the particles that transform meaning. It ends with Surah Al-Kawthar.</p>
+      <div class="chips"><span>Sentence types</span><span>The three cases</span><span>Possession &amp; description</span><span>Checkpoint: Al-Kawthar</span></div>
+      <div class="ct" data-ct>Not started</div>
+    </div>
 
-  .page-subtitle {
-    font-size: clamp(1rem, 2vw, 1.125rem);
-    color: var(--color-text-secondary);
-    max-inline-size: 48rem;
-  }
+    <div class="card" data-stop="3">
+      <span class="rn">Level 3 · {totals[3]} lessons</span>
+      <h2>Intermediate <span lang="ar" dir="rtl">القواعد المتوسطة</span></h2>
+      <p>The verb system in full: all ten forms, the five moods, and every pronoun the Quran uses. At the end, you parse each word of Surah Al-ʿAsr yourself.</p>
+      <div class="chips"><span>Roots &amp; Form I</span><span>Conjugation &amp; moods</span><span>Pronouns</span><span>Forms II–X</span><span>Checkpoint: Al-ʿAsr</span></div>
+      <div class="ct" data-ct>Not started</div>
+    </div>
 
-  /* Map layout: sticky rail beside clustered rows on desktop */
-  .map-layout { display: block; }
+    <div class="card" data-stop="4">
+      <span class="rn">Level 4 · {totals[4]} lessons</span>
+      <h2>Advanced <span lang="ar" dir="rtl">القواعد المتقدمة</span></h2>
+      <p>The constructions that make the Quran precise: conditionals, exception, emphasis, the mafʿul family, and the weak verbs that bend the rules. It ends with a full analysis of Ad-Duha.</p>
+      <div class="chips"><span>Conditionals</span><span>The mafʿul family</span><span>Weak verbs</span><span>Rhetoric</span><span>Checkpoint: Ad-Duha</span></div>
+      <div class="ct" data-ct>Not started</div>
+    </div>
 
-  @media (min-width: 1024px) {
-    .map-layout {
-      display: grid;
-      grid-template-columns: 15rem 1fr;
-      gap: var(--spacing-2xl);
-      align-items: start;
-    }
-    .level-rail {
-      position: sticky;
-      top: 6rem;
-      display: flex;
-      flex-direction: column;
-      gap: var(--spacing-xs);
-      overflow-x: visible;
-      border-block-end: none;
-      padding-block: 0;
-    }
-  }
+    <div class="card" data-stop="5">
+      <span class="rn">Level 5 · {totals[5]} lessons</span>
+      <h2>Applied Study <span lang="ar" dir="rtl">التطبيق القرآني</span></h2>
+      <p>Everything turned on the Book itself: complete analyses of Al-Fatiha and Ayat al-Kursi, Quranic patterns, narrative and rhetoric — until you can parse a passage you have never studied.</p>
+      <div class="chips"><span>The method</span><span>Applied analyses</span><span>Narrative &amp; dialogue</span><span>Capstone: cold read</span></div>
+      <div class="ct" data-ct>Not started — the capstone waits</div>
+    </div>
 
-  /* Mobile: horizontal chip strip pinned under the sticky header */
-  .level-rail {
-    display: flex;
-    gap: var(--spacing-sm);
-    overflow-x: auto;
-    padding-block: var(--spacing-sm);
-    -webkit-overflow-scrolling: touch;
-  }
+    <div id="finale">
+      <div>
+        <h2>The last lesson is a page <em>you have never seen</em>.</h2>
+        <div class="ctas">
+          <a class="btn btn-solid" data-resume-cta href={`/learn/${firstLesson.id}/`}>Start 1.1 — {firstLesson.title}</a>
+          <a class="btn btn-ghost" href="#curriculum">Browse all 81 lessons</a>
+        </div>
+      </div>
+    </div>
 
-  @media (max-width: 1023px) {
-    .level-rail {
-      position: sticky;
-      top: 4.25rem;
-      background: var(--bg-primary);
-      z-index: 10;
-      border-block-end: 1px solid var(--border-primary);
-    }
-    .rail-item { min-inline-size: 10rem; flex-shrink: 0; }
-  }
+    <div id="rail" aria-hidden="true">
+      <span data-s="0"><i>Start</i></span>
+      <span data-s="1"><i>Foundation</i></span>
+      <span data-s="2"><i>Core Grammar</i></span>
+      <span data-s="3"><i>Intermediate</i></span>
+      <span data-s="4"><i>Advanced</i></span>
+      <span data-s="5"><i>Applied Study</i></span>
+      <span data-s="6"><i>Begin</i></span>
+    </div>
+  </div>
+</div>
 
-  .rail-item {
-    display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
-    padding: 0.625rem 0.75rem;
-    border-radius: var(--radius-md);
-    text-decoration: none;
-    transition: background 200ms cubic-bezier(0.23, 1, 0.32, 1);
-  }
-  @media (hover: hover) and (pointer: fine) {
-    .rail-item:hover { background: var(--bg-secondary); }
-  }
-  .rail-item.active { background: var(--bg-secondary); }
+<section id="curriculum" class="catalog" aria-label="All 81 lessons">
+  <div class="catalog-inner">
+    <h2 class="catalog-title">The full curriculum</h2>
+    <p class="catalog-sub">Every lesson, in order. Pick up exactly where you are.</p>
+    <ResumeBand manifest={manifest} totals={totals} />
+    {CURRICULUM_MAP.map(({ level, clusters }) => (
+      <section id={`level-${level}`} class="level-section" data-level={level}>
+        <div class="level-header">
+          <h2 class="level-title"><span class="level-number">Level {level}</span>{levelNames[level as 1|2|3|4|5].title}</h2>
+          <span class="level-arabic" dir="rtl" lang="ar">{levelNames[level as 1|2|3|4|5].titleAr}</span>
+        </div>
+        <p class="level-desc">{levelNames[level as 1|2|3|4|5].desc}</p>
+        <p class="level-links">
+          <a href={`/learn/level-${level}/vocabulary/`}>Vocabulary</a>
+          <span aria-hidden="true">·</span>
+          <a href={`/learn/level-${level}/quiz/`}>Quiz</a>
+          {level >= 2 && (<><span aria-hidden="true">·</span><a href={`/learn/level-${level}/review/`}>Review</a></>)}
+        </p>
+        {clusters.map(cluster => (
+          <div class="cluster">
+            {!cluster.checkpoint && <h3 class="cluster-title">{cluster.title}</h3>}
+            {cluster.note && <p class="cluster-note">{cluster.note}</p>}
+            <div class="cluster-rows">
+              {cluster.lessons.map(order => {
+                const lesson = byLevel.get(level)!.find(l => l.data.order === order)!;
+                return <LessonRow id={lesson.id} title={lesson.data.title}
+                  description={lesson.data.description} level={level as 1|2|3|4|5} order={order}
+                  checkpoint={cluster.checkpoint} essential={cluster.essential} />;
+              })}
+            </div>
+          </div>
+        ))}
+        <ReadingTrack level={level} />
+      </section>
+    ))}
+  </div>
+</section>
 
-  .rail-name { font-size: 0.9375rem; font-weight: 600; color: var(--color-text-primary); }
-  .rail-count {
-    font-size: 0.8125rem;
-    color: var(--color-text-secondary);
-    font-variant-numeric: tabular-nums;
-  }
-  .rail-bar {
-    display: block;
-    block-size: 3px;
-    border-radius: var(--radius-full);
-    background: var(--border-primary);
-    overflow: hidden;
-  }
-  .rail-bar .progress-fill {
-    display: block;
-    block-size: 100%;
-    inline-size: 0;
-    background: var(--accent-gold);
-  }
+</main>
 
-  /* Level sections */
-  .level-section {
-    margin-block-start: var(--spacing-2xl);
-    scroll-margin-block-start: 9rem;
-  }
-  @media (min-width: 1024px) {
-    .level-section { scroll-margin-block-start: 6rem; }
-  }
-  .level-section:first-of-type { margin-block-start: var(--spacing-lg); }
+<footer>
+  <div class="foot-meta">
+    <span>QURANIC GRAMMAR · GRAMMAR CURRICULUM</span>
+    <span>5 LEVELS · 81 LESSONS · 5 CHECKPOINTS</span>
+    <span>FREE · NO SIGN-UP</span>
+    <span>Nettsiden er laget av <a href="https://www.idweb.no" target="_blank" rel="noopener noreferrer">IDweb</a></span>
+  </div>
+</footer>
 
-  .level-header {
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-xs);
-    padding-block-end: var(--spacing-sm);
-    border-block-end: 1px solid var(--border-primary);
-    position: relative;
-  }
-  .level-header::after {
-    content: '';
-    position: absolute;
-    bottom: -1px;
-    left: 0;
-    inline-size: 2.5rem;
-    block-size: 2px;
-    background: var(--accent-gold);
-  }
-
-  .level-title {
-    font-family: var(--font-display);
-    font-size: clamp(1.5rem, 3vw, 2rem);
-    font-weight: 700;
-    color: var(--color-text-primary);
-    display: flex;
-    align-items: baseline;
-    gap: var(--spacing-sm);
-    flex-wrap: wrap;
-    letter-spacing: -0.02em;
-    margin: 0;
-  }
-
-  .level-number {
-    font-family: var(--font-display);
-    font-size: 1rem;
-    font-weight: 700;
-    color: var(--accent-gold);
-  }
-
-  .level-header .level-arabic {
-    font-family: 'Amiri', serif;
-    font-size: 1.25rem;
-    color: var(--accent-gold);
-  }
-
-  .level-desc {
-    color: var(--color-text-secondary);
-    max-inline-size: 60ch;
-    margin-block: var(--spacing-sm) 0;
-  }
-
-  .level-links {
-    display: flex;
-    gap: var(--spacing-sm);
-    font-size: 0.9375rem;
-    margin-block: var(--spacing-xs) 0;
-    color: var(--color-text-tertiary);
-  }
-
-  .level-links a {
-    color: var(--accent-primary);
-    text-decoration: none;
-  }
-
-  .level-links a:hover { text-decoration: underline; }
-
-  /* Clusters */
-  .cluster { margin-block-start: var(--spacing-lg); }
-  .cluster-title {
-    font-size: 0.9375rem;
-    font-weight: 600;
-    color: var(--color-text-secondary);
-    margin: 0 0 var(--spacing-xs);
-  }
-  .cluster-note {
-    font-size: 0.875rem;
-    color: var(--color-text-tertiary);
-    margin: 0 0 var(--spacing-xs);
-  }
-  .cluster-rows { display: flex; flex-direction: column; }
-</style>
+<script type="application/json" id="learn-boot" is:inline set:html={JSON.stringify(boot).replace(/<\//g, '<\\/')}></script>
 
 <script>
-  import { getCompletedLessons } from '../../lib/progress';
+// @ts-nocheck
+import { getCompletedLessons } from '../../lib/progress';
+import { initCapacitor } from '../../scripts/capacitor-init';
+initCapacitor();
 
-  const completed = new Set(getCompletedLessons());
-  document.querySelectorAll<HTMLElement>('[data-lesson-row]').forEach(row => {
-    if (completed.has(row.dataset.lessonId!)) row.classList.add('completed');
+(function(){
+'use strict';
+document.documentElement.classList.add('js');
+var RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+var SMALL=matchMedia('(max-width: 760px)').matches;
+var FLAT=RM||SMALL;
+if(FLAT)document.documentElement.classList.add('flat');
+var veil=document.getElementById('veil');
+addEventListener('load',function(){setTimeout(function(){veil.classList.add('gone');},RM?0:380);});
+setTimeout(function(){veil.classList.add('gone');},2600);
+
+/* ---------- lesson stars (same 5 constellations) ---------- */
+var BOOT=JSON.parse(document.getElementById('learn-boot').textContent);
+var COUNTS=BOOT.totals;
+var NAMES={},AR={};
+Object.keys(BOOT.names).forEach(function(l){NAMES[l]=BOOT.names[l].en;AR[l]=BOOT.names[l].ar;});
+var byLevel={1:[],2:[],3:[],4:[],5:[]};
+BOOT.manifest.forEach(function(m){byLevel[m.level].push(m);});
+var completed=new Set(getCompletedLessons());
+var resume=null;
+for(var ri=0;ri<BOOT.manifest.length;ri++){if(!completed.has(BOOT.manifest[ri].id)){resume=BOOT.manifest[ri];break;}}
+
+function seedRand(i){var x=Math.sin(i*127.1+311.7)*43758.5453;return x-Math.floor(x);}
+var SHAPES={
+  1:[[340,1010],[300,850],[340,700],[440,610],[560,600],[650,680],[680,830],[670,1000]],
+  2:[[820,470],[940,380],[1070,360],[1200,390],[1300,480],[1210,610],[1070,650],[930,610],[960,510],[1150,510]],
+  3:(function(){var a=[],cx=1560,cy=760,R=240;for(var k=0;k<14;k++){var t=k/14*Math.PI*2-Math.PI/2;a.push([cx+Math.cos(t)*R,cy+Math.sin(t)*R]);}a.push([cx,cy-56]);a.push([cx+66,cy+38]);a.push([cx-76,cy+28]);return a;})(),
+  4:[[2010,300],[2130,360],[2230,450],[2290,560],[2230,520],[2110,470],[1980,450],[1850,470],[1740,540],[1690,650],[1810,600],[1950,570]],
+  5:[[2320,1160],[2250,1050],[2260,930],[2350,850],[2460,870],[2520,980],[2490,1100],[2400,1170],[2380,780],[2390,680],[2350,600]]
+};
+var STARS=[];
+[1,2,3,4,5].forEach(function(lv){
+  var n=COUNTS[lv],A=SHAPES[lv],segs=[],tot=0;
+  for(var i=0;i<A.length-1;i++){var d=Math.hypot(A[i+1][0]-A[i][0],A[i+1][1]-A[i][1]);segs.push(d);tot+=d;}
+  for(var i2=0;i2<n;i2++){
+    var f=n===1?0:i2/(n-1),target=f*tot,acc=0,x=A[0][0],y=A[0][1];
+    for(var s=0;s<segs.length;s++){
+      if(acc+segs[s]>=target){var lf=(target-acc)/segs[s];x=A[s][0]+(A[s+1][0]-A[s][0])*lf;y=A[s][1]+(A[s+1][1]-A[s][1])*lf;break;}
+      acc+=segs[s];
+    }
+    var gi=lv*100+i2;
+    x+=(seedRand(gi)-.5)*44;y+=(seedRand(gi+57)-.5)*44;
+    var lesson=byLevel[lv][i2];
+    var state=lesson&&completed.has(lesson.id)?1:0;
+    if(resume&&lesson&&lesson.id===resume.id)state=2;
+    STARS.push({lv:lv,x:x,y:y,tw:seedRand(gi+9)*6.28,cp:i2===n-1,state:state});
+  }
+});
+var CENTERS={};
+[1,2,3,4,5].forEach(function(lv){var s=STARS.filter(function(st){return st.lv===lv;}),mx=0,my=0;s.forEach(function(st){mx+=st.x;my+=st.y;});CENTERS[lv]={x:mx/s.length,y:my/s.length};});
+var BGS=[];for(var i=0;i<260;i++)BGS.push({x:seedRand(i+1000)*2600,y:seedRand(i+2000)*1500,r:seedRand(i+3000)*1+.3,tw:seedRand(i+4000)*6.28});
+
+/* ---------- canvas ---------- */
+var view=document.getElementById('view'),cv=document.getElementById('skycv'),ctx=cv.getContext('2d');
+var W=0,H=0,dpr=Math.min(devicePixelRatio||1,2);
+function size(){var r=view.getBoundingClientRect();W=r.width;H=r.height;cv.width=W*dpr;cv.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);computeKeys();}
+var KEYS=[];
+function fitAll(){return Math.min(W/2600,H/1500)*.94;}
+function zoomFor(lv){
+  var s=STARS.filter(function(st){return st.lv===lv;});
+  var minx=1e9,maxx=-1e9,miny=1e9,maxy=-1e9;
+  s.forEach(function(st){minx=Math.min(minx,st.x);maxx=Math.max(maxx,st.x);miny=Math.min(miny,st.y);maxy=Math.max(maxy,st.y);});
+  return Math.min(W/(maxx-minx+420),H/(maxy-miny+420));
+}
+function computeKeys(){
+  KEYS=[{x:1300,y:790,z:fitAll()}];
+  [1,2,3,4,5].forEach(function(lv){KEYS.push({x:CENTERS[lv].x,y:CENTERS[lv].y,z:zoomFor(lv)});});
+  KEYS.push({x:1300,y:820,z:fitAll()*1.06});
+}
+size();addEventListener('resize',size);
+var cam={x:1300,y:790,z:.5};
+var mx2=.5,my2=.5;
+addEventListener('pointermove',function(e){mx2=e.clientX/innerWidth;my2=e.clientY/innerHeight;});
+function w2s(x,y){return [(x-cam.x)*cam.z+W/2+(mx2-.5)*10,(y-cam.y)*cam.z+H/2+(my2-.5)*7];}
+function smooth(t){return t*t*(3-2*t);}
+
+/* ---------- scroll driver ---------- */
+var driver=document.getElementById('driver');
+var SEGVH=1.35, SEGS=6;
+function sizeDriver(){if(!FLAT)driver.style.height=Math.round(innerHeight*(SEGS*SEGVH+1))+'px';}
+sizeDriver();addEventListener('resize',sizeDriver);
+var u=0;
+function drive(){
+  if(FLAT){u=0;return;}
+  var total=driver.offsetHeight-innerHeight;
+  var p=Math.max(0,Math.min(1,-driver.getBoundingClientRect().top/total));
+  u=p*SEGS;
+}
+addEventListener('scroll',drive,{passive:true});
+
+/* ---------- overlays ---------- */
+var intro=document.getElementById('intro'),finale=document.getElementById('finale'),dawn=document.getElementById('dawn');
+var cards={};[].slice.call(document.querySelectorAll('.card')).forEach(function(c){cards[+c.dataset.stop]=c;});
+var railDots=[].slice.call(document.querySelectorAll('#rail span'));
+
+/* ---------- progress → cards + finale + dek ---------- */
+var lineProg={1:0,2:0,3:0,4:0,5:0};
+var doneTotal=0;
+[1,2,3,4,5].forEach(function(lv){
+  var list=byLevel[lv],done=0;
+  list.forEach(function(m){if(completed.has(m.id))done++;});
+  doneTotal+=done;
+  var ct=document.querySelector('.card[data-stop="'+lv+'"] .ct');
+  if(!ct)return;
+  if(done===list.length&&list.length){ct.textContent='Complete — checkpoint passed';}
+  else if(done===0){ct.textContent=lv===5?'Not started — the capstone waits':'Not started';}
+  else if(resume&&resume.level===lv){ct.textContent=done+' of '+list.length+' — you are here, at '+resume.title;}
+  else{ct.textContent=done+' of '+list.length;}
+});
+var cta=document.querySelector('[data-resume-cta]');
+if(cta){
+  if(!resume){cta.textContent='All '+BOOT.manifest.length+' complete — browse the catalog';cta.setAttribute('href','#curriculum');}
+  else if(doneTotal>0){cta.textContent='Resume '+resume.level+'.'+resume.order+' — '+resume.title;cta.setAttribute('href','/learn/'+resume.id+'/');}
+  /* fresh visitor keeps the server-rendered "Start 1.1 …" label + href */
+}
+var dekMore=document.querySelector('[data-dek-progress]');
+if(dekMore&&doneTotal>0)dekMore.textContent=' — and '+doneTotal+' of them are already behind you';
+/* catalog completed ticks (same contract as the old page) */
+document.querySelectorAll('[data-lesson-row]').forEach(function(row){
+  if(completed.has(row.getAttribute('data-lesson-id')))row.classList.add('completed');
+});
+
+/* ---------- render ---------- */
+var t0=performance.now(),run=true;
+document.addEventListener('visibilitychange',function(){run=!document.hidden;});
+(function frame(t){
+  requestAnimationFrame(frame);
+  if(!run)return;
+  var dt=Math.min(.05,(t-t0)/1000);t0=t;
+  /* camera from keyframes */
+  var seg=Math.min(SEGS-1,Math.floor(u)),f=u-seg;
+  var travel=smooth(Math.min(1,f/.5));
+  var a=KEYS[seg],b=KEYS[seg+1]||KEYS[seg];
+  var tx=a.x+(b.x-a.x)*travel,ty=a.y+(b.y-a.y)*travel,tz=a.z+(b.z-a.z)*travel;
+  var k=FLAT?1:1-Math.pow(.004,dt);
+  cam.x+=(tx-cam.x)*k;cam.y+=(ty-cam.y)*k;cam.z+=(tz-cam.z)*k;
+  if(FLAT){cam.x=1300;cam.y=790;cam.z=fitAll();}
+  /* line progress per constellation */
+  [1,2,3,4,5].forEach(function(lv){
+    var on=FLAT||u>lv-0.55;
+    var tgt=on?1:0.12;
+    lineProg[lv]+=(tgt-lineProg[lv])*(FLAT?1:1-Math.pow(.2,dt));
   });
-
-  document.querySelectorAll<HTMLElement>('[data-rail-level]').forEach(item => {
-    const level = item.dataset.railLevel!;
-    const rows = document.querySelectorAll(`[data-lesson-id^="level-${level}/"]`);
-    const done = [...rows].filter(r => r.classList.contains('completed')).length;
-    const bar = item.querySelector('[role="progressbar"]')!;
-    bar.setAttribute('aria-valuenow', String(done));
-    (bar.querySelector('.progress-fill') as HTMLElement).style.inlineSize =
-      `${rows.length ? (done / rows.length) * 100 : 0}%`;
-    item.querySelector('[data-rail-count]')!.textContent = `${done} of ${rows.length}`;
+  /* overlays */
+  if(!FLAT){
+    var iv=Math.max(0,1-u*2.4);
+    intro.style.opacity=iv;intro.style.transform='translateY('+(u*-40)+'px)';
+    for(var s2=1;s2<=5;s2++){
+      var vis=Math.max(0,1-Math.abs(u-(s2+.32))*2.1);
+      var c2=cards[s2];
+      c2.style.opacity=vis;
+      c2.style.transform='translateY('+((1-vis)*22)+'px)';
+      c2.style.pointerEvents=vis>.6?'auto':'none';
+    }
+    var fv=Math.max(0,Math.min(1,(u-5.45)*2.2));
+    finale.style.opacity=fv;finale.classList.toggle('live',fv>.6);
+    dawn.style.opacity=(Math.max(0,(u-5.1)/.9)*.95).toFixed(3);
+    var act=Math.round(u);
+    railDots.forEach(function(d,i2){d.classList.toggle('hot',i2===Math.max(0,Math.min(6,act)));});
+  }
+  /* draw */
+  ctx.clearRect(0,0,W,H);
+  var dawnF=FLAT?0:Math.max(0,(u-5.1)/.9);
+  var n1=w2s(760,520);
+  var g1=ctx.createRadialGradient(n1[0],n1[1],10,n1[0],n1[1],W*.4);
+  g1.addColorStop(0,'rgba(24,32,74,.4)');g1.addColorStop(1,'rgba(24,32,74,0)');
+  ctx.fillStyle=g1;ctx.fillRect(0,0,W,H);
+  for(var i3=0;i3<BGS.length;i3++){
+    var b2=BGS[i3],p2=w2s(b2.x,b2.y);
+    if(p2[0]<-20||p2[0]>W+20||p2[1]<-20||p2[1]>H+20)continue;
+    ctx.globalAlpha=(RM?.5:.28+.34*Math.sin(t*.0007+b2.tw))*.6*(1-dawnF*.8);
+    ctx.fillStyle='#c9d4ee';ctx.beginPath();ctx.arc(p2[0],p2[1],b2.r*Math.max(.6,cam.z),0,7);ctx.fill();
+  }
+  ctx.globalAlpha=1;
+  [1,2,3,4,5].forEach(function(lv){
+    var s3=STARS.filter(function(st){return st.lv===lv;});
+    var pr=lineProg[lv];
+    if(pr<=.01)return;
+    ctx.strokeStyle='rgba(227,179,92,'+(0.08+0.3*pr)+')';
+    ctx.lineWidth=1;
+    var total2=s3.length-1,show=total2*pr;
+    ctx.beginPath();
+    for(var i4=0;i4<Math.floor(show);i4++){
+      var a3=w2s(s3[i4].x,s3[i4].y),b4=w2s(s3[i4+1].x,s3[i4+1].y);
+      ctx.moveTo(a3[0],a3[1]);ctx.lineTo(b4[0],b4[1]);
+    }
+    ctx.stroke();
   });
-
-  // Scrollspy: highlight the rail item for the level currently in view.
-  const sections = document.querySelectorAll<HTMLElement>('section.level-section');
-  const io = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (!e.isIntersecting) return;
-      const item = document.querySelector(`[data-rail-level="${(e.target as HTMLElement).dataset.level}"]`);
-      document.querySelectorAll('.rail-item.active').forEach(a => a.classList.remove('active'));
-      item?.classList.add('active');
-    });
-  }, { rootMargin: '-20% 0px -70% 0px' });
-  sections.forEach(s => io.observe(s));
+  for(var j=0;j<STARS.length;j++){
+    var st=STARS[j],p3=w2s(st.x,st.y);
+    if(p3[0]<-40||p3[0]>W+40||p3[1]<-40||p3[1]>H+40)continue;
+    var tw=RM?1:.8+.2*Math.sin(t*.0016+st.tw);
+    var base=(st.cp?5.2:2.9)*Math.max(.7,Math.min(1.5,cam.z*1.4))*tw;
+    if(st.state>0){
+      var glow=ctx.createRadialGradient(p3[0],p3[1],0,p3[0],p3[1],base*5);
+      glow.addColorStop(0,'rgba(244,214,143,.5)');glow.addColorStop(1,'rgba(244,214,143,0)');
+      ctx.fillStyle=glow;ctx.beginPath();ctx.arc(p3[0],p3[1],base*5,0,7);ctx.fill();
+      ctx.fillStyle='#f4d68f';
+    }else ctx.fillStyle='rgba(190,204,238,.55)';
+    ctx.beginPath();ctx.arc(p3[0],p3[1],base,0,7);ctx.fill();
+    if(st.state===2&&!RM){
+      var pr3=(t*.001)%1.6/1.6;
+      ctx.strokeStyle='rgba(244,214,143,'+(1-pr3)*.9+')';ctx.lineWidth=1.4;
+      ctx.beginPath();ctx.arc(p3[0],p3[1],base+pr3*22,0,7);ctx.stroke();
+    }
+  }
+  /* labels */
+  ctx.textAlign='center';
+  [1,2,3,4,5].forEach(function(lv){
+    var c3=CENTERS[lv],pc=w2s(c3.x,c3.y);
+    var vis=FLAT?1:Math.max(.15,Math.min(1,1.4-Math.abs(u-lv)));
+    var off=lv===3?300:220;
+    ctx.globalAlpha=.85*vis;
+    ctx.fillStyle='#f4edda';ctx.font='400 '+Math.max(14,19*cam.z*2)+'px Marcellus, serif';
+    ctx.fillText(NAMES[lv],pc[0],pc[1]-off*cam.z);
+    ctx.globalAlpha=.45*vis;
+    ctx.fillStyle='#e3b35c';ctx.font='400 '+Math.max(11,14*cam.z*2)+'px Amiri, serif';
+    ctx.fillText(AR[lv],pc[0],pc[1]-off*cam.z+Math.max(15,19*cam.z*2));
+  });
+  ctx.globalAlpha=1;
+})(0);
+drive();
+})();
 </script>
+
+</body>
+</html>
