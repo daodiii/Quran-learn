@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tree III · Arabesque</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri+Quran&family=Amiri:ital,wght@0,400;0,700;1,400&family=Marcellus&family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg-0:#05070e; --bg-1:#090d19; --bg-2:#0e1425;
+  --ink:#f4edda; --ink-dim:rgba(244,237,218,.66); --ink-faint:rgba(244,237,218,.42);
+  --gold:#e3b35c; --gold-bright:#f4d68f; --gold-deep:#a97e35;
+  --hairline:rgba(228,209,164,.14); --hairline-soft:rgba(228,209,164,.07);
+  --ease-out:cubic-bezier(.23,1,.32,1);
+  --font-display:'Marcellus',serif; --font-body:'Geist',sans-serif;
+  --font-mono:'Geist Mono',monospace; --font-quran:'Amiri Quran','Amiri',serif; --font-ar:'Amiri',serif;
+  --pad-x:clamp(20px,4vw,64px);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{
+  background:var(--bg-0);color:var(--ink);font-family:var(--font-body);
+  font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased;
+  height:100dvh;overflow:hidden;
+}
+a{color:inherit;text-decoration:none}
+::selection{background:rgba(227,179,92,.28)}
+:focus-visible{outline:2px solid var(--gold);outline-offset:4px;border-radius:2px}
+[lang="ar"]{font-family:var(--font-ar)}
+
+.top{
+  position:fixed;top:0;left:0;right:0;z-index:20;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:20px var(--pad-x);pointer-events:none;
+}
+.brand{display:flex;align-items:center;gap:12px;font-family:var(--font-display);font-size:14px;letter-spacing:.34em;text-transform:uppercase}
+.brand svg{width:18px;height:18px}
+.chip{font-family:var(--font-mono);font-size:11px;letter-spacing:.3em;color:var(--gold);border:1px solid rgba(227,179,92,.3);border-radius:999px;padding:7px 16px}
+
+.stage{
+  position:relative;height:100dvh;overflow:hidden;
+  display:flex;flex-direction:column;
+  padding:calc(64px + 2vh) var(--pad-x) 0;
+  background:
+    radial-gradient(110% 70% at 50% 118%, rgba(169,126,53,.15) 0%, transparent 58%),
+    radial-gradient(70% 50% at 86% -8%, rgba(35,84,92,.2) 0%, transparent 60%),
+    radial-gradient(60% 46% at 8% 4%, rgba(43,32,84,.22) 0%, transparent 58%),
+    var(--bg-0);
+}
+.fig{position:relative;flex:1;min-height:0;margin-top:1vh}
+#arb{position:absolute;inset:0;width:100%;height:100%}
+.head{
+  position:relative;z-index:5;width:100%;max-width:1360px;margin:0 auto;
+  display:flex;justify-content:space-between;align-items:flex-start;gap:26px;pointer-events:none;
+}
+h1{font-family:var(--font-display);font-weight:400;font-size:clamp(28px,3.4vw,46px);line-height:1.16;max-width:20ch}
+h1 .em{color:var(--gold)}
+.sub{margin-top:10px;color:var(--ink-dim);font-weight:300;font-size:clamp(14px,1.15vw,16.5px);max-width:44ch;line-height:1.8}
+.count{text-align:right}
+.count b{font-family:var(--font-mono);font-weight:500;font-size:clamp(38px,4.2vw,60px);color:var(--gold-bright);display:block;line-height:1}
+.count span{font-size:12.5px;color:var(--ink-faint)}
+
+.rootlabel{
+  position:absolute;left:0;top:0;z-index:6;pointer-events:none;
+  font-family:var(--font-quran);font-size:19px;color:rgba(244,237,218,.62);
+  white-space:nowrap;
+}
+
+/* engraved scrollwork */
+#arb .aglow{fill:none;stroke:rgba(227,179,92,.10);stroke-linecap:round;stroke-linejoin:round;transition:stroke .5s}
+#arb .aline{fill:none;stroke:#c79c50;stroke-linecap:round;stroke-linejoin:round;transition:stroke .5s}
+#arb .aglow.lit{stroke:rgba(244,214,143,.30)}
+#arb .aline.lit{stroke:#f6d894}
+#arb .leaf{fill:rgba(227,179,92,.13);stroke:rgba(227,179,92,.38);stroke-width:1}
+#arb .dstar{fill:rgba(215,222,240,.55);animation:dtw 3.8s ease-in-out infinite}
+@keyframes dtw{50%{opacity:.3}}
+#arb .bs{cursor:pointer;transition:transform .45s var(--ease-out)}
+#arb .bs.sel{transform:scale(1.4)}
+#arb .bs .bshalo{opacity:.45;transition:opacity .45s}
+#arb .bs.sel .bshalo{opacity:1}
+#arb .bs .bscore{transition:fill .45s}
+#arb .bs.sel .bscore{fill:#fff3d6}
+#treewrap{transform-origin:500px 604px}
+@media (prefers-reduced-motion:no-preference){
+  #treewrap{animation:sway 8s ease-in-out infinite alternate}
+}
+@keyframes sway{from{transform:rotate(-.4deg)}to{transform:rotate(.4deg)}}
+@media (prefers-reduced-motion:reduce){
+  #arb .dstar{animation:none}
+  #arb .bs{transition:none}
+}
+
+.plaque{
+  position:absolute;left:50%;bottom:22px;transform:translateX(-50%);z-index:9;
+  display:inline-flex;align-items:center;gap:clamp(14px,1.6vw,24px);
+  padding:11px 26px 12px 22px;max-width:min(92vw,760px);
+  border:1px solid var(--hairline);border-radius:999px;
+  background:rgba(8,11,22,.78);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  transition:border-color .4s;
+  white-space:nowrap;
+}
+.plaque:hover{border-color:rgba(227,179,92,.4)}
+.plq-inner{display:inline-flex;align-items:center;gap:clamp(14px,1.6vw,24px);transition:opacity .24s ease}
+.plq-inner.fade{opacity:.15}
+.plq-ar{direction:rtl;font-family:var(--font-quran);font-size:clamp(24px,2.2vw,31px);line-height:1.4;color:var(--ink)}
+.plq-div{width:1px;height:30px;background:var(--hairline)}
+.plq-body{display:flex;flex-direction:column;line-height:1.35}
+.plq-en{font-family:var(--font-display);font-weight:400;font-size:15.5px;letter-spacing:.03em}
+.plq-meta{font-family:var(--font-mono);font-size:10px;letter-spacing:.22em;color:var(--ink-faint)}
+.plq-go{font-size:13px;color:var(--gold-bright);letter-spacing:.03em;display:inline-flex;align-items:center;gap:7px}
+.plq-go .arr{transition:transform .4s var(--ease-out)}
+.plaque:hover .plq-go .arr{transform:translateX(4px)}
+@media (max-width:640px){.plq-body,.plq-div{display:none}}
+@media (prefers-reduced-motion:reduce){.plq-inner{transition:none}}
+
+.foot{
+  position:absolute;right:var(--pad-x);bottom:26px;z-index:8;text-align:right;
+  display:flex;flex-direction:column;align-items:flex-end;gap:10px;
+}
+.hint{font-size:13px;color:var(--ink-faint);font-weight:300;max-width:38ch}
+.hint i{font-style:normal;color:var(--gold)}
+.all{display:inline-flex;align-items:center;gap:12px;font-size:14px;color:var(--gold-bright)}
+.all .ln{width:44px;height:1px;background:var(--gold);transform-origin:left;transition:transform .5s var(--ease-out)}
+.all:hover .ln{transform:scaleX(1.5)}
+
+@media (max-width:900px){
+  .count{display:none}
+  .hint{display:none}
+  .head{top:80px}
+  .foot{left:var(--pad-x);align-items:flex-start;text-align:left;bottom:88px}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <span class="brand"><svg viewBox="0 0 24 24" fill="none" stroke="#e3b35c" stroke-width="1.1"><path d="M12 2v20M2 12h20M4.9 4.9l14.2 14.2M19.1 4.9L4.9 19.1"/><circle cx="12" cy="12" r="3.2"/></svg>Quranic&nbsp;Grammar</span>
+  <span class="chip">TREE III · ARABESQUE</span>
+</header>
+
+<section class="stage" id="stage" aria-label="Surah atlas — arabesque tree">
+  <div class="head">
+    <div>
+      <h1>Full breakdown of <span class="em">Juz ʿAmma.</span></h1>
+      <p class="sub">A good word is like a good tree — its root firm, its branches in the sky. Here the tree is drawn as illuminated scrollwork: thirty-seven surahs beaded along its golden vines, Al-Fatiha at the root.</p>
+    </div>
+    <div class="count"><b>38</b><span>complete surah analyses</span></div>
+  </div>
+
+  <div class="fig">
+    <svg id="arb" viewBox="0 0 1000 680" aria-hidden="true"></svg>
+  </div>
+
+  <a class="plaque" id="plaque" href="/surahs/001-al-fatiha/" aria-live="polite">
+    <span class="plq-inner" id="plqInner">
+      <span class="plq-ar" id="plqAr" lang="ar" dir="rtl" translate="no">الفاتحة</span>
+      <span class="plq-div"></span>
+      <span class="plq-body">
+        <b class="plq-en" id="plqEn">Al-Fatiha</b>
+        <span class="plq-meta" id="plqMeta">SURAH 001 · 7 VERSES · WORD BY WORD</span>
+      </span>
+      <span class="plq-go">Open <span class="arr" aria-hidden="true">&rarr;</span></span>
+    </span>
+  </a>
+
+  <div class="foot">
+    <p class="hint"><i>Ibrahim 14:24.</i> Hover a bead — its vine lights the way back to the root.</p>
+    <a class="all" href="/surahs/"><span class="ln"></span>Browse all 38 analyses</a>
+  </div>
+</section>
+
+<script>
+(function(){
+'use strict';
+const RM   = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const $=s=>document.querySelector(s);
+const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
+
+/* [number, name, arabicName, verseCount] — harvested byte-exact from content frontmatter */
+const SURAHS=[
+[1,"Al-Fatiha","الفاتحة",7],
+[78,"An-Naba","النبإ",40],
+[79,"An-Naziʿat","النازعات",46],
+[80,"ʿAbasa","عبس",42],
+[81,"At-Takwir","التكوير",29],
+[82,"Al-Infitar","الإنفطار",19],
+[83,"Al-Mutaffifin","المطففين",36],
+[84,"Al-Inshiqaq","الإنشقاق",25],
+[85,"Al-Buruj","البروج",22],
+[86,"At-Tariq","الطارق",17],
+[87,"Al-A'la","الأعلى",19],
+[88,"Al-Ghashiyah","الغاشية",26],
+[89,"Al-Fajr","الفجر",30],
+[90,"Al-Balad","البلد",20],
+[91,"Ash-Shams","الشمس",15],
+[92,"Al-Layl","الليل",21],
+[93,"Ad-Duha","الضحى",11],
+[94,"Ash-Sharh","الشرح",8],
+[95,"At-Tin","التين",8],
+[96,"Al-'Alaq","العلق",19],
+[97,"Al-Qadr","القدر",5],
+[98,"Al-Bayyinah","البينة",8],
+[99,"Az-Zalzalah","الزلزلة",8],
+[100,"Al-'Adiyat","العاديات",11],
+[101,"Al-Qari'ah","القارعة",11],
+[102,"At-Takathur","التكاثر",8],
+[103,"Al-ʿAsr","العصر",3],
+[104,"Al-Humazah","الهمزة",9],
+[105,"Al-Fil","الفيل",5],
+[106,"Quraysh","قريش",4],
+[107,"Al-Maʿun","الماعون",7],
+[108,"Al-Kawthar","الكوثر",3],
+[109,"Al-Kafirun","الكافرون",6],
+[110,"An-Nasr","النصر",3],
+[111,"Al-Masad","المسد",5],
+[112,"Al-Ikhlas","الإخلاص",4],
+[113,"Al-Falaq","الفلق",5],
+[114,"An-Nas","الناس",6]
+];
+const FEAT=new Set([112,113,114]);
+const slug=(n,name)=>'/surahs/'+String(n).padStart(3,'0')+'-'+name.toLowerCase().replace(/[ʿ'']/g,'').replace(/\s+/g,'-')+'/';
+
+const NS='http://www.w3.org/2000/svg';
+const svg=$('#arb'), stage=$('#stage');
+const plaque=$('#plaque'), plqInner=$('#plqInner'), plqAr=$('#plqAr'), plqEn=$('#plqEn'), plqMeta=$('#plqMeta');
+function el(tag,attrs,parent){
+  const e=document.createElementNS(NS,tag);
+  for(const k in attrs)e.setAttribute(k,attrs[k]);
+  (parent||svg).appendChild(e);return e;
+}
+const polar=(cx,cy,r,a)=>[cx+r*Math.cos(a),cy+r*Math.sin(a)];
+
+/* ── defs ── */
+const defs=el('defs',{});
+const gHot=el('linearGradient',{id:'goldHot',x1:'0',y1:'0',x2:'0',y2:'1'},defs);
+el('stop',{offset:'0%','stop-color':'#fff1d0'},gHot);
+el('stop',{offset:'100%','stop-color':'#e3b35c'},gHot);
+const gHalo=el('radialGradient',{id:'bsHalo'},defs);
+el('stop',{offset:'0%','stop-color':'rgba(244,214,143,.55)'},gHalo);
+el('stop',{offset:'100%','stop-color':'rgba(244,214,143,0)'},gHalo);
+const gBasin=el('radialGradient',{id:'basin'},defs);
+el('stop',{offset:'0%','stop-color':'rgba(244,204,124,.34)'},gBasin);
+el('stop',{offset:'55%','stop-color':'rgba(227,179,92,.10)'},gBasin);
+el('stop',{offset:'100%','stop-color':'rgba(227,179,92,0)'},gBasin);
+
+/* ── quiet star field ── */
+(function(){
+  let s=13;const rnd=()=>{s=(s*16807)%2147483647;return s/2147483647;};
+  for(let i=0;i<46;i++){
+    const st=el('circle',{cx:(rnd()*1000).toFixed(1),cy:(rnd()*430).toFixed(1),r:(.6+rnd()*.9).toFixed(2),class:'dstar'});
+    st.style.animationDelay=(rnd()*3.8).toFixed(2)+'s';
+  }
+})();
+
+/* ── ground + basin ── */
+el('ellipse',{cx:500,cy:604,rx:200,ry:44,fill:'url(#basin)'});
+const gl=el('linearGradient',{id:'gline',x1:'0',y1:'0',x2:'1',y2:'0'},defs);
+el('stop',{offset:'0%','stop-color':'rgba(228,209,164,0)'},gl);
+el('stop',{offset:'50%','stop-color':'rgba(228,209,164,.26)'},gl);
+el('stop',{offset:'100%','stop-color':'rgba(228,209,164,0)'},gl);
+el('line',{x1:60,y1:604,x2:940,y2:604,stroke:'url(#gline)','stroke-width':1});
+
+const wrap=el('g',{id:'treewrap'});
+
+/* ── scrollwork generation ── */
+const LINES=[];              /* {pts,level,parent,elLine,elGlow,len} */
+const LEVELW=[3,2.3,1.7,1.2];
+function spiralPts(ex,ey,r0,a0,sweep,r1,n){
+  n=n||46;
+  const pts=[];
+  for(let i=0;i<=n;i++){
+    const u=i/n;
+    pts.push(polar(ex,ey,r0*Math.pow(r1/r0,u),a0+sweep*u));
+  }
+  return pts;
+}
+function ptAt(pts,u){
+  const i=clamp(Math.round(u*(pts.length-1)),1,pts.length-2);
+  return {p:pts[i],tan:Math.atan2(pts[i+1][1]-pts[i-1][1],pts[i+1][0]-pts[i-1][0])};
+}
+function addLine(pts,level,parent){
+  const d='M '+pts.map(p=>p[0].toFixed(1)+' '+p[1].toFixed(1)).join(' L ');
+  const glow=el('path',{d,class:'aglow','stroke-width':LEVELW[level]+3.4},wrap);
+  const line=el('path',{d,class:'aline','stroke-width':LEVELW[level]},wrap);
+  const rec={pts,level,parent,elLine:line,elGlow:glow};
+  LINES.push(rec);
+  return rec;
+}
+function leafAt(P,tan,len,side){
+  const a=tan+side*1.05;
+  const T=[P[0]+Math.cos(a)*len,P[1]+Math.sin(a)*len];
+  const n1=a+.5,n2=a-.5;
+  const c1=[P[0]+Math.cos(n1)*len*.62,P[1]+Math.sin(n1)*len*.62];
+  const c2=[P[0]+Math.cos(n2)*len*.62,P[1]+Math.sin(n2)*len*.62];
+  el('path',{d:`M ${P[0].toFixed(1)} ${P[1].toFixed(1)} Q ${c1[0].toFixed(1)} ${c1[1].toFixed(1)} ${T[0].toFixed(1)} ${T[1].toFixed(1)} Q ${c2[0].toFixed(1)} ${c2[1].toFixed(1)} ${P[0].toFixed(1)} ${P[1].toFixed(1)} Z`,class:'leaf'},wrap);
+}
+
+/* trunk */
+const trunkPts=[];
+for(let i=0;i<=24;i++){
+  const u=i/24;
+  const y=604-134*u;
+  const x=500+Math.sin(u*Math.PI)*(-9)+Math.sin(u*Math.PI*2)*4;
+  trunkPts.push([x,y]);
+}
+const trunk=addLine(trunkPts,0,null);
+
+/* crown finial between the two volutes */
+el('path',{d:'M 500 466 C 487 447 491 427 500 413 C 509 427 513 447 500 466 Z',class:'leaf'},wrap);
+
+/* two mirrored main volutes + children */
+[[-1],[1]].forEach(([side])=>{
+  const ex=500+side*205, ey=316;
+  const sx=500, sy=470;
+  const dx=sx-ex, dy=sy-ey;
+  const r0=Math.hypot(dx,dy), a0=Math.atan2(dy,dx);
+  /* left volute sweeps negative (over the top), right sweeps positive mirrored */
+  const sw=(side===-1)?-2.3*Math.PI:2.3*Math.PI;
+  const main=addLine(spiralPts(ex,ey,r0,a0,sw,12),1,trunk);
+  /* secondaries springing off the main scroll */
+  [.30,.55,.78].forEach((u,idx)=>{
+    const {p,tan}=ptAt(main.pts,u);
+    const r0c=[86,66,48][idx];
+    const swc=-Math.sign(sw)*1.9*Math.PI;
+    const a0c=tan-Math.sign(swc)*Math.PI/2;
+    const eye=[p[0]-Math.cos(a0c)*r0c,p[1]-Math.sin(a0c)*r0c];
+    const sec=addLine(spiralPts(eye[0],eye[1],r0c,a0c,swc,8),2,main);
+    /* one tertiary curl per secondary */
+    const q=ptAt(sec.pts,.5);
+    const r0t=30;
+    const swt=-Math.sign(swc)*1.7*Math.PI;
+    const a0t=q.tan-Math.sign(swt)*Math.PI/2;
+    const eyeT=[q.p[0]-Math.cos(a0t)*r0t,q.p[1]-Math.sin(a0t)*r0t];
+    addLine(spiralPts(eyeT[0],eyeT[1],r0t,a0t,swt,6),3,sec);
+    leafAt(q.p,q.tan,15,idx%2?1:-1);
+  });
+  /* leaf flourishes on the main scroll */
+  [.16,.44,.68].forEach((u,idx)=>{
+    const {p,tan}=ptAt(main.pts,u);
+    leafAt(p,tan,24-idx*4,idx%2?-1:1);
+  });
+});
+
+/* ── beads: 37 surahs along the vines (skip the trunk — that is the root's) ── */
+const vinePaths=LINES.filter(l=>l.level>0);
+let totalLen=0;
+vinePaths.forEach(l=>{l.len=l.elLine.getTotalLength();totalLen+=l.len;});
+const bosses=[];
+const step=totalLen/37;
+let cursor=step*.5, walked=0, vi=0;
+for(let i=0;i<37;i++){
+  while(vi<vinePaths.length-1&&cursor>walked+vinePaths[vi].len){walked+=vinePaths[vi].len;vi++;}
+  const path=vinePaths[vi];
+  const pt=path.elLine.getPointAtLength(clamp(cursor-walked,0,path.len));
+  bosses.push({x:pt.x,y:pt.y,host:path});
+  cursor+=step;
+}
+bosses.sort((a,b)=>a.x-b.x);
+bosses.forEach((b,i)=>{
+  const s=SURAHS[i+1];
+  b.num=s[0];b.name=s[1];b.ar=s[2];b.vs=s[3];
+  b.chain=[];let h=b.host;
+  while(h){b.chain.push(h);h=h.parent;}
+});
+
+/* boss visuals (after sorting so DOM order is stable) */
+bosses.forEach(b=>{
+  const R=2.6+Math.sqrt(b.vs)*.6;
+  const g=el('g',{class:'bs'},wrap);
+  g.style.transformOrigin=b.x+'px '+b.y+'px';
+  el('circle',{cx:b.x,cy:b.y,r:R*3.1,fill:'url(#bsHalo)',class:'bshalo'},g);
+  if(FEAT.has(b.num))el('circle',{cx:b.x,cy:b.y,r:R+3.4,fill:'none',stroke:'rgba(244,214,143,.6)','stroke-width':1},g);
+  el('circle',{cx:b.x,cy:b.y,r:R,fill:'url(#goldHot)',stroke:'rgba(9,13,25,.55)','stroke-width':.6,class:'bscore'},g);
+  el('circle',{cx:b.x,cy:b.y,r:15,fill:'transparent'},g);
+  b.el=g;
+});
+
+/* Fatiha at the root */
+const rootG=el('g',{class:'bs'},wrap);
+rootG.style.transformOrigin='500px 604px';
+el('circle',{cx:500,cy:604,r:24,fill:'url(#bsHalo)',class:'bshalo'},rootG);
+el('circle',{cx:500,cy:604,r:7,fill:'url(#goldHot)',stroke:'rgba(9,13,25,.55)','stroke-width':.6,class:'bscore'},rootG);
+el('circle',{cx:500,cy:604,r:18,fill:'transparent'},rootG);
+const fatiha={num:1,name:'Al-Fatiha',ar:SURAHS[0][2],vs:7,el:rootG,chain:[trunk]};
+
+const rootLabel=document.createElement('div');
+rootLabel.className='rootlabel';rootLabel.setAttribute('lang','ar');rootLabel.setAttribute('dir','rtl');
+rootLabel.textContent='الفاتحة';
+stage.appendChild(rootLabel);
+function placeRootLabel(){
+  const sr=svg.getBoundingClientRect(), st=stage.getBoundingClientRect();
+  const k=Math.min(sr.width/1000,sr.height/680);
+  const ox=sr.left-st.left+(sr.width-1000*k)/2, oy=sr.top-st.top+(sr.height-680*k)/2;
+  rootLabel.style.transform='translate('+(ox+500*k)+'px,'+(oy+620*k)+'px) translateX(-50%)';
+}
+placeRootLabel();
+addEventListener('resize',placeRootLabel);
+
+/* ── selection: plaque + lineage ── */
+let sel=null,lastMove=0,autoT=0,swapT=null;
+function applyPlaque(b){
+  plqAr.textContent=b.ar;
+  plqEn.textContent=b.name;
+  plqMeta.textContent='SURAH '+String(b.num).padStart(3,'0')+' · '+b.vs+(b.vs===1?' VERSE':' VERSES')+' · WORD BY WORD';
+  plaque.href=slug(b.num,b.name);
+}
+function select(b,viaPointer){
+  if(sel===b)return;
+  if(sel){
+    sel.el.classList.remove('sel');
+    sel.chain.forEach(l=>{l.elLine.classList.remove('lit');l.elGlow.classList.remove('lit');});
+  }
+  sel=b;
+  b.el.classList.add('sel');
+  b.chain.forEach(l=>{l.elLine.classList.add('lit');l.elGlow.classList.add('lit');});
+  if(RM){applyPlaque(b);}
+  else{
+    plqInner.classList.add('fade');
+    clearTimeout(swapT);
+    swapT=setTimeout(()=>{applyPlaque(b);plqInner.classList.remove('fade');},230);
+  }
+}
+const all=[fatiha,...bosses];
+all.forEach(b=>{
+  b.el.addEventListener('pointerenter',()=>{lastMove=performance.now();select(b,true);});
+  b.el.addEventListener('click',()=>{location.href=slug(b.num,b.name);});
+});
+svg.addEventListener('pointermove',()=>{lastMove=performance.now();},{passive:true});
+
+/* ── entrance: the scrollwork draws itself, beads then kindle ── */
+function enter(){
+  LINES.forEach((l,i)=>{
+    const len=l.elLine.getTotalLength();
+    [l.elLine,l.elGlow].forEach(p=>{
+      p.style.strokeDasharray=len;
+      p.style.strokeDashoffset=RM?0:len;
+      if(!RM)p.style.transition='stroke-dashoffset 1.15s cubic-bezier(.4,0,.2,1) '+(l.level*.5+(i%7)*.05)+'s, stroke .5s';
+    });
+  });
+  document.querySelectorAll('#arb .leaf').forEach((lf,i)=>{
+    lf.style.opacity=RM?1:0;
+    if(!RM)lf.style.transition='opacity .8s ease '+(1.5+i*.08)+'s';
+  });
+  all.forEach((b,i)=>{
+    b.el.style.opacity=RM?1:0;
+    if(!RM)b.el.style.transition='opacity .55s ease '+(1.7+i*.032)+'s, transform .45s cubic-bezier(.23,1,.32,1)';
+  });
+  if(RM)return;
+  requestAnimationFrame(()=>requestAnimationFrame(()=>{
+    LINES.forEach(l=>{l.elLine.style.strokeDashoffset=0;l.elGlow.style.strokeDashoffset=0;});
+    document.querySelectorAll('#arb .leaf').forEach(lf=>{lf.style.opacity=1;});
+    all.forEach(b=>{b.el.style.opacity=1;});
+  }));
+}
+if(document.fonts&&document.fonts.ready){
+  let started=false;
+  const go=()=>{if(!started){started=true;enter();}};
+  document.fonts.ready.then(()=>setTimeout(go,60));
+  setTimeout(go,2400);
+}else enter();
+
+/* idle auto-tour */
+if(!RM){
+  (function tour(now){
+    requestAnimationFrame(tour);
+    if(document.hidden)return;
+    if(now-lastMove<4400)return;
+    if(now-autoT<3800)return;
+    autoT=now;
+    select(all[(Math.random()*all.length)|0],false);
+  })(0);
+}
+select(fatiha,false);
+})();
+</script>
+</body>
+</html>

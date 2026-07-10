@@ -1,81 +1,14 @@
----
-import { getCollection } from 'astro:content';
-// [number, name, arabicName, verseCount, href] for the tree of Juz ʿAmma —
-// byte-exact Arabic and real routes, straight from the content collection.
-const surahData = (await getCollection('surahs'))
-  .sort((a, b) => a.data.surahNumber - b.data.surahNumber)
-  .map(s => [s.data.surahNumber, s.data.name, s.data.nameArabic, s.data.verseCount, `/surahs/${s.id}/`]);
-
-const title = 'Quranic Grammar · Understand every word you recite';
-const description =
-  'Free, complete lessons in Quranic Arabic grammar. Five levels, 81 lessons, 38 surah analyses. Learn the cases, the verb forms, and the sentence patterns of the Quran.';
-const canonicalURL = new URL('/', Astro.site);
-const ogImageURL = new URL('/images/og-default.jpg', Astro.site);
----
-
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
 <head>
-  <!-- Google Analytics (GA4) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1MSBYYQT5Z" is:inline></script>
-  <script is:inline>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-1MSBYYQT5Z');
-  </script>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta name="description" content={description} />
-  <meta name="theme-color" content="#05070e" />
-  <title>{title}</title>
-  <link rel="canonical" href={canonicalURL.href} />
-  <!-- Open Graph -->
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content={canonicalURL.href} />
-  <meta property="og:title" content={title} />
-  <meta property="og:description" content={description} />
-  <meta property="og:image" content={ogImageURL.href} />
-  <meta property="og:site_name" content="Quranic Grammar" />
-  <meta property="og:locale" content="en_US" />
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content={title} />
-  <meta name="twitter:description" content={description} />
-  <meta name="twitter:image" content={ogImageURL.href} />
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <link rel="alternate" type="application/rss+xml" title="Quranic Grammar RSS" href="/rss.xml" />
-  <!-- Fonts: loaded eagerly — the hero formation samples Amiri Quran on the canvas -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Amiri+Quran&family=Amiri:ital,wght@0,400;0,700;1,400&family=Marcellus&family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
-  <!-- Keep the stored theme in sync for the rest of the site (this page is always night) -->
-  <script is:inline>
-    (function() {
-      const theme = localStorage.getItem('theme') ||
-        (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-      document.documentElement.setAttribute('data-theme', theme);
-    })();
-  </script>
-  <script src="https://analytics.ahrefs.com/analytics.js" data-key="sW/uZfxMauSpqoKnSL6i6g" async is:inline></script>
-  <script type="application/ld+json" is:inline set:html={JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "Quranic Grammar",
-    "url": "https://www.quranic-grammar.com/",
-    "description": "Learn Quranic Arabic grammar from beginner to advanced. Comprehensive lessons, verb forms, and detailed surah breakdowns.",
-    "inLanguage": "en",
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": {
-        "@type": "EntryPoint",
-        "urlTemplate": "https://www.quranic-grammar.com/search/?q={search_term_string}"
-      },
-      "query-input": "required name=search_term_string"
-    }
-  })} />
-
-  <style is:global>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quranic Grammar · Understand every word you recite</title>
+<meta name="description" content="Free, complete lessons in Quranic Arabic grammar. Five levels, 81 lessons, 38 surah analyses. Learn the cases, the verb forms, and the sentence patterns of the Quran.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri+Quran&family=Amiri:ital,wght@0,400;0,700;1,400&family=Marcellus&family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
 /* ============================================================
    NIGHT SKY TOKENS · نور على نور
    ============================================================ */
@@ -583,16 +516,9 @@ footer{background:transparent;position:relative;z-index:1;border-top-color:rgba(
 @keyframes duapulse{0%{text-shadow:0 0 0 rgba(244,214,143,0)}30%{text-shadow:0 0 64px rgba(244,214,143,.7)}100%{text-shadow:0 0 26px rgba(244,214,143,.28)}}
 @media (prefers-reduced-motion:reduce){.dua.arrive{animation:none}}
 @media (max-width:767px){#dawnstars,#river{display:none}}
-
-/* accessibility: skip link (visually hidden until focused) */
-.skip-link{position:fixed;left:16px;top:-60px;z-index:300;background:var(--gold);color:var(--btn-ink);font-size:14px;font-weight:500;padding:10px 18px;border-radius:8px;transition:top .2s}
-.skip-link:focus{top:14px}
-  </style>
+</style>
 </head>
 <body>
-
-
-<a href="#main-content" class="skip-link">Skip to main content</a>
 
 <div id="veil" aria-hidden="true">
   <svg viewBox="0 0 24 24" fill="none" stroke="#e3b35c" stroke-width="1"><path d="M12 1l2.4 6.1L21 8l-5 4.4L17.5 19 12 15.6 6.5 19 8 12.4 3 8l6.6-.9z" stroke-linejoin="round"/></svg>
@@ -617,7 +543,7 @@ footer{background:transparent;position:relative;z-index:1;border-top-color:rgba(
 <canvas id="river" aria-hidden="true"></canvas>
 <div id="dawnsun" aria-hidden="true"></div>
 
-<main id="main-content">
+<main>
 
 <!-- ═══════════════ ACT I · THE NIGHT ═══════════════ -->
 <section class="hero" id="top" aria-label="Introduction">
@@ -918,17 +844,9 @@ footer{background:transparent;position:relative;z-index:1;border-top-color:rgba(
   </div>
 </footer>
 
-
-<script type="application/json" id="surah-data" is:inline set:html={JSON.stringify(surahData).replace(/<\//g, '<\\/')}></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
 <script>
-  import { gsap } from 'gsap';
-  import { ScrollTrigger } from 'gsap/ScrollTrigger';
-  import { initCapacitor } from '../scripts/capacitor-init';
-
-  window.gsap = gsap;
-  window.ScrollTrigger = ScrollTrigger;
-  initCapacitor();
-
 /* ══════════════════════════════════════════════════════════════
    نور على نور · Light upon Light
    Act engine: WebGL nebula, particle basmala, constellation
@@ -1808,10 +1726,49 @@ function buildTree(){
   const rootLabel = $('#treeroot');
   const TDPR = Math.min(devicePixelRatio || 1, 2);
 
-  /* [number, name, arabicName, verseCount, href] — injected from the content collection */
-  const SURAHS = JSON.parse(document.getElementById('surah-data').textContent);
-  const HREFS = new Map(SURAHS.map(s => [s[0], s[4]]));
-  const slug = n => HREFS.get(n) || '/surahs/';
+  /* [number, name, arabicName, verseCount] — harvested byte-exact from content frontmatter */
+  const SURAHS = [
+    [1,"Al-Fatiha","الفاتحة",7],
+    [78,"An-Naba","النبإ",40],
+    [79,"An-Naziʿat","النازعات",46],
+    [80,"ʿAbasa","عبس",42],
+    [81,"At-Takwir","التكوير",29],
+    [82,"Al-Infitar","الإنفطار",19],
+    [83,"Al-Mutaffifin","المطففين",36],
+    [84,"Al-Inshiqaq","الإنشقاق",25],
+    [85,"Al-Buruj","البروج",22],
+    [86,"At-Tariq","الطارق",17],
+    [87,"Al-A'la","الأعلى",19],
+    [88,"Al-Ghashiyah","الغاشية",26],
+    [89,"Al-Fajr","الفجر",30],
+    [90,"Al-Balad","البلد",20],
+    [91,"Ash-Shams","الشمس",15],
+    [92,"Al-Layl","الليل",21],
+    [93,"Ad-Duha","الضحى",11],
+    [94,"Ash-Sharh","الشرح",8],
+    [95,"At-Tin","التين",8],
+    [96,"Al-'Alaq","العلق",19],
+    [97,"Al-Qadr","القدر",5],
+    [98,"Al-Bayyinah","البينة",8],
+    [99,"Az-Zalzalah","الزلزلة",8],
+    [100,"Al-'Adiyat","العاديات",11],
+    [101,"Al-Qari'ah","القارعة",11],
+    [102,"At-Takathur","التكاثر",8],
+    [103,"Al-ʿAsr","العصر",3],
+    [104,"Al-Humazah","الهمزة",9],
+    [105,"Al-Fil","الفيل",5],
+    [106,"Quraysh","قريش",4],
+    [107,"Al-Maʿun","الماعون",7],
+    [108,"Al-Kawthar","الكوثر",3],
+    [109,"Al-Kafirun","الكافرون",6],
+    [110,"An-Nasr","النصر",3],
+    [111,"Al-Masad","المسد",5],
+    [112,"Al-Ikhlas","الإخلاص",4],
+    [113,"Al-Falaq","الفلق",5],
+    [114,"An-Nas","الناس",6]
+  ];
+  const slug = (n, name) => '/surahs/' + String(n).padStart(3, '0') + '-' +
+    name.toLowerCase().replace(/[ʿ'']/g, '').replace(/\s+/g, '-') + '/';
 
   const MAXD = 4;
   const WIDTHS = [7, 4.4, 2.9, 1.9, 1.2];

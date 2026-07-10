@@ -1,0 +1,20 @@
+import { chromium } from '@playwright/test';
+import path from 'node:path';
+const DIR = path.dirname(new URL(import.meta.url).pathname);
+const browser = await chromium.launch({ channel: 'chrome', headless: true });
+const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 } });
+const p = await ctx.newPage();
+p.on('pageerror', e => console.log('PAGEERROR', String(e).slice(0, 150)));
+await p.goto('file://' + path.join(DIR, 'landing-planetarium.html'), { waitUntil: 'networkidle' });
+await p.evaluate(() => document.fonts.ready.then(() => undefined));
+await p.waitForTimeout(4500);
+await p.evaluate(() => window.scrollTo(0, Math.round((document.documentElement.scrollHeight - innerHeight) * 0.14)));
+await p.waitForTimeout(1200);
+await p.screenshot({ path: path.join(DIR, 'shots', 'b-planetarium-14-fixed.png') });
+const st = await p.evaluate(() => {
+  const w = document.querySelector('.cw');
+  const r = w.getBoundingClientRect();
+  return { wordVisibleY: Math.round(r.top), inViewport: r.top > 0 && r.bottom < innerHeight, lit: document.querySelectorAll('.cw.lit').length };
+});
+console.log(JSON.stringify(st));
+await browser.close();
