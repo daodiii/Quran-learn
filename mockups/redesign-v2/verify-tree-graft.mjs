@@ -2,7 +2,7 @@ import { chromium } from '@playwright/test';
 import path from 'node:path';
 const DIR = path.dirname(new URL(import.meta.url).pathname);
 const OUT = path.join(DIR, 'shots');
-const PAGE = 'file://' + path.join(DIR, 'landing-final.html');
+const PAGE = process.env.PAGE || ('file://' + path.join(DIR, 'landing-final.html'));
 const issues = [];
 const notes = [];
 const browser = await chromium.launch({ channel: 'chrome', headless: true });
