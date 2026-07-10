@@ -218,6 +218,7 @@ body{background:var(--bg-0);color:var(--ink);font-family:var(--font-body);font-s
   <div id="strip" aria-label="Jump to surah"></div>
 </div>
 
+{/* shares .surah-index so it inherits the same sr-only clipping; revealed together with the nav in the noscript view */}
 <p class="surah-index surah-index-note">I recommend finishing <a href="/learn/">Level 3</a> before starting the surahs.</p>
 <nav class="surah-index" aria-label="All surah breakdowns">
   <ol>
@@ -231,6 +232,8 @@ body{background:var(--bg-0);color:var(--ink);font-family:var(--font-body);font-s
     .surah-index{position:static!important;width:auto!important;height:auto!important;clip:auto!important;clip-path:none!important;overflow:visible!important;white-space:normal!important;padding:110px var(--pad-x) 60px!important}
     #stage{display:none}
     body{overflow:auto!important}
+    .surah-index-note{padding-bottom:0!important}
+    nav.surah-index{padding-top:24px!important}
   </style>
 </noscript>
 
@@ -246,7 +249,7 @@ initCapacitor();
 (function(){
 'use strict';
 var dataEl=document.getElementById('surah-astro-data'),DATA;
-try{DATA=JSON.parse(dataEl.textContent);}catch(e){return;} /* no .js class → SSR plate + sr-index stay usable */
+try{DATA=JSON.parse(dataEl.textContent);}catch(e){return;} /* no .js class → SSR plate + crawlable/SR index stay usable */
 var SURAHS=DATA.SURAHS,MAXV=DATA.maxVerses;
 document.documentElement.classList.add('js');
 
@@ -409,7 +412,7 @@ SURAHS.forEach(function(s){
 
 /* drag */
 function angOf(e){var r=svg.getBoundingClientRect();return Math.atan2(e.clientY-(r.top+r.height/2),e.clientX-(r.left+r.width/2))*180/Math.PI;}
-svg.addEventListener('pointerdown',function(e){dragging=true;snapping=false;lastA=angOf(e);lastT=performance.now();vel=0;svg.classList.add('dragging');svg.setPointerCapture(e.pointerId);});
+svg.addEventListener('pointerdown',function(e){dragging=true;plate.setAttribute('aria-live','off');snapping=false;lastA=angOf(e);lastT=performance.now();vel=0;svg.classList.add('dragging');svg.setPointerCapture(e.pointerId);});
 svg.addEventListener('pointermove',function(e){
   if(!dragging)return;
   var a=angOf(e),now=performance.now();
@@ -417,7 +420,9 @@ svg.addEventListener('pointermove',function(e){
   rot+=d;vel=d/Math.max(8,now-lastT)*16;
   lastA=a;lastT=now;
 });
-addEventListener('pointerup',function(){if(dragging){dragging=false;svg.classList.remove('dragging');}});
+function endDrag(){if(dragging){dragging=false;svg.classList.remove('dragging');}}
+addEventListener('pointerup',endDrag);
+addEventListener('pointercancel',endDrag);
 
 function step(dir){var i=orderIdx(selNum)+dir;if(i<0)i=SURAHS.length-1;if(i>=SURAHS.length)i=0;select(SURAHS[i].num,true);}
 document.getElementById('prev').addEventListener('click',function(){step(-1);});
@@ -442,11 +447,12 @@ document.addEventListener('visibilitychange',function(){run=!document.hidden;});
       var near=nearestToPointer();
       if(near.num!==lastNearest){
         lastNearest=near.num;
-        jewel.classList.remove('flash');void jewel.getBBox;jewel.classList.add('flash');
+        jewel.classList.remove('flash');void jewel.getBBox();jewel.classList.add('flash');
         select(near.num,false);   /* live readout while spinning */
         snapping=false;
       }
     }else{
+      if(plate.getAttribute('aria-live')==='off'){plate.setAttribute('aria-live','polite');renderPlate(surahByNum(selNum));}
       if(!snapping){select(nearestToPointer().num,false);}
       var tr=targetRotFor(selNum);
       var d2=norm(tr-rot);
