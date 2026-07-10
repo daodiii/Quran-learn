@@ -7,8 +7,9 @@
  *  - hardcoded SURAHS array  -> JSON injected from the content collection
  *  - slug() guesser          -> href map from real collection ids
  *  - GSAP CDN tags           -> npm imports (works offline in the Capacitor app)
- *  - adds GA4 + Ahrefs, canonical/OG meta, favicon, RSS, skip link,
- *    and initCapacitor() from the old landing page
+ *  - adds GA4 + Ahrefs, canonical/OG meta, favicon, RSS, the WebSite +
+ *    SearchAction JSON-LD, a skip link, and initCapacitor() (carried
+ *    over from the old BaseLayout, which this standalone page bypasses)
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -130,6 +131,23 @@ const ogImageURL = new URL('/images/og-default.jpg', Astro.site);
     })();
   </script>
   <script src="https://analytics.ahrefs.com/analytics.js" data-key="sW/uZfxMauSpqoKnSL6i6g" async is:inline></script>
+  <script type="application/ld+json" is:inline set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Quranic Grammar",
+    "url": "https://www.quranic-grammar.com/",
+    "description": "Learn Quranic Arabic grammar from beginner to advanced. Comprehensive lessons, verb forms, and detailed surah breakdowns.",
+    "inLanguage": "en",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://www.quranic-grammar.com/search/?q={search_term_string}"
+      },
+      "query-input": "required name=search_term_string"
+    }
+  })} />
+
   <style is:global>
 ${css}
 ${skipCss}
@@ -139,7 +157,7 @@ ${skipCss}
 
 ${body}
 
-<script type="application/json" id="surah-data" is:inline set:html={JSON.stringify(surahData)}></script>
+<script type="application/json" id="surah-data" is:inline set:html={JSON.stringify(surahData).replace(/<\\//g, '<\\\\/')}></script>
 <script>
   import { gsap } from 'gsap';
   import { ScrollTrigger } from 'gsap/ScrollTrigger';
