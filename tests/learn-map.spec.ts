@@ -38,13 +38,33 @@ test('resume band appears for a returning user and targets first incomplete less
   await expect(band.locator('[data-resume-link]')).toHaveAttribute('href', /03-reading-bismillah/);
 });
 
-test('completed lessons show state and rail reflects progress', async ({ page }) => {
+test('completed lessons show state in the catalog', async ({ page }) => {
   await page.goto('/learn/');
   await page.evaluate(() => localStorage.setItem('quran-learn-progress', JSON.stringify({
     completedLessons: ['level-1/01-arabic-script-vowels'], lastUpdated: new Date().toISOString(),
   })));
   await page.reload();
   await expect(page.locator('[data-lesson-row].completed')).toHaveCount(1);
-  await expect(page.locator('[data-level-rail] [data-rail-level="1"] [role="progressbar"]'))
-    .toHaveAttribute('aria-valuenow', '1');
+});
+
+test('sky tour: level cards carry real counts and finale resume targets first incomplete lesson', async ({ page }) => {
+  await page.goto('/learn/');
+  await expect(page.locator('.card[data-stop]')).toHaveCount(5);
+  await expect(page.locator('.card[data-stop="1"] .rn')).toContainText('11 lessons');
+  // fresh visitor: solid CTA starts at lesson 1.1
+  await expect(page.locator('[data-resume-cta]')).toHaveAttribute('href', /level-1\/01-/);
+  await page.evaluate(() => localStorage.setItem('quran-learn-progress', JSON.stringify({
+    completedLessons: ['level-1/01-arabic-script-vowels', 'level-1/02-reading-marks'],
+    lastUpdated: new Date().toISOString(),
+  })));
+  await page.reload();
+  await expect(page.locator('[data-resume-cta]')).toHaveAttribute('href', /03-reading-bismillah/);
+  await expect(page.locator('[data-resume-cta]')).toContainText('1.3');
+  await expect(page.locator('.card[data-stop="1"] .ct')).toContainText('2 of 11');
+});
+
+test('sky tour: browse CTA anchors to the server-rendered catalog', async ({ page }) => {
+  await page.goto('/learn/');
+  await expect(page.locator('a[href="#curriculum"]').first()).toBeAttached();
+  await expect(page.locator('#curriculum [data-lesson-row]')).toHaveCount(81);
 });
