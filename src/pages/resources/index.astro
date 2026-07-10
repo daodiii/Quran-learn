@@ -1,155 +1,539 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import Container from '../../components/primitives/Container.astro';
-import CardGrid from '../../components/cards/CardGrid.astro';
-import ResourceCard from '../../components/cards/ResourceCard.astro';
+import '../../styles/night.css';
 import { getCollection } from 'astro:content';
 
-const allResources = await getCollection('resources');
-const sorted = allResources.sort((a, b) => (a.data.order ?? 0) - (b.data.order ?? 0));
-
-// Map resource types to icons
-const resourceIcons = {
-  '200-most-used-words': `
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-      <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" stroke-linecap="round" stroke-linejoin="round"/>
-      <line x1="9" y1="7" x2="15" y2="7" stroke-linecap="round"/>
-      <line x1="9" y1="11" x2="15" y2="11" stroke-linecap="round"/>
-      <line x1="9" y1="15" x2="13" y2="15" stroke-linecap="round"/>
-    </svg>
-  `,
-  'case-endings-chart': `
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-      <rect x="3" y="3" width="18" height="18" rx="2" ry="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <line x1="9" y1="3" x2="9" y2="21" stroke-linecap="round"/>
-      <line x1="15" y1="3" x2="15" y2="21" stroke-linecap="round"/>
-      <line x1="3" y1="9" x2="21" y2="9" stroke-linecap="round"/>
-      <line x1="3" y1="15" x2="21" y2="15" stroke-linecap="round"/>
-    </svg>
-  `,
-  'glossary': `
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-      <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
-  `,
-  'pronoun-charts': `
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-      <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke-linecap="round" stroke-linejoin="round"/>
-      <circle cx="8.5" cy="7" r="4" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M20 8v6M23 11h-6" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
-  `,
-  'root-system': `
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-      <circle cx="12" cy="12" r="3" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M12 1v6m0 6v6M5.64 5.64l4.24 4.24m4.24 4.24l4.24 4.24M1 12h6m6 0h6M5.64 18.36l4.24-4.24m4.24-4.24l4.24-4.24" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
-  `,
-  'verb-conjugation-tables': `
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-      <path d="M9 11l3 3L22 4" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
-  `,
-  'learning-roadmap': `
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-      <path d="M9 20l-5.447-2.724A1 1 0 0 1 3 16.382V5.618a1 1 0 0 1 1.447-.894L9 7m0 13l6-3m-6 3V7m6 10l5.553 2.276A1 1 0 0 0 21 18.382V7.618a1 1 0 0 0-1.447-.894L15 9m0 8V9m0 0L9 7" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
-  `,
-  'quran-arabic-vs-msa': `
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-      <path d="M8 7V3M16 7V3M3 11h18M5 5h14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M9 17l3-3 3 3" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
-  `
-};
+const resources = await getCollection('resources');
+const EXPECTED = ['200-most-used-words','arabic-in-7-principles','case-endings-chart','glossary','learning-roadmap','pronoun-charts','quran-arabic-vs-msa','root-system','verb-conjugation-tables','verb-forms-master-reference'];
+const ids = new Set(resources.map(r => r.id));
+for (const id of EXPECTED) if (!ids.has(id)) throw new Error(`resources: expected entry "${id}" missing — update the control-room rack`);
+if (resources.length !== EXPECTED.length) throw new Error(`resources: collection has ${resources.length} entries, rack is built for ${EXPECTED.length} — add the new tile`);
+const guideCount = resources.length;
+const title = 'Resources | Quranic Grammar';
+const description = 'Quick-reference charts and guides for Quranic Arabic: verb conjugation tables, pronoun charts, case endings, 200 most-used Quranic words, and Arabic root system guide.';
+const canonicalURL = new URL('/resources/', Astro.site);
+const ogImageURL = new URL('/images/og-default.jpg', Astro.site);
 ---
 
-<BaseLayout title="Resources" description="Quick-reference charts and guides for Quranic Arabic: verb conjugation tables, pronoun charts, case endings, 200 most-used Quranic words, and Arabic root system guide.">
-  <Container size="md" class="page-container">
-    <header class="page-header">
-      <h1 class="page-title">Resources</h1>
-      <p class="page-description">
-        Quick-reference charts, tables, and guides for Quranic Arabic grammar.
-        Essential tools for your learning journey.
-      </p>
-    </header>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <!-- Google Analytics (GA4) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1MSBYYQT5Z" is:inline></script>
+  <script is:inline>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-1MSBYYQT5Z');
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="description" content={description} />
+  <meta name="theme-color" content="#05070e" />
+  <title>{title}</title>
+  <link rel="canonical" href={canonicalURL.href} />
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={canonicalURL.href} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={ogImageURL.href} />
+  <meta property="og:site_name" content="Quranic Grammar" />
+  <meta property="og:locale" content="en_US" />
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={ogImageURL.href} />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="alternate" type="application/rss+xml" title="Quranic Grammar RSS" href="/rss.xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Amiri+Quran&family=Amiri:ital,wght@0,400;0,700;1,400&family=Marcellus&family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <!-- Keep the stored theme in sync for the rest of the site (this page is always night) -->
+  <script is:inline>
+    (function() {
+      const theme = localStorage.getItem('theme') ||
+        (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
+  <script src="https://analytics.ahrefs.com/analytics.js" data-key="sW/uZfxMauSpqoKnSL6i6g" async is:inline></script>
+  <style is:global>
+/* ============================================================
+   THE CONTROL ROOM · resources section page
+   body, head + HUD, rack grid, .mod family, swap helper, demos
+   :root / reset / a / :focus-visible / [lang=ar] / ::selection /
+   [data-reveal] pattern / #veil family / .nav family /
+   footer / .foot-meta / .skip-link are provided by night.css
+   ============================================================ */
 
-    <CardGrid minCardWidth={320} gap="md">
-      <ResourceCard
-        title="Verb Form Generator"
-        description="Pick any Quranic root and watch it move through the ten verb forms: real attested verbs with meanings, counts, and verse references."
-        href="/resources/verb-forms/"
-        data-testid="resource-verb-forms"
-      >
-        <Fragment slot="icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M12 3v18" stroke-linecap="round"/>
-            <path d="M5 8c2.5-3 4.5-3 7 0s4.5 3 7 0" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M5 16c2.5-3 4.5-3 7 0s4.5 3 7 0" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </Fragment>
-      </ResourceCard>
-      <ResourceCard
-        title="Word Lookup"
-        description="Type any word of the Quran — Arabic, sound, or meaning — and see its root, verb form, grammar, and morpheme breakdown."
-        href="/resources/word-lookup/"
-        data-testid="resource-word-lookup"
-      >
-        <Fragment slot="icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="11" cy="11" r="7" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M21 21l-4.35-4.35" stroke-linecap="round"/>
-            <path d="M8.5 11h5M11 8.5v5" stroke-linecap="round"/>
-          </svg>
-        </Fragment>
-      </ResourceCard>
-      {sorted.map(resource => (
-        <ResourceCard
-          title={resource.data.title}
-          description={resource.data.description}
-          href={`/resources/${resource.id}/`}
-          data-testid={`resource-${resource.id}`}
-        >
-          <Fragment slot="icon" set:html={resourceIcons[resource.id as keyof typeof resourceIcons] || resourceIcons['glossary']} />
-        </ResourceCard>
-      ))}
-    </CardGrid>
-  </Container>
-</BaseLayout>
+html{scroll-behavior:smooth;background:#05070e}
+body{background:linear-gradient(180deg,#05070e,#070a13);color:var(--ink);font-family:var(--font-body);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 
-<style>
-  .page-container {
-    padding-block: var(--spacing-2xl) var(--spacing-3xl);
-  }
+/* head + HUD */
+.head{padding:clamp(120px,15vh,170px) var(--pad-x) clamp(20px,3.5vh,40px);max-width:1400px;margin:0 auto;display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap}
+.head h1{font-family:var(--font-display);font-weight:400;font-size:clamp(38px,5vw,66px);line-height:1.08;max-width:15ch}
+.head h1 em{font-style:normal;color:var(--gold-bright)}
+.head .dek{color:var(--ink-dim);font-weight:300;font-size:clamp(14px,1.3vw,16.5px);line-height:1.8;max-width:44ch}
+#hud{border:1px solid rgba(227,179,92,.35);border-radius:12px;padding:14px 20px;background:rgba(9,13,25,.7);min-width:250px}
+#hud .h-row{display:flex;justify-content:space-between;gap:20px;font-family:var(--font-mono);font-size:9.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-faint);padding:3px 0}
+#hud .h-row b{color:var(--gold-bright);font-weight:500;letter-spacing:.12em}
+#hud .beatlamp{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--gold-deep);vertical-align:middle;margin-right:8px;transition:background .12s,box-shadow .12s}
+#hud .beatlamp.on{background:var(--gold-bright);box-shadow:0 0 12px var(--gold-glow)}
 
-  .page-header {
-    text-align: center;
-    margin-block-end: var(--spacing-3xl);
-  }
+/* rack */
+#rack{max-width:1400px;margin:0 auto;padding:0 var(--pad-x) 70px;display:grid;gap:clamp(12px,1.5vw,20px);grid-template-columns:repeat(4,1fr);grid-auto-rows:minmax(150px,auto)}
+@media (max-width:1100px){#rack{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){#rack{grid-template-columns:1fr}}
+.c-2w{grid-column:span 2}.c-2h{grid-row:span 2}
+@media (max-width:560px){.c-2w{grid-column:span 1}}
 
-  .page-title {
-    font-size: 2.25rem;
-    font-weight: 700;
-    color: var(--color-text-primary);
-    margin-block-end: var(--spacing-md);
-    letter-spacing: -0.02em;
-  }
+.mod{position:relative;border:1px solid rgba(228,209,164,.2);border-radius:14px;overflow:hidden;padding:16px 20px 18px;display:flex;flex-direction:column;
+  background:
+    linear-gradient(180deg,rgba(227,179,92,.06),transparent 22%),
+    linear-gradient(168deg,#0d1224,#080c17);
+  box-shadow:inset 0 1px 0 rgba(228,209,164,.08);
+  transition:border-color .5s,transform .5s var(--ease-out),box-shadow .5s}
+.mod:hover{transform:translateY(-4px);border-color:rgba(227,179,92,.45);box-shadow:0 24px 64px rgba(0,0,0,.55)}
+/* corner screws */
+.mod .screws i{position:absolute;width:5px;height:5px;border-radius:50%;background:radial-gradient(circle at 35% 35%,rgba(244,237,218,.5),rgba(90,80,55,.9));font-style:normal}
+.mod .screws i:nth-child(1){left:8px;top:8px}.mod .screws i:nth-child(2){right:8px;top:8px}
+.mod .screws i:nth-child(3){left:8px;bottom:8px}.mod .screws i:nth-child(4){right:8px;bottom:8px}
+/* header strip: label + meter + led */
+.mod .strip{display:flex;align-items:center;gap:12px;border-bottom:1px solid var(--hairline-soft);padding-bottom:10px}
+.mod .strip .lbl{font-family:var(--font-mono);font-size:8.5px;letter-spacing:.26em;color:var(--gold);text-transform:uppercase;flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mod .meter{width:44px;height:18px;flex:none}
+.mod .meter svg{width:100%;height:100%;overflow:visible}
+.mod .meter .arc{fill:none;stroke:rgba(228,209,164,.25);stroke-width:1}
+.mod .meter .needle{stroke:var(--gold-bright);stroke-width:1.3;transform-origin:22px 17px;transform:rotate(-38deg);transition:transform .5s var(--ease-io)}
+.mod.beat .meter .needle{transform:rotate(30deg);transition:transform .16s var(--ease-out)}
+.mod .led{width:7px;height:7px;border-radius:50%;background:#3a3320;flex:none;transition:background .12s,box-shadow .12s}
+.mod.beat .led,.mod.on .led.idle{background:var(--gold-bright);box-shadow:0 0 10px var(--gold-glow)}
+.mod h3{font-family:var(--font-display);font-weight:400;font-size:clamp(16px,1.6vw,19.5px);line-height:1.25;margin-top:10px}
+.mod .demo{flex:1;display:grid;place-items:center;min-height:60px;padding:8px 0 2px}
+.mod .ds{font-size:11.5px;color:var(--ink-faint);font-weight:300;line-height:1.55}
+.mod .go{position:absolute;inset:0;z-index:3;border-radius:14px}
+.mod .go:focus-visible{outline:2px solid var(--gold);outline-offset:-4px}
+/* boot states */
+.js .mod .inner{opacity:0}
+.js .mod.booting .inner{animation:bootflick .5s steps(2,end) forwards}
+@keyframes bootflick{0%{opacity:0}25%{opacity:.7}50%{opacity:.12}75%{opacity:.85}100%{opacity:1}}
+.js .mod.on .inner{opacity:1}
+@media (prefers-reduced-motion:reduce){.js .mod .inner{opacity:1!important;animation:none!important}}
+.mod .inner{display:flex;flex-direction:column;height:100%}
 
-  @media (min-width: 640px) {
-    .page-title {
-      font-size: 2.75rem;
-    }
-  }
+/* swap helper */
+.sw{transition:opacity .32s,filter .32s,transform .32s}
+.swapping .sw{opacity:0;filter:blur(5px);transform:translateY(4px)}
 
-  .page-description {
-    font-family: var(--font-sans);
-    font-size: 1.125rem;
-    line-height: 1.6;
-    color: var(--color-text-secondary);
-    max-inline-size: 600px;
-    margin-inline: auto;
-  }
-</style>
+/* demos (compact set) */
+.d-big-ar{font-family:var(--font-quran);font-size:clamp(30px,3vw,40px);direction:rtl;line-height:1.55;color:var(--ink);text-align:center}
+.d-lbl{font-family:var(--font-mono);font-size:8.5px;letter-spacing:.26em;color:var(--gold-bright);text-transform:uppercase;text-align:center;margin-top:3px}
+.d-sub{font-family:var(--font-mono);font-size:8.5px;letter-spacing:.22em;color:var(--ink-faint);text-transform:uppercase;text-align:center;margin-top:3px}
+
+#formrow{display:flex;align-items:center;justify-content:space-around;width:100%;gap:10px}
+#formrow .fr{font-family:var(--font-display);font-size:40px;color:var(--gold-bright);min-width:64px;text-align:center}
+#formrow .fp{font-family:var(--font-ar);font-size:28px;direction:rtl;color:var(--ink)}
+#formrow .fm{font-family:var(--font-mono);font-size:8.5px;letter-spacing:.2em;color:var(--ink-faint);text-transform:uppercase;text-align:right;max-width:150px;line-height:1.7}
+
+#lkp{width:100%}
+#lkp .line{display:flex;align-items:center;gap:10px;border:1px solid var(--hairline);border-radius:9px;padding:8px 14px;font-family:var(--font-mono);font-size:12px}
+#lkp .line .q{direction:rtl;font-family:var(--font-ar);font-size:18px;min-height:1.5em;line-height:1.5}
+#lkp .caret{width:1px;height:15px;background:var(--gold-bright);animation:blink 1.1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+@media (prefers-reduced-motion:reduce){#lkp .caret{animation:none}}
+#lkp .chips{display:flex;gap:7px;flex-wrap:wrap;margin-top:10px;opacity:0;transition:opacity .5s}
+#lkp .chips.on{opacity:1}
+#lkp .chips span{font-family:var(--font-mono);font-size:8.5px;letter-spacing:.12em;color:var(--ink-dim);border:1px solid var(--hairline-soft);border-radius:999px;padding:4px 10px;text-transform:uppercase}
+#lkp .chips b{color:var(--gold-bright);font-weight:500}
+
+#ticker{height:100%;max-height:250px;overflow:hidden;width:100%;-webkit-mask-image:linear-gradient(180deg,transparent,#000 16%,#000 84%,transparent);mask-image:linear-gradient(180deg,transparent,#000 16%,#000 84%,transparent)}
+#ticker ul{list-style:none;display:flex;flex-direction:column;gap:8px;animation:tick 15s linear infinite}
+@keyframes tick{to{transform:translateY(-50%)}}
+@media (prefers-reduced-motion:reduce){#ticker ul{animation:none}}
+#ticker li{display:flex;justify-content:space-between;align-items:baseline;gap:10px;border:1px solid var(--hairline-soft);border-radius:8px;padding:6px 11px}
+#ticker li b{font-family:var(--font-ar);font-weight:400;font-size:16px;direction:rtl;line-height:1.6}
+#ticker li span{font-family:var(--font-mono);font-size:8px;letter-spacing:.14em;color:var(--ink-faint);text-transform:uppercase}
+
+#conj{display:grid;grid-template-columns:repeat(3,1fr);gap:5px;width:100%;max-width:190px}
+#conj i{height:23px;border:1px solid var(--hairline-soft);border-radius:5px;transition:all .3s;font-style:normal;display:grid;place-items:center;font-family:var(--font-mono);font-size:7.5px;color:var(--ink-faint)}
+#conj i.hot{background:rgba(227,179,92,.16);border-color:rgba(227,179,92,.5);color:var(--gold-bright)}
+
+#road2{width:100%;display:flex;align-items:center}
+#road2 .st{flex:1;display:flex;flex-direction:column;align-items:center;gap:7px;position:relative}
+#road2 .st::before{content:'';position:absolute;top:5px;left:-50%;width:100%;height:1px;background:var(--hairline)}
+#road2 .st:first-child::before{display:none}
+#road2 .st i{width:10px;height:10px;border-radius:50%;border:1.5px solid rgba(228,209,164,.4);background:#090d19;transition:all .4s;font-style:normal;z-index:1}
+#road2 .st.hot i{background:var(--gold-bright);border-color:var(--gold-bright);box-shadow:0 0 12px var(--gold-glow)}
+#road2 .st span{font-family:var(--font-mono);font-size:7px;letter-spacing:.16em;color:var(--ink-faint);text-transform:uppercase;white-space:nowrap}
+#road2 .st.hot span{color:var(--gold-bright)}
+
+#pron{position:relative;width:104px;height:104px}
+#pron .p-ring{position:absolute;inset:0;border:1px dashed rgba(228,209,164,.16);border-radius:50%}
+#pron .p-rot{position:absolute;inset:0;animation:orb 22s linear infinite}
+@keyframes orb{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){#pron .p-rot{animation:none}}
+#pron .p{position:absolute;left:50%;top:50%;font-family:var(--font-ar);font-size:13px;color:var(--gold);transform:translate(-50%,-50%) rotate(var(--a)) translateY(-48px) rotate(calc(var(--a) * -1))}
+#pron .c{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-family:var(--font-ar);font-size:20px;color:var(--gold-bright)}
+
+#msa .tgl{position:relative;width:150px;height:34px;border:1px solid var(--hairline);border-radius:999px;display:flex;align-items:center;margin:0 auto}
+#msa .tgl i{position:absolute;top:3px;bottom:3px;width:calc(50% - 3px);left:3px;border-radius:999px;background:linear-gradient(160deg,rgba(227,179,92,.35),rgba(169,126,53,.25));transition:transform .6s var(--ease-io);font-style:normal}
+#msa.flip .tgl i{transform:translateX(100%)}
+#msa .tgl span{flex:1;text-align:center;font-family:var(--font-mono);font-size:8px;letter-spacing:.2em;color:var(--ink-dim);position:relative;z-index:1;text-transform:uppercase}
+  </style>
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<div id="veil" aria-hidden="true">
+  <svg viewBox="0 0 40 40" fill="none"><path d="M20 2l3.4 10.2L34 8.8l-6.8 8.6L38 20l-10.8 2.6L34 31.2l-10.6-3.4L20 38l-3.4-10.2L6 31.2l6.8-8.6L2 20l10.8-2.6L6 8.8l10.6 3.4z" fill="#e3b35c"/></svg>
+</div>
+
+<header class="nav" id="nav">
+  <a class="brand" href="/" aria-label="Quranic Grammar, home">
+    <svg viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M20 2l3.4 10.2L34 8.8l-6.8 8.6L38 20l-10.8 2.6L34 31.2l-10.6-3.4L20 38l-3.4-10.2L6 31.2l6.8-8.6L2 20l10.8-2.6L6 8.8l10.6 3.4z" fill="#e3b35c"/></svg>
+    Quranic Grammar
+  </a>
+  <nav class="nav-links" aria-label="Primary">
+    <a href="/learn/">LEARN</a><a href="/surahs/">SURAHS</a><a class="active" href="/resources/" aria-current="page">RESOURCES</a><a href="/about/">ABOUT</a>
+  </nav>
+</header>
+
+<main id="main-content">
+
+<header class="head">
+  <div>
+    <h1 data-reveal>Twelve tools, <em>one goal</em>.</h1>
+    <p class="dek" data-reveal>Charts, tables, a glossary, and two live tools — everything you reach for while reading the Quran. All of it free, all of it always open.</p>
+  </div>
+  <div id="hud" data-reveal aria-live="off">
+    <div class="h-row"><span><span class="beatlamp" id="beatlamp"></span>Reference guides</span><b data-hud-guides>{guideCount}</b></div>
+    <div class="h-row"><span>Live tools</span><b data-hud-tools>2</b></div>
+    <div class="h-row"><span>Open</span><b>ALWAYS</b></div>
+    <div class="h-row"><span>Price</span><b>FREE</b></div>
+  </div>
+</header>
+
+<section id="rack" aria-label="All resources">
+
+  <article class="mod c-2w" data-boot="0">
+    <span class="screws" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+    <div class="inner">
+      <div class="strip"><span class="lbl">Every root, ten forms · Live</span><span class="meter" aria-hidden="true"><svg viewBox="0 0 44 18"><path class="arc" d="M6 17 A17 17 0 0 1 38 17"/><line class="needle" x1="22" y1="17" x2="22" y2="4"/></svg></span><span class="led idle"></span></div>
+      <h3>Verb Form Generator</h3>
+      <div class="demo"><div id="formrow" aria-hidden="true">
+        <span class="fr sw" id="fr">I</span>
+        <span class="fp sw" id="fp" lang="ar" dir="rtl">فَعَلَ</span>
+        <span class="fm sw" id="fm">BASE MEANING<br>THE BARE ROOT</span>
+      </div></div>
+      <p class="ds">Any Quranic root through all ten forms — attested verbs, meanings, verse references.</p>
+    </div>
+    <a class="go" href="/resources/verb-forms/" data-testid="resource-verb-forms" aria-label="Open the Verb Form Generator"></a>
+  </article>
+
+  <article class="mod c-2w" data-boot="1">
+    <span class="screws" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+    <div class="inner">
+      <div class="strip"><span class="lbl">Any word, one answer · Live</span><span class="meter" aria-hidden="true"><svg viewBox="0 0 44 18"><path class="arc" d="M6 17 A17 17 0 0 1 38 17"/><line class="needle" x1="22" y1="17" x2="22" y2="4"/></svg></span><span class="led idle"></span></div>
+      <h3>Word Lookup</h3>
+      <div class="demo" style="display:block"><div id="lkp" aria-hidden="true">
+        <div class="line"><span style="opacity:.4">⌕</span><span class="q" id="lq" lang="ar" dir="rtl"></span><span class="caret"></span></div>
+        <div class="chips" id="lchips"><span><b lang="ar" dir="rtl">قَالَ</b> qāla</span><span>ROOT <b lang="ar" dir="rtl">ق و ل</b></span><span>FORM <b>I</b></span><span><b>412×</b></span><span>"TO SAY"</span></div>
+      </div></div>
+      <p class="ds">Arabic, sound, or meaning — one field answers with root, form, and grammar.</p>
+    </div>
+    <a class="go" href="/resources/word-lookup/" data-testid="resource-word-lookup" aria-label="Open Word Lookup"></a>
+  </article>
+
+  <article class="mod c-2h" data-boot="2">
+    <span class="screws" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+    <div class="inner">
+      <div class="strip"><span class="lbl">Core vocabulary</span><span class="led idle"></span></div>
+      <h3>200 Most Common Words</h3>
+      <div class="demo"><div id="ticker" aria-hidden="true"><ul id="tickerlist"></ul></div></div>
+      <p class="ds">The words on every page.</p>
+    </div>
+    <a class="go" href="/resources/200-most-used-words/" data-testid="resource-200-most-used-words" aria-label="Open 200 Most Common Quranic Words"></a>
+  </article>
+
+  <article class="mod" data-boot="3">
+    <span class="screws" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+    <div class="inner">
+      <div class="strip"><span class="lbl">The three cases</span><span class="led idle"></span></div>
+      <h3>Case Endings Chart</h3>
+      <div class="demo"><div aria-hidden="true">
+        <div class="d-big-ar sw" id="cw" lang="ar" dir="rtl" translate="no">كِتَابٌ</div>
+        <div class="d-lbl sw" id="cl">RAFʿ — SUBJECT</div>
+      </div></div>
+      <p class="ds">One noun, three cases.</p>
+    </div>
+    <a class="go" href="/resources/case-endings-chart/" data-testid="resource-case-endings-chart" aria-label="Open the Case Endings Chart"></a>
+  </article>
+
+  <article class="mod" data-boot="4">
+    <span class="screws" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+    <div class="inner">
+      <div class="strip"><span class="lbl">Every term defined</span><span class="led idle"></span></div>
+      <h3>Grammar Glossary</h3>
+      <div class="demo"><div aria-hidden="true">
+        <div class="d-big-ar sw" id="gt" lang="ar" dir="rtl" translate="no">إعراب</div>
+        <div class="d-lbl sw" id="gd">IʿRĀB — CASE ANALYSIS</div>
+      </div></div>
+      <p class="ds">Every term, both languages.</p>
+    </div>
+    <a class="go" href="/resources/glossary/" data-testid="resource-glossary" aria-label="Open the Arabic Grammar Glossary"></a>
+  </article>
+
+  <article class="mod" data-boot="5">
+    <span class="screws" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+    <div class="inner">
+      <div class="strip"><span class="lbl">Who is speaking</span><span class="led idle"></span></div>
+      <h3>Pronoun Charts</h3>
+      <div class="demo"><div id="pron" aria-hidden="true">
+        <span class="p-ring"></span>
+        <div class="p-rot">
+          <span class="p" style="--a:0deg" lang="ar">هُوَ</span><span class="p" style="--a:60deg" lang="ar">هِيَ</span><span class="p" style="--a:120deg" lang="ar">أَنْتَ</span><span class="p" style="--a:180deg" lang="ar">أَنَا</span><span class="p" style="--a:240deg" lang="ar">نَحْنُ</span><span class="p" style="--a:300deg" lang="ar">هُمْ</span>
+        </div>
+        <span class="c" lang="ar" translate="no">ضمائر</span>
+      </div></div>
+      <p class="ds">Detached, attached, and more.</p>
+    </div>
+    <a class="go" href="/resources/pronoun-charts/" data-testid="resource-pronoun-charts" aria-label="Open Pronoun Reference Charts"></a>
+  </article>
+
+  <article class="mod" data-boot="6">
+    <span class="screws" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+    <div class="inner">
+      <div class="strip"><span class="lbl">How words are born</span><span class="led idle"></span></div>
+      <h3>Root System Guide</h3>
+      <div class="demo"><div aria-hidden="true">
+        <div class="d-big-ar sw" id="rb" lang="ar" dir="rtl" translate="no">كِتَاب</div>
+        <div class="d-lbl sw" id="rl">KITĀB — BOOK</div>
+        <div class="d-sub">FROM THE ROOT ك ت ب</div>
+      </div></div>
+      <p class="ds">Three letters, one family.</p>
+    </div>
+    <a class="go" href="/resources/root-system/" data-testid="resource-root-system" aria-label="Open the Arabic Root System Guide"></a>
+  </article>
+
+  <article class="mod" data-boot="7">
+    <span class="screws" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+    <div class="inner">
+      <div class="strip"><span class="lbl">Every person &amp; tense</span><span class="led idle"></span></div>
+      <h3>Conjugation Tables</h3>
+      <div class="demo"><div id="conj" aria-hidden="true"><i>3MS</i><i>3FS</i><i>2MS</i><i>2FS</i><i>1S</i><i>3MP</i><i>3FP</i><i>2MP</i><i>1P</i></div></div>
+      <p class="ds">Ten forms, every person.</p>
+    </div>
+    <a class="go" href="/resources/verb-conjugation-tables/" data-testid="resource-verb-conjugation-tables" aria-label="Open Verb Conjugation Tables"></a>
+  </article>
+
+  <article class="mod" data-boot="8">
+    <span class="screws" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+    <div class="inner">
+      <div class="strip"><span class="lbl">Which Arabic first</span><span class="led idle"></span></div>
+      <h3>Quranic vs MSA</h3>
+      <div class="demo"><div id="msa" aria-hidden="true">
+        <div class="tgl"><i></i><span>Quranic</span><span>MSA</span></div>
+        <div class="d-lbl sw" id="mnote" style="margin-top:9px">SAME ROOTS · DIFFERENT REGISTER</div>
+      </div></div>
+      <p class="ds">Decide where to start.</p>
+    </div>
+    <a class="go" href="/resources/quran-arabic-vs-msa/" data-testid="resource-quran-arabic-vs-msa" aria-label="Open Quranic Arabic vs MSA"></a>
+  </article>
+
+  <article class="mod c-2w" data-boot="9">
+    <span class="screws" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+    <div class="inner">
+      <div class="strip"><span class="lbl">The route &amp; timelines</span><span class="meter" aria-hidden="true"><svg viewBox="0 0 44 18"><path class="arc" d="M6 17 A17 17 0 0 1 38 17"/><line class="needle" x1="22" y1="17" x2="22" y2="4"/></svg></span><span class="led idle"></span></div>
+      <h3>Learning Roadmap</h3>
+      <div class="demo"><div id="road2" aria-hidden="true">
+        <div class="st"><i></i><span>Script</span></div><div class="st"><i></i><span>Words</span></div><div class="st"><i></i><span>Iʿrāb</span></div><div class="st"><i></i><span>Forms</span></div><div class="st"><i></i><span>Cold read</span></div>
+      </div></div>
+      <p class="ds">Beginner to full analysis, with honest timelines and weekly commitments.</p>
+    </div>
+    <a class="go" href="/resources/learning-roadmap/" data-testid="resource-learning-roadmap" aria-label="Open the Learning Roadmap"></a>
+  </article>
+
+  <article class="mod" data-boot="10">
+    <span class="screws" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+    <div class="inner">
+      <div class="strip"><span class="lbl">90% of the grammar</span><span class="led idle"></span></div>
+      <h3>Arabic in 7 Principles</h3>
+      <div class="demo"><div aria-hidden="true">
+        <div class="d-big-ar sw" id="sn" lang="ar" style="font-size:44px;color:var(--gold-bright)">١</div>
+        <div class="d-lbl">OF ٧ · 90% OF THE GRAMMAR</div>
+      </div></div>
+      <p class="ds">Seven cheat-codes, always open.</p>
+    </div>
+    <a class="go" href="/resources/arabic-in-7-principles/" data-testid="resource-arabic-in-7-principles" aria-label="Open Arabic in 7 Principles"></a>
+  </article>
+
+  <article class="mod" data-boot="11">
+    <span class="screws" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+    <div class="inner">
+      <div class="strip"><span class="lbl">The ten forms mapped</span><span class="led idle"></span></div>
+      <h3>Verb Forms Master</h3>
+      <div class="demo"><div aria-hidden="true">
+        <div class="sw" id="vr" style="font-family:var(--font-display);font-size:38px;text-align:center">II</div>
+        <div class="d-lbl sw" id="vm">INTENSIVE · CAUSATIVE</div>
+      </div></div>
+      <p class="ds">The one-page cheat sheet.</p>
+    </div>
+    <a class="go" href="/resources/verb-forms-master-reference/" data-testid="resource-verb-forms-master-reference" aria-label="Open the Verb Forms Master Reference"></a>
+  </article>
+
+</section>
+
+</main>
+
+<footer>
+  <div class="foot-meta">
+    <span>QURANIC GRAMMAR · RESOURCES</span>
+    <span>10 GUIDES + 2 LIVE TOOLS · ALWAYS OPEN</span>
+    <span>FREE · NO SIGN-UP</span>
+    <span>Nettsiden er laget av <a href="https://www.idweb.no" target="_blank" rel="noopener noreferrer">IDweb</a></span>
+  </div>
+</footer>
+
+<script>
+// @ts-nocheck
+import { initCapacitor } from '../../scripts/capacitor-init';
+initCapacitor();
+
+(function(){
+'use strict';
+document.documentElement.classList.add('js');
+var RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+var hidden=false;
+document.addEventListener('visibilitychange',function(){hidden=document.hidden;});
+var veil=document.getElementById('veil');
+addEventListener('load',function(){setTimeout(function(){veil.classList.add('gone');},RM?0:320);});
+setTimeout(function(){veil.classList.add('gone');},2600);
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target);}});},{threshold:.1});
+document.querySelectorAll('[data-reveal]').forEach(function(el,i){el.style.transitionDelay=(i%5*90)+'ms';io.observe(el);});
+addEventListener('scroll',function(){document.getElementById('nav').classList.toggle('scrolled',scrollY>40);},{passive:true});
+
+/* ---------- boot sequence ---------- */
+var mods=[].slice.call(document.querySelectorAll('.mod'));
+var booted=0;
+mods.sort(function(a,b){return +a.dataset.boot-+b.dataset.boot;});
+function bootAll(){
+  mods.forEach(function(m,i){
+    var delay=RM?0:500+i*260;
+    setTimeout(function(){
+      m.classList.add('booting');
+      setTimeout(function(){m.classList.remove('booting');m.classList.add('on');booted++;},RM?0:520);
+    },delay);
+  });
+}
+addEventListener('load',bootAll);
+setTimeout(function(){if(booted===0)bootAll();},2400);
+
+/* ---------- master heartbeat: 1.2s ---------- */
+var BEAT=1200,beatN=0;
+var beatlamp=document.getElementById('beatlamp');
+var subs=[];   /* {every, phase, fn} */
+function onBeat(every,phase,fn){subs.push({every:every,phase:phase,fn:fn});}
+setInterval(function(){
+  if(hidden||RM)return;
+  beatN++;
+  beatlamp.classList.add('on');
+  mods.forEach(function(m){if(m.classList.contains('on'))m.classList.add('beat');});
+  setTimeout(function(){
+    beatlamp.classList.remove('on');
+    mods.forEach(function(m){m.classList.remove('beat');});
+  },200);
+  subs.forEach(function(s){if((beatN+s.phase)%s.every===0)s.fn();});
+},BEAT);
+
+/* swap helper */
+function swap(el,apply){
+  var host=el.closest('.demo')||el.parentElement;
+  host.classList.add('swapping');
+  setTimeout(function(){apply();host.classList.remove('swapping');},330);
+}
+function statik(el,txt){el.textContent=txt;}
+
+/* ---------- demos on the beat ---------- */
+var ROMANS=['I','II','III','IV','V','VI','VII','VIII','IX','X'];
+var PATS=['فَعَلَ','فَعَّلَ','فَاعَلَ','أَفْعَلَ','تَفَعَّلَ','تَفَاعَلَ','اِنْفَعَلَ','اِفْتَعَلَ','اِفْعَلَّ','اِسْتَفْعَلَ'];
+var MEANS=['BASE MEANING·THE BARE ROOT','INTENSIVE · CAUSATIVE·DOUBLED MIDDLE','RECIPROCAL·LONG FIRST VOWEL','CAUSATIVE·HAMZA PREFIX','REFLEXIVE OF II·TA- PREFIX','MUTUAL ACTION·TA- + LONG VOWEL','PASSIVE-LIKE·IN- PREFIX','REFLEXIVE·-TA- INFIX','COLORS &amp; DEFECTS·DOUBLED LAM','SEEKING·ISTA- PREFIX'];
+var fr=document.getElementById('fr'),fp=document.getElementById('fp'),fm=document.getElementById('fm');
+var fi=0;
+onBeat(2,0,function(){
+  fi=(fi+1)%10;
+  swap(fr,function(){
+    fr.textContent=ROMANS[fi];fp.textContent=PATS[fi];
+    fm.textContent='';
+    MEANS[fi].replace(/&amp;/g,'&').split('·').forEach(function(l,k){if(k)fm.appendChild(document.createElement('br'));fm.appendChild(document.createTextNode(l.trim()));});
+  });
+});
+if(RM){statik(fr,'II');statik(fp,PATS[1]);}
+
+/* lookup typing (own rhythm) */
+var lq=document.getElementById('lq'),lchips=document.getElementById('lchips');
+(function loop(){
+  if(RM){lq.textContent='قَالَ';lchips.classList.add('on');return;}
+  var Wd='قَالَ',i=0;lq.textContent='';lchips.classList.remove('on');
+  var t=setInterval(function(){
+    if(hidden)return;
+    i++;lq.textContent=Wd.slice(0,i);
+    if(i>=Wd.length){clearInterval(t);setTimeout(function(){lchips.classList.add('on');},300);setTimeout(loop,5600);}
+  },230);
+})();
+
+/* ticker */
+var TICK=[['مِن','FROM'],['فِي','IN'],['عَلَى','UPON'],['مَا','WHAT · NOT'],['لَا','NO · NOT'],['إِنَّ','INDEED'],['كُلّ','EVERY'],['يَوْم','DAY']];
+var list=document.getElementById('tickerlist');
+TICK.concat(TICK).forEach(function(w){
+  var li=document.createElement('li');
+  var b=document.createElement('b');b.setAttribute('lang','ar');b.setAttribute('dir','rtl');b.textContent=w[0];
+  var s=document.createElement('span');s.textContent=w[1];
+  li.appendChild(b);li.appendChild(s);list.appendChild(li);
+});
+
+/* case cycler */
+var CASES=[['كِتَابٌ','RAFʿ — SUBJECT'],['كِتَابًا','NASB — OBJECT'],['كِتَابٍ','JARR — AFTER PREPOSITIONS']];
+var cw=document.getElementById('cw'),cl=document.getElementById('cl'),ci=0;
+onBeat(2,1,function(){ci=(ci+1)%3;swap(cw,function(){cw.textContent=CASES[ci][0];cl.textContent=CASES[ci][1];});});
+
+/* glossary */
+var TERMS=[['إعراب','IʿRĀB — CASE ANALYSIS'],['مُبْتَدَأ','MUBTADAʾ — SUBJECT'],['خَبَر','KHABAR — PREDICATE'],['فَاعِل','FĀʿIL — DOER']];
+var gt=document.getElementById('gt'),gd=document.getElementById('gd'),gi=0;
+onBeat(3,0,function(){gi=(gi+1)%TERMS.length;swap(gt,function(){gt.textContent=TERMS[gi][0];gd.textContent=TERMS[gi][1];});});
+
+/* root births */
+var BORN=[['كِتَاب','KITĀB — BOOK'],['كَاتِب','KĀTIB — WRITER'],['مَكْتُوب','MAKTŪB — WRITTEN'],['يَكْتُبُ','YAKTUBU — HE WRITES']];
+var rb=document.getElementById('rb'),rl=document.getElementById('rl'),ri=0;
+onBeat(3,1,function(){ri=(ri+1)%BORN.length;swap(rb,function(){rb.textContent=BORN[ri][0];rl.textContent=BORN[ri][1];});});
+
+/* conj scan — every beat */
+var conjCells=[].slice.call(document.querySelectorAll('#conj i')),cj=0;
+onBeat(1,0,function(){cj=(cj+1)%conjCells.length;conjCells.forEach(function(c,k){c.classList.toggle('hot',k===cj);});});
+conjCells[0].classList.add('hot');
+
+/* roadmap — every beat */
+var steps=[].slice.call(document.querySelectorAll('#road2 .st')),rs=0;
+onBeat(1,0,function(){rs=(rs+1)%(steps.length+2);steps.forEach(function(s,j){s.classList.toggle('hot',j<=rs&&rs<steps.length);});});
+steps[0].classList.add('hot');
+
+/* seven */
+var AR7=['١','٢','٣','٤','٥','٦','٧'];
+var sn=document.getElementById('sn'),si=0;
+onBeat(2,0,function(){si=(si+1)%7;swap(sn,function(){sn.textContent=AR7[si];});});
+
+/* vfm */
+var vr=document.getElementById('vr'),vm=document.getElementById('vm'),vi=1;
+onBeat(2,1,function(){vi=(vi+1)%10;swap(vr,function(){vr.textContent=ROMANS[vi];vm.textContent=MEANS[vi].replace(/&amp;/g,'&').split('·')[1].trim();});});
+
+/* msa */
+var msa=document.getElementById('msa'),mnote=document.getElementById('mnote');
+var MN=['SAME ROOTS · DIFFERENT REGISTER','QURANIC KEEPS FULL IʿRĀB'];
+var mi=0;
+onBeat(3,2,function(){mi++;msa.classList.toggle('flip');swap(mnote,function(){mnote.textContent=MN[mi%2];});});
+})();
+</script>
+
+</body>
+</html>
