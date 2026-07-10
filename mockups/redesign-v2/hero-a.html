@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hero A · The Crown — Quranic Grammar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri+Quran&family=Amiri:ital,wght@0,400;0,700;1,400&family=Marcellus&family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg-0:#05070e;--bg-1:#090d19;
+  --ink:#f4edda;--ink-dim:rgba(244,237,218,.66);--ink-faint:rgba(244,237,218,.42);
+  --gold:#e3b35c;--gold-bright:#f4d68f;--gold-glow:rgba(227,179,92,.5);
+  --hairline:rgba(228,209,164,.14);--hairline-soft:rgba(228,209,164,.07);
+  --btn-ink:#221503;
+  --ease-out:cubic-bezier(.23,1,.32,1);--ease-io:cubic-bezier(.77,0,.175,1);
+  --font-display:'Marcellus',serif;--font-body:'Geist',sans-serif;
+  --font-mono:'Geist Mono',monospace;--font-quran:'Amiri Quran','Amiri',serif;
+  --pad-x:clamp(20px,5vw,72px);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg-0);color:var(--ink);font-family:var(--font-body);font-weight:400;font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+::selection{background:rgba(227,179,92,.28);color:var(--ink)}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--gold);outline-offset:4px;border-radius:2px}
+.js [data-reveal]{opacity:0;transform:translateY(26px);filter:blur(10px)}
+.js [data-reveal].on{opacity:1;transform:none;filter:blur(0);transition:opacity .85s var(--ease-out),transform .85s var(--ease-out),filter .85s var(--ease-out)}
+@media (prefers-reduced-motion:reduce){.js [data-reveal]{opacity:1;transform:none;filter:none}}
+
+#veil{position:fixed;inset:0;background:var(--bg-0);z-index:200;display:grid;place-items:center;transition:opacity 1s var(--ease-out),visibility 1s}
+#veil.gone{opacity:0;visibility:hidden}
+#veil svg{width:34px;height:34px;opacity:.85;animation:veilstar 2.2s var(--ease-io) infinite}
+@keyframes veilstar{0%,100%{opacity:.25;transform:scale(.92) rotate(0deg)}50%{opacity:.95;transform:scale(1) rotate(45deg)}}
+@media (prefers-reduced-motion:reduce){#veil{display:none}}
+
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:22px var(--pad-x)}
+.brand{display:flex;align-items:center;gap:12px;font-family:var(--font-display);font-size:15px;letter-spacing:.34em;text-transform:uppercase}
+.brand svg{width:19px;height:19px;flex:none}
+.nav-links{display:flex;gap:clamp(18px,3vw,44px);align-items:center}
+.nav-links a{font-size:14.5px;color:var(--ink-dim);padding:4px 0;position:relative;transition:color .35s}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:0;width:100%;height:1px;background:var(--gold);transform:scaleX(0);transform-origin:right;transition:transform .5s var(--ease-out)}
+.nav-links a:hover{color:var(--ink)}
+.nav-links a:hover::after{transform:scaleX(1);transform-origin:left}
+.nav-cta{font-size:13.5px;letter-spacing:.06em;color:var(--gold-bright);border:1px solid rgba(227,179,92,.38);border-radius:999px;padding:9px 22px;transition:background .4s,color .4s,transform .16s var(--ease-out)}
+.nav-cta:hover{background:var(--gold);color:var(--btn-ink)}
+.nav-cta:active{transform:scale(.97)}
+@media (max-width:860px){.nav-links{display:none}}
+@media (max-width:480px){
+  .nav{padding-left:16px;padding-right:16px}
+  .brand span{font-size:12.5px;letter-spacing:.2em}
+  .nav-cta{padding:8px 16px;font-size:12.5px;flex:none}
+}
+
+.hero{
+  position:relative;min-height:100dvh;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  overflow:hidden;padding:88px var(--pad-x) 60px;
+  background:
+    radial-gradient(130% 90% at 50% 118%, rgba(169,126,53,.20) 0%, transparent 55%),
+    radial-gradient(90% 65% at 78% -12%, rgba(35,84,92,.34) 0%, transparent 60%),
+    radial-gradient(75% 60% at 12% 8%, rgba(43,32,84,.30) 0%, transparent 58%),
+    var(--bg-0);
+}
+#gl,#dust{position:absolute;inset:0;width:100%;height:100%;display:block}
+#gl{z-index:0}#dust{z-index:2;pointer-events:none}
+.hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:22vh;z-index:3;pointer-events:none;background:linear-gradient(180deg,transparent,var(--bg-0) 88%)}
+.hero-inner{position:relative;z-index:4;text-align:center;max-width:1280px;width:100%;display:flex;flex-direction:column;align-items:center}
+
+/* ——— VARIANT A: one unbroken monumental line ——— */
+.basmala{
+  direction:rtl;font-family:var(--font-quran);
+  white-space:nowrap;line-height:1.75;
+  font-size:96px; /* fitted by JS to the exact viewport */
+  color:var(--ink);
+  text-shadow:0 0 28px rgba(227,179,92,.18);
+}
+.js .basmala.veiled{opacity:0;filter:blur(14px)}
+.basmala{transition:opacity 1.3s var(--ease-out),filter 1.3s var(--ease-out)}
+.bw{transition:text-shadow .6s var(--ease-out)}
+@media (hover:hover) and (pointer:fine){.bw:hover{text-shadow:0 0 34px rgba(244,214,143,.65)}}
+@media (max-width:700px){
+  .basmala{white-space:normal;font-size:clamp(40px,11.5vw,52px) !important;line-height:1.62}
+}
+#gloss{
+  position:absolute;z-index:6;pointer-events:none;
+  font-family:var(--font-mono);font-size:12.5px;letter-spacing:.05em;color:var(--gold-bright);
+  background:rgba(9,12,24,.88);border:1px solid var(--hairline);border-radius:8px;padding:7px 14px;white-space:nowrap;
+  opacity:0;transform:translate(-50%,8px);transition:opacity .4s var(--ease-out),transform .4s var(--ease-out);
+}
+#gloss.show{opacity:1;transform:translate(-50%,0)}
+#gloss .g-en{color:var(--ink-dim);font-family:var(--font-body)}
+
+.ornament{display:flex;align-items:center;gap:18px;margin:20px 0 0;width:min(420px,60vw)}
+.ornament .ln{flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(227,179,92,.5))}
+.ornament .ln:last-child{background:linear-gradient(90deg,rgba(227,179,92,.5),transparent)}
+.ornament svg{width:15px;height:15px;color:var(--gold);flex:none}
+
+.hero-h1{font-family:var(--font-display);font-weight:400;font-size:clamp(28px,4vw,52px);line-height:1.14;letter-spacing:.005em;max-width:19ch;margin-top:26px}
+.hero-lede{margin-top:18px;color:var(--ink-dim);font-size:clamp(15.5px,1.35vw,18px);font-weight:300;max-width:56ch;line-height:1.85}
+.cta-row{display:flex;gap:16px;margin-top:32px;flex-wrap:wrap;justify-content:center}
+.btn{display:inline-flex;align-items:center;gap:10px;border-radius:999px;font-size:15px;letter-spacing:.04em;padding:16px 34px;cursor:pointer;transition:transform .16s var(--ease-out),background .4s,color .4s,border-color .4s,box-shadow .5s;will-change:transform}
+.btn:active{transform:scale(.97)}
+.btn-primary{background:linear-gradient(180deg,var(--gold-bright),var(--gold) 55%,#cf9b45);color:var(--btn-ink);font-weight:500;box-shadow:0 10px 44px -14px var(--gold-glow),inset 0 1px 0 rgba(255,244,214,.7)}
+.btn-primary:hover{box-shadow:0 14px 58px -12px rgba(227,179,92,.65),inset 0 1px 0 rgba(255,244,214,.7)}
+.btn-ghost{border:1px solid var(--hairline);color:var(--ink-dim)}
+.btn-ghost:hover{border-color:rgba(227,179,92,.5);color:var(--ink)}
+.btn .arr{transition:transform .45s var(--ease-out)}
+.btn:hover .arr{transform:translateX(4px)}
+
+.hero-stats{display:flex;gap:clamp(26px,4.5vw,74px);margin-top:clamp(22px,3.6vh,42px);flex-wrap:wrap;justify-content:center}
+.stat{display:flex;flex-direction:column;align-items:center;gap:4px}
+.stat b{font-family:var(--font-mono);font-weight:500;font-size:clamp(21px,2vw,27px);color:var(--gold-bright)}
+.stat span{font-size:13px;color:var(--ink-faint);letter-spacing:.04em}
+.stat + .stat{position:relative}
+@media (min-width:640px){.stat + .stat::before{content:"";position:absolute;left:calc(clamp(26px,4.5vw,74px)/-2);top:12%;height:76%;width:1px;background:var(--hairline-soft)}}
+
+.scroll-cue{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);z-index:5;display:flex;flex-direction:column;align-items:center;gap:10px;color:var(--ink-faint);font-family:var(--font-mono);font-size:11px;letter-spacing:.32em}
+.scroll-cue .line{width:1px;height:52px;background:var(--hairline);position:relative;overflow:hidden}
+.scroll-cue .line::after{content:"";position:absolute;left:0;top:-40%;width:100%;height:40%;background:linear-gradient(180deg,transparent,var(--gold-bright));animation:cuedrip 2.4s var(--ease-io) infinite}
+@keyframes cuedrip{0%{top:-40%}70%,100%{top:110%}}
+@media (prefers-reduced-motion:reduce){.scroll-cue .line::after{animation:none;top:30%}}
+@media (max-height:920px){.scroll-cue{display:none}}
+
+.vtag{position:fixed;bottom:14px;left:16px;z-index:60;font-family:var(--font-mono);font-size:10px;letter-spacing:.3em;color:var(--ink-faint)}
+</style>
+</head>
+<body>
+
+<div id="veil" aria-hidden="true">
+  <svg viewBox="0 0 24 24" fill="none" stroke="#e3b35c" stroke-width="1"><path d="M12 1l2.4 6.1L21 8l-5 4.4L17.5 19 12 15.6 6.5 19 8 12.4 3 8l6.6-.9z" stroke-linejoin="round"/></svg>
+</div>
+
+<header class="nav">
+  <a class="brand" href="/" aria-label="Quranic Grammar, home">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.1" aria-hidden="true"><path d="M12 2v20M2 12h20M4.9 4.9l14.2 14.2M19.1 4.9L4.9 19.1" stroke="#e3b35c"/><circle cx="12" cy="12" r="3.2" stroke="#e3b35c" fill="none"/></svg>
+    <span>Quranic&nbsp;Grammar</span>
+  </a>
+  <nav class="nav-links" aria-label="Primary">
+    <a href="/learn/">Learn</a><a href="/surahs/">Surahs</a><a href="/resources/">Resources</a><a href="/about/">About</a>
+  </nav>
+  <a class="nav-cta" href="/learn/">Start learning</a>
+</header>
+
+<main>
+<section class="hero" aria-label="Introduction">
+  <canvas id="gl" aria-hidden="true"></canvas>
+  <canvas id="dust" aria-hidden="true"></canvas>
+
+  <div class="hero-inner">
+    <p class="basmala veiled" id="basmala" lang="ar" dir="rtl" translate="no"><span class="bl"><span class="bw" data-tr="bismi" data-en="In the name of">بِسْمِ</span> <span class="bw" data-tr="Allāhi" data-en="Allah">اللَّهِ</span> <span class="bw" data-tr="al-raḥmāni" data-en="The Most Gracious">الرَّحْمَـٰنِ</span> <span class="bw" data-tr="al-raḥīmi" data-en="The Most Merciful">الرَّحِيمِ</span></span></p>
+    <div id="gloss" role="status" aria-live="polite"></div>
+
+    <div class="ornament" aria-hidden="true" data-reveal>
+      <span class="ln"></span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M12 2l2.2 5.6L20 9l-4.6 4 1.4 6L12 15.8 7.2 19l1.4-6L4 9l5.8-1.4z" stroke-linejoin="round"/></svg>
+      <span class="ln"></span>
+    </div>
+
+    <h1 class="hero-h1"><span data-reveal>Understand</span> <span data-reveal>every</span> <span data-reveal>word</span> <span style="white-space:nowrap"><span data-reveal>you</span> <span data-reveal>recite.</span></span></h1>
+
+    <p class="hero-lede" data-reveal>Free, complete lessons in Quranic Arabic grammar. Learn the cases, the verb forms, and the sentence patterns, then watch them light up in the verses you already know by heart.</p>
+
+    <div class="cta-row" data-reveal>
+      <a class="btn btn-primary" href="/learn/" data-magnetic>Begin Level 1 <span class="arr" aria-hidden="true">&rarr;</span></a>
+      <a class="btn btn-ghost" href="/surahs/">Explore the surahs</a>
+    </div>
+
+    <div class="hero-stats" data-reveal>
+      <div class="stat"><b data-count="5">0</b><span>levels</span></div>
+      <div class="stat"><b data-count="81">0</b><span>lessons</span></div>
+      <div class="stat"><b data-count="38">0</b><span>surah analyses</span></div>
+      <div class="stat"><b>free</b><span>no sign-up, no ads</span></div>
+    </div>
+  </div>
+
+  <div class="scroll-cue" aria-hidden="true"><span>scroll</span><span class="line"></span></div>
+</section>
+</main>
+
+<span class="vtag" aria-hidden="true">HERO A &nbsp;&middot;&nbsp; THE CROWN</span>
+
+<script>
+(function(){
+'use strict';
+document.documentElement.classList.add('js');
+const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const LITE = matchMedia('(max-width: 767px)').matches;
+const $ = (s,c)=>(c||document).querySelector(s);
+const $$ = (s,c)=>Array.from((c||document).querySelectorAll(s));
+const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
+const lerp=(a,b,t)=>a+(b-a)*t;
+let pageVisible=!document.hidden;
+document.addEventListener('visibilitychange',()=>{pageVisible=!document.hidden});
+const heroEl=$('.hero'), basmala=$('#basmala');
+
+/* fit the one-line basmala: 80% of container width, capped by viewport height */
+function fitVerse(){
+  if (matchMedia('(max-width: 700px)').matches) return;
+  const inner=$('.hero-inner');
+  basmala.style.fontSize='96px';
+  const availW=inner.clientWidth*0.80;
+  let fs2=Math.min(96,Math.round(heroEl.clientHeight*0.108));
+  const w=basmala.scrollWidth;
+  if (w>availW) fs2=Math.min(fs2,Math.floor(96*availW/w*0.985));
+  basmala.style.fontSize=fs2+'px';
+}
+
+/* counters */
+function runCounter(el){
+  const target=parseInt(el.dataset.count,10);
+  if(RM){el.textContent=target;return}
+  const t0=performance.now(),dur=1500;
+  (function step(now){const p=clamp((now-t0)/dur,0,1);
+    el.textContent=Math.round(target*(1-Math.pow(1-p,3)));
+    if(p<1)requestAnimationFrame(step)})(t0);
+}
+
+/* ——— WebGL nebula (identical grade to the approved page) ——— */
+const glCanvas=$('#gl');let glPause=false;
+if(!LITE&&!RM)(function(){
+  let gl;try{gl=glCanvas.getContext('webgl',{antialias:false,alpha:false,powerPreference:'high-performance'})}catch(e){gl=null}
+  if(!gl){glCanvas.remove();return}
+  const VS='attribute vec2 a;void main(){gl_Position=vec4(a,0.,1.);}';
+  const FS=`
+precision highp float;
+uniform vec2 uRes;uniform float uT;uniform vec2 uMouse;uniform float uScroll;
+float hash(vec2 p){p=fract(p*vec2(123.34,345.45));p+=dot(p,p+34.345);return fract(p.x*p.y);}
+float noise(vec2 p){vec2 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);
+float a=hash(i),b=hash(i+vec2(1.,0.)),c=hash(i+vec2(0.,1.)),d=hash(i+vec2(1.,1.));
+return mix(mix(a,b,f.x),mix(c,d,f.x),f.y);}
+float fbm(vec2 p){float v=0.,a=.5;mat2 m=mat2(1.6,1.2,-1.2,1.6);
+for(int i=0;i<5;i++){v+=a*noise(p);p=m*p;a*=.5;}return v;}
+void main(){
+vec2 uv=gl_FragCoord.xy/uRes;
+vec2 p=(gl_FragCoord.xy-.5*uRes)/uRes.y;
+p.y+=uScroll*.22;
+float t=uT*.022;
+vec2 q=vec2(fbm(p*1.35+t),fbm(p*1.35-t*.7+3.1));
+vec2 r=vec2(fbm(p*1.75+q*1.3+vec2(1.7,9.2)+t*.55),fbm(p*1.75+q*1.3+vec2(8.3,2.8)-t*.4));
+float f=fbm(p*1.9+r*1.25);
+float md=length(p-uMouse);
+f+=.085*exp(-md*3.2);
+vec3 col=mix(vec3(.012,.02,.055),vec3(.052,.09,.21),clamp(f*f*2.0,0.,1.));
+float band=exp(-pow((p.y-.16-q.x*.24)*3.2,2.));
+col=mix(col,vec3(.065,.40,.40),clamp(band*(.3+.7*q.y)*1.4,0.,1.)*.42);
+col=mix(col,vec3(.085,.07,.20),clamp(r.x*1.2,0.,1.)*.2);
+col+=vec3(.79,.55,.25)*pow(clamp(f,0.,1.),3.4)*.72;
+float hor=exp(-pow((p.y+.52)*2.4,2.));
+col+=vec3(.72,.5,.22)*hor*(.5+.5*fbm(vec2(p.x*2.2,t*2.)))*.34;
+float beam=exp(-pow(p.x*2.1,2.))*pow(uv.y,1.7);
+float flick=.85+.15*noise(vec2(uT*.35,p.x*4.));
+col+=vec3(.95,.78,.52)*beam*.13*flick;
+col+=vec3(1.,.82,.5)*exp(-md*4.2)*.11;
+vec2 sg=gl_FragCoord.xy/(uRes.y*.011);
+float sh=hash(floor(sg));
+float star=smoothstep(.9978,1.,sh)*(.35+.65*(.5+.5*sin(uT*1.4+sh*42.)));
+col+=vec3(.95,.9,.75)*star*.55;
+vec2 vc=uv-.5;
+col*=1.-.72*dot(vc,vc)*1.6;
+col*=1.-uScroll*.3;
+col+=(hash(gl_FragCoord.xy+fract(uT)*13.7)-.5)*.02;
+gl_FragColor=vec4(col,1.);
+}`;
+  function sh(t,s){const x=gl.createShader(t);gl.shaderSource(x,s);gl.compileShader(x);
+    if(!gl.getShaderParameter(x,gl.COMPILE_STATUS)){console.error(gl.getShaderInfoLog(x));return null}return x}
+  const v=sh(gl.VERTEX_SHADER,VS),f=sh(gl.FRAGMENT_SHADER,FS);
+  if(!v||!f){glCanvas.remove();return}
+  const pr=gl.createProgram();gl.attachShader(pr,v);gl.attachShader(pr,f);gl.linkProgram(pr);
+  if(!gl.getProgramParameter(pr,gl.LINK_STATUS)){console.error(gl.getProgramInfoLog(pr));glCanvas.remove();return}
+  gl.useProgram(pr);
+  const b=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,b);
+  gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,3,-1,-1,3]),gl.STATIC_DRAW);
+  const lo=gl.getAttribLocation(pr,'a');gl.enableVertexAttribArray(lo);gl.vertexAttribPointer(lo,2,gl.FLOAT,false,0,0);
+  const uRes=gl.getUniformLocation(pr,'uRes'),uT=gl.getUniformLocation(pr,'uT'),uM=gl.getUniformLocation(pr,'uMouse'),uS=gl.getUniformLocation(pr,'uScroll');
+  const SC=.6,DPR=Math.min(devicePixelRatio||1,1.5);
+  function size(){glCanvas.width=Math.max(2,Math.round(heroEl.clientWidth*DPR*SC));glCanvas.height=Math.max(2,Math.round(heroEl.clientHeight*DPR*SC));gl.viewport(0,0,glCanvas.width,glCanvas.height)}
+  size();
+  let mx=0,my=.1,tx=0,ty=.1;
+  addEventListener('pointermove',e=>{tx=(e.clientX-innerWidth/2)/innerHeight;ty=(innerHeight/2-e.clientY)/innerHeight},{passive:true});
+  new IntersectionObserver(es=>{glPause=!es[0].isIntersecting},{threshold:0}).observe(heroEl);
+  const t0=performance.now();
+  (function fr(now){requestAnimationFrame(fr);if(glPause||!pageVisible)return;
+    mx=lerp(mx,tx,.045);my=lerp(my,ty,.045);
+    gl.uniform2f(uRes,glCanvas.width,glCanvas.height);gl.uniform1f(uT,(now-t0)/1000);
+    gl.uniform2f(uM,mx,my);gl.uniform1f(uS,clamp(scrollY/Math.max(1,heroEl.clientHeight),0,1));
+    gl.drawArrays(gl.TRIANGLES,0,3)})(t0);
+  let rz;addEventListener('resize',()=>{clearTimeout(rz);rz=setTimeout(size,180)});
+})();
+if(LITE||RM)glCanvas.remove();
+
+/* ——— gold dust formation ——— */
+const dustCanvas=$('#dust');let started=false;
+function heroReveals(){$$('[data-reveal]',heroEl).forEach((el,i)=>setTimeout(()=>el.classList.add('on'),RM?0:140+i*130));
+  $$('[data-count]',heroEl).forEach(el=>setTimeout(()=>runCounter(el),RM?0:500))}
+function unveil(){basmala.classList.remove('veiled')}
+function heroStatic(){if(started)return;started=true;dustCanvas.remove();unveil();heroReveals()}
+function heroFormation(){
+  if(started)return;started=true;
+  const ctx=dustCanvas.getContext('2d');
+  if(!ctx){started=false;heroStatic();return}
+  const DPR=Math.min(devicePixelRatio||1,2);
+  const W=heroEl.clientWidth,H=heroEl.clientHeight;
+  dustCanvas.width=W*DPR;dustCanvas.height=H*DPR;ctx.scale(DPR,DPR);
+  const hr=heroEl.getBoundingClientRect();
+  const off=document.createElement('canvas');off.width=W;off.height=H;
+  const o=off.getContext('2d',{willReadFrequently:true});
+  const fs=parseFloat(getComputedStyle(basmala).fontSize);
+  o.fillStyle='#fff';o.font=fs+'px "Amiri Quran"';o.textAlign='center';o.textBaseline='middle';o.direction='rtl';
+  $$('.bl',basmala).forEach(ln=>{
+    const r=ln.getBoundingClientRect();
+    o.fillText(ln.textContent,r.left+r.width/2-hr.left,r.top+r.height/2-hr.top);
+  });
+  const img=o.getImageData(0,0,W,H).data;
+  let step=3,pts=[];
+  for(let pass=0;pass<2;pass++){
+    pts=[];
+    for(let y=0;y<H;y+=step)for(let x=0;x<W;x+=step)if(img[(y*W+x)*4+3]>120)pts.push([x,y]);
+    if(pts.length<=3250)break;
+    step=Math.ceil(step*Math.sqrt(pts.length/2400));
+  }
+  if(pts.length<60){started=false;heroStatic();return}
+  let minX=1e9,maxX=-1e9;pts.forEach(p=>{if(p[0]<minX)minX=p[0];if(p[0]>maxX)maxX=p[0]});
+  const spanX=Math.max(1,maxX-minX);
+  const P=pts.map(([x,y])=>{const nx=(x-minX)/spanX;const ang=Math.random()*Math.PI*2;const rad=260+Math.random()*640;
+    return{tx:x,ty:y,sx:x+Math.cos(ang)*rad,sy:y+Math.sin(ang)*rad*.72,
+      delay:(1-nx)*1.15+Math.random()*.22,size:.5+Math.random()*1.15,
+      tw:Math.random()*Math.PI*2,hot:Math.random()<.12,x:0,y:0,vx:0,vy:0,fade:1,life:0,span:8,dur:2}});
+  P.forEach(p=>{p.x=p.sx;p.y=p.sy});
+  const FORM=1.05,T_END=1.15+.22+FORM;
+  let born=performance.now(),phase='form',released=false;
+  let px0=-1e4,py0=-1e4;
+  addEventListener('pointermove',e=>{const r=heroEl.getBoundingClientRect();px0=e.clientX-r.left;py0=e.clientY-r.top},{passive:true});
+  const AMBIENT=Math.min(230,Math.round(W/7));
+  function resp(p){p.x=Math.random()*W;p.y=H*.55+Math.random()*H*.55;p.vx=(Math.random()-.5)*4;p.vy=-(5+Math.random()*14);
+    p.size=.4+Math.random()*1.2;p.life=0;p.span=7+Math.random()*9;p.tw=Math.random()*Math.PI*2}
+  let paused=false;
+  new IntersectionObserver(es=>{paused=!es[0].isIntersecting},{threshold:0}).observe(heroEl);
+  let prev=born;
+  (function fr(now){
+    if(phase==='dead')return;
+    requestAnimationFrame(fr);
+    if(paused||!pageVisible){prev=now;return}
+    const dt=Math.min(.05,(now-prev)/1000);prev=now;
+    const t=(now-born)/1000;
+    ctx.clearRect(0,0,W,H);ctx.globalCompositeOperation='lighter';
+    if(phase==='form'){
+      for(const p of P){
+        const lp=clamp((t-p.delay)/FORM,0,1);const e=1-Math.pow(1-lp,3);const wob=(1-e)*14;
+        const x=lerp(p.sx,p.tx,e)+Math.sin(p.tw+t*2.1)*wob;
+        const y=lerp(p.sy,p.ty,e)+Math.cos(p.tw*1.3+t*1.8)*wob;
+        p.x=x;p.y=y;
+        const a=(.12+.88*e)*(.62+.38*Math.sin(p.tw+t*6));
+        ctx.fillStyle=p.hot?'rgba(255,238,200,'+(a*.95)+')':'rgba(240,196,120,'+(a*.8)+')';
+        const s=p.size*(p.hot?1.5:1);
+        ctx.fillRect(x-s/2,y-s/2,s,s);
+      }
+      if(t>T_END+.35&&!released){released=true;unveil();setTimeout(heroReveals,420);
+        setTimeout(()=>{phase='release';for(const p of P){p.vx=(Math.random()-.5)*9;p.vy=-(6+Math.random()*22);p.fade=1;p.dur=1.3+Math.random()*1.6}},700)}
+    } else if(phase==='release'){
+      let alive=0;
+      for(const p of P){p.fade-=dt/p.dur;if(p.fade<=0)continue;alive++;
+        p.x+=p.vx*dt;p.y+=p.vy*dt;p.vy-=2.5*dt;
+        ctx.fillStyle='rgba(240,196,120,'+(p.fade*(.5+.5*Math.sin(p.tw+t*5))*.75)+')';
+        ctx.fillRect(p.x-p.size/2,p.y-p.size/2,p.size,p.size)}
+      if(alive===0){phase='ambient';P.length=AMBIENT;P.forEach(p=>{resp(p);p.y=Math.random()*H})}
+    } else {
+      for(const p of P){
+        p.life+=dt;if(p.y<-20||p.life>p.span)resp(p);
+        const dx=px0-p.x,dy=py0-p.y,d2=dx*dx+dy*dy;
+        if(d2<24000&&d2>10){const d=Math.sqrt(d2),f2=(1-d/155)*9*dt;p.vx+=(dx/d)*f2;p.vy+=(dy/d)*f2}
+        p.vx*=(1-.5*dt);p.vy=clamp(p.vy-1.2*dt,-30,8);
+        p.x+=p.vx*dt;p.y+=p.vy*dt;
+        const ramp=Math.min(1,p.life/2)*Math.min(1,(p.span-p.life)/2);
+        ctx.fillStyle='rgba(238,196,126,'+(ramp*(.10+.22*(.5+.5*Math.sin(p.tw+t*3.4))))+')';
+        ctx.fillRect(p.x-p.size/2,p.y-p.size/2,p.size,p.size);
+      }
+    }
+  })(born);
+}
+
+const veil=$('#veil');
+function begin(){veil.classList.add('gone');fitVerse();
+  if(RM||LITE){heroStatic();return}
+  requestAnimationFrame(()=>heroFormation())}
+if(RM){begin()}
+else{
+  let g=false;const go=()=>{if(!g){g=true;begin()}};
+  if(document.fonts&&document.fonts.load){
+    Promise.all([document.fonts.load('10px "Amiri Quran"','بِسْمِ'),document.fonts.load('10px "Marcellus"','A')])
+      .then(()=>document.fonts.ready).then(()=>setTimeout(go,60),go);
+  }
+  setTimeout(go,3200);
+}
+
+/* gloss */
+const gloss=$('#gloss'),heroInner=$('.hero-inner');
+$$('.bw').forEach(w=>{
+  w.addEventListener('mouseenter',()=>{
+    const wr=w.getBoundingClientRect(),ir=heroInner.getBoundingClientRect();
+    gloss.textContent=w.dataset.tr+'  ';
+    const en=document.createElement('span');en.className='g-en';en.textContent=w.dataset.en;
+    gloss.appendChild(en);
+    gloss.style.left=(wr.left+wr.width/2-ir.left)+'px';
+    gloss.style.top=(wr.bottom-ir.top+2)+'px';
+    gloss.classList.add('show');
+  });
+  w.addEventListener('mouseleave',()=>gloss.classList.remove('show'));
+});
+
+/* vanilla magnetic CTA */
+if(matchMedia('(hover:hover) and (pointer:fine)').matches&&!RM){
+  $$('[data-magnetic]').forEach(btn=>{
+    let cx=0,cy=0,txm=0,tym=0,run=false;
+    function loop(){cx=lerp(cx,txm,.16);cy=lerp(cy,tym,.16);
+      btn.style.transform='translate('+cx.toFixed(2)+'px,'+cy.toFixed(2)+'px)';
+      if(Math.abs(cx-txm)>.1||Math.abs(cy-tym)>.1)requestAnimationFrame(loop);else run=false}
+    btn.addEventListener('pointermove',e=>{const r=btn.getBoundingClientRect();
+      txm=(e.clientX-r.left-r.width/2)*.18;tym=(e.clientY-r.top-r.height/2)*.32;
+      if(!run){run=true;requestAnimationFrame(loop)}});
+    btn.addEventListener('pointerleave',()=>{txm=0;tym=0;if(!run){run=true;requestAnimationFrame(loop)}});
+  });
+}
+
+let rz2;addEventListener('resize',()=>{clearTimeout(rz2);rz2=setTimeout(fitVerse,200)});
+})();
+</script>
+</body>
+</html>
