@@ -147,3 +147,31 @@ Nothing broken/overlapping/unstyled across the read subset.
 ### Open issues for Phase D
 - **Stale `/test/*` specs (task_8bcac882):** `navigation.spec` (35), `cards.spec` (20), most of `accessibility.spec`'s failures, and `components.spec` all test pages deleted on `main`. Someone should either restore the `src/pages/test/*` pages or delete the four stale specs + their snapshot dirs. Out of Phase C scope (not a redesign regression). Note `navigation.spec` hangs the full-suite run on its mobile-overlay tests against the 404 — a reason to prune it.
 - No redesign regressions found; nothing blocking the Phase D web-design-guidelines + code-review pass.
+
+## Phase D — Audit + Code Review + PR (2026-07-12)
+
+### Design audit (web-design-guidelines)
+Applied HIGH-confidence, low-risk fixes only (no restyle away from the mockup):
+- `transition: all` → explicit property lists on `.pip`, `.t-btn`, `.root-btn` (compositor-friendly, guideline anti-pattern).
+- `aria-current="location"` on the active station rail item (rendered default + updated in the scrollspy).
+- `aria-pressed` state on every toggle-style control: console word buttons (ArabicExample), specimen selector + chips (MorphTransformer/SpecimenChips), person/root groups (ConjugationEngine).
+- `Saving…` ellipsis (typography) in the completion button.
+- Callout note/tip title is a CSS `::before` (invisible to AT) → added `aria-label={displayTitle}` on the note/tip `<aside>`.
+
+### Code review (8 finder angles → verify)
+Real bugs fixed:
+1. **ConjugationEngine "undefined" transliteration** (line-by-line + confirmed in built HTML). `RootEntry` had no `tr` field but the component reads `firstRoot.tr`, so L3.03 shipped `<b>undefineda</b> — to write` on load, and interaction dropped the root translit entirely (`data-root-tr` empty). Added `tr` to `RootEntry` + supplied stem romanizations for all 10 roots across the 7 engine lessons. Verified built HTML now renders `kataba`.
+2. **Shared-component off-lesson regression** (cross-file tracer — highest severity, missed by A–C which only tested lesson pages). ArabicExample (38 surahs + 7 resources), Callout (38+9), ExerciseBox moved all chrome into `.lab`-scoped lesson-lab.css, which never ships to surah/resource pages → those components rendered completely unstyled there. Fixed by restoring self-contained base skins in the components, gated under `:global(.prose)` (the SurahLayout/ResourceLayout MDX wrapper). Verified: surah console now has light bg/border/radius; lesson console keeps the lab gradient/gold-hairline/14px (base did NOT leak — confirmed via computed styles).
+3. **MorphTransformer uncancelled timers** (line-by-line). Switching specimen / resetting mid-narration left the previous run's `setTimeout` chain firing onto the new specimen. Tracked pending timers, cancel on load/reset/run.
+4. **lab-lesson.ts scrollspy index misalignment** (line-by-line, latent). `targets` was filtered independently of `stations`; if a target id ever failed to resolve the two arrays desynced and the wrong station lit. Reworked to a single paired array so they can't drift.
+5. **Empty catch on data-* JSON.parse** (CLAUDE.md conventions — "never silently swallow exceptions"). Added `console.error` with context in MorphTransformer + SpecimenChips (re-throw would break the handler; log-and-fallback is correct).
+
+Deferred (documented, not fixed): shared-helper extraction across the 3 engines (reuse/simplification/altitude angles — a refactor that fights the faithful-port mandate); the always-night forcing + `#theme-toggle` hide + `.lab` token redeclaration (settled Phase-A architecture, "do not reopen", and the OS-theme-flip concern is neutralized because `.lab` redeclares all tokens regardless of `data-theme`); station rail `<ol>` list semantics + conditional render (medium-risk to the verified flex-layout rail); per-person English gloss / root-specific pattern notes dropped by the VerbConjugation→ConjugationEngine upgrades (deliberate Phase-B tradeoff, taught in surrounding prose). The L4.15 "2nd dual" row merge is correct (Arabic 2nd-dual is gender-invariant).
+
+### Re-verification
+- `npm run build`: clean, **164 pages**, Pagefind indexed 164.
+- `npx tsc --noEmit`: 16 errors, ALL pre-existing (`lookup-search.test.ts`, `word-index.test.ts`, `capacitor.config.ts`) — **zero in any touched file** (.astro not type-checked by tsc regardless).
+- `npx playwright test lesson-wayfinding + audio + table-scroll + vocab` (system Chrome): **13/13 passed** (table-scroll also exercises a surah page). Zero console errors on the surah + lesson verification shoot.
+
+### PR
+See PR link in the final report / branch feat/lesson-lab-v4.
