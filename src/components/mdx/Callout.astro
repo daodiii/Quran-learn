@@ -47,7 +47,7 @@ const frameVariant = type === 'tip' ? 'tipf' : 'notef';
     </div>
   </aside>
 ) : (
-  <aside class={`callout callout-${type} frame ${frameVariant}`} role="note" data-label={displayTitle} data-reveal>
+  <aside class={`callout callout-${type} frame ${frameVariant}`} role="note" aria-label={displayTitle} data-label={displayTitle} data-reveal>
     <div class="frame-in">
       <div class="callout-content">
         <slot />
@@ -76,4 +76,52 @@ const frameVariant = type === 'tip' ? 'tipf' : 'notef';
   .callout-content :global(strong) {
     color: var(--ink, inherit);
   }
+
+  /* Base (non-lab) skin — ships wherever Callout is used, incl. surah and
+     resource pages without lesson-lab.css. :where() keeps specificity low so
+     lesson-lab's `.lab .rulebox`/`.lab .frame` rules win on lesson pages.
+     The title is rendered via the ::before below (mirrors lesson-lab); the
+     aria-label on the note/tip <aside> carries it into the a11y tree. */
+  :global(.prose) .callout.rulebox {
+    margin-block: 1.5rem;
+    border: 1px solid var(--accent-gold);
+    border-inline-start-width: 3px;
+    border-radius: var(--radius-md);
+    background: var(--glass-bg-tinted-gold, var(--color-background-secondary, var(--bg-secondary)));
+  }
+  :global(.prose) .callout.rulebox.warn { border-color: var(--accent-copper, #c98a4b); }
+  :global(.prose) .rulebox .rulebox-in { padding: clamp(1.1rem, 3vw, 1.6rem); }
+  :global(.prose) .rulebox .rb-k {
+    margin: 0; font-size: 0.7rem; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--accent-gold); font-weight: 600;
+  }
+  :global(.prose) .rulebox.warn .rb-k, :global(.prose) .rulebox.warn .rb-t { color: var(--accent-copper, #c98a4b); }
+  :global(.prose) .rulebox .rb-t {
+    margin: 0.25rem 0 0.6rem; font-family: var(--font-display);
+    font-size: clamp(1.1rem, 2vw, 1.35rem); color: var(--color-text-primary);
+  }
+  :global(.prose) .rulebox .callout-content { color: var(--color-text-secondary); }
+
+  :global(.prose) .callout.frame {
+    position: relative;
+    margin-block: 1.75rem;
+    border: 1px solid var(--color-border-primary, var(--border-primary));
+    border-radius: var(--radius-md);
+    background: var(--color-background-secondary, var(--bg-secondary));
+  }
+  :global(.prose) .callout.frame::before {
+    content: attr(data-label);
+    position: absolute;
+    inset-block-start: -0.6rem;
+    inset-inline-start: 1rem;
+    padding: 0 0.5rem;
+    background: var(--color-background-primary, var(--bg-primary, #fff));
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-text-secondary);
+  }
+  :global(.prose) .callout.frame.tipf::before { color: var(--accent-teal, #2a9d8f); }
+  :global(.prose) .frame .frame-in { padding: clamp(1.1rem, 3vw, 1.6rem); }
+  :global(.prose) .frame .callout-content { color: var(--color-text-secondary); }
 </style>

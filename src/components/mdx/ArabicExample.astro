@@ -89,6 +89,7 @@ const hasWords = words && words.length > 0;
               class:list={['w', { al: isHighlighted }]}
               data-tr={word.tr}
               data-en={word.en}
+              aria-pressed="false"
             ><bdi>{word.ar}</bdi></button>
           </>
         );
@@ -156,8 +157,12 @@ const hasWords = words && words.length > 0;
 
   // ---------- verse console readout ----------
   function showWord(w: HTMLElement, panel: Element) {
-    panel.querySelectorAll('.w.lit').forEach((x) => x.classList.remove('lit'));
+    panel.querySelectorAll('.w.lit').forEach((x) => {
+      x.classList.remove('lit');
+      x.setAttribute('aria-pressed', 'false');
+    });
     w.classList.add('lit');
+    w.setAttribute('aria-pressed', 'true');
     const figure = panel.closest('figure');
     const roAr = figure?.querySelector('[data-ro="ar"]');
     const roEn = figure?.querySelector('[data-ro="en"]');
@@ -202,4 +207,77 @@ const hasWords = words && words.length > 0;
     border-radius: 4px;
     padding-inline: 0.2rem;
   }
+
+  /* Base (non-lab) skin — ships wherever ArabicExample is used, incl. surah
+     and resource pages that don't load lesson-lab.css. Gated under
+     :global(.prose) — the Tailwind-typography wrapper that SurahLayout and
+     ResourceLayout put around MDX content — so these rules apply ONLY on
+     those pages. Lesson pages render inside `.lesson-content` (no `.prose`),
+     so the lab skin owns them with zero cascade competition. */
+  :global(.prose) .arabic-example.console {
+    background: var(--color-background-secondary, var(--bg-secondary));
+    border: 1px solid var(--color-border-primary, var(--border-primary));
+    border-radius: var(--radius-md);
+    margin-block: var(--spacing-xl, 1.75rem);
+    overflow: clip;
+  }
+  :global(.prose) .console .c-top {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.55rem 1rem;
+    border-block-end: 1px solid var(--color-border-primary, var(--border-primary));
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-text-secondary);
+  }
+  :global(.prose) .console .c-top .dots { display: flex; gap: 4px; }
+  :global(.prose) .console .c-top .dots i {
+    inline-size: 7px; block-size: 7px; border-radius: 50%;
+    background: var(--color-border-primary, var(--border-primary));
+  }
+  :global(.prose) .console .c-ar {
+    font-family: var(--font-arabic);
+    font-size: clamp(1.6rem, 4vw, 2.2rem);
+    line-height: 2;
+    text-align: center;
+    direction: rtl;
+    padding: 1.1rem 1rem 0.5rem;
+    color: var(--color-text-primary);
+  }
+  :global(.prose) .console .c-ar .w {
+    font: inherit; color: inherit; background: none;
+    border: none; border-radius: 6px; padding: 0 0.1em; cursor: pointer;
+  }
+  :global(.prose) .console .c-ar .w:hover,
+  :global(.prose) .console .c-ar .w.lit { background: var(--accent-gold-light, rgba(242, 217, 140, 0.2)); }
+  :global(.prose) .console .c-ar .w.al { color: var(--accent-gold); }
+  :global(.prose) .console .c-ar.static { cursor: text; }
+  :global(.prose) .console .readout {
+    display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px;
+    background: var(--color-border-primary, var(--border-primary));
+    border-block-start: 1px solid var(--color-border-primary, var(--border-primary));
+  }
+  :global(.prose) .console .readout > div { background: var(--color-background-secondary, var(--bg-secondary)); padding: 0.7rem 1rem; }
+  :global(.prose) .console .readout .r-k {
+    display: block; font-size: 0.65rem; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--color-text-secondary); margin-block-end: 3px;
+  }
+  :global(.prose) .console .readout .r-v { font-size: 0.85rem; color: var(--color-text-primary); overflow-wrap: break-word; }
+  :global(.prose) .console .readout .r-v.gold { color: var(--accent-gold); font-family: var(--font-arabic); }
+  @media (max-width: 640px) { :global(.prose) .console .readout { grid-template-columns: 1fr; } }
+  :global(html:not(.js) .prose) .console .readout { display: none; }
+  :global(.prose) .console .c-foot { padding: 0.7rem 1rem 1rem; border-block-start: 1px solid var(--color-border-primary, var(--border-primary)); text-align: center; }
+  :global(.prose) .console .c-tr { font-size: 0.8rem; color: var(--color-text-secondary); margin: 0; }
+  :global(.prose) .console .c-en { font-size: 0.95rem; color: var(--color-text-primary); margin-block-start: 0.3rem; font-style: italic; }
+  :global(.prose) .console .reference { font-size: 0.75rem; color: var(--color-text-secondary); margin-block-start: 0.5rem; }
+  :global(.prose) .console .ayah-play {
+    display: inline-flex; align-items: center; gap: 0.3rem; margin-inline-start: 0.5rem;
+    font-size: 0.7rem; text-transform: uppercase; color: var(--accent-gold);
+    background: none; border: 1px solid var(--accent-gold); border-radius: 999px;
+    padding: 2px 10px; cursor: pointer; vertical-align: middle;
+  }
+  :global(.prose) .console .ayah-play.playing { background: var(--accent-gold); color: #fff; }
+  :global(.prose) .console .ayah-play.unavailable { opacity: 0.4; cursor: default; }
 </style>
