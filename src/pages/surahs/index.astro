@@ -101,6 +101,7 @@ body{background:var(--bg-0);color:var(--ink);font-family:var(--font-body);font-s
 .head .hint{display:flex;gap:12px;margin-top:16px;font-family:var(--font-mono);font-size:9.5px;letter-spacing:.2em;color:var(--ink-faint);text-transform:uppercase;flex-wrap:wrap}
 .head .hint i{font-style:normal;border:1px solid var(--hairline);border-radius:4px;padding:1px 6px}
 @media (max-width:1150px){.head{max-width:280px}}
+@media (max-width:620px){.head .hint{display:none}}
 
 /* legend top-right */
 #legend{position:absolute;top:calc(72px + 2.5vh);right:var(--pad-x);z-index:6;display:flex;flex-direction:column;gap:8px;font-family:var(--font-mono);font-size:9.5px;letter-spacing:.22em;color:var(--ink-faint);text-transform:uppercase;text-align:right}
@@ -129,6 +130,7 @@ body{background:var(--bg-0);color:var(--ink);font-family:var(--font-body);font-s
 @keyframes jflash{0%{transform:scale(1)}45%{transform:scale(1.5)}100%{transform:scale(1)}}
 @media (prefers-reduced-motion:reduce){#jewel.flash{animation:none}}
 #varc-lit{transition:stroke-dashoffset 1s var(--ease-io)}
+@media (prefers-reduced-motion:reduce){#varc-lit{transition:none}}
 
 /* plate */
 #plate{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:42%;text-align:center;pointer-events:none;z-index:4}
@@ -154,7 +156,7 @@ body{background:var(--bg-0);color:var(--ink);font-family:var(--font-body);font-s
 /* tick strip */
 #strip{position:absolute;left:50%;bottom:clamp(14px,3vh,30px);transform:translateX(-50%);z-index:6;display:flex;gap:5px;align-items:flex-end}
 #strip button{all:unset;cursor:pointer;width:9px;height:16px;display:grid;place-items:end center}
-#strip button i{width:1.5px;height:10px;background:rgba(228,209,164,.3);transition:all .35s;border-radius:1px}
+#strip button i{width:1.5px;height:10px;background:rgba(228,209,164,.3);transition:background .35s,height .35s,box-shadow .35s;border-radius:1px}
 #strip button:hover i{background:var(--gold);height:15px}
 #strip button.sel i{background:var(--gold-bright);height:17px;box-shadow:0 0 8px var(--gold-glow)}
 #strip button:focus-visible{outline:1px solid var(--gold);outline-offset:2px}

@@ -69,7 +69,8 @@ const ogImageURL = new URL('/images/og-default.jpg', Astro.site);
    footer / .foot-meta / .skip-link are provided by night.css
    ============================================================ */
 
-html{scroll-behavior:smooth;background:#05070e}
+html{background:#05070e}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
 body{background:linear-gradient(180deg,#05070e,#070a13);color:var(--ink);font-family:var(--font-body);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 
 /* head + HUD */
@@ -111,7 +112,7 @@ body{background:linear-gradient(180deg,#05070e,#070a13);color:var(--ink);font-fa
 .mod.beat .meter .needle{transform:rotate(30deg);transition:transform .16s var(--ease-out)}
 .mod .led{width:7px;height:7px;border-radius:50%;background:#3a3320;flex:none;transition:background .12s,box-shadow .12s}
 .mod.beat .led,.mod.on .led.idle{background:var(--gold-bright);box-shadow:0 0 10px var(--gold-glow)}
-.mod h3{font-family:var(--font-display);font-weight:400;font-size:clamp(16px,1.6vw,19.5px);line-height:1.25;margin-top:10px}
+.mod h2{font-family:var(--font-display);font-weight:400;font-size:clamp(16px,1.6vw,19.5px);line-height:1.25;margin-top:10px}
 .mod .demo{flex:1;display:grid;place-items:center;min-height:60px;padding:8px 0 2px}
 .mod .ds{font-size:11.5px;color:var(--ink-faint);font-weight:300;line-height:1.55}
 .mod .go{position:absolute;inset:0;z-index:3;border-radius:14px}
@@ -158,14 +159,14 @@ body{background:linear-gradient(180deg,#05070e,#070a13);color:var(--ink);font-fa
 #ticker li span{font-family:var(--font-mono);font-size:8px;letter-spacing:.14em;color:var(--ink-faint);text-transform:uppercase}
 
 #conj{display:grid;grid-template-columns:repeat(3,1fr);gap:5px;width:100%;max-width:190px}
-#conj i{height:23px;border:1px solid var(--hairline-soft);border-radius:5px;transition:all .3s;font-style:normal;display:grid;place-items:center;font-family:var(--font-mono);font-size:7.5px;color:var(--ink-faint)}
+#conj i{height:23px;border:1px solid var(--hairline-soft);border-radius:5px;transition:background .3s,border-color .3s,color .3s;font-style:normal;display:grid;place-items:center;font-family:var(--font-mono);font-size:7.5px;color:var(--ink-faint)}
 #conj i.hot{background:rgba(227,179,92,.16);border-color:rgba(227,179,92,.5);color:var(--gold-bright)}
 
 #road2{width:100%;display:flex;align-items:center}
 #road2 .st{flex:1;display:flex;flex-direction:column;align-items:center;gap:7px;position:relative}
 #road2 .st::before{content:'';position:absolute;top:5px;left:-50%;width:100%;height:1px;background:var(--hairline)}
 #road2 .st:first-child::before{display:none}
-#road2 .st i{width:10px;height:10px;border-radius:50%;border:1.5px solid rgba(228,209,164,.4);background:#090d19;transition:all .4s;font-style:normal;z-index:1}
+#road2 .st i{width:10px;height:10px;border-radius:50%;border:1.5px solid rgba(228,209,164,.4);background:#090d19;transition:background .4s,border-color .4s,box-shadow .4s;font-style:normal;z-index:1}
 #road2 .st.hot i{background:var(--gold-bright);border-color:var(--gold-bright);box-shadow:0 0 12px var(--gold-glow)}
 #road2 .st span{font-family:var(--font-mono);font-size:7px;letter-spacing:.16em;color:var(--ink-faint);text-transform:uppercase;white-space:nowrap}
 #road2 .st.hot span{color:var(--gold-bright)}
@@ -223,7 +224,7 @@ body{background:linear-gradient(180deg,#05070e,#070a13);color:var(--ink);font-fa
     <span class="screws" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
     <div class="inner">
       <div class="strip"><span class="lbl">Every root, ten forms · Live</span><span class="meter" aria-hidden="true"><svg viewBox="0 0 44 18"><path class="arc" d="M6 17 A17 17 0 0 1 38 17"/><line class="needle" x1="22" y1="17" x2="22" y2="4"/></svg></span><span class="led idle"></span></div>
-      <h3>Verb Form Generator</h3>
+      <h2>Verb Form Generator</h2>
       <div class="demo"><div id="formrow" aria-hidden="true">
         <span class="fr sw" id="fr">I</span>
         <span class="fp sw" id="fp" lang="ar" dir="rtl">فَعَلَ</span>
@@ -238,7 +239,7 @@ body{background:linear-gradient(180deg,#05070e,#070a13);color:var(--ink);font-fa
     <span class="screws" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
     <div class="inner">
       <div class="strip"><span class="lbl">Any word, one answer · Live</span><span class="meter" aria-hidden="true"><svg viewBox="0 0 44 18"><path class="arc" d="M6 17 A17 17 0 0 1 38 17"/><line class="needle" x1="22" y1="17" x2="22" y2="4"/></svg></span><span class="led idle"></span></div>
-      <h3>Word Lookup</h3>
+      <h2>Word Lookup</h2>
       <div class="demo" style="display:block"><div id="lkp" aria-hidden="true">
         <div class="line"><span style="opacity:.4">⌕</span><span class="q" id="lq" lang="ar" dir="rtl"></span><span class="caret"></span></div>
         <div class="chips" id="lchips"><span><b lang="ar" dir="rtl">قَالَ</b> qāla</span><span>ROOT <b lang="ar" dir="rtl">ق و ل</b></span><span>FORM <b>I</b></span><span><b>412×</b></span><span>"TO SAY"</span></div>
@@ -252,7 +253,7 @@ body{background:linear-gradient(180deg,#05070e,#070a13);color:var(--ink);font-fa
     <span class="screws" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
     <div class="inner">
       <div class="strip"><span class="lbl">Core vocabulary</span><span class="led idle"></span></div>
-      <h3>200 Most Common Words</h3>
+      <h2>200 Most Common Words</h2>
       <div class="demo"><div id="ticker" aria-hidden="true"><ul id="tickerlist"></ul></div></div>
       <p class="ds">The words on every page.</p>
     </div>
@@ -263,7 +264,7 @@ body{background:linear-gradient(180deg,#05070e,#070a13);color:var(--ink);font-fa
     <span class="screws" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
     <div class="inner">
       <div class="strip"><span class="lbl">The three cases</span><span class="led idle"></span></div>
-      <h3>Case Endings Chart</h3>
+      <h2>Case Endings Chart</h2>
       <div class="demo"><div aria-hidden="true">
         <div class="d-big-ar sw" id="cw" lang="ar" dir="rtl" translate="no">كِتَابٌ</div>
         <div class="d-lbl sw" id="cl">RAFʿ — SUBJECT</div>
@@ -277,7 +278,7 @@ body{background:linear-gradient(180deg,#05070e,#070a13);color:var(--ink);font-fa
     <span class="screws" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
     <div class="inner">
       <div class="strip"><span class="lbl">Every term defined</span><span class="led idle"></span></div>
-      <h3>Grammar Glossary</h3>
+      <h2>Grammar Glossary</h2>
       <div class="demo"><div aria-hidden="true">
         <div class="d-big-ar sw" id="gt" lang="ar" dir="rtl" translate="no">إعراب</div>
         <div class="d-lbl sw" id="gd">IʿRĀB — CASE ANALYSIS</div>
@@ -291,7 +292,7 @@ body{background:linear-gradient(180deg,#05070e,#070a13);color:var(--ink);font-fa
     <span class="screws" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
     <div class="inner">
       <div class="strip"><span class="lbl">Who is speaking</span><span class="led idle"></span></div>
-      <h3>Pronoun Charts</h3>
+      <h2>Pronoun Charts</h2>
       <div class="demo"><div id="pron" aria-hidden="true">
         <span class="p-ring"></span>
         <div class="p-rot">
@@ -308,7 +309,7 @@ body{background:linear-gradient(180deg,#05070e,#070a13);color:var(--ink);font-fa
     <span class="screws" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
     <div class="inner">
       <div class="strip"><span class="lbl">How words are born</span><span class="led idle"></span></div>
-      <h3>Root System Guide</h3>
+      <h2>Root System Guide</h2>
       <div class="demo"><div aria-hidden="true">
         <div class="d-big-ar sw" id="rb" lang="ar" dir="rtl" translate="no">كِتَاب</div>
         <div class="d-lbl sw" id="rl">KITĀB — BOOK</div>
@@ -323,7 +324,7 @@ body{background:linear-gradient(180deg,#05070e,#070a13);color:var(--ink);font-fa
     <span class="screws" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
     <div class="inner">
       <div class="strip"><span class="lbl">Every person &amp; tense</span><span class="led idle"></span></div>
-      <h3>Conjugation Tables</h3>
+      <h2>Conjugation Tables</h2>
       <div class="demo"><div id="conj" aria-hidden="true"><i>3MS</i><i>3FS</i><i>2MS</i><i>2FS</i><i>1S</i><i>3MP</i><i>3FP</i><i>2MP</i><i>1P</i></div></div>
       <p class="ds">Ten forms, every person.</p>
     </div>
@@ -334,7 +335,7 @@ body{background:linear-gradient(180deg,#05070e,#070a13);color:var(--ink);font-fa
     <span class="screws" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
     <div class="inner">
       <div class="strip"><span class="lbl">Which Arabic first</span><span class="led idle"></span></div>
-      <h3>Quranic vs MSA</h3>
+      <h2>Quranic vs MSA</h2>
       <div class="demo"><div id="msa" aria-hidden="true">
         <div class="tgl"><i></i><span>Quranic</span><span>MSA</span></div>
         <div class="d-lbl sw" id="mnote" style="margin-top:9px">SAME ROOTS · DIFFERENT REGISTER</div>
@@ -348,7 +349,7 @@ body{background:linear-gradient(180deg,#05070e,#070a13);color:var(--ink);font-fa
     <span class="screws" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
     <div class="inner">
       <div class="strip"><span class="lbl">The route &amp; timelines</span><span class="meter" aria-hidden="true"><svg viewBox="0 0 44 18"><path class="arc" d="M6 17 A17 17 0 0 1 38 17"/><line class="needle" x1="22" y1="17" x2="22" y2="4"/></svg></span><span class="led idle"></span></div>
-      <h3>Learning Roadmap</h3>
+      <h2>Learning Roadmap</h2>
       <div class="demo"><div id="road2" aria-hidden="true">
         <div class="st"><i></i><span>Script</span></div><div class="st"><i></i><span>Words</span></div><div class="st"><i></i><span>Iʿrāb</span></div><div class="st"><i></i><span>Forms</span></div><div class="st"><i></i><span>Cold read</span></div>
       </div></div>
@@ -361,7 +362,7 @@ body{background:linear-gradient(180deg,#05070e,#070a13);color:var(--ink);font-fa
     <span class="screws" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
     <div class="inner">
       <div class="strip"><span class="lbl">90% of the grammar</span><span class="led idle"></span></div>
-      <h3>Arabic in 7 Principles</h3>
+      <h2>Arabic in 7 Principles</h2>
       <div class="demo"><div aria-hidden="true">
         <div class="d-big-ar sw" id="sn" lang="ar" style="font-size:44px;color:var(--gold-bright)">١</div>
         <div class="d-lbl">OF ٧ · 90% OF THE GRAMMAR</div>
@@ -375,7 +376,7 @@ body{background:linear-gradient(180deg,#05070e,#070a13);color:var(--ink);font-fa
     <span class="screws" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
     <div class="inner">
       <div class="strip"><span class="lbl">The ten forms mapped</span><span class="led idle"></span></div>
-      <h3>Verb Forms Master</h3>
+      <h2>Verb Forms Master</h2>
       <div class="demo"><div aria-hidden="true">
         <div class="sw" id="vr" style="font-family:var(--font-display);font-size:38px;text-align:center">II</div>
         <div class="d-lbl sw" id="vm">INTENSIVE · CAUSATIVE</div>

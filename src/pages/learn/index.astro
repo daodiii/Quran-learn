@@ -168,7 +168,7 @@ body{background:var(--bg-0);color:var(--ink);font-family:var(--font-body);font-s
 
 /* progress rail */
 #rail{position:absolute;right:clamp(14px,2.4vw,34px);top:50%;transform:translateY(-50%);z-index:7;display:flex;flex-direction:column;gap:16px}
-#rail span{width:8px;height:8px;border-radius:50%;border:1px solid rgba(228,209,164,.4);transition:all .5s;position:relative}
+#rail span{width:8px;height:8px;border-radius:50%;border:1px solid rgba(228,209,164,.4);transition:background .5s,border-color .5s,box-shadow .5s;position:relative}
 #rail span.hot{background:var(--gold-bright);border-color:var(--gold-bright);box-shadow:0 0 12px var(--gold-glow)}
 #rail span i{position:absolute;right:18px;top:50%;transform:translateY(-50%);font-style:normal;font-family:var(--font-mono);font-size:8.5px;letter-spacing:.26em;color:var(--ink-faint);text-transform:uppercase;white-space:nowrap;opacity:0;transition:opacity .4s}
 #rail span.hot i{opacity:1;color:var(--gold-bright)}
@@ -466,6 +466,7 @@ addEventListener('scroll',drive,{passive:true});
 var intro=document.getElementById('intro'),finale=document.getElementById('finale'),dawn=document.getElementById('dawn');
 var cards={};[].slice.call(document.querySelectorAll('.card')).forEach(function(c){cards[+c.dataset.stop]=c;});
 var railDots=[].slice.call(document.querySelectorAll('#rail span'));
+if(!FLAT)finale.setAttribute('inert','');
 
 /* ---------- progress → cards + finale + dek ---------- */
 var lineProg={1:0,2:0,3:0,4:0,5:0};
@@ -527,7 +528,7 @@ document.addEventListener('visibilitychange',function(){run=!document.hidden;});
       c2.style.pointerEvents=vis>.6?'auto':'none';
     }
     var fv=Math.max(0,Math.min(1,(u-5.45)*2.2));
-    finale.style.opacity=fv;finale.classList.toggle('live',fv>.6);
+    finale.style.opacity=fv;finale.classList.toggle('live',fv>.6);finale.toggleAttribute('inert',fv<=.6);
     dawn.style.opacity=(Math.max(0,(u-5.1)/.9)*.95).toFixed(3);
     var act=Math.round(u);
     railDots.forEach(function(d,i2){d.classList.toggle('hot',i2===Math.max(0,Math.min(6,act)));});
