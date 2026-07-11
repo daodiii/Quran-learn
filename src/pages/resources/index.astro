@@ -3,6 +3,8 @@ import '../../styles/night.css';
 import { getCollection } from 'astro:content';
 
 const resources = await getCollection('resources');
+// If this list changes, also update the hand-written counts in the copy:
+// the h1 ("Twelve tools"), the HUD data-hud-tools value, and the foot-meta line.
 const EXPECTED = ['200-most-used-words','arabic-in-7-principles','case-endings-chart','glossary','learning-roadmap','pronoun-charts','quran-arabic-vs-msa','root-system','verb-conjugation-tables','verb-forms-master-reference'];
 const ids = new Set(resources.map(r => r.id));
 for (const id of EXPECTED) if (!ids.has(id)) throw new Error(`resources: expected entry "${id}" missing — update the control-room rack`);
@@ -416,9 +418,11 @@ addEventListener('scroll',function(){document.getElementById('nav').classList.to
 
 /* ---------- boot sequence ---------- */
 var mods=[].slice.call(document.querySelectorAll('.mod'));
-var booted=0;
+var booted=0,bootStarted=false;
 mods.sort(function(a,b){return +a.dataset.boot-+b.dataset.boot;});
 function bootAll(){
+  if(bootStarted)return; /* load can fire after the 2400ms fallback (render-blocking fonts gate it) — boot once */
+  bootStarted=true;
   mods.forEach(function(m,i){
     var delay=RM?0:500+i*260;
     setTimeout(function(){
@@ -428,7 +432,7 @@ function bootAll(){
   });
 }
 addEventListener('load',bootAll);
-setTimeout(function(){if(booted===0)bootAll();},2400);
+setTimeout(bootAll,2400);
 
 /* ---------- master heartbeat: 1.2s ---------- */
 var BEAT=1200,beatN=0;
