@@ -463,7 +463,7 @@ function statik(el,txt){el.textContent=txt;}
 /* ---------- demos on the beat ---------- */
 var ROMANS=['I','II','III','IV','V','VI','VII','VIII','IX','X'];
 var PATS=['فَعَلَ','فَعَّلَ','فَاعَلَ','أَفْعَلَ','تَفَعَّلَ','تَفَاعَلَ','اِنْفَعَلَ','اِفْتَعَلَ','اِفْعَلَّ','اِسْتَفْعَلَ'];
-var MEANS=['BASE MEANING·THE BARE ROOT','INTENSIVE · CAUSATIVE·DOUBLED MIDDLE','RECIPROCAL·LONG FIRST VOWEL','CAUSATIVE·HAMZA PREFIX','REFLEXIVE OF II·TA- PREFIX','MUTUAL ACTION·TA- + LONG VOWEL','PASSIVE-LIKE·IN- PREFIX','REFLEXIVE·-TA- INFIX','COLORS &amp; DEFECTS·DOUBLED LAM','SEEKING·ISTA- PREFIX'];
+var MEANS=['BASE MEANING|THE BARE ROOT','INTENSIVE · CAUSATIVE|DOUBLED MIDDLE','RECIPROCAL|LONG FIRST VOWEL','CAUSATIVE|HAMZA PREFIX','REFLEXIVE OF II|TA- PREFIX','MUTUAL ACTION|TA- + LONG VOWEL','PASSIVE-LIKE|IN- PREFIX','REFLEXIVE|-TA- INFIX','COLORS &amp; DEFECTS|DOUBLED LAM','SEEKING|ISTA- PREFIX'];
 var fr=document.getElementById('fr'),fp=document.getElementById('fp'),fm=document.getElementById('fm');
 var fi=0;
 onBeat(2,0,function(){
@@ -471,10 +471,10 @@ onBeat(2,0,function(){
   swap(fr,function(){
     fr.textContent=ROMANS[fi];fp.textContent=PATS[fi];
     fm.textContent='';
-    MEANS[fi].replace(/&amp;/g,'&').split('·').forEach(function(l,k){if(k)fm.appendChild(document.createElement('br'));fm.appendChild(document.createTextNode(l.trim()));});
+    MEANS[fi].replace(/&amp;/g,'&').split('|').forEach(function(l,k){if(k)fm.appendChild(document.createElement('br'));fm.appendChild(document.createTextNode(l.trim()));});
   });
 });
-if(RM){statik(fr,'II');statik(fp,PATS[1]);}
+if(RM){statik(fr,'II');statik(fp,PATS[1]);fm.textContent='';MEANS[1].split('|').forEach(function(l,k){if(k)fm.appendChild(document.createElement('br'));fm.appendChild(document.createTextNode(l.trim()));});}
 
 /* lookup typing (own rhythm) */
 var lq=document.getElementById('lq'),lchips=document.getElementById('lchips');
@@ -530,7 +530,7 @@ onBeat(2,0,function(){si=(si+1)%7;swap(sn,function(){sn.textContent=AR7[si];});}
 
 /* vfm */
 var vr=document.getElementById('vr'),vm=document.getElementById('vm'),vi=1;
-onBeat(2,1,function(){vi=(vi+1)%10;swap(vr,function(){vr.textContent=ROMANS[vi];vm.textContent=MEANS[vi].replace(/&amp;/g,'&').split('·')[1].trim();});});
+onBeat(2,1,function(){vi=(vi+1)%10;swap(vr,function(){vr.textContent=ROMANS[vi];vm.textContent=MEANS[vi].replace(/&amp;/g,'&').split('|')[0].trim();});});
 
 /* msa */
 var msa=document.getElementById('msa'),mnote=document.getElementById('mnote');
