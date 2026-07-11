@@ -1,0 +1,300 @@
+---
+/**
+ * ConjugationEngine - past-tense (al-māḍī) paradigm engine (Anatomy Lab).
+ *
+ * Ported from .planning/redesign-v4-lessons/lesson-5-lab-past.html's
+ * #engine. Words are built as stem + suffix (combining marks preserved so
+ * joining renders correctly). Press a person to attach its suffix live;
+ * switch roots to prove the endings never change.
+ *
+ * `behaviour` picks one of three fixed narration templates (see
+ * `behaviourNote` below / BRIEF §5):
+ *   0 = base citation form (no suffix change)
+ *   1 = third-person suffix attaches directly to the open stem
+ *   2 = sukūn-then-suffix (first/second person "you/I/we" cluster)
+ *
+ * Usage:
+ * <ConjugationEngine
+ *   roots={[
+ *     { id: 'katab', letters: 'ك-ت-ب', gloss: 'to write', stem: 'كَتَب' },
+ *     { id: 'nasar', letters: 'ن-ص-ر', gloss: 'to help', stem: 'نَصَر' },
+ *   ]}
+ *   persons={[
+ *     { suffix: 'َ', tr: 'a', pronoun: 'هُوَ', label: '3rd masculine singular', behaviour: 0 },
+ *     { suffix: 'َتْ', tr: 'at', pronoun: 'هِيَ', label: '3rd feminine singular', behaviour: 1 },
+ *     { suffix: 'ْتُ', tr: 'tu', pronoun: 'أَنَا', label: '1st singular', behaviour: 2 },
+ *   ]}
+ * />
+ */
+
+interface RootEntry {
+  id: string;
+  letters: string; // e.g. "ك-ت-ب"
+  gloss: string; // e.g. "to write"
+  stem: string; // e.g. "كَتَب" — combining suffixes attach to this
+}
+
+interface PersonEntry {
+  suffix: string; // combining suffix glyphs, e.g. "َتْ" (no tatweel — engine adds one for display)
+  tr: string; // suffix transliteration, e.g. "at"
+  pronoun: string; // Arabic independent pronoun, e.g. "هِيَ"
+  label: string; // full person label, e.g. "3rd feminine singular"
+  behaviour: 0 | 1 | 2;
+}
+
+interface Props {
+  roots: RootEntry[];
+  persons: PersonEntry[];
+}
+
+const { roots, persons } = Astro.props;
+
+if (!roots || roots.length === 0) {
+  throw new Error('ConjugationEngine requires at least one root in `roots`.');
+}
+if (!persons || persons.length === 0) {
+  throw new Error('ConjugationEngine requires at least one person in `persons`.');
+}
+
+const TATWEEL = 'ـ';
+
+function behaviourNote(b: 0 | 1 | 2): string {
+  if (b === 0) return 'Base form — the citation form itself.';
+  if (b === 1) return 'Third person: suffix attaches directly to the open stem.';
+  return 'Sukūn-then-suffix: the middle root letter closes with sukūn before the suffix attaches.';
+}
+
+const firstRoot = roots[0];
+const firstPerson = persons[0];
+const firstWord = firstRoot.stem + firstPerson.suffix;
+const firstTr = firstRoot.tr + firstPerson.tr;
+---
+
+<div class="frame conjugation-engine" data-label="Conjugation engine · past tense (al-māḍī)" data-reveal data-conjugation-engine>
+  <div class="e-stage">
+    <p class="e-word" lang="ar" dir="rtl" data-e-word>{firstWord}</p>
+    <p class="e-tr" data-e-tr>
+      <b>{firstTr}</b> — {firstRoot.gloss}
+    </p>
+    <p class="e-en" data-e-en>"{firstRoot.gloss}" · past (māḍī)</p>
+  </div>
+  <div class="e-readout" aria-live="polite">
+    <div>
+      <span class="r-k">Person</span>
+      <span class="r-v" data-e-ro-person><bdi lang="ar">{firstPerson.pronoun}</bdi> — {firstPerson.label}</span>
+    </div>
+    <div>
+      <span class="r-k">Suffix</span>
+      <span class="r-v" data-e-ro-suffix
+        ><bdi lang="ar" dir="rtl">{TATWEEL}{firstPerson.suffix}</bdi> · -{firstPerson.tr}</span
+      >
+    </div>
+    <div>
+      <span class="r-k">Stem behaviour</span>
+      <span class="r-v" data-e-ro-stem>{behaviourNote(firstPerson.behaviour)}</span>
+    </div>
+  </div>
+  <div class="persons" data-e-persons role="group" aria-label="Choose a person to conjugate">
+    {
+      persons.map((p, i) => (
+        <button
+          type="button"
+          class:list={['p-btn', { on: i === 0 }]}
+          data-person-index={i}
+          data-suffix={p.suffix}
+          data-tr={p.tr}
+          data-pronoun={p.pronoun}
+          data-label={p.label}
+          data-behaviour={p.behaviour}
+        >
+          <span class="p-ar" lang="ar">
+            <bdi>{p.pronoun}</bdi>
+          </span>
+          <span class="p-en">{p.label}</span>
+        </button>
+      ))
+    }
+  </div>
+  <div class="roots" data-e-roots role="group" aria-label="Choose a root">
+    {
+      roots.map((r, i) => (
+        <button
+          type="button"
+          class:list={['root-btn', { on: i === 0 }]}
+          data-root-index={i}
+          data-stem={r.stem}
+          data-root-tr={r.tr}
+          data-gloss={r.gloss}
+        >
+          <bdi lang="ar" dir="rtl">
+            {r.letters}
+          </bdi>{' '}
+          {r.gloss}
+        </button>
+      ))
+    }
+  </div>
+  <p class="e-note" data-e-note>Press a person above — the engine attaches its suffix and explains the move.</p>
+  <p class="e-progress" data-e-progress>
+    Persons run: 1 / {persons.length}
+  </p>
+</div>
+
+<script>
+  // Anatomy Lab engine: stem + suffix concatenation, three fixed narration
+  // templates keyed by `behaviour`. No innerHTML — createElement/textContent
+  // only. The Arabic pronoun/suffix/root-letters tokens are isolated in
+  // <bdi> where they sit inside an otherwise-Latin sentence (BRIEF §5 bidi
+  // gotcha: "wrap Arabic in <bdi> when mixing with Latin in one text node").
+
+  const TATWEEL = 'ـ';
+
+  function behaviourNote(b: string): string {
+    if (b === '0') return 'Base form — the citation form itself.';
+    if (b === '1') return 'Third person: suffix attaches directly to the open stem.';
+    return 'Sukūn-then-suffix: the middle root letter closes with sukūn before the suffix attaches.';
+  }
+
+  function setBdiText(el: HTMLElement, text: string, opts: { lang?: string; dir?: string; after?: string } = {}) {
+    while (el.firstChild) el.removeChild(el.firstChild);
+    const bdi = document.createElement('bdi');
+    if (opts.lang) bdi.setAttribute('lang', opts.lang);
+    if (opts.dir) bdi.setAttribute('dir', opts.dir);
+    bdi.textContent = text;
+    el.appendChild(bdi);
+    if (opts.after) el.appendChild(document.createTextNode(opts.after));
+  }
+
+  function initConjugationEngine(root: HTMLElement) {
+    if (root.dataset.ceBound === '1') return;
+    root.dataset.ceBound = '1';
+
+    const rmq = matchMedia('(prefers-reduced-motion: reduce)');
+    const wordEl = root.querySelector<HTMLElement>('[data-e-word]');
+    const trEl = root.querySelector<HTMLElement>('[data-e-tr]');
+    const enEl = root.querySelector<HTMLElement>('[data-e-en]');
+    const roPerson = root.querySelector<HTMLElement>('[data-e-ro-person]');
+    const roSuffix = root.querySelector<HTMLElement>('[data-e-ro-suffix]');
+    const roStem = root.querySelector<HTMLElement>('[data-e-ro-stem]');
+    const noteEl = root.querySelector<HTMLElement>('[data-e-note]');
+    const progressEl = root.querySelector<HTMLElement>('[data-e-progress]');
+    const personButtons = Array.from(root.querySelectorAll<HTMLButtonElement>('.p-btn'));
+    const rootButtons = Array.from(root.querySelectorAll<HTMLButtonElement>('.root-btn'));
+    if (!wordEl || personButtons.length === 0 || rootButtons.length === 0) return;
+
+    let curPersonIdx = 0;
+    let curRootIdx = 0;
+    const touched = new Set<number>([0]);
+
+    function updateProgress() {
+      if (progressEl) progressEl.textContent = `Persons run: ${touched.size} / ${personButtons.length}`;
+    }
+
+    function addPart(text: string, kind?: 'b' | 'warn') {
+      if (!noteEl) return;
+      if (kind === 'b' || kind === 'warn') {
+        const b = document.createElement('b');
+        if (kind === 'warn') b.className = 'warnb';
+        b.textContent = text;
+        noteEl.appendChild(b);
+      } else {
+        noteEl.appendChild(document.createTextNode(text));
+      }
+    }
+
+    function render(animate: boolean) {
+      const p = personButtons[curPersonIdx];
+      const r = rootButtons[curRootIdx];
+      const suffix = p.dataset.suffix || '';
+      const tr = p.dataset.tr || '';
+      const pronoun = p.dataset.pronoun || '';
+      const label = p.dataset.label || '';
+      const behaviour = p.dataset.behaviour || '0';
+      const stem = r.dataset.stem || '';
+      const rootTr = r.dataset.rootTr || '';
+      const gloss = r.dataset.gloss || '';
+
+      const word = stem + suffix;
+      const fullTr = rootTr + tr;
+
+      function apply() {
+        wordEl!.textContent = word;
+        if (trEl) {
+          while (trEl.firstChild) trEl.removeChild(trEl.firstChild);
+          const b = document.createElement('b');
+          b.textContent = fullTr;
+          trEl.appendChild(b);
+          trEl.appendChild(document.createTextNode(' — ' + gloss));
+        }
+        if (enEl) enEl.textContent = `"${gloss}" · past (māḍī)`;
+        if (roPerson) setBdiText(roPerson, pronoun, { lang: 'ar', after: ' — ' + label });
+        if (roSuffix) setBdiText(roSuffix, TATWEEL + suffix, { lang: 'ar', dir: 'rtl', after: '  ·  -' + tr });
+        if (roStem) roStem.textContent = behaviourNote(behaviour);
+      }
+
+      if (animate && !rmq.matches) {
+        wordEl!.classList.add('swap');
+        setTimeout(() => {
+          apply();
+          wordEl!.classList.remove('swap');
+        }, 240);
+      } else {
+        apply();
+      }
+
+      if (noteEl) {
+        while (noteEl.firstChild) noteEl.removeChild(noteEl.firstChild);
+        const suffixDisplay = TATWEEL + suffix + ' (' + tr + ')';
+        if (behaviour === '0') {
+          addPart('stem ');
+          addPart(fullTr, 'b');
+          addPart(' is already the base (3rd person masculine singular) — the dictionary form.');
+        } else if (behaviour === '1') {
+          addPart('stem + ');
+          addPart(suffixDisplay, 'b');
+          addPart('  →  ');
+          addPart(fullTr, 'b');
+          addPart('  — third-person suffixes attach straight to the base.');
+        } else {
+          addPart('stem closes: middle letter takes ');
+          addPart('sukūn', 'warn');
+          addPart('  ·  stem + ');
+          addPart(suffixDisplay, 'b');
+          addPart('  →  ');
+          addPart(fullTr, 'b');
+          addPart('  — every YOU/I/WE form starts with this move.');
+        }
+      }
+
+      touched.add(curPersonIdx);
+      updateProgress();
+    }
+
+    personButtons.forEach((btn, i) => {
+      btn.addEventListener('click', () => {
+        curPersonIdx = i;
+        personButtons.forEach((b) => b.classList.toggle('on', b === btn));
+        render(true);
+        document.dispatchEvent(new CustomEvent('lab:word-touched'));
+      });
+    });
+
+    rootButtons.forEach((btn, i) => {
+      btn.addEventListener('click', () => {
+        curRootIdx = i;
+        rootButtons.forEach((b) => b.classList.toggle('on', b === btn));
+        render(true);
+        document.dispatchEvent(new CustomEvent('lab:word-touched'));
+      });
+    });
+
+    updateProgress();
+  }
+
+  function initAll() {
+    document.querySelectorAll<HTMLElement>('[data-conjugation-engine]').forEach(initConjugationEngine);
+  }
+
+  initAll();
+  document.addEventListener('astro:page-load', initAll);
+</script>

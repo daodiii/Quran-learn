@@ -1,0 +1,165 @@
+---
+/**
+ * SpecimenChips - word-anatomy dissection tray (Anatomy Lab engine).
+ *
+ * Ported from .planning/redesign-v4-lessons/lesson-3-lab.html's specimen
+ * tray + anatomy panel. Clicking a chip renders its word broken into
+ * labelled morphological segments (prefix/stem/ending/elided) plus a
+ * verdict line.
+ *
+ * Usage:
+ * <SpecimenChips
+ *   specimens={[
+ *     {
+ *       word: 'كِتَابٌ',
+ *       tag: 'Indefinite',
+ *       segments: [
+ *         { text: 'كِتَاب', part: 'stem', label: 'Stem · kitāb', note: 'the noun itself' },
+ *         { text: 'ـٌ', part: 'end', label: 'Tanween damma', note: '"a/an" — indefinite marker' },
+ *       ],
+ *       verdict: 'Indefinite: kitābun — "a book". Tanween present, no al-.',
+ *     },
+ *   ]}
+ * />
+ */
+
+interface Segment {
+  text: string;
+  part: 'al' | 'stem' | 'end' | 'gone';
+  label: string;
+  note?: string;
+}
+
+interface Specimen {
+  word: string;
+  tag: string; // chip label, e.g. "Indefinite" / "Definite"
+  segments: Segment[];
+  verdict: string;
+}
+
+interface Props {
+  specimens: Specimen[];
+}
+
+const { specimens } = Astro.props;
+
+if (!specimens || specimens.length === 0) {
+  throw new Error('SpecimenChips requires at least one specimen in `specimens`.');
+}
+
+const tagClass = (tag: string) => (/indef/i.test(tag) ? 'indef' : 'def');
+---
+
+<div class="frame specimen-chips" data-label="Specimen tray · click to dissect" data-reveal data-specimen-chips>
+  <div class="frame-in">
+    <div class="spec-row" data-chips-tray>
+      {
+        specimens.map((s, i) => (
+          <button
+            type="button"
+            class:list={['spec-chip', { sel: i === 0 }]}
+            data-spec-index={i}
+            data-spec-segments={JSON.stringify(s.segments)}
+            data-spec-verdict={s.verdict}
+          >
+            <span class={`c-tag ${tagClass(s.tag)}`}>{s.tag}</span>
+            <span class="c-ar" lang="ar" dir="rtl">
+              {s.word}
+            </span>
+          </button>
+        ))
+      }
+    </div>
+    <div class="anatomy" data-chips-anatomy aria-live="polite">
+      <div class="a-word" data-chips-word></div>
+      <p class="a-verdict" data-chips-verdict-out></p>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Anatomy Lab engine: renders word-anatomy segments on chip click.
+  // No innerHTML — createElement/textContent only. Segment text nodes are
+  // single-script (Arabic glyph vs. Latin label/note in separate spans);
+  // the verdict line can mix scripts in one sentence, so it goes through a
+  // <bdi> wrapper (see astro-css-gotchas / BRIEF §5 bidi note).
+
+  interface Segment {
+    text: string;
+    part: string;
+    label: string;
+    note?: string;
+  }
+
+  function renderSegments(container: HTMLElement, segments: Segment[]) {
+    while (container.firstChild) container.removeChild(container.firstChild);
+    segments.forEach((seg) => {
+      const box = document.createElement('div');
+      box.className = 'a-seg ' + seg.part;
+
+      const ar = document.createElement('span');
+      ar.className = 's-ar';
+      ar.setAttribute('lang', 'ar');
+      ar.setAttribute('dir', 'rtl');
+      ar.textContent = seg.text;
+      box.appendChild(ar);
+
+      const lab = document.createElement('span');
+      lab.className = 's-lab';
+      lab.textContent = seg.label;
+      box.appendChild(lab);
+
+      if (seg.note) {
+        const note = document.createElement('span');
+        note.className = 's-note';
+        note.textContent = seg.note;
+        box.appendChild(note);
+      }
+
+      container.appendChild(box);
+    });
+  }
+
+  function setVerdict(el: HTMLElement, text: string) {
+    while (el.firstChild) el.removeChild(el.firstChild);
+    const bdi = document.createElement('bdi');
+    bdi.textContent = text;
+    el.appendChild(bdi);
+  }
+
+  function initSpecimenChips(root: HTMLElement) {
+    if (root.dataset.chipsBound === '1') return;
+    root.dataset.chipsBound = '1';
+
+    const tray = root.querySelector<HTMLElement>('[data-chips-tray]');
+    const anatomy = root.querySelector<HTMLElement>('[data-chips-anatomy]');
+    const wordEl = root.querySelector<HTMLElement>('[data-chips-word]');
+    const verdictEl = root.querySelector<HTMLElement>('[data-chips-verdict-out]');
+    if (!tray || !anatomy || !wordEl || !verdictEl) return;
+
+    const chips = Array.from(tray.querySelectorAll<HTMLButtonElement>('.spec-chip'));
+
+    function select(chip: HTMLButtonElement) {
+      chips.forEach((c) => c.classList.toggle('sel', c === chip));
+      let segments: Segment[] = [];
+      try {
+        segments = JSON.parse(chip.dataset.specSegments || '[]');
+      } catch {
+        segments = [];
+      }
+      renderSegments(wordEl!, segments);
+      setVerdict(verdictEl!, chip.dataset.specVerdict || '');
+      anatomy!.classList.add('show');
+      document.dispatchEvent(new CustomEvent('lab:word-touched'));
+    }
+
+    chips.forEach((chip) => chip.addEventListener('click', () => select(chip)));
+  }
+
+  function initAll() {
+    document.querySelectorAll<HTMLElement>('[data-specimen-chips]').forEach(initSpecimenChips);
+  }
+
+  initAll();
+  document.addEventListener('astro:page-load', initAll);
+</script>
