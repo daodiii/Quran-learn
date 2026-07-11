@@ -1,6 +1,6 @@
 ---
 /**
- * ArabicExample - Display Quranic verses with transliteration and translation
+ * ArabicExample - Display Quranic verses as a lab "verse console"
  *
  * Usage example (basic):
  * <ArabicExample
@@ -11,7 +11,9 @@
  *   highlight="بِسْمِ"
  * />
  *
- * Usage example (with interlinear word-by-word):
+ * Usage example (with interlinear word-by-word — renders an interactive
+ * console: each word is a focusable button that populates the readout
+ * panel and dispatches a `lab:word-touched` event for the rail telemetry):
  * <ArabicExample
  *   arabic="بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ"
  *   transliteration="bismi llahi r-rahmani r-rahim"
@@ -69,41 +71,64 @@ const processedArabic = processArabicText(arabic, highlightWords);
 const hasWords = words && words.length > 0;
 ---
 
-<div class="arabic-example">
+<figure class="arabic-example console" data-reveal>
+  <figcaption class="c-top">
+    <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+    {reference || 'Specimen'}
+  </figcaption>
+
   {hasWords ? (
-    <div class="interlinear" dir="rtl" aria-label={arabic}>
-      {words.map((word) => {
+    <p class="c-ar" lang="ar" dir="rtl" data-words>
+      {words!.map((word, i) => {
         const isHighlighted = highlightWords.includes(word.ar);
         return (
-          <div class:list={["word-unit", { highlighted: isHighlighted }]}>
-            <span class="word-ar" lang="ar">{word.ar}</span>
-            <span class="word-en" dir="ltr">{word.en}</span>
-          </div>
+          <>
+            {i > 0 && ' '}
+            <button
+              type="button"
+              class:list={['w', { al: isHighlighted }]}
+              data-tr={word.tr}
+              data-en={word.en}
+            ><bdi>{word.ar}</bdi></button>
+          </>
         );
       })}
-    </div>
-  ) : (
-    <p class="arabic-text" dir="rtl" lang="ar" set:html={processedArabic} />
-  )}
-
-  <p class="translation" dir="ltr">{translation}</p>
-
-  {reference && (
-    <p class="reference" dir="ltr">
-      &mdash; {reference}
-      {ayah && (
-        <button class="ayah-play" type="button" data-audio-src={ayahAudioUrl(ayah)}
-                aria-label={`Play recitation of verse ${ayah.surah}:${ayah.ayah}`}>
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
-          <span class="ayah-play-label">Listen</span>
-        </button>
-      )}
     </p>
+  ) : (
+    <p class="c-ar static" dir="rtl" lang="ar" set:html={processedArabic} />
   )}
-</div>
+
+  {hasWords && (
+    <div class="readout" aria-live="polite">
+      <div><span class="r-k">Word</span><span class="r-v gold" data-ro="ar">— touch a word —</span></div>
+      <div><span class="r-k">Meaning</span><span class="r-v" data-ro="en">—</span></div>
+      <div><span class="r-k">Transliteration</span><span class="r-v" data-ro="tr">—</span></div>
+    </div>
+  )}
+
+  <div class="c-foot">
+    {transliteration && <p class="c-tr">{transliteration}</p>}
+    <p class="c-en">{translation}</p>
+    {reference && (
+      <p class="reference" dir="ltr">
+        &mdash; {reference}
+        {ayah && (
+          <button class="ayah-play" type="button" data-audio-src={ayahAudioUrl(ayah)}
+                  aria-label={`Play recitation of verse ${ayah.surah}:${ayah.ayah}`}>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+            <span class="ayah-play-label">Listen</span>
+          </button>
+        )}
+      </p>
+    )}
+  </div>
+</figure>
 
 <script>
-  // One delegated handler per page (Astro dedupes component scripts).
+  // Two independently-delegated handlers (Astro dedupes identical component
+  // scripts to one instance per page — no astro:page-load re-clone needed).
+
+  // ---------- audio playback ----------
   let current: HTMLAudioElement | null = null;
   let currentBtn: HTMLElement | null = null;
 
@@ -128,212 +153,53 @@ const hasWords = words && words.length > 0;
       btn.classList.remove('playing');
     });
   });
+
+  // ---------- verse console readout ----------
+  function showWord(w: HTMLElement, panel: Element) {
+    panel.querySelectorAll('.w.lit').forEach((x) => x.classList.remove('lit'));
+    w.classList.add('lit');
+    const figure = panel.closest('figure');
+    const roAr = figure?.querySelector('[data-ro="ar"]');
+    const roEn = figure?.querySelector('[data-ro="en"]');
+    const roTr = figure?.querySelector('[data-ro="tr"]');
+    if (roAr) roAr.textContent = w.textContent ?? '';
+    if (roEn) roEn.textContent = w.dataset.en ?? '';
+    if (roTr) roTr.textContent = w.dataset.tr ?? '';
+  }
+
+  document.addEventListener('click', (e) => {
+    const w = (e.target as HTMLElement).closest('.console .c-ar[data-words] .w') as HTMLElement | null;
+    if (!w) return;
+    const panel = w.closest('[data-words]');
+    if (!panel) return;
+    showWord(w, panel);
+    document.dispatchEvent(new CustomEvent('lab:word-touched'));
+  });
+
+  document.addEventListener(
+    'focus',
+    (e) => {
+      const w = (e.target as HTMLElement).closest?.('.console .c-ar[data-words] .w') as HTMLElement | null;
+      if (!w) return;
+      const panel = w.closest('[data-words]');
+      if (!panel) return;
+      showWord(w, panel);
+    },
+    true
+  );
 </script>
 
 <style>
-  .arabic-example {
-    background: var(--bg-secondary);
-    border: 1px solid var(--border-primary);
-    border-radius: var(--radius-md);
-    padding: var(--spacing-md) var(--spacing-lg);
-    margin-block: var(--spacing-lg);
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-sm);
-    box-shadow: var(--shadow-sm);
-    transition: transform var(--transition-base), box-shadow var(--transition-base);
-  }
-
-  .arabic-example:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-gold-hover);
-  }
-
-  :global([data-theme="dark"]) .arabic-example {
-    background: var(--bg-secondary);
-    border-color: var(--border-primary);
-  }
-
-  /* === Existing plain text display === */
-  .arabic-text {
-    font-family: var(--font-arabic);
-    font-size: 1.5rem;
-    line-height: 2;
-    letter-spacing: 0;
-    color: var(--color-text-primary);
-    margin: 0;
-    text-align: end;
-  }
-
-  @media (min-width: 640px) {
-    .arabic-text {
-      font-size: 1.75rem;
-    }
-  }
-
-  .arabic-text :global(mark.grammar-highlight) {
-    background: var(--accent-gold-light);
-    color: var(--accent-gold);
-    border-bottom: 2px solid var(--accent-gold);
-    border-radius: var(--radius-sm);
-    padding-inline: 0.25rem;
-  }
-
-  :global([data-theme="dark"]) .arabic-text :global(mark.grammar-highlight) {
-    background: rgba(242, 217, 140, 0.15);
-  }
-
-  /* === Interlinear word-by-word layout === */
-  .interlinear {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--spacing-xs) var(--spacing-sm);
-    justify-content: flex-start;
-    padding-block-end: var(--spacing-sm);
-    border-block-end: 1px solid var(--color-border-primary);
-    border-block-start: 2px solid var(--accent-gold);
-    padding-block-start: var(--spacing-sm);
-    margin-block-end: 0;
-  }
-
-  .word-unit {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2px;
-    padding: 0.375rem 0.5rem;
-    border-radius: var(--radius-md);
-    transition: background-color 0.15s ease;
-    min-inline-size: 2.5rem;
-  }
-
-  .word-unit:hover {
-    background-color: var(--accent-gold-light);
-  }
-
-  :global([data-theme="dark"]) .word-unit:hover {
-    background-color: rgba(242, 217, 140, 0.1);
-  }
-
-  .word-unit.highlighted {
-    background-color: var(--accent-gold-light);
-    border-block-end: 2px solid var(--accent-gold);
-  }
-
-  :global([data-theme="dark"]) .word-unit.highlighted {
-    background-color: rgba(242, 217, 140, 0.15);
-  }
-
-  .word-ar {
-    font-family: var(--font-arabic);
-    font-size: 1.5rem;
-    line-height: 1.7;
-    color: var(--color-text-primary);
-    text-align: center;
-  }
-
-  @media (min-width: 640px) {
-    .word-ar {
-      font-size: 1.65rem;
-    }
-  }
-
-  .word-en {
-    font-family: var(--font-sans);
-    font-size: 0.8125rem;
-    line-height: 1.45;
-    font-weight: 500;
-    color: var(--color-text-tertiary);
-    text-align: center;
-    max-inline-size: 8rem;
-    overflow-wrap: break-word;
-  }
-
-  .translation {
-    font-family: var(--font-display);
-    font-size: 1.0625rem;
-    font-weight: 500;
-    line-height: 1.5;
-    color: var(--color-text-primary);
-    margin: 0;
-    text-align: start;
-  }
-
-  .reference {
-    font-family: var(--font-display);
-    font-size: 0.8125rem;
-    font-weight: 600;
-    letter-spacing: 0.01em;
-    color: var(--color-text-tertiary);
-    margin: 0;
-    text-align: start;
-    padding-top: var(--spacing-xs);
-    border-top: 1px solid var(--border-primary);
-  }
-
-  :global([data-theme="dark"]) .reference {
-    border-top-color: var(--border-primary);
-  }
-
-  /* Mobile: tighter padding */
-  @media (max-width: 640px) {
-    .arabic-example {
-      padding: var(--spacing-sm) var(--spacing-md);
-      margin-block: var(--spacing-md);
-      gap: var(--spacing-xs);
-      border-radius: var(--radius-lg);
-    }
-
-    .interlinear {
-      gap: var(--spacing-xs);
-    }
-
-    .word-unit {
-      padding: 0.25rem 0.375rem;
-    }
-
-    .word-ar {
-      font-size: 1.3rem;
-    }
-
-    .word-en {
-      font-size: 0.75rem;
-      max-inline-size: 6rem;
-    }
-  }
-
-  .ayah-play {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.25rem;
-    margin-inline-start: 0.625rem;
-    font-family: var(--font-sans);
-    font-size: 0.8125rem;
-    color: var(--accent-primary);
-    background: none;
-    border: 1px solid var(--border-primary);
-    border-radius: var(--radius-full);
-    padding: 0.125rem 0.625rem;
-    cursor: pointer;
-    vertical-align: middle;
-    transition: color 200ms cubic-bezier(0.23, 1, 0.32, 1),
-                border-color 200ms cubic-bezier(0.23, 1, 0.32, 1),
-                transform 160ms cubic-bezier(0.23, 1, 0.32, 1);
-  }
-
-  @media (hover: hover) and (pointer: fine) {
-    .ayah-play:hover { border-color: var(--accent-primary); }
-  }
-
-  .ayah-play:active { transform: scale(0.97); }
-
-  .ayah-play.playing {
-    color: var(--accent-gold);
-    border-color: var(--accent-gold);
-  }
-
-  .ayah-play.unavailable {
-    opacity: 0.4;
-    cursor: default;
+  /* Component-scoped styles are intentionally minimal: the lab visual
+     language (frame chrome, readout grid, console typography) lives in
+     the global src/styles/lesson-lab.css so it can also reach the
+     runtime-created readout content — see astro-css-gotchas. This block
+     only holds the highlight-mark rule Astro's scoping can see. */
+  .c-ar :global(mark.grammar-highlight) {
+    background: rgba(227, 179, 92, 0.16);
+    color: var(--gold-bright, #f4d68f);
+    border-bottom: 2px solid var(--gold, #e3b35c);
+    border-radius: 4px;
+    padding-inline: 0.2rem;
   }
 </style>
