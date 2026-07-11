@@ -81,6 +81,7 @@ const first = specimens[0];
         data-spec-result={s.result}
         data-spec-kind={s.kind}
         data-spec-log={JSON.stringify(s.log)}
+        aria-pressed={i === 0 ? 'true' : 'false'}
       >
         Specimen {String.fromCharCode(65 + i)} · <bdi lang="ar" dir="rtl">{s.base}</bdi>
       </button>
@@ -128,7 +129,8 @@ const first = specimens[0];
     let log: string[] = [];
     try {
       log = JSON.parse(btn.dataset.specLog || '[]');
-    } catch {
+    } catch (err) {
+      console.error('MorphTransformer: malformed data-spec-log JSON', err, btn.dataset.specLog);
       log = [];
     }
     return {
@@ -156,8 +158,22 @@ const first = specimens[0];
     let current: HTMLButtonElement = selectButtons[0];
     let transformed = false;
     let running = false;
+    // Pending timers from an in-flight runTransform, so switching specimen or
+    // resetting mid-animation cancels the old run (otherwise its queued
+    // setTimeouts keep writing stale log lines / word swaps onto the new one).
+    const timers = new Set<ReturnType<typeof setTimeout>>();
+    function schedule(fn: () => void, ms: number) {
+      const id = setTimeout(() => { timers.delete(id); fn(); }, ms);
+      timers.add(id);
+      return id;
+    }
+    function cancelRun() {
+      timers.forEach((id) => clearTimeout(id));
+      timers.clear();
+    }
 
     function loadSpecimen(btn: HTMLButtonElement) {
+      cancelRun();
       current = btn;
       transformed = false;
       running = false;
@@ -166,7 +182,11 @@ const first = specimens[0];
       wordEl!.textContent = spec.base;
       setBdiText(captionEl!, captionFor(spec.kind, 'before'));
       addBtn!.disabled = false;
-      selectButtons.forEach((b) => b.classList.toggle('on', b === btn));
+      selectButtons.forEach((b) => {
+        const isCurrent = b === btn;
+        b.classList.toggle('on', isCurrent);
+        b.setAttribute('aria-pressed', String(isCurrent));
+      });
       while (logEl!.firstChild) logEl!.removeChild(logEl!.firstChild);
     }
 
@@ -185,6 +205,7 @@ const first = specimens[0];
       const spec = readSpecimen(current);
       running = true;
       addBtn!.disabled = true;
+      cancelRun();
       while (logEl!.firstChild) logEl!.removeChild(logEl!.firstChild);
       const steps = spec.log;
       let swapIndex = steps.findIndex((l) => /eject/i.test(l));
@@ -201,7 +222,7 @@ const first = specimens[0];
               particles.classList.add('fire');
             }
             wordEl!.classList.add('swap');
-            setTimeout(
+            schedule(
               () => {
                 wordEl!.textContent = spec.result;
                 wordEl!.classList.remove('swap');
@@ -212,7 +233,7 @@ const first = specimens[0];
             );
           }
           i++;
-          setTimeout(next, gap);
+          schedule(next, gap);
         } else {
           transformed = true;
           running = false;

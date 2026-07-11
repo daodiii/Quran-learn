@@ -61,6 +61,7 @@ const tagClass = (tag: string) => (/indef/i.test(tag) ? 'indef' : 'def');
             data-spec-index={i}
             data-spec-segments={JSON.stringify(s.segments)}
             data-spec-verdict={s.verdict}
+            aria-pressed={i === 0 ? 'true' : 'false'}
           >
             <span class={`c-tag ${tagClass(s.tag)}`}>{s.tag}</span>
             <span class="c-ar" lang="ar" dir="rtl">
@@ -140,11 +141,16 @@ const tagClass = (tag: string) => (/indef/i.test(tag) ? 'indef' : 'def');
     const chips = Array.from(tray.querySelectorAll<HTMLButtonElement>('.spec-chip'));
 
     function select(chip: HTMLButtonElement) {
-      chips.forEach((c) => c.classList.toggle('sel', c === chip));
+      chips.forEach((c) => {
+        const isCurrent = c === chip;
+        c.classList.toggle('sel', isCurrent);
+        c.setAttribute('aria-pressed', String(isCurrent));
+      });
       let segments: Segment[] = [];
       try {
         segments = JSON.parse(chip.dataset.specSegments || '[]');
-      } catch {
+      } catch (err) {
+        console.error('SpecimenChips: malformed data-spec-segments JSON', err, chip.dataset.specSegments);
         segments = [];
       }
       renderSegments(wordEl!, segments);
