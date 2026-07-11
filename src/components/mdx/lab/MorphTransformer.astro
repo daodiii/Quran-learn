@@ -1,0 +1,266 @@
+---
+/**
+ * MorphTransformer - "run the machine" al- attachment demo (Anatomy Lab engine).
+ *
+ * Ported from .planning/redesign-v4-lessons/lesson-3-lab.html's #transformer.
+ * Feeds an indefinite specimen through a typed machine-log narration, then
+ * swaps the word for its definite form (with a particle burst at the
+ * tanween-ejection line). Two or more specimens can be loaded via the
+ * ghost "Specimen A/B/…" selector buttons.
+ *
+ * Usage:
+ * <MorphTransformer
+ *   specimens={[
+ *     {
+ *       id: 'kitab',
+ *       base: 'كِتَابٌ',
+ *       result: 'ٱلْكِتَابُ',
+ *       kind: 'moon',
+ *       log: [
+ *         'load specimen: كِتَابٌ (kitābun) — indefinite noun',
+ *         'attach prefix ال … lam + alif locked on',
+ *         'tanween ـٌ ejected — definite and indefinite cannot coexist',
+ *         'first letter ك = MOON → lam pronounced: "al-"',
+ *         'output: ٱلْكِتَابُ (al-kitābu) — "THE book" ✓',
+ *       ],
+ *     },
+ *   ]}
+ * />
+ */
+
+interface Specimen {
+  id: string;
+  base: string; // e.g. كِتَابٌ
+  result: string; // e.g. ٱلْكِتَابُ
+  kind: 'moon' | 'sun';
+  log: string[]; // typed machine-log lines
+}
+
+interface Props {
+  specimens: Specimen[];
+}
+
+const { specimens } = Astro.props;
+
+if (!specimens || specimens.length === 0) {
+  throw new Error('MorphTransformer requires at least one specimen in `specimens`.');
+}
+
+function captionFor(kind: 'moon' | 'sun', state: 'before' | 'after'): string {
+  if (state === 'before') return 'Indefinite — press "Add ال" to make it definite.';
+  return kind === 'moon'
+    ? 'Moon letter — the lam is pronounced clearly: "al-".'
+    : 'Sun letter — the lam assimilates; the following letter doubles with shadda.';
+}
+
+const first = specimens[0];
+---
+
+<div class="frame morph-transformer" data-label="Morphology engine" data-reveal data-morph-transformer>
+  <div class="t-stage">
+    <div class="t-particles" aria-hidden="true">
+      <i style="--tx:-60px;--ty:-70px"></i>
+      <i style="--tx:50px;--ty:-80px"></i>
+      <i style="--tx:-90px;--ty:-20px"></i>
+      <i style="--tx:80px;--ty:-30px"></i>
+      <i style="--tx:-30px;--ty:-95px"></i>
+      <i style="--tx:30px;--ty:60px"></i>
+    </div>
+    <p class="t-word" lang="ar" dir="rtl" data-t-word>{first.base}</p>
+    <p class="t-caption" data-t-caption><bdi>{captionFor(first.kind, 'before')}</bdi></p>
+  </div>
+  <div class="t-controls">
+    <button type="button" class="t-btn" data-t-add>Add ال</button>
+    <button type="button" class="t-btn ghost" data-t-reset>Reset</button>
+    {specimens.map((s, i) => (
+      <button
+        type="button"
+        class:list={['t-btn', 'ghost', 'spec-select', { on: i === 0 }]}
+        data-spec-id={s.id}
+        data-spec-base={s.base}
+        data-spec-result={s.result}
+        data-spec-kind={s.kind}
+        data-spec-log={JSON.stringify(s.log)}
+        aria-pressed={i === 0 ? 'true' : 'false'}
+      >
+        Specimen {String.fromCharCode(65 + i)} · <bdi lang="ar" dir="rtl">{s.base}</bdi>
+      </button>
+    ))}
+  </div>
+  <div class="t-log" data-t-log aria-live="polite"></div>
+</div>
+
+<script>
+  // Anatomy Lab engine: the transformer types a machine-log narration, then
+  // swaps the specimen word at the tanween-ejection line. No innerHTML —
+  // createElement/textContent only; mixed Arabic+Latin lines are wrapped in
+  // <bdi> (see astro-css-gotchas / BRIEF §5 bidi note).
+
+  function classifyLine(line: string, index: number, kind: string): '' | 'hot' | 'warn' {
+    if (index === 0) return '';
+    const lower = line.toLowerCase();
+    if (lower.includes('eject') || lower.includes('cannot coexist')) return 'warn';
+    if (kind === 'sun' && lower.includes('assimilat')) return 'warn';
+    return 'hot';
+  }
+
+  function captionFor(kind: string, state: 'before' | 'after'): string {
+    if (state === 'before') return 'Indefinite — press "Add ال" to make it definite.';
+    return kind === 'moon'
+      ? 'Moon letter — the lam is pronounced clearly: "al-".'
+      : 'Sun letter — the lam assimilates; the following letter doubles with shadda.';
+  }
+
+  function setBdiText(el: HTMLElement, text: string) {
+    while (el.firstChild) el.removeChild(el.firstChild);
+    const bdi = document.createElement('bdi');
+    bdi.textContent = text;
+    el.appendChild(bdi);
+  }
+
+  interface SpecData {
+    base: string;
+    result: string;
+    kind: string;
+    log: string[];
+  }
+
+  function readSpecimen(btn: HTMLButtonElement): SpecData {
+    let log: string[] = [];
+    try {
+      log = JSON.parse(btn.dataset.specLog || '[]');
+    } catch (err) {
+      console.error('MorphTransformer: malformed data-spec-log JSON', err, btn.dataset.specLog);
+      log = [];
+    }
+    return {
+      base: btn.dataset.specBase || '',
+      result: btn.dataset.specResult || '',
+      kind: btn.dataset.specKind || 'moon',
+      log,
+    };
+  }
+
+  function initMorphTransformer(root: HTMLElement) {
+    if (root.dataset.mtBound === '1') return;
+    root.dataset.mtBound = '1';
+
+    const rmq = matchMedia('(prefers-reduced-motion: reduce)');
+    const wordEl = root.querySelector<HTMLElement>('[data-t-word]');
+    const captionEl = root.querySelector<HTMLElement>('[data-t-caption]');
+    const logEl = root.querySelector<HTMLElement>('[data-t-log]');
+    const addBtn = root.querySelector<HTMLButtonElement>('[data-t-add]');
+    const resetBtn = root.querySelector<HTMLButtonElement>('[data-t-reset]');
+    const particles = root.querySelector<HTMLElement>('.t-particles');
+    const selectButtons = Array.from(root.querySelectorAll<HTMLButtonElement>('.spec-select'));
+    if (!wordEl || !captionEl || !logEl || !addBtn || !resetBtn || selectButtons.length === 0) return;
+
+    let current: HTMLButtonElement = selectButtons[0];
+    let transformed = false;
+    let running = false;
+    // Pending timers from an in-flight runTransform, so switching specimen or
+    // resetting mid-animation cancels the old run (otherwise its queued
+    // setTimeouts keep writing stale log lines / word swaps onto the new one).
+    const timers = new Set<ReturnType<typeof setTimeout>>();
+    function schedule(fn: () => void, ms: number) {
+      const id = setTimeout(() => { timers.delete(id); fn(); }, ms);
+      timers.add(id);
+      return id;
+    }
+    function cancelRun() {
+      timers.forEach((id) => clearTimeout(id));
+      timers.clear();
+    }
+
+    function loadSpecimen(btn: HTMLButtonElement) {
+      cancelRun();
+      current = btn;
+      transformed = false;
+      running = false;
+      const spec = readSpecimen(btn);
+      wordEl!.classList.remove('hot', 'swap');
+      wordEl!.textContent = spec.base;
+      setBdiText(captionEl!, captionFor(spec.kind, 'before'));
+      addBtn!.disabled = false;
+      selectButtons.forEach((b) => {
+        const isCurrent = b === btn;
+        b.classList.toggle('on', isCurrent);
+        b.setAttribute('aria-pressed', String(isCurrent));
+      });
+      while (logEl!.firstChild) logEl!.removeChild(logEl!.firstChild);
+    }
+
+    function logLine(text: string, cls: '' | 'hot' | 'warn') {
+      const line = document.createElement('span');
+      line.className = 'ln' + (cls ? ' ' + cls : '');
+      const bdi = document.createElement('bdi');
+      bdi.textContent = text;
+      line.appendChild(bdi);
+      logEl!.appendChild(line);
+      requestAnimationFrame(() => requestAnimationFrame(() => line.classList.add('on')));
+    }
+
+    function runTransform() {
+      if (transformed || running) return;
+      const spec = readSpecimen(current);
+      running = true;
+      addBtn!.disabled = true;
+      cancelRun();
+      while (logEl!.firstChild) logEl!.removeChild(logEl!.firstChild);
+      const steps = spec.log;
+      let swapIndex = steps.findIndex((l) => /eject/i.test(l));
+      if (swapIndex < 0) swapIndex = Math.max(0, steps.length - 2);
+      const gap = rmq.matches ? 350 : 780;
+      let i = 0;
+      function next() {
+        if (i < steps.length) {
+          logLine(steps[i], classifyLine(steps[i], i, spec.kind));
+          if (i === swapIndex) {
+            if (particles) {
+              particles.classList.remove('fire');
+              void particles.offsetWidth;
+              particles.classList.add('fire');
+            }
+            wordEl!.classList.add('swap');
+            schedule(
+              () => {
+                wordEl!.textContent = spec.result;
+                wordEl!.classList.remove('swap');
+                wordEl!.classList.add('hot');
+                setBdiText(captionEl!, captionFor(spec.kind, 'after'));
+              },
+              rmq.matches ? 0 : 360
+            );
+          }
+          i++;
+          schedule(next, gap);
+        } else {
+          transformed = true;
+          running = false;
+          document.dispatchEvent(new CustomEvent('lab:word-touched'));
+        }
+      }
+      next();
+    }
+
+    addBtn.addEventListener('click', runTransform);
+    resetBtn.addEventListener('click', () => loadSpecimen(current));
+    selectButtons.forEach((btn) => {
+      btn.addEventListener('click', () => loadSpecimen(btn));
+    });
+
+    if (particles) {
+      particles.querySelectorAll<HTMLElement>('i').forEach((p) => {
+        p.style.left = '50%';
+        p.style.top = '46%';
+      });
+    }
+  }
+
+  function initAll() {
+    document.querySelectorAll<HTMLElement>('[data-morph-transformer]').forEach(initMorphTransformer);
+  }
+
+  initAll();
+  document.addEventListener('astro:page-load', initAll);
+</script>

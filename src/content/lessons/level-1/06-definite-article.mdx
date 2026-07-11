@@ -10,6 +10,8 @@ import ArabicExample from '../../../components/mdx/ArabicExample.astro';
 import GrammarTable from '../../../components/mdx/GrammarTable.astro';
 import Callout from '../../../components/mdx/Callout.astro';
 import ExerciseBox from '../../../components/mdx/ExerciseBox.astro';
+import SpecimenChips from '../../../components/mdx/lab/SpecimenChips.astro';
+import MorphTransformer from '../../../components/mdx/lab/MorphTransformer.astro';
 
 ## Introduction
 
@@ -59,6 +61,49 @@ The [definite article](/resources/glossary/#al) (al- / أَلْ) is a two-letter
 - **كِتَابٌ** (kitābun) — a book (INDEFINITE, has tanween)
 - **ٱلْكِتَابُ** (al-kitābu) — THE book (DEFINITE, no tanween)
 
+<SpecimenChips
+  specimens={[
+    {
+      word: "كِتَابٌ",
+      tag: "Indefinite",
+      segments: [
+        { text: "كِتَاب", part: "stem", label: "Stem · kitāb", note: "the noun itself" },
+        { text: "ـٌ", part: "end", label: "Tanween damma", note: '"a/an" — indefinite marker' }
+      ],
+      verdict: 'Indefinite: kitābun — "a book". Tanween present, no al-.'
+    },
+    {
+      word: "ٱلْكِتَابُ",
+      tag: "Definite",
+      segments: [
+        { text: "ٱلْ", part: "al", label: "Prefix · al-", note: "definite article" },
+        { text: "كِتَاب", part: "stem", label: "Stem · kitāb", note: "the noun itself" },
+        { text: "ـُ", part: "end", label: "Damma", note: "case ending stays — tanween gone" }
+      ],
+      verdict: 'Definite: al-kitābu — "THE book". Moon letter ك: the lam is pronounced clearly.'
+    },
+    {
+      word: "رَجُلٌ",
+      tag: "Indefinite",
+      segments: [
+        { text: "رَجُل", part: "stem", label: "Stem · rajul", note: "the noun itself" },
+        { text: "ـٌ", part: "end", label: "Tanween damma", note: '"a/an" — indefinite marker' }
+      ],
+      verdict: 'Indefinite: rajulun — "a man". Tanween present, no al-.'
+    },
+    {
+      word: "ٱلرَّجُلُ",
+      tag: "Definite",
+      segments: [
+        { text: "ٱلرَّ", part: "al", label: "Al- + shadda", note: "lam melts into ر" },
+        { text: "جُل", part: "stem", label: "Stem · rajul", note: "the noun itself" },
+        { text: "ـُ", part: "end", label: "Damma", note: "case ending stays — tanween gone" }
+      ],
+      verdict: 'Definite: ar-rajulu — "THE man". Sun letter ر: the lam assimilates, ر doubles with shadda.'
+    }
+  ]}
+/>
+
 **Notice:**
 1. The ال is attached directly (no space)
 2. The tanween (ـٌ) is gone
@@ -86,6 +131,37 @@ Arabic letters are divided into two groups:
 - **[Moon letters](/resources/glossary/#huruf-qamariyyah) (ḥurūf qamariyyah / حُرُوْفٌ قَمَرِيَّة)** — 14 letters
 
 **Why "sun" and "moon"?** The word for "sun" (ٱلشَّمْسُ / ash-shamsu) starts with a sun letter, so the lam assimilates: "ash-shamsu" not "al-shamsu." The word for "moon" (ٱلْقَمَرُ / al-qamaru) starts with a moon letter, so the lam is pronounced clearly: "al-qamaru."
+
+<MorphTransformer
+  specimens={[
+    {
+      id: "kitab",
+      base: "كِتَابٌ",
+      result: "ٱلْكِتَابُ",
+      kind: "moon",
+      log: [
+        "load specimen: كِتَابٌ (kitābun) — indefinite noun",
+        "attach prefix ال … lam + alif locked on",
+        "tanween ـٌ ejected — definite and indefinite cannot coexist",
+        'first letter ك = MOON → lam pronounced: "al-"',
+        'output: ٱلْكِتَابُ (al-kitābu) — "THE book" ✓'
+      ]
+    },
+    {
+      id: "rajul",
+      base: "رَجُلٌ",
+      result: "ٱلرَّجُلُ",
+      kind: "sun",
+      log: [
+        "load specimen: رَجُلٌ (rajulun) — indefinite noun",
+        "attach prefix ال … lam + alif locked on",
+        "tanween ـٌ ejected — definite and indefinite cannot coexist",
+        "first letter ر = SUN → lam ASSIMILATES · shadda ّ stamped on ر",
+        'output: ٱلرَّجُلُ (ar-rajulu) — "THE man" — say it: ar-, not al- ✓'
+      ]
+    }
+  ]}
+/>
 
 ### Moon Letters (14 letters)
 

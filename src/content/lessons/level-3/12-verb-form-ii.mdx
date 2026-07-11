@@ -8,9 +8,9 @@ draft: false
 
 import ArabicExample from '../../../components/mdx/ArabicExample.astro';
 import GrammarTable from '../../../components/mdx/GrammarTable.astro';
-import VerbConjugation from '../../../components/mdx/VerbConjugation.astro';
 import Callout from '../../../components/mdx/Callout.astro';
 import ExerciseBox from '../../../components/mdx/ExerciseBox.astro';
+import ConjugationEngine from '../../../components/mdx/lab/ConjugationEngine.astro';
 
 ## Introduction
 
@@ -300,22 +300,21 @@ Form II conjugates using the same suffix pattern as Form I (see [L3.03 Past Tens
 
 ### Representative Past Tense Conjugation
 
-We'll show 8 representative persons (not the full 14) to illustrate the pattern:
+We'll show 8 representative persons (not the full 14) to illustrate the pattern. Press each person and watch the doubled ل stay put — only the suffix changes:
 
-<VerbConjugation
-  root="ع-ل-م"
-  form="Form II"
-  pattern="فَعَّلَ"
-  headers={["Person", "Arabic", "Transliteration", "Translation"]}
-  rows={[
-    ["هُوَ (he)", "عَلَّمَ", "ʿallama", "he taught"],
-    ["هِيَ (she)", "عَلَّمَتْ", "ʿallamat", "she taught"],
-    ["هُمْ (they m)", "عَلَّمُوا", "ʿallamū", "they (m) taught"],
-    ["أَنْتَ (you m)", "عَلَّمْتَ", "ʿallamta", "you (m) taught"],
-    ["أَنْتِ (you f)", "عَلَّمْتِ", "ʿallamti", "you (f) taught"],
-    ["أَنَا (I)", "عَلَّمْتُ", "ʿallamtu", "I taught"],
-    ["نَحْنُ (we)", "عَلَّمْنَا", "ʿallamnā", "we taught"],
-    ["أَنْتُمْ (you pl)", "عَلَّمْتُمْ", "ʿallamtum", "you (pl) taught"]
+<ConjugationEngine
+  roots={[
+    { id: "allama", letters: "ع-ل-م", gloss: "to teach", stem: "عَلَّم", tr: "ʿallam" }
+  ]}
+  persons={[
+    { suffix: "َ", tr: "a", pronoun: "هُوَ", label: "3rd masculine singular", behaviour: 0 },
+    { suffix: "َتْ", tr: "at", pronoun: "هِيَ", label: "3rd feminine singular", behaviour: 1 },
+    { suffix: "ُوا", tr: "ū", pronoun: "هُمْ", label: "3rd masculine plural", behaviour: 1 },
+    { suffix: "ْتَ", tr: "ta", pronoun: "أَنْتَ", label: "2nd masculine singular", behaviour: 2 },
+    { suffix: "ْتِ", tr: "ti", pronoun: "أَنْتِ", label: "2nd feminine singular", behaviour: 2 },
+    { suffix: "ْتُ", tr: "tu", pronoun: "أَنَا", label: "1st singular", behaviour: 2 },
+    { suffix: "ْنَا", tr: "nā", pronoun: "نَحْنُ", label: "1st plural", behaviour: 2 },
+    { suffix: "ْتُمْ", tr: "tum", pronoun: "أَنْتُمْ", label: "2nd masculine plural", behaviour: 2 }
   ]}
 />
 
