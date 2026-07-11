@@ -154,8 +154,8 @@ const fontsHref = "https://fonts.googleapis.com/css2?family=Amiri+Quran&family=A
               Level {level} · {positionInLevel ? `Lesson ${positionInLevel.index} of ${positionInLevel.total}` : levelNames[level]}
               <b>{title}</b>
             </p>
-            {stations.map(s => (
-              <a class="station" href={`#${s.target}`} data-station-target={s.target}>
+            {stations.map((s, i) => (
+              <a class="station" href={`#${s.target}`} data-station-target={s.target} aria-current={i === 0 ? 'location' : undefined}>
                 <span class="pip">{s.pip}</span>{s.label}
               </a>
             ))}
@@ -268,7 +268,7 @@ const fontsHref = "https://fonts.googleapis.com/css2?family=Amiri+Quran&family=A
     // Handle click
     btn.addEventListener('click', async () => {
       btn.disabled = true;
-      btnText.textContent = 'Saving...';
+      btnText.textContent = 'Saving…';
 
       const success = await markLessonComplete(lessonSlug);
 

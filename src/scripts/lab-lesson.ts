@@ -33,15 +33,19 @@ function initLabLesson() {
 
   // Stations are real <a href="#slug"> anchors (works with JS disabled);
   // when JS is on, intercept for a smooth/instant scroll per reduced-motion.
-  const stations = Array.from(rail.querySelectorAll<HTMLAnchorElement>('.station[data-station-target]'));
-  const targets = stations
-    .map((s) => document.getElementById(s.dataset.stationTarget || ''))
-    .filter((el): el is HTMLElement => !!el);
+  // Pair each station link with its resolved target element up front, dropping
+  // any station whose target id doesn't exist. Keeping them paired (rather than
+  // two parallel arrays filtered independently) guarantees the scrollspy can
+  // never highlight the wrong station if a target ever fails to resolve.
+  const allStations = Array.from(rail.querySelectorAll<HTMLAnchorElement>('.station[data-station-target]'));
+  const pairs = allStations
+    .map((station) => ({ station, target: document.getElementById(station.dataset.stationTarget || '') }))
+    .filter((p): p is { station: HTMLAnchorElement; target: HTMLElement } => !!p.target);
+  const stations = pairs.map((p) => p.station);
+  const targets = pairs.map((p) => p.target);
 
-  stations.forEach((station) => {
+  pairs.forEach(({ station, target }) => {
     station.addEventListener('click', (e) => {
-      const target = document.getElementById(station.dataset.stationTarget || '');
-      if (!target) return;
       e.preventDefault();
       target.scrollIntoView({ behavior: rmq.matches ? 'auto' : 'smooth' });
     });
@@ -67,6 +71,8 @@ function initLabLesson() {
     stations.forEach((s, i) => {
       s.classList.toggle('lit', i === litIdx);
       s.classList.toggle('past', i < litIdx);
+      if (i === litIdx) s.setAttribute('aria-current', 'location');
+      else s.removeAttribute('aria-current');
     });
   }
 

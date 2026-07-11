@@ -172,7 +172,7 @@ body {
   place-items: center;
   font-size: 8.5px;
   color: var(--ink-faint);
-  transition: all 0.35s;
+  transition: border-color 0.35s, color 0.35s, background 0.35s, box-shadow 0.35s;
   background: var(--bg-panel);
 }
 .lab .station:hover { color: var(--ink-dim); }
@@ -724,7 +724,7 @@ html:not(.js) .lab .readout { display: none; }
   padding: 11px 24px;
   color: var(--gold-bright);
   background: none;
-  transition: all 0.3s;
+  transition: background 0.3s, box-shadow 0.3s, color 0.3s, border-color 0.3s, opacity 0.3s;
   cursor: pointer;
 }
 .lab .t-btn:hover { background: rgba(227, 179, 92, 0.12); box-shadow: 0 0 24px rgba(227, 179, 92, 0.18); }
@@ -785,7 +785,7 @@ html:not(.js) .lab .t-log { display: none; }
 .lab .p-btn.on { border-color: var(--gold); background: rgba(227, 179, 92, 0.12); box-shadow: 0 0 18px rgba(227, 179, 92, 0.25); }
 .lab .p-btn.on .p-ar, .lab .p-btn.on .p-en { color: var(--gold-bright); }
 .lab .roots { display: flex; justify-content: center; gap: 10px; padding: 6px 14px 18px; flex-wrap: wrap; }
-.lab .root-btn { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; border: 1px solid var(--hairline); border-radius: 999px; padding: 8px 18px; color: var(--ink-dim); transition: all 0.3s; display: inline-flex; align-items: center; gap: 9px; background: none; cursor: pointer; }
+.lab .root-btn { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; border: 1px solid var(--hairline); border-radius: 999px; padding: 8px 18px; color: var(--ink-dim); transition: color 0.3s, background 0.3s, border-color 0.3s; display: inline-flex; align-items: center; gap: 9px; background: none; cursor: pointer; }
 .lab .root-btn bdi { font-size: 16px; font-family: var(--font-ar); }
 .lab .root-btn:hover { color: var(--gold-bright); border-color: rgba(227, 179, 92, 0.5); }
 .lab .root-btn.on { background: var(--gold-bright); color: #221503; border-color: var(--gold-bright); }
