@@ -51,8 +51,9 @@ test('sky tour: level cards carry real counts and finale resume targets first in
   await page.goto('/learn/');
   await expect(page.locator('.card[data-stop]')).toHaveCount(5);
   await expect(page.locator('.card[data-stop="1"] .rn')).toContainText('11 lessons');
-  // fresh visitor: solid CTA starts at lesson 1.1
+  // fresh visitor: solid CTA starts at lesson 1.1, and the resume band stays hidden
   await expect(page.locator('[data-resume-cta]')).toHaveAttribute('href', /level-1\/01-/);
+  await expect(page.locator('[data-resume-band]')).toBeHidden();
   await page.evaluate(() => localStorage.setItem('quran-learn-progress', JSON.stringify({
     completedLessons: ['level-1/01-arabic-script-vowels', 'level-1/02-reading-marks'],
     lastUpdated: new Date().toISOString(),
