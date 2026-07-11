@@ -25,7 +25,7 @@ interface PersonEntry {
 }
 
 interface Props {
-  root: string;          // Arabic root letters (e.g., "ك ت ب")
+  root?: string;         // Arabic root letters (e.g., "ك ت ب")
   form?: string;         // Verb form (e.g., "Form I", "Form II")
   pattern?: string;      // Morphological pattern (e.g., "فَعَلَ")
   headers?: string[];    // Column headers for the conjugation table
@@ -33,18 +33,31 @@ interface Props {
   verb?: string;         // Alternative API: verb display form
   tense?: string;        // Alternative API: tense label
   persons?: PersonEntry[]; // Alternative API: persons array
+  question?: string;     // Alternative API: prompt/caption shown above a slotted comparison table
+  soundRoot?: string;    // Alternative API: sound-verb root, paired with hollowRoot for comparisons
+  hollowRoot?: string;   // Alternative API: weak-verb root (hollow/defective/assimilated), paired with soundRoot
 }
 
-const { root, form, pattern, persons } = Astro.props;
+const { root, form, pattern, persons, question, soundRoot, hollowRoot } = Astro.props;
 
 // Support both APIs: explicit headers/rows or persons array
 const headers = Astro.props.headers ?? (persons ? ["Person", "Arabic", "Transliteration"] : []);
 const rows = Astro.props.rows ?? (persons ? persons.map(p => [p.person, p.arabic, p.transliteration]) : []);
+// When neither API supplies table data, the caller is using the slotted-markdown-table
+// API instead (question/soundRoot/hollowRoot + MDX children) — render the slot.
+const hasProps = headers.length > 0 && rows.length > 0;
 ---
 
 <div class="verb-conjugation">
   <div class="verb-header">
-    <div class="verb-root" dir="rtl" lang="ar">{root}</div>
+    {question && <p class="verb-question">{question}</p>}
+    {(root || soundRoot || hollowRoot) && (
+      <div class="verb-root-row">
+        {root && <div class="verb-root" dir="rtl" lang="ar">{root}</div>}
+        {soundRoot && <div class="verb-root" dir="rtl" lang="ar">{soundRoot}</div>}
+        {hollowRoot && <div class="verb-root" dir="rtl" lang="ar">{hollowRoot}</div>}
+      </div>
+    )}
     {(form || pattern) && (
       <div class="verb-meta">
         {form && <span class="verb-form">{form}</span>}
@@ -53,28 +66,34 @@ const rows = Astro.props.rows ?? (persons ? persons.map(p => [p.person, p.arabic
     )}
   </div>
 
-  <div class="table-wrapper">
-    <table class="verb-table" dir="rtl">
-      <thead>
-        <tr>
-          {headers.map(header => (
-            <th scope="col">{header}</th>
-          ))}
-        </tr>
-      </thead>
-      <tbody>
-        {rows.map(row => (
+  {hasProps ? (
+    <div class="table-wrapper">
+      <table class="verb-table" dir="rtl">
+        <thead>
           <tr>
-            {row.map((cell, index) => (
-              index === 0
-                ? <th scope="row">{cell}</th>
-                : <td data-label={headers[index]}>{cell}</td>
+            {headers.map(header => (
+              <th scope="col">{header}</th>
             ))}
           </tr>
-        ))}
-      </tbody>
-    </table>
-  </div>
+        </thead>
+        <tbody>
+          {rows.map(row => (
+            <tr>
+              {row.map((cell, index) => (
+                index === 0
+                  ? <th scope="row">{cell}</th>
+                  : <td data-label={headers[index]}>{cell}</td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  ) : (
+    <div class="table-wrapper slotted">
+      <slot />
+    </div>
+  )}
 </div>
 
 <style>
@@ -105,6 +124,22 @@ const rows = Astro.props.rows ?? (persons ? persons.map(p => [p.person, p.arabic
 
   :global([data-theme="dark"]) .verb-header {
     background: var(--glass-bg-tinted-gold);
+  }
+
+  .verb-question {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin-block-end: var(--spacing-md);
+  }
+
+  .verb-root-row {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: var(--spacing-lg);
   }
 
   .verb-root {
@@ -304,5 +339,55 @@ const rows = Astro.props.rows ?? (persons ? persons.map(p => [p.person, p.arabic
     .verb-table tbody tr {
       transition: none;
     }
+  }
+
+  /* === Slot-based table styling ===
+     Targets slotted MDX markdown tables/prose (comparison-style usages that pass
+     question/soundRoot/hollowRoot + markdown children instead of headers/rows props).
+     :global() required because Astro scoped styles don't penetrate slot content. */
+  .table-wrapper.slotted {
+    padding-inline: var(--spacing-xl);
+    padding-block: var(--spacing-lg);
+  }
+
+  .table-wrapper.slotted :global(table) {
+    inline-size: 100%;
+    border-collapse: collapse;
+    background: var(--color-background-primary);
+    margin-block-end: var(--spacing-md);
+  }
+
+  .table-wrapper.slotted :global(th) {
+    background: var(--color-background-tertiary);
+    color: var(--color-text-primary);
+    font-weight: 600;
+    font-size: 0.9375rem;
+    padding-block: var(--spacing-md);
+    padding-inline: var(--spacing-md);
+    text-align: start;
+    border-block-end: 1px solid var(--color-border-primary);
+    white-space: nowrap;
+  }
+
+  .table-wrapper.slotted :global(td) {
+    padding-block: var(--spacing-md);
+    padding-inline: var(--spacing-md);
+    color: var(--color-text-secondary);
+    font-size: 0.9375rem;
+    text-align: start;
+    border-block-end: 1px solid var(--color-border-primary);
+  }
+
+  .table-wrapper.slotted :global(tbody tr:last-child th),
+  .table-wrapper.slotted :global(tbody tr:last-child td) {
+    border-block-end: none;
+  }
+
+  .table-wrapper.slotted :global(tbody tr:hover) {
+    background: var(--color-background-secondary);
+  }
+
+  .table-wrapper.slotted :global(strong) {
+    color: var(--accent-gold);
   }
 </style>
