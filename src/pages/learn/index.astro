@@ -217,6 +217,11 @@ html:not(.js) .card, html:not(.js) #intro, html:not(.js) #finale{position:static
 .catalog .cluster-title{font-family:var(--font-mono);font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--ink-dim);font-weight:400;margin-bottom:6px}
 .catalog .cluster-note{font-size:13px;color:var(--ink-faint);margin-bottom:6px}
 .catalog .cluster-rows{display:flex;flex-direction:column}
+.catalog-jump{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.catalog-jump a{display:inline-flex;align-items:baseline;gap:8px;border:1px solid var(--hairline);border-radius:999px;padding:8px 16px;font-family:var(--font-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-dim);transition:border-color .35s,color .35s}
+.catalog-jump a:hover{border-color:rgba(227,179,92,.5);color:var(--ink)}
+.catalog-jump b{font-weight:500;color:var(--gold-bright)}
+.catalog-jump [data-jump-count]{color:var(--ink-faint)}
   </style>
 </head>
 <body>
@@ -318,6 +323,14 @@ html:not(.js) .card, html:not(.js) #intro, html:not(.js) #finale{position:static
   <div class="catalog-inner">
     <h2 class="catalog-title">The full curriculum</h2>
     <p class="catalog-sub">Every lesson, in order. Pick up exactly where you are.</p>
+    <nav class="catalog-jump" aria-label="Jump to level">
+      {levels.map(level => (
+        <a href={`#level-${level}`} data-jump-level={level}>
+          <b>Level {level}</b> {levelNames[level].title}
+          <span data-jump-count>{totals[level]} lessons</span>
+        </a>
+      ))}
+    </nav>
     <ResumeBand manifest={manifest} totals={totals} />
     {CURRICULUM_MAP.map(({ level, clusters }) => (
       <section id={`level-${level}`} class="level-section" data-level={level}>
@@ -374,7 +387,7 @@ initCapacitor();
 (function(){
 'use strict';
 var bootEl=document.getElementById('learn-boot'),BOOT;
-try{BOOT=JSON.parse(bootEl.textContent);}catch(e){return;} /* no .js class → static catalog layout stays visible */
+try{BOOT=JSON.parse(bootEl.textContent);}catch(e){console.warn('learn: boot payload unreadable — static catalog layout stays visible',e);return;}
 document.documentElement.classList.add('js');
 var RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
 var SMALL=matchMedia('(max-width: 760px)').matches;
@@ -481,6 +494,8 @@ var doneTotal=0;
   else if(done===0){ct.textContent=lv===5?'Not started — the capstone waits':'Not started';}
   else if(resume&&resume.level===lv){ct.textContent=done+' of '+list.length+' — you are here, at '+resume.title;}
   else{ct.textContent=done+' of '+list.length;}
+  var jc=document.querySelector('.catalog-jump [data-jump-level="'+lv+'"] [data-jump-count]');
+  if(jc&&done>0)jc.textContent=done+' of '+list.length;
 });
 var cta=document.querySelector('[data-resume-cta]');
 if(cta){
