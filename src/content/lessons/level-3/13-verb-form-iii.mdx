@@ -8,9 +8,9 @@ draft: false
 
 import ArabicExample from '../../../components/mdx/ArabicExample.astro';
 import GrammarTable from '../../../components/mdx/GrammarTable.astro';
-import VerbConjugation from '../../../components/mdx/VerbConjugation.astro';
 import Callout from '../../../components/mdx/Callout.astro';
 import ExerciseBox from '../../../components/mdx/ExerciseBox.astro';
+import ConjugationEngine from '../../../components/mdx/lab/ConjugationEngine.astro';
 
 ## Introduction
 
@@ -319,22 +319,21 @@ Form III conjugates using the same suffix pattern as Forms I and II. Only the st
 
 ### Representative Past Tense Conjugation
 
-We'll show 8 representative persons to illustrate the pattern:
+We'll show 8 representative persons to illustrate the pattern. Press each person and watch the long ā after ق stay put — only the suffix changes:
 
-<VerbConjugation
-  root="ق-ت-ل"
-  form="Form III"
-  pattern="فَاعَلَ"
-  headers={["Person", "Arabic", "Transliteration", "Translation"]}
-  rows={[
-    ["هُوَ (he)", "قَاتَلَ", "qātala", "he fought"],
-    ["هِيَ (she)", "قَاتَلَتْ", "qātalat", "she fought"],
-    ["هُمْ (they m)", "قَاتَلُوا", "qātalū", "they (m) fought"],
-    ["أَنْتَ (you m)", "قَاتَلْتَ", "qātalta", "you (m) fought"],
-    ["أَنْتِ (you f)", "قَاتَلْتِ", "qātalti", "you (f) fought"],
-    ["أَنَا (I)", "قَاتَلْتُ", "qātaltu", "I fought"],
-    ["نَحْنُ (we)", "قَاتَلْنَا", "qātalnā", "we fought"],
-    ["أَنْتُمْ (you pl)", "قَاتَلْتُمْ", "qātaltum", "you (pl) fought"]
+<ConjugationEngine
+  roots={[
+    { id: "qatala", letters: "ق-ت-ل", gloss: "to fight", stem: "قَاتَل" }
+  ]}
+  persons={[
+    { suffix: "َ", tr: "a", pronoun: "هُوَ", label: "3rd masculine singular", behaviour: 0 },
+    { suffix: "َتْ", tr: "at", pronoun: "هِيَ", label: "3rd feminine singular", behaviour: 1 },
+    { suffix: "ُوا", tr: "ū", pronoun: "هُمْ", label: "3rd masculine plural", behaviour: 1 },
+    { suffix: "ْتَ", tr: "ta", pronoun: "أَنْتَ", label: "2nd masculine singular", behaviour: 2 },
+    { suffix: "ْتِ", tr: "ti", pronoun: "أَنْتِ", label: "2nd feminine singular", behaviour: 2 },
+    { suffix: "ْتُ", tr: "tu", pronoun: "أَنَا", label: "1st singular", behaviour: 2 },
+    { suffix: "ْنَا", tr: "nā", pronoun: "نَحْنُ", label: "1st plural", behaviour: 2 },
+    { suffix: "ْتُمْ", tr: "tum", pronoun: "أَنْتُمْ", label: "2nd masculine plural", behaviour: 2 }
   ]}
 />
 

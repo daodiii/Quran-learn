@@ -11,6 +11,7 @@ import GrammarTable from '../../../components/mdx/GrammarTable.astro';
 import VerbConjugation from '../../../components/mdx/VerbConjugation.astro';
 import Callout from '../../../components/mdx/Callout.astro';
 import ExerciseBox from '../../../components/mdx/ExerciseBox.astro';
+import ConjugationEngine from '../../../components/mdx/lab/ConjugationEngine.astro';
 
 ## Introduction
 
@@ -202,29 +203,28 @@ Let's conjugate two hamzated verbs to see the seat changes in action:
 
 ### Verb 1: أَمَرَ (ʾamara) "to command" — Initial Hamza
 
-<VerbConjugation
-  question="Past Tense: أَمَرَ (ʾamara) 'he commanded'"
-  root="ء-م-ر"
->
+Press each person and watch the initial hamza's seat stay on the alif — only the suffix changes:
 
-| Person | Arabic | Transliteration | Hamza Seat Note |
-|--------|--------|-----------------|-----------------|
-| 3MS (he) | أَمَرَ | ʾamara | Initial hamza with fatha → alif above |
-| 3FS (she) | أَمَرَتْ | ʾamarat | Same |
-| 3MD (they two) | أَمَرَا | ʾamarā | Same |
-| 3FD (they two) | أَمَرَتَا | ʾaratā | Same |
-| 3MP (they) | أَمَرُوْا | ʾamarū | Same |
-| 3FP (they) | أَمَرْنَ | ʾamarna | Same |
-| 2MS (you) | أَمَرْتَ | ʾamarta | Same |
-| 2FS (you) | أَمَرْتِ | ʾamarti | Same |
-| 2MD (you two) | أَمَرْتُمَا | ʾamartumā | Same |
-| 2FD (you two) | أَمَرْتُمَا | ʾamartumā | Same |
-| 2MP (you) | أَمَرْتُمْ | ʾamartum | Same |
-| 2FP (you) | أَمَرْتُنَّ | ʾamartunna | Same |
-| 1S (I) | أَمَرْتُ | ʾamartu | Same |
-| 1P (we) | أَمَرْنَا | ʾamarnā | Same |
-
-</VerbConjugation>
+<ConjugationEngine
+  roots={[
+    { id: "amara", letters: "ء-م-ر", gloss: "to command", stem: "أَمَر" }
+  ]}
+  persons={[
+    { suffix: "َ", tr: "a", pronoun: "هُوَ", label: "3rd masculine singular", behaviour: 0 },
+    { suffix: "َتْ", tr: "at", pronoun: "هِيَ", label: "3rd feminine singular", behaviour: 1 },
+    { suffix: "َا", tr: "ā", pronoun: "هُمَا", label: "3rd masculine dual", behaviour: 1 },
+    { suffix: "َتَا", tr: "atā", pronoun: "هُمَا", label: "3rd feminine dual", behaviour: 1 },
+    { suffix: "ُوْا", tr: "ū", pronoun: "هُمْ", label: "3rd masculine plural", behaviour: 1 },
+    { suffix: "ْنَ", tr: "na", pronoun: "هُنَّ", label: "3rd feminine plural", behaviour: 2 },
+    { suffix: "ْتَ", tr: "ta", pronoun: "أَنْتَ", label: "2nd masculine singular", behaviour: 2 },
+    { suffix: "ْتِ", tr: "ti", pronoun: "أَنْتِ", label: "2nd feminine singular", behaviour: 2 },
+    { suffix: "ْتُمَا", tr: "tumā", pronoun: "أَنْتُمَا", label: "2nd dual", behaviour: 2 },
+    { suffix: "ْتُمْ", tr: "tum", pronoun: "أَنْتُمْ", label: "2nd masculine plural", behaviour: 2 },
+    { suffix: "ْتُنَّ", tr: "tunna", pronoun: "أَنْتُنَّ", label: "2nd feminine plural", behaviour: 2 },
+    { suffix: "ْتُ", tr: "tu", pronoun: "أَنَا", label: "1st singular", behaviour: 2 },
+    { suffix: "ْنَا", tr: "nā", pronoun: "نَحْنُ", label: "1st plural", behaviour: 2 }
+  ]}
+/>
 
 **Present tense: يَأْمُرُ (yaʾmuru) "he commands"**
 

@@ -11,6 +11,7 @@ import GrammarTable from '../../../components/mdx/GrammarTable.astro';
 import VerbConjugation from '../../../components/mdx/VerbConjugation.astro';
 import Callout from '../../../components/mdx/Callout.astro';
 import ExerciseBox from '../../../components/mdx/ExerciseBox.astro';
+import ConjugationEngine from '../../../components/mdx/lab/ConjugationEngine.astro';
 
 ## Introduction
 
@@ -230,30 +231,28 @@ Let's conjugate two verbs completely to see the deletion pattern:
 
 ## Past Tense: Waw Appears Normally
 
-Let's see the same verb وَجَدَ in past tense where the و STAYS:
+Let's see the same verb وَجَدَ in past tense where the و STAYS. Press each person and watch the و hold its place — only the suffix changes:
 
-<VerbConjugation
-  question="Past Tense: وَجَدَ (wajada) 'he found'"
-  root="و-ج-د"
->
-
-| Person | Arabic | Transliteration | Pattern Note |
-|--------|--------|----------------|--------------|
-| 3MS (he) | وَجَدَ | wajada | و fully visible |
-| 3FS (she) | وَجَدَتْ | wajad at | و stays |
-| 3MD (they two) | وَجَدَا | wajadā | و stays |
-| 3FD (they two) | وَجَدَتَا | wajadatā | و stays |
-| 3MP (they) | وَجَدُوْا | wajadū | و stays |
-| 3FP (they) | وَجَدْنَ | wajadna | و stays |
-| 2MS (you) | وَجَدْتَ | wajadta | و stays |
-| 2FS (you) | وَجَدْتِ | wajadti | و stays |
-| 2MD/FD (you two) | وَجَدْتُمَاْ | wajadtumā | و stays |
-| 2MP (you) | وَجَدْتُمْ | wajadtum | و stays |
-| 2FP (you) | وَجَدْتُنَّ | wajadtunna | و stays |
-| 1S (I) | وَجَدْتُ | wajadtu | و stays |
-| 1P (we) | وَجَدْنَا | wajadnā | و stays |
-
-</VerbConjugation>
+<ConjugationEngine
+  roots={[
+    { id: "wajada", letters: "و-ج-د", gloss: "to find", stem: "وَجَد" }
+  ]}
+  persons={[
+    { suffix: "َ", tr: "a", pronoun: "هُوَ", label: "3rd masculine singular", behaviour: 0 },
+    { suffix: "َتْ", tr: "at", pronoun: "هِيَ", label: "3rd feminine singular", behaviour: 1 },
+    { suffix: "َا", tr: "ā", pronoun: "هُمَا", label: "3rd masculine dual", behaviour: 1 },
+    { suffix: "َتَا", tr: "atā", pronoun: "هُمَا", label: "3rd feminine dual", behaviour: 1 },
+    { suffix: "ُوْا", tr: "ū", pronoun: "هُمْ", label: "3rd masculine plural", behaviour: 1 },
+    { suffix: "ْنَ", tr: "na", pronoun: "هُنَّ", label: "3rd feminine plural", behaviour: 2 },
+    { suffix: "ْتَ", tr: "ta", pronoun: "أَنْتَ", label: "2nd masculine singular", behaviour: 2 },
+    { suffix: "ْتِ", tr: "ti", pronoun: "أَنْتِ", label: "2nd feminine singular", behaviour: 2 },
+    { suffix: "ْتُمَاْ", tr: "tumā", pronoun: "أَنْتُمَا", label: "2nd dual", behaviour: 2 },
+    { suffix: "ْتُمْ", tr: "tum", pronoun: "أَنْتُمْ", label: "2nd masculine plural", behaviour: 2 },
+    { suffix: "ْتُنَّ", tr: "tunna", pronoun: "أَنْتُنَّ", label: "2nd feminine plural", behaviour: 2 },
+    { suffix: "ْتُ", tr: "tu", pronoun: "أَنَا", label: "1st singular", behaviour: 2 },
+    { suffix: "ْنَا", tr: "nā", pronoun: "نَحْنُ", label: "1st plural", behaviour: 2 }
+  ]}
+/>
 
 **Key insight:** In past tense, assimilated verbs conjugate EXACTLY like sound verbs. The و behaves like a normal consonant. Only in present tense Form I does the special deletion rule apply.
 

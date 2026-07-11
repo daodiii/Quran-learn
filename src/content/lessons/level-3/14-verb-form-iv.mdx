@@ -11,6 +11,7 @@ import GrammarTable from '../../../components/mdx/GrammarTable.astro';
 import VerbConjugation from '../../../components/mdx/VerbConjugation.astro';
 import Callout from '../../../components/mdx/Callout.astro';
 import ExerciseBox from '../../../components/mdx/ExerciseBox.astro';
+import ConjugationEngine from '../../../components/mdx/lab/ConjugationEngine.astro';
 
 ## Introduction
 
@@ -281,22 +282,21 @@ Arabic's richness allows multiple ways to express causation with different shade
 
 Form IV conjugates like other verbs, with the alif prefix maintained throughout conjugation and adjustments for subject pronouns.
 
-**Past tense conjugation of أَسْلَمَ (aslama) "he submitted":**
+**Past tense conjugation of أَسْلَمَ (aslama) "he submitted":** Press each person and watch the أَ prefix stay put — only the suffix changes:
 
-<VerbConjugation
-  verb="أَسْلَمَ"
-  root="س-ل-م"
-  form="IV"
-  tense="past"
+<ConjugationEngine
+  roots={[
+    { id: "aslama", letters: "س-ل-م", gloss: "to submit", stem: "أَسْلَم" }
+  ]}
   persons={[
-    { person: "he", arabic: "أَسْلَمَ", transliteration: "aslama" },
-    { person: "she", arabic: "أَسْلَمَتْ", transliteration: "aslamat" },
-    { person: "you (m.s.)", arabic: "أَسْلَمْتَ", transliteration: "aslamta" },
-    { person: "you (f.s.)", arabic: "أَسْلَمْتِ", transliteration: "aslamti" },
-    { person: "I", arabic: "أَسْلَمْتُ", transliteration: "aslamtu" },
-    { person: "they (m.)", arabic: "أَسْلَمُوا۟", transliteration: "aslamū" },
-    { person: "they (f.)", arabic: "أَسْلَمْنَ", transliteration: "aslamna" },
-    { person: "we", arabic: "أَسْلَمْنَا", transliteration: "aslamnā" }
+    { suffix: "َ", tr: "a", pronoun: "هُوَ", label: "3rd masculine singular", behaviour: 0 },
+    { suffix: "َتْ", tr: "at", pronoun: "هِيَ", label: "3rd feminine singular", behaviour: 1 },
+    { suffix: "ْتَ", tr: "ta", pronoun: "أَنْتَ", label: "2nd masculine singular", behaviour: 2 },
+    { suffix: "ْتِ", tr: "ti", pronoun: "أَنْتِ", label: "2nd feminine singular", behaviour: 2 },
+    { suffix: "ْتُ", tr: "tu", pronoun: "أَنَا", label: "1st singular", behaviour: 2 },
+    { suffix: "ُوا۟", tr: "ū", pronoun: "هُمْ", label: "3rd masculine plural", behaviour: 1 },
+    { suffix: "ْنَ", tr: "na", pronoun: "هُنَّ", label: "3rd feminine plural", behaviour: 2 },
+    { suffix: "ْنَا", tr: "nā", pronoun: "نَحْنُ", label: "1st plural", behaviour: 2 }
   ]}
 />
 
