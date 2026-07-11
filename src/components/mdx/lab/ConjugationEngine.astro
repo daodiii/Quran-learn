@@ -16,8 +16,8 @@
  * Usage:
  * <ConjugationEngine
  *   roots={[
- *     { id: 'katab', letters: 'ك-ت-ب', gloss: 'to write', stem: 'كَتَب' },
- *     { id: 'nasar', letters: 'ن-ص-ر', gloss: 'to help', stem: 'نَصَر' },
+ *     { id: 'katab', letters: 'ك-ت-ب', gloss: 'to write', stem: 'كَتَب', tr: 'katab' },
+ *     { id: 'nasar', letters: 'ن-ص-ر', gloss: 'to help', stem: 'نَصَر', tr: 'naṣar' },
  *   ]}
  *   persons={[
  *     { suffix: 'َ', tr: 'a', pronoun: 'هُوَ', label: '3rd masculine singular', behaviour: 0 },
@@ -32,6 +32,7 @@ interface RootEntry {
   letters: string; // e.g. "ك-ت-ب"
   gloss: string; // e.g. "to write"
   stem: string; // e.g. "كَتَب" — combining suffixes attach to this
+  tr: string; // stem transliteration, e.g. "katab" — the suffix tr is appended to this
 }
 
 interface PersonEntry {
@@ -106,6 +107,7 @@ const firstTr = firstRoot.tr + firstPerson.tr;
           data-pronoun={p.pronoun}
           data-label={p.label}
           data-behaviour={p.behaviour}
+          aria-pressed={i === 0 ? 'true' : 'false'}
         >
           <span class="p-ar" lang="ar">
             <bdi>{p.pronoun}</bdi>
@@ -125,6 +127,7 @@ const firstTr = firstRoot.tr + firstPerson.tr;
           data-stem={r.stem}
           data-root-tr={r.tr}
           data-gloss={r.gloss}
+          aria-pressed={i === 0 ? 'true' : 'false'}
         >
           <bdi lang="ar" dir="rtl">
             {r.letters}
@@ -273,7 +276,11 @@ const firstTr = firstRoot.tr + firstPerson.tr;
     personButtons.forEach((btn, i) => {
       btn.addEventListener('click', () => {
         curPersonIdx = i;
-        personButtons.forEach((b) => b.classList.toggle('on', b === btn));
+        personButtons.forEach((b) => {
+          const isCurrent = b === btn;
+          b.classList.toggle('on', isCurrent);
+          b.setAttribute('aria-pressed', String(isCurrent));
+        });
         render(true);
         document.dispatchEvent(new CustomEvent('lab:word-touched'));
       });
@@ -282,7 +289,11 @@ const firstTr = firstRoot.tr + firstPerson.tr;
     rootButtons.forEach((btn, i) => {
       btn.addEventListener('click', () => {
         curRootIdx = i;
-        rootButtons.forEach((b) => b.classList.toggle('on', b === btn));
+        rootButtons.forEach((b) => {
+          const isCurrent = b === btn;
+          b.classList.toggle('on', isCurrent);
+          b.setAttribute('aria-pressed', String(isCurrent));
+        });
         render(true);
         document.dispatchEvent(new CustomEvent('lab:word-touched'));
       });
