@@ -10,6 +10,8 @@ import vocabData from '../data/vocab/lessons.json';
 import BreadcrumbSchema from '../components/seo/BreadcrumbSchema.astro';
 import ArticleSchema from '../components/seo/ArticleSchema.astro';
 import { getCollection } from 'astro:content';
+import '../styles/night.css';
+import '../styles/lesson-lab.css';
 
 interface Props {
   title: string;
@@ -67,6 +69,14 @@ const educationalLevels: Record<number, string> = {
   4: 'Advanced',
   5: 'Advanced',
 };
+
+// Station rail: 00 = Briefing (the header), then one station per h2 section.
+const stations = [
+  { target: 'lesson-brief', pip: '00', label: 'Briefing' },
+  ...tocHeadings.map((h, i) => ({ target: h.slug, pip: String(i + 1).padStart(2, '0'), label: h.text })),
+];
+
+const fontsHref = "https://fonts.googleapis.com/css2?family=Amiri+Quran&family=Amiri:ital,wght@0,400;0,700;1,400&family=Marcellus&family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&display=swap";
 ---
 
 <BaseLayout title={title} description={description} type="article">
@@ -84,12 +94,39 @@ const educationalLevels: Record<number, string> = {
     />
     {prevLesson && <link rel="prev" href={new URL(prevLesson, Astro.site).href} />}
     {nextLesson && <link rel="next" href={new URL(nextLesson, Astro.site).href} />}
+
+    <!--
+      Lesson pages are always the Anatomy Lab (always-night), regardless of
+      the visitor's site-wide theme preference. This never touches
+      localStorage — leaving the rest of the site on the reader's choice —
+      and re-forces on Astro's page-load/after-swap events in case view
+      transitions land here from a themed page mid-transition.
+    -->
+    <script is:inline>
+      (function () {
+        document.documentElement.dataset.theme = 'dark';
+        document.addEventListener('astro:page-load', function () {
+          document.documentElement.dataset.theme = 'dark';
+        });
+        document.addEventListener('astro:after-swap', function () {
+          document.documentElement.dataset.theme = 'dark';
+        });
+      })();
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href={fontsHref} media="print" onload="this.media='all'" />
+    <noscript>
+      <link rel="stylesheet" href={fontsHref} />
+    </noscript>
   </Fragment>
+
   <!-- Backdrop for mobile sidebar -->
   <div id="navigator-backdrop" class="navigator-backdrop"></div>
 
   <div class="lesson-page">
-    <div class="lesson-grid">
+    <div class="lesson-grid lab">
       <!-- Sidebar with CourseNavigator -->
       <aside class="lesson-sidebar">
         <CourseNavigator currentLessonSlug={currentLessonSlug} />
@@ -100,89 +137,95 @@ const educationalLevels: Record<number, string> = {
         <!-- Breadcrumbs -->
         <Breadcrumbs items={breadcrumbItems} />
 
-        <div class="lesson-body">
-        <article class="lesson-article">
-        <header class="lesson-header">
-          <span class={`level-badge level-badge-${level}`}>Level {level}</span>
-          {positionInLevel && (
-            <p class="lesson-position" data-lesson-position>Lesson {positionInLevel.index} of {positionInLevel.total}</p>
-          )}
-          <h1 class="lesson-title">{title}</h1>
-          {titleArabic && (
-            <p class="lesson-arabic">{titleArabic}</p>
-          )}
-          {description && (
-            <p class="lesson-description">{description}</p>
-          )}
-        </header>
-
-        <div class="lesson-content">
-          <slot />
-        </div>
-
-        {lessonVocab.length > 0 && (
-          <section class="vocab-section" data-vocab-section aria-labelledby="vocab-heading">
-            <h2 id="vocab-heading" class="vocab-heading">Words from this lesson</h2>
-            <p class="vocab-sub">High-frequency Quran vocabulary you just saw in context.</p>
-            <VocabList entries={lessonVocab} />
-            <p class="vocab-review-link">
-              <a href={`/learn/level-${level}/vocabulary/`}>Review all Level {level} vocabulary &rarr;</a>
+        <div class="lab-body">
+          <!-- ================= STATION RAIL ================= -->
+          <aside class="rail" data-lesson-toc aria-label="Lesson stations">
+            <p class="r-head">
+              Level {level} · {positionInLevel ? `Lesson ${positionInLevel.index} of ${positionInLevel.total}` : levelNames[level]}
+              <b>{title}</b>
             </p>
-          </section>
-        )}
-
-        {positionInLevel && positionInLevel.index === positionInLevel.total && (
-          <ReadingTrack level={level} />
-        )}
-
-        <!-- Mark Complete Button -->
-        <div class="complete-section" id="complete-section" data-lesson-slug={lessonSlug}>
-          <button id="complete-btn" class="complete-btn">
-            <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
-            </svg>
-            <span id="complete-btn-text">Mark as Complete</span>
-          </button>
-          <p id="complete-status" class="complete-status" style="display: none;">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
-            </svg>
-            Completed
-          </p>
-        </div>
-
-        <!-- Previous/Next Navigation -->
-        <nav class="lesson-nav">
-          {prevLesson ? (
-            <a href={prevLesson} class="nav-link prev">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
-              </svg>
-              Previous Lesson
-            </a>
-          ) : <div></div>}
-          {nextLesson ? (
-            <a href={nextLesson} class="nav-link next">
-              Next Lesson
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-              </svg>
-            </a>
-          ) : <div></div>}
-        </nav>
-      </article>
-
-      {tocHeadings.length > 2 && (
-        <aside class="lesson-toc" data-lesson-toc aria-label="On this page">
-          <p class="toc-label">On this page</p>
-          <ol>
-            {tocHeadings.map(h => (
-              <li><a href={`#${h.slug}`} data-toc-link={h.slug}>{h.text}</a></li>
+            {stations.map(s => (
+              <a class="station" href={`#${s.target}`} data-station-target={s.target}>
+                <span class="pip">{s.pip}</span>{s.label}
+              </a>
             ))}
-          </ol>
-        </aside>
-      )}
-      </div>
+            <div class="r-stat">
+              Progress <b data-rail-pct>0%</b>
+              <span class="r-bar"><i data-rail-fill></i></span>
+              Words touched <b data-rail-touch>0</b>
+            </div>
+          </aside>
+
+          <!-- ================= MAIN ================= -->
+          <article class="lesson-article">
+            <header class="lesson-header" id="lesson-brief">
+              <p class="sess">
+                <span class={`level-badge level-badge-${level}`}>Level {level} · {levelNames[level]}</span>
+                {positionInLevel && (
+                  <span class="lesson-position" data-lesson-position>Lesson {positionInLevel.index} of {positionInLevel.total}</span>
+                )}
+              </p>
+              <h1 class="lesson-title">{title}</h1>
+              {titleArabic && (
+                <p class="lesson-arabic" lang="ar" dir="rtl">{titleArabic}</p>
+              )}
+              {description && (
+                <p class="lesson-description">{description}</p>
+              )}
+            </header>
+
+            <div class="lesson-content" data-reveal>
+              <slot />
+            </div>
+
+            {lessonVocab.length > 0 && (
+              <section class="vocab-section frame" data-label="Specimen inventory" data-vocab-section aria-labelledby="vocab-heading" data-reveal>
+                <div class="frame-in">
+                  <h2 id="vocab-heading" class="vocab-heading">Words from this lesson</h2>
+                  <p class="vocab-sub">High-frequency Quran vocabulary you just saw in context.</p>
+                  <VocabList entries={lessonVocab} />
+                  <p class="vocab-review-link">
+                    <a href={`/learn/level-${level}/vocabulary/`}>Review all Level {level} vocabulary &rarr;</a>
+                  </p>
+                </div>
+              </section>
+            )}
+
+            {positionInLevel && positionInLevel.index === positionInLevel.total && (
+              <ReadingTrack level={level} />
+            )}
+
+            <!-- Debrief: completion -->
+            <div class="debrief">
+              <div class="complete-section" id="complete-section" data-lesson-slug={lessonSlug} data-reveal>
+                <button id="complete-btn" class="done-btn">
+                  <svg viewBox="0 0 15 15" aria-hidden="true"><path d="M2 8l4 4 7-9" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  <span id="complete-btn-text">Mark lesson complete</span>
+                </button>
+                <p id="complete-status" class="complete-status done-btn done" style="display: none;">
+                  <svg viewBox="0 0 15 15" aria-hidden="true"><path d="M2 8l4 4 7-9" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  Completed — lab signed off
+                </p>
+              </div>
+            </div>
+
+            <!-- Previous/Next Navigation -->
+            <nav class="pager" aria-label="Lesson navigation">
+              {prevLesson ? (
+                <a href={prevLesson} class="page-link prev">
+                  <span class="dir">&larr; Previous</span>
+                  <span class="pt">Previous Lesson</span>
+                </a>
+              ) : <div></div>}
+              {nextLesson ? (
+                <a href={nextLesson} class="page-link next">
+                  <span class="dir">Next &rarr;</span>
+                  <span class="pt">Next Lesson</span>
+                </a>
+              ) : <div></div>}
+            </nav>
+          </article>
+        </div>
       </main>
     </div>
   </div>
@@ -190,448 +233,6 @@ const educationalLevels: Record<number, string> = {
   <!-- Floating toggle for mobile -->
   <NavigatorToggle variant="floating" />
 </BaseLayout>
-
-<style>
-  /* Backdrop for mobile sidebar */
-  .navigator-backdrop {
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.5);
-    z-index: 39;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 300ms ease;
-  }
-
-  .navigator-backdrop.visible {
-    opacity: 1;
-    pointer-events: auto;
-  }
-
-  .lesson-page {
-    max-width: 80rem;
-    margin: 0 auto;
-    padding: 0;
-  }
-
-  /* Layout */
-  .lesson-grid {
-    display: flex;
-    flex-direction: column;
-    min-block-size: 100vh;
-  }
-
-  /* Sidebar uses display:contents so the fixed-position
-     CourseNavigator can render without affecting layout */
-  .lesson-sidebar {
-    display: contents;
-  }
-
-  /* Main content area */
-  .lesson-main {
-    min-inline-size: 0;
-    padding: 2rem 1rem;
-  }
-
-  @media (min-width: 640px) {
-    .lesson-main {
-      padding: 2rem 1.5rem;
-    }
-  }
-
-  @media (min-width: 1024px) {
-    .lesson-main {
-      padding: 2rem 3rem;
-    }
-  }
-
-  /* Article + optional TOC rail */
-  .lesson-body { min-width: 0; }
-
-  .lesson-article {
-    min-width: 0;
-    max-inline-size: 85ch;
-    margin-inline: auto;
-  }
-
-  .lesson-toc { display: none; }
-
-  @media (min-width: 1280px) {
-    .lesson-body {
-      display: grid;
-      grid-template-columns: minmax(0, 85ch) 13rem;
-      gap: var(--space-2xl, 4rem);
-      justify-content: center;
-    }
-    .lesson-toc {
-      display: block;
-      position: sticky;
-      top: 6.5rem;
-      align-self: start;
-      font-size: 0.875rem;
-      max-block-size: calc(100vh - 8rem);
-      overflow-y: auto;
-    }
-    .toc-label {
-      font-weight: 600;
-      color: var(--text-secondary);
-      margin: 0 0 var(--space-xs, 0.375rem);
-    }
-    .lesson-toc ol {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      flex-direction: column;
-      gap: 0.375rem;
-    }
-    .lesson-toc a {
-      color: var(--text-tertiary);
-      text-decoration: none;
-      border-inline-start: 2px solid transparent;
-      padding-inline-start: 0.625rem;
-      display: block;
-      line-height: 1.4;
-      transition: color 200ms cubic-bezier(0.23, 1, 0.32, 1),
-                  border-color 200ms cubic-bezier(0.23, 1, 0.32, 1);
-    }
-    .lesson-toc a:hover { color: var(--text-primary); }
-    .lesson-toc a.active {
-      color: var(--accent-gold);
-      border-inline-start-color: var(--accent-gold);
-    }
-  }
-
-  .lesson-header {
-    margin-bottom: 2rem;
-  }
-
-  .level-badge {
-    display: inline-flex;
-    align-items: center;
-    padding: 0.25rem 0.75rem;
-    font-family: var(--font-display);
-    font-size: 0.8125rem;
-    font-weight: 700;
-    letter-spacing: 0.01em;
-    border-radius: var(--radius-full, 100px);
-  }
-
-  .lesson-position {
-    display: inline-block;
-    margin: 0 0 0 0.625rem;
-    font-size: 0.875rem;
-    color: var(--text-secondary);
-    font-variant-numeric: tabular-nums;
-  }
-
-  .vocab-section { margin-block-start: 3rem; }
-
-  .vocab-heading {
-    font-family: var(--font-display);
-    font-size: 1.625rem;
-    font-weight: 700;
-    color: var(--text-primary);
-    margin: 0 0 0.25rem;
-    letter-spacing: -0.01em;
-  }
-
-  .vocab-sub {
-    color: var(--text-secondary);
-    font-size: 0.9375rem;
-    margin: 0 0 1rem;
-  }
-
-  .vocab-review-link {
-    margin-block-start: 0.75rem;
-    font-size: 0.9375rem;
-  }
-
-  .vocab-review-link a {
-    color: var(--accent-primary);
-    text-decoration: none;
-  }
-
-  .vocab-review-link a:hover {
-    text-decoration: underline;
-  }
-
-  .level-badge-1 { background: var(--level-1-bg); color: var(--level-1-text); }
-  .level-badge-2 { background: var(--level-2-bg); color: var(--level-2-text); }
-  .level-badge-3 { background: var(--level-3-bg); color: var(--level-3-text); }
-  .level-badge-4 { background: var(--level-4-bg); color: var(--level-4-text); }
-  .level-badge-5 { background: var(--level-5-bg); color: var(--level-5-text); }
-
-  .lesson-title {
-    font-family: var(--font-display);
-    font-size: clamp(1.875rem, 4vw, 2.5rem);
-    font-weight: 700;
-    color: var(--text-primary);
-    margin-top: 0.75rem;
-    letter-spacing: -0.03em;
-    line-height: 1.15;
-  }
-
-  .lesson-arabic {
-    font-family: var(--font-arabic);
-    font-size: 1.375rem;
-    color: var(--accent-gold);
-    direction: rtl;
-    margin-top: 0.5rem;
-    line-height: 2;
-  }
-
-  .lesson-description {
-    font-size: 1.0625rem;
-    color: var(--text-secondary);
-    margin-top: 0.75rem;
-    line-height: 1.6;
-  }
-
-  /* Content Styles */
-  .lesson-content {
-    color: var(--text-primary);
-    font-size: 1.0625rem; /* 17px */
-    line-height: 1.9;
-  }
-
-  .lesson-content :global(h2) {
-    font-family: var(--font-display);
-    font-size: 1.625rem;
-    font-weight: 700;
-    color: var(--text-primary);
-    margin-top: 2.5rem;
-    margin-bottom: 1rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 1px solid var(--border-primary);
-    letter-spacing: -0.01em;
-    position: relative;
-    /* TOC anchor jumps must clear the 80px sticky header */
-    scroll-margin-block-start: 6.5rem;
-  }
-
-  /* Short gold accent instead of a full-width slab rule */
-  .lesson-content :global(h2)::after {
-    content: '';
-    position: absolute;
-    bottom: -1px;
-    left: 0;
-    inline-size: 2.5rem;
-    block-size: 2px;
-    background: var(--accent-gold);
-  }
-
-  .lesson-content :global(h3) {
-    font-family: var(--font-display);
-    font-size: 1.3125rem;
-    font-weight: 600;
-    color: var(--text-primary);
-    margin-top: 2rem;
-    margin-bottom: 0.75rem;
-    letter-spacing: -0.01em;
-  }
-
-  .lesson-content :global(p) {
-    color: var(--text-secondary);
-    margin-bottom: 1rem;
-  }
-
-  .lesson-content :global(a) {
-    color: var(--link-color);
-    text-decoration: underline;
-    text-decoration-color: color-mix(in srgb, var(--link-color) 40%, transparent);
-    text-underline-offset: 2px;
-  }
-
-  .lesson-content :global(a:hover) {
-    text-decoration-color: var(--link-color);
-  }
-
-  .lesson-content :global(strong) {
-    color: var(--text-primary);
-    font-weight: 600;
-  }
-
-  .lesson-content :global(ul),
-  .lesson-content :global(ol) {
-    margin-bottom: 1rem;
-    padding-left: 1.5rem;
-  }
-
-  .lesson-content :global(li) {
-    color: var(--text-secondary);
-    margin-bottom: 0.5rem;
-  }
-
-  .lesson-content :global(table) {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 1.5rem 0;
-    border-radius: var(--radius-lg);
-    overflow: hidden;
-    border: 1px solid var(--border-primary);
-  }
-
-  .lesson-content :global(th) {
-    background: var(--accent-primary-light);
-    color: var(--accent-primary);
-    font-weight: 600;
-    text-align: left;
-    padding: 0.75rem 1rem;
-    border-bottom: 1px solid var(--border-primary);
-  }
-
-  .lesson-content :global(td) {
-    padding: 0.75rem 1rem;
-    border-bottom: 1px solid var(--border-primary);
-    background: var(--bg-elevated);
-  }
-
-  .lesson-content :global(tr:last-child td) {
-    border-bottom: none;
-  }
-
-  .lesson-content :global(code) {
-    background: var(--bg-secondary);
-    padding: 0.125rem 0.375rem;
-    border-radius: var(--radius-sm);
-    font-size: 0.875em;
-    color: var(--accent-primary);
-  }
-
-  .lesson-content :global(pre) {
-    background: var(--bg-secondary);
-    border: 1px solid var(--border-primary);
-    border-radius: var(--radius-lg);
-    padding: 1rem;
-    overflow-x: auto;
-    margin: 1.5rem 0;
-  }
-
-  .lesson-content :global(pre code) {
-    background: transparent;
-    padding: 0;
-  }
-
-  .lesson-content :global(blockquote) {
-    border-left: 3px solid var(--accent-gold);
-    padding-left: 1rem;
-    margin: 1.5rem 0;
-    color: var(--text-secondary);
-    font-style: italic;
-  }
-
-  /* Navigation */
-  .lesson-nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-top: 3rem;
-    padding-top: 1.5rem;
-    border-top: 1px solid var(--border-primary);
-  }
-
-  .nav-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-family: var(--font-display);
-    font-size: 0.9375rem;
-    font-weight: 600;
-    color: var(--accent-gold);
-    text-decoration: none;
-    transition: all var(--transition-fast);
-  }
-
-  .nav-link:hover {
-    opacity: 0.8;
-  }
-
-  .nav-link svg {
-    width: 18px;
-    height: 18px;
-    transition: transform var(--transition-fast);
-  }
-
-  .nav-link.prev:hover svg {
-    transform: translateX(-2px);
-  }
-
-  .nav-link.next:hover svg {
-    transform: translateX(2px);
-  }
-
-  /* Complete Section */
-  .complete-section {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 2rem;
-    padding: 1.5rem;
-    background: var(--bg-secondary);
-    border-radius: var(--radius-lg);
-  }
-
-  .complete-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.875rem 2rem;
-    background: var(--gradient-gold, linear-gradient(90deg, #B8860B 0%, #D4A849 50%, #F2D98C 100%));
-    color: #1A1147;
-    font-family: var(--font-display);
-    font-size: 0.9375rem;
-    font-weight: 700;
-    border: none;
-    border-radius: var(--radius-md);
-    cursor: pointer;
-    transition: all var(--transition-fast);
-    box-shadow: 0 4px 12px rgba(184, 134, 11, 0.2);
-    letter-spacing: 0.02em;
-  }
-
-  .complete-btn:hover {
-    filter: brightness(1.05);
-    transform: translateY(-1px);
-    box-shadow: 0 6px 20px rgba(184, 134, 11, 0.3);
-  }
-
-  .complete-btn:disabled {
-    opacity: 0.7;
-    cursor: not-allowed;
-  }
-
-  .complete-btn svg {
-    width: 18px;
-    height: 18px;
-  }
-
-  .complete-btn.completed {
-    background: #059669;
-  }
-
-  .complete-status {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.75rem 1.5rem;
-    background: #ecfdf5;
-    color: #065f46;
-    font-size: 0.9375rem;
-    font-weight: 600;
-    border-radius: var(--radius-md);
-  }
-
-  :global([data-theme="dark"]) .complete-status {
-    background: #052e16;
-    color: #6ee7b7;
-  }
-
-  .complete-status svg {
-    width: 18px;
-    height: 18px;
-  }
-</style>
 
 <script>
   import { markLessonComplete, isLessonComplete } from '../lib/progress';
@@ -666,7 +267,7 @@ const educationalLevels: Record<number, string> = {
         status.style.display = 'inline-flex';
       } else {
         btn.disabled = false;
-        btnText.textContent = 'Mark as Complete';
+        btnText.textContent = 'Mark lesson complete';
       }
     });
   }
@@ -675,17 +276,5 @@ const educationalLevels: Record<number, string> = {
 </script>
 
 <script>
-  // TOC scrollspy: highlight the section currently in view.
-  const tocLinks = document.querySelectorAll<HTMLAnchorElement>('[data-toc-link]');
-  if (tocLinks.length) {
-    const sections = document.querySelectorAll<HTMLElement>('.lesson-content h2[id]');
-    const spy = new IntersectionObserver(entries => {
-      entries.forEach(e => {
-        if (!e.isIntersecting) return;
-        tocLinks.forEach(a => a.classList.remove('active'));
-        document.querySelector(`[data-toc-link="${e.target.id}"]`)?.classList.add('active');
-      });
-    }, { rootMargin: '-10% 0px -80% 0px' });
-    sections.forEach(s => spy.observe(s));
-  }
+  import '../scripts/lab-lesson';
 </script>
