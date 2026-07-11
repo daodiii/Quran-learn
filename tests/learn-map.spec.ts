@@ -69,3 +69,10 @@ test('sky tour: browse CTA anchors to the server-rendered catalog', async ({ pag
   await expect(page.locator('a[href="#curriculum"]').first()).toBeAttached();
   await expect(page.locator('#curriculum [data-lesson-row]')).toHaveCount(81);
 });
+
+test('catalog jump strip links every level', async ({ page }) => {
+  await page.goto('/learn/');
+  const links = page.locator('#curriculum [data-jump-level]');
+  await expect(links).toHaveCount(5);
+  await expect(links.first()).toHaveAttribute('href', '#level-1');
+});
