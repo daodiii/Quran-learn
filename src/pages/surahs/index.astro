@@ -77,8 +77,8 @@ const ogImageURL = new URL('/images/og-default.jpg', Astro.site);
    ASTROLABE ROYALE · surahs section page
    body, stars, stage, astro/svg, plate, strip, legend, head
    :root / reset / a / :focus-visible / [lang=ar] / ::selection /
-   #veil family / .nav family / [data-reveal] pattern / .btn family /
-   footer / .foot-meta / .skip-link are provided by night.css
+   #veil family / .nav family / [data-reveal] pattern /
+   .skip-link are provided by night.css
    ============================================================ */
 
 :root{--copper:#c98a4b}
@@ -166,6 +166,10 @@ body{background:var(--bg-0);color:var(--ink);font-family:var(--font-body);font-s
 .surah-index{position:absolute;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap}
 .surah-index ol{list-style:none;display:flex;flex-direction:column;gap:10px;margin-top:18px}
 .surah-index a{color:var(--gold-bright)}
+
+.stage-foot{position:fixed;left:var(--pad-x);bottom:14px;z-index:6;padding:0;font-family:var(--font-mono);font-size:9.5px;letter-spacing:.14em;color:var(--ink-faint)}
+.stage-foot a{color:var(--ink-dim)}
+.stage-foot a:hover{color:var(--gold-bright)}
   </style>
 </head>
 <body>
@@ -236,8 +240,13 @@ body{background:var(--bg-0);color:var(--ink);font-family:var(--font-body);font-s
     body{overflow:auto!important}
     .surah-index-note{padding-bottom:0!important}
     nav.surah-index{padding-top:24px!important}
+    .stage-foot{position:static!important;padding:20px var(--pad-x) 40px!important}
   </style>
 </noscript>
+
+<footer class="stage-foot">
+  <span>Nettsiden er laget av <a href="https://www.idweb.no" target="_blank" rel="noopener noreferrer">IDweb</a></span>
+</footer>
 
 </main>
 
@@ -251,7 +260,7 @@ initCapacitor();
 (function(){
 'use strict';
 var dataEl=document.getElementById('surah-astro-data'),DATA;
-try{DATA=JSON.parse(dataEl.textContent);}catch(e){return;} /* no .js class → SSR plate + crawlable/SR index stay usable */
+try{DATA=JSON.parse(dataEl.textContent);}catch(e){console.warn('surahs: astrolabe data unreadable — SSR plate + index stay usable',e);return;}
 var SURAHS=DATA.SURAHS,MAXV=DATA.maxVerses;
 document.documentElement.classList.add('js');
 
