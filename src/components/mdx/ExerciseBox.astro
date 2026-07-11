@@ -1,6 +1,8 @@
 ---
 /**
- * ExerciseBox - Interactive practice exercise with show/hide answer toggle
+ * ExerciseBox - Interactive practice exercise with show/hide answer toggle,
+ * skinned as a lab "diagnostic" ("DIAG 01", "DIAG 02", …, numbered via a
+ * CSS counter on .lesson-content — see lesson-lab.css).
  *
  * The ONE MDX component that requires client-side JavaScript for interactivity.
  * Provides accessible keyboard navigation and screen reader support.
@@ -26,7 +28,7 @@ const { question, id = `exercise-${Math.random().toString(36).substr(2, 9)}` } =
 const answerId = `answer-${id}`;
 ---
 
-<div class="exercise-box">
+<div class="exercise-box" data-reveal>
   <p class="exercise-question">{question}</p>
 
   <button
@@ -49,145 +51,31 @@ const answerId = `answer-${id}`;
 </div>
 
 <style>
-  .exercise-box {
-    /* Frosted glass with gold tint */
-    background: var(--glass-bg-tinted-gold);
-    backdrop-filter: blur(var(--glass-blur));
-    -webkit-backdrop-filter: blur(var(--glass-blur));
-    border: 2px solid rgba(184, 134, 11, 0.20);
-    border-radius: var(--radius-xl);
-    padding: var(--spacing-xl);
-    margin-block: var(--spacing-xl);
-    flex-direction: column;
-    gap: var(--spacing-md);
-    box-shadow: var(--shadow-float);
-    transition: transform var(--transition-base), box-shadow var(--transition-base);
-  }
-
-  .exercise-box:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-gold-hover);
-  }
-
-  :global([data-theme="dark"]) .exercise-box {
-    background: var(--glass-bg-tinted-gold);
-    border-color: rgba(242, 217, 140, 0.18);
-  }
-
-  .exercise-question {
-    font-family: var(--font-display);
-    font-size: 1.125rem;
-    font-weight: 600;
-    color: var(--color-text-primary);
-    line-height: 1.7;
-    margin: 0;
-  }
-
-  .toggle-answer {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: var(--spacing-sm);
-    padding-block: var(--spacing-sm);
-    padding-inline: var(--spacing-md);
-    background: var(--gradient-gold);
-    color: var(--text-primary);
-    font-family: var(--font-display);
-    font-size: 0.9375rem;
-    font-weight: 700;
-    border: none;
-    border-radius: var(--radius-lg);
-    cursor: pointer;
-    transition: all var(--transition-fast);
-    align-self: flex-start;
-    box-shadow: var(--shadow-gold);
-  }
-
-  .toggle-answer:hover {
-    filter: brightness(1.1);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(184, 134, 11, 0.35);
-  }
-
-  .toggle-answer:focus-visible {
-    outline: 2px solid var(--color-accent-primary);
-    outline-offset: 2px;
-  }
-
-  .toggle-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  .toggle-answer[aria-expanded="true"] .toggle-icon {
-    transform: rotate(180deg);
-  }
-
-  .exercise-answer {
-    padding-block-start: var(--spacing-md);
-    margin-block-start: var(--spacing-md);
-    border-block-start: 1px solid var(--color-border-primary);
-  }
-
-  .exercise-answer[hidden] {
-    display: none;
-  }
-
-  /* Answer content styling */
+  /* Chrome (border, DIAG numbering, colors) lives in the global
+     src/styles/lesson-lab.css so the per-page CSS counter can span every
+     ExerciseBox instance. Only answer-content spacing stays scoped here. */
   .exercise-answer :global(p) {
-    margin-block-end: var(--spacing-md);
-    color: var(--color-text-secondary);
-    line-height: 1.6;
+    margin-block-end: 0.75rem;
+    line-height: 1.7;
   }
 
   .exercise-answer :global(p:last-child) {
     margin-block-end: 0;
   }
 
-  .exercise-answer :global(strong) {
-    color: var(--color-text-primary);
-    font-weight: 600;
-  }
-
   .exercise-answer :global(ul),
   .exercise-answer :global(ol) {
-    margin-block-end: var(--spacing-md);
-    padding-inline-start: var(--spacing-lg);
+    margin-block-end: 0.75rem;
   }
 
-  .exercise-answer :global(li) {
-    margin-block-end: var(--spacing-sm);
-    color: var(--color-text-secondary);
-  }
-
-  /* Nested MDX components (ArabicExample, Callout, etc.) */
   .exercise-answer :global(.arabic-example),
   .exercise-answer :global(.callout) {
-    margin-block: var(--spacing-md);
-  }
-
-  /* Mobile: tighter padding */
-  @media (max-width: 640px) {
-    .exercise-box {
-      padding: var(--spacing-md);
-      margin-block: var(--spacing-lg);
-      border-radius: var(--radius-lg);
-    }
+    margin-block: 0.75rem;
   }
 
   /* Accessibility: reduced motion */
   @media (prefers-reduced-motion: reduce) {
     .toggle-icon {
-      transition: none;
-    }
-
-    .toggle-answer[aria-expanded="true"] .toggle-icon {
-      transform: none;
-    }
-
-    .toggle-answer {
       transition: none;
     }
   }
@@ -211,6 +99,7 @@ const answerId = `answer-${id}`;
         const answerId = button.getAttribute('aria-controls');
         const answerPanel = document.getElementById(answerId || '');
         const toggleText = button.querySelector('.toggle-text');
+        const exercise = button.closest('.exercise-box');
 
         if (!answerPanel || !toggleText) return;
 
@@ -218,6 +107,7 @@ const answerId = `answer-${id}`;
         button.setAttribute('aria-expanded', String(!expanded));
         answerPanel.hidden = expanded;
         toggleText.textContent = expanded ? 'Show Answer' : 'Hide Answer';
+        exercise?.classList.toggle('open', !expanded);
       });
 
       // Also support keyboard activation (Enter and Space are handled by default for buttons)

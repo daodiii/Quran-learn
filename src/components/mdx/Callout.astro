@@ -1,6 +1,7 @@
 ---
 /**
- * Callout - Educational callout boxes for lessons
+ * Callout - Educational callout boxes for lessons, skinned as lab frames
+ * (note/tip) or ruleboxes (rule/warning).
  *
  * Usage examples:
  * <Callout type="rule" title="The Definite Article">
@@ -29,109 +30,37 @@ const defaultTitles: Record<string, string> = {
 
 const displayTitle = title || defaultTitles[type];
 
-// SVG icons for each type
-const icons: Record<string, string> = {
-  note: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>`,
-  tip: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M15 2a7 7 0 0 1 0 12H9a7 7 0 0 1 0-12z"/></svg>`,
-  rule: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>`,
-  warning: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>`,
-};
+// note/tip render as labelled frames; rule/warning render as gradient ruleboxes
+const isRuleStyle = type === 'rule' || type === 'warning';
+const kicker = type === 'rule' ? 'Rule' : 'Warning';
+const frameVariant = type === 'tip' ? 'tipf' : 'notef';
 ---
 
-<aside class={`callout callout-${type}`} role="note">
-  <p class="callout-title">
-    <span class="callout-icon" set:html={icons[type]} />
-    <strong>{displayTitle}</strong>
-  </p>
-  <div class="callout-content">
-    <slot />
-  </div>
-</aside>
+{isRuleStyle ? (
+  <aside class={`callout callout-${type} rulebox ${type === 'warning' ? 'warn' : ''}`} role="note" data-reveal>
+    <div class="rulebox-in">
+      <p class="rb-k">{kicker}</p>
+      <p class="rb-t">{displayTitle}</p>
+      <div class="callout-content">
+        <slot />
+      </div>
+    </div>
+  </aside>
+) : (
+  <aside class={`callout callout-${type} frame ${frameVariant}`} role="note" data-label={displayTitle} data-reveal>
+    <div class="frame-in">
+      <div class="callout-content">
+        <slot />
+      </div>
+    </div>
+  </aside>
+)}
 
 <style>
-  .callout {
-    /* Frosted glass effect */
-    background: var(--glass-bg-elevated);
-    backdrop-filter: blur(var(--glass-blur));
-    -webkit-backdrop-filter: blur(var(--glass-blur));
-    border: 1px solid var(--glass-border-light);
-    border-radius: var(--radius-xl);
-    padding: var(--spacing-xl) var(--spacing-2xl);
-    margin-block: var(--spacing-2xl);
-    box-shadow: var(--shadow-float);
-    position: relative;
-    overflow: hidden;
-    transition: transform var(--transition-base), box-shadow var(--transition-base);
-  }
-
-  .callout:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-xl);
-  }
-
-  /* Left accent bar with gradient */
-  .callout::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    width: 6px;
-    border-radius: var(--radius-xl) 0 0 var(--radius-xl);
-  }
-
-  /* Type-specific: tinted glass variants */
-  .callout-note { background: var(--glass-bg-tinted-indigo); border-color: rgba(26, 17, 71, 0.15); }
-  .callout-note::after { background: linear-gradient(180deg, #1A1147, #B8860B); }
-
-  .callout-tip { background: var(--glass-bg-tinted-sage); border-color: rgba(97, 125, 97, 0.15); }
-  .callout-tip::after { background: #617D61; }
-
-  .callout-rule { background: var(--glass-bg-tinted-gold); border-color: rgba(184, 134, 11, 0.15); }
-  .callout-rule::after { background: linear-gradient(180deg, #B8860B, #D4A849, #F2D98C); }
-
-  .callout-warning { background: var(--glass-bg-tinted-coral); border-color: rgba(196, 112, 75, 0.15); }
-  .callout-warning::after { background: #C4704B; }
-
-  /* Dark Mode */
-  :global([data-theme="dark"]) .callout-note { background: var(--glass-bg-tinted-indigo); border-color: rgba(155, 136, 232, 0.12); }
-  :global([data-theme="dark"]) .callout-tip { background: var(--glass-bg-tinted-sage); border-color: rgba(143, 184, 143, 0.12); }
-  :global([data-theme="dark"]) .callout-rule { background: var(--glass-bg-tinted-gold); border-color: rgba(242, 217, 140, 0.12); }
-  :global([data-theme="dark"]) .callout-warning { background: var(--glass-bg-tinted-coral); border-color: rgba(232, 155, 122, 0.12); }
-
-  .callout-title {
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-md);
-    font-family: var(--font-display);
-    font-size: 0.9375rem;
-    font-weight: 700;
-    letter-spacing: 0.01em;
-    margin: 0 0 var(--spacing-lg) 0;
-    color: var(--text-primary);
-  }
-
-  .callout-icon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    inline-size: 1.25rem;
-    block-size: 1.25rem;
-  }
-
-  .callout-icon :global(svg) {
-    inline-size: 100%;
-    block-size: 100%;
-  }
-
-  .callout-content {
-    font-size: 1rem;
-    line-height: 1.7;
-    color: var(--color-text-primary);
-  }
-
+  /* Type-neutral content spacing — the frame/rulebox chrome itself lives
+     in the global src/styles/lesson-lab.css (scoped under .lab). */
   .callout-content :global(p) {
-    margin-block-end: var(--spacing-md);
+    margin-block-end: 0.75rem;
   }
 
   .callout-content :global(p:last-child) {
@@ -140,39 +69,11 @@ const icons: Record<string, string> = {
 
   .callout-content :global(ul),
   .callout-content :global(ol) {
-    margin-block-start: var(--spacing-sm);
-    margin-block-end: var(--spacing-sm);
-    padding-inline-start: var(--spacing-lg);
-  }
-
-  .callout-content :global(li) {
-    margin-block-end: 0.25rem;
+    margin-block-start: 0.5rem;
+    margin-block-end: 0.5rem;
   }
 
   .callout-content :global(strong) {
-    color: var(--color-text-primary);
-  }
-
-  .callout-content :global(code) {
-    font-size: 0.875em;
-  }
-
-  /* Ensure Arabic text inside callouts has proper letter spacing */
-  .callout-content :global([lang="ar"]) {
-    letter-spacing: 0;
-  }
-
-  /* Mobile: tighter padding */
-  @media (max-width: 640px) {
-    .callout {
-      padding: var(--spacing-md) var(--spacing-lg);
-      margin-block: var(--spacing-lg);
-      border-radius: var(--radius-lg);
-    }
-
-    .callout-title {
-      gap: var(--spacing-sm);
-      margin-block-end: var(--spacing-md);
-    }
+    color: var(--ink, inherit);
   }
 </style>
