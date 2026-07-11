@@ -106,3 +106,44 @@ Judged per-instance (not per-file) by decomposing every row into a common stem p
 - `ConjugationEngine`'s `persons` array is authored per-lesson (not shared/imported) — each of the 7 lessons using it has its own literal suffix/pronoun/label data; there is no central "standard persons array" to keep in sync, by design (matches BRIEF §3: engine data lives in MDX, not in a shared module).
 - The level-4 weak-verb lessons (`12-hollow-verbs.mdx`, `13-defective-verbs.mdx`) currently render broken/empty VerbConjugation tables (pre-existing bug, see above) — Phase C's full-site sweep and screenshot sampling will hit these pages; don't mistake the empty tables for a Phase C regression.
 - `tests/components.spec.ts` will keep failing 24/25 in any future full-suite run until someone either restores `src/pages/test/components.astro` or deletes the stale spec — flagged as task_d6f60483's sibling issue, not actioned in Phase B/C.
+
+## Phase C — Sweep (2026-07-11)
+
+### Weak-verb table fix (the pre-existing VerbConjugation bug)
+- **Approach chosen:** added the missing `<slot/>` fallback + the three unsupported props (`question`, `soundRoot`, `hollowRoot`) to `src/components/mdx/VerbConjugation.astro` — the lowest-risk fix, preserving every Arabic string byte-exact (MDX children are re-rendered verbatim, nothing edited in the 4 lesson files). Mirrors the pattern `GrammarTable.astro` already uses (props-API → own table; no props → `<slot/>`). `root` made optional. `question` renders as a caption, `soundRoot`/`hollowRoot` as a paired root header (`.verb-root-row`). Slotted markdown tables/prose are skinned via `.table-wrapper.slotted :global(...)` in the component + one `.lab .verb-question` rule in lesson-lab.css. Commit **8df58f2**.
+- **Evidence (built HTML, `dist/learn/level-4/...`):** all 4 lessons now emit their comparison tables — hollow: `<table>`×5, defective ×7, assimilated ×4, hamzated ×6; every checked Arabic form present (قَالَ/قُلْتَ, هَدَىٰ/هَدَيْتَ, يَجِدُ/أَجِدُ, سَأَلَ/يَسْأَلُ = true); `verb-question` + `verb-root-row` present on all 4. Previously these `<slot/>`-less calls rendered an empty header and zero rows. Screenshot `l4-12-hollow-verbs-3-b.png` shows the full kataba/qāla side-by-side paradigm rendered on the lab skin.
+
+### Build
+- `npm run build` (cold, after `rm -rf node_modules/.astro .astro dist`): **clean, 164 pages, 185s**, Pagefind indexed 164 pages. Zero errors/warnings.
+
+### Screenshot sweep (`port/shoot-sweep.mjs`, system Chrome, preview server — commit 866301c)
+12 lessons (2+/level incl. all 4 fixed weak-verb lessons + dense-GrammarTable lessons), top + 4 scroll fractions each (60 PNGs in `port/shots-sweep/`). **Every page reported OK — zero console errors, zero page errors.**
+| Level | Lessons sampled | Verdict (read subset) |
+|---|---|---|
+| 1 | 06-definite-article, 08-singular-dual-plural | Blueprint grid, station rail w/ pips+progress%, gold-on-night verse consoles + readout, Marcellus gold-tick headings — coherent |
+| 2 | 06-genitive-case, 11-kaana-sisters | Dense GrammarTables render as night plates, consoles fine |
+| 3 | 03-past-tense (ConjugationEngine), 14-verb-form-iv | Engine person/root grids + "Persons run" counter, gold table plates — coherent |
+| 4 | 12/13/14/15 weak verbs | **Fixed** comparison tables + irregular-imperative plates render fully; briefing header, DIAG accordions, pager all correct |
+| 5 | 17-capstone-cold-read (no-words), 14-word-order-emphasis | Static consoles (no readout) correct; DIAG "Show answer", taqdim comparison plate, footer/pager coherent |
+Nothing broken/overlapping/unstyled across the read subset.
+
+### Test matrix (system Chrome; node via tsx)
+| Suite | Result | Notes |
+|---|---|---|
+| lesson-wayfinding.spec.ts | **4/4 pass** | real lesson pages |
+| audio.spec.ts | **2/2 pass** | audio contract intact |
+| table-scroll.spec.ts | **4/4 pass** | lesson + surah tables wrapped, no page overflow |
+| vocab.spec.ts | **3/3 pass** | specimen inventory / no-vocab / review page |
+| accessibility.spec.ts | 27 pass / **8 fail — all pre-existing** | 7 fails → deleted `/test/cards/` & `/test/components/` pages (404); 1 fail (line 47) → `/surahs/001-al-fatiha/` contrast, a surah page my branch never touches (see below). All real lesson/quiz/resources axe scans pass. |
+| navigation.spec.ts | **0/35 — all pre-existing** | every test `goto('/test/navigation/')`, a page deleted on `main` before this branch. Suite also *hangs* the mobile-overlay tests against the 404 (run these in isolation / expect the stall). |
+| cards.spec.ts | **0/20 — all pre-existing** | every test `goto('/test/cards/')`, deleted page; visual-regression baselines stale. |
+| `npm run test:site` | **15/15 pass** | curriculum-map, lesson-vocab, ayah-ref, reading-track, review-questions |
+
+### Pre-existing-failure confirmation (not regressions)
+- `git diff --name-only main..HEAD` = **every changed file is lesson-scoped** (mdx components, LessonLayout, lab engines, lesson-lab.css, 9 lesson .mdx, planning docs). Zero surah/shared/global-token files.
+- `/test/cards`, `/test/navigation`, `/test/components` were **already deleted on `main`** (`git cat-file -e main:src/pages/test/cards.astro` → absent; delete commit 3c33190 is an ancestor of HEAD). This branch never touched those pages or their specs → navigation/cards/`/test/*`-accessibility failures are the task_8bcac882 family, identical to baseline.
+- The one surah-page accessibility failure (line 47) is provably baseline-identical: `lesson-lab.css` is imported **only** by `LessonLayout.astro`; surah pages use `SurahLayout.astro`, so the lab skin never ships to them, and no surah source changed — the built surah HTML is byte-identical to `main`.
+
+### Open issues for Phase D
+- **Stale `/test/*` specs (task_8bcac882):** `navigation.spec` (35), `cards.spec` (20), most of `accessibility.spec`'s failures, and `components.spec` all test pages deleted on `main`. Someone should either restore the `src/pages/test/*` pages or delete the four stale specs + their snapshot dirs. Out of Phase C scope (not a redesign regression). Note `navigation.spec` hangs the full-suite run on its mobile-overlay tests against the 404 — a reason to prune it.
+- No redesign regressions found; nothing blocking the Phase D web-design-guidelines + code-review pass.
