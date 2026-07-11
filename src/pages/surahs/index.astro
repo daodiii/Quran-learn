@@ -1,255 +1,482 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import Container from '../../components/primitives/Container.astro';
-import CardGrid from '../../components/cards/CardGrid.astro';
-import SurahCard from '../../components/cards/SurahCard.astro';
+import '../../styles/night.css';
 import { getCollection } from 'astro:content';
+import { SURAH_OPENINGS } from '../../data/surah-openings';
 
-const allSurahs = await getCollection('surahs');
-const sortedSurahs = allSurahs.sort((a, b) => a.data.surahNumber - b.data.surahNumber);
-
-const beginnerSurahs = sortedSurahs.filter(s => s.data.difficulty === 'beginner');
-const intermediateSurahs = sortedSurahs.filter(s => s.data.difficulty === 'intermediate');
-const advancedSurahs = sortedSurahs.filter(s => s.data.difficulty === 'advanced');
+const all = (await getCollection('surahs')).sort((a, b) => a.data.surahNumber - b.data.surahNumber);
+if (all.length !== 38) throw new Error(`surahs: expected 38, found ${all.length} — update the astrolabe copy/legend`);
+const SURAHS = all.map(s => {
+  const extra = SURAH_OPENINGS[s.data.surahNumber];
+  if (!extra) throw new Error(`surah-openings: no entry for surah ${s.data.surahNumber}`);
+  return {
+    num: s.data.surahNumber, ar: s.data.nameArabic, name: s.data.name,
+    v: s.data.verseCount, rev: extra.rev, diff: s.data.difficulty,
+    open: extra.open, href: `/surahs/${s.id}/`,
+  };
+});
+const counts = {
+  beginner: SURAHS.filter(s => s.diff === 'beginner').length,
+  intermediate: SURAHS.filter(s => s.diff === 'intermediate').length,
+  advanced: SURAHS.filter(s => s.diff === 'advanced').length,
+};
+const maxVerses = Math.max(...SURAHS.map(s => s.v));
+const fatiha = SURAHS[0];
+if (!fatiha || fatiha.num !== 1) throw new Error('surahs: expected surah 001 first');
+const title = 'Surah Breakdowns | Quranic Grammar';
+const description = "Word-by-word grammatical analysis of 38 Quranic surahs. Each breakdown includes I'rab case endings, morphology, and syntax for every verse.";
+const canonicalURL = new URL('/surahs/', Astro.site);
+const ogImageURL = new URL('/images/og-default.jpg', Astro.site);
 ---
 
-<BaseLayout title="Surah Breakdowns" description="Word-by-word grammatical analysis of 38 Quranic surahs. Each breakdown includes I'rab case endings, morphology, and syntax for every verse.">
-  <Container maxWidth="xl" class="page-content">
-    <!-- Page Header -->
-    <header class="page-header">
-      <h1 class="page-title">Surah Breakdowns</h1>
-      <p class="page-description">
-        Detailed word-by-word grammatical analysis of Quranic chapters.
-        Each surah includes Arabic text, translation, I'rab analysis, and grammar cross-references.
-      </p>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <!-- Google Analytics (GA4) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1MSBYYQT5Z" is:inline></script>
+  <script is:inline>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-1MSBYYQT5Z');
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="description" content={description} />
+  <meta name="theme-color" content="#05070e" />
+  <title>{title}</title>
+  <link rel="canonical" href={canonicalURL.href} />
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={canonicalURL.href} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={ogImageURL.href} />
+  <meta property="og:site_name" content="Quranic Grammar" />
+  <meta property="og:locale" content="en_US" />
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={ogImageURL.href} />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="alternate" type="application/rss+xml" title="Quranic Grammar RSS" href="/rss.xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Amiri+Quran&family=Amiri:ital,wght@0,400;0,700;1,400&family=Marcellus&family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <!-- Keep the stored theme in sync for the rest of the site (this page is always night) -->
+  <script is:inline>
+    (function() {
+      const theme = localStorage.getItem('theme') ||
+        (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
+  <script src="https://analytics.ahrefs.com/analytics.js" data-key="sW/uZfxMauSpqoKnSL6i6g" async is:inline></script>
+  <style is:global>
+/* ============================================================
+   ASTROLABE ROYALE · surahs section page
+   body, stars, stage, astro/svg, plate, strip, legend, head
+   :root / reset / a / :focus-visible / [lang=ar] / ::selection /
+   #veil family / .nav family / [data-reveal] pattern /
+   .skip-link are provided by night.css
+   ============================================================ */
 
-      <!-- Quick Navigation -->
-      <nav class="quick-nav" aria-label="Jump to difficulty level">
-        <span class="quick-nav-label">Jump to:</span>
-        <a href="#beginner" class="quick-nav-link">Beginner</a>
-        <a href="#intermediate" class="quick-nav-link">Intermediate</a>
-        <a href="#advanced" class="quick-nav-link">Advanced</a>
-      </nav>
-    </header>
+:root{--copper:#c98a4b}
 
-    <!-- Recommendation Banner -->
-    <div class="recommendation-banner">
-      <p>I recommend that you finish <a href="/learn/">Level 3</a> before you start looking at the surahs.</p>
+body{background:var(--bg-0);color:var(--ink);font-family:var(--font-body);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased;overflow:hidden}
+
+#stars{position:fixed;inset:0;z-index:-1;pointer-events:none}
+
+/* stage */
+#stage{position:fixed;inset:0;display:grid;place-items:center}
+#astro{position:relative;width:min(92vh,96vw,980px);aspect-ratio:1}
+#asvg{position:absolute;inset:0;width:100%;height:100%;overflow:visible;touch-action:none;cursor:grab}
+#asvg.dragging{cursor:grabbing}
+
+/* corner copy */
+.head{position:absolute;top:calc(72px + 2.5vh);left:var(--pad-x);z-index:6;max-width:min(400px,80vw);pointer-events:none}
+.head h1{font-family:var(--font-display);font-weight:400;font-size:clamp(32px,3.8vw,52px);line-height:1.1;text-shadow:0 2px 40px rgba(5,7,14,.9)}
+.head h1 em{font-style:normal;color:var(--gold-bright)}
+.head .dek{color:var(--ink-dim);font-weight:300;font-size:clamp(13.5px,1.2vw,16px);line-height:1.75;margin-top:12px;max-width:38ch;text-shadow:0 2px 24px rgba(5,7,14,.95)}
+.head .hint{display:flex;gap:12px;margin-top:16px;font-family:var(--font-mono);font-size:9.5px;letter-spacing:.2em;color:var(--ink-faint);text-transform:uppercase;flex-wrap:wrap}
+.head .hint i{font-style:normal;border:1px solid var(--hairline);border-radius:4px;padding:1px 6px}
+@media (max-width:1150px){.head{max-width:280px}}
+@media (max-width:620px){.head .hint{display:none}}
+
+/* legend top-right */
+#legend{position:absolute;top:calc(72px + 2.5vh);right:var(--pad-x);z-index:6;display:flex;flex-direction:column;gap:8px;font-family:var(--font-mono);font-size:9.5px;letter-spacing:.22em;color:var(--ink-faint);text-transform:uppercase;text-align:right}
+#legend span{display:inline-flex;align-items:center;gap:9px;justify-content:flex-end}
+#legend i{width:8px;height:8px;border-radius:50%}
+#legend .b i{background:var(--gold-bright)}#legend .i i{background:var(--gold)}#legend .a i{background:var(--copper)}
+@media (max-width:900px){#legend{display:none}}
+
+/* svg engraving */
+.e-ring{fill:none;stroke:rgba(228,209,164,.22);stroke-width:1.2}
+.e-ring2{fill:none;stroke:rgba(228,209,164,.1);stroke-width:1}
+.e-tick{stroke:rgba(228,209,164,.28);stroke-width:1}
+.e-tick.maj{stroke:rgba(227,179,92,.5);stroke-width:1.4}
+.meander{fill:none;stroke:rgba(227,179,92,.3);stroke-width:1}
+.rete-arm{fill:none;stroke:rgba(227,179,92,.26);stroke-width:1}
+.ring-lbl{font-family:'Geist Mono',monospace;font-size:9px;letter-spacing:.28em;fill:rgba(244,237,218,.34)}
+.mk{cursor:pointer}
+.mk circle{fill:#0c1120;stroke-width:1.3;transition:fill .4s}
+.mk text{font-family:'Geist Mono',monospace;font-size:10.5px;fill:var(--ink-dim);text-anchor:middle;dominant-baseline:central;pointer-events:none;transition:fill .4s}
+.mk.b circle{stroke:#f4d68f}.mk.i circle{stroke:#e3b35c}.mk.a circle{stroke:#c98a4b}
+.mk:hover circle{fill:#1a2138}
+.mk.sel circle{fill:var(--gold-bright);stroke:var(--gold-bright);filter:drop-shadow(0 0 12px rgba(244,214,143,.85))}
+.mk.sel text{fill:#221503;font-weight:500}
+#jewel{filter:drop-shadow(0 0 10px rgba(244,214,143,.7))}
+#jewel.flash{animation:jflash .28s var(--ease-out)}
+@keyframes jflash{0%{transform:scale(1)}45%{transform:scale(1.5)}100%{transform:scale(1)}}
+@media (prefers-reduced-motion:reduce){#jewel.flash{animation:none}}
+#varc-lit{transition:stroke-dashoffset 1s var(--ease-io)}
+@media (prefers-reduced-motion:reduce){#varc-lit{transition:none}}
+
+/* plate */
+#plate{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:42%;text-align:center;pointer-events:none;z-index:4}
+#plate .p-ar{font-family:var(--font-quran);font-size:clamp(30px,5.6vh,52px);line-height:1.5;color:var(--gold-bright);text-shadow:0 0 44px rgba(227,179,92,.35);direction:rtl}
+#plate .p-name{font-family:var(--font-display);font-size:clamp(14px,2vh,19px);letter-spacing:.12em;margin-top:2px;text-transform:uppercase}
+#plate .p-meta{font-family:var(--font-mono);font-size:clamp(8px,1.1vh,10.5px);letter-spacing:.24em;color:var(--ink-faint);text-transform:uppercase;margin-top:8px}
+#plate .p-open{font-family:var(--font-quran);font-size:clamp(14px,2.2vh,20px);line-height:1.9;color:var(--ink-dim);margin-top:10px;direction:rtl;min-height:2.2em;padding:0 6%}
+#plate .p-open .w{display:inline-block;opacity:0;transform:translateY(6px);filter:blur(4px)}
+.js #plate .p-open .w{animation:win .6s var(--ease-out) forwards;animation-delay:var(--wd,0s)}
+@keyframes win{to{opacity:1;transform:none;filter:none}}
+@media (prefers-reduced-motion:reduce){.js #plate .p-open .w{animation:none;opacity:1;transform:none;filter:none}}
+#plate .pips{display:flex;gap:6px;justify-content:center;margin-top:10px}
+#plate .pips i{width:7px;height:7px;border-radius:50%;border:1px solid rgba(227,179,92,.5)}
+#plate .pips i.on{background:var(--gold-bright);border-color:var(--gold-bright);box-shadow:0 0 8px var(--gold-glow)}
+#plate .p-cta{pointer-events:auto;display:inline-flex;align-items:center;gap:8px;margin-top:12px;border:1px solid rgba(227,179,92,.45);border-radius:999px;padding:8px 18px;font-family:var(--font-mono);font-size:9.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-bright);transition:background .35s,box-shadow .35s}
+#plate .p-cta:hover{background:rgba(227,179,92,.12);box-shadow:0 0 30px rgba(227,179,92,.15)}
+
+.step{position:absolute;top:50%;z-index:5;width:42px;height:42px;border-radius:50%;border:1px solid var(--hairline);background:rgba(5,7,14,.55);color:var(--ink-dim);display:grid;place-items:center;cursor:pointer;transition:border-color .35s,color .35s;font-size:17px}
+.step:hover{border-color:rgba(227,179,92,.55);color:var(--gold-bright)}
+#prev{left:-4px;transform:translateY(-50%)}
+#next{right:-4px;transform:translateY(-50%)}
+
+/* tick strip */
+#strip{position:absolute;left:50%;bottom:clamp(14px,3vh,30px);transform:translateX(-50%);z-index:6;display:flex;gap:5px;align-items:flex-end}
+#strip button{all:unset;cursor:pointer;width:9px;height:16px;display:grid;place-items:end center}
+#strip button i{width:1.5px;height:10px;background:rgba(228,209,164,.3);transition:background .35s,height .35s,box-shadow .35s;border-radius:1px}
+#strip button:hover i{background:var(--gold);height:15px}
+#strip button.sel i{background:var(--gold-bright);height:17px;box-shadow:0 0 8px var(--gold-glow)}
+#strip button:focus-visible{outline:1px solid var(--gold);outline-offset:2px}
+@media (max-width:700px){#strip{display:none}}
+
+/* sr-only crawlable index */
+.surah-index{position:absolute;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap}
+.surah-index ol{list-style:none;display:flex;flex-direction:column;gap:10px;margin-top:18px}
+.surah-index a{color:var(--gold-bright)}
+
+.stage-foot{position:fixed;left:var(--pad-x);bottom:14px;z-index:6;padding:0;font-family:var(--font-mono);font-size:9.5px;letter-spacing:.14em;color:var(--ink-faint)}
+.stage-foot a{color:var(--ink-dim)}
+.stage-foot a:hover{color:var(--gold-bright)}
+  </style>
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<div id="veil" aria-hidden="true">
+  <svg viewBox="0 0 40 40" fill="none"><path d="M20 2l3.4 10.2L34 8.8l-6.8 8.6L38 20l-10.8 2.6L34 31.2l-10.6-3.4L20 38l-3.4-10.2L6 31.2l6.8-8.6L2 20l10.8-2.6L6 8.8l10.6 3.4z" fill="#e3b35c"/></svg>
+</div>
+
+<header class="nav">
+  <a class="brand" href="/" aria-label="Quranic Grammar, home">
+    <svg viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M20 2l3.4 10.2L34 8.8l-6.8 8.6L38 20l-10.8 2.6L34 31.2l-10.6-3.4L20 38l-3.4-10.2L6 31.2l6.8-8.6L2 20l10.8-2.6L6 8.8l10.6 3.4z" fill="#e3b35c"/></svg>
+    Quranic Grammar
+  </a>
+  <nav class="nav-links" aria-label="Primary">
+    <a href="/learn/">LEARN</a><a class="active" href="/surahs/" aria-current="page">SURAHS</a><a href="/resources/">RESOURCES</a><a href="/about/">ABOUT</a>
+  </nav>
+</header>
+
+<main id="main-content">
+
+<canvas id="stars" aria-hidden="true"></canvas>
+
+<div id="stage">
+  <div class="head">
+    <h1 data-reveal>Thirty-eight surahs, <em>one word at a time</em>.</h1>
+    <p class="dek" data-reveal>Al-Fatiha and all of Juz ʿAmma, broken down word by word — the case endings, the roots, the sentence structure, and why each word takes the shape it does.</p>
+    <div class="hint" data-reveal aria-hidden="true"><span><i>DRAG</i> spin</span><span><i>CLICK</i> a marker</span><span><i>← →</i> step</span></div>
+  </div>
+
+  <div id="legend" data-reveal aria-hidden="true">
+    <span class="b"><i></i>Beginner · {counts.beginner} surahs</span>
+    <span class="i"><i></i>Intermediate · {counts.intermediate} surahs</span>
+    <span class="a"><i></i>Advanced · {counts.advanced} surahs</span>
+  </div>
+
+  <div id="astro" data-reveal>
+    <svg id="asvg" viewBox="0 0 1000 1000" role="application" aria-label="Astrolabe of 38 surahs. Drag to spin; release and it locks on the nearest surah."></svg>
+    <div id="plate" aria-live="polite">
+      <div class="p-ar" lang="ar" dir="rtl" translate="no">{fatiha.ar}</div>
+      <div class="p-name">{fatiha.name}</div>
+      <div class="p-meta">SURAH 001 · {fatiha.v} VERSES · {fatiha.rev.toUpperCase()}</div>
+      <div class="p-open" lang="ar" dir="rtl" translate="no">{fatiha.open}</div>
+      <div class="pips" aria-hidden="true"><i></i><i></i><i></i></div>
+      <a class="p-cta" href={fatiha.href}>Open the breakdown</a>
     </div>
+    <button class="step" id="prev" aria-label="Previous surah">‹</button>
+    <button class="step" id="next" aria-label="Next surah">›</button>
+  </div>
 
-    <!-- Beginner Section -->
-    {beginnerSurahs.length > 0 && (
-      <section class="difficulty-section" id="beginner">
-        <h2 class="section-title">Beginner</h2>
-        <p class="section-description">
-          Short surahs ideal for starting your grammatical analysis journey.
-        </p>
-        <CardGrid minCardWidth={300} gap="md">
-          {beginnerSurahs.map((surah) => (
-            <SurahCard
-              name={surah.data.name}
-              nameArabic={surah.data.nameArabic}
-              number={surah.data.surahNumber}
-              difficulty={surah.data.difficulty}
-              verseCount={surah.data.verseCount}
-              href={`/surahs/${surah.id}/`}
-              data-testid={`surah-card-${surah.id}`}
-            />
-          ))}
-        </CardGrid>
-      </section>
-    )}
+  <div id="strip" aria-label="Jump to surah"></div>
+</div>
 
-    <!-- Intermediate Section -->
-    {intermediateSurahs.length > 0 && (
-      <section class="difficulty-section" id="intermediate">
-        <h2 class="section-title">Intermediate</h2>
-        <p class="section-description">
-          Medium-length surahs with richer grammatical structures.
-        </p>
-        <CardGrid minCardWidth={300} gap="md">
-          {intermediateSurahs.map((surah) => (
-            <SurahCard
-              name={surah.data.name}
-              nameArabic={surah.data.nameArabic}
-              number={surah.data.surahNumber}
-              difficulty={surah.data.difficulty}
-              verseCount={surah.data.verseCount}
-              href={`/surahs/${surah.id}/`}
-              data-testid={`surah-card-${surah.id}`}
-            />
-          ))}
-        </CardGrid>
-      </section>
-    )}
+{/* shares .surah-index so it inherits the same sr-only clipping; revealed together with the nav in the noscript view */}
+<p class="surah-index surah-index-note">I recommend finishing <a href="/learn/">Level 3</a> before starting the surahs.</p>
+<nav class="surah-index" aria-label="All surah breakdowns">
+  <ol>
+    {SURAHS.map(s => (
+      <li><a href={s.href}>{String(s.num).padStart(3, '0')} · {s.name} — {s.v} verses · {s.diff}</a></li>
+    ))}
+  </ol>
+</nav>
+<noscript>
+  <style>
+    .surah-index{position:static!important;width:auto!important;height:auto!important;clip:auto!important;clip-path:none!important;overflow:visible!important;white-space:normal!important;padding:110px var(--pad-x) 60px!important}
+    #stage{display:none}
+    body{overflow:auto!important}
+    .surah-index-note{padding-bottom:0!important}
+    nav.surah-index{padding-top:24px!important}
+    .stage-foot{position:static!important;padding:20px var(--pad-x) 40px!important}
+  </style>
+</noscript>
 
-    <!-- Advanced Section -->
-    {advancedSurahs.length > 0 && (
-      <section class="difficulty-section" id="advanced">
-        <h2 class="section-title">Advanced</h2>
-        <p class="section-description">
-          Longer surahs with complex grammar and rhetorical devices.
-        </p>
-        <CardGrid minCardWidth={300} gap="md">
-          {advancedSurahs.map((surah) => (
-            <SurahCard
-              name={surah.data.name}
-              nameArabic={surah.data.nameArabic}
-              number={surah.data.surahNumber}
-              difficulty={surah.data.difficulty}
-              verseCount={surah.data.verseCount}
-              href={`/surahs/${surah.id}/`}
-              data-testid={`surah-card-${surah.id}`}
-            />
-          ))}
-        </CardGrid>
-      </section>
-    )}
-  </Container>
-</BaseLayout>
+<footer class="stage-foot">
+  <span>Nettsiden er laget av <a href="https://www.idweb.no" target="_blank" rel="noopener noreferrer">IDweb</a></span>
+</footer>
 
-<style>
-  .page-content {
-    padding-block: var(--spacing-lg);
+</main>
+
+<script type="application/json" id="surah-astro-data" is:inline set:html={JSON.stringify({ SURAHS, maxVerses }).replace(/<\//g, '<\\/')}></script>
+
+<script>
+// @ts-nocheck
+import { initCapacitor } from '../../scripts/capacitor-init';
+initCapacitor();
+
+(function(){
+'use strict';
+var dataEl=document.getElementById('surah-astro-data'),DATA;
+try{DATA=JSON.parse(dataEl.textContent);}catch(e){console.warn('surahs: astrolabe data unreadable — SSR plate + index stay usable',e);return;}
+var SURAHS=DATA.SURAHS,MAXV=DATA.maxVerses;
+document.documentElement.classList.add('js');
+
+var RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+var NS='http://www.w3.org/2000/svg';
+var veil=document.getElementById('veil');
+addEventListener('load',function(){setTimeout(function(){veil.classList.add('gone');},RM?0:380);});
+setTimeout(function(){veil.classList.add('gone');},2600);
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target);}});},{threshold:.1});
+document.querySelectorAll('[data-reveal]').forEach(function(el,i){el.style.transitionDelay=(i%5*90)+'ms';io.observe(el);});
+
+/* starfield */
+(function(){
+  var cv=document.getElementById('stars'),cx=cv.getContext('2d'),W=0,H=0,dpr=Math.min(devicePixelRatio||1,2),st=[],run=true;
+  function size(){W=innerWidth;H=innerHeight;cv.width=W*dpr;cv.height=H*dpr;cx.setTransform(dpr,0,0,dpr,0,0);
+    st=[];var n=Math.round(W*H/11000);
+    for(var i=0;i<n;i++)st.push({x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.1+.25,tw:Math.random()*6.28,sp:.4+Math.random()});}
+  size();addEventListener('resize',size);
+  (function f(t){requestAnimationFrame(f);if(!run)return;cx.clearRect(0,0,W,H);
+    for(var i=0;i<st.length;i++){var s=st[i];cx.globalAlpha=RM?.5:.28+.38*Math.sin(t*.001*s.sp+s.tw);cx.fillStyle='#e8e2ce';cx.beginPath();cx.arc(s.x,s.y,s.r,0,7);cx.fill();}
+    cx.globalAlpha=1;})(0);
+  document.addEventListener('visibilitychange',function(){run=!document.hidden;});
+})();
+
+/* ---------- build svg ---------- */
+var svg=document.getElementById('asvg');
+function el(n,attrs,parent){var e=document.createElementNS(NS,n);for(var k in attrs)e.setAttribute(k,attrs[k]);(parent||svg).appendChild(e);return e;}
+var C=500;
+
+/* mater */
+var mater=el('g',{});
+el('circle',{cx:C,cy:C,r:486,'class':'e-ring'},mater);
+el('circle',{cx:C,cy:C,r:474,'class':'e-ring2'},mater);
+el('circle',{cx:C,cy:C,r:440,'class':'e-ring'},mater);
+for(var d=0;d<360;d+=3){
+  var maj=d%15===0;
+  var a=d*Math.PI/180,r1=maj?450:458,r2=468;
+  el('line',{x1:C+Math.cos(a)*r1,y1:C+Math.sin(a)*r1,x2:C+Math.cos(a)*r2,y2:C+Math.sin(a)*r2,'class':'e-tick'+(maj?' maj':'')},mater);
+}
+/* meander band between 474-486 */
+for(var m=0;m<360;m+=10){
+  var a1=m*Math.PI/180,a2=(m+5)*Math.PI/180;
+  el('path',{d:'M'+(C+Math.cos(a1)*477)+' '+(C+Math.sin(a1)*477)+' L'+(C+Math.cos(a1)*483)+' '+(C+Math.sin(a1)*483)+' L'+(C+Math.cos(a2)*483)+' '+(C+Math.sin(a2)*483),'class':'meander'},mater);
+}
+/* throne + tassel */
+var kursi=el('g',{});
+el('circle',{cx:C,cy:-14,r:14,fill:'none',stroke:'rgba(227,179,92,.7)','stroke-width':1.3},kursi);
+el('path',{d:'M500 -44 l3 9 9.4-3 -6 7.6 9.4 2.5 -9.4 2.5 6 7.6 -9.4 -3 -3 9 -3 -9 -9.4 3 6 -7.6 -9.4 -2.5 9.4 -2.5 -6 -7.6 9.4 3z',fill:'#e3b35c',filter:'drop-shadow(0 0 8px rgba(227,179,92,.5))'},kursi);
+el('line',{x1:C,y1:0,x2:C,y2:14,stroke:'rgba(227,179,92,.6)','stroke-width':1.2},kursi);
+
+/* pointer jewel at top (fixed) */
+var jewel=el('g',{id:'jewel'});
+el('path',{d:'M500 36 L492 58 L500 52 L508 58 Z',fill:'#f4d68f'},jewel);
+el('line',{x1:C,y1:58,x2:C,y2:88,stroke:'rgba(244,214,143,.8)','stroke-width':1.4},jewel);
+jewel.style.transformOrigin='500px 47px';
+
+/* verse arc gauge (around plate) */
+var ARCR=214;
+function arcPath(r,a0,a1){
+  var x0=C+Math.cos(a0)*r,y0=C+Math.sin(a0)*r,x1=C+Math.cos(a1)*r,y1=C+Math.sin(a1)*r;
+  var large=(a1-a0)>Math.PI?1:0;
+  return 'M'+x0+' '+y0+' A'+r+' '+r+' 0 '+large+' 1 '+x1+' '+y1;
+}
+var A0=-240*Math.PI/180,A1=60*Math.PI/180;  /* 300° sweep, gap at bottom */
+el('path',{d:arcPath(ARCR,A0,A1),'class':'e-ring2'});
+var varcLit=el('path',{id:'varc-lit',d:arcPath(ARCR,A0,A1),fill:'none',stroke:'url(#ggrad)','stroke-width':2.4,'stroke-linecap':'round'});
+var defs=el('defs',{});
+var lg=el('linearGradient',{id:'ggrad',x1:0,y1:0,x2:1,y2:1},defs);
+el('stop',{offset:0,'stop-color':'#a97e35'},lg);el('stop',{offset:1,'stop-color':'#f4d68f'},lg);
+var varcLen=varcLit.getTotalLength();
+varcLit.style.strokeDasharray=varcLen;varcLit.style.strokeDashoffset=varcLen;
+
+/* rete */
+var rete=el('g',{id:'rete'});
+el('circle',{cx:C,cy:C,r:404,'class':'e-ring'},rete);
+el('circle',{cx:C,cy:C,r:334,'class':'e-ring'},rete);
+el('circle',{cx:C,cy:C,r:262,'class':'e-ring'},rete);
+for(var arm=0;arm<8;arm++){
+  var aa=arm*45*Math.PI/180+.28;
+  var x1a=C+Math.cos(aa)*262,y1a=C+Math.sin(aa)*262;
+  var x2a=C+Math.cos(aa+.42)*404,y2a=C+Math.sin(aa+.42)*404;
+  var mxp=C+Math.cos(aa+.21)*(404+34),myp=C+Math.sin(aa+.21)*(404+34);
+  el('path',{d:'M'+x1a+' '+y1a+' Q'+mxp+' '+myp+' '+x2a+' '+y2a,'class':'rete-arm'},rete);
+}
+var RINGS={beginner:262,intermediate:334,advanced:404};
+var CLS={beginner:'b',intermediate:'i',advanced:'a'};
+var groups={beginner:[],intermediate:[],advanced:[]};
+SURAHS.forEach(function(s){groups[s.diff].push(s);});
+var markers={};
+Object.keys(groups).forEach(function(diff){
+  var list=groups[diff],r=RINGS[diff];
+  list.forEach(function(s,i){
+    var th=i/list.length*360-90+(diff==='intermediate'?7:diff==='advanced'?13:0);
+    var a2=th*Math.PI/180;
+    var g=el('g',{'class':'mk '+CLS[diff],transform:'translate('+(C+Math.cos(a2)*r)+' '+(C+Math.sin(a2)*r)+')'},rete);
+    el('circle',{r:14},g);
+    var t=el('text',{},g);t.textContent=s.num;
+    s._theta=th;markers[s.num]=g;
+    g.addEventListener('click',function(ev){ev.stopPropagation();select(s.num,true);});
+  });
+});
+/* ring labels */
+el('text',{x:C,y:C-250,'class':'ring-lbl','text-anchor':'middle'},rete).textContent='BEGINNER';
+el('text',{x:C,y:C-322,'class':'ring-lbl','text-anchor':'middle'},rete).textContent='INTERMEDIATE';
+el('text',{x:C,y:C-392,'class':'ring-lbl','text-anchor':'middle'},rete).textContent='ADVANCED';
+
+/* ---------- state + physics ---------- */
+var rot=0,vel=0,selNum=1,dragging=false,lastA=0,lastT=0,snapping=true,lastNearest=1;
+var plate=document.getElementById('plate');
+var pAr=plate.querySelector('.p-ar'),pName=plate.querySelector('.p-name'),pMeta=plate.querySelector('.p-meta'),pOpen=plate.querySelector('.p-open');
+var pips=[].slice.call(plate.querySelectorAll('.pips i'));
+var DIFFN={beginner:1,intermediate:2,advanced:3};
+function surahByNum(n){for(var i=0;i<SURAHS.length;i++)if(SURAHS[i].num===n)return SURAHS[i];}
+function orderIdx(n){for(var i=0;i<SURAHS.length;i++)if(SURAHS[i].num===n)return i;return 0;}
+function norm(a){while(a>180)a-=360;while(a<-180)a+=360;return a;}
+function targetRotFor(num){var s=surahByNum(num);return -90-s._theta;}
+function nearestToPointer(){
+  var best=null,bd=1e9;
+  SURAHS.forEach(function(s){
+    var d=Math.abs(norm(s._theta+rot-(-90)));
+    if(d<bd){bd=d;best=s;}
+  });
+  return best;
+}
+function renderPlate(s){
+  pAr.textContent=s.ar;
+  pName.textContent=s.name;
+  pMeta.textContent='SURAH '+String(s.num).padStart(3,'0')+' · '+s.v+' VERSES · '+s.rev.toUpperCase();
+  pOpen.textContent='';
+  s.open.split(' ').forEach(function(w,i){
+    var sp=document.createElement('span');sp.className='w';sp.textContent=w;
+    sp.style.setProperty('--wd',(i*.12+.1)+'s');
+    pOpen.appendChild(sp);
+    pOpen.appendChild(document.createTextNode(' '));
+  });
+  pips.forEach(function(p,i){p.classList.toggle('on',i<DIFFN[s.diff]);});
+  varcLit.style.strokeDashoffset=varcLen*(1-s.v/MAXV);
+  stripBtns.forEach(function(b){b.classList.toggle('sel',+b.dataset.n===s.num);});
+  plate.querySelector('.p-cta').setAttribute('href',s.href);
+}
+function select(num,user){
+  if(selNum!==num||user){
+    selNum=num;
+    Object.keys(markers).forEach(function(k){markers[k].classList.toggle('sel',+k===num);});
+    renderPlate(surahByNum(num));
   }
+  snapping=true;
+}
 
-  /* Page Header */
-  .page-header {
-    margin-block-end: var(--spacing-md);
-  }
+/* tick strip */
+var strip=document.getElementById('strip'),stripBtns=[];
+SURAHS.forEach(function(s){
+  var b=document.createElement('button');
+  b.dataset.n=s.num;b.title=String(s.num).padStart(3,'0')+' '+s.name;
+  b.setAttribute('aria-label','Surah '+s.num+' '+s.name);
+  var i=document.createElement('i');b.appendChild(i);
+  b.addEventListener('click',function(){select(s.num,true);});
+  strip.appendChild(b);stripBtns.push(b);
+});
 
-  .page-title {
-    font-family: var(--font-display);
-    font-size: clamp(1.5rem, 4vw, 2.25rem);
-    font-weight: 700;
-    line-height: 1.1;
-    color: var(--color-text-primary);
-    margin: 0;
-    margin-block-end: var(--spacing-xs);
-    letter-spacing: -0.03em;
-  }
+/* drag */
+function angOf(e){var r=svg.getBoundingClientRect();return Math.atan2(e.clientY-(r.top+r.height/2),e.clientX-(r.left+r.width/2))*180/Math.PI;}
+svg.addEventListener('pointerdown',function(e){dragging=true;plate.setAttribute('aria-live','off');snapping=false;lastA=angOf(e);lastT=performance.now();vel=0;svg.classList.add('dragging');svg.setPointerCapture(e.pointerId);});
+svg.addEventListener('pointermove',function(e){
+  if(!dragging)return;
+  var a=angOf(e),now=performance.now();
+  var d=norm(a-lastA);
+  rot+=d;vel=d/Math.max(8,now-lastT)*16;
+  lastA=a;lastT=now;
+});
+function endDrag(){if(dragging){dragging=false;svg.classList.remove('dragging');}}
+addEventListener('pointerup',endDrag);
+addEventListener('pointercancel',endDrag);
 
-  .page-description {
-    font-size: 1rem;
-    line-height: 1.6;
-    color: var(--color-text-secondary);
-    margin: 0;
-    margin-block-end: var(--spacing-md);
-    max-inline-size: 48rem;
-  }
+function step(dir){var i=orderIdx(selNum)+dir;if(i<0)i=SURAHS.length-1;if(i>=SURAHS.length)i=0;select(SURAHS[i].num,true);}
+document.getElementById('prev').addEventListener('click',function(){step(-1);});
+document.getElementById('next').addEventListener('click',function(){step(1);});
+addEventListener('keydown',function(e){
+  if(e.target.closest&&e.target.closest('.surah-index'))return;
+  if(e.key==='ArrowLeft'){step(-1);e.preventDefault();}
+  if(e.key==='ArrowRight'){step(1);e.preventDefault();}
+});
 
-  /* Quick Navigation */
-  .quick-nav {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: var(--spacing-md);
-    padding: var(--spacing-md);
-    background-color: var(--color-background-secondary);
-    border-radius: 8px;
-    border: 1px solid var(--color-border-primary);
-  }
-
-  .quick-nav-label {
-    font-family: var(--font-display);
-    font-size: 0.9375rem;
-    font-weight: 700;
-    color: var(--color-text-secondary);
-    letter-spacing: 0.02em;
-  }
-
-  .quick-nav-link {
-    font-size: 0.9375rem;
-    font-weight: 500;
-    color: var(--color-accent-gold);
-    text-decoration: none;
-    padding: var(--spacing-xs) var(--spacing-sm);
-    border-radius: 4px;
-    transition: background-color 200ms ease;
-  }
-
-  .quick-nav-link:hover {
-    background-color: var(--color-background-tertiary);
-  }
-
-  .quick-nav-link:focus-visible {
-    outline: 2px solid var(--color-accent-gold);
-    outline-offset: 2px;
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .quick-nav-link {
-      transition: none;
+/* ---------- loop ---------- */
+var t0=performance.now(),run=true;
+document.addEventListener('visibilitychange',function(){run=!document.hidden;});
+(function frame(t){
+  requestAnimationFrame(frame);
+  if(!run)return;
+  var dt=Math.min(.05,(t-t0)/1000);t0=t;
+  if(!dragging){
+    if(Math.abs(vel)>.06){
+      rot+=vel;vel*=Math.pow(.1,dt);
+      /* click flash when nearest marker changes during free spin */
+      var near=nearestToPointer();
+      if(near.num!==lastNearest){
+        lastNearest=near.num;
+        jewel.classList.remove('flash');void jewel.getBBox();jewel.classList.add('flash');
+        select(near.num,false);   /* live readout while spinning */
+        snapping=false;
+      }
+    }else{
+      if(plate.getAttribute('aria-live')==='off'){plate.setAttribute('aria-live','polite');renderPlate(surahByNum(selNum));}
+      if(!snapping){select(nearestToPointer().num,false);}
+      var tr=targetRotFor(selNum);
+      var d2=norm(tr-rot);
+      rot+=d2*(RM?1:Math.min(1,dt*6.5));
+      vel=0;
     }
   }
+  rete.setAttribute('transform','rotate('+rot+' '+C+' '+C+')');
+})(performance.now());
 
-  /* Recommendation Banner */
-  .recommendation-banner {
-    padding: var(--spacing-sm) var(--spacing-md);
-    margin-block-end: var(--spacing-lg);
-    background-color: var(--color-background-secondary);
-    border: 1px solid var(--color-border-primary);
-    border-inline-start: 4px solid var(--color-accent-gold);
-    border-radius: 8px;
-  }
+select(1,true);rot=targetRotFor(1);
+})();
+</script>
 
-  .recommendation-banner p {
-    margin: 0;
-    font-size: 0.9375rem;
-    line-height: 1.6;
-    color: var(--color-text-secondary);
-  }
-
-  .recommendation-banner a {
-    color: var(--color-accent-gold);
-    font-weight: 600;
-    text-decoration: none;
-  }
-
-  .recommendation-banner a:hover {
-    text-decoration: underline;
-  }
-
-  /* Difficulty Sections */
-  .difficulty-section {
-    margin-block-end: var(--spacing-xl);
-  }
-
-  .difficulty-section:last-child {
-    margin-block-end: 0;
-  }
-
-  .section-title {
-    font-family: var(--font-display);
-    font-size: 1.875rem;
-    font-weight: 700;
-    line-height: 1.2;
-    color: var(--color-text-primary);
-    margin: 0;
-    margin-block-end: var(--spacing-xs);
-    letter-spacing: -0.02em;
-  }
-
-  .section-description {
-    font-size: 0.9375rem;
-    line-height: 1.5;
-    color: var(--color-text-tertiary);
-    margin: 0;
-    margin-block-end: var(--spacing-md);
-  }
-
-  /* Responsive Typography */
-  @media (max-width: 640px) {
-    .page-title {
-      font-size: 1.875rem;
-    }
-
-    .page-description {
-      font-size: 1rem;
-    }
-
-    .section-title {
-      font-size: 1.5rem;
-    }
-  }
-</style>
+</body>
+</html>

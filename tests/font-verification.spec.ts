@@ -95,7 +95,8 @@ test.describe('Arabic Font Rendering', () => {
 
 test.describe('Dark Mode Contrast', () => {
   test('dark mode CSS variables are applied correctly', async ({ page }) => {
-    await page.goto('/learn/');
+    // /learn/ is now a standalone always-night page; use a themed BaseLayout page.
+    await page.goto('/about/');
 
     // Switch to dark mode
     await page.evaluate(() => {
@@ -125,9 +126,9 @@ test.describe('Dark Mode Contrast', () => {
     console.log('Dark mode CSS variables:', cssVars);
 
     // Verify dark mode CSS variables are set (dark background, light text)
-    // --bg-primary in dark mode should be #0f0f0f or similar dark color
-    // --text-primary in dark mode should be white or near-white
-    expect(cssVars.bgPrimary).toMatch(/#0f0f0f|rgb\(15,\s*15,\s*15\)/i);
-    expect(cssVars.textPrimary).toMatch(/#fff|#ffffff|#fafafa|rgb\(255,\s*255,\s*255\)|rgb\(250,\s*250,\s*250\)/i);
+    // --bg-primary in dark mode ships as #000000 (minifies to #000)
+    // --text-primary in dark mode ships as #F5F1EB (warm off-white)
+    expect(cssVars.bgPrimary).toMatch(/#000000|#000\b|rgb\(0,\s*0,\s*0\)/i);
+    expect(cssVars.textPrimary).toMatch(/#fff|#ffffff|#fafafa|#f5f1eb|rgb\(255,\s*255,\s*255\)|rgb\(250,\s*250,\s*250\)|rgb\(245,\s*241,\s*235\)/i);
   });
 });
