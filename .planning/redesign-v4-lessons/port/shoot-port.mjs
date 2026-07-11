@@ -18,6 +18,7 @@ const PAGES = [
   { slug: 'l1-06-definite-article', path: '/learn/level-1/06-definite-article/' },
   { slug: 'l3-03-past-tense', path: '/learn/level-3/03-past-tense/' },
   { slug: 'l5-17-capstone-cold-read', path: '/learn/level-5/17-capstone-cold-read/' }, // no-words edge case
+  { slug: 'l3-12-verb-form-ii', path: '/learn/level-3/12-verb-form-ii/' }, // upgraded VerbConjugation -> ConjugationEngine
 ];
 
 // ---------- ensure preview server ----------
@@ -119,6 +120,68 @@ for (const { slug, path } of PAGES) {
       const statusVisible = await page.locator('#complete-status').isVisible();
       if (!statusVisible) errors.push('probe: completion status not shown after click');
       await page.screenshot({ path: `${OUT}/${slug}-9-complete.png` });
+    }
+
+    // 5. MorphTransformer: run it -> word swaps to result, log lines appear
+    const transformer = page.locator('[data-morph-transformer]').first();
+    if (await transformer.count()) {
+      await transformer.scrollIntoViewIfNeeded();
+      await page.waitForTimeout(600);
+      const before = await transformer.locator('.t-word').textContent();
+      await transformer.locator('[data-t-add]').click();
+      await page.waitForTimeout(4500); // full log narration + swap
+      const after = await transformer.locator('.t-word').textContent();
+      if (after === before) errors.push('probe: transformer word did not swap after Add al-');
+      const logLines = await transformer.locator('.t-log .ln').count();
+      if (logLines === 0) errors.push('probe: transformer log produced no lines');
+      const hotClass = await transformer.locator('.t-word').evaluate((el) => el.classList.contains('hot'));
+      if (!hotClass) errors.push('probe: transformer word missing .hot class after run');
+      await transformer.screenshot({ path: `${OUT}/${slug}-10-transformer.png` });
+    }
+
+    // 6. SpecimenChips: click a chip -> anatomy segments render
+    const chips = page.locator('[data-specimen-chips]').first();
+    if (await chips.count()) {
+      await chips.scrollIntoViewIfNeeded();
+      await page.waitForTimeout(500);
+      const secondChip = chips.locator('.spec-chip').nth(1);
+      await secondChip.click();
+      await page.waitForTimeout(400);
+      const segCount = await chips.locator('.a-seg').count();
+      if (segCount === 0) errors.push('probe: specimen chip click produced no anatomy segments');
+      const anatomyShown = await chips.locator('.anatomy').evaluate((el) => el.classList.contains('show'));
+      if (!anatomyShown) errors.push('probe: anatomy panel missing .show class after chip click');
+      await chips.screenshot({ path: `${OUT}/${slug}-11-chips.png` });
+    }
+
+    // 7. ConjugationEngine: person + root click -> word/readout update + progress counter
+    const engine = page.locator('[data-conjugation-engine]').first();
+    if (await engine.count()) {
+      await engine.scrollIntoViewIfNeeded();
+      await page.waitForTimeout(500);
+      const wordBefore = await engine.locator('[data-e-word]').textContent();
+      const personButtons = engine.locator('.p-btn');
+      const personCount = await personButtons.count();
+      if (personCount > 1) {
+        await personButtons.nth(1).click();
+        await page.waitForTimeout(500);
+        const wordAfterPerson = await engine.locator('[data-e-word]').textContent();
+        if (wordAfterPerson === wordBefore) errors.push('probe: conjugation engine word did not change after person click');
+        const progressText = await engine.locator('.e-progress').textContent().catch(() => null);
+        if (progressText && /^Persons run: 1 \//.test(progressText.trim())) {
+          errors.push('probe: conjugation engine progress counter did not increment');
+        }
+      }
+      const rootButtons = engine.locator('.root-btn');
+      const rootCount = await rootButtons.count();
+      if (rootCount > 1) {
+        const wordBeforeRoot = await engine.locator('[data-e-word]').textContent();
+        await rootButtons.nth(1).click();
+        await page.waitForTimeout(500);
+        const wordAfterRoot = await engine.locator('[data-e-word]').textContent();
+        if (wordAfterRoot === wordBeforeRoot) errors.push('probe: conjugation engine word did not change after root click');
+      }
+      await engine.screenshot({ path: `${OUT}/${slug}-12-engine.png` });
     }
   } catch (e) {
     errors.push('probe: ' + e.message.split('\n')[0]);
