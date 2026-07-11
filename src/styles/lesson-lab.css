@@ -44,9 +44,18 @@
   --font-quran: 'Amiri Quran', 'Amiri', serif;
   --font-ar: 'Amiri', serif;
   position: relative;
-  background: var(--bg-0);
   color: var(--ink);
   color-scheme: dark;
+  /* No background on .lab itself: its fixed ::before (the blueprint grid,
+     z-index -1) would be painted underneath it. The page background comes
+     from the body rule below instead. */
+}
+
+/* This stylesheet is only imported by LessonLayout, so this body rule can
+   never leak to other pages. !important outranks the Tailwind mesh-bg
+   utility classes BaseLayout puts on <body>. */
+body {
+  background: #05070e !important;
 }
 
 /* ---------- structural glue (this file only ships on lesson pages) ---------- */
@@ -264,7 +273,7 @@
   font-size: 17px;
   line-height: 1.85;
 }
-.lab .lesson-content :global(h2) {
+.lab .lesson-content h2 {
   font-family: var(--font-display);
   font-weight: 400;
   font-size: clamp(24px, 3vw, 34px);
@@ -276,8 +285,8 @@
   border-bottom: none;
   scroll-margin-top: 6.5rem;
 }
-.lab .lesson-content :global(h2)::after { content: none; }
-.lab .lesson-content :global(h2)::before {
+.lab .lesson-content h2::after { content: none; }
+.lab .lesson-content h2::before {
   content: '';
   display: block;
   width: 2.5rem;
@@ -285,7 +294,7 @@
   background: var(--gold);
   margin-bottom: 0.9rem;
 }
-.lab .lesson-content :global(h3) {
+.lab .lesson-content h3 {
   font-family: var(--font-display);
   font-weight: 400;
   font-size: clamp(19px, 2vw, 23px);
@@ -293,40 +302,40 @@
   margin-top: 2rem;
   margin-bottom: 0.75rem;
 }
-.lab .lesson-content :global(p) { color: var(--ink-dim); margin-bottom: 1rem; }
-.lab .lesson-content :global(p strong),
-.lab .lesson-content :global(strong) { color: var(--ink); font-weight: 500; }
-.lab .lesson-content :global(a) {
+.lab .lesson-content p { color: var(--ink-dim); margin-bottom: 1rem; }
+.lab .lesson-content p strong,
+.lab .lesson-content strong { color: var(--ink); font-weight: 500; }
+.lab .lesson-content a {
   color: var(--gold-bright);
   text-decoration: none;
   border-bottom: 1px dotted rgba(227, 179, 92, 0.5);
 }
-.lab .lesson-content :global(a:hover) { border-bottom-style: solid; }
-.lab .lesson-content :global(ul),
-.lab .lesson-content :global(ol) { margin-bottom: 1rem; padding-inline-start: 1.5rem; }
-.lab .lesson-content :global(ul) { list-style: none; padding-inline-start: 0.25rem; }
-.lab .lesson-content :global(ul li) { color: var(--ink-dim); padding-inline-start: 24px; position: relative; margin: 8px 0; }
-.lab .lesson-content :global(ul li)::before { content: '▸'; position: absolute; left: 2px; top: 0; color: var(--gold); font-size: 12px; }
-.lab .lesson-content :global(ol) { list-style: none; counter-reset: pli; padding-inline-start: 0.25rem; }
-.lab .lesson-content :global(ol li) { color: var(--ink-dim); padding-inline-start: 33px; position: relative; margin: 8px 0; counter-increment: pli; }
-.lab .lesson-content :global(ol li)::before {
+.lab .lesson-content a:hover { border-bottom-style: solid; }
+.lab .lesson-content ul,
+.lab .lesson-content ol { margin-bottom: 1rem; padding-inline-start: 1.5rem; }
+.lab .lesson-content ul { list-style: none; padding-inline-start: 0.25rem; }
+.lab .lesson-content ul li { color: var(--ink-dim); padding-inline-start: 24px; position: relative; margin: 8px 0; }
+.lab .lesson-content ul li::before { content: '▸'; position: absolute; left: 2px; top: 0; color: var(--gold); font-size: 12px; }
+.lab .lesson-content ol { list-style: none; counter-reset: pli; padding-inline-start: 0.25rem; }
+.lab .lesson-content ol li { color: var(--ink-dim); padding-inline-start: 33px; position: relative; margin: 8px 0; counter-increment: pli; }
+.lab .lesson-content ol li::before {
   content: counter(pli, decimal-leading-zero);
   position: absolute; left: 0; top: 0.2em;
   font-family: var(--font-mono); font-size: 10.5px; color: var(--gold);
 }
-.lab .lesson-content :global(li) { color: var(--ink-dim); }
-.lab .lesson-content :global(code) { background: var(--bg-cell); color: var(--gold-bright); padding: 0.125rem 0.375rem; border-radius: 4px; font-size: 0.875em; }
-.lab .lesson-content :global(pre) { background: var(--bg-panel); border: 1px solid var(--hairline); border-radius: 12px; padding: 1rem; overflow-x: auto; margin: 1.5rem 0; }
-.lab .lesson-content :global(pre code) { background: transparent; padding: 0; }
-.lab .lesson-content :global(blockquote) {
+.lab .lesson-content li { color: var(--ink-dim); }
+.lab .lesson-content code { background: var(--bg-cell); color: var(--gold-bright); padding: 0.125rem 0.375rem; border-radius: 4px; font-size: 0.875em; }
+.lab .lesson-content pre { background: var(--bg-panel); border: 1px solid var(--hairline); border-radius: 12px; padding: 1rem; overflow-x: auto; margin: 1.5rem 0; }
+.lab .lesson-content pre code { background: transparent; padding: 0; }
+.lab .lesson-content blockquote {
   border-left: 2px solid rgba(227, 179, 92, 0.4);
   padding: 2px 0 2px 20px;
   margin: 18px 0;
   color: var(--ink-dim);
   font-style: normal;
 }
-.lab .lesson-content :global([lang='ar']),
-.lab .lesson-content :global(.ar) {
+.lab .lesson-content [lang='ar'],
+.lab .lesson-content .ar {
   font-family: var(--font-ar);
   font-size: 1.2em;
   color: var(--ink);
@@ -356,7 +365,7 @@
 .lab .frame.tipf::before { color: var(--teal); }
 .lab .frame.notef::before { color: var(--silver); }
 .lab .frame-in { padding: clamp(22px, 3.4vw, 36px) clamp(18px, 3vw, 34px); }
-.lab .frame-in :global(p:last-child) { margin-bottom: 0; }
+.lab .frame-in p:last-child { margin-bottom: 0; }
 
 /* ================= verse console (ArabicExample) ================= */
 .lab .console {
@@ -477,8 +486,8 @@ html:not(.js) .lab .readout { display: none; }
 .lab .rulebox.warn { background: linear-gradient(135deg, rgba(217, 138, 106, 0.55), rgba(217, 138, 106, 0.14) 40%, rgba(217, 138, 106, 0.14) 60%, rgba(217, 138, 106, 0.55)); }
 .lab .rulebox.warn .rb-k,
 .lab .rulebox.warn .rb-t { color: var(--copper-bright); }
-.lab .rulebox .callout-content :global(p) { color: var(--ink-dim); margin: 10px 0; }
-.lab .rulebox .callout-content :global(strong) { color: var(--ink); }
+.lab .rulebox .callout-content p { color: var(--ink-dim); margin: 10px 0; }
+.lab .rulebox .callout-content strong { color: var(--ink); }
 
 /* ================= diagnostics (ExerciseBox) ================= */
 .lab .lesson-content { counter-reset: diag; }
@@ -524,12 +533,15 @@ html:not(.js) .lab .readout { display: none; }
   white-space: nowrap;
 }
 .lab .toggle-answer {
+  display: flex;
+  align-items: center;
   width: 100%;
   justify-content: flex-start;
   align-self: stretch;
   gap: 10px;
   padding: 0 clamp(16px, 2.8vw, 24px) clamp(14px, 2.4vw, 20px);
   background: none;
+  border: none;
   box-shadow: none;
   color: var(--gold-bright);
   font-family: var(--font-mono);
@@ -537,6 +549,7 @@ html:not(.js) .lab .readout { display: none; }
   letter-spacing: 0.22em;
   text-transform: uppercase;
   border-radius: 0;
+  cursor: pointer;
 }
 .lab .toggle-answer:hover { filter: none; transform: none; box-shadow: none; background: rgba(227, 179, 92, 0.06); }
 .lab .toggle-icon svg { stroke: var(--gold-bright); }
@@ -561,8 +574,8 @@ html:not(.js) .lab .readout { display: none; }
   padding-top: 16px;
   margin-bottom: 4px;
 }
-.lab .exercise-answer :global(p) { color: var(--ink-dim); }
-.lab .exercise-answer :global(strong) { color: var(--ink); }
+.lab .exercise-answer p { color: var(--ink-dim); }
+.lab .exercise-answer strong { color: var(--ink); }
 
 /* ================= plates (GrammarTable / VerbConjugation / bare tables) ================= */
 .lab .table-wrapper,
@@ -576,14 +589,14 @@ html:not(.js) .lab .readout { display: none; }
   backdrop-filter: none;
   box-shadow: none;
 }
-.lab .lesson-content :global(table) {
+.lab .lesson-content table {
   border-collapse: collapse;
   width: 100%;
   min-width: 480px;
   font-size: 14.5px;
   background: transparent;
 }
-.lab .lesson-content :global(thead th) {
+.lab .lesson-content thead th {
   font-family: var(--font-mono);
   font-size: 9.5px;
   letter-spacing: 0.2em;
@@ -595,8 +608,8 @@ html:not(.js) .lab .readout { display: none; }
   background: rgba(227, 179, 92, 0.05);
   white-space: nowrap;
 }
-.lab .lesson-content :global(tbody td),
-.lab .lesson-content :global(tbody th[scope='row']) {
+.lab .lesson-content tbody td,
+.lab .lesson-content tbody th[scope='row'] {
   padding: 11px 16px;
   border-bottom: 1px solid var(--hairline-soft);
   color: var(--ink-dim);
@@ -604,10 +617,10 @@ html:not(.js) .lab .readout { display: none; }
   text-align: left;
   background: transparent;
 }
-.lab .lesson-content :global(tbody tr:last-child td),
-.lab .lesson-content :global(tbody tr:last-child th) { border-bottom: none; }
-.lab .lesson-content :global(tbody tr:hover) { background: rgba(227, 179, 92, 0.05); }
-.lab .lesson-content :global(caption) {
+.lab .lesson-content tbody tr:last-child td,
+.lab .lesson-content tbody tr:last-child th { border-bottom: none; }
+.lab .lesson-content tbody tr:hover { background: rgba(227, 179, 92, 0.05); }
+.lab .lesson-content caption {
   font-family: var(--font-display);
   color: var(--ink);
   text-align: left;
@@ -618,8 +631,8 @@ html:not(.js) .lab .readout { display: none; }
 
 /* mobile card-stacking (GrammarTable) stays functional; recolor to lab surfaces */
 @media (max-width: 640px) {
-  .lab .lesson-content :global(tbody tr) { background: var(--bg-cell); border-color: var(--hairline); }
-  .lab .lesson-content :global(th[scope='row']) { background: var(--bg-panel); }
+  .lab .lesson-content tbody tr { background: var(--bg-cell); border-color: var(--hairline); }
+  .lab .lesson-content th[scope='row'] { background: var(--bg-panel); }
 }
 
 /* ================= verb conjugation (minimal night-coherent skin) ================= */
@@ -638,7 +651,7 @@ html:not(.js) .lab .readout { display: none; }
 .lab .vocab-section {
   margin-block-start: 3rem;
 }
-.lab .vocab-section .frame-in :global(.vocab-heading) {
+.lab .vocab-section .frame-in .vocab-heading {
   font-family: var(--font-display);
   font-weight: 400;
   color: var(--ink);
@@ -731,20 +744,20 @@ html:not(.js) .lab .readout { display: none; }
 .lab .page-link svg { width: 16px; height: 16px; }
 
 /* ================= navigator + floating toggle: minimal night restyle ================= */
-.lab :global(.course-navigator) { background: var(--bg-panel); border-inline-end-color: var(--hairline); color: var(--ink); }
-.lab :global(.navigator-title) { color: var(--ink); font-family: var(--font-display); font-weight: 400; }
-.lab :global(.level-name) { color: var(--ink); }
-.lab :global(.level-count) { color: var(--ink-faint); }
-.lab :global(.lesson-item) { color: var(--ink-dim); }
-.lab :global(.lesson-item:hover) { background: rgba(227, 179, 92, 0.08); color: var(--ink); }
-.lab :global(.lesson-item.active) { background: var(--gold-bright); color: #221503; }
-.lab :global(.lesson-number) { background: var(--bg-cell); color: var(--ink-faint); }
-.lab :global(.navigator-toggle--floating) {
+.lab .course-navigator { background: var(--bg-panel); border-inline-end-color: var(--hairline); color: var(--ink); }
+.lab .navigator-title { color: var(--ink); font-family: var(--font-display); font-weight: 400; }
+.lab .level-name { color: var(--ink); }
+.lab .level-count { color: var(--ink-faint); }
+.lab .lesson-item { color: var(--ink-dim); }
+.lab .lesson-item:hover { background: rgba(227, 179, 92, 0.08); color: var(--ink); }
+.lab .lesson-item.active { background: var(--gold-bright); color: #221503; }
+.lab .lesson-number { background: var(--bg-cell); color: var(--ink-faint); }
+.lab .navigator-toggle--floating {
   background: var(--gold-bright);
   color: #221503;
   box-shadow: 0 10px 30px rgba(227, 179, 92, 0.25);
 }
-.lab :global(.navigator-toggle--floating:hover) { background: var(--gold-bright); filter: brightness(1.05); }
+.lab .navigator-toggle--floating:hover { background: var(--gold-bright); filter: brightness(1.05); }
 
 /* ================= reduced motion / no-JS degradation ================= */
 html:not(.js) .lab .console .c-ar .w { cursor: text; }

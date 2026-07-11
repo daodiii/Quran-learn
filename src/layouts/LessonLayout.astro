@@ -70,6 +70,16 @@ const educationalLevels: Record<number, string> = {
   5: 'Advanced',
 };
 
+// Pager cards show the real lesson titles when prev/next point at lessons
+// (level quizzes and other non-lesson URLs fall back to a generic label).
+function lessonTitleForUrl(url: string | undefined): string | null {
+  if (!url) return null;
+  const slug = url.replace(/^\/learn\//, '').replace(/\/$/, '');
+  return allLessons.find(l => l.id === slug)?.data.title ?? null;
+}
+const prevTitle = lessonTitleForUrl(prevLesson) ?? (prevLesson?.includes('/quiz') ? 'Level Quiz' : 'Previous Lesson');
+const nextTitle = lessonTitleForUrl(nextLesson) ?? (nextLesson?.includes('/quiz') ? 'Level Quiz' : 'Next Lesson');
+
 // Station rail: 00 = Briefing (the header), then one station per h2 section.
 const stations = [
   { target: 'lesson-brief', pip: '00', label: 'Briefing' },
@@ -174,7 +184,7 @@ const fontsHref = "https://fonts.googleapis.com/css2?family=Amiri+Quran&family=A
               )}
             </header>
 
-            <div class="lesson-content" data-reveal>
+            <div class="lesson-content">
               <slot />
             </div>
 
@@ -214,13 +224,13 @@ const fontsHref = "https://fonts.googleapis.com/css2?family=Amiri+Quran&family=A
               {prevLesson ? (
                 <a href={prevLesson} class="page-link prev">
                   <span class="dir">&larr; Previous</span>
-                  <span class="pt">Previous Lesson</span>
+                  <span class="pt">{prevTitle}</span>
                 </a>
               ) : <div></div>}
               {nextLesson ? (
                 <a href={nextLesson} class="page-link next">
                   <span class="dir">Next &rarr;</span>
-                  <span class="pt">Next Lesson</span>
+                  <span class="pt">{nextTitle}</span>
                 </a>
               ) : <div></div>}
             </nav>
