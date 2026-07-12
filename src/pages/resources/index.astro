@@ -1,5 +1,6 @@
 ---
 import '../../styles/night.css';
+import CookieBanner from '../../components/CookieBanner.astro';
 import { getCollection } from 'astro:content';
 
 const resources = await getCollection('resources');
@@ -398,6 +399,8 @@ body{background:linear-gradient(180deg,#05070e,#070a13);color:var(--ink);font-fa
     <span>Nettsiden er laget av <a href="https://www.idweb.no" target="_blank" rel="noopener noreferrer">IDweb</a></span>
   </div>
 </footer>
+
+<CookieBanner />
 
 <script>
 // @ts-nocheck
