@@ -581,7 +581,20 @@ footer{background:transparent;position:relative;z-index:1;border-top-color:rgba(
 .plq-go .arr{transition:transform .45s var(--ease-out)}
 .plaque:hover .plq-go .arr{transform:translateX(4px)}
 .tree-hint{margin-top:14px;font-size:13.5px;color:var(--ink-faint);font-weight:300;text-align:center}
-@media (max-width:640px){.plq-body,.plq-div{display:none}}
+@media (max-width:640px){
+  /* Bigger, stacked detail card so both the Arabic and English name read, with
+     Open as its own tap target. */
+  .plaque{flex-direction:column;gap:10px;white-space:normal;border-radius:22px;
+    padding:18px 24px 20px;max-width:min(360px,90vw);text-align:center}
+  .plq-inner{flex-direction:column;gap:8px;text-align:center}
+  .plq-div{display:none}
+  .plq-ar{font-size:33px;line-height:1.25}
+  .plq-body{align-items:center;text-align:center;gap:4px}
+  .plq-en{font-size:19px}
+  .plq-meta{font-size:9.5px;letter-spacing:.16em}
+  .plq-go{margin-top:4px;font-size:14px;border:1px solid rgba(227,179,92,.45);
+    border-radius:999px;padding:9px 22px}
+}
 @media (max-width:767px){.tree-stage{height:clamp(380px,52vh,520px)}}
 @media (prefers-reduced-motion:reduce){.plq-inner{transition:none}}
 .level.pass .lv-node::after{content:"";position:absolute;inset:-10px;border:1px solid rgba(227,179,92,.55);border-radius:50%;animation:nodeping 1.3s var(--ease-out) 1 both}
@@ -819,7 +832,7 @@ footer{background:transparent;position:relative;z-index:1;border-top-color:rgba(
         </span>
       </a>
     </div>
-    <p class="tree-hint" data-reveal>Every light is a surah. Pass your cursor through the branches; each light traces its way back to the root.</p>
+    <p class="tree-hint" data-reveal>Every light is a surah. Choose one to trace it back to the root, then Open its word-by-word breakdown.</p>
 
     <a class="atlas-link" href="/surahs/" data-reveal><span class="ln" aria-hidden="true"></span>Browse all 38 analyses</a>
   </div>
@@ -1934,7 +1947,7 @@ function buildTree(){
   stage.addEventListener('pointerleave', () => { tpx = tpy = -1e4; });
 
   /* the plaque is the only reader: one fixed lockup, crossfaded */
-  let sel = null, autoT = 0, swapT = null;
+  let sel = null, autoT = 0, swapT = null, locked = false;
   function applyPlaque(L){
     plqAr.textContent = L.ar;
     plqEn.textContent = L.name;
@@ -1961,7 +1974,11 @@ function buildTree(){
       const dx = cx2 - L.sx, dy = cy2 - L.sy, d2 = dx * dx + dy * dy;
       if (d2 < bd) { bd = d2; best = L; }
     }
-    if (best && bd < 34 * 34) location.href = slug(best.num, best.name);
+    const hitR = matchMedia('(pointer:coarse)').matches ? 46 : 34;
+    /* A light no longer opens the surah — it selects it into the plaque. The
+       plaque's "Open" is the only thing that navigates, so a stray tap can't
+       whisk you off the page. Lock the auto-tour so the choice stays put. */
+    if (best && bd < hitR * hitR) { select(best, true); locked = true; lastMove = performance.now(); }
   });
 
   function windX(y, ph, t){
@@ -2122,7 +2139,7 @@ function buildTree(){
 
   /* idle auto-tour: the tree reads itself while you watch */
   function autoTour(now){
-    if (RM) return;
+    if (RM || locked) return;
     if (now - lastMove < 4200) return;
     if (now - autoT < 3600) return;
     autoT = now;
@@ -2139,6 +2156,7 @@ function buildTree(){
 
   sizeTree();
   sel = fatiha; applyPlaque(fatiha);
+  try { window.__treeLights = [fatiha, ...lights]; } catch (e) {}  /* test/debug hook: live light hit data */
   if (RM) {
     stage.addEventListener('pointermove', () => drawTree(99, 0), { passive: true });
     drawTree(99, 0);
