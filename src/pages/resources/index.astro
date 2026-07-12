@@ -1,6 +1,5 @@
 ---
 import '../../styles/night.css';
-import NightTabBar from '../../components/NightTabBar.astro';
 import { getCollection } from 'astro:content';
 
 const resources = await getCollection('resources');
@@ -399,8 +398,6 @@ body{background:linear-gradient(180deg,#05070e,#070a13);color:var(--ink);font-fa
     <span>Nettsiden er laget av <a href="https://www.idweb.no" target="_blank" rel="noopener noreferrer">IDweb</a></span>
   </div>
 </footer>
-
-<NightTabBar active="resources" />
 
 <script>
 // @ts-nocheck

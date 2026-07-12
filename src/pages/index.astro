@@ -1,5 +1,4 @@
 ---
-import NightTabBar from '../components/NightTabBar.astro';
 import { getCollection } from 'astro:content';
 // [number, name, arabicName, verseCount, href] for the tree of Juz ʿAmma —
 // byte-exact Arabic and real routes, straight from the content collection.
@@ -165,8 +164,14 @@ img{max-width:100%;display:block}
 .nav-cta:hover{background:var(--gold);color:var(--btn-ink);border-color:var(--gold)}
 .nav-cta:active{transform:scale(.97)}
 @media (max-width:860px){.nav-links{display:none}}
-/* On phones the bottom tab bar provides section nav, so drop the top CTA. */
-@media (max-width:720px){.nav-cta{display:none}}
+/* On phones show the section links in the top bar; shrink the wordmark to its
+   star mark so they fit, and drop the redundant Start-learning CTA. */
+@media (max-width:720px){
+  .nav-cta{display:none}
+  .brand span{display:none}
+  .nav-links{display:flex;gap:clamp(13px,3.8vw,22px)}
+  .nav-links a{font-size:11px;letter-spacing:.06em}
+}
 @media (max-width:480px){
   .nav{padding-left:16px;padding-right:16px}
   .brand span{font-size:12.5px;letter-spacing:.2em}
@@ -920,8 +925,6 @@ footer{background:transparent;position:relative;z-index:1;border-top-color:rgba(
     </div>
   </div>
 </footer>
-
-<NightTabBar active="home" />
 
 <script type="application/json" id="surah-data" is:inline set:html={JSON.stringify(surahData).replace(/<\//g, '<\\/')}></script>
 <script>

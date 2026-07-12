@@ -3,7 +3,6 @@ import '../../styles/night.css';
 import LessonRow from '../../components/LessonRow.astro';
 import ReadingTrack from '../../components/ReadingTrack.astro';
 import ResumeBand from '../../components/ResumeBand.astro';
-import NightTabBar from '../../components/NightTabBar.astro';
 import { getCollection } from 'astro:content';
 import { CURRICULUM_MAP, clusterForLesson } from '../../data/curriculum-map';
 
@@ -469,8 +468,6 @@ html:not(.js) .card, html:not(.js) #intro, html:not(.js) #finale{position:static
     <span>Nettsiden er laget av <a href="https://www.idweb.no" target="_blank" rel="noopener noreferrer">IDweb</a></span>
   </div>
 </footer>
-
-<NightTabBar active="learn" />
 
 <script type="application/json" id="learn-boot" is:inline set:html={JSON.stringify(boot).replace(/<\//g, '<\\/')}></script>
 
