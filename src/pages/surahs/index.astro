@@ -2,6 +2,7 @@
 import '../../styles/night.css';
 import { getCollection } from 'astro:content';
 import { SURAH_OPENINGS } from '../../data/surah-openings';
+import CookieBanner from '../../components/CookieBanner.astro';
 
 const all = (await getCollection('surahs')).sort((a, b) => a.data.surahNumber - b.data.surahNumber);
 if (all.length !== 38) throw new Error(`surahs: expected 38, found ${all.length} — update the astrolabe copy/legend`);
@@ -322,6 +323,8 @@ body{background:var(--bg-0);color:var(--ink);font-family:var(--font-body);font-s
 
 </main>
 
+<CookieBanner />
+
 <script type="application/json" id="surah-astro-data" is:inline set:html={JSON.stringify({ SURAHS, maxVerses }).replace(/<\//g, '<\\/')}></script>
 
 <script>
@@ -501,17 +504,28 @@ SURAHS.forEach(function(s){
   strip.appendChild(b);stripBtns.push(b);
 });
 
-/* drag */
+/* drag — armed on pointerdown, promoted to a real drag only once the pointer
+   moves past a small threshold. Until then no pointer capture is taken, so a
+   tap on a marker fires its native click and centres that surah. (Capturing on
+   pointerdown would retarget the click to the svg and swallow the selection —
+   that's why clicking a number used to do nothing.) */
 function angOf(e){var r=svg.getBoundingClientRect();return Math.atan2(e.clientY-(r.top+r.height/2),e.clientX-(r.left+r.width/2))*180/Math.PI;}
-svg.addEventListener('pointerdown',function(e){dragging=true;plate.setAttribute('aria-live','off');snapping=false;lastA=angOf(e);lastT=performance.now();vel=0;svg.classList.add('dragging');svg.setPointerCapture(e.pointerId);});
+var armed=false,downX=0,downY=0,capId=null;
+svg.addEventListener('pointerdown',function(e){armed=true;dragging=false;downX=e.clientX;downY=e.clientY;lastA=angOf(e);lastT=performance.now();vel=0;capId=e.pointerId;});
 svg.addEventListener('pointermove',function(e){
-  if(!dragging)return;
+  if(!armed)return;
+  if(!dragging){
+    if(Math.abs(e.clientX-downX)+Math.abs(e.clientY-downY)<5)return;
+    dragging=true;plate.setAttribute('aria-live','off');snapping=false;svg.classList.add('dragging');
+    try{svg.setPointerCapture(capId);}catch(_){}
+    lastA=angOf(e);lastT=performance.now();
+  }
   var a=angOf(e),now=performance.now();
   var d=norm(a-lastA);
   rot+=d;vel=d/Math.max(8,now-lastT)*16;
   lastA=a;lastT=now;
 });
-function endDrag(){if(dragging){dragging=false;svg.classList.remove('dragging');}}
+function endDrag(){armed=false;if(dragging){dragging=false;svg.classList.remove('dragging');}}
 addEventListener('pointerup',endDrag);
 addEventListener('pointercancel',endDrag);
 
