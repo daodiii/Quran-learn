@@ -18,6 +18,16 @@ const levelNames: Record<1|2|3|4|5, { title: string; titleAr: string; desc: stri
 
 const levels: (1 | 2 | 3 | 4 | 5)[] = [1, 2, 3, 4, 5];
 
+// Small decorative constellations for the mobile level cards — each a distinct
+// star path, last point is the level's checkpoint (drawn gold). viewBox 60×60.
+const GLYPHS: Record<1|2|3|4|5, [number, number][]> = {
+  1: [[8,46],[19,33],[29,39],[41,23],[51,30]],
+  2: [[8,22],[19,36],[30,19],[42,36],[52,21]],
+  3: [[11,35],[16,20],[30,13],[45,20],[50,35],[38,45],[22,45]],
+  4: [[8,45],[21,22],[31,41],[43,18],[52,38]],
+  5: [[12,41],[24,45],[35,32],[30,17],[45,22],[51,37]],
+};
+
 // Group + sort once. Two-way drift guard, both directions throw at build:
 // every lesson must belong to a cluster, and every cluster order must
 // resolve to a real lesson file.
@@ -222,6 +232,58 @@ html:not(.js) .card, html:not(.js) #intro, html:not(.js) #finale{position:static
 .catalog-jump a:hover{border-color:rgba(227,179,92,.5);color:var(--ink)}
 .catalog-jump b{font-weight:500;color:var(--gold-bright)}
 .catalog-jump [data-jump-count]{color:var(--ink-faint)}
+
+/* ============================================================
+   Clickable-star tooltip (desktop) — floats the lesson title
+   under the cursor when hovering a star in the constellation.
+   ============================================================ */
+#startip{position:fixed;z-index:20;pointer-events:none;opacity:0;transform:translateY(4px);transition:opacity .18s var(--ease-out),transform .18s var(--ease-out);padding:8px 13px;border:1px solid var(--hairline);border-radius:11px;background:rgba(8,11,20,.9);backdrop-filter:blur(10px);box-shadow:0 12px 40px rgba(3,5,12,.6);max-width:250px}
+#startip.on{opacity:1;transform:none}
+#startip .tl{font-family:var(--font-mono);font-size:8.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--gold-bright)}
+#startip .tt{font-family:var(--font-display);font-size:14.5px;color:var(--ink);margin-top:3px;line-height:1.25}
+
+/* ============================================================
+   MOBILE — the constellation flythrough can't read at 375px, so
+   below 760px the sky becomes a calm fixed backdrop and the five
+   levels are presented as tappable cards, each with its own
+   little constellation. Desktop is untouched.
+   ============================================================ */
+.m-levels{display:none}
+@media (max-width:760px){
+  #driver{height:auto!important}
+  /* Beat the .flat / html:not(.js) rules (same specificity, later source order)
+     so #view becomes a fixed starfield backdrop instead of a 56svh in-flow block. */
+  .flat #view, html:not(.js) #view{position:fixed;inset:0;height:100svh;z-index:0}
+  #skycv{position:absolute;inset:0}
+  #intro,#finale,#rail,#dawn,.card{display:none!important}
+  .m-levels{display:block}
+  .catalog{position:relative;z-index:2}
+}
+.m-levels{position:relative;z-index:2;padding:calc(72px + env(safe-area-inset-top) + 5vh) var(--pad-x) 8vh}
+.m-intro h1{font-family:var(--font-display);font-weight:400;font-size:clamp(34px,10.5vw,48px);line-height:1.05}
+.m-intro h1 em{font-style:normal;color:var(--gold-bright)}
+.m-intro p{color:var(--ink-dim);font-weight:300;font-size:15px;line-height:1.7;margin-top:15px;max-width:33ch;text-shadow:0 2px 24px rgba(5,7,14,.9)}
+.m-cards{list-style:none;display:flex;flex-direction:column;gap:12px;margin-top:32px}
+.m-card{position:relative;display:grid;grid-template-columns:54px 1fr auto;align-items:center;gap:15px;padding:16px 17px 19px;border:1px solid var(--hairline);border-radius:16px;background:linear-gradient(158deg,rgba(228,209,164,.06),rgba(228,209,164,.012));overflow:hidden;touch-action:manipulation;-webkit-tap-highlight-color:transparent;opacity:0;transform:translateY(15px);animation:m-rise .7s var(--ease-out) forwards;animation-delay:calc(var(--i)*80ms + 180ms)}
+.m-card:active{transform:scale(.985)}
+@keyframes m-rise{to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.m-card{animation:none;opacity:1;transform:none}}
+.m-glyph{width:54px;height:54px;overflow:visible}
+.m-glyph .l{stroke:rgba(227,179,92,.38);stroke-width:1;fill:none;stroke-linejoin:round;stroke-linecap:round}
+.m-glyph .s{fill:#cdd6ef}
+.m-glyph .cp{fill:var(--gold-bright);filter:drop-shadow(0 0 4px var(--gold-glow))}
+.m-body{min-width:0}
+.m-rn{font-family:var(--font-mono);font-size:9.5px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold)}
+.m-title{font-family:var(--font-display);font-weight:400;font-size:21px;line-height:1.15;margin-top:3px;display:flex;align-items:baseline;gap:9px;flex-wrap:wrap}
+.m-title .ar{font-size:.78em;color:var(--gold)}
+.m-meta{font-family:var(--font-mono);font-size:10px;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-faint);margin-top:8px}
+.m-meta [data-mct].done{color:var(--gold-bright)}
+.m-go{font-family:var(--font-display);font-size:21px;color:var(--ink-faint);transition:color .3s var(--ease-out),transform .3s var(--ease-out)}
+.m-card:active .m-go{color:var(--gold-bright);transform:translateX(3px)}
+.m-bar{position:absolute;left:0;right:0;bottom:0;height:2px;background:rgba(228,209,164,.08)}
+.m-bar i{display:block;height:100%;width:100%;transform:scaleX(var(--p,0));transform-origin:left;background:linear-gradient(90deg,var(--gold),var(--gold-bright));box-shadow:0 0 10px var(--gold-glow);transition:transform .9s var(--ease-out)}
+.m-cta{margin-top:28px}
+.m-cta .btn{width:100%;justify-content:center}
   </style>
 </head>
 <body>
@@ -319,6 +381,37 @@ html:not(.js) .card, html:not(.js) #intro, html:not(.js) #finale{position:static
   </div>
 </div>
 
+<div id="startip" aria-hidden="true"><div class="tl"></div><div class="tt"></div></div>
+
+<section class="m-levels" aria-label="The five levels">
+  <div class="m-intro">
+    <h1>Five levels, <em>one mission</em>.</h1>
+    <p>Understand every word of the Quran you recite — eighty-one lessons from the alphabet to full verse analysis.</p>
+  </div>
+  <ol class="m-cards">
+    {levels.map(level => (
+      <li>
+        <a class="m-card" href={`#level-${level}`} style={`--i:${level - 1}`} data-mlevel={level}>
+          <svg class="m-glyph" viewBox="0 0 60 60" fill="none" aria-hidden="true">
+            <polyline class="l" points={GLYPHS[level].map(p => p.join(',')).join(' ')} />
+            {GLYPHS[level].map((p, idx) => (
+              <circle class={idx === GLYPHS[level].length - 1 ? 'cp' : 's'} cx={p[0]} cy={p[1]} r={idx === GLYPHS[level].length - 1 ? 2.7 : 1.5} />
+            ))}
+          </svg>
+          <span class="m-body">
+            <span class="m-rn">Level {level}</span>
+            <span class="m-title">{levelNames[level].title} <span class="ar" lang="ar" dir="rtl" translate="no">{levelNames[level].titleAr}</span></span>
+            <span class="m-meta"><span>{totals[level]} lessons</span> · <span data-mct>Not started</span></span>
+          </span>
+          <span class="m-go" aria-hidden="true">&rarr;</span>
+          <span class="m-bar"><i data-mbar></i></span>
+        </a>
+      </li>
+    ))}
+  </ol>
+  <div class="m-cta"><a class="btn btn-solid" data-resume-cta-m href={`/learn/${firstLesson.id}/`}>Start 1.1 — {firstLesson.title}</a></div>
+</section>
+
 <section id="curriculum" class="catalog" aria-label="All 81 lessons">
   <div class="catalog-inner">
     <h2 class="catalog-title">The full curriculum</h2>
@@ -396,6 +489,9 @@ if(FLAT)document.documentElement.classList.add('flat');
 var veil=document.getElementById('veil');
 addEventListener('load',function(){setTimeout(function(){veil.classList.add('gone');},RM?0:380);});
 setTimeout(function(){veil.classList.add('gone');},2600);
+/* nav gains a blurred backdrop once content scrolls beneath it */
+var navEl=document.querySelector('.nav');
+addEventListener('scroll',function(){if(navEl)navEl.classList.toggle('scrolled',scrollY>16);},{passive:true});
 
 /* ---------- lesson stars (same 5 constellations) ---------- */
 var COUNTS=BOOT.totals;
@@ -430,7 +526,8 @@ var STARS=[];
     var lesson=byLevel[lv][i2];
     var state=lesson&&completed.has(lesson.id)?1:0;
     if(resume&&lesson&&lesson.id===resume.id)state=2;
-    STARS.push({lv:lv,x:x,y:y,tw:seedRand(gi+9)*6.28,cp:i2===n-1,state:state});
+    STARS.push({lv:lv,x:x,y:y,tw:seedRand(gi+9)*6.28,cp:i2===n-1,state:state,
+      id:lesson&&lesson.id,ttl:lesson&&lesson.title,order:lesson&&lesson.order,sx:null,sy:null});
   }
 });
 var CENTERS={};
@@ -496,19 +593,58 @@ var doneTotal=0;
   else{ct.textContent=done+' of '+list.length;}
   var jc=document.querySelector('.catalog-jump [data-jump-level="'+lv+'"] [data-jump-count]');
   if(jc&&done>0)jc.textContent=done+' of '+list.length;
+  /* mobile level card: concise progress + fill bar */
+  var mct=document.querySelector('.m-card[data-mlevel="'+lv+'"] [data-mct]');
+  if(mct){
+    if(done===list.length&&list.length){mct.textContent='Complete';mct.classList.add('done');}
+    else if(done===0){mct.textContent='Not started';}
+    else{mct.textContent=done+' of '+list.length;mct.classList.add('done');}
+  }
+  var mbar=document.querySelector('.m-card[data-mlevel="'+lv+'"] [data-mbar]');
+  if(mbar)mbar.style.setProperty('--p',list.length?(done/list.length).toFixed(3):'0');
 });
-var cta=document.querySelector('[data-resume-cta]');
-if(cta){
+document.querySelectorAll('[data-resume-cta],[data-resume-cta-m]').forEach(function(cta){
   if(!resume){cta.textContent='All '+BOOT.manifest.length+' complete — browse the catalog';cta.setAttribute('href','#curriculum');}
   else if(doneTotal>0){cta.textContent='Resume '+resume.level+'.'+resume.order+' — '+resume.title;cta.setAttribute('href','/learn/'+resume.id+'/');}
   /* fresh visitor keeps the server-rendered "Start 1.1 …" label + href */
-}
+});
 var dekMore=document.querySelector('[data-dek-progress]');
 if(dekMore&&doneTotal>0)dekMore.textContent=' — and '+doneTotal+' of them are already behind you';
 /* catalog completed ticks (same contract as the old page) */
 document.querySelectorAll('[data-lesson-row]').forEach(function(row){
   if(completed.has(row.getAttribute('data-lesson-id')))row.classList.add('completed');
 });
+
+/* ---------- clickable stars (desktop) ---------- */
+var hoverStar=null;
+if(!SMALL){
+  try{window.__learnStars=STARS;}catch(e){}  /* test/debug hook: live star hit data */
+  var tip=document.getElementById('startip');
+  var pick=function(e){
+    var r=cv.getBoundingClientRect(),px=e.clientX-r.left,py=e.clientY-r.top,best=null,bd=1e9;
+    for(var i=0;i<STARS.length;i++){
+      var s=STARS[i];if(s.sx==null||!s.id)continue;
+      var d=Math.hypot(s.sx-px,s.sy-py);
+      var hr=Math.max(14,(s.cp?5.2:2.9)*Math.max(.7,Math.min(1.5,cam.z*1.4))+12);
+      if(d<hr&&d<bd){bd=d;best=s;}
+    }
+    return best;
+  };
+  cv.addEventListener('pointermove',function(e){
+    if(e.pointerType==='touch')return;
+    var s=pick(e);hoverStar=s;
+    if(s){
+      cv.style.cursor='pointer';
+      tip.querySelector('.tl').textContent='Level '+s.lv+' · Lesson '+s.order;
+      tip.querySelector('.tt').textContent=s.ttl||'';
+      tip.style.left=Math.min(innerWidth-260,e.clientX+16)+'px';
+      tip.style.top=Math.min(innerHeight-70,e.clientY+16)+'px';
+      tip.classList.add('on');
+    }else{cv.style.cursor='';tip.classList.remove('on');}
+  },{passive:true});
+  cv.addEventListener('pointerleave',function(){hoverStar=null;cv.style.cursor='';tip.classList.remove('on');});
+  cv.addEventListener('click',function(e){var s=pick(e);if(s&&s.id)location.href='/learn/'+s.id+'/';});
+}
 
 /* ---------- render ---------- */
 var t0=performance.now(),run=true;
@@ -540,7 +676,8 @@ document.addEventListener('visibilitychange',function(){run=!document.hidden;});
       var c2=cards[s2];
       c2.style.opacity=vis;
       c2.style.transform='translateY('+((1-vis)*22)+'px)';
-      c2.style.pointerEvents=vis>.6?'auto':'none';
+      /* cards stay pointer-events:none (CSS) so stars behind them remain clickable —
+         they hold only descriptive text, nothing interactive. */
     }
     var fv=Math.max(0,Math.min(1,(u-5.45)*2.2));
     finale.style.opacity=fv;finale.classList.toggle('live',fv>.6);finale.toggleAttribute('inert',fv<=.6);
@@ -562,6 +699,7 @@ document.addEventListener('visibilitychange',function(){run=!document.hidden;});
     ctx.fillStyle='#c9d4ee';ctx.beginPath();ctx.arc(p2[0],p2[1],b2.r*Math.max(.6,cam.z),0,7);ctx.fill();
   }
   ctx.globalAlpha=1;
+  if(!SMALL){
   [1,2,3,4,5].forEach(function(lv){
     var s3=STARS.filter(function(st){return st.lv===lv;});
     var pr=lineProg[lv];
@@ -578,16 +716,20 @@ document.addEventListener('visibilitychange',function(){run=!document.hidden;});
   });
   for(var j=0;j<STARS.length;j++){
     var st=STARS[j],p3=w2s(st.x,st.y);
-    if(p3[0]<-40||p3[0]>W+40||p3[1]<-40||p3[1]>H+40)continue;
+    var onScreen=!(p3[0]<-40||p3[0]>W+40||p3[1]<-40||p3[1]>H+40);
+    st.sx=onScreen?p3[0]:null;st.sy=onScreen?p3[1]:null;
+    if(!onScreen)continue;
     var tw=RM?1:.8+.2*Math.sin(t*.0016+st.tw);
-    var base=(st.cp?5.2:2.9)*Math.max(.7,Math.min(1.5,cam.z*1.4))*tw;
-    if(st.state>0){
+    var hovd=st===hoverStar;
+    var base=(st.cp?5.2:2.9)*Math.max(.7,Math.min(1.5,cam.z*1.4))*tw*(hovd?1.7:1);
+    if(st.state>0||hovd){
       var glow=ctx.createRadialGradient(p3[0],p3[1],0,p3[0],p3[1],base*5);
-      glow.addColorStop(0,'rgba(244,214,143,.5)');glow.addColorStop(1,'rgba(244,214,143,0)');
+      glow.addColorStop(0,'rgba(244,214,143,'+(hovd?.78:.5)+')');glow.addColorStop(1,'rgba(244,214,143,0)');
       ctx.fillStyle=glow;ctx.beginPath();ctx.arc(p3[0],p3[1],base*5,0,7);ctx.fill();
       ctx.fillStyle='#f4d68f';
     }else ctx.fillStyle='rgba(190,204,238,.55)';
     ctx.beginPath();ctx.arc(p3[0],p3[1],base,0,7);ctx.fill();
+    if(hovd){ctx.strokeStyle='rgba(244,214,143,.9)';ctx.lineWidth=1.4;ctx.beginPath();ctx.arc(p3[0],p3[1],base+7,0,7);ctx.stroke();}
     if(st.state===2&&!RM){
       var pr3=(t*.001)%1.6/1.6;
       ctx.strokeStyle='rgba(244,214,143,'+(1-pr3)*.9+')';ctx.lineWidth=1.4;
@@ -607,6 +749,7 @@ document.addEventListener('visibilitychange',function(){run=!document.hidden;});
     ctx.fillStyle='#e3b35c';ctx.font='400 '+Math.max(11,14*cam.z*2)+'px Amiri, serif';
     ctx.fillText(AR[lv],pc[0],pc[1]-off*cam.z+Math.max(15,19*cam.z*2));
   });
+  }
   ctx.globalAlpha=1;
 })(0);
 drive();

@@ -20,6 +20,13 @@ const counts = {
   advanced: SURAHS.filter(s => s.diff === 'advanced').length,
 };
 const maxVerses = Math.max(...SURAHS.map(s => s.v));
+// Mobile view: the astrolabe can't be spun on a phone, so surahs are grouped by
+// difficulty into a tappable list. Order beginner → intermediate → advanced.
+const surahGroups = ([
+  { key: 'beginner', label: 'Beginner', dot: 'b' },
+  { key: 'intermediate', label: 'Intermediate', dot: 'i' },
+  { key: 'advanced', label: 'Advanced', dot: 'a' },
+] as const).map(g => ({ ...g, items: SURAHS.filter(s => s.diff === g.key), count: counts[g.key] }));
 const fatiha = SURAHS[0];
 if (!fatiha || fatiha.num !== 1) throw new Error('surahs: expected surah 001 first');
 const title = 'Surah Breakdowns | Quranic Grammar';
@@ -170,6 +177,40 @@ body{background:var(--bg-0);color:var(--ink);font-family:var(--font-body);font-s
 .stage-foot{position:fixed;left:var(--pad-x);bottom:14px;z-index:6;padding:0;font-family:var(--font-mono);font-size:9.5px;letter-spacing:.14em;color:var(--ink-faint)}
 .stage-foot a{color:var(--ink-dim)}
 .stage-foot a:hover{color:var(--gold-bright)}
+
+/* ============================================================
+   MOBILE — the astrolabe is a drag-to-spin instrument that can't
+   work on a phone, so below 700px it's replaced by a tappable
+   surah list grouped by level. The starfield stays as backdrop.
+   ============================================================ */
+.m-surahs{display:none}
+@media (max-width:700px){
+  body{overflow-x:hidden;overflow-y:auto}
+  #stage{display:none}
+  .surah-index{display:none}
+  .stage-foot{position:static;padding:26px var(--pad-x) 40px;z-index:2}
+  .m-surahs{display:block;position:relative;z-index:2;padding:calc(72px + env(safe-area-inset-top) + 4vh) var(--pad-x) 20px}
+}
+.m-head h1{font-family:var(--font-display);font-weight:400;font-size:clamp(32px,9.5vw,46px);line-height:1.06}
+.m-head h1 em{font-style:normal;color:var(--gold-bright)}
+.m-head .dek{color:var(--ink-dim);font-weight:300;font-size:14.5px;line-height:1.7;margin-top:13px;max-width:36ch}
+.m-head .note{font-family:var(--font-mono);font-size:11px;letter-spacing:.05em;color:var(--ink-faint);margin-top:14px}
+.m-head .note a{color:var(--gold-bright)}
+.m-group-h{display:flex;align-items:center;gap:11px;margin-top:40px;padding-bottom:10px;border-bottom:1px solid var(--hairline)}
+.m-gdot{width:8px;height:8px;border-radius:50%;flex:none;box-shadow:0 0 9px currentColor}
+.m-gdot.b{background:var(--gold-bright);color:var(--gold-bright)}
+.m-gdot.i{background:var(--gold);color:var(--gold)}
+.m-gdot.a{background:var(--copper);color:var(--copper)}
+.m-group-h h2{font-family:var(--font-display);font-weight:400;font-size:20px}
+.m-gc{margin-left:auto;font-family:var(--font-mono);font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-faint)}
+.m-slist{list-style:none}
+.m-surah{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:15px;padding:15px 2px;border-bottom:1px solid var(--hairline-soft);touch-action:manipulation;-webkit-tap-highlight-color:transparent;transition:background .25s var(--ease-out)}
+.m-surah:active{background:rgba(228,209,164,.05)}
+.m-snum{font-family:var(--font-mono);font-size:11px;letter-spacing:.12em;color:var(--gold)}
+.m-smid{min-width:0;display:flex;flex-direction:column;gap:3px}
+.m-sen{font-family:var(--font-display);font-size:16.5px;line-height:1.05;color:var(--ink)}
+.m-sv{font-family:var(--font-mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint)}
+.m-sar{font-family:var(--font-quran);font-size:24px;line-height:1;color:var(--gold-bright);text-shadow:0 0 22px rgba(227,179,92,.28)}
   </style>
 </head>
 <body>
@@ -224,6 +265,37 @@ body{background:var(--bg-0);color:var(--ink);font-family:var(--font-body);font-s
   <div id="strip" aria-label="Jump to surah"></div>
 </div>
 
+<section class="m-surahs" aria-label="All surah breakdowns by level">
+  <div class="m-head" data-reveal>
+    <h1>Thirty-eight surahs, <em>one word at a time</em>.</h1>
+    <p class="dek">Al-Fatiha and all of Juz ʿAmma — the case endings, the roots, and why each word takes the shape it does.</p>
+    <p class="note">Best begun after <a href="/learn/">Level 3</a>.</p>
+  </div>
+  {surahGroups.map(g => (
+    <div class="m-group">
+      <div class="m-group-h" data-reveal>
+        <span class={`m-gdot ${g.dot}`} aria-hidden="true"></span>
+        <h2>{g.label}</h2>
+        <span class="m-gc">{g.count} surahs</span>
+      </div>
+      <ol class="m-slist">
+        {g.items.map(s => (
+          <li>
+            <a class="m-surah" href={s.href}>
+              <span class="m-snum">{String(s.num).padStart(3, '0')}</span>
+              <span class="m-smid">
+                <span class="m-sen">{s.name}</span>
+                <span class="m-sv">{s.v} verses</span>
+              </span>
+              <span class="m-sar" lang="ar" dir="rtl" translate="no">{s.ar}</span>
+            </a>
+          </li>
+        ))}
+      </ol>
+    </div>
+  ))}
+</section>
+
 {/* shares .surah-index so it inherits the same sr-only clipping; revealed together with the nav in the noscript view */}
 <p class="surah-index surah-index-note">I recommend finishing <a href="/learn/">Level 3</a> before starting the surahs.</p>
 <nav class="surah-index" aria-label="All surah breakdowns">
@@ -269,6 +341,9 @@ var NS='http://www.w3.org/2000/svg';
 var veil=document.getElementById('veil');
 addEventListener('load',function(){setTimeout(function(){veil.classList.add('gone');},RM?0:380);});
 setTimeout(function(){veil.classList.add('gone');},2600);
+/* nav gains a blurred backdrop once the surah list scrolls beneath it (mobile) */
+var navEl=document.querySelector('.nav');
+addEventListener('scroll',function(){if(navEl)navEl.classList.toggle('scrolled',scrollY>16);},{passive:true});
 var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target);}});},{threshold:.1});
 document.querySelectorAll('[data-reveal]').forEach(function(el,i){el.style.transitionDelay=(i%5*90)+'ms';io.observe(el);});
 
@@ -284,6 +359,11 @@ document.querySelectorAll('[data-reveal]').forEach(function(el,i){el.style.trans
     cx.globalAlpha=1;})(0);
   document.addEventListener('visibilitychange',function(){run=!document.hidden;});
 })();
+
+/* On phones the astrolabe is hidden (CSS) in favour of the tappable list —
+   skip building its 38 markers + geometry entirely. The starfield above and
+   the [data-reveal] observer already ran, so the mobile view is fully wired. */
+if(matchMedia('(max-width:700px)').matches)return;
 
 /* ---------- build svg ---------- */
 var svg=document.getElementById('asvg');
