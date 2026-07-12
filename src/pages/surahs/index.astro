@@ -1,5 +1,6 @@
 ---
 import '../../styles/night.css';
+import NightTabBar from '../../components/NightTabBar.astro';
 import { getCollection } from 'astro:content';
 import { SURAH_OPENINGS } from '../../data/surah-openings';
 
@@ -321,6 +322,8 @@ body{background:var(--bg-0);color:var(--ink);font-family:var(--font-body);font-s
 </footer>
 
 </main>
+
+<NightTabBar active="surahs" />
 
 <script type="application/json" id="surah-astro-data" is:inline set:html={JSON.stringify({ SURAHS, maxVerses }).replace(/<\//g, '<\\/')}></script>
 
