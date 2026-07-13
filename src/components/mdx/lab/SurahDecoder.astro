@@ -11,20 +11,20 @@ const LENSES = [
   { f: 'verb', label: 'Verbs', k: 'فعل' },
 ] as const;
 const present = new Set(verses.flatMap((v) => v.words.flatMap((w) => w.lens)));
-const chips = LENSES.filter((l) => present.has(l.f as any));
+const chips = LENSES.filter((l) => present.has(l.f));
 let gi = -1;
 ---
 {verses.length > 0 && (
-  <section class="decoder" data-surah-decoder data-total={total} aria-label="I'rab decoder">
+  <section class="decoder" data-surah-decoder aria-label="I'rab decoder">
     <div class="d-top">
       <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
       I'rab Decoder · تحليل الإعراب
       <span class="d-count">Decoded <b><span data-dec-count>0</span>/{total}</b></span>
     </div>
     <div class="lens">
-      <button class="chip on" data-f="all" type="button">All words</button>
+      <button class="chip on" data-f="all" type="button" aria-pressed="true">All words</button>
       {chips.map((l) => (
-        <button class="chip" data-f={l.f} type="button">{l.label} <span class="k">{l.k}</span></button>
+        <button class="chip" data-f={l.f} type="button" aria-pressed="false">{l.label} <span class="k">{l.k}</span></button>
       ))}
     </div>
     <p class="recite" dir="rtl">
@@ -36,13 +36,13 @@ let gi = -1;
               data-root={w.root} data-morph={w.morph} data-irab={w.irab}
               data-en={w.en} data-cs={w.cs} data-lens={w.lens.join(' ')}
               aria-pressed="false"
-            >{w.ar}</button>{' '}</>
+            ><bdi>{w.ar}</bdi></button>{' '}</>
           ); })}
           <span class="ayah-no" aria-hidden="true">{v.ayah}</span>{' '}
         </span>
       ))}
     </p>
-    <div data-dec-panel>
+    <div data-dec-panel aria-live="polite">
       <div class="d-empty">▸ Tap a word above to open its breakdown</div>
     </div>
   </section>
@@ -56,6 +56,7 @@ let gi = -1;
   function initDecoder() {
     const root = document.querySelector<HTMLElement>('.lab [data-surah-decoder]');
     if (!root) return;
+    if (root.dataset.decInit) return; root.dataset.decInit = '1';
     const recite = root.querySelector<HTMLElement>('.recite')!;
     const panel = root.querySelector<HTMLElement>('[data-dec-panel]')!;
     const countEl = root.querySelector<HTMLElement>('[data-dec-count]')!;
@@ -79,8 +80,9 @@ let gi = -1;
       c = cell('Meaning'); c.vv.textContent = el.dataset.en ?? ''; g.appendChild(c.d);
       c = cell('Morphology · ṣarf', true); c.vv.textContent = el.dataset.morph ?? ''; g.appendChild(c.d);
       c = cell('Iʿrāb · case'); const cs = el.dataset.cs ?? 'none';
-      if (cs !== 'none') { const tag = document.createElement('span'); tag.className = 'tag ' + cs; tag.textContent = CASE_NAME[cs]; c.vv.append(tag, document.createElement('br')); }
-      c.vv.appendChild(document.createTextNode(el.dataset.irab ?? '')); g.appendChild(c.d);
+      if (cs !== 'none' && CASE_NAME[cs]) { const tag = document.createElement('span'); tag.className = 'tag ' + cs; tag.textContent = CASE_NAME[cs]; c.vv.appendChild(tag); }
+      else { c.vv.appendChild(document.createTextNode('—')); }
+      g.appendChild(c.d);
       c = cell('Function · naḥw'); c.vv.textContent = el.dataset.irab ?? ''; g.appendChild(c.d);
       panel.replaceChildren(g);
     }
@@ -90,17 +92,18 @@ let gi = -1;
       if (!decoded.has(id)) { decoded.add(id); countEl.textContent = String(decoded.size); document.dispatchEvent(new CustomEvent('lab:word-touched')); }
     }
     recite.addEventListener('click', (e) => { const b = (e.target as HTMLElement).closest<HTMLButtonElement>('.w'); if (b) decode(b); });
+    recite.addEventListener('focusin', (e) => { const b = (e.target as HTMLElement).closest<HTMLButtonElement>('.w'); if (b) selectWord(b); });
     root.querySelector('.lens')!.addEventListener('click', (e) => {
       const chip = (e.target as HTMLElement).closest<HTMLElement>('.chip'); if (!chip) return;
-      root.querySelectorAll('.lens .chip').forEach((x) => x.classList.remove('on'));
-      chip.classList.add('on'); filter = chip.dataset.f!;
+      root.querySelectorAll('.lens .chip').forEach((x) => { x.classList.remove('on'); x.setAttribute('aria-pressed', 'false'); });
+      chip.classList.add('on'); chip.setAttribute('aria-pressed', 'true'); filter = chip.dataset.f!;
       words.forEach((w) => {
         const m = filter === 'all' || (w.dataset.lens ?? '').split(' ').includes(filter);
         w.classList.toggle('dim', filter !== 'all' && !m);
         w.classList.toggle('match', filter !== 'all' && m);
       });
     });
-    const firstSub = words.find((w) => (w.dataset.root ?? '—') !== '—') ?? words[0];
+    const firstSub = words.find((w) => { const r = w.dataset.root; return r && r !== '-' && r !== '—'; }) ?? words[0];
     if (firstSub) selectWord(firstSub);
   }
   initDecoder();
