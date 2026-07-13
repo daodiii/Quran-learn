@@ -2,6 +2,7 @@
 import BaseLayout from './BaseLayout.astro';
 import BreadcrumbSchema from '../components/seo/BreadcrumbSchema.astro';
 import ArticleSchema from '../components/seo/ArticleSchema.astro';
+import Breadcrumbs from '../components/navigation/Breadcrumbs.astro';
 import SurahDecoder from '../components/mdx/lab/SurahDecoder.astro';
 import { getCollection } from 'astro:content';
 import '../styles/night.css';
@@ -63,13 +64,7 @@ const fontsHref = "https://fonts.googleapis.com/css2?family=Amiri+Quran&family=A
   <div class="lesson-page">
     <div class="lesson-grid lab">
       <main class="lesson-main">
-        <nav class="breadcrumbs" aria-label="Breadcrumb">
-          <ol>
-            <li><a class="breadcrumb-link" href="/">Home</a></li>
-            <li><span class="separator">/</span><a class="breadcrumb-link" href="/surahs/">Surahs</a></li>
-            <li><span class="separator">/</span><span class="breadcrumb-current">Surah {name}</span></li>
-          </ol>
-        </nav>
+        <Breadcrumbs items={breadcrumbItems} />
 
         <div class="lab-body">
           <aside class="rail" data-lesson-toc aria-label="Surah stations">

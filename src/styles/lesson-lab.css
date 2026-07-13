@@ -1,10 +1,11 @@
 /* ============================================================
    THE ANATOMY LAB — lesson page skin (v4 redesign, Phase A)
    Ported from .planning/redesign-v4-lessons/lesson-3-lab.html
-   + lesson-5-lab-past.html. Loaded only by LessonLayout, so it
-   never reaches non-lesson pages; selectors are additionally
-   scoped under `.lab` (the class LessonLayout adds to
-   `.lesson-grid`) to keep the cascade legible and defensive.
+   + lesson-5-lab-past.html. Loaded by the always-night Lab layouts
+   (LessonLayout + SurahLayout), so it reaches only those pages;
+   selectors are additionally scoped under `.lab` (the class both
+   layouts add to `.lesson-grid`) to keep the cascade legible and
+   defensive.
    Written against night.css tokens (--bg-0, --ink, --gold, …);
    lab-only additions are declared on `.lab` itself below.
    ============================================================ */
@@ -51,9 +52,11 @@
      from the body rule below instead. */
 }
 
-/* This stylesheet is only imported by LessonLayout, so this body rule can
-   never leak to other pages. !important outranks the Tailwind mesh-bg
-   utility classes BaseLayout puts on <body>. */
+/* This stylesheet is imported only by the always-night Lab layouts
+   (LessonLayout + SurahLayout), so this body rule reaches only those
+   pages — and the always-night background is intended on both.
+   !important outranks the Tailwind mesh-bg utility classes BaseLayout
+   puts on <body>. */
 body {
   background: #05070e !important;
 }
