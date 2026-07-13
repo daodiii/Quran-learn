@@ -92,6 +92,30 @@ const faqItems = [
 
       <section class="hub-section">
         <h2>The three cases at a glance</h2>
+        <p class="plain-lede">
+          New to these words? Start with the everyday version. In English, the order of the words shows
+          each word's job — "the dog bites the man" means something different from "the man bites the dog."
+          Arabic marks the job on the <em>end of the word</em> instead, and there are three main endings,
+          one for each job:
+        </p>
+        <ul class="plain-cases">
+          <li class="plain-case">
+            <span class="pc-name"><strong>Nominative</strong> · Marfuʻ <span class="ar-inline" lang="ar" dir="rtl">مَرْفُوع</span></span>
+            <span class="pc-plain">The <strong>doer</strong> — the person or thing the sentence is about.</span>
+            <span class="pc-eg">“<b>The student</b> reads.” → <i>the student</i></span>
+          </li>
+          <li class="plain-case">
+            <span class="pc-name"><strong>Accusative</strong> · Mansub <span class="ar-inline" lang="ar" dir="rtl">مَنْصُوب</span></span>
+            <span class="pc-plain">The <strong>receiver</strong> — the thing the action is done to.</span>
+            <span class="pc-eg">“The student reads <b>the book</b>.” → <i>the book</i></span>
+          </li>
+          <li class="plain-case">
+            <span class="pc-name"><strong>Genitive</strong> · Majrur <span class="ar-inline" lang="ar" dir="rtl">مَجْرُور</span></span>
+            <span class="pc-plain">The <strong>“of”</strong> word — shows possession, or follows a small linking word like <em>in, from, to, with</em>.</span>
+            <span class="pc-eg">“the cover <b>of the book</b>”, “<b>in</b> the house”</span>
+          </li>
+        </ul>
+        <p class="plain-after">Here are those same three cases with their exact markers and what sets each one off:</p>
         <div class="table-wrap">
           <table class="cases-table">
             <thead>
@@ -107,21 +131,21 @@ const faqItems = [
               <tr>
                 <td><strong>Marfuʻ</strong><br/><span class="ar-inline" lang="ar" dir="rtl">مَرْفُوع</span></td>
                 <td><span lang="ar" dir="rtl">ـُ</span> (ḍamma /u/)</td>
-                <td>Subject of nominal or verbal sentence; predicate of nominal sentence</td>
+                <td>The <strong>subject</strong> — who or what the sentence is about — and the word that describes it.</td>
                 <td>اللَّهُ — "Allah" (subject)</td>
                 <td><a href="/learn/level-2/04-nominative-case/">L2.04</a></td>
               </tr>
               <tr>
                 <td><strong>Mansub</strong><br/><span class="ar-inline" lang="ar" dir="rtl">مَنْصُوب</span></td>
                 <td><span lang="ar" dir="rtl">ـَ</span> (fatḥa /a/)</td>
-                <td>Direct object; predicate of inna; circumstantial; absolute object</td>
+                <td>The <strong>object</strong> — what the action is done to (also the predicate after <em>inna</em>).</td>
                 <td>الْكَوْثَرَ — "Al-Kawthar" (direct object)</td>
                 <td><a href="/learn/level-2/05-accusative-case/">L2.05</a></td>
               </tr>
               <tr>
                 <td><strong>Majrur</strong><br/><span class="ar-inline" lang="ar" dir="rtl">مَجْرُور</span></td>
                 <td><span lang="ar" dir="rtl">ـِ</span> (kasra /i/)</td>
-                <td>After preposition; second slot of idafa</td>
+                <td>After a <strong>preposition</strong> (in, from, to, with…), or the “owned” word in a possession phrase (idafa).</td>
                 <td>بِسْمِ — "in the name of" (after the preposition بِ)</td>
                 <td><a href="/learn/level-2/06-genitive-case/">L2.06</a></td>
               </tr>
@@ -429,5 +453,63 @@ const faqItems = [
 
   .hub-cta-line {
     font-style: italic;
+  }
+
+  /* Plain-English intro to the three cases — the everyday version before the
+     precise table, for readers meeting "nominative/genitive" for the first time. */
+  .plain-lede {
+    color: var(--text-secondary);
+  }
+
+  .plain-cases {
+    list-style: none;
+    padding: 0;
+    margin: 1.25rem 0 0.5rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.875rem;
+  }
+
+  @media (max-width: 640px) {
+    .plain-cases {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .plain-case {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    padding: 1rem 1.1rem;
+    border: 1px solid var(--border-primary);
+    border-radius: var(--radius-lg, 12px);
+    background: var(--bg-secondary);
+  }
+
+  .pc-name {
+    font-family: var(--font-display);
+    font-weight: 600;
+    color: var(--text-primary);
+    font-size: 0.95rem;
+  }
+
+  .pc-name .ar-inline {
+    margin-inline-start: 0.35rem;
+  }
+
+  .pc-plain {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    font-size: 0.9rem;
+  }
+
+  .pc-eg {
+    color: var(--text-tertiary);
+    font-size: 0.85rem;
+  }
+
+  .plain-after {
+    font-weight: 500;
+    color: var(--text-secondary);
   }
 </style>
