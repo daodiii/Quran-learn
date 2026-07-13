@@ -1,0 +1,41 @@
+/* Surah I'rab Decoder — loaded by SurahLayout, scoped under .lab. */
+.lab .decoder { border:1px solid rgba(227,179,92,.32); border-radius:16px; background:linear-gradient(170deg,var(--bg-panel),var(--bg-1)); margin:26px 0 32px; overflow:hidden; box-shadow:0 24px 70px -30px rgba(0,0,0,.8); }
+.lab .decoder .d-top { display:flex; align-items:center; gap:10px; padding:13px 20px; border-bottom:1px solid var(--hairline-soft); font-family:var(--font-mono); font-size:9.5px; letter-spacing:.26em; text-transform:uppercase; color:var(--gold); }
+.lab .decoder .d-top .dots { display:flex; gap:5px; margin-right:4px; }
+.lab .decoder .d-top .dots i { width:7px; height:7px; border-radius:50%; border:1px solid var(--hairline); }
+.lab .decoder .d-top .dots i:first-child { background:rgba(227,179,92,.6); border-color:transparent; }
+.lab .decoder .d-top .d-count { margin-left:auto; color:var(--ink-faint); letter-spacing:.16em; }
+.lab .decoder .d-top .d-count b { color:var(--gold-bright); font-weight:500; }
+.lab .lens { display:flex; gap:8px; flex-wrap:wrap; padding:14px 18px 6px; }
+.lab .lens .chip { font-family:var(--font-mono); font-size:9.5px; letter-spacing:.14em; text-transform:uppercase; border:1px solid var(--hairline); border-radius:999px; padding:7px 14px; color:var(--ink-dim); background:none; cursor:pointer; transition:.25s; }
+.lab .lens .chip:hover { color:var(--gold-bright); border-color:rgba(227,179,92,.5); }
+.lab .lens .chip.on { background:var(--gold-bright); color:#221503; border-color:var(--gold-bright); }
+.lab .lens .chip .k { opacity:.6; margin-left:6px; font-family:var(--font-ar); }
+.lab .recite { font-family:var(--font-quran); direction:rtl; text-align:center; padding:clamp(22px,3.4vw,38px) clamp(16px,3vw,32px) 12px; line-height:2.35; }
+.lab .recite .ayah { display:inline; }
+/* Words are <button>s — reset UA chrome or they render a gray button-face fill. */
+.lab .recite .w { display:inline-block; padding:.02em .12em; border-radius:8px; cursor:pointer; color:var(--ink); font:inherit; font-size:clamp(26px,3.7vw,38px); background:none; border:none; -webkit-appearance:none; appearance:none; transition:color .3s,text-shadow .3s,box-shadow .3s,opacity .3s; }
+.lab .recite .w:hover { text-shadow:0 0 26px rgba(244,214,143,.6); }
+.lab .recite .w.done { color:var(--ink); border-bottom:2px solid rgba(227,179,92,.5); }
+.lab .recite .w.sel { color:var(--ink); box-shadow:inset 0 0 0 1px var(--gold); text-shadow:0 0 26px rgba(244,214,143,.6); }
+.lab .recite .w.dim { opacity:.28; }
+.lab .recite .w.match { color:var(--ink); text-shadow:0 0 24px rgba(244,214,143,.6); }
+.lab .recite .ayah-no { font-family:var(--font-mono); direction:ltr; font-size:12px; color:var(--gold); border:1px solid var(--hairline); border-radius:50%; width:26px; height:26px; display:inline-grid; place-items:center; vertical-align:middle; margin:0 .3em; }
+.lab .d-readout { display:grid; grid-template-columns:1.1fr 1fr 1fr; gap:1px; background:var(--hairline-soft); border-top:1px solid var(--hairline-soft); font-family:var(--font-mono); }
+.lab .d-readout > div { background:var(--bg-1); padding:14px 16px; min-height:74px; }
+.lab .d-readout .r-k { font-size:8.5px; letter-spacing:.26em; text-transform:uppercase; color:var(--ink-faint); display:block; margin-bottom:5px; }
+.lab .d-readout .r-v { font-size:12.5px; color:var(--ink); letter-spacing:.03em; line-height:1.6; overflow-wrap:break-word; }
+.lab .d-readout .r-v .big { font-family:var(--font-ar); font-size:1.6rem; color:var(--gold-bright); direction:rtl; display:inline-block; }
+.lab .d-readout .r-v .root { font-family:var(--font-ar); font-size:1.2rem; color:var(--ink); letter-spacing:.2em; direction:rtl; }
+.lab .d-readout .wide { grid-column:1/-1; border-top:1px solid var(--hairline-soft); }
+.lab .d-readout .r-v .tag { display:inline-block; font-size:8.5px; letter-spacing:.14em; text-transform:uppercase; padding:2px 8px; border-radius:5px; border:1px solid; margin-bottom:5px; }
+.lab .tag.gen { color:var(--gold-bright); border-color:rgba(227,179,92,.5); }
+.lab .tag.acc { color:var(--copper-bright); border-color:rgba(201,138,75,.5); }
+.lab .tag.nom, .lab .tag.verb { color:var(--teal); border-color:rgba(143,208,194,.5); }
+.lab .tag.mabni { color:var(--silver); border-color:rgba(205,216,236,.4); }
+@media (max-width:640px) { .lab .d-readout { grid-template-columns:1fr; } }
+.lab .d-empty { padding:22px 16px; text-align:center; font-family:var(--font-mono); font-size:11px; letter-spacing:.1em; color:var(--ink-faint); border-top:1px solid var(--hairline-soft); }
+/* no-JS / reduced-motion degrade */
+html:not(.js) .lab .lens, html:not(.js) .lab .d-readout, html:not(.js) .lab .d-empty { display:none; }
+html:not(.js) .lab .recite .w { cursor:text; }
+@media (prefers-reduced-motion:reduce) { .lab .recite .w { transition:none; } }
