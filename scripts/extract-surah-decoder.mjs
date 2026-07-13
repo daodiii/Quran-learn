@@ -10,31 +10,37 @@ const SURAH_DIR = 'src/content/surahs';
 const OUT = 'src/data/surah-decoder.ts';
 
 function classify(morph, irab) {
-  const s = `${morph} ${irab}`.toLowerCase();
   const m = morph.toLowerCase();
-  const has = (...xs) => xs.some((x) => s.includes(x));
-  // Determine part-of-speech from the MORPHOLOGY column only. The i'rab column
-  // describes syntactic ROLE and routinely names a governing particle/verb for a
-  // declinable noun (e.g. a genitive noun's i'rab reads "object of preposition",
-  // an accusative noun's reads "subject of inna"). Reading POS from i'rab would
-  // mislabel those nouns as particles/verbs — the morph column is authoritative.
-  const hasM = (...xs) => xs.some((x) => m.includes(x));
-  const isParticle = hasM('particle', 'harf', 'ḥarf', 'preposition');
-  const isVerb = hasM('verb', 'fiʿl', "fi'l", 'fi‘l');
+  const full = `${morph} ${irab}`.toLowerCase();
+
+  // Part of speech from the morphology column, word-boundary safe
+  // (\bverb\b does NOT match "adverb"; \bnoun\b does NOT match "pronoun").
+  const isVerb = /\bverb\b/.test(m) || /fi[ʿ‘']l/.test(m);
+  const isParticle = /\bparticle\b/.test(m) || /\bpreposition\b/.test(m);
+  const hasNoun = /\bnoun\b/.test(m) || /\bpronoun\b/.test(m);
+  // A PURE particle has no declinable noun component (rules out "Preposition + noun").
+  const isPureParticle = isParticle && !hasNoun && !isVerb;
+
+  // The word's OWN case lives in the part of the i'rab before any "+ …" or
+  // attached/suffix-pronoun clause (suffix pronouns are always genitive and would
+  // otherwise override the head word).
+  const ownIrab = irab.toLowerCase().split(/\s*\+\s*|,\s*(?=[^,]*pronoun)/)[0];
+  const caseOf = (s) =>
+    /genitive|majr/.test(s) ? 'gen' :
+    /accusative|man[sṣ]/.test(s) ? 'acc' :
+    /nominative|marf/.test(s) ? 'nom' : null;
+
   const lens = [];
-  if (isParticle) lens.push('particle');
-  if (isVerb) lens.push('verb');
-  // Particles are indeclinable (mabnī); their i'rab often names the case they
-  // GOVERN on a following noun — do NOT read that as the particle's own case.
-  // So resolve case ONLY for non-particle, non-verb (declinable) words.
-  let cs = 'none';
-  if (isParticle) cs = 'mabni';
-  else if (isVerb) cs = 'verb';
-  else if (has('genitive', 'majrur', 'majrūr')) { cs = 'gen'; lens.push('gen'); }
-  else if (has('accusative', 'mansub', 'manṣūb')) { cs = 'acc'; lens.push('acc'); }
-  else if (has('nominative', 'marfu', 'marfūʿ', "marfu'")) { cs = 'nom'; lens.push('nom'); }
-  else if (has('mabni', 'mabnī', 'indeclinable', 'not declinable')) cs = 'mabni';
-  return { cs, lens: [...new Set(lens)] };
+  let cs;
+  if (isVerb) { cs = 'verb'; lens.push('verb'); }          // verb moods (subjunctive/jussive) are NOT noun-cases
+  else if (isPureParticle) { cs = 'mabni'; lens.push('particle'); }
+  else {
+    cs = caseOf(ownIrab) ?? caseOf(full);                   // declinable noun/pronoun/compound: use its stated case
+    if (cs) lens.push(cs);
+    else if (/\bmabn|indeclinable|not declinable/.test(full)) cs = 'mabni';
+    else cs = 'none';
+  }
+  return { cs, lens };
 }
 
 function parseBreakdownRows(block) {
