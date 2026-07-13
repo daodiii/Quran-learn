@@ -6,7 +6,7 @@
 const GA_ID = 'G-1MSBYYQT5Z';
 ---
 
-<div id="cookie-banner" class="cookie-banner" role="dialog" aria-live="polite" aria-label="Cookie notice" hidden>
+<div id="cookie-banner" class="cookie-banner" role="region" aria-live="polite" aria-label="Cookie notice" hidden>
   <div class="cb-icon" aria-hidden="true">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
       <path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5Z" stroke-linejoin="round"/>
@@ -109,11 +109,19 @@ const GA_ID = 'G-1MSBYYQT5Z';
     if (choice === 'declined') { disableGA(); return; }
     if (choice === 'accepted') return;
 
-    // No decision yet — reveal the banner.
-    banner.hidden = false;
-    requestAnimationFrame(function () {
-      requestAnimationFrame(function () { banner.classList.add('cb-in'); });
-    });
+    // No decision yet — reveal the banner, but wait until the page's loading
+    // veil (on the standalone night pages) has cleared so it doesn't pop over
+    // the load animation. Gating on `load` + a short delay works whether or
+    // not a veil is present.
+    function reveal() {
+      banner.hidden = false;
+      // Force a reflow so the display change commits before we flip the
+      // transition class — this animates without depending on rAF firing.
+      void banner.offsetWidth;
+      banner.classList.add('cb-in');
+    }
+    if (document.readyState === 'complete') setTimeout(reveal, 450);
+    else window.addEventListener('load', function () { setTimeout(reveal, 450); }, { once: true });
 
     function decide(value) {
       try { localStorage.setItem(KEY, value); } catch (e) {}
