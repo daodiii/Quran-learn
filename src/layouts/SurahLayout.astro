@@ -2,145 +2,158 @@
 import BaseLayout from './BaseLayout.astro';
 import BreadcrumbSchema from '../components/seo/BreadcrumbSchema.astro';
 import ArticleSchema from '../components/seo/ArticleSchema.astro';
+import SurahDecoder from '../components/mdx/lab/SurahDecoder.astro';
+import { getCollection } from 'astro:content';
+import '../styles/night.css';
+import '../styles/lesson-lab.css';
+import '../styles/surah-decoder.css';
 
 interface Props {
-  name: string;
-  nameArabic: string;
-  surahNumber: number;
-  verseCount: number;
-  difficulty?: 'beginner' | 'intermediate' | 'advanced';
-  revelation?: string;
-  description?: string;
+  name: string; nameArabic: string; surahNumber: number; verseCount: number;
+  difficulty?: 'beginner' | 'intermediate' | 'advanced'; revelation?: string;
+  description?: string; headings?: { depth: number; slug: string; text: string }[];
 }
+const { name, nameArabic, surahNumber, verseCount, difficulty, revelation, description, headings } = Astro.props;
 
-const { name, nameArabic, surahNumber, verseCount, difficulty, revelation, description } = Astro.props;
+const all = (await getCollection('surahs')).sort((a, b) => a.data.surahNumber - b.data.surahNumber);
+const idx = all.findIndex((s) => s.data.surahNumber === surahNumber);
+const prev = idx > 0 ? all[idx - 1] : null;
+const next = idx >= 0 && idx < all.length - 1 ? all[idx + 1] : null;
+const surahId = all[idx]?.id.replace(/\.mdx?$/, '') ?? '';
+const hrefFor = (e: typeof all[number] | null) => e ? `/surahs/${e.id.replace(/\.mdx?$/, '')}/` : null;
+
 const difficultyLabel = difficulty ? `${difficulty.charAt(0).toUpperCase() + difficulty.slice(1)}-level ` : '';
 const surahDescription = description || `${difficultyLabel}word-by-word I'rab and grammatical breakdown of Surah ${name} (${nameArabic}), Surah ${surahNumber} of the Quran. Covers all ${verseCount} verses with Arabic syntax analysis.`;
+const breadcrumbItems = [ { label: 'Home', href: '/' }, { label: 'Surahs', href: '/surahs/' }, { label: `Surah ${name}` } ];
 
-const breadcrumbItems = [
-  { label: 'Home', href: '/' },
-  { label: 'Surahs', href: '/surahs/' },
-  { label: `Surah ${name}` },
+const tocHeadings = (headings ?? []).filter((h) => h.depth === 2);
+const stations = [
+  { target: 'surah-brief', pip: '00', label: 'Briefing' },
+  { target: 'surah-decoder', pip: '01', label: "I'rab Decoder" },
+  ...tocHeadings.map((h, i) => ({ target: h.slug, pip: String(i + 2).padStart(2, '0'), label: h.text })),
 ];
+const fontsHref = "https://fonts.googleapis.com/css2?family=Amiri+Quran&family=Amiri:ital,wght@0,400;0,700;1,400&family=Marcellus&family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&display=swap";
 ---
 
 <BaseLayout title={`Surah ${name}`} description={surahDescription} type="article">
   <Fragment slot="head">
     <BreadcrumbSchema items={breadcrumbItems} />
-    <ArticleSchema
-      title={`Surah ${name} - Grammatical Breakdown`}
-      description={surahDescription}
-      url={Astro.url.pathname}
-    />
+    <ArticleSchema title={`Surah ${name} - Grammatical Breakdown`} description={surahDescription} url={Astro.url.pathname} />
+
+    <!--
+      Surah pages are always the Anatomy Lab (always-night), regardless of
+      the visitor's site-wide theme preference. This never touches
+      localStorage — leaving the rest of the site on the reader's choice —
+      and re-forces on Astro's page-load/after-swap events in case view
+      transitions land here from a themed page mid-transition.
+    -->
+    <script is:inline>
+      (function () {
+        document.documentElement.dataset.theme = 'dark';
+        document.addEventListener('astro:page-load', function () { document.documentElement.dataset.theme = 'dark'; });
+        document.addEventListener('astro:after-swap', function () { document.documentElement.dataset.theme = 'dark'; });
+      })();
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href={fontsHref} media="print" onload="this.media='all'" />
+    <noscript><link rel="stylesheet" href={fontsHref} /></noscript>
   </Fragment>
-  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-    <!-- Breadcrumb -->
-    <nav class="text-sm mb-6" style="color: var(--text-tertiary);">
-      <a href="/" class="surah-nav-link">Home</a>
-      <span class="mx-2">/</span>
-      <a href="/surahs/" class="surah-nav-link">Surahs</a>
-      <span class="mx-2">/</span>
-      <span style="color: var(--text-primary);">Surah {name}</span>
-    </nav>
 
-    <!-- Surah Header -->
-    <div class="mb-10">
-      <div class="inline-flex items-center gap-3 mb-4">
-        <span class="text-sm font-medium px-3 py-1 rounded-full" style="color: var(--text-tertiary); background-color: var(--bg-tertiary);">
-          Surah {surahNumber}
-        </span>
-        {revelation && (
-          <span class="text-sm font-medium px-3 py-1 rounded-full capitalize" style="color: var(--accent-primary); background-color: var(--accent-primary-light);">
-            {revelation}
-          </span>
-        )}
-        <span class="text-sm font-medium px-3 py-1 rounded-full" style="color: var(--text-tertiary); background-color: var(--bg-tertiary);">
-          {verseCount} verses
-        </span>
-      </div>
-      <h1 class="text-3xl font-bold" style="color: var(--text-primary);">Surah {name}</h1>
-      <p class="arabic-lg mt-2" style="color: var(--accent-gold);">{nameArabic}</p>
-      {description && (
-        <p class="mt-4 text-lg" style="color: var(--text-secondary); max-inline-size: 42rem;">{description}</p>
-      )}
-    </div>
+  <div class="lesson-page">
+    <div class="lesson-grid lab">
+      <main class="lesson-main">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+          <ol>
+            <li><a class="breadcrumb-link" href="/">Home</a></li>
+            <li><span class="separator">/</span><a class="breadcrumb-link" href="/surahs/">Surahs</a></li>
+            <li><span class="separator">/</span><span class="breadcrumb-current">Surah {name}</span></li>
+          </ol>
+        </nav>
 
-    <!-- Content -->
-    <div class="prose prose-lg max-w-none surah-content">
-      <slot />
-    </div>
+        <div class="lab-body">
+          <aside class="rail" data-lesson-toc aria-label="Surah stations">
+            <p class="r-head">Surah {surahNumber} · {verseCount} verses<b>Surah {name}</b></p>
+            {stations.map((s, i) => (
+              <a class="station" href={`#${s.target}`} data-station-target={s.target} aria-current={i === 0 ? 'location' : undefined}>
+                <span class="pip">{s.pip}</span>{s.label}
+              </a>
+            ))}
+            <div class="r-stat">
+              Progress <b data-rail-pct>0%</b>
+              <span class="r-bar"><i data-rail-fill></i></span>
+              Words decoded <b data-rail-touch>0</b>
+            </div>
+          </aside>
 
-    <!-- Back to Surahs -->
-    <div class="mt-12 pt-8 text-center" style="border-top: 1px solid var(--border-primary);">
-      <a href="/surahs/" class="inline-flex items-center gap-2 font-medium surah-back-link">
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
-        </svg>
-        Back to All Surahs
-      </a>
+          <article class="lesson-article">
+            <header class="lesson-header" id="surah-brief">
+              <p class="sess">
+                <span class="level-badge">Surah {surahNumber}</span>
+                {revelation && <span class="lesson-position" style="text-transform:capitalize">{revelation}</span>}
+                <span class="lesson-position">{verseCount} verses</span>
+              </p>
+              <h1 class="lesson-title">Surah {name}</h1>
+              <p class="lesson-arabic" lang="ar" dir="rtl">{nameArabic}</p>
+              {description && <p class="lesson-description">{description}</p>}
+            </header>
+
+            <div id="surah-decoder" style="scroll-margin-top:6.5rem">
+              <SurahDecoder surahId={surahId} />
+            </div>
+
+            <div class="lesson-content">
+              <slot />
+            </div>
+
+            <div class="debrief">
+              <div class="complete-section" id="complete-section" data-lesson-slug={`surah/${surahId}`} data-reveal>
+                <button id="complete-btn" class="done-btn">
+                  <svg viewBox="0 0 15 15" aria-hidden="true"><path d="M2 8l4 4 7-9" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  <span id="complete-btn-text">Mark surah studied</span>
+                </button>
+                <p id="complete-status" class="complete-status done-btn done" style="display:none;">
+                  <svg viewBox="0 0 15 15" aria-hidden="true"><path d="M2 8l4 4 7-9" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  Studied — signed off
+                </p>
+              </div>
+            </div>
+
+            <nav class="pager" aria-label="Surah navigation">
+              {prev ? (
+                <a href={hrefFor(prev)} class="page-link prev"><span class="dir">&larr; Previous</span><span class="pt">Surah {prev.data.name}</span></a>
+              ) : <div></div>}
+              {next ? (
+                <a href={hrefFor(next)} class="page-link next"><span class="dir">Next &rarr;</span><span class="pt">Surah {next.data.name}</span></a>
+              ) : <div></div>}
+            </nav>
+          </article>
+        </div>
+      </main>
     </div>
   </div>
 </BaseLayout>
 
-<style>
-  .surah-nav-link {
-    color: var(--text-tertiary);
-    transition: color var(--transition-fast);
+<script>
+  import { markLessonComplete, isLessonComplete } from '../lib/progress';
+  async function initCompleteButton() {
+    const section = document.getElementById('complete-section');
+    const btn = document.getElementById('complete-btn') as HTMLButtonElement;
+    const btnText = document.getElementById('complete-btn-text');
+    const status = document.getElementById('complete-status');
+    if (!section || !btn || !btnText || !status) return;
+    const slug = section.dataset.lessonSlug || '';
+    if (await isLessonComplete(slug)) { btn.style.display = 'none'; status.style.display = 'inline-flex'; return; }
+    btn.addEventListener('click', async () => {
+      btn.disabled = true; btnText.textContent = 'Saving…';
+      if (await markLessonComplete(slug)) { btn.style.display = 'none'; status.style.display = 'inline-flex'; }
+      else { btn.disabled = false; btnText.textContent = 'Mark surah studied'; }
+    });
   }
+  initCompleteButton();
+  document.addEventListener('astro:page-load', initCompleteButton);
+</script>
 
-  .surah-nav-link:hover {
-    color: var(--accent-primary);
-  }
-
-  .surah-back-link {
-    color: var(--accent-primary);
-    transition: color var(--transition-fast);
-  }
-
-  .surah-back-link:hover {
-    color: var(--accent-primary-hover);
-  }
-
-  .surah-content :global(h1),
-  .surah-content :global(h2),
-  .surah-content :global(h3),
-  .surah-content :global(h4),
-  .surah-content :global(h5),
-  .surah-content :global(h6) {
-    color: var(--text-primary);
-    font-weight: bold;
-  }
-
-  .surah-content :global(h2) {
-    font-size: 1.5rem;
-    margin-top: 2.5rem;
-    margin-bottom: 1rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 1px solid var(--border-primary);
-  }
-
-  .surah-content :global(h3) {
-    font-size: 1.25rem;
-    margin-top: 2rem;
-    margin-bottom: 0.75rem;
-  }
-
-  .surah-content :global(p) {
-    color: var(--text-secondary);
-    line-height: 1.75;
-  }
-
-  .surah-content :global(a) {
-    color: var(--accent-primary);
-    text-decoration: none;
-    transition: color var(--transition-fast);
-  }
-
-  .surah-content :global(a:hover) {
-    color: var(--accent-primary-hover);
-  }
-
-  .surah-content :global(strong) {
-    color: var(--text-primary);
-  }
-</style>
+<script>
+  import '../scripts/lab-lesson';
+</script>
