@@ -7,16 +7,15 @@ const surahData = (await getCollection('surahs'))
   .sort((a, b) => a.data.surahNumber - b.data.surahNumber)
   .map(s => [s.data.surahNumber, s.data.name, s.data.nameArabic, s.data.verseCount, `/surahs/${s.id}/`]);
 
-// 2.0 announcement marquee — content-first: each item names a real new feature.
+// 2.0 announcement marquee — content-first: each item names a real improvement.
 const promoItems = [
   { text: 'Welcome to Quranic Grammar 2.0', lead: true },
-  { text: 'Spin the new interactive surah astrolabe — click any surah to dive in' },
-  { text: 'Watch verses light up word by word as you read' },
-  { text: 'A new verb-form generator and instant word lookup' },
-  { text: 'A redesigned midnight interface — calm and distraction-free' },
+  { text: 'New visuals' },
+  { text: 'New functions to make the lessons easier to understand' },
+  { text: 'A more complete curriculum' },
 ];
 const promoSummary =
-  'New in Quranic Grammar 2.0: an interactive surah astrolabe, word-by-word verse highlighting, a verb-form generator, instant word lookup, and a redesigned interface.';
+  'New in Quranic Grammar 2.0: new visuals, new functions that make the lessons easier to understand, and a more complete curriculum.';
 
 const title = 'Quranic Grammar · Understand every word you recite';
 const description =
@@ -157,9 +156,10 @@ img{max-width:100%;display:block}
    NAV
    ============================================================ */
 /* ── 2.0 announcement bar ─────────────────────────────────────────
-   Slim fixed marquee pinned above the nav. Two identical sequences slide
-   left by exactly one sequence-width for a seamless loop; pauses on hover
-   and freezes for reduced-motion, where the lead message stays first. */
+   Slim fixed marquee pinned above the nav. Four identical copies slide
+   left by exactly one copy-width (-25%) for a seamless loop that stays
+   gap-free even when the copy is shorter than the viewport; pauses on
+   hover and freezes for reduced-motion, where the lead message stays first. */
 .promobar{
   position:fixed;top:0;left:0;right:0;z-index:110;
   height:var(--promo-h);overflow:hidden;
@@ -179,7 +179,7 @@ img{max-width:100%;display:block}
 }
 .promo-seq .pi.lead{color:var(--gold-bright);text-transform:uppercase;letter-spacing:.15em}
 .promo-seq .sep{color:var(--gold);opacity:.7;font-size:9px;line-height:1}
-@keyframes promoscroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes promoscroll{from{transform:translateX(0)}to{transform:translateX(-25%)}}
 @media (max-width:600px){.promo-seq .pi{font-size:10.5px;padding:0 16px}}
 @media (prefers-reduced-motion:reduce){.promo-track{animation:none}}
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;border:0}
@@ -658,7 +658,7 @@ footer{background:transparent;position:relative;z-index:1;border-top-color:rgba(
 
 <div class="promobar" role="region" aria-label="What's new">
   <div class="promo-track" aria-hidden="true">
-    {[0, 1].map(() => (
+    {[0, 1, 2, 3].map(() => (
       <span class="promo-seq">
         {promoItems.map((it) => (
           <>
