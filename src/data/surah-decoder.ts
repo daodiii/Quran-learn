@@ -23,10 +23,9 @@ const data: SurahDecoderData = {
           "morph": "Preposition + noun - masculine singular, definite (by idafa)",
           "irab": "Prepositional phrase (jarr wa-majrūr): بِ is preposition (ḥarf jarr), اسْمِ is genitive (majrūr)",
           "en": "In the name of",
-          "cs": "gen",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "gen"
+            "particle"
           ]
         },
         {
@@ -93,10 +92,9 @@ const data: SurahDecoderData = {
           "morph": "Preposition + proper noun",
           "irab": "Prepositional phrase as predicate (khabar): لِ is preposition (ḥarf jarr), اللَّهِ is genitive (majrūr)",
           "en": "To/for Allah",
-          "cs": "gen",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "gen"
+            "particle"
           ]
         },
         {
@@ -274,10 +272,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, imperative, 2nd person masculine singular + attached pronoun 1st person plural",
           "irab": "Imperative verb (fi'l amr) - mabnī; نَا is first direct object (maf'ūl bihi awwal) - accusative (manṣūb)",
           "en": "Guide us",
-          "cs": "acc",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "acc"
+            "verb"
           ]
         },
         {
@@ -344,7 +341,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form IV, past tense, 2nd person masculine singular",
           "irab": "Past tense verb (fi'l māḍī) - mabnī; subject is implied \"You\" (Allah)",
           "en": "You bestowed favor",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -356,10 +353,9 @@ const data: SurahDecoderData = {
           "morph": "Preposition + attached pronoun, 3rd person masculine plural",
           "irab": "Prepositional phrase: عَلَى is preposition, هِمْ is genitive (majrūr)",
           "en": "Upon them",
-          "cs": "gen",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "gen"
+            "particle"
           ]
         },
         {
@@ -393,7 +389,7 @@ const data: SurahDecoderData = {
           "morph": "Preposition + attached pronoun, 3rd person masculine plural",
           "irab": "Prepositional phrase connected to الْمَغْضُوبِ",
           "en": "Upon them",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -440,10 +436,9 @@ const data: SurahDecoderData = {
           "morph": "Particle - 'an + ma (interrogative)",
           "irab": "Preposition + interrogative pronoun - majrur (genitive) location",
           "en": "about what",
-          "cs": "gen",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "gen"
+            "particle"
           ]
         },
         {
@@ -453,10 +448,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form VI, present, 3rd person masculine plural",
           "irab": "Verb - indicative (marfu'), plural subject pronoun attached",
           "en": "they ask one another",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         }
       ]
@@ -475,10 +469,9 @@ const data: SurahDecoderData = {
           "morph": "Particle - preposition",
           "irab": "Preposition governing genitive",
           "en": "about",
-          "cs": "gen",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "gen"
+            "particle"
           ]
         },
         {
@@ -490,7 +483,6 @@ const data: SurahDecoderData = {
           "en": "the news/tidings",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         },
@@ -544,10 +536,9 @@ const data: SurahDecoderData = {
           "morph": "Preposition + pronoun",
           "irab": "Preposition + attached pronoun - genitive",
           "en": "in it/about it",
-          "cs": "gen",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "gen"
+            "particle"
           ]
         },
         {
@@ -590,10 +581,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, future (sa-prefix), 3rd person masculine plural",
           "irab": "Verb - indicative (marfu'), plural subject pronoun",
           "en": "they will know",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         }
       ]
@@ -636,10 +626,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, future, 3rd person masculine plural",
           "irab": "Verb - indicative (marfu'), plural subject pronoun",
           "en": "they will know",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         }
       ]
@@ -1002,8 +991,6 @@ const data: SurahDecoderData = {
           "en": "above you",
           "cs": "acc",
           "lens": [
-            "particle",
-            "verb",
             "acc"
           ]
         },
@@ -1128,10 +1115,9 @@ const data: SurahDecoderData = {
           "morph": "Particle - preposition",
           "irab": "Preposition governing genitive",
           "en": "from",
-          "cs": "gen",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "gen"
+            "particle"
           ]
         },
         {
@@ -1143,7 +1129,6 @@ const data: SurahDecoderData = {
           "en": "the rain clouds/wringing clouds",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         },
@@ -1199,10 +1184,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form IV, present/subjunctive, 1st person plural",
           "irab": "Verb - subjunctive (mansub) after li",
           "en": "We bring forth",
-          "cs": "acc",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "acc"
+            "verb"
           ]
         },
         {
@@ -1212,7 +1196,7 @@ const data: SurahDecoderData = {
           "morph": "Preposition + pronoun",
           "irab": "Preposition + attached pronoun referring to maa'",
           "en": "with it / by means of it",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -1314,10 +1298,9 @@ const data: SurahDecoderData = {
           "morph": "Particle - emphasis",
           "irab": "Not declinable - governs accusative",
           "en": "indeed / verily",
-          "cs": "acc",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "acc"
+            "particle"
           ]
         },
         {
@@ -1386,8 +1369,6 @@ const data: SurahDecoderData = {
           "en": "the Day",
           "cs": "acc",
           "lens": [
-            "particle",
-            "verb",
             "acc"
           ]
         },
@@ -1398,10 +1379,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, present passive, 3rd person masculine singular",
           "irab": "Verb - passive indicative (marfu'), impersonal",
           "en": "it is blown",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         },
         {
@@ -1411,10 +1391,9 @@ const data: SurahDecoderData = {
           "morph": "Particle - preposition",
           "irab": "Preposition governing genitive",
           "en": "in",
-          "cs": "gen",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "gen"
+            "particle"
           ]
         },
         {
@@ -1426,7 +1405,6 @@ const data: SurahDecoderData = {
           "en": "the Horn/Trumpet",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         },
@@ -1449,10 +1427,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, present, 2nd person masculine plural",
           "irab": "Verb - indicative (marfu'), plural subject pronoun",
           "en": "you come",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         },
         {
@@ -1509,7 +1486,6 @@ const data: SurahDecoderData = {
           "en": "the heaven/sky",
           "cs": "nom",
           "lens": [
-            "verb",
             "nom"
           ]
         },
@@ -1591,7 +1567,6 @@ const data: SurahDecoderData = {
           "en": "the mountains",
           "cs": "nom",
           "lens": [
-            "verb",
             "nom"
           ]
         },
@@ -1647,10 +1622,9 @@ const data: SurahDecoderData = {
           "morph": "Particle - emphasis",
           "irab": "Not declinable - governs accusative",
           "en": "indeed / verily",
-          "cs": "acc",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "acc"
+            "particle"
           ]
         },
         {
@@ -1705,10 +1679,9 @@ const data: SurahDecoderData = {
           "morph": "Particle - preposition",
           "irab": "Preposition governing genitive",
           "en": "for",
-          "cs": "gen",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "gen"
+            "particle"
           ]
         },
         {
@@ -1720,7 +1693,6 @@ const data: SurahDecoderData = {
           "en": "the transgressors/tyrants",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         },
@@ -1764,7 +1736,7 @@ const data: SurahDecoderData = {
           "morph": "Preposition + pronoun",
           "irab": "Preposition + attached feminine pronoun (referring to jahannam)",
           "en": "in it",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -1778,8 +1750,6 @@ const data: SurahDecoderData = {
           "en": "ages/long periods",
           "cs": "acc",
           "lens": [
-            "particle",
-            "verb",
             "acc"
           ]
         }
@@ -1811,10 +1781,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, present, 3rd person masculine plural",
           "irab": "Verb - indicative (marfu'), negated by laa",
           "en": "they taste",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         },
         {
@@ -1824,7 +1793,7 @@ const data: SurahDecoderData = {
           "morph": "Preposition + pronoun",
           "irab": "Preposition + attached feminine pronoun",
           "en": "in it",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -1848,7 +1817,7 @@ const data: SurahDecoderData = {
           "morph": "Conjunction + particle",
           "irab": "Coordinating conjunction + negation",
           "en": "and not / nor",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -1971,10 +1940,9 @@ const data: SurahDecoderData = {
           "morph": "Particle + pronoun",
           "irab": "Inna + attached 3rd person plural pronoun (accusative)",
           "en": "indeed they",
-          "cs": "acc",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "acc"
+            "particle"
           ]
         },
         {
@@ -2008,10 +1976,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, present, 3rd person masculine plural",
           "irab": "Verb - indicative (marfu'), negated, predicate of kana",
           "en": "they expect/hope for",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         },
         {
@@ -2066,10 +2033,9 @@ const data: SurahDecoderData = {
           "morph": "Particle - preposition",
           "irab": "Preposition governing genitive",
           "en": "with / in",
-          "cs": "gen",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "gen"
+            "particle"
           ]
         },
         {
@@ -2081,7 +2047,6 @@ const data: SurahDecoderData = {
           "en": "Our signs/verses",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         },
@@ -2127,7 +2092,6 @@ const data: SurahDecoderData = {
           "en": "all / every",
           "cs": "acc",
           "lens": [
-            "verb",
             "acc"
           ]
         },
@@ -2221,8 +2185,7 @@ const data: SurahDecoderData = {
           "en": "never / will not",
           "cs": "mabni",
           "lens": [
-            "particle",
-            "verb"
+            "particle"
           ]
         },
         {
@@ -2232,10 +2195,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, present, 1st person plural + 2nd person plural object pronoun",
           "irab": "Verb - subjunctive (mansub) after lan, with object -kum",
           "en": "We increase you",
-          "cs": "acc",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "acc"
+            "verb"
           ]
         },
         {
@@ -2278,10 +2240,9 @@ const data: SurahDecoderData = {
           "morph": "Particle - emphasis",
           "irab": "Not declinable - governs accusative",
           "en": "indeed / verily",
-          "cs": "acc",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "acc"
+            "particle"
           ]
         },
         {
@@ -2291,10 +2252,9 @@ const data: SurahDecoderData = {
           "morph": "Particle - preposition",
           "irab": "Preposition governing genitive",
           "en": "for",
-          "cs": "gen",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "gen"
+            "particle"
           ]
         },
         {
@@ -2306,7 +2266,6 @@ const data: SurahDecoderData = {
           "en": "the righteous/God-fearing",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         },
@@ -2485,10 +2444,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, present, 3rd person masculine plural",
           "irab": "Verb - indicative (marfu'), negated",
           "en": "they hear",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         },
         {
@@ -2498,7 +2456,7 @@ const data: SurahDecoderData = {
           "morph": "Preposition + pronoun",
           "irab": "Preposition + attached feminine pronoun (referring to paradise)",
           "en": "in it",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -2522,7 +2480,7 @@ const data: SurahDecoderData = {
           "morph": "Conjunction + particle",
           "irab": "Coordinating conjunction + negation",
           "en": "and not / nor",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -2567,10 +2525,9 @@ const data: SurahDecoderData = {
           "morph": "Particle - preposition",
           "irab": "Preposition governing genitive",
           "en": "from",
-          "cs": "gen",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "gen"
+            "particle"
           ]
         },
         {
@@ -2582,7 +2539,6 @@ const data: SurahDecoderData = {
           "en": "your Lord",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         },
@@ -2672,11 +2628,8 @@ const data: SurahDecoderData = {
           "morph": "Noun of place - with dual pronoun",
           "irab": "Adverb of place (zharf) + dual pronoun",
           "en": "between them (two)",
-          "cs": "verb",
-          "lens": [
-            "particle",
-            "verb"
-          ]
+          "cs": "none",
+          "lens": []
         },
         {
           "ar": "الرَّحْمَٰنِ",
@@ -2709,10 +2662,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, present, 3rd person masculine plural",
           "irab": "Verb - indicative (marfu'), negated",
           "en": "they possess/own",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         },
         {
@@ -2722,7 +2674,7 @@ const data: SurahDecoderData = {
           "morph": "Preposition + pronoun",
           "irab": "Preposition + attached 3rd person masculine singular pronoun",
           "en": "from Him",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -2757,8 +2709,6 @@ const data: SurahDecoderData = {
           "en": "the Day",
           "cs": "acc",
           "lens": [
-            "particle",
-            "verb",
             "acc"
           ]
         },
@@ -2769,10 +2719,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, present, 3rd person masculine singular",
           "irab": "Verb - indicative (marfu')",
           "en": "he/it stands",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         },
         {
@@ -2830,10 +2779,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form V, present, 3rd person masculine plural",
           "irab": "Verb - indicative (marfu'), negated",
           "en": "they speak",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         },
         {
@@ -2877,7 +2825,7 @@ const data: SurahDecoderData = {
           "morph": "Preposition + pronoun",
           "irab": "Preposition + 3rd person masculine singular pronoun",
           "en": "to him",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -3016,10 +2964,9 @@ const data: SurahDecoderData = {
           "morph": "Particle - preposition",
           "irab": "Preposition governing genitive",
           "en": "to / toward",
-          "cs": "gen",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "gen"
+            "particle"
           ]
         },
         {
@@ -3031,7 +2978,6 @@ const data: SurahDecoderData = {
           "en": "his Lord",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         },
@@ -3063,10 +3009,9 @@ const data: SurahDecoderData = {
           "morph": "Particle + pronoun",
           "irab": "Inna + 1st person plural pronoun (accusative)",
           "en": "indeed We",
-          "cs": "acc",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "acc"
+            "particle"
           ]
         },
         {
@@ -3114,8 +3059,6 @@ const data: SurahDecoderData = {
           "en": "the Day",
           "cs": "acc",
           "lens": [
-            "particle",
-            "verb",
             "acc"
           ]
         },
@@ -3126,10 +3069,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, present, 3rd person masculine singular",
           "irab": "Verb - indicative (marfu')",
           "en": "he looks at/observes",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         },
         {
@@ -3185,10 +3127,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, present, 3rd person masculine singular",
           "irab": "Verb - indicative (marfu'), coordinated",
           "en": "and he says",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         },
         {
@@ -3222,10 +3163,9 @@ const data: SurahDecoderData = {
           "morph": "Particle + pronoun",
           "irab": "Layta (wish particle) + 1st person singular pronoun (accusative)",
           "en": "would that I / I wish I",
-          "cs": "acc",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "acc"
+            "particle"
           ]
         },
         {
@@ -3270,10 +3210,9 @@ const data: SurahDecoderData = {
           "morph": "Particle + Noun - feminine plural, definite, active participle",
           "irab": "Oath particle wa + Object of oath (muqsam bihi) - genitive (majrur)",
           "en": "By those who extract",
-          "cs": "gen",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "gen"
+            "particle"
           ]
         },
         {
@@ -3283,10 +3222,9 @@ const data: SurahDecoderData = {
           "morph": "Noun - verbal noun (masdar), indefinite, accusative",
           "irab": "Adverbial accusative (maf'ul mutlaq) describing manner",
           "en": "Violently/drowning",
-          "cs": "acc",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "acc"
+            "verb"
           ]
         }
       ]
@@ -3305,10 +3243,9 @@ const data: SurahDecoderData = {
           "morph": "Particle + Noun - feminine plural, definite, active participle",
           "irab": "Oath particle wa + Object of oath (muqsam bihi) - genitive (majrur)",
           "en": "And by those who remove",
-          "cs": "gen",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "gen"
+            "particle"
           ]
         },
         {
@@ -3318,10 +3255,9 @@ const data: SurahDecoderData = {
           "morph": "Noun - verbal noun (masdar), indefinite, accusative",
           "irab": "Adverbial accusative (maf'ul mutlaq) describing manner",
           "en": "With ease/gently",
-          "cs": "acc",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "acc"
+            "verb"
           ]
         }
       ]
@@ -3340,10 +3276,9 @@ const data: SurahDecoderData = {
           "morph": "Particle + Noun - feminine plural, definite, active participle",
           "irab": "Oath particle wa + Object of oath (muqsam bihi) - genitive (majrur)",
           "en": "And by those who glide",
-          "cs": "gen",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "gen"
+            "particle"
           ]
         },
         {
@@ -3353,10 +3288,9 @@ const data: SurahDecoderData = {
           "morph": "Noun - verbal noun (masdar), indefinite, accusative",
           "irab": "Adverbial accusative (maf'ul mutlaq) describing manner",
           "en": "Swiftly/swimming",
-          "cs": "acc",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "acc"
+            "verb"
           ]
         }
       ]
@@ -3375,10 +3309,9 @@ const data: SurahDecoderData = {
           "morph": "Particle + Noun - feminine plural, definite, active participle",
           "irab": "Sequential fa + Object of oath (muqsam bihi) - genitive (majrur)",
           "en": "So those who race",
-          "cs": "gen",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "gen"
+            "particle"
           ]
         },
         {
@@ -3388,10 +3321,9 @@ const data: SurahDecoderData = {
           "morph": "Noun - verbal noun (masdar), indefinite, accusative",
           "irab": "Adverbial accusative (maf'ul mutlaq) describing manner",
           "en": "Racing/outstripping",
-          "cs": "acc",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "acc"
+            "verb"
           ]
         }
       ]
@@ -3410,10 +3342,9 @@ const data: SurahDecoderData = {
           "morph": "Particle + Noun - feminine plural, definite, active participle Form II",
           "irab": "Sequential fa + Object of oath (muqsam bihi) - genitive (majrur)",
           "en": "So those who arrange",
-          "cs": "gen",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "gen"
+            "particle"
           ]
         },
         {
@@ -3446,7 +3377,6 @@ const data: SurahDecoderData = {
           "en": "On the Day",
           "cs": "acc",
           "lens": [
-            "verb",
             "acc"
           ]
         },
@@ -3457,10 +3387,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I present tense, 3rd person feminine singular",
           "irab": "Verb - indicative mood (marfu')",
           "en": "Convulses/shakes",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         },
         {
@@ -3491,10 +3420,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I present tense, 3rd person feminine singular + attached pronoun",
           "irab": "Verb - indicative (marfu') + object pronoun 3rd f.s. accusative",
           "en": "Follows it",
-          "cs": "acc",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "acc"
+            "verb"
           ]
         },
         {
@@ -3537,10 +3465,9 @@ const data: SurahDecoderData = {
           "morph": "Noun - compound temporal adverb, indefinite, genitive",
           "irab": "Adverbial accusative of time (zarf zaman)",
           "en": "That Day",
-          "cs": "gen",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "gen"
+            "verb"
           ]
         },
         {
@@ -3604,10 +3531,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I present tense, 3rd person masculine plural",
           "irab": "Verb - indicative mood (marfu')",
           "en": "They say",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         },
         {
@@ -3617,7 +3543,7 @@ const data: SurahDecoderData = {
           "morph": "Particle + Pronoun - interrogative + emphasizing particle + attached pronoun",
           "irab": "Interrogative particle a- + inna + subject pronoun 1st p. plural",
           "en": "Are we indeed",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -3629,10 +3555,9 @@ const data: SurahDecoderData = {
           "morph": "Particle + Noun - masculine plural, definite by nunation, nominative, passive participle",
           "irab": "Emphatic particle la- + predicate (khabar inna) - nominative (marfu')",
           "en": "Surely returned",
-          "cs": "nom",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "nom"
+            "particle"
           ]
         },
         {
@@ -3642,10 +3567,9 @@ const data: SurahDecoderData = {
           "morph": "Particle - preposition",
           "irab": "Preposition governing genitive",
           "en": "In/to",
-          "cs": "gen",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "gen"
+            "particle"
           ]
         },
         {
@@ -3657,7 +3581,6 @@ const data: SurahDecoderData = {
           "en": "The former state/original condition",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         }
@@ -3677,7 +3600,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - interrogative + conditional",
           "irab": "Interrogative a- + conditional particle idha",
           "en": "Even when",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -3689,10 +3612,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I past tense (incomplete/kana verb), 1st person plural + pronoun",
           "irab": "Subject pronoun 1st p. plural nominative",
           "en": "We were/became",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         },
         {
@@ -3759,7 +3681,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - resultative",
           "irab": "Particle indicating result/consequence",
           "en": "Then/therefore",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -3804,7 +3726,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - sequential fa + restrictive particle",
           "irab": "Sequential particle + restrictive/emphatic particle",
           "en": "But only",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -3861,7 +3783,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - sequential fa + sudden occurrence particle",
           "irab": "Sequential particle + particle of sudden occurrence",
           "en": "Then at once",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -3885,10 +3807,9 @@ const data: SurahDecoderData = {
           "morph": "Preposition + Noun - feminine singular, definite, genitive",
           "irab": "Preposition + predicate (khabar) - genitive (majrur)",
           "en": "Upon the surface [of earth]",
-          "cs": "gen",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "gen"
+            "particle"
           ]
         }
       ]
@@ -3907,7 +3828,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - interrogative",
           "irab": "Interrogative particle",
           "en": "Has",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -3919,10 +3840,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I past tense, 3rd person masculine singular + attached pronoun",
           "irab": "Verb in past tense + object pronoun 2nd m.s. accusative",
           "en": "Reached you",
-          "cs": "acc",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "acc"
+            "verb"
           ]
         },
         {
@@ -3965,7 +3885,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - temporal",
           "irab": "Temporal particle (when)",
           "en": "When",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -3977,10 +3897,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form III past tense, 3rd person masculine singular + attached pronoun",
           "irab": "Verb in past tense + object pronoun 3rd m.s. accusative",
           "en": "Called him",
-          "cs": "acc",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "acc"
+            "verb"
           ]
         },
         {
@@ -4002,10 +3921,9 @@ const data: SurahDecoderData = {
           "morph": "Preposition + Noun - masculine singular, definite, genitive",
           "irab": "Preposition + locative (majrur)",
           "en": "In the valley",
-          "cs": "gen",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "gen"
+            "particle"
           ]
         },
         {
@@ -4058,7 +3976,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - preposition",
           "irab": "Preposition of direction",
           "en": "To",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -4072,7 +3990,6 @@ const data: SurahDecoderData = {
           "en": "Pharaoh",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         },
@@ -4083,10 +4000,9 @@ const data: SurahDecoderData = {
           "morph": "Particle + Pronoun - emphatic particle + attached pronoun",
           "irab": "Emphatic particle inna + pronoun 3rd m.s. (ism inna) accusative",
           "en": "Indeed he",
-          "cs": "acc",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "acc"
+            "particle"
           ]
         },
         {
@@ -4117,7 +4033,7 @@ const data: SurahDecoderData = {
           "morph": "Particle + Verb - sequential fa + Form I imperative, 2nd person masculine singular",
           "irab": "Sequential particle + imperative verb (majzum)",
           "en": "So say",
-          "cs": "verb",
+          "cs": "mabni",
           "lens": [
             "particle",
             "verb"
@@ -4130,7 +4046,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - interrogative",
           "irab": "Interrogative particle",
           "en": "Would/do",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -4142,10 +4058,9 @@ const data: SurahDecoderData = {
           "morph": "Preposition + Pronoun - preposition + attached pronoun",
           "irab": "Preposition + pronoun 2nd m.s. genitive",
           "en": "For you",
-          "cs": "gen",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "gen"
+            "particle"
           ]
         },
         {
@@ -4155,7 +4070,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - preposition",
           "irab": "Preposition",
           "en": "To/toward",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -4167,7 +4082,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - subordinating conjunction (nasb)",
           "irab": "Subordinating particle (harf nasb)",
           "en": "That",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -4179,10 +4094,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form V present tense, 2nd person masculine singular",
           "irab": "Verb in subjunctive mood (mansub) after أَن",
           "en": "You purify yourself",
-          "cs": "acc",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "acc"
+            "verb"
           ]
         }
       ]
@@ -4201,11 +4115,10 @@ const data: SurahDecoderData = {
           "morph": "Particle + Verb - conjunction + Form I present tense, 1st person singular + attached pronoun",
           "irab": "Conjunction + verb in subjunctive (mansub) after implied أَن + object pronoun 2nd m.s. accusative",
           "en": "And let me guide you",
-          "cs": "acc",
+          "cs": "mabni",
           "lens": [
             "particle",
-            "verb",
-            "acc"
+            "verb"
           ]
         },
         {
@@ -4215,7 +4128,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - preposition",
           "irab": "Preposition of direction",
           "en": "To",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -4229,7 +4142,6 @@ const data: SurahDecoderData = {
           "en": "Your Lord",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         },
@@ -4240,11 +4152,10 @@ const data: SurahDecoderData = {
           "morph": "Particle + Verb - resultative fa + Form I present tense, 2nd person masculine singular",
           "irab": "Resultative particle + verb in subjunctive mood (mansub)",
           "en": "So that you may fear",
-          "cs": "acc",
+          "cs": "mabni",
           "lens": [
             "particle",
-            "verb",
-            "acc"
+            "verb"
           ]
         }
       ]
@@ -4263,11 +4174,10 @@ const data: SurahDecoderData = {
           "morph": "Particle + Verb - sequential fa + Form IV past tense, 3rd person masculine singular + attached pronoun",
           "irab": "Sequential particle + verb in past tense + object pronoun 3rd m.s. accusative",
           "en": "Then he showed him",
-          "cs": "acc",
+          "cs": "mabni",
           "lens": [
             "particle",
-            "verb",
-            "acc"
+            "verb"
           ]
         },
         {
@@ -4310,7 +4220,7 @@ const data: SurahDecoderData = {
           "morph": "Particle + Verb - sequential fa + Form II past tense, 3rd person masculine singular",
           "irab": "Sequential particle + verb in past tense",
           "en": "So he denied",
-          "cs": "verb",
+          "cs": "mabni",
           "lens": [
             "particle",
             "verb"
@@ -4323,7 +4233,7 @@ const data: SurahDecoderData = {
           "morph": "Particle + Verb - conjunction + Form I past tense, 3rd person masculine singular",
           "irab": "Conjunction + verb in past tense",
           "en": "And disobeyed",
-          "cs": "verb",
+          "cs": "mabni",
           "lens": [
             "particle",
             "verb"
@@ -4345,7 +4255,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - sequential conjunction",
           "irab": "Sequential particle indicating delay",
           "en": "Then",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -4369,10 +4279,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I present tense, 3rd person masculine singular",
           "irab": "Verb in indicative mood (marfu') as circumstantial clause (hal)",
           "en": "Striving/hastening",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         }
       ]
@@ -4391,7 +4300,7 @@ const data: SurahDecoderData = {
           "morph": "Particle + Verb - sequential fa + Form I past tense, 3rd person masculine singular",
           "irab": "Sequential particle + verb in past tense",
           "en": "So he gathered",
-          "cs": "verb",
+          "cs": "mabni",
           "lens": [
             "particle",
             "verb"
@@ -4404,7 +4313,7 @@ const data: SurahDecoderData = {
           "morph": "Particle + Verb - sequential fa + Form III past tense, 3rd person masculine singular",
           "irab": "Sequential particle + verb in past tense",
           "en": "Then he called out",
-          "cs": "verb",
+          "cs": "mabni",
           "lens": [
             "particle",
             "verb"
@@ -4426,7 +4335,7 @@ const data: SurahDecoderData = {
           "morph": "Particle + Verb - sequential fa + Form I past tense, 3rd person masculine singular",
           "irab": "Sequential particle + verb in past tense",
           "en": "So he said",
-          "cs": "verb",
+          "cs": "mabni",
           "lens": [
             "particle",
             "verb"
@@ -4484,11 +4393,10 @@ const data: SurahDecoderData = {
           "morph": "Particle + Verb - sequential fa + Form I past tense, 3rd person masculine singular + attached pronoun",
           "irab": "Sequential particle + verb in past tense + object pronoun 3rd m.s. accusative",
           "en": "So He seized him",
-          "cs": "acc",
+          "cs": "mabni",
           "lens": [
             "particle",
-            "verb",
-            "acc"
+            "verb"
           ]
         },
         {
@@ -4512,7 +4420,6 @@ const data: SurahDecoderData = {
           "en": "Exemplary punishment",
           "cs": "acc",
           "lens": [
-            "verb",
             "acc"
           ]
         },
@@ -4535,10 +4442,9 @@ const data: SurahDecoderData = {
           "morph": "Particle + Noun - conjunction + feminine singular, definite, genitive",
           "irab": "Conjunction + coordinate noun (ma'tuf) - genitive (majrur)",
           "en": "And the first",
-          "cs": "gen",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "gen"
+            "particle"
           ]
         }
       ]
@@ -4557,10 +4463,9 @@ const data: SurahDecoderData = {
           "morph": "Particle - emphatic/assertive",
           "irab": "Emphatic particle governing accusative",
           "en": "Indeed",
-          "cs": "acc",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "acc"
+            "particle"
           ]
         },
         {
@@ -4570,7 +4475,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - preposition",
           "irab": "Preposition",
           "en": "In",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -4584,7 +4489,6 @@ const data: SurahDecoderData = {
           "en": "That",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         },
@@ -4595,10 +4499,9 @@ const data: SurahDecoderData = {
           "morph": "Particle + Noun - emphatic lam + feminine singular, indefinite, accusative",
           "irab": "Emphatic lam + predicate of inna (khabar muqaddam) - accusative (mansub)",
           "en": "Surely a lesson",
-          "cs": "acc",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "acc"
+            "particle"
           ]
         },
         {
@@ -4608,7 +4511,7 @@ const data: SurahDecoderData = {
           "morph": "Preposition + Relative pronoun",
           "irab": "Preposition + relative pronoun",
           "en": "For whoever",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -4620,10 +4523,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I present tense, 3rd person masculine singular",
           "irab": "Verb in indicative mood (marfu')",
           "en": "Fears/has awe",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         }
       ]
@@ -4642,10 +4544,9 @@ const data: SurahDecoderData = {
           "morph": "Particle + Pronoun - interrogative + detached pronoun 2nd person masculine plural",
           "irab": "Interrogative particle + subject (mubtada') - nominative",
           "en": "Are you",
-          "cs": "nom",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "nom"
+            "particle"
           ]
         },
         {
@@ -4679,7 +4580,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - alternative interrogative",
           "irab": "Alternative interrogative particle",
           "en": "Or",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -4703,10 +4604,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I past tense, 3rd person masculine singular + attached pronoun",
           "irab": "Verb in past tense + object pronoun 3rd f.s. accusative",
           "en": "He constructed it",
-          "cs": "acc",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "acc"
+            "verb"
           ]
         }
       ]
@@ -4749,11 +4649,10 @@ const data: SurahDecoderData = {
           "morph": "Particle + Verb - sequential fa + Form II past tense, 3rd person masculine singular + attached pronoun",
           "irab": "Sequential particle + verb in past tense + object pronoun 3rd f.s. accusative",
           "en": "Then He proportioned it",
-          "cs": "acc",
+          "cs": "mabni",
           "lens": [
             "particle",
-            "verb",
-            "acc"
+            "verb"
           ]
         }
       ]
@@ -4772,7 +4671,7 @@ const data: SurahDecoderData = {
           "morph": "Particle + Verb - conjunction + Form IV past tense, 3rd person masculine singular",
           "irab": "Conjunction + verb in past tense",
           "en": "And He darkened",
-          "cs": "verb",
+          "cs": "mabni",
           "lens": [
             "particle",
             "verb"
@@ -4797,7 +4696,7 @@ const data: SurahDecoderData = {
           "morph": "Particle + Verb - conjunction + Form IV past tense, 3rd person masculine singular",
           "irab": "Conjunction + verb in past tense",
           "en": "And He brought out",
-          "cs": "verb",
+          "cs": "mabni",
           "lens": [
             "particle",
             "verb"
@@ -4831,10 +4730,9 @@ const data: SurahDecoderData = {
           "morph": "Particle + Noun - conjunction + feminine singular, definite, accusative",
           "irab": "Conjunction + fronted direct object (maf'ul bihi muqaddam) - accusative (mansub)",
           "en": "And the earth",
-          "cs": "acc",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "acc"
+            "particle"
           ]
         },
         {
@@ -4844,10 +4742,9 @@ const data: SurahDecoderData = {
           "morph": "Noun - adverbial accusative (in idafa)",
           "irab": "Adverbial accusative of time (zarf zaman)",
           "en": "After",
-          "cs": "acc",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "acc"
+            "verb"
           ]
         },
         {
@@ -4869,10 +4766,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I past tense, 3rd person masculine singular + attached pronoun",
           "irab": "Verb in past tense + object pronoun 3rd f.s. accusative",
           "en": "He spread it out",
-          "cs": "acc",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "acc"
+            "verb"
           ]
         }
       ]
@@ -4903,10 +4799,9 @@ const data: SurahDecoderData = {
           "morph": "Preposition + Pronoun - preposition + attached pronoun",
           "irab": "Preposition + pronoun 3rd f.s. genitive",
           "en": "From it",
-          "cs": "gen",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "gen"
+            "particle"
           ]
         },
         {
@@ -4928,10 +4823,9 @@ const data: SurahDecoderData = {
           "morph": "Particle + Noun - conjunction + masculine singular, indefinite, accusative + attached pronoun",
           "irab": "Conjunction + direct object (maf'ul bihi) - accusative (mansub) + possessive pronoun 3rd f.s. genitive",
           "en": "And its pasture",
-          "cs": "gen",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "gen"
+            "particle"
           ]
         }
       ]
@@ -4950,10 +4844,9 @@ const data: SurahDecoderData = {
           "morph": "Particle + Noun - conjunction + masculine plural, definite, accusative",
           "irab": "Conjunction + fronted direct object (maf'ul bihi muqaddam) - accusative (mansub)",
           "en": "And the mountains",
-          "cs": "acc",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "acc"
+            "particle"
           ]
         },
         {
@@ -4963,10 +4856,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form IV past tense, 3rd person masculine singular + attached pronoun",
           "irab": "Verb in past tense + object pronoun 3rd f.s. accusative",
           "en": "He anchored them",
-          "cs": "acc",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "acc"
+            "verb"
           ]
         }
       ]
@@ -4987,7 +4879,6 @@ const data: SurahDecoderData = {
           "en": "As provision",
           "cs": "acc",
           "lens": [
-            "verb",
             "acc"
           ]
         },
@@ -4998,10 +4889,9 @@ const data: SurahDecoderData = {
           "morph": "Preposition + Pronoun - preposition + attached pronoun",
           "irab": "Preposition + pronoun 2nd m.p. genitive",
           "en": "For you",
-          "cs": "gen",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "gen"
+            "particle"
           ]
         },
         {
@@ -5011,10 +4901,9 @@ const data: SurahDecoderData = {
           "morph": "Particle + Preposition + Noun - conjunction + preposition + feminine plural, indefinite, genitive + attached pronoun",
           "irab": "Conjunction + preposition + noun (majrur) + possessive pronoun 2nd m.p. genitive",
           "en": "And for your livestock",
-          "cs": "gen",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "gen"
+            "particle"
           ]
         }
       ]
@@ -5033,7 +4922,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - sequential fa + conditional particle",
           "irab": "Sequential particle + conditional particle (when)",
           "en": "So when",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -5092,7 +4981,6 @@ const data: SurahDecoderData = {
           "en": "The Day",
           "cs": "acc",
           "lens": [
-            "verb",
             "acc"
           ]
         },
@@ -5103,10 +4991,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form V present tense, 3rd person masculine singular",
           "irab": "Verb in indicative mood (marfu')",
           "en": "He remembers",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         },
         {
@@ -5159,7 +5046,7 @@ const data: SurahDecoderData = {
           "morph": "Particle + Verb - conjunction + Form II past tense passive, 3rd person feminine singular",
           "irab": "Conjunction + passive verb in past tense",
           "en": "And will be exposed",
-          "cs": "verb",
+          "cs": "mabni",
           "lens": [
             "particle",
             "verb"
@@ -5174,7 +5061,6 @@ const data: SurahDecoderData = {
           "en": "Hellfire",
           "cs": "nom",
           "lens": [
-            "verb",
             "nom"
           ]
         },
@@ -5185,7 +5071,7 @@ const data: SurahDecoderData = {
           "morph": "Preposition + Relative pronoun",
           "irab": "Preposition + relative pronoun",
           "en": "For whoever",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -5197,10 +5083,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I present tense, 3rd person masculine singular",
           "irab": "Verb in indicative mood (marfu')",
           "en": "Sees",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         }
       ]
@@ -5219,7 +5104,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - sequential fa + conditional particle",
           "irab": "Sequential particle + conditional particle (as for)",
           "en": "So as for",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -5262,7 +5147,7 @@ const data: SurahDecoderData = {
           "morph": "Particle + Verb - conjunction + Form IV past tense, 3rd person masculine singular",
           "irab": "Conjunction + verb in past tense",
           "en": "And preferred",
-          "cs": "verb",
+          "cs": "mabni",
           "lens": [
             "particle",
             "verb"
@@ -5308,7 +5193,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - sequential fa + emphatic particle",
           "irab": "Sequential particle + emphatic particle inna",
           "en": "Then indeed",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -5363,7 +5248,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - conjunction + conditional particle",
           "irab": "Conjunction + conditional particle (as for)",
           "en": "And as for",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -5421,7 +5306,7 @@ const data: SurahDecoderData = {
           "morph": "Particle + Verb - conjunction + Form I past tense, 3rd person masculine singular",
           "irab": "Conjunction + verb in past tense",
           "en": "And restrained",
-          "cs": "verb",
+          "cs": "mabni",
           "lens": [
             "particle",
             "verb"
@@ -5446,7 +5331,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - preposition",
           "irab": "Preposition of separation",
           "en": "From/away from",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -5460,7 +5345,6 @@ const data: SurahDecoderData = {
           "en": "The desire/whim",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         }
@@ -5480,7 +5364,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - sequential fa + emphatic particle",
           "irab": "Sequential particle + emphatic particle inna",
           "en": "Then indeed",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -5535,10 +5419,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I present tense, 3rd person masculine plural + attached pronoun",
           "irab": "Verb in indicative mood (marfu') + object pronoun 2nd m.s. accusative",
           "en": "They ask you",
-          "cs": "acc",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "acc"
+            "verb"
           ]
         },
         {
@@ -5548,7 +5431,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - preposition",
           "irab": "Preposition",
           "en": "About",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -5562,7 +5445,6 @@ const data: SurahDecoderData = {
           "en": "The Hour",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         },
@@ -5575,7 +5457,6 @@ const data: SurahDecoderData = {
           "en": "When",
           "cs": "verb",
           "lens": [
-            "particle",
             "verb"
           ]
         },
@@ -5607,7 +5488,7 @@ const data: SurahDecoderData = {
           "morph": "Preposition + Interrogative pronoun - contracted form",
           "irab": "Preposition fii + interrogative maa",
           "en": "In what",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -5631,7 +5512,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - preposition",
           "irab": "Preposition",
           "en": "From/of",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -5645,7 +5526,6 @@ const data: SurahDecoderData = {
           "en": "Its mention/remembrance",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         }
@@ -5665,7 +5545,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - preposition",
           "irab": "Preposition",
           "en": "To/toward",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -5679,7 +5559,6 @@ const data: SurahDecoderData = {
           "en": "Your Lord",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         },
@@ -5711,7 +5590,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - restrictive/emphatic",
           "irab": "Restrictive particle (only)",
           "en": "Only",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -5759,10 +5638,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I present tense, 3rd person masculine singular + attached pronoun",
           "irab": "Verb in indicative mood (marfu') + object pronoun 3rd f.s. accusative",
           "en": "Fears it",
-          "cs": "acc",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "acc"
+            "verb"
           ]
         }
       ]
@@ -5781,10 +5659,9 @@ const data: SurahDecoderData = {
           "morph": "Particle + Pronoun - comparative particle ka- + inna + attached pronoun",
           "irab": "Comparative particle + inna + subject pronoun 3rd m.p. (ism inna) accusative",
           "en": "As though they",
-          "cs": "acc",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "acc"
+            "particle"
           ]
         },
         {
@@ -5796,7 +5673,6 @@ const data: SurahDecoderData = {
           "en": "On the Day",
           "cs": "acc",
           "lens": [
-            "verb",
             "acc"
           ]
         },
@@ -5807,10 +5683,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I present tense, 3rd person masculine plural + attached pronoun",
           "irab": "Verb in indicative mood (marfu') + object pronoun 3rd f.s. accusative",
           "en": "They see it",
-          "cs": "acc",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "acc"
+            "verb"
           ]
         },
         {
@@ -5820,7 +5695,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - negative and jussive",
           "irab": "Negative particle governing jussive",
           "en": "Did not",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -5844,7 +5719,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - exception",
           "irab": "Exception particle",
           "en": "Except",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -5858,7 +5733,6 @@ const data: SurahDecoderData = {
           "en": "An evening/afternoon",
           "cs": "acc",
           "lens": [
-            "verb",
             "acc"
           ]
         },
@@ -5869,7 +5743,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - disjunctive conjunction",
           "irab": "Disjunctive conjunction (or)",
           "en": "Or",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -5883,7 +5757,6 @@ const data: SurahDecoderData = {
           "en": "Its morning",
           "cs": "gen",
           "lens": [
-            "verb",
             "gen"
           ]
         }
@@ -5905,10 +5778,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, past, 3rd person masculine singular",
           "irab": "Verb - marfu' (indicative mood in past)",
           "en": "He frowned",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         },
         {
@@ -5920,8 +5792,7 @@ const data: SurahDecoderData = {
           "en": "And",
           "cs": "mabni",
           "lens": [
-            "particle",
-            "verb"
+            "particle"
           ]
         },
         {
@@ -5931,10 +5802,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form V, past, 3rd person masculine singular",
           "irab": "Verb - marfu' (indicative mood in past)",
           "en": "He turned away",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         }
       ]
@@ -5965,10 +5835,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, past, 3rd person masculine singular + attached pronoun",
           "irab": "Verb + pronoun as object (mansub)",
           "en": "Came to him",
-          "cs": "acc",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "acc"
+            "verb"
           ]
         },
         {
@@ -6023,10 +5892,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form IV, present, 3rd person masculine singular + attached pronoun",
           "irab": "Verb + pronoun as object (mansub)",
           "en": "Makes you know",
-          "cs": "acc",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "acc"
+            "verb"
           ]
         },
         {
@@ -6036,10 +5904,9 @@ const data: SurahDecoderData = {
           "morph": "Particle - hoping/expectation + pronoun",
           "irab": "*Laʿalla* governs accusative, pronoun is its ism",
           "en": "Perhaps he",
-          "cs": "acc",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "acc"
+            "particle"
           ]
         },
         {
@@ -6049,10 +5916,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form V, present, 3rd person masculine singular",
           "irab": "Verb in subjunctive (mansub) after *laʿalla*",
           "en": "Purifies himself",
-          "cs": "acc",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "acc"
+            "verb"
           ]
         }
       ]
@@ -6083,10 +5949,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form V, present, 3rd person masculine singular",
           "irab": "Verb in subjunctive (mansub), coordinate with verse 3",
           "en": "He takes heed",
-          "cs": "acc",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "acc"
+            "verb"
           ]
         },
         {
@@ -6108,10 +5973,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, present, 3rd person feminine singular + pronoun",
           "irab": "Verb in subjunctive (mansub) + object pronoun",
           "en": "Benefits him",
-          "cs": "acc",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "acc"
+            "verb"
           ]
         },
         {
@@ -6209,10 +6073,9 @@ const data: SurahDecoderData = {
           "morph": "Preposition + pronoun",
           "irab": "Prepositional phrase, related to verb",
           "en": "To him",
-          "cs": "verb",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "verb"
+            "particle"
           ]
         },
         {
@@ -6222,10 +6085,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form V, present, 2nd person masculine singular",
           "irab": "Predicate (khabar) - nominative (marfūʿ)",
           "en": "Give attention/turn to",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         }
       ]
@@ -6268,7 +6130,7 @@ const data: SurahDecoderData = {
           "morph": "Preposition + pronoun",
           "irab": "Prepositional phrase",
           "en": "Upon you",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -6280,7 +6142,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - *an* (that) + *lā* (not)",
           "irab": "Introduces negative complement clause",
           "en": "That... not",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -6292,10 +6154,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form V, present, 3rd person masculine singular",
           "irab": "Verb in subjunctive (mansub) after *an*",
           "en": "He purifies himself",
-          "cs": "acc",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "acc"
+            "verb"
           ]
         }
       ]
@@ -6348,10 +6209,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, past, 3rd person masculine singular + pronoun",
           "irab": "Verb + object pronoun (mansub)",
           "en": "Came to you",
-          "cs": "acc",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "acc"
+            "verb"
           ]
         },
         {
@@ -6406,10 +6266,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, present, 3rd person masculine singular",
           "irab": "Predicate (khabar) - nominative (marfūʿ)",
           "en": "Fears",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         }
       ]
@@ -6452,7 +6311,7 @@ const data: SurahDecoderData = {
           "morph": "Preposition + pronoun",
           "irab": "Prepositional phrase",
           "en": "From him",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -6464,10 +6323,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form V, present, 2nd person masculine singular",
           "irab": "Predicate (khabar) - nominative (marfūʿ)",
           "en": "Are distracted",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         }
       ]
@@ -6498,10 +6356,9 @@ const data: SurahDecoderData = {
           "morph": "Particle - emphasis + pronoun",
           "irab": "*Inna* governs accusative, pronoun is its ism",
           "en": "Indeed it",
-          "cs": "acc",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "acc"
+            "particle"
           ]
         },
         {
@@ -6601,7 +6458,6 @@ const data: SurahDecoderData = {
           "en": "Sheets/pages",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         },
@@ -6680,7 +6536,6 @@ const data: SurahDecoderData = {
           "en": "Hands",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         },
@@ -6759,7 +6614,6 @@ const data: SurahDecoderData = {
           "en": "Man/the human",
           "cs": "nom",
           "lens": [
-            "verb",
             "nom"
           ]
         },
@@ -6815,10 +6669,9 @@ const data: SurahDecoderData = {
           "morph": "Interrogative particle - construct state",
           "irab": "Genitive (majrūr) after preposition",
           "en": "What/which",
-          "cs": "gen",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "gen"
+            "particle"
           ]
         },
         {
@@ -6840,10 +6693,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, past, 3rd person masculine singular + pronoun",
           "irab": "Verb + object pronoun (mansub)",
           "en": "Did He create him",
-          "cs": "acc",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "acc"
+            "verb"
           ]
         }
       ]
@@ -6876,7 +6728,6 @@ const data: SurahDecoderData = {
           "en": "Sperm-drop",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         },
@@ -6887,10 +6738,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, past, 3rd person masculine singular + pronoun",
           "irab": "Verb + object pronoun (mansub)",
           "en": "He created him",
-          "cs": "acc",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "acc"
+            "verb"
           ]
         },
         {
@@ -6912,10 +6762,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form II, past, 3rd person masculine singular + pronoun",
           "irab": "Verb + object pronoun (mansub)",
           "en": "He determined/proportioned him",
-          "cs": "acc",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "acc"
+            "verb"
           ]
         }
       ]
@@ -6958,10 +6807,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form II, past, 3rd person masculine singular + pronoun",
           "irab": "Verb + object pronoun (mansub)",
           "en": "He facilitated it",
-          "cs": "acc",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "acc"
+            "verb"
           ]
         }
       ]
@@ -6992,10 +6840,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form IV, past, 3rd person masculine singular + pronoun",
           "irab": "Verb + object pronoun (mansub)",
           "en": "He caused him to die",
-          "cs": "acc",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "acc"
+            "verb"
           ]
         },
         {
@@ -7017,10 +6864,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form IV, past, 3rd person masculine singular + pronoun",
           "irab": "Verb + object pronoun (mansub)",
           "en": "He buried him/gave him a grave",
-          "cs": "acc",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "acc"
+            "verb"
           ]
         }
       ]
@@ -7132,10 +6978,8 @@ const data: SurahDecoderData = {
           "morph": "Relative pronoun",
           "irab": "Object of verb",
           "en": "What",
-          "cs": "verb",
-          "lens": [
-            "verb"
-          ]
+          "cs": "none",
+          "lens": []
         },
         {
           "ar": "أَمَرَهُۥ",
@@ -7179,8 +7023,7 @@ const data: SurahDecoderData = {
           "en": "Let",
           "cs": "mabni",
           "lens": [
-            "particle",
-            "verb"
+            "particle"
           ]
         },
         {
@@ -7228,7 +7071,6 @@ const data: SurahDecoderData = {
           "en": "His food",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         }
@@ -7248,10 +7090,9 @@ const data: SurahDecoderData = {
           "morph": "Particle - emphasis (*anna*) + pronoun",
           "irab": "*Anna* governs accusative, *nā* is ism of *anna*",
           "en": "That We / How We",
-          "cs": "acc",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "acc"
+            "particle"
           ]
         },
         {
@@ -7285,10 +7126,9 @@ const data: SurahDecoderData = {
           "morph": "Noun - masculine singular, indefinite (verbal noun)",
           "irab": "Absolute object (*mafʿūl muṭlaq*) - accusative (manṣūb)",
           "en": "Pouring/torrentially",
-          "cs": "acc",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "acc"
+            "verb"
           ]
         }
       ]
@@ -7343,10 +7183,9 @@ const data: SurahDecoderData = {
           "morph": "Noun - masculine singular, indefinite (verbal noun)",
           "irab": "Absolute object (*mafʿūl muṭlaq*) - accusative (manṣūb)",
           "en": "Splitting",
-          "cs": "acc",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "acc"
+            "verb"
           ]
         }
       ]
@@ -7389,7 +7228,7 @@ const data: SurahDecoderData = {
           "morph": "Preposition + pronoun",
           "irab": "Prepositional phrase",
           "en": "In it",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -7650,7 +7489,7 @@ const data: SurahDecoderData = {
           "morph": "Preposition + plural pronoun",
           "irab": "Prepositional phrase",
           "en": "For you",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -7688,7 +7527,6 @@ const data: SurahDecoderData = {
           "en": "Your livestock",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         }
@@ -7765,10 +7603,9 @@ const data: SurahDecoderData = {
           "morph": "Noun - masculine singular (adverb of time)",
           "irab": "Adverbial accusative (ẓarf zamān) - accusative (manṣūb)",
           "en": "Day/on the day",
-          "cs": "acc",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "acc"
+            "verb"
           ]
         },
         {
@@ -7778,10 +7615,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, present, 3rd person masculine singular",
           "irab": "Verb in indicative (marfūʿ)",
           "en": "He flees",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         },
         {
@@ -7817,7 +7653,6 @@ const data: SurahDecoderData = {
           "en": "His brother",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         }
@@ -7965,7 +7800,6 @@ const data: SurahDecoderData = {
           "en": "Every",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         },
@@ -7988,7 +7822,7 @@ const data: SurahDecoderData = {
           "morph": "Preposition + plural pronoun",
           "irab": "Prepositional phrase",
           "en": "From them/among them",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -8000,10 +7834,9 @@ const data: SurahDecoderData = {
           "morph": "Noun - compound adverb of time",
           "irab": "Adverbial accusative (ẓarf zamān)",
           "en": "That Day",
-          "cs": "acc",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "acc"
+            "verb"
           ]
         },
         {
@@ -8058,10 +7891,9 @@ const data: SurahDecoderData = {
           "morph": "Noun - compound adverb of time",
           "irab": "Adverbial accusative (ẓarf zamān)",
           "en": "That Day",
-          "cs": "acc",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "acc"
+            "verb"
           ]
         },
         {
@@ -8149,10 +7981,9 @@ const data: SurahDecoderData = {
           "morph": "Noun - compound adverb of time",
           "irab": "Adverbial accusative (ẓarf zamān)",
           "en": "That Day",
-          "cs": "acc",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "acc"
+            "verb"
           ]
         },
         {
@@ -8162,7 +7993,7 @@ const data: SurahDecoderData = {
           "morph": "Preposition + pronoun",
           "irab": "Prepositional phrase, relates to *ghabarah*",
           "en": "Upon them",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -8195,10 +8026,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, present, 3rd person feminine singular + pronoun",
           "irab": "Verb + object pronoun (mansub)",
           "en": "Covers them/overwhelms them",
-          "cs": "acc",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "acc"
+            "verb"
           ]
         },
         {
@@ -8730,10 +8560,9 @@ const data: SurahDecoderData = {
           "morph": "Particle - preposition",
           "irab": "Not declinable (mabni), governs genitive",
           "en": "for/because of",
-          "cs": "gen",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "gen"
+            "particle"
           ]
         },
         {
@@ -8757,7 +8586,6 @@ const data: SurahDecoderData = {
           "en": "sin",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         },
@@ -9098,10 +8926,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form IV, present, 1st person singular",
           "irab": "Main verb - indicative (marfu')",
           "en": "I swear",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         },
         {
@@ -9125,7 +8952,6 @@ const data: SurahDecoderData = {
           "en": "the retreaters",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         }
@@ -9292,10 +9118,9 @@ const data: SurahDecoderData = {
           "morph": "Particle - emphasis",
           "irab": "Not declinable (mabni), governs accusative",
           "en": "indeed",
-          "cs": "acc",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "acc"
+            "particle"
           ]
         },
         {
@@ -9595,8 +9420,7 @@ const data: SurahDecoderData = {
           "en": "certainly",
           "cs": "mabni",
           "lens": [
-            "particle",
-            "verb"
+            "particle"
           ]
         },
         {
@@ -9632,7 +9456,6 @@ const data: SurahDecoderData = {
           "en": "the horizon",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         },
@@ -9714,7 +9537,6 @@ const data: SurahDecoderData = {
           "en": "the unseen",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         },
@@ -9863,7 +9685,7 @@ const data: SurahDecoderData = {
           "morph": "Interrogative adverb",
           "irab": "Not declinable (mabni), asks about place/direction",
           "en": "where",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -9875,10 +9697,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, present, 2nd person masculine plural",
           "irab": "Main verb - indicative (marfu')",
           "en": "you (all) go",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         }
       ]
@@ -9959,7 +9780,6 @@ const data: SurahDecoderData = {
           "en": "the worlds/creation",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         }
@@ -9993,7 +9813,6 @@ const data: SurahDecoderData = {
           "en": "whoever",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         },
@@ -10030,8 +9849,7 @@ const data: SurahDecoderData = {
           "en": "to",
           "cs": "mabni",
           "lens": [
-            "particle",
-            "verb"
+            "particle"
           ]
         },
         {
@@ -10041,10 +9859,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form X, present, 3rd person masculine singular",
           "irab": "Subjunctive (mansub) after an",
           "en": "he be straight",
-          "cs": "acc",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "acc"
+            "verb"
           ]
         }
       ]
@@ -10087,10 +9904,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, present, 2nd person masculine plural",
           "irab": "Main verb - indicative (marfu')",
           "en": "you will",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         },
         {
@@ -10124,10 +9940,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, present, 3rd person masculine singular",
           "irab": "Subjunctive (mansub) after an",
           "en": "He wills",
-          "cs": "acc",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "acc"
+            "verb"
           ]
         },
         {
@@ -10184,7 +9999,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - conditional/temporal",
           "irab": "Conditional particle (harf shart) governing time clause",
           "en": "when",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -10229,7 +10044,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - conjunction",
           "irab": "Coordinating conjunction",
           "en": "and",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -10241,7 +10056,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - conditional/temporal",
           "irab": "Conditional particle (harf shart)",
           "en": "when",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -10286,7 +10101,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - conjunction",
           "irab": "Coordinating conjunction",
           "en": "and",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -10298,7 +10113,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - conditional/temporal",
           "irab": "Conditional particle (harf shart)",
           "en": "when",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -10343,7 +10158,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - conjunction",
           "irab": "Coordinating conjunction",
           "en": "and",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -10355,7 +10170,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - conditional/temporal",
           "irab": "Conditional particle (harf shart)",
           "en": "when",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -10446,7 +10261,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - conjunction",
           "irab": "Coordinating conjunction",
           "en": "and",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -10479,7 +10294,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - vocative",
           "irab": "Vocative particle (harf nida')",
           "en": "O",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -10533,7 +10348,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - preposition",
           "irab": "Preposition",
           "en": "concerning",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -10547,7 +10362,6 @@ const data: SurahDecoderData = {
           "en": "your Lord",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         },
@@ -10601,7 +10415,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - conjunction",
           "irab": "Sequential conjunction",
           "en": "then",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -10625,7 +10439,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - conjunction",
           "irab": "Sequential conjunction",
           "en": "then",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -10658,7 +10472,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - preposition",
           "irab": "Preposition",
           "en": "in",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -10682,7 +10496,6 @@ const data: SurahDecoderData = {
           "en": "form",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         },
@@ -10736,7 +10549,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - negation/warning",
           "irab": "Emphatic negation/deterrent particle",
           "en": "No! Certainly not!",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -10748,7 +10561,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - adversative",
           "irab": "Adversative conjunction",
           "en": "but rather",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -10760,10 +10573,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form II, present tense, 2nd person, masculine, plural",
           "irab": "Present tense verb - indicative (marfu')",
           "en": "you deny",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         },
         {
@@ -10773,7 +10585,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - preposition",
           "irab": "Preposition",
           "en": "(direct object marker with kadhaba)",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -10787,7 +10599,6 @@ const data: SurahDecoderData = {
           "en": "the Recompense/Judgment",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         }
@@ -10807,7 +10618,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - conjunction",
           "irab": "Coordinating conjunction",
           "en": "and",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -10819,10 +10630,9 @@ const data: SurahDecoderData = {
           "morph": "Particle - emphasis",
           "irab": "Emphasis particle (harf tawkid) governing accusative",
           "en": "indeed",
-          "cs": "acc",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "acc"
+            "particle"
           ]
         },
         {
@@ -10832,7 +10642,7 @@ const data: SurahDecoderData = {
           "morph": "Preposition + pronoun",
           "irab": "Prepositional phrase functioning as predicate (khabar muqaddam)",
           "en": "over you",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -10844,7 +10654,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - emphasis",
           "irab": "Emphasis particle (lam al-tawkid)",
           "en": "surely",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -10910,10 +10720,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, present tense, 3rd person, masculine, plural",
           "irab": "Present tense verb - indicative (marfu')",
           "en": "they know",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         },
         {
@@ -10954,7 +10763,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - emphasis",
           "irab": "Emphasis particle (harf tawkid)",
           "en": "indeed",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -10978,7 +10787,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - emphasis",
           "irab": "Emphasis particle (lam al-tawkid)",
           "en": "surely",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -10990,7 +10799,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - preposition",
           "irab": "Preposition",
           "en": "in",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -11004,7 +10813,6 @@ const data: SurahDecoderData = {
           "en": "bliss",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         }
@@ -11024,7 +10832,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - conjunction",
           "irab": "Coordinating conjunction",
           "en": "and",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -11036,7 +10844,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - emphasis",
           "irab": "Emphasis particle (harf tawkid)",
           "en": "indeed",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -11060,7 +10868,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - emphasis",
           "irab": "Emphasis particle (lam al-tawkid)",
           "en": "surely",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -11072,7 +10880,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - preposition",
           "irab": "Preposition",
           "en": "in",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -11086,7 +10894,6 @@ const data: SurahDecoderData = {
           "en": "Hellfire",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         }
@@ -11120,7 +10927,6 @@ const data: SurahDecoderData = {
           "en": "(on the) day",
           "cs": "acc",
           "lens": [
-            "verb",
             "acc"
           ]
         },
@@ -11152,7 +10958,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - conjunction",
           "irab": "Coordinating conjunction",
           "en": "and",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -11164,7 +10970,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - negation",
           "irab": "Negation particle (harf nafy)",
           "en": "not",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -11186,7 +10992,7 @@ const data: SurahDecoderData = {
           "morph": "Preposition + pronoun",
           "irab": "Prepositional phrase with attached pronoun",
           "en": "from it",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -11198,7 +11004,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - extra/emphatic",
           "irab": "Emphatic particle (ba' za'ida)",
           "en": "(emphasis)",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -11231,7 +11037,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - conjunction",
           "irab": "Coordinating conjunction",
           "en": "and",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -11308,7 +11114,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - conjunction",
           "irab": "Sequential conjunction (with delay)",
           "en": "then",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -11397,7 +11203,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - negation",
           "irab": "Negation particle (harf nafy)",
           "en": "not",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -11409,10 +11215,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, present tense, 3rd person, feminine, singular",
           "irab": "Present tense verb - indicative (marfu')",
           "en": "it possesses",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         },
         {
@@ -11434,7 +11239,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - preposition",
           "irab": "Preposition indicating benefit",
           "en": "for",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -11448,7 +11253,6 @@ const data: SurahDecoderData = {
           "en": "another soul",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         },
@@ -11471,7 +11275,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - conjunction",
           "irab": "Coordinating conjunction",
           "en": "and",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -11495,10 +11299,9 @@ const data: SurahDecoderData = {
           "morph": "Noun - compound adverb of time",
           "irab": "Adverbial accusative of time",
           "en": "on that Day",
-          "cs": "acc",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "acc"
+            "verb"
           ]
         },
         {
@@ -11508,7 +11311,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - preposition",
           "irab": "Preposition indicating possession",
           "en": "for/to",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -11522,7 +11325,6 @@ const data: SurahDecoderData = {
           "en": "Allah",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         }
@@ -11556,10 +11358,9 @@ const data: SurahDecoderData = {
           "morph": "Particle + Noun - active participle Form II, masculine, plural, definite",
           "irab": "li = preposition governing genitive; al-mutaffifina = object of preposition (majrur) with kasra",
           "en": "For the defrauders/those who give less",
-          "cs": "gen",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "gen"
+            "particle"
           ]
         }
       ]
@@ -11614,10 +11415,9 @@ const data: SurahDecoderData = {
           "morph": "Particle - preposition",
           "irab": "Not declinable (mabni); governs genitive",
           "en": "From/upon",
-          "cs": "gen",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "gen"
+            "particle"
           ]
         },
         {
@@ -11629,7 +11429,6 @@ const data: SurahDecoderData = {
           "en": "The people",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         },
@@ -11640,10 +11439,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form X, present tense, 3rd person, masculine, plural",
           "irab": "Present verb (fi'l mudari') - indicative (marfu'); waw = subject pronoun",
           "en": "They take in full",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         }
       ]
@@ -11662,7 +11460,7 @@ const data: SurahDecoderData = {
           "morph": "Particle conjunction + temporal particle",
           "irab": "wa = coordinating; idha = temporal conditional",
           "en": "And when",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -11674,10 +11472,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, past tense, 3rd person, masculine, plural + pronoun",
           "irab": "Past verb; waw = subject; hum = direct object (maf'ul bihi) - accusative",
           "en": "They measure for them",
-          "cs": "acc",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "acc"
+            "verb"
           ]
         },
         {
@@ -11699,10 +11496,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, past tense, 3rd person, masculine, plural + pronoun",
           "irab": "Past verb; waw = subject; hum = direct object - accusative",
           "en": "They weigh for them",
-          "cs": "acc",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "acc"
+            "verb"
           ]
         },
         {
@@ -11712,10 +11508,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form IV, present tense, 3rd person, masculine, plural",
           "irab": "Present verb - indicative (marfu') with damma; answer to conditional (jawab al-shart)",
           "en": "They cause loss/give less",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         }
       ]
@@ -11746,10 +11541,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, present tense, 3rd person, masculine, singular",
           "irab": "Present verb - indicative (marfu') with damma",
           "en": "Does he/they think",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         },
         {
@@ -11771,10 +11565,9 @@ const data: SurahDecoderData = {
           "morph": "Particle + pronoun",
           "irab": "anna = emphasis particle governing accusative; hum = noun of anna (ism anna) - accusative",
           "en": "That they",
-          "cs": "acc",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "acc"
+            "particle"
           ]
         },
         {
@@ -11805,10 +11598,9 @@ const data: SurahDecoderData = {
           "morph": "Particle + Noun - masculine, singular, indefinite",
           "irab": "li = preposition; yawm = object of preposition (majrur) with kasra tanwin",
           "en": "For a day",
-          "cs": "gen",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "gen"
+            "particle"
           ]
         },
         {
@@ -11841,7 +11633,6 @@ const data: SurahDecoderData = {
           "en": "The day",
           "cs": "acc",
           "lens": [
-            "verb",
             "acc"
           ]
         },
@@ -11852,10 +11643,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, present tense, 3rd person, masculine, singular",
           "irab": "Present verb - indicative (marfu') with damma",
           "en": "He/they stand",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         },
         {
@@ -11877,10 +11667,9 @@ const data: SurahDecoderData = {
           "morph": "Particle + Noun - masculine, singular, definite (first term of idafa)",
           "irab": "li = preposition; rabb = object of preposition (majrur) with kasra",
           "en": "For the Lord",
-          "cs": "gen",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "gen"
+            "particle"
           ]
         },
         {
@@ -11923,10 +11712,9 @@ const data: SurahDecoderData = {
           "morph": "Particle - emphasis",
           "irab": "Governs noun in accusative",
           "en": "Indeed",
-          "cs": "acc",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "acc"
+            "particle"
           ]
         },
         {
@@ -11960,7 +11748,7 @@ const data: SurahDecoderData = {
           "morph": "Particle + preposition",
           "irab": "la = emphasis; fi = preposition",
           "en": "Surely in",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -11974,7 +11762,6 @@ const data: SurahDecoderData = {
           "en": "Sijjin (lowest place)",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         }
@@ -11994,7 +11781,7 @@ const data: SurahDecoderData = {
           "morph": "Conjunction + interrogative particle",
           "irab": "wa = coordinating; ma = interrogative",
           "en": "And what",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -12006,10 +11793,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form IV, past tense, 3rd person, masculine, singular + pronoun",
           "irab": "Past verb; ka = direct object pronoun (maf'ul bihi) - accusative",
           "en": "Made you know/informed you",
-          "cs": "acc",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "acc"
+            "verb"
           ]
         },
         {
@@ -12019,10 +11805,9 @@ const data: SurahDecoderData = {
           "morph": "Interrogative particle",
           "irab": "Subject (fa'il) - nominative (marfu')",
           "en": "What",
-          "cs": "nom",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "nom"
+            "particle"
           ]
         },
         {
@@ -12098,10 +11883,9 @@ const data: SurahDecoderData = {
           "morph": "Noun (compound temporal adverb) - masculine, singular + demonstrative",
           "irab": "Adverbial accusative of time (zarf zaman) - mansub with fatha + kasra tanwin",
           "en": "That Day",
-          "cs": "acc",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "acc"
+            "verb"
           ]
         },
         {
@@ -12111,10 +11895,9 @@ const data: SurahDecoderData = {
           "morph": "Particle + Noun - active participle Form II, masculine, plural, definite",
           "irab": "li = preposition; al-mukadhdhibina = object of preposition (majrur) with kasra",
           "en": "For the deniers",
-          "cs": "gen",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "gen"
+            "particle"
           ]
         }
       ]
@@ -12145,10 +11928,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form II, present tense, 3rd person, masculine, plural",
           "irab": "Present verb - indicative (marfu') with damma; waw = subject",
           "en": "They deny/reject",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         },
         {
@@ -12158,10 +11940,9 @@ const data: SurahDecoderData = {
           "morph": "Particle + Noun - masculine, singular, definite (first term of idafa)",
           "irab": "bi = preposition governing genitive; yawm = object of preposition (majrur) with kasra",
           "en": "The day",
-          "cs": "gen",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "gen"
+            "particle"
           ]
         },
         {
@@ -12192,7 +11973,7 @@ const data: SurahDecoderData = {
           "morph": "Conjunction + negative particle",
           "irab": "wa = coordinating; ma = negation",
           "en": "And not",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -12204,10 +11985,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form II, present tense, 3rd person, masculine, singular",
           "irab": "Present verb - indicative (marfu') with damma",
           "en": "Does he deny",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         },
         {
@@ -12217,7 +11997,7 @@ const data: SurahDecoderData = {
           "morph": "Particle + pronoun",
           "irab": "bi = preposition; hi = object of preposition referring to yawm al-din",
           "en": "It/with it",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -12298,10 +12078,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, present passive, 3rd person, feminine, singular",
           "irab": "Present passive verb - indicative (marfu'); alif maqsura ending",
           "en": "Are recited",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         },
         {
@@ -12311,7 +12090,7 @@ const data: SurahDecoderData = {
           "morph": "Particle + pronoun",
           "irab": "'ala = preposition; hi = object of preposition",
           "en": "Upon him",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -12325,7 +12104,6 @@ const data: SurahDecoderData = {
           "en": "Our verses/signs",
           "cs": "nom",
           "lens": [
-            "verb",
             "nom"
           ]
         },
@@ -12431,7 +12209,6 @@ const data: SurahDecoderData = {
           "en": "Their hearts",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         },
@@ -12454,10 +12231,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - auxiliary, past tense, 3rd person, masculine, plural",
           "irab": "Verb kana; waw = noun of kana (ism kana) - nominative",
           "en": "They were/used to",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         },
         {
@@ -12467,10 +12243,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, present tense, 3rd person, masculine, plural",
           "irab": "Present verb; predicate of kana (khabar kana) - accusative (mansub); waw = subject",
           "en": "They earn/commit",
-          "cs": "acc",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "acc"
+            "verb"
           ]
         }
       ]
@@ -12501,10 +12276,9 @@ const data: SurahDecoderData = {
           "morph": "Particle + pronoun",
           "irab": "inna = emphasis particle; hum = noun of inna (ism inna) - accusative",
           "en": "Indeed they",
-          "cs": "acc",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "acc"
+            "particle"
           ]
         },
         {
@@ -12528,7 +12302,6 @@ const data: SurahDecoderData = {
           "en": "Their Lord",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         },
@@ -12539,10 +12312,9 @@ const data: SurahDecoderData = {
           "morph": "Noun - temporal adverb compound",
           "irab": "Adverbial accusative of time (zarf) - mansub with kasra tanwin",
           "en": "That Day",
-          "cs": "acc",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "acc"
+            "verb"
           ]
         },
         {
@@ -12552,10 +12324,9 @@ const data: SurahDecoderData = {
           "morph": "Particle + Adjective - passive participle Form I, masculine, plural",
           "irab": "la = emphasis; mahjubun = predicate of inna (khabar inna) - nominative (marfu') with damma",
           "en": "Surely veiled/partitioned",
-          "cs": "nom",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "nom"
+            "particle"
           ]
         }
       ]
@@ -12586,10 +12357,9 @@ const data: SurahDecoderData = {
           "morph": "Particle + pronoun",
           "irab": "inna = emphasis; hum = noun of inna - accusative",
           "en": "Indeed they",
-          "cs": "acc",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "acc"
+            "particle"
           ]
         },
         {
@@ -12599,10 +12369,9 @@ const data: SurahDecoderData = {
           "morph": "Particle + Noun - active participle Form I, masculine, plural (mudaf)",
           "irab": "la = emphasis; salu = predicate of inna (khabar inna) - nominative (marfu') with waw (sound plural)",
           "en": "Surely ones who burn in/enter",
-          "cs": "nom",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "nom"
+            "particle"
           ]
         },
         {
@@ -12645,10 +12414,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, present passive, 3rd person, masculine, singular",
           "irab": "Present passive verb - indicative (marfu') with damma",
           "en": "It is said/will be said",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         },
         {
@@ -12682,10 +12450,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - auxiliary, past tense, 2nd person, masculine, plural",
           "irab": "Verb kana; tum = noun of kana (ism kana) - nominative",
           "en": "You were/used to",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         },
         {
@@ -12695,7 +12462,7 @@ const data: SurahDecoderData = {
           "morph": "Particle + pronoun",
           "irab": "bi = preposition; hi = object of preposition",
           "en": "It/with it",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -12707,10 +12474,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form II, present tense, 2nd person, masculine, plural",
           "irab": "Present verb; predicate of kana (khabar kana) - accusative (mansub); waw = subject",
           "en": "You deny",
-          "cs": "acc",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "acc"
+            "verb"
           ]
         }
       ]
@@ -12741,10 +12507,9 @@ const data: SurahDecoderData = {
           "morph": "Particle - emphasis",
           "irab": "Governs accusative",
           "en": "Indeed",
-          "cs": "acc",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "acc"
+            "particle"
           ]
         },
         {
@@ -12778,7 +12543,7 @@ const data: SurahDecoderData = {
           "morph": "Particle + preposition",
           "irab": "la = emphasis; fi = preposition",
           "en": "Surely in",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -12792,7 +12557,6 @@ const data: SurahDecoderData = {
           "en": "'Illiyyin (highest place)",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         }
@@ -12822,10 +12586,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form IV, past tense, 3rd person, masculine, singular + pronoun",
           "irab": "Past verb; ka = direct object - accusative",
           "en": "Made you know",
-          "cs": "acc",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "acc"
+            "verb"
           ]
         },
         {
@@ -12835,10 +12598,9 @@ const data: SurahDecoderData = {
           "morph": "Interrogative particle",
           "irab": "Subject (fa'il) - nominative (marfu')",
           "en": "What",
-          "cs": "nom",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "nom"
+            "particle"
           ]
         },
         {
@@ -12902,10 +12664,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, present tense, 3rd person, masculine, singular + pronoun",
           "irab": "Present verb - indicative (marfu') with damma; hu = direct object - accusative",
           "en": "They witness it",
-          "cs": "acc",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "acc"
+            "verb"
           ]
         },
         {
@@ -12936,10 +12697,9 @@ const data: SurahDecoderData = {
           "morph": "Particle - emphasis",
           "irab": "Governs accusative",
           "en": "Indeed",
-          "cs": "acc",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "acc"
+            "particle"
           ]
         },
         {
@@ -12961,7 +12721,7 @@ const data: SurahDecoderData = {
           "morph": "Particle + preposition",
           "irab": "la = emphasis; fi = preposition",
           "en": "Surely in",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -12975,7 +12735,6 @@ const data: SurahDecoderData = {
           "en": "Bliss/pleasure",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         }
@@ -13009,7 +12768,6 @@ const data: SurahDecoderData = {
           "en": "The couches/thrones",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         },
@@ -13020,10 +12778,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, present tense, 3rd person, masculine, plural",
           "irab": "Present verb - indicative (marfu') with damma; waw = subject",
           "en": "They look/observe",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         }
       ]
@@ -13042,10 +12799,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, present tense, 2nd person, masculine, singular",
           "irab": "Present verb - indicative (marfu') with damma",
           "en": "You recognize/know",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         },
         {
@@ -13069,7 +12825,6 @@ const data: SurahDecoderData = {
           "en": "Their faces",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         },
@@ -13113,10 +12868,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, present passive, 3rd person, masculine, plural",
           "irab": "Present passive verb - indicative (marfu'); waw = subject pronoun (na'ib al-fa'il)",
           "en": "They are given drink",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         },
         {
@@ -13140,7 +12894,6 @@ const data: SurahDecoderData = {
           "en": "Pure wine/nectar",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         },
@@ -13196,7 +12949,7 @@ const data: SurahDecoderData = {
           "morph": "Conjunction + preposition",
           "irab": "wa = coordinating; fi = preposition",
           "en": "And in",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -13210,7 +12963,6 @@ const data: SurahDecoderData = {
           "en": "That",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         },
@@ -13221,7 +12973,7 @@ const data: SurahDecoderData = {
           "morph": "Particle + prefix + verb - Form VI, jussive, 3rd person, masculine, singular",
           "irab": "fa = so/thus; lam = command prefix; yatanafas = jussive (majzum)",
           "en": "So let him compete",
-          "cs": "verb",
+          "cs": "mabni",
           "lens": [
             "particle",
             "verb"
@@ -13281,7 +13033,6 @@ const data: SurahDecoderData = {
           "en": "Tasnim",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         }
@@ -13313,10 +13064,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, present tense, 3rd person, masculine, singular",
           "irab": "Present verb - indicative (marfu') with damma",
           "en": "He/they drink",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         },
         {
@@ -13326,7 +13076,7 @@ const data: SurahDecoderData = {
           "morph": "Particle + pronoun",
           "irab": "bi = preposition (instrumental); ha = object of preposition",
           "en": "From it/with it",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -13359,10 +13109,9 @@ const data: SurahDecoderData = {
           "morph": "Particle - emphasis",
           "irab": "Governs accusative",
           "en": "Indeed",
-          "cs": "acc",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "acc"
+            "particle"
           ]
         },
         {
@@ -13396,10 +13145,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - auxiliary, past tense, 3rd person, masculine, plural",
           "irab": "Verb kana (predicate of inna = khabar inna); waw = noun of kana (ism kana) - nominative",
           "en": "They were/used to",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         },
         {
@@ -13423,7 +13171,6 @@ const data: SurahDecoderData = {
           "en": "Those who",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         },
@@ -13446,10 +13193,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, present tense, 3rd person, masculine, plural",
           "irab": "Present verb; predicate of kana (khabar kana) - accusative (mansub); waw = subject",
           "en": "They laugh",
-          "cs": "acc",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "acc"
+            "verb"
           ]
         }
       ]
@@ -13468,7 +13214,7 @@ const data: SurahDecoderData = {
           "morph": "Conjunction + particle - temporal conditional",
           "irab": "wa = coordinating; idha = when",
           "en": "And when",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -13492,7 +13238,7 @@ const data: SurahDecoderData = {
           "morph": "Particle + pronoun",
           "irab": "bi = preposition; him = object of preposition",
           "en": "By them/with them",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -13504,10 +13250,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form VI, present tense, 3rd person, masculine, plural",
           "irab": "Present verb - indicative (marfu'); answer to conditional; waw = subject",
           "en": "They wink/exchange glances",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         }
       ]
@@ -13526,7 +13271,7 @@ const data: SurahDecoderData = {
           "morph": "Conjunction + particle - temporal conditional",
           "irab": "wa = coordinating; idha = when",
           "en": "And when",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -13564,7 +13309,6 @@ const data: SurahDecoderData = {
           "en": "Their family/people",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         },
@@ -13608,7 +13352,7 @@ const data: SurahDecoderData = {
           "morph": "Conjunction + particle - temporal conditional",
           "irab": "wa = coordinating; idha = when",
           "en": "And when",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -13620,10 +13364,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, past tense, 3rd person, masculine, plural + pronoun",
           "irab": "Past verb in temporal clause; waw = subject; hum = direct object - accusative",
           "en": "They saw them",
-          "cs": "acc",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "acc"
+            "verb"
           ]
         },
         {
@@ -13645,10 +13388,9 @@ const data: SurahDecoderData = {
           "morph": "Particle - emphasis",
           "irab": "Governs accusative",
           "en": "Indeed",
-          "cs": "acc",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "acc"
+            "particle"
           ]
         },
         {
@@ -13670,10 +13412,9 @@ const data: SurahDecoderData = {
           "morph": "Particle + Adjective - active participle Form I, masculine, plural",
           "irab": "la = emphasis; dallun = predicate of inna (khabar inna) - nominative (marfu')",
           "en": "Surely astray/misguided",
-          "cs": "nom",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "nom"
+            "particle"
           ]
         }
       ]
@@ -13692,7 +13433,7 @@ const data: SurahDecoderData = {
           "morph": "Conjunction + negative particle",
           "irab": "wa = coordinating; ma = negation",
           "en": "And not/but not",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -13716,7 +13457,7 @@ const data: SurahDecoderData = {
           "morph": "Particle + pronoun",
           "irab": "'ala = preposition; him = object of preposition",
           "en": "Over them",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -13749,11 +13490,9 @@ const data: SurahDecoderData = {
           "morph": "Particle + Noun - masculine, singular, definite",
           "irab": "fa = so/thus; al-yawm = adverbial accusative of time (zarf) - mansub with fatha",
           "en": "So today/now",
-          "cs": "acc",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "verb",
-            "acc"
+            "particle"
           ]
         },
         {
@@ -13801,7 +13540,6 @@ const data: SurahDecoderData = {
           "en": "The disbelievers",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         },
@@ -13812,10 +13550,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, present tense, 3rd person, masculine, plural",
           "irab": "Present verb - indicative (marfu'); predicate (khabar); waw = subject",
           "en": "They laugh",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         }
       ]
@@ -13848,7 +13585,6 @@ const data: SurahDecoderData = {
           "en": "The couches/thrones",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         },
@@ -13859,10 +13595,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, present tense, 3rd person, masculine, plural",
           "irab": "Present verb - indicative (marfu') with damma; waw = subject",
           "en": "They look/observe",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         }
       ]
@@ -13907,7 +13642,6 @@ const data: SurahDecoderData = {
           "en": "The disbelievers",
           "cs": "nom",
           "lens": [
-            "verb",
             "nom"
           ]
         },
@@ -13930,10 +13664,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - auxiliary, past tense, 3rd person, masculine, plural",
           "irab": "Verb kana; waw = noun of kana (ism kana) - nominative",
           "en": "They were/used to",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         },
         {
@@ -13943,10 +13676,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, present tense, 3rd person, masculine, plural",
           "irab": "Present verb; predicate of kana (khabar kana) - accusative (mansub); waw = subject",
           "en": "They do/commit",
-          "cs": "acc",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "acc"
+            "verb"
           ]
         }
       ]
@@ -14050,7 +13782,6 @@ const data: SurahDecoderData = {
           "en": "its Lord",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         },
@@ -14187,7 +13918,7 @@ const data: SurahDecoderData = {
           "morph": "Preposition + pronoun",
           "irab": "Prepositional phrase modifying ma",
           "en": "in it",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -14270,7 +14001,6 @@ const data: SurahDecoderData = {
           "en": "its Lord",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         },
@@ -14350,10 +14080,9 @@ const data: SurahDecoderData = {
           "morph": "Particle + pronoun",
           "irab": "Inna + ism inna - accusative (mansub)",
           "en": "indeed you",
-          "cs": "acc",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "acc"
+            "particle"
           ]
         },
         {
@@ -14389,7 +14118,6 @@ const data: SurahDecoderData = {
           "en": "your Lord",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         },
@@ -14400,10 +14128,9 @@ const data: SurahDecoderData = {
           "morph": "Noun - verbal noun (masdar), masculine, singular, indefinite",
           "irab": "Absolute object (maf'ul mutlaq) - accusative (mansub)",
           "en": "laboring",
-          "cs": "acc",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "acc"
+            "verb"
           ]
         },
         {
@@ -14520,7 +14247,6 @@ const data: SurahDecoderData = {
           "en": "his right hand",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         }
@@ -14564,10 +14290,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form III, present passive, 3rd person masculine singular",
           "irab": "Main verb - passive, indicative (marfu')",
           "en": "he will be judged",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         },
         {
@@ -14622,10 +14347,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form VII, present, 3rd person masculine singular",
           "irab": "Main verb - indicative (marfu')",
           "en": "he returns",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         },
         {
@@ -14649,7 +14373,6 @@ const data: SurahDecoderData = {
           "en": "his family/people",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         },
@@ -14741,10 +14464,9 @@ const data: SurahDecoderData = {
           "morph": "Adverb - locative",
           "irab": "Circumstantial (zarf makan) - accusative (mansub)",
           "en": "behind",
-          "cs": "acc",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "acc"
+            "verb"
           ]
         },
         {
@@ -14799,10 +14521,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, present, 3rd person masculine singular",
           "irab": "Main verb - indicative (marfu')",
           "en": "he calls/cries",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         },
         {
@@ -14845,10 +14566,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, present, 3rd person masculine singular",
           "irab": "Main verb - indicative (marfu')",
           "en": "he burns/enters",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         },
         {
@@ -14860,7 +14580,6 @@ const data: SurahDecoderData = {
           "en": "blaze/flame",
           "cs": "acc",
           "lens": [
-            "verb",
             "acc"
           ]
         }
@@ -14880,10 +14599,9 @@ const data: SurahDecoderData = {
           "morph": "Particle + pronoun",
           "irab": "Inna + ism inna - accusative (mansub)",
           "en": "indeed he",
-          "cs": "acc",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "acc"
+            "particle"
           ]
         },
         {
@@ -14919,7 +14637,6 @@ const data: SurahDecoderData = {
           "en": "his people",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         },
@@ -14951,10 +14668,9 @@ const data: SurahDecoderData = {
           "morph": "Particle + pronoun",
           "irab": "Inna + ism inna - accusative (mansub)",
           "en": "indeed he",
-          "cs": "acc",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "acc"
+            "particle"
           ]
         },
         {
@@ -15000,10 +14716,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, present, 3rd person masculine singular",
           "irab": "Subjunctive (mansub) after lan",
           "en": "he return",
-          "cs": "acc",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "acc"
+            "verb"
           ]
         }
       ]
@@ -15070,7 +14785,7 @@ const data: SurahDecoderData = {
           "morph": "Preposition + pronoun",
           "irab": "Prepositional phrase",
           "en": "of him",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -15127,10 +14842,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form IV, present, 1st person singular",
           "irab": "Main verb - indicative (marfu')",
           "en": "I swear",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         },
         {
@@ -15154,7 +14868,6 @@ const data: SurahDecoderData = {
           "en": "the twilight/afterglow",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         }
@@ -15326,7 +15039,6 @@ const data: SurahDecoderData = {
           "en": "state/stage/layer",
           "cs": "acc",
           "lens": [
-            "verb",
             "acc"
           ]
         },
@@ -15351,7 +15063,6 @@ const data: SurahDecoderData = {
           "en": "state/stage",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         }
@@ -15393,7 +15104,7 @@ const data: SurahDecoderData = {
           "morph": "Preposition + pronoun",
           "irab": "Prepositional phrase (predicate muqaddam)",
           "en": "for them/to them",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -15417,10 +15128,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form IV, present, 3rd person masculine plural",
           "irab": "Main verb - indicative (marfu')",
           "en": "they believe",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         }
       ]
@@ -15475,7 +15185,7 @@ const data: SurahDecoderData = {
           "morph": "Preposition + pronoun",
           "irab": "Prepositional phrase",
           "en": "upon them/to them",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -15511,10 +15221,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, present, 3rd person masculine plural",
           "irab": "Main verb - indicative (marfu')",
           "en": "they prostrate",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         }
       ]
@@ -15569,10 +15278,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form II, present, 3rd person masculine plural",
           "irab": "Predicate (khabar) - indicative (marfu')",
           "en": "they deny/belie",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         }
       ]
@@ -15641,7 +15349,6 @@ const data: SurahDecoderData = {
           "en": "what",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         },
@@ -15652,10 +15359,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, present, 3rd person masculine plural",
           "irab": "Relative clause verb - indicative (marfu')",
           "en": "they keep/conceal",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         }
       ]
@@ -15712,7 +15418,6 @@ const data: SurahDecoderData = {
           "en": "punishment",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         },
@@ -15816,7 +15521,7 @@ const data: SurahDecoderData = {
           "morph": "Preposition + pronoun",
           "irab": "Predicate (khabar muqaddam) - prepositional phrase",
           "en": "for them",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -15875,7 +15580,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - oath",
           "irab": "Oath particle (wa al-qasam)",
           "en": "By",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -15932,7 +15637,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - oath",
           "irab": "Oath particle (wa al-qasam)",
           "en": "And by",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -15977,7 +15682,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - oath",
           "irab": "Oath particle (wa al-qasam)",
           "en": "And by",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -16001,7 +15706,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - oath",
           "irab": "Oath particle (wa al-qasam)",
           "en": "And by",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -16034,7 +15739,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, passive, past tense, 3rd person, masculine, singular",
           "irab": "Passive verb (fi'l mabni lil-majhul)",
           "en": "was cursed/destroyed",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -16124,7 +15829,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - temporal",
           "irab": "Temporal particle (zarf zaman)",
           "en": "when",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -16146,7 +15851,7 @@ const data: SurahDecoderData = {
           "morph": "Preposition + pronoun",
           "irab": "Prepositional phrase",
           "en": "upon it",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -16179,7 +15884,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - conjunction",
           "irab": "Coordinating conjunction",
           "en": "and",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -16201,7 +15906,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - preposition",
           "irab": "Preposition",
           "en": "upon/over",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -16235,7 +15940,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - preposition",
           "irab": "Preposition",
           "en": "to",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -16249,7 +15954,6 @@ const data: SurahDecoderData = {
           "en": "the believers",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         },
@@ -16281,7 +15985,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - conjunction",
           "irab": "Coordinating conjunction",
           "en": "and",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -16293,7 +15997,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - negation",
           "irab": "Negation particle (harf nafy)",
           "en": "not",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -16317,7 +16021,7 @@ const data: SurahDecoderData = {
           "morph": "Preposition + pronoun",
           "irab": "Prepositional phrase with attached pronoun",
           "en": "from them",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -16329,7 +16033,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - exception",
           "irab": "Exception particle (harf istithnaa')",
           "en": "except",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -16341,7 +16045,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - subordinating",
           "irab": "Subordinating conjunction (harf masdar)",
           "en": "that",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -16353,10 +16057,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form IV, present subjunctive, 3rd person, masculine, plural",
           "irab": "Subjunctive verb after an - mansub",
           "en": "they believe",
-          "cs": "acc",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "acc"
+            "verb"
           ]
         },
         {
@@ -16366,7 +16069,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - preposition",
           "irab": "Preposition",
           "en": "in",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -16380,7 +16083,6 @@ const data: SurahDecoderData = {
           "en": "Allah",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         },
@@ -16434,7 +16136,7 @@ const data: SurahDecoderData = {
           "morph": "Preposition + pronoun",
           "irab": "Prepositional phrase functioning as predicate",
           "en": "to Him",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -16470,7 +16172,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - conjunction",
           "irab": "Coordinating conjunction",
           "en": "and",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -16494,7 +16196,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - conjunction",
           "irab": "Coordinating conjunction",
           "en": "and",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -16518,7 +16220,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - preposition",
           "irab": "Preposition",
           "en": "over",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -16532,7 +16234,6 @@ const data: SurahDecoderData = {
           "en": "every",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         },
@@ -16576,7 +16277,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - emphasis",
           "irab": "Emphasis particle (harf tawkid)",
           "en": "indeed",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -16624,7 +16325,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - conjunction",
           "irab": "Coordinating conjunction",
           "en": "and",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -16648,7 +16349,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - conjunction",
           "irab": "Sequential conjunction",
           "en": "then",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -16660,7 +16361,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - negation/jussive",
           "irab": "Negative particle governing jussive",
           "en": "did not",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -16684,7 +16385,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - result",
           "irab": "Result particle",
           "en": "so/then",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -16696,7 +16397,7 @@ const data: SurahDecoderData = {
           "morph": "Preposition + pronoun",
           "irab": "Prepositional phrase functioning as predicate",
           "en": "for them",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -16732,7 +16433,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - conjunction",
           "irab": "Coordinating conjunction",
           "en": "and",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -16744,7 +16445,7 @@ const data: SurahDecoderData = {
           "morph": "Preposition + pronoun",
           "irab": "Prepositional phrase functioning as predicate",
           "en": "for them",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -16789,7 +16490,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - emphasis",
           "irab": "Emphasis particle (harf tawkid)",
           "en": "indeed",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -16825,7 +16526,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - conjunction",
           "irab": "Coordinating conjunction",
           "en": "and",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -16861,7 +16562,7 @@ const data: SurahDecoderData = {
           "morph": "Preposition + pronoun",
           "irab": "Prepositional phrase as predicate (khabar muqaddam)",
           "en": "for them",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -16897,7 +16598,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - preposition",
           "irab": "Preposition",
           "en": "from",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -16909,10 +16610,8 @@ const data: SurahDecoderData = {
           "morph": "Noun - spatial + pronoun",
           "irab": "Adverbial phrase with attached pronoun",
           "en": "beneath it",
-          "cs": "verb",
-          "lens": [
-            "verb"
-          ]
+          "cs": "none",
+          "lens": []
         },
         {
           "ar": "الْأَنْهَارُ",
@@ -16978,7 +16677,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - emphasis",
           "irab": "Emphasis particle (harf tawkid)",
           "en": "indeed",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -17014,7 +16713,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - emphasis",
           "irab": "Emphasis particle (lam al-tawkid)",
           "en": "surely",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -17047,7 +16746,7 @@ const data: SurahDecoderData = {
           "morph": "Particle + pronoun",
           "irab": "Emphasis particle with attached pronoun",
           "en": "indeed He",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -17069,10 +16768,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form IV, present tense, 3rd person, masculine, singular",
           "irab": "Present verb - indicative (marfu')",
           "en": "originates/creates",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         },
         {
@@ -17082,7 +16780,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - conjunction",
           "irab": "Coordinating conjunction",
           "en": "and",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -17094,10 +16792,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form IV, present tense, 3rd person, masculine, singular",
           "irab": "Present verb - indicative (marfu')",
           "en": "repeats/recreates",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         }
       ]
@@ -17116,7 +16813,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - conjunction",
           "irab": "Coordinating conjunction",
           "en": "and",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -17230,7 +16927,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - preposition",
           "irab": "Preposition",
           "en": "of",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -17273,7 +16970,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - interrogative",
           "irab": "Interrogative particle (harf istifham)",
           "en": "has",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -17342,7 +17039,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - conjunction",
           "irab": "Coordinating conjunction",
           "en": "and",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -17375,7 +17072,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - adversative",
           "irab": "Adversative conjunction",
           "en": "But rather",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -17411,7 +17108,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - preposition",
           "irab": "Preposition",
           "en": "in",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -17423,11 +17120,9 @@ const data: SurahDecoderData = {
           "morph": "Noun - verbal noun (masdar), masculine, singular, indefinite",
           "irab": "Object of preposition - genitive (majrur)",
           "en": "denial/rejection",
-          "cs": "gen",
+          "cs": "verb",
           "lens": [
-            "particle",
-            "verb",
-            "gen"
+            "verb"
           ]
         }
       ]
@@ -17446,7 +17141,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - conjunction",
           "irab": "Coordinating conjunction (circumstantial)",
           "en": "while",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -17470,7 +17165,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - preposition",
           "irab": "Preposition",
           "en": "from",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -17483,9 +17178,7 @@ const data: SurahDecoderData = {
           "irab": "Object of preposition with attached pronoun",
           "en": "behind them",
           "cs": "none",
-          "lens": [
-            "particle"
-          ]
+          "lens": []
         },
         {
           "ar": "مُحِيطٌ",
@@ -17515,7 +17208,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - adversative",
           "irab": "Adversative conjunction",
           "en": "Rather",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -17572,7 +17265,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - preposition",
           "irab": "Preposition",
           "en": "in",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -17586,7 +17279,6 @@ const data: SurahDecoderData = {
           "en": "a Tablet",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         },
@@ -17620,7 +17312,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - oath",
           "irab": "Oath particle (wa al-qasam)",
           "en": "By",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -17644,7 +17336,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - oath",
           "irab": "Oath particle (wa al-qasam)",
           "en": "And by",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -17677,7 +17369,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - conjunction",
           "irab": "Coordinating conjunction",
           "en": "and",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -17775,7 +17467,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - negative conditional",
           "irab": "Negative conditional particle (harf nafy)",
           "en": "not",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -17811,7 +17503,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - exception/emphasis",
           "irab": "Exceptive particle (harf istithnaa') meaning \"but/except\"",
           "en": "but/except",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -17823,7 +17515,7 @@ const data: SurahDecoderData = {
           "morph": "Preposition + pronoun",
           "irab": "Prepositional phrase functioning as predicate",
           "en": "over it",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -17856,7 +17548,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - result/command",
           "irab": "Result/imperative particle",
           "en": "so",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -17868,7 +17560,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - command",
           "irab": "Lam al-amr (command particle)",
           "en": "let",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -17904,7 +17596,7 @@ const data: SurahDecoderData = {
           "morph": "Preposition + pronoun",
           "irab": "Compound: min + ma (from what)",
           "en": "from what",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -17949,7 +17641,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - preposition",
           "irab": "Preposition indicating source",
           "en": "from",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -17963,7 +17655,6 @@ const data: SurahDecoderData = {
           "en": "fluid/water",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         },
@@ -17995,10 +17686,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, present tense, 3rd person, masculine, singular",
           "irab": "Present verb describing ma' - indicative (marfu')",
           "en": "it emerges",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         },
         {
@@ -18008,7 +17698,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - preposition",
           "irab": "Preposition",
           "en": "from",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -18022,7 +17712,6 @@ const data: SurahDecoderData = {
           "en": "between",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         },
@@ -18045,7 +17734,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - conjunction",
           "irab": "Coordinating conjunction",
           "en": "and",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -18078,7 +17767,7 @@ const data: SurahDecoderData = {
           "morph": "Particle + pronoun",
           "irab": "Emphasis particle with attached pronoun (ism inna)",
           "en": "indeed He",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -18090,7 +17779,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - preposition",
           "irab": "Preposition",
           "en": "upon/over",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -18104,7 +17793,6 @@ const data: SurahDecoderData = {
           "en": "his return",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         },
@@ -18115,7 +17803,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - emphasis",
           "irab": "Emphasis particle (lam al-tawkid)",
           "en": "surely",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -18150,7 +17838,6 @@ const data: SurahDecoderData = {
           "en": "on the Day",
           "cs": "acc",
           "lens": [
-            "verb",
             "acc"
           ]
         },
@@ -18161,10 +17848,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, passive, present tense, 3rd person, feminine, singular",
           "irab": "Passive verb - indicative (marfu')",
           "en": "are tested/revealed",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         },
         {
@@ -18195,7 +17881,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - result",
           "irab": "Result conjunction",
           "en": "so/then",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -18207,7 +17893,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - negation",
           "irab": "Negation particle (harf nafy)",
           "en": "not",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -18219,7 +17905,7 @@ const data: SurahDecoderData = {
           "morph": "Preposition + pronoun",
           "irab": "Prepositional phrase",
           "en": "for him",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -18231,7 +17917,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - emphasis",
           "irab": "Emphatic/extra particle (min za'ida)",
           "en": "(emphasis)",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -18255,7 +17941,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - conjunction",
           "irab": "Coordinating conjunction",
           "en": "and",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -18267,7 +17953,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - negation",
           "irab": "Negation particle (harf nafy)",
           "en": "not",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -18300,7 +17986,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - oath",
           "irab": "Oath particle (wa al-qasam)",
           "en": "By",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -18357,7 +18043,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - oath",
           "irab": "Oath particle (wa al-qasam)",
           "en": "And by",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -18414,7 +18100,7 @@ const data: SurahDecoderData = {
           "morph": "Particle + pronoun",
           "irab": "Emphasis particle with attached pronoun",
           "en": "indeed it",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -18426,7 +18112,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - emphasis",
           "irab": "Emphasis particle (lam al-tawkid)",
           "en": "surely",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -18471,7 +18157,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - conjunction",
           "irab": "Coordinating conjunction",
           "en": "and",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -18483,7 +18169,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - negation",
           "irab": "Negation particle (harf nafy)",
           "en": "not",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -18507,7 +18193,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - extra/emphatic",
           "irab": "Emphatic particle (ba' za'ida)",
           "en": "(emphasis)",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -18540,7 +18226,7 @@ const data: SurahDecoderData = {
           "morph": "Particle + pronoun",
           "irab": "Emphasis particle with attached pronoun",
           "en": "indeed they",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -18552,10 +18238,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, present tense, 3rd person, masculine, plural",
           "irab": "Present verb - indicative (marfu')",
           "en": "they plot",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         },
         {
@@ -18565,10 +18250,9 @@ const data: SurahDecoderData = {
           "morph": "Noun - verbal noun (masdar), masculine, singular, indefinite",
           "irab": "Absolute object (maf'ul mutlaq) - accusative (mansub)",
           "en": "a plot",
-          "cs": "acc",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "acc"
+            "verb"
           ]
         }
       ]
@@ -18587,7 +18271,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - conjunction",
           "irab": "Coordinating conjunction",
           "en": "and",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -18599,10 +18283,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, present tense, 1st person, singular",
           "irab": "Present verb - indicative (marfu')",
           "en": "I plot",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         },
         {
@@ -18612,10 +18295,9 @@ const data: SurahDecoderData = {
           "morph": "Noun - verbal noun (masdar), masculine, singular, indefinite",
           "irab": "Absolute object (maf'ul mutlaq) - accusative (mansub)",
           "en": "a plot",
-          "cs": "acc",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "acc"
+            "verb"
           ]
         }
       ]
@@ -18634,7 +18316,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - result",
           "irab": "Result conjunction",
           "en": "so",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -18682,10 +18364,9 @@ const data: SurahDecoderData = {
           "morph": "Noun - diminutive adverb",
           "irab": "Adverbial accusative (maf'ul mutlaq)",
           "en": "a little while",
-          "cs": "acc",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "acc"
+            "verb"
           ]
         }
       ]
@@ -18785,7 +18466,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - conjunction",
           "irab": "Sequential conjunction",
           "en": "then",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -18818,7 +18499,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - conjunction",
           "irab": "Coordinating conjunction",
           "en": "and",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -18852,7 +18533,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - conjunction",
           "irab": "Sequential conjunction",
           "en": "then",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -18885,7 +18566,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - conjunction",
           "irab": "Coordinating conjunction",
           "en": "and",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -18940,7 +18621,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - conjunction",
           "irab": "Sequential conjunction",
           "en": "then",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -18997,7 +18678,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - future",
           "irab": "Future prefix (seen al-istiqbal)",
           "en": "will",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -19009,10 +18690,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form IV, present tense, 1st person, plural + pronoun",
           "irab": "Future verb with object pronoun - indicative (marfu')",
           "en": "We make you recite",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         },
         {
@@ -19022,7 +18702,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - result",
           "irab": "Result conjunction",
           "en": "so",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -19034,7 +18714,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - negation",
           "irab": "Negation particle (harf nafy)",
           "en": "not",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -19046,10 +18726,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, present tense, 2nd person, masculine, singular",
           "irab": "Present verb - indicative (marfu')",
           "en": "you will forget",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         }
       ]
@@ -19068,7 +18747,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - exception",
           "irab": "Exception particle (harf istithnaa')",
           "en": "except",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -19114,7 +18793,7 @@ const data: SurahDecoderData = {
           "morph": "Particle + pronoun",
           "irab": "Emphasis particle with attached pronoun",
           "en": "indeed He",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -19126,10 +18805,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, present tense, 3rd person, masculine, singular",
           "irab": "Present verb - indicative (marfu')",
           "en": "He knows",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         },
         {
@@ -19151,7 +18829,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - conjunction",
           "irab": "Coordinating conjunction",
           "en": "and",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -19194,7 +18872,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - conjunction",
           "irab": "Coordinating conjunction",
           "en": "and",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -19206,10 +18884,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form II, present tense, 1st person, plural + pronoun",
           "irab": "Present verb with object pronoun - indicative (marfu')",
           "en": "We will ease you",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         },
         {
@@ -19219,7 +18896,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - preposition",
           "irab": "Preposition",
           "en": "toward",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -19233,7 +18910,6 @@ const data: SurahDecoderData = {
           "en": "the ease/easiest way",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         }
@@ -19253,7 +18929,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - result",
           "irab": "Result conjunction",
           "en": "so",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -19277,7 +18953,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - conditional",
           "irab": "Conditional particle (harf shart)",
           "en": "if",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -19322,7 +18998,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - future",
           "irab": "Future prefix (seen al-istiqbal)",
           "en": "will",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -19334,10 +19010,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form V, present tense, 3rd person, masculine, singular",
           "irab": "Future verb - indicative (marfu')",
           "en": "he will remember",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         },
         {
@@ -19378,7 +19053,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - conjunction",
           "irab": "Coordinating conjunction",
           "en": "and/but",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -19478,7 +19153,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - conjunction",
           "irab": "Sequential conjunction",
           "en": "then",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -19490,7 +19165,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - negation",
           "irab": "Negation particle (harf nafy)",
           "en": "not",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -19502,10 +19177,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, present tense, 3rd person, masculine, singular",
           "irab": "Present verb - indicative (marfu')",
           "en": "he will die",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         },
         {
@@ -19515,7 +19189,7 @@ const data: SurahDecoderData = {
           "morph": "Preposition + pronoun",
           "irab": "Prepositional phrase with attached pronoun",
           "en": "in it",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -19527,7 +19201,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - conjunction",
           "irab": "Coordinating conjunction",
           "en": "and",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -19539,7 +19213,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - negation",
           "irab": "Negation particle (harf nafy)",
           "en": "not",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -19551,10 +19225,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, present tense, 3rd person, masculine, singular",
           "irab": "Present verb - indicative (marfu')",
           "en": "he will live",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         }
       ]
@@ -19573,7 +19246,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - emphasis",
           "irab": "Emphasis particle for past/perfective",
           "en": "certainly",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -19628,7 +19301,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - conjunction",
           "irab": "Coordinating conjunction",
           "en": "and",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -19676,7 +19349,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - conjunction",
           "irab": "Sequential conjunction",
           "en": "and so",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -19709,7 +19382,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - adversative",
           "irab": "Adversative conjunction",
           "en": "But rather",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -19721,10 +19394,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form IV, present tense, 2nd person, masculine, plural",
           "irab": "Present verb - indicative (marfu')",
           "en": "you prefer",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         },
         {
@@ -19767,7 +19439,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - conjunction",
           "irab": "Coordinating conjunction (circumstantial)",
           "en": "while",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -19803,7 +19475,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - conjunction",
           "irab": "Coordinating conjunction",
           "en": "and",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -19836,7 +19508,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - emphasis",
           "irab": "Emphasis particle (harf tawkid)",
           "en": "indeed",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -19860,7 +19532,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - emphasis",
           "irab": "Emphasis particle (lam al-tawkid)",
           "en": "surely",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -19872,7 +19544,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - preposition",
           "irab": "Preposition",
           "en": "in",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -19886,7 +19558,6 @@ const data: SurahDecoderData = {
           "en": "the scriptures/scrolls",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         },
@@ -19942,7 +19613,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - conjunction",
           "irab": "Coordinating conjunction",
           "en": "and",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -20046,10 +19717,9 @@ const data: SurahDecoderData = {
           "morph": "Adverb - temporal (compound)",
           "irab": "Adverbial accusative (zarf zaman) - accusative (mansub)",
           "en": "that Day",
-          "cs": "acc",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "acc"
+            "verb"
           ]
         },
         {
@@ -20113,10 +19783,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, present, 3rd person feminine plural",
           "irab": "Main verb - indicative (marfu')",
           "en": "they burn/enter",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         },
         {
@@ -20159,10 +19828,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, present passive, 3rd person feminine plural",
           "irab": "Main verb - passive, indicative (marfu')",
           "en": "they are given to drink",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         },
         {
@@ -20186,7 +19854,6 @@ const data: SurahDecoderData = {
           "en": "spring/fountain",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         },
@@ -20230,7 +19897,7 @@ const data: SurahDecoderData = {
           "morph": "Preposition + pronoun",
           "irab": "Predicate of laysa (khabar laysa muqaddam)",
           "en": "for them",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -20280,7 +19947,6 @@ const data: SurahDecoderData = {
           "en": "poisonous thorny plant",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         }
@@ -20312,10 +19978,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form IV, present, 3rd person masculine singular",
           "irab": "Main verb - indicative (marfu')",
           "en": "it fattens/nourishes",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         },
         {
@@ -20349,10 +20014,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form IV, present, 3rd person masculine singular",
           "irab": "Coordinated verb - indicative (marfu')",
           "en": "it satisfies/enriches",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         },
         {
@@ -20376,7 +20040,6 @@ const data: SurahDecoderData = {
           "en": "hunger",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         }
@@ -20408,10 +20071,9 @@ const data: SurahDecoderData = {
           "morph": "Adverb - temporal",
           "irab": "Adverbial accusative (zarf zaman) - accusative (mansub)",
           "en": "that Day",
-          "cs": "acc",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "acc"
+            "verb"
           ]
         },
         {
@@ -20456,7 +20118,6 @@ const data: SurahDecoderData = {
           "en": "its effort/striving",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         },
@@ -20502,7 +20163,6 @@ const data: SurahDecoderData = {
           "en": "garden/paradise",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         },
@@ -20546,10 +20206,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, present, 2nd person masculine singular",
           "irab": "Main verb - indicative (marfu')",
           "en": "you hear",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         },
         {
@@ -20559,7 +20218,7 @@ const data: SurahDecoderData = {
           "morph": "Preposition + pronoun",
           "irab": "Prepositional phrase",
           "en": "in it",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -20592,7 +20251,7 @@ const data: SurahDecoderData = {
           "morph": "Preposition + pronoun",
           "irab": "Predicate (khabar muqaddam) - prepositional phrase",
           "en": "in it",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -20637,7 +20296,7 @@ const data: SurahDecoderData = {
           "morph": "Preposition + pronoun",
           "irab": "Predicate (khabar muqaddam)",
           "en": "in it",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -20853,10 +20512,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, present, 3rd person masculine plural",
           "irab": "Main verb - indicative (marfu')",
           "en": "they look",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         },
         {
@@ -20880,7 +20538,6 @@ const data: SurahDecoderData = {
           "en": "the camels",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         },
@@ -20891,7 +20548,7 @@ const data: SurahDecoderData = {
           "morph": "Interrogative adverb",
           "irab": "Not declinable (mabni)",
           "en": "how",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -20950,7 +20607,6 @@ const data: SurahDecoderData = {
           "en": "the sky",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         },
@@ -20961,7 +20617,7 @@ const data: SurahDecoderData = {
           "morph": "Interrogative adverb",
           "irab": "Not declinable (mabni)",
           "en": "how",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -21020,7 +20676,6 @@ const data: SurahDecoderData = {
           "en": "the mountains",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         },
@@ -21031,7 +20686,7 @@ const data: SurahDecoderData = {
           "morph": "Interrogative adverb",
           "irab": "Not declinable (mabni)",
           "en": "how",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -21090,7 +20745,6 @@ const data: SurahDecoderData = {
           "en": "the earth",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         },
@@ -21101,7 +20755,7 @@ const data: SurahDecoderData = {
           "morph": "Interrogative adverb",
           "irab": "Not declinable (mabni)",
           "en": "how",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -21215,7 +20869,7 @@ const data: SurahDecoderData = {
           "morph": "Preposition + pronoun",
           "irab": "Prepositional phrase (khabar laysa muqaddam)",
           "en": "over them",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -21398,10 +21052,9 @@ const data: SurahDecoderData = {
           "morph": "Particle - emphasis",
           "irab": "Not declinable (mabni), governs accusative",
           "en": "indeed",
-          "cs": "acc",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "acc"
+            "particle"
           ]
         },
         {
@@ -21411,7 +21064,7 @@ const data: SurahDecoderData = {
           "morph": "Preposition + pronoun",
           "irab": "Predicate of inna (khabar inna muqaddam)",
           "en": "to Us",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -21468,7 +21121,7 @@ const data: SurahDecoderData = {
           "morph": "Preposition + pronoun",
           "irab": "Predicate of inna (khabar inna muqaddam)",
           "en": "upon Us",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -21505,7 +21158,6 @@ const data: SurahDecoderData = {
           "en": "and the dawn",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         }
@@ -21539,7 +21191,6 @@ const data: SurahDecoderData = {
           "en": "nights",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         },
@@ -21585,7 +21236,6 @@ const data: SurahDecoderData = {
           "en": "the even",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         },
@@ -21610,7 +21260,6 @@ const data: SurahDecoderData = {
           "en": "the odd",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         }
@@ -21644,7 +21293,6 @@ const data: SurahDecoderData = {
           "en": "the night",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         },
@@ -21667,10 +21315,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, present, 3rd person masculine singular",
           "irab": "Verb in indicative (marfu'), subject is اللَّيْل",
           "en": "it passes/flows",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         }
       ]
@@ -21701,10 +21348,9 @@ const data: SurahDecoderData = {
           "morph": "Particle - preposition",
           "irab": "Not declinable (mabni), governs genitive",
           "en": "in",
-          "cs": "gen",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "gen"
+            "particle"
           ]
         },
         {
@@ -21738,10 +21384,9 @@ const data: SurahDecoderData = {
           "morph": "Particle - preposition",
           "irab": "Not declinable (mabni), governs genitive",
           "en": "for",
-          "cs": "gen",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "gen"
+            "particle"
           ]
         },
         {
@@ -21820,7 +21465,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, past, 3rd person masculine singular",
           "irab": "Verb in past (mabni), introduces subordinate clause",
           "en": "he did",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -21844,10 +21489,9 @@ const data: SurahDecoderData = {
           "morph": "Particle - preposition",
           "irab": "Not declinable (mabni), governs genitive",
           "en": "with/to",
-          "cs": "gen",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "gen"
+            "particle"
           ]
         },
         {
@@ -21935,8 +21579,7 @@ const data: SurahDecoderData = {
           "en": "not",
           "cs": "mabni",
           "lens": [
-            "particle",
-            "verb"
+            "particle"
           ]
         },
         {
@@ -21960,7 +21603,6 @@ const data: SurahDecoderData = {
           "en": "its like",
           "cs": "gen",
           "lens": [
-            "verb",
             "gen"
           ]
         },
@@ -21971,10 +21613,9 @@ const data: SurahDecoderData = {
           "morph": "Particle - preposition",
           "irab": "Not declinable (mabni), governs genitive",
           "en": "in",
-          "cs": "gen",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "gen"
+            "particle"
           ]
         },
         {
@@ -22039,7 +21680,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, past, 3rd person masculine plural",
           "irab": "Verb in past (mabni), وا pronoun is subject",
           "en": "they hollowed out",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -22063,10 +21704,9 @@ const data: SurahDecoderData = {
           "morph": "Particle - preposition",
           "irab": "Not declinable (mabni), governs genitive",
           "en": "in/at",
-          "cs": "gen",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "gen"
+            "particle"
           ]
         },
         {
@@ -22164,7 +21804,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, past, 3rd person masculine plural",
           "irab": "Verb in past (mabni), وا pronoun is subject",
           "en": "they transgressed",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -22176,10 +21816,9 @@ const data: SurahDecoderData = {
           "morph": "Particle - preposition",
           "irab": "Not declinable (mabni), governs genitive",
           "en": "in",
-          "cs": "gen",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "gen"
+            "particle"
           ]
         },
         {
@@ -22222,7 +21861,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form IV, past, 3rd person masculine plural",
           "irab": "Verb in past (mabni), وا pronoun is subject",
           "en": "they increased/multiplied",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -22234,10 +21873,9 @@ const data: SurahDecoderData = {
           "morph": "Preposition + attached pronoun",
           "irab": "فِي governs genitive, هَا pronoun refers to الْبِلَادِ",
           "en": "in it",
-          "cs": "gen",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "gen"
+            "particle"
           ]
         },
         {
@@ -22280,7 +21918,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, past, 3rd person masculine singular",
           "irab": "Verb in past (mabni)",
           "en": "he poured",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -22292,10 +21930,9 @@ const data: SurahDecoderData = {
           "morph": "Preposition + attached pronoun",
           "irab": "عَلَى governs genitive, هِمْ 3rd person plural pronoun",
           "en": "upon them",
-          "cs": "gen",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "gen"
+            "particle"
           ]
         },
         {
@@ -22350,10 +21987,9 @@ const data: SurahDecoderData = {
           "morph": "Particle - emphasis",
           "irab": "Not declinable (mabni), governs accusative for subject",
           "en": "indeed",
-          "cs": "acc",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "acc"
+            "particle"
           ]
         },
         {
@@ -22387,10 +22023,9 @@ const data: SurahDecoderData = {
           "morph": "Particle - preposition",
           "irab": "Not declinable (mabni), governs genitive",
           "en": "in/at",
-          "cs": "gen",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "gen"
+            "particle"
           ]
         },
         {
@@ -22481,7 +22116,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form VIII, past, 3rd person masculine singular + pronoun",
           "irab": "Verb in past (mabni), هُ 3rd person pronoun is object",
           "en": "he tested him",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -22517,7 +22152,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form IV, past, 3rd person masculine singular + pronoun",
           "irab": "Verb in past (mabni), هُ 3rd person pronoun is object",
           "en": "he honored him",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -22541,7 +22176,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form II, past, 3rd person masculine singular + pronoun",
           "irab": "Verb in past (mabni), هُ 3rd person pronoun is object",
           "en": "he favored him",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -22565,10 +22200,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, present, 3rd person masculine singular",
           "irab": "Verb in indicative (marfu'), subject is الْإِنسَانُ",
           "en": "he says",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         },
         {
@@ -22590,7 +22224,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form IV, past, 3rd person masculine singular + pronoun",
           "irab": "Predicate (khabar) - verb in past (mabni), نِ 1st person pronoun is object, originally أَكْرَمَنِي",
           "en": "he honored me",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -22659,7 +22293,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form VIII, past, 3rd person masculine singular + pronoun",
           "irab": "Verb in past (mabni), هُ 3rd person pronoun is object",
           "en": "he tested him",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -22683,7 +22317,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, past, 3rd person masculine singular",
           "irab": "Verb in past (mabni)",
           "en": "he restricted",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -22695,10 +22329,9 @@ const data: SurahDecoderData = {
           "morph": "Preposition + attached pronoun",
           "irab": "عَلَى governs genitive, هِ 3rd person pronoun",
           "en": "upon him",
-          "cs": "gen",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "gen"
+            "particle"
           ]
         },
         {
@@ -22732,10 +22365,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, present, 3rd person masculine singular",
           "irab": "Verb in indicative (marfu')",
           "en": "he says",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         },
         {
@@ -22757,7 +22389,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form IV, past, 3rd person masculine singular + pronoun",
           "irab": "Predicate (khabar) - verb in past (mabni), نِ 1st person pronoun is object, from أَهَانَنِي",
           "en": "he humiliated me",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -22804,8 +22436,7 @@ const data: SurahDecoderData = {
           "en": "not",
           "cs": "mabni",
           "lens": [
-            "particle",
-            "verb"
+            "particle"
           ]
         },
         {
@@ -22815,10 +22446,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form IV, present, 2nd person masculine plural",
           "irab": "Verb in indicative (marfu'), نَ is subject pronoun and ن for plural",
           "en": "you honor",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         },
         {
@@ -22863,8 +22493,7 @@ const data: SurahDecoderData = {
           "en": "not",
           "cs": "mabni",
           "lens": [
-            "particle",
-            "verb"
+            "particle"
           ]
         },
         {
@@ -22874,10 +22503,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form VI, present, 2nd person masculine plural",
           "irab": "Verb in indicative (marfu'), نَ is subject pronoun and ن for plural",
           "en": "you mutually encourage",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         },
         {
@@ -22887,10 +22515,9 @@ const data: SurahDecoderData = {
           "morph": "Particle - preposition",
           "irab": "Not declinable (mabni), governs genitive",
           "en": "upon/to",
-          "cs": "gen",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "gen"
+            "particle"
           ]
         },
         {
@@ -22945,10 +22572,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, present, 2nd person masculine plural",
           "irab": "Verb in indicative (marfu'), نَ is subject pronoun and ن for plural",
           "en": "you eat/consume",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         },
         {
@@ -22970,10 +22596,9 @@ const data: SurahDecoderData = {
           "morph": "Noun - masculine, singular, indefinite (verbal noun)",
           "irab": "Absolute object (maf'ul mutlaq) - accusative (mansub), with tanwin",
           "en": "eating/consuming",
-          "cs": "acc",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "acc"
+            "verb"
           ]
         },
         {
@@ -23016,10 +22641,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form IV, present, 2nd person masculine plural",
           "irab": "Verb in indicative (marfu'), نَ is subject pronoun and ن for plural",
           "en": "you love",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         },
         {
@@ -23041,10 +22665,9 @@ const data: SurahDecoderData = {
           "morph": "Noun - masculine, singular, indefinite (verbal noun)",
           "irab": "Absolute object (maf'ul mutlaq) - accusative (mansub), with tanwin",
           "en": "love/loving",
-          "cs": "acc",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "acc"
+            "verb"
           ]
         },
         {
@@ -23099,7 +22722,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, past passive, 3rd person feminine singular",
           "irab": "Verb in past passive (mabni), تِ indicates feminine subject",
           "en": "it was pounded",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -23113,7 +22736,6 @@ const data: SurahDecoderData = {
           "en": "the earth",
           "cs": "nom",
           "lens": [
-            "verb",
             "nom"
           ]
         },
@@ -23124,10 +22746,9 @@ const data: SurahDecoderData = {
           "morph": "Noun - masculine, singular, indefinite (verbal noun)",
           "irab": "Absolute object (maf'ul mutlaq) - accusative (mansub), with tanwin",
           "en": "pounding",
-          "cs": "acc",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "acc"
+            "verb"
           ]
         },
         {
@@ -23137,10 +22758,9 @@ const data: SurahDecoderData = {
           "morph": "Noun - masculine, singular, indefinite (verbal noun)",
           "irab": "Absolute object (maf'ul mutlaq) - accusative (mansub), repetition for emphasis, with tanwin",
           "en": "pounding",
-          "cs": "acc",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "acc"
+            "verb"
           ]
         }
       ]
@@ -23171,7 +22791,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, past, 3rd person masculine singular",
           "irab": "Verb in past (mabni)",
           "en": "he came",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -23219,10 +22839,9 @@ const data: SurahDecoderData = {
           "morph": "Noun - masculine, singular, indefinite (verbal noun used as hal)",
           "irab": "Circumstantial expression (hal) - accusative (mansub), with tanwin",
           "en": "rank/row",
-          "cs": "acc",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "acc"
+            "verb"
           ]
         },
         {
@@ -23265,7 +22884,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, past passive, 3rd person masculine singular",
           "irab": "Verb in past passive (mabni)",
           "en": "it was brought",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -23277,10 +22896,9 @@ const data: SurahDecoderData = {
           "morph": "Noun - masculine, singular + demonstrative adverb",
           "irab": "Adverbial of time (zarf zaman) - accusative (mansub), إِذٍ with tanwin kasratayn",
           "en": "that Day",
-          "cs": "acc",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "acc"
+            "verb"
           ]
         },
         {
@@ -23290,10 +22908,9 @@ const data: SurahDecoderData = {
           "morph": "Particle - preposition",
           "irab": "Not declinable (mabni), governs genitive",
           "en": "with",
-          "cs": "gen",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "gen"
+            "particle"
           ]
         },
         {
@@ -23315,10 +22932,9 @@ const data: SurahDecoderData = {
           "morph": "Noun - masculine, singular + demonstrative adverb",
           "irab": "Adverbial of time (zarf zaman) - accusative (mansub), repetition for emphasis",
           "en": "that Day",
-          "cs": "acc",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "acc"
+            "verb"
           ]
         },
         {
@@ -23328,10 +22944,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form V, present, 3rd person masculine singular",
           "irab": "Verb in indicative (marfu')",
           "en": "he will remember",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         },
         {
@@ -23377,10 +22992,9 @@ const data: SurahDecoderData = {
           "morph": "Preposition + attached pronoun",
           "irab": "لَ governs genitive, هُ 3rd person pronoun",
           "en": "for him",
-          "cs": "gen",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "gen"
+            "particle"
           ]
         },
         {
@@ -23411,10 +23025,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, present, 3rd person masculine singular",
           "irab": "Verb in indicative (marfu'), subject is الْإِنسَانُ",
           "en": "he will say",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         },
         {
@@ -23436,10 +23049,9 @@ const data: SurahDecoderData = {
           "morph": "Particle + attached pronoun",
           "irab": "لَيْتَ is one of inna's sisters (wish/regret), نِي 1st person pronoun is ism layta (accusative)",
           "en": "I wish I",
-          "cs": "acc",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "acc"
+            "particle"
           ]
         },
         {
@@ -23449,7 +23061,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form II, past, 1st person singular",
           "irab": "Verb in past (mabni), تُ is subject pronoun, predicate (khabar) of لَيْتَ",
           "en": "I had sent ahead",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -23461,10 +23073,9 @@ const data: SurahDecoderData = {
           "morph": "Particle - preposition",
           "irab": "Not declinable (mabni), governs genitive",
           "en": "for",
-          "cs": "gen",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "gen"
+            "particle"
           ]
         },
         {
@@ -23507,10 +23118,9 @@ const data: SurahDecoderData = {
           "morph": "Noun - masculine, singular + demonstrative adverb",
           "irab": "Adverbial of time (zarf zaman) - accusative (mansub)",
           "en": "that Day",
-          "cs": "acc",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "acc"
+            "verb"
           ]
         },
         {
@@ -23522,8 +23132,7 @@ const data: SurahDecoderData = {
           "en": "not",
           "cs": "mabni",
           "lens": [
-            "particle",
-            "verb"
+            "particle"
           ]
         },
         {
@@ -23533,10 +23142,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form II, present, 3rd person masculine singular",
           "irab": "Verb in indicative (marfu')",
           "en": "he punishes",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         },
         {
@@ -23593,8 +23201,7 @@ const data: SurahDecoderData = {
           "en": "not",
           "cs": "mabni",
           "lens": [
-            "particle",
-            "verb"
+            "particle"
           ]
         },
         {
@@ -23604,10 +23211,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form IV, present, 3rd person masculine singular",
           "irab": "Verb in indicative (marfu')",
           "en": "he binds",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         },
         {
@@ -23662,10 +23268,9 @@ const data: SurahDecoderData = {
           "morph": "Vocative particle + demonstrative pronoun",
           "irab": "أَيَّتُ is feminine vocative particle in nominative, هَا for attention",
           "en": "O you (feminine)",
-          "cs": "nom",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "nom"
+            "particle"
           ]
         },
         {
@@ -23708,7 +23313,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, imperative, 2nd person feminine singular",
           "irab": "Imperative verb (mabni on sukun), ي for feminine",
           "en": "return!",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -23720,10 +23325,9 @@ const data: SurahDecoderData = {
           "morph": "Particle - preposition",
           "irab": "Not declinable (mabni), governs genitive",
           "en": "to",
-          "cs": "gen",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "gen"
+            "particle"
           ]
         },
         {
@@ -23790,7 +23394,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, imperative, 2nd person feminine singular",
           "irab": "Imperative verb (mabni on sukun), ي for feminine",
           "en": "enter!",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -23802,10 +23406,9 @@ const data: SurahDecoderData = {
           "morph": "Particle - preposition",
           "irab": "Not declinable (mabni), governs genitive",
           "en": "in/among",
-          "cs": "gen",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "gen"
+            "particle"
           ]
         },
         {
@@ -23848,7 +23451,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, imperative, 2nd person feminine singular",
           "irab": "Imperative verb (mabni on sukun), ي for feminine",
           "en": "enter!",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -23895,10 +23498,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form IV, present, 1st person singular",
           "irab": "Verb in indicative (marfu')",
           "en": "I swear",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         },
         {
@@ -23908,10 +23510,9 @@ const data: SurahDecoderData = {
           "morph": "Particle - preposition",
           "irab": "Not declinable (mabni), governs genitive",
           "en": "by",
-          "cs": "gen",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "gen"
+            "particle"
           ]
         },
         {
@@ -23988,10 +23589,9 @@ const data: SurahDecoderData = {
           "morph": "Particle - preposition",
           "irab": "Not declinable (mabni), governs genitive",
           "en": "in/by",
-          "cs": "gen",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "gen"
+            "particle"
           ]
         },
         {
@@ -24082,7 +23682,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, past, 3rd person masculine singular",
           "irab": "Verb in past (mabni), subject hidden (هُوَ)",
           "en": "he begot",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -24117,8 +23717,7 @@ const data: SurahDecoderData = {
           "en": "certainly/indeed",
           "cs": "mabni",
           "lens": [
-            "particle",
-            "verb"
+            "particle"
           ]
         },
         {
@@ -24128,7 +23727,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, past, 1st person plural",
           "irab": "Verb in past (mabni), نَا pronoun is subject",
           "en": "We created",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -24152,10 +23751,9 @@ const data: SurahDecoderData = {
           "morph": "Particle - preposition",
           "irab": "Not declinable (mabni), governs genitive",
           "en": "in",
-          "cs": "gen",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "gen"
+            "particle"
           ]
         },
         {
@@ -24198,10 +23796,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, present, 3rd person masculine singular",
           "irab": "Verb in indicative (marfu')",
           "en": "he thinks/supposes",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         },
         {
@@ -24225,8 +23822,7 @@ const data: SurahDecoderData = {
           "en": "never will",
           "cs": "mabni",
           "lens": [
-            "particle",
-            "verb"
+            "particle"
           ]
         },
         {
@@ -24236,10 +23832,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, present, 3rd person masculine singular",
           "irab": "Verb in subjunctive (mansub) after لَّن",
           "en": "he has power",
-          "cs": "acc",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "acc"
+            "verb"
           ]
         },
         {
@@ -24249,10 +23844,9 @@ const data: SurahDecoderData = {
           "morph": "Preposition + attached pronoun",
           "irab": "عَلَى governs genitive, هِ 3rd person pronoun",
           "en": "over him",
-          "cs": "gen",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "gen"
+            "particle"
           ]
         },
         {
@@ -24283,10 +23877,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, present, 3rd person masculine singular",
           "irab": "Verb in indicative (marfu')",
           "en": "he says",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         },
         {
@@ -24296,7 +23889,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form IV, past, 1st person singular",
           "irab": "Verb in past (mabni), تُ is subject pronoun",
           "en": "I spent/destroyed",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -24353,10 +23946,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, present, 3rd person masculine singular",
           "irab": "Verb in indicative (marfu')",
           "en": "he thinks/supposes",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         },
         {
@@ -24380,8 +23972,7 @@ const data: SurahDecoderData = {
           "en": "not/did not",
           "cs": "mabni",
           "lens": [
-            "particle",
-            "verb"
+            "particle"
           ]
         },
         {
@@ -24438,8 +24029,7 @@ const data: SurahDecoderData = {
           "en": "not",
           "cs": "mabni",
           "lens": [
-            "particle",
-            "verb"
+            "particle"
           ]
         },
         {
@@ -24461,10 +24051,9 @@ const data: SurahDecoderData = {
           "morph": "Preposition + attached pronoun",
           "irab": "لَ governs genitive/dative, هُ 3rd person pronoun",
           "en": "for him",
-          "cs": "gen",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "gen"
+            "particle"
           ]
         },
         {
@@ -24564,7 +24153,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, past, 1st person plural + pronoun",
           "irab": "Verb in past (mabni), نَا pronoun is subject, هُ is first object",
           "en": "We guided him",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -24611,8 +24200,7 @@ const data: SurahDecoderData = {
           "en": "not",
           "cs": "mabni",
           "lens": [
-            "particle",
-            "verb"
+            "particle"
           ]
         },
         {
@@ -24622,7 +24210,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form VIII, past, 3rd person masculine singular",
           "irab": "Verb in past (mabni)",
           "en": "he broke through/attempted",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -24679,7 +24267,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form IV, past, 3rd person masculine singular + pronoun",
           "irab": "Verb in past (mabni), كَ 2nd person pronoun is object",
           "en": "it made you know",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -24724,10 +24312,9 @@ const data: SurahDecoderData = {
           "morph": "Noun - masculine, singular, indefinite (verbal noun)",
           "irab": "Predicate (khabar) - nominative (marfu') without tanwin (improper annexation)",
           "en": "freeing/releasing",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         },
         {
@@ -24770,10 +24357,9 @@ const data: SurahDecoderData = {
           "morph": "Noun - masculine, singular, indefinite (verbal noun Form IV)",
           "irab": "Predicate (khabar) - nominative (marfu'), with tanwin dammatayn",
           "en": "feeding",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         },
         {
@@ -24783,10 +24369,9 @@ const data: SurahDecoderData = {
           "morph": "Particle - preposition",
           "irab": "Not declinable (mabni), governs genitive",
           "en": "in/on",
-          "cs": "gen",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "gen"
+            "particle"
           ]
         },
         {
@@ -24955,7 +24540,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, past, 3rd person masculine singular",
           "irab": "Verb in past (mabni), auxiliary verb",
           "en": "he was",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -24967,10 +24552,9 @@ const data: SurahDecoderData = {
           "morph": "Particle - preposition",
           "irab": "Not declinable (mabni), governs genitive",
           "en": "from/among",
-          "cs": "gen",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "gen"
+            "particle"
           ]
         },
         {
@@ -24992,7 +24576,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form IV, past, 3rd person masculine plural",
           "irab": "Verb in past (mabni), وا pronoun is subject",
           "en": "they believed",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -25016,7 +24600,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form VI, past, 3rd person masculine plural",
           "irab": "Verb in past (mabni), وا pronoun is subject",
           "en": "they mutually enjoined",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -25028,10 +24612,9 @@ const data: SurahDecoderData = {
           "morph": "Particle - preposition",
           "irab": "Not declinable (mabni), governs genitive",
           "en": "with/to",
-          "cs": "gen",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "gen"
+            "particle"
           ]
         },
         {
@@ -25065,7 +24648,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form VI, past, 3rd person masculine plural",
           "irab": "Verb in past (mabni), وا pronoun is subject",
           "en": "they mutually enjoined",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -25077,10 +24660,9 @@ const data: SurahDecoderData = {
           "morph": "Particle - preposition",
           "irab": "Not declinable (mabni), governs genitive",
           "en": "with/to",
-          "cs": "gen",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "gen"
+            "particle"
           ]
         },
         {
@@ -25176,7 +24758,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, past, 3rd person masculine plural",
           "irab": "Verb in past (mabni), وا pronoun is subject",
           "en": "they disbelieved",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -25188,10 +24770,9 @@ const data: SurahDecoderData = {
           "morph": "Particle - preposition",
           "irab": "Not declinable (mabni), governs genitive",
           "en": "in",
-          "cs": "gen",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "gen"
+            "particle"
           ]
         },
         {
@@ -25256,10 +24837,9 @@ const data: SurahDecoderData = {
           "morph": "Preposition + attached pronoun",
           "irab": "عَلَى governs genitive, هِمْ 3rd person plural pronoun",
           "en": "over/upon them",
-          "cs": "gen",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "gen"
+            "particle"
           ]
         },
         {
@@ -25318,7 +24898,6 @@ const data: SurahDecoderData = {
           "en": "the sun",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         },
@@ -25376,7 +24955,6 @@ const data: SurahDecoderData = {
           "en": "the moon",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         },
@@ -25399,7 +24977,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, past, 3rd person masculine singular + pronoun",
           "irab": "Verb in past (mabni), هَا 3rd person pronoun is object",
           "en": "it followed it",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -25434,7 +25012,6 @@ const data: SurahDecoderData = {
           "en": "the day",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         },
@@ -25457,7 +25034,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form II, past, 3rd person masculine singular + pronoun",
           "irab": "Verb in past (mabni), هَا 3rd person pronoun is object",
           "en": "it displayed/revealed it",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -25492,7 +25069,6 @@ const data: SurahDecoderData = {
           "en": "the night",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         },
@@ -25515,10 +25091,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, present, 3rd person masculine singular + pronoun",
           "irab": "Verb in indicative (marfu'), هَا 3rd person pronoun is object",
           "en": "it covers it",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         }
       ]
@@ -25551,7 +25126,6 @@ const data: SurahDecoderData = {
           "en": "the sky/heaven",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         },
@@ -25574,10 +25148,9 @@ const data: SurahDecoderData = {
           "morph": "Relative pronoun/particle (masdariyya or mawsuliyya)",
           "irab": "Not declinable (mabni) in place of genitive",
           "en": "He who/what",
-          "cs": "gen",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "gen"
+            "particle"
           ]
         },
         {
@@ -25587,7 +25160,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, past, 3rd person masculine singular + pronoun",
           "irab": "Verb in past (mabni), هَا 3rd person pronoun is object",
           "en": "He constructed it",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -25622,7 +25195,6 @@ const data: SurahDecoderData = {
           "en": "the earth",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         },
@@ -25645,10 +25217,9 @@ const data: SurahDecoderData = {
           "morph": "Relative pronoun/particle (masdariyya or mawsuliyya)",
           "irab": "Not declinable (mabni) in place of genitive",
           "en": "He who/what",
-          "cs": "gen",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "gen"
+            "particle"
           ]
         },
         {
@@ -25658,7 +25229,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, past, 3rd person masculine singular + pronoun",
           "irab": "Verb in past (mabni), هَا 3rd person pronoun is object",
           "en": "He spread it",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -25693,7 +25264,6 @@ const data: SurahDecoderData = {
           "en": "a soul",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         },
@@ -25716,10 +25286,9 @@ const data: SurahDecoderData = {
           "morph": "Relative pronoun/particle (masdariyya or mawsuliyya)",
           "irab": "Not declinable (mabni) in place of genitive",
           "en": "He who/what",
-          "cs": "gen",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "gen"
+            "particle"
           ]
         },
         {
@@ -25729,7 +25298,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form II, past, 3rd person masculine singular + pronoun",
           "irab": "Verb in past (mabni), هَا 3rd person pronoun is object",
           "en": "He proportioned/perfected it",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -25762,7 +25331,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form IV, past, 3rd person masculine singular + pronoun",
           "irab": "Verb in past (mabni), هَا 3rd person pronoun is first object",
           "en": "He inspired it",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -25821,8 +25390,7 @@ const data: SurahDecoderData = {
           "en": "certainly/indeed",
           "cs": "mabni",
           "lens": [
-            "particle",
-            "verb"
+            "particle"
           ]
         },
         {
@@ -25832,7 +25400,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form IV, past, 3rd person masculine singular",
           "irab": "Verb in past (mabni), answer to oath (jawab al-qasam)",
           "en": "he succeeded",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -25854,7 +25422,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form II, past, 3rd person masculine singular + pronoun",
           "irab": "Verb in past (mabni), هَا 3rd person pronoun is object",
           "en": "he purified it",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -25889,8 +25457,7 @@ const data: SurahDecoderData = {
           "en": "certainly/indeed",
           "cs": "mabni",
           "lens": [
-            "particle",
-            "verb"
+            "particle"
           ]
         },
         {
@@ -25900,7 +25467,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, past, 3rd person masculine singular",
           "irab": "Verb in past (mabni)",
           "en": "he failed/lost",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -25922,7 +25489,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form II, past, 3rd person masculine singular + pronoun",
           "irab": "Verb in past (mabni), هَا 3rd person pronoun is object",
           "en": "he corrupted/buried it",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -25943,7 +25510,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form II, past, 3rd person feminine singular",
           "irab": "Verb in past (mabni), تْ indicates feminine subject",
           "en": "she/they denied",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -25967,10 +25534,9 @@ const data: SurahDecoderData = {
           "morph": "Particle - preposition",
           "irab": "Not declinable (mabni), governs genitive",
           "en": "by/because of",
-          "cs": "gen",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "gen"
+            "particle"
           ]
         },
         {
@@ -26013,7 +25579,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form VII, past, 3rd person masculine singular",
           "irab": "Verb in past (mabni)",
           "en": "he rose up/was sent forth",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -26058,7 +25624,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, past, 3rd person masculine singular",
           "irab": "Verb in past (mabni)",
           "en": "he said",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -26070,10 +25636,9 @@ const data: SurahDecoderData = {
           "morph": "Preposition + attached pronoun",
           "irab": "لَ governs genitive/dative, هُمْ 3rd person plural pronoun",
           "en": "to them",
-          "cs": "gen",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "gen"
+            "particle"
           ]
         },
         {
@@ -26176,7 +25741,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form II, past, 3rd person masculine plural + pronoun",
           "irab": "Verb in past (mabni), وا (hidden before هُ) is subject, هُ is object",
           "en": "they denied him",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -26200,7 +25765,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, past, 3rd person masculine plural + pronoun",
           "irab": "Verb in past (mabni), وا (hidden before هَا) is subject, هَا is object",
           "en": "they hamstrung her",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -26224,7 +25789,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, past, 3rd person masculine singular (quadriliteral)",
           "irab": "Verb in past (mabni)",
           "en": "he brought destruction",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -26236,10 +25801,9 @@ const data: SurahDecoderData = {
           "morph": "Preposition + attached pronoun",
           "irab": "عَلَى governs genitive, هِمْ 3rd person plural pronoun",
           "en": "upon them",
-          "cs": "gen",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "gen"
+            "particle"
           ]
         },
         {
@@ -26261,10 +25825,9 @@ const data: SurahDecoderData = {
           "morph": "Particle - preposition",
           "irab": "Not declinable (mabni), governs genitive",
           "en": "because of",
-          "cs": "gen",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "gen"
+            "particle"
           ]
         },
         {
@@ -26298,7 +25861,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form II, past, 3rd person masculine singular + pronoun",
           "irab": "Verb in past (mabni), هَا 3rd person pronoun is object",
           "en": "He leveled it",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -26333,8 +25896,7 @@ const data: SurahDecoderData = {
           "en": "not",
           "cs": "mabni",
           "lens": [
-            "particle",
-            "verb"
+            "particle"
           ]
         },
         {
@@ -26344,10 +25906,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, present, 3rd person masculine singular",
           "irab": "Verb in indicative (marfu')",
           "en": "He fears",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         },
         {
@@ -26394,7 +25955,6 @@ const data: SurahDecoderData = {
           "en": "the night",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         },
@@ -26417,10 +25977,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, present, 3rd person masculine singular",
           "irab": "Verb in indicative (marfu')",
           "en": "it covers",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         }
       ]
@@ -26453,7 +26012,6 @@ const data: SurahDecoderData = {
           "en": "the day",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         },
@@ -26476,7 +26034,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form V, past, 3rd person masculine singular",
           "irab": "Verb in past (mabni)",
           "en": "it appeared/became manifest",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -26509,10 +26067,9 @@ const data: SurahDecoderData = {
           "morph": "Relative pronoun/particle (mawsuliyya)",
           "irab": "Not declinable (mabni) in place of genitive",
           "en": "He who/what",
-          "cs": "gen",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "gen"
+            "particle"
           ]
         },
         {
@@ -26522,7 +26079,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, past, 3rd person masculine singular",
           "irab": "Verb in past (mabni)",
           "en": "He created",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -26579,10 +26136,9 @@ const data: SurahDecoderData = {
           "morph": "Particle - emphasis",
           "irab": "Not declinable (mabni), governs accusative for subject",
           "en": "indeed",
-          "cs": "acc",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "acc"
+            "particle"
           ]
         },
         {
@@ -26671,7 +26227,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form IV, past, 3rd person masculine singular",
           "irab": "Verb in past (mabni)",
           "en": "he gave",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -26695,7 +26251,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form VIII, past, 3rd person masculine singular",
           "irab": "Verb in past (mabni)",
           "en": "he feared/was pious",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -26728,7 +26284,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form II, past, 3rd person masculine singular",
           "irab": "Verb in past (mabni)",
           "en": "he believed/confirmed",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -26740,10 +26296,9 @@ const data: SurahDecoderData = {
           "morph": "Particle - preposition",
           "irab": "Not declinable (mabni), governs genitive",
           "en": "in",
-          "cs": "gen",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "gen"
+            "particle"
           ]
         },
         {
@@ -26798,10 +26353,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form II, present, 1st person plural + pronoun",
           "irab": "Future verb in indicative (marfu'), نُ 1st person plural prefix, هُ 3rd person pronoun is object",
           "en": "We will ease him",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         },
         {
@@ -26811,10 +26365,9 @@ const data: SurahDecoderData = {
           "morph": "Particle - preposition",
           "irab": "Not declinable (mabni), governs genitive",
           "en": "to/for",
-          "cs": "gen",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "gen"
+            "particle"
           ]
         },
         {
@@ -26879,7 +26432,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, past, 3rd person masculine singular",
           "irab": "Verb in past (mabni)",
           "en": "he was miserly/withheld",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -26903,7 +26456,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form X, past, 3rd person masculine singular",
           "irab": "Verb in past (mabni)",
           "en": "he considered himself self-sufficient",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -26936,7 +26489,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form II, past, 3rd person masculine singular",
           "irab": "Verb in past (mabni)",
           "en": "he denied/disbelieved",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -26948,10 +26501,9 @@ const data: SurahDecoderData = {
           "morph": "Particle - preposition",
           "irab": "Not declinable (mabni), governs genitive",
           "en": "in",
-          "cs": "gen",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "gen"
+            "particle"
           ]
         },
         {
@@ -27006,10 +26558,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form II, present, 1st person plural + pronoun",
           "irab": "Future verb in indicative (marfu'), نُ 1st person plural prefix, هُ 3rd person pronoun is object",
           "en": "We will ease him",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         },
         {
@@ -27019,10 +26570,9 @@ const data: SurahDecoderData = {
           "morph": "Particle - preposition",
           "irab": "Not declinable (mabni), governs genitive",
           "en": "to/for",
-          "cs": "gen",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "gen"
+            "particle"
           ]
         },
         {
@@ -27067,8 +26617,7 @@ const data: SurahDecoderData = {
           "en": "not/what",
           "cs": "mabni",
           "lens": [
-            "particle",
-            "verb"
+            "particle"
           ]
         },
         {
@@ -27078,10 +26627,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form IV, present, 3rd person masculine singular",
           "irab": "Verb in indicative (marfu')",
           "en": "it avails/benefits",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         },
         {
@@ -27091,10 +26639,9 @@ const data: SurahDecoderData = {
           "morph": "Preposition + attached pronoun",
           "irab": "عَنْ governs genitive, هُ 3rd person pronoun",
           "en": "from him/for him",
-          "cs": "gen",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "gen"
+            "particle"
           ]
         },
         {
@@ -27128,7 +26675,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form V, past, 3rd person masculine singular",
           "irab": "Verb in past (mabni)",
           "en": "he fell/perished",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -27149,10 +26696,9 @@ const data: SurahDecoderData = {
           "morph": "Particle - emphasis",
           "irab": "Not declinable (mabni), governs accusative for subject",
           "en": "indeed",
-          "cs": "acc",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "acc"
+            "particle"
           ]
         },
         {
@@ -27162,10 +26708,9 @@ const data: SurahDecoderData = {
           "morph": "Preposition + attached pronoun",
           "irab": "عَلَى governs genitive, نَا 1st person plural pronoun",
           "en": "upon Us",
-          "cs": "gen",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "gen"
+            "particle"
           ]
         },
         {
@@ -27220,10 +26765,9 @@ const data: SurahDecoderData = {
           "morph": "Particle - emphasis",
           "irab": "Not declinable (mabni), governs accusative for subject",
           "en": "indeed",
-          "cs": "acc",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "acc"
+            "particle"
           ]
         },
         {
@@ -27233,10 +26777,9 @@ const data: SurahDecoderData = {
           "morph": "Preposition + attached pronoun",
           "irab": "لَ governs genitive/dative, نَا 1st person plural pronoun",
           "en": "for Us/to Us",
-          "cs": "gen",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "gen"
+            "particle"
           ]
         },
         {
@@ -27315,7 +26858,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form IV, past, 1st person singular + pronoun",
           "irab": "Verb in past (mabni), تُ is subject, كُمْ 2nd person plural pronoun is object",
           "en": "I have warned you",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -27339,10 +26882,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form V, present, 3rd person feminine singular",
           "irab": "Verb in indicative (marfu'), describes نَارًا",
           "en": "it blazes/flames",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         }
       ]
@@ -27363,8 +26905,7 @@ const data: SurahDecoderData = {
           "en": "not",
           "cs": "mabni",
           "lens": [
-            "particle",
-            "verb"
+            "particle"
           ]
         },
         {
@@ -27374,10 +26915,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, present, 3rd person masculine singular + pronoun",
           "irab": "Verb in indicative (marfu'), هَا 3rd person pronoun is object",
           "en": "he burns in it",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         },
         {
@@ -27430,7 +26970,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form II, past, 3rd person masculine singular",
           "irab": "Verb in past (mabni)",
           "en": "he denied",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -27454,7 +26994,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form V, past, 3rd person masculine singular",
           "irab": "Verb in past (mabni)",
           "en": "he turned away",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -27499,10 +27039,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form II, present passive, 3rd person masculine singular + pronoun",
           "irab": "Future passive verb in indicative (marfu'), هَا 3rd person pronoun is second object",
           "en": "he will be kept away from it",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         },
         {
@@ -27514,7 +27053,6 @@ const data: SurahDecoderData = {
           "en": "the most righteous",
           "cs": "nom",
           "lens": [
-            "verb",
             "nom"
           ]
         }
@@ -27544,10 +27082,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form IV, present, 3rd person masculine singular",
           "irab": "Verb in indicative (marfu')",
           "en": "he gives",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         },
         {
@@ -27569,10 +27106,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form V, present, 3rd person masculine singular",
           "irab": "Verb in indicative (marfu'), indicates purpose",
           "en": "he purifies himself",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         }
       ]
@@ -27615,10 +27151,9 @@ const data: SurahDecoderData = {
           "morph": "Particle - preposition",
           "irab": "Not declinable (mabni), governs genitive",
           "en": "for",
-          "cs": "gen",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "gen"
+            "particle"
           ]
         },
         {
@@ -27640,10 +27175,9 @@ const data: SurahDecoderData = {
           "morph": "Adverb of place + attached pronoun",
           "irab": "Adverbial (zarf makan), هُ 3rd person pronoun in genitive",
           "en": "with him/in his presence",
-          "cs": "gen",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "gen"
+            "verb"
           ]
         },
         {
@@ -27653,10 +27187,9 @@ const data: SurahDecoderData = {
           "morph": "Particle - preposition",
           "irab": "Not declinable (mabni), governs genitive",
           "en": "from/of",
-          "cs": "gen",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "gen"
+            "particle"
           ]
         },
         {
@@ -27678,10 +27211,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, present passive, 3rd person feminine singular",
           "irab": "Passive verb in subjunctive (mansub), describes نِّعْمَةٍ",
           "en": "it is rewarded",
-          "cs": "acc",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "acc"
+            "verb"
           ]
         }
       ]
@@ -27712,10 +27244,9 @@ const data: SurahDecoderData = {
           "morph": "Noun - masculine, singular, indefinite (verbal noun Form VIII)",
           "irab": "Adverbial of reason (maf'ul li-ajlihi) - accusative (mansub), with tanwin",
           "en": "seeking",
-          "cs": "acc",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "acc"
+            "verb"
           ]
         },
         {
@@ -27784,8 +27315,7 @@ const data: SurahDecoderData = {
           "en": "surely/certainly",
           "cs": "mabni",
           "lens": [
-            "particle",
-            "verb"
+            "particle"
           ]
         },
         {
@@ -27807,10 +27337,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, present, 3rd person masculine singular",
           "irab": "Verb in indicative (marfu')",
           "en": "he will be pleased/satisfied",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         }
       ]
@@ -27845,7 +27374,6 @@ const data: SurahDecoderData = {
           "en": "the morning brightness",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         }
@@ -27901,7 +27429,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, past tense, 3rd person masculine singular",
           "irab": "Verb in past tense - mabni 'ala al-fath",
           "en": "it settled/became still",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -27934,10 +27462,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form II, past tense, 3rd person masculine singular + attached pronoun",
           "irab": "Verb negated by ma, pronoun ka = direct object (maf'ul bihi) - accusative",
           "en": "He abandoned you",
-          "cs": "acc",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "acc"
+            "verb"
           ]
         },
         {
@@ -27959,7 +27486,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - conjunction + negation",
           "irab": "wa = conjunction, ma = negation particle",
           "en": "and not",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -28040,10 +27567,9 @@ const data: SurahDecoderData = {
           "morph": "Particle - preposition + attached pronoun",
           "irab": "la = preposition, ka = pronoun - genitive (majrur)",
           "en": "for you",
-          "cs": "gen",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "gen"
+            "particle"
           ]
         },
         {
@@ -28053,10 +27579,9 @@ const data: SurahDecoderData = {
           "morph": "Particle - preposition",
           "irab": "Not declinable (mabni), governs genitive",
           "en": "than",
-          "cs": "gen",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "gen"
+            "particle"
           ]
         },
         {
@@ -28068,7 +27593,6 @@ const data: SurahDecoderData = {
           "en": "the first",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         }
@@ -28124,10 +27648,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form IV, present tense, 3rd person masculine singular + attached pronoun",
           "irab": "Present tense verb - indicative (marfu'), ka = direct object - accusative",
           "en": "He will give you",
-          "cs": "acc",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "acc"
+            "verb"
           ]
         },
         {
@@ -28161,10 +27684,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, present tense, 2nd person masculine singular",
           "irab": "Present tense verb - indicative (marfu')",
           "en": "you will be satisfied",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         }
       ]
@@ -28195,10 +27717,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, present tense, 3rd person masculine singular, jussive + attached pronoun",
           "irab": "Verb in jussive mood (majzum) by lam, ka = direct object - accusative",
           "en": "He find you",
-          "cs": "acc",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "acc"
+            "verb"
           ]
         },
         {
@@ -28254,10 +27775,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, past tense, 3rd person masculine singular + attached pronoun",
           "irab": "Verb mabni 'ala fath, ka = direct object - accusative",
           "en": "He found you",
-          "cs": "acc",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "acc"
+            "verb"
           ]
         },
         {
@@ -28291,7 +27811,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, past tense, 3rd person masculine singular",
           "irab": "Verb mabni 'ala fatha maqdurah, subject implied (He), object implied (you)",
           "en": "He guided",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -28324,10 +27844,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, past tense, 3rd person masculine singular + attached pronoun",
           "irab": "Verb mabni 'ala fath, ka = direct object - accusative",
           "en": "He found you",
-          "cs": "acc",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "acc"
+            "verb"
           ]
         },
         {
@@ -28361,7 +27880,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form IV, past tense, 3rd person masculine singular",
           "irab": "Verb mabni 'ala fatha maqdurah, subject and object implied",
           "en": "He enriched/made self-sufficient",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -28568,10 +28087,9 @@ const data: SurahDecoderData = {
           "morph": "Particle - preposition",
           "irab": "Not declinable (mabni), governs genitive",
           "en": "with/about",
-          "cs": "gen",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "gen"
+            "particle"
           ]
         },
         {
@@ -28583,7 +28101,6 @@ const data: SurahDecoderData = {
           "en": "favor/blessing",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         },
@@ -28618,7 +28135,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form II, imperative, 2nd person masculine singular",
           "irab": "Imperative verb (amr) - mabni 'ala sukun",
           "en": "proclaim/speak about",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -28665,10 +28182,9 @@ const data: SurahDecoderData = {
           "morph": "Particle + pronoun - preposition + attached pronoun",
           "irab": "Preposition + pronoun in genitive place (mahall jarr)",
           "en": "For you",
-          "cs": "gen",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "gen"
+            "particle"
           ]
         },
         {
@@ -28711,10 +28227,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, past, 1st person plural",
           "irab": "Past verb (mabni), subject pronoun (na) in nominative place",
           "en": "We removed/placed down",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         },
         {
@@ -28724,10 +28239,9 @@ const data: SurahDecoderData = {
           "morph": "Particle + pronoun - preposition + attached pronoun",
           "irab": "Preposition + pronoun in genitive place (mahall jarr)",
           "en": "From you",
-          "cs": "gen",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "gen"
+            "particle"
           ]
         },
         {
@@ -28770,7 +28284,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form IV, past, 3rd person masculine singular",
           "irab": "Past verb (mabni), relative clause verb",
           "en": "It weighed down/burdened",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -28815,10 +28329,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, past, 1st person plural",
           "irab": "Past verb (mabni), subject pronoun (na) in nominative place",
           "en": "We raised/elevated",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         },
         {
@@ -28828,10 +28341,9 @@ const data: SurahDecoderData = {
           "morph": "Particle + pronoun - preposition + attached pronoun",
           "irab": "Preposition + pronoun in genitive place (mahall jarr)",
           "en": "For you",
-          "cs": "gen",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "gen"
+            "particle"
           ]
         },
         {
@@ -28874,10 +28386,9 @@ const data: SurahDecoderData = {
           "morph": "Particle - emphasis/assertion",
           "irab": "Not declinable (mabni), governs accusative noun",
           "en": "Indeed/verily",
-          "cs": "acc",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "acc"
+            "particle"
           ]
         },
         {
@@ -28887,11 +28398,9 @@ const data: SurahDecoderData = {
           "morph": "Particle - preposition",
           "irab": "Not declinable (mabni) in accusative (mansub) position (adverb of accompaniment)",
           "en": "With",
-          "cs": "acc",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "verb",
-            "acc"
+            "particle"
           ]
         },
         {
@@ -28903,7 +28412,6 @@ const data: SurahDecoderData = {
           "en": "The hardship",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         },
@@ -28935,10 +28443,9 @@ const data: SurahDecoderData = {
           "morph": "Particle - emphasis/assertion",
           "irab": "Not declinable (mabni), governs accusative noun",
           "en": "Indeed/verily",
-          "cs": "acc",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "acc"
+            "particle"
           ]
         },
         {
@@ -28948,10 +28455,9 @@ const data: SurahDecoderData = {
           "morph": "Particle - preposition",
           "irab": "Not declinable (mabni) in accusative (mansub) position",
           "en": "With",
-          "cs": "acc",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "acc"
+            "particle"
           ]
         },
         {
@@ -28963,7 +28469,6 @@ const data: SurahDecoderData = {
           "en": "The hardship",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         },
@@ -29009,8 +28514,7 @@ const data: SurahDecoderData = {
           "en": "When/whenever",
           "cs": "mabni",
           "lens": [
-            "particle",
-            "verb"
+            "particle"
           ]
         },
         {
@@ -29020,7 +28524,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, past, 2nd person masculine singular",
           "irab": "Past verb (mabni), subject pronoun (anta) attached, condition of idha",
           "en": "You finished/became free",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -29091,7 +28595,6 @@ const data: SurahDecoderData = {
           "en": "Your Lord",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         },
@@ -29308,7 +28811,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, past, 1st person plural",
           "irab": "Past verb (mabni), subject pronoun (na) attached",
           "en": "We created",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -29346,7 +28849,6 @@ const data: SurahDecoderData = {
           "en": "Best",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         },
@@ -29390,10 +28892,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, past, 1st person plural + pronoun",
           "irab": "Past verb (mabni), subject pronoun (na), object pronoun (hu) in accusative",
           "en": "We returned him",
-          "cs": "acc",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "acc"
+            "verb"
           ]
         },
         {
@@ -29405,7 +28906,6 @@ const data: SurahDecoderData = {
           "en": "Lowest",
           "cs": "acc",
           "lens": [
-            "verb",
             "acc"
           ]
         },
@@ -29461,7 +28961,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form IV, past, 3rd person masculine plural",
           "irab": "Past verb (mabni), subject pronoun (waw) attached",
           "en": "They believed",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -29485,7 +28985,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, past, 3rd person masculine plural",
           "irab": "Past verb (mabni), subject pronoun (waw) attached",
           "en": "They did/worked",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -29521,10 +29021,9 @@ const data: SurahDecoderData = {
           "morph": "Particle + pronoun - preposition + attached pronoun",
           "irab": "Preposition + pronoun in genitive place, fronted predicate (khabar muqaddam)",
           "en": "For them",
-          "cs": "gen",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "gen"
+            "particle"
           ]
         },
         {
@@ -29603,10 +29102,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form II, present, 3rd person masculine singular + pronoun",
           "irab": "Present verb indicative (marfu'), subject concealed (huwa), object pronoun (ka) accusative",
           "en": "It causes you to deny",
-          "cs": "acc",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "acc"
+            "verb"
           ]
         },
         {
@@ -29616,10 +29114,9 @@ const data: SurahDecoderData = {
           "morph": "Adverb - indefinite adverb of time",
           "irab": "Adverb (zarf zaman) - accusative (mansub), but here nominative as subject",
           "en": "After/yet",
-          "cs": "acc",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "acc"
+            "verb"
           ]
         },
         {
@@ -29643,7 +29140,6 @@ const data: SurahDecoderData = {
           "en": "The judgment/recompense/religion",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         }
@@ -29675,10 +29171,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - defective/negation verb, 3rd person masculine singular",
           "irab": "Negation verb (mabni), governs nominative subject and accusative predicate",
           "en": "Is not",
-          "cs": "acc",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "acc"
+            "verb"
           ]
         },
         {
@@ -29747,7 +29242,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, imperative, 2nd person masculine singular",
           "irab": "Imperative verb (amr) - mabni 'ala sukun",
           "en": "Read/Recite",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -29759,10 +29254,9 @@ const data: SurahDecoderData = {
           "morph": "Particle - preposition",
           "irab": "Not declinable (mabni), governs genitive",
           "en": "in/with",
-          "cs": "gen",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "gen"
+            "particle"
           ]
         },
         {
@@ -29774,7 +29268,6 @@ const data: SurahDecoderData = {
           "en": "name",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         },
@@ -29807,7 +29300,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, past tense, 3rd person masculine singular",
           "irab": "Verb in relative clause - mabni 'ala fath",
           "en": "created",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -29828,7 +29321,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, past tense, 3rd person masculine singular",
           "irab": "Verb - mabni 'ala fath, subject implied (huwa/He)",
           "en": "He created",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -29866,7 +29359,6 @@ const data: SurahDecoderData = {
           "en": "clinging clot",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         }
@@ -29886,7 +29378,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, imperative, 2nd person masculine singular",
           "irab": "Imperative verb (amr) - mabni 'ala sukun",
           "en": "Read/Recite",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -29953,7 +29445,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form II, past tense, 3rd person masculine singular",
           "irab": "Verb in relative clause - mabni 'ala fath",
           "en": "taught",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -29979,7 +29471,6 @@ const data: SurahDecoderData = {
           "en": "the pen",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         }
@@ -29999,7 +29490,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form II, past tense, 3rd person masculine singular",
           "irab": "Verb - mabni 'ala fath",
           "en": "He taught",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -30078,10 +29569,9 @@ const data: SurahDecoderData = {
           "morph": "Particle - emphasis",
           "irab": "Not declinable (mabni), governs accusative",
           "en": "Indeed/Verily",
-          "cs": "acc",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "acc"
+            "particle"
           ]
         },
         {
@@ -30115,10 +29605,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, present tense, 3rd person masculine singular",
           "irab": "Khabar inna (predicate) - nominative (marfu')",
           "en": "he transgresses",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         }
       ]
@@ -30149,10 +29638,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, past tense, 3rd person masculine singular + attached pronoun",
           "irab": "Verb mabni, hu = direct object - accusative",
           "en": "he sees himself",
-          "cs": "acc",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "acc"
+            "verb"
           ]
         },
         {
@@ -30162,7 +29650,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form X, past tense, 3rd person masculine singular",
           "irab": "Verb mabni 'ala fatha maqdurah",
           "en": "he became self-sufficient",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -30183,10 +29671,9 @@ const data: SurahDecoderData = {
           "morph": "Particle - emphasis",
           "irab": "Not declinable (mabni), governs accusative",
           "en": "Indeed",
-          "cs": "acc",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "acc"
+            "particle"
           ]
         },
         {
@@ -30210,7 +29697,6 @@ const data: SurahDecoderData = {
           "en": "your Lord",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         },
@@ -30254,7 +29740,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, past tense, 2nd person masculine singular",
           "irab": "Verb mabni 'ala sukun",
           "en": "Have you seen/considered",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -30276,10 +29762,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, present tense, 3rd person masculine singular",
           "irab": "Verb in relative clause - indicative (marfu')",
           "en": "forbids/prevents",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         }
       ]
@@ -30322,7 +29807,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form II, past tense, 3rd person masculine singular",
           "irab": "Verb in temporal clause - mabni 'ala fatha maqdurah",
           "en": "he prayed",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -30343,7 +29828,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, past tense, 2nd person masculine singular",
           "irab": "Interrogative + verb mabni",
           "en": "Have you considered",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -30367,10 +29852,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, past tense, 3rd person masculine singular",
           "irab": "Defective verb (kana), governs nominative + accusative",
           "en": "he was",
-          "cs": "acc",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "acc"
+            "verb"
           ]
         },
         {
@@ -30394,7 +29878,6 @@ const data: SurahDecoderData = {
           "en": "the guidance",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         }
@@ -30426,7 +29909,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, past tense, 3rd person masculine singular",
           "irab": "Verb coordinated with kāna - mabni 'ala fath",
           "en": "he commanded/enjoined",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -30438,10 +29921,9 @@ const data: SurahDecoderData = {
           "morph": "Particle - preposition",
           "irab": "Not declinable (mabni), governs genitive",
           "en": "with",
-          "cs": "gen",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "gen"
+            "particle"
           ]
         },
         {
@@ -30453,7 +29935,6 @@ const data: SurahDecoderData = {
           "en": "the righteousness/piety",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         }
@@ -30473,7 +29954,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, past tense, 2nd person masculine singular",
           "irab": "Interrogative + verb mabni",
           "en": "Have you considered",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -30497,7 +29978,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form II, past tense, 3rd person masculine singular",
           "irab": "Verb in conditional clause - mabni 'ala fath",
           "en": "he denied/rejected",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -30511,8 +29992,7 @@ const data: SurahDecoderData = {
           "en": "And",
           "cs": "mabni",
           "lens": [
-            "particle",
-            "verb"
+            "particle"
           ]
         },
         {
@@ -30522,7 +30002,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form V, past tense, 3rd person masculine singular",
           "irab": "Verb coordinated with kadhdhaba - mabni 'ala fatha maqdurah",
           "en": "he turned away",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -30591,10 +30071,9 @@ const data: SurahDecoderData = {
           "morph": "Particle - emphasis",
           "irab": "Not declinable (mabni), governs accusative",
           "en": "that/indeed",
-          "cs": "acc",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "acc"
+            "particle"
           ]
         },
         {
@@ -30616,10 +30095,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, present tense, 3rd person masculine singular",
           "irab": "Khabar anna (predicate) - indicative (marfu')",
           "en": "He sees",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         }
       ]
@@ -30650,7 +30128,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - emphatic conditional",
           "irab": "La = emphasis, in = conditional",
           "en": "If indeed",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -30698,10 +30176,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, present tense, 1st person plural",
           "irab": "Verb (future/threat) - indicative (marfu')",
           "en": "We will drag/seize",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         },
         {
@@ -30725,7 +30202,6 @@ const data: SurahDecoderData = {
           "en": "the forelock",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         }
@@ -30859,10 +30335,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, present tense, 1st person plural",
           "irab": "Verb governed by sa - indicative (marfu')",
           "en": "We call",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         },
         {
@@ -30941,7 +30416,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, imperative, 2nd person masculine singular",
           "irab": "Imperative verb (amr) - mabni 'ala sukun",
           "en": "prostrate",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -30965,7 +30440,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form VIII, imperative, 2nd person masculine singular",
           "irab": "Imperative verb (amr) - mabni 'ala sukun",
           "en": "draw near",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -30988,10 +30463,9 @@ const data: SurahDecoderData = {
           "morph": "Particle + pronoun - emphasis particle + attached pronoun",
           "irab": "Not declinable (mabni), governs accusative, pronoun is subject (ism inna)",
           "en": "Indeed We",
-          "cs": "acc",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "acc"
+            "particle"
           ]
         },
         {
@@ -31001,10 +30475,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form IV, past, 1st person plural + pronoun",
           "irab": "Predicate (khabar) of inna - nominative place (mahall raf'), object pronoun (hu) accusative",
           "en": "We sent it down",
-          "cs": "acc",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "acc"
+            "verb"
           ]
         },
         {
@@ -31028,7 +30501,6 @@ const data: SurahDecoderData = {
           "en": "Night",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         },
@@ -31084,10 +30556,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form IV, past, 3rd person masculine singular + pronoun",
           "irab": "Past verb (mabni), subject concealed (huwa), object pronoun (ka) accusative",
           "en": "It made you know",
-          "cs": "acc",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "acc"
+            "verb"
           ]
         },
         {
@@ -31192,7 +30663,6 @@ const data: SurahDecoderData = {
           "en": "Thousand",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         },
@@ -31224,10 +30694,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form V, present, 3rd person feminine singular",
           "irab": "Present indicative (marfu')",
           "en": "Descend/come down",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         },
         {
@@ -31273,10 +30742,9 @@ const data: SurahDecoderData = {
           "morph": "Particle + pronoun - preposition + attached pronoun",
           "irab": "Preposition + pronoun in genitive place (mahall jarr)",
           "en": "In it/therein",
-          "cs": "gen",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "gen"
+            "particle"
           ]
         },
         {
@@ -31300,7 +30768,6 @@ const data: SurahDecoderData = {
           "en": "Permission",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         },
@@ -31337,7 +30804,6 @@ const data: SurahDecoderData = {
           "en": "Every/all",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         },
@@ -31407,7 +30873,6 @@ const data: SurahDecoderData = {
           "en": "Rising/emergence",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         },
@@ -31477,7 +30942,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, past tense, 3rd person masculine plural",
           "irab": "Verb in relative clause - mabni 'ala damma",
           "en": "they disbelieved",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -31503,7 +30968,6 @@ const data: SurahDecoderData = {
           "en": "people",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         },
@@ -31574,10 +31038,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, present tense, 3rd person feminine singular, subjunctive + pronoun",
           "irab": "Verb in subjunctive (mansub) by hatta, hum = indirect object",
           "en": "it comes to them",
-          "cs": "acc",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "acc"
+            "verb"
           ]
         },
         {
@@ -31634,7 +31097,6 @@ const data: SurahDecoderData = {
           "en": "Allah",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         },
@@ -31645,10 +31107,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, present tense, 3rd person masculine singular",
           "irab": "Verb (hal/state) describing rasul - indicative (marfu')",
           "en": "he recites",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         },
         {
@@ -31691,10 +31152,9 @@ const data: SurahDecoderData = {
           "morph": "Particle - preposition + attached pronoun",
           "irab": "Fi = preposition, ha = pronoun - genitive",
           "en": "in them",
-          "cs": "gen",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "gen"
+            "particle"
           ]
         },
         {
@@ -31761,7 +31221,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form V, past tense, 3rd person masculine singular",
           "irab": "Verb negated by ma - mabni 'ala fath",
           "en": "they differed/split",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -31785,7 +31245,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form IV passive, past tense, 3rd person masculine plural",
           "irab": "Passive verb in relative clause - mabni",
           "en": "they were given",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -31835,7 +31295,6 @@ const data: SurahDecoderData = {
           "en": "after",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         },
@@ -31858,7 +31317,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, past tense, 3rd person feminine singular + pronoun",
           "irab": "Verb in relative clause - mabni, hum = indirect object",
           "en": "it came to them",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -31915,7 +31374,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I passive, past tense, 3rd person masculine plural",
           "irab": "Passive verb negated - mabni 'ala damma",
           "en": "they were commanded",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -31951,10 +31410,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, present tense, 3rd person masculine plural, subjunctive",
           "irab": "Verb in subjunctive (mansub) by li - purpose",
           "en": "they worship",
-          "cs": "acc",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "acc"
+            "verb"
           ]
         },
         {
@@ -31988,7 +31446,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - preposition + attached pronoun",
           "irab": "La = preposition, hu = pronoun",
           "en": "to Him",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -32036,10 +31494,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form IV, present tense, 3rd person masculine plural, subjunctive",
           "irab": "Verb coordinated with ya'budū - subjunctive (mansub)",
           "en": "they establish",
-          "cs": "acc",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "acc"
+            "verb"
           ]
         },
         {
@@ -32073,10 +31530,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form IV, present tense, 3rd person masculine plural, subjunctive",
           "irab": "Verb coordinated - subjunctive (mansub)",
           "en": "they give",
-          "cs": "acc",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "acc"
+            "verb"
           ]
         },
         {
@@ -32153,10 +31609,9 @@ const data: SurahDecoderData = {
           "morph": "Particle - emphasis",
           "irab": "Not declinable (mabni), governs accusative",
           "en": "Indeed",
-          "cs": "acc",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "acc"
+            "particle"
           ]
         },
         {
@@ -32178,7 +31633,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, past tense, 3rd person masculine plural",
           "irab": "Verb in relative clause - mabni",
           "en": "they disbelieved",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -32204,7 +31659,6 @@ const data: SurahDecoderData = {
           "en": "people",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         },
@@ -32265,7 +31719,6 @@ const data: SurahDecoderData = {
           "en": "Fire",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         },
@@ -32300,7 +31753,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - preposition + attached pronoun",
           "irab": "Fi = preposition, ha = pronoun",
           "en": "in it",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -32365,10 +31818,9 @@ const data: SurahDecoderData = {
           "morph": "Particle - emphasis",
           "irab": "Not declinable (mabni), governs accusative",
           "en": "Indeed",
-          "cs": "acc",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "acc"
+            "particle"
           ]
         },
         {
@@ -32390,7 +31842,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form IV, past tense, 3rd person masculine plural",
           "irab": "Verb in relative clause - mabni",
           "en": "they believed",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -32414,7 +31866,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, past tense, 3rd person masculine plural",
           "irab": "Verb coordinated with āmanū - mabni",
           "en": "they did",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -32503,11 +31955,10 @@ const data: SurahDecoderData = {
           "morph": "Adverb/Preposition - place/time",
           "irab": "Adverbial (zarf makan) - accusative (mansub)",
           "en": "with/at",
-          "cs": "acc",
+          "cs": "mabni",
           "lens": [
             "particle",
-            "verb",
-            "acc"
+            "verb"
           ]
         },
         {
@@ -32553,10 +32004,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, present tense, 3rd person feminine singular",
           "irab": "Verb describing jannāt - indicative (marfu')",
           "en": "they flow",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         },
         {
@@ -32578,11 +32028,10 @@ const data: SurahDecoderData = {
           "morph": "Adverb/Preposition + attached pronoun",
           "irab": "Adverbial (zarf makan) - accusative, ha = pronoun",
           "en": "beneath it",
-          "cs": "acc",
+          "cs": "mabni",
           "lens": [
             "particle",
-            "verb",
-            "acc"
+            "verb"
           ]
         },
         {
@@ -32616,7 +32065,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - preposition + attached pronoun",
           "irab": "Fi = preposition, ha = pronoun",
           "en": "in them",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -32630,7 +32079,6 @@ const data: SurahDecoderData = {
           "en": "forever",
           "cs": "acc",
           "lens": [
-            "verb",
             "acc"
           ]
         },
@@ -32641,7 +32089,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, past tense, 3rd person masculine singular",
           "irab": "Verb - mabni 'ala fatha maqdurah",
           "en": "He was pleased",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -32665,7 +32113,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - preposition + attached pronoun",
           "irab": "'An = preposition, hum = pronoun",
           "en": "with them",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -32689,7 +32137,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, past tense, 3rd person masculine plural",
           "irab": "Verb coordinated with radiya - mabni",
           "en": "they were pleased",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -32701,7 +32149,7 @@ const data: SurahDecoderData = {
           "morph": "Particle - preposition + attached pronoun",
           "irab": "'An = preposition, hu = pronoun",
           "en": "with Him",
-          "cs": "none",
+          "cs": "mabni",
           "lens": [
             "particle"
           ]
@@ -32745,7 +32193,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, past tense, 3rd person masculine singular",
           "irab": "Verb in relative clause - mabni 'ala fatha maqdurah",
           "en": "he feared",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -32792,7 +32240,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - quadriliteral passive, past, 3f.sg.",
           "irab": "Past passive verb (mabni), condition of idhā",
           "en": "It was shaken/quaked",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -32849,7 +32297,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form IV, past, 3f.sg.",
           "irab": "Past verb (mabni), tā' ta'nīth",
           "en": "It brought forth/expelled",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -32906,7 +32354,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, past, 3m.sg.",
           "irab": "Past verb (mabni)",
           "en": "He said",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -32942,10 +32390,9 @@ const data: SurahDecoderData = {
           "morph": "Preposition + attached pronoun",
           "irab": "Preposition + pronoun in genitive place",
           "en": "To it/for it",
-          "cs": "gen",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "gen"
+            "particle"
           ]
         }
       ]
@@ -32964,11 +32411,9 @@ const data: SurahDecoderData = {
           "morph": "Compound noun + particle",
           "irab": "Adverb of time (ẓarf zamān) - accusative (manṣūb)",
           "en": "That Day",
-          "cs": "acc",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "verb",
-            "acc"
+            "particle"
           ]
         },
         {
@@ -33023,10 +32468,9 @@ const data: SurahDecoderData = {
           "morph": "Particle - emphasis/assertion",
           "irab": "Not declinable (mabni), governs accusative",
           "en": "That/indeed",
-          "cs": "acc",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "acc"
+            "particle"
           ]
         },
         {
@@ -33060,10 +32504,9 @@ const data: SurahDecoderData = {
           "morph": "Preposition + attached pronoun",
           "irab": "Preposition + pronoun in genitive place",
           "en": "To it",
-          "cs": "gen",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "gen"
+            "particle"
           ]
         }
       ]
@@ -33082,11 +32525,9 @@ const data: SurahDecoderData = {
           "morph": "Compound noun + particle",
           "irab": "Adverb of time (ẓarf zamān) - accusative (manṣūb)",
           "en": "That Day",
-          "cs": "acc",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "verb",
-            "acc"
+            "particle"
           ]
         },
         {
@@ -33144,10 +32585,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form IV passive, present subjunctive, 3m.pl.",
           "irab": "Present passive subjunctive (manṣūb) after lām of purpose",
           "en": "They be shown",
-          "cs": "acc",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "acc"
+            "verb"
           ]
         },
         {
@@ -33191,9 +32631,7 @@ const data: SurahDecoderData = {
           "irab": "Not declinable (mabni), condition particle",
           "en": "Whoever",
           "cs": "mabni",
-          "lens": [
-            "particle"
-          ]
+          "lens": []
         },
         {
           "ar": "يَعْمَلْ",
@@ -33284,9 +32722,7 @@ const data: SurahDecoderData = {
           "irab": "Not declinable (mabni), condition particle",
           "en": "Whoever",
           "cs": "mabni",
-          "lens": [
-            "particle"
-          ]
+          "lens": []
         },
         {
           "ar": "يَعْمَلْ",
@@ -33482,7 +32918,6 @@ const data: SurahDecoderData = {
           "en": "At dawn",
           "cs": "acc",
           "lens": [
-            "verb",
             "acc"
           ]
         }
@@ -33514,7 +32949,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, past, 3f.pl.",
           "irab": "Past verb (mabni 'alā sukūn), nūn al-niswah = subject",
           "en": "They stirred up",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -33526,10 +32961,9 @@ const data: SurahDecoderData = {
           "morph": "Preposition + attached pronoun",
           "irab": "Bi = preposition, hi = pronoun (genitive)",
           "en": "Thereby/by it",
-          "cs": "gen",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "gen"
+            "particle"
           ]
         },
         {
@@ -33572,7 +33006,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, past, 3f.pl.",
           "irab": "Past verb (mabni 'alā sukūn), nūn al-niswah = subject",
           "en": "They penetrated the midst",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -33584,10 +33018,9 @@ const data: SurahDecoderData = {
           "morph": "Preposition + attached pronoun",
           "irab": "Bi = preposition, hi = pronoun (genitive)",
           "en": "Thereby/by it",
-          "cs": "gen",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "gen"
+            "particle"
           ]
         },
         {
@@ -33599,7 +33032,6 @@ const data: SurahDecoderData = {
           "en": "A gathering/army",
           "cs": "acc",
           "lens": [
-            "verb",
             "acc"
           ]
         }
@@ -33619,10 +33051,9 @@ const data: SurahDecoderData = {
           "morph": "Particle - emphasis",
           "irab": "Not declinable (mabni), governs accusative",
           "en": "Indeed",
-          "cs": "acc",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "acc"
+            "particle"
           ]
         },
         {
@@ -33658,7 +33089,6 @@ const data: SurahDecoderData = {
           "en": "His Lord",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         },
@@ -33714,10 +33144,9 @@ const data: SurahDecoderData = {
           "morph": "Particle + attached pronoun",
           "irab": "إِنَّ = emphasis, هُ = ism inna - accusative place",
           "en": "Indeed he",
-          "cs": "acc",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "acc"
+            "particle"
           ]
         },
         {
@@ -33740,9 +33169,7 @@ const data: SurahDecoderData = {
           "irab": "Not declinable (mabni), object of preposition",
           "en": "That",
           "cs": "mabni",
-          "lens": [
-            "particle"
-          ]
+          "lens": []
         },
         {
           "ar": "لَ",
@@ -33796,10 +33223,9 @@ const data: SurahDecoderData = {
           "morph": "Particle + attached pronoun",
           "irab": "إِنَّ = emphasis, هُ = ism inna - accusative place",
           "en": "Indeed he",
-          "cs": "acc",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "acc"
+            "particle"
           ]
         },
         {
@@ -33823,7 +33249,6 @@ const data: SurahDecoderData = {
           "en": "Love",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         },
@@ -33939,7 +33364,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - quadriliteral passive, past, 3m.sg.",
           "irab": "Past passive verb (mabni)",
           "en": "Was scattered/overturned",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -33975,7 +33400,6 @@ const data: SurahDecoderData = {
           "en": "The graves",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         }
@@ -34007,7 +33431,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form II passive, past, 3m.sg.",
           "irab": "Past passive verb (mabni)",
           "en": "Was gathered/made manifest",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -34043,7 +33467,6 @@ const data: SurahDecoderData = {
           "en": "The breasts/hearts",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         }
@@ -34063,10 +33486,9 @@ const data: SurahDecoderData = {
           "morph": "Particle - emphasis",
           "irab": "Not declinable (mabni), governs accusative",
           "en": "Indeed",
-          "cs": "acc",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "acc"
+            "particle"
           ]
         },
         {
@@ -34088,10 +33510,9 @@ const data: SurahDecoderData = {
           "morph": "Preposition + attached pronoun",
           "irab": "Preposition + pronoun in genitive place",
           "en": "With them/of them",
-          "cs": "gen",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "gen"
+            "particle"
           ]
         },
         {
@@ -34101,11 +33522,9 @@ const data: SurahDecoderData = {
           "morph": "Compound noun + particle",
           "irab": "Adverb of time (ẓarf zamān) - accusative (manṣūb)",
           "en": "That Day",
-          "cs": "acc",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "verb",
-            "acc"
+            "particle"
           ]
         },
         {
@@ -34228,7 +33647,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form IV, past tense, 3rd person masculine singular + attached pronoun",
           "irab": "Verb - mabni 'ala fatha maqdurah, ka = direct object",
           "en": "made you know",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -34275,7 +33694,6 @@ const data: SurahDecoderData = {
           "en": "Day/The Day",
           "cs": "acc",
           "lens": [
-            "verb",
             "acc"
           ]
         },
@@ -34286,10 +33704,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, present tense, 3rd person masculine singular",
           "irab": "Verb (describes the Day) - indicative (marfu')",
           "en": "will be",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         },
         {
@@ -34325,7 +33742,6 @@ const data: SurahDecoderData = {
           "en": "moths",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         },
@@ -34369,10 +33785,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, present tense, 3rd person feminine singular",
           "irab": "Verb coordinated with yakūnu - indicative (marfu')",
           "en": "will be",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         },
         {
@@ -34408,7 +33823,6 @@ const data: SurahDecoderData = {
           "en": "wool",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         },
@@ -34474,7 +33888,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, past tense, 3rd person feminine singular",
           "irab": "Verb in relative clause - mabni 'ala fath",
           "en": "were heavy",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -34543,7 +33957,6 @@ const data: SurahDecoderData = {
           "en": "a life",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         },
@@ -34609,7 +34022,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, past tense, 3rd person feminine singular",
           "irab": "Verb in relative clause - mabni 'ala fath",
           "en": "were light",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -34711,7 +34124,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form IV, past tense, 3rd person masculine singular + attached pronoun",
           "irab": "Verb - mabni 'ala fatha maqdurah, ka = object",
           "en": "made you know",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -34789,10 +34202,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form IV, past, 3rd person masculine singular + pronoun",
           "irab": "Past verb (mabni), subject concealed (huwa), object pronoun (kum) accusative",
           "en": "It distracted you",
-          "cs": "acc",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "acc"
+            "verb"
           ]
         },
         {
@@ -34802,10 +34214,9 @@ const data: SurahDecoderData = {
           "morph": "Noun - verbal noun (Form VI), masculine, singular, definite",
           "irab": "Subject (fa'il) - nominative (marfu')",
           "en": "The mutual competition/vying for increase",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         }
       ]
@@ -34836,7 +34247,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, past, 2nd person masculine plural",
           "irab": "Past verb (mabni), subject pronoun (tum) attached",
           "en": "You visited",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -34893,10 +34304,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, present indicative, 2nd person masculine plural",
           "irab": "Present indicative (marfu') with una ending",
           "en": "You will know",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         }
       ]
@@ -34951,10 +34361,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, present indicative, 2nd person masculine plural",
           "irab": "Present indicative (marfu')",
           "en": "You will know",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         }
       ]
@@ -34997,10 +34406,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, present indicative, 2nd person masculine plural",
           "irab": "Present indicative (marfu'), condition of law",
           "en": "You knew",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         },
         {
@@ -35010,10 +34418,9 @@ const data: SurahDecoderData = {
           "morph": "Noun - verbal noun, masculine, singular, construct state",
           "irab": "Absolute object (maf'ul mutlaq) - accusative (mansub)",
           "en": "Knowledge",
-          "cs": "acc",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "acc"
+            "verb"
           ]
         },
         {
@@ -35056,10 +34463,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, present, 2nd person masculine plural + emphasis",
           "irab": "Present indicative (marfu') with heavy nun emphasis",
           "en": "You will see (emphatically)",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         },
         {
@@ -35114,10 +34520,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, present, 2nd person masculine plural + emphasis + pronoun",
           "irab": "Present indicative with nun emphasis, object pronoun (ha) accusative",
           "en": "You will see it",
-          "cs": "acc",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "acc"
+            "verb"
           ]
         },
         {
@@ -35129,7 +34534,6 @@ const data: SurahDecoderData = {
           "en": "[With the] eye",
           "cs": "acc",
           "lens": [
-            "verb",
             "acc"
           ]
         },
@@ -35185,10 +34589,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I (passive), present, 2nd person masculine plural + emphasis",
           "irab": "Present passive indicative (marfu') with nun emphasis",
           "en": "You will be asked",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         },
         {
@@ -35198,11 +34601,9 @@ const data: SurahDecoderData = {
           "morph": "Noun - masculine, singular, construct state + particle",
           "irab": "Adverb of time (zarf zaman) - accusative (mansub)",
           "en": "That Day",
-          "cs": "acc",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "verb",
-            "acc"
+            "particle"
           ]
         },
         {
@@ -35226,7 +34627,6 @@ const data: SurahDecoderData = {
           "en": "The pleasure/blessings/comfort",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         }
@@ -35281,10 +34681,9 @@ const data: SurahDecoderData = {
           "morph": "Particle - emphasis",
           "irab": "Emphasis particle (harf tawkid) - governs accusative",
           "en": "indeed",
-          "cs": "acc",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "acc"
+            "particle"
           ]
         },
         {
@@ -35332,7 +34731,6 @@ const data: SurahDecoderData = {
           "en": "loss",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         }
@@ -35462,7 +34860,6 @@ const data: SurahDecoderData = {
           "en": "the truth",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         },
@@ -35511,7 +34908,6 @@ const data: SurahDecoderData = {
           "en": "patience",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         }
@@ -35559,7 +34955,6 @@ const data: SurahDecoderData = {
           "en": "every",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         },
@@ -35651,10 +35046,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form II, past tense, 3rd person, masculine, singular + attached pronoun",
           "irab": "Verb with attached object pronoun - verb indicative, pronoun accusative",
           "en": "counted it repeatedly",
-          "cs": "acc",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "acc"
+            "verb"
           ]
         }
       ]
@@ -35673,10 +35067,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, present tense, 3rd person, masculine, singular",
           "irab": "Predicate verb (fi'l mudari') - indicative (marfu') with damma",
           "en": "thinks, supposes",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         },
         {
@@ -35686,10 +35079,9 @@ const data: SurahDecoderData = {
           "morph": "Particle - emphasis/subordination",
           "irab": "Subordinating particle (harf tawkid) - governs accusative",
           "en": "that",
-          "cs": "acc",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "acc"
+            "particle"
           ]
         },
         {
@@ -35711,10 +35103,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form IV, past tense, 3rd person, masculine, singular + attached pronoun",
           "irab": "Khabar of anna - verbal sentence in nominative position, + object pronoun accusative",
           "en": "made him immortal",
-          "cs": "acc",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "acc"
+            "verb"
           ]
         }
       ]
@@ -35757,7 +35148,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I passive, present tense, 3rd person, masculine, singular + nun al-tawkid",
           "irab": "Passive verb with emphatic nun - mabni (indeclinable, built on fatha)",
           "en": "will be thrown",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -35783,7 +35174,6 @@ const data: SurahDecoderData = {
           "en": "the Crusher (hellfire)",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         }
@@ -35827,10 +35217,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form IV, past tense, 3rd person, masculine, singular + attached pronoun",
           "irab": "Khabar (predicate) - verb indicative, attached ـكَ accusative",
           "en": "made you know",
-          "cs": "acc",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "acc"
+            "verb"
           ]
         },
         {
@@ -35930,10 +35319,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form VIII, present tense, 3rd person, feminine, singular",
           "irab": "Predicate verb (fi'l mudari') - indicative (marfu') with damma",
           "en": "rises up, mounts, penetrates",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         },
         {
@@ -35957,7 +35345,6 @@ const data: SurahDecoderData = {
           "en": "the hearts",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         }
@@ -35977,10 +35364,9 @@ const data: SurahDecoderData = {
           "morph": "Particle + attached pronoun",
           "irab": "Emphasis particle (harf tawkid) + ism of inna - pronoun in accusative position",
           "en": "indeed it",
-          "cs": "acc",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "acc"
+            "particle"
           ]
         },
         {
@@ -35990,10 +35376,9 @@ const data: SurahDecoderData = {
           "morph": "Preposition + attached pronoun",
           "irab": "Prepositional phrase - pronoun in genitive position",
           "en": "upon them",
-          "cs": "gen",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "gen"
+            "particle"
           ]
         },
         {
@@ -36038,7 +35423,6 @@ const data: SurahDecoderData = {
           "en": "columns, pillars",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         },
@@ -36096,7 +35480,7 @@ const data: SurahDecoderData = {
           "morph": "Adverb - interrogative",
           "irab": "Interrogative adverb - not declinable",
           "en": "How",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -36146,7 +35530,6 @@ const data: SurahDecoderData = {
           "en": "Companions, people",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         },
@@ -36226,11 +35609,9 @@ const data: SurahDecoderData = {
           "morph": "Noun - verbal noun (masdar), masculine singular, indefinite",
           "irab": "Object of preposition (majrur) - genitive with tanwin kasra",
           "en": "Misguidance, error, going astray",
-          "cs": "gen",
+          "cs": "verb",
           "lens": [
-            "particle",
-            "verb",
-            "gen"
+            "verb"
           ]
         }
       ]
@@ -36273,10 +35654,9 @@ const data: SurahDecoderData = {
           "morph": "Preposition + attached pronoun",
           "irab": "Preposition + pronoun genitive",
           "en": "Upon them, against them",
-          "cs": "gen",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "gen"
+            "particle"
           ]
         },
         {
@@ -36319,10 +35699,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, present tense, 3rd person feminine singular + attached pronoun",
           "irab": "Present verb (fi'l mudari') - indicative (marfu'), + object pronoun accusative",
           "en": "Strikes them, pelts them",
-          "cs": "acc",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "acc"
+            "verb"
           ]
         },
         {
@@ -36346,7 +35725,6 @@ const data: SurahDecoderData = {
           "en": "Stones",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         },
@@ -36371,7 +35749,6 @@ const data: SurahDecoderData = {
           "en": "Baked clay, hardened clay",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         }
@@ -36403,10 +35780,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, past tense, 3rd person masculine singular + attached pronoun",
           "irab": "Predicate verb (fi'l madi) + object pronoun accusative",
           "en": "Made them",
-          "cs": "acc",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "acc"
+            "verb"
           ]
         },
         {
@@ -36430,7 +35806,6 @@ const data: SurahDecoderData = {
           "en": "Straw, chaff",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         },
@@ -36476,11 +35851,9 @@ const data: SurahDecoderData = {
           "morph": "Noun - verbal noun (masdar), masculine, singular, definite (by idafa)",
           "irab": "Object of preposition (majrur) - genitive with kasra",
           "en": "accustoming, familiarizing",
-          "cs": "gen",
+          "cs": "verb",
           "lens": [
-            "particle",
-            "verb",
-            "gen"
+            "verb"
           ]
         },
         {
@@ -36511,10 +35884,9 @@ const data: SurahDecoderData = {
           "morph": "Noun - verbal noun (masdar), masculine, singular, definite + attached pronoun",
           "irab": "Apposition/clarification of previous إِيلَافِ - genitive (majrur), + possessive pronoun genitive",
           "en": "their accustoming",
-          "cs": "gen",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "gen"
+            "verb"
           ]
         },
         {
@@ -36526,7 +35898,6 @@ const data: SurahDecoderData = {
           "en": "journey, caravan",
           "cs": "acc",
           "lens": [
-            "verb",
             "acc"
           ]
         },
@@ -36675,10 +36046,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form IV, past tense, 3rd person, masculine, singular + attached pronoun",
           "irab": "Predicate verb (fi'l madi) + object pronoun accusative",
           "en": "fed them",
-          "cs": "acc",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "acc"
+            "verb"
           ]
         },
         {
@@ -36702,7 +36072,6 @@ const data: SurahDecoderData = {
           "en": "hunger",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         },
@@ -36725,10 +36094,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form IV, past tense, 3rd person, masculine, singular + attached pronoun",
           "irab": "Predicate verb (fi'l madi) + object pronoun accusative",
           "en": "made them safe",
-          "cs": "acc",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "acc"
+            "verb"
           ]
         },
         {
@@ -36752,7 +36120,6 @@ const data: SurahDecoderData = {
           "en": "fear",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         }
@@ -36786,7 +36153,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, past tense, 2nd person masculine singular",
           "irab": "Past verb (fi'l madi) - mabni, subject pronoun تَ attached",
           "en": "you saw, you have seen",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -36810,10 +36177,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form II, present tense, 3rd person masculine singular",
           "irab": "Fi'l mudari' - indicative (marfu') with damma",
           "en": "denies, rejects",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         },
         {
@@ -36892,10 +36258,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, present tense, 3rd person masculine singular",
           "irab": "Fi'l mudari' - indicative (marfu') with damma",
           "en": "pushes away, repels",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         },
         {
@@ -36950,10 +36315,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, present tense, 3rd person masculine singular",
           "irab": "Fi'l mudari' - indicative (marfu') with damma",
           "en": "encourages, urges",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         },
         {
@@ -37158,10 +36522,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form III, present tense, 3rd person masculine plural",
           "irab": "Khabar (predicate) - indicative (marfu') with nun (sound masculine plural)",
           "en": "show off, act ostentatiously",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         }
       ]
@@ -37192,10 +36555,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, present tense, 3rd person masculine plural",
           "irab": "Fi'l mudari' - indicative (marfu') with nun",
           "en": "withhold, prevent, refuse",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         },
         {
@@ -37228,10 +36590,9 @@ const data: SurahDecoderData = {
           "morph": "Particle + attached pronoun",
           "irab": "Emphasis particle (harf tawkid) + subject pronoun (ism inna) accusative",
           "en": "indeed We",
-          "cs": "acc",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "acc"
+            "particle"
           ]
         },
         {
@@ -37241,10 +36602,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form IV, past tense, 1st person, plural + attached pronoun",
           "irab": "Predicate of inna (khabar inna) - nominative position, + object pronoun accusative",
           "en": "We gave you, granted you",
-          "cs": "acc",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "acc"
+            "verb"
           ]
         },
         {
@@ -37313,7 +36673,6 @@ const data: SurahDecoderData = {
           "en": "your Lord",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         },
@@ -37357,10 +36716,9 @@ const data: SurahDecoderData = {
           "morph": "Particle - emphasis",
           "irab": "Emphasis particle (harf tawkid) - governs accusative",
           "en": "indeed",
-          "cs": "acc",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "acc"
+            "particle"
           ]
         },
         {
@@ -37415,7 +36773,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, imperative, 2nd person masculine singular",
           "irab": "Command verb (fi'l amr) - mabni",
           "en": "Say",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -37482,10 +36840,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, present tense, 1st person singular",
           "irab": "Present tense verb (fi'l mudari') - indicative (marfu')",
           "en": "I worship",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         },
         {
@@ -37505,10 +36862,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, present tense, 2nd person masculine plural",
           "irab": "Present tense verb (fi'l mudari') - indicative (marfu')",
           "en": "You (plural) worship",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         }
       ]
@@ -37573,10 +36929,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, present tense, 1st person singular",
           "irab": "Present tense verb (fi'l mudari') - indicative (marfu')",
           "en": "I worship",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         }
       ]
@@ -37641,7 +36996,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, past tense, 2nd person masculine plural",
           "irab": "Past tense verb (fi'l madi) - mabni",
           "en": "You (plural) worshipped",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -37708,10 +37063,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, present tense, 1st person singular",
           "irab": "Present tense verb (fi'l mudari') - indicative (marfu')",
           "en": "I worship",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         }
       ]
@@ -37801,7 +37155,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, past tense, 3rd person masculine singular",
           "irab": "Past tense verb (fi'l māḍī) - mabni, verb of the condition (fi'l al-shart)",
           "en": "Came / comes",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -37858,7 +37212,7 @@ const data: SurahDecoderData = {
           "morph": "Conjunction + verb - Form I, past tense, 2nd person masculine singular",
           "irab": "Coordinating conjunction + past tense verb (fi'l māḍī) - mabni",
           "en": "And you saw / you see",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -37908,7 +37262,6 @@ const data: SurahDecoderData = {
           "en": "Religion",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         },
@@ -37965,10 +37318,9 @@ const data: SurahDecoderData = {
           "morph": "Preposition + noun - masculine singular, construct state (muḍāf)",
           "irab": "Preposition + noun (majrūr bi-l-ḥarf) - genitive (majrūr)",
           "en": "With the praise",
-          "cs": "gen",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "gen"
+            "particle"
           ]
         },
         {
@@ -37990,7 +37342,7 @@ const data: SurahDecoderData = {
           "morph": "Conjunction + verb - Form X, imperative, 2nd person masculine singular + attached pronoun",
           "irab": "Coordinating conjunction + command verb (fi'l amr) - mabni + object pronoun",
           "en": "And seek His forgiveness",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -38002,10 +37354,9 @@ const data: SurahDecoderData = {
           "morph": "Particle + attached pronoun 3rd person masculine singular",
           "irab": "Emphasis particle (ḥarf tawkīd) + pronoun as noun (ism inna) - accusative (manṣūb)",
           "en": "Indeed He",
-          "cs": "acc",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "acc"
+            "particle"
           ]
         },
         {
@@ -38015,7 +37366,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, past tense, 3rd person masculine singular (defective verb)",
           "irab": "Defective past tense verb (kāna wa-akhawātuhā) - mabni",
           "en": "Was / is",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -38050,7 +37401,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, past tense, 3rd person feminine singular",
           "irab": "Past tense verb (fi'l madi) - mabni, can express a curse/prayer",
           "en": "Perished, ruined",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -38098,7 +37449,7 @@ const data: SurahDecoderData = {
           "morph": "Conjunction + verb - Form I, past tense, 3rd person masculine singular",
           "irab": "Coordinating conjunction + past tense verb (fi'l madi) - mabni",
           "en": "And he perished",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -38131,7 +37482,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form IV, past tense, 3rd person masculine singular",
           "irab": "Past tense verb (fi'l madi) - mabni",
           "en": "Enriched, availed, benefited",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -38143,10 +37494,9 @@ const data: SurahDecoderData = {
           "morph": "Preposition + attached pronoun 3rd person masculine singular",
           "irab": "Preposition + pronoun (majrur bi-l-harf) - mabni",
           "en": "From him, for him",
-          "cs": "gen",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "gen"
+            "particle"
           ]
         },
         {
@@ -38178,7 +37528,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, past tense, 3rd person masculine singular",
           "irab": "Past tense verb (fi'l madi) - mabni, verb of the relative clause (silat al-mawsul)",
           "en": "He earned, he acquired",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -38199,11 +37549,10 @@ const data: SurahDecoderData = {
           "morph": "Particle + verb - Form I, present tense, 3rd person masculine singular",
           "irab": "Future particle + present tense verb (fi'l mudari') - indicative (marfu')",
           "en": "He will burn, he will enter",
-          "cs": "nom",
+          "cs": "mabni",
           "lens": [
             "particle",
-            "verb",
-            "nom"
+            "verb"
           ]
         },
         {
@@ -38317,7 +37666,6 @@ const data: SurahDecoderData = {
           "en": "Her neck",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         },
@@ -38354,7 +37702,6 @@ const data: SurahDecoderData = {
           "en": "Palm fiber, twisted rope",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         }
@@ -38376,7 +37723,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, imperative, 2nd person masculine singular",
           "irab": "Command verb (fi'l amr) - mabni",
           "en": "Say",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -38502,7 +37849,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I passive, present tense, 3rd person masculine singular",
           "irab": "Present tense passive verb in jussive mood (fi'l muḍāri' majzūm mabni li-l-majhūl) due to لَمْ",
           "en": "He is born",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -38535,7 +37882,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, present tense, 3rd person masculine singular (defective verb)",
           "irab": "Defective verb in jussive mood (kāna majzūm) - mabni",
           "en": "There is, there was",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -38594,7 +37941,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, imperative, 2nd person masculine singular",
           "irab": "Command verb (fi'l amr) - mabni",
           "en": "Say",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -38606,10 +37953,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, present tense, 1st person singular",
           "irab": "Present tense verb (fi'l mudari') - indicative (marfu')",
           "en": "I seek refuge, I take refuge",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         },
         {
@@ -38619,10 +37965,9 @@ const data: SurahDecoderData = {
           "morph": "Preposition + noun - masculine singular, construct state (mudaf)",
           "irab": "Preposition + noun (majrur bi-l-harf) - genitive (majrur)",
           "en": "In the Lord, with the Lord",
-          "cs": "gen",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "gen"
+            "particle"
           ]
         },
         {
@@ -38667,7 +38012,6 @@ const data: SurahDecoderData = {
           "en": "Evil, harm",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         },
@@ -38690,7 +38034,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, past tense, 3rd person masculine singular",
           "irab": "Past tense verb (fi'l madi) - mabni, verb of the relative clause (silat al-mawsul)",
           "en": "He created",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -38725,7 +38069,6 @@ const data: SurahDecoderData = {
           "en": "Evil, harm",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         },
@@ -38760,7 +38103,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, past tense, 3rd person masculine singular",
           "irab": "Past tense verb (fi'l madi) - mabni, verb of the condition (fi'l al-shart)",
           "en": "It settled, it penetrated, it deepened",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -38795,7 +38138,6 @@ const data: SurahDecoderData = {
           "en": "Evil, harm",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         },
@@ -38832,7 +38174,6 @@ const data: SurahDecoderData = {
           "en": "The knots",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         }
@@ -38866,7 +38207,6 @@ const data: SurahDecoderData = {
           "en": "Evil, harm",
           "cs": "gen",
           "lens": [
-            "particle",
             "gen"
           ]
         },
@@ -38901,7 +38241,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, past tense, 3rd person masculine singular",
           "irab": "Past tense verb (fi'l madi) - mabni, verb of the condition (fi'l al-shart)",
           "en": "He envied",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -38924,7 +38264,7 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, imperative, 2nd person masculine singular",
           "irab": "Command verb (fi'l amr) - mabni on sukun",
           "en": "Say",
-          "cs": "mabni",
+          "cs": "verb",
           "lens": [
             "verb"
           ]
@@ -38936,10 +38276,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - Form I, present tense, 1st person singular",
           "irab": "Present tense verb (fi'l mudari') - indicative (marfu') with damma",
           "en": "I seek refuge",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         },
         {
@@ -38949,10 +38288,9 @@ const data: SurahDecoderData = {
           "morph": "Preposition + noun - masculine singular, construct state (mudaf)",
           "irab": "Preposition + noun (majrur bi-l-harf) - genitive with kasra",
           "en": "in the Lord of",
-          "cs": "gen",
+          "cs": "mabni",
           "lens": [
-            "particle",
-            "gen"
+            "particle"
           ]
         },
         {
@@ -39118,10 +38456,9 @@ const data: SurahDecoderData = {
           "morph": "Verb - quadriliteral Form I, present tense, 3rd person masculine singular",
           "irab": "Fi'l mudari' - indicative (marfu') with damma",
           "en": "He whispers (persistently)",
-          "cs": "nom",
+          "cs": "verb",
           "lens": [
-            "verb",
-            "nom"
+            "verb"
           ]
         },
         {

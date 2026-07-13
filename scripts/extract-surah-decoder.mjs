@@ -11,16 +11,29 @@ const OUT = 'src/data/surah-decoder.ts';
 
 function classify(morph, irab) {
   const s = `${morph} ${irab}`.toLowerCase();
-  const lens = [];
-  let cs = 'none';
+  const m = morph.toLowerCase();
   const has = (...xs) => xs.some((x) => s.includes(x));
-  if (has('particle', 'harf', 'ḥarf', 'preposition')) lens.push('particle');
-  if (has('verb', 'fiʿl', "fi'l", 'fi‘l')) lens.push('verb');
-  if (has('genitive', 'majrur', 'majrūr')) { cs = 'gen'; lens.push('gen'); }
+  // Determine part-of-speech from the MORPHOLOGY column only. The i'rab column
+  // describes syntactic ROLE and routinely names a governing particle/verb for a
+  // declinable noun (e.g. a genitive noun's i'rab reads "object of preposition",
+  // an accusative noun's reads "subject of inna"). Reading POS from i'rab would
+  // mislabel those nouns as particles/verbs — the morph column is authoritative.
+  const hasM = (...xs) => xs.some((x) => m.includes(x));
+  const isParticle = hasM('particle', 'harf', 'ḥarf', 'preposition');
+  const isVerb = hasM('verb', 'fiʿl', "fi'l", 'fi‘l');
+  const lens = [];
+  if (isParticle) lens.push('particle');
+  if (isVerb) lens.push('verb');
+  // Particles are indeclinable (mabnī); their i'rab often names the case they
+  // GOVERN on a following noun — do NOT read that as the particle's own case.
+  // So resolve case ONLY for non-particle, non-verb (declinable) words.
+  let cs = 'none';
+  if (isParticle) cs = 'mabni';
+  else if (isVerb) cs = 'verb';
+  else if (has('genitive', 'majrur', 'majrūr')) { cs = 'gen'; lens.push('gen'); }
   else if (has('accusative', 'mansub', 'manṣūb')) { cs = 'acc'; lens.push('acc'); }
   else if (has('nominative', 'marfu', 'marfūʿ', "marfu'")) { cs = 'nom'; lens.push('nom'); }
   else if (has('mabni', 'mabnī', 'indeclinable', 'not declinable')) cs = 'mabni';
-  if (cs === 'none' && lens.includes('verb')) cs = 'verb';
   return { cs, lens: [...new Set(lens)] };
 }
 
