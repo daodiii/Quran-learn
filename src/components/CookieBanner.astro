@@ -1,0 +1,139 @@
+---
+// Small, self-contained cookie-consent banner.
+// Themed dark-with-gold so it reads the same on the standalone "night" pages
+// (index, surahs) and inside the BaseLayout suite. Remembers the choice in
+// localStorage and, on decline, flips Google Analytics' opt-out flag.
+const GA_ID = 'G-1MSBYYQT5Z';
+---
+
+<div id="cookie-banner" class="cookie-banner" role="region" aria-live="polite" aria-label="Cookie notice" hidden>
+  <div class="cb-icon" aria-hidden="true">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+      <path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5Z" stroke-linejoin="round"/>
+      <circle cx="9" cy="10" r="1" fill="currentColor" stroke="none"/>
+      <circle cx="14" cy="14.5" r="1" fill="currentColor" stroke="none"/>
+      <circle cx="9.5" cy="15" r=".7" fill="currentColor" stroke="none"/>
+    </svg>
+  </div>
+  <div class="cb-body">
+    <p class="cb-text">
+      We use a few cookies to see how the site is used and to keep improving the lessons. No ads, ever.
+    </p>
+    <div class="cb-actions">
+      <button type="button" class="cb-btn cb-accept" data-cookie="accept">Accept</button>
+      <button type="button" class="cb-btn cb-decline" data-cookie="decline">Decline</button>
+    </div>
+  </div>
+</div>
+
+<style>
+  .cookie-banner{
+    position:fixed;
+    left:clamp(14px,3vw,26px);
+    bottom:clamp(14px,3vw,26px);
+    z-index:300;
+    width:min(340px,calc(100vw - 28px));
+    display:flex;
+    gap:13px;
+    padding:16px 17px;
+    border-radius:16px;
+    background:rgba(10,13,24,.9);
+    border:1px solid rgba(228,209,164,.16);
+    box-shadow:0 18px 50px -12px rgba(0,0,0,.7), 0 0 0 1px rgba(0,0,0,.3);
+    backdrop-filter:blur(16px);
+    -webkit-backdrop-filter:blur(16px);
+    color:#f4edda;
+    font-family:'Geist',ui-sans-serif,system-ui,sans-serif;
+    transform:translateY(14px);
+    opacity:0;
+    transition:opacity .55s cubic-bezier(.23,1,.32,1), transform .55s cubic-bezier(.23,1,.32,1);
+  }
+  .cookie-banner[hidden]{display:none}
+  .cookie-banner.cb-in{opacity:1;transform:none}
+
+  .cb-icon{flex:none;width:26px;height:26px;color:#e3b35c;margin-top:1px}
+  .cb-icon svg{width:100%;height:100%}
+
+  .cb-body{min-width:0}
+  .cb-text{
+    margin:0 0 12px;
+    font-size:12.75px;
+    line-height:1.5;
+    color:rgba(244,237,218,.72);
+  }
+
+  .cb-actions{display:flex;gap:8px}
+  .cb-btn{
+    all:unset;
+    cursor:pointer;
+    font-family:'Geist Mono','Geist',ui-monospace,monospace;
+    font-size:11px;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    padding:8px 16px;
+    border-radius:999px;
+    transition:background .3s, color .3s, border-color .3s, transform .12s cubic-bezier(.23,1,.32,1);
+  }
+  .cb-btn:focus-visible{outline:2px solid #f4d68f;outline-offset:2px}
+  .cb-btn:active{transform:scale(.96)}
+
+  .cb-accept{background:#e3b35c;color:#221503}
+  .cb-accept:hover{background:#f4d68f}
+
+  .cb-decline{color:rgba(244,237,218,.66);border:1px solid rgba(228,209,164,.2)}
+  .cb-decline:hover{color:#f4edda;border-color:rgba(228,209,164,.4)}
+
+  @media (max-width:480px){
+    .cb-text{font-size:12px}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .cookie-banner{transition:opacity .3s linear}
+    .cookie-banner.cb-in{transform:none}
+  }
+</style>
+
+<script is:inline define:vars={{ GA_ID }}>
+  (function () {
+    var KEY = 'qg-cookie-consent';
+    var banner = document.getElementById('cookie-banner');
+    if (!banner) return;
+
+    function disableGA() {
+      // Google Analytics honours a window flag of this exact shape.
+      try { window['ga-disable-' + GA_ID] = true; } catch (e) {}
+    }
+
+    var choice = null;
+    try { choice = localStorage.getItem(KEY); } catch (e) {}
+
+    if (choice === 'declined') { disableGA(); return; }
+    if (choice === 'accepted') return;
+
+    // No decision yet — reveal the banner, but wait until the page's loading
+    // veil (on the standalone night pages) has cleared so it doesn't pop over
+    // the load animation. Gating on `load` + a short delay works whether or
+    // not a veil is present.
+    function reveal() {
+      banner.hidden = false;
+      // Force a reflow so the display change commits before we flip the
+      // transition class — this animates without depending on rAF firing.
+      void banner.offsetWidth;
+      banner.classList.add('cb-in');
+    }
+    if (document.readyState === 'complete') setTimeout(reveal, 450);
+    else window.addEventListener('load', function () { setTimeout(reveal, 450); }, { once: true });
+
+    function decide(value) {
+      try { localStorage.setItem(KEY, value); } catch (e) {}
+      if (value === 'declined') disableGA();
+      banner.classList.remove('cb-in');
+      setTimeout(function () { banner.hidden = true; }, 550);
+    }
+
+    banner.querySelectorAll('[data-cookie]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        decide(btn.dataset.cookie === 'accept' ? 'accepted' : 'declined');
+      });
+    });
+  })();
+</script>
