@@ -43,3 +43,17 @@ test('Al-Fatiha (structural outlier) renders all 7 verses in the decoder', async
   await expect(page.locator('[data-surah-decoder] .ayah-no')).toHaveCount(7);
   await expect(page.locator('[data-surah-decoder] .recite .w')).toHaveCount(29);
 });
+
+test('long surah: the breakdown stays in view with the word, no scroll round-trip', async ({ page }) => {
+  // The Bench: on a 200-word surah the recitation is a fixed-height window and
+  // the readout docks beneath it, so a word tapped deep in the surah and its
+  // breakdown are on screen together instead of forcing a scroll-down-then-up.
+  await page.setViewportSize({ width: 1280, height: 720 });
+  await page.goto('/surahs/078-an-naba/');
+  await page.locator('#surah-decoder').scrollIntoViewIfNeeded();
+  // tapping scrolls the recitation window internally, not the page
+  await page.locator('[data-surah-decoder] .recite .w').nth(150).click();
+  const selected = page.locator('[data-surah-decoder] .recite .w.sel');
+  await expect(selected).toBeInViewport();
+  await expect(page.locator('[data-surah-decoder] .d-readout')).toBeInViewport();
+});

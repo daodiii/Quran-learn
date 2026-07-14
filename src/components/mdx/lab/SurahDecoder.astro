@@ -27,6 +27,7 @@ let gi = -1;
         <button class="chip" data-f={l.f} type="button" aria-pressed="false">{l.label} <span class="k">{l.k}</span></button>
       ))}
     </div>
+    <div class="d-stage">
     <p class="recite" dir="rtl">
       {verses.map((v) => (
         <span class="ayah" role="group" aria-label={`Verse ${v.ayah}`}>
@@ -42,6 +43,7 @@ let gi = -1;
         </span>
       ))}
     </p>
+    </div>
     <div data-dec-panel aria-label="Word breakdown">
       <div class="d-empty">▸ Tap a word above to open its breakdown</div>
     </div>
