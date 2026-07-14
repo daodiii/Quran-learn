@@ -34,9 +34,6 @@
 .lab .tag.acc { color:var(--copper-bright); border-color:rgba(201,138,75,.5); }
 .lab .tag.nom, .lab .tag.verb { color:var(--teal); border-color:rgba(143,208,194,.5); }
 .lab .tag.mabni { color:var(--silver); border-color:rgba(205,216,236,.4); }
-/* single column on phones, but drop the forced cell height so short fields
-   (meaning, root, case) compress and the docked shelf stays short */
-@media (max-width:640px) { .lab .d-readout { grid-template-columns:1fr; } .lab .d-readout > div { min-height:0; } }
 .lab .d-empty { padding:22px 16px; text-align:center; font-family:var(--font-mono); font-size:11px; letter-spacing:.1em; color:var(--ink-faint); }
 
 /* ---- The Bench ----
@@ -50,10 +47,47 @@
 .lab .d-stage::-webkit-scrollbar-thumb { background:var(--gold-deep); border-radius:8px; border:3px solid var(--bg-panel); }
 .lab .decoder [data-dec-panel] { border-top:1px solid rgba(227,179,92,.28); background:linear-gradient(180deg,rgba(227,179,92,.035),transparent 46%); max-height:52vh; overflow-y:auto; }
 @keyframes d-readout-in { from { opacity:0; transform:translateY(5px); } to { opacity:1; transform:none; } }
-/* keep the whole instrument inside a phone viewport: shorter window, denser readout */
+
+/* the sheet wrapper and handle are inert on desktop: the panel just docks
+   under the recitation window (see the vertical bench above) */
+.lab .d-sheet { display:contents; }
+.lab .d-handle { display:none; }
+
+/* ---- Mobile: the breakdown becomes a slide-up bottom sheet ----
+   The recitation flows normally and the readout pins to the bottom of the
+   viewport, revealed only while the decoder is in view (an IntersectionObserver
+   toggles .sheet-in on the decoder; the handle toggles .sheet-open). */
 @media (max-width:640px) {
-  .lab .d-stage { max-height:34vh; }
-  .lab .decoder [data-dec-panel] { max-height:42vh; }
+  .lab .d-stage { max-height:none; }              /* recitation flows; the page scrolls */
+  .lab .decoder { overflow:visible; padding-bottom:52px; } /* fixed sheet escapes; last words clear the handle */
+
+  .lab .d-sheet {
+    display:flex; flex-direction:column;
+    position:fixed; left:0; right:0; bottom:0; z-index:50;
+    max-height:58vh;
+    background:linear-gradient(180deg,var(--bg-panel),var(--bg-1));
+    border-top:1px solid rgba(227,179,92,.4);
+    border-radius:20px 20px 0 0;
+    box-shadow:0 -26px 64px -22px rgba(0,0,0,.92);
+    transform:translateY(100%);
+    transition:transform .34s cubic-bezier(.32,.72,0,1);
+  }
+  .lab .decoder.sheet-in .d-sheet { transform:translateY(calc(100% - 46px)); } /* peek: just the handle */
+  .lab .decoder.sheet-in.sheet-open .d-sheet { transform:translateY(0); }       /* full sheet */
+
+  .lab .d-handle { display:block; flex:none; position:relative; width:100%; height:44px; padding:0; background:none; border:0; -webkit-appearance:none; appearance:none; cursor:pointer; }
+  .lab .d-handle::before { content:""; position:absolute; top:10px; left:50%; transform:translateX(-50%); width:40px; height:4px; border-radius:3px; background:var(--hairline); transition:background .2s; }
+  .lab .d-handle:hover::before, .lab .decoder.sheet-in.sheet-open .d-handle::before { background:var(--gold-deep); }
+
+  /* inside the sheet the panel is plain and just scrolls; the sheet carries the chrome */
+  .lab .decoder [data-dec-panel] { position:static; flex:1; min-height:0; max-height:none; overflow-y:auto; border-top:none; background:none; border-radius:0; -webkit-overflow-scrolling:touch; }
+  .lab .d-readout { grid-template-columns:1fr; }
+  .lab .d-readout > div { min-height:0; padding:10px 15px; }
+  .lab .d-readout .r-v { line-height:1.45; }
+  .lab .d-empty { padding-bottom:24px; }
+}
+@media (max-width:640px) and (prefers-reduced-motion:reduce) {
+  .lab .d-sheet { transition:none; }
 }
 
 /* no-JS / reduced-motion degrade */

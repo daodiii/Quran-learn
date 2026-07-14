@@ -57,3 +57,22 @@ test('long surah: the breakdown stays in view with the word, no scroll round-tri
   await expect(selected).toBeInViewport();
   await expect(page.locator('[data-surah-decoder] .d-readout')).toBeInViewport();
 });
+
+test('mobile: the breakdown docks as a bottom sheet pinned to the viewport', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto('/surahs/078-an-naba/');
+  await page.locator('#surah-decoder').scrollIntoViewIfNeeded();
+  const sheet = page.locator('[data-surah-decoder] .d-sheet');
+  await expect(sheet).toHaveCSS('position', 'fixed');
+  // decoding a word deep in the surah expands the sheet and brings its readout on
+  // screen (centre the word first so it clears the peeking handle at the bottom)
+  const word = page.locator('[data-surah-decoder] .recite .w').nth(150);
+  await word.evaluate((el) => el.scrollIntoView({ block: 'center' }));
+  await word.click();
+  await expect(page.locator('[data-surah-decoder] .d-readout')).toBeInViewport();
+  // the expanded sheet is pinned to the bottom edge of the viewport
+  const box = await sheet.boundingBox();
+  const vp = page.viewportSize()!;
+  expect(box).not.toBeNull();
+  expect(Math.abs(box!.y + box!.height - vp.height)).toBeLessThanOrEqual(2);
+});

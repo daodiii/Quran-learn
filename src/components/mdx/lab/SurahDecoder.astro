@@ -44,8 +44,11 @@ let gi = -1;
       ))}
     </p>
     </div>
-    <div data-dec-panel aria-label="Word breakdown">
-      <div class="d-empty">▸ Tap a word above to open its breakdown</div>
+    <div class="d-sheet">
+      <button class="d-handle" type="button" aria-label="Collapse or expand the breakdown" aria-expanded="true"></button>
+      <div data-dec-panel aria-label="Word breakdown">
+        <div class="d-empty">▸ Tap a word above to open its breakdown</div>
+      </div>
     </div>
   </section>
 )}
@@ -66,6 +69,24 @@ let gi = -1;
     const decoded = new Set<string>();
     let filter = 'all';
     let liveOn = false;
+
+    // mobile: the docked readout becomes a slide-up bottom sheet, revealed only
+    // while the decoder is in view (so it never hovers over the briefing or the
+    // sections below) and expanded on a tap. Desktop ignores these classes.
+    const handle = root.querySelector<HTMLButtonElement>('.d-handle');
+    const setSheetOpen = (open: boolean) => { root.classList.toggle('sheet-open', open); handle?.setAttribute('aria-expanded', String(open)); };
+    setSheetOpen(false); // start collapsed (a peeking handle); a word tap expands it
+    if (handle) {
+      handle.addEventListener('click', () => setSheetOpen(!root.classList.contains('sheet-open')));
+      if ('IntersectionObserver' in window) {
+        new IntersectionObserver(
+          (entries) => { for (const e of entries) root.classList.toggle('sheet-in', e.isIntersecting); },
+          { rootMargin: '-6% 0px -42% 0px' },
+        ).observe(recite);
+      } else {
+        root.classList.add('sheet-in');
+      }
+    }
 
     function cell(k: string, wide?: boolean) {
       const d = document.createElement('div'); if (wide) d.className = 'wide';
@@ -92,6 +113,7 @@ let gi = -1;
     function decode(el: HTMLButtonElement) {
       if (!liveOn) { liveOn = true; panel.setAttribute('aria-live', 'polite'); }
       selectWord(el); el.classList.add('done');
+      setSheetOpen(true); // expand the mobile bottom sheet on a tap
       const id = el.dataset.i!;
       if (!decoded.has(id)) { decoded.add(id); countEl.textContent = String(decoded.size); document.dispatchEvent(new CustomEvent('lab:word-touched')); }
     }
