@@ -3,6 +3,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { parseCorpusRows, groupWords } from './group-words.ts';
 import { buildGlossMap, buildIndex, buildNounGlossMap, buildSurfaceGlossMap } from './word-index.ts';
+import type { VerbFormsData } from './word-index.ts';
 
 // Minimal but REAL slice of verb-forms.json shape (values from the shipped dataset).
 const VERB_FORMS = {
@@ -17,7 +18,7 @@ const VERB_FORMS = {
       '1': [{ past: 'شَاءَ', present: 'يَشَاءُ', translit: 'shāʾa / yashāʾu',
               meaning: 'to will, wish', count: 236, example: '2:20' }] } },
   ],
-};
+} as unknown as VerbFormsData;
 
 const ROWS = [
   '(2:3:2:1)\tyu&ominu\tV\tSTEM|POS:V|IMPF|(IV)|LEM:\'aAmana|ROOT:Amn|3MP',
