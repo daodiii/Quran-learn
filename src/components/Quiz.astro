@@ -417,7 +417,7 @@ const totalQuestions = questions.length;
 
         <!-- Options -->
         <div class="quiz-options" role="radiogroup" aria-label="Answer options">
-          ${question.options.map((option, index) => `
+          ${question.options.map((option: string, index: number) => `
             <button
               class="quiz-option"
               data-option-index="${index}"
@@ -449,7 +449,7 @@ const totalQuestions = questions.length;
     `;
 
     // Attach option click handlers
-    const optionButtons = quizContent.querySelectorAll('.quiz-option');
+    const optionButtons = quizContent.querySelectorAll<HTMLButtonElement>('.quiz-option');
     optionButtons.forEach(btn => {
       btn.addEventListener('click', () => handleOptionClick(btn));
     });
@@ -460,7 +460,7 @@ const totalQuestions = questions.length;
   }
 
   // Handle option selection
-  function handleOptionClick(optionBtn) {
+  function handleOptionClick(optionBtn: HTMLButtonElement) {
     if (answered) return; // Already answered this question
 
     const optionIndex = parseInt(optionBtn.getAttribute('data-option-index') || '0', 10);
@@ -470,7 +470,7 @@ const totalQuestions = questions.length;
     answered = true;
 
     // Disable all options
-    const allOptions = document.querySelectorAll('.quiz-option');
+    const allOptions = document.querySelectorAll<HTMLButtonElement>('.quiz-option');
     allOptions.forEach(btn => {
       btn.disabled = true;
       btn.classList.add('disabled');
@@ -500,7 +500,7 @@ const totalQuestions = questions.length;
   }
 
   // Show feedback
-  function showFeedback(isCorrect, explanation) {
+  function showFeedback(isCorrect: boolean, explanation: string | undefined) {
     const feedbackDiv = document.getElementById('quiz-feedback');
     if (!feedbackDiv) return;
 
