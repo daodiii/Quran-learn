@@ -58,7 +58,10 @@
    viewport, revealed only while the decoder is in view (an IntersectionObserver
    toggles .sheet-in on the decoder; the handle toggles .sheet-open). */
 @media (max-width:640px) {
-  .lab .d-stage { max-height:none; }              /* recitation flows; the page scrolls */
+  /* recitation flows and the page scrolls: reset the desktop window's overflow so
+     the recitation is NOT a nested scroll container (overflow:auto +
+     overscroll-behavior:contain trapped touch-drags inside the box). */
+  .lab .d-stage { max-height:none; overflow:visible; overscroll-behavior:auto; }
   .lab .decoder { overflow:visible; padding-bottom:52px; } /* fixed sheet escapes; last words clear the handle */
 
   .lab .d-sheet {
