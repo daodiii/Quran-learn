@@ -20,26 +20,26 @@ function classify(morph, irab) {
   const hasNoun = /\bnoun\b/.test(m) || /\bpronoun\b/.test(m);
   // A PURE particle has no declinable noun component (rules out "Preposition + noun").
   const isPureParticle = isParticle && !hasNoun && !isVerb;
+  const isPronoun = /\bpronoun\b/.test(m);
 
-  // The word's OWN case lives in the part of the i'rab before any "+ …" or
-  // attached/suffix-pronoun clause (suffix pronouns are always genitive and would
-  // otherwise override the head word).
-  const ownIrab = irab.toLowerCase().split(/\s*\+\s*|,\s*(?=[^,]*pronoun)/)[0];
+  // Case: split i'rab at "+" and before an attached-pronoun clause, then take the
+  // FIRST segment that states a case — the head word's own case, before any
+  // coordinated/suffix-pronoun tail (suffix pronouns are always genitive).
   const caseOf = (s) =>
     /genitive|majr/.test(s) ? 'gen' :
     /accusative|man[sṣ]/.test(s) ? 'acc' :
     /nominative|marf/.test(s) ? 'nom' : null;
+  const segs = irab.toLowerCase().split(/\s*\+\s*|,\s*(?=[^,]*pronoun)/);
+  let headCase = null;
+  for (const seg of segs) { const c = caseOf(seg); if (c) { headCase = c; break; } }
 
   const lens = [];
   let cs;
   if (isVerb) { cs = 'verb'; lens.push('verb'); }          // verb moods (subjunctive/jussive) are NOT noun-cases
   else if (isPureParticle) { cs = 'mabni'; lens.push('particle'); }
-  else {
-    cs = caseOf(ownIrab) ?? caseOf(full);                   // declinable noun/pronoun/compound: use its stated case
-    if (cs) lens.push(cs);
-    else if (/\bmabn|indeclinable|not declinable/.test(full)) cs = 'mabni';
-    else cs = 'none';
-  }
+  else if (headCase) { cs = headCase; lens.push(headCase); }
+  else if (isPronoun || /\bmabn|indeclinable|not declinable/.test(full)) { cs = 'mabni'; }
+  else { cs = 'none'; }
   return { cs, lens };
 }
 

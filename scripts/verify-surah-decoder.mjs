@@ -25,6 +25,13 @@ const golden = [
   ['103-al-asr', 'الْإِنسَانَ', 'acc'],
   ['103-al-asr', 'خُسْرٍ', 'gen'],
   ['089-al-fajr', 'رَبُّكَ', 'nom'],
+  ['079-an-naziat', 'وَمَرْعَىٰهَا', 'acc'],
+  // Pronoun-category mabnī fallback (relative pronoun, no case stated in i'rab).
+  // NB: the coordinator's requested عَلَيْهِمْ example is ambiguous — Al-Fatiha 1:7
+  // has two عَلَيْهِمْ and the first states "genitive (majrūr)" (→ gen, correct);
+  // only the second (i'rab names no case) hits the fallback. الَّذِي is a clean,
+  // unique exemplar of the same fallback.
+  ['078-an-naba', 'الَّذِي', 'mabni'],
 ];
 for (const [id, ar, want] of golden) {
   const got = wordCs(id, ar);
@@ -41,6 +48,10 @@ for (const id of ids) {
       // A word tagged with the particle lens (and no noun component) must be mabnī.
       if (w.lens.includes('particle') && !/\bnoun\b/.test(w.morph) && w.cs !== 'mabni') {
         console.error(`${id} ${v.ref} "${w.ar}": particle lens but cs="${w.cs}" (expected mabni)`); problems++;
+      }
+      // Pronouns are either cased-in-position or mabnī — never 'none'.
+      if (/\bpronoun\b/.test(w.morph) && w.cs === 'none') {
+        console.error(`${id} ${v.ref} "${w.ar}": pronoun morph but cs="none"`); problems++;
       }
     }
   }
