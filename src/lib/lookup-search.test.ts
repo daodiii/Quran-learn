@@ -2,6 +2,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { prepareIndex, search } from './lookup-search.ts';
+import type { ArabicResult, LatinResult, KeyRef, MeaningRef } from './lookup-search.ts';
 
 const INDEX = {
   meta: { source: 't', words: 3, analyses: 4, version: 1 },
@@ -19,44 +20,44 @@ const INDEX = {
 const P = prepareIndex(INDEX);
 
 test('arabic: exact vocalized paste', () => {
-  const r = search(P, 'يُؤْمِنُونَ');
+  const r = search(P, 'يُؤْمِنُونَ') as ArabicResult;
   assert.equal(r.kind, 'arabic');
   assert.equal(r.exact!.key, 'يؤمنون');
 });
 test('arabic: bare typed input matches', () => {
-  assert.equal(search(P, 'يؤمنون').exact!.key, 'يؤمنون');
+  assert.equal((search(P, 'يؤمنون') as ArabicResult).exact!.key, 'يؤمنون');
 });
 test('arabic: modern spelling resolves through altKeys', () => {
-  assert.equal(search(P, 'الصلاة').exact!.key, 'الصلوة');
+  assert.equal((search(P, 'الصلاة') as ArabicResult).exact!.key, 'الصلوة');
 });
 test('arabic: prefix suggestions when no exact hit', () => {
-  const r = search(P, 'يؤم');
+  const r = search(P, 'يؤم') as ArabicResult;
   assert.equal(r.exact, null);
-  assert.deepEqual(r.suggestions.map(s => s.key), ['يؤمنون']);
+  assert.deepEqual(r.suggestions.map((s: KeyRef) => s.key), ['يؤمنون']);
 });
 test('arabic: did-you-mean on dead end', () => {
-  const r = search(P, 'يؤمنونا');
+  const r = search(P, 'يؤمنونا') as ArabicResult;
   assert.equal(r.exact, null);
-  assert.ok(r.didYouMean.some(s => s.key === 'يؤمنون'));
+  assert.ok(r.didYouMean.some((s: KeyRef) => s.key === 'يؤمنون'));
 });
 test('latin: sound matches fold macrons/hamza', () => {
-  const r = search(P, 'yuminuna');
+  const r = search(P, 'yuminuna') as LatinResult;
   assert.equal(r.kind, 'latin');
-  assert.deepEqual(r.sound.map(s => s.key), ['يؤمنون']);
+  assert.deepEqual(r.sound.map((s: KeyRef) => s.key), ['يؤمنون']);
 });
 test('latin: sound prefix matches', () => {
-  assert.ok(search(P, 'assal').sound.some(s => s.key === 'الصلوة'));
+  assert.ok((search(P, 'assal') as LatinResult).sound.some((s: KeyRef) => s.key === 'الصلوة'));
 });
 test('latin: meaning substring matches', () => {
-  const r = search(P, 'believe');
-  assert.deepEqual(r.meaning.map(m => m.key), ['يؤمنون']);
+  const r = search(P, 'believe') as LatinResult;
+  assert.deepEqual(r.meaning.map((m: MeaningRef) => m.key), ['يؤمنون']);
 });
 test('latin: a query can hit both groups without duplication inside one group', () => {
-  const r = search(P, 'know');
-  assert.deepEqual(r.meaning.map(m => m.key), ['يعلمون']);
+  const r = search(P, 'know') as LatinResult;
+  assert.deepEqual(r.meaning.map((m: MeaningRef) => m.key), ['يعلمون']);
 });
 test('suggestion entries expose display fields', () => {
-  const s = search(P, 'يؤم').suggestions[0];
+  const s = (search(P, 'يؤم') as ArabicResult).suggestions[0];
   assert.equal(s.surface, 'يُؤْمِنُونَ');
   assert.equal(s.total, 87);
   assert.equal(s.hint, 'to believe');
@@ -114,7 +115,7 @@ test('latin: two-char whole-word query matches (go)', () => {
   assert.equal((search(p4, 'go') as any).meaning[0].key, 'ذهب');
 });
 test('suggestion refs expose translit + pos for row rendering', () => {
-  const s = search(P, 'يؤم').suggestions[0];
+  const s = (search(P, 'يؤم') as ArabicResult).suggestions[0];
   assert.equal((s as any).translit, 'yuʾminūna');
   assert.equal((s as any).pos, 'V');
   assert.equal((s as any).form, 4);
