@@ -1023,10 +1023,10 @@ const FINE = matchMedia('(hover: hover) and (pointer: fine)').matches;
 const G    = window.gsap || null;
 if (G && window.ScrollTrigger) G.registerPlugin(ScrollTrigger);
 
-const $  = (s, c) => (c || document).querySelector(s);
-const $$ = (s, c) => Array.from((c || document).querySelectorAll(s));
-const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
-const lerp  = (a, b, t) => a + (b - a) * t;
+const $  = (s: string, c?: ParentNode | null): any => (c || document).querySelector(s);
+const $$ = (s: string, c?: ParentNode | null): any[] => Array.from((c || document).querySelectorAll(s));
+const clamp = (v: number, a: number, b: number): number => Math.max(a, Math.min(b, v));
+const lerp  = (a: number, b: number, t: number): number => a + (b - a) * t;
 
 let pageVisible = !document.hidden;
 document.addEventListener('visibilitychange', () => { pageVisible = !document.hidden; });
@@ -1047,18 +1047,18 @@ addEventListener('scroll', () => {
 /* ---------------------------------------------------------------
    Counters (standalone, no deps)
 --------------------------------------------------------------- */
-function runCounter(el){
-  const target = parseInt(el.dataset.count, 10);
-  if (RM) { el.textContent = target; return; }
+function runCounter(el: HTMLElement){
+  const target = parseInt(el.dataset.count as string, 10);
+  if (RM) { el.textContent = String(target); return; }
   const t0 = performance.now(), dur = 1500;
-  (function step(now){
+  (function step(now: number){
     const p = clamp((now - t0) / dur, 0, 1);
-    el.textContent = Math.round(target * (1 - Math.pow(1 - p, 3)));
+    el.textContent = String(Math.round(target * (1 - Math.pow(1 - p, 3))));
     if (p < 1) requestAnimationFrame(step);
   })(t0);
 }
 const countIO = new IntersectionObserver(es => es.forEach(e => {
-  if (e.isIntersecting) { runCounter(e.target); countIO.unobserve(e.target); }
+  if (e.isIntersecting) { runCounter(e.target as HTMLElement); countIO.unobserve(e.target); }
 }), { threshold: 0.5 });
 $$('[data-count]').forEach(el => countIO.observe(el));
 
@@ -1071,8 +1071,8 @@ $$('section, footer, .band').forEach(sec => {
 const heroEl = $('.hero');
 const revealIO = new IntersectionObserver(es => es.forEach(e => {
   if (!e.isIntersecting) return;
-  const el = e.target;
-  el.style.transitionDelay = RM ? '0ms' : (el.dataset.di * 70) + 'ms';
+  const el = e.target as HTMLElement;
+  el.style.transitionDelay = RM ? '0ms' : (Number(el.dataset.di) * 70) + 'ms';
   el.classList.add('on');
   el.addEventListener('transitionend', () => { el.style.transitionDelay = ''; }, { once: true });
   revealIO.unobserve(el);
@@ -1085,7 +1085,7 @@ $$('[data-reveal]').forEach(el => { if (!heroEl.contains(el)) revealIO.observe(e
 const glCanvas = $('#gl');
 let glPause = false;
 if (!LITE && !RM) (function initGL(){
-  let gl;
+  let gl: any;
   try { gl = glCanvas.getContext('webgl', { antialias: false, alpha: false, powerPreference: 'high-performance' }); }
   catch(e) { gl = null; }
   if (!gl) { glCanvas.remove(); return; }
@@ -1131,7 +1131,7 @@ void main(){
   col+=(hash(gl_FragCoord.xy+fract(uT)*13.7)-.5)*.02;
   gl_FragColor=vec4(col,1.);
 }`;
-  function shader(type, src){
+  function shader(type: number, src: string){
     const s = gl.createShader(type); gl.shaderSource(s, src); gl.compileShader(s);
     if (!gl.getShaderParameter(s, gl.COMPILE_STATUS)) { console.error('shader:', gl.getShaderInfoLog(s)); return null; }
     return s;
@@ -1184,7 +1184,7 @@ void main(){
     gl.drawArrays(gl.TRIANGLES, 0, 3);
   })(t0);
 
-  let rsz;
+  let rsz: ReturnType<typeof setTimeout>;
   addEventListener('resize', () => { clearTimeout(rsz); rsz = setTimeout(sizeGL, 180); });
 })();
 if (LITE || RM) glCanvas.remove();
@@ -1241,7 +1241,7 @@ function startHeroFormation(){
   const heroRect = heroEl.getBoundingClientRect();
   const off = document.createElement('canvas');
   off.width = W; off.height = H;
-  const octx = off.getContext('2d', { willReadFrequently: true });
+  const octx = off.getContext('2d', { willReadFrequently: true })!;
   const fs = parseFloat(getComputedStyle(basmala).fontSize);
   octx.fillStyle = '#fff';
   octx.font = fs + 'px "Amiri Quran"';
@@ -1311,7 +1311,7 @@ function startHeroFormation(){
   }, { passive: true });
 
   const AMBIENT = Math.min(230, Math.round(W / 7));
-  function respawnAmbient(p){
+  function respawnAmbient(p: any){
     p.x = Math.random() * W;
     p.y = H * 0.55 + Math.random() * H * 0.55;
     p.vx = (Math.random() - 0.5) * 4;
@@ -1460,15 +1460,15 @@ function staticConstellation(){
   cROs.forEach(r => { r.style.opacity = 1; r.style.transform = 'none'; });
 }
 
-let rebuildLines = null;
+let rebuildLines: (() => void) | null = null;
 function buildConstellation(){
   if (RM || !G || !window.ScrollTrigger || innerWidth < 900) { staticConstellation(); return; }
 
   const NS = 'http://www.w3.org/2000/svg';
-  const dots = [], paths = [];
+  const dots: any[] = [], paths: any[] = [];
   for (let i = 0; i < 4; i++) {
     const c = document.createElementNS(NS, 'circle');
-    c.setAttribute('r', '3'); c.style.opacity = 0;
+    c.setAttribute('r', '3'); c.style.opacity = '0';
     cLines.appendChild(c); dots.push(c);
     if (i > 0) {
       const p = document.createElementNS(NS, 'path');
@@ -1530,7 +1530,7 @@ function buildConstellation(){
 /* ---------------------------------------------------------------
    ACT III · Level path drawing
 --------------------------------------------------------------- */
-let rebuildPath = null;
+let rebuildPath: (() => void) | null = null;
 function buildPath(){
   const wrap = $('.path-wrap'), svg = $('#lpath');
   const nodes = $$('.lv-node');
@@ -1553,7 +1553,7 @@ function buildPath(){
       const a = pts[i - 1], b = pts[i];
       d += ' C ' + a.x + ' ' + lerp(a.y, b.y, 0.55) + ' ' + b.x + ' ' + lerp(a.y, b.y, 0.45) + ' ' + b.x + ' ' + b.y;
     }
-    [glow, main].forEach(p => {
+    ([glow, main] as any[]).forEach((p: any) => {
       p.setAttribute('d', d);
       const L = p.getTotalLength();
       p.style.strokeDasharray = L;
@@ -1564,12 +1564,12 @@ function buildPath(){
   rebuildPath = geometry;
 
   if (RM || !G || !window.ScrollTrigger) {
-    [glow, main].forEach(p => { p.style.strokeDashoffset = 0; p.dataset.done = 1; });
+    ([glow, main] as any[]).forEach((p: any) => { p.style.strokeDashoffset = 0; p.dataset.done = 1; });
   } else {
     G.to([glow, main], {
       strokeDashoffset: 0, ease: 'none',
       scrollTrigger: { trigger: wrap, start: 'top 72%', end: 'bottom 55%', scrub: 0.7 },
-      onComplete: function(){ glow.dataset.done = 1; main.dataset.done = 1; }
+      onComplete: function(){ (glow as any).dataset.done = 1; (main as any).dataset.done = 1; }
     });
   }
   const passIO = new IntersectionObserver(es => es.forEach(e => {
@@ -1582,12 +1582,12 @@ function buildPath(){
    Marquee band with scroll-velocity coupling
 --------------------------------------------------------------- */
 function buildMarquee(){
-  const rows = [
-    { el: $('#mq1'), dir: -1, speed: 42 },
-    { el: $('#mq2'), dir: 1, speed: 26 }
+  const rows: { el: any; dir: number; speed: number; unit: number; x: number }[] = [
+    { el: $('#mq1'), dir: -1, speed: 42, unit: 0, x: 0 },
+    { el: $('#mq2'), dir: 1, speed: 26, unit: 0, x: 0 }
   ];
   rows.forEach(r => {
-    const kids = Array.from(r.el.children);
+    const kids: any[] = Array.from(r.el.children);
     for (let i = 0; i < 5; i++) kids.forEach(k => r.el.appendChild(k.cloneNode(true)));
     r.unit = r.el.scrollWidth / 6;
     r.x = r.dir === 1 ? -r.unit : 0;
@@ -1618,11 +1618,11 @@ function buildMarquee(){
 /* ---------------------------------------------------------------
    ACT V · Instrument scramble
 --------------------------------------------------------------- */
-function scramble(el){
+function scramble(el: any){
   const final = el.textContent;
   const CH = '!<>-_\\/[]{}=+*^?#________';
   const t0 = performance.now(), dur = 950;
-  (function step(now){
+  (function step(now: number){
     const p = clamp((now - t0) / dur, 0, 1);
     const keep = Math.floor(final.length * p);
     let out = final.slice(0, keep);
@@ -1653,7 +1653,7 @@ function buildInstrument(){
   if (!FINE) return;
   const zone = $('#reasons'), spot = $('#spot');
   if (!zone) return;
-  zone.addEventListener('pointermove', e => {
+  zone.addEventListener('pointermove', (e: PointerEvent) => {
     const r = zone.getBoundingClientRect();
     spot.style.setProperty('--sx', (e.clientX - r.left + 60) + 'px');
     spot.style.setProperty('--sy', (e.clientY - r.top + 60) + 'px');
@@ -1668,8 +1668,8 @@ function buildEmbers(){
   const ctx = c.getContext('2d');
   if (!ctx || RM) { c.remove(); return; }
   const sec = c.parentElement;
-  let W, H, parts = [];
-  function spawn(p){
+  let W = 0, H = 0, parts: any[] = [];
+  function spawn(p: any){
     p.x = Math.random() * W;
     p.y = H * 0.6 + Math.random() * H * 0.5;
     p.vy = -(6 + Math.random() * 16);
@@ -1687,7 +1687,7 @@ function buildEmbers(){
   size();
   let vis = false, prev = performance.now();
   new IntersectionObserver(es => { vis = es[0].isIntersecting; }, { rootMargin: '40px' }).observe(sec);
-  (function frame(now){
+  (function frame(now: number){
     requestAnimationFrame(frame);
     const dt = Math.min(0.05, (now - prev) / 1000); prev = now;
     if (!vis || !pageVisible) return;
@@ -1705,7 +1705,7 @@ function buildEmbers(){
       ctx.fillRect(p.x, p.y, p.s, p.s);
     }
   })(prev);
-  let rs; addEventListener('resize', () => { clearTimeout(rs); rs = setTimeout(size, 220); });
+  let rs: ReturnType<typeof setTimeout>; addEventListener('resize', () => { clearTimeout(rs); rs = setTimeout(size, 220); });
 }
 
 /* ---------------------------------------------------------------
@@ -1716,7 +1716,7 @@ function buildMagnetic(){
   $$('[data-magnetic]').forEach(btn => {
     const qx = G.quickTo(btn, 'x', { duration: 0.4, ease: 'power3.out' });
     const qy = G.quickTo(btn, 'y', { duration: 0.4, ease: 'power3.out' });
-    btn.addEventListener('pointermove', e => {
+    btn.addEventListener('pointermove', (e: PointerEvent) => {
       const r = btn.getBoundingClientRect();
       qx((e.clientX - r.left - r.width / 2) * 0.18);
       qy((e.clientY - r.top - r.height / 2) * 0.32);
@@ -1745,7 +1745,7 @@ let dawnP = 0;
 function buildDawn(){
   const bg = $('#dawnbg'), sun = $('#dawnsun');
   if (!bg) return;
-  const stops = [
+  const stops: [number, number[], number[]][] = [
     [0.00, [5, 7, 14],   [9, 13, 25]],
     [0.30, [7, 11, 26],  [13, 18, 38]],
     [0.55, [10, 15, 36], [24, 22, 54]],
@@ -1753,8 +1753,8 @@ function buildDawn(){
     [0.90, [22, 30, 62], [88, 54, 70]],
     [1.00, [31, 43, 84], [146, 88, 74]]
   ];
-  const mixv = (a, b, t) => Math.round(a + (b - a) * t);
-  function col(p){
+  const mixv = (a: number, b: number, t: number) => Math.round(a + (b - a) * t);
+  function col(p: number){
     let i = 1;
     while (i < stops.length - 1 && stops[i][0] < p) i++;
     const A = stops[i - 1], B = stops[i];
@@ -1787,10 +1787,10 @@ function buildDawnStars(){
   if (!c || LITE) { if (c) c.remove(); return; }
   const ctx = c.getContext('2d');
   if (!ctx) { c.remove(); return; }
-  let W, H, layers = [];
+  let W: number, H: number, layers: any[] = [];
   function size(){
     W = c.width = innerWidth; H = c.height = innerHeight;
-    const mk = (n, sz, goldChance) => Array.from({ length: n }, () => ({
+    const mk = (n: number, sz: number, goldChance: number) => Array.from({ length: n }, () => ({
       x: Math.random() * W, y: Math.random() * H,
       r: sz * (0.6 + Math.random() * 0.8),
       g: Math.random() < goldChance,
@@ -1798,7 +1798,7 @@ function buildDawnStars(){
     }));
     layers = [{ f: 0.03, stars: mk(90, 0.6, 0.06) }, { f: 0.07, stars: mk(52, 1.0, 0.12) }];
   }
-  function draw(t){
+  function draw(t: number){
     ctx.clearRect(0, 0, W, H);
     const dim = 1 - dawnP * 0.92;
     if (dim <= 0.02) return;
@@ -1817,7 +1817,7 @@ function buildDawnStars(){
   size();
   if (RM) { draw(0); return; }
   (function fr(now){ requestAnimationFrame(fr); if (!pageVisible) return; draw(now / 1000); })(0);
-  let rs; addEventListener('resize', () => { clearTimeout(rs); rs = setTimeout(size, 220); });
+  let rs: ReturnType<typeof setTimeout>; addEventListener('resize', () => { clearTimeout(rs); rs = setTimeout(size, 220); });
 }
 
 function buildRiver(){
@@ -1825,10 +1825,10 @@ function buildRiver(){
   if (!c || LITE || RM) { if (c) c.remove(); return; }
   const ctx = c.getContext('2d');
   if (!ctx) { c.remove(); return; }
-  let W, H;
+  let W = 0, H = 0;
   function size(){ W = c.width = innerWidth; H = c.height = innerHeight; }
   size();
-  let anchors = [];
+  let anchors: any[] = [];
   function computeAnchors(){
     anchors = [];
     document.querySelectorAll('.c-verse, #levels .lv-node, #treestage, .p-word .ar, .why-verse, .dua').forEach(el => {
@@ -1845,7 +1845,7 @@ function buildRiver(){
     g: Math.random() < 0.32, sz: 0.6 + Math.random() * 1.1
   }));
   let prev = performance.now();
-  (function fr(now){
+  (function fr(now: number){
     requestAnimationFrame(fr);
     if (!pageVisible) { prev = now; return; }
     const dt = Math.min(0.05, (now - prev) / 1000); prev = now;
@@ -1853,7 +1853,7 @@ function buildRiver(){
     ctx.fillStyle = 'rgba(0,0,0,.08)';
     ctx.fillRect(0, 0, W, H);
     const cy = scrollY + innerHeight * 0.5;
-    let best = null, bd = 1e18;
+    let best: any = null, bd = 1e18;
     for (const a of anchors) { const d = Math.abs(a.y - cy); if (d < bd) { bd = d; best = a; } }
     const tx = best ? best.x : W / 2;
     const ty = best ? clamp(best.y - scrollY, 70, H - 70) : H * 0.5;
@@ -1874,7 +1874,7 @@ function buildRiver(){
       ctx.fillRect(p.x, p.y, p.sz, p.sz);
     }
   })(prev);
-  let rs; addEventListener('resize', () => { clearTimeout(rs); rs = setTimeout(() => { size(); computeAnchors(); }, 240); });
+  let rs: ReturnType<typeof setTimeout>; addEventListener('resize', () => { clearTimeout(rs); rs = setTimeout(() => { size(); computeAnchors(); }, 240); });
 }
 
 function buildTree(){
@@ -1888,24 +1888,24 @@ function buildTree(){
   const TDPR = Math.min(devicePixelRatio || 1, 2);
 
   /* [number, name, arabicName, verseCount, href] — injected from the content collection */
-  const SURAHS = JSON.parse(document.getElementById('surah-data').textContent);
-  const HREFS = new Map(SURAHS.map(s => [s[0], s[4]]));
-  const slug = n => HREFS.get(n) || '/surahs/';
+  const SURAHS = JSON.parse(document.getElementById('surah-data')!.textContent!);
+  const HREFS = new Map(SURAHS.map((s: any) => [s[0], s[4]]));
+  const slug = (n: number) => HREFS.get(n) || '/surahs/';
 
   const MAXD = 4;
   const WIDTHS = [7, 4.4, 2.9, 1.9, 1.2];
   const ROOTW = [3.4, 2, 1.2];
   let W = 0, H = 0, GY = 0, TOPY = 0;
-  let segs = [], rootSegs = [], lights = [], mist = [], leaves = [];
+  let segs: any[] = [], rootSegs: any[] = [], lights: any[] = [], mist: any[] = [], leaves: any[] = [];
   const fatiha = { num: 1, name: 'Al-Fatiha', ar: SURAHS[0][2], vs: 7, root: true, hot: 0, sx: 0, sy: 0 };
 
-  function makeRnd(seed){ let s = seed; return () => { s = (s * 16807) % 2147483647; return s / 2147483647; }; }
+  function makeRnd(seed: number){ let s = seed; return () => { s = (s * 16807) % 2147483647; return s / 2147483647; }; }
 
   function genTree(){
     for (let seed = 9; seed < 60; seed++) {
       const rnd = makeRnd(seed);
-      segs = []; const tips = [];
-      (function branch(x, y, ang, len, depth, parent){
+      segs = []; const tips: any[] = [];
+      (function branch(x: number, y: number, ang: number, len: number, depth: number, parent: number){
         ang = lerp(ang, -Math.PI / 2, depth === 0 ? 0 : 0.14);   /* reach upward */
         const x1 = x + Math.cos(ang) * len, y1 = y + Math.sin(ang) * len;
         const perp = ang + Math.PI / 2, bow = (rnd() - 0.5) * len * (depth === 0 ? 0.2 : 0.55);
@@ -1922,7 +1922,7 @@ function buildTree(){
       })(0, 0, -Math.PI / 2, 1, 0, -1);
       if (tips.length >= 37) {
         tips.sort((a, b) => a.x1 - b.x1);
-        const chosen = [];
+        const chosen: any[] = [];
         for (let i = 0; i < 37; i++) chosen.push(tips[Math.round(i * (tips.length - 1) / 36)]);
         const uniq = [...new Set(chosen)];
         if (uniq.length < 37) continue;
@@ -1941,7 +1941,7 @@ function buildTree(){
     }
     const rr = makeRnd(31);
     rootSegs = [];
-    (function root(x, y, ang, len, depth){
+    (function root(x: number, y: number, ang: number, len: number, depth: number){
       const x1 = x + Math.cos(ang) * len, y1 = y + Math.sin(ang) * len;
       const perp = ang + Math.PI / 2, bow = (rr() - 0.5) * len * 0.6;
       const cx = (x + x1) / 2 + Math.cos(perp) * bow, cy = (y + y1) / 2 + Math.sin(perp) * bow;
@@ -1962,8 +1962,8 @@ function buildTree(){
     const kx = (W * 0.62) / Math.max(0.0001, maxX - minX);
     const midX = (minX + maxX) / 2;
     /* pull the canopy mostly back to centre; the remaining 30% keeps a natural lean */
-    const mapX = v => W * 0.5 + (v - midX * 0.7) * kx;
-    const mapY = v => GY + v * ky;
+    const mapX = (v: number) => W * 0.5 + (v - midX * 0.7) * kx;
+    const mapY = (v: number) => GY + v * ky;
     segs.forEach(s => {
       s.X0 = mapX(s.x0); s.Y0 = mapY(s.y0);
       s.CX = mapX(s.cx); s.CY = mapY(s.cy);
@@ -1998,7 +1998,7 @@ function buildTree(){
 
   /* pointer */
   let tpx = -1e4, tpy = -1e4, lastMove = 0;
-  stage.addEventListener('pointermove', e => {
+  stage.addEventListener('pointermove', (e: PointerEvent) => {
     const r = stage.getBoundingClientRect();
     tpx = e.clientX - r.left; tpy = e.clientY - r.top;
     lastMove = performance.now();
@@ -2006,29 +2006,29 @@ function buildTree(){
   stage.addEventListener('pointerleave', () => { tpx = tpy = -1e4; });
 
   /* the plaque is the only reader: one fixed lockup, crossfaded */
-  let sel = null, autoT = 0, swapT = null, locked = false;
-  function applyPlaque(L){
+  let sel: any = null, autoT = 0, swapT: ReturnType<typeof setTimeout> | null = null, locked = false;
+  function applyPlaque(L: any){
     plqAr.textContent = L.ar;
     plqEn.textContent = L.name;
     plqMeta.textContent = 'SURAH ' + String(L.num).padStart(3, '0') + ' · ' +
       L.vs + (L.vs === 1 ? ' VERSE' : ' VERSES') + ' · WORD BY WORD';
-    plaque.href = slug(L.num, L.name);
+    plaque.href = slug(L.num);
   }
-  function select(L, viaPointer){
+  function select(L: any, viaPointer: boolean){
     if (sel === L) return;
     sel = L;
     if (RM) { applyPlaque(L); }
     else {
       plqInner.classList.add('fade');
-      clearTimeout(swapT);
+      clearTimeout(swapT as ReturnType<typeof setTimeout>);
       swapT = setTimeout(() => { applyPlaque(L); plqInner.classList.remove('fade'); }, 230);
     }
     stage.style.cursor = viaPointer ? 'pointer' : 'default';
   }
-  stage.addEventListener('click', e => {
+  stage.addEventListener('click', (e: MouseEvent) => {
     const r = stage.getBoundingClientRect();
     const cx2 = e.clientX - r.left, cy2 = e.clientY - r.top;
-    let best = null, bd = 1e18;
+    let best: any = null, bd = 1e18;
     for (const L of [fatiha, ...lights]) {
       const dx = cx2 - L.sx, dy = cy2 - L.sy, d2 = dx * dx + dy * dy;
       if (d2 < bd) { bd = d2; best = L; }
@@ -2040,16 +2040,16 @@ function buildTree(){
     if (best && bd < hitR * hitR) { select(best, true); locked = true; lastMove = performance.now(); }
   });
 
-  function windX(y, ph, t){
+  function windX(y: number, ph: number, t: number){
     if (RM) return 0;
     const hn = clamp((GY - y) / (GY - TOPY), 0, 1);
     return Math.sin(t * 0.75 + y * 0.004 + ph) * 7 * Math.pow(hn, 1.8);
   }
-  function quad(s, u){
+  function quad(s: any, u: number){
     const a = (1 - u) * (1 - u), b = 2 * (1 - u) * u, c = u * u;
     return [a * s.X0 + b * s.CX + c * s.X1, a * s.Y0 + b * s.CY + c * s.Y1];
   }
-  function drawSeg(s, T, t, inLine, isRoot){
+  function drawSeg(s: any, T: number, t: number, inLine: boolean, isRoot: boolean){
     const p = clamp((T - s.birth) / 0.6, 0, 1);
     if (p <= 0) return;
     const wArr = isRoot ? ROOTW : WIDTHS;
@@ -2073,7 +2073,7 @@ function buildTree(){
     }
   }
 
-  function drawTree(T, t){
+  function drawTree(T: number, t: number){
     ctx.clearRect(0, 0, W, H);
 
     /* crescent, high in the section's sky */
@@ -2135,7 +2135,7 @@ function buildTree(){
       const wx = windX(L.seg.Y1, L.seg.ph, t);
       L.sx = L.seg.X1 + wx; L.sy = L.seg.Y1;
     }
-    let near = null, nd = 1e18;
+    let near: any = null, nd = 1e18;
     for (const L of [fatiha, ...lights]) {
       const dx = tpx - L.sx, dy = tpy - L.sy, d2 = dx * dx + dy * dy;
       if (d2 < nd) { nd = d2; near = L; }
@@ -2197,7 +2197,7 @@ function buildTree(){
   }
 
   /* idle auto-tour: the tree reads itself while you watch */
-  function autoTour(now){
+  function autoTour(now: number){
     if (RM || locked) return;
     if (now - lastMove < 4200) return;
     if (now - autoT < 3600) return;
@@ -2220,14 +2220,14 @@ function buildTree(){
     stage.addEventListener('pointermove', () => drawTree(99, 0), { passive: true });
     drawTree(99, 0);
   } else {
-    (function frame(now){
+    (function frame(now: number){
       requestAnimationFrame(frame);
       if (!treeVisible || !pageVisible) return;
       drawTree(grown ? (now - T0g) / 1000 : 0, now / 1000);
       autoTour(now);
     })(performance.now());
   }
-  let trs; addEventListener('resize', () => { clearTimeout(trs); trs = setTimeout(sizeTree, 240); });
+  let trs: ReturnType<typeof setTimeout>; addEventListener('resize', () => { clearTimeout(trs); trs = setTimeout(sizeTree, 240); });
 }
 
 /* the dua ignites when you arrive */
@@ -2268,7 +2268,7 @@ if (document.fonts && document.fonts.ready) {
   setTimeout(boot, 3600);
 }
 
-let rszAll;
+let rszAll: ReturnType<typeof setTimeout>;
 addEventListener('resize', () => {
   clearTimeout(rszAll);
   rszAll = setTimeout(() => {
