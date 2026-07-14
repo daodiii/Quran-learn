@@ -12,7 +12,7 @@ export async function getStaticPaths() {
 }
 
 const { surah } = Astro.props;
-const { Content } = await render(surah);
+const { Content, headings } = await render(surah);
 ---
 
 <SurahLayout
@@ -22,6 +22,7 @@ const { Content } = await render(surah);
   verseCount={surah.data.verseCount}
   difficulty={surah.data.difficulty}
   description={surah.data.description}
+  headings={headings}
 >
   <Content />
 </SurahLayout>
