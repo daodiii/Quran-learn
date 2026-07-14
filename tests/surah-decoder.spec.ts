@@ -76,3 +76,12 @@ test('mobile: the breakdown docks as a bottom sheet pinned to the viewport', asy
   expect(box).not.toBeNull();
   expect(Math.abs(box!.y + box!.height - vp.height)).toBeLessThanOrEqual(2);
 });
+
+test('mobile: the recitation flows and does not trap page scroll', async ({ page }) => {
+  // On phones the recitation must not be an overflow scroll container: with
+  // overflow:auto + overscroll-behavior:contain, a touch-drag that starts inside
+  // the recitation is captured and never scrolls the page (the "blue box" trap).
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto('/surahs/078-an-naba/');
+  await expect(page.locator('[data-surah-decoder] .d-stage')).toHaveCSS('overflow-y', 'visible');
+});
