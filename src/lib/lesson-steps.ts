@@ -11,6 +11,23 @@ export function wrapArabic(text: string): string {
   return text.replace(ARABIC_RUN, (run) => `<span class="ar-inline" lang="ar" dir="rtl">${run}</span>`);
 }
 
+/**
+ * Escape `&`, `<` and `>` so a stray character in a title, option or answer cannot break the page,
+ * and keep only the plain inline tags authors use on purpose: <b>, <i>, <u>, <em>, <strong> (no attributes).
+ */
+export function safeInline(text: string): string {
+  return text
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/&lt;(\/?)(b|i|u|em|strong)&gt;/g, '<$1$2>');
+}
+
+/** Text from a prop or frontmatter, made safe and with its Arabic wrapped, ready for set:html. */
+export function inlineHtml(text: string): string {
+  return wrapArabic(safeInline(text));
+}
+
 /** Use a non-breaking hyphen for a leading "-u" style ending so a title never breaks after the dash. */
 export function tightHyphens(text: string): string {
   return text.replace(/(^|\s)-(?=[A-Za-z])/g, '$1‑');
@@ -40,6 +57,12 @@ export function parseResume(raw: string | null): Record<string, string> {
   } catch {
     return {};
   }
+}
+
+/** The saved map without one lesson (used when it is finished), as a string for localStorage. */
+export function omitResume(current: Record<string, string>, slug: string): string {
+  const { [slug]: _gone, ...rest } = current;
+  return JSON.stringify(rest);
 }
 
 /** The saved map with one lesson's current step replaced, as a string for localStorage. */

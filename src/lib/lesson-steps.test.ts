@@ -1,6 +1,22 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { wrapArabic, tightHyphens, clampStep, stepIndexFromHash, parseResume, serializeResume } from './lesson-steps';
+import { wrapArabic, tightHyphens, clampStep, stepIndexFromHash, parseResume, serializeResume, omitResume, safeInline, inlineHtml } from './lesson-steps';
+
+test('safeInline escapes stray markup characters but keeps the few inline tags authors use', () => {
+  assert.equal(safeInline('A < B & C > D'), 'A &lt; B &amp; C &gt; D');
+  assert.equal(safeInline('end in <b>-u</b> or <i>-un</i>'), 'end in <b>-u</b> or <i>-un</i>');
+  assert.equal(safeInline('<script>alert(1)</script>'), '&lt;script&gt;alert(1)&lt;/script&gt;');
+  assert.equal(safeInline('<b onclick="x()">no</b>'), '&lt;b onclick="x()"&gt;no</b>');
+});
+
+test('inlineHtml escapes first, then wraps Arabic', () => {
+  assert.equal(inlineHtml('R&D هُوَ'), 'R&amp;D <span class="ar-inline" lang="ar" dir="rtl">هُوَ</span>');
+});
+
+test('omitResume drops one lesson from the saved map', () => {
+  assert.equal(omitResume({ a: 'rule', b: 'try' }, 'a'), JSON.stringify({ b: 'try' }));
+  assert.equal(omitResume({}, 'a'), '{}');
+});
 
 test('tightHyphens joins a leading dash to its letters and leaves other hyphens alone', () => {
   assert.equal(tightHyphens('The rule: both end in -u'), 'The rule: both end in ‑u');
