@@ -26,7 +26,8 @@ for (const ref of args) {
     // The book's text is the smallest block that holds the verse heading and the commentary.
     const cand = [...document.querySelectorAll('div,p')].filter((e) => /﴿/.test(e.innerText || '') && e.children.length < 40);
     cand.sort((a, b) => a.innerText.length - b.innerText.length);
-    const t = cand.find((e) => e.innerText.length > 200)?.innerText ?? '';
+    // A long verse's heading alone can pass 200 characters, so require text beyond the heading.
+    const t = cand.find((e) => e.innerText.replace(/﴿[^﴾]*﴾[^\n]*/, '').trim().length > 50)?.innerText ?? '';
     const end = t.indexOf('أغلق');
     return end > 0 ? t.slice(0, end) : t;
   });
