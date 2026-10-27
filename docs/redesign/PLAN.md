@@ -36,6 +36,18 @@ Order: 1, then 2 alongside the start of 3, then 4-6. No other lesson is touched 
 
 An end-of-lesson check, plus testing with 3-5 learners from the community on L2.01 and L3.03, old and new side by side. No heavy analytics.
 
+## Decisions after Part 2 (2026-10-27)
+
+1. **Reorder the grammar lessons** as set out in `docs/curriculum/CURRICULUM-REVIEW.md`: verb forms by use (II, IV, VIII, V, X, III, then one rare-forms lesson), a short "verbs that change shape" step in L3.03 and L3.04, little words taught early, and attached pronouns before L2.07. **Learners must be told.** Anyone partway through the course must not lose progress or be confused: keep old lesson addresses working (redirects), carry saved progress over to the matching lesson, and show a short "What changed" note (which lessons moved, why) on the learn dashboard and on each moved lesson until it has been seen.
+2. **English under each verse:** our own plain-English meanings, written with the `humanizer` skill so they read easily at B1 level. Labelled as plain-English meanings, not as a translation. A named full translation may be linked for readers who want one. The meanings need checking by someone who knows the verses.
+3. **Verse text** comes from Tanzil by reference (not typed in), and Tanzil is credited with a link in the footer of every page that shows Quran text. Constructed example phrases (not verses) are labelled as such.
+4. **Nothing will be sold.** The e-book licence worry is dropped. Revisit if ads or paid products are ever added. The Corpus credit and link stay.
+5. **Vocabulary course:** strict frequency order for the first version.
+6. **Sources to cite** (owner's judgement, 2026-10-27):
+   - Approved: the Quranic Arabic Corpus grammar pages, *al-Ajurrumiyyah* (the Arabic text), the Madinah course books, and Bayyinah.
+   - Not approved (owner has doubts about grammars written in English by outsiders to the tradition): Wright, Ryding, Haywood and Nahmad. Do not cite them as a source for a claim.
+   - Perowne's 1852 English translation of *al-Ajurrumiyyah* is not approved either, so cite the Arabic text, not the translation.
+
 ## Open items
 
 - Who the test learners are (to be found by the owner).

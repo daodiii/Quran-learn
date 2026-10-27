@@ -83,7 +83,9 @@ The full list is in `vocabulary-outline.md`. Shape:
 
 What the draft does not yet do, and what a person needs to decide: pick the English meaning of each word (the repo's existing verb and noun glosses can seed this), choose the example verse, and group words by root family or theme instead of strict frequency if that teaches better. Strict frequency is the safest start, because it is the one claim we can defend with numbers.
 
-## Decisions needed from you
+## Decisions (answered 2026-10-27, recorded in `docs/redesign/PLAN.md`)
+
+All five were accepted. The lesson reordering (1) comes with a notice for current learners and working old links. The questions as asked:
 
 1. **Reorder the grammar lessons** as in sections 1 to 4 above? (Forms, weak verbs, little words, pronouns.)
 2. **The translation** under each verse (see `SOURCES.md`): our own plain-English meanings, Pickthall, or ask for permission for a modern translation.

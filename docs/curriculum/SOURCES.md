@@ -2,6 +2,15 @@
 
 Date: 2026-10-27. This is research, not legal advice.
 
+**Owner's decisions (override the research below where they differ; see `docs/redesign/PLAN.md`):**
+
+- Cite the **Quranic Arabic Corpus grammar pages**, ***al-Ajurrumiyyah*** (the Arabic text), the **Madinah course books** and **Bayyinah**.
+- Do **not** cite Wright, Ryding, or Haywood and Nahmad, and do not cite Perowne's English translation of *al-Ajurrumiyyah*. The owner has doubts about grammars written in English by outsiders to the tradition. In the table of grammar sources below, read those rows as "not approved".
+- English under verses: our own plain-English meanings, written with the humanizer skill.
+- Verse text from Tanzil by reference, with a Tanzil credit.
+- Nothing will be sold, so Risk 1 below (paid e-books) no longer applies. Revisit if that changes.
+- The Madinah and Bayyinah materials are commercial or under terms not found: cite and paraphrase them, and do not copy their text or examples.
+
 **How facts were checked.** Two research agents searched the web and reported back. I re-checked three findings myself against primary pages or the repo (marked **checked**). Everything else is as reported by the agents: "seen" means they said they read a primary page, "not verified" means they only saw a search result or a secondary source. Anything marked "terms not found" should be treated as all rights reserved until someone checks.
 
 ## Recommendation: one source per need
@@ -94,7 +103,7 @@ The 300-lemma figure is 73.2% when pronouns that have no lemma in the Corpus are
 
 ## Licence risks, most serious first
 
-1. **Paid e-books built on the Corpus.** The repo already has two e-books. The Corpus is GPL v3 with an added "changing is not allowed" line, and the two sit awkwardly together. Whether tables or word lists derived from it can be sold is unclear. Get a lawyer's view before selling anything that contains Corpus-derived data.
+1. **Paid e-books built on the Corpus** (no longer applies: nothing will be sold; kept here in case that changes). The repo already has two e-books. The Corpus is GPL v3 with an added "changing is not allowed" line, and the two sit awkwardly together. Whether tables or word lists derived from it can be sold is unclear. Get a lawyer's view before selling anything that contains Corpus-derived data.
 2. **Unnamed translations in the lessons.** If they are copied or lightly changed from Sahih International or another modern translation, that is a copyright problem. Nobody has recorded where they came from.
 3. **No Tanzil credit.** The Tanzil terms ask for a credit and link wherever its text is used. The lesson verses were typed in (the repo has no Quran text file, see the verse-text check in `CURRICULUM-REVIEW.md`), so it is not even clear whether they count as Tanzil's text. Either way the safe fix is a credit plus replacing typed verses with text taken from the verified file.
 4. **Tanzil BY-ND.** Normalising or reformatting the text counts as a derivative. Keep the original intact and mark search indexes as derived.
@@ -103,6 +112,7 @@ The 300-lemma figure is 73.2% when pronouns that have no lemma in the Corpus are
 
 ## Open items from this report
 
-- Decide the translation option (above).
-- Decide whether the e-books will be sold, and if so get legal advice (Risk 1).
+- ~~Decide the translation option~~ Decided: own plain-English meanings.
+- ~~Decide whether the e-books will be sold~~ Decided: nothing will be sold.
+- Find the exact Madinah and Bayyinah titles and editions to cite (the research could not reach their primary pages).
 - Add Tanzil credit and Corpus credit as part of the new template footer (Part 3 or 4).
