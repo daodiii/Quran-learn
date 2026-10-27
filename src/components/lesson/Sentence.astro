@@ -2,9 +2,10 @@
 /**
  * A Quran phrase broken into word tiles, read right to left. Each word carries a type
  * (noun, verb, little word) shown by colour, shape and a text label, and a group can carry
- * a role shown as a labelled bar underneath. Roles in the mubtadaʾ family (mubtada, mubtadaLater, ismKana)
- * get a solid bar, the khabar family (khabar, khabar2, khabarFirst, khabarKana) a dashed one, and `tied`
- * (a phrase that belongs to another word) a dotted grey one. `label` and `hint` on a group override the
+ * a role shown as a labelled bar underneath. The first part of a pair (mubtada, mubtadaLater, ismKana, ismInna,
+ * fail, naibFail, mudaf, manut) gets a solid bar, the second part (khabar, khabar2, khabarFirst, khabarKana,
+ * khabarInna, maful, mudafIlayh, naat, majrur) a dashed one, `fiil` (the verb) a solid bar in the verb colour,
+ * and `tied` or `jar` (a phrase or little word that belongs to another word) a dotted grey one. `label` and `hint` on a group override the
  * role's default text. The English line is labelled as a plain-English meaning.
  *
  * <Sentence
@@ -23,7 +24,9 @@ interface Word {
   say?: string;
   type?: 'n' | 'v' | 'p';
 }
-type Role = 'mubtada' | 'mubtadaLater' | 'ismKana' | 'khabar' | 'khabar2' | 'khabarFirst' | 'khabarKana' | 'tied';
+type Role =
+  | 'mubtada' | 'mubtadaLater' | 'ismKana' | 'ismInna' | 'khabar' | 'khabar2' | 'khabarFirst' | 'khabarKana' | 'khabarInna'
+  | 'fiil' | 'fail' | 'naibFail' | 'maful' | 'mudaf' | 'mudafIlayh' | 'manut' | 'naat' | 'jar' | 'majrur' | 'tied';
 interface Group {
   role?: Role;
   label?: string;
@@ -47,7 +50,7 @@ const TYPE = {
   v: { cls: 'verb', label: 'Verb' },
   p: { cls: 'little', label: 'Little word' },
 } as const;
-const ROLE: Record<Role, { label: string; hint: string; fam: 'm' | 'k' | 'x' }> = {
+const ROLE: Record<Role, { label: string; hint: string; fam: 'm' | 'k' | 'v' | 'x' }> = {
   mubtada: { label: 'mubtadaʾ', hint: 'the starting point', fam: 'm' },
   mubtadaLater: { label: 'mubtadaʾ muʾakhkhar', hint: 'the starting point, put later', fam: 'm' },
   ismKana: { label: 'ism kāna', hint: 'the subject of kāna', fam: 'm' },
@@ -55,6 +58,18 @@ const ROLE: Record<Role, { label: string; hint: string; fam: 'm' | 'k' | 'x' }> 
   khabar2: { label: 'second khabar', hint: 'more news', fam: 'k' },
   khabarFirst: { label: 'khabar muqaddam', hint: 'the news, put first', fam: 'k' },
   khabarKana: { label: 'khabar kāna', hint: 'the news of kāna', fam: 'k' },
+  ismInna: { label: 'ism inna', hint: 'the subject of inna', fam: 'm' },
+  khabarInna: { label: 'khabar inna', hint: 'the news of inna', fam: 'k' },
+  fiil: { label: 'fiʿl', hint: 'the verb', fam: 'v' },
+  fail: { label: 'fāʿil', hint: 'the doer', fam: 'm' },
+  naibFail: { label: 'nāʾib fāʿil', hint: 'stands in for the doer', fam: 'm' },
+  maful: { label: 'mafʿūl bihi', hint: 'the object', fam: 'k' },
+  mudaf: { label: 'muḍāf', hint: 'first word of the idafah', fam: 'm' },
+  mudafIlayh: { label: 'muḍāf ilayh', hint: 'second word: “of …”', fam: 'k' },
+  manut: { label: 'manʿūt', hint: 'the noun described', fam: 'm' },
+  naat: { label: 'naʿt', hint: 'the adjective', fam: 'k' },
+  jar: { label: 'ḥarf jarr', hint: 'a preposition', fam: 'x' },
+  majrur: { label: 'ism majrūr', hint: 'the noun after it', fam: 'k' },
   tied: { label: 'tied', hint: 'belongs to the word before', fam: 'x' },
 };
 ---

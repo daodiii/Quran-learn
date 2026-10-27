@@ -506,7 +506,8 @@ html:has([data-lx]) {
   display: block;
   color: var(--lx-muted);
 }
-/* Role families: m = mubtadaʾ-like (solid), k = khabar-like (dashed), x = tied phrase (dotted grey). */
+/* Role families: m = first part of a pair (solid), k = second part (dashed), v = the verb (solid, verb colour),
+   x = tied phrase or little word (dotted grey). */
 .lx-role-m {
   --rc: var(--lx-accent);
 }
@@ -521,6 +522,13 @@ html:has([data-lx]) {
 .lx-role-k b {
   color: var(--lx-accent-2-text);
   border: 2px solid var(--lx-accent-2);
+}
+.lx-role-v {
+  --rc: var(--lx-verb);
+}
+.lx-role-v b {
+  background: var(--lx-verb);
+  color: var(--lx-on-accent);
 }
 .lx-role-x {
   --rc: var(--lx-line-2);
