@@ -1,7 +1,7 @@
 // Builds the three L2.01 mockups and the side-by-side page.
 //   node docs/redesign/mockups/l2-01/build.mjs
 import { writeFileSync } from 'node:fs';
-import { dirname, join } from 'node:path';
+import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { lesson, sentences, checks } from './content.mjs';
 
@@ -15,7 +15,7 @@ const ROLE = {
   khabar: ['khabar', 'khabar', 'the news'],
 };
 
-function sentence(key, { roles = true, size = '' } = {}) {
+export function sentence(key, { roles = true, size = '' } = {}) {
   const s = sentences[key];
   const groups = s.groups
     .map((g) => {
@@ -33,12 +33,12 @@ function sentence(key, { roles = true, size = '' } = {}) {
   return `<figure class="sentence ${size}"><div class="sent" dir="rtl" lang="ar">${groups}</div><p class="trans">${en}</p><figcaption>${esc(s.ref)}</figcaption></figure>`;
 }
 
-const legend = `<p class="legend" aria-label="Colour key"><span class="k noun"><i class="shape"></i>Noun (ism)</span><span class="k verb"><i class="shape"></i>Verb (fiʿl)</span><span class="k little"><i class="shape"></i>Little word (ḥarf)</span></p>`;
+export const legend = `<p class="legend" aria-label="Colour key"><span class="k noun"><i class="shape"></i>Noun (ism)</span><span class="k verb"><i class="shape"></i>Verb (fiʿl)</span><span class="k little"><i class="shape"></i>Little word (ḥarf)</span></p>`;
 
 const AR = '[\\u0600-\\u06FF\\u0750-\\u077F]';
 const wrapAr = (s) => s.replace(new RegExp(`${AR}[\\u0600-\\u06FF\\u0750-\\u077F ]*${AR}`, 'g'), (m) => `<span class="ar-inline" lang="ar" dir="rtl">${m}</span>`);
 
-function checkBlock(c, i) {
+export function checkBlock(c, i) {
   return `<div class="check" data-answer="${c.answer}"><p class="q"><span class="qn">${i + 1}</span><span>${wrapAr(c.q)}</span></p><div class="opts" role="group">${c.options
     .map((o, k) => `<button type="button" class="opt" data-k="${k}">${wrapAr(o)}</button>`)
     .join('')}</div><p class="fb" role="status" aria-live="polite" hidden></p><p class="why" hidden>${wrapAr(c.why)}</p></div>`;
@@ -107,7 +107,7 @@ const steps = [
      <p><a href="#report">Found a mistake? Tell us.</a></p></div>`,
 ];
 
-const BASE = `
+export const BASE = `
 @font-face{font-family:'Geist';src:url('${FONTS}/geist-400.woff2') format('woff2');font-weight:400;font-display:swap}
 @font-face{font-family:'Geist';src:url('${FONTS}/geist-500.woff2') format('woff2');font-weight:500 700;font-display:swap}
 @font-face{font-family:'KFGQPC Hafs Uthmani';src:url('${FONTS}/UthmanicHafs.woff2') format('woff2');font-weight:400;unicode-range:U+0600-06FF,U+0750-077F,U+0870-088E,U+0890-0891,U+0897-08E1,U+08E3-08FF,U+200C-200E,U+2010-2011,U+204F,U+2E41,U+FB50-FDFF,U+FE70-FE74,U+FE76-FEFC}
@@ -285,7 +285,7 @@ main{padding:0 0 7rem}
   },
 };
 
-const SCRIPT = `
+export const SCRIPT = `
 const steps=[...document.querySelectorAll('.step')],dots=[...document.querySelectorAll('.bar button')];
 const nameOf=n=>steps[n].dataset.id;let cur=0;
 const next=document.getElementById('next'),back=document.getElementById('back'),count=document.getElementById('count');
@@ -330,7 +330,8 @@ function page(key) {
 <script>${SCRIPT}</script></body></html>`;
 }
 
-for (const k of Object.keys(THEMES)) writeFileSync(join(here, THEMES[k].file), page(k));
+const MAIN = process.argv[1] && resolve(process.argv[1]).toLowerCase() === resolve(fileURLToPath(import.meta.url)).toLowerCase();
+if (MAIN) for (const k of Object.keys(THEMES)) writeFileSync(join(here, THEMES[k].file), page(k));
 
 const compare = `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>L2.01 · three looks side by side</title>
 <style>
@@ -362,5 +363,7 @@ function mode(d){row.classList.toggle('desk',d);vp.setAttribute('aria-pressed',!
 vp.onclick=()=>mode(false);vd.onclick=()=>mode(true);
 document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(n+1);if(e.key==='ArrowLeft')go(n-1)});
 </script></body></html>`;
-writeFileSync(join(here, 'compare.html'), compare);
-console.log('built', Object.values(THEMES).map((t) => t.file).join(', '), 'compare.html');
+if (MAIN) {
+  writeFileSync(join(here, 'compare.html'), compare);
+  console.log('built', Object.values(THEMES).map((t) => t.file).join(', '), 'compare.html');
+}
