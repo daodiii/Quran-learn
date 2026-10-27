@@ -2,7 +2,10 @@
 /**
  * A Quran phrase broken into word tiles, read right to left. Each word carries a type
  * (noun, verb, little word) shown by colour, shape and a text label, and a group can carry
- * a role (mubtadaʾ or khabar) shown as a labelled bar underneath.
+ * a role shown as a labelled bar underneath. Roles in the mubtadaʾ family (mubtada, mubtadaLater, ismKana)
+ * get a solid bar, the khabar family (khabar, khabar2, khabarFirst, khabarKana) a dashed one, and `tied`
+ * (a phrase that belongs to another word) a dotted grey one. `label` and `hint` on a group override the
+ * role's default text. The English line is labelled as a plain-English meaning.
  *
  * <Sentence
  *   reference="Al-Hadid 57:3 (part)"
@@ -20,8 +23,11 @@ interface Word {
   say?: string;
   type?: 'n' | 'v' | 'p';
 }
+type Role = 'mubtada' | 'mubtadaLater' | 'ismKana' | 'khabar' | 'khabar2' | 'khabarFirst' | 'khabarKana' | 'tied';
 interface Group {
-  role?: 'mubtada' | 'khabar';
+  role?: Role;
+  label?: string;
+  hint?: string;
   words: Word[];
 }
 type EnPart = string | { gap: string };
@@ -41,10 +47,16 @@ const TYPE = {
   v: { cls: 'verb', label: 'Verb' },
   p: { cls: 'little', label: 'Little word' },
 } as const;
-const ROLE = {
-  mubtada: { label: 'mubtadaʾ', hint: 'the starting point' },
-  khabar: { label: 'khabar', hint: 'the news' },
-} as const;
+const ROLE: Record<Role, { label: string; hint: string; fam: 'm' | 'k' | 'x' }> = {
+  mubtada: { label: 'mubtadaʾ', hint: 'the starting point', fam: 'm' },
+  mubtadaLater: { label: 'mubtadaʾ muʾakhkhar', hint: 'the starting point, put later', fam: 'm' },
+  ismKana: { label: 'ism kāna', hint: 'the subject of kāna', fam: 'm' },
+  khabar: { label: 'khabar', hint: 'the news', fam: 'k' },
+  khabar2: { label: 'second khabar', hint: 'more news', fam: 'k' },
+  khabarFirst: { label: 'khabar muqaddam', hint: 'the news, put first', fam: 'k' },
+  khabarKana: { label: 'khabar kāna', hint: 'the news of kāna', fam: 'k' },
+  tied: { label: 'tied', hint: 'belongs to the word before', fam: 'x' },
+};
 ---
 
 <figure class:list={['lx-sentence', size === 'big' && 'lx-big']}>
@@ -65,9 +77,9 @@ const ROLE = {
           })}
         </div>
         {roles && g.role && (
-          <div class={`lx-role lx-role-${g.role}`}>
-            <b>{ROLE[g.role].label}</b>
-            <span>{ROLE[g.role].hint}</span>
+          <div class={`lx-role lx-role-${ROLE[g.role].fam}`}>
+            <b>{g.label ?? ROLE[g.role].label}</b>
+            <span>{g.hint ?? ROLE[g.role].hint}</span>
           </div>
         )}
       </div>
@@ -75,6 +87,7 @@ const ROLE = {
   </div>
   {en.length > 0 && (
     <p class="lx-trans">
+      <span class="lx-trans-tag">Meaning</span>
       {en.map((p) => (typeof p === 'string' ? p : <span class="lx-gap">{p.gap}</span>))}
     </p>
   )}

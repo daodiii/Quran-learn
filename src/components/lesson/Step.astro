@@ -6,6 +6,9 @@
  *
  * <Step id="rule" label="The rule" title="The rule: both end in -u"> ... </Step>
  * <Step hero id="start" label="Start" title={frontmatter.title} kicker={frontmatter.kicker} titleArabic={frontmatter.titleArabic}> ... </Step>
+ *
+ * A long lesson names its parts: give the first step of each part `part="Two parts"`. The progress bar
+ * then shows one segment per part and the steps of the current part only.
  */
 import { tightHyphens, inlineHtml } from '../../lib/lesson-steps';
 
@@ -16,13 +19,14 @@ interface Props {
   hero?: boolean;
   kicker?: string;
   titleArabic?: string;
+  part?: string;
 }
 
-const { id, label, title, hero = false, kicker, titleArabic } = Astro.props;
+const { id, label, title, hero = false, kicker, titleArabic, part } = Astro.props;
 const titleHtml = inlineHtml(tightHyphens(title));
 ---
 
-<section class="lx-step" id={`step-${id}`} data-step-id={id} data-step-label={label} aria-labelledby={`step-${id}-title`}>
+<section class="lx-step" id={`step-${id}`} data-step-id={id} data-step-label={label} data-step-part={part} aria-labelledby={`step-${id}-title`}>
   <header class="lx-head">
     <p class="lx-count" aria-hidden="true"><span class="lx-num"></span><span class="lx-of"></span></p>
     {hero

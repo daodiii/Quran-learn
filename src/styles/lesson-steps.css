@@ -137,6 +137,11 @@ html:has([data-lx]) {
 .lx-js .lx-bar {
   display: grid;
 }
+.lx-seg,
+.lx-part-btn {
+  min-width: 0; /* the site-wide 44px button minimum would push the bar off a phone screen; ::before gives the tap area */
+  min-height: 0;
+}
 .lx-seg {
   height: 3px;
   border: 0;
@@ -158,6 +163,59 @@ html:has([data-lx]) {
   background: var(--lx-accent-2);
   height: 5px;
   margin-top: -1px;
+}
+/* A lesson with parts: one segment per part; the current part opens into its steps. */
+.lx-js .lx-bar.lx-bar-parts {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem;
+}
+.lx-part {
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+}
+.lx-part.on {
+  flex-grow: 4;
+}
+.lx-part-btn {
+  flex: 1;
+  height: 3px;
+  border: 0;
+  padding: 0;
+  border-radius: 2px;
+  background: var(--lx-line);
+  cursor: pointer;
+  position: relative;
+}
+.lx-part-btn::before {
+  content: '';
+  position: absolute;
+  inset: -14px 0;
+}
+.lx-part.done .lx-part-btn {
+  background: var(--lx-accent);
+}
+.lx-part-steps {
+  display: none;
+  flex: 1;
+  gap: 0.2rem;
+}
+.lx-part.on .lx-part-btn {
+  display: none;
+}
+.lx-part.on .lx-part-steps {
+  display: flex;
+}
+.lx-part-steps .lx-seg {
+  flex: 1;
+}
+.lx-partname {
+  flex-basis: 100%;
+  margin: 0.45rem 0 0;
+  font-size: 0.85rem;
+  color: var(--lx-muted);
 }
 
 .lx-wrap {
@@ -401,26 +459,41 @@ html:has([data-lx]) {
   display: block;
   color: var(--lx-muted);
 }
-.lx-role-mubtada {
+/* Role families: m = mubtadaʾ-like (solid), k = khabar-like (dashed), x = tied phrase (dotted grey). */
+.lx-role-m {
   --rc: var(--lx-accent);
 }
-.lx-role-mubtada b {
+.lx-role-m b {
   background: var(--lx-accent);
   color: var(--lx-on-accent);
 }
-.lx-role-khabar {
+.lx-role-k {
   --rc: var(--lx-accent-2);
   border-top-style: dashed;
 }
-.lx-role-khabar b {
+.lx-role-k b {
   color: var(--lx-accent-2-text);
   border: 2px solid var(--lx-accent-2);
+}
+.lx-role-x {
+  --rc: var(--lx-line-2);
+  border-top-style: dotted;
+}
+.lx-role-x b {
+  color: var(--lx-muted);
+  border: 1.5px dotted var(--lx-line-2);
 }
 .lx-trans {
   margin: 1em 0 0.2em;
   text-align: center;
   font-size: 1.2rem;
   max-width: none;
+}
+.lx-trans-tag {
+  display: block;
+  font-size: 0.78rem;
+  color: var(--lx-muted);
+  margin-bottom: 0.1rem;
 }
 .lx-gap {
   border-bottom: 2px dashed var(--lx-accent-2);
@@ -693,6 +766,201 @@ html:has([data-lx]) {
 .lx-why {
   margin: 0;
   color: var(--lx-muted);
+}
+
+/* ---- quotes from the grammar books, and tables in a step ---- */
+.lx-quote {
+  margin: 0.5rem 0;
+  padding: 1.2rem 1.3rem;
+  background: var(--lx-surface);
+  border: 1px solid var(--lx-line);
+  border-inline-start: 4px solid var(--lx-accent);
+  border-radius: 16px;
+  text-align: right;
+}
+/* Grammar-book Arabic is not Quran text: set it in Amiri, which also draws the Arabic comma
+   (the Quran font draws ، as a decorative mark). */
+.lx-quote p {
+  margin: 0;
+  font-family: 'Amiri', var(--font-arabic, serif);
+  font-size: 1.7rem;
+  line-height: 2;
+  letter-spacing: 0;
+}
+.lx .lx-quote .ar {
+  font-family: inherit;
+  font-size: 1em;
+  margin: 0;
+}
+.lx-quote-list p {
+  font-size: 1.5rem;
+}
+.lx-quote-note {
+  font-size: 0.85rem;
+  color: var(--lx-muted);
+  margin: 0.2rem 0 0;
+}
+.lx-step .table-scroll {
+  max-width: 62ch;
+  overflow-x: auto;
+  margin: 0 0 1em;
+}
+.lx .lx-step table {
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 0; /* the site-wide max-content minimum made it scroll on a phone */
+  font-size: 0.95rem;
+}
+.lx-step th,
+.lx-step td {
+  text-align: start;
+  padding: 0.45rem 0.6rem;
+  border-bottom: 1px solid var(--lx-line);
+  vertical-align: top;
+}
+.lx-step th {
+  font-weight: 500;
+  color: var(--lx-muted);
+}
+
+.lx .lx-card-list {
+  margin: 0.5rem 0;
+  padding: 1.2rem 1.3rem 1.2rem 2.6rem;
+  background: var(--lx-surface);
+  border: 1px solid var(--lx-line);
+  border-radius: 16px;
+  list-style: decimal;
+  font-size: 1.05rem;
+}
+.lx-card-list li {
+  margin: 0.35rem 0;
+}
+
+/* ---- parse panel (word by word) ---- */
+.lx-parse-words {
+  flex-wrap: wrap;
+}
+.lx-pw {
+  transition: background-color 0.2s, border-color 0.2s;
+}
+.lx-pw.lit {
+  outline: 3px solid var(--t);
+  outline-offset: 2px;
+  border-width: 2px;
+  border-color: var(--t);
+  background: color-mix(in oklab, var(--t) 14%, var(--lx-surface));
+}
+.lx-pcards {
+  display: grid;
+  gap: 0.6rem;
+  margin-top: 0.6rem;
+}
+.lx-pcard {
+  padding: 0.8rem 1rem 0.9rem;
+  background: var(--lx-surface);
+  border: 1px solid var(--lx-line);
+  border-radius: var(--lx-r);
+}
+.lx-pcard[hidden] {
+  display: none;
+}
+.lx-pcard-ar {
+  margin: 0 0 0.2rem;
+  font-family: var(--font-arabic, 'KFGQPC Hafs Uthmani', 'Amiri', serif);
+  font-size: 1.9rem;
+  line-height: 1.7;
+  text-align: center;
+}
+.lx-pcard dl {
+  display: grid;
+  gap: 0.3rem;
+  margin: 0;
+}
+.lx-pcard dl div {
+  display: grid;
+  grid-template-columns: 4rem 1fr;
+  gap: 0.6rem;
+}
+.lx-pcard dt {
+  font-weight: 500;
+  color: var(--lx-muted);
+  font-size: 0.92rem;
+}
+.lx-pcard dd {
+  margin: 0;
+}
+.lx-pcard-irab {
+  margin: 0.6rem 0 0;
+  padding-top: 0.5rem;
+  border-top: 1px dashed var(--lx-line);
+  display: grid;
+  gap: 0.1rem;
+}
+.lx-pcard-irab > span:first-child {
+  font-size: 0.8rem;
+  color: var(--lx-muted);
+}
+.lx .lx-pcard-irab .lx-ar {
+  font-family: 'Amiri', var(--font-arabic, serif);
+  font-size: 1.3rem;
+  line-height: 1.8;
+  text-align: right;
+}
+.lx-parse-ctl {
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.6rem;
+  margin-top: 0.7rem;
+}
+.lx-parse-js .lx-parse-ctl {
+  display: flex;
+}
+.lx-parse-ctl .lx-btn {
+  min-width: 5.5rem;
+}
+
+/* ---- worked exercises ---- */
+.lx-ex {
+  padding: 1em 0;
+  border-top: 1px solid var(--lx-line);
+  max-width: 62ch;
+}
+.lx-ex .lx-q {
+  margin-bottom: 0.5em;
+}
+.lx-ex-ans summary {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0.3em 1em;
+  border: 1.5px solid var(--lx-accent);
+  border-radius: 12px;
+  color: var(--lx-accent);
+  font-weight: 500;
+  cursor: pointer;
+  list-style: none;
+}
+.lx-ex-ans summary::-webkit-details-marker {
+  display: none;
+}
+.lx-ex-ans[open] summary {
+  background: var(--lx-accent);
+  color: var(--lx-on-accent);
+}
+.lx-ex-body {
+  margin-top: 0.7rem;
+  padding: 0.8rem 1rem;
+  background: color-mix(in oklab, var(--lx-good) 7%, var(--lx-surface));
+  border: 1px solid color-mix(in oklab, var(--lx-good) 30%, var(--lx-surface));
+  border-radius: 12px;
+}
+.lx-ex-body p,
+.lx-ex-body ul {
+  margin: 0 0 0.5em;
+}
+.lx-ex-body > :last-child {
+  margin-bottom: 0;
 }
 
 /* ---- end of lesson ---- */

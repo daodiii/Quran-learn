@@ -4,7 +4,7 @@
  * quick checks, "where was I" memory, and the complete button. Without this script every step
  * stays visible, so the lesson still reads top to bottom.
  */
-import { clampStep, stepIndexFromHash, parseResume, serializeResume, omitResume } from '../lib/lesson-steps';
+import { clampStep, stepIndexFromHash, parseResume, serializeResume, omitResume, groupParts, partOf } from '../lib/lesson-steps';
 import { markLessonComplete, isLessonComplete } from '../lib/progress';
 
 const RESUME_KEY = 'quran-learn-lesson-step';
@@ -56,7 +56,36 @@ function init() {
   let current = 0;
   let finished = false; // lesson already marked complete: stop remembering the step
 
-  // Progress bar: one segment per step.
+  // Progress bar: one segment per step. A lesson that names its parts gets one segment per part,
+  // and only the current part opens up into its steps (34 step segments do not fit on a phone).
+  const parts = groupParts(steps.map((s) => s.dataset.stepPart));
+  const partEls: HTMLElement[] = [];
+  const segs: HTMLElement[] = [];
+  let partName: HTMLElement | null = null;
+  const holders: HTMLElement[] = parts.length
+    ? parts.map((p, pi) => {
+        const wrap = document.createElement('div');
+        wrap.className = 'lx-part';
+        const pb = document.createElement('button');
+        pb.type = 'button';
+        pb.className = 'lx-part-btn';
+        pb.title = p.name;
+        pb.setAttribute('aria-label', `Part ${pi + 1} of ${parts.length}: ${p.name}`);
+        pb.addEventListener('click', () => show(p.start, { focus: true }));
+        const inner = document.createElement('div');
+        inner.className = 'lx-part-steps';
+        wrap.append(pb, inner);
+        bar.appendChild(wrap);
+        partEls.push(wrap);
+        return inner;
+      })
+    : [bar];
+  if (parts.length) {
+    bar.classList.add('lx-bar-parts');
+    partName = document.createElement('p');
+    partName.className = 'lx-partname';
+    bar.appendChild(partName);
+  }
   steps.forEach((s, i) => {
     const b = document.createElement('button');
     b.type = 'button';
@@ -64,13 +93,13 @@ function init() {
     b.title = s.dataset.stepLabel ?? `Step ${i + 1}`;
     b.setAttribute('aria-label', `Step ${i + 1} of ${steps.length}: ${s.dataset.stepLabel ?? ''}`);
     b.addEventListener('click', () => show(i, { focus: true }));
-    bar.appendChild(b);
+    holders[parts.length ? partOf(parts, i) : 0].appendChild(b);
+    segs.push(b);
     const num = s.querySelector<HTMLElement>('.lx-num');
     const of = s.querySelector<HTMLElement>('.lx-of');
     if (num) num.textContent = String(i + 1).padStart(2, '0');
     if (of) of.textContent = `Step ${i + 1} of ${steps.length}`;
   });
-  const segs = [...bar.children] as HTMLElement[];
 
   function show(index: number, opts: { focus?: boolean; scroll?: boolean; force?: boolean } = {}) {
     const target = clampStep(index, steps.length);
@@ -83,6 +112,14 @@ function init() {
       if (i === current) seg.setAttribute('aria-current', 'step');
       else seg.removeAttribute('aria-current');
     });
+    if (parts.length) {
+      const cp = partOf(parts, current);
+      partEls.forEach((el, pi) => {
+        el.classList.toggle('on', pi === cp);
+        el.classList.toggle('done', pi < cp);
+      });
+      if (partName) partName.textContent = `Part ${cp + 1} of ${parts.length}: ${parts[cp].name}`;
+    }
     const last = current === steps.length - 1;
     count.textContent = `Step ${current + 1} of ${steps.length}`;
     back.disabled = current === 0;
@@ -105,7 +142,7 @@ function init() {
   });
   document.addEventListener('keydown', (e) => {
     const t = e.target as HTMLElement;
-    if (t.closest('input, textarea, select, [contenteditable], [role="dialog"], .lx-check') || e.metaKey || e.ctrlKey || e.altKey || e.shiftKey) return;
+    if (t.closest('input, textarea, select, summary, [contenteditable], [role="dialog"], .lx-check, .lx-parse') || e.metaKey || e.ctrlKey || e.altKey || e.shiftKey) return;
     if (e.key === 'ArrowRight') show(current + 1, { focus: true });
     if (e.key === 'ArrowLeft') show(current - 1, { focus: true });
   });
@@ -139,6 +176,31 @@ function init() {
         fb.hidden = false;
       }),
     );
+  });
+
+  // Parse panels: one card at a time, with its word (or words) lit in the verse.
+  // Without this script every card is listed under the verse.
+  root.querySelectorAll<HTMLElement>('.lx-parse').forEach((parse) => {
+    const words = [...parse.querySelectorAll<HTMLElement>('.lx-pw')];
+    const cards = [...parse.querySelectorAll<HTMLElement>('.lx-pcard')];
+    const prev = parse.querySelector<HTMLButtonElement>('[data-lx-pprev]');
+    const fwd = parse.querySelector<HTMLButtonElement>('[data-lx-pnext]');
+    const pos = parse.querySelector<HTMLElement>('[data-lx-ppos]');
+    if (!cards.length || !prev || !fwd || !pos) return;
+    let k = 0;
+    const go = (n: number) => {
+      k = clampStep(n, cards.length);
+      cards.forEach((c, i) => (c.hidden = i !== k));
+      const lit = (cards[k].dataset.at ?? '').split(',').map(Number);
+      words.forEach((w, i) => w.classList.toggle('lit', lit.includes(i)));
+      prev.disabled = k === 0;
+      fwd.disabled = k === cards.length - 1;
+      pos.textContent = `${k + 1} of ${cards.length}`;
+    };
+    prev.addEventListener('click', () => go(k - 1));
+    fwd.addEventListener('click', () => go(k + 1));
+    parse.classList.add('lx-parse-js');
+    go(0);
   });
 
   // Complete button (same storage as the classic lessons).

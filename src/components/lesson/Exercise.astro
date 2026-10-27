@@ -1,0 +1,28 @@
+---
+/**
+ * A worked exercise: the question, then the answer behind a "Show the answer" button, so the
+ * learner tries first. Uses <details>, so it works without JavaScript. The answer goes inside.
+ *
+ * <Exercise n={1} q="Find the mubtadaʾ and the khabar in وَٱللَّهُ بَصِيرٌۢ بِمَا يَعْمَلُونَ (Al-Imran 3:163).">
+ *   ٱللَّهُ is the mubtadaʾ ...
+ * </Exercise>
+ */
+import { inlineHtml } from '../../lib/lesson-steps';
+
+interface Props {
+  q: string;
+  n?: number;
+}
+const { q, n } = Astro.props;
+---
+
+<div class="lx-ex">
+  <p class="lx-q">
+    {n !== undefined && <span class="lx-qn" aria-hidden="true">{n}</span>}
+    <span set:html={inlineHtml(q)} />
+  </p>
+  <details class="lx-ex-ans">
+    <summary>Show the answer</summary>
+    <div class="lx-ex-body"><slot /></div>
+  </details>
+</div>

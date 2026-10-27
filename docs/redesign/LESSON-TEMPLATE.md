@@ -14,9 +14,11 @@ A lesson is a run of short steps. One step shows at a time, with a progress bar,
 
 | Component | Use |
 |---|---|
-| `Step` | One step. `id`, `label` (progress bar tooltip), `title`. `hero` on the first step makes the title the page `h1` |
-| `Stage` | The example panel. Put `Sentence`, `Tiles` or `Formula` inside |
-| `Sentence` | A Quran phrase as word tiles with word type, optional role bars (mubtadaʾ, khabar) and the English line with the missing word marked |
+| `Step` | One step. `id`, `label` (progress bar tooltip), `title`. `hero` on the first step makes the title the page `h1`. `part="..."` on the first step of each part groups a long lesson into parts (see below) |
+| `Stage` | The example panel. Put `Sentence`, `Tiles`, `Formula`, `Parse` or a `blockquote.lx-quote` inside |
+| `Sentence` | A Quran phrase as word tiles with word type, optional role bars and the English line (labelled "Meaning") with the missing word marked. Roles: `mubtada`, `mubtadaLater`, `ismKana` (solid bar); `khabar`, `khabar2`, `khabarFirst`, `khabarKana` (dashed); `tied` (dotted grey, a phrase that belongs to another word). `label` and `hint` on a group override the text |
+| `Parse` | Word-by-word iʿrāb of one verse: word tiles, then one card at a time (role, case, mark, why, and the parse as the Arabic grammar books word it). Back and Next light each word. Without JavaScript all cards are listed |
+| `Exercise` | A worked exercise: question in `q`, the answer inside, behind a "Show the answer" button (`<details>`, works without JavaScript). Write the answer as markdown with blank lines around it |
 | `Tiles` | Big word tiles, with a dashed `ghost` tile for a word English needs and Arabic leaves out |
 | `Formula` | "part + part = whole" card |
 | `Legend` | The word-type colour key |
@@ -26,6 +28,10 @@ A lesson is a run of short steps. One step shows at a time, with a progress bar,
 | `Sources` | "Where this comes from" and the "Found a mistake?" link |
 
 Writing rules (from the plan): B1 English, one idea per step, example first then the rule, no em dashes.
+
+**Parts.** A lesson with many steps (L2.01 has 35) names its parts. The progress bar then shows one segment per part, opens the current part into its steps, and prints "Part 3 of 9: …" under the bar. Without parts it keeps one segment per step.
+
+**Checking the Arabic.** Every `Sentence` and `Parse` with a verse reference, and every verse quoted in an `Exercise` question, should match the Tanzil text in `src/data/morphology/quranic-corpus-morphology-0.4.txt` exactly, diacritics included. Convert the Corpus Buckwalter with the full table in `scripts/lib/buckwalter.ts` (`BW_ANNOTATION_MARKS`): the small wāw (`,`) and small yāʾ (`.`) are easy to swap.
 
 ## How it is wired
 
