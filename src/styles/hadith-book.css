@@ -1,0 +1,208 @@
+/* ============================================
+   FORTY HADITH BOOK — flowing pages
+   The other ebooks use fixed one-page sections. The hadith are too long for
+   that, so these pages flow and Chrome breaks them. Used with ebook-print.css.
+   ============================================ */
+
+.hb-flow {
+  page: hadithbody;
+  color: var(--eb-ink-primary);
+  font-family: 'Geist', 'Amiri', sans-serif;
+  font-size: 11px;
+  line-height: 1.55;
+  letter-spacing: -0.005em;
+}
+
+@page hadithbody {
+  size: 5.5in 8.5in;
+  margin: 0.62in 0.5in 0.72in;
+  background: #0f1115;
+  @top-center {
+    content: 'FORTY HADITH · AL-NAWAWI';
+    font-family: 'Geist Mono', monospace;
+    font-size: 7.5px;
+    letter-spacing: 0.24em;
+    color: #5c5a52;
+  }
+  @bottom-center {
+    content: counter(page);
+    font-family: 'Geist Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.22em;
+    color: #5c5a52;
+  }
+}
+
+/* ---------- prose pages (about, contents) ---------- */
+.hb-prose h2 {
+  font-family: 'Geist', sans-serif;
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+  margin: 18px 0 8px;
+  break-after: avoid;
+}
+.hb-prose h2:first-child { margin-top: 0; }
+.hb-prose { font-size: 10.5px; line-height: 1.5; }
+.hb-prose p { margin: 0 0 8px; color: var(--eb-ink-secondary); }
+.hb-prose ul { margin: 0 0 10px; padding-left: 16px; color: var(--eb-ink-secondary); }
+.hb-prose li { margin-bottom: 4px; break-inside: avoid; }
+.hb-prose strong { color: var(--eb-ink-primary); }
+.hb-prose a { color: var(--eb-accent); text-decoration: none; }
+
+.hb-kicker {
+  font-family: 'Geist Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--eb-accent);
+  margin-bottom: 6px;
+}
+
+.hb-toc-title {
+  font-family: 'Geist', sans-serif;
+  font-weight: 500;
+  font-size: 22px;
+  letter-spacing: -0.015em;
+  margin: 0 0 10px;
+}
+.hb-toc { list-style: none; margin: 0; padding: 0; }
+.hb-toc li {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  padding: 1px 0;
+  font-size: 9.5px;
+  line-height: 1.2;
+  break-inside: avoid;
+}
+.hb-toc a { color: inherit; text-decoration: none; display: contents; }
+.hb-toc .toc-num {
+  flex: 0 0 18px;
+  font-family: 'Geist Mono', monospace;
+  font-size: 9px;
+  color: var(--eb-accent);
+}
+.hb-toc .toc-label { flex: 0 1 auto; color: var(--eb-ink-secondary); }
+.hb-toc .toc-dots { flex: 1 1 auto; border-bottom: 1px dotted var(--eb-hairline); transform: translateY(-3px); }
+.hb-toc .toc-page {
+  flex: 0 0 auto;
+  min-width: 2.4em;
+  text-align: right;
+  font-family: 'Geist Mono', monospace;
+  font-size: 9px;
+  color: var(--eb-ink-muted);
+}
+
+/* ---------- one hadith ---------- */
+.hb-chapter, .hb-newpage { break-before: page; }
+
+.hb-title {
+  font-family: 'Geist', sans-serif;
+  font-weight: 500;
+  font-size: 21px;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+  margin: 0 0 4px;
+}
+.hb-title-ar {
+  font-family: 'Amiri', serif;
+  font-size: 17px;
+  line-height: 1.8;
+  direction: rtl;
+  text-align: right;
+  color: var(--eb-accent);
+  margin: 0 0 4px;
+}
+.hb-source {
+  font-size: 10px;
+  color: var(--eb-ink-muted);
+  margin: 0 0 14px;
+}
+.hb-intro { color: var(--eb-ink-secondary); margin: 0 0 12px; font-style: italic; }
+
+.hb-whole {
+  border-top: 1px solid var(--eb-hairline);
+  border-bottom: 1px solid var(--eb-hairline);
+  padding: 12px 0 10px;
+  margin: 0 0 16px;
+}
+.hb-arabic {
+  font-family: 'Amiri', serif;
+  font-size: 19px;
+  line-height: 2.15;
+  direction: rtl;
+  text-align: right;
+  color: var(--eb-ink-primary);
+  margin: 0 0 8px;
+}
+.hb-translit {
+  font-style: italic;
+  font-size: 10px;
+  line-height: 1.5;
+  color: var(--eb-ink-muted);
+  margin: 0 0 8px;
+}
+.hb-translation { font-size: 12px; line-height: 1.55; color: var(--eb-ink-primary); margin: 0; }
+
+.hb-sub {
+  font-family: 'Geist Mono', monospace;
+  font-weight: 400;
+  font-size: 9px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--eb-accent);
+  margin: 0 0 8px;
+  break-after: avoid;
+}
+
+.hb-part { margin: 0 0 14px; }
+.hb-part-head {
+  margin: 14px 0 8px;
+  break-after: avoid;
+}
+.hb-part-title {
+  font-family: 'Geist', sans-serif;
+  font-weight: 500;
+  font-size: 13px;
+  margin: 0 0 4px;
+}
+.hb-part-arabic { font-size: 15px; line-height: 2; margin: 0 0 4px; }
+.hb-part-translation { font-size: 10.5px; font-style: italic; color: var(--eb-ink-secondary); margin: 0 0 8px; }
+
+/* ---------- word rows ---------- */
+.hb-row {
+  display: grid;
+  grid-template-columns: 96px 104px 1fr;
+  column-gap: 10px;
+  align-items: start;
+  padding: 7px 0;
+  border-bottom: 1px dashed var(--eb-hairline);
+  break-inside: avoid;
+}
+.hb-row .w-ar {
+  font-family: 'Amiri', serif;
+  font-size: 17px;
+  line-height: 1.7;
+  direction: rtl;
+  text-align: right;
+  color: var(--eb-ink-primary);
+}
+.hb-row .w-mid { display: flex; flex-direction: column; gap: 1px; }
+.hb-row .w-tr { font-style: italic; font-size: 9.5px; color: var(--eb-ink-muted); }
+.hb-row .w-en { font-weight: 500; font-size: 10.5px; color: var(--eb-ink-primary); line-height: 1.35; }
+.hb-row .w-why { font-size: 9.5px; line-height: 1.5; color: var(--eb-ink-secondary); }
+
+/* In the about text the Arabic is mostly lone endings and short words, so it needs more size. */
+.hb-prose .ar-in { font-size: 1.5em; vertical-align: -0.08em; }
+
+/* Arabic inside English notes gets its own font so the vowel marks render. */
+.ar-in {
+  font-family: 'Amiri', serif;
+  font-size: 1.2em;
+  line-height: 1;
+  direction: rtl;
+  unicode-bidi: isolate;
+  color: var(--eb-ink-primary);
+}

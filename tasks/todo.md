@@ -74,7 +74,7 @@ block; a hadith that is split into parts gets a "The Whole Hadith" block ahead o
     `src/content/hadith`; all pass.
   - Files: the three scripts. Scope: S
 
-- [ ] **Task 10: Free PDF**
+- [x] **Task 10: Free PDF**
   - Acceptance: `src/content/ebooks/forty-hadith.mdx` and `src/pages/ebooks/forty-hadith.astro`;
     `npm run ebook:hadith` outputs a PDF with all 42 hadith, matching the web text; a
     download link sits on the index page.
