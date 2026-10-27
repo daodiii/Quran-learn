@@ -251,24 +251,28 @@ html:has([data-lx]) {
   top: 5.5rem;
   align-self: start;
 }
+/* One counter, read as one phrase: a big "1" with "of 35" beside it, same colour. */
 .lx-count {
   display: none;
   align-items: baseline;
-  gap: 0.6rem;
-  margin: 0 0 0.8rem;
-  font-size: 0.9rem;
-  color: var(--lx-muted);
+  gap: 0.4rem;
+  margin: 0 0 0.9rem;
+  color: var(--lx-accent-2-text);
   max-width: none;
+  line-height: 1;
 }
 .lx-js .lx-count {
   display: flex;
 }
 .lx-num {
-  font-size: 2.6rem;
-  color: var(--lx-accent-2);
+  font-size: 3.6rem;
+  font-weight: 500;
   letter-spacing: -0.04em;
-  line-height: 1;
   font-variant-numeric: tabular-nums;
+}
+.lx-of {
+  font-size: 1.6rem;
+  font-weight: 500;
 }
 .lx-title {
   margin: 0;
@@ -320,6 +324,49 @@ html:has([data-lx]) {
   text-decoration-thickness: 2px;
   text-underline-offset: 3px;
   text-decoration-color: var(--lx-accent-2);
+}
+
+/* ---- big steps made of blocks: each block has its own example beside its text ---- */
+.lx-step:has(> .lx-block) {
+  grid-template-columns: minmax(0, 1fr);
+}
+.lx-block {
+  display: grid;
+  grid-template-columns: minmax(0, 34rem) minmax(0, 1fr);
+  column-gap: 3.5rem;
+  align-content: start;
+  padding: 1.8rem 0 1.4rem;
+  border-top: 1px solid var(--lx-line);
+}
+.lx-block > * {
+  grid-column: 1;
+}
+.lx-block > .lx-stage {
+  grid-column: 2;
+  grid-row: 1 / span 30;
+  position: sticky;
+  top: 5.5rem;
+  align-self: start;
+  min-height: 0;
+}
+.lx-block-h {
+  margin: 0 0 0.9rem;
+  font-size: 1.55rem;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  text-wrap: balance;
+}
+.lx-block-n {
+  display: none;
+  margin-bottom: 0.3rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0;
+  color: var(--lx-accent-2-text);
+}
+.lx-js .lx-block-n {
+  display: block;
 }
 
 /* ---- stage (the persistent example panel) ---- */
@@ -1066,6 +1113,20 @@ html:has([data-lx]) {
     position: static;
     min-height: 0;
     margin: 0 0 1.4rem;
+    padding: 1rem;
+  }
+  .lx-block {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .lx-block > .lx-block-h {
+    order: -2;
+  }
+  .lx-block > .lx-stage {
+    grid-column: 1;
+    grid-row: auto;
+    order: -1;
+    position: static;
+    margin: 0 0 1.2rem;
     padding: 1rem;
   }
   .lx-title {

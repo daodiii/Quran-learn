@@ -46,7 +46,15 @@ function init() {
   if (new Set(ids).size !== ids.length) console.warn('[lesson-steps] duplicate <Step id> values:', ids);
   if (root.querySelectorAll('h1').length !== 1) console.warn('[lesson-steps] a stepped lesson needs exactly one <Step hero>');
   const stepCountNote = root.querySelector<HTMLElement>('[data-lx-step-count]');
-  if (stepCountNote) stepCountNote.textContent = `, ${steps.length} short steps`;
+  if (stepCountNote) stepCountNote.textContent = `, ${steps.length} steps`;
+  // Big steps: number the blocks inside each step ("3 of 8").
+  steps.forEach((s) => {
+    const blocks = [...s.querySelectorAll<HTMLElement>('.lx-block[data-block]')];
+    blocks.forEach((b, k) => {
+      const n = b.querySelector<HTMLElement>('.lx-block-n');
+      if (n) n.textContent = `${k + 1} of ${blocks.length}`;
+    });
+  });
   const bar = root.querySelector<HTMLElement>('.lx-bar')!;
   const back = root.querySelector<HTMLButtonElement>('[data-lx-back]')!;
   const next = root.querySelector<HTMLButtonElement>('[data-lx-next]')!;
@@ -97,8 +105,8 @@ function init() {
     segs.push(b);
     const num = s.querySelector<HTMLElement>('.lx-num');
     const of = s.querySelector<HTMLElement>('.lx-of');
-    if (num) num.textContent = String(i + 1).padStart(2, '0');
-    if (of) of.textContent = `Step ${i + 1} of ${steps.length}`;
+    if (num) num.textContent = String(i + 1);
+    if (of) of.textContent = `of ${steps.length}`;
   });
 
   function show(index: number, opts: { focus?: boolean; scroll?: boolean; force?: boolean } = {}) {

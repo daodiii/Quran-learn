@@ -15,6 +15,7 @@ A lesson is a run of short steps. One step shows at a time, with a progress bar,
 | Component | Use |
 |---|---|
 | `Step` | One step. `id`, `label` (progress bar tooltip), `title`. `hero` on the first step makes the title the page `h1`. `part="..."` on the first step of each part groups a long lesson into parts (see below) |
+| `Block` | One section of a big step: `id`, `title`, its own `Stage` and text. The script numbers the blocks in a step ("3 of 8"). `uncounted` leaves an overview out of the count; `level={2}` for blocks in the hero step |
 | `Stage` | The example panel. Put `Sentence`, `Tiles`, `Formula`, `Parse` or a `blockquote.lx-quote` inside |
 | `Sentence` | A Quran phrase as word tiles with word type, optional role bars and the English line (labelled "Meaning") with the missing word marked. Roles: `mubtada`, `mubtadaLater`, `ismKana` (solid bar); `khabar`, `khabar2`, `khabarFirst`, `khabarKana` (dashed); `tied` (dotted grey, a phrase that belongs to another word). `label` and `hint` on a group override the text |
 | `Parse` | Word-by-word iʿrāb of one verse: word tiles, then one card at a time (role, case, mark, why, and the parse as the Arabic grammar books word it). Back and Next light each word. Without JavaScript all cards are listed |
@@ -29,7 +30,9 @@ A lesson is a run of short steps. One step shows at a time, with a progress bar,
 
 Writing rules (from the plan): B1 English, one idea per step, example first then the rule, no em dashes.
 
-**Parts.** A lesson with many steps (L2.01 has 35) names its parts. The progress bar then shows one segment per part, opens the current part into its steps, and prints "Part 3 of 9: …" under the bar. Without parts it keeps one segment per step.
+**Big steps (the owner's decision, 2026-10-27).** A lesson has 3 to 5 steps. Each step is a run of `Block`s, and each block has its own example beside its text (above it on a phone). The step counter reads "1 of 5". L2.01 is the model: 5 steps of 8, 7, 8, 8 and 3 blocks.
+
+**Parts** (kept in the template, not used by L2.01 now). A lesson with many small steps can name its parts. The progress bar then shows one segment per part, opens the current part into its steps, and prints "Part 3 of 9: …" under the bar. Without parts it keeps one segment per step.
 
 **Checking the Arabic.** Every `Sentence` and `Parse` with a verse reference, and every verse quoted in an `Exercise` question, should match the Tanzil text in `src/data/morphology/quranic-corpus-morphology-0.4.txt` exactly, diacritics included. Convert the Corpus Buckwalter with the full table in `scripts/lib/buckwalter.ts` (`BW_ANNOTATION_MARKS`): the small wāw (`,`) and small yāʾ (`.`) are easy to swap.
 
