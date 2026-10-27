@@ -22,6 +22,11 @@ const lessons = defineCollection({
     description: z.string().optional(),
     draft: z.boolean().default(false),
 
+    // 'steps' renders the stepped lesson template (LessonStepsLayout); 'classic' is the old long page.
+    template: z.enum(['classic', 'steps']).default('classic'),
+    // Short plain-English name of the topic, shown under the title in the stepped template.
+    kicker: z.string().optional(),
+
     // Optional date overrides (auto-derived from git history if omitted)
     datePublished: z.coerce.date().optional(),
     dateModified: z.coerce.date().optional(),
