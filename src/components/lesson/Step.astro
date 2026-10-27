@@ -7,7 +7,7 @@
  * <Step id="rule" label="The rule" title="The rule: both end in -u"> ... </Step>
  * <Step hero id="start" label="Start" title={frontmatter.title} kicker={frontmatter.kicker} titleArabic={frontmatter.titleArabic}> ... </Step>
  */
-import { tightHyphens, wrapArabic } from '../../lib/lesson-steps';
+import { tightHyphens, inlineHtml } from '../../lib/lesson-steps';
 
 interface Props {
   id: string;
@@ -19,7 +19,7 @@ interface Props {
 }
 
 const { id, label, title, hero = false, kicker, titleArabic } = Astro.props;
-const titleHtml = wrapArabic(tightHyphens(title));
+const titleHtml = inlineHtml(tightHyphens(title));
 ---
 
 <section class="lx-step" id={`step-${id}`} data-step-id={id} data-step-label={label} aria-labelledby={`step-${id}-title`}>

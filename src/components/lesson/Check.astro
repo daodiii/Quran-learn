@@ -1,11 +1,12 @@
 ---
 /**
- * One quick question with instant feedback. A wrong pick says "try another"; the right pick shows why.
- * The layout script (src/scripts/lesson-steps.ts) handles the clicks.
+ * One quick question with instant feedback. A wrong pick says "try another"; the right pick shows why
+ * and locks the answer. The layout script (src/scripts/lesson-steps.ts) handles the clicks. Without
+ * JavaScript the answer and the reason are printed under the question.
  *
  * <Check n={1} q="Which word is the mubtadaʾ?" options={['ٱللَّهُ', 'غَفُورٌ']} answer={0} why="It is what the sentence is about." />
  */
-import { wrapArabic } from '../../lib/lesson-steps';
+import { inlineHtml } from '../../lib/lesson-steps';
 
 interface Props {
   q: string;
@@ -15,16 +16,24 @@ interface Props {
   n?: number;
 }
 const { q, options, answer, why, n } = Astro.props;
+if (!Number.isInteger(answer) || answer < 0 || answer >= options.length) {
+  throw new Error(`<Check> answer ${answer} is outside its ${options.length} options: "${q}"`);
+}
+// A short, unique id so the answer group can be labelled by its question.
+const qid = `lx-q-${n ?? 'x'}-${answer}-${options.length}-${q.length}`;
 ---
 
 <div class="lx-check" data-answer={answer}>
-  <p class="lx-q">
+  <p class="lx-q" id={qid}>
     {n !== undefined && <span class="lx-qn" aria-hidden="true">{n}</span>}
-    <span set:html={wrapArabic(q)} />
+    <span set:html={inlineHtml(q)} />
   </p>
-  <div class="lx-opts" role="group" aria-label="Answers">
-    {options.map((o, k) => <button type="button" class="lx-opt" data-k={k} set:html={wrapArabic(o)} />)}
+  <div class="lx-opts" role="group" aria-labelledby={qid}>
+    {options.map((o, k) => <button type="button" class="lx-opt" data-k={k} set:html={inlineHtml(o)} />)}
   </div>
   <p class="lx-fb" role="status" aria-live="polite" hidden></p>
-  <p class="lx-why" hidden set:html={wrapArabic(why)} />
+  <p class="lx-why" hidden set:html={inlineHtml(why)} />
+  <noscript>
+    <p class="lx-why-static"><b>Answer:</b> <span set:html={inlineHtml(options[answer])} />. <span set:html={inlineHtml(why)} /></p>
+  </noscript>
 </div>

@@ -20,7 +20,7 @@ const { items, label } = Astro.props;
 const CLS = { n: 'noun', v: 'verb', p: 'little' } as const;
 ---
 
-<div class="lx-tiles" aria-label={label}>
+<div class="lx-tiles" role="group" aria-label={label}>
   {items.map((it) =>
     it.ghost ? (
       <div class="lx-tile lx-ghost"><span class="lx-g">{it.ghost}</span>{it.note && <small>{it.note}</small>}</div>

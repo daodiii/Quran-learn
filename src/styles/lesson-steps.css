@@ -22,10 +22,10 @@
   --lx-text: oklch(22% 0.035 230);
   --lx-muted: oklch(43% 0.025 230);
   --lx-line: oklch(90% 0.014 215);
-  --lx-line-2: oklch(80% 0.03 215);
+  --lx-line-2: oklch(66% 0.03 215); /* 3:1 against the page, for borders that identify a control */
   --lx-accent: oklch(40% 0.1 178);
   --lx-on-accent: oklch(98.5% 0.01 178);
-  --lx-accent-2: oklch(68% 0.16 62);
+  --lx-accent-2: oklch(58% 0.15 58); /* 4.4:1 against the page */
   --lx-accent-2-text: oklch(46% 0.13 55);
   --lx-focus: oklch(50% 0.16 255);
   --lx-noun: oklch(41% 0.14 258);
@@ -37,9 +37,9 @@
   --lx-tip-ink: oklch(24% 0.05 85);
   --lx-know: oklch(70% 0.11 230);
   --lx-know-ink: oklch(18% 0.04 230);
-  --lx-warn: oklch(66% 0.17 32);
+  --lx-warn: oklch(52% 0.17 32); /* white label on it: 5.8:1 */
   --lx-warn-ink: oklch(99% 0.01 32);
-  --lx-rem: oklch(60% 0.14 305);
+  --lx-rem: oklch(50% 0.15 305); /* white label on it: 6.2:1 */
   --lx-rem-ink: oklch(99% 0.01 305);
   --lx-r: 14px;
   --lx-font: 'Geist', system-ui, -apple-system, 'Segoe UI', sans-serif;
@@ -52,9 +52,39 @@
   min-height: 60vh;
   overflow-x: clip;
 }
-/* The fixed bottom bar must not hide the cookie notice buttons. */
+/* The fixed bottom bar must not hide the cookie notice buttons or a focused control. */
 body:has([data-lx]) #cookie-banner {
   bottom: 5.6rem !important;
+}
+html:has([data-lx]) {
+  scroll-padding-top: 5.5rem;
+  scroll-padding-bottom: 6.5rem;
+}
+
+/* Before the script runs (JS on) show only the first step, so the long page never flashes.
+   With JS off the pending class is never set, every step shows, and the plain links below appear. */
+.lx-pending .lx-step:not(:first-of-type) {
+  display: none;
+}
+.lx-pending .lx-nojs,
+.lx-js .lx-nojs {
+  display: none;
+}
+.lx-nojs {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: 1.5rem 0 0;
+  padding-top: 1rem;
+  border-top: 1px solid var(--lx-line);
+}
+.lx-why-static {
+  margin: 0.4rem 0 0;
+  color: var(--lx-muted);
+}
+.lx-check.solved .lx-opt:not(.right) {
+  opacity: 0.55;
+  cursor: default;
 }
 .lx *,
 .lx *::before,

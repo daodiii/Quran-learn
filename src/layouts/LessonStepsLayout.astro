@@ -43,6 +43,8 @@ const breadcrumbItems = [
 
 <BaseLayout title={title} description={description} type="article">
   <Fragment slot="head">
+    <!-- JavaScript is on: show only the first step until the script takes over (no flash of the long page). -->
+    <script is:inline>document.documentElement.classList.add('lx-pending');</script>
     <BreadcrumbSchema items={breadcrumbItems} />
     <ArticleSchema
       title={title}
@@ -76,6 +78,11 @@ const breadcrumbItems = [
       <article class="lx-article">
         <slot />
       </article>
+
+      <nav class="lx-nojs" aria-label="Lesson navigation">
+        {prevLesson ? <a href={prevLesson}>&larr; Previous</a> : <span></span>}
+        {nextLesson && <a href={nextLesson}>Next lesson &rarr;</a>}
+      </nav>
 
       <div class="lx-finish" data-lx-finish hidden>
         <div class="lx-finish-row">
