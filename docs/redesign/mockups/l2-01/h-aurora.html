@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>L2.01 round 3 · H · Aurora</title>
+<style>
+@font-face{font-family:'Geist';src:url('../../../../public/fonts/geist-400.woff2') format('woff2');font-weight:400;font-display:swap}
+@font-face{font-family:'Geist';src:url('../../../../public/fonts/geist-500.woff2') format('woff2');font-weight:500 700;font-display:swap}
+@font-face{font-family:'KFGQPC Hafs Uthmani';src:url('../../../../public/fonts/UthmanicHafs.woff2') format('woff2');font-weight:400;unicode-range:U+0600-06FF,U+0750-077F,U+0870-088E,U+0890-0891,U+0897-08E1,U+08E3-08FF,U+200C-200E,U+2010-2011,U+204F,U+2E41,U+FB50-FDFF,U+FE70-FE74,U+FE76-FEFC}
+@font-face{font-family:'Amiri';src:url('../../../../public/fonts/amiri-regular-arabic.woff2') format('woff2');font-weight:400;unicode-range:U+0600-06FF,U+0750-077F,U+0870-088E,U+0890-0891,U+0897-08E1,U+08E3-08FF,U+200C-200E,U+2010-2011,U+204F,U+2E41,U+FB50-FDFF,U+FE70-FE74,U+FE76-FEFC}
+@font-face{font-family:'Amiri';src:url('../../../../public/fonts/amiri-bold-arabic.woff2') format('woff2');font-weight:700;unicode-range:U+0600-06FF,U+0750-077F,U+0870-088E,U+0890-0891,U+0897-08E1,U+08E3-08FF,U+200C-200E,U+2010-2011,U+204F,U+2E41,U+FB50-FDFF,U+FE70-FE74,U+FE76-FEFC}
+@font-face{font-family:'Amiri';src:url('../../../../public/fonts/amiri-regular-latin.woff2') format('woff2');font-weight:400;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Amiri';src:url('../../../../public/fonts/amiri-bold-latin.woff2') format('woff2');font-weight:700;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--body);font-size:var(--fs);line-height:1.65}
+a{color:var(--link)}
+.ar,.ar-inline{font-family:'KFGQPC Hafs Uthmani','Amiri','Traditional Arabic',serif;letter-spacing:0;font-weight:400}
+.ar-inline{font-size:1.25em;line-height:1.5;margin-inline:.2em}
+.step[hidden]{display:none!important}
+.step{padding-block:var(--step-pad)}
+h1,h2,h3{font-family:var(--head);font-weight:var(--head-w);line-height:1.2;margin:0 0 .5em}
+p{margin:0 0 1em;max-width:62ch}
+.muted{color:var(--muted);font-size:.95em}
+button{font:inherit}
+:focus-visible{outline:3px solid var(--focus);outline-offset:3px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:.6em 1.4em;font-weight:500;text-decoration:none;border-radius:var(--r-btn);border:2px solid var(--accent);color:var(--accent);background:transparent;cursor:pointer}
+.btn.primary{background:var(--accent);color:var(--on-accent)}
+.btn[disabled]{opacity:.45;cursor:not-allowed}
+/* word chips */
+.sentence{margin:1.5em 0;padding:1.2em 1em 1em;background:var(--surface);border:1px solid var(--line);border-radius:var(--r)}
+.sent{display:flex;flex-wrap:wrap;gap:1.4rem .9rem;justify-content:center;align-items:flex-start}
+.grp{display:flex;flex-direction:column;gap:.5rem;align-items:stretch}
+.chips{display:flex;gap:.5rem;direction:rtl;justify-content:center}
+.w{direction:ltr;text-align:center;display:flex;flex-direction:column;align-items:center;gap:.1rem;padding:.5rem .7rem .55rem;border-radius:calc(var(--r) * .7);background:color-mix(in oklab,var(--t) 10%,var(--surface));border:1.5px solid color-mix(in oklab,var(--t) 40%,var(--surface));min-width:5.2rem}
+.w .ar{direction:rtl;unicode-bidi:isolate;font-size:2.15rem;line-height:1.9;color:var(--text)}
+.sentence.big .w .ar{font-size:2.9rem}
+.w .say{font-size:.86rem;color:var(--muted);font-style:italic}
+.w .en{font-weight:500;font-size:.98rem;line-height:1.3}
+.w .tag{display:inline-flex;align-items:center;gap:.35em;font-size:.78rem;color:var(--t);font-weight:500;margin-top:.2rem}
+.shape{display:inline-block;width:.6em;height:.6em;background:currentColor}
+.noun{--t:var(--c-noun)} .verb{--t:var(--c-verb)} .little{--t:var(--c-little)}
+.noun .shape{border-radius:50%} .verb .shape{clip-path:polygon(50% 0,100% 100%,0 100%)} .little .shape{border-radius:1px}
+.role{text-align:center;border-top:4px solid var(--rc);padding-top:.35rem;font-size:.88rem;line-height:1.3}
+.role b{display:inline-block;padding:.1em .6em;border-radius:99px;margin-bottom:.15rem}
+.role span{display:block;color:var(--muted)}
+.role.mubtada{--rc:var(--accent)} .role.mubtada b{background:var(--accent);color:var(--on-accent)}
+.role.khabar{--rc:var(--accent-2)} .role.khabar b{background:transparent;color:var(--accent-2-text);border:2px solid var(--accent-2)}
+.role.khabar{border-top-style:dashed}
+.trans{margin:1em 0 .2em;text-align:center;font-size:1.2rem;max-width:none}
+.gap{border-bottom:2px dashed var(--accent-2);padding-inline:.15em;font-weight:500}
+.sentence figcaption{text-align:center;color:var(--muted);font-size:.85rem}
+.legend{display:flex;flex-wrap:wrap;gap:.5rem 1.2rem;font-size:.92rem;margin:0 0 1.2em}
+.legend .k{display:inline-flex;align-items:center;gap:.4em;color:var(--t);font-weight:500}
+.equation{display:flex;flex-wrap:wrap;gap:.5rem 1rem;align-items:center;justify-content:center;margin:1.2em 0;padding:1em;background:var(--surface);border:1px solid var(--line);border-radius:var(--r)}
+.equation .ar{font-size:2.4rem;line-height:1.8}.equation .op{font-size:1.6rem;color:var(--muted)}.equation .res{font-size:1.3rem;font-weight:500}
+.note{margin:1.2em 0;padding:.9em 1.1em;background:var(--note-bg);border:1px solid var(--line);border-radius:var(--r);font-size:.98rem;max-width:62ch}
+.note b{display:block;margin-bottom:.15em}
+.two{display:grid;gap:.8rem;grid-template-columns:1fr 1fr;margin-bottom:.5rem}
+.part{padding:.9em 1em;border-radius:var(--r);background:var(--surface);border:1px solid var(--line)}
+.part h3{font-size:1.1rem;margin:0 0 .3em}.part p{margin:0;font-size:.98rem}
+.part.m{border:2px solid var(--accent)}.part.k{border:2px dashed var(--accent-2)}
+.rule{padding:1.1em 1.2em;background:var(--surface);border:2px solid var(--accent);border-radius:var(--r);margin-bottom:1em}
+.rule-line{font-size:1.15rem;margin-bottom:.6em}
+.endings{display:flex;align-items:center;gap:1rem;margin:0;font-size:1.3rem}.endings .ar{font-size:2.2rem;display:inline-block;margin-inline-end:.3em}.endings .or{color:var(--muted);font-size:1rem}
+.goal{padding:1em 1.2em;background:var(--surface);border:1px solid var(--line);border-radius:var(--r)}
+.goal h2,.words-box h2,.sources h2{font-size:1.05rem;margin-bottom:.3em}
+.goal p{margin:0;font-size:1.2rem}
+.facts{display:grid;gap:.6rem;margin:1.2em 0}.facts div{display:flex;gap:1rem}.facts dt{min-width:8.5rem;font-weight:500}.facts dd{margin:0}
+.words-box ul{margin:0;padding:0;list-style:none;display:grid;gap:.5rem}.words-box li{padding:.55em .8em;background:var(--surface);border:1px solid var(--line);border-radius:calc(var(--r)*.6)}
+.prompt{padding:.8em 1em;background:var(--note-bg);border-radius:var(--r)}
+.check{padding:1em 0;border-top:1px solid var(--line)}
+.q{display:flex;gap:.7rem;font-weight:500;font-size:1.08rem;margin-bottom:.6em}.qn{flex:none;display:grid;place-items:center;width:1.9rem;height:1.9rem;border-radius:50%;background:var(--accent);color:var(--on-accent);font-size:.9rem}
+.q .ar,.opt .ar{font-size:1.3em}
+.opts{display:flex;flex-wrap:wrap;gap:.5rem}
+.opt{min-height:48px;padding:.4em 1.1em;border-radius:var(--r-btn);border:2px solid var(--line);background:var(--surface);color:var(--text);cursor:pointer;font-size:1.05rem}
+.opt:hover{border-color:var(--accent)}
+.opt.right{border-color:var(--good);background:color-mix(in oklab,var(--good) 14%,var(--surface))}
+.opt.wrong{border-color:var(--bad);background:color-mix(in oklab,var(--bad) 12%,var(--surface))}
+.fb{font-weight:500;margin:.7em 0 .2em}.why{margin:0;color:var(--muted)}
+.keys{padding-inline-start:1.2em}.keys li{margin-bottom:.5em;font-size:1.1rem}
+.cta{margin:1.6em 0}.cta .muted{margin:.6em 0 0}
+.sources{padding-top:1em;border-top:1px solid var(--line)}.sources ul{margin:.3em 0 .8em;padding-inline-start:1.2em}
+.top{position:sticky;top:0;z-index:5;background:var(--bar-bg)}
+.pager{display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.pager .btn{min-width:6.5rem}.pager .count{white-space:nowrap}
+.foot{color:var(--muted);font-size:.85rem;text-align:center;padding:1rem}
+.visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+@media (max-width:560px){.two{grid-template-columns:1fr}.w{min-width:4.4rem;padding:.4rem .5rem}.w .ar{font-size:1.9rem}.sentence.big .w .ar{font-size:2.5rem}.facts div{flex-direction:column;gap:.1rem}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+
+.mark{flex:none}
+.callout{display:flex;gap:.85rem;align-items:flex-start;margin:1.4em 0;max-width:62ch;background:color-mix(in oklab,var(--ck) 11%,var(--surface))}
+.callout .ico{flex:none;display:grid;place-items:center;background:var(--ck);color:var(--ci)}
+.callout svg{fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.callout b{display:block;color:color-mix(in oklab,var(--ck) 42%,black)}
+.callout p{margin:0;max-width:none}
+.callout.tip{--ck:var(--c-tip);--ci:var(--i-tip)}.callout.know{--ck:var(--c-know);--ci:var(--i-know)}.callout.warn{--ck:var(--c-warn);--ci:var(--i-warn)}.callout.rem{--ck:var(--c-rem);--ci:var(--i-rem)}
+.tiles{display:flex;flex-wrap:wrap;gap:.8rem;justify-content:center;align-items:stretch;direction:rtl;margin:1.2em 0}
+.tile{direction:ltr;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.1rem;min-width:7rem;padding:1rem 1.1rem;border-radius:var(--r);background:color-mix(in oklab,var(--t) 8%,var(--surface));border:1px solid color-mix(in oklab,var(--t) 35%,var(--surface))}
+.tile .ar{font-size:2.6rem;line-height:1.7;direction:rtl;unicode-bidi:isolate}.tile .en{font-weight:500}
+.tile.ghost{background:transparent;border:1.5px dashed var(--accent-2);color:var(--accent-2-text);min-width:5.5rem}
+.tile.ghost .g{font-size:2rem;font-weight:500;line-height:1.5}.tile.ghost small{font-size:.8rem}
+.formula{display:flex;flex-wrap:wrap;gap:.7rem;align-items:center;justify-content:center;margin:1.2em 0}
+.formula .f{display:flex;flex-direction:column;align-items:center;padding:.7rem 1.1rem;border-radius:var(--r);font-weight:500;line-height:1.3}
+.formula small{font-weight:400;font-size:.82rem;opacity:.9}
+.formula .f.m{background:var(--accent);color:var(--on-accent)}
+.formula .f.k{border:1.5px dashed var(--accent-2);color:var(--accent-2-text)}
+.formula .f.s{background:color-mix(in oklab,var(--accent) 9%,var(--surface));border:1px solid color-mix(in oklab,var(--accent) 35%,var(--surface))}
+.formula .op{font-size:1.4rem;color:var(--muted)}
+p b,li b,.nb{white-space:nowrap}
+.step{padding:0}
+.stage-label{font-size:.82rem;color:var(--muted);margin:0 0 .6rem}
+@media (max-width:560px){.tile{min-width:5.2rem;padding:.7rem .6rem}.tile .ar{font-size:2.1rem}.tiles{gap:.5rem}
+.sentence{padding:1em .4rem .8em}.sent{gap:1rem .45rem}.chips{gap:.3rem}.w{min-width:4rem;padding:.4rem .3rem}.w .ar{font-size:1.7rem}.sentence.big .w .ar{font-size:2.2rem}.w .en{font-size:.9rem}.w .say{font-size:.8rem}.formula .f{padding:.5rem .8rem}}
+
+:root{--bg:oklch(97.6% .007 270);--surface:oklch(99.6% .003 270);--text:oklch(22% .04 275);--muted:oklch(43% .03 275);--line:oklch(90% .014 275);--line-2:oklch(80% .03 275);--accent:oklch(40% .15 285);--on-accent:oklch(98.5% .01 285);--accent-2:oklch(60% .19 28);--accent-2-text:oklch(45% .17 28);--link:oklch(40% .15 285);--focus:oklch(50% .2 265);--note-bg:oklch(95% .02 275);--c-noun:oklch(40% .16 268);--c-verb:oklch(48% .2 22);--c-little:oklch(40% .12 170);--good:oklch(44% .12 165);--bad:oklch(50% .19 25);--r:16px;--r-btn:12px;--body:'Geist',system-ui,sans-serif;--head:'Amiri',Georgia,serif;--head-w:700;--fs:1.0625rem;--step-pad:0;
+--c-tip:oklch(82% .16 92);--i-tip:oklch(24% .05 85);--c-know:oklch(64% .15 235);--i-know:oklch(99% .01 235);--c-warn:oklch(62% .2 22);--i-warn:oklch(99% .01 22);--c-rem:oklch(54% .19 300);--i-rem:oklch(99% .01 300)}
+.top{background:var(--bg)}
+.top-in{max-width:46rem;margin:0 auto;padding:.8rem 1rem .55rem;display:flex;justify-content:space-between;align-items:center}
+.logo{display:inline-flex;gap:.5rem;align-items:center;font-family:'Amiri',Georgia,serif;font-size:1.35rem;font-weight:700;color:var(--accent)}
+.where{font-size:.9rem;color:var(--muted)}
+.bar{max-width:46rem;margin:0 auto;padding:0 1rem .7rem;display:grid;grid-auto-flow:column;grid-auto-columns:1fr;gap:.3rem}
+.bar button{height:4px;border:0;padding:0;border-radius:2px;background:var(--line);cursor:pointer;position:relative}
+.bar button::before{content:'';position:absolute;inset:-14px 0}
+.bar button:nth-child(1).done,.bar button:nth-child(1).on{background:oklch(62% .15 195)}.bar button:nth-child(2).done,.bar button:nth-child(2).on{background:oklch(60% .15 225)}.bar button:nth-child(3).done,.bar button:nth-child(3).on{background:oklch(56% .17 255)}.bar button:nth-child(4).done,.bar button:nth-child(4).on{background:oklch(53% .2 280)}.bar button:nth-child(5).done,.bar button:nth-child(5).on{background:oklch(56% .21 305)}.bar button:nth-child(6).done,.bar button:nth-child(6).on{background:oklch(60% .2 335)}.bar button:nth-child(7).done,.bar button:nth-child(7).on{background:oklch(63% .19 5)}.bar button:nth-child(8).done,.bar button:nth-child(8).on{background:oklch(68% .17 35)}.bar button:nth-child(9).done,.bar button:nth-child(9).on{background:oklch(76% .16 70)}
+.bar button.on{height:6px;margin-top:-1px}
+main{padding:0 0 7rem}
+.step-head{position:relative;overflow:hidden;color:oklch(99% .005 270);padding:2.4rem max(1.2rem,calc((100% - 44rem)/2)) 5.4rem;border-radius:0 0 34px 34px;background:radial-gradient(34rem 20rem at 108% 4%,oklch(62% .19 var(--h2)),transparent 62%),radial-gradient(30rem 20rem at 70% 130%,oklch(68% .17 var(--h3)),transparent 64%),radial-gradient(26rem 16rem at -10% 120%,oklch(52% .15 var(--h1)),transparent 66%),oklch(26% .085 var(--h1))}
+.step[data-step="0"]{--h1:265;--h2:300;--h3:30}.step[data-step="1"]{--h1:255;--h2:200;--h3:330}.step[data-step="2"]{--h1:300;--h2:30;--h3:250}.step[data-step="3"]{--h1:200;--h2:150;--h3:280}.step[data-step="4"]{--h1:280;--h2:330;--h3:60}.step[data-step="5"]{--h1:230;--h2:290;--h3:20}.step[data-step="6"]{--h1:20;--h2:330;--h3:260}.step[data-step="7"]{--h1:190;--h2:240;--h3:100}.step[data-step="8"]{--h1:270;--h2:310;--h3:60}
+.step-count{display:inline-block;margin:0 0 .9rem;padding:.25em .85em;border-radius:99px;background:oklch(100% 0 0 / .16);color:oklch(99% .005 270);font-size:.82rem;font-weight:500;max-width:none;box-shadow:inset 0 0 0 1px oklch(100% 0 0 / .22)}
+.step-title,.lesson-title{margin:0;color:oklch(99% .005 270);font-family:'Amiri',Georgia,serif;font-weight:700;letter-spacing:-.005em}
+.step-title{font-size:3rem;line-height:1.08;max-width:19ch}.lesson-title{font-size:3.5rem;line-height:1.04;max-width:13ch}
+.kicker-term{margin:.8rem 0 0;color:oklch(96% .02 270);font-size:1.1rem}
+.step-body{position:relative;z-index:2;margin:-3.2rem auto 0;width:min(46rem,calc(100% - 1.6rem));background:var(--surface);border-radius:22px;padding:1.9rem 1.9rem 2.2rem;box-shadow:0 1px 0 oklch(20% .02 270 / .05),0 30px 70px -28px oklch(30% .12 285 / .45)}
+.step-body>*:first-child{margin-top:0}
+.sentence{background:oklch(98.2% .01 270);border:1px solid var(--line);border-radius:16px;padding:1.6rem 1.1rem 1.1rem}
+.w{border-radius:12px;background:color-mix(in oklab,var(--t) 7%,var(--surface))}
+.callout{padding:1rem 1.1rem;border-radius:14px;box-shadow:inset 0 0 0 1px color-mix(in oklab,var(--ck) 40%,var(--surface))}
+.callout .ico{width:2.1rem;height:2.1rem;border-radius:10px}.callout svg{width:1.2rem;height:1.2rem}
+.callout b{font-size:.95rem}
+.part,.rule,.goal,.equation,.words-box li{border-radius:14px;border:1px solid var(--line);background:var(--surface)}
+.part.m{border:1.5px solid var(--accent)}.part.k{border:1.5px dashed var(--accent-2)}.rule{border:1.5px solid var(--accent)}
+.btn{border-radius:12px;border-width:1.5px}
+.opt{border:1px solid var(--line-2);border-radius:12px}.opt:hover{border-color:var(--accent)}
+.dock{position:fixed;left:0;right:0;bottom:0;background:oklch(99.5% .003 270 / .97);border-top:1px solid var(--line);z-index:6}
+.dock .pager{max-width:46rem;margin:0 auto;padding:.7rem 1rem}
+.pager .count{color:var(--muted);font-size:.92rem}
+@media (max-width:560px){.step-head{padding:1.7rem 1.1rem 4.8rem;border-radius:0 0 26px 26px}.step-title{font-size:2.3rem}.lesson-title{font-size:2.7rem}.step-body{padding:1.4rem 1.1rem 1.8rem;margin-top:-2.8rem}}
+</style></head>
+<body class="theme-h"><header class="top"><div class="top-in"><span class="logo"><svg class="mark" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="5.5" y="5.5" width="13" height="13"/><rect x="5.5" y="5.5" width="13" height="13" transform="rotate(45 12 12)"/></g></svg>Quranic Grammar</span><span class="where">Level 2 · Lesson 1 of 12</span></div><nav class="bar" aria-label="Lesson steps"><button type="button" aria-label="Step 1: Start" title="Start"><span class="visually-hidden">Start</span></button><button type="button" aria-label="Step 2: See it" title="See it"><span class="visually-hidden">See it</span></button><button type="button" aria-label="Step 3: No “is”" title="No “is”"><span class="visually-hidden">No “is”</span></button><button type="button" aria-label="Step 4: Two parts" title="Two parts"><span class="visually-hidden">Two parts</span></button><button type="button" aria-label="Step 5: The rule" title="The rule"><span class="visually-hidden">The rule</span></button><button type="button" aria-label="Step 6: More" title="More"><span class="visually-hidden">More</span></button><button type="button" aria-label="Step 7: Reversed" title="Reversed"><span class="visually-hidden">Reversed</span></button><button type="button" aria-label="Step 8: Try it" title="Try it"><span class="visually-hidden">Try it</span></button><button type="button" aria-label="Step 9: Done" title="Done"><span class="visually-hidden">Done</span></button></nav></header><main><section class="step" data-step="0" data-id="start" ><header class="step-head" data-n="1"><h1 class="lesson-title">Sentences without a verb</h1><p class="kicker-term">The nominal sentence <span class="ar-inline" lang="ar" dir="rtl">جُمْلَة اِسْمِيَّة</span></p></header><div class="step-body"><div class="goal"><h2>By the end you can</h2><p>Find the two parts of a nominal sentence, and say why both of them end in <b>-u</b>.</p></div>
+   <dl class="facts"><div><dt>Time</dt><dd>15 minutes, 9 short steps</dd></div><div><dt>Before you start</dt><dd>Noun, verb and little word (L1.04). The -u ending (L1.10).</dd></div></dl><div class="formula" aria-label="mubtadaʾ plus khabar equals a nominal sentence">
+  <span class="f m">mubtadaʾ<small>the topic</small></span><span class="op">+</span><span class="f k">khabar<small>the news</small></span><span class="op">=</span><span class="f s">nominal sentence<small>جُمْلَة اِسْمِيَّة</small></span></div><div class="words-box"><h2>Four words you will meet</h2><ul>
+     <li><b>Nominal sentence</b> <span class="ar-inline" lang="ar" dir="rtl">جُمْلَة اِسْمِيَّة</span> A sentence that starts with a noun.</li>
+     <li><b>Mubtadaʾ</b> <span class="ar-inline" lang="ar" dir="rtl">مُبْتَدَأ</span> What the sentence is about.</li>
+     <li><b>Khabar</b> <span class="ar-inline" lang="ar" dir="rtl">خَبَر</span> What the sentence says about it.</li>
+     <li><b>Nominative</b> <span class="ar-inline" lang="ar" dir="rtl">رَفْع</span> The -u ending.</li></ul></div></div></section>
+<section class="step" data-step="1" data-id="see" hidden><header class="step-head" data-n="2"><p class="step-count" data-n="02">Step 2 of 9</p><h2 class="step-title">Look at this sentence</h2></header><div class="step-body"><p>It is part of a verse about Allah. Read it from right to left.</p><figure class="sentence big"><div class="sent" dir="rtl" lang="ar"><div class="grp"><div class="chips"><div class="w noun"><span class="ar">هُوَ</span><span class="say">huwa</span><span class="en">he</span><span class="tag"><i class="shape"></i>Noun</span></div></div></div><div class="grp"><div class="chips"><div class="w noun"><span class="ar">ٱلْأَوَّلُ</span><span class="say">al-awwalu</span><span class="en">the First</span><span class="tag"><i class="shape"></i>Noun</span></div></div></div></div><p class="trans">He <span class="gap">is</span> the First.</p><figcaption>Al-Hadid 57:3 (part)</figcaption></figure><p class="legend" aria-label="Colour key"><span class="k noun"><i class="shape"></i>Noun (ism)</span><span class="k verb"><i class="shape"></i>Verb (fiʿl)</span><span class="k little"><i class="shape"></i>Little word (ḥarf)</span></p><p class="prompt"><b>Count the words.</b> The Arabic has two. The English has three. Which English word is extra?</p></div></section>
+<section class="step" data-step="2" data-id="no-is" hidden><header class="step-head" data-n="3"><p class="step-count" data-n="03">Step 3 of 9</p><h2 class="step-title">Arabic leaves out “is”</h2></header><div class="step-body"><p>English needs a small word like <i>is</i>, <i>am</i> or <i>are</i>: “The sky <u>is</u> blue.” Arabic does not. It puts two words side by side.</p><div class="tiles" aria-label="هُوَ, then nothing, then ٱلْأَوَّلُ: He is the First">
+  <div class="tile noun"><span class="ar">هُوَ</span><span class="en">he</span></div>
+  <div class="tile ghost"><span class="g">is</span><small>English only</small></div>
+  <div class="tile noun"><span class="ar">ٱلْأَوَّلُ</span><span class="en">the First</span></div></div><p>A sentence like this is called a <b>nominal sentence</b>, <span class="ar-inline" lang="ar" dir="rtl">جُمْلَة اِسْمِيَّة</span>. <i>Ism</i> means noun, so it is a sentence that starts with a noun. No verb is needed.</p>
+   <aside class="callout rem"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg></span><div><b>Remember</b><p>You add “is” when you say it in English. There is no Arabic word for it.</p></div></aside></div></section>
+<section class="step" data-step="3" data-id="parts" hidden><header class="step-head" data-n="4"><p class="step-count" data-n="04">Step 4 of 9</p><h2 class="step-title">Every nominal sentence has two parts</h2></header><div class="step-body"><div class="two"><div class="part m"><h3><span class="ar-inline" lang="ar" dir="rtl">مُبْتَدَأ</span> Mubtadaʾ</h3><p>The starting point. What the sentence is about.</p></div>
+   <div class="part k"><h3><span class="ar-inline" lang="ar" dir="rtl">خَبَر</span> Khabar</h3><p>The news. What the sentence says about it.</p></div></div><figure class="sentence "><div class="sent" dir="rtl" lang="ar"><div class="grp"><div class="chips"><div class="w noun"><span class="ar">هُوَ</span><span class="say">huwa</span><span class="en">he</span><span class="tag"><i class="shape"></i>Noun</span></div></div><div class="role mubtada"><b>mubtadaʾ</b> <span>the starting point</span></div></div><div class="grp"><div class="chips"><div class="w noun"><span class="ar">ٱلْأَوَّلُ</span><span class="say">al-awwalu</span><span class="en">the First</span><span class="tag"><i class="shape"></i>Noun</span></div></div><div class="role khabar"><b>khabar</b> <span>the news</span></div></div></div><p class="trans">He <span class="gap">is</span> the First.</p><figcaption>Al-Hadid 57:3 (part)</figcaption></figure><figure class="sentence "><div class="sent" dir="rtl" lang="ar"><div class="grp"><div class="chips"><div class="w noun"><span class="ar">ذَٰلِكَ</span><span class="say">dhalika</span><span class="en">that</span><span class="tag"><i class="shape"></i>Noun</span></div></div><div class="role mubtada"><b>mubtadaʾ</b> <span>the starting point</span></div></div><div class="grp"><div class="chips"><div class="w noun"><span class="ar">ٱلْكِتَٰبُ</span><span class="say">al-kitabu</span><span class="en">the Book</span><span class="tag"><i class="shape"></i>Noun</span></div></div><div class="role khabar"><b>khabar</b> <span>the news</span></div></div></div><p class="trans">That <span class="gap">is</span> the Book.</p><figcaption>Al-Baqarah 2:2 (part)</figcaption></figure><p>In the second sentence, <i>that</i> is the topic and <i>the Book</i> is the news about it.</p>
+   <aside class="callout know"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.01"/></svg></span><div><b>Good to know</b><p>Many grammar books say <b>subject</b> and <b>predicate</b>. They mean roughly the same as mubtadaʾ and khabar.</p></div></aside></div></section>
+<section class="step" data-step="4" data-id="rule" hidden><header class="step-head" data-n="5"><p class="step-count" data-n="05">Step 5 of 9</p><h2 class="step-title">The rule: both end in <span class="nb">-u</span></h2></header><div class="step-body"><div class="rule"><p class="rule-line">The mubtadaʾ and the khabar both take the <b>nominative</b> case, <span class="ar-inline" lang="ar" dir="rtl">رَفْع</span>.</p>
+   <p class="endings"><span><b class="ar" lang="ar">بُ</b> -u</span><span class="or">or</span><span><b class="ar" lang="ar">بٌ</b> -un</span></p></div><figure class="sentence "><div class="sent" dir="rtl" lang="ar"><div class="grp"><div class="chips"><div class="w noun"><span class="ar">وَٱللَّهُ</span><span class="say">wa-llahu</span><span class="en">and Allah</span><span class="tag"><i class="shape"></i>Noun</span></div></div><div class="role mubtada"><b>mubtadaʾ</b> <span>the starting point</span></div></div><div class="grp"><div class="chips"><div class="w noun"><span class="ar">غَفُورٌ</span><span class="say">ghafurun</span><span class="en">Forgiving</span><span class="tag"><i class="shape"></i>Noun</span></div><div class="w noun"><span class="ar">رَّحِيمٌ</span><span class="say">rahimun</span><span class="en">Merciful</span><span class="tag"><i class="shape"></i>Noun</span></div></div><div class="role khabar"><b>khabar</b> <span>the news</span></div></div></div><p class="trans">And Allah <span class="gap">is</span> Forgiving, Merciful.</p><figcaption>Al-Baqarah 2:218 (end)</figcaption></figure><p><span class="ar-inline" lang="ar" dir="rtl">ٱللَّهُ</span> ends in <b>-u</b>. <span class="ar-inline" lang="ar" dir="rtl">غَفُورٌ</span> and <span class="ar-inline" lang="ar" dir="rtl">رَّحِيمٌ</span> end in <b>-un</b>. The khabar can be more than one word. Both words say something about Allah.</p>
+   <aside class="callout know"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.01"/></svg></span><div><b>Good to know</b><p>Words like <i>huwa</i> (he) and <i>dhalika</i> (that) never show an ending. They are still the mubtadaʾ.</p></div></aside>
+   <aside class="callout warn"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3l10 18H2L12 3z"/><path d="M12 10v5M12 18v.01"/></svg></span><div><b>Watch out</b><p>The mubtadaʾ is not the doer of a verb (the <i>fāʿil</i>). Both end in -u, but they belong to different sentence types. You will meet the fāʿil in L2.03.</p></div></aside></div></section>
+<section class="step" data-step="5" data-id="more" hidden><header class="step-head" data-n="6"><p class="step-count" data-n="06">Step 6 of 9</p><h2 class="step-title">A longer one</h2></header><div class="step-body"><p>The mubtadaʾ is a single word here, and the khabar is a group of words that belong together.</p><figure class="sentence "><div class="sent" dir="rtl" lang="ar"><div class="grp"><div class="chips"><div class="w noun"><span class="ar">ٱللَّهُ</span><span class="say">allahu</span><span class="en">Allah</span><span class="tag"><i class="shape"></i>Noun</span></div></div><div class="role mubtada"><b>mubtadaʾ</b> <span>the starting point</span></div></div><div class="grp"><div class="chips"><div class="w noun"><span class="ar">نُورُ</span><span class="say">nuru</span><span class="en">light of</span><span class="tag"><i class="shape"></i>Noun</span></div><div class="w noun"><span class="ar">ٱلسَّمَٰوَٰتِ</span><span class="say">as-samawati</span><span class="en">the heavens</span><span class="tag"><i class="shape"></i>Noun</span></div><div class="w noun"><span class="ar">وَٱلْأَرْضِ</span><span class="say">wa-l-ardi</span><span class="en">and the earth</span><span class="tag"><i class="shape"></i>Noun</span></div></div><div class="role khabar"><b>khabar</b> <span>the news</span></div></div></div><p class="trans">Allah <span class="gap">is</span> the light of the heavens and the earth.</p><figcaption>An-Nur 24:35 (part)</figcaption></figure><p>Look for the -u ending to find where each part starts. <span class="ar-inline" lang="ar" dir="rtl">ٱللَّهُ</span> is the topic. <span class="ar-inline" lang="ar" dir="rtl">نُورُ</span> begins the news, and the words after it finish the idea.</p>
+   <aside class="callout tip"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2V16h5v-.1c0-.8.4-1.5 1-2A6 6 0 0 0 12 3z"/></svg></span><div><b>Tip</b><p>To find the end of the khabar, say the whole phrase out loud. Stop when the idea is finished.</p></div></aside></div></section>
+<section class="step" data-step="6" data-id="first" hidden><header class="step-head" data-n="7"><p class="step-count" data-n="07">Step 7 of 9</p><h2 class="step-title">Sometimes the news comes first</h2></header><div class="step-body"><p>The khabar can be a little phrase such as “for you”. Then it often comes <b>before</b> the mubtadaʾ.</p><figure class="sentence "><div class="sent" dir="rtl" lang="ar"><div class="grp"><div class="chips"><div class="w little"><span class="ar">لَكُمْ</span><span class="say">lakum</span><span class="en">for you</span><span class="tag"><i class="shape"></i>Little word</span></div></div><div class="role khabar"><b>khabar</b> <span>the news</span></div></div><div class="grp"><div class="chips"><div class="w noun"><span class="ar">دِينُكُمْ</span><span class="say">dinukum</span><span class="en">your religion</span><span class="tag"><i class="shape"></i>Noun</span></div></div><div class="role mubtada"><b>mubtadaʾ</b> <span>the starting point</span></div></div></div><p class="trans">For you <span class="gap">is</span> your religion.</p><figcaption>Al-Kafirun 109:6</figcaption></figure><p>Word for word: “For you <u>is</u> your religion.” The mubtadaʾ is still the word that ends in <b>-u</b>.</p>
+   <aside class="callout tip"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2V16h5v-.1c0-.8.4-1.5 1-2A6 6 0 0 0 12 3z"/></svg></span><div><b>Tip</b><p>A phrase that starts with a little word like <i>li-</i> (for) is not the topic. The topic is the next word that ends in -u.</p></div></aside></div></section>
+<section class="step" data-step="7" data-id="try" hidden><header class="step-head" data-n="8"><p class="step-count" data-n="08">Step 8 of 9</p><h2 class="step-title">Try it</h2></header><div class="step-body"><p>Three quick questions. Pick an answer to see if you are right.</p><figure class="sentence "><div class="sent" dir="rtl" lang="ar"><div class="grp"><div class="chips"><div class="w noun"><span class="ar">وَٱللَّهُ</span><span class="say">wa-llahu</span><span class="en">and Allah</span><span class="tag"><i class="shape"></i>Noun</span></div></div></div><div class="grp"><div class="chips"><div class="w noun"><span class="ar">غَفُورٌ</span><span class="say">ghafurun</span><span class="en">Forgiving</span><span class="tag"><i class="shape"></i>Noun</span></div><div class="w noun"><span class="ar">رَّحِيمٌ</span><span class="say">rahimun</span><span class="en">Merciful</span><span class="tag"><i class="shape"></i>Noun</span></div></div></div></div><p class="trans">And Allah <span class="gap">is</span> Forgiving, Merciful.</p><figcaption>Al-Baqarah 2:218 (end)</figcaption></figure><figure class="sentence "><div class="sent" dir="rtl" lang="ar"><div class="grp"><div class="chips"><div class="w noun"><span class="ar">هُوَ</span><span class="say">huwa</span><span class="en">he</span><span class="tag"><i class="shape"></i>Noun</span></div></div></div><div class="grp"><div class="chips"><div class="w noun"><span class="ar">ٱلْأَوَّلُ</span><span class="say">al-awwalu</span><span class="en">the First</span><span class="tag"><i class="shape"></i>Noun</span></div></div></div></div><p class="trans">He <span class="gap">is</span> the First.</p><figcaption>Al-Hadid 57:3 (part)</figcaption></figure><div class="check" data-answer="0"><p class="q"><span class="qn">1</span><span>In <span class="ar-inline" lang="ar" dir="rtl">ٱللَّهُ غَفُورٌ رَّحِيمٌ</span>, which word is the mubtadaʾ (the starting point)?</span></p><div class="opts" role="group"><button type="button" class="opt" data-k="0"><span class="ar-inline" lang="ar" dir="rtl">ٱللَّهُ</span></button><button type="button" class="opt" data-k="1"><span class="ar-inline" lang="ar" dir="rtl">غَفُورٌ</span></button><button type="button" class="opt" data-k="2"><span class="ar-inline" lang="ar" dir="rtl">رَّحِيمٌ</span></button></div><p class="fb" role="status" aria-live="polite" hidden></p><p class="why" hidden><span class="ar-inline" lang="ar" dir="rtl">ٱللَّهُ</span> is what the sentence is about. The other two words say something about Allah, so they are the khabar.</p></div><div class="check" data-answer="1"><p class="q"><span class="qn">2</span><span>In <span class="ar-inline" lang="ar" dir="rtl">هُوَ ٱلْأَوَّلُ</span>, which English word has no Arabic word?</span></p><div class="opts" role="group"><button type="button" class="opt" data-k="0">He</button><button type="button" class="opt" data-k="1">is</button><button type="button" class="opt" data-k="2">the First</button></div><p class="fb" role="status" aria-live="polite" hidden></p><p class="why" hidden>Arabic puts the two words side by side. You add “is” when you say it in English.</p></div><div class="check" data-answer="0"><p class="q"><span class="qn">3</span><span>Which ending do the mubtadaʾ and the khabar both take?</span></p><div class="opts" role="group"><button type="button" class="opt" data-k="0">-u or -un (damma)</button><button type="button" class="opt" data-k="1">-a or -an (fatha)</button><button type="button" class="opt" data-k="2">-i or -in (kasra)</button></div><p class="fb" role="status" aria-live="polite" hidden></p><p class="why" hidden>Both parts are in the nominative case (rafʿ). That is the -u family.</p></div></div></section>
+<section class="step" data-step="8" data-id="done" hidden><header class="step-head" data-n="9"><p class="step-count" data-n="09">Step 9 of 9</p><h2 class="step-title">You have finished the lesson</h2></header><div class="step-body"><ul class="keys"><li>A nominal sentence starts with a noun and needs no verb.</li><li>It has two parts: the <b>mubtadaʾ</b> (topic) and the <b>khabar</b> (news).</li><li>Both end in <b>-u</b> or <b>-un</b>. Add “is” in English only.</li></ul>
+   <div class="cta"><a class="btn primary" href="#check">Take the 5-question check</a><p class="muted">Pass it to open L2.02. <a href="#skip">Skip anyway</a></p></div><div class="formula" aria-label="mubtadaʾ plus khabar equals a nominal sentence">
+  <span class="f m">mubtadaʾ<small>the topic</small></span><span class="op">+</span><span class="f k">khabar<small>the news</small></span><span class="op">=</span><span class="f s">nominal sentence<small>جُمْلَة اِسْمِيَّة</small></span></div><div class="sources"><h2>Where this comes from</h2><ul>
+     <li>Quran text: <a href="https://tanzil.net">Tanzil</a></li>
+     <li>Word-by-word analysis: <a href="https://corpus.quran.com">Quranic Arabic Corpus</a></li>
+     <li>Grammar: Quranic Arabic Corpus, grammar documentation; <i>al-Ajurrumiyyah</i>, chapter on al-mubtadaʾ wa-l-khabar</li></ul>
+     <p class="muted">Source lines are placeholders in this mockup. Exact pages are confirmed before publishing.</p>
+     <p><a href="#report">Found a mistake? Tell us.</a></p></div></div></section></main><div class="dock"><div class="pager"><button class="btn" id="back" type="button">Back</button><span class="count" id="count" role="status"></span><button class="btn primary" id="next" type="button">Start</button></div></div><p class="foot">Quran text: Tanzil · Word analysis: Quranic Arabic Corpus · Mockup, not final</p>
+<script>
+const steps=[...document.querySelectorAll('.step')],dots=[...document.querySelectorAll('.bar button')];
+const nameOf=n=>steps[n].dataset.id;let cur=0;
+const next=document.getElementById('next'),back=document.getElementById('back'),count=document.getElementById('count');
+function show(n,scroll=true){cur=Math.max(0,Math.min(steps.length-1,n));
+ if(new URLSearchParams(location.search).has('all')){steps.forEach(s=>s.hidden=false);return}
+ steps.forEach((s,k)=>s.hidden=k!==cur);
+ dots.forEach((d,k)=>{d.classList.toggle('on',k===cur);d.classList.toggle('done',k<cur);d.setAttribute('aria-current',k===cur?'step':'false')});
+ count.textContent='Step '+(cur+1)+' of '+steps.length;
+ back.disabled=cur===0;next.textContent=cur===steps.length-1?'Check':cur===0?'Start':'Next';
+ next.disabled=false;history.replaceState(null,'','#'+nameOf(cur));if(scroll)window.scrollTo(0,0)}
+next.onclick=()=>{if(cur<steps.length-1)show(cur+1)};back.onclick=()=>show(cur-1);
+dots.forEach((d,k)=>d.onclick=()=>show(k));
+document.addEventListener('keydown',e=>{if(e.target.closest('.check,input,textarea'))return;if(e.key==='ArrowRight')show(cur+1);if(e.key==='ArrowLeft')show(cur-1)});
+document.querySelectorAll('.check').forEach(c=>{const ans=+c.dataset.answer,fb=c.querySelector('.fb'),why=c.querySelector('.why');
+ c.querySelectorAll('.opt').forEach(o=>o.onclick=()=>{const ok=+o.dataset.k===ans;c.querySelectorAll('.opt').forEach(x=>x.classList.remove('wrong'));
+  if(ok){o.classList.add('right');fb.textContent='Right.';why.hidden=false}else{o.classList.add('wrong');fb.textContent='Not quite. Try another.';why.hidden=true}fb.hidden=false})});
+window.addEventListener('message',e=>{if(e.data&&e.data.type==='step')show(e.data.n,false)});
+const fromHash=()=>{const h=location.hash.slice(1);const idx=steps.findIndex(s=>s.dataset.id===h);return idx>=0?idx:0};
+window.addEventListener('hashchange',()=>{const k=fromHash();if(k!==cur)show(k,false)});
+show(fromHash(),false);
+</script></body></html>
