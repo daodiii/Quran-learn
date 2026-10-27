@@ -1,0 +1,113 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Container from '../../components/primitives/Container.astro';
+import { getCollection } from 'astro:content';
+
+const hadith = (await getCollection('hadith')).sort((a, b) => a.data.number - b.data.number);
+const description = "Al-Nawawi's Forty Hadith (42 with Ibn Rajab's two), each with the Arabic and full vowel marks, an English translation, and a word-by-word explanation of why every word is written the way it is.";
+---
+
+<BaseLayout title="Forty Hadith" description={description}>
+  <Container maxWidth="md">
+    <article class="hadith-index">
+      <header class="page-header">
+        <p class="arabic-heading" dir="rtl" lang="ar">الْأَرْبَعُونَ النَّوَوِيَّةُ</p>
+        <h1>Forty Hadith of al-Nawawi</h1>
+        <p class="subtitle">The 42 hadith, each with the Arabic, an English translation, and a word-by-word explanation of why every word is written the way it is. Read them to memorize, and see why the words are what they are.</p>
+      </header>
+
+      <ol class="hadith-list">
+        {hadith.map((h) => (
+          <li>
+            <a href={`/hadith/${h.id}/`} class="hadith-item">
+              <span class="num">{h.data.number}</span>
+              <span class="body">
+                <span class="title">{h.data.title}</span>
+                <span class="ar" lang="ar" dir="rtl">{h.data.titleArabic}</span>
+                <span class="meta">
+                  Narrated by {h.data.narrator}
+                  {h.data.ibnRajabAddition && ' · Added by Ibn Rajab'}
+                </span>
+              </span>
+            </a>
+          </li>
+        ))}
+      </ol>
+
+      <p class="feedback">
+        Want to give feedback on this page? <a href="/about/#feedback">Tell us here</a>.
+      </p>
+    </article>
+  </Container>
+</BaseLayout>
+
+<style>
+  .hadith-index { padding-block: 2rem 4rem; }
+
+  .page-header { text-align: center; margin-bottom: 2.5rem; }
+  .arabic-heading {
+    font-family: var(--font-arabic, 'Amiri', serif);
+    font-size: 2rem;
+    color: var(--accent-gold);
+    margin-bottom: 0.5rem;
+  }
+  .page-header h1 {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    letter-spacing: -0.03em;
+  }
+  .subtitle {
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+    max-width: 36rem;
+    margin-inline: auto;
+    line-height: 1.6;
+  }
+
+  .hadith-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 0.75rem;
+  }
+  .hadith-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.25rem;
+    border: 1px solid var(--border-primary);
+    border-radius: 0.75rem;
+    background: var(--bg-secondary, transparent);
+    text-decoration: none;
+    color: inherit;
+    transition: border-color var(--transition-fast, 0.15s);
+  }
+  .hadith-item:hover, .hadith-item:focus-visible { border-color: var(--accent-gold); }
+  .num {
+    flex: none;
+    inline-size: 2.5rem;
+    block-size: 2.5rem;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    border: 1px solid var(--accent-gold);
+    color: var(--accent-gold);
+    font-weight: 600;
+  }
+  .body { display: grid; gap: 0.15rem; min-inline-size: 0; flex: 1; }
+  .title { font-weight: 600; color: var(--text-primary); }
+  .ar {
+    font-family: var(--font-arabic, 'Amiri', serif);
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    text-align: right;
+  }
+  .meta { font-size: 0.875rem; color: var(--text-tertiary, var(--text-secondary)); }
+
+  .feedback { margin-top: 2.5rem; color: var(--text-secondary); }
+  .feedback a { text-decoration: underline; }
+</style>

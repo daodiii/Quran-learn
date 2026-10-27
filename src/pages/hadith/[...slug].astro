@@ -1,0 +1,28 @@
+---
+import { getCollection, render } from 'astro:content';
+import HadithLayout from '../../layouts/HadithLayout.astro';
+
+export async function getStaticPaths() {
+  const hadith = await getCollection('hadith');
+
+  return hadith.map((entry) => ({
+    params: { slug: entry.id },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+---
+
+<HadithLayout
+  title={entry.data.title}
+  titleArabic={entry.data.titleArabic}
+  number={entry.data.number}
+  narrator={entry.data.narrator}
+  recordedBy={entry.data.recordedBy}
+  ibnRajabAddition={entry.data.ibnRajabAddition}
+  description={entry.data.description}
+>
+  <Content />
+</HadithLayout>

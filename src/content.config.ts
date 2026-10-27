@@ -44,6 +44,20 @@ const surahs = defineCollection({
   }),
 });
 
+const hadith = defineCollection({
+  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/hadith' }),
+  schema: z.object({
+    title: z.string(),
+    titleArabic: z.string(),
+    number: z.number().int().min(1).max(42),
+    narrator: z.string(),
+    recordedBy: z.string(),
+    // Hadith 41 and 42 are Ibn Rajab's additions to Nawawi's forty.
+    ibnRajabAddition: z.boolean().default(false),
+    description: z.string().optional(),
+  }),
+});
+
 const resources = defineCollection({
   loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/resources' }),
   schema: z.object({
@@ -69,6 +83,7 @@ const ebooks = defineCollection({
 export const collections = {
   lessons,
   surahs,
+  hadith,
   resources,
   ebooks,
 };

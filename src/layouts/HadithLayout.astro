@@ -1,0 +1,182 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import BreadcrumbSchema from '../components/seo/BreadcrumbSchema.astro';
+import ArticleSchema from '../components/seo/ArticleSchema.astro';
+import Breadcrumbs from '../components/navigation/Breadcrumbs.astro';
+import { getCollection } from 'astro:content';
+import '../styles/night.css';
+import '../styles/lesson-lab.css';
+
+interface Props {
+  title: string; titleArabic: string; number: number;
+  narrator: string; recordedBy: string; ibnRajabAddition?: boolean;
+  description?: string;
+}
+const { title, titleArabic, number, narrator, recordedBy, ibnRajabAddition, description } = Astro.props;
+
+const all = (await getCollection('hadith')).sort((a, b) => a.data.number - b.data.number);
+const idx = all.findIndex((h) => h.data.number === number);
+const prev = idx > 0 ? all[idx - 1] : null;
+const next = idx >= 0 && idx < all.length - 1 ? all[idx + 1] : null;
+const hrefFor = (e: typeof all[number] | null) => e ? `/hadith/${e.id.replace(/\.mdx?$/, '')}/` : null;
+
+const pageDescription = description || `Hadith ${number} of al-Nawawi's Forty Hadith, ${title}: the Arabic with full vowel marks, an English translation, and a word-by-word explanation of why each word is written the way it is.`;
+const breadcrumbItems = [ { label: 'Home', href: '/' }, { label: 'Hadith', href: '/hadith/' }, { label: `Hadith ${number}` } ];
+const fontsHref = "https://fonts.googleapis.com/css2?family=Amiri+Quran&family=Amiri:ital,wght@0,400;0,700;1,400&family=Marcellus&family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&display=swap";
+---
+
+<BaseLayout title={`Hadith ${number}: ${title}`} description={pageDescription} type="article">
+  <Fragment slot="head">
+    <BreadcrumbSchema items={breadcrumbItems} />
+    <ArticleSchema title={`Hadith ${number}: ${title}`} description={pageDescription} url={Astro.url.pathname} />
+
+    <!-- Same always-night treatment as the surah pages; never touches localStorage. -->
+    <script is:inline>
+      (function () {
+        document.documentElement.dataset.theme = 'dark';
+        document.addEventListener('astro:page-load', function () { document.documentElement.dataset.theme = 'dark'; });
+        document.addEventListener('astro:after-swap', function () { document.documentElement.dataset.theme = 'dark'; });
+      })();
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href={fontsHref} media="print" onload="this.media='all'" />
+    <noscript><link rel="stylesheet" href={fontsHref} /></noscript>
+  </Fragment>
+
+  <div class="lesson-page">
+    <div class="lesson-grid lab">
+      <main class="lesson-main">
+        <Breadcrumbs items={breadcrumbItems} />
+
+        <article class="lesson-article hadith-article">
+          <header class="lesson-header">
+            <p class="sess">
+              <span class="level-badge">Hadith {number}</span>
+              {ibnRajabAddition && <span class="lesson-position">Added by Ibn Rajab</span>}
+            </p>
+            <h1 class="lesson-title">{title}</h1>
+            <p class="lesson-arabic" lang="ar" dir="rtl">{titleArabic}</p>
+            <p class="lesson-description">Narrated by {narrator}. Recorded by {recordedBy}.</p>
+          </header>
+
+          <div class="lesson-content">
+            <slot />
+          </div>
+
+          <p class="hadith-feedback">
+            Want to give feedback on this page? <a href="/about/#feedback">Tell us here</a>.
+          </p>
+
+          <nav class="pager" aria-label="Hadith navigation">
+            {prev ? (
+              <a href={hrefFor(prev)} class="page-link prev"><span class="dir">&larr; Previous</span><span class="pt">Hadith {prev.data.number}</span></a>
+            ) : <div></div>}
+            {next ? (
+              <a href={hrefFor(next)} class="page-link next"><span class="dir">Next &rarr;</span><span class="pt">Hadith {next.data.number}</span></a>
+            ) : <div></div>}
+          </nav>
+        </article>
+      </main>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .hadith-feedback {
+    margin-block: 2.5rem 1.5rem;
+    font-size: 0.95rem;
+    color: var(--text-secondary, inherit);
+  }
+  .hadith-feedback a { text-decoration: underline; }
+
+  /*
+   * Phones: the word table becomes one card per word (Arabic, transliteration,
+   * meaning, then the "why"), so the last column never hides behind a sideways swipe.
+   * Columns are: 1 #, 2 Arabic, 3 Transliteration, 4 Meaning, 5 Why.
+   */
+  @media (max-width: 640px) {
+    .hadith-article :global(.lesson-content .table-wrapper) {
+      overflow: visible;
+      border: none;
+      background: none;
+      margin-block: 1rem;
+    }
+    .hadith-article :global(.lesson-content table),
+    .hadith-article :global(.lesson-content tbody) {
+      display: block;
+      min-width: 0;
+      width: 100%;
+    }
+    .hadith-article :global(.lesson-content thead) {
+      display: none;
+    }
+    .hadith-article :global(.lesson-content tbody) {
+      display: grid;
+      gap: 0.75rem;
+    }
+    .hadith-article :global(.lesson-content tbody tr) {
+      display: grid;
+      grid-template-columns: 2rem minmax(0, 1fr);
+      grid-template-areas:
+        'num ar'
+        'num tr'
+        'num en'
+        'why why';
+      column-gap: 0.75rem;
+      row-gap: 0.25rem;
+      padding: 0.875rem;
+      border: 1px solid var(--hairline);
+      border-radius: 12px;
+      background: var(--bg-cell);
+    }
+    .hadith-article :global(.lesson-content tbody td) {
+      display: block;
+      padding: 0;
+      border: none;
+      min-width: 0;
+    }
+    .hadith-article :global(.lesson-content tbody td:nth-child(1)) {
+      grid-area: num;
+      color: var(--gold);
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      padding-top: 0.4rem;
+    }
+    .hadith-article :global(.lesson-content tbody td:nth-child(2)) {
+      grid-area: ar;
+      font-family: var(--font-ar, 'Amiri', serif);
+      font-size: 1.6rem;
+      line-height: 1.7;
+      color: var(--ink);
+      direction: rtl;
+      text-align: right;
+    }
+    .hadith-article :global(.lesson-content tbody td:nth-child(3)) {
+      grid-area: tr;
+      font-style: italic;
+    }
+    .hadith-article :global(.lesson-content tbody td:nth-child(4)) {
+      grid-area: en;
+      color: var(--ink);
+      font-weight: 600;
+    }
+    .hadith-article :global(.lesson-content tbody td:nth-child(5)) {
+      grid-area: why;
+      margin-top: 0.5rem;
+      padding-top: 0.625rem;
+      border-top: 1px solid var(--hairline-soft);
+      line-height: 1.6;
+    }
+    .hadith-article :global(.lesson-content tbody td:nth-child(5))::before {
+      content: 'Why it is written this way';
+      display: block;
+      margin-bottom: 0.25rem;
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+  }
+</style>
