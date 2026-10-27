@@ -1,0 +1,102 @@
+---
+/**
+ * Layout for the stepped lesson template (frontmatter `template: steps`).
+ * The lesson body is a run of <Step> sections; src/scripts/lesson-steps.ts shows one at a time.
+ * Without JavaScript every step stays visible in order, so the lesson still reads top to bottom.
+ */
+import BaseLayout from './BaseLayout.astro';
+import BreadcrumbSchema from '../components/seo/BreadcrumbSchema.astro';
+import ArticleSchema from '../components/seo/ArticleSchema.astro';
+import '../styles/lesson-steps.css';
+
+interface Props {
+  title: string;
+  level: number;
+  description?: string;
+  nextLesson?: string;
+  prevLesson?: string;
+  datePublished?: Date;
+  dateModified?: Date;
+  positionInLevel?: { index: number; total: number };
+  lessonSlug: string;
+}
+
+const { title, level, description, nextLesson, prevLesson, datePublished, dateModified, positionInLevel, lessonSlug } =
+  Astro.props;
+
+const levelNames: Record<number, string> = {
+  1: 'Foundation',
+  2: 'Core Grammar',
+  3: 'Intermediate',
+  4: 'Advanced',
+  5: 'Applied Study',
+};
+const educationalLevels: Record<number, string> = { 1: 'Beginner', 2: 'Beginner', 3: 'Intermediate', 4: 'Advanced', 5: 'Advanced' };
+
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  { label: 'Learn', href: '/learn/' },
+  { label: `Level ${level}`, href: `/learn/#level-${level}` },
+  { label: title },
+];
+---
+
+<BaseLayout title={title} description={description} type="article">
+  <Fragment slot="head">
+    <BreadcrumbSchema items={breadcrumbItems} />
+    <ArticleSchema
+      title={title}
+      description={description || `${levelNames[level]} lesson on ${title} in Quranic Arabic grammar.`}
+      url={Astro.url.pathname}
+      type="LearningResource"
+      educationalLevel={educationalLevels[level]}
+      datePublished={datePublished}
+      dateModified={dateModified}
+      isPartOfCourse={true}
+    />
+    {prevLesson && <link rel="prev" href={new URL(prevLesson, Astro.site).href} />}
+    {nextLesson && <link rel="next" href={new URL(nextLesson, Astro.site).href} />}
+  </Fragment>
+
+  <div
+    class="lx"
+    data-lx
+    data-lesson-slug={lessonSlug}
+    data-next={nextLesson}
+    data-prev={prevLesson}
+  >
+    <nav class="lx-bar" aria-label="Lesson steps"></nav>
+
+    <div class="lx-wrap">
+      <p class="lx-crumb">
+        <a href={`/learn/#level-${level}`}>Level {level} · {levelNames[level]}</a>
+        {positionInLevel && <span> · Lesson {positionInLevel.index} of {positionInLevel.total}</span>}
+      </p>
+
+      <article class="lx-article">
+        <slot />
+      </article>
+
+      <div class="lx-finish" data-lx-finish hidden>
+        <div class="lx-finish-row">
+          <button type="button" class="lx-btn lx-btn-primary" data-lx-complete>
+            <span data-lx-complete-text>Mark lesson complete</span>
+          </button>
+        </div>
+        <p class="lx-muted" data-lx-complete-status role="status" hidden>Saved. This lesson is marked complete.</p>
+      </div>
+    </div>
+
+    <div class="lx-dock" data-lx-dock>
+      <div class="lx-dock-in">
+        <button type="button" class="lx-btn" data-lx-back>Back</button>
+        <span class="lx-dock-count" data-lx-count role="status"></span>
+        <button type="button" class="lx-btn lx-btn-primary" data-lx-next>Start</button>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<script>
+  import '../scripts/lesson-steps';
+</script>

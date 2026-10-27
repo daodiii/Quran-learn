@@ -1,0 +1,831 @@
+/* Stepped lesson template ("Stage" look). Everything is scoped under .lx and prefixed lx-,
+   so it cannot touch the classic lessons. Light on purpose; it ignores the site theme toggle. */
+
+@font-face {
+  font-family: 'Geist';
+  src: url('/fonts/geist-400.woff2') format('woff2');
+  font-weight: 400;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Geist';
+  src: url('/fonts/geist-500.woff2') format('woff2');
+  font-weight: 500 700;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+.lx {
+  --lx-bg: oklch(98.6% 0.006 215);
+  --lx-surface: oklch(99.7% 0.003 215);
+  --lx-text: oklch(22% 0.035 230);
+  --lx-muted: oklch(43% 0.025 230);
+  --lx-line: oklch(90% 0.014 215);
+  --lx-line-2: oklch(80% 0.03 215);
+  --lx-accent: oklch(40% 0.1 178);
+  --lx-on-accent: oklch(98.5% 0.01 178);
+  --lx-accent-2: oklch(68% 0.16 62);
+  --lx-accent-2-text: oklch(46% 0.13 55);
+  --lx-focus: oklch(50% 0.16 255);
+  --lx-noun: oklch(41% 0.14 258);
+  --lx-verb: oklch(48% 0.18 25);
+  --lx-little: oklch(40% 0.11 160);
+  --lx-good: oklch(44% 0.12 160);
+  --lx-bad: oklch(50% 0.18 28);
+  --lx-tip: oklch(84% 0.15 92);
+  --lx-tip-ink: oklch(24% 0.05 85);
+  --lx-know: oklch(70% 0.11 230);
+  --lx-know-ink: oklch(18% 0.04 230);
+  --lx-warn: oklch(66% 0.17 32);
+  --lx-warn-ink: oklch(99% 0.01 32);
+  --lx-rem: oklch(60% 0.14 305);
+  --lx-rem-ink: oklch(99% 0.01 305);
+  --lx-r: 14px;
+  --lx-font: 'Geist', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  background: var(--lx-bg);
+  color: var(--lx-text);
+  font-family: var(--lx-font);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  min-height: 60vh;
+  overflow-x: clip;
+}
+/* The fixed bottom bar must not hide the cookie notice buttons. */
+body:has([data-lx]) #cookie-banner {
+  bottom: 5.6rem !important;
+}
+.lx *,
+.lx *::before,
+.lx *::after {
+  box-sizing: border-box;
+}
+.lx a {
+  color: var(--lx-accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.lx a.lx-btn {
+  text-decoration: none;
+}
+.lx :focus-visible {
+  outline: 3px solid var(--lx-focus);
+  outline-offset: 3px;
+}
+.lx .ar,
+.lx .ar-inline,
+.lx .lx-ar {
+  font-family: var(--font-arabic, 'KFGQPC Hafs Uthmani', 'Amiri', 'Traditional Arabic', serif);
+  letter-spacing: 0;
+  font-weight: 400;
+}
+.lx .ar,
+.lx .ar-inline {
+  font-size: 1.25em;
+  line-height: 1.5;
+  margin-inline: 0.2em;
+  direction: rtl;
+  unicode-bidi: isolate;
+}
+.lx-nb,
+.lx p b,
+.lx li b {
+  white-space: nowrap;
+}
+
+/* ---- progress bar ---- */
+.lx-bar {
+  max-width: 74rem;
+  margin: 0 auto;
+  padding: 0.9rem 1.4rem 0.2rem;
+  display: none;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  gap: 0.35rem;
+}
+.lx-js .lx-bar {
+  display: grid;
+}
+.lx-seg {
+  height: 3px;
+  border: 0;
+  padding: 0;
+  border-radius: 2px;
+  background: var(--lx-line);
+  cursor: pointer;
+  position: relative;
+}
+.lx-seg::before {
+  content: '';
+  position: absolute;
+  inset: -14px 0;
+}
+.lx-seg.done {
+  background: var(--lx-accent);
+}
+.lx-seg.on {
+  background: var(--lx-accent-2);
+  height: 5px;
+  margin-top: -1px;
+}
+
+.lx-wrap {
+  max-width: 74rem;
+  margin: 0 auto;
+  padding: 0 1.4rem 8rem;
+}
+.lx-crumb {
+  margin: 1rem 0 0;
+  font-size: 0.9rem;
+  color: var(--lx-muted);
+}
+
+/* ---- steps ---- */
+.lx-step {
+  display: grid;
+  grid-template-columns: minmax(0, 34rem) minmax(0, 1fr);
+  column-gap: 3.5rem;
+  row-gap: 0;
+  align-content: start;
+  padding: 1.6rem 0 1rem;
+}
+.lx-step[hidden] {
+  display: none;
+}
+.lx-step > * {
+  grid-column: 1;
+}
+.lx-step > .lx-stage {
+  grid-column: 2;
+  grid-row: 1 / span 40;
+  position: sticky;
+  top: 5.5rem;
+  align-self: start;
+}
+.lx-count {
+  display: none;
+  align-items: baseline;
+  gap: 0.6rem;
+  margin: 0 0 0.8rem;
+  font-size: 0.9rem;
+  color: var(--lx-muted);
+  max-width: none;
+}
+.lx-js .lx-count {
+  display: flex;
+}
+.lx-num {
+  font-size: 2.6rem;
+  color: var(--lx-accent-2);
+  letter-spacing: -0.04em;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+.lx-title {
+  margin: 0;
+  font-size: 2.6rem;
+  font-weight: 500;
+  letter-spacing: -0.035em;
+  line-height: 1.1;
+  max-width: 17ch;
+  text-wrap: balance;
+}
+.lx-title-hero {
+  font-size: 3.3rem;
+  max-width: 12ch;
+}
+.lx-title:focus {
+  outline: none;
+}
+.lx-kicker {
+  margin: 0.8rem 0 0;
+  color: var(--lx-muted);
+  font-size: 1.1rem;
+}
+.lx-head {
+  margin-bottom: 1.4rem;
+}
+.lx-step p {
+  margin: 0 0 1em;
+  max-width: 62ch;
+}
+.lx-step ul,
+.lx-step ol {
+  padding-inline-start: 1.4rem;
+  margin: 0 0 1em;
+}
+.lx-step ul {
+  list-style: disc;
+}
+.lx-step ol {
+  list-style: decimal;
+}
+.lx-step ul::marker,
+.lx-step li::marker {
+  color: var(--lx-accent-2);
+}
+.lx-step li {
+  margin-bottom: 0.5em;
+}
+.lx-step u {
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+  text-decoration-color: var(--lx-accent-2);
+}
+
+/* ---- stage (the persistent example panel) ---- */
+.lx-stage {
+  min-height: 26rem;
+  border-radius: 22px;
+  padding: 1.3rem;
+  background: radial-gradient(22rem 16rem at 0% 0%, oklch(93.5% 0.06 175), transparent 70%),
+    radial-gradient(22rem 18rem at 100% 8%, oklch(95% 0.06 235), transparent 70%),
+    radial-gradient(24rem 16rem at 60% 110%, oklch(95% 0.06 70), transparent 70%), oklch(98% 0.01 215);
+  border: 1px solid oklch(90% 0.025 205);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.2rem;
+}
+.lx-stage-label {
+  display: inline-flex;
+  align-self: flex-start;
+  padding: 0.2em 0.8em;
+  border-radius: 99px;
+  background: var(--lx-surface);
+  border: 1px solid var(--lx-line);
+  font-size: 0.8rem;
+  color: var(--lx-muted);
+  margin-bottom: 0.5rem;
+}
+
+/* ---- sentence tiles ---- */
+.lx-sentence {
+  margin: 0.5rem 0;
+  padding: 1.5rem 1rem 1rem;
+  background: var(--lx-surface);
+  border: 1px solid var(--lx-line);
+  border-radius: 16px;
+  box-shadow: 0 1px 0 oklch(20% 0.02 230 / 0.04), 0 18px 40px -24px oklch(30% 0.06 220 / 0.35);
+}
+.lx-sent {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.4rem 0.9rem;
+  justify-content: center;
+  align-items: flex-start;
+}
+.lx-grp {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: stretch;
+}
+.lx-chips {
+  display: flex;
+  gap: 0.5rem;
+  direction: rtl;
+  justify-content: center;
+}
+.lx-noun {
+  --t: var(--lx-noun);
+}
+.lx-verb {
+  --t: var(--lx-verb);
+}
+.lx-little {
+  --t: var(--lx-little);
+}
+.lx-w {
+  direction: ltr;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.1rem;
+  padding: 0.55rem 0.75rem 0.6rem;
+  min-width: 5.2rem;
+  border-radius: 12px;
+  background: color-mix(in oklab, var(--t) 7%, var(--lx-surface));
+  border: 1px solid color-mix(in oklab, var(--t) 38%, var(--lx-surface));
+}
+.lx-w .lx-ar {
+  direction: rtl;
+  unicode-bidi: isolate;
+  font-size: 2.15rem;
+  line-height: 1.9;
+  color: var(--lx-text);
+}
+.lx-big .lx-w .lx-ar {
+  font-size: 2.9rem;
+}
+.lx-say {
+  font-size: 0.86rem;
+  color: var(--lx-muted);
+  font-style: italic;
+}
+.lx-w .lx-en {
+  font-weight: 500;
+  font-size: 0.98rem;
+  line-height: 1.3;
+}
+.lx-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35em;
+  margin-top: 0.2rem;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--t);
+}
+.lx-shape {
+  display: inline-block;
+  width: 0.6em;
+  height: 0.6em;
+  background: currentColor;
+}
+.lx-noun .lx-shape {
+  border-radius: 50%;
+}
+.lx-verb .lx-shape {
+  clip-path: polygon(50% 0, 100% 100%, 0 100%);
+}
+.lx-little .lx-shape {
+  border-radius: 1px;
+}
+.lx-role {
+  text-align: center;
+  padding-top: 0.35rem;
+  font-size: 0.88rem;
+  line-height: 1.3;
+  border-top: 4px solid var(--rc);
+}
+.lx-role b {
+  display: inline-block;
+  padding: 0.1em 0.6em;
+  border-radius: 99px;
+  margin-bottom: 0.15rem;
+}
+.lx-role span {
+  display: block;
+  color: var(--lx-muted);
+}
+.lx-role-mubtada {
+  --rc: var(--lx-accent);
+}
+.lx-role-mubtada b {
+  background: var(--lx-accent);
+  color: var(--lx-on-accent);
+}
+.lx-role-khabar {
+  --rc: var(--lx-accent-2);
+  border-top-style: dashed;
+}
+.lx-role-khabar b {
+  color: var(--lx-accent-2-text);
+  border: 2px solid var(--lx-accent-2);
+}
+.lx-trans {
+  margin: 1em 0 0.2em;
+  text-align: center;
+  font-size: 1.2rem;
+  max-width: none;
+}
+.lx-gap {
+  border-bottom: 2px dashed var(--lx-accent-2);
+  padding-inline: 0.15em;
+  font-weight: 500;
+}
+.lx-sentence figcaption {
+  text-align: center;
+  color: var(--lx-muted);
+  font-size: 0.85rem;
+}
+
+/* ---- tiles and formula ---- */
+.lx-tiles,
+.lx-formula {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  justify-content: center;
+  align-items: stretch;
+  margin: 0.5rem 0;
+  padding: 1.4rem 1rem;
+  background: var(--lx-surface);
+  border: 1px solid var(--lx-line);
+  border-radius: 16px;
+  box-shadow: 0 18px 40px -24px oklch(30% 0.06 220 / 0.35);
+}
+.lx-tiles {
+  direction: rtl;
+}
+.lx-tile {
+  direction: ltr;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.1rem;
+  min-width: 7rem;
+  padding: 1rem 1.1rem;
+  border-radius: var(--lx-r);
+  background: color-mix(in oklab, var(--t) 8%, var(--lx-surface));
+  border: 1px solid color-mix(in oklab, var(--t) 35%, var(--lx-surface));
+}
+.lx-tile .lx-ar {
+  font-size: 2.6rem;
+  line-height: 1.7;
+  direction: rtl;
+  unicode-bidi: isolate;
+}
+.lx-tile .lx-en {
+  font-weight: 500;
+}
+.lx-tile.lx-ghost {
+  background: transparent;
+  border: 1.5px dashed var(--lx-accent-2);
+  color: var(--lx-accent-2-text);
+  min-width: 5.5rem;
+}
+.lx-g {
+  font-size: 2rem;
+  font-weight: 500;
+  line-height: 1.5;
+}
+.lx-ghost small {
+  font-size: 0.8rem;
+}
+.lx-f {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.7rem 1.1rem;
+  border-radius: var(--lx-r);
+  font-weight: 500;
+  line-height: 1.3;
+}
+.lx-f small {
+  font-weight: 400;
+  font-size: 0.82rem;
+  opacity: 0.9;
+}
+.lx-f-m {
+  background: var(--lx-accent);
+  color: var(--lx-on-accent);
+}
+.lx-f-k {
+  border: 1.5px dashed var(--lx-accent-2);
+  color: var(--lx-accent-2-text);
+}
+.lx-f-s {
+  background: color-mix(in oklab, var(--lx-accent) 9%, var(--lx-surface));
+  border: 1px solid color-mix(in oklab, var(--lx-accent) 35%, var(--lx-surface));
+}
+.lx-op {
+  align-self: center;
+  font-size: 1.4rem;
+  color: var(--lx-muted);
+}
+.lx-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.2rem;
+  margin: 0.8rem 0 0;
+  font-size: 0.92rem;
+}
+.lx-legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  font-weight: 500;
+  color: var(--t);
+}
+
+/* ---- notes (tip, good to know, watch out, remember) ---- */
+.lx-note {
+  --ck: var(--lx-tip);
+  --ci: var(--lx-tip-ink);
+  margin: 1.3em 0;
+  padding: 0.9rem 1rem 1rem;
+  max-width: 62ch;
+  border-radius: 14px;
+  background: color-mix(in oklab, var(--ck) 11%, var(--lx-surface));
+  border: 1px solid color-mix(in oklab, var(--ck) 45%, var(--lx-surface));
+}
+.lx-note-know {
+  --ck: var(--lx-know);
+  --ci: var(--lx-know-ink);
+}
+.lx-note-warn {
+  --ck: var(--lx-warn);
+  --ci: var(--lx-warn-ink);
+}
+.lx-note-remember {
+  --ck: var(--lx-rem);
+  --ci: var(--lx-rem-ink);
+}
+.lx-note-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-bottom: 0.45rem;
+  padding: 0.15em 0.75em 0.15em 0.55em;
+  border-radius: 99px;
+  background: var(--ck);
+  color: var(--ci);
+  font-size: 0.82rem;
+  white-space: nowrap;
+}
+.lx-note-tag svg {
+  width: 1rem;
+  height: 1rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.lx-note-body p {
+  margin: 0;
+  max-width: none;
+}
+.lx-note-body p + p {
+  margin-top: 0.6em;
+}
+
+/* ---- start step ---- */
+.lx-goal,
+.lx-terms li {
+  background: var(--lx-surface);
+  border: 1px solid var(--lx-line);
+  border-radius: var(--lx-r);
+}
+.lx-goal {
+  padding: 1rem 1.2rem;
+}
+.lx-goal h2,
+.lx-terms h2,
+.lx-sources h2 {
+  margin: 0 0 0.3rem;
+  font-size: 1.05rem;
+  font-weight: 500;
+}
+.lx-goal p {
+  margin: 0;
+  font-size: 1.2rem;
+}
+.lx-facts {
+  display: grid;
+  gap: 0.6rem;
+  margin: 1.2rem 0;
+}
+.lx-facts div {
+  display: flex;
+  gap: 1rem;
+}
+.lx-facts dt {
+  min-width: 8.5rem;
+  font-weight: 500;
+}
+.lx-facts dd {
+  margin: 0;
+}
+.lx .lx-terms ul {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 0.5rem;
+}
+.lx-terms li {
+  margin: 0;
+  padding: 0.55em 0.8em;
+}
+.lx-terms li span:last-child {
+  margin-inline-start: 0.4em;
+}
+
+/* ---- checks ---- */
+.lx-check {
+  padding: 1em 0;
+  border-top: 1px solid var(--lx-line);
+}
+.lx-q {
+  display: flex;
+  gap: 0.7rem;
+  font-weight: 500;
+  font-size: 1.08rem;
+  margin-bottom: 0.6em;
+}
+.lx-qn {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 1.9rem;
+  height: 1.9rem;
+  border-radius: 50%;
+  background: var(--lx-accent);
+  color: var(--lx-on-accent);
+  font-size: 0.9rem;
+}
+.lx-opts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.lx-opt {
+  min-height: 48px;
+  padding: 0.4em 1.1em;
+  font: inherit;
+  font-size: 1.05rem;
+  color: var(--lx-text);
+  background: var(--lx-surface);
+  border: 1px solid var(--lx-line-2);
+  border-radius: 12px;
+  cursor: pointer;
+}
+.lx-opt:hover {
+  border-color: var(--lx-accent);
+}
+.lx-opt.right {
+  border-color: var(--lx-good);
+  background: color-mix(in oklab, var(--lx-good) 14%, var(--lx-surface));
+}
+.lx-opt.wrong {
+  border-color: var(--lx-bad);
+  background: color-mix(in oklab, var(--lx-bad) 12%, var(--lx-surface));
+}
+.lx-fb {
+  font-weight: 500;
+  margin: 0.7em 0 0.2em;
+}
+.lx-why {
+  margin: 0;
+  color: var(--lx-muted);
+}
+
+/* ---- end of lesson ---- */
+.lx-keys li {
+  font-size: 1.1rem;
+}
+.lx-finish {
+  margin: 1.2rem 0 0;
+}
+.lx-finish[hidden],
+.lx-fb[hidden],
+.lx-why[hidden],
+.lx-muted[hidden],
+.lx-btn[hidden] {
+  display: none;
+}
+.lx-muted {
+  color: var(--lx-muted);
+  font-size: 0.95em;
+  margin: 0.6rem 0 0;
+}
+.lx-finish-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  align-items: center;
+}
+.lx-sources {
+  margin-top: 1.4rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--lx-line);
+}
+.lx-sources ul {
+  margin: 0.3rem 0 0.8rem;
+}
+
+/* ---- buttons and dock ---- */
+.lx-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  min-width: 6.5rem;
+  padding: 0.6em 1.4em;
+  font: inherit;
+  font-weight: 500;
+  text-decoration: none;
+  color: var(--lx-accent);
+  background: transparent;
+  border: 1.5px solid var(--lx-accent);
+  border-radius: 12px;
+  cursor: pointer;
+}
+.lx-btn-primary {
+  color: var(--lx-on-accent);
+  background: var(--lx-accent);
+}
+.lx-btn[disabled] {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+.lx-dock {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 40;
+  display: none;
+  background: oklch(99.5% 0.003 215 / 0.97);
+  border-top: 1px solid var(--lx-line);
+}
+.lx-js .lx-dock {
+  display: block;
+}
+.lx-dock-in {
+  max-width: 74rem;
+  margin: 0 auto;
+  padding: 0.7rem 1.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.lx-dock-count {
+  color: var(--lx-muted);
+  font-size: 0.92rem;
+  white-space: nowrap;
+}
+
+/* ---- phones and small tablets ---- */
+@media (max-width: 900px) {
+  .lx-step {
+    grid-template-columns: minmax(0, 1fr);
+    padding-top: 1.2rem;
+  }
+  .lx-step > .lx-head {
+    order: -2;
+  }
+  .lx-step > .lx-stage {
+    grid-column: 1;
+    grid-row: auto;
+    order: -1;
+    position: static;
+    min-height: 0;
+    margin: 0 0 1.4rem;
+    padding: 1rem;
+  }
+  .lx-title {
+    font-size: 2.2rem;
+  }
+  .lx-title-hero {
+    font-size: 2.7rem;
+  }
+  .lx-wrap,
+  .lx-bar,
+  .lx-dock-in {
+    padding-inline: 1rem;
+  }
+}
+@media (max-width: 560px) {
+  .lx-sentence {
+    padding: 1rem 0.4rem 0.8rem;
+  }
+  .lx-sent {
+    gap: 1rem 0.45rem;
+  }
+  .lx-chips {
+    gap: 0.3rem;
+  }
+  .lx-w {
+    min-width: 4rem;
+    padding: 0.4rem 0.3rem;
+  }
+  .lx-w .lx-ar {
+    font-size: 1.7rem;
+  }
+  .lx-big .lx-w .lx-ar {
+    font-size: 2.2rem;
+  }
+  .lx-w .lx-en {
+    font-size: 0.9rem;
+  }
+  .lx-say {
+    font-size: 0.8rem;
+  }
+  .lx-tile {
+    min-width: 5.2rem;
+    padding: 0.7rem 0.6rem;
+  }
+  .lx-tile .lx-ar {
+    font-size: 2.1rem;
+  }
+  .lx-facts div {
+    flex-direction: column;
+    gap: 0.1rem;
+  }
+  .lx-f {
+    padding: 0.5rem 0.8rem;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .lx * {
+    transition: none !important;
+    animation: none !important;
+  }
+}

@@ -1,0 +1,42 @@
+---
+import { render } from 'astro:content';
+import LessonStepsLayout from '../../../layouts/LessonStepsLayout.astro';
+import ResponsiveImage from '../../../components/mdx/ResponsiveImage.astro';
+import { lessonPaths } from '../../../lib/lesson-paths';
+import { getEntryDates } from '../../../lib/getEntryDates';
+
+// Stepped lessons (frontmatter `template: steps`). A separate route from [...slug].astro so the
+// classic layout's global night/lab styles are not bundled into these pages. The URL is the same:
+// /learn/level-2/01-nominal-sentence/
+export async function getStaticPaths() {
+  const all = await lessonPaths();
+  return all
+    .filter((p) => p.lesson.data.template === 'steps')
+    .map((p) => {
+      const [level, lesson] = p.lesson.id.split('/');
+      return { params: { level, lesson }, props: p };
+    });
+}
+
+const { lesson, computedPrevLesson, computedNextLesson, positionInLevel } = Astro.props;
+const { Content } = await render(lesson);
+
+const { datePublished, dateModified } = getEntryDates(
+  `src/content/lessons/${lesson.id}.mdx`,
+  lesson.data,
+);
+---
+
+<LessonStepsLayout
+  title={lesson.data.title}
+  level={lesson.data.level}
+  description={lesson.data.description}
+  nextLesson={computedNextLesson}
+  prevLesson={computedPrevLesson}
+  datePublished={datePublished}
+  dateModified={dateModified}
+  positionInLevel={positionInLevel}
+  lessonSlug={lesson.id}
+>
+  <Content components={{ img: ResponsiveImage }} />
+</LessonStepsLayout>

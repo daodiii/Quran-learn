@@ -1,0 +1,31 @@
+---
+/**
+ * A colour-coded aside. Each kind has its own colour, icon and label, so colour is never the only signal.
+ *   tip       a shortcut or habit that helps
+ *   know      useful background, not needed to follow the lesson
+ *   warn      a common mistake
+ *   remember  the one thing to take away
+ *
+ * <Note kind="tip">Say the whole phrase out loud.</Note>
+ */
+interface Props {
+  kind: 'tip' | 'know' | 'warn' | 'remember';
+}
+const { kind } = Astro.props;
+
+const META = {
+  tip: { label: 'Tip', icon: '<path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2V16h5v-.1c0-.8.4-1.5 1-2A6 6 0 0 0 12 3z"/>' },
+  know: { label: 'Good to know', icon: '<circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.01"/>' },
+  warn: { label: 'Watch out', icon: '<path d="M12 3l10 18H2L12 3z"/><path d="M12 10v5M12 18v.01"/>' },
+  remember: { label: 'Remember', icon: '<path d="M6 3h12v18l-6-4-6 4V3z"/>' },
+} as const;
+const meta = META[kind];
+---
+
+<div class={`lx-note lx-note-${kind}`} role="note">
+  <b class="lx-note-tag">
+    <svg viewBox="0 0 24 24" aria-hidden="true" set:html={meta.icon} />
+    {meta.label}
+  </b>
+  <div class="lx-note-body"><slot /></div>
+</div>

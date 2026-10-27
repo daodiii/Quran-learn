@@ -1,0 +1,82 @@
+---
+/**
+ * A Quran phrase broken into word tiles, read right to left. Each word carries a type
+ * (noun, verb, little word) shown by colour, shape and a text label, and a group can carry
+ * a role (mubtadaʾ or khabar) shown as a labelled bar underneath.
+ *
+ * <Sentence
+ *   reference="Al-Hadid 57:3 (part)"
+ *   roles
+ *   groups={[
+ *     { role: 'mubtada', words: [{ ar: 'هُوَ', en: 'he', say: 'huwa' }] },
+ *     { role: 'khabar', words: [{ ar: 'ٱلْأَوَّلُ', en: 'the First', say: 'al-awwalu' }] },
+ *   ]}
+ *   en={['He ', { gap: 'is' }, ' the First.']}
+ * />
+ */
+interface Word {
+  ar: string;
+  en: string;
+  say?: string;
+  type?: 'n' | 'v' | 'p';
+}
+interface Group {
+  role?: 'mubtada' | 'khabar';
+  words: Word[];
+}
+type EnPart = string | { gap: string };
+
+interface Props {
+  groups: Group[];
+  en?: EnPart[];
+  reference?: string;
+  roles?: boolean;
+  size?: 'big';
+}
+
+const { groups, en = [], reference, roles = false, size } = Astro.props;
+
+const TYPE = {
+  n: { cls: 'noun', label: 'Noun' },
+  v: { cls: 'verb', label: 'Verb' },
+  p: { cls: 'little', label: 'Little word' },
+} as const;
+const ROLE = {
+  mubtada: { label: 'mubtadaʾ', hint: 'the starting point' },
+  khabar: { label: 'khabar', hint: 'the news' },
+} as const;
+---
+
+<figure class:list={['lx-sentence', size === 'big' && 'lx-big']}>
+  <div class="lx-sent" dir="rtl">
+    {groups.map((g) => (
+      <div class="lx-grp">
+        <div class="lx-chips">
+          {g.words.map((w) => {
+            const t = TYPE[w.type ?? 'n'];
+            return (
+              <div class={`lx-w lx-${t.cls}`}>
+                <span class="lx-ar" lang="ar">{w.ar}</span>
+                {w.say && <span class="lx-say">{w.say}</span>}
+                <span class="lx-en">{w.en}</span>
+                <span class="lx-tag"><i class="lx-shape"></i>{t.label}</span>
+              </div>
+            );
+          })}
+        </div>
+        {roles && g.role && (
+          <div class={`lx-role lx-role-${g.role}`}>
+            <b>{ROLE[g.role].label}</b>
+            <span>{ROLE[g.role].hint}</span>
+          </div>
+        )}
+      </div>
+    ))}
+  </div>
+  {en.length > 0 && (
+    <p class="lx-trans">
+      {en.map((p) => (typeof p === 'string' ? p : <span class="lx-gap">{p.gap}</span>))}
+    </p>
+  )}
+  {reference && <figcaption>{reference}</figcaption>}
+</figure>

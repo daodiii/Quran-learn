@@ -1,62 +1,21 @@
 ---
-import { getCollection, render } from 'astro:content';
+import { render } from 'astro:content';
 import LessonLayout from '../../layouts/LessonLayout.astro';
 import ResponsiveImage from '../../components/mdx/ResponsiveImage.astro';
+import { lessonPaths } from '../../lib/lesson-paths';
+import { getEntryDates } from '../../lib/getEntryDates';
 
+// Classic (long page) lessons. Lessons with `template: steps` are served by [level]/[lesson].astro.
 export async function getStaticPaths() {
-  const lessons = await getCollection('lessons');
-
-  // Sort lessons by level and order for prev/next computation
-  const sortedLessons = lessons.sort((a, b) => {
-    if (a.data.level !== b.data.level) {
-      return a.data.level - b.data.level;
-    }
-    return a.data.order - b.data.order;
-  });
-
-  // Group lessons by level to find last lesson of each level
-  const lessonsByLevel: Record<number, typeof sortedLessons> = {};
-  sortedLessons.forEach(l => {
-    if (!lessonsByLevel[l.data.level]) lessonsByLevel[l.data.level] = [];
-    lessonsByLevel[l.data.level].push(l);
-  });
-
-  return sortedLessons.map((lesson, index) => {
-    // Compute prev/next from collection order
-    let prevLesson = index > 0 ? `/learn/${sortedLessons[index - 1].id}/` : undefined;
-    let nextLesson = index < sortedLessons.length - 1 ? `/learn/${sortedLessons[index + 1].id}/` : undefined;
-
-    const levelLessons = lessonsByLevel[lesson.data.level];
-
-    // If this is the first lesson of its level (and not level 1), prev goes to previous level's quiz
-    if (levelLessons && lesson === levelLessons[0] && lesson.data.level > 1) {
-      prevLesson = `/learn/level-${lesson.data.level - 1}/quiz/`;
-    }
-
-    // If this is the last lesson of its level, next goes to the level quiz
-    if (levelLessons && lesson === levelLessons[levelLessons.length - 1]) {
-      nextLesson = `/learn/level-${lesson.data.level}/quiz/`;
-    }
-
-    return {
-      params: { slug: lesson.id },
-      props: {
-        lesson,
-        // Use computed prev/next, fallback to frontmatter
-        computedPrevLesson: prevLesson || lesson.data.prevLesson,
-        computedNextLesson: nextLesson || lesson.data.nextLesson,
-        positionInLevel: levelLessons
-          ? { index: levelLessons.indexOf(lesson) + 1, total: levelLessons.length }
-          : undefined,
-      },
-    };
-  });
+  const all = await lessonPaths();
+  return all
+    .filter((p) => p.lesson.data.template !== 'steps')
+    .map((p) => ({ params: { slug: p.lesson.id }, props: p }));
 }
 
 const { lesson, computedPrevLesson, computedNextLesson, positionInLevel } = Astro.props;
 const { Content, headings } = await render(lesson);
 
-import { getEntryDates } from '../../lib/getEntryDates';
 const { datePublished, dateModified } = getEntryDates(
   `src/content/lessons/${lesson.id}.mdx`,
   lesson.data,

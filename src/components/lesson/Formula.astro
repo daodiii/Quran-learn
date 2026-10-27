@@ -1,0 +1,32 @@
+---
+/**
+ * A small "part + part = whole" card. kind m = filled (the first role), k = dashed (the second), s = the result.
+ *
+ * <Formula items={[
+ *   { kind: 'm', text: 'mubtadaʾ', small: 'the topic' },
+ *   { kind: 'k', text: 'khabar', small: 'the news' },
+ *   { kind: 's', text: 'nominal sentence', small: 'جُمْلَة اِسْمِيَّة' },
+ * ]} />
+ */
+import { wrapArabic } from '../../lib/lesson-steps';
+
+interface Item {
+  kind: 'm' | 'k' | 's';
+  text: string;
+  small?: string;
+}
+interface Props {
+  items: Item[];
+  label?: string;
+}
+const { items, label } = Astro.props;
+---
+
+<div class="lx-formula" aria-label={label}>
+  {items.map((it, i) => (
+    <>
+      {i > 0 && <span class="lx-op" aria-hidden="true">{i === items.length - 1 ? '=' : '+'}</span>}
+      <span class={`lx-f lx-f-${it.kind}`}>{it.text}{it.small && <small set:html={wrapArabic(it.small)} />}</span>
+    </>
+  ))}
+</div>

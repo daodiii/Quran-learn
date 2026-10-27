@@ -1,0 +1,27 @@
+---
+/**
+ * "Where this comes from": every stepped lesson names its sources and says how to report a mistake.
+ *
+ * <Sources items={[{ label: 'Quran text', name: 'Tanzil', href: 'https://tanzil.net' }]} />
+ */
+interface Item {
+  label: string;
+  name: string;
+  href?: string;
+}
+interface Props {
+  items: Item[];
+  report?: string;
+}
+const { items, report = '/about/#feedback' } = Astro.props;
+---
+
+<section class="lx-sources" aria-labelledby="lx-sources-h">
+  <h2 id="lx-sources-h">Where this comes from</h2>
+  <ul>
+    {items.map((it) => (
+      <li>{it.label}: {it.href ? <a href={it.href} rel="noopener">{it.name}</a> : it.name}</li>
+    ))}
+  </ul>
+  <p><a href={report}>Found a mistake? Tell us.</a></p>
+</section>

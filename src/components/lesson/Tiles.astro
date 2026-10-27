@@ -1,0 +1,31 @@
+---
+/**
+ * A row of big word tiles read right to left. A tile with `ghost` is a dashed placeholder for a word
+ * that English needs and Arabic leaves out.
+ *
+ * <Tiles items={[{ ar: 'هُوَ', en: 'he' }, { ghost: 'is', note: 'English only' }, { ar: 'ٱلْأَوَّلُ', en: 'the First' }]} />
+ */
+interface Item {
+  ar?: string;
+  en?: string;
+  type?: 'n' | 'v' | 'p';
+  ghost?: string;
+  note?: string;
+}
+interface Props {
+  items: Item[];
+  label?: string;
+}
+const { items, label } = Astro.props;
+const CLS = { n: 'noun', v: 'verb', p: 'little' } as const;
+---
+
+<div class="lx-tiles" aria-label={label}>
+  {items.map((it) =>
+    it.ghost ? (
+      <div class="lx-tile lx-ghost"><span class="lx-g">{it.ghost}</span>{it.note && <small>{it.note}</small>}</div>
+    ) : (
+      <div class={`lx-tile lx-${CLS[it.type ?? 'n']}`}><span class="lx-ar" lang="ar">{it.ar}</span><span class="lx-en">{it.en}</span></div>
+    ),
+  )}
+</div>

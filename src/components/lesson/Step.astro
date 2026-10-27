@@ -1,0 +1,39 @@
+---
+/**
+ * One short step of a stepped lesson. Put <Stage> (the example) and the step's text,
+ * <Note> boxes and <Check> questions inside it. The layout script shows one step at a time;
+ * without JavaScript every step stays visible in order.
+ *
+ * <Step id="rule" label="The rule" title="The rule: both end in -u"> ... </Step>
+ * <Step hero id="start" label="Start" title={frontmatter.title} kicker={frontmatter.kicker} titleArabic={frontmatter.titleArabic}> ... </Step>
+ */
+import { tightHyphens, wrapArabic } from '../../lib/lesson-steps';
+
+interface Props {
+  id: string;
+  label: string;
+  title: string;
+  hero?: boolean;
+  kicker?: string;
+  titleArabic?: string;
+}
+
+const { id, label, title, hero = false, kicker, titleArabic } = Astro.props;
+const titleHtml = wrapArabic(tightHyphens(title));
+---
+
+<section class="lx-step" id={`step-${id}`} data-step-id={id} data-step-label={label} aria-labelledby={`step-${id}-title`}>
+  <header class="lx-head">
+    <p class="lx-count" aria-hidden="true"><span class="lx-num"></span><span class="lx-of"></span></p>
+    {hero
+      ? <h1 class="lx-title lx-title-hero" id={`step-${id}-title`} tabindex="-1" set:html={titleHtml} />
+      : <h2 class="lx-title" id={`step-${id}-title`} tabindex="-1" set:html={titleHtml} />}
+    {hero && (kicker || titleArabic) && (
+      <p class="lx-kicker">
+        {kicker}
+        {titleArabic && <span class="ar-inline" lang="ar" dir="rtl">{titleArabic}</span>}
+      </p>
+    )}
+  </header>
+  <slot />
+</section>

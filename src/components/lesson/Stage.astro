@@ -1,0 +1,15 @@
+---
+/**
+ * The persistent example panel. On a wide screen it stays beside the step's text;
+ * on a phone it sits under the step title. Put <Sentence>, <Tiles> or <Formula> inside.
+ */
+interface Props {
+  label?: string;
+}
+const { label = 'Example' } = Astro.props;
+---
+
+<div class="lx-stage" role="group" aria-label={label}>
+  <span class="lx-stage-label">{label}</span>
+  <slot />
+</div>

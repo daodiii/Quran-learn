@@ -1,0 +1,43 @@
+---
+/**
+ * The first step's overview: what the learner can do at the end, how long it takes,
+ * what to know first, and the few new terms. Replaces the long "welcome" introduction.
+ *
+ * <Start goal="Find the two parts ..." minutes={15} stepCount={9} before="Noun, verb and little word (L1.04)."
+ *   terms={[{ term: 'Mubtadaʾ', ar: 'مُبْتَدَأ', meaning: 'What the sentence is about.' }]} />
+ */
+import { wrapArabic } from '../../lib/lesson-steps';
+
+interface Term {
+  term: string;
+  ar?: string;
+  meaning: string;
+}
+interface Props {
+  goal: string;
+  minutes: number;
+  stepCount: number;
+  before: string;
+  terms: Term[];
+}
+const { goal, minutes, stepCount, before, terms } = Astro.props;
+---
+
+<div class="lx-start">
+  <div class="lx-goal">
+    <h2>By the end you can</h2>
+    <p set:html={wrapArabic(goal)} />
+  </div>
+  <dl class="lx-facts">
+    <div><dt>Time</dt><dd>{minutes} minutes, {stepCount} short steps</dd></div>
+    <div><dt>Before you start</dt><dd set:html={wrapArabic(before)} /></div>
+  </dl>
+  <div class="lx-terms">
+    <h2>Words you will meet</h2>
+    <ul>
+      {terms.map((t) => (
+        <li><b>{t.term}</b>{t.ar && <span class="ar-inline" lang="ar" dir="rtl">{t.ar}</span>}<span>{t.meaning}</span></li>
+      ))}
+    </ul>
+  </div>
+</div>
