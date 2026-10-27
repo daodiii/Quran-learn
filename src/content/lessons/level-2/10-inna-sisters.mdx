@@ -1,494 +1,879 @@
 ---
-title: "Inna and Her Sisters"
+title: "Six Words in Front of the Sentence"
+kicker: "Inna and her sisters"
+titleArabic: "إِنَّ وَأَخَوَاتُهَا"
 level: 2
 order: 10
-description: "Understand how inna and similar particles affect nominal sentences by putting the subject in accusative case."
+template: steps
+description: "Learn inna and her five sisters. See how they turn the first part of a nominal sentence to -a while the khabar keeps -u, what each word means, what can come after them, the lām of emphasis, and go through four verses word by word."
 draft: false
 ---
 
-import ArabicExample from '../../../components/mdx/ArabicExample.astro';
-import GrammarTable from '../../../components/mdx/GrammarTable.astro';
-import Callout from '../../../components/mdx/Callout.astro';
-import ExerciseBox from '../../../components/mdx/ExerciseBox.astro';
-
-## Introduction
-
-In [L2.01 The Nominal Sentence](/learn/level-2/01-nominal-sentence/) and [L2.02 Subject and Predicate](/learn/level-2/02-subject-predicate/), you learned that both the subject (mubtadaʾ) and predicate (khabar) take nominative case in basic nominal sentences. Now we'll explore a group of particles that CHANGE this pattern by putting the subject into accusative case.
-
-<ArabicExample
-  arabic="إِنَّ ٱلْإِنسَٰنَ لَفِى خُسْرٍ"
-  transliteration="inna l-insāna la-fī khusrin"
-  translation="Indeed, mankind is in loss"
-  reference="Al-Asr 103:2"
-  highlight="إِنَّ,ٱلْإِنسَٰنَ"
-  words={[
-    { ar: "إِنَّ", tr: "inna", en: "indeed" },
-    { ar: "ٱلْإِنسَٰنَ", tr: "l-insāna", en: "mankind" },
-    { ar: "لَفِى", tr: "la-fī", en: "surely in" },
-    { ar: "خُسْرٍ", tr: "khusrin", en: "loss" }
-  ]}
-/>
-
-Notice that ٱلْإِنسَٰنَ (al-insāna) ends with fatha (ـَ), the accusative marker, not damma. Why? Because the particle إِنَّ (inna) "indeed" has entered the nominal sentence and modified the subject's case. This is one of Arabic grammar's most important patterns.
-
-**In this lesson, you will:**
-- Understand how [inna and her sisters](/resources/glossary/#inna-sisters) (إِنَّ وَأَخَوَاتُهَا) modify nominal sentences
-- Recognize all six particles in the inna family and their meanings
-- Identify when the subject changes from nominative to accusative case
-- Analyze inna sentences from Quranic verses using three-part iʿrāb analysis
-
-**Connection to previous learning:** You've mastered nominal sentences where both parts are nominative ([L2.01](/learn/level-2/01-nominal-sentence/)). You've also learned about the [accusative case](/learn/level-2/05-accusative-case/) for objects. Now you'll see how inna particles create a special situation: accusative subjects. This prepares you for [L2.11 Kaana Sisters](/learn/level-2/11-kaana-sisters/), which modify the OTHER part of the sentence.
-
-**Key Level 2 skill:** Understanding inna and her sisters demonstrates Arabic's systematic precision — case changes aren't random, they follow specific rules based on which particles or verbs enter the sentence.
-
-<Callout type="tip" title="Why This Matters in Your Quran Reading">
-إِنَّ appears over 1,500 times in the Quran. It's one of the most frequent words you'll encounter. Every time Allah emphasizes a truth — إِنَّ ٱللَّهَ غَفُورٌ رَّحِيمٌ ("Indeed, Allah is Forgiving, Merciful") — inna is doing the heavy lifting. Understanding this particle means understanding Quranic emphasis.
-</Callout>
-
-<Callout type="note" title="Quick Win">
-In إِنَّ ٱللَّهَ غَفُورٌ رَّحِيمٌ, notice ٱللَّهَ has fatha (accusative) while غَفُورٌ has damma (nominative). That's inna's effect: subject becomes accusative, predicate stays nominative. You can now spot this pattern everywhere.
-</Callout>
-
-<Callout type="note" title="Plain-English key">
-Quick, everyday translations of the grammar terms in this lesson — glance back here whenever one trips you up:
-
-- **Inna and her sisters** (inna wa akhawatuha / إِنَّ وَأَخَوَاتُهَا) — little words like "indeed" that put the following noun into the accusative.
-- **Ism inna** (اِسْم إِنَّ) — the noun right after inna (takes the accusative).
-- **Khabar inna** (خَبَر إِنَّ) — what is said about it (stays nominative).
-</Callout>
-
-## Understanding Inna and Her Sisters
-
-**Plain English first:** Think of إِنَّ (inna) like adding EMPHASIS in English. When we say "Indeed, mankind is in loss" or "Truly, Allah is forgiving," those words "indeed" and "truly" add emphasis to the statement. Arabic does the same thing, but when these emphasis particles enter the sentence, they trigger a grammatical change — the subject switches from nominative to accusative.
-
-**English analogy:** Imagine if in English, adding "indeed" changed "he" to "him": "Indeed him is truthful." That's what happens in Arabic — the emphasis particle changes the case marker on the subject. It's a visible grammatical signal that emphasis has been added.
-
-**Now the Arabic terminology:** The family of particles called [inna and her sisters](/resources/glossary/#inna-sisters) (إِنَّ وَأَخَوَاتُهَا inna wa akhawātuhā) consists of six particles that share the same grammatical effect. When any of these particles enters a nominal sentence, two things happen:
-
-1. The subject ([name of inna](/resources/glossary/#ism-inna) / اِسْمُ إِنَّ / ism inna) becomes **accusative** (marked with fatha ـَ)
-2. The predicate ([predicate of inna](/resources/glossary/#khabar-inna) / خَبَرُ إِنَّ / khabar inna) remains **nominative** (marked with damma ـُ)
-
-### The Six Sisters
-
-<GrammarTable>
-| Particle | Transliteration | Meaning | Example |
-|----------|-----------------|---------|---------|
-| **إِنَّ** | inna | indeed, verily | إِنَّ ٱللَّهَ غَفُورٌ — "Indeed, Allah is Forgiving" |
-| **أَنَّ** | anna | that (conjunction) | عَلِمْتُ أَنَّ ٱللَّهَ عَلِيمٌ — "I knew that Allah is Knowing" |
-| **كَأَنَّ** | kaʾanna | as if, as though | كَأَنَّهُمْ حُمُرٌ — "As if they were donkeys" |
-| **لَٰكِنَّ** | lākinna | but, however | لَٰكِنَّ ٱللَّهَ قَدِيرٌ — "But Allah is Powerful" |
-| **لَيْتَ** | layta | would that, I wish | لَيْتَ ٱلشَّبَابَ يَعُودُ — "Would that youth would return" |
-| **لَعَلَّ** | laʿalla | perhaps, may | لَعَلَّكُمْ تُفْلِحُونَ — "Perhaps you will succeed" |
-</GrammarTable>
-
-**Key insight:** All six particles cause the SAME grammatical change: subject to accusative, predicate stays nominative. The difference is in meaning (emphasis, hope, contrast, etc.), not grammatical function.
-
-### Before and After Comparison
-
-Let's see exactly what changes when إِنَّ enters a sentence:
-
-**BEFORE (Basic nominal sentence):**
-- **ٱللَّهُ غَفُورٌ** (allāhu ghafūrun) — "Allah is Forgiving"
-  - ٱللَّهُ (allāhu): subject (mubtadaʾ) — **nominative** with damma (ـُ)
-  - غَفُورٌ (ghafūrun): predicate (khabar) — **nominative** with dammatain (ـٌ)
-
-**AFTER (With إِنَّ added):**
-- **إِنَّ ٱللَّهَ غَفُورٌ** (inna llāha ghafūrun) — "Indeed, Allah is Forgiving"
-  - إِنَّ (inna): emphasis particle
-  - ٱللَّهَ (allāha): name of inna (ism inna) — **accusative** with fatha (ـَ) ← **CHANGED**
-  - غَفُورٌ (ghafūrun): predicate of inna (khabar inna) — **nominative** with dammatain (ـٌ) ← **UNCHANGED**
-
-**Visual summary:**
-```
-Basic:     SUBJECT (nom. ـُ) + PREDICATE (nom. ـُ)
-With إِنَّ:  إِنَّ + SUBJECT (acc. ـَ) + PREDICATE (nom. ـُ)
-```
-
-## Examples from the Quran
-
-Let's examine examples from Surah Al-Asr (103), which contains a perfect demonstration of إِنَّ modifying a nominal sentence.
-
-### Example 1: إِنَّ with Definite Noun Subject
-
-<ArabicExample
-  arabic="إِنَّ ٱلْإِنسَٰنَ لَفِى خُسْرٍ"
-  transliteration="inna l-insāna la-fī khusrin"
-  translation="Indeed, mankind is in loss"
-  reference="Al-Asr 103:2"
-  highlight="إِنَّ,ٱلْإِنسَٰنَ,خُسْرٍ"
-  words={[
-    { ar: "إِنَّ", tr: "inna", en: "indeed" },
-    { ar: "ٱلْإِنسَٰنَ", tr: "l-insāna", en: "mankind" },
-    { ar: "لَفِى", tr: "la-fī", en: "surely in" },
-    { ar: "خُسْرٍ", tr: "khusrin", en: "loss" }
-  ]}
-/>
-
-**Complete grammatical analysis (iʿrāb):**
-
-- **إِنَّ** (inna) — Emphasis particle — "indeed"
-  - Function: Emphasis particle from inna family
-  - Case: Particles don't take case
-  - Reason: Introduces emphasized nominal sentence
-
-- **ٱلْإِنسَٰنَ** (al-insāna) — Name of inna (subject) — "mankind"
-  - Function: Subject of nominal sentence (ism inna)
-  - Case marker: **Accusative with fatha (ـَ)**
-  - Reason: إِنَّ puts its subject in accusative case
-
-- **لَ** (la) — Additional emphasis particle — "surely"
-  - Function: Reinforcing emphasis
-  - Case: Particles don't take case
-  - Reason: Strengthens the assertion
-
-- **فِى خُسْرٍ** (fī khusrin) — Predicate of inna — "in loss"
-  - Function: Predicate of inna (khabar inna) — semi-sentence type
-  - Case marker: Prepositional phrase (فِى is preposition, خُسْرٍ is **genitive** with kasra + tanwin)
-  - Reason: Predicate of إِنَّ remains nominative (though here expressed as prepositional phrase)
-
-**Structural insight:** The subject ٱلْإِنسَٰنَ changed from nominative (would be ٱلْإِنسَٰنُ in a basic sentence) to accusative because of إِنَّ. The predicate remains a prepositional phrase functioning as khabar.
-
-### Example 2: إِلَّا Exception Following إِنَّ
-
-<ArabicExample
-  arabic="إِلَّا ٱلَّذِينَ ءَامَنُوا۟ وَعَمِلُوا۟ ٱلصَّٰلِحَٰتِ"
-  transliteration="illā lladhīna āmanū wa-ʿamilū ṣ-ṣāliḥāti"
-  translation="Except those who believe and do righteous deeds"
-  reference="Al-Asr 103:3"
-  highlight="ٱلَّذِينَ"
-  words={[
-    { ar: "إِلَّا", tr: "illā", en: "except" },
-    { ar: "ٱلَّذِينَ", tr: "lladhīna", en: "those who" },
-    { ar: "ءَامَنُوا۟", tr: "āmanū", en: "believe" },
-    { ar: "وَعَمِلُوا۟", tr: "wa-ʿamilū", en: "and do" },
-    { ar: "ٱلصَّٰلِحَٰتِ", tr: "ṣ-ṣāliḥāti", en: "righteous deeds" }
-  ]}
-/>
-
-**Grammatical analysis (iʿrāb):**
-
-- **إِلَّا** (illā) — Exception particle — "except"
-  - Function: Introduces exception to previous statement
-  - Case: Particles don't take case
-  - Reason: Exception from "mankind is in loss"
-
-- **ٱلَّذِينَ** (alladhīna) — Excepted noun — "those who"
-  - Function: The excepted group (mustathnā)
-  - Case marker: **Accusative** (relative pronouns have fixed form)
-  - Reason: Exception from the name of inna (ism inna) above
-
-**Structural connection:** This exception relates back to ٱلْإِنسَٰنَ (the name of inna in verse 2). The structure is: "Indeed mankind is in loss — EXCEPT those who believe..." The exception takes accusative to match the case of what it's excepting from.
-
-### Example 3: أَنَّ (That - Conjunction Form)
-
-<ArabicExample
-  arabic="وَبَشِّرِ ٱلَّذِينَ ءَامَنُوا۟ أَنَّ لَهُمْ قَدَمَ صِدْقٍ عِندَ رَبِّهِمْ"
-  transliteration="wa-bashshiri lladhīna āmanū anna lahum qadama ṣidqin ʿinda rabbihim"
-  translation="And give good news to those who believe that they have a firm standing with their Lord"
-  reference="Yunus 10:2"
-  highlight="أَنَّ,لَهُمْ"
-  words={[
-    { ar: "وَبَشِّرِ", tr: "wa-bashshiri", en: "and give good news" },
-    { ar: "ٱلَّذِينَ", tr: "lladhīna", en: "those who" },
-    { ar: "ءَامَنُوا۟", tr: "āmanū", en: "believe" },
-    { ar: "أَنَّ", tr: "anna", en: "that" },
-    { ar: "لَهُمْ", tr: "lahum", en: "for them" },
-    { ar: "قَدَمَ", tr: "qadama", en: "standing" },
-    { ar: "صِدْقٍ", tr: "ṣidqin", en: "of truth" },
-    { ar: "عِندَ", tr: "ʿinda", en: "with" },
-    { ar: "رَبِّهِمْ", tr: "rabbihim", en: "their Lord" }
-  ]}
-/>
-
-**Grammatical analysis (iʿrāb):**
-
-- **أَنَّ** (anna) — Conjunction particle ("that") — "that"
-  - Function: Introduces content of good news
-  - Case: Particles don't take case
-  - Reason: Conjunction form of inna family
-
-- **لَهُمْ** (lahum) — Predicate of anna (fronted) — "for them"
-  - Function: Predicate of anna (khabar anna muqaddam) — prepositional phrase placed before the subject
-  - Case: لَ is preposition, هُمْ is pronoun (fixed form)
-  - Reason: Prepositional phrase serving as khabar, fronted before the ism for emphasis
-
-- **قَدَمَ صِدْقٍ** (qadama ṣidqin) — Name of anna (subject) — "standing of truth"
-  - **قَدَمَ** (qadama): Subject (ism anna) — **accusative** with fatha (ـَ)
-  - Function: Subject of anna (ism anna)
-  - Case marker: Accusative with fatha (ـَ)
-  - Reason: أَنَّ puts its subject in accusative case (same rule as إِنَّ)
-
-**Advanced note:** This example shows fronted predicate (khabar muqaddam) — the prepositional phrase لَهُمْ comes before the subject قَدَمَ صِدْقٍ. Arabic commonly fronts prepositional-phrase predicates before the subject. Despite the reordering, the case rules remain the same: the ism of أَنَّ (قَدَمَ) is accusative, and the khabar is the prepositional phrase.
-
-### Example 4: لَٰكِنَّ (But/However - Contrast)
-
-<ArabicExample
-  arabic="وَلَٰكِنَّ ٱللَّهَ يَهْدِى مَن يَشَآءُ"
-  transliteration="wa-lākinna llāha yahdī man yashāʾu"
-  translation="But Allah guides whom He wills"
-  reference="Al-Qasas 28:56"
-  highlight="لَٰكِنَّ,ٱللَّهَ"
-  words={[
-    { ar: "وَلَٰكِنَّ", tr: "wa-lākinna", en: "but" },
-    { ar: "ٱللَّهَ", tr: "llāha", en: "Allah" },
-    { ar: "يَهْدِى", tr: "yahdī", en: "guides" },
-    { ar: "مَن", tr: "man", en: "whom" },
-    { ar: "يَشَآءُ", tr: "yashāʾu", en: "He wills" }
-  ]}
-/>
-
-**Grammatical analysis (iʿrāb):**
-
-- **وَ** (wa) — Conjunction — "and"
-  - Function: Conjunction "and"
-  - Case: Particles don't take case
-
-- **لَٰكِنَّ** (lākinna) — Contrast particle — "but"
-  - Function: Introduces contrasting statement ("but")
-  - Case: Particles don't take case
-  - Reason: Member of inna family showing contrast
-
-- **ٱللَّهَ** (allāha) — Name of lākinna — "Allah"
-  - Function: Subject of lākinna (ism lākinna)
-  - Case marker: **Accusative with fatha (ـَ)**
-  - Reason: لَٰكِنَّ puts its subject in accusative (same rule as إِنَّ)
-
-- **يَهْدِى** (yahdī) — Predicate of lākinna (verbal sentence) — "guides"
-  - Function: Predicate of lākinna (khabar lākinna) — complete verbal sentence
-  - Case: Verbal sentence serving as predicate
-  - Reason: The entire verbal sentence "guides whom He wills" is the khabar
-
-**Structural insight:** The predicate here is a complete verbal sentence, not a single word. This shows the flexibility of khabar types even with inna sisters.
-
-### Example 5: لَعَلَّ (Perhaps/May - Hope/Expectation)
-
-<ArabicExample
-  arabic="لَعَلَّكُمْ تُفْلِحُونَ"
-  transliteration="laʿallakum tufliḥūna"
-  translation="Perhaps you will succeed"
-  reference="Al-Baqarah 2:189"
-  highlight="لَعَلَّكُمْ,تُفْلِحُونَ"
-  words={[
-    { ar: "لَعَلَّكُمْ", tr: "laʿallakum", en: "perhaps you" },
-    { ar: "تُفْلِحُونَ", tr: "tufliḥūna", en: "will succeed" }
-  ]}
-/>
-
-**Grammatical analysis (iʿrāb):**
-
-- **لَعَلَّ** (laʿalla) — Hope particle — "perhaps"
-  - Function: Expresses hope or expectation ("perhaps")
-  - Case: Particles don't take case
-  - Reason: Member of inna family
-
-- **كُمْ** (kum) — Name of laʿalla (attached pronoun) — "you"
-  - Function: Subject of laʿalla (ism laʿalla) — attached pronoun "you (plural)"
-  - Case marker: **Accusative** (attached pronouns have fixed forms)
-  - Reason: لَعَلَّ puts its subject in accusative; attached to the particle
-
-- **تُفْلِحُونَ** (tufliḥūna) — Predicate of laʿalla — "will succeed"
-  - Function: Predicate of laʿalla (khabar laʿalla) — verbal sentence
-  - Case: Present tense verb with subject pronoun
-  - Reason: Entire verbal sentence serves as khabar
-
-**Structural note:** When the subject is an attached pronoun, it connects directly to the inna-family particle, forming one word (لَعَلَّكُمْ laʿallakum). The pronoun is still technically in accusative case as the ism, though attached pronouns don't show visible case changes.
-
-## The Rule
-
-<Callout type="rule">
-**How Inna and Her Sisters Modify Nominal Sentences:**
-
-When any of the six inna sisters enters a nominal sentence, the following changes occur:
-
-**1. Subject (Mubtadaʾ) → Name of Inna (Ism Inna)**
-- Changes from **nominative** to **accusative** case
-- Marked by fatha (ـَ) on singular nouns
-- Called اِسْمُ إِنَّ (ism inna) "name of inna"
-
-**2. Predicate (Khabar) → Predicate of Inna (Khabar Inna)**
-- **Remains nominative** case (unchanged)
-- Marked by damma (ـُ) on singular nouns
-- Called خَبَرُ إِنَّ (khabar inna) "predicate of inna"
-
-**3. Meaning Impact:**
-- إِنَّ / أَنَّ: Emphasis ("indeed", "that")
-- كَأَنَّ: Comparison ("as if")
-- لَٰكِنَّ: Contrast ("but", "however")
-- لَيْتَ: Wish ("would that", "I wish")
-- لَعَلَّ: Hope ("perhaps", "may")
-
-**Formula:**
-```
-إِنَّ + SUBJECT (accusative ـَ) + PREDICATE (nominative ـُ)
-```
-
-**How to identify:** Look for one of the six particles at the start of a nominal sentence. The first noun after the particle is the subject in accusative; what follows is the predicate in nominative.
-</Callout>
-
-<Callout type="warning">
-**Common Mistakes:**
-
-**Don't change BOTH parts to accusative.** Only the subject (ism inna) becomes accusative. The predicate (khabar inna) remains nominative. Many learners mistakenly think both change.
-
-**Don't confuse إِنَّ (inna) with إِنْ (in).**
-- **إِنَّ** (inna) with shadda: emphasis particle, causes grammatical change
-- **إِنْ** (in) with sukūn: conditional particle "if", doesn't change case
-
-Example contrast:
-- **إِنَّ ٱللَّهَ غَفُورٌ** (inna llāha ghafūrun) — "Indeed Allah is Forgiving" (ٱللَّهَ accusative)
-- **إِنْ جَآءَ ٱلنَّصْرُ** (in jāʾa n-naṣru) — "If help comes" (ٱلنَّصْرُ nominative)
-
-**Don't forget the predicate can be a sentence.** Khabar inna doesn't have to be a single word — it can be an entire verbal sentence or prepositional phrase, just like in basic nominal sentences.
-
-**Remember the word order flexibility.** While the typical pattern is إِنَّ + subject + predicate, Arabic allows the predicate (especially prepositional phrases) to come before the subject for emphasis.
-</Callout>
-
-## Practice
-
-<ExerciseBox question="Exercise 1: Identify the Inna Sister">
-Identify which inna-family particle is used in each sentence and what it means:
-
-1. **إِنَّ ٱللَّهَ سَمِيعٌ** (inna llāha samīʿun) — "Indeed, Allah is All-Hearing"
-2. **لَعَلَّ ٱللَّهَ يُحْدِثُ بَعْدَ ذَٰلِكَ أَمْرًا** (laʿalla llāha yuḥdidhu baʿda dhālika amran) — "Perhaps Allah will bring about a matter thereafter"
-3. **كَأَنَّهُمْ حُمُرٌ** (kaʾannahum ḥumurun) — "As if they were donkeys"
-
-
-1. **إِنَّ** (inna) — "indeed, verily" — emphasis particle
-   - Subject: ٱللَّهَ (allāha) — accusative
-   - Predicate: سَمِيعٌ (samīʿun) — nominative
-
-2. **لَعَلَّ** (laʿalla) — "perhaps, may" — hope/expectation particle
-   - Subject: ٱللَّهَ (allāha) — accusative
-   - Predicate: يُحْدِثُ (yuḥdithu) — verbal sentence (nominative function)
-
-3. **كَأَنَّ** (kaʾanna) — "as if, as though" — comparison particle
-   - Subject: هُمْ (hum) — attached pronoun "they" — accusative
-   - Predicate: حُمُرٌ (ḥumurun) — nominative with dammatain
-
-**Key insight:** All three particles put their subjects in accusative and keep predicates nominative, but each adds a different meaning (emphasis, hope, comparison).
-</ExerciseBox>
-
-<ExerciseBox question="Exercise 2: Before and After Case Analysis">
-Convert these basic nominal sentences by adding إِنَّ (inna). Show the case change on the subject:
-
-1. **ٱلصَّلَوٰةُ نُورٌ** (aṣ-ṣalātu nūrun) — "Prayer is light"
-2. **ٱلْمُؤْمِنُونَ إِخْوَةٌ** (al-muʾminūna ikhwatun) — "The believers are brothers"
-3. **ٱلْحَقُّ مِنْ رَبِّكَ** (al-ḥaqqu min rabbika) — "The truth is from your Lord"
-
-
-1. **BEFORE:** ٱلصَّلَوٰةُ نُورٌ (aṣ-ṣalātu nūrun)
-   - ٱلصَّلَوٰةُ (aṣ-ṣalātu): subject — **nominative** (ـُ)
-
-   **AFTER:** إِنَّ ٱلصَّلَوٰةَ نُورٌ (inna ṣ-ṣalāta nūrun) — "Indeed, prayer is light"
-   - ٱلصَّلَوٰةَ (aṣ-ṣalāta): ism inna — **accusative** (ـَ) ← CHANGED
-   - نُورٌ (nūrun): khabar inna — **nominative** (ـٌ) ← UNCHANGED
-
-2. **BEFORE:** ٱلْمُؤْمِنُونَ إِخْوَةٌ (al-muʾminūna ikhwatun)
-   - ٱلْمُؤْمِنُونَ (al-muʾminūna): subject — **nominative** (ـُونَ)
-
-   **AFTER:** إِنَّ ٱلْمُؤْمِنِينَ إِخْوَةٌ (inna l-muʾminīna ikhwatun) — "Indeed, the believers are brothers"
-   - ٱلْمُؤْمِنِينَ (al-muʾminīna): ism inna — **accusative** (ـِينَ) ← CHANGED
-   - إِخْوَةٌ (ikhwatun): khabar inna — **nominative** (ـٌ) ← UNCHANGED
-
-3. **BEFORE:** ٱلْحَقُّ مِنْ رَبِّكَ (al-ḥaqqu min rabbika)
-   - ٱلْحَقُّ (al-ḥaqqu): subject — **nominative** (ـُ)
-
-   **AFTER:** إِنَّ ٱلْحَقَّ مِنْ رَبِّكَ (inna l-ḥaqqa min rabbika) — "Indeed, the truth is from your Lord"
-   - ٱلْحَقَّ (al-ḥaqqa): ism inna — **accusative** (ـَ) ← CHANGED
-   - مِنْ رَبِّكَ (min rabbika): khabar inna — prepositional phrase ← UNCHANGED
-
-**Key insight:** Notice how sound masculine plural changes from ـُونَ (nominative) to ـِينَ (accusative) in example 2. Different noun types show accusative in different ways, but the grammatical function is the same.
-</ExerciseBox>
-
-<ExerciseBox question="Exercise 3: Complete I'rab Analysis">
-Provide complete grammatical analysis for this Quranic verse:
-
-**إِنَّ ٱللَّهَ عَلَىٰ كُلِّ شَىْءٍۢ قَدِيرٌ** (inna llāha ʿalā kulli shayʾin qadīrun)
-"Indeed, Allah is over all things competent"
-[Al-Baqarah 2:20]
-
-Identify: (1) the inna particle, (2) the ism inna and its case, (3) the khabar inna and its case.
-
-
-**Complete grammatical analysis:**
-
-1. **إِنَّ** (inna) — Emphasis particle
-   - Function: Emphasis particle from inna family
-   - Case: Particles don't take case
-   - Reason: Introduces emphasized nominal sentence
-
-2. **ٱللَّهَ** (allāha) — Name of inna (ism inna)
-   - Function: Subject of inna sentence
-   - Case marker: **Accusative with fatha (ـَ)**
-   - Reason: إِنَّ puts its subject in accusative case
-
-3. **عَلَىٰ كُلِّ شَىْءٍۢ** (ʿalā kulli shayʾin) — Part of predicate (prepositional phrase)
-   - عَلَىٰ (ʿalā): Preposition "over, upon"
-   - كُلِّ (kulli): Genitive with kasra (follows preposition)
-   - شَىْءٍۢ (shayʾin): Genitive with kasratain (second part of iḍāfah)
-   - Function: Prepositional phrase modifying the predicate
-
-4. **قَدِيرٌ** (qadīrun) — Predicate of inna (khabar inna)
-   - Function: Predicate describing Allah's attribute
-   - Case marker: **Nominative with dammatain (ـٌ)**
-   - Reason: Predicate of إِنَّ remains nominative
-
-**Sentence structure:**
-```
-إِنَّ + SUBJECT (acc.) + PREPOSITIONAL PHRASE + PREDICATE (nom.)
-إِنَّ   ٱللَّهَ        عَلَىٰ كُلِّ شَىْءٍۢ     قَدِيرٌ
-```
-
-**Key insight:** The prepositional phrase عَلَىٰ كُلِّ شَىْءٍۢ modifies the predicate قَدِيرٌ ("competent over all things"). The predicate itself (قَدِيرٌ) remains nominative even though إِنَّ entered the sentence.
-</ExerciseBox>
-
-<ExerciseBox question="Exercise 4: Sister Identification and Meaning">
-For each sentence, identify: (1) which inna sister is used, (2) the meaning it adds, (3) the case of the subject and predicate.
-
-1. **لَٰكِنِ ٱلرَّاسِخُونَ فِى ٱلْعِلْمِ** (lākini r-rāsikhūna fi l-ʿilmi) — "But those firm in knowledge..."
-2. **لَيْتَنِى كُنتُ تُرَٰبًا** (laytanī kuntu turāban) — "I wish I had been dust"
-3. **كَأَنَّ ٱلْجِبَالَ ٱلْعِهْنُ** (kaʾanna l-jibāla l-ʿihnu) — "As if the mountains were wool"
-
-
-1. **لَٰكِنِ** (lākini) — "but, however" (light form, NOT the inna sister لَٰكِنَّ)
-   - **Important distinction:** This is لَٰكِنِ (lākin, without shadda on the final nun), the LIGHT form. It is NOT the same as لَٰكِنَّ (lākinna, with shadda), which is the inna sister.
-   - لَٰكِنِ (light form): Simple conjunction meaning "but" — does NOT affect case. The following noun stays nominative.
-   - لَٰكِنَّ (heavy form / inna sister): Puts its subject in accusative, so it would require ٱلرَّاسِخِينَ (accusative ـِينَ).
-   - Since ٱلرَّاسِخُونَ is **nominative** (ـُونَ), this confirms it is the light form لَٰكِنِ, not the inna sister.
-   - Function: Shows contrast with previous statement (An-Nisa 4:162)
-
-2. **لَيْتَ** (layta) — "I wish, would that" (wish particle)
-   - Meaning: Expresses unfulfilled wish or regret
-   - Subject: ـنِى (-nī) attached pronoun "me" — **accusative** (attached to particle)
-   - Predicate: كُنتُ تُرَٰبًا (kuntu turāban) — verbal sentence with كَانَ (kaana)
-     - Function: Entire clause "I had been dust" serves as predicate
-     - Note: This combines TWO modifying particles (لَيْتَ + كَانَ), showing layered grammar
-
-3. **كَأَنَّ** (kaʾanna) — "as if, as though" (comparison particle)
-   - Meaning: Creates comparison or simile
-   - Subject: ٱلْجِبَالَ (al-jibāla) — **accusative** with fatha (ـَ)
-   - Predicate: ٱلْعِهْنُ (al-ʿihnu) — **nominative** with damma (ـُ)
-   - Function: Compares mountains to wool (scattered, light)
-
-**Key insight:** Each sister adds a distinct semantic flavor (contrast, wish, comparison) while maintaining the same grammatical effect: accusative subject, nominative predicate. Advanced structures can layer multiple modifying particles.
-</ExerciseBox>
-
-## Related Lessons
-
-**Previous lessons:**
-- [The Nominal Sentence](/learn/level-2/01-nominal-sentence/) — Foundation of jumlah ismiyyah structure
-- [Subject and Predicate](/learn/level-2/02-subject-predicate/) — Mubtadaʾ and khabar in depth
-- [The Accusative Case](/learn/level-2/05-accusative-case/) — Understanding naṣb case
-
-**Next lesson:**
-- [Kaana and Her Sisters](/learn/level-2/11-kaana-sisters/) — Verbs that modify nominal sentences (companion to inna)
-
-**Sister concept:**
-Just as inna particles put the subject in accusative, [kaana and her sisters](/learn/level-2/11-kaana-sisters/) put the PREDICATE in accusative. Together, these two families demonstrate Arabic's systematic approach to modifying nominal sentences.
-
-**Topic Hub:**
-- [I’rab Cases: Marfuʻ, Mansub, Majrur](/learn/irab-cases/) — How inna flips case assignments, in the context of the full case system
-
-**Resources:**
-- [Glossary: Inna and Her Sisters](/resources/glossary/#inna-sisters) — Quick reference
-- [Case Endings Chart](/resources/case-endings-chart/) — Nominative and accusative markers by noun type
+import Step from '../../../components/lesson/Step.astro';
+import Stage from '../../../components/lesson/Stage.astro';
+import Sentence from '../../../components/lesson/Sentence.astro';
+import Tiles from '../../../components/lesson/Tiles.astro';
+import Formula from '../../../components/lesson/Formula.astro';
+import Legend from '../../../components/lesson/Legend.astro';
+import Note from '../../../components/lesson/Note.astro';
+import Check from '../../../components/lesson/Check.astro';
+import Start from '../../../components/lesson/Start.astro';
+import Sources from '../../../components/lesson/Sources.astro';
+import Parse from '../../../components/lesson/Parse.astro';
+import Exercise from '../../../components/lesson/Exercise.astro';
+import Block from '../../../components/lesson/Block.astro';
+
+{/* Content spec: docs/redesign/specs/L2.10-inna-sisters.md. Every parse follows al-Jadwal (Mahmud Safi). */}
+
+<Step hero id="start" label="The six words" title={frontmatter.title} kicker={frontmatter.kicker} titleArabic={frontmatter.titleArabic}>
+<Block id="overview" title="In this lesson" level={2} uncounted>
+  <Stage label="The idea">
+    <Formula
+      label="inna plus the ism in -a plus the khabar in -u"
+      items={[
+        { kind: 'm', text: 'ism inna', small: 'first part: now -a' },
+        { kind: 'k', text: 'khabar inna', small: 'second part: still -u' },
+        { kind: 's', text: 'sentence after inna', small: 'إِنَّ وَأَخَوَاتُهَا' },
+      ]}
+    />
+  </Stage>
+  <Start
+    goal="Spot inna or one of her sisters in a verse, find the ism (-a) and the khabar (-u), say what each sister means, and go through a short verse word by word."
+    minutes={50}
+    before="The nominal sentence (L2.01). The nominative case (L2.04). The accusative case (L2.05)."
+    terms={[
+      { term: 'Inna and her sisters', ar: 'إِنَّ وَأَخَوَاتُهَا', meaning: 'Six little words that come in front of a nominal sentence.' },
+      { term: 'Ism inna', ar: 'اِسْم إِنَّ', meaning: 'The first part of the sentence after inna. It takes -a.' },
+      { term: 'Khabar inna', ar: 'خَبَر إِنَّ', meaning: 'The news part after inna. It stays nominative.' },
+      { term: 'Emphasis', ar: 'تَوْكِيد', meaning: 'Making a statement stronger: “indeed”.' },
+      { term: 'Attached pronoun', ar: 'ضَمِير مُتَّصِل', meaning: 'A short pronoun joined to the end of a word, such as the “hum” of كَأَنَّهُمْ.' },
+      { term: 'Lām of emphasis', ar: 'لَام الاِبْتِدَاء', meaning: 'A la- that adds more emphasis, often on the khabar.' },
+      { term: 'Iʿrāb', ar: 'إِعْرَاب', meaning: 'Going word by word: the role and case of each word.' },
+    ]}
+  />
+</Block>
+
+<Block id="see" title="Same words, one small change" level={2}>
+  <Stage>
+    <Sentence
+      roles
+      reference="Al-Baqarah 2:218 (end)"
+      groups={[
+        { role: 'mubtada', words: [{ ar: 'وَٱللَّهُ', en: 'and Allah', say: 'wa-llahu' }] },
+        { role: 'khabar', words: [{ ar: 'غَفُورٌ', en: 'forgiving', say: 'ghafurun' }] },
+        { role: 'khabar2', words: [{ ar: 'رَّحِيمٌ', en: 'merciful', say: 'rahimun' }] },
+      ]}
+      en={['And Allah ', { gap: 'is' }, ' Forgiving, Merciful.']}
+    />
+    <Sentence
+      roles
+      reference="Al-Baqarah 2:173 (end)"
+      groups={[
+        { words: [{ ar: 'إِنَّ', en: 'indeed', say: 'inna', type: 'p' }] },
+        { role: 'ismInna', words: [{ ar: 'ٱللَّهَ', en: 'Allah', say: 'allaha' }] },
+        { role: 'khabarInna', words: [{ ar: 'غَفُورٌ', en: 'forgiving', say: 'ghafurun' }] },
+        { role: 'khabarInna', label: 'second khabar', words: [{ ar: 'رَّحِيمٌ', en: 'merciful', say: 'rahimun' }] },
+      ]}
+      en={['Indeed, Allah ', { gap: 'is' }, ' Forgiving, Merciful.']}
+    />
+  </Stage>
+
+Two verses, almost the same words. The first is a plain nominal sentence from L2.01: ٱللَّهُ ends in **-u**, and غَفُورٌ رَّحِيمٌ end in **-un**.
+
+In the second, a little word, إِنَّ (“indeed”), stands in front. Now ٱللَّهَ ends in **-a**. The other two words did not change.
+
+<Check n={1} q="What changed when إِنَّ came in front?" options={['ٱللَّهُ became ٱللَّهَ', 'غَفُورٌ became غَفُورًا', 'Nothing changed']} answer={0} why="Only the first part changes, from -u to -a. The khabar keeps -un." />
+</Block>
+
+<Block id="name" title="What inna does, and how the first grammar book says it" level={2}>
+  <Stage label="From al-Ajurrumiyyah">
+    <blockquote class="lx-quote lx-quote-list" lang="ar" dir="rtl">
+      <p>وَأَمَّا إِنَّ وَأَخَوَاتُهَا فَإِنَّهَا تَنْصِبُ الِاسْمَ وَتَرْفَعُ الْخَبَرَ</p>
+      <p>وَهِيَ إِنَّ وَأَنَّ وَلَكِنَّ وَكَأَنَّ وَلَيْتَ وَلَعَلَّ</p>
+      <p>تَقُولُ: إِنَّ زَيْدًا قَائِمٌ</p>
+    </blockquote>
+    <p class="lx-quote-note">Vowel marks added by Quran Learn.</p>
+  </Stage>
+
+*Al-Ajurrumiyyah* says: “As for inna and her sisters, they put the noun in the accusative (*naṣb*) and the khabar in the nominative (*rafʿ*).” Then it lists the six, and gives an example: “Indeed Zayd is standing.”
+
+So the words after inna get new names:
+
+- **Ism inna**, اِسْم إِنَّ: the first part. It was the mubtadaʾ. It now takes **-a**.
+- **Khabar inna**, خَبَر إِنَّ: the news. It was the khabar. It **stays -u**.
+
+Do not say “mubtadaʾ” after inna. The old name goes, and the new one comes.
+
+<Note kind="know">Al-Jadwal calls these words *ḥarf mushabbah bi-l-fiʿl*, “a little word that looks like a verb”, and *nāsikh*, “one that overrides”. They override the usual -u of the mubtadaʾ. In L2.01 you saw that the khabar of a plain nominal sentence does not copy the mubtadaʾ. Here the khabar again keeps its own -u.</Note>
+
+<Check n={2} q="After inna, which part ends in -a?" options={['The first part (ism inna)', 'The khabar (khabar inna)']} answer={0} why="Inna puts its ism in the accusative. Its khabar stays nominative." />
+</Block>
+
+<Block id="sisters" title="The six words and what they mean" level={2}>
+  <Stage label="The six">
+    <Tiles
+      label="inna, anna, lākinna, kaʾanna, layta, laʿalla"
+      items={[
+        { ar: 'إِنَّ', en: 'indeed' },
+        { ar: 'أَنَّ', en: 'that' },
+        { ar: 'لَٰكِنَّ', en: 'but' },
+        { ar: 'كَأَنَّ', en: 'as if' },
+        { ar: 'لَيْتَ', en: 'would that' },
+        { ar: 'لَعَلَّ', en: 'perhaps' },
+      ]}
+    />
+  </Stage>
+
+All six do the same job to the endings: the ism takes -a, the khabar keeps -u. They differ in meaning. *Al-Ajurrumiyyah* names each meaning:
+
+| Word | Its meaning in the book | In plain English | You will see it in |
+|---|---|---|---|
+| إِنَّ | تَوْكِيد (*tawkīd*) | Emphasis: “indeed” | 2:173 |
+| أَنَّ | تَوْكِيد | Emphasis, joined to what came before: “that” | 2:235 |
+| لَٰكِنَّ | اِسْتِدْرَاك (*istidrāk*) | Correcting what came before: “but” | 2:243 |
+| كَأَنَّ | تَشْبِيه (*tashbīh*) | A likeness: “as if” | 2:101 |
+| لَيْتَ | تَمَنٍّ (*tamannī*) | A wish: “would that” | 6:27 |
+| لَعَلَّ | تَرَجٍّ وَتَوَقُّع (*tarajjī*, *tawaqquʿ*) | Hope and expectation: “perhaps” | 3:200 |
+
+The book spells the fourth word with a plain kasra, لَكِنَّ. The Quran writes it لَٰكِنَّ, with a small alif above.
+
+<Check n={3} q="Which of the six means “would that” (a wish)?" options={['كَأَنَّ', 'لَيْتَ', 'لَعَلَّ']} answer={1} why="لَيْتَ is the word of wishing (tamannī). كَأَنَّ is “as if”, and لَعَلَّ is “perhaps”." />
+</Block>
+
+<Block id="marks" title="The ism takes the accusative marks you know" level={2}>
+  <Stage>
+    <Sentence
+      roles
+      reference="Al-Baqarah 2:218 (start)"
+      groups={[
+        { words: [{ ar: 'إِنَّ', en: 'indeed', say: 'inna', type: 'p' }] },
+        { role: 'ismInna', hint: 'a word that never changes', words: [{ ar: 'ٱلَّذِينَ', en: 'those who', say: 'alladhina' }, { ar: 'ءَامَنُوا۟', en: 'believed', say: 'amanu', type: 'v' }] },
+      ]}
+      en={['Indeed, those who believed …']}
+    />
+  </Stage>
+
+The ism is accusative, so it takes the marks from L2.05: -a or -an on a single word, -īna on a masculine sound plural, -ayni on a dual, a kasra on a feminine sound plural.
+
+| Before inna (-u) | After inna | What shows the case |
+|---|---|---|
+| ٱلْكِتَابُ | ٱلْكِتَابَ | -a |
+| كِتَابٌ | كِتَابًا | -an |
+| ٱلْمُسْلِمُونَ | ٱلْمُسْلِمِينَ | -īna |
+| ٱلْمُسْلِمَانِ | ٱلْمُسْلِمَيْنِ | -ayni |
+| ٱلْمُسْلِمَاتُ | ٱلْمُسْلِمَاتِ | a kasra |
+
+These are made-up examples: the words are real, but they are not from a verse.
+
+Some words show nothing. ٱلَّذِينَ (“those who”) never changes its shape. Al-Jadwal says it is the ism of inna and “in the place of the accusative”, in the same way that هُوَ was “in the place of the nominative” in L2.01.
+
+<Check n={4} q="What does ٱلْمُسْلِمُونَ become as the ism of inna?" options={['ٱلْمُسْلِمُونَ (no change)', 'ٱلْمُسْلِمِينَ', 'ٱلْمُسْلِمَانِ']} answer={1} why="A masculine sound plural shows the accusative with -īna." />
+</Block>
+
+</Step>
+
+<Step id="the-six" label="The six, one by one" title="The six words, one by one">
+<Block id="anna" title="Anna: “that”">
+  <Stage>
+    <Sentence
+      roles
+      reference="Al-Baqarah 2:235 (part)"
+      groups={[
+        { words: [{ ar: 'وَٱعْلَمُوٓا۟', en: 'and know', say: 'wa-lamu', type: 'v' }] },
+        { words: [{ ar: 'أَنَّ', en: 'that', say: 'anna', type: 'p' }] },
+        { role: 'ismInna', label: 'ism anna', words: [{ ar: 'ٱللَّهَ', en: 'Allah', say: 'allaha' }] },
+        { role: 'khabarInna', label: 'khabar anna', hint: 'a verb with its doer', words: [{ ar: 'يَعْلَمُ', en: 'knows', say: 'yalamu', type: 'v' }, { ar: 'مَا', en: 'what', say: 'ma' }, { ar: 'فِىٓ', en: 'in', say: 'fi', type: 'p' }, { ar: 'أَنفُسِكُمْ', en: 'yourselves', say: 'anfusikum' }] },
+      ]}
+      en={['And know that Allah knows what is in yourselves.']}
+    />
+  </Stage>
+
+أَنَّ is inna's twin. The ism takes -a (ٱللَّهَ) and the khabar keeps its own ending. The khabar here is a whole verbal sentence: يَعْلَمُ مَا فِىٓ أَنفُسِكُمْ.
+
+The difference is use. **Inna** usually starts a new sentence: “Indeed, …”. **Anna** joins a sentence to what came before: “know **that** …”.
+
+<Note kind="know">Al-Jadwal says anna with its ism and its khabar together stand in the place of the two things that “know” needs. In plain words: the whole group “that Allah knows what is in yourselves” is what you are told to know.</Note>
+
+<Check n={5} q="In أَنَّ ٱللَّهَ يَعْلَمُ, which word is the ism of anna?" options={['ٱللَّهَ', 'يَعْلَمُ']} answer={0} why="ٱللَّهَ ends in -a and comes right after anna. يَعْلَمُ starts the khabar." />
+</Block>
+
+<Block id="lakinna" title="Lākinna: “but”">
+  <Stage>
+    <Sentence
+      roles
+      reference="Al-Baqarah 2:243 (end)"
+      groups={[
+        { words: [{ ar: 'وَلَٰكِنَّ', en: 'but', say: 'wa-lakinna', type: 'p' }] },
+        { role: 'ismInna', label: 'ism lākinna', words: [{ ar: 'أَكْثَرَ', en: 'most of', say: 'aktara' }, { ar: 'ٱلنَّاسِ', en: 'the people', say: 'an-nasi' }] },
+        { role: 'khabarInna', label: 'khabar lākinna', hint: 'a verb with its doer', words: [{ ar: 'لَا', en: 'not', say: 'la', type: 'p' }, { ar: 'يَشْكُرُونَ', en: 'give thanks', say: 'yashkurun', type: 'v' }] },
+      ]}
+      en={['But most people do not give thanks.']}
+    />
+  </Stage>
+
+The verse first says that Allah is full of favour to people. Then لَٰكِنَّ adds a correction: “**but** most people do not give thanks.” This is *istidrāk*: it fixes the picture the first half gave.
+
+The ism is أَكْثَرَ (“most of”), with **-a**. It is the first word of an idafah (L2.08), so ٱلنَّاسِ after it is genitive. The khabar is a verbal sentence, لَا يَشْكُرُونَ.
+
+<Note kind="warn">There is a second, light word, لَٰكِنْ, with a sukūn on the last letter. It does nothing to the endings. Step 4 shows it.</Note>
+
+<Check n={6} q="What is the ism of لَٰكِنَّ here?" options={['أَكْثَرَ ٱلنَّاسِ', 'لَا يَشْكُرُونَ']} answer={0} why="“Most of the people” is the ism, in -a. The verbal sentence is the khabar." />
+</Block>
+
+<Block id="kaanna" title="Kaʾanna: “as if”">
+  <Stage>
+    <Sentence
+      roles
+      reference="Al-Baqarah 2:101 (end)"
+      groups={[
+        { role: 'ismInna', label: 'ism kaʾanna', hint: 'the “hum” is the ism', words: [{ ar: 'كَأَنَّهُمْ', en: 'as if they', say: 'kaannahum', type: 'p' }] },
+        { role: 'khabarInna', label: 'khabar kaʾanna', hint: 'a verb with its doer', words: [{ ar: 'لَا', en: 'not', say: 'la', type: 'p' }, { ar: 'يَعْلَمُونَ', en: 'know', say: 'yalamun', type: 'v' }] },
+      ]}
+      en={['… as if they did not know.']}
+    />
+  </Stage>
+
+كَأَنَّ makes a likeness (*tashbīh*): “as if”. The verse says some people threw away the Book “behind their backs”, **as if they did not know**.
+
+Here the ism is not a separate word. It is the short pronoun **-hum** joined to the end of كَأَنَّ. It counts as accusative, even though a pronoun cannot show it. The next step comes back to this.
+
+The khabar is the verbal sentence لَا يَعْلَمُونَ.
+
+<Check n={7} q="Where is the ism of كَأَنَّ in كَأَنَّهُمْ لَا يَعْلَمُونَ?" options={['In the -hum joined to it', 'In لَا', 'In يَعْلَمُونَ']} answer={0} why="Al-Jadwal: “hum” is the ism of kaʾanna. يَعْلَمُونَ is the khabar, with لَا." />
+</Block>
+
+<Block id="layta" title="Layta: “would that”">
+  <Stage>
+    <Sentence
+      roles
+      reference="Al-Anʿam 6:27 (part)"
+      groups={[
+        { role: 'ismInna', label: 'ism layta', hint: 'the “nā” is the ism', words: [{ ar: 'يَٰلَيْتَنَا', en: 'oh, would that we', say: 'ya-laytana', type: 'p' }] },
+        { role: 'khabarInna', label: 'khabar layta', hint: 'a verbal sentence', words: [{ ar: 'نُرَدُّ', en: 'were sent back', say: 'nuraddu', type: 'v' }] },
+      ]}
+      en={['Oh, would that we were sent back!']}
+    />
+  </Stage>
+
+لَيْتَ is the word of wishing (*tamannī*), often for something that cannot happen. People who see the Fire say: “Oh, would that we were sent back!”
+
+The little word يَا in front is not “O …” calling someone. Al-Jadwal calls it *ḥarf tanbīh*, “a word that makes you notice”: “Oh!”. Then comes لَيْتَ with the pronoun **-nā** (“we”) as its ism. The khabar is the verbal sentence نُرَدُّ.
+
+<Note kind="know">When layta meets “me” you get لَيْتَنِي, with an extra nūn. Al-Jadwal says on 19:23 that this nūn is there “to protect” the word (*nūn al-wiqāya*). The ī is the ism.</Note>
+</Block>
+
+<Block id="laalla" title="Laʿalla: “perhaps”, “so that”">
+  <Stage>
+    <Sentence
+      roles
+      reference="Al-Imran 3:200 (end)"
+      groups={[
+        { role: 'ismInna', label: 'ism laʿalla', hint: 'the “kum” is the ism', words: [{ ar: 'لَعَلَّكُمْ', en: 'perhaps you', say: 'laallakum', type: 'p' }] },
+        { role: 'khabarInna', label: 'khabar laʿalla', hint: 'a verbal sentence', words: [{ ar: 'تُفْلِحُونَ', en: 'will succeed', say: 'tuflihun', type: 'v' }] },
+      ]}
+      en={['… so that you may succeed.']}
+    />
+  </Stage>
+
+لَعَلَّ is hope and expectation (*tarajjī*, *tawaqquʿ*): “perhaps”. In the Quran it often follows an order, and then English says “so that you may …”: be patient, keep guard, and fear Allah, **so that you may succeed**.
+
+Again the ism is a pronoun joined to the end: **-kum**. The khabar is the verbal sentence تُفْلِحُونَ.
+
+<Note kind="know">Al-Jadwal reads the clause “laʿallakum …” as giving the reason for what came before. You will see the same on 12:2 in the word-by-word step.</Note>
+
+<Check n={8} q="Which sister is in لَعَلَّكُمْ تُفْلِحُونَ?" options={['لَيْتَ', 'لَعَلَّ', 'كَأَنَّ']} answer={1} why="لَعَلَّ, “perhaps”. The -kum joined to it is its ism." />
+</Block>
+
+<Block id="glance" title="The six at a glance">
+  <Stage label="One pattern">
+    <Formula
+      label="sister plus ism in -a plus khabar in -u"
+      items={[
+        { kind: 'm', text: 'ism', small: 'accusative: -a' },
+        { kind: 'k', text: 'khabar', small: 'nominative: -u' },
+        { kind: 's', text: 'one of six words in front', small: 'same pattern' },
+      ]}
+    />
+  </Stage>
+
+| Word | Verse | Ism | Khabar |
+|---|---|---|---|
+| إِنَّ | 2:173 | ٱللَّهَ | غَفُورٌ رَّحِيمٌ |
+| أَنَّ | 2:235 | ٱللَّهَ | يَعْلَمُ مَا فِىٓ أَنفُسِكُمْ |
+| لَٰكِنَّ | 2:243 | أَكْثَرَ ٱلنَّاسِ | لَا يَشْكُرُونَ |
+| كَأَنَّ | 2:101 | -هُمْ | لَا يَعْلَمُونَ |
+| لَيْتَ | 6:27 | -نَا | نُرَدُّ |
+| لَعَلَّ | 3:200 | -كُمْ | تُفْلِحُونَ |
+
+The ism is always the first part, and it takes -a or stands in the place of -a. The khabar can be a single word, a phrase or a sentence. The next step looks at this.
+</Block>
+
+</Step>
+
+<Step id="after" label="What can follow" title="What can follow inna">
+<Block id="pronoun" title="The ism can be a pronoun joined to inna">
+  <Stage>
+    <Sentence
+      roles
+      reference="Yusuf 12:78 (end)"
+      groups={[
+        { role: 'ismInna', hint: 'the “nā” is the ism', words: [{ ar: 'إِنَّا', en: 'indeed we', say: 'inna', type: 'p' }] },
+        { role: 'khabarInna', hint: 'a verbal sentence', words: [{ ar: 'نَرَىٰكَ', en: 'we see you', say: 'naraka', type: 'v' }] },
+        { role: 'tied', hint: 'tells how “you” seem', words: [{ ar: 'مِنَ', en: 'among', type: 'p' }, { ar: 'ٱلْمُحْسِنِينَ', en: 'the good-doers' }] },
+      ]}
+      en={['Indeed, we see you as one of the good-doers.']}
+    />
+    <Sentence
+      roles
+      reference="Al-Baqarah 2:32 (end)"
+      groups={[
+        { role: 'ismInna', hint: 'the “ka” is the ism', words: [{ ar: 'إِنَّكَ', en: 'indeed you', say: 'innaka', type: 'p' }] },
+        { words: [{ ar: 'أَنتَ', en: 'you (stress)', say: 'anta' }] },
+        { role: 'khabarInna', words: [{ ar: 'ٱلْعَلِيمُ', en: 'the All-Knowing', say: 'al-alimu' }] },
+        { role: 'khabarInna', label: 'second khabar', words: [{ ar: 'ٱلْحَكِيمُ', en: 'the All-Wise', say: 'al-hakimu' }] },
+      ]}
+      en={['Indeed, You, You are the All-Knowing, the All-Wise.']}
+    />
+  </Stage>
+
+Very often the ism is not a separate word. It is a short pronoun joined to the end of the sister:
+
+| Pronoun | With inna | Meaning |
+|---|---|---|
+| -nā | إِنَّا | indeed we |
+| -ka | إِنَّكَ | indeed you (one man) |
+| -kum | إِنَّكُمْ | indeed you (many) |
+| -hu | إِنَّهُ | indeed he |
+| -hum | إِنَّهُمْ | indeed they |
+| -ī | إِنِّي | indeed I |
+
+A joined pronoun never changes its shape. It is still the ism, and the books say it is **in the place of the accusative** (*fī maḥall naṣb*).
+
+In 2:32 the stressing word أَنتَ stands between the ism and the khabar. Al-Jadwal calls it a *separating pronoun* (*ḍamīr faṣl*) and gives it no role of its own. The khabar is ٱلْعَلِيمُ, and ٱلْحَكِيمُ is a second khabar, as in L2.01.
+
+<Check n={9} q="In إِنَّا نَرَىٰكَ, where is the ism of inna?" options={['In the -nā joined to inna', 'In نَرَىٰكَ', 'In ٱلْمُحْسِنِينَ']} answer={0} why="The pronoun -nā is the ism. نَرَىٰكَ is the khabar." />
+</Block>
+
+<Block id="kinds" title="The khabar can be any of the five kinds">
+  <Stage>
+    <Sentence
+      roles
+      reference="Luqman 31:34 (start)"
+      groups={[
+        { words: [{ ar: 'إِنَّ', en: 'indeed', say: 'inna', type: 'p' }] },
+        { role: 'ismInna', words: [{ ar: 'ٱللَّهَ', en: 'Allah', say: 'allaha' }] },
+        { role: 'khabarInna', hint: 'a whole nominal sentence', words: [{ ar: 'عِندَهُۥ', en: 'with him', say: 'indahu' }, { ar: 'عِلْمُ', en: 'the knowledge of', say: 'ilmu' }, { ar: 'ٱلسَّاعَةِ', en: 'the Hour', say: 'as-saati' }] },
+      ]}
+      en={['Indeed, Allah: with Him ', { gap: 'is' }, ' the knowledge of the Hour.']}
+    />
+  </Stage>
+
+The khabar of inna can be any kind of khabar from L2.01. Nothing new to learn: only the ism changed.
+
+| Kind of khabar | Verse | Khabar inna |
+|---|---|---|
+| Single | 2:173 | غَفُورٌ رَّحِيمٌ |
+| A phrase | 26:8 | فِى ذَٰلِكَ |
+| A place or time word | 73:12 | لَدَيْنَآ |
+| A verbal sentence | 12:2 | أَنزَلْنَٰهُ |
+| A nominal sentence | 31:34 | عِندَهُۥ عِلْمُ ٱلسَّاعَةِ |
+
+In 31:34 the khabar is a sentence inside the sentence, as in 3:14 in L2.01. Its own parts are عِندَهُۥ (khabar, first) and عِلْمُ (mubtadaʾ, later). The inner mubtadaʾ keeps its **-u**. Inna only changes the ism of the outer sentence.
+
+<Note kind="remember">When the khabar is a sentence, it has no ending. Al-Jadwal says it is “in the place of the nominative”.</Note>
+
+<Check n={10} q="In إِنَّ ٱللَّهَ عِندَهُۥ عِلْمُ ٱلسَّاعَةِ, what is the khabar of inna?" options={['عِندَهُۥ', 'عِلْمُ', 'The whole of عِندَهُۥ عِلْمُ ٱلسَّاعَةِ']} answer={2} why="Al-Jadwal: the sentence عنده علم الساعة is the khabar of inna." />
+</Block>
+
+<Block id="fronted" title="The khabar comes first: inna lahu …">
+  <Stage>
+    <Sentence
+      roles
+      reference="Yusuf 12:78 (part)"
+      groups={[
+        { words: [{ ar: 'إِنَّ', en: 'indeed', say: 'inna', type: 'p' }] },
+        { role: 'khabarFirst', label: 'khabar inna, first', words: [{ ar: 'لَهُۥٓ', en: 'for him', say: 'lahu', type: 'p' }] },
+        { role: 'ismInna', label: 'ism inna, later', words: [{ ar: 'أَبًا', en: 'a father', say: 'aban' }] },
+        { role: 'naat', hint: 'describes أَبًا', words: [{ ar: 'شَيْخًا', en: 'old', say: 'shaykhan' }] },
+        { role: 'naat', label: 'second naʿt', words: [{ ar: 'كَبِيرًا', en: 'great in age', say: 'kabiran' }] },
+      ]}
+      en={['Indeed, he ', { gap: 'has' }, ' a father, an old man, great in age.']}
+    />
+    <Sentence
+      roles
+      reference="Al-Muzzammil 73:7"
+      groups={[
+        { words: [{ ar: 'إِنَّ', en: 'indeed', say: 'inna', type: 'p' }] },
+        { role: 'khabarFirst', label: 'khabar inna, first', words: [{ ar: 'لَكَ', en: 'for you', say: 'laka', type: 'p' }, { ar: 'فِى', en: 'in', type: 'p' }, { ar: 'ٱلنَّهَارِ', en: 'the day' }] },
+        { role: 'ismInna', label: 'ism inna, later', words: [{ ar: 'سَبْحًا', en: 'a long busy time', say: 'sabhan' }] },
+        { role: 'naat', words: [{ ar: 'طَوِيلًا', en: 'long', say: 'tawilan' }] },
+      ]}
+      en={['Indeed, for you in the day ', { gap: 'is' }, ' a long busy time.']}
+    />
+    <Sentence
+      roles
+      reference="Luqman 31:7 (end)"
+      groups={[
+        { words: [{ ar: 'كَأَنَّ', en: 'as if', say: 'kaanna', type: 'p' }] },
+        { role: 'khabarFirst', label: 'khabar kaʾanna, first', words: [{ ar: 'فِىٓ', en: 'in', type: 'p' }, { ar: 'أُذُنَيْهِ', en: 'his ears' }] },
+        { role: 'ismInna', label: 'ism kaʾanna, later', words: [{ ar: 'وَقْرًا', en: 'deafness', say: 'waqran' }] },
+      ]}
+      en={['… as if in his ears ', { gap: 'were' }, ' deafness.']}
+    />
+  </Stage>
+
+The usual order is sister, ism, khabar. But you saw in L2.01 that an **indefinite** mubtadaʾ (“a father”, “a long time”) with a phrase as khabar needs the phrase first. The same happens after inna and her sisters.
+
+So the order is: sister, khabar (the phrase), ism. The ism still takes **-a**: أَبًا, سَبْحًا, وَقْرًا. All end in **-an**.
+
+Words that describe the ism follow it into the accusative. In 12:78, شَيْخًا and كَبِيرًا are both **-an**, like أَبًا. Al-Jadwal calls them adjectives (*naʿt*) of أَبًا. L2.09 teaches this.
+
+<Note kind="tip">There is no verb in these sentences, so a word in **-a** or **-an** that follows a phrase is not an object. It is the ism of inna.</Note>
+<Note kind="know">Al-Jadwal reads the phrase لَكَ in 73:7 as tied to a khabar that is left out (“is found”), and فِى ٱلنَّهَارِ as tied to that same left-out word. In this course we call the phrases the khabar, as in L2.01.</Note>
+
+<Check n={11} q="In إِنَّ لَهُۥٓ أَبًا, which word is the ism inna?" options={['لَهُۥٓ', 'أَبًا']} answer={1} why="أَبًا ends in -an. لَهُۥٓ is the khabar, put first." />
+</Block>
+
+<Block id="lam-khabar" title="La- on the khabar: extra emphasis">
+  <Stage>
+    <Sentence
+      roles
+      reference="Al-Adiyat 100:6"
+      groups={[
+        { words: [{ ar: 'إِنَّ', en: 'indeed', say: 'inna', type: 'p' }] },
+        { role: 'ismInna', words: [{ ar: 'ٱلْإِنسَٰنَ', en: 'man', say: 'al-insana' }] },
+        { role: 'tied', hint: 'belongs to لَكَنُودٌ', words: [{ ar: 'لِرَبِّهِۦ', en: 'to his Lord', say: 'li-rabbihi' }] },
+        { role: 'khabarInna', hint: 'la- + kanūdun', words: [{ ar: 'لَكَنُودٌ', en: 'very ungrateful', say: 'la-kanudun' }] },
+      ]}
+      en={['Indeed, man ', { gap: 'is' }, ' very ungrateful to his Lord.']}
+    />
+  </Stage>
+
+Look at the khabar: لَكَنُودٌ. It starts with an extra **لَ** (*la-*). This is the **lām of emphasis**. It says: “really, truly”. Al-Jadwal calls it *al-lām al-muzaḥlaqa*, “the lām that slid away” from inna to the khabar, and says it adds emphasis.
+
+It does not change anything else. كَنُودٌ still ends in **-un**, as a khabar should. You can leave the la- out when you look for the case.
+
+Be careful with the phrase in the middle. لِرَبِّهِۦ starts with *li-* (“to”), which is a preposition, not the lām of emphasis. It belongs to كَنُودٌ. Mistake 5 comes back to this.
+
+<Note kind="know">Al-Jadwal says كَنُود is an intensive form of *kanada*, “to deny a favour”. Its pattern is فَعُول.</Note>
+
+<Check n={12} q="In لَكَنُودٌ, what is the first لَ?" options={['The lām of emphasis', 'A preposition “to”', 'Part of the root']} answer={0} why="It adds emphasis to the khabar. The preposition in this verse is the li- of لِرَبِّهِۦ." />
+</Block>
+
+<Block id="lam-ism" title="When the khabar is first, la- moves to the ism">
+  <Stage>
+    <Sentence
+      roles
+      reference="Ash-Shuara 26:8 (part)"
+      groups={[
+        { words: [{ ar: 'إِنَّ', en: 'indeed', say: 'inna', type: 'p' }] },
+        { role: 'khabarFirst', label: 'khabar inna, first', words: [{ ar: 'فِى', en: 'in', say: 'fi', type: 'p' }, { ar: 'ذَٰلِكَ', en: 'that', say: 'dhalika' }] },
+        { role: 'ismInna', label: 'ism inna, later', hint: 'la- + āyatan', words: [{ ar: 'لَءَايَةً', en: 'surely a sign', say: 'la-ayatan' }] },
+      ]}
+      en={['Indeed, in that ', { gap: 'is' }, ' surely a sign.']}
+    />
+  </Stage>
+
+Here the khabar is first (an indefinite ism, “a sign”, as in the last block). Where does the la- go? It sits on the ism: لَءَايَةً.
+
+The rule: la- goes on the khabar in the usual order. When the khabar has been put first, it goes on the ism instead. You will not meet la- on the ism in the usual order.
+
+The word keeps its normal case. ءَايَةً is **-an**: accusative, because it is the ism.
+
+<Note kind="warn">Do not read لَ as part of the word. لَءَايَةً is la- + āyatan.</Note>
+
+<Check n={13} q="In إِنَّ فِى ذَٰلِكَ لَءَايَةً, which word has the lām of emphasis?" options={['ذَٰلِكَ', 'لَءَايَةً']} answer={1} why="The khabar is first, so the la- sits on the ism: la-āyatan." />
+</Block>
+
+</Step>
+
+<Step id="word-by-word" label="Mistakes, word by word" title="Five mistakes, and four verses word by word">
+<Block id="mistake-both" title="Mistake 1: putting both parts in -a">
+  <Stage label="Wrong, then right">
+    <Sentence
+      roles
+      reference="Made-up example (wrong)"
+      groups={[
+        { words: [{ ar: 'إِنَّ', en: 'indeed', type: 'p' }] },
+        { role: 'ismInna', words: [{ ar: 'ٱللَّهَ', en: 'Allah' }] },
+        { role: 'khabarInna', hint: 'wrong: -an', words: [{ ar: 'غَفُورًا', en: 'forgiving' }] },
+      ]}
+    />
+    <Sentence
+      roles
+      reference="Al-Baqarah 2:173 (end)"
+      groups={[
+        { words: [{ ar: 'إِنَّ', en: 'indeed', type: 'p' }] },
+        { role: 'ismInna', words: [{ ar: 'ٱللَّهَ', en: 'Allah' }] },
+        { role: 'khabarInna', hint: 'right: -un', words: [{ ar: 'غَفُورٌ', en: 'forgiving' }] },
+      ]}
+    />
+  </Stage>
+
+Learners who have just met -a often put it on everything after inna. Only the **ism** changes. The khabar of inna stays nominative: غَفُورٌ, not غَفُورًا.
+
+Only the first part is changed by inna.
+
+<Note kind="warn">If a second word after the ism ends in -a or -an, it is not the khabar. Check whether it describes the ism, like شَيْخًا in 12:78.</Note>
+</Block>
+
+<Block id="mistake-in" title="Mistake 2: mixing up inna, in and innamā">
+  <Stage>
+    <Sentence
+      roles
+      reference="Al-Baqarah 2:173 (start)"
+      groups={[
+        { words: [{ ar: 'إِنَّمَا', en: 'only', say: 'innama', type: 'p' }] },
+        { role: 'fiil', words: [{ ar: 'حَرَّمَ', en: 'he has forbidden', say: 'harrama', type: 'v' }] },
+        { role: 'jarMajrur', words: [{ ar: 'عَلَيْكُمُ', en: 'to you', say: 'alaykumu' }] },
+        { role: 'maful', words: [{ ar: 'ٱلْمَيْتَةَ', en: 'carrion', say: 'al-maytata' }] },
+      ]}
+      en={['He has only forbidden you carrion …']}
+    />
+  </Stage>
+
+Three words look alike:
+
+- **إِنَّ** (with a shadda on the nūn): “indeed”. It works as you learned.
+- **إِنْ** (with a sukūn): “if”, as in إِن كُنتُمْ صَٰدِقِينَ (Al-Baqarah 2:23). It changes no endings.
+- **إِنَّمَا** (inna + mā): “only”. It does **not** work. Al-Jadwal calls the mā *kāffa*, “holding back”: it holds inna back, so the noun after it keeps its normal case.
+
+In the verse above, there is no ism in -a after إِنَّمَا. The -a on ٱلْمَيْتَةَ is a different job: it is the object of حَرَّمَ (L2.05).
+
+<Note kind="tip">Check the shadda first. Then check what follows: إِنَّمَا is often followed by a verb or by a noun in -u, such as إِنَّمَا ٱلْمُؤْمِنُونَ إِخْوَةٌ (Al-Hujurat 49:10).</Note>
+</Block>
+
+<Block id="mistake-lakin" title="Mistake 3: lākinna and lākin">
+  <Stage>
+    <Sentence
+      roles
+      reference="An-Nisa 4:162 (start)"
+      groups={[
+        { words: [{ ar: 'لَّٰكِنِ', en: 'but (light)', say: 'lakini', type: 'p' }] },
+        { role: 'mubtada', words: [{ ar: 'ٱلرَّٰسِخُونَ', en: 'those firm', say: 'ar-rasikhuna' }] },
+        { role: 'tied', hint: 'belongs to ٱلرَّٰسِخُونَ', words: [{ ar: 'فِى', en: 'in', type: 'p' }, { ar: 'ٱلْعِلْمِ', en: 'knowledge' }] },
+      ]}
+      en={['But those firm in knowledge …']}
+    />
+  </Stage>
+
+Here the word for “but” is **لَّٰكِنِ**, light, with no shadda. It does nothing. Al-Jadwal says it is “a word of correction that has no effect” (*ḥarf istidrāk lā ʿamal lahu*). So ٱلرَّٰسِخُونَ stays nominative (-ūna) and is a plain mubtadaʾ.
+
+Compare لَٰكِنَّ أَكْثَرَ ٱلنَّاسِ in 2:243, with a shadda: the ism is accusative.
+
+A light لَٰكِنْ also appears in وَلَٰكِن لَّا تُوَاعِدُوهُنَّ (Al-Baqarah 2:235): a verb follows, and nothing changes.
+
+<Note kind="remember">Shadda on the nūn, the ism takes -a. No shadda, nothing changes.</Note>
+
+<Check n={14} q="Why is ٱلرَّٰسِخُونَ in -ūna (nominative) after لَّٰكِنِ?" options={['Light lākin has no effect on the ending', 'It is the khabar of lākinna', 'It is an object']} answer={0} why="Without the shadda, lākin does not work. ٱلرَّٰسِخُونَ is an ordinary mubtadaʾ." />
+</Block>
+
+<Block id="mistake-object" title="Mistake 4: calling the ism an object">
+  <Stage>
+    <Sentence
+      roles
+      reference="Yusuf 12:78 (part)"
+      groups={[
+        { words: [{ ar: 'إِنَّ', en: 'indeed', type: 'p' }] },
+        { role: 'khabarFirst', words: [{ ar: 'لَهُۥٓ', en: 'for him', type: 'p' }] },
+        { role: 'ismInna', words: [{ ar: 'أَبًا', en: 'a father' }] },
+      ]}
+    />
+    <Sentence
+      roles
+      reference="Yusuf 12:78 (part)"
+      groups={[
+        { role: 'fiil', words: [{ ar: 'فَخُذْ', en: 'so take', say: 'fa-khud', type: 'v' }] },
+        { role: 'maful', words: [{ ar: 'أَحَدَنَا', en: 'one of us', say: 'ahadana' }] },
+      ]}
+      en={['So take one of us.']}
+    />
+  </Stage>
+
+Both أَبًا and أَحَدَنَا end in a fatḥa. But their jobs differ.
+
+- أَحَدَنَا is the **object** of خُذْ, “take”. A verb acts on it (L2.05).
+- أَبًا is the **ism of inna**. There is no verb. Inna puts it in the accusative.
+
+Same mark, different job. The mark does not name the job. Look for what causes the -a: a verb, or inna and her sisters.
+</Block>
+
+<Block id="mistake-lam" title="Mistake 5: two lams, and stopping at the phrase">
+  <Stage>
+    <Sentence
+      roles
+      reference="Al-Adiyat 100:6"
+      groups={[
+        { words: [{ ar: 'إِنَّ', en: 'indeed', type: 'p' }] },
+        { role: 'ismInna', words: [{ ar: 'ٱلْإِنسَٰنَ', en: 'man' }] },
+        { role: 'tied', label: 'li- is a preposition', hint: 'belongs to لَكَنُودٌ', words: [{ ar: 'لِرَبِّهِۦ', en: 'to his Lord' }] },
+        { role: 'khabarInna', label: 'la- is emphasis', words: [{ ar: 'لَكَنُودٌ', en: 'very ungrateful' }] },
+      ]}
+    />
+  </Stage>
+
+This verse has two lams. They look alike and do different things.
+
+- **لِ** in لِرَبِّهِۦ is *li-*, a preposition: “to”. It puts رَبِّ in the genitive (-i).
+- **لَ** in لَكَنُودٌ is *la-*, emphasis. It changes no ending.
+
+There is a second trap. The phrase لِرَبِّهِۦ comes right after the ism, so you may call it the khabar. It is not. Al-Jadwal says it is “tied to كَنُود”. The khabar is كَنُودٌ, the word in -un. This is the same warning as in L2.01: read to the end.
+
+<Note kind="tip">Look for the -u or -un word. A khabar of inna has that ending unless it is a phrase or a sentence.</Note>
+</Block>
+
+<Block id="parse-1" title="Word by word: Yusuf 12:2">
+  <Stage label="Word by word">
+    <Parse
+      reference="Yusuf 12:2"
+      words={[
+        { ar: 'إِنَّآ', en: 'indeed we', type: 'p' },
+        { ar: 'أَنزَلْنَٰهُ', en: 'we sent it down', type: 'v' },
+        { ar: 'قُرْءَٰنًا', en: 'as a Quran' },
+        { ar: 'عَرَبِيًّا', en: 'Arabic' },
+        { ar: 'لَّعَلَّكُمْ', en: 'so that you', type: 'p' },
+        { ar: 'تَعْقِلُونَ', en: 'may understand', type: 'v' },
+      ]}
+      cards={[
+        { at: 0, ar: 'إِنَّ', role: 'inna, “indeed”', why: 'A little word of emphasis. Little words have no case.', irab: 'حرف مشبه بالفعل للتوكيد ناسخ' },
+        { at: 0, ar: 'نَا', role: 'ism inna: the joined pronoun “we”', case: 'accusative (naṣb), in place', mark: 'none: a pronoun never changes', why: 'Inna puts its ism in the accusative. A pronoun cannot show it, so it only counts.', irab: 'ضمير متصل في محل نصب اسم إن' },
+        { at: 1, role: 'a past-tense verb: “we sent it down”. The -nā is the doer and the -hu is the object.', why: 'It starts the khabar of inna.', irab: 'فعل ماض مبني على السكون، ونا ضمير في محل رفع فاعل، والهاء ضمير في محل نصب مفعول به' },
+        { at: [1, 2, 3], role: 'khabar inna: a whole verbal sentence', case: 'a sentence shows no ending; it stands in the place of the nominative', why: 'It is the news about “we”.', irab: 'وجملة «أنزلناه» في محل رفع خبر إن' },
+        { at: 2, role: 'ḥāl (state): “as an Arabic Quran”', case: 'accusative (naṣb)', mark: '-an (tanwīn fatḥ)', why: 'It tells in what state the Quran was sent down. L4.01 teaches the ḥāl.', irab: 'حال موطئة منصوبة وعلامة نصبها الفتحة' },
+        { at: 3, role: 'adjective (naʿt) of قُرْءَٰنًا', case: 'accusative (naṣb)', mark: '-an', why: 'An adjective copies the case of its noun.', irab: 'نعت لقرآنا منصوب' },
+        { at: 4, ar: 'لَعَلَّ', role: 'laʿalla, “perhaps, so that”', why: 'A sister of inna: hope and expectation.', irab: 'حرف مشبه بالفعل للترجي ناسخ' },
+        { at: 4, ar: 'كُمْ', role: 'ism laʿalla: the joined pronoun “you”', case: 'accusative (naṣb), in place', mark: 'none: a pronoun never changes', why: 'Laʿalla puts its ism in the accusative.', irab: 'ضمير متصل في محل نصب اسم لعل' },
+        { at: 5, role: 'khabar laʿalla: a present-tense verb with its doer, “you understand”', case: 'the verb ends in -ūna; the whole sentence stands in the place of the nominative', mark: 'the nūn stays: the -ūna of a present-tense verb for “you” (many)', why: 'The verb is nominative with the nūn kept. The sentence is the khabar of laʿalla.', irab: 'فعل مضارع مرفوع وعلامة رفعه ثبوت النون والواو فاعل، وجملة «تعقلون» في محل رفع خبر لعل' },
+      ]}
+    />
+  </Stage>
+
+This short verse has two sisters: **inna** with the joined pronoun -nā, and **laʿalla** with the joined pronoun -kum. In both, the ism is a pronoun in the place of the accusative, and the khabar is a verbal sentence.
+
+<Note kind="know">Al-Jadwal reads قُرْءَٰنًا as a ḥāl (a “state”) that prepares the way for the adjective, and also allows another reading: a *badal* (a word that replaces another) of the -hu in أَنزَلْنَٰهُ.</Note>
+</Block>
+
+<Block id="parse-2" title="Word by word: Al-Baqarah 2:243">
+  <Stage label="Word by word">
+    <Parse
+      reference="Al-Baqarah 2:243 (end)"
+      words={[
+        { ar: 'إِنَّ', en: 'indeed', type: 'p' },
+        { ar: 'ٱللَّهَ', en: 'Allah' },
+        { ar: 'لَذُو', en: 'surely owner of' },
+        { ar: 'فَضْلٍ', en: 'favour' },
+        { ar: 'عَلَى', en: 'on', type: 'p' },
+        { ar: 'ٱلنَّاسِ', en: 'the people' },
+        { ar: 'وَلَٰكِنَّ', en: 'but', type: 'p' },
+        { ar: 'أَكْثَرَ', en: 'most of' },
+        { ar: 'ٱلنَّاسِ', en: 'the people' },
+        { ar: 'لَا', en: 'not', type: 'p' },
+        { ar: 'يَشْكُرُونَ', en: 'give thanks', type: 'v' },
+      ]}
+      cards={[
+        { at: 0, role: 'inna, “indeed”', why: 'A little word of emphasis.', irab: 'حرف مشبه بالفعل للتوكيد' },
+        { at: 1, role: 'ism inna', case: 'accusative (naṣb)', mark: '-a (fatḥa)', why: 'It is the first part after inna.', irab: 'لفظ الجلالة اسم إن منصوب وعلامة نصبه الفتحة' },
+        { at: 2, ar: 'لَ', role: 'the lām of emphasis', why: 'Extra emphasis on the khabar. It changes no ending.', irab: 'اللام المزحلقة للتوكيد' },
+        { at: 2, ar: 'ذُو', role: 'khabar inna: “owner of”', case: 'nominative (rafʿ)', mark: 'the letter و: ذُو is one of the five nouns (L2.04)', why: 'The khabar of inna stays nominative. It is the first word of an idafah.', irab: 'خبر إن مرفوع وعلامة رفعه الواو لأنه من الأسماء الخمسة، وهو مضاف' },
+        { at: 3, role: 'second word of the idafah: “of favour”', case: 'genitive (jarr)', mark: '-in (kasra with tanwīn)', why: 'The second word of an idafah is genitive.', irab: 'مضاف إليه مجرور وعلامة جره الكسرة' },
+        { at: [4, 5], role: 'a phrase: “on the people”. It describes “favour”.', why: 'It tells whose favour it is on. It is not the khabar.', irab: 'جار ومجرور متعلقان بمحذوف نعت لفضل' },
+        { at: 6, role: 'wa- “and” and lākinna “but”', why: 'The wa- joins the new sentence. Lākinna is a sister of inna: correction.', irab: 'الواو عاطفة، ولكن حرف استدراك ونصب' },
+        { at: 7, role: 'ism lākinna, and first word of an idafah: “most of”', case: 'accusative (naṣb)', mark: '-a (fatḥa)', why: 'Lākinna puts its ism in the accusative.', irab: 'اسم لكن منصوب وعلامة نصبه الفتحة، وهو مضاف' },
+        { at: 8, role: 'second word of the idafah: “of the people”', case: 'genitive (jarr)', mark: '-i (kasra)', why: 'The second word of an idafah is genitive.', irab: 'مضاف إليه مجرور' },
+        { at: [9, 10], role: 'khabar lākinna: a whole verbal sentence, “they do not give thanks”', case: 'a sentence shows no ending; it stands in the place of the nominative', why: 'It is the news about “most of the people”.', irab: 'وجملة «لا يشكرون» في محل رفع خبر لكن' },
+      ]}
+    />
+  </Stage>
+
+Two sisters side by side: **inna** with a single-word khabar that has the lām of emphasis, and **lākinna** with a sentence as khabar. Notice that ٱلنَّاسِ appears twice. It is genitive both times: once after the preposition عَلَى, and once as the second word of an idafah.
+</Block>
+
+<Block id="parse-3" title="Word by word: Ash-Shuara 26:8">
+  <Stage label="Word by word">
+    <Parse
+      reference="Ash-Shuara 26:8 (part)"
+      words={[
+        { ar: 'إِنَّ', en: 'indeed', type: 'p' },
+        { ar: 'فِى', en: 'in', type: 'p' },
+        { ar: 'ذَٰلِكَ', en: 'that' },
+        { ar: 'لَءَايَةً', en: 'surely a sign' },
+      ]}
+      cards={[
+        { at: 0, role: 'inna, “indeed”', why: 'A little word of emphasis.', irab: 'حرف مشبه بالفعل للتوكيد' },
+        { at: [1, 2], role: 'khabar inna, put first: “in that”', why: 'It must come first, because the ism is indefinite and the khabar is a phrase.', irab: 'جار ومجرور متعلقان بمحذوف خبر إن' },
+        { at: 2, role: '“that”: a pointing word', case: 'genitive, in place (after fī)', mark: 'none: it never changes', why: 'The noun after a preposition is genitive. A pointing word only counts.', irab: 'اسم إشارة مبني في محل جر بحرف الجر، والكاف للخطاب' },
+        { at: 3, ar: 'لَ', role: 'the lām of emphasis', why: 'The khabar is first, so the lām sits on the ism.', irab: 'اللام للابتداء تفيد التوكيد' },
+        { at: 3, ar: 'ءَايَةً', role: 'ism inna, put later: “a sign”', case: 'accusative (naṣb)', mark: '-an (tanwīn fatḥ)', why: 'Inna puts its ism in the accusative.', irab: 'اسم إن منصوب وعلامة نصبه الفتحة' },
+      ]}
+    />
+  </Stage>
+
+The khabar is first, and the la- moved to the ism. Check the order of the cards: inna, the khabar, the lām, the ism.
+</Block>
+
+<Block id="parse-4" title="Word by word: Luqman 31:34">
+  <Stage label="Word by word">
+    <Parse
+      reference="Luqman 31:34 (start)"
+      words={[
+        { ar: 'إِنَّ', en: 'indeed', type: 'p' },
+        { ar: 'ٱللَّهَ', en: 'Allah' },
+        { ar: 'عِندَهُۥ', en: 'with him' },
+        { ar: 'عِلْمُ', en: 'the knowledge of' },
+        { ar: 'ٱلسَّاعَةِ', en: 'the Hour' },
+      ]}
+      cards={[
+        { at: 0, role: 'inna, “indeed”', why: 'A little word of emphasis.', irab: 'حرف مشبه بالفعل للتوكيد' },
+        { at: 1, role: 'ism inna', case: 'accusative (naṣb)', mark: '-a (fatḥa)', why: 'It is the first part after inna.', irab: 'لفظ الجلالة اسم إن منصوب وعلامة نصبه الفتحة' },
+        { at: 2, role: 'a place word, “with”, plus “him”: the khabar of the inner sentence, put first', case: 'accusative (naṣb), as place words are', mark: '-a (fatḥa) on عِندَ', why: 'A place word can be a khabar. It comes before its mubtadaʾ.', irab: 'ظرف منصوب متعلق بخبر مقدم، والهاء مضاف إليه' },
+        { at: 3, role: 'mubtadaʾ of the inner sentence, put later (mubtadaʾ muʾakhkhar)', case: 'nominative (rafʿ)', mark: '-u (ḍamma)', why: 'Inna changes only the ism of the outer sentence. The inner mubtadaʾ keeps -u.', irab: 'مبتدأ مؤخر مرفوع، وهو مضاف' },
+        { at: 4, role: 'second word of the idafah: “of the Hour”', case: 'genitive (jarr)', mark: '-i (kasra)', why: 'The second word of an idafah is genitive.', irab: 'مضاف إليه مجرور' },
+        { at: [2, 3, 4], role: 'khabar inna: a whole nominal sentence', case: 'it stands in the place of the nominative', why: 'The whole inner sentence is the news about Allah.', irab: 'وجملة «عنده علم الساعة» في محل رفع خبر إن' },
+      ]}
+    />
+  </Stage>
+
+You met this pattern in L2.01 (3:14), with ٱللَّهُ in -u. Here inna in front changes only the first word: ٱللَّهَ. The inner sentence is unchanged.
+</Block>
+
+</Step>
+
+<Step id="practice" label="Practice" title="Practice">
+<Block id="practice-1" title="Practice: find the parts">
+  <Stage label="For each sentence, say">
+    <ol class="lx-card-list">
+      <li><b>The sister:</b> which of the six, and what it means.</li>
+      <li><b>The ism:</b> which word or joined pronoun, and its mark.</li>
+      <li><b>The khabar:</b> which kind, and its mark.</li>
+      <li><b>Extras:</b> a la- or a khabar that comes first.</li>
+    </ol>
+  </Stage>
+
+Work out each answer first, on paper or in your head. Then open the answer.
+
+<Exercise n={1} q="Find the ism and the khabar: فَإِنَّ ٱللَّهَ سَمِيعٌ عَلِيمٌ (Al-Baqarah 2:227, end). Meaning: “Then indeed Allah is All-Hearing, All-Knowing.”">
+
+The فَ is a joining word (“then”). إِنَّ is the sister.
+
+ٱللَّهَ is the **ism inna** (-a). سَمِيعٌ is the **khabar inna** (-un). عَلِيمٌ is a **second khabar** (-un).
+
+</Exercise>
+
+<Exercise n={2} q="Which sister is used, and what does it add? (a) يَٰلَيْتَنِى كُنتُ مَعَهُمْ (An-Nisa 4:73, part) (b) كَأَنَّهُمْ حُمُرٌ مُّسْتَنفِرَةٌ (Al-Muddaththir 74:50) (c) إِنَّكَ لَا تَهْدِى مَنْ أَحْبَبْتَ وَلَٰكِنَّ ٱللَّهَ يَهْدِى مَن يَشَآءُ (Al-Qasas 28:56, part)">
+
+- (a) **لَيْتَ**: a wish, “Oh, would that I …”. The ism is the -ī (with the protecting nūn). The khabar is the sentence كُنتُ مَعَهُمْ.
+- (b) **كَأَنَّ**: a likeness, “as if they were …”. The ism is -hum. The khabar is حُمُرٌ, “donkeys”, in **-un**, and مُّسْتَنفِرَةٌ describes it.
+- (c) Two sisters. **إِنَّ**: ism -ka, khabar the sentence لَا تَهْدِى …. **لَٰكِنَّ**: “but”, ism ٱللَّهَ (-a), khabar the sentence يَهْدِى مَن يَشَآءُ.
+
+</Exercise>
+
+<Exercise n={3} q="Give the role and case of every word: إِنَّ ٱللَّهَ عَلَىٰ كُلِّ شَىْءٍ قَدِيرٌ (Al-Baqarah 2:20, end). Meaning: “Indeed, Allah has power over everything.”">
+
+- إِنَّ: the sister, “indeed”. No case.
+- ٱللَّهَ: **ism inna**, accusative, **-a**.
+- عَلَىٰ كُلِّ شَىْءٍ: a phrase, “over every thing”. كُلِّ is genitive after عَلَىٰ, and شَىْءٍ is genitive as the second word of the idafah. The phrase belongs to قَدِيرٌ. It is **not** the khabar.
+- قَدِيرٌ: **khabar inna**, nominative, **-un**.
+
+This is the “stopping at the phrase” mistake again (L2.01). Read to the end.
+
+</Exercise>
+
+<Exercise n={4} q="Add إِنَّ to each made-up sentence. Show what changes. (a) ٱلْكِتَابُ جَدِيدٌ (b) ٱلْمُسْلِمُونَ صَادِقُونَ (c) ٱلْمُسْلِمَاتُ صَادِقَاتٌ. These are made-up examples.">
+
+- (a) إِنَّ ٱلْكِتَابَ جَدِيدٌ: ٱلْكِتَابَ (**-a**, ism), جَدِيدٌ stays **-un**.
+- (b) إِنَّ ٱلْمُسْلِمِينَ صَادِقُونَ: the ism changes from -ūna to **-īna**. The khabar stays **-ūna**.
+- (c) إِنَّ ٱلْمُسْلِمَاتِ صَادِقَاتٌ: the ism takes a **kasra**. The khabar stays **-un**.
+
+Look at (b): the ism and the khabar are the same plural. Only the ending shows which is which.
+
+</Exercise>
+</Block>
+
+<Block id="practice-2" title="Practice: all six, pronouns, innamā and lākin">
+  <Stage label="The six">
+    <ol class="lx-card-list">
+      <li><b>إِنَّ</b>: indeed</li>
+      <li><b>أَنَّ</b>: that</li>
+      <li><b>لَٰكِنَّ</b>: but</li>
+      <li><b>كَأَنَّ</b>: as if</li>
+      <li><b>لَيْتَ</b>: would that</li>
+      <li><b>لَعَلَّ</b>: perhaps</li>
+    </ol>
+  </Stage>
+
+<Exercise n={5} q="Put each of the six in front of ٱلْكِتَابُ جَدِيدٌ, and say what the new sentence means. This is a made-up example.">
+
+- إِنَّ ٱلْكِتَابَ جَدِيدٌ: “Indeed, the book is new.”
+- عَلِمْتُ أَنَّ ٱلْكِتَابَ جَدِيدٌ: “I knew that the book is new.” (Anna needs something in front to join to.)
+- لَٰكِنَّ ٱلْكِتَابَ جَدِيدٌ: “But the book is new.”
+- كَأَنَّ ٱلْكِتَابَ جَدِيدٌ: “As if the book is new.”
+- لَيْتَ ٱلْكِتَابَ جَدِيدٌ: “Would that the book were new.”
+- لَعَلَّ ٱلْكِتَابَ جَدِيدٌ: “Perhaps the book is new.”
+
+In all six, ٱلْكِتَابَ has **-a** and جَدِيدٌ keeps **-un**.
+
+</Exercise>
+
+<Exercise n={6} q="Find the ism and the khabar, and say which one comes first: إِنَّ لَكَ فِى ٱلنَّهَارِ سَبْحًا طَوِيلًا (Al-Muzzammil 73:7). Meaning: “Indeed, you have a long busy time in the day.”">
+
+The ism is سَبْحًا (**-an**), and طَوِيلًا (-an) describes it. The khabar is the phrase لَكَ فِى ٱلنَّهَارِ, and it is **put first**, because سَبْحًا is indefinite. Al-Jadwal says سَبْحًا is the ism of inna.
+
+</Exercise>
+
+<Exercise n={7} q="Write inna with these pronouns: “we”, “you” (one man), “he”, “I”. Then say which word is the ism in إِنَّكَ أَنتَ ٱلْعَلِيمُ ٱلْحَكِيمُ (Al-Baqarah 2:32, end).">
+
+- “we”: إِنَّا. “you”: إِنَّكَ. “he”: إِنَّهُ. “I”: إِنِّي.
+- In 2:32 the ism is the **-ka** of إِنَّكَ, in the place of the accusative. أَنتَ is a separating pronoun with no role. ٱلْعَلِيمُ is the khabar and ٱلْحَكِيمُ a second khabar.
+
+</Exercise>
+
+<Exercise n={8} q="Why does ٱلْمُؤْمِنُونَ end in -ūna (nominative) here? إِنَّمَا ٱلْمُؤْمِنُونَ إِخْوَةٌ (Al-Hujurat 49:10, start). Meaning: “The believers are only brothers.”">
+
+The word is **إِنَّمَا**, not إِنَّ. The mā holds inna back (*kāffa*), so inna does no work. ٱلْمُؤْمِنُونَ is an ordinary mubtadaʾ in **-ūna**, and إِخْوَةٌ is its khabar in -un.
+
+If it were the made-up sentence إِنَّ ٱلْمُؤْمِنِينَ إِخْوَةٌ, with only inna, the first part would change to -īna.
+
+</Exercise>
+
+<Exercise n={9} q="Heavy lākinna, or light lākin? What happens to the word after it? (a) وَلَٰكِن لَّا تُوَاعِدُوهُنَّ (Al-Baqarah 2:235, part) (b) وَلَٰكِنَّ أَكْثَرَ ٱلنَّاسِ لَا يَشْكُرُونَ (Al-Baqarah 2:243, end)">
+
+- (a) **Light** لَٰكِن: no shadda. It does nothing. A verb follows, لَّا تُوَاعِدُوهُنَّ.
+- (b) **Heavy** لَٰكِنَّ: with a shadda. The next word أَكْثَرَ is its ism, in **-a**.
+
+</Exercise>
+</Block>
+
+<Block id="done" title="You have finished the lesson">
+  <Stage label="The idea">
+    <Formula
+      label="inna plus the ism in -a plus the khabar in -u"
+      items={[
+        { kind: 'm', text: 'ism inna', small: 'first part: now -a' },
+        { kind: 'k', text: 'khabar inna', small: 'second part: still -u' },
+        { kind: 's', text: 'sentence after inna', small: 'إِنَّ وَأَخَوَاتُهَا' },
+      ]}
+    />
+  </Stage>
+
+- Six words come in front of a nominal sentence: إِنَّ، أَنَّ، لَٰكِنَّ، كَأَنَّ، لَيْتَ، لَعَلَّ. They mean “indeed”, “that”, “but”, “as if”, “would that”, “perhaps”.
+- The first part is now the **ism**, and it takes **-a**. The khabar is the **khabar** and **stays -u**.
+- The ism can be a joined pronoun (إِنَّا، لَعَلَّكُمْ). It stays in the place of the accusative.
+- The khabar can be single, a phrase, a place word, a verbal sentence or a nominal sentence.
+- With an indefinite ism and a phrase as khabar, the khabar comes first (إِنَّ لَهُۥٓ أَبًا).
+- The lām of emphasis sits on the khabar, or on the ism when the khabar is first.
+- إِنَّمَا and the light لَٰكِنْ do not work. Check the shadda.
+
+**Next:** L2.11 teaches *kāna* and her sisters, which do the opposite: the first part keeps -u and the khabar takes -an. Review L2.04 and L2.05 if the cases felt new.
+
+<Sources
+    items={[
+      { label: 'Quran text', name: 'Tanzil (Uthmani text)', href: 'https://tanzil.net' },
+      { label: 'Word types', name: 'Quranic Arabic Corpus', href: 'https://corpus.quran.com' },
+      { label: 'Word-by-word analysis (iʿrāb) of every verse', name: 'Maḥmūd Ṣāfī, al-Jadwal fī Iʿrāb al-Qurʾān wa-Ṣarfihi wa-Bayānihi' },
+      { label: 'Grammar', name: 'Ibn Ājurrūm, al-Ajurrumiyyah, chapter on the marfūʿāt and the manṣūbāt (inna and her sisters)' },
+      { label: 'English under the verses', name: 'Plain-English meanings by Quran Learn, not a translation' },
+    ]}
+  />
+</Block>
+
+</Step>
