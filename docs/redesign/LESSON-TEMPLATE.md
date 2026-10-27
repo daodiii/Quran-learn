@@ -20,7 +20,7 @@ A lesson is a run of short steps. One step shows at a time, with a progress bar,
 | `Sentence` | A Quran phrase as word tiles with word type, optional role bars and the English line (labelled "Meaning") with the missing word marked. Roles: first part of a pair, solid bar: `mubtada`, `mubtadaLater`, `ismKana`, `ismInna`, `fail`, `naibFail`, `mudaf`, `manut`; second part, dashed: `khabar`, `khabar2`, `khabarFirst`, `khabarKana`, `khabarInna`, `maful`, `mudafIlayh`, `naat`, `matuf`, `hal`, `majrur`; the verb, solid in the verb colour: `fiil`; dotted grey: `tied` (a phrase that belongs to another word), `jar` (a preposition), `jarMajrur` (a preposition with its noun in one tile), `zarf` (a place or time word). `label` and `hint` on a group override the text (added for Level 2 on 2026-10-27) |
 | `Parse` | Word-by-word iʿrāb of one verse: word tiles, then one card at a time (role, case, mark, why, and the parse as the Arabic grammar books word it). Back and Next light each word. Without JavaScript all cards are listed |
 | `Exercise` | A worked exercise: question in `q`, the answer inside, behind a "Show the answer" button (`<details>`, works without JavaScript). Write the answer as markdown with blank lines around it |
-| `Tiles` | Big word tiles, with a dashed `ghost` tile for a word English needs and Arabic leaves out |
+| `Tiles` | Big word tiles, with a dashed `ghost` tile for a word English needs and Arabic leaves out. `type: 'x'` is a plain grey tile for a letter, vowel or mark (no word-type colour; added for Level 1) |
 | `Formula` | "part + part = whole" card |
 | `Legend` | The word-type colour key |
 | `Note` | `tip`, `know` (good to know), `warn` (watch out), `remember`. Colour, icon and label all say the kind |
