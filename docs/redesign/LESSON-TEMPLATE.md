@@ -37,7 +37,19 @@ Writing rules (from the plan): B1 English, one idea per step, example first then
 
 ## Checked
 
-Headless browser at 390 px and 1280 px: no horizontal scroll, Arabic and Geist fonts load, all nine steps show without JavaScript, Back/Next/arrow keys/resume/hash/quick checks/complete button work. axe-core finds no violations on five steps at both widths. `npm run test:site` and `npx tsc --noEmit` pass. Page count is unchanged (164 pages indexed).
+Headless browser at 390 px and 1280 px: no horizontal scroll, Arabic and Geist fonts load, Back/Next/arrow keys/resume/hash/quick checks/complete button work. axe-core finds no violations on five steps at both widths. `npm run test:site` (26 tests, including the helper tests in `src/lib/lesson-steps.test.ts`) and `npx tsc --noEmit` pass. Page count is unchanged (164 pages indexed), and the classic lessons still render as before.
+
+An independent code review found 12 points; all but the two "unsure" ones are fixed:
+
+- `test:site` had a missing space that silently skipped two test files. Fixed; the suite went from 16 to 23 tests with them back (26 with the new helper tests).
+- Two note labels (Watch out, Remember) were under 4.5:1 contrast. Darkened to 5.8:1 and 6.2:1 (measured from the OKLCH values). The orange accent, the inactive bar and the control borders were raised to at least 3:1.
+- Arrow keys no longer act at the first or last step, with Shift, or inside editable or dialog elements. The bottom bar no longer hides a focused control (`scroll-padding`).
+- No-JavaScript readers get plain Previous and Next links and see the quick-check answers printed. With JavaScript, only the first step shows until the script takes over (no flash of the long page).
+- A quick check locks after the right answer. Its answer group is labelled by its question. A `<Check>` whose answer is out of range fails the build.
+- Text passed to components is escaped, keeping only `<b>`, `<i>`, `<u>`, `<em>`, `<strong>` (`safeInline`).
+- A finished lesson forgets its saved step, so it reopens at the start. The step count in `Start` is read from the page. The script warns in the console about duplicate step ids or a missing or doubled `hero` step.
+
+Known behaviour: Back leaves the lesson, not the previous step, because steps use `replaceState`. The Back button inside the page goes to the previous step.
 
 ## Not done yet (on purpose)
 
@@ -47,6 +59,7 @@ Headless browser at 390 px and 1280 px: no horizontal scroll, Arabic and Geist f
 - **"Found a mistake?"** links to the About page feedback form for now. The owner wants a pre-filled form per lesson.
 - **Vocabulary list.** `scripts/build-lesson-vocab.ts` reads `<ArabicExample words=...>`, so a stepped lesson has no entry in `src/data/vocab/lessons.json` until that script also reads `<Sentence>`. The old L2.01 entry stays until the file is regenerated.
 - **Content validators** (`npm run validate`) still ask for the old bilingual first-mention format and give 5 terminology warnings on L2.01, no errors. The new `Start` terms list is the intended pattern. The rule needs updating when more lessons move.
+- **Things the classic layout has that this one does not:** the "Words from this lesson" list, the reading track on the last lesson of a level, tap-a-word details on examples, and the table of contents. Word tiles here are not interactive. Whether any of these should come across is a Part 4/5 decision.
 - **Lesson navigator.** The stepped layout has no course sidebar yet (Part 4: navigation and the learning path).
 - **Lesson reorder notice** (agreed after Part 2) is Part 4/5.
 - Only Geist 400 and 500 are self-hosted. The site body font elsewhere is unchanged.
