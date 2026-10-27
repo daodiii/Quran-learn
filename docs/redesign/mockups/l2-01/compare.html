@@ -1,0 +1,32 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>L2.01 · three looks side by side</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font:16px/1.5 system-ui,sans-serif;background:oklch(94% .005 260);color:oklch(22% .02 260)}
+header{position:sticky;top:0;z-index:5;background:oklch(99% .003 260);border-bottom:1px solid oklch(85% .01 260);padding:.7rem 1rem;display:flex;flex-wrap:wrap;gap:.6rem 1.2rem;align-items:center}
+h1{font-size:1.05rem;margin:0 1rem 0 0}
+.grp{display:flex;gap:.3rem;align-items:center}.grp span{font-size:.85rem;color:oklch(42% .02 260);margin-right:.2rem}
+button{min-height:36px;padding:.2em .8em;border:1px solid oklch(70% .02 260);background:white;border-radius:8px;cursor:pointer;font:inherit}
+button[aria-pressed=true]{background:oklch(30% .05 260);color:white;border-color:oklch(30% .05 260)}
+.row{display:flex;gap:1.2rem;padding:1.2rem;overflow-x:auto;align-items:flex-start}
+.col{flex:none}.col h2{font-size:1rem;margin:0 0 .5rem}.col a{font-size:.85rem;margin-left:.6rem}
+.frame{border:1px solid oklch(70% .02 260);border-radius:12px;overflow:hidden;background:white;box-shadow:0 2px 8px oklch(20% .02 260 / .12)}
+iframe{border:0;display:block;width:390px;height:780px}
+.desk iframe{width:1280px;height:900px;transform-origin:0 0}
+.desk{flex-direction:column}.desk .frame{width:960px;height:675px}.desk iframe{transform:scale(.75)}
+</style></head><body>
+<header><h1>L2.01 · three looks, same lesson</h1>
+<div class="grp"><span>View</span><button id="vp" aria-pressed="true">Phone</button><button id="vd" aria-pressed="false">Desktop (stacked)</button></div>
+<div class="grp"><span>Step</span><button id="prev">←</button><b id="st">1 / 9</b><button id="nx">→</button></div></header>
+<div class="row" id="row">
+<div class="col"><h2>A · Warm paper<a href="a-warm.html" target="_blank">open full size</a></h2><div class="frame"><iframe src="a-warm.html" title="A · Warm paper" loading="eager"></iframe></div></div>
+<div class="col"><h2>B · Classic scholarly<a href="b-scholarly.html" target="_blank">open full size</a></h2><div class="frame"><iframe src="b-scholarly.html" title="B · Classic scholarly" loading="eager"></iframe></div></div>
+<div class="col"><h2>C · Bright and playful<a href="c-bright.html" target="_blank">open full size</a></h2><div class="frame"><iframe src="c-bright.html" title="C · Bright and playful" loading="eager"></iframe></div></div>
+</div>
+<script>
+let n=0;const N=9,fr=[...document.querySelectorAll('iframe')],row=document.getElementById('row');
+function go(k){n=Math.max(0,Math.min(N-1,k));document.getElementById('st').textContent=(n+1)+' / '+N;fr.forEach(f=>f.contentWindow.postMessage({type:'step',n},'*'))}
+document.getElementById('prev').onclick=()=>go(n-1);document.getElementById('nx').onclick=()=>go(n+1);
+fr.forEach(f=>f.addEventListener('load',()=>go(n)));
+function mode(d){row.classList.toggle('desk',d);vp.setAttribute('aria-pressed',!d);vd.setAttribute('aria-pressed',d)}
+vp.onclick=()=>mode(false);vd.onclick=()=>mode(true);
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(n+1);if(e.key==='ArrowLeft')go(n-1)});
+</script></body></html>
