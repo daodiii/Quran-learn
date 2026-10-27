@@ -1,733 +1,927 @@
 ---
-title: "Adjective Agreement (Na't and Man'ut)"
+title: "Adjectives and the Nouns They Describe"
+kicker: "The naʿt and the manʿūt"
+titleArabic: "النَّعْت وَالْمَنْعُوت"
 level: 2
 order: 9
-description: "Understand how adjectives agree with nouns in gender, number, case, and definiteness, and identify adjective-noun pairs in the Quran."
+template: steps
+description: "Learn how an Arabic adjective follows the noun it describes and matches it in case, in definiteness, in gender and in number. See why a plural of things takes a feminine singular adjective, how to give one noun several adjectives, how to tell an adjective from a khabar or an idafah, and go through four verses word by word."
 draft: false
 ---
 
-import ArabicExample from '../../../components/mdx/ArabicExample.astro';
-import GrammarTable from '../../../components/mdx/GrammarTable.astro';
-import Callout from '../../../components/mdx/Callout.astro';
-import ExerciseBox from '../../../components/mdx/ExerciseBox.astro';
-
-## Introduction
-
-You've mastered the three-case system and understand sentence structure (nominal vs verbal). Now we turn to one of Arabic's most elegant grammatical features: how adjectives mirror their nouns in every grammatical detail. This precision creates unambiguous, beautiful descriptions throughout the Quran.
-
-<ArabicExample
-  arabic="ٱهْدِنَا ٱلصِّرَٰطَ ٱلْمُسْتَقِيمَ"
-  transliteration="ihdinā ṣ-ṣirāṭa l-mustaqīma"
-  translation="Guide us to the straight path"
-  reference="Al-Fatiha 1:6"
-  highlight="ٱلصِّرَٰطَ,ٱلْمُسْتَقِيمَ"
-  words={[
-    { ar: "ٱهْدِنَا", tr: "ihdinā", en: "guide us" },
-    { ar: "ٱلصِّرَٰطَ", tr: "ṣ-ṣirāṭa", en: "the path" },
-    { ar: "ٱلْمُسْتَقِيمَ", tr: "l-mustaqīma", en: "the straight" }
-  ]}
-/>
-
-Notice how **ٱلْمُسْتَقِيمَ** (al-mustaqīma) "the straight" perfectly mirrors **ٱلصِّرَٰطَ** (aṣ-ṣirāṭa) "the path" in FOUR ways: both are definite (with ال), masculine, singular, and accusative (with fatha). This is the four-part agreement that makes Arabic adjectives work.
-
-**In this lesson, you will:**
-- Understand the four-part agreement rule: gender, number, case, and definiteness
-- Identify [adjectives](/resources/glossary/#nat) (naʿt / نَعْتٌ) and their [described nouns](/resources/glossary/#manut) (manʿūt / مَنْعُوتٌ)
-- Distinguish between adjectives (which follow nouns) and predicates (which complete nominal sentences)
-- Analyze adjective-noun pairs in Quranic verses using i'rab analysis
-
-**Connection to previous learning:** You learned subject-predicate agreement in [L2.02](/learn/level-2/02-subject-predicate/) and understand the three cases from [L2.04-06](/learn/level-2/04-nominative-case/). Now you'll apply this knowledge to adjective-noun relationships — a different grammatical pattern with stricter agreement rules.
-
-**Key distinction:** An adjective DESCRIBES a noun (ٱلصِّرَٰطَ ٱلْمُسْتَقِيمَ "the straight path"), while a predicate COMPLETES a sentence (ٱلصِّرَٰطُ مُسْتَقِيمٌ "the path is straight"). Same Arabic words, completely different grammatical relationships!
-
-<Callout type="note" title="Plain-English key">
-Quick, everyday translations of the grammar terms in this lesson — glance back here whenever one trips you up:
-
-- **Adjective** (naʿt / ṣifah / نَعْت) — a describing word that matches its noun.
-- **Described noun** (manʿūt / مَنْعُوت) — the noun the adjective describes.
-- The adjective must **agree** with its noun in case, number, gender, and definiteness.
-</Callout>
-
-## Understanding Adjective Agreement
-
-**Plain English first:** An adjective is a describing word that modifies a noun. In English, adjectives come BEFORE nouns ("the big house") and don't change form. In Arabic, adjectives come AFTER nouns and must match them in four specific ways.
-
-**English analogy:** Think of adjectives like a mirror reflecting the noun. French and Spanish speakers will recognize this — "la casa grande" (the house big), where "grande" agrees with "casa" in gender. Arabic takes this further: adjectives must match in gender, number, case, AND definiteness.
-
-**Now the Arabic terminology:** The [adjective](/resources/glossary/#nat) (naʿt / نَعْتٌ) — literally "description" — modifies the [described noun](/resources/glossary/#manut) (manʿūt / مَنْعُوتٌ). Together they form an adjective-noun pair.
-
-### The Four-Part Agreement Rule
-
-Every Arabic adjective MUST agree with its noun in exactly FOUR properties:
-
-<GrammarTable>
-| Property | Agreement Rule | Example Noun | Example Adjective |
-|----------|----------------|--------------|-------------------|
-| **1. Gender** | Masculine → masculine<br/>Feminine → feminine | ٱلرَّجُلُ (the man)<br/>ٱلْمَرْأَةُ (the woman) | ٱلْكَبِيرُ (the big [masc.])<br/>ٱلْكَبِيرَةُ (the big [fem.]) |
-| **2. Number** | Singular → singular<br/>Dual → dual<br/>Plural → plural | ٱلْكِتَابُ (the book)<br/>ٱلْكِتَابَانِ (the two books)<br/>ٱلْكُتُبُ (the books) | ٱلْجَدِيدُ (the new [sing.])<br/>ٱلْجَدِيدَانِ (the new [dual])<br/>ٱلْجُدُدُ (the new [plural]) |
-| **3. Case** | Nominative → nominative<br/>Accusative → accusative<br/>Genitive → genitive | ٱلْبَيْتُ (the house [nom.])<br/>ٱلْبَيْتَ (the house [acc.])<br/>ٱلْبَيْتِ (the house [gen.]) | ٱلْكَبِيرُ (the big [nom.])<br/>ٱلْكَبِيرَ (the big [acc.])<br/>ٱلْكَبِيرِ (the big [gen.]) |
-| **4. Definiteness** | Definite → definite<br/>Indefinite → indefinite | ٱلْكِتَابُ (THE book)<br/>كِتَابٌ (A book) | ٱلْجَدِيدُ (THE new)<br/>جَدِيدٌ (A new) |
-</GrammarTable>
-
-**The pattern:** Adjective mirrors ALL four properties of the noun it describes.
-
-**Example showing all four agreements:**
-- **Noun:** ٱلصِّرَٰطَ (aṣ-ṣirāṭa) — definite, masculine, singular, accusative
-- **Adjective:** ٱلْمُسْتَقِيمَ (al-mustaqīma) — definite, masculine, singular, accusative
-- **All four match!** ✓ Gender ✓ Number ✓ Case ✓ Definiteness
-
-### Word Order: Noun FIRST, Then Adjective
-
-**Critical difference from English:**
-- English: **ADJECTIVE** + noun → "the **straight** path"
-- Arabic: **NOUN** + adjective → "**ٱلصِّرَٰطَ** ٱلْمُسْتَقِيمَ" (the path, the straight)
-
-**The rule:** In Arabic, the noun ALWAYS comes first, followed by the adjective.
-
-**Wrong order:**
-- ❌ ٱلْمُسْتَقِيمَ ٱلصِّرَٰطَ (the straight the path) — grammatically incorrect!
-
-**Correct order:**
-- ✅ ٱلصِّرَٰطَ ٱلْمُسْتَقِيمَ (the path the straight) — adjective follows noun
-
-**Exception to be aware of:** When two definite nouns appear together (both with ال), they could be either:
-1. **Adjective-noun pair** (both describe the same thing)
-2. **Iḍāfah (possessive)** construction (X OF Y relationship)
-
-Context determines which! We'll see examples of this distinction below.
-
-### Adjective vs. Predicate: The Key Distinction
-
-This is crucial: the SAME Arabic word can function as either an adjective OR a predicate, depending on sentence structure.
-
-**As Adjective (naʿt):**
-- **ٱلصِّرَٰطَ ٱلْمُسْتَقِيمَ** (aṣ-ṣirāṭa l-mustaqīma) — "the straight path"
-- Function: ٱلْمُسْتَقِيمَ is an ADJECTIVE describing ٱلصِّرَٰطَ
-- Structure: One phrase (noun + adjective)
-- Meaning: A modified noun
-
-**As Predicate (khabar):**
-- **ٱلصِّرَٰطُ مُسْتَقِيمٌ** (aṣ-ṣirāṭu mustaqīmun) — "the path is straight"
-- Function: مُسْتَقِيمٌ is a PREDICATE completing a nominal sentence
-- Structure: Complete sentence (subject + predicate)
-- Meaning: A statement about the subject
-
-**How to tell the difference:**
-1. **Check definiteness:** If BOTH have ال (definite), it's an adjective. If one is definite and one indefinite, it's likely a predicate.
-2. **Check meaning:** Does it describe (adjective) or make a statement (predicate)?
-3. **Check structure:** Is it a phrase (adjective) or a complete thought (predicate)?
-
-## Examples from the Quran
-
-Let's examine adjective-noun pairs from Surah Al-Fatiha, analyzing the four-part agreement in each case.
-
-### Example 1: Definite Masculine Singular Accusative
-
-<ArabicExample
-  arabic="ٱهْدِنَا ٱلصِّرَٰطَ ٱلْمُسْتَقِيمَ"
-  transliteration="ihdinā ṣ-ṣirāṭa l-mustaqīma"
-  translation="Guide us to the straight path"
-  reference="Al-Fatiha 1:6"
-  highlight="ٱلصِّرَٰطَ,ٱلْمُسْتَقِيمَ"
-  words={[
-    { ar: "ٱهْدِنَا", tr: "ihdinā", en: "guide us" },
-    { ar: "ٱلصِّرَٰطَ", tr: "ṣ-ṣirāṭa", en: "the path" },
-    { ar: "ٱلْمُسْتَقِيمَ", tr: "l-mustaqīma", en: "the straight" }
-  ]}
-/>
-
-**Complete grammatical analysis (iʿrāb):**
-
-- **ٱهْدِنَا** (ihdinā) — Command verb with attached pronoun — "guide us"
-  - **ٱهْدِ** (ihdi): Imperative verb "guide"
-  - **نَا** (nā): Attached object pronoun "us" (accusative)
-  - Function: Command addressing Allah
-  - Hidden subject: أَنْتَ (You — Allah) in nominative
-
-- **ٱلصِّرَٰطَ** (aṣ-ṣirāṭa) — Direct object (manʿūt) — "the path"
-  - Function: Direct object of the verb ٱهْدِنَا
-  - Case marker: Accusative with fatha (ـَ)
-  - Reason: Direct objects take accusative case
-  - **Described noun (manʿūt):** The noun being modified
-  - Properties: Definite (ال), masculine, singular, accusative
-
-- **ٱلْمُسْتَقِيمَ** (al-mustaqīma) — Adjective (naʿt) — "the straight"
-  - Function: Adjective describing ٱلصِّرَٰطَ
-  - Case marker: Accusative with fatha (ـَ)
-  - Reason: Adjectives match their nouns in ALL four properties
-  - **Agreement check:**
-    - ✓ Definiteness: Both have ال (definite)
-    - ✓ Gender: Both masculine
-    - ✓ Number: Both singular
-    - ✓ Case: Both accusative (ـَ)
-
-**Word-by-word morphological breakdown of ٱلْمُسْتَقِيمَ:**
-
-**ٱلْمُسْتَقِيمَ** (al-mustaqīma):
-- Root: ق-و-م (qāf-wāw-mīm), meaning "to stand, be upright, straighten"
-- Form: Active participle from Form X (اِسْتَفْعَلَ istafʿala pattern)
-- Meaning: "The one that is straight, the upright, the established"
-- Definiteness: Definite with ال article
-- Gender: Masculine (no tāʾ marbūṭah)
-- Number: Singular
-- Case: Accusative (matches ٱلصِّرَٰطَ)
-
-**Structural insight:** The phrase ٱلصِّرَٰطَ ٱلْمُسْتَقِيمَ forms a tight adjective-noun unit. You can't separate them — together they mean "the straight path" as a single concept.
-
-### Example 2: Definite Masculine Singular Genitive
-
-<ArabicExample
-  arabic="صِرَٰطَ ٱلَّذِينَ أَنْعَمْتَ عَلَيْهِمْ غَيْرِ ٱلْمَغْضُوبِ عَلَيْهِمْ وَلَا ٱلضَّآلِّينَ"
-  transliteration="ṣirāṭa lladhīna anʿamta ʿalayhim ghayri l-maghḍūbi ʿalayhim wa lā ḍ-ḍāllīna"
-  translation="The path of those upon whom You have bestowed favor, not of those who have earned anger nor of those who are astray"
-  reference="Al-Fatiha 1:7"
-  highlight="ٱلْمَغْضُوبِ"
-  words={[
-    { ar: "صِرَٰطَ", tr: "ṣirāṭa", en: "path of" },
-    { ar: "ٱلَّذِينَ", tr: "lladhīna", en: "those who" },
-    { ar: "أَنْعَمْتَ", tr: "anʿamta", en: "You bestowed favor" },
-    { ar: "عَلَيْهِمْ", tr: "ʿalayhim", en: "upon them" },
-    { ar: "غَيْرِ", tr: "ghayri", en: "not of" },
-    { ar: "ٱلْمَغْضُوبِ", tr: "l-maghḍūbi", en: "those angered" },
-    { ar: "عَلَيْهِمْ", tr: "ʿalayhim", en: "upon them" },
-    { ar: "وَلَا", tr: "wa-lā", en: "and not" },
-    { ar: "ٱلضَّآلِّينَ", tr: "ḍ-ḍāllīna", en: "the astray" }
-  ]}
-/>
-
-**Complete grammatical analysis (iʿrāb) — focusing on adjective:**
-
-- **غَيْرِ** (ghayri) — Exception/negative attribute — "not of"
-  - Function: Genitive noun meaning "other than, not"
-  - Case marker: Genitive with kasra (ـِ)
-  - Reason: Appositive/descriptive addition to the path
-  - First part of iḍāfah
-
-- **ٱلْمَغْضُوبِ** (al-maghḍūbi) — Passive participle (second in iḍāfah) — "those angered"
-  - Function: Second term in iḍāfah ("other than THE angered-upon")
-  - Case marker: Genitive with kasra (ـِ)
-  - Reason: Second noun in possessive construction
-  - Form: Passive participle from Form I
-
-- **عَلَيْهِمْ** (ʿalayhim) — Prepositional phrase — "upon them"
-  - Function: Completes the passive participle (angered-upon THEM)
-  - Structure: عَلَىْٰ (preposition "upon") + هِمْ (pronoun "them")
-
-**Advanced note on participles as adjectives:**
-
-The word ٱلْمَغْضُوبِ (al-maghḍūbi) "the angered-upon ones" is a passive participle functioning as a noun/adjective. It describes a state or characteristic. While it's technically part of an iḍāfah here, passive and active participles frequently serve as adjectives in Arabic.
-
-### Example 3: Multiple Attributes of Allah
-
-<ArabicExample
-  arabic="بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ"
-  transliteration="bismi llāhi r-raḥmāni r-raḥīmi"
-  translation="In the name of Allah, the Most Gracious, the Most Merciful"
-  reference="Al-Fatiha 1:1"
-  highlight="ٱلرَّحْمَٰنِ,ٱلرَّحِيمِ"
-  words={[
-    { ar: "بِسْمِ", tr: "bismi", en: "in the name of" },
-    { ar: "ٱللَّهِ", tr: "llāhi", en: "Allah" },
-    { ar: "ٱلرَّحْمَٰنِ", tr: "r-raḥmāni", en: "the Most Gracious" },
-    { ar: "ٱلرَّحِيمِ", tr: "r-raḥīmi", en: "the Most Merciful" }
-  ]}
-/>
-
-**Complete grammatical analysis (iʿrāb):**
-
-- **بِسْمِ** (bismi) — Prepositional phrase — "in the name of"
-  - **بِ** (bi): Preposition "in/with/by"
-  - **ٱسْمِ** (ismi): Genitive with kasra (ـِ) after preposition
-  - First part of iḍāfah
-
-- **ٱللَّهِ** (allāhi) — Possessive (manʿūt for adjectives) — "Allah"
-  - Function: Second term in iḍāfah ("name OF Allah")
-  - Case marker: Genitive with kasra (ـِ)
-  - Reason: Second noun in possessive construction
-  - **Described noun:** The noun being modified by following adjectives
-
-- **ٱلرَّحْمَٰنِ** (ar-raḥmāni) — First adjective (naʿt) — "the Most Gracious"
-  - Function: Adjective describing ٱللَّهِ
-  - Case marker: Genitive with kasra (ـِ)
-  - Reason: Adjectives match their nouns in case
-  - **Agreement check with ٱللَّهِ:**
-    - ✓ Definiteness: Both definite (proper name / ال)
-    - ✓ Gender: Both masculine
-    - ✓ Number: Both singular
-    - ✓ Case: Both genitive (ـِ)
-
-- **ٱلرَّحِيمِ** (ar-raḥīmi) — Second adjective (naʿt) — "the Most Merciful"
-  - Function: Second adjective describing ٱللَّهِ
-  - Case marker: Genitive with kasra (ـِ)
-  - Reason: Adjectives match their nouns in case
-  - **Agreement check with ٱللَّهِ:**
-    - ✓ All four properties match (same as first adjective)
-
-**Multiple adjectives pattern:** You can stack multiple adjectives describing the same noun. Each adjective independently agrees with the noun in all four properties. Here, both ٱلرَّحْمَٰنِ and ٱلرَّحِيمِ describe ٱللَّهِ.
-
-**Word-by-word morphological breakdown:**
-
-**ٱلرَّحْمَٰنِ** (ar-raḥmāni):
-- Root: ر-ح-م (rāʾ-ḥāʾ-mīm), meaning "to have mercy, show compassion"
-- Form: Intensive form (فَعْلَانُ faʿlānu pattern) emphasizing abundance
-- Meaning: "The Most Gracious" (intensive mercy to ALL creation)
-- Case: Genitive matching ٱللَّهِ
-
-**ٱلرَّحِيمِ** (ar-raḥīmi):
-- Root: ر-ح-م (same root as ٱلرَّحْمَٰنِ)
-- Form: Active participle (فَعِيلٌ faʿīlun pattern)
-- Meaning: "The Most Merciful" (continuous mercy, especially to believers)
-- Case: Genitive matching ٱللَّهِ
-
-**Theological precision through grammar:** Both attributes share the same root (ر-ح-م mercy) but use different patterns to convey distinct theological nuances. Grammar enables precision in describing Divine attributes.
-
-### Example 4: Adjective vs. Predicate Contrast
-
-Let's compare two similar-looking structures to understand the adjective-predicate distinction:
-
-**Structure 1: Adjective (naʿt)**
-
-<ArabicExample
-  arabic="ٱلصِّرَٰطَ ٱلْمُسْتَقِيمَ"
-  transliteration="aṣ-ṣirāṭa l-mustaqīma"
-  translation="the straight path"
-  reference="Al-Fatiha 1:6"
-  highlight="ٱلصِّرَٰطَ,ٱلْمُسْتَقِيمَ"
-  words={[
-    { ar: "ٱلصِّرَٰطَ", tr: "aṣ-ṣirāṭa", en: "the path" },
-    { ar: "ٱلْمُسْتَقِيمَ", tr: "l-mustaqīma", en: "the straight" }
-  ]}
-/>
-
-**Analysis:**
-- Both words definite (both have ال)
-- Both accusative (both end with fatha ـَ)
-- ٱلْمُسْتَقِيمَ is an ADJECTIVE modifying ٱلصِّرَٰطَ
-- Structure: Noun + Adjective (a phrase, not a sentence)
-- Meaning: "the straight path" (one concept)
-
-**Structure 2: Predicate (khabar) — hypothetical contrast**
-
-If we restructured this as a nominal sentence:
-
-**ٱلصِّرَٰطُ مُسْتَقِيمٌ** (aṣ-ṣirāṭu mustaqīmun) — "The path is straight"
-
-**Analysis:**
-- First word definite (ٱلصِّرَٰطُ with ال)
-- Second word indefinite (مُسْتَقِيمٌ no ال, has tanwīn ـٌ)
-- Different cases: nominative + nominative
-- مُسْتَقِيمٌ is a PREDICATE completing a sentence
-- Structure: Subject + Predicate (a complete sentence)
-- Meaning: "The path is straight" (a statement)
-
-**How to tell them apart:**
-
-<GrammarTable>
-| Feature | Adjective (Naʿt) | Predicate (Khabar) |
-|---------|------------------|-------------------|
-| **Definiteness** | Both definite OR both indefinite | Usually: definite noun + indefinite predicate |
-| **Case** | Both match the sentence function | Both nominative (in basic nominal sentences) |
-| **Structure** | Phrase (part of larger sentence) | Complete sentence |
-| **Meaning** | Modifies/describes | Makes a statement |
-| **Position** | Always follows noun directly | Separated from subject (can have words between) |
-</GrammarTable>
-
-**Example showing the difference:**
-
-1. **Adjective:** رَأَيْتُ ٱلرَّجُلَ ٱلْكَبِيرَ (raʾaytu r-rajula l-kabīra)
-   - "I saw THE BIG man"
-   - Both definite (ال + ال)
-   - Both accusative (ـَ + ـَ)
-   - ٱلْكَبِيرَ is adjective
-
-2. **Predicate:** ٱلرَّجُلُ كَبِيرٌ (ar-rajulu kabīrun)
-   - "The man IS big"
-   - Definite + indefinite (ال + tanwīn)
-   - Both nominative (ـُ + ـٌ)
-   - كَبِيرٌ is predicate
-
-### Example 5: Feminine Adjective Agreement
-
-<ArabicExample
-  arabic="ٱلْحَمْدُ لِلَّهِ رَبِّ ٱلْعَٰلَمِينَ"
-  transliteration="al-ḥamdu lillāhi rabbi l-ʿālamīna"
-  translation="All praise is for Allah, Lord of the worlds"
-  reference="Al-Fatiha 1:2"
-  words={[
-    { ar: "ٱلْحَمْدُ", tr: "al-ḥamdu", en: "the praise" },
-    { ar: "لِلَّهِ", tr: "lillāhi", en: "for Allah" },
-    { ar: "رَبِّ", tr: "rabbi", en: "Lord" },
-    { ar: "ٱلْعَٰلَمِينَ", tr: "l-ʿālamīna", en: "the worlds" }
-  ]}
-/>
-
-While this verse doesn't contain a feminine adjective example, let's examine how feminine agreement works:
-
-**Feminine noun + feminine adjective pattern:**
-
-**ٱلْمَرْأَةُ ٱلْكَرِيمَةُ** (al-marʾatu l-karīmatu) — "the generous woman"
-
-**Agreement analysis:**
-- **ٱلْمَرْأَةُ** (al-marʾatu): Noun
-  - Definiteness: Definite (ال)
-  - Gender: Feminine (inherent)
-  - Number: Singular
-  - Case: Nominative (ـُ)
-
-- **ٱلْكَرِيمَةُ** (al-karīmatu): Adjective
-  - Definiteness: Definite (ال) ✓ matches
-  - Gender: Feminine (tāʾ marbūṭah ة) ✓ matches
-  - Number: Singular ✓ matches
-  - Case: Nominative (ـُ) ✓ matches
-
-**Key marker:** The tāʾ marbūṭah (ة) at the end of the adjective signals feminine gender agreement. If the noun is feminine, the adjective MUST have ة (with rare exceptions for inherently feminine words).
-
-## The Rule
-
-<Callout type="rule" title="The Four-Part Adjective Agreement">
-
-Every Arabic [adjective](/resources/glossary/#nat) (naʿt / نَعْتٌ) MUST agree with its [described noun](/resources/glossary/#manut) (manʿūt / مَنْعُوتٌ) in exactly FOUR properties:
-
-### 1. Gender (Masculine or Feminine)
-
-- Masculine noun → masculine adjective (no ة)
-- Feminine noun → feminine adjective (with ة)
-
-**Examples:**
-- ٱلرَّجُلُ ٱلْكَبِيرُ (ar-rajulu l-kabīru) — "the big man"
-- ٱلْمَرْأَةُ ٱلْكَبِيرَةُ (al-marʾatu l-kabīratu) — "the big woman"
-
-### 2. Number (Singular, Dual, or Plural)
-
-- Singular noun → singular adjective
-- Dual noun → dual adjective
-- Plural noun → plural adjective
-
-**Examples:**
-- ٱلْكِتَابُ ٱلْجَدِيدُ (al-kitābu l-jadīdu) — "the new book"
-- ٱلْكِتَابَانِ ٱلْجَدِيدَانِ (al-kitābāni l-jadīdāni) — "the two new books"
-- ٱلْكُتُبُ ٱلْجَدِيدَةُ (al-kutubu l-jadīdatu) — "the new books"
-
-**Exception:** Non-human plurals are treated as feminine singular for adjective agreement (you'll learn this in Level 3).
-
-### 3. Case (Nominative, Accusative, or Genitive)
-
-- Nominative noun → nominative adjective
-- Accusative noun → accusative adjective
-- Genitive noun → genitive adjective
-
-**Examples:**
-- ٱلْبَيْتُ ٱلْكَبِيرُ (al-baytu l-kabīru) — "the big house" (nominative)
-- رَأَيْتُ ٱلْبَيْتَ ٱلْكَبِيرَ (raʾaytu l-bayta l-kabīra) — "I saw the big house" (accusative)
-- فِى ٱلْبَيْتِ ٱلْكَبِيرِ (fī l-bayti l-kabīri) — "in the big house" (genitive)
-
-### 4. Definiteness (Definite or Indefinite)
-
-- Definite noun (with ال) → definite adjective (with ال)
-- Indefinite noun (no ال) → indefinite adjective (no ال, with tanwīn)
-
-**Examples:**
-- ٱلْبَيْتُ ٱلْكَبِيرُ (al-baytu l-kabīru) — "THE big house" (both definite)
-- بَيْتٌ كَبِيرٌ (baytun kabīrun) — "A big house" (both indefinite)
-
----
-
-**Word order:** Adjective ALWAYS follows noun in Arabic
-- ✅ Noun + Adjective: ٱلصِّرَٰطَ ٱلْمُسْتَقِيمَ (the path the-straight)
-- ❌ Adjective + Noun: ٱلْمُسْتَقِيمَ ٱلصِّرَٰطَ (grammatically wrong!)
-
-**Adjective vs. Predicate:**
-- **Adjective:** Both noun and adjective have same definiteness → ٱلصِّرَٰطَ ٱلْمُسْتَقِيمَ "the straight path"
-- **Predicate:** Definite noun + indefinite predicate → ٱلصِّرَٰطُ مُسْتَقِيمٌ "the path is straight"
-
-**Related lessons:**
-- [L2.02: Subject & Predicate](/learn/level-2/02-subject-predicate/) — Distinguishing predicate from adjective
-- [L2.04: Nominative Case](/learn/level-2/04-nominative-case/) — Case agreement in detail
-- [L1.07: Gender in Arabic](/learn/level-1/07-gender-masculine-feminine/) — Masculine and feminine forms
-- [L1.08: Singular, Dual & Plural](/learn/level-1/08-singular-dual-plural/) — Number agreement basics
-
-</Callout>
-
-<Callout type="warning" title="Common Mistakes">
-
-**Don't confuse adjective with predicate.** This is the #1 mistake learners make:
-- ✅ **Adjective:** ٱلْكِتَابُ ٱلْجَدِيدُ (THE book THE new) — both definite, describes "the new book"
-- ✅ **Predicate:** ٱلْكِتَابُ جَدِيدٌ (THE book NEW) — definite + indefinite, means "the book IS new"
-
-The definiteness pattern is the key clue!
-
-**Don't use English word order.** Arabic adjectives ALWAYS follow nouns:
-- ❌ ٱلْجَدِيدُ ٱلْكِتَابُ (the new the book) — WRONG!
-- ✅ ٱلْكِتَابُ ٱلْجَدِيدُ (the book the new) — CORRECT!
-
-**Don't forget case agreement.** The adjective's case MUST match the noun's case, not the sentence's overall pattern:
-- ❌ فِى ٱلْبَيْتِ ٱلْكَبِيرُ (in the house the-big [nominative]) — WRONG!
-- ✅ فِى ٱلْبَيْتِ ٱلْكَبِيرِ (in the house the-big [genitive]) — CORRECT!
-
-Both noun and adjective are genitive after the preposition فِى.
-
-**Don't apply human plural rules to non-human plurals.** This is an advanced topic you'll study in Level 3, but be aware: non-human plurals (books, animals, objects) are treated as FEMININE SINGULAR for adjective agreement, not as plurals:
-- ❌ ٱلْكُتُبُ ٱلْجُدُدُ (the books the-new [plural]) — can be correct, but classical
-- ✅ ٱلْكُتُبُ ٱلْجَدِيدَةُ (the books the-new [fem. sing.]) — more common Quranic pattern
-
-**Don't forget the tāʾ marbūṭah for feminine adjectives.** If the noun is feminine, the adjective MUST be feminine:
-- ❌ ٱلْمَرْأَةُ ٱلْكَبِيرُ (the woman the-big [masc.]) — WRONG!
-- ✅ ٱلْمَرْأَةُ ٱلْكَبِيرَةُ (the woman the-big [fem.]) — CORRECT!
-
-</Callout>
-
-## Practice
-
-<ExerciseBox question="Exercise 1: Identify the adjective-noun pair in this phrase and verify all four agreements: ٱلصِّرَٰطَ ٱلْمُسْتَقِيمَ (aṣ-ṣirāṭa l-mustaqīma) — 'the straight path' [Al-Fatiha 1:6]">
-
-**Answer:**
-
-**Adjective-noun pair:**
-
-**Described noun (manʿūt):** ٱلصِّرَٰطَ (aṣ-ṣirāṭa) — "the path"
-- Definiteness: Definite (ال)
-- Gender: Masculine
-- Number: Singular
-- Case: Accusative (fatha ـَ)
-
-**Adjective (naʿt):** ٱلْمُسْتَقِيمَ (al-mustaqīma) — "the straight"
-- Definiteness: Definite (ال)
-- Gender: Masculine
-- Number: Singular
-- Case: Accusative (fatha ـَ)
-
-**Four-part agreement verification:**
-
-1. ✓ **Gender:** Both masculine (no tāʾ marbūṭah ة)
-2. ✓ **Number:** Both singular
-3. ✓ **Case:** Both accusative (ـَ) — matches because ٱلصِّرَٰطَ is the direct object
-4. ✓ **Definiteness:** Both definite (both have ال)
-
-**All four properties match perfectly!**
-
-**Why accusative?** The entire phrase ٱلصِّرَٰطَ ٱلْمُسْتَقِيمَ is the direct object of the verb ٱهْدِنَا (guide us), so both noun and adjective take accusative case.
-
-**Structural analysis:** This is an adjective-noun pair (NOT a nominal sentence) because both are definite. If it were a sentence, the structure would be different.
-
-</ExerciseBox>
-
-<ExerciseBox question="Exercise 2: Explain the difference between these two phrases: (a) ٱلْكِتَابُ ٱلْجَدِيدُ and (b) ٱلْكِتَابُ جَدِيدٌ. Which is adjective, which is predicate?">
-
-**Answer:**
-
-**Phrase (a): ٱلْكِتَابُ ٱلْجَدِيدُ (al-kitābu l-jadīdu) — "the new book"**
-
-**Analysis:**
-- **ٱلْكِتَابُ** (al-kitābu): Definite (ال), nominative (ـُ)
-- **ٱلْجَدِيدُ** (al-jadīdu): Definite (ال), nominative (ـُ)
-- **Definiteness pattern:** BOTH definite (ال + ال)
-- **Function:** ٱلْجَدِيدُ is an ADJECTIVE describing ٱلْكِتَابُ
-- **Structure:** Noun + Adjective (a phrase, part of a larger sentence)
-- **Meaning:** "the new book" (one concept — a modified noun)
-
-**Phrase (b): ٱلْكِتَابُ جَدِيدٌ (al-kitābu jadīdun) — "the book is new"**
-
-**Analysis:**
-- **ٱلْكِتَابُ** (al-kitābu): Definite (ال), nominative (ـُ)
-- **جَدِيدٌ** (jadīdun): Indefinite (NO ال, has tanwīn ـٌ), nominative (ـٌ)
-- **Definiteness pattern:** Definite + indefinite (ال + tanwīn)
-- **Function:** جَدِيدٌ is a PREDICATE completing a nominal sentence
-- **Structure:** Subject + Predicate (a complete sentence)
-- **Meaning:** "The book is new" (a statement about the book)
-
-**The key difference: DEFINITENESS**
-
-| Feature | (a) Adjective | (b) Predicate |
-|---------|---------------|---------------|
-| **Definiteness** | Both definite (ال + ال) | Definite + indefinite (ال + tanwīn) |
-| **Function** | Adjective describes noun | Predicate completes sentence |
-| **Structure** | Phrase (part of sentence) | Complete sentence |
-| **Translation** | "the new book" | "the book is new" |
-
-**Usage examples:**
-
-- **With adjective (a):** رَأَيْتُ ٱلْكِتَابَ ٱلْجَدِيدَ (raʾaytu l-kitāba l-jadīda)
-  - "I saw THE NEW BOOK"
-  - Both shift to accusative (ـَ) because they're the direct object
-
-- **With predicate (b):** ٱلْكِتَابُ جَدِيدٌ (al-kitābu jadīdun)
-  - "The book IS new"
-  - Complete statement (nominal sentence)
-
-**How to tell them apart in Quranic reading:**
-1. Look at definiteness: Same (adjective) or different (predicate)?
-2. Look at meaning: Describes a thing (adjective) or makes a statement (predicate)?
-3. Look at context: Part of larger sentence (adjective) or standalone thought (predicate)?
-
-</ExerciseBox>
-
-<ExerciseBox question="Exercise 3: Add the correct adjective form of كَبِيرٌ (big) to each noun, ensuring all four agreements: (a) ٱلْبَيْتُ ___ (nominative), (b) رَأَيْتُ ٱلْبَيْتَ ___ (accusative), (c) فِى ٱلْبَيْتِ ___ (genitive)">
-
-**Answer:**
-
-### (a) Nominative: ٱلْبَيْتُ ٱلْكَبِيرُ
-
-**Complete sentence:** ٱلْبَيْتُ ٱلْكَبِيرُ جَمِيلٌ (al-baytu l-kabīru jamīlun) — "The big house is beautiful"
-
-**Agreement analysis:**
-- **ٱلْبَيْتُ** (al-baytu): Definite, masculine, singular, nominative (ـُ)
-- **ٱلْكَبِيرُ** (al-kabīru): Definite, masculine, singular, nominative (ـُ)
-
-**All four match:** ✓ Definiteness ✓ Gender ✓ Number ✓ Case
-
-**Case reason:** Both take nominative because ٱلْبَيْتُ ٱلْكَبِيرُ serves as the subject (mubtadaʾ) of the sentence.
-
----
-
-### (b) Accusative: رَأَيْتُ ٱلْبَيْتَ ٱلْكَبِيرَ
-
-**Complete sentence:** رَأَيْتُ ٱلْبَيْتَ ٱلْكَبِيرَ (raʾaytu l-bayta l-kabīra) — "I saw the big house"
-
-**Agreement analysis:**
-- **ٱلْبَيْتَ** (al-bayta): Definite, masculine, singular, accusative (ـَ)
-- **ٱلْكَبِيرَ** (al-kabīra): Definite, masculine, singular, accusative (ـَ)
-
-**All four match:** ✓ Definiteness ✓ Gender ✓ Number ✓ Case
-
-**Case reason:** Both take accusative because ٱلْبَيْتَ ٱلْكَبِيرَ serves as the direct object (mafʿūl bih) of the verb رَأَيْتُ.
-
----
-
-### (c) Genitive: فِى ٱلْبَيْتِ ٱلْكَبِيرِ
-
-**Complete sentence:** جَلَسْتُ فِى ٱلْبَيْتِ ٱلْكَبِيرِ (jalastu fī l-bayti l-kabīri) — "I sat in the big house"
-
-**Agreement analysis:**
-- **ٱلْبَيْتِ** (al-bayti): Definite, masculine, singular, genitive (ـِ)
-- **ٱلْكَبِيرِ** (al-kabīri): Definite, masculine, singular, genitive (ـِ)
-
-**All four match:** ✓ Definiteness ✓ Gender ✓ Number ✓ Case
-
-**Case reason:** Both take genitive because ٱلْبَيْتِ ٱلْكَبِيرِ follows the preposition فِى.
-
----
-
-**Summary table:**
-
-| Context | Noun | Adjective | Case | Reason |
-|---------|------|-----------|------|--------|
-| (a) Subject | ٱلْبَيْتُ | ٱلْكَبِيرُ | Nominative (ـُ) | Subject of sentence |
-| (b) Object | ٱلْبَيْتَ | ٱلْكَبِيرَ | Accusative (ـَ) | Direct object of verb |
-| (c) Preposition | ٱلْبَيْتِ | ٱلْكَبِيرِ | Genitive (ـِ) | After preposition فِى |
-
-**Key lesson:** The SAME adjective (كَبِيرٌ) changes its ending to match the noun's case in each sentence context. This is the power of case agreement — it maintains grammatical precision regardless of word position.
-
-</ExerciseBox>
-
-<ExerciseBox question="Exercise 4: Advanced — Analyze this phrase from Al-Fatiha and identify which words are adjectives and which are predicates: بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ (bismi llāhi r-raḥmāni r-raḥīmi) — 'In the name of Allah, the Most Gracious, the Most Merciful'">
-
-**Answer:**
-
-**Complete grammatical analysis:**
-
-### Structure Breakdown
-
-**بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ** consists of:
-1. Prepositional phrase with iḍāfah: بِسْمِ ٱللَّهِ
-2. Two adjectives describing ٱللَّهِ: ٱلرَّحْمَٰنِ and ٱلرَّحِيمِ
-
----
-
-### Word-by-Word Analysis
-
-**1. بِسْمِ** (bismi) — Prepositional phrase
-- **بِ** (bi): Preposition "in/with/by"
-- **ٱسْمِ** (ismi): Genitive (after preposition)
-- Function: First part of iḍāfah
-- NOT an adjective or predicate
-
-**2. ٱللَّهِ** (allāhi) — Described noun (manʿūt)
-- Function: Second term in iḍāfah ("name OF Allah")
-- Case: Genitive (ـِ)
-- This is the noun being described by the following adjectives
-
-**3. ٱلرَّحْمَٰنِ** (ar-raḥmāni) — ADJECTIVE #1
-- Function: Adjective describing ٱللَّهِ
-- Case: Genitive (ـِ) — matches ٱللَّهِ
-- **Agreement verification:**
-  - ✓ Definiteness: Both definite (proper name / ال)
-  - ✓ Gender: Both masculine
-  - ✓ Number: Both singular
-  - ✓ Case: Both genitive (ـِ)
-- **NOT a predicate** because it has ال (definite) matching the noun
-
-**4. ٱلرَّحِيمِ** (ar-raḥīmi) — ADJECTIVE #2
-- Function: Second adjective describing ٱللَّهِ
-- Case: Genitive (ـِ) — matches ٱللَّهِ
-- **Agreement verification:**
-  - ✓ All four properties match ٱللَّهِ (same as first adjective)
-- **NOT a predicate** because it has ال (definite) matching the noun
-
----
-
-### Adjective vs. Predicate Classification
-
-**ADJECTIVES (naʿt):**
-- ٱلرَّحْمَٰنِ (ar-raḥmāni) — adjective describing Allah
-- ٱلرَّحِيمِ (ar-raḥīmi) — adjective describing Allah
-
-**PREDICATES (khabar):**
-- NONE in this phrase
-
-**Why they're adjectives, not predicates:**
-
-1. **Definiteness test:** Both adjectives have ال (definite), matching ٱللَّهِ
-   - If they were predicates, they would be indefinite: ٱللَّهُ رَحْمَٰنٌ رَحِيمٌ "Allah IS Gracious, IS Merciful"
-
-2. **Case test:** Both adjectives are genitive (ـِ), matching ٱللَّهِ
-   - If they were predicates in a standalone sentence, they would be nominative
-
-3. **Structure test:** This is a prepositional phrase with descriptive attributes
-   - Not a complete nominal sentence with subject + predicate
-
-4. **Meaning test:** The phrase describes Allah with attributes
-   - "In the name of Allah [who is] the-Gracious, the-Merciful"
-   - NOT "In the name of Allah. He is Gracious. He is Merciful." (separate statements)
-
----
-
-### Complete I'rab Summary
-
-| Word | Function | Type | Case | Reason |
-|------|----------|------|------|--------|
-| بِ | Preposition | Particle | — | Triggers genitive |
-| ٱسْمِ | Object of prep. | Noun | Genitive | After preposition |
-| ٱللَّهِ | Possessive | Noun (manʿūt) | Genitive | Second in iḍāfah |
-| ٱلرَّحْمَٰنِ | Adjective | Naʿt | Genitive | Describes ٱللَّهِ |
-| ٱلرَّحِيمِ | Adjective | Naʿt | Genitive | Describes ٱللَّهِ |
-
-**Key insight:** Multiple adjectives can describe the same noun. Each adjective independently agrees with the noun in all four properties. Here, both Divine attributes are adjectives in genitive case, creating a cascade of descriptive precision.
-
-**Contrast — if these were predicates:**
-
-ٱللَّهُ رَحْمَٰنٌ رَحِيمٌ (allāhu raḥmānun raḥīmun)
-- "Allah IS Gracious, IS Merciful"
-- Both would be indefinite (with tanwīn)
-- Both would be nominative (as predicates)
-- This would be a nominal sentence making a statement
-
-But in Bismillah, they're definite adjectives describing Allah within a larger prepositional phrase structure.
-
-</ExerciseBox>
-
-## Related Lessons
-
-**Prerequisites:**
-- [L2.02: Subject & Predicate](/learn/level-2/02-subject-predicate/) — Understanding predicate vs adjective
-- [L2.04: Nominative Case](/learn/level-2/04-nominative-case/) — Case agreement foundation
-- [L1.07: Gender in Arabic](/learn/level-1/07-gender-masculine-feminine/) — Masculine and feminine markers
-- [L1.08: Singular, Dual & Plural](/learn/level-1/08-singular-dual-plural/) — Number patterns
-
-**Build on this lesson:**
-- [L2.10: Inna and Sisters](/learn/level-2/10-inna-sisters/) — How particles affect nominal sentences
-- [L2.11: Kaana and Sisters](/learn/level-2/11-kaana-sisters/) — How verbs affect predicates
-- [L3.19: Active & Passive Participles](/learn/level-3/19-active-passive-participles/) — Participles as adjectives
-
-**Resources:**
-- [Case Endings Chart](/resources/case-endings-chart/) — Visual reference for all case forms
-- [Grammar Glossary](/resources/glossary/) — Definitions of naʿt, manʿūt, and agreement terms
+import Step from '../../../components/lesson/Step.astro';
+import Stage from '../../../components/lesson/Stage.astro';
+import Sentence from '../../../components/lesson/Sentence.astro';
+import Tiles from '../../../components/lesson/Tiles.astro';
+import Formula from '../../../components/lesson/Formula.astro';
+import Legend from '../../../components/lesson/Legend.astro';
+import Note from '../../../components/lesson/Note.astro';
+import Check from '../../../components/lesson/Check.astro';
+import Start from '../../../components/lesson/Start.astro';
+import Sources from '../../../components/lesson/Sources.astro';
+import Parse from '../../../components/lesson/Parse.astro';
+import Exercise from '../../../components/lesson/Exercise.astro';
+import Block from '../../../components/lesson/Block.astro';
+
+{/* Content spec: docs/redesign/specs/L2.09-adjective-agreement.md. Every parse follows al-Jadwal (Mahmud Safi). */}
+
+<Step hero id="start" label="Noun and adjective" title={frontmatter.title} kicker={frontmatter.kicker} titleArabic={frontmatter.titleArabic}>
+<Block id="overview" title="In this lesson" level={2} uncounted>
+  <Stage label="The idea">
+    <Formula
+      label="the noun described plus its adjective equals one phrase"
+      items={[
+        { kind: 'm', text: 'manʿūt', small: 'the noun described' },
+        { kind: 'k', text: 'naʿt', small: 'the adjective' },
+        { kind: 's', text: 'noun and adjective', small: 'مَنْعُوت وَنَعْت' },
+      ]}
+    />
+  </Stage>
+  <Start
+    goal="Find the adjective and the noun it describes, show that they match in case, definiteness, gender and number, give one noun several adjectives, tell an adjective from a khabar or an idafah, and go through four verses word by word."
+    minutes={50}
+    before="The definite article (L1.06), gender (L1.07), singular, dual and plural (L1.08), case endings (L1.10), the nominal sentence (L2.01) and the three cases (L2.04 to L2.06)."
+    terms={[
+      { term: 'Naʿt', ar: 'نَعْت', meaning: 'The adjective: the word that describes a noun.' },
+      { term: 'Manʿūt', ar: 'مَنْعُوت', meaning: 'The noun that is described.' },
+      { term: 'Definite', ar: 'مَعْرِفَة', meaning: 'A noun that points to one known thing: “the book”.' },
+      { term: 'Indefinite', ar: 'نَكِرَة', meaning: 'A noun that names any one of its kind: “a book”.' },
+      { term: 'Tābiʿ', ar: 'تَابِع', meaning: 'A follower: a word that copies the ending of the word before it.' },
+      { term: 'Badal', ar: 'بَدَل', meaning: 'A replacing word: it stands in for the word before it and explains it.' },
+    ]}
+  />
+</Block>
+
+<Block id="see" title="Look at this phrase" level={2}>
+  <Stage>
+    <Sentence
+      size="big"
+      roles
+      reference="Al-Baqarah 2:142 (end)"
+      groups={[
+        { words: [{ ar: 'إِلَىٰ', en: 'to', say: 'ila', type: 'p' }] },
+        { role: 'manut', words: [{ ar: 'صِرَٰطٍ', en: 'a path', say: 'siratin' }] },
+        { role: 'naat', words: [{ ar: 'مُّسْتَقِيمٍ', en: 'straight', say: 'mustaqimin' }] },
+      ]}
+      en={['… to a straight path.']}
+    />
+    <Legend />
+  </Stage>
+
+It is the end of a verse about guidance. Read it from right to left.
+
+**Two words describe one thing.** صِرَٰطٍ is “a path”. مُّسْتَقِيمٍ is “straight”. The second word tells you what kind of path it is.
+
+<Check n={1} q="In إِلَىٰ صِرَٰطٍ مُّسْتَقِيمٍ, which word describes the other?" options={['صِرَٰطٍ describes مُّسْتَقِيمٍ', 'مُّسْتَقِيمٍ describes صِرَٰطٍ']} answer={1} why="مُّسْتَقِيمٍ is the adjective. It says what kind of path it is." />
+</Block>
+
+<Block id="order" title="The noun comes first">
+  <Stage label="English and Arabic">
+    <Tiles
+      label="a path, then straight: the Arabic order"
+      items={[
+        { ar: 'صِرَٰطٍ', en: 'a path' },
+        { ar: 'مُّسْتَقِيمٍ', en: 'straight' },
+      ]}
+    />
+  </Stage>
+
+English puts the describing word first: “a **straight** path”. Arabic puts it second: “a path **straight**”.
+
+The adjective usually comes straight after its noun. Now and then a short phrase or a time word stands between them; you will see one case in the next step.
+
+<Note kind="remember">Arabic says the noun first and the adjective after it. Read “a path, straight”.</Note>
+</Block>
+
+<Block id="names" title="Two names to learn">
+  <Stage label="The pair">
+    <Sentence
+      roles
+      reference="Al-Baqarah 2:142 (end)"
+      groups={[
+        { words: [{ ar: 'إِلَىٰ', en: 'to', type: 'p' }] },
+        { role: 'manut', words: [{ ar: 'صِرَٰطٍ', en: 'a path' }] },
+        { role: 'naat', words: [{ ar: 'مُّسْتَقِيمٍ', en: 'straight' }] },
+      ]}
+    />
+  </Stage>
+
+- **Naʿt**, نَعْت: “a description”. This is the adjective.
+- **Manʿūt**, مَنْعُوت: “the one described”. This is the noun.
+
+Together they are one phrase. They are not a sentence. Nothing is said about the path yet; it is only described.
+
+<Note kind="know">Some books call the adjective *ṣifah*, صِفَة. This course says naʿt, as *al-Ajurrumiyyah* and al-Jadwal do. *Al-Ajurrumiyyah* calls this kind of word a *tābiʿ*, تَابِع, “a follower”, because it follows its noun.</Note>
+</Block>
+
+<Block id="book" title="What the first grammar book says">
+  <Stage label="From al-Ajurrumiyyah">
+    <blockquote class="lx-quote" lang="ar" dir="rtl">
+      <p>النَّعْتُ تَابِعٌ لِلْمَنْعُوتِ فِي رَفْعِهِ وَنَصْبِهِ وَخَفْضِهِ وَتَعْرِيفِهِ وَتَنْكِيرِهِ</p>
+      <p>تَقُولُ: قَامَ زَيْدٌ الْعَاقِلُ، وَرَأَيْتُ زَيْدًا الْعَاقِلَ، وَمَرَرْتُ بِزَيْدٍ الْعَاقِلِ</p>
+    </blockquote>
+    <p class="lx-quote-note">Vowel marks added by Quran Learn.</p>
+  </Stage>
+
+*Al-Ajurrumiyyah* has a short chapter on the naʿt. It says:
+
+- “The naʿt follows the manʿūt in its nominative, its accusative and its genitive, and in being definite and in being indefinite.”
+- Then it gives three sentences, each with the name Zayd and the adjective ٱلْعَاقِلُ (“the wise”): “Wise Zayd stood up”, “I saw wise Zayd”, “I passed by wise Zayd”.
+
+Look at the endings of ٱلْعَاقِلُ in the three sentences. They are -u, -a and -i. The adjective copies the case of Zayd each time.
+
+The book names two matches: **case** and **definiteness**. Gender and number are the other two. You can see them in the shape of the words, and the next step covers them.
+</Block>
+
+<Block id="four" title="Four things must match">
+  <Stage>
+    <Sentence
+      roles
+      reference="An-Nisa 4:1 (part)"
+      groups={[
+        { words: [{ ar: 'مِّن', en: 'from', say: 'min', type: 'p' }] },
+        { role: 'manut', words: [{ ar: 'نَّفْسٍ', en: 'a self', say: 'nafsin' }] },
+        { role: 'naat', words: [{ ar: 'وَٰحِدَةٍ', en: 'one', say: 'wahidatin' }] },
+      ]}
+      en={['… from one self.']}
+    />
+  </Stage>
+
+The phrase مِن نَّفْسٍ وَٰحِدَةٍ means “from one single self”. The adjective وَٰحِدَةٍ matches the noun نَّفْسٍ in four ways:
+
+| What matches | نَّفْسٍ | وَٰحِدَةٍ |
+|---|---|---|
+| Case | genitive, -in (after مِن) | genitive, -in |
+| Definiteness | indefinite (-in, no *al-*) | indefinite (-in, no *al-*) |
+| Gender | feminine | feminine (ends in ـَة) |
+| Number | singular | singular |
+
+Al-Jadwal says وَٰحِدَةٍ is the naʿt of نَفْس, “genitive like it”.
+
+<Check n={2} q="Why does وَٰحِدَةٍ end in -in?" options={['It copies the case of نَّفْسٍ, which is genitive after مِن', 'It is the khabar of a sentence', 'It is a verb']} answer={0} why="The adjective copies its noun. نَّفْسٍ is genitive after مِن, so وَٰحِدَةٍ is genitive too." />
+</Block>
+
+</Step>
+
+<Step id="matching" label="The four matches" title="Matching the noun: case, definiteness, gender, number">
+<Block id="nominative" title="Case 1: nominative, and a hidden -u">
+  <Stage>
+    <Sentence
+      roles
+      reference="Al-Aʿraf 7:180 (start)"
+      groups={[
+        { role: 'khabarFirst', words: [{ ar: 'وَلِلَّهِ', en: 'and for Allah', say: 'wa-lillahi', type: 'p' }] },
+        { role: 'manut', hint: 'also the mubtadaʾ, put later', words: [{ ar: 'ٱلْأَسْمَآءُ', en: 'the names', say: 'al-asmau' }] },
+        { role: 'naat', words: [{ ar: 'ٱلْحُسْنَىٰ', en: 'the most beautiful', say: 'al-husna' }] },
+      ]}
+      en={['And to Allah ', { gap: 'belong' }, ' the most beautiful names.']}
+    />
+  </Stage>
+
+This is a nominal sentence (L2.01). The khabar لِلَّهِ comes first. The mubtadaʾ is ٱلْأَسْمَآءُ, with -u.
+
+The adjective ٱلْحُسْنَىٰ must be nominative too. You cannot see its -u, because the word ends in a long ā (ىٰ), which cannot carry a vowel mark. You met this in L2.01. Al-Jadwal says it is nominative with the ḍamma “understood” on the last letter.
+
+<Check n={3} q="What case is ٱلْحُسْنَىٰ in وَلِلَّهِ ٱلْأَسْمَآءُ ٱلْحُسْنَىٰ?" options={['Nominative, with a hidden -u', 'Accusative', 'Genitive']} answer={0} why="It copies ٱلْأَسْمَآءُ, which is nominative. The -u is hidden because the word ends in a long ā." />
+</Block>
+
+<Block id="accusative" title="Case 2: accusative">
+  <Stage>
+    <Sentence
+      roles
+      reference="Al-Maʾidah 5:21 (part)"
+      groups={[
+        { role: 'fiil', words: [{ ar: 'ٱدْخُلُوا۟', en: 'enter', say: 'udkhulu', type: 'v' }] },
+        { role: 'manut', hint: 'the object, and the noun described', words: [{ ar: 'ٱلْأَرْضَ', en: 'the land', say: 'al-arda' }] },
+        { role: 'naat', words: [{ ar: 'ٱلْمُقَدَّسَةَ', en: 'the holy', say: 'al-muqaddasata' }] },
+      ]}
+      en={['Enter the holy land.']}
+    />
+  </Stage>
+
+ٱلْأَرْضَ is the object of the verb (L2.05), so it is accusative, with -a. The adjective copies it: ٱلْمُقَدَّسَةَ also ends in -a.
+
+Al-Jadwal: ٱلْمُقَدَّسَةَ is “the naʿt of ٱلْأَرْض, accusative like it”.
+
+Look at the noun. ٱلْأَرْض has no ة at the end, but it is feminine in Arabic, so its adjective ends in ـَةَ. Gender is in the meaning of the noun, not only in its spelling.
+
+<Check n={4} q="Why does ٱلْمُقَدَّسَةَ end in -a?" options={['It copies ٱلْأَرْضَ, the object', 'Every adjective ends in -a', 'It is a place word']} answer={0} why="The adjective takes the case of its noun. The noun is the object, so both are accusative." />
+</Block>
+
+<Block id="genitive" title="Case 3: genitive">
+  <Stage>
+    <Sentence
+      roles
+      reference="Al-Baqarah 2:264 (part)"
+      groups={[
+        { words: [{ ar: 'وَٱلْيَوْمِ', en: 'and the day', say: 'wal-yawmi' }], role: 'manut', hint: 'joined to “Allah”, after بِ' },
+        { role: 'naat', words: [{ ar: 'ٱلْءَاخِرِ', en: 'the last', say: 'al-akhiri' }] },
+      ]}
+      en={['… and the Last Day.']}
+    />
+  </Stage>
+
+The full line is “he does not believe in Allah and the Last Day”. The preposition بِ (L2.07) makes ٱللَّهِ genitive, and وَ joins ٱلْيَوْمِ to it, so ٱلْيَوْمِ is genitive too.
+
+The adjective ٱلْءَاخِرِ copies it with -i. Al-Jadwal: “naʿt of ٱلْيَوْم, genitive like it”.
+
+<Note kind="tip">To find the case of an adjective, find the case of its noun. The adjective always has the same one.</Note>
+
+<Check n={5} q="What is the case of ٱلْءَاخِرِ, and why?" options={['Genitive, because ٱلْيَوْمِ is genitive', 'Nominative, because it comes last', 'Accusative, because it is an adjective']} answer={0} why="An adjective never has its own case. It copies the case of its noun." />
+</Block>
+
+<Block id="definite" title="Definiteness: what counts as definite">
+  <Stage label="From al-Ajurrumiyyah">
+    <blockquote class="lx-quote lx-quote-list" lang="ar" dir="rtl">
+      <p>الْمَعْرِفَةُ خَمْسَةُ أَشْيَاءَ:</p>
+      <p>الِاسْمُ الْمُضْمَرُ نَحْوُ أَنَا وَأَنْتَ</p>
+      <p>وَالِاسْمُ الْعَلَمُ نَحْوُ زَيْدٌ وَمَكَّةَ</p>
+      <p>وَالِاسْمُ الْمُبْهَمُ نَحْوُ هَذَا وَهَذِهِ وَهَؤُلَاءِ</p>
+      <p>وَالِاسْمُ الَّذِي فِيهِ الْأَلِفُ وَاللَّامُ نَحْوُ الرَّجُلُ وَالْغُلَامُ</p>
+      <p>وَمَا أُضِيفَ إِلَى وَاحِدٍ مِنْ هَذِهِ الْأَرْبَعَةِ</p>
+    </blockquote>
+    <p class="lx-quote-note">Vowel marks added by Quran Learn.</p>
+  </Stage>
+
+The book lists **five kinds of definite noun**, مَعْرِفَة (*maʿrifa*):
+
+| Kind | In the book | In the Quran |
+|---|---|---|
+| A pronoun | أَنَا، أَنْتَ | هُوَ |
+| A name | زَيْدٌ، مَكَّةَ | ٱللَّهُ |
+| A pointing word | هَٰذَا، هَٰذِهِ، هَٰؤُلَاءِ | ذَٰلِكَ، تِلْكَ |
+| A noun with *al-* | ٱلرَّجُلُ، ٱلْغُلَامُ | ٱلْكِتَٰبِ |
+| A noun joined to one of these four (an idafah, L2.08) | any such noun | رَبُّ ٱلْعَرْشِ، رَسُولِهِ |
+
+Everything else is **indefinite**, نَكِرَة (*nakira*). The book gives a handy test: if you can put *al-* in front of the noun, it is indefinite.
+
+So a noun can be definite **without** *al-*. رَبُّ in رَبُّ ٱلْعَرْشِ has no *al-*, but it is definite because it is joined to ٱلْعَرْشِ. A word like رَسُولِهِ is definite because of the pronoun on its end.
+</Block>
+
+<Block id="definite-match" title="Both definite, or both indefinite">
+  <Stage label="Two pairs">
+    <Sentence
+      roles
+      reference="Ibrahim 14:24 (part)"
+      groups={[
+        { role: 'manut', words: [{ ar: 'كَلِمَةً', en: 'a word', say: 'kalimatan' }] },
+        { role: 'naat', words: [{ ar: 'طَيِّبَةً', en: 'good', say: 'tayyibatan' }] },
+      ]}
+      en={['a good word']}
+    />
+    <Sentence
+      roles
+      reference="Al-Maʾidah 5:21 (part)"
+      groups={[
+        { role: 'manut', words: [{ ar: 'ٱلْأَرْضَ', en: 'the land' }] },
+        { role: 'naat', words: [{ ar: 'ٱلْمُقَدَّسَةَ', en: 'the holy' }] },
+      ]}
+      en={['the holy land']}
+    />
+  </Stage>
+
+In the first pair both words are indefinite: no *al-*, and tanwīn (-an) on each. In the second pair both are definite: *al-* on each.
+
+The adjective copies the definiteness of its noun. It does not mix:
+
+- an indefinite noun with an indefinite adjective: كَلِمَةً طَيِّبَةً, “a good word”;
+- a definite noun with a definite adjective: ٱلْأَرْضَ ٱلْمُقَدَّسَةَ, “the holy land”.
+
+Al-Fatiha shows the definite form: ٱلصِّرَٰطَ ٱلْمُسْتَقِيمَ (1:6, part), “the straight path”. The phrase in 2:142 that you saw first is the indefinite form: صِرَٰطٍ مُّسْتَقِيمٍ.
+
+<Note kind="warn">If the noun has *al-*, the adjective needs *al-* too. If the noun has tanwīn, the adjective has tanwīn too.</Note>
+
+<Check n={6} q="Which phrase is correct, “the straight path” in the accusative?" options={['ٱلصِّرَٰطَ مُسْتَقِيمًا', 'ٱلصِّرَٰطَ ٱلْمُسْتَقِيمَ', 'صِرَٰطَ ٱلْمُسْتَقِيمَ']} answer={1} why="The noun has al-, so the adjective has al- too, and both are accusative." />
+</Block>
+
+<Block id="gender" title="Gender: a feminine noun takes a feminine adjective">
+  <Stage>
+    <Sentence
+      roles
+      reference="Al-Maʾidah 5:21 (part)"
+      groups={[
+        { role: 'manut', hint: 'feminine, with no ة', words: [{ ar: 'ٱلْأَرْضَ', en: 'the land', say: 'al-arda' }] },
+        { role: 'naat', hint: 'feminine, with ـَة', words: [{ ar: 'ٱلْمُقَدَّسَةَ', en: 'the holy', say: 'al-muqaddasata' }] },
+      ]}
+    />
+    <Sentence
+      roles
+      reference="Ibrahim 14:24 (part)"
+      groups={[
+        { role: 'manut', hint: 'feminine, with ة', words: [{ ar: 'كَلِمَةً', en: 'a word' }] },
+        { role: 'naat', hint: 'feminine, with ـَة', words: [{ ar: 'طَيِّبَةً', en: 'good' }] },
+      ]}
+    />
+  </Stage>
+
+You know from L1.07 that a feminine word usually ends in ة (the tāʾ marbūṭa). The adjective of a feminine noun must be feminine too:
+
+- كَلِمَةً (feminine, ة) + طَيِّبَةً (feminine, ة);
+- ٱلْأَرْضَ (feminine, no ة) + ٱلْمُقَدَّسَةَ (feminine, ة).
+
+The second pair is the one to watch. The noun ٱلْأَرْض is feminine although it has no ة. You learn this by meeting the word. The adjective then shows it.
+
+A masculine noun takes a masculine adjective, with no ـَة: صِرَٰطٍ مُّسْتَقِيمٍ.
+
+<Check n={7} q="ٱلْأَرْض has no ة. Which adjective ending is right for it?" options={['ـَةُ, because ٱلْأَرْض is feminine', 'No ة, because the noun has none']} answer={0} why="The adjective follows the gender of the noun, not its spelling. ٱلْمُقَدَّسَةَ has ـَة." />
+</Block>
+
+<Block id="number" title="Number: singular, dual and plural">
+  <Stage>
+    <Sentence
+      roles
+      reference="Ar-Rahman 55:62"
+      groups={[
+        { role: 'khabarFirst', words: [{ ar: 'وَمِن', en: 'and from', type: 'p' }, { ar: 'دُونِهِمَا', en: 'below the two' }] },
+        { role: 'mubtadaLater', words: [{ ar: 'جَنَّتَانِ', en: 'two gardens', say: 'jannatani' }] },
+      ]}
+      en={['And below those two ', { gap: 'are' }, ' two gardens.']}
+    />
+    <Sentence
+      roles
+      reference="Ar-Rahman 55:64"
+      groups={[
+        { role: 'naat', hint: 'describes جَنَّتَانِ (55:62)', words: [{ ar: 'مُدْهَآمَّتَانِ', en: 'deep green', say: 'mudhammatani' }] },
+      ]}
+      en={['(Two gardens) deep green.']}
+    />
+    <Sentence
+      roles
+      reference="An-Nisa 4:172 (part)"
+      groups={[
+        { words: [{ ar: 'وَلَا', en: 'and not', type: 'p' }] },
+        { role: 'manut', words: [{ ar: 'ٱلْمَلَٰٓئِكَةُ', en: 'the angels', say: 'al-malaikatu' }] },
+        { role: 'naat', words: [{ ar: 'ٱلْمُقَرَّبُونَ', en: 'those brought near', say: 'al-muqarrabuna' }] },
+      ]}
+      en={['… nor the angels brought near.']}
+    />
+  </Stage>
+
+The adjective also matches the number of its noun.
+
+| Noun | Adjective | Nominative ending |
+|---|---|---|
+| one (singular) | one | -u / -un |
+| two (dual) | two | -āni |
+| many people, masculine | masculine plural | -ūna |
+
+- **Dual.** جَنَّتَانِ is “two gardens”, with the dual ending -āni. Its adjective مُدْهَآمَّتَانِ is dual and feminine, also with -āni. They are in two different verses. Al-Jadwal says that what comes between them is a side remark, and that مُدْهَآمَّتَانِ is the naʿt of جَنَّتَانِ, nominative.
+- **Plural of people.** ٱلْمَلَٰٓئِكَةُ, “the angels”, is plural. Its adjective ٱلْمُقَرَّبُونَ is a masculine plural with -ūna. Al-Jadwal: nominative, “with the letter و as its mark”.
+
+The case endings for dual and plural nouns are in L2.04 to L2.06. The adjective uses the very same endings as its noun.
+
+<Note kind="tip">The adjective ends like the noun. If the noun ends in -āni or -ūna, so does the adjective.</Note>
+
+<Check n={8} q="ٱلْمُقَرَّبُونَ ends in -ūna. What does that tell you about the noun before it?" options={['It is nominative and plural, like ٱلْمَلَٰٓئِكَةُ', 'It is genitive and singular', 'It is a verb']} answer={0} why="-ūna is the nominative plural of people. The adjective copies its noun." />
+</Block>
+
+<Block id="things" title="A plural of things: a feminine singular adjective">
+  <Stage>
+    <Sentence
+      roles
+      reference="Al-Baqarah 2:80 (part)"
+      groups={[
+        { words: [{ ar: 'إِلَّآ', en: 'except', type: 'p' }] },
+        { role: 'manut', words: [{ ar: 'أَيَّامًا', en: 'days', say: 'ayyaman' }] },
+        { role: 'naat', hint: 'feminine, singular', words: [{ ar: 'مَّعْدُودَةً', en: 'counted', say: 'maduda tan' }] },
+      ]}
+      en={['… except for a few counted days.']}
+    />
+    <Sentence
+      roles
+      reference="Al-Baqarah 2:184 (start)"
+      groups={[
+        { role: 'manut', words: [{ ar: 'أَيَّامًا', en: 'days' }] },
+        { role: 'naat', hint: 'feminine, plural', words: [{ ar: 'مَّعْدُودَٰتٍ', en: 'counted', say: 'maduda tin' }] },
+      ]}
+      en={['A few counted days.']}
+    />
+  </Stage>
+
+A plural of **things** is not like a plural of people. أَيَّامًا (“days”) is plural, but its adjective is **feminine**, not plural masculine.
+
+The Quran shows two forms:
+
+- 2:80 uses a feminine **singular** adjective: مَّعْدُودَةً.
+- 2:184 uses a feminine **plural** adjective: مَّعْدُودَٰتٍ.
+
+Al-Jadwal reads both as the naʿt of أَيَّامًا, accusative like it. In 2:184 the mark is a kasra, because that is how a feminine plural shows the accusative (L2.05).
+
+The same rule is behind 7:180. ٱلْأَسْمَآءُ (“the names”) is a plural of things, and its adjective ٱلْحُسْنَىٰ is a feminine singular.
+
+<Note kind="know">The pattern here is read from these three verses. L1.08 introduced plurals; this lesson only shows how an adjective treats them. Remember it as: a group of things behaves like one feminine thing.</Note>
+
+<Check n={9} q="ٱلْأَسْمَآءُ ٱلْحُسْنَىٰ: why is the adjective feminine?" options={['The names are things, and a plural of things takes a feminine adjective', 'The names are people', 'ٱلْحُسْنَىٰ is a verb']} answer={0} why="A plural of things is treated as feminine. In 7:180 the adjective is feminine singular." />
+</Block>
+
+</Step>
+
+<Step id="which" label="Which word is it?" title="Which noun, how many, and is it really an adjective?">
+<Block id="which-noun" title="Which noun does it describe?">
+  <Stage>
+    <Sentence
+      roles
+      reference="Yusuf 12:1 (end)"
+      groups={[
+        { role: 'mubtada', words: [{ ar: 'تِلْكَ', en: 'those', say: 'tilka' }] },
+        { role: 'mudaf', hint: 'the khabar, first word of the idafah', words: [{ ar: 'ءَايَٰتُ', en: 'verses of', say: 'ayatu' }] },
+        { role: 'mudafIlayh', hint: 'second word, and the noun described', words: [{ ar: 'ٱلْكِتَٰبِ', en: 'the Book', say: 'al-kitabi' }] },
+        { role: 'naat', words: [{ ar: 'ٱلْمُبِينِ', en: 'the clear', say: 'al-mubini' }] },
+      ]}
+      en={['Those ', { gap: 'are' }, ' the verses of the clear Book.']}
+    />
+    <Sentence
+      roles
+      reference="At-Tawbah 9:129 (end)"
+      groups={[
+        { role: 'mubtada', words: [{ ar: 'وَهُوَ', en: 'and he', say: 'wa-huwa' }] },
+        { role: 'mudaf', hint: 'the khabar, first word of the idafah', words: [{ ar: 'رَبُّ', en: 'Lord of', say: 'rabbu' }] },
+        { role: 'mudafIlayh', hint: 'second word, and the noun described', words: [{ ar: 'ٱلْعَرْشِ', en: 'the Throne', say: 'al-arshi' }] },
+        { role: 'naat', words: [{ ar: 'ٱلْعَظِيمِ', en: 'the great', say: 'al-azimi' }] },
+      ]}
+      en={['And he ', { gap: 'is' }, ' the Lord of the great Throne.']}
+    />
+  </Stage>
+
+Sometimes two nouns come before the adjective. Which one does it describe? The adjective has to match its noun in every way, so only one noun can fit.
+
+**12:1.** The candidates are ءَايَٰتُ and ٱلْكِتَٰبِ.
+
+| Test | ءَايَٰتُ | ٱلْكِتَٰبِ | ٱلْمُبِينِ |
+|---|---|---|---|
+| Case | nominative | genitive | genitive |
+| Gender | feminine | masculine | masculine |
+| Number | plural | singular | singular |
+
+ٱلْمُبِينِ matches ٱلْكِتَٰبِ in all three. Al-Jadwal: “naʿt of ٱلْكِتَاب, genitive”. The verses are not “clear”; the Book is.
+
+**9:129.** The candidates are رَبُّ (nominative) and ٱلْعَرْشِ (genitive). ٱلْعَظِيمِ is genitive, so it describes ٱلْعَرْشِ: the Throne is great. Al-Jadwal says exactly this.
+
+<Note kind="tip">With an idafah in front of an adjective (L2.08), check the case. The adjective usually describes the last noun of the idafah when it is genitive.</Note>
+
+<Check n={10} q="In رَبُّ ٱلْعَرْشِ ٱلْعَظِيمِ, which noun does ٱلْعَظِيمِ describe?" options={['رَبُّ', 'ٱلْعَرْشِ']} answer={1} why="ٱلْعَظِيمِ is genitive. رَبُّ is nominative. Only ٱلْعَرْشِ is genitive." />
+</Block>
+
+<Block id="several" title="One noun, several adjectives">
+  <Stage>
+    <Sentence
+      roles
+      reference="At-Tawbah 9:128"
+      groups={[
+        { words: [{ ar: 'لَقَدْ', en: 'indeed', type: 'p' }] },
+        { role: 'fiil', words: [{ ar: 'جَآءَكُمْ', en: 'came to you', type: 'v' }] },
+        { role: 'manut', hint: 'the doer, and the noun described', words: [{ ar: 'رَسُولٌ', en: 'a messenger', say: 'rasulun' }] },
+        { role: 'naat', hint: 'a phrase that describes', words: [{ ar: 'مِّنْ', en: 'from', type: 'p' }, { ar: 'أَنفُسِكُمْ', en: 'yourselves' }] },
+        { role: 'naat', words: [{ ar: 'عَزِيزٌ', en: 'hard', say: 'azizun' }] },
+        { role: 'tied', hint: 'belongs to عَزِيزٌ', words: [{ ar: 'عَلَيْهِ', en: 'on him', type: 'p' }, { ar: 'مَا', en: 'what', type: 'p' }, { ar: 'عَنِتُّمْ', en: 'you suffered', type: 'v' }] },
+        { role: 'naat', words: [{ ar: 'حَرِيصٌ', en: 'eager', say: 'harisun' }] },
+        { role: 'tied', hint: 'belongs to حَرِيصٌ', words: [{ ar: 'عَلَيْكُم', en: 'for you', type: 'p' }] },
+        { role: 'tied', hint: 'belongs to رَءُوفٌ', words: [{ ar: 'بِٱلْمُؤْمِنِينَ', en: 'with the believers', type: 'p' }] },
+        { role: 'naat', words: [{ ar: 'رَءُوفٌ', en: 'kind', say: 'raufun' }] },
+        { role: 'naat', words: [{ ar: 'رَّحِيمٌ', en: 'merciful', say: 'rahimun' }] },
+      ]}
+      en={['A messenger has come to you from among yourselves. It is hard on him that you suffer. He is eager for you, kind and merciful to the believers.']}
+    />
+  </Stage>
+
+One noun can have many adjectives. They stand in a row after it, and each one matches the noun on its own.
+
+Here the noun is رَسُولٌ, “a messenger”. It is indefinite, masculine, singular and nominative. Every adjective is the same: indefinite, masculine, singular, with -un. Al-Jadwal calls عَزِيزٌ the naʿt of رَسُول, and then حَرِيصٌ “another naʿt”. For رَءُوفٌ and رَحِيمٌ it says: “and likewise”.
+
+The phrase مِّنْ أَنفُسِكُمْ, “from among yourselves”, also describes the messenger. A phrase can be a describing word too.
+
+In the same way, Bismillah has two adjectives of ٱللَّهِ: ٱلرَّحْمَٰنِ and ٱلرَّحِيمِ, both genitive (see exercise 4).
+
+<Note kind="warn">The words after رَسُولٌ are all adjectives of it. Do not look for a khabar here. The sentence is a verbal sentence: the verb جَآءَ, and رَسُولٌ is its doer.</Note>
+
+<Check n={11} q="How many words in a row describe رَسُولٌ with a single word each (not counting the phrases)?" options={['Four: عَزِيزٌ, حَرِيصٌ, رَءُوفٌ, رَّحِيمٌ', 'Only عَزِيزٌ', 'None']} answer={0} why="Each of the four has -un and describes the messenger. Al-Jadwal reads them all as naʿt." />
+</Block>
+
+<Block id="clause" title="An adjective can be a “which” clause">
+  <Stage>
+    <Sentence
+      roles
+      reference="Al-Maʾidah 5:21 (part)"
+      groups={[
+        { role: 'manut', words: [{ ar: 'ٱلْأَرْضَ', en: 'the land', say: 'al-arda' }] },
+        { role: 'naat', words: [{ ar: 'ٱلْمُقَدَّسَةَ', en: 'the holy', say: 'al-muqaddasata' }] },
+        { role: 'naat', label: 'second naʿt', hint: 'the word “which”', words: [{ ar: 'ٱلَّتِى', en: 'which', say: 'allati' }] },
+        { role: 'tied', hint: 'the clause that goes with ٱلَّتِى', words: [{ ar: 'كَتَبَ', en: 'wrote', type: 'v' }, { ar: 'ٱللَّهُ', en: 'Allah' }, { ar: 'لَكُمْ', en: 'for you', type: 'p' }] },
+      ]}
+      en={['the holy land which Allah has written for you']}
+    />
+  </Stage>
+
+The land has a second adjective: ٱلَّتِى, “which”. It is feminine singular, like ٱلْأَرْضَ. Al-Jadwal calls it “a second naʿt of ٱلْأَرْض”, in the place of the accusative.
+
+The clause كَتَبَ ٱللَّهُ لَكُمْ, “Allah wrote for you”, belongs to ٱلَّتِى. It says what the land is.
+
+So a *which* clause is an adjective too, and it can follow a single-word adjective.
+
+<Note kind="know">The “which” words are ٱلَّذِى (masculine), ٱلَّتِى (feminine) and ٱلَّذِينَ (plural people). They match the noun in gender and number, like any adjective.</Note>
+</Block>
+
+<Block id="khabar" title="An adjective or a khabar?">
+  <Stage>
+    <Sentence
+      roles
+      reference="An-Nisa 4:26 (end)"
+      groups={[
+        { role: 'mubtada', words: [{ ar: 'وَٱللَّهُ', en: 'and Allah', say: 'wa-llahu' }] },
+        { role: 'khabar', words: [{ ar: 'عَلِيمٌ', en: 'all-knowing', say: 'alimun' }] },
+        { role: 'khabar2', words: [{ ar: 'حَكِيمٌ', en: 'all-wise', say: 'hakimun' }] },
+      ]}
+      en={['And Allah ', { gap: 'is' }, ' All-Knowing, All-Wise.']}
+    />
+    <Sentence
+      roles
+      reference="An-Nisa 4:13 (end)"
+      groups={[
+        { role: 'mubtada', words: [{ ar: 'وَذَٰلِكَ', en: 'and that', say: 'wa-dhalika' }] },
+        { role: 'khabar', words: [{ ar: 'ٱلْفَوْزُ', en: 'the success', say: 'al-fawzu' }] },
+        { role: 'naat', words: [{ ar: 'ٱلْعَظِيمُ', en: 'the great', say: 'al-azimu' }] },
+      ]}
+      en={['And that ', { gap: 'is' }, ' the great success.']}
+    />
+  </Stage>
+
+L2.01 showed that definiteness is a clue. Now you have the whole rule. Ask three questions about the word after the noun:
+
+1. **Does it match the noun in definiteness?** If the noun is definite and the next word is indefinite, it is a khabar. In 4:26 ٱللَّهُ is definite (a name) and عَلِيمٌ is indefinite. So عَلِيمٌ and حَكِيمٌ are two khabars, not adjectives.
+2. **Is the first word a pronoun or a pointing word?** A pronoun never takes an adjective, and the word after a pointing word is often its khabar (or a badal, as in the last block of this step). In 4:13 ذَٰلِكَ is the mubtadaʾ, and ٱلْفَوْزُ is its khabar. The word after, ٱلْعَظِيمُ, describes ٱلْفَوْزُ. Al-Jadwal reads it this way.
+3. **Does the whole thing make a statement?** “Allah is all-knowing” says something. “A kind messenger” does not.
+
+<Note kind="know">A khabar can be a noun with its adjective: here ٱلْفَوْزُ ٱلْعَظِيمُ, “the great success”, is what is said about ذَٰلِكَ. The same shape can be a mubtadaʾ, as in عَذَابٌ أَلِيمٌ in L2.01.</Note>
+
+<Check n={12} q="In وَٱللَّهُ عَلِيمٌ حَكِيمٌ, why is حَكِيمٌ not an adjective of ٱللَّهُ?" options={['ٱللَّهُ is definite and حَكِيمٌ is indefinite, so it cannot be an adjective', 'It is a verb', 'Adjectives cannot end in -un']} answer={0} why="An adjective must match definiteness. So both words are khabars, as in L2.01." />
+</Block>
+
+<Block id="idafah" title="An adjective or an idafah?">
+  <Stage label="Two definite nouns side by side">
+    <Tiles
+      label="ءَايَٰتُ ٱلْكِتَٰبِ: an idafah. ٱلْكِتَٰبِ ٱلْمُبِينِ: a noun and its adjective"
+      items={[
+        { ar: 'ءَايَٰتُ', en: 'verses of' },
+        { ar: 'ٱلْكِتَٰبِ', en: 'the Book' },
+        { ar: 'ٱلْمُبِينِ', en: 'the clear' },
+      ]}
+    />
+  </Stage>
+
+Two definite words in a row can be an **idafah** (“X of Y”, L2.08) or a **noun and its adjective**. Here are the differences:
+
+| Test | Idafah | Noun + adjective |
+|---|---|---|
+| First word | no *al-*, no tanwīn | matches the next word: *al-* with *al-*, tanwīn with tanwīn |
+| Second word | always genitive | copies the first word's case |
+| Meaning | “of”: ءَايَٰتُ ٱلْكِتَٰبِ, “verses of the Book” | “who or which is”: ٱلْكِتَٰبِ ٱلْمُبِينِ, “the clear Book” |
+
+In 12:1 you get both at once: ءَايَٰتُ ٱلْكِتَٰبِ is an idafah, and then ٱلْمُبِينِ describes the second noun.
+
+<Check n={13} q="Which is an idafah, not an adjective?" options={['ٱلْكِتَٰبِ ٱلْمُبِينِ', 'رَبُّ ٱلْعَرْشِ', 'ٱلْأَرْضَ ٱلْمُقَدَّسَةَ']} answer={1} why="رَبُّ has no al- and ٱلْعَرْشِ is its “of” word: Lord of the Throne. The other two are a noun and its adjective." />
+</Block>
+
+<Block id="badal" title="Not every following word is an adjective">
+  <Stage>
+    <Sentence
+      roles
+      reference="Al-Aʿraf 7:158 (part)"
+      groups={[
+        { words: [{ ar: 'وَرَسُولِهِ', en: 'and his messenger', say: 'wa-rasulihi' }] },
+        { role: 'manut', hint: 'a badal of رَسُولِهِ, and described', words: [{ ar: 'ٱلنَّبِىِّ', en: 'the prophet', say: 'an-nabiyyi' }] },
+        { role: 'naat', words: [{ ar: 'ٱلْأُمِّىِّ', en: 'the unlettered', say: 'al-ummiyyi' }] },
+      ]}
+      en={['… and his messenger, the prophet, the unlettered …']}
+    />
+  </Stage>
+
+Three words in a row, all genitive, all definite. Which are adjectives? Al-Jadwal reads them like this:
+
+- ٱلنَّبِىِّ is a **badal**, بَدَل, of رَسُولِهِ: a word that stands in for the one before it and explains it. “His messenger, **that is**, the prophet.”
+- ٱلْأُمِّىِّ is the naʿt of ٱلنَّبِىِّ.
+
+The word ٱلَّذِى after it is a second naʿt of ٱلنَّبِىِّ.
+
+So an al-word after a noun is not always an adjective. Check what the grammar book says, and check the meaning.
+
+<Note kind="know">The same thing happens in ذَٰلِكَ ٱلْكِتَٰبُ (2:2). Al-Jadwal reads ٱلْكِتَٰبُ as a badal of ذَٰلِكَ, and says it may also be its khabar. So an al-word after a pointing word is not simply its adjective. Al-Durr al-Maṣūn on 7:158 explains why the name is repeated, and does not discuss this word.</Note>
+</Block>
+
+</Step>
+
+<Step id="word-by-word" label="Mistakes, word by word" title="Mistakes, and four verses word by word">
+<Block id="mistake-order" title="Mistake 1: putting the adjective first">
+  <Stage label="The noun first">
+    <Tiles
+      label="wrong: ٱلْمُسْتَقِيمَ ٱلصِّرَٰطَ. right: ٱلصِّرَٰطَ ٱلْمُسْتَقِيمَ"
+      items={[
+        { ar: 'ٱلصِّرَٰطَ', en: 'the path' },
+        { ar: 'ٱلْمُسْتَقِيمَ', en: 'the straight' },
+      ]}
+    />
+  </Stage>
+
+English speakers say “the straight path”, so they want to write the adjective first. In Arabic the noun comes first: ٱلصِّرَٰطَ ٱلْمُسْتَقِيمَ (1:6). Put the adjective first and it no longer describes anything.
+</Block>
+
+<Block id="mistake-case" title="Mistake 2: keeping the adjective in the wrong case">
+  <Stage>
+    <Sentence
+      roles
+      reference="Al-Baqarah 2:142 (end)"
+      groups={[
+        { words: [{ ar: 'إِلَىٰ', en: 'to', type: 'p' }] },
+        { role: 'manut', hint: 'genitive after إِلَىٰ', words: [{ ar: 'صِرَٰطٍ', en: 'a path' }] },
+        { role: 'naat', hint: 'genitive, too', words: [{ ar: 'مُّسْتَقِيمٍ', en: 'straight' }] },
+      ]}
+    />
+  </Stage>
+
+After إِلَىٰ the noun is genitive. A learner may think the adjective is “another word” and leave it nominative: صِرَٰطٍ مُّسْتَقِيمٌ. That is wrong. The adjective follows the **noun**, not the sentence. Here, both are genitive: -in and -in.
+
+The same holds for a long phrase: every adjective of a genitive noun is genitive, however far from the preposition it stands.
+</Block>
+
+<Block id="mistake-thing" title="Mistake 3: treating a plural of things as a plural of people">
+  <Stage>
+    <Sentence
+      roles
+      reference="Al-Aʿraf 7:180 (start)"
+      groups={[
+        { role: 'khabarFirst', words: [{ ar: 'وَلِلَّهِ', en: 'and for Allah', type: 'p' }] },
+        { role: 'manut', words: [{ ar: 'ٱلْأَسْمَآءُ', en: 'the names' }] },
+        { role: 'naat', hint: 'feminine singular', words: [{ ar: 'ٱلْحُسْنَىٰ', en: 'the most beautiful' }] },
+      ]}
+    />
+  </Stage>
+
+ٱلْأَسْمَآءُ is a plural. A learner may add a plural masculine adjective, with -ūna. The Quran uses a feminine singular adjective for a plural of things. Remember: **people** get a masculine plural, **things** get a feminine singular (or, as in 2:184, a feminine plural).
+</Block>
+
+<Block id="mistake-gender" title="Mistake 4: forgetting the ة on the adjective">
+  <Stage>
+    <Sentence
+      roles
+      reference="Al-Maʾidah 5:21 (part)"
+      groups={[
+        { role: 'manut', words: [{ ar: 'ٱلْأَرْضَ', en: 'the land' }] },
+        { role: 'naat', hint: 'must have ـَة', words: [{ ar: 'ٱلْمُقَدَّسَةَ', en: 'the holy' }] },
+      ]}
+    />
+  </Stage>
+
+If the noun is feminine, its adjective must have ـَة. Do not look at the noun's ending to decide the gender. ٱلْأَرْض has no ة, but its adjective ٱلْمُقَدَّسَةَ does. Say ٱلْأَرْضَ ٱلْمُقَدَّسَةَ, never ٱلْأَرْضَ ٱلْمُقَدَّسَ.
+</Block>
+
+<Block id="mistake-def" title="Mistake 5: calling every second word an adjective">
+  <Stage>
+    <Sentence
+      roles
+      reference="An-Nisa 4:26 (end)"
+      groups={[
+        { role: 'mubtada', words: [{ ar: 'وَٱللَّهُ', en: 'and Allah' }] },
+        { role: 'khabar', words: [{ ar: 'عَلِيمٌ', en: 'all-knowing' }] },
+        { role: 'khabar2', words: [{ ar: 'حَكِيمٌ', en: 'all-wise' }] },
+      ]}
+    />
+  </Stage>
+
+Not every word that follows a noun is its adjective. In وَٱللَّهُ عَلِيمٌ حَكِيمٌ the two words are two khabars. An adjective matches its noun in definiteness; a khabar does not have to. Al-Jadwal also reads some words as a badal (7:158). Use the three questions in the third step before you write “naʿt”.
+</Block>
+
+<Block id="mistake-which" title="Mistake 6: choosing the wrong noun">
+  <Stage>
+    <Sentence
+      roles
+      reference="Yusuf 12:1 (end)"
+      groups={[
+        { role: 'mubtada', words: [{ ar: 'تِلْكَ', en: 'those' }] },
+        { role: 'mudaf', words: [{ ar: 'ءَايَٰتُ', en: 'verses of' }] },
+        { role: 'mudafIlayh', hint: 'this is the noun described', words: [{ ar: 'ٱلْكِتَٰبِ', en: 'the Book' }] },
+        { role: 'naat', words: [{ ar: 'ٱلْمُبِينِ', en: 'the clear' }] },
+      ]}
+    />
+  </Stage>
+
+When two nouns come before the adjective, a learner often picks the first. Test each noun for case, gender, number and definiteness. ٱلْمُبِينِ is masculine singular genitive, so it cannot describe ءَايَٰتُ (feminine plural nominative). It describes ٱلْكِتَٰبِ.
+</Block>
+
+<Block id="parse-1" title="Word by word: Yusuf 12:1">
+  <Stage label="Word by word">
+    <Parse
+      reference="Yusuf 12:1 (end)"
+      words={[
+        { ar: 'تِلْكَ', en: 'those' },
+        { ar: 'ءَايَٰتُ', en: 'verses of' },
+        { ar: 'ٱلْكِتَٰبِ', en: 'the Book' },
+        { ar: 'ٱلْمُبِينِ', en: 'the clear' },
+      ]}
+      cards={[
+        { at: 0, role: 'mubtadaʾ: a pointing word, “those”', case: 'in the place of the nominative', mark: 'none: a pointing word never changes', why: 'It starts the sentence. It points to the verses of the surah.', irab: 'اسم إشارة مبني على السكون في محل رفع مبتدأ' },
+        { at: 1, role: 'khabar, and first word of an idafah', case: 'nominative (rafʿ)', mark: '-u (ḍamma)', why: 'It is the news about تِلْكَ, and it is joined to ٱلْكِتَٰبِ: “verses of the Book”.', irab: 'خبر مرفوع وعلامة رفعه الضمة، وهو مضاف' },
+        { at: 2, role: 'second word of the idafah (muḍāf ilayh), and the noun described (manʿūt)', case: 'genitive (jarr)', mark: '-i (kasra)', why: 'The second word of an idafah is genitive.', irab: 'مضاف إليه مجرور وعلامة جره الكسرة' },
+        { at: 3, role: 'naʿt of ٱلْكِتَٰبِ', case: 'genitive (jarr), like its noun', mark: '-i (kasra)', why: 'It matches ٱلْكِتَٰبِ: definite, masculine, singular, genitive.', irab: 'نعت للكتاب مجرور وعلامة جره الكسرة' },
+      ]}
+    />
+  </Stage>
+
+The first of four. It brings together three things you know: a mubtadaʾ, an idafah and an adjective.
+
+For the last word, say the four matches out loud: genitive, definite, masculine, singular. All four fit ٱلْكِتَٰبِ.
+</Block>
+
+<Block id="parse-2" title="Word by word: An-Nisa 4:13">
+  <Stage label="Word by word">
+    <Parse
+      reference="An-Nisa 4:13 (end)"
+      words={[
+        { ar: 'وَذَٰلِكَ', en: 'and that' },
+        { ar: 'ٱلْفَوْزُ', en: 'the success' },
+        { ar: 'ٱلْعَظِيمُ', en: 'the great' },
+      ]}
+      cards={[
+        { at: 0, ar: 'وَ', role: '“and”, a little word that starts a new sentence', why: 'Little words have no case.', irab: 'الواو استئنافية' },
+        { at: 0, ar: 'ذَٰلِكَ', role: 'mubtadaʾ: a pointing word, “that”', case: 'in the place of the nominative', mark: 'none: it never changes', why: 'It starts the sentence. It points to the reward just mentioned.', irab: 'اسم إشارة مبني على السكون في محل رفع مبتدأ' },
+        { at: 1, role: 'khabar, and the noun described', case: 'nominative (rafʿ)', mark: '-u (ḍamma)', why: 'It is the news about ذَٰلِكَ: “that is the success”.', irab: 'خبر مرفوع وعلامة رفعه الضمة' },
+        { at: 2, role: 'naʿt of ٱلْفَوْزُ', case: 'nominative (rafʿ), like its noun', mark: '-u (ḍamma)', why: 'It matches ٱلْفَوْزُ: definite, masculine, singular, nominative.', irab: 'نعت للفوز مرفوع مثله' },
+      ]}
+    />
+  </Stage>
+
+All three words end in -u, and the last two both have *al-*. The question is: noun and adjective, or mubtadaʾ and khabar? Here the answer is both. The khabar is the phrase ٱلْفَوْزُ ٱلْعَظِيمُ, a noun with its adjective.
+</Block>
+
+<Block id="parse-3" title="Word by word: Al-Aʿraf 7:180">
+  <Stage label="Word by word">
+    <Parse
+      reference="Al-Aʿraf 7:180 (start)"
+      words={[
+        { ar: 'وَلِلَّهِ', en: 'and for Allah', type: 'p' },
+        { ar: 'ٱلْأَسْمَآءُ', en: 'the names' },
+        { ar: 'ٱلْحُسْنَىٰ', en: 'the most beautiful' },
+      ]}
+      cards={[
+        { at: 0, ar: 'وَ', role: '“and”, a little word that starts a new sentence', why: 'Little words have no case.', irab: 'الواو استئنافية' },
+        { at: 0, ar: 'لِلَّهِ', role: 'khabar, put first: li- “for” with Allah. It is tied to a left-out word.', case: 'Allah is genitive', mark: '-i (kasra)', why: 'The news comes first here, which puts weight on “for Allah” (L2.01).', irab: 'جار ومجرور متعلق بمحذوف خبر مقدم' },
+        { at: 1, role: 'mubtadaʾ, put later, and the noun described', case: 'nominative (rafʿ)', mark: '-u (ḍamma)', why: 'It is what the sentence is about. It is a plural of things.', irab: 'مبتدأ مؤخر مرفوع وعلامة رفعه الضمة' },
+        { at: 2, role: 'naʿt of ٱلْأَسْمَآءُ: feminine singular, as a plural of things needs', case: 'nominative (rafʿ), like its noun', mark: 'a hidden -u: the word ends in a long ā', why: 'It copies the case of ٱلْأَسْمَآءُ. The ḍamma is understood on the last letter but not written.', irab: 'نعت للأسماء مرفوع وعلامة رفعه الضمة المقدرة على الألف' },
+      ]}
+    />
+  </Stage>
+
+The adjective here has a hidden -u and is feminine singular for a plural noun. It is the one card where you need both lessons of this step.
+</Block>
+
+<Block id="parse-4" title="Word by word: Al-Baqarah 2:264">
+  <Stage label="Word by word">
+    <Parse
+      reference="Al-Baqarah 2:264 (end)"
+      words={[
+        { ar: 'وَٱللَّهُ', en: 'and Allah' },
+        { ar: 'لَا', en: 'not', type: 'p' },
+        { ar: 'يَهْدِى', en: 'guides', type: 'v' },
+        { ar: 'ٱلْقَوْمَ', en: 'the people' },
+        { ar: 'ٱلْكَٰفِرِينَ', en: 'the unbelieving' },
+      ]}
+      cards={[
+        { at: 0, ar: 'وَ', role: '“and”, a little word that starts a new sentence', why: 'Little words have no case.', irab: 'الواو استئنافية' },
+        { at: 0, ar: 'ٱللَّهُ', role: 'mubtadaʾ', case: 'nominative (rafʿ)', mark: '-u (ḍamma)', why: 'It starts the sentence.', irab: 'لفظ الجلالة مبتدأ مرفوع' },
+        { at: 1, role: '“not”, a little word', why: 'It makes the verb negative. It has no case.', irab: 'لا نافية' },
+        { at: 2, role: 'a present-tense verb, “he guides”. Its doer is a hidden “he”.', case: 'rafʿ, as present-tense verbs are', mark: 'a hidden -u on the last letter', why: 'No little word before it changes it, so it ends in -u. The -u is understood but not written (L3.04).', irab: 'فعل مضارع مرفوع وعلامة الرفع الضمة المقدرة، والفاعل ضمير مستتر تقديره هو' },
+        { at: 3, role: 'object (mafʿūl bihi), and the noun described', case: 'accusative (naṣb)', mark: '-a (fatḥa)', why: 'The object of a verb is accusative (L2.05).', irab: 'مفعول به منصوب وعلامة نصبه الفتحة' },
+        { at: 4, role: 'naʿt of ٱلْقَوْمَ: a masculine plural of people', case: 'accusative (naṣb), like its noun', mark: '-īna: a sound masculine plural shows the accusative with the letter ي', why: 'It matches ٱلْقَوْمَ: definite, masculine, plural, accusative.', irab: 'نعت للقوم منصوب مثله وعلامة نصبه الياء' },
+        { at: [2, 3, 4], role: 'the khabar: a whole verbal sentence', case: 'in the place of the nominative', why: 'It is the news about ٱللَّهُ.', irab: 'وجملة «لا يهدي القوم» في محل رفع خبر المبتدأ' },
+      ]}
+    />
+  </Stage>
+
+The fourth verse puts it all together: a verbal sentence as the khabar (L2.01), an object (L2.05), and an adjective that copies the object with the ending -īna (L2.06).
+</Block>
+
+</Step>
+
+<Step id="practice" label="Practice" title="Practice">
+<Block id="practice-1" title="Practice: matching and telling apart">
+  <Stage label="The four checks">
+    <ol class="lx-card-list">
+      <li><b>Case:</b> the same as the noun.</li>
+      <li><b>Definiteness:</b> *al-* with *al-*, tanwīn with tanwīn.</li>
+      <li><b>Gender:</b> ـَة with a feminine noun.</li>
+      <li><b>Number:</b> one, two or many; a plural of things is feminine singular.</li>
+    </ol>
+  </Stage>
+
+Work out each answer first. Then open it.
+
+<Exercise n={1} q="Check all four matches in ٱلصِّرَٰطَ ٱلْمُسْتَقِيمَ (Al-Fatiha 1:6, part). Meaning: “the straight path”.">
+
+- **Case:** both accusative, with -a. The noun is the second object of the verb ٱهْدِنَا (“guide us”), and al-Jadwal says ٱلْمُسْتَقِيمَ is “the naʿt of ٱلصِّرَاط, accusative like it”.
+- **Definiteness:** both definite, with *al-*.
+- **Gender:** both masculine, with no ة.
+- **Number:** both singular.
+
+All four match.
+
+</Exercise>
+
+<Exercise n={2} q="Sentence or phrase? (a) ٱلْبَيْتُ كَبِيرٌ (b) ٱلْبَيْتُ ٱلْكَبِيرُ (c) عَذَابٌ أَلِيمٌ (Al-Baqarah 2:10, part) (d) وَٱللَّهُ عَلِيمٌ حَكِيمٌ (An-Nisa 4:26, end). (a) and (b) are made-up examples.">
+
+- (a) **Sentence**: “The house is big.” A definite word, then an indefinite one. كَبِيرٌ is a khabar.
+- (b) **Phrase**: “the big house”. Both have *al-*. ٱلْكَبِيرُ is a naʿt.
+- (c) **Phrase**: “a painful punishment”. Both are indefinite, with -un. أَلِيمٌ is a naʿt of عَذَابٌ.
+- (d) **Sentence**: ٱللَّهُ is definite and عَلِيمٌ حَكِيمٌ are indefinite, so they are two khabars.
+
+</Exercise>
+
+<Exercise n={3} q="Give the correct form of كَبِير (big) for each noun: (a) ٱلْبَيْتُ (nominative) (b) رَأَيْتُ ٱلْبَيْتَ (accusative) (c) فِى ٱلْبَيْتِ (genitive). These are made-up examples.">
+
+- (a) ٱلْبَيْتُ ٱلْكَبِيرُ: “the big house”. Both nominative, with -u.
+- (b) رَأَيْتُ ٱلْبَيْتَ ٱلْكَبِيرَ: “I saw the big house”. Both accusative, with -a.
+- (c) فِى ٱلْبَيْتِ ٱلْكَبِيرِ: “in the big house”. Both genitive, with -i.
+
+In each one the adjective keeps *al-* (the noun has it), is masculine singular, and takes the noun's case. Only its last vowel changes.
+
+</Exercise>
+
+<Exercise n={4} q="Find the adjectives and say what they describe: بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ (Al-Fatiha 1:1). Meaning: “In the name of Allah, the Most Kind, the Most Merciful.”">
+
+ٱلرَّحْمَٰنِ is the first naʿt of ٱللَّهِ. ٱلرَّحِيمِ is the second naʿt of ٱللَّهِ. Al-Jadwal reads them this way.
+
+Both match ٱللَّهِ in four ways: genitive (-i), definite (*al-*), masculine, singular. The genitive of ٱللَّهِ comes from the idafah بِسْمِ ٱللَّهِ. The adjectives copy it.
+
+They are not khabars. There is no sentence here with a mubtadaʾ.
+
+</Exercise>
+
+<Exercise n={5} q="What is the adjective, and what does it describe? كَلِمَةً طَيِّبَةً (Ibrahim 14:24, part). Meaning: “a good word”. Check all four matches.">
+
+طَيِّبَةً is the naʿt, and كَلِمَةً is the manʿūt.
+
+- **Case:** both accusative, with -an. Al-Jadwal says it is the naʿt of كَلِمَة, accusative like it.
+- **Definiteness:** both indefinite, with tanwīn.
+- **Gender:** both feminine, with ة.
+- **Number:** both singular.
+
+</Exercise>
+
+<Exercise n={6} q="Which noun does ٱلْعَظِيمِ describe, and how can you tell? وَهُوَ رَبُّ ٱلْعَرْشِ ٱلْعَظِيمِ (At-Tawbah 9:129, end). Meaning: “and he is the Lord of the great Throne.”">
+
+It describes ٱلْعَرْشِ, “the Throne”. ٱلْعَظِيمِ is genitive. رَبُّ is nominative (it is the khabar), so it cannot be the noun described. ٱلْعَرْشِ is genitive (the second word of the idafah), so the adjective matches it.
+
+</Exercise>
+
+<Exercise n={7} q="Choose the right adjective: (a) ٱلْمُعَلِّمُونَ ___ (the good teachers; people, masculine plural) (b) ٱلْكُتُبُ ___ (the new books; things) (c) ٱلْمَدْرَسَتَانِ ___ (the two big schools; dual feminine). Use صَالِح (good), جَدِيد (new) and كَبِير (big). These are made-up examples.">
+
+- (a) ٱلْمُعَلِّمُونَ ٱلصَّالِحُونَ: people take a masculine plural adjective, with -ūna. (The made-up pair uses صَالِح, “good”, in place of جَدِيد.)
+- (b) ٱلْكُتُبُ ٱلْجَدِيدَةُ: things take a feminine **singular** adjective, with ـَةُ.
+- (c) ٱلْمَدْرَسَتَانِ ٱلْكَبِيرَتَانِ: dual feminine, with -āni.
+
+In all three, the adjective keeps *al-* and the case of its noun.
+
+</Exercise>
+
+<Exercise n={8} q="Find and correct the mistake in each made-up example: (a) ٱلْمَرْأَةُ ٱلْكَبِيرُ (b) فِى ٱلْبَيْتِ ٱلْكَبِيرُ (c) ٱلْكِتَابُ كَبِيرٌ meaning “the big book” (d) رَأَيْتُ ٱلْبَيْتَ كَبِيرًا meaning “I saw the big house”. All four are made-up examples.">
+
+- (a) The noun is feminine, so the adjective needs ـَة: ٱلْمَرْأَةُ ٱلْكَبِيرَةُ.
+- (b) The noun is genitive, so the adjective must be genitive: فِى ٱلْبَيْتِ ٱلْكَبِيرِ.
+- (c) This is a sentence, “the book is big”. For “the big book” both words need *al-*: ٱلْكِتَابُ ٱلْكَبِيرُ.
+- (d) The noun has *al-*, the adjective does not. Write ٱلْبَيْتَ ٱلْكَبِيرَ. (Without *al-*, كَبِيرًا would be read as a state, a ḥāl.)
+
+</Exercise>
+</Block>
+
+<Block id="done" title="You have finished the lesson">
+  <Stage label="The idea">
+    <Formula
+      label="the noun described plus its adjective equals one phrase"
+      items={[
+        { kind: 'm', text: 'manʿūt', small: 'the noun described' },
+        { kind: 'k', text: 'naʿt', small: 'the adjective' },
+        { kind: 's', text: 'noun and adjective', small: 'مَنْعُوت وَنَعْت' },
+      ]}
+    />
+  </Stage>
+
+- The adjective (**naʿt**) comes right after its noun (**manʿūt**).
+- It matches the noun in **case**, **definiteness**, **gender** and **number**. *Al-Ajurrumiyyah* names the first two.
+- A definite noun has a definite adjective. A noun can be definite without *al-*: it can be a name, a pronoun, a pointing word, or joined to one of these.
+- A feminine noun takes an adjective with ـَة. A plural of things takes a feminine singular adjective (or a feminine plural).
+- A noun can have several adjectives in a row, and a “which” clause can be one too.
+- When two nouns come before an adjective, check which one fits. An idafah is not a noun and adjective.
+- Not every following word is a naʿt. It can be a khabar or a badal.
+
+**Next:** L2.10 teaches *inna* and the words like it. Before you go on, review L2.01 (the nominal sentence), L2.08 (the idafah) and L1.07 (gender) if anything here felt new.
+
+<Sources
+    items={[
+      { label: 'Quran text', name: 'Tanzil (Uthmani text)', href: 'https://tanzil.net' },
+      { label: 'Word types', name: 'Quranic Arabic Corpus', href: 'https://corpus.quran.com' },
+      { label: 'Word-by-word analysis (iʿrāb) of every verse', name: 'Maḥmūd Ṣāfī, al-Jadwal fī Iʿrāb al-Qurʾān wa-Ṣarfihi wa-Bayānihi' },
+      { label: 'Where scholars differ (7:158)', name: 'al-Samīn al-Ḥalabī, al-Durr al-Maṣūn' },
+      { label: 'Grammar', name: 'Ibn Ājurrūm, al-Ajurrumiyyah, chapter on the naʿt' },
+      { label: 'English under the verses', name: 'Plain-English meanings by Quran Learn, not a translation' },
+    ]}
+  />
+</Block>
+
+</Step>
