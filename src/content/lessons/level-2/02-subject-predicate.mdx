@@ -1,475 +1,980 @@
 ---
-title: "Subject and Predicate (Mubtada and Khabar)"
+title: "The Two Parts, Matched"
+kicker: "Matching, definite and indefinite, long khabars"
+titleArabic: "الْمُبْتَدَأ وَالْخَبَر"
 level: 2
 order: 2
-description: "Identify the mubtadaʾ and khabar in nominal sentences, understand their agreement, and analyze them in Quranic verses."
+template: steps
+description: "Go deeper into the mubtadaʾ and the khabar. Make the khabar match the mubtadaʾ in gender and number, learn when a mubtadaʾ may be indefinite, and read a khabar that is a phrase or a whole sentence, with four verses word by word."
 draft: false
 ---
 
-import ArabicExample from '../../../components/mdx/ArabicExample.astro';
-import GrammarTable from '../../../components/mdx/GrammarTable.astro';
-import Callout from '../../../components/mdx/Callout.astro';
-import ExerciseBox from '../../../components/mdx/ExerciseBox.astro';
-
-## Introduction
-
-In [L2.01 The Nominal Sentence](/learn/level-2/01-nominal-sentence/), you learned that a nominal sentence consists of two parts in nominative case. Now we'll dive deeper into these components, examining the different types of subjects and predicates, their agreement rules, and how to analyze them with precision.
-
-<ArabicExample
-  arabic="وَٱلْعَصْرِ ۝ إِنَّ ٱلْإِنسَٰنَ لَفِي خُسْرٍ"
-  transliteration="wa-l-ʿaṣri inna l-insāna la-fī khusrin"
-  translation="By time, indeed mankind is in loss"
-  reference="Al-Asr 103:1-2"
-  highlight="ٱلْإِنسَٰنَ,خُسْرٍ"
-  words={[
-    { ar: "وَٱلْعَصْرِ", tr: "wa-l-ʿaṣri", en: "By time" },
-    { ar: "إِنَّ", tr: "inna", en: "indeed" },
-    { ar: "ٱلْإِنسَٰنَ", tr: "l-insāna", en: "mankind" },
-    { ar: "لَفِي", tr: "la-fī", en: "surely in" },
-    { ar: "خُسْرٍ", tr: "khusrin", en: "loss" }
-  ]}
-/>
-
-The clause "إِنَّ ٱلْإِنسَٰنَ لَفِي خُسْرٍ" (inna l-insāna la-fī khusrin) contains a nominal sentence modified by إِنَّ. Understanding the [subject](/resources/glossary/#mubtada) (mubtadaʾ) and [predicate](/resources/glossary/#khabar) (khabar) structure allows you to analyze how إِنَّ affects the case endings and how the predicate takes the form of a prepositional phrase.
-
-**In this lesson, you will:**
-- Identify the [subject](/resources/glossary/#mubtada) (mubtadaʾ / مُبْتَدَأ) and [predicate](/resources/glossary/#khabar) (khabar / خَبَرٌ) in nominal sentences
-- Understand the three types of predicates: single word, sentence, and semi-sentence
-- Master agreement rules between subject and predicate
-- Analyze complex nominal sentences from Quranic examples using three-part i'rab analysis
-
-**Connection to previous learning:** In [L2.01](/learn/level-2/01-nominal-sentence/), you learned the basic structure of nominal sentences. Now we'll examine the nature and types of each component in detail, building the analytical skills needed for [L2.09 Adjective Agreement](/learn/level-2/09-adjective-agreement/), [L2.10 Inna Sisters](/learn/level-2/10-inna-sisters/), and [L2.11 Kaana Sisters](/learn/level-2/11-kaana-sisters/).
-
-<Callout type="note" title="Plain-English key">
-Quick, everyday translations of the grammar terms in this lesson — glance back here whenever one trips you up:
-
-- **Mubtadaʾ** (مُبْتَدَأ) — the starting word: the thing the sentence is about (the subject).
-- **Khabar** (خَبَر) — the "news": what you say about it (the predicate).
-- **Nominative** (rafʿ / رَفْع) — the "doer/topic" ending, usually a damma (-u).
-</Callout>
-
-## Understanding Subject and Predicate
-
-**Plain English first:** Think of the subject (mubtadaʾ) as the "announcement" — what you're going to talk about. The predicate (khabar) is the "news" — what you're saying about that topic. It's like a two-part news headline: "SUBJECT: INFORMATION."
-
-**English analogy:** In English, we might say "The President — elected yesterday" or "That book — fascinating!" The dash represents the invisible connection that Arabic creates through grammatical case. The first part establishes the topic; the second provides information.
-
-**Now the Arabic terminology:** The [subject](/resources/glossary/#mubtada) (mubtadaʾ / مُبْتَدَأ) — literally "the begun with" — is the topic of discussion. The [predicate](/resources/glossary/#khabar) (khabar / خَبَرٌ) — literally "the news" — is what you're saying about that topic.
-
-### The Subject (Mubtadaʾ) in Detail
-
-The subject has specific characteristics:
-
-**1. Usually definite:** The mubtadaʾ is typically definite because you need to identify WHAT you're talking about before providing information.
-- Definite with ال: ٱلْكِتَابُ (al-kitābu) "the book"
-- Proper noun: مُحَمَّدٌ (muḥammadun) "Muhammad"
-- Attached pronoun: كِتَابُهُۥ (kitābuhu) "his book"
-- Independent pronoun: هُوَ (huwa) "he"
-
-**2. Takes nominative case:** Always marked by damma (ـُ), dammatain (ـٌ), alif-nun (ـَانِ for dual), or waw-nun (ـُونَ for sound masculine plural).
-
-**3. Usually comes first:** The default position is at the beginning of the sentence, though it can be postponed for emphasis (which we'll explore later).
-
-**4. Can be a pronoun:** Unlike English, Arabic commonly uses independent pronouns as subjects in nominal sentences.
-
-### The Predicate (Khabar) in Detail
-
-The predicate provides the information about the subject. It has three main types:
-
-<GrammarTable>
-| Type | Arabic Term | Description | Example | Translation |
-|------|-------------|-------------|---------|-------------|
-| **Single word** | مُفْرَد (mufrad) | One word: noun or adjective | ٱللَّهُ أَحَدٌ | "Allah is One" |
-| **Sentence** | جُمْلَة (jumlah) | Complete nominal or verbal sentence | ٱللَّهُ يَعْلَمُ | "Allah knows" |
-| **Semi-sentence** | شِبْهُ جُمْلَة (shibhu jumlah) | Prepositional or adverbial phrase | ٱلْحَمْدُ لِلَّهِ | "Praise is for Allah" |
-</GrammarTable>
-
-**Type 1: Single Word Predicate (Mufrad)**
-
-The simplest form — a single noun or adjective describing the subject:
-- **ٱللَّهُ عَلِيمٌ** (allāhu ʿalīmun) — "Allah is All-Knowing"
-- **ٱلْقُرْآنُ هُدًى** (al-qurʾānu hudan) — "The Quran is guidance"
-
-**Type 2: Sentence Predicate (Jumlah)**
-
-A complete sentence serving as the predicate:
-- **ٱللَّهُ يَعْلَمُ ٱلْغَيْبَ** (allāhu yaʿlamu l-ghayba) — "Allah knows the unseen"
-  - Subject: ٱللَّهُ
-  - Predicate: يَعْلَمُ ٱلْغَيْبَ (entire verbal sentence)
-
-**Type 3: Semi-Sentence Predicate (Shibh Jumlah)**
-
-A prepositional phrase or adverb of place/time:
-- **ٱلْحَمْدُ لِلَّهِ** (al-ḥamdu lillāhi) — "Praise is for Allah"
-  - Subject: ٱلْحَمْدُ
-  - Predicate: لِلَّهِ (prepositional phrase)
-
-### Agreement Rules
-
-**The fundamental principle:** The predicate must agree with the subject in NUMBER, GENDER, and DEFINITENESS (for single-word predicates only).
-
-**Number agreement:**
-- Singular subject → singular predicate: ٱلْمُؤْمِنُ صَادِقٌ (al-muʾminu ṣādiqun) "The believer is truthful"
-- Dual subject → dual predicate: ٱلْمُؤْمِنَانِ صَادِقَانِ (al-muʾmināni ṣādiqāni) "The two believers are truthful"
-- Plural subject → plural predicate: ٱلْمُؤْمِنُونَ صَادِقُونَ (al-muʾminūna ṣādiqūna) "The believers are truthful"
-
-**Gender agreement:**
-- Masculine subject → masculine predicate: ٱلرَّجُلُ كَرِيمٌ (ar-rajulu karīmun) "The man is generous"
-- Feminine subject → feminine predicate: ٱلْمَرْأَةُ كَرِيمَةٌ (al-marʾatu karīmatun) "The woman is generous"
-
-**Definiteness patterns:**
-- Definite subject + definite predicate = identification: ٱلْعِلْمُ ٱلنُّورُ "Knowledge is THE light" (specific identification)
-- Definite subject + indefinite predicate = description: ٱلْعِلْمُ نُورٌ "Knowledge is A light" (category/quality)
-
-## Examples from the Quran
-
-Let's analyze examples from Surah Al-Asr (103), examining different predicate types and their grammatical structure.
-
-### Example 1: Semi-Sentence Predicate (Prepositional Phrase)
-
-<ArabicExample
-  arabic="إِنَّ ٱلْإِنسَٰنَ لَفِي خُسْرٍ"
-  transliteration="inna l-insāna la-fī khusrin"
-  translation="Indeed, mankind is in loss"
-  reference="Al-Asr 103:2"
-  highlight="ٱلْإِنسَٰنَ,فِى خُسْرٍ"
-  words={[
-    { ar: "إِنَّ", tr: "inna", en: "indeed" },
-    { ar: "ٱلْإِنسَٰنَ", tr: "l-insāna", en: "mankind" },
-    { ar: "لَفِي", tr: "la-fī", en: "surely in" },
-    { ar: "خُسْرٍ", tr: "khusrin", en: "loss" }
-  ]}
-/>
-
-**Grammatical analysis (iʿrāb):**
-
-- **إِنَّ** (inna) — Emphasis particle — "indeed"
-  - Function: Emphasis particle from inna family
-  - Case marker: Particles don't take case
-  - Reason: Introduces emphasized nominal sentence
-
-- **ٱلْإِنسَٰنَ** (al-insāna) — Name of inna (subject) — "mankind"
-  - Function: Subject of nominal sentence (ism inna)
-  - Case marker: Accusative with fatha (ـَ)
-  - Reason: إِنَّ puts its subject in accusative case
-
-- **لَ** (la) — Emphasis particle — "surely"
-  - Function: Additional emphasis particle
-  - Case marker: Particles don't take case
-  - Reason: Reinforces the assertion
-
-- **فِى خُسْرٍ** (fī khusrin) — Predicate (khabar inna) — "in loss"
-  - Function: Predicate of inna (semi-sentence type)
-  - Case marker: Nominative (prepositional phrase)
-  - Reason: Predicate of إِنَّ remains nominative; فِى is preposition, خُسْرٍ is genitive with kasra + tanwin
-
-**Structural insight:** The predicate here is a prepositional phrase (semi-sentence), not a single word. The preposition فِى (fī) "in" combined with the noun خُسْرٍ (khusrin) "loss" creates the meaning "in loss." This is a common predicate pattern in Arabic.
-
-### Example 2: Modified Nominal Sentence with Exception
-
-<ArabicExample
-  arabic="إِلَّا ٱلَّذِينَ ءَامَنُوا۟ وَعَمِلُوا۟ ٱلصَّٰلِحَٰتِ"
-  transliteration="illā lladhīna āmanū wa ʿamilū ṣ-ṣāliḥāti"
-  translation="Except for those who have believed and done righteous deeds"
-  reference="Al-Asr 103:3"
-  highlight="ٱلَّذِينَ,ءَامَنُوا۟,عَمِلُوا۟"
-  words={[
-    { ar: "إِلَّا", tr: "illā", en: "except" },
-    { ar: "ٱلَّذِينَ", tr: "lladhīna", en: "those who" },
-    { ar: "ءَامَنُوا۟", tr: "āmanū", en: "believed" },
-    { ar: "وَعَمِلُوا۟", tr: "wa ʿamilū", en: "and did" },
-    { ar: "ٱلصَّٰلِحَٰتِ", tr: "aṣ-ṣāliḥāti", en: "righteous deeds" }
-  ]}
-/>
-
-**Grammatical analysis (iʿrāb):**
-
-- **إِلَّا** (illā) — Exception particle — "except"
-  - Function: Exception particle
-  - Case marker: Particles don't take case
-  - Reason: Introduces the excepted group
-
-- **ٱلَّذِينَ** (alladhīna) — Excepted noun (mustathnan) — "those who"
-  - Function: Excepted from the general statement of loss
-  - Case marker: Accusative (indeclinable relative pronoun)
-  - Reason: Excepted term after إِلَّا takes accusative
-
-- **ءَامَنُوا۟** (āmanū) — Past tense verb — "believed"
-  - Function: Verb in relative clause describing ٱلَّذِينَ
-  - Case marker: Verbs don't take case (past tense, plural)
-  - Reason: Past tense verb with و plural subject marker
-
-- **وَعَمِلُوا۟** (wa ʿamilū) — Coordinated verb — "and did"
-  - Function: Second verb coordinated with ءَامَنُوا۟
-  - Case marker: Verbs don't take case (past tense, plural)
-  - Reason: Coordinating و connects two verbs
-
-- **ٱلصَّٰلِحَٰتِ** (aṣ-ṣāliḥāti) — Direct object — "righteous deeds"
-  - Function: Object of عَمِلُوا۟ (mafʿūl bihi)
-  - Case marker: Accusative with kasra (ـِ) — sound feminine plural
-  - Reason: Direct object takes accusative; sound feminine plural shows accusative with kasra
-
-**Advanced note:** This verse contains a relative clause (صِلَةٌٌ ṣilah) modifying ٱلَّذِينَ. The entire phrase "those who believed and did righteous deeds" functions as the excepted group from the general statement in verse 2.
-
-### Example 3: Nominal Sentence with Prepositional Predicate
-
-<ArabicExample
-  arabic="ٱللَّهُ ٱلصَّمَدُ"
-  transliteration="allāhu ṣ-ṣamadu"
-  translation="Allah, the Eternal Refuge"
-  reference="Al-Ikhlas 112:2"
-  highlight="ٱللَّهُ,ٱلصَّمَدُ"
-  words={[
-    { ar: "ٱللَّهُ", tr: "allāhu", en: "Allah" },
-    { ar: "ٱلصَّمَدُ", tr: "aṣ-ṣamadu", en: "the Eternal Refuge" }
-  ]}
-/>
-
-**Grammatical analysis (iʿrāb):**
-
-- **ٱللَّهُ** (allāhu) — Subject (mubtadaʾ) — "Allah"
-  - Function: Subject of nominal sentence
-  - Case marker: Nominative with damma (ـُ)
-  - Reason: Subject is always nominative
-
-- **ٱلصَّمَدُ** (aṣ-ṣamadu) — Predicate (khabar) — "the Eternal Refuge"
-  - Function: Predicate describing the subject
-  - Case marker: Nominative with damma (ـُ)
-  - Reason: Predicate is always nominative
-
-**Why this is a pure nominal sentence:** Both parts are nouns — no verb anywhere. The sentence structure is simply mubtadaʾ (ٱللَّهُ) + khabar (ٱلصَّمَدُ). Both are definite, creating an **equation sentence** (jumlah muʿādilah): "Allah IS the Eternal Refuge" — a statement of identification.
-
-**Structural insight:** When both mubtadaʾ and khabar are definite, the sentence expresses IDENTITY (A = B), not just description (A has quality B). This is the strongest form of nominal sentence.
-
-### Example 4: Complete Analysis of Full Verse
-
-<ArabicExample
-  arabic="وَٱلْعَصْرِ"
-  transliteration="wa-l-ʿaṣri"
-  translation="By time"
-  reference="Al-Asr 103:1"
-  highlight="ٱلْعَصْرِ"
-  words={[
-    { ar: "وَٱلْعَصْرِ", tr: "wa-l-ʿaṣri", en: "By time" }
-  ]}
-/>
-
-**Grammatical analysis (iʿrāb):**
-
-- **وَ** (wa) — Oath particle — "by"
-  - Function: Introduces Divine oath
-  - Case marker: Particles don't take case
-  - Reason: Oath formula (qasam)
-
-- **ٱلْعَصْرِ** (al-ʿaṣri) — Noun in oath formula — "time"
-  - Function: Object of oath (muqsam bihi)
-  - Case marker: Genitive with kasra (ـِ)
-  - Reason: Oath و triggers genitive case (like a preposition)
-
-**Word-by-word morphological breakdown:**
-
-**ٱلْعَصْرِ** (al-ʿaṣri):
-- Root: ع-ص-ر (ʿayn-ṣad-ra), meaning "to press, squeeze; time, era"
-- Form: Noun pattern فَعْلٌ
-- Definiteness: Definite with ال article
-- Case: Genitive (after oath و)
-- Meaning: "The time" or "The era" (scholars differ on specific meaning: afternoon prayer time, all of time, or the era of the Prophet)
-
-**Theological precision through grammar:** The oath formula highlights the gravity of what follows. Allah swears by time itself before making the profound statement about mankind's state.
-
-## The Rule
-
-<Callout type="rule" title="Subject and Predicate Structure">
-
-A [nominal sentence](/resources/glossary/#jumlah-ismiyyah) consists of two essential components:
-
-### 1. Subject (Mubtadaʾ / مُبْتَدَأ)
-
-**Characteristics:**
-- Usually definite (with ال, proper noun, or pronoun)
-- Takes nominative case (rafʿ) with damma (ـُ), dammatain (ـٌ), or appropriate plural markers
-- Typically comes first (but can be postponed for emphasis)
-- Establishes the topic of discussion
-
-**Examples:**
-- ٱللَّهُ (allāhu) "Allah"
-- ٱلْكِتَابُ (al-kitābu) "the book"
-- هُوَ (huwa) "he"
-
-### 2. Predicate (Khabar / خَبَرٌ)
-
-**Types:**
-1. **Single word (مُفْرَد mufrad):** noun or adjective
-2. **Sentence (جُمْلَة jumlah):** complete nominal or verbal sentence
-3. **Semi-sentence (شِبْهُ جُمْلَة shibh jumlah):** prepositional or adverbial phrase
-
-**Agreement rules:**
-- Must agree with subject in NUMBER (singular, dual, plural)
-- Must agree with subject in GENDER (masculine, feminine)
-- Definiteness pattern determines meaning:
-  - Definite + definite = identification/equation
-  - Definite + indefinite = description/categorization
-
-**Case marking:**
-- Basic nominal sentence: predicate takes nominative (rafʿ)
-- With إِنَّ: predicate remains nominative (khabar inna)
-- With كَانَ: predicate becomes accusative (khabar kāna)
-
-**Related lessons:**
-- [L2.01: The Nominal Sentence](/learn/level-2/01-nominal-sentence/) — Basic nominal sentence structure
-- [L2.09: Adjective Agreement](/learn/level-2/09-adjective-agreement/) — Agreement in gender, number, case, definiteness
-- [L2.10: Inna and Sisters](/learn/level-2/10-inna-sisters/) — How إِنَّ modifies nominal sentences
-- [L2.11: Kaana and Sisters](/learn/level-2/11-kaana-sisters/) — How كَانَ affects predicate case
-
-</Callout>
-
-<Callout type="warning" title="Common Mistakes">
-
-**Don't confuse predicate types.** When analyzing khabar, identify which of the three types it is:
-- If it's one word describing the subject → single word (mufrad)
-- If it's a complete sentence about the subject → sentence (jumlah)
-- If it's a prepositional phrase or adverb → semi-sentence (shibh jumlah)
-
-**Don't ignore agreement rules.** The predicate MUST match the subject:
-- ❌ ٱلْمُؤْمِنُونَ صَادِقٌ (plural subject + singular predicate) — WRONG
-- ✅ ٱلْمُؤْمِنُونَ صَادِقُونَ (plural + plural) — CORRECT
-
-**Don't assume all predicates are single words.** Many Quranic predicates are prepositional phrases (like لِلَّهِ, فِى خُسْرٍ) or entire sentences. Recognizing predicate type is essential for correct grammatical analysis.
-
-**Don't confuse definiteness patterns.** The definiteness of the predicate changes meaning:
-- ٱلْعِلْمُ نُورٌ "Knowledge is A light" (indefinite predicate = describing quality)
-- ٱلْعِلْمُ ٱلنُّورُ "Knowledge is THE light" (definite predicate = complete identification)
-
-</Callout>
-
-## Practice
-
-<ExerciseBox question="Exercise 1: Identify the mubtadaʾ and khabar in this verse, and classify the khabar type: ٱللَّهُ ٱلصَّمَدُ (allāhu ṣ-ṣamadu) — 'Allah is the Eternal Refuge' [Al-Ikhlas 112:2]">
-
-**Answer:**
-
-**Subject (mubtadaʾ):** ٱللَّهُ (allāhu) — "Allah"
-- Function: Subject of nominal sentence
-- Case marker: Nominative with damma (ـُ)
-- Reason: Subject always takes nominative case
-
-**Predicate (khabar):** ٱلصَّمَدُ (aṣ-ṣamadu) — "the Eternal Refuge"
-- Function: Predicate of nominal sentence
-- Case marker: Nominative with damma (ـُ)
-- Reason: Predicate takes nominative in basic nominal sentence
-- **Type: Single word (مُفْرَد mufrad)** — one adjective/noun describing the subject
-
-**Definiteness pattern:** Both subject and predicate are definite (with ال or divine name). This creates an IDENTIFICATION meaning: "Allah IS the Eternal Refuge" (not merely "a refuge," but THE definitive embodiment of this attribute).
-
-**Agreement check:**
-- Number: Singular subject → singular predicate ✓
-- Gender: Masculine subject → masculine predicate ✓
-- Definiteness: Definite subject → definite predicate ✓
-
-</ExerciseBox>
-
-<ExerciseBox question="Exercise 2: Analyze the following nominal sentence and identify the predicate type: ٱلْحَمْدُ لِلَّهِ رَبِّ ٱلْعَٰلَمِينَ (al-ḥamdu lillāhi rabbi l-ʿālamīna) — 'All praise is for Allah, Lord of the worlds' [Al-Fatiha 1:2]">
-
-**Answer:**
-
-**Complete grammatical analysis:**
-
-**Subject (mubtadaʾ):** ٱلْحَمْدُ (al-ḥamdu) — "the praise"
-- Function: Subject of nominal sentence
-- Case marker: Nominative with damma (ـُ)
-- Reason: Subject takes nominative
-
-**Predicate (khabar):** لِلَّهِ (lillāhi) — "for Allah"
-- Function: Predicate of nominal sentence
-- Case marker: لِ is preposition; ٱللَّهِ is genitive with kasra (ـِ)
-- Reason: Prepositional phrase serving as predicate
-- **Type: Semi-sentence (شِبْهُ جُمْلَة shibh jumlah)** — prepositional phrase
-
-**Additional description:** رَبِّ ٱلْعَٰلَمِينَ (rabbi l-ʿālamīna) — "Lord of the worlds"
-- Function: Appositive/attribute describing ٱللَّهِ
-- Case marker: Genitive with kasra (ـِ) matching ٱللَّهِ
-- Reason: Descriptive term follows and matches the case of the word it describes
-
-**Structural insight:** The predicate is NOT a single word but an entire prepositional phrase. The semi-sentence predicate (لِلَّهِ "for Allah") conveys that praise BELONGS TO Allah, not merely that Allah IS praise. This prepositional structure is very common in Quranic nominal sentences.
-
-</ExerciseBox>
-
-<ExerciseBox question="Exercise 3: Explain the agreement between mubtadaʾ and khabar in this verse: ٱلَّذِينَ يُؤْمِنُونَ بِٱلْغَيْبِ (alladhīna yuʾminūna bi-l-ghaybi) — 'Those who believe in the unseen' [Al-Baqarah 2:3]. What type of predicate is يُؤْمِنُونَ بِٱلْغَيْبِ?">
-
-**Answer:**
-
-**Grammatical analysis:**
-
-**Subject (mubtadaʾ):** ٱلَّذِينَ (alladhīna) — "those who"
-- Function: Relative pronoun serving as subject
-- Case marker: Indeclinable (always appears the same)
-- Reason: Relative pronouns don't change form for case
-- Number: Plural masculine
-- Definiteness: Definite (relative pronouns are inherently definite)
-
-**Predicate (khabar):** يُؤْمِنُونَ بِٱلْغَيْبِ (yuʾminūna bi-l-ghaybi) — "they believe in the unseen"
-- Function: Predicate (entire verbal sentence)
-- **Type: Sentence (جُمْلَة jumlah)** — a complete verbal sentence serving as predicate
-- Structure: Present tense verb + prepositional phrase
-
-**Agreement analysis:**
-
-The verbal sentence predicate contains:
-- **يُؤْمِنُونَ** (yuʾminūna) — present tense verb with نَ ending indicating plural masculine subject
-- **بِٱلْغَيْبِ** (bi-l-ghaybi) — prepositional phrase (object of belief)
-
-**How agreement works:**
-- The hidden subject pronoun in يُؤْمِنُونَ (they) matches the number and gender of ٱلَّذِينَ
-- Plural masculine subject ٱلَّذِينَ → plural masculine verb يُؤْمِنُونَ ✓
-- This creates the connection: "Those who (they) believe..."
-
-**Advanced insight:** When the predicate is a sentence (jumlah), it must contain a pronoun (visible or hidden) that refers back to the subject. This pronoun creates the grammatical link (رَابِطٌٌ rābiṭ) between subject and sentential predicate.
-
-</ExerciseBox>
-
-<ExerciseBox question="Exercise 4: Create a nominal sentence using a semi-sentence predicate (prepositional phrase) with the subject ٱلْعِلْمُ (al-ʿilmu) 'knowledge'. Then perform complete i'rab analysis.">
-
-**Answer:**
-
-**Nominal sentence:** ٱلْعِلْمُ فِى ٱلْقُرْآنِ (al-ʿilmu fī l-qurʾāni) — "Knowledge is in the Quran"
-
-**Complete grammatical analysis (iʿrāb):**
-
-**Subject (mubtadaʾ):** ٱلْعِلْمُ (al-ʿilmu) — "the knowledge"
-- Function: Subject of nominal sentence
-- Case marker: Nominative with damma (ـُ)
-- Reason: Subject takes nominative case
-- Definiteness: Definite with ال article
-- Form: Singular masculine noun
-
-**Predicate (khabar):** فِى ٱلْقُرْآنِ (fī l-qurʾāni) — "in the Quran"
-- Function: Predicate of nominal sentence (semi-sentence type)
-- **Type: Semi-sentence (شِبْهُ جُمْلَة shibh jumlah)** — prepositional phrase
-- Structure breakdown:
-  - **فِى** (fī) — Preposition meaning "in"
-  - **ٱلْقُرْآنِ** (al-qurʾāni) — Genitive with kasra (ـِ)
-  - Reason: Prepositions trigger genitive case on following noun
-
-**Meaning insight:** The prepositional phrase predicate emphasizes LOCATION or SOURCE. "Knowledge is IN the Quran" conveys that knowledge is contained within, sourced from, or found in the Quran — a richer meaning than simply saying "The Quran is knowledge" (which would use a single-word predicate).
-
-**Alternative constructions:**
-- Single word: ٱلْعِلْمُ نَافِعٌ (al-ʿilmu nāfiʿun) "Knowledge is beneficial"
-- Sentence: ٱلْعِلْمُ يَنْفَعُ (al-ʿilmu yanfaʿu) "Knowledge benefits"
-
-Each predicate type creates different nuances of meaning!
-
-</ExerciseBox>
-
-## Related Lessons
-
-**Prerequisites:**
-- [L2.01: The Nominal Sentence](/learn/level-2/01-nominal-sentence/) — Basic nominal sentence structure
-
-**Build on this lesson:**
-- [L2.09: Adjective Agreement (Na't & Man'ut)](/learn/level-2/09-adjective-agreement/) — Apply agreement rules to adjectives
-- [L2.10: Inna and Her Sisters](/learn/level-2/10-inna-sisters/) — How particles modify nominal sentences
-- [L2.11: Kaana and Her Sisters](/learn/level-2/11-kaana-sisters/) — How verbs affect predicate case
-
-**Resources:**
-- [Case Endings Chart](/resources/case-endings-chart/) — Visual reference for nominative markers
-- [Grammar Glossary](/resources/glossary/) — Definitions of mubtadaʾ, khabar, and all predicate types
+import Step from '../../../components/lesson/Step.astro';
+import Stage from '../../../components/lesson/Stage.astro';
+import Sentence from '../../../components/lesson/Sentence.astro';
+import Tiles from '../../../components/lesson/Tiles.astro';
+import Formula from '../../../components/lesson/Formula.astro';
+import Note from '../../../components/lesson/Note.astro';
+import Check from '../../../components/lesson/Check.astro';
+import Start from '../../../components/lesson/Start.astro';
+import Sources from '../../../components/lesson/Sources.astro';
+import Parse from '../../../components/lesson/Parse.astro';
+import Exercise from '../../../components/lesson/Exercise.astro';
+import Block from '../../../components/lesson/Block.astro';
+
+{/* Content spec: docs/redesign/specs/L2.02-subject-predicate.md. Every parse follows al-Jadwal (Mahmud Safi). */}
+
+<Step hero id="start" label="Gender and number" title={frontmatter.title} kicker={frontmatter.kicker} titleArabic={frontmatter.titleArabic}>
+<Block id="overview" title="In this lesson" level={2} uncounted>
+  <Stage label="The idea">
+    <Formula
+      label="the khabar matches the mubtadaʾ"
+      items={[
+        { kind: 'm', text: 'mubtadaʾ', small: 'sets gender and number' },
+        { kind: 'k', text: 'khabar', small: 'matches it' },
+        { kind: 's', text: 'agreement', small: 'مُطَابَقَة' },
+      ]}
+    />
+  </Stage>
+  <Start
+    goal="Make the khabar match its mubtadaʾ in gender and number, say when a mubtadaʾ may be indefinite, and read a khabar that is a phrase or a whole sentence."
+    minutes={45}
+    before="L2.01, the nominal sentence: the two parts, the five kinds of khabar, and which part comes first. Case endings (L1.10)."
+    terms={[
+      { term: 'Agreement', ar: 'مُطَابَقَة', meaning: 'The khabar matching the mubtadaʾ in gender and number.' },
+      { term: 'Dual', ar: 'مُثَنَّى', meaning: 'The form for exactly two.' },
+      { term: 'Sound plural', ar: 'جَمْع سَالِم', meaning: 'A plural made by adding an ending. The word stays whole inside.' },
+      { term: 'Broken plural', ar: 'جَمْع تَكْسِير', meaning: 'A plural that changes the inside of the word.' },
+      { term: 'Definite', ar: 'مَعْرِفَة', meaning: 'A word that points to something both people already know.' },
+      { term: 'Indefinite', ar: 'نَكِرَة', meaning: 'A word for something not yet known: “a book”.' },
+      { term: 'Link word', ar: 'رَابِط', meaning: 'A word that ties a khabar that is a sentence back to the mubtadaʾ.' },
+    ]}
+  />
+</Block>
+
+<Block id="new" title="What L2.01 gave you, and what is new" level={2}>
+  <Stage label="What is new here">
+    <ol class="lx-card-list">
+      <li><b>Matching:</b> gender, two, and many, also for plurals of things.</li>
+      <li><b>Definite or not:</b> the kinds of mubtadaʾ, and when an indefinite one is allowed.</li>
+      <li><b>Long khabars:</b> a phrase or a whole sentence, and the word that ties it back.</li>
+    </ol>
+  </Stage>
+
+L2.01 already taught these things. This lesson does not teach them again:
+
+- the five kinds of khabar (block “The five kinds of khabar”);
+- the usual order, and the khabar put first (blocks “The usual order” to “Finding the mubtadaʾ when the khabar is first”);
+- a sentence compared with a phrase (block “A sentence or just a phrase?”);
+- a first look at gender (block “The khabar matches a feminine mubtadaʾ”) and at kāna (block “A look ahead”).
+
+If one of these feels unclear, go back to it first. Here we take each idea further, with new verses.
+</Block>
+
+<Block id="gender" title="Gender: a feminine mubtadaʾ needs a feminine khabar" level={2}>
+  <Stage>
+    <Sentence
+      roles
+      reference="Al-Hajj 22:45 (part)"
+      groups={[
+        { role: 'mubtada', words: [{ ar: 'وَهِىَ', en: 'and it', say: 'wa-hiya' }] },
+        { role: 'khabar', words: [{ ar: 'ظَالِمَةٌ', en: 'unjust', say: 'zalimatun' }] },
+      ]}
+      en={['And it ', { gap: 'was' }, ' unjust.']}
+    />
+    <Sentence
+      roles
+      reference="Made-up example"
+      groups={[
+        { role: 'mubtada', words: [{ ar: 'ٱلشَّمْسُ', en: 'the sun', say: 'ash-shamsu' }] },
+        { role: 'khabar', words: [{ ar: 'مُنِيرَةٌ', en: 'shining', say: 'munirah' }] },
+      ]}
+      en={['The sun ', { gap: 'is' }, ' shining.']}
+    />
+    <Sentence
+      roles
+      reference="Made-up example"
+      groups={[
+        { role: 'mubtada', words: [{ ar: 'ٱلْقَمَرُ', en: 'the moon', say: 'al-qamaru' }] },
+        { role: 'khabar', words: [{ ar: 'مُنِيرٌ', en: 'shining', say: 'munirun' }] },
+      ]}
+      en={['The moon ', { gap: 'is' }, ' shining.']}
+    />
+  </Stage>
+
+In 22:45 the mubtadaʾ is هِىَ, “it”. It stands for a town, قَرْيَة, which is feminine in Arabic. So the khabar is feminine too. It ends in -atun, ـَةٌ, the usual mark of a feminine word.
+
+Some feminine words do not end in ـَة. ٱلشَّمْسُ, “the sun”, is feminine, so its khabar is مُنِيرَةٌ. ٱلْقَمَرُ, “the moon”, is masculine, so its khabar is مُنِيرٌ. You learn which words are feminine as you meet them.
+
+<Note kind="tip">A khabar that ends in ـَةٌ tells you the mubtadaʾ is feminine, even when the mubtadaʾ itself does not end in ـَة.</Note>
+
+<Check n={1} q="Which khabar fits ٱلشَّمْسُ (made-up example)?" options={['مُنِيرٌ', 'مُنِيرَةٌ']} answer={1} why="The sun is feminine in Arabic, so the khabar ends in -atun." />
+</Block>
+
+<Block id="dual" title="Two of something: the dual" level={2}>
+  <Stage>
+    <Sentence
+      roles
+      reference="Al-Hajj 22:19 (part)"
+      groups={[
+        { role: 'mubtada', words: [{ ar: 'هَٰذَانِ', en: 'these two', say: 'hadhani' }] },
+        { role: 'khabar', words: [{ ar: 'خَصْمَانِ', en: 'two opponents', say: 'khasmani' }] },
+      ]}
+      en={['These two ', { gap: 'are' }, ' two opposing sides.']}
+    />
+  </Stage>
+
+Arabic has a special form for exactly two: the **dual**, مُثَنَّى (*muthanná*). In the nominative it ends in **-āni**: ـَانِ, an alif and a nūn.
+
+هَٰذَانِ means “these two”. خَصْمَانِ means “two opponents”. Both are dual, and both end in -āni. So the khabar matches the mubtadaʾ in number as well as in gender.
+
+<Note kind="know">The alif of the dual takes the place of the -u. It is the nominative mark of a dual word. L2.04 shows every mark of the nominative.</Note>
+
+<Check n={2} q="What does the ending -āni tell you about خَصْمَانِ?" options={['It means two', 'It means many', 'It is feminine']} answer={0} why="-āni is the dual: exactly two." />
+</Block>
+
+<Block id="sound-masc" title="Many men: the sound plural in -ūna" level={2}>
+  <Stage>
+    <Sentence
+      roles
+      reference="Al-Imran 3:102 (end)"
+      groups={[
+        { role: 'mubtada', words: [{ ar: 'وَأَنتُم', en: 'and you (all)', say: 'wa-antum' }] },
+        { role: 'khabar', words: [{ ar: 'مُّسْلِمُونَ', en: 'Muslims', say: 'muslimuna' }] },
+      ]}
+      en={['And you ', { gap: 'are' }, ' Muslims.']}
+    />
+  </Stage>
+
+A **sound plural**, جَمْع سَالِم, is a plural made by adding an ending. The word stays whole inside. For men, the nominative ending is **-ūna**: ـُونَ. So مُسْلِم, “a Muslim”, becomes مُسْلِمُونَ.
+
+Here the mubtadaʾ is أَنتُم, “you all”, a plural pronoun for men. The khabar مُسْلِمُونَ is a masculine plural too.
+
+In L2.01 you saw the same ending in هُمْ فِيهَا خَٰلِدُونَ.
+
+<Note kind="know">This sentence describes a state: “while you are Muslims”. A nominal sentence can do that. L4.01 teaches it.</Note>
+
+<Check n={3} q="Which khabar fits أَنتُمْ, “you all” (men)?" options={['مُسْلِمٌ', 'مُسْلِمَانِ', 'مُسْلِمُونَ']} answer={2} why="Many men: the sound plural in -ūna." />
+</Block>
+
+<Block id="sound-fem" title="Many women: the sound plural in -ātun" level={2}>
+  <Stage>
+    <Sentence
+      roles
+      reference="An-Nisa 4:34 (part)"
+      groups={[
+        { role: 'mubtada', words: [{ ar: 'فَٱلصَّٰلِحَٰتُ', en: 'so the good women', say: 'fa-s-salihatu' }] },
+        { role: 'khabar', words: [{ ar: 'قَٰنِتَٰتٌ', en: 'devoted', say: 'qanitatun' }] },
+        { role: 'khabar2', words: [{ ar: 'حَٰفِظَٰتٌ', en: 'guarding', say: 'hafizatun' }] },
+        { role: 'tied', hint: 'belongs to حَٰفِظَٰتٌ', words: [{ ar: 'لِّلْغَيْبِ', en: 'what is unseen', say: 'lil-ghaybi' }] },
+      ]}
+      en={['So the good women ', { gap: 'are' }, ' devoted, guarding what is unseen.']}
+    />
+  </Stage>
+
+For women, the sound plural ends in **-ātun**: ـَاتٌ. ٱلصَّٰلِحَٰتُ is “the good women”. Its two khabars are both feminine plurals: قَٰنِتَٰتٌ and حَٰفِظَٰتٌ. This is also a mubtadaʾ with two khabars, as in L2.01.
+
+<Note kind="warn">Do not mix up -atun and -ātun. The singular feminine ends in a short -atun (ظَالِمَةٌ). The plural has a long ā before the tāʾ (قَٰنِتَٰتٌ).</Note>
+
+<Check n={4} q="Which khabar fits ٱلْمُؤْمِنَاتُ, “the believing women”?" options={['صَادِقٌ', 'صَادِقَاتٌ', 'صَادِقُونَ']} answer={1} why="Many women: the sound plural in -ātun." />
+</Block>
+
+<Block id="mixed" title="Men and women together" level={2}>
+  <Stage>
+    <Sentence
+      roles
+      reference="At-Tawbah 9:71 (start)"
+      groups={[
+        { role: 'mubtada', hint: 'two words joined by “and”', words: [{ ar: 'وَٱلْمُؤْمِنُونَ', en: 'and the believing men', say: 'wal-muminuna' }, { ar: 'وَٱلْمُؤْمِنَٰتُ', en: 'and the believing women', say: 'wal-muminatu' }] },
+        { role: 'khabar', hint: 'a whole nominal sentence', words: [{ ar: 'بَعْضُهُمْ', en: 'some of them', say: 'badhuhum' }, { ar: 'أَوْلِيَآءُ', en: 'protectors of', say: 'awliyau' }, { ar: 'بَعْضٍ', en: 'others', say: 'badhin' }] },
+      ]}
+      en={['And the believing men and the believing women: some of them ', { gap: 'are' }, ' protectors of others.']}
+    />
+  </Stage>
+
+Here the mubtadaʾ is two words joined by وَ, “and”. Both end in -u. The khabar is a whole sentence. You will see how that works in the last steps.
+
+For now, look at the little word -هُمْ in بَعْضُهُمْ. It is masculine plural, “them”, although the group includes women. When men and women are together, Arabic uses the masculine plural.
+
+<Check n={5} q="Why does the verse say بَعْضُهُمْ and not بَعْضُهُنَّ?" options={['Men and women together take the masculine plural', 'Because the word بَعْضُ is masculine', 'Because the verse is only about men']} answer={0} why="The group has men and women, so the masculine plural -hum is used." />
+</Block>
+</Step>
+
+<Step id="plurals" label="Plurals" title="People, things and plain nouns">
+<Block id="broken-people" title="Broken plurals of people">
+  <Stage>
+    <Sentence
+      roles
+      reference="Al-Fath 48:29 (part)"
+      groups={[
+        { role: 'mubtada', hint: 'a “who” word with what completes it', words: [{ ar: 'وَٱلَّذِينَ', en: 'and those who', say: 'wal-ladhina' }, { ar: 'مَعَهُۥٓ', en: 'with him', say: 'maahu', type: 'p' }] },
+        { role: 'khabar', words: [{ ar: 'أَشِدَّآءُ', en: 'firm', say: 'ashiddau' }] },
+        { role: 'tied', hint: 'belongs to أَشِدَّآءُ', words: [{ ar: 'عَلَى', en: 'against', type: 'p' }, { ar: 'ٱلْكُفَّارِ', en: 'the unbelievers' }] },
+        { role: 'khabar2', words: [{ ar: 'رُحَمَآءُ', en: 'kind', say: 'ruhamau' }] },
+        { role: 'tied', hint: 'belongs to رُحَمَآءُ', words: [{ ar: 'بَيْنَهُمْ', en: 'among themselves', say: 'baynahum' }] },
+      ]}
+      en={['And those with him ', { gap: 'are' }, ' firm against the unbelievers, kind among themselves.']}
+    />
+  </Stage>
+
+Not every plural is made by adding an ending. A **broken plural**, جَمْع تَكْسِير, changes the inside of the word. شَدِيد, “firm”, becomes أَشِدَّاء. رَحِيم, “kind”, becomes رُحَمَاء.
+
+The mubtadaʾ ٱلَّذِينَ means “those who”, so it is plural. Its two khabars are plural in meaning too, although they do not end in -ūna. For people, the khabar is a plural: a sound plural or a broken plural.
+
+<Note kind="know">أَشِدَّآءُ and رُحَمَآءُ end in -u, not -un. A small group of words never takes the extra n sound. You do not need that rule yet.</Note>
+
+<Note kind="know">Al-Jadwal gives a second reading: ٱلَّذِينَ is joined to مُّحَمَّدٌ, and أَشِدَّآءُ is the khabar of both. *Al-Durr al-Maṣūn* also lists this possibility. This lesson follows al-Jadwal's main reading.</Note>
+
+<Check n={6} q="أَشِدَّآءُ means “firm” (many people). What kind of plural is it?" options={['A sound plural', 'A broken plural', 'A dual']} answer={1} why="The inside of شَدِيد changes: it becomes أَشِدَّاء." />
+</Block>
+
+<Block id="broken-things" title="Plurals of things: a feminine singular khabar">
+  <Stage>
+    <Sentence
+      roles
+      reference="Hud 11:102 (end)"
+      groups={[
+        { role: 'mubtada', words: [{ ar: 'وَهِىَ', en: 'and they (the towns)', say: 'wa-hiya' }] },
+        { role: 'khabar', words: [{ ar: 'ظَٰلِمَةٌ', en: 'unjust', say: 'zalimatun' }] },
+      ]}
+      en={['And they ', { gap: 'were' }, ' unjust.']}
+    />
+    <Sentence
+      roles
+      reference="An-Naziat 79:9"
+      groups={[
+        { role: 'mubtada', words: [{ ar: 'أَبْصَٰرُهَا', en: 'their eyes', say: 'absaruha' }] },
+        { role: 'khabar', words: [{ ar: 'خَٰشِعَةٌ', en: 'humbled', say: 'khashiatun' }] },
+      ]}
+      en={['Their eyes ', { gap: 'are' }, ' humbled.']}
+    />
+  </Stage>
+
+Look back at 22:45: هِىَ ظَالِمَةٌ, “it was unjust”, about one town. In 11:102 the words are almost the same, but هِىَ now stands for many towns, ٱلْقُرَىٰ, a plural of قَرْيَة. The khabar is still ظَٰلِمَةٌ, a feminine **singular**.
+
+That is the usual rule. When the mubtadaʾ is a plural of things, not people, the khabar is a feminine singular. In 79:9, أَبْصَٰر (“eyes”) is a broken plural of a thing. The khabar خَٰشِعَةٌ is feminine singular.
+
+<Note kind="remember">A plural of people takes a plural khabar. A plural of things usually takes a feminine singular khabar. L2.09 teaches the same rule for adjectives.</Note>
+
+<Check n={7} q="In ٱلْجِبَالُ عَالِيَةٌ (made-up example), why does عَالِيَةٌ end in -atun?" options={['The mountains are a plural of things, so the khabar is a feminine singular', 'Because mountains are women', 'Because it is a dual']} answer={0} why="A plural of things takes a feminine singular khabar." />
+</Block>
+
+<Block id="not-matching" title="A plain noun does not have to match">
+  <Stage>
+    <Sentence
+      roles
+      reference="Al-Anʿam 6:128 (part)"
+      groups={[
+        { role: 'mubtada', words: [{ ar: 'ٱلنَّارُ', en: 'the Fire', say: 'an-naru' }] },
+        { role: 'khabar', words: [{ ar: 'مَثْوَىٰكُمْ', en: 'your home', say: 'mathwakum' }] },
+      ]}
+      en={['The Fire ', { gap: 'is' }, ' your home.']}
+    />
+  </Stage>
+
+ٱلنَّارُ is feminine in Arabic. But the khabar مَثْوَىٰ, “home, resting place”, is a masculine noun. It does not change.
+
+The difference is the kind of khabar. ظَالِمَةٌ and خَٰشِعَةٌ are **describing words**. They say what the mubtadaʾ is like, so they match it. مَثْوَىٰ is a plain noun. It names a place, so it keeps its own gender.
+
+مَثْوَىٰ ends in a long ā, so its -u is hidden, as you saw in L2.01.
+
+<Note kind="know">A few describing words never take ـَة. One is رَمِيم, “crumbled”, in وَهِىَ رَمِيمٌ (Ya-Sin 36:78, end). Al-Jadwal says that ـَة is left off either because the word has the sense “made to crumble”, or because it behaves more like a noun.</Note>
+
+<Check n={8} q="ٱلنَّارُ is feminine. Why is مَثْوَىٰكُمْ not feminine?" options={['It is a plain noun, not a describing word', 'It is a verb', 'The Fire is masculine']} answer={0} why="Only a describing word has to match. A plain noun keeps its own gender." />
+</Block>
+
+<Block id="agree-table" title="Matching at a glance">
+  <Stage label="Three endings">
+    <Tiles
+      label="خَصْمَانِ, مُسْلِمُونَ, قَٰنِتَٰتٌ: dual, men, women"
+      items={[
+        { ar: 'خَصْمَانِ', en: 'two: -āni' },
+        { ar: 'مُسْلِمُونَ', en: 'men: -ūna' },
+        { ar: 'قَٰنِتَٰتٌ', en: 'women: -ātun' },
+      ]}
+    />
+  </Stage>
+
+| Mubtadaʾ | Khabar | Example |
+|---|---|---|
+| Masculine, one | -un | عَلِيمٌ (L2.01) |
+| Feminine, one | -atun | ظَالِمَةٌ (22:45) |
+| Two | -āni | خَصْمَانِ (22:19) |
+| Men, many | -ūna | مُسْلِمُونَ (3:102) |
+| Women, many | -ātun | قَٰنِتَٰتٌ (4:34) |
+| People, a broken plural | a plural | أَشِدَّآءُ (48:29) |
+| Things, many | feminine singular | خَٰشِعَةٌ (79:9) |
+| A plain noun | its own gender | مَثْوَىٰ (6:128) |
+
+<Check n={9} q="Which khabar fits ٱلطَّالِبَانِ, “the two students” (made-up example)?" options={['مُجْتَهِدٌ', 'مُجْتَهِدَانِ', 'مُجْتَهِدُونَ']} answer={1} why="Two: the dual in -āni." />
+</Block>
+</Step>
+
+<Step id="definite" label="Definite or not" title="Definite and indefinite mubtadaʾ">
+<Block id="definite-kinds" title="A mubtadaʾ is usually definite">
+  <Stage>
+    <Sentence
+      roles
+      reference="Al-Fath 48:29 (part)"
+      groups={[
+        { role: 'mubtada', words: [{ ar: 'مُّحَمَّدٌ', en: 'Muhammad', say: 'muhammadun' }] },
+        { role: 'khabar', words: [{ ar: 'رَّسُولُ', en: 'messenger of', say: 'rasulu' }, { ar: 'ٱللَّهِ', en: 'Allah', say: 'allahi' }] },
+      ]}
+      en={['Muhammad ', { gap: 'is' }, ' the messenger of Allah.']}
+    />
+  </Stage>
+
+A **definite** word, مَعْرِفَة, points to something both people already know. An **indefinite** word, نَكِرَة, does not: “a book”. News about something unknown tells the listener little. So the mubtadaʾ is usually definite.
+
+| Kind of definite word | Arabic | In this lesson |
+|---|---|---|
+| A name | عَلَم | مُّحَمَّدٌ (48:29) |
+| A word with *al-* | مُعَرَّف بِأَلْ | ٱلنَّارُ (6:128) |
+| A pronoun | ضَمِير | أَنتُم (3:102) |
+| A pointing word: “this” | اِسْم إِشَارَة | هَٰذَانِ (22:19) |
+| A “who” word | اِسْم مَوْصُول | وَٱلَّذِينَ (48:29) |
+| The first word of an idafah with a definite second word | مُضَاف | أَبْصَٰرُهَا (79:9) |
+
+<Note kind="know">A “who” word like ٱلَّذِينَ needs a few more words to finish its meaning. In the previous step it was مَعَهُۥٓ, “with him”. The whole group is the mubtadaʾ.</Note>
+
+<Check n={10} q="Which of these is a definite mubtadaʾ?" options={['كِتَابٌ', 'هَٰذَانِ', 'جَدِيدٌ']} answer={1} why="هَٰذَانِ, “these two”, is a pointing word, and pointing words are definite." />
+</Block>
+
+<Block id="definite-khabar" title="A definite khabar">
+  <Stage>
+    <Sentence
+      roles
+      reference="Muhammad 47:38 (part)"
+      groups={[
+        { role: 'mubtada', words: [{ ar: 'وَٱللَّهُ', en: 'and Allah', say: 'wa-llahu' }] },
+        { role: 'khabar', words: [{ ar: 'ٱلْغَنِىُّ', en: 'the Rich One', say: 'al-ghaniyyu' }] },
+        { role: 'mubtada', words: [{ ar: 'وَأَنتُمُ', en: 'and you (all)', say: 'wa-antumu' }] },
+        { role: 'khabar', words: [{ ar: 'ٱلْفُقَرَآءُ', en: 'the poor ones', say: 'al-fuqarau' }] },
+      ]}
+      en={['And Allah ', { gap: 'is' }, ' the Rich One, and you ', { gap: 'are' }, ' the poor ones.']}
+    />
+  </Stage>
+
+Most khabars so far were indefinite: عَلِيمٌ, “all-knowing”. Here both parts of each sentence are definite.
+
+A definite khabar says exactly **who or what** the mubtadaʾ is: Allah is the Rich One. An indefinite khabar says **what kind** it is: وَٱللَّهُ عَلِيمٌ, “Allah is all-knowing”.
+
+L2.01 said that two definite words often make a phrase, like ٱلْكِتَابُ ٱلْجَدِيدُ. That was a first guide, not a law. When the first word is a name, a pronoun or a pointing word, two definite words can be a sentence. Here the verse sets two sentences side by side, and the meaning makes it clear.
+
+<Check n={11} q="What does a definite khabar like ٱلْغَنِىُّ add?" options={['It says exactly who or what the mubtadaʾ is', 'It turns the sentence into a question', 'It changes the mubtadaʾ to the accusative']} answer={0} why="A definite khabar names or points to the one meant." />
+</Block>
+
+<Block id="indef-fronted" title="An indefinite mubtadaʾ: the khabar comes first">
+  <Stage>
+    <Sentence
+      roles
+      reference="Ar-Rahman 55:50"
+      groups={[
+        { role: 'khabarFirst', words: [{ ar: 'فِيهِمَا', en: 'in both of them', say: 'fihima', type: 'p' }] },
+        { role: 'mubtadaLater', words: [{ ar: 'عَيْنَانِ', en: 'two springs', say: 'aynani' }] },
+        { role: 'naat', hint: 'a verb that describes the springs', words: [{ ar: 'تَجْرِيَانِ', en: 'flowing', say: 'tajriyani', type: 'v' }] },
+      ]}
+      en={['In both of them ', { gap: 'are' }, ' two springs, flowing.']}
+    />
+    <Sentence
+      roles
+      reference="Al-Bayyinah 98:3"
+      groups={[
+        { role: 'khabarFirst', words: [{ ar: 'فِيهَا', en: 'in them', say: 'fiha', type: 'p' }] },
+        { role: 'mubtadaLater', hint: 'a noun and its adjective', words: [{ ar: 'كُتُبٌ', en: 'books', say: 'kutubun' }, { ar: 'قَيِّمَةٌ', en: 'right and true', say: 'qayyimatun' }] },
+      ]}
+      en={['In them ', { gap: 'are' }, ' right and true books.']}
+    />
+  </Stage>
+
+Both mubtadaʾs here are indefinite: عَيْنَانِ and كُتُبٌ. L2.01 showed the first reason an indefinite mubtadaʾ is allowed (2:10): the khabar is a phrase or a place word, and it comes first.
+
+In 55:50 the khabar is فِيهِمَا. The mubtadaʾ عَيْنَانِ comes later, and it is dual (-āni). The next word, تَجْرِيَانِ, is a dual verb that describes the springs.
+
+In 98:3 the mubtadaʾ كُتُبٌ is a broken plural of things, so the adjective قَيِّمَةٌ is feminine singular, as you saw in the last step.
+
+<Check n={12} q="In فِيهِمَا عَيْنَانِ تَجْرِيَانِ, which word is the mubtadaʾ?" options={['فِيهِمَا', 'عَيْنَانِ', 'تَجْرِيَانِ']} answer={1} why="عَيْنَانِ is what the sentence is about. فِيهِمَا is the khabar, put first." />
+</Block>
+
+<Block id="indef-described" title="An indefinite mubtadaʾ with an adjective">
+  <Stage>
+    <Sentence
+      roles
+      reference="Al-Baqarah 2:221 (part)"
+      groups={[
+        { role: 'mubtada', hint: 'a noun and its adjective', words: [{ ar: 'وَلَأَمَةٌ', en: 'and a female servant', say: 'wa-la-amatun' }, { ar: 'مُّؤْمِنَةٌ', en: 'believing', say: 'muminatun' }] },
+        { role: 'khabar', words: [{ ar: 'خَيْرٌ', en: 'better', say: 'khayrun' }] },
+        { role: 'tied', hint: 'belongs to خَيْرٌ', words: [{ ar: 'مِّن', en: 'than', type: 'p' }, { ar: 'مُّشْرِكَةٍ', en: 'an idolater (woman)' }] },
+      ]}
+      en={['And a believing female servant ', { gap: 'is' }, ' better than an idolater.']}
+    />
+    <Sentence
+      roles
+      reference="Al-Baqarah 2:221 (part)"
+      groups={[
+        { role: 'mubtada', hint: 'a noun and its adjective', words: [{ ar: 'وَلَعَبْدٌ', en: 'and a male servant', say: 'wa-la-abdun' }, { ar: 'مُّؤْمِنٌ', en: 'believing', say: 'muminun' }] },
+        { role: 'khabar', words: [{ ar: 'خَيْرٌ', en: 'better', say: 'khayrun' }] },
+        { role: 'tied', hint: 'belongs to خَيْرٌ', words: [{ ar: 'مِّن', en: 'than', type: 'p' }, { ar: 'مُّشْرِكٍ', en: 'an idolater (man)' }] },
+      ]}
+      en={['And a believing male servant ', { gap: 'is' }, ' better than an idolater.']}
+    />
+  </Stage>
+
+A bare indefinite noun is vague. But an adjective can pin it down. In وَلَأَمَةٌ مُّؤْمِنَةٌ the adjective مُؤْمِنَةٌ, “believing”, makes أَمَةٌ clear enough to start a sentence. The same is true of عَبْدٌ مُّؤْمِنٌ.
+
+The khabar is خَيْرٌ, “better”. It has one form for both genders, so it is the same in both sentences. The adjective, however, matches its noun: مُؤْمِنَةٌ with أَمَةٌ, مُؤْمِنٌ with عَبْدٌ.
+
+The little لَ at the start (the “beginning lām”) only adds emphasis. Al-Jadwal says this about both verses.
+
+<Check n={13} q="Why may أَمَةٌ, an indefinite word, start the sentence?" options={['An adjective, مُؤْمِنَةٌ, describes it', 'It ends in -atun', 'It is a dual']} answer={0} why="A described noun is clear enough to be the mubtadaʾ." />
+</Block>
+
+<Block id="indef-question" title="An indefinite mubtadaʾ after a question">
+  <Stage>
+    <Sentence
+      roles
+      reference="An-Naml 27:60 (part)"
+      groups={[
+        { role: 'mubtada', hint: 'أَ asks the question', words: [{ ar: 'أَءِلَٰهٌ', en: 'is there a god', say: 'a-ilahun' }] },
+        { role: 'khabar', hint: 'a place word with its noun', words: [{ ar: 'مَّعَ', en: 'with', type: 'p' }, { ar: 'ٱللَّهِ', en: 'Allah', say: 'allahi' }] },
+      ]}
+      en={['Is there a god ', { gap: 'being' }, ' with Allah?']}
+    />
+  </Stage>
+
+The little word أَ at the front asks a question. After a question, an indefinite word can start the sentence. Here the mubtadaʾ إِلَٰهٌ, “a god”, comes first, and the khabar follows: مَعَ ٱللَّهِ, “with Allah”. مَعَ is a place word, as in L2.01.
+
+Compare this with the question in Ibrahim 14:10, أَفِى ٱللَّهِ شَكٌّ, “Is there any doubt about Allah?” There the khabar فِى ٱللَّهِ comes first and the mubtadaʾ شَكٌّ comes later. Al-Jadwal reads it this way.
+
+<Check n={14} q="Why may إِلَٰهٌ, an indefinite word, start this sentence?" options={['It comes after a question', 'It is feminine', 'It is a pronoun']} answer={0} why="The أَ at the front makes it a question, and a question allows an indefinite mubtadaʾ." />
+</Block>
+
+<Block id="indef-wish" title="An indefinite mubtadaʾ in a wish or a prayer">
+  <Stage>
+    <Sentence
+      roles
+      reference="Al-Mutaffifin 83:1"
+      groups={[
+        { role: 'mubtada', words: [{ ar: 'وَيْلٌ', en: 'woe', say: 'waylun' }] },
+        { role: 'khabar', words: [{ ar: 'لِّلْمُطَفِّفِينَ', en: 'to those who give short measure', say: 'lil-mutaffifina', type: 'p' }] },
+      ]}
+      en={['Woe ', { gap: 'be' }, ' to those who give short measure.']}
+    />
+    <Sentence
+      roles
+      reference="As-Saffat 37:79"
+      groups={[
+        { role: 'mubtada', words: [{ ar: 'سَلَٰمٌ', en: 'peace', say: 'salamun' }] },
+        { role: 'khabar', words: [{ ar: 'عَلَىٰ', en: 'on', type: 'p' }, { ar: 'نُوحٍ', en: 'Noah', say: 'nuhin' }] },
+        { role: 'tied', hint: 'belongs to the khabar', words: [{ ar: 'فِى', en: 'among', type: 'p' }, { ar: 'ٱلْعَٰلَمِينَ', en: 'all the nations' }] },
+      ]}
+      en={['Peace ', { gap: 'be' }, ' on Noah among all the nations.']}
+    />
+  </Stage>
+
+A warning or a prayer can start with an indefinite word. وَيْلٌ, “woe”, and سَلَٰمٌ, “peace”, are not defined by *al-*. Al-Jadwal gives the reason for both verses: starting with an indefinite word is allowed because the words express a wish or prayer, دُعَاء.
+
+In both verses the khabar is a phrase: لِلْمُطَفِّفِينَ (“to those who give short measure”) and عَلَىٰ نُوحٍ (“on Noah”).
+
+<Check n={15} q="Why may وَيْلٌ and سَلَٰمٌ start a sentence without al-?" options={['They express a wish or a prayer', 'They are plurals', 'They are verbs']} answer={0} why="Al-Jadwal: the start is allowed because they show a prayer." />
+</Block>
+
+<Block id="indef-sum" title="Reasons for an indefinite mubtadaʾ, together">
+  <Stage label="Four reasons">
+    <ol class="lx-card-list">
+      <li><b>The khabar comes first</b> (a phrase or a place word): فِيهِمَا عَيْنَانِ</li>
+      <li><b>An adjective describes it:</b> لَأَمَةٌ مُّؤْمِنَةٌ</li>
+      <li><b>A question comes before it:</b> أَءِلَٰهٌ مَّعَ ٱللَّهِ</li>
+      <li><b>A wish or a prayer:</b> وَيْلٌ، سَلَٰمٌ</li>
+    </ol>
+  </Stage>
+
+If you meet an indefinite word at the start of a sentence, do not call it a mistake. Look for the reason. These four are the ones in this lesson's verses. The grammar books list more.
+
+<Note kind="warn">Without a reason, an indefinite mubtadaʾ is not normal. If you want to say “A book is on the desk”, you cannot start with كِتَابٌ alone. Put the khabar first: عَلَى ٱلْمَكْتَبِ كِتَابٌ (made-up example).</Note>
+
+<Check n={16} q="Which is the right Arabic for “A book is on the desk” (made-up example)?" options={['كِتَابٌ عَلَى ٱلْمَكْتَبِ', 'عَلَى ٱلْمَكْتَبِ كِتَابٌ']} answer={1} why="The mubtadaʾ is indefinite and the khabar is a phrase, so the khabar comes first." />
+</Block>
+</Step>
+
+<Step id="long-khabar" label="Long khabars" title="A khabar that is a phrase or a sentence">
+<Block id="phrase-tied" title="A phrase khabar, and a mubtadaʾ with no -u">
+  <Stage>
+    <Sentence
+      roles
+      reference="Al-Imran 3:109 (start)"
+      groups={[
+        { role: 'khabarFirst', words: [{ ar: 'وَلِلَّهِ', en: 'and to Allah', say: 'wa-lillahi', type: 'p' }] },
+        { role: 'mubtadaLater', hint: 'a “what” word with what completes it', words: [{ ar: 'مَا', en: 'what', say: 'ma' }, { ar: 'فِى', en: 'is in', type: 'p' }, { ar: 'ٱلسَّمَٰوَٰتِ', en: 'the heavens' }] },
+        { role: 'mubtadaLater', hint: 'joined to the first', words: [{ ar: 'وَمَا', en: 'and what', say: 'wa-ma' }, { ar: 'فِى', en: 'is in', type: 'p' }, { ar: 'ٱلْأَرْضِ', en: 'the earth' }] },
+      ]}
+      en={['And to Allah ', { gap: 'belongs' }, ' what is in the heavens and what is in the earth.']}
+    />
+  </Stage>
+
+L2.01 showed a phrase as khabar (7:128). Here are three more points.
+
+First, a phrase has no ending of its own, because it is not one word. Al-Jadwal says it is tied to a word that is left out, here something like “belongs”: “to Allah (belongs) …”.
+
+Second, the khabar is first. It does not have to be: the mubtadaʾ here is definite. The verse puts it first to stress who owns everything.
+
+Third, look at the mubtadaʾ. It is مَا, “what”, a short word that never changes. It shows no -u. It is a “what” word (*ism mawṣūl*), and like هُوَ in L2.01 it counts as nominative “in its place”. The phrase after it (فِى ٱلسَّمَٰوَٰتِ) finishes its meaning.
+
+<Note kind="tip">The tip from L2.01, “look for the -u”, works for nouns. When the mubtadaʾ is a short word like مَا or ٱلَّذِينَ, look for the word that means “what” or “who”.</Note>
+
+<Check n={17} q="In وَلِلَّهِ مَا فِى ٱلسَّمَٰوَٰتِ, which part is the khabar?" options={['وَلِلَّهِ', 'مَا', 'فِى ٱلسَّمَٰوَٰتِ']} answer={0} why="وَلِلَّهِ, “and to Allah”, is the khabar, put first. مَا with its phrase is the mubtadaʾ." />
+</Block>
+
+<Block id="phrase-two" title="Phrases in a row">
+  <Stage>
+    <Sentence
+      roles
+      reference="Al-Baqarah 2:114 (end)"
+      groups={[
+        { role: 'khabarFirst', words: [{ ar: 'لَهُمْ', en: 'for them', say: 'lahum', type: 'p' }] },
+        { role: 'tied', hint: 'tells more about خِزْىٌ', words: [{ ar: 'فِى', en: 'in', type: 'p' }, { ar: 'ٱلدُّنْيَا', en: 'this world' }] },
+        { role: 'mubtadaLater', words: [{ ar: 'خِزْىٌ', en: 'shame', say: 'khizyun' }] },
+        { role: 'khabarFirst', words: [{ ar: 'وَلَهُمْ', en: 'and for them', say: 'wa-lahum', type: 'p' }] },
+        { role: 'tied', hint: 'tells more about عَذَابٌ', words: [{ ar: 'فِى', en: 'in', type: 'p' }, { ar: 'ٱلْءَاخِرَةِ', en: 'the next world' }] },
+        { role: 'mubtadaLater', hint: 'a noun and its adjective', words: [{ ar: 'عَذَابٌ', en: 'a punishment', say: 'adhabun' }, { ar: 'عَظِيمٌ', en: 'great', say: 'azimun' }] },
+      ]}
+      en={['For them ', { gap: 'is' }, ' shame in this world, and for them ', { gap: 'is' }, ' a great punishment in the next world.']}
+    />
+  </Stage>
+
+Phrases can follow each other. In لَهُمْ فِى ٱلدُّنْيَا خِزْىٌ only the first phrase, لَهُمْ, is the khabar. The second phrase, فِى ٱلدُّنْيَا, adds more about the shame. Al-Jadwal does not call it a second khabar.
+
+This is the same mistake as the one in L2.01 (“stopping at the phrase”), but turned around: do not call every phrase the khabar.
+
+Both mubtadaʾs are indefinite (خِزْىٌ, عَذَابٌ), so the first phrase has to come first. The second sentence also has an adjective: عَظِيمٌ, “great”, which copies the ending of عَذَابٌ.
+
+<Check n={18} q="In لَهُمْ فِى ٱلدُّنْيَا خِزْىٌ, which phrase is the khabar?" options={['لَهُمْ', 'فِى ٱلدُّنْيَا']} answer={0} why="لَهُمْ is the news about the shame. فِى ٱلدُّنْيَا only tells more about it." />
+</Block>
+
+<Block id="sentence-link" title="A sentence khabar needs a link">
+  <Stage>
+    <Sentence
+      roles
+      reference="Al-Baqarah 2:216 (end)"
+      groups={[
+        { role: 'mubtada', words: [{ ar: 'وَٱللَّهُ', en: 'and Allah', say: 'wa-llahu' }] },
+        { role: 'khabar', hint: 'a verb with its doer', words: [{ ar: 'يَعْلَمُ', en: 'knows', say: 'yalamu', type: 'v' }] },
+        { role: 'mubtada', words: [{ ar: 'وَأَنتُمْ', en: 'and you (all)', say: 'wa-antum' }] },
+        { role: 'khabar', hint: 'a verb with its doer', words: [{ ar: 'لَا', en: 'not', type: 'p' }, { ar: 'تَعْلَمُونَ', en: 'you know', say: 'talamuna', type: 'v' }] },
+      ]}
+      en={['And Allah knows, and you do not know.']}
+    />
+  </Stage>
+
+L2.01 showed khabars that are verbal sentences (2:15). Now look inside the verb.
+
+يَعْلَمُ means “he knows”. The doer, “he”, is hidden inside the verb, and it is Allah. تَعْلَمُونَ means “you all know”. The letter و is the doer, “you all”, and it is the same group as أَنتُمْ.
+
+That word inside the verb points back to the mubtadaʾ. It is the **link word**, رَابِط (*rābiṭ*). A khabar that is a whole sentence needs one, so the listener knows the sentence is about the mubtadaʾ.
+
+<Check n={19} q="In وَأَنتُمْ لَا تَعْلَمُونَ, which part is the link back to أَنتُمْ?" options={['The و in تَعْلَمُونَ, meaning “you all”', 'لَا', 'The وَ at the start']} answer={0} why="The و is the doer “you all”, the same people as أَنتُمْ." />
+</Block>
+
+<Block id="link-visible" title="The link can be a separate ending">
+  <Stage>
+    <Sentence
+      roles
+      reference="Al-Hajj 22:19 (part)"
+      groups={[
+        { role: 'mubtada', hint: 'a “who” word with what completes it', words: [{ ar: 'فَٱلَّذِينَ', en: 'so those who', say: 'fa-lladhina' }, { ar: 'كَفَرُوا۟', en: 'disbelieved', type: 'v' }] },
+        { role: 'khabar', hint: 'a whole verbal sentence', words: [{ ar: 'قُطِّعَتْ', en: 'have been cut', type: 'v' }, { ar: 'لَهُمْ', en: 'for them', say: 'lahum', type: 'p' }, { ar: 'ثِيَابٌ', en: 'clothes' }, { ar: 'مِّن', en: 'of', type: 'p' }, { ar: 'نَّارٍ', en: 'fire' }] },
+      ]}
+      en={['So for those who disbelieved, clothes of fire have been cut.']}
+    />
+    <Sentence
+      roles
+      reference="At-Tawbah 9:71 (start)"
+      groups={[
+        { role: 'mubtada', hint: 'two words joined by “and”', words: [{ ar: 'وَٱلْمُؤْمِنُونَ', en: 'and the believing men' }, { ar: 'وَٱلْمُؤْمِنَٰتُ', en: 'and the believing women' }] },
+        { role: 'khabar', hint: 'a whole nominal sentence', words: [{ ar: 'بَعْضُهُمْ', en: 'some of them', say: 'badhuhum' }, { ar: 'أَوْلِيَآءُ', en: 'protectors of' }, { ar: 'بَعْضٍ', en: 'others' }] },
+      ]}
+      en={['The believing men and women: some of them ', { gap: 'are' }, ' protectors of others.']}
+    />
+  </Stage>
+
+Sometimes the link is not inside the verb but is a separate ending. In 22:19 the mubtadaʾ is ٱلَّذِينَ كَفَرُوا۟. Its khabar is the whole sentence قُطِّعَتْ لَهُمْ ثِيَابٌ مِّن نَّارٍ. The verb is passive: it says what happened to the clothes, not who did it. The link is the -هُمْ in لَهُمْ, “for them”, which points back to ٱلَّذِينَ.
+
+In 9:71 the khabar is a nominal sentence: بَعْضُهُمْ (mubtadaʾ) and أَوْلِيَآءُ بَعْضٍ (khabar). Al-Jadwal says this whole sentence is the khabar of the believing men and women. The link is the -هُمْ in بَعْضُهُمْ.
+
+<Check n={20} q="In فَٱلَّذِينَ كَفَرُوا۟ قُطِّعَتْ لَهُمْ ثِيَابٌ, which word carries the link back to ٱلَّذِينَ?" options={['لَهُمْ, with its -hum', 'ثِيَابٌ', 'قُطِّعَتْ']} answer={0} why="The -hum is “them”, the same people as ٱلَّذِينَ." />
+</Block>
+
+<Block id="link-repeat" title="The link can be the same noun, said again">
+  <Stage>
+    <Sentence
+      roles
+      reference="Al-Haqqah 69:1"
+      groups={[
+        { role: 'mubtada', hint: 'its khabar is the next verse', words: [{ ar: 'ٱلْحَآقَّةُ', en: 'the Sure Hour', say: 'al-haqqatu' }] },
+      ]}
+      en={['The Sure Hour!']}
+    />
+    <Sentence
+      roles
+      reference="Al-Haqqah 69:2"
+      groups={[
+        { role: 'mubtada', label: 'second mubtadaʾ', words: [{ ar: 'مَا', en: 'what', say: 'ma' }] },
+        { role: 'khabar', words: [{ ar: 'ٱلْحَآقَّةُ', en: 'the Sure Hour', say: 'al-haqqatu' }] },
+      ]}
+      en={['What ', { gap: 'is' }, ' the Sure Hour?']}
+    />
+  </Stage>
+
+The last kind of link is the odd one. In 69:1 the mubtadaʾ is ٱلْحَآقَّةُ. Its khabar is the whole sentence in the next verse: مَا ٱلْحَآقَّةُ, “What is the Sure Hour?” Al-Jadwal reads it this way: the inner sentence has its own mubtadaʾ مَا and its own khabar ٱلْحَآقَّةُ.
+
+There is no pronoun that points back. Instead the same noun is said again. Saying it again ties the question to the word it is about.
+
+<Check n={21} q="What ties the khabar to the mubtadaʾ in ٱلْحَآقَّةُ مَا ٱلْحَآقَّةُ?" options={['A pronoun', 'The same noun, said again', 'A preposition']} answer={1} why="The word ٱلْحَآقَّةُ comes back inside the khabar." />
+</Block>
+</Step>
+
+<Step id="word-by-word" label="Mistakes, word by word, practice" title="Four mistakes, four verses word by word, and practice">
+<Block id="m-match" title="Mistake 1: not matching">
+  <Stage label="Right and wrong">
+    <Tiles
+      label="ٱلْأَبْصَارُ خَاشِعَةٌ: the eyes are humbled"
+      items={[
+        { ar: 'ٱلْأَبْصَارُ', en: 'the eyes' },
+        { ghost: 'are', note: 'English only' },
+        { ar: 'خَاشِعَةٌ', en: 'humbled' },
+      ]}
+    />
+  </Stage>
+
+The khabar must match the mubtadaʾ. These are the common slips (all made-up examples):
+
+- Wrong: ٱلْمُؤْمِنُونَ صَادِقٌ. A plural mubtadaʾ with a singular khabar. Right: ٱلْمُؤْمِنُونَ صَادِقُونَ.
+- Wrong: ٱلْمُؤْمِنَاتُ صَادِقُونَ. Women need the ending for women. Right: ٱلْمُؤْمِنَاتُ صَادِقَاتٌ.
+- Wrong: ٱلْأَبْصَارُ خَاشِعُونَ. The ending -ūna is for people. Right: ٱلْأَبْصَارُ خَاشِعَةٌ.
+
+<Check n={22} q="Which one is right (made-up example)?" options={['ٱلْأَبْصَارُ خَاشِعُونَ', 'ٱلْأَبْصَارُ خَاشِعَةٌ']} answer={1} why="Eyes are things, so the khabar is a feminine singular." />
+</Block>
+
+<Block id="m-kinds" title="Mistake 2: thinking the khabar is one word">
+  <Stage label="Five kinds of khabar, from this lesson">
+    <ol class="lx-card-list">
+      <li><b>Single:</b> ٱلْغَنِىُّ</li>
+      <li><b>A phrase:</b> وَلِلَّهِ</li>
+      <li><b>A place word:</b> مَعَ ٱللَّهِ</li>
+      <li><b>A verbal sentence:</b> يَعْلَمُ</li>
+      <li><b>A nominal sentence:</b> بَعْضُهُمْ أَوْلِيَآءُ بَعْضٍ</li>
+    </ol>
+  </Stage>
+
+A habit from English is to look for one word that says what the mubtadaʾ “is”. In Arabic the khabar may be a phrase, a place word with its noun, or a whole sentence with its own link word.
+
+Ask: “What is the news about the mubtadaʾ?” Then read to the end of the news before you name its kind.
+
+<Check n={23} q="In أَءِلَٰهٌ مَّعَ ٱللَّهِ, what kind of khabar is مَعَ ٱللَّهِ?" options={['A single word', 'A place word with its noun', 'A verbal sentence']} answer={1} why="مَعَ is a place word, and ٱللَّهِ completes it." />
+</Block>
+
+<Block id="m-definite" title="Mistake 3: treating definite and indefinite khabars alike">
+  <Stage>
+    <Sentence
+      roles
+      reference="Made-up example"
+      groups={[
+        { role: 'mubtada', words: [{ ar: 'ٱلرَّجُلُ', en: 'the man', say: 'ar-rajulu' }] },
+        { role: 'khabar', words: [{ ar: 'غَنِيٌّ', en: 'rich', say: 'ghaniyyun' }] },
+      ]}
+      en={['The man ', { gap: 'is' }, ' rich.']}
+    />
+  </Stage>
+
+ٱلرَّجُلُ غَنِيٌّ has an indefinite khabar. It says what the man is like: “The man is rich.” It does not say that he is the rich one.
+
+Compare وَٱللَّهُ ٱلْغَنِىُّ (47:38). The definite khabar says who the Rich One is. Do not translate the two the same way, and do not put *al-* on every khabar.
+
+<Check n={24} q="How do you read ٱلرَّجُلُ غَنِيٌّ (made-up example)?" options={['The man is rich.', 'The man is the Rich One.']} answer={0} why="An indefinite khabar says what kind the mubtadaʾ is." />
+</Block>
+
+<Block id="m-adjective" title="Mistake 4: calling an adjective the khabar">
+  <Stage>
+    <Sentence
+      roles
+      reference="An-Naziat 79:8"
+      groups={[
+        { role: 'mubtada', hint: 'its khabar is in the next verse', words: [{ ar: 'قُلُوبٌ', en: 'hearts', say: 'qulubun' }] },
+        { role: 'tied', hint: 'belongs to وَاجِفَةٌ', words: [{ ar: 'يَوْمَئِذٍ', en: 'on that day', say: 'yawmaidhin' }] },
+        { role: 'naat', words: [{ ar: 'وَاجِفَةٌ', en: 'trembling', say: 'wajifatun' }] },
+      ]}
+      en={['On that day, trembling hearts …']}
+    />
+  </Stage>
+
+It is easy to read قُلُوبٌ يَوْمَئِذٍ وَاجِفَةٌ as “Hearts on that day are trembling”, with وَاجِفَةٌ as the khabar.
+
+Al-Jadwal reads it differently. وَاجِفَةٌ is an **adjective** of قُلُوبٌ, and the khabar is the sentence in the next verse: أَبْصَٰرُهَا خَٰشِعَةٌ, “their eyes are humbled”. It is also the reason an indefinite word, قُلُوبٌ, may start the sentence: an adjective describes it.
+
+Ask of any word after the mubtadaʾ: does it describe the mubtadaʾ, or is it news about it? If the sentence still feels unfinished, the news has not come yet.
+
+<Check n={25} q="In قُلُوبٌ يَوْمَئِذٍ وَاجِفَةٌ, what is وَاجِفَةٌ, according to al-Jadwal?" options={['The khabar of قُلُوبٌ', 'An adjective of قُلُوبٌ']} answer={1} why="The khabar is the sentence in the next verse. وَاجِفَةٌ only describes the hearts." />
+</Block>
+
+<Block id="parse-1" title="Word by word: An-Nisa 4:34">
+  <Stage label="Word by word">
+    <Parse
+      reference="An-Nisa 4:34 (part)"
+      words={[
+        { ar: 'فَٱلصَّٰلِحَٰتُ', en: 'so the good women' },
+        { ar: 'قَٰنِتَٰتٌ', en: 'devoted' },
+        { ar: 'حَٰفِظَٰتٌ', en: 'guarding' },
+        { ar: 'لِّلْغَيْبِ', en: 'what is unseen' },
+      ]}
+      cards={[
+        { at: 0, ar: 'فَ', role: '“so”, a little word that starts a new sentence', why: 'Little words have no case.', irab: 'الفاء استئنافية' },
+        { at: 0, ar: 'ٱلصَّٰلِحَٰتُ', role: 'mubtadaʾ: “the good women”', case: 'nominative (rafʿ)', mark: '-u (ḍamma). A sound plural for women has its ḍamma on the last letter.', why: 'It starts the sentence. It is what the sentence is about.', irab: 'مبتدأ مرفوع وعلامة رفعه الضمة لأنه جمع مؤنث سالم' },
+        { at: 1, role: 'khabar: “devoted”. A feminine plural, like the mubtadaʾ.', case: 'nominative (rafʿ)', mark: '-un (tanwin ḍamma)', why: 'It is the news. It matches the mubtadaʾ: women, many.', irab: 'خبر مرفوع وعلامة رفعه الضمة لأنه جمع مؤنث سالم' },
+        { at: 2, role: 'second khabar: “guarding”', case: 'nominative (rafʿ)', mark: '-un (tanwin ḍamma)', why: 'One mubtadaʾ can have more than one khabar.', irab: 'خبر ثان مرفوع وعلامة رفعه الضمة لأنه جمع مؤنث سالم' },
+        { at: 3, role: 'li-, a little word that only strengthens, and “what is unseen”, the object of حَٰفِظَٰتٌ', case: 'genitive (jarr) in form; accusative (naṣb) in place, as an object', mark: '-i (kasra) on ٱلْغَيْبِ', why: 'حَٰفِظَٰتٌ is a doer-word, “guarding”, so it can take an object. The li- is only a helper.', irab: 'اللام لام التقوية زائدة، والغيب مجرور لفظا منصوب محلا مفعول به لاسم الفاعل' },
+      ]}
+    />
+  </Stage>
+
+For each word, say its **role**, its **case**, the **mark**, and the **reason**. Try each answer before you press **Next word**.
+
+Notice how both khabars match the mubtadaʾ: all three words are feminine plurals of the same kind.
+</Block>
+
+<Block id="parse-2" title="Word by word: An-Naziat 79:8">
+  <Stage label="Word by word">
+    <Parse
+      reference="An-Naziat 79:8"
+      words={[
+        { ar: 'قُلُوبٌ', en: 'hearts' },
+        { ar: 'يَوْمَئِذٍ', en: 'on that day' },
+        { ar: 'وَاجِفَةٌ', en: 'trembling' },
+      ]}
+      cards={[
+        { at: 0, role: 'mubtadaʾ: “hearts”', case: 'nominative (rafʿ)', mark: '-un (tanwin ḍamma)', why: 'It starts the sentence. It is indefinite, but an adjective describes it, so it is allowed to start.', irab: 'مبتدأ مرفوع وعلامة رفعه الضمة الظاهرة' },
+        { at: 1, role: 'a time word: “on that day”. It belongs to وَاجِفَةٌ.', why: 'It says when the hearts tremble.', irab: 'ظرف زمان متعلق بواجفة' },
+        { at: 2, role: 'adjective (naʿt) of قُلُوبٌ: “trembling”', case: 'nominative (rafʿ), like its noun', mark: '-un (tanwin ḍamma)', why: 'An adjective copies the ending of its noun. It is feminine singular, because قُلُوبٌ is a plural of things.', irab: 'نعت لقلوب مرفوع مثله' },
+        { at: 0, ar: 'أَبْصَٰرُهَا خَٰشِعَةٌ', role: 'the khabar of قُلُوبٌ comes in the next verse (79:9): a whole nominal sentence', case: 'a sentence shows no ending; it stands in the place of the nominative', why: 'The news about the hearts is: “their eyes are humbled”.', irab: 'وجملة «أبصارها خاشعة» في محل رفع خبر المبتدأ (قلوب)' },
+      ]}
+    />
+  </Stage>
+
+This verse is not finished by itself. The mubtadaʾ is here, and its khabar is the next verse. The next block goes through that khabar.
+
+Al-Jadwal notes that a time word may stand between an adjective and its noun.
+</Block>
+
+<Block id="parse-3" title="Word by word: An-Naziat 79:9">
+  <Stage label="Word by word">
+    <Parse
+      reference="An-Naziat 79:9"
+      words={[
+        { ar: 'أَبْصَٰرُهَا', en: 'their eyes' },
+        { ar: 'خَٰشِعَةٌ', en: 'humbled' },
+      ]}
+      cards={[
+        { at: 0, ar: 'أَبْصَٰرُ', role: 'a second mubtadaʾ: “eyes (of the people)”. It is also the first word of an idafah.', case: 'nominative (rafʿ)', mark: '-u (ḍamma) on the last letter', why: 'It starts the inner sentence. It is a broken plural of things.', irab: 'مبتدأ ثان مرفوع وعلامة رفعه الضمة، وهو مضاف' },
+        { at: 0, ar: 'هَا', role: 'second word of the idafah: “their”. It points back to قُلُوبٌ in the verse before.', case: 'a pronoun: it never changes, and counts as genitive', why: 'This pronoun is the link word that ties the inner sentence to قُلُوبٌ.', irab: 'ضمير متصل مبني في محل جر مضاف إليه' },
+        { at: 1, role: 'khabar of the inner mubtadaʾ: “humbled”. Feminine singular.', case: 'nominative (rafʿ)', mark: '-un (tanwin ḍamma)', why: 'The mubtadaʾ is a plural of things, so the khabar is a feminine singular.', irab: 'خبر المبتدأ الثاني مرفوع وعلامة رفعه الضمة' },
+        { at: [0, 1], role: 'the whole sentence is the khabar of قُلُوبٌ (79:8)', case: 'it stands in the place of the nominative', why: 'A sentence inside a sentence, tied by the link word -hā.', irab: 'وجملة «أبصارها خاشعة» في محل رفع خبر المبتدأ (قلوب)' },
+      ]}
+    />
+  </Stage>
+
+The inner sentence has its own mubtadaʾ and khabar, and the whole sentence is the khabar of قُلُوبٌ in 79:8. The pronoun -هَا is the link word you met in the last step. Al-Jadwal reads أَبْصَٰرُهَا as “the eyes of their owners”, with a word left out.
+</Block>
+
+<Block id="parse-4" title="Word by word: Al-Baqarah 2:221">
+  <Stage label="Word by word">
+    <Parse
+      reference="Al-Baqarah 2:221 (part)"
+      words={[
+        { ar: 'وَلَعَبْدٌ', en: 'and a male servant' },
+        { ar: 'مُّؤْمِنٌ', en: 'believing' },
+        { ar: 'خَيْرٌ', en: 'better' },
+        { ar: 'مِّن', en: 'than', type: 'p' },
+        { ar: 'مُّشْرِكٍ', en: 'an idolater' },
+      ]}
+      cards={[
+        { at: 0, ar: 'وَ', role: '“and”, a little word that starts a new sentence', why: 'Little words have no case.', irab: 'الواو استئنافية' },
+        { at: 0, ar: 'لَ', role: 'the “beginning lām”, a little word that adds emphasis', why: 'Little words have no case.', irab: 'اللام لام الابتداء تفيد التوكيد' },
+        { at: 0, ar: 'عَبْدٌ', role: 'mubtadaʾ: “a male servant”', case: 'nominative (rafʿ)', mark: '-un (tanwin ḍamma)', why: 'It starts the sentence. It is indefinite, but an adjective describes it.', irab: 'مبتدأ مرفوع وعلامة رفعه الضمة الظاهرة' },
+        { at: 1, role: 'adjective (naʿt) of عَبْدٌ: “believing”', case: 'nominative (rafʿ), like its noun', mark: '-un', why: 'An adjective copies the ending of its noun. It is masculine, like عَبْدٌ.', irab: 'نعت لعبد مرفوع مثله' },
+        { at: 2, role: 'khabar: “better”', case: 'nominative (rafʿ)', mark: '-un (tanwin ḍamma)', why: 'It is the news about the servant.', irab: 'خبر مرفوع وعلامة رفعه الضمة الظاهرة' },
+        { at: [3, 4], role: '“than an idolater”: min and its noun. It belongs to خَيْرٌ.', case: 'the noun after min is genitive (jarr)', mark: '-in (tanwin kasra) on مُّشْرِكٍ', why: 'A noun after a preposition is genitive. The phrase says whom the servant is better than.', irab: 'جار ومجرور متعلق بخير' },
+      ]}
+    />
+  </Stage>
+
+This verse brings the lesson together: an indefinite mubtadaʾ with an adjective, a khabar that is a describing word, and a phrase that belongs to the khabar. In the first half of the verse, لَأَمَةٌ مُّؤْمِنَةٌ خَيْرٌ, al-Jadwal says the same about the feminine words.
+</Block>
+
+<Block id="practice-1" title="Practice: matching">
+  <Stage label="For each khabar, ask">
+    <ol class="lx-card-list">
+      <li><b>Gender:</b> masculine or feminine?</li>
+      <li><b>Number:</b> one, two, or many?</li>
+      <li><b>People or things?</b> A plural of things takes a feminine singular khabar.</li>
+      <li><b>Describing word or plain noun?</b> Only a describing word must match.</li>
+    </ol>
+  </Stage>
+
+Work out each answer first. Then open the answer.
+
+<Exercise n={1} q="Say the gender and number of each khabar. (a) وَنَحْنُ لَهُۥ مُسْلِمُونَ (Al-Baqarah 2:133, end) (b) هَٰذَانِ خَصْمَانِ (Al-Hajj 22:19, part) (c) وَهِىَ ظَٰلِمَةٌ (Hud 11:102, end)">
+
+- (a) مُسْلِمُونَ is a **masculine plural** (-ūna). It matches نَحْنُ, “we”: the speakers are men. لَهُۥ, “to Him”, is a phrase that belongs to the khabar.
+- (b) خَصْمَانِ is a **dual** (-āni). It matches هَٰذَانِ, “these two”.
+- (c) ظَٰلِمَةٌ is a **feminine singular**. هِىَ stands for the towns, a plural of things.
+
+</Exercise>
+
+<Exercise n={2} q="Each made-up sentence has one mistake in the khabar. Fix it. (a) ٱلْمُؤْمِنَاتُ صَادِقُونَ (b) ٱلطَّالِبَانِ مُجْتَهِدٌ (c) ٱلْكُتُبُ جَدِيدُونَ (d) ٱلْمُعَلِّمَةُ مُجْتَهِدٌ">
+
+- (a) ٱلْمُؤْمِنَاتُ **صَادِقَاتٌ**: many women, so -ātun.
+- (b) ٱلطَّالِبَانِ **مُجْتَهِدَانِ**: two, so -āni.
+- (c) ٱلْكُتُبُ **جَدِيدَةٌ**: books are things, so a feminine singular.
+- (d) ٱلْمُعَلِّمَةُ **مُجْتَهِدَةٌ**: one woman, so -atun.
+
+</Exercise>
+
+<Exercise n={3} q="Put the khabar in the right form (made-up examples). (a) ٱلْبَيْتَانِ + كَبِيرٌ (b) ٱلْمَدِينَةُ + كَبِيرٌ (c) ٱلْبُيُوتُ + كَبِيرٌ (d) ٱلْمُعَلِّمُونَ + مُجْتَهِدٌ">
+
+- (a) ٱلْبَيْتَانِ **كَبِيرَانِ**: two houses, dual.
+- (b) ٱلْمَدِينَةُ **كَبِيرَةٌ**: one city, feminine.
+- (c) ٱلْبُيُوتُ **كَبِيرَةٌ**: houses are things, so a feminine singular.
+- (d) ٱلْمُعَلِّمُونَ **مُجْتَهِدُونَ**: many men, so -ūna.
+
+</Exercise>
+
+<Exercise n={4} q="The mubtadaʾ أَبْصَٰر is plural. Why is the khabar خَٰشِعَةٌ and not خَٰشِعُونَ? أَبْصَٰرُهَا خَٰشِعَةٌ (An-Naziat 79:9). Meaning: “Their eyes are humbled.”">
+
+Eyes are things, not people. A plural of things takes a feminine singular khabar, so خَٰشِعَةٌ. The ending -ūna is for men.
+
+</Exercise>
+</Block>
+
+<Block id="practice-2" title="Practice: definite and indefinite">
+  <Stage label="Four reasons for an indefinite mubtadaʾ">
+    <ol class="lx-card-list">
+      <li>The khabar comes first.</li>
+      <li>An adjective describes it.</li>
+      <li>A question comes before it.</li>
+      <li>A wish or a prayer.</li>
+    </ol>
+  </Stage>
+
+<Exercise n={5} q="Give the reason the mubtadaʾ may be indefinite. (a) وَيْلٌ لِّلْمُطَفِّفِينَ (Al-Mutaffifin 83:1) (b) أَفِى ٱللَّهِ شَكٌّ (Ibrahim 14:10, part) (c) سَلَٰمٌ عَلَىٰ نُوحٍ فِى ٱلْعَٰلَمِينَ (As-Saffat 37:79) (d) وَلَأَمَةٌ مُّؤْمِنَةٌ خَيْرٌ مِّن مُّشْرِكَةٍ (Al-Baqarah 2:221, part)">
+
+- (a) A **warning or wish**. Al-Jadwal: the start is allowed because it expresses a prayer.
+- (b) The **khabar comes first**: فِى ٱللَّهِ is the khabar and شَكٌّ the mubtadaʾ, put later. It is also a question.
+- (c) A **greeting, a prayer**: سَلَٰمٌ, “peace”.
+- (d) An **adjective** describes it: مُؤْمِنَةٌ.
+
+</Exercise>
+
+<Exercise n={6} q="Name the kind of definite mubtadaʾ. (a) مُّحَمَّدٌ رَّسُولُ ٱللَّهِ (Al-Fath 48:29, part) (b) وَٱلَّذِينَ مَعَهُۥٓ أَشِدَّآءُ (Al-Fath 48:29, part) (c) هَٰذَانِ خَصْمَانِ (Al-Hajj 22:19, part) (d) أَبْصَٰرُهَا خَٰشِعَةٌ (An-Naziat 79:9) (e) وَأَنتُم مُّسْلِمُونَ (Al-Imran 3:102, end)">
+
+- (a) A **name**: مُّحَمَّدٌ.
+- (b) A **“who” word**: ٱلَّذِينَ, with مَعَهُۥ to finish its meaning.
+- (c) A **pointing word**: هَٰذَانِ.
+- (d) The **first word of an idafah**: أَبْصَٰرُ, with the pronoun هَا.
+- (e) A **pronoun**: أَنتُم.
+
+</Exercise>
+
+<Exercise n={7} q="What does each khabar tell you? (a) وَٱللَّهُ ٱلْغَنِىُّ (Muhammad 47:38, part) (b) ٱلرَّجُلُ غَنِيٌّ (made-up example)">
+
+- (a) The khabar is definite. It says exactly who: “Allah is the Rich One.”
+- (b) The khabar is indefinite. It says what kind: “The man is rich.”
+
+</Exercise>
+
+<Exercise n={8} q="Write each made-up sentence in Arabic. Choose the order. (a) “The book is on the desk.” ٱلْكِتَابُ and عَلَى ٱلْمَكْتَبِ (b) “A book is on the desk.” كِتَابٌ and عَلَى ٱلْمَكْتَبِ">
+
+- (a) ٱلْكِتَابُ عَلَى ٱلْمَكْتَبِ. The mubtadaʾ is definite, so it can come first.
+- (b) عَلَى ٱلْمَكْتَبِ كِتَابٌ. The mubtadaʾ is indefinite and the khabar is a phrase, so the khabar must come first.
+
+</Exercise>
+</Block>
+
+<Block id="practice-3" title="Practice: long khabars">
+  <Stage label="Five kinds of khabar">
+    <ol class="lx-card-list">
+      <li><b>Single</b> (مُفْرَد)</li>
+      <li><b>A phrase</b> with a little word</li>
+      <li><b>A place or time word</b></li>
+      <li><b>A verbal sentence</b></li>
+      <li><b>A nominal sentence</b></li>
+    </ol>
+  </Stage>
+
+<Exercise n={9} q="What kind of khabar does each one have? (a) وَلِلَّهِ مَا فِى ٱلسَّمَٰوَٰتِ (Al-Imran 3:109, start) (b) وَٱللَّهُ يَعْلَمُ (Al-Baqarah 2:216, end) (c) وَٱلْمُؤْمِنُونَ وَٱلْمُؤْمِنَٰتُ بَعْضُهُمْ أَوْلِيَآءُ بَعْضٍ (At-Tawbah 9:71, start) (d) أَءِلَٰهٌ مَّعَ ٱللَّهِ (An-Naml 27:60, part) (e) إِنَّمَا ٱلْمُؤْمِنُونَ إِخْوَةٌ (Al-Hujurat 49:10, part)">
+
+- (a) **A phrase**: وَلِلَّهِ, put first.
+- (b) **A verbal sentence**: يَعْلَمُ, with a hidden “he”.
+- (c) **A nominal sentence**: بَعْضُهُمْ أَوْلِيَآءُ بَعْضٍ.
+- (d) **A place word**: مَعَ ٱللَّهِ.
+- (e) **Single**: إِخْوَةٌ, a plural noun. إِنَّمَا means “only” and does not change the endings here (al-Jadwal calls it *kāffa*, “holding back”). L2.10 teaches *inna*.
+
+</Exercise>
+
+<Exercise n={10} q="Find the link word that ties the khabar back to the mubtadaʾ. (a) فَٱلَّذِينَ كَفَرُوا۟ قُطِّعَتْ لَهُمْ ثِيَابٌ مِّن نَّارٍ (Al-Hajj 22:19, part) (b) وَٱلْمُؤْمِنُونَ وَٱلْمُؤْمِنَٰتُ بَعْضُهُمْ أَوْلِيَآءُ بَعْضٍ (At-Tawbah 9:71, start) (c) قُلُوبٌ يَوْمَئِذٍ وَاجِفَةٌ (An-Naziat 79:8), then أَبْصَٰرُهَا خَٰشِعَةٌ (An-Naziat 79:9)">
+
+- (a) The -هُمْ in لَهُمْ points back to ٱلَّذِينَ.
+- (b) The -هُمْ in بَعْضُهُمْ points back to the believing men and women.
+- (c) The -هَا in أَبْصَٰرُهَا points back to قُلُوبٌ.
+
+</Exercise>
+
+<Exercise n={11} q="Give the role and case of every word: فِيهَا كُتُبٌ قَيِّمَةٌ (Al-Bayyinah 98:3). Meaning: “In them are right and true books.”">
+
+- فِيهَا, “in them”: the **khabar, put first**. It is a phrase, so it has no ending of its own. It is tied to a word that is left out.
+- كُتُبٌ, “books”: the **mubtadaʾ, put later**. It is indefinite and nominative (-un), a broken plural of things. The khabar comes first because the mubtadaʾ is indefinite.
+- قَيِّمَةٌ: an **adjective** of كُتُبٌ, nominative (-un). It is feminine singular, because كُتُبٌ is a plural of things.
+
+Al-Jadwal confirms the first two roles.
+
+</Exercise>
+
+<Exercise n={12} q="Make two made-up sentences with a phrase khabar. (a) “Knowledge is in the heart.” ٱلْعِلْمُ and فِى ٱلْقَلْبِ (b) “A light is in the heart.” نُورٌ and فِى ٱلْقَلْبِ">
+
+- (a) ٱلْعِلْمُ فِى ٱلْقَلْبِ. The mubtadaʾ is definite (-u). The khabar is a phrase, and ٱلْقَلْبِ after فِى is genitive (-i).
+- (b) فِى ٱلْقَلْبِ نُورٌ. The mubtadaʾ نُورٌ is indefinite (-un), so the khabar comes first.
+
+</Exercise>
+</Block>
+
+<Block id="done" title="You have finished the lesson">
+  <Stage label="The idea">
+    <Formula
+      label="the khabar matches the mubtadaʾ"
+      items={[
+        { kind: 'm', text: 'mubtadaʾ', small: 'sets gender and number' },
+        { kind: 'k', text: 'khabar', small: 'matches it' },
+        { kind: 's', text: 'agreement', small: 'مُطَابَقَة' },
+      ]}
+    />
+  </Stage>
+
+- The khabar matches the mubtadaʾ: feminine -atun, two -āni, men -ūna, women -ātun.
+- A plural of people takes a plural khabar. A plural of things takes a feminine singular. A plain noun keeps its own gender.
+- A mubtadaʾ is usually definite: a name, a word with *al-*, a pronoun, a pointing word, a “who” word, or the first word of an idafah.
+- An indefinite mubtadaʾ needs a reason: the khabar comes first, an adjective describes it, a question comes before it, or it is a wish or prayer.
+- A definite khabar says who or what. An indefinite khabar says what kind.
+- A phrase khabar belongs to a word that is left out. A khabar that is a sentence needs a link word: a pronoun, or the same noun said again.
+
+**Next:** L2.03 teaches the verbal sentence. L2.09 applies matching to adjectives. L2.10 and L2.11 show how *inna* and *kāna* change the endings. For reference, see the [Case Endings Chart](/resources/case-endings-chart/) and the [Grammar Glossary](/resources/glossary/).
+
+<Sources
+    items={[
+      { label: 'Quran text', name: 'Tanzil (Uthmani text)', href: 'https://tanzil.net' },
+      { label: 'Word types', name: 'Quranic Arabic Corpus', href: 'https://corpus.quran.com' },
+      { label: 'Word-by-word analysis (iʿrāb) of every verse', name: 'Maḥmūd Ṣāfī, al-Jadwal fī Iʿrāb al-Qurʾān wa-Ṣarfihi wa-Bayānihi' },
+      { label: 'Where scholars differ (48:29)', name: 'al-Samīn al-Ḥalabī, al-Durr al-Maṣūn' },
+      { label: 'English under the verses', name: 'Plain-English meanings by Quran Learn, not a translation' },
+    ]}
+  />
+</Block>
+
+</Step>
