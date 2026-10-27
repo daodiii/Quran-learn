@@ -6,6 +6,8 @@ const LONG = '/hadith/24-prohibition-of-injustice/';
 const WIDTHS = [390, 768, 1440];
 
 async function scanAA(page: Page) {
+  // The cookie banner fades in; axe reads half-faded colours as low contrast.
+  await page.waitForFunction(() => document.getAnimations().every((a) => a.playState !== 'running' || a.effect?.getComputedTiming().iterations === Infinity));
   return new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa']).analyze();
 }
 
@@ -47,14 +49,18 @@ test.describe('Hadith section', () => {
     });
   }
 
-  test('on a phone each word is a stacked card, and on desktop it is a table', async ({ page }) => {
+  test('on a phone each word is a stacked card, and on desktop it is a two-column list of compact rows', async ({ page }) => {
     await page.setViewportSize({ width: 390, height: 844 });
     await page.goto(SHORT);
     expect(await page.locator('tbody tr').first().evaluate((el) => getComputedStyle(el).display)).toBe('grid');
     expect(await page.locator('thead').first().evaluate((el) => getComputedStyle(el).display)).toBe('none');
 
+    // Desktop: compact one-line rows, split into two columns so the page uses the width.
     await page.setViewportSize({ width: 1440, height: 900 });
-    expect(await page.locator('tbody tr').first().evaluate((el) => getComputedStyle(el).display)).toBe('table-row');
+    expect(await page.locator('tbody').first().evaluate((el) => getComputedStyle(el).columnCount)).toBe('2');
+    const row = page.locator('tbody tr').first();
+    expect(await row.evaluate((el) => getComputedStyle(el).gridTemplateColumns.split(' ').length)).toBe(4);
+    expect(await page.locator('article').first().evaluate((el) => el.getBoundingClientRect().width)).toBeGreaterThan(1200);
   });
 
   test('the page scrolls with the wheel over the word cards on a phone', async ({ page }) => {

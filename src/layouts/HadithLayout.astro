@@ -44,7 +44,7 @@ const fontsHref = "https://fonts.googleapis.com/css2?family=Amiri+Quran&family=A
     <noscript><link rel="stylesheet" href={fontsHref} /></noscript>
   </Fragment>
 
-  <div class="lesson-page">
+  <div class="lesson-page hadith-page">
     <div class="lesson-grid lab">
       <main class="lesson-main">
         <Breadcrumbs items={breadcrumbItems} />
@@ -89,6 +89,67 @@ const fontsHref = "https://fonts.googleapis.com/css2?family=Amiri+Quran&family=A
     color: var(--text-secondary, inherit);
   }
   .hadith-feedback a { text-decoration: underline; }
+
+
+  /*
+   * Wide screens: the shared lab layout caps the page at 80rem and the article at
+   * 85ch, which leaves both sides empty. Hadith pages let the page grow to 110rem,
+   * and from 641px the word table becomes compact rows, in two balanced columns
+   * from 1100px (Arabic | sound over meaning | why), read down the left, then the right.
+   */
+  @media (min-width: 900px) {
+    .hadith-page { max-width: 110rem; }
+    .hadith-article.lesson-article { max-inline-size: none; }
+  }
+  @media (min-width: 641px) {
+    .hadith-article :global(.lesson-content .table-wrapper) {
+      overflow: visible;
+      border: none;
+      background: none;
+      box-shadow: none;
+      margin-block: 1rem;
+    }
+    .hadith-article :global(.lesson-content table) { display: block; min-width: 0; width: 100%; background: none; }
+    .hadith-article :global(.lesson-content thead) { display: none; }
+    .hadith-article :global(.lesson-content tbody) {
+      display: block;
+    }
+    .hadith-article :global(.lesson-content tbody tr) {
+      display: grid;
+      grid-template-columns: 1.75rem 5.5rem minmax(7rem, 9.5rem) minmax(0, 1fr);
+      grid-template-areas:
+        'num ar tr why'
+        'num ar en why';
+      column-gap: 0.75rem;
+      align-items: center;
+      break-inside: avoid;
+      margin-bottom: 0.5rem;
+      padding: 0.625rem 0.875rem;
+      border: 1px solid var(--hairline);
+      border-radius: 10px;
+      background: var(--bg-cell);
+    }
+    .hadith-article :global(.lesson-content tbody td) { display: block; padding: 0; border: none; min-width: 0; }
+    .hadith-article :global(.lesson-content tbody td:nth-child(1)) {
+      grid-area: num; color: var(--gold); font-family: var(--font-mono); font-size: 0.8rem;
+    }
+    .hadith-article :global(.lesson-content tbody td:nth-child(2)) {
+      grid-area: ar; font-family: var(--font-ar, 'Amiri', serif); font-size: 1.5rem;
+      line-height: 1.7; color: var(--ink); direction: rtl; text-align: right;
+    }
+    .hadith-article :global(.lesson-content tbody td:nth-child(3)) { grid-area: tr; font-style: italic; align-self: end; }
+    .hadith-article :global(.lesson-content tbody td:nth-child(4)) {
+      grid-area: en; color: var(--ink); font-weight: 600; align-self: start;
+    }
+    .hadith-article :global(.lesson-content tbody td:nth-child(5)) {
+      grid-area: why; line-height: 1.55; font-size: 0.9rem;
+      padding-left: 0.75rem; border-left: 1px solid var(--hairline-soft);
+    }
+  }
+
+  @media (min-width: 1100px) {
+    .hadith-article :global(.lesson-content tbody) { column-count: 2; column-gap: 1.25rem; }
+  }
 
   /*
    * Phones: the word table becomes one card per word (Arabic, transliteration,
