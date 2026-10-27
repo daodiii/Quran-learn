@@ -210,6 +210,7 @@ export function validateLinks(content: string, filepath: string): ValidationIssu
 if (import.meta.url === `file://${process.argv[1]}`) {
   const lessonsDir = join(__dirname, '..', 'src', 'content', 'lessons');
   const resourcesDir = join(__dirname, '..', 'src', 'content', 'resources');
+  const hadithDir = join(__dirname, '..', 'src', 'content', 'hadith');
 
   console.log('🔗 Validating internal links...\n');
 
@@ -232,7 +233,7 @@ if (import.meta.url === `file://${process.argv[1]}`) {
     return files;
   }
 
-  const allFiles = [...findMdxFiles(lessonsDir), ...findMdxFiles(resourcesDir)];
+  const allFiles = [...findMdxFiles(lessonsDir), ...findMdxFiles(resourcesDir), ...findMdxFiles(hadithDir)];
   let totalErrors = 0;
   let totalWarnings = 0;
 

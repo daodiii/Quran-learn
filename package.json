@@ -25,6 +25,7 @@
     "validate:links": "npx tsx scripts/validate-links.ts",
     "validate:hadith": "npx tsx scripts/validate-hadith.ts",
     "test:hadith": "tsx --test scripts/validate-hadith.test.ts src/lib/hadith-ebook.test.ts",
+    "test:hadith:e2e": "playwright test tests/hadith.spec.ts --reporter=line",
     "ebook:hadith": "npm run build && tsx scripts/render-ebook-pdf.ts forty-hadith",
     "validate:progression": "npx tsx scripts/validate-progression.ts",
     "qa:report": "npx tsx scripts/generate-qa-report.ts",

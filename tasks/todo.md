@@ -69,7 +69,7 @@ block; a hadith that is split into parts gets a "The Whole Hadith" block ahead o
 
 ## Phase 5: Finish
 
-- [ ] **Task 9: Extend existing validators**
+- [x] **Task 9: Extend existing validators**
   - Acceptance: `validate:diacritics`, `validate:terminology`, `validate:links` include
     `src/content/hadith`; all pass.
   - Files: the three scripts. Scope: S
@@ -81,7 +81,7 @@ block; a hadith that is split into parts gets a "The Whole Hadith" block ahead o
   - Verify: page count; visual check of the cover, one short and one long hadith.
   - Depends on: 8. Scope: M
 
-- [ ] **Task 11: Credits and final checks**
+- [x] **Task 11: Credits and final checks**
   - Acceptance: translation edition(s) credited on the index and in the PDF;
     `npm run test:a11y` clean on the index and one hadith page; hidden-browser check at
     390 / 768 / 1440 px; no trapped scroll on mobile.
