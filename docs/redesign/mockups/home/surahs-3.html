@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Home · Surahs · 3: Start with what you recite</title>
+<link rel="stylesheet" href="home.css">
+<link rel="stylesheet" href="body.css">
+<style>
+.sec{padding-block:clamp(72px,9vw,128px)}
+.head{max-width:46em}
+.grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:16px;margin-top:clamp(32px,4vw,52px);align-items:start}
+.grp-l{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin:0 0 12px;font-size:.875rem;color:var(--muted)}
+.grp-l b{color:var(--ink);font-weight:600;font-size:1rem}
+
+/* Al-Fatiha, whole */
+.fat{border-radius:28px;padding:clamp(12px,2vw,18px);background:var(--oasis)}
+.fat .in{background:#fff;border-radius:18px;padding:clamp(18px,2.6vw,30px);box-shadow:0 24px 60px -24px oklch(30% 0.04 220 / .3),0 0 0 1px oklch(85% 0.01 220 / .6)}
+.fat .t{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-bottom:14px;border-bottom:1px solid var(--soft-2)}
+.fat .t b{font-size:1.375rem;font-weight:600;letter-spacing:-.02em}
+.fat .t small{display:block;color:var(--muted);font-size:.875rem}
+.fat .t .ar{font-size:2.2rem;color:var(--accent)}
+.ay{list-style:none;margin:0;padding:0}
+.ay>li{display:flex;flex-wrap:wrap;justify-content:flex-start;gap:4px 10px;direction:rtl;padding:12px 0;border-bottom:1px solid var(--soft-2);align-items:center}
+.ay>li:last-child{border-bottom:0}
+.w{position:relative;display:inline-flex;flex-direction:column;align-items:center;padding:2px 4px;border-radius:10px;cursor:default;transition:background-color .15s}
+.w .ar{font-size:clamp(1.45rem,1.15rem + .8vw,1.85rem);line-height:1.6}
+.end{display:inline-flex;align-items:center}
+.w small{direction:ltr;font-size:.6875rem;color:var(--muted);line-height:1.2;max-width:10.5em;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.w:hover{background:var(--soft)}
+.w.noun .ar{color:var(--noun)}.w.verb .ar{color:var(--verb)}.w.little .ar{color:var(--little)}
+.num{display:inline-grid;place-items:center;width:28px;height:28px;border-radius:50%;border:1.5px solid oklch(80% 0.06 75);color:var(--accent-2-text);font-family:'Amiri',serif;font-size:.9rem;margin-inline:2px 0}
+.fat .foot2{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding-top:14px;border-top:1px solid var(--soft-2);font-size:.875rem;color:var(--muted)}
+.fat .foot2 a,.go{font-weight:500;color:var(--accent);text-underline-offset:3px}
+.legend{display:flex;gap:14px}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.legend .noun{color:var(--noun)}.legend .verb{color:var(--verb)}.legend .little{color:var(--little)}
+
+/* the last ten */
+.ten{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+.ten button{all:unset;box-sizing:border-box;cursor:pointer;width:100%;display:flex;flex-direction:column;align-items:center;gap:2px;padding:12px 6px 10px;border-radius:16px;background:#fff;border:1px solid var(--edge);transition:transform .2s cubic-bezier(.2,.8,.2,1),border-color .2s,background-color .2s}
+.ten button:hover{transform:translateY(-2px);border-color:oklch(80% 0.02 220)}
+.ten button:focus-visible{outline:3px solid var(--focus)}
+.ten button[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
+.ten .ar{font-size:1.45rem;line-height:1.5}
+.ten small{font-size:.75rem;color:var(--muted);text-align:center;line-height:1.2}
+.ten button[aria-pressed="true"] small{color:oklch(82% 0.02 230)}
+.prev{margin-top:12px;border-radius:20px;background:var(--soft);padding:18px 20px 20px;min-height:230px}
+.prev .pt{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:6px}
+.prev .pt b{font-size:1.125rem;font-weight:600;letter-spacing:-.02em}
+.prev .pt small{color:var(--muted);font-size:.8125rem}
+.prev .ay>li{border-color:oklch(90% 0.01 220)}
+.prev .mean{margin:10px 0 14px;font-size:.9375rem}
+.pop{animation:pop .35s cubic-bezier(.2,.8,.2,1)}
+@keyframes pop{from{opacity:0;transform:translateY(5px)}}
+
+/* the rest of Juz ʿAmma */
+.rest{margin-top:clamp(36px,5vw,56px)}
+.chips{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px}
+.chips a{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 14px;border-radius:14px;background:#fff;border:1px solid var(--edge);text-decoration:none;min-height:56px;transition:background-color .2s,border-color .2s}
+.chips a:hover{background:var(--soft);border-color:oklch(80% 0.02 220)}
+.chips .en{display:flex;flex-direction:column;line-height:1.25}
+.chips .en b{font-weight:500;font-size:.9375rem}
+.chips .en small{color:var(--muted);font-size:.75rem}
+.chips .ar{font-size:1.4rem;line-height:1.4}
+
+@media (max-width:980px){.grid{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:560px){
+  .ten{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:72px;overflow-x:auto;scrollbar-width:none;margin-inline:calc(var(--gutter) * -1);padding-inline:var(--gutter)}
+  .ten::-webkit-scrollbar{display:none}
+  .fat{margin-inline:calc(var(--gutter) * -1);border-radius:24px;padding:8px}
+  .chips{grid-template-columns:1fr 1fr}
+  .chips a{flex-direction:column-reverse;align-items:flex-start;gap:0}
+  .legend{display:none}
+}
+</style>
+</head>
+<body>
+<span class="mock-tag">Surahs 3 · Start with what you recite</span>
+<main>
+<section class="sec wrap" aria-labelledby="surahs-h">
+  <div class="head"><p class="eyebrow">Read along</p><h2 class="h2" id="surahs-h">Start with the surahs you already recite.</h2>
+    <p class="lead">You say Al-Fatiha in every prayer and know the short surahs by heart. Here they are word by word, so you understand what you say. Point at any word for its meaning.</p></div>
+
+  <div class="grid">
+    <div>
+      <p class="grp-l"><b>In every prayer</b><span>7 ayahs</span></p>
+      <div class="fat"><div class="in" id="fat"></div></div>
+    </div>
+    <div>
+      <p class="grp-l"><b>The last ten surahs</b><span>Choose one</span></p>
+      <ul class="ten" id="ten"></ul>
+      <div class="prev" id="prev" aria-live="polite"></div>
+    </div>
+  </div>
+
+  <div class="rest">
+    <p class="grp-l"><b>The rest of Juz ʿAmma</b><span>Surahs 78 to 104</span></p>
+    <ul class="chips" id="rest"></ul>
+  </div>
+</section>
+</main>
+<script src="body-data.js"></script>
+<script src="surah-words.js"></script>
+<script>
+const type = (m) => /^verb/i.test(m) ? 'verb' : /^(particle|preposition|conjunction|negat|vocative|interrog|condition|emphatic|future|definite article|exception|answer|inceptive)/i.test(m) ? 'little' : 'noun';
+const rowsOf = (v) => v.g ?? v.words.map(([ar, tr, en]) => [ar, tr, '-', '', '', en]);
+const short = (en) => en.split(/[,;(]/)[0].trim();
+const toAr = (n) => String(n).replace(/\d/g, (d) => '٠١٢٣٤٥٦٧٨٩'[d]);
+const S = new Map(SURAHS_DATA.map((s) => [s[0], s]));
+function verse(v) {
+  const ws = rowsOf(v).map((r) => `<span class="w ${type(r[3])}" title="${r[1]}: ${r[5].replace(/"/g, '')}"><span class="ar">${r[0]}</span><small lang="en">${short(r[5])}</small></span>`);
+  // the ayah number stays on the line with the last word
+  ws.push(`<span class="end">${ws.pop()}<span class="num" aria-label="Ayah ${v.v}">${toAr(v.v)}</span></span>`);
+  return `<li>${ws.join('')}</li>`;
+}
+const legend = '<span class="legend" aria-hidden="true"><span class="noun"><i class="shape noun"></i>Noun</span><span class="verb"><i class="shape verb"></i>Verb</span><span class="little"><i class="shape little"></i>Particle</span></span>';
+
+document.getElementById('fat').innerHTML = `<div class="t"><div><b>Al-Fatiha</b><small>The Opening · Surah 1</small></div><span class="ar" lang="ar" dir="rtl">الفاتحة</span></div>
+  <ol class="ay" lang="ar">${SURAH_WORDS[1].verses.map(verse).join('')}</ol>
+  <div class="foot2">${legend}<a href="#">Al-Fatiha with notes →</a></div>`;
+
+const ten = SURAHS_DATA.filter((s) => s[0] >= 105);
+document.getElementById('ten').innerHTML = ten.map(([n, en, ar]) => `<li><button type="button" aria-pressed="false" data-n="${n}"><span class="ar" lang="ar" dir="rtl">${ar}</span><small>${en}</small></button></li>`).join('');
+function preview(n) {
+  document.querySelectorAll('.ten button').forEach((b) => b.setAttribute('aria-pressed', String(+b.dataset.n === n)));
+  const [, en, , ay] = S.get(n), vs = SURAH_WORDS[n].verses, show = vs.slice(0, 2);
+  document.getElementById('prev').innerHTML = `<div class="pop"><div class="pt"><b>${en}</b><small>Surah ${n} · ${ay} ayahs</small></div>
+    <ol class="ay" lang="ar">${show.map(verse).join('')}</ol>
+    <p class="mean">“${show.map((v) => v.en).join(' ')}”</p>
+    <a class="go" href="#">${vs.length > 2 ? `Read all ${ay} ayahs` : `Read ${en}`}, word by word →</a></div>`;
+}
+document.getElementById('ten').addEventListener('click', (e) => { const b = e.target.closest('button'); if (b) preview(+b.dataset.n); });
+preview(112);
+
+document.getElementById('rest').innerHTML = SURAHS_DATA.filter((s) => s[0] >= 78 && s[0] < 105).map(([n, en, ar, ay]) =>
+  `<li><a href="#"><span class="en"><b>${en}</b><small>${n} · ${ay} ayahs</small></span><span class="ar" lang="ar" dir="rtl">${ar}</span></a></li>`).join('');
+</script>
+</body></html>

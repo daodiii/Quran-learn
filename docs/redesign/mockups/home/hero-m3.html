@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Home · Product</title>
+<link rel="stylesheet" href="home.css">
+<style>
+:root{--ink:oklch(18% 0.03 240);--page:oklch(99.2% 0.003 220)}
+body{background:var(--page);color:var(--ink)}
+.mark{width:30px;height:30px}
+.hero{position:relative;text-align:center;padding:clamp(20px,4vh,48px) var(--gutter) 0;overflow:hidden}
+h1{margin:0 auto;font-weight:600;font-size:clamp(3rem,1.4rem + 4vw,5.5rem);line-height:.98;letter-spacing:-.045em;max-width:11em;text-wrap:balance}
+.lede{margin:22px auto 0;max-width:34em;font-size:clamp(1.0625rem,1rem + .4vw,1.3125rem);line-height:1.5;color:var(--muted)}
+.cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:30px}
+.btn{border-radius:999px}
+.btn.primary{background:var(--ink);border-color:var(--ink);color:#fff}
+.btn.primary:hover{background:oklch(28% 0.03 240)}
+.btn:not(.primary){border-color:oklch(85% 0.01 240);color:var(--ink)}
+.btn:not(.primary):hover{background:oklch(96% 0.006 240)}
+.fine{margin-top:12px;color:var(--muted)}
+
+/* stage behind the product: one colour field, the Oasis teal-to-amber */
+.stagebg{position:relative;margin:clamp(28px,4.5vh,48px) auto 0;max-width:1240px;border-radius:32px 32px 0 0;padding:clamp(28px,4vw,56px) clamp(16px,4vw,56px) 0;
+  background:radial-gradient(120% 100% at 0% 0%,oklch(88% 0.07 178),transparent 60%),radial-gradient(120% 100% at 100% 0%,oklch(91% 0.09 75),transparent 60%),oklch(95% 0.03 150)}
+.app{position:relative;margin:0 auto;max-width:980px;background:#fff;border-radius:18px 18px 0 0;box-shadow:0 30px 80px oklch(30% 0.04 220 / .22),0 0 0 1px oklch(85% 0.01 220 / .7);overflow:hidden;text-align:left}
+.bar{display:flex;align-items:center;gap:12px;padding:12px 18px;border-bottom:1px solid oklch(93% 0.006 220);font-size:.875rem;color:var(--muted)}
+.bar .dots{display:flex;gap:6px}.bar .dots i{width:10px;height:10px;border-radius:50%;background:oklch(90% 0.008 220)}
+.bar .url{flex:1;text-align:center}
+.lesson{display:grid;grid-template-columns:1fr 1.05fr;gap:36px;padding:26px 34px 34px}
+.steps{display:flex;gap:6px;grid-column:1 / -1}
+.steps i{flex:1;height:5px;border-radius:3px;background:oklch(92% 0.01 200)}
+.steps i.on{background:var(--accent)}.steps i.now{background:var(--accent-2)}
+.crumb{grid-column:1 / -1;margin:-18px 0 0;font-size:.875rem;color:var(--muted)}
+.lesson h2{margin:0;font-size:2.125rem;letter-spacing:-.03em;font-weight:600;line-height:1.1}
+.lesson h2 small{display:block;font-size:.875rem;font-weight:500;color:var(--accent-2-text);letter-spacing:0;margin-bottom:8px}
+.lesson p{margin:14px 0 0;line-height:1.6;color:oklch(30% 0.02 230)}
+.remember{margin-top:18px;border-radius:12px;background:oklch(95% 0.025 305);padding:14px 16px;font-size:.9375rem;line-height:1.5}
+.remember b{display:inline-flex;align-items:center;gap:6px;background:var(--lx-rem,oklch(50% 0.15 305));color:#fff;border-radius:999px;padding:2px 10px;font-size:.8125rem;font-weight:500;margin-bottom:8px}
+.panel{border-radius:16px;background:radial-gradient(80% 70% at 100% 0%,oklch(93% 0.06 200),transparent 70%),radial-gradient(70% 60% at 0% 100%,oklch(95% 0.05 80),transparent 70%),oklch(98% 0.008 200);padding:22px;display:flex;flex-direction:column;justify-content:center}
+.tiles{display:flex;direction:rtl;gap:12px;justify-content:center;background:#fff;border-radius:14px;padding:18px;box-shadow:0 1px 0 oklch(90% 0.01 220)}
+.tile{display:flex;flex-direction:column;align-items:center;gap:6px;padding:12px 14px 10px;border-radius:12px;background:oklch(95% 0.02 258);min-width:84px}
+.tile .ar{font-size:2.5rem;line-height:1.35;color:var(--noun)}
+.tile span:last-child{font-size:.9375rem;direction:ltr}
+.tile.ghost{background:none;outline:2px dashed var(--accent-2);outline-offset:-2px;color:var(--accent-2-text)}
+.tile.ghost b{font-size:2rem;font-weight:500;line-height:1.6}
+.tile.ghost span:last-child{font-size:.8125rem}
+.foot{display:flex;justify-content:space-between;align-items:center;padding:14px 34px;border-top:1px solid oklch(93% 0.006 220)}
+.foot .b{min-height:40px;padding:0 20px;border-radius:10px;display:grid;place-items:center;font-weight:500;font-size:.9375rem}
+.foot .back{border:1.5px solid var(--accent);color:var(--accent)}.foot .next{background:var(--accent);color:#fff}
+.foot span{font-size:.875rem;color:var(--muted)}
+
+/* two tools float beside the lesson */
+.float{position:absolute;background:#fff;border-radius:16px;box-shadow:0 20px 50px oklch(30% 0.04 220 / .18),0 0 0 1px oklch(88% 0.01 220 / .8);padding:16px 18px;text-align:left;width:250px}
+.float h3{margin:0 0 10px;font-size:.8125rem;font-weight:500;color:var(--muted)}
+.f1{left:clamp(-10px,1vw,20px);top:430px}
+.f2{right:clamp(-10px,1vw,20px);top:clamp(70px,10%,110px)}
+.search{display:flex;align-items:center;gap:8px;border-radius:10px;background:oklch(96% 0.006 220);padding:8px 10px;font-size:.9375rem}
+.search svg{width:16px;height:16px;color:var(--muted)}
+.hit{display:flex;align-items:center;justify-content:space-between;margin-top:10px}
+.hit .ar{font-size:2rem;line-height:1.4}
+.hit small{display:block;color:var(--muted);font-size:.8125rem}
+.hit b{font-weight:500}
+.rootline{display:flex;align-items:flex-end;gap:2px;height:46px;margin-top:8px;direction:rtl}
+.rootline i{flex:1;background:var(--accent);border-radius:1px;min-height:2px}
+.rootrow{display:flex;justify-content:space-between;align-items:baseline}
+.rootrow .ar{font-family:'Amiri',var(--font-ar);font-size:1.5rem;color:var(--accent)}
+.rootrow b{font-weight:600;font-size:1.25rem}
+.f2 p{margin:6px 0 0;font-size:.8125rem;color:var(--muted)}
+.rise{opacity:0;transform:translateY(24px);animation:rise 1s cubic-bezier(.2,.8,.2,1) forwards;animation-delay:var(--d,0s)}
+@keyframes rise{to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.rise{animation:none;opacity:1;transform:none}}
+</style></head>
+<body>
+<a class="skip" href="#main">Skip to main content</a>
+<header class="site">
+  <a class="brand" href="#"><svg class="mark" viewBox="0 0 32 32" aria-hidden="true"><rect x="1" y="1" width="30" height="30" rx="9" fill="oklch(18% 0.03 240)"/><path d="M9 19h14" stroke="#fff" stroke-width="2" stroke-linecap="round"/><circle cx="16" cy="12" r="2.6" fill="oklch(79% 0.14 72)"/><circle cx="16" cy="24.5" r="1.6" fill="#fff"/></svg>Quranic Grammar</a>
+  <nav aria-label="Primary"><a href="#">Learn</a><a href="#">Surahs</a><a href="#">Resources</a><a href="#">About</a></nav>
+  <a class="btn small primary start" href="#" style="border-radius:999px;background:var(--ink);border-color:var(--ink)">Start learning</a>
+</header>
+<main id="main">
+<section class="hero">
+  <h1 class="rise">Learn the language of the Quran.</h1>
+  <p class="lede rise" style="--d:.1s">Short, clear lessons that take you from the Arabic alphabet to reading a verse and knowing what every word does. Free, for everyone.</p>
+  <div class="cta rise" style="--d:.18s"><a class="btn primary" href="#">Start with the alphabet</a><a class="btn" href="#">I can already read Arabic</a></div>
+  <p class="fine rise" style="--d:.22s">No sign-up. No ads. Works on any phone.</p>
+
+  <div class="stagebg rise" style="--d:.3s">
+    <div class="app" data-ui aria-label="A lesson in the course: Level 2, the nominal sentence">
+      <div class="bar"><span class="dots"><i></i><i></i><i></i></span><span class="url">quranic-grammar.com/learn/level-2/nominal-sentence</span><span style="width:42px"></span></div>
+      <div class="lesson">
+        <div class="steps"><i class="on"></i><i class="on"></i><i class="now"></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <p class="crumb">Level 2 · Core grammar · Lesson 1</p>
+        <div>
+          <h2><small>Step 3 of 9</small>Arabic leaves out “is”</h2>
+          <p>English needs a small word like <i>is</i>: “The sky is blue.” Arabic does not. It puts two words side by side.</p>
+          <p>A sentence like this is called a <b>nominal sentence</b>, <span class="ar" lang="ar">جُمْلَة اِسْمِيَّة</span>.</p>
+          <div class="remember"><b>Remember</b><br>You add “is” when you say it in English. There is no Arabic word for it.</div>
+        </div>
+        <div class="panel">
+          <div class="tiles" lang="ar">
+            <div class="tile"><span class="ar">هُوَ</span><span>he</span></div>
+            <div class="tile ghost"><b dir="ltr">is</b><span>English only</span></div>
+            <div class="tile"><span class="ar">ٱلْأَوَّلُ</span><span>the First</span></div>
+          </div>
+          <p style="text-align:center;font-size:.875rem;color:var(--muted);margin:12px 0 0">Al-Hadid 57:3</p>
+        </div>
+      </div>
+      <div class="foot"><span class="b back">Back</span><span>Step 3 of 9</span><span class="b next">Next</span></div>
+    </div>
+
+    <div class="float f1 rise" style="--d:.7s" data-ui>
+      <h3>Word lookup</h3>
+      <div class="search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>mercy</div>
+      <div class="hit"><span><b>mercy</b><small>root <bdi lang="ar" dir="rtl">ر ح م</bdi> · 114 times</small></span><span class="ar" lang="ar">رَحْمَة</span></div>
+    </div>
+    <div class="float f2 rise" style="--d:.85s" data-ui>
+      <h3>One root across the Quran</h3>
+      <div class="rootrow"><b>854</b><span class="ar" lang="ar">ع ل م</span></div>
+      <div class="rootline" id="rl" aria-hidden="true"></div>
+      <p>to know · in 85 of 114 surahs</p>
+    </div>
+  </div>
+</section>
+</main>
+<script src="hero-i-data.js"></script>
+<script>
+const per=window.QURAN.roots.knowledge,max=Math.max(...per),rl=document.getElementById('rl');
+// 114 bars squeezed into a small card: group by 3 surahs
+for(let i=0;i<114;i+=3){const v=per[i]+(per[i+1]||0)+(per[i+2]||0);const b=document.createElement('i');b.style.height=Math.max(4,v/(max*1.6)*100)+'%';rl.appendChild(b)}
+</script>
+</body></html>

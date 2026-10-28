@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Home · Surahs · 2: Opening lines</title>
+<link rel="stylesheet" href="home.css">
+<link rel="stylesheet" href="body.css">
+<style>
+.sec{padding-block:clamp(72px,9vw,128px);overflow:hidden}
+.head{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:20px 64px;align-items:end}
+.head .lead{margin:0}
+.tools{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin:clamp(28px,4vw,44px) 0 20px}
+.sort{display:inline-flex;padding:4px;border-radius:999px;background:var(--soft);gap:2px}
+.sort button{all:unset;cursor:pointer;font-size:.875rem;font-weight:500;padding:9px 16px;border-radius:999px;color:var(--muted)}
+.sort button[aria-pressed="true"]{background:#fff;color:var(--ink);box-shadow:0 1px 3px oklch(30% 0.04 220 / .18)}
+.sort button:focus-visible{outline:3px solid var(--focus)}
+.arrows{display:flex;gap:8px}
+.arrows button{all:unset;cursor:pointer;width:48px;height:48px;border-radius:50%;display:grid;place-items:center;border:1.5px solid var(--edge);background:#fff;transition:background-color .2s,opacity .2s}
+.arrows button:hover{background:var(--soft)}
+.arrows button:disabled{opacity:.35;cursor:default}
+.arrows button:focus-visible{outline:3px solid var(--focus)}
+.arrows svg{width:20px;height:20px}
+
+/* the shelf runs to the right edge of the screen */
+.shelf{list-style:none;margin:0;padding:6px max(var(--gutter),calc((100vw - var(--wrap)) / 2 + var(--gutter))) 26px;display:grid;grid-auto-flow:column;grid-auto-columns:min(400px,84vw);gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:max(var(--gutter),calc((100vw - var(--wrap)) / 2 + var(--gutter)));scrollbar-width:none}
+.shelf::-webkit-scrollbar{display:none}
+.c{scroll-snap-align:start}
+.c a{position:relative;display:flex;flex-direction:column;height:100%;border-radius:24px;background:#fff;border:1px solid var(--edge);padding:20px 22px 20px;text-decoration:none;transition:transform .25s cubic-bezier(.2,.8,.2,1),box-shadow .25s}
+.c a:hover{transform:translateY(-4px);box-shadow:0 24px 46px -24px oklch(30% 0.04 220 / .4)}
+.c .top{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.c .top b{font-size:1.125rem;font-weight:600;letter-spacing:-.02em}
+.c .top b small{display:block;font-weight:400;font-size:.8125rem;color:var(--muted);letter-spacing:0}
+.c .top .ar{font-size:1.6rem;color:var(--accent)}
+.lines{flex:1;display:flex;flex-direction:column;justify-content:center;margin:18px 0;padding:22px 14px;border-radius:18px;background:var(--soft);min-height:190px}
+.il{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 14px;direction:rtl;margin:0;padding:0;list-style:none}
+.il li{display:flex;flex-direction:column;align-items:center;gap:2px;max-width:7.5em}
+.il .ar{font-size:clamp(1.9rem,1.5rem + 1vw,2.4rem);line-height:1.6}
+.il small{direction:ltr;font-size:.75rem;line-height:1.25;color:var(--muted);text-align:center}
+.il .noun .ar{color:var(--noun)}.il .verb .ar{color:var(--verb)}.il .little .ar{color:var(--little)}
+.mean{margin:14px 0 0;text-align:center;font-size:.9375rem;color:var(--text)}
+.c .foot2{display:flex;justify-content:space-between;align-items:center;font-size:.8125rem;color:var(--muted)}
+.c .go{font-weight:500;color:var(--ink)}
+.c.first a{background:var(--ink);border-color:var(--ink);color:#fff}
+.c.first .top b small,.c.first .foot2{color:oklch(80% 0.02 230)}
+.c.first .go{color:#fff}
+.c.first .top .ar{color:oklch(85% 0.09 178)}
+.c.first .lines{background:oklch(26% 0.03 240)}
+.c.first .il small,.c.first .mean{color:oklch(84% 0.02 230)}
+.c.first .il .noun .ar{color:oklch(80% 0.1 258)}.c.first .il .verb .ar{color:oklch(78% 0.13 25)}.c.first .il .little .ar{color:oklch(82% 0.1 160)}
+.legend{display:flex;gap:16px;flex-wrap:wrap;font-size:.8125rem;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.legend .noun{color:var(--noun)}.legend .verb{color:var(--verb)}.legend .little{color:var(--little)}
+.meter{height:3px;border-radius:2px;background:var(--soft-2);margin-top:4px;overflow:hidden}
+.meter i{display:block;height:100%;width:20%;background:var(--ink);border-radius:2px;transition:transform .2s linear;transform-origin:left}
+.below{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-top:18px}
+.below a{font-weight:500;color:var(--accent);text-underline-offset:3px}
+@media (max-width:860px){.head{grid-template-columns:1fr}.arrows{display:none}}
+</style>
+</head>
+<body>
+<span class="mock-tag">Surahs 2 · Opening lines</span>
+<main>
+<section class="sec" aria-labelledby="surahs-h">
+  <div class="wrap">
+    <div class="head">
+      <div><p class="eyebrow">Read along</p><h2 class="h2" id="surahs-h">The short surahs, word by word.</h2></div>
+      <p class="lead">Every surah opens with a line you may already know by heart. Here is each one, with the meaning under every word. Open any surah to read it all the same way.</p>
+    </div>
+    <div class="tools">
+      <div class="sort" role="group" aria-label="Order"><button type="button" aria-pressed="true" data-s="mushaf">In order</button><button type="button" aria-pressed="false" data-s="short">Shortest first</button><button type="button" aria-pressed="false" data-s="last">The last ten</button></div>
+      <div class="arrows"><button type="button" id="prev" aria-label="Previous surahs"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></button><button type="button" id="next" aria-label="More surahs"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></button></div>
+    </div>
+  </div>
+  <ul class="shelf" id="shelf"></ul>
+  <div class="wrap">
+    <div class="meter" aria-hidden="true"><i id="meter"></i></div>
+    <div class="below">
+      <div class="legend" aria-hidden="true"><span class="noun"><i class="shape noun"></i>Noun</span><span class="verb"><i class="shape verb"></i>Verb</span><span class="little"><i class="shape little"></i>Particle</span></div>
+      <a href="#">All 38 surahs →</a>
+    </div>
+  </div>
+</section>
+</main>
+<script src="body-data.js"></script>
+<script src="surah-words.js"></script>
+<script>
+const type = (m) => /^verb/i.test(m) ? 'verb' : /^(particle|preposition|conjunction|negat|vocative|interrog|condition|emphatic|future|definite article|exception|answer|inceptive)/i.test(m) ? 'little' : 'noun';
+const rowsOf = (v) => v.g ?? v.words.map(([ar, tr, en]) => [ar, tr, '-', '', '', en]);
+const short = (en) => en.split(/[,;(]/)[0].trim();
+// Al-Fatiha opens with the basmala; its card shows ayah 2, the line every prayer begins with after it.
+const open = (n) => SURAH_WORDS[n].verses[n === 1 && SURAH_WORDS[1].verses[1] ? 1 : 0];
+const shelf = document.getElementById('shelf');
+function draw(order) {
+  let s = [...SURAHS_DATA];
+  if (order === 'short') s.sort((a, b) => a[3] - b[3] || a[0] - b[0]);
+  if (order === 'last') s = s.filter((x) => x[0] >= 105);
+  shelf.innerHTML = s.map(([n, en, ar, ay]) => {
+    const v = open(n), rows = rowsOf(v).slice(0, 7), cut = rowsOf(v).length > 7;
+    return `<li class="c${n === 1 ? ' first' : ''}"><a href="#">
+      <span class="top"><b>${en}<small>Surah ${n} · ${ay} ayahs</small></b><span class="ar" lang="ar" dir="rtl">${ar}</span></span>
+      <span class="lines"><ul class="il" lang="ar">${rows.map((r) => `<li class="${type(r[3])}"><span class="ar">${r[0]}</span><small lang="en">${short(r[5])}</small></li>`).join('')}${cut ? '<li><span class="ar">…</span></li>' : ''}</ul>
+      <span class="mean">“${v.en}” <small>(${n}:${v.v})</small></span></span>
+      <span class="foot2"><span>${SURAH_WORDS[n].verses.reduce((t, x) => t + rowsOf(x).length, 0)} words, each explained</span><span class="go">Read →</span></span></a></li>`;
+  }).join('');
+  shelf.scrollLeft = 0; meter();
+}
+document.querySelectorAll('.sort button').forEach((b) => b.addEventListener('click', () => {
+  document.querySelectorAll('.sort button').forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+  draw(b.dataset.s);
+}));
+const step = () => shelf.querySelector('.c').offsetWidth + 16;
+document.getElementById('prev').addEventListener('click', () => shelf.scrollBy({ left: -step() * 2, behavior: 'smooth' }));
+document.getElementById('next').addEventListener('click', () => shelf.scrollBy({ left: step() * 2, behavior: 'smooth' }));
+function meter() {
+  const max = shelf.scrollWidth - shelf.clientWidth, p = max > 0 ? shelf.scrollLeft / max : 0, w = Math.max(.08, shelf.clientWidth / shelf.scrollWidth);
+  const m = document.getElementById('meter'); m.style.width = `${w * 100}%`; m.style.transform = `translateX(${p * (1 / w - 1) * 100}%)`;
+  document.getElementById('prev').disabled = shelf.scrollLeft < 4; document.getElementById('next').disabled = shelf.scrollLeft > max - 4;
+}
+shelf.addEventListener('scroll', meter, { passive: true }); addEventListener('resize', meter);
+draw('mushaf');
+</script>
+</body></html>

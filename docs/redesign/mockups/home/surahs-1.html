@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Home · Surahs · 1: The reader</title>
+<link rel="stylesheet" href="home.css">
+<link rel="stylesheet" href="body.css">
+<style>
+.sec{padding-block:clamp(72px,9vw,128px)}
+.head{display:flex;justify-content:space-between;align-items:end;gap:20px 64px;flex-wrap:wrap;margin-bottom:clamp(28px,4vw,44px)}
+.head .lead{margin:0}
+.stage{border-radius:32px;padding:clamp(12px,3vw,40px);background:var(--oasis)}
+.win{background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 30px 80px -24px oklch(30% 0.04 220 / .35),0 0 0 1px oklch(85% 0.01 220 / .7)}
+.bar{display:flex;align-items:center;gap:12px;padding:12px 18px;border-bottom:1px solid var(--soft-2);font-size:.875rem;color:var(--muted)}
+.bar .dots{display:flex;gap:6px}.bar .dots i{width:10px;height:10px;border-radius:50%;background:var(--soft-2)}
+.bar .url{flex:1;text-align:center}
+.body{display:grid;grid-template-columns:270px minmax(0,1fr);min-height:600px}
+
+/* surah list */
+.side{border-right:1px solid var(--soft-2);background:var(--soft);display:flex;flex-direction:column;min-height:0}
+.side label{display:block;padding:14px 14px 0}
+.side input{width:100%;min-height:44px;padding:0 14px;border-radius:12px;border:1.5px solid var(--edge);background:#fff;font:inherit;font-size:.9375rem}
+.side input:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 4px var(--teal-tint)}
+.list{list-style:none;margin:10px 0 0;padding:0 8px 12px;overflow:auto;flex:1;max-height:560px}
+.list button{all:unset;box-sizing:border-box;cursor:pointer;width:100%;display:grid;grid-template-columns:30px 1fr auto;align-items:center;gap:8px;padding:9px 10px;border-radius:12px}
+.list button:hover{background:#fff}
+.list button[aria-current="true"]{background:#fff;box-shadow:0 0 0 1px var(--edge),0 4px 14px -6px oklch(30% 0.04 220 / .2)}
+.list button:focus-visible{outline:3px solid var(--focus)}
+.list .n{font-size:.75rem;color:var(--muted);font-variant-numeric:tabular-nums}
+.list .en{font-size:.9375rem;font-weight:500;line-height:1.2}
+.list .en small{display:block;font-weight:400;font-size:.75rem;color:var(--muted)}
+.list .ar{font-size:1.25rem}
+
+/* reading pane */
+.main{display:grid;grid-template-columns:minmax(0,1fr) 300px;min-width:0}
+.read{padding:28px clamp(18px,3vw,40px) 32px;min-width:0}
+.title{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-bottom:18px;border-bottom:1px solid var(--soft-2);margin-bottom:8px}
+.title .ar{font-size:2.4rem;line-height:1.3}
+.title b{display:block;font-size:1.25rem;font-weight:600;letter-spacing:-.02em}
+.title small{color:var(--muted);font-size:.875rem}
+.hint{font-size:.875rem;color:var(--muted);margin:10px 0 0}
+.verse{padding:16px 0;border-bottom:1px solid var(--soft-2)}
+.words{display:flex;flex-wrap:wrap;gap:6px 4px;direction:rtl;align-items:center}
+.wd{all:unset;cursor:pointer;display:flex;flex-direction:column;align-items:center;padding:4px 8px 6px;border-radius:12px;transition:background-color .15s}
+.wd .ar{font-size:clamp(1.7rem,1.3rem + 1vw,2.2rem);line-height:1.6}
+.wd small{direction:ltr;font-size:.75rem;color:var(--muted);max-width:9em;text-align:center;line-height:1.25;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.wd:hover{background:var(--soft)}
+.wd:focus-visible{outline:3px solid var(--focus)}
+.wd[aria-pressed="true"].noun{background:var(--noun-tint)}.wd[aria-pressed="true"].noun .ar{color:var(--noun)}
+.wd[aria-pressed="true"].verb{background:var(--verb-tint)}.wd[aria-pressed="true"].verb .ar{color:var(--verb)}
+.wd[aria-pressed="true"].little{background:var(--teal-tint)}.wd[aria-pressed="true"].little .ar{color:var(--little)}
+.num{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:50%;border:1.5px solid oklch(80% 0.06 75);color:var(--accent-2-text);font-family:'Amiri',serif;font-size:.95rem;margin:0 6px}
+.end{display:inline-flex;align-items:center}
+.tr{margin:6px 0 0;color:var(--muted);font-size:.9375rem}
+.more{display:inline-flex;margin-top:18px;font-weight:500;color:var(--accent);text-underline-offset:3px}
+
+/* word card */
+.card{border-left:1px solid var(--soft-2);padding:28px 22px;background:linear-gradient(var(--page),#fff)}
+.card .in{position:sticky;top:20px}
+.card .big{font-size:3.2rem;line-height:1.5;text-align:center;direction:rtl}
+.card .tl{text-align:center;color:var(--muted);margin:0}
+.card .mn{text-align:center;font-size:1.25rem;font-weight:600;letter-spacing:-.02em;margin:4px 0 18px}
+.card dl{margin:0;display:grid;gap:12px}
+.card dt{font-size:.75rem;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+.card dd{margin:2px 0 0;font-size:.9375rem;line-height:1.45}
+.tag{display:inline-flex;align-items:center;gap:7px;font-weight:600}
+.tag.noun{color:var(--noun)}.tag.verb{color:var(--verb)}.tag.little{color:var(--little)}
+.card .rt{font-family:'Amiri',serif;font-size:1.25rem}
+.pop{animation:pop .3s cubic-bezier(.2,.8,.2,1)}
+@keyframes pop{from{opacity:0;transform:translateY(4px)}}
+.legend{display:flex;gap:16px;flex-wrap:wrap;margin-top:22px;padding-top:16px;border-top:1px solid var(--soft-2);font-size:.8125rem;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.legend .noun{color:var(--noun)}.legend .verb{color:var(--verb)}.legend .little{color:var(--little)}
+
+@media (max-width:1080px){.main{grid-template-columns:minmax(0,1fr)}.card{border-left:0;border-top:1px solid var(--soft-2)}}
+@media (max-width:760px){
+  .body{grid-template-columns:minmax(0,1fr)}
+  .side{min-width:0}
+  .side{border-right:0;border-bottom:1px solid var(--soft-2)}
+  .list{display:flex;gap:6px;overflow-x:auto;max-height:none;padding:10px 12px 12px;scrollbar-width:none}
+  .list::-webkit-scrollbar{display:none}
+  .list li{flex:none}
+  .list button{grid-template-columns:auto auto;padding:8px 12px;background:#fff;box-shadow:0 0 0 1px var(--edge);border-radius:999px}
+  .list .n{display:none}.list .en small{display:none}
+  .list button[aria-current="true"]{background:var(--ink);color:#fff;box-shadow:none}
+  .card{position:sticky;bottom:0;padding:14px 16px;box-shadow:0 -12px 30px -18px oklch(30% 0.04 220 / .4);background:#fff}
+  .card .in{display:grid;grid-template-columns:auto 1fr;gap:4px 16px;align-items:center}
+  .card .big{font-size:2.2rem;grid-row:span 2}
+  .card .tl,.card .mn{text-align:left;margin:0}
+  .card .mn{font-size:1.0625rem}
+  .card dl{grid-column:1/-1;grid-template-columns:1fr 1fr;gap:8px 12px;margin-top:8px}
+  .card dd{font-size:.875rem}
+  .card .form,.legend{display:none}
+  .stage{margin-inline:calc(var(--gutter) * -1);border-radius:24px;padding:10px}
+  .bar .dots{display:none}
+}
+</style>
+</head>
+<body>
+<span class="mock-tag">Surahs 1 · The reader</span>
+<main>
+<section class="sec wrap" aria-labelledby="surahs-h">
+  <div class="head">
+    <div><p class="eyebrow">Read along</p><h2 class="h2" id="surahs-h">The short surahs,<br>word by word.</h2></div>
+    <p class="lead">Al-Fatiha and every surah of Juz ʿAmma. Tap any word to see what it means, where it comes from and what it does in the verse.</p>
+  </div>
+  <div class="stage">
+    <div class="win">
+      <div class="bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="url" id="url"></span></div>
+      <div class="body">
+        <div class="side">
+          <label class="vh" for="q">Find a surah</label>
+          <label><input id="q" type="search" placeholder="Find a surah" autocomplete="off"></label>
+          <ul class="list" id="list"></ul>
+        </div>
+        <div class="main">
+          <div class="read" id="read"></div>
+          <aside class="card" aria-live="polite"><div class="in" id="card"></div></aside>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+<script src="body-data.js"></script>
+<script src="surah-words.js"></script>
+<script>
+const SHOW = 5;
+const type = (m) => /^verb/i.test(m) ? 'verb' : /^(particle|preposition|conjunction|negat|vocative|interrog|condition|emphatic|future|definite article|exception|answer|inceptive)/i.test(m) ? 'little' : 'noun';
+const typeName = { noun: 'Noun', verb: 'Verb', little: 'Particle' };
+const shape = (t) => `<i class="shape ${t === 'little' ? 'little' : t}"></i>`;
+const short = (en) => en.split(/[,;(]/)[0].trim();
+const slug = (s) => s[4].replace(/^\d+-/, '');
+let cur = 112, sel = [0, 0];
+
+const list = document.getElementById('list');
+function drawList(v = '') {
+  const q = v.toLowerCase().replace(/[^a-z0-9]/g, '');
+  list.innerHTML = SURAHS_DATA.filter(([n, en]) => !q || String(n).startsWith(q) || en.toLowerCase().replace(/[^a-z0-9]/g, '').includes(q))
+    .map(([n, en, ar, ay]) => `<li><button type="button" data-n="${n}" aria-current="${n === cur}"><span class="n">${n}</span><span class="en">${en}<small>${ay} ayahs</small></span><span class="ar" lang="ar" dir="rtl">${ar}</span></button></li>`).join('');
+}
+list.addEventListener('click', (e) => { const b = e.target.closest('button'); if (b) open(+b.dataset.n); });
+document.getElementById('q').addEventListener('input', (e) => drawList(e.target.value));
+
+const toAr = (n) => String(n).replace(/\d/g, (d) => '٠١٢٣٤٥٦٧٨٩'[d]);
+function rowsOf(v) { return v.g ?? v.words.map(([ar, tr, en]) => [ar, tr, '-', '', '', en]); }
+function open(n) {
+  cur = n; sel = [0, 0];
+  const s = SURAHS_DATA.find((x) => x[0] === n), d = SURAH_WORDS[n];
+  document.getElementById('url').textContent = `quranic-grammar.com/surahs/${slug(s)}`;
+  const vs = d.verses.slice(0, SHOW);
+  document.getElementById('read').innerHTML = `<div class="title"><div><b>${s[1]}</b><small>Surah ${n} · ${s[3]} ayahs</small></div><span class="ar" lang="ar" dir="rtl">${s[2]}</span></div>
+    <p class="hint">Tap a word.</p>` +
+    vs.map((v, i) => {
+      const ws = rowsOf(v).map((r, k) => `<button class="wd ${type(r[3])}" type="button" aria-pressed="false" data-v="${i}" data-k="${k}"><span class="ar">${r[0]}</span><small lang="en">${short(r[5])}</small></button>`);
+      // the ayah number stays on the line with the last word
+      ws.push(`<span class="end">${ws.pop()}<span class="num" aria-label="Ayah ${v.v}">${toAr(v.v)}</span></span>`);
+      return `<div class="verse"><div class="words" lang="ar">${ws.join('')}</div><p class="tr">${v.en}</p></div>`;
+    }).join('') +
+    (d.verses.length > SHOW ? `<a class="more" href="#">Read all ${s[3]} ayahs of ${s[1]} →</a>` : `<a class="more" href="#">Open ${s[1]} with notes →</a>`);
+  pick(0, 0);
+  drawList(document.getElementById('q').value);
+  // keep the chosen surah in view in the phone's chip row, without moving the page
+  const on = list.querySelector('[aria-current="true"]');
+  if (on && list.scrollWidth > list.clientWidth) list.scrollLeft = on.parentElement.offsetLeft - 12;
+}
+document.getElementById('read').addEventListener('click', (e) => { const b = e.target.closest('.wd'); if (b) pick(+b.dataset.v, +b.dataset.k); });
+function pick(i, k) {
+  sel = [i, k];
+  document.querySelectorAll('.wd').forEach((b) => b.setAttribute('aria-pressed', String(+b.dataset.v === i && +b.dataset.k === k)));
+  const r = rowsOf(SURAH_WORDS[cur].verses[i])[k], t = type(r[3]);
+  const role = (r[4] || '').split(' - ')[0];
+  document.getElementById('card').innerHTML = `<div class="big ar pop" lang="ar">${r[0]}</div><p class="tl">${r[1]}</p><p class="mn">${r[5]}</p>
+    <dl class="pop"><div><dt>Word type</dt><dd><span class="tag ${t}">${shape(t)}${typeName[t]}</span></dd></div>
+    <div><dt>Root</dt><dd>${r[2] && r[2] !== '-' ? `<span class="rt" lang="ar" dir="rtl">${r[2]}</span>` : 'None: a particle or a name'}</dd></div>
+    ${role ? `<div><dt>Its job</dt><dd>${role}</dd></div>` : ''}${r[3] ? `<div class="form"><dt>Form</dt><dd>${r[3]}</dd></div>` : ''}</dl>
+    <div class="legend" aria-hidden="true"><span class="noun">${shape('noun')}Noun</span><span class="verb">${shape('verb')}Verb</span><span class="little">${shape('little')}Particle</span></div>`;
+}
+open(112);
+</script>
+</body></html>

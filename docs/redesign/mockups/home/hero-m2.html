@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Home · Editorial (red dots)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="home.css">
+<style>
+:root{--paper:oklch(95.5% 0.022 84);--paper-2:oklch(92.5% 0.03 82);--ink:oklch(20% 0.02 60);--ink-2:oklch(40% 0.025 60);--red:oklch(55% 0.17 30);--serif:'Instrument Serif',Georgia,serif}
+body{background:var(--paper);color:var(--ink)}
+.site .brand,.site nav a{color:var(--ink)}
+.site nav a{color:var(--ink-2)}
+.site .btn.primary{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+.mark{width:30px;height:30px}
+
+.hero{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:24px;padding:clamp(12px,3vh,36px) var(--gutter) clamp(28px,5vh,56px);min-height:calc(100svh - 72px);max-width:1520px;margin:0 auto;align-items:start}
+.copy{grid-column:1 / 6;display:flex;flex-direction:column;min-height:100%}
+h1{margin:0;font-family:var(--serif);font-weight:400;font-size:clamp(3.75rem,1.8rem + 5vw,7.5rem);line-height:.92;letter-spacing:-.02em}
+h1 em{font-style:italic;color:var(--red)}
+.lede{margin:24px 0 0;font-size:clamp(1.0625rem,1rem + .35vw,1.3125rem);line-height:1.55;color:var(--ink-2);max-width:29em}
+.cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.cta .btn{border-color:var(--ink);color:var(--ink)}
+.cta .btn:hover{background:var(--paper-2)}
+.cta .btn.primary{background:var(--ink);color:var(--paper)}
+.cta .btn.primary:hover{background:oklch(30% 0.02 60)}
+.fine{margin-top:12px;color:var(--ink-2)}
+
+/* the folio, as a plate */
+.plate{grid-column:7 / 13;margin:0;position:relative}
+.frame{position:relative;background:oklch(98% 0.012 85);padding:clamp(10px,1.2vw,18px);box-shadow:0 1px 0 oklch(80% 0.03 80),0 30px 60px oklch(40% 0.05 60 / .18)}
+.frame img{display:block;width:100%;height:auto}
+.ring{position:absolute;width:44px;height:44px;margin:-22px 0 0 -22px;border-radius:50%;border:2px solid var(--red);pointer-events:none;animation:ring 2.8s ease-in-out infinite;animation-delay:var(--d)}
+@keyframes ring{0%,100%{transform:scale(.9);opacity:.9}50%{transform:scale(1.15);opacity:.5}}
+.callout{position:absolute;left:-14px;top:calc(var(--y) - 14px);translate:-100% 0;display:flex;align-items:center;gap:10px;font-size:1rem;line-height:1.35;color:var(--ink);max-width:15rem;text-align:right}
+.callout b{font-weight:500;display:block}
+.callout::after{content:"";width:34px;height:2px;background:var(--red);flex:none;order:2}
+.plate figcaption{margin-top:14px;font-family:var(--serif);font-style:italic;font-size:1.125rem;color:var(--ink-2);line-height:1.35}
+.key{display:flex!important;gap:12px;align-items:flex-start;font-family:var(--font);font-style:normal;font-size:1.0625rem!important;color:var(--ink)!important;margin:0 0 12px!important;line-height:1.45}
+.key b{font-weight:500}
+.key .dot{width:14px;height:14px;border-radius:50%;background:var(--red);flex:none;margin-top:5px}
+.plate figcaption > span:last-child{font-family:var(--font);font-style:normal;font-size:.875rem;display:block;margin-top:2px}
+
+/* letters, then marks, then meaning */
+.layers{margin-top:auto;padding-top:clamp(20px,4vh,40px)}
+.tabs{display:inline-flex;gap:4px;padding:4px;border-radius:14px;background:var(--paper-2)}
+.tabs button{min-height:44px;padding:0 16px;border-radius:11px;border:0;background:transparent;color:var(--ink-2);font:inherit;font-size:.975rem;font-weight:500;cursor:pointer;transition:background-color .25s,color .25s}
+.tabs button[aria-pressed="true"]{background:oklch(99% 0.006 85);color:var(--ink);box-shadow:inset 0 0 0 1.5px oklch(70% 0.03 70 / .45)}
+.show{margin-top:14px;min-height:10.5rem;display:flex;flex-direction:column;justify-content:center}
+.v{display:flex;direction:rtl;gap:clamp(18px,2.6vw,40px);justify-content:flex-end}
+.v .w{display:flex;flex-direction:column;align-items:center}
+.v .ar{font-size:clamp(3rem,4.4vw,4.5rem);line-height:1.45}
+.v .en{font-family:var(--serif);font-size:1.5rem;line-height:1.1;direction:ltr;white-space:nowrap;opacity:0;transform:translateY(6px);transition:opacity .4s ease,transform .5s cubic-bezier(.2,.8,.2,1)}
+.v .ty{font-size:.875rem;font-weight:500;direction:ltr;white-space:nowrap;display:inline-flex;gap:6px;align-items:center;opacity:0;transition:opacity .4s ease .1s}
+.show[data-s="3"] .en,.show[data-s="3"] .ty{opacity:1;transform:none}
+.show[data-s="3"] .noun{color:var(--noun)}.show[data-s="3"] .verb{color:var(--verb)}
+.note{margin:8px 0 0;font-size:1rem;color:var(--ink-2);min-height:3em;max-width:32em}
+.fade{animation:fade .5s ease}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+@media (prefers-reduced-motion:reduce){.ring{animation:none}}
+</style></head>
+<body>
+<a class="skip" href="#main">Skip to main content</a>
+<header class="site">
+  <a class="brand" href="#"><svg class="mark" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="14.5" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="16" cy="12" r="3" fill="oklch(55% 0.17 30)"/><path d="M9 21h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Quranic Grammar</a>
+  <nav aria-label="Primary"><a href="#">Learn</a><a href="#">Surahs</a><a href="#">Resources</a><a href="#">About</a></nav>
+  <a class="btn small primary start" href="#">Start learning</a>
+</header>
+<main id="main">
+<section class="hero">
+  <div class="copy">
+    <h1>Every mark is a <em>lesson.</em></h1>
+    <p class="lede">More than a thousand years ago, scribes put red dots on the Quran so readers could say each word right. We add the next layer: what each word means, and why it is written that way. Free, from the first letter.</p>
+    <div class="cta"><a class="btn primary" href="#">Start with the alphabet</a><a class="btn" href="#">I can already read Arabic</a></div>
+    <p class="fine">Free. No sign-up. No ads.</p>
+
+    <div class="layers">
+      <div class="tabs" role="group" aria-label="See the dua in three layers" id="tabs">
+        <button type="button" data-s="1" aria-pressed="false">Letters</button>
+        <button type="button" data-s="2" aria-pressed="false">Marks</button>
+        <button type="button" data-s="3" aria-pressed="true">Meaning</button>
+      </div>
+      <div class="show" id="show" data-s="3" aria-live="polite">
+        <div class="v" lang="ar" id="v"></div>
+        <p class="note" id="note"></p>
+      </div>
+    </div>
+  </div>
+
+  <figure class="plate">
+    <div class="frame" id="frame">
+      <img src="assets/red-dots-folio-2000.jpg" alt="A page of an early Quran in brown Kufic script on parchment, with small red dots above and below the letters" width="2000" height="1392">
+      <span class="ring" style="left:37.1%;top:9.2%;--d:0s"></span>
+      <span class="ring" style="left:61.9%;top:37.2%;--d:.6s"></span>
+      <span class="ring" style="left:42.9%;top:66.8%;--d:1.2s"></span>
+    </div>
+        <figcaption><span class="key"><i class="dot"></i><span><b>The red dots are vowels.</b> A dot above the letter is <i>a</i>, below it <i>i</i>, beside it <i>u</i>.</span></span>A page of the Quran in Kufic script, 8th–9th century.<span>Public domain, via Wikimedia Commons.</span></figcaption>
+  </figure>
+</section>
+</main>
+<script>
+const S={
+ 1:{w:[['رب'],['زدنى'],['علما']],n:'Letters only. This is how the earliest copies looked: the reader had to know the sounds by heart.'},
+ 2:{w:[['رَبِّ'],['زِدْنِى'],['عِلْمًا']],n:'With vowel marks, the way you see it in a mushaf today. Now anyone can say it right.'},
+ 3:{w:[['<span class="noun">رَبِّ</span>','my Lord','noun','Noun'],['<span class="verb">زِدْ</span><span class="noun">نِى</span>','increase me','verb','Verb + “me”'],['<span class="noun">عِلْمًا</span>','in knowledge','noun','Noun']],n:'“My Lord, increase me in knowledge.” Taha 20:114. This is the layer the lessons teach.'}
+};
+const v=document.getElementById('v'),show=document.getElementById('show'),note=document.getElementById('note'),tabs=[...document.querySelectorAll('#tabs button')];
+function step(s){
+  show.dataset.s=s;tabs.forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.s==s)));
+  v.innerHTML=S[s].w.map(w=>`<div class="w"><span class="ar">${w[0]}</span><span class="en">${w[1]||'&nbsp;'}</span><span class="ty ${w[2]||''}">${w[3]?'<i class="shape"></i>'+w[3]:'&nbsp;'}</span></div>`).join('');
+  note.textContent=S[s].n;v.classList.remove('fade');v.offsetWidth;v.classList.add('fade');
+  if(s==3)requestAnimationFrame(()=>show.dataset.s=3);
+}
+let t=null;tabs.forEach(b=>b.addEventListener('click',()=>{clearTimeout(t);step(+b.dataset.s)}));
+if(matchMedia('(prefers-reduced-motion: reduce)').matches)step(3);
+else{step(1);t=setTimeout(()=>{step(2);t=setTimeout(()=>step(3),2200)},2000)}
+</script>
+</body></html>

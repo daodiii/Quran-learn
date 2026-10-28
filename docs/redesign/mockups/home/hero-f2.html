@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Home hero F2 · Lamp</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="home.css">
+<style>
+:root{
+  --night:oklch(16.5% 0.032 254);
+  --night-ink:oklch(94.5% 0.012 85);
+  --night-soft:oklch(74% 0.025 240);
+  --day:oklch(98.8% 0.007 88);
+  --sun:oklch(79% 0.14 72);
+  --serif:'Instrument Serif','Iowan Old Style',Georgia,serif;
+}
+body{background:var(--night)}
+.mark{width:30px;height:30px;display:block}
+
+.stage{--cx:50%;--cy:55%;--r:0px;position:relative;height:100svh;min-height:720px;max-height:1000px;overflow:hidden;isolation:isolate}
+.layer{position:absolute;inset:0;display:grid;grid-template-rows:auto auto 1fr auto;justify-items:center;padding:0 var(--gutter) clamp(24px,4vh,44px)}
+.dark{background:var(--night);color:var(--night-ink);background-image:radial-gradient(60% 50% at 50% 60%, oklch(21% 0.04 254), transparent 75%)}
+.light{background:var(--day);color:var(--text);pointer-events:none;
+  -webkit-mask-image:radial-gradient(circle at var(--cx) var(--cy), #000 calc(var(--r) * .78), transparent var(--r));
+          mask-image:radial-gradient(circle at var(--cx) var(--cy), #000 calc(var(--r) * .78), transparent var(--r))}
+.halo{position:absolute;inset:0;pointer-events:none;z-index:0;
+  background:radial-gradient(circle at var(--cx) var(--cy), transparent calc(var(--r) * .7), oklch(79% 0.14 72 / .28) calc(var(--r) * .95), transparent calc(var(--r) * 1.35))}
+.layer.light{z-index:1}
+
+.site{width:100%;padding-inline:0;height:72px;grid-row:1}
+.dark .site .brand{color:var(--night-ink)}
+.dark .site nav a{color:var(--night-soft)}
+.dark .site nav a:hover{color:var(--night-ink)}
+.dark .site .btn.primary{background:var(--night-ink);border-color:var(--night-ink);color:var(--night)}
+.dark .mark circle{stroke:var(--night-ink)}
+
+.claim{grid-row:2;text-align:center;padding-top:clamp(12px,3vh,36px)}
+.h1x{margin:0;font-family:var(--serif);font-weight:400;font-size:clamp(3rem,1.4rem + 4.2vw,6.25rem);line-height:.96;letter-spacing:-.015em;text-wrap:balance;max-width:12em}
+.subx{margin:16px auto 0;font-size:clamp(1.0625rem,1rem + .3vw,1.25rem);line-height:1.5;max-width:30em;text-wrap:balance}
+.dark .subx{color:var(--night-soft)}
+.light .subx{color:var(--muted)}
+
+.verse{grid-row:3;align-self:center;display:flex;justify-content:center;align-items:flex-start;gap:clamp(40px,7vw,130px)}
+.w{display:flex;flex-direction:column;align-items:center;background:none;border:0;padding:0;margin:0;color:inherit;font:inherit;cursor:pointer;border-radius:20px}
+.w:focus-visible{outline:3px solid var(--sun);outline-offset:10px}
+.word{font-family:var(--font-ar);font-size:clamp(5.5rem,11vw,11rem);line-height:1.36;white-space:nowrap}
+.light .noun{color:var(--noun)}.light .verb{color:var(--verb)}
+.ann{display:flex;flex-direction:column;align-items:center;gap:6px;min-height:5.6rem;margin-top:clamp(10px,1.4vw,22px)}
+.m{font-family:var(--serif);font-size:clamp(1.625rem,1.2rem + 1vw,2.375rem);line-height:1.1;white-space:nowrap}
+.dark .m{font-style:italic;color:var(--night-soft)}
+.t{display:inline-flex;align-items:center;gap:8px;font-size:.9375rem;font-weight:500;white-space:nowrap}
+.t.noun{color:var(--noun)}.t.verb{color:var(--verb)}
+.root{font-family:'Amiri',var(--font-ar);font-size:1.375rem;line-height:1;color:var(--accent);height:1.5em;display:flex;gap:8px;align-items:baseline}
+.root small{font-family:var(--font);font-size:.8125rem;font-weight:500}
+.dark .root{visibility:hidden}
+
+.foot{grid-row:4;display:flex;flex-direction:column;align-items:center;gap:14px}
+.line{margin:0;font-family:var(--serif);font-size:clamp(1.375rem,1.1rem + .8vw,2rem);line-height:1.2;text-align:center}
+.dark .line{color:var(--night-soft);font-style:italic}
+.cta{display:flex;align-items:center;gap:12px;flex-wrap:wrap;justify-content:center}
+.dark .btn{border-color:oklch(80% 0.02 240 / .55);color:var(--night-ink)}
+.dark .btn:hover{background:oklch(26% 0.04 254)}
+.dark .btn.primary{background:var(--night-ink);border-color:var(--night-ink);color:var(--night)}
+.lamp-btn{display:inline-flex;align-items:center;gap:10px;min-height:52px;padding:.6em 1.3em;border-radius:var(--r-btn);border:0;background:var(--sun);color:var(--night);font:inherit;font-weight:500;font-size:1.0625rem;cursor:pointer;transition:transform .16s ease,background-color .2s}
+.lamp-btn:hover{background:oklch(83% 0.13 74)}
+.lamp-btn:active{transform:scale(.98)}
+.lamp-btn svg{width:20px;height:20px}
+.fine{color:var(--night-soft)}
+.light .fine{color:var(--muted)}
+
+
+/* everything appears quickly; the lamp does the storytelling */
+.js .dark .claim > *,.js .dark .w,.js .dark .foot > *{opacity:0;transform:translateY(14px)}
+.ready .dark .claim > *,.ready .dark .w,.ready .dark .foot > *{opacity:1;transform:none;transition:opacity .7s ease,transform .8s cubic-bezier(.2,.8,.2,1)}
+.ready .dark .w:nth-child(2){transition-delay:.08s}.ready .dark .w:nth-child(3){transition-delay:.16s}
+.ready .dark .foot > *{transition-delay:.25s}
+@media (prefers-reduced-motion:reduce){.js .dark .claim > *,.js .dark .w,.js .dark .foot > *{opacity:1;transform:none}}
+</style>
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to main content</a>
+<main id="main">
+<section class="stage" id="stage" aria-label="Introduction">
+  <!-- the dark, recited layer is the real content; the lit layer is cloned from it -->
+  <div class="layer dark" id="dark">
+    <header class="site">
+      <a class="brand" href="#"><svg class="mark" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="15" fill="oklch(98.7% 0.005 90)" stroke="oklch(22% 0.035 230)" stroke-width="1.5"/><path d="M16 1a15 15 0 0 0 0 30z" fill="oklch(17.5% 0.034 254)"/><rect x="15.2" y="1" width="1.6" height="30" fill="oklch(79% 0.14 72)"/></svg>Quranic Grammar</a>
+      <nav aria-label="Primary"><a href="#">Learn</a><a href="#">Surahs</a><a href="#">Resources</a><a href="#">About</a></nav>
+      <a class="btn small primary start" href="#">Start learning</a>
+    </header>
+    <div class="claim">
+      <h1 class="h1x">Understand the Holy Quran for Free.</h1>
+      <p class="subx">Lessons in Quranic Arabic, word by word, starting from the alphabet.</p>
+    </div>
+    <div class="verse" dir="rtl" lang="ar" role="group" aria-label="The dua “My Lord, increase me in knowledge”. Choose a word to light it.">
+      <button class="w" type="button" data-i="0" aria-label="rabbi: my Lord. Noun, the one called on.">
+        <span class="root" aria-hidden="true" data-light='<span lang="ar">ر ب ب</span><small dir="ltr">root</small>'></span>
+        <span class="word noun">رَبِّ</span>
+        <span class="ann" dir="ltr" lang="en" aria-hidden="true" data-light='<span class="m">my Lord</span><span class="t noun"><i class="shape"></i>Noun · the one called on</span>'><span class="m">rab·bi</span></span>
+      </button>
+      <button class="w" type="button" data-i="1" aria-label="zidnī: increase me. A verb, a command, with the pronoun me.">
+        <span class="root" aria-hidden="true" data-light='<span lang="ar">ز ي د</span><small dir="ltr">root</small>'></span>
+        <span class="word"><span class="verb">زِدْ</span><span class="noun">نِى</span></span>
+        <span class="ann" dir="ltr" lang="en" aria-hidden="true" data-light='<span class="m">increase me</span><span class="t verb"><i class="shape"></i>Verb, a command · + “me”</span>'><span class="m">zid·nī</span></span>
+      </button>
+      <button class="w" type="button" data-i="2" aria-label="ʿilman: knowledge. Noun, ending in -an.">
+        <span class="root" aria-hidden="true" data-light='<span lang="ar">ع ل م</span><small dir="ltr">root</small>'></span>
+        <span class="word noun">عِلْمًا</span>
+        <span class="ann" dir="ltr" lang="en" aria-hidden="true" data-light='<span class="m">in knowledge</span><span class="t noun"><i class="shape"></i>Noun · ends in -an</span>'><span class="m">ʿil·mā</span></span>
+      </button>
+    </div>
+    <div class="foot">
+      <p class="line" data-light='“My Lord, increase me in knowledge.” <span style="font-family:var(--font);font-size:1rem;color:var(--muted);font-style:normal">Taha 20:114</span>'>The words you know by heart. Move the light to read them.</p>
+      <div class="cta">
+        <button class="lamp-btn" type="button" id="all" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><span>Light up the whole verse</span></button>
+        <a class="btn primary" href="#">Start with the alphabet</a>
+        <a class="btn" href="#">I can already read Arabic</a>
+      </div>
+      <p class="fine">Free. No sign-up. No ads.</p>
+    </div>
+  </div>
+  <div class="halo" aria-hidden="true"></div>
+</section>
+</main>
+
+<script src="../../../../node_modules/gsap/dist/gsap.min.js"></script>
+<script>
+const stage=document.getElementById('stage'),dark=document.getElementById('dark'),allBtn=document.getElementById('all');
+const light=dark.cloneNode(true);
+light.id='light';light.className='layer light';light.setAttribute('aria-hidden','true');light.inert=true;
+light.querySelectorAll('[data-light]').forEach(el=>{el.innerHTML=el.dataset.light});
+light.querySelector('h1').outerHTML='<p class="h1x">Understand the Holy Quran for Free.</p>';
+stage.appendChild(light);
+
+const L={cx:0,cy:0,r:0};const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+function apply(){stage.style.setProperty('--cx',L.cx+'px');stage.style.setProperty('--cy',L.cy+'px');stage.style.setProperty('--r',L.r+'px')}
+const words=[...dark.querySelectorAll('.w')];
+function spot(i){const s=stage.getBoundingClientRect(),r=words[i].getBoundingClientRect();return {cx:r.left+r.width/2-s.left,cy:r.top+r.height*.5-s.top}}
+const R=()=>Math.max(170,Math.min(250,innerWidth*.15));
+let mode='intro',full=false;
+function moveTo(i,d=.9){const p=spot(i);return gsap.to(L,{cx:p.cx,cy:p.cy,r:R(),duration:d,ease:'power3.inOut',onUpdate:apply})}
+
+function intro(){
+  stage.classList.add('ready');
+  if(reduce||!window.gsap){Object.assign(L,spot(1),{r:R()});apply();mode='free';return}
+  const s0=spot(0);Object.assign(L,s0,{r:0});apply();
+  const tl=gsap.timeline({onComplete(){mode='free'}});
+  tl.to(L,{r:R(),duration:.8,ease:'power3.out',onUpdate:apply},.7)
+    .add(()=>moveTo(1,.95),'+=.75').add(()=>moveTo(2,.95),'+=1.7').add(()=>moveTo(1,.9),'+=1.7');
+}
+// the lamp follows the pointer, gently
+const qx=gsap.quickTo(L,'cx',{duration:.45,ease:'power3.out',onUpdate:apply}),qy=gsap.quickTo(L,'cy',{duration:.45,ease:'power3.out',onUpdate:apply});
+stage.addEventListener('pointermove',e=>{
+  if(full)return;
+  if(mode==='intro'){gsap.killTweensOf(L);gsap.globalTimeline.getChildren().forEach(t=>t.kill());mode='free';gsap.to(L,{r:R(),duration:.4,onUpdate:apply})}
+  const s=stage.getBoundingClientRect();qx(e.clientX-s.left);qy(e.clientY-s.top);
+});
+words.forEach((w,i)=>{w.addEventListener('click',()=>{if(!full){mode='free';moveTo(i,.6)}});w.addEventListener('focus',()=>{if(!full){mode='free';moveTo(i,.6)}})});
+allBtn.addEventListener('click',()=>{
+  full=!full;allBtn.setAttribute('aria-pressed',String(full));
+  const label=full?'Back to the lamp':'Light up the whole verse';
+  allBtn.querySelector('span').textContent=label;light.querySelector('.lamp-btn span').textContent=label;
+  const s=stage.getBoundingClientRect();
+  if(full){gsap.to(L,{r:Math.hypot(s.width,s.height)*1.3,duration:reduce?0:1.2,ease:'power2.inOut',onUpdate:apply})}
+  else{moveTo(1,reduce?0:.9)}
+});
+addEventListener('resize',()=>{if(full){const s=stage.getBoundingClientRect();L.r=Math.hypot(s.width,s.height)*1.3;apply()}});
+document.fonts.ready.then(intro);
+</script>
+</body></html>

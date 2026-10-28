@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Home hero D · Lenses</title>
+<link rel="stylesheet" href="home.css">
+<style>
+.hero{max-width:1360px;margin:0 auto;padding:clamp(20px,4vh,48px) var(--gutter) 72px}
+.top{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(20px,4vw,72px);align-items:start}
+.side{padding-top:clamp(0px,.8vw,12px)}
+.top .h1{font-size:clamp(2rem,1.1rem + 3vw,4.25rem);max-width:12em}
+.side .cta-row{margin-top:22px}
+.side .fine{margin-top:12px}
+
+/* the field changes colour with the lens */
+.field{--ink:var(--text);--soft:var(--muted);--bgf:var(--surface);
+  margin-top:clamp(22px,4vh,40px);border-radius:32px;background:var(--bgf);color:var(--ink);
+  padding:clamp(18px,2.6vw,34px) clamp(14px,3vw,48px) clamp(22px,3vw,40px);
+  transition:background-color .6s ease,color .6s ease}
+.field[data-lens="meaning"]{--bgf:oklch(95.5% 0.045 82)}
+.field[data-lens="grammar"]{--bgf:var(--surface)}
+.field[data-lens="roots"]{--bgf:oklch(94.5% 0.04 178)}
+.field[data-lens="sound"]{--bgf:oklch(22% 0.035 230);--ink:oklch(96% 0.006 215);--soft:oklch(80% 0.025 220)}
+.field[data-lens="grammar"]{box-shadow:inset 0 0 0 1px var(--line)}
+
+.lenses{display:flex;justify-content:center}
+.seg{display:inline-flex;gap:4px;padding:4px;border-radius:14px;background:oklch(from var(--ink) l c h / .07)}
+.seg button{min-height:44px;padding:0 clamp(12px,1.6vw,22px);border:0;border-radius:11px;background:transparent;color:var(--soft);font-weight:500;font-size:1rem;cursor:pointer;transition:background-color .3s,color .3s}
+.seg button:hover{color:var(--ink)}
+.seg button[aria-pressed="true"]{background:var(--bgf);color:var(--ink);box-shadow:inset 0 0 0 1.5px oklch(from var(--ink) l c h / .18)}
+.field[data-lens="sound"] .seg button[aria-pressed="true"]{background:oklch(30% 0.035 230)}
+
+.verse{display:flex;justify-content:center;align-items:flex-start;gap:clamp(18px,5vw,84px);margin-top:clamp(12px,2vw,20px)}
+.wd{display:flex;flex-direction:column;align-items:center;min-width:0}
+.wd .ar{font-size:clamp(3.5rem,9vw,8.5rem);line-height:1.5;white-space:nowrap}
+.wd .ar span{transition:color .5s ease,opacity .5s ease}
+.ann{min-height:5.5em;display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center;font-size:1rem;color:var(--soft);animation:ann .45s cubic-bezier(.2,.8,.2,1) both}
+@keyframes ann{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.ann .big{font-size:clamp(1.25rem,1rem + 1vw,1.75rem);font-weight:500;color:var(--ink);letter-spacing:-.015em;line-height:1.2}
+.ann .rl{font-size:1.75rem;line-height:1.2;color:var(--accent)}
+.ann .tag{font-size:1rem}
+.ann .say{font-size:clamp(1.375rem,1rem + 1.2vw,2rem);color:var(--ink);letter-spacing:.01em}
+
+/* lens colouring of the letters */
+.field[data-lens="grammar"] .g-noun{color:var(--noun)}
+.field[data-lens="grammar"] .g-verb{color:var(--verb)}
+.field[data-lens="roots"] .r{color:var(--accent)}
+.field[data-lens="roots"] .x{opacity:.32}
+.caption{margin:clamp(6px,1.4vw,14px) auto 0;text-align:center;max-width:46ch;font-size:clamp(1.0625rem,1rem + .4vw,1.375rem);line-height:1.4;color:var(--ink)}
+.src{margin:10px auto 0;max-width:60ch;text-align:center;font-size:1rem;color:var(--soft)}
+@media (max-width:980px){.top{grid-template-columns:1fr;align-items:start}}
+@media (max-width:600px){.side .cta-row .btn{flex:1 1 100%}.seg button{padding:0 10px;font-size:.9375rem}.verse{gap:14px}.ann{font-size:.9375rem}.ann .big{font-size:1.0625rem}}
+</style></head>
+<body>
+<a class="skip" href="#main">Skip to main content</a>
+<header class="site">
+  <a class="brand" href="#"><img src="../../../../public/favicon.svg" alt="">Quranic Grammar</a>
+  <nav aria-label="Primary"><a href="#">Learn</a><a href="#">Surahs</a><a href="#">Resources</a><a href="#">About</a></nav>
+  <a class="btn small primary start" href="#">Start learning</a>
+</header>
+
+<main id="main">
+<section class="hero">
+  <div class="top">
+    <h1 class="h1">Understand the Holy Quran for Free.</h1>
+    <div class="side">
+      <p class="sub">Learn the grammar of Quranic Arabic word by word, starting from the alphabet.</p>
+      <div class="cta-row">
+        <a class="btn primary" href="#">Start with the alphabet</a>
+        <a class="btn" href="#">I can already read Arabic</a>
+      </div>
+      <p class="fine">Free. No sign-up. No ads.</p>
+    </div>
+  </div>
+
+  <div class="field" id="field" data-lens="meaning">
+    <h2 class="vh">One verse, seen four ways</h2>
+    <div class="lenses"><div class="seg" role="group" aria-label="Choose a way to look at the verse" id="seg">
+      <button type="button" data-l="meaning" aria-pressed="true">Meaning</button>
+      <button type="button" data-l="grammar" aria-pressed="false">Grammar</button>
+      <button type="button" data-l="roots" aria-pressed="false">Roots</button>
+      <button type="button" data-l="sound" aria-pressed="false">Sound</button>
+    </div></div>
+    <div class="verse" dir="rtl" lang="ar">
+      <div class="wd"><p class="ar" style="margin:0"><span class="r g-noun">رَبِّ</span></p><div class="ann" dir="ltr" lang="en" data-w="0"></div></div>
+      <div class="wd"><p class="ar" style="margin:0"><span class="r g-verb">زِ</span><span class="r g-verb">دْ</span><span class="x g-noun">نِى</span></p><div class="ann" dir="ltr" lang="en" data-w="1"></div></div>
+      <div class="wd"><p class="ar" style="margin:0"><span class="r g-noun">عِ</span><span class="r g-noun">لْ</span><span class="r g-noun">مً</span><span class="x g-noun">ا</span></p><div class="ann" dir="ltr" lang="en" data-w="2"></div></div>
+    </div>
+    <p class="caption" id="caption" aria-live="polite"></p>
+    <p class="src">Taha 20:114, where it follows “And say”. Plain-English meaning, not a translation.</p>
+  </div>
+</section>
+</main>
+
+<script>
+const A={
+ meaning:{w:[`<span class="big">my Lord</span>`,`<span class="big">increase me</span>`,`<span class="big">in knowledge</span>`],c:'“My Lord, increase me in knowledge.”'},
+ grammar:{w:[
+   `<span class="tag noun"><i class="shape"></i><span>Noun</span></span><span>the one being called</span>`,
+   `<span class="tag verb"><i class="shape"></i><span>Verb, a command</span></span><span class="tag noun"><i class="shape"></i><span>+ pronoun “me”</span></span>`,
+   `<span class="tag noun"><i class="shape"></i><span>Noun</span></span><span>what is asked for</span>`],
+   c:'Two nouns and a verb. Each colour is one word type, on every page of the course.'},
+ roots:{w:[
+   `<span class="rl ar" lang="ar" dir="rtl">ر ب ب</span><span>lord · 980 times</span>`,
+   `<span class="rl ar" lang="ar" dir="rtl">ز ي د</span><span>to increase · 61 times</span><span>The middle ي drops out here.</span>`,
+   `<span class="rl ar" lang="ar" dir="rtl">ع ل م</span><span>to know · 854 times</span>`],
+   c:'Every word grows from a root of three letters. Learn the root and you know the family.'},
+ sound:{w:[`<span class="say">rab·bi</span>`,`<span class="say">zid·nī</span>`,`<span class="say">ʿil·mā</span>`],
+   c:'rabbi zidnī ʿilmā. When you stop at the end, ʿilman is read ʿilmā.'}
+};
+const field=document.getElementById('field'),seg=[...document.querySelectorAll('#seg button')],anns=[...document.querySelectorAll('.ann')],cap=document.getElementById('caption');
+function lens(l){
+  field.dataset.lens=l;
+  seg.forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.l===l)));
+  anns.forEach((a,i)=>{a.style.animation='none';a.offsetWidth;a.style.animation='';a.innerHTML=A[l].w[i]});
+  cap.textContent=A[l].c;
+}
+let timer=null;
+seg.forEach(b=>b.addEventListener('click',()=>{clearInterval(timer);lens(b.dataset.l)}));
+lens('meaning');
+// one slow tour of the four lenses, then it stops; any click ends it
+if(!matchMedia('(prefers-reduced-motion: reduce)').matches){
+  const order=['grammar','roots','sound','meaning'];let i=0;
+  timer=setInterval(()=>{lens(order[i++]);if(i>=order.length)clearInterval(timer)},3200);
+}
+</script>
+</body></html>

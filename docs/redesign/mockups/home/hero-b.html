@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Home hero B · Root engine</title>
+<link rel="stylesheet" href="home.css">
+<style>
+.hero{max-width:1360px;margin:0 auto;padding:clamp(24px,5vh,56px) var(--gutter) 72px}
+.hero .h1{max-width:13em;font-size:clamp(2rem,1.1rem + 3vw,4.25rem)}
+.grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(28px,5vw,80px);margin-top:clamp(18px,3vh,32px);align-items:start}
+.copy .sub{max-width:28em}
+.copy .cta-row{margin-top:26px}
+.copy .fine{margin-top:14px}
+.dua{margin-top:clamp(28px,5vh,52px);padding-top:clamp(20px,3vh,28px);border-top:1px solid var(--line)}
+.dua-ar{margin:0;font-size:clamp(2.25rem,3.4vw,3.25rem);line-height:1.6;display:flex;gap:.45em;justify-content:flex-end}
+.dw{padding:0 .08em;background:none;border:0;border-radius:.2em;color:var(--text)}
+.hot{cursor:pointer;color:var(--accent);box-shadow:inset 0 -.12em 0 var(--accent)}
+.hot:hover{background:var(--teal-tint)}
+.dua-en{margin:10px 0 0;color:var(--muted);font-size:1rem;max-width:32em}
+.dua-en b{font-weight:500;color:var(--text)}
+
+/* the machine */
+.machine{background:var(--surface);border:1px solid var(--line);border-radius:28px;overflow:hidden}
+.m-top{padding:clamp(14px,1.6vw,20px) clamp(18px,2.8vw,36px);background:
+    radial-gradient(60% 120% at 88% 0%, var(--amber-tint), transparent 70%),
+    radial-gradient(60% 120% at 6% 0%, var(--teal-tint), transparent 70%),
+    var(--surface);border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.m-top h2{margin:0;font-size:1.0625rem;font-weight:500}
+.m-top p{margin:2px 0 0;color:var(--muted);font-size:.9375rem}
+.roots{display:flex;gap:10px;direction:rtl}
+.rt{display:flex;flex-direction:column;align-items:center;gap:4px}
+.rt .ar{display:grid;place-items:center;width:clamp(48px,4.4vw,58px);height:clamp(54px,5vw,66px);border-radius:14px;background:var(--surface);border:2px solid var(--accent);color:var(--accent);font-size:clamp(1.75rem,2.6vw,2.25rem);line-height:1}
+.rt small{font-size:.8125rem;color:var(--muted);direction:ltr}
+.m-body{padding:clamp(14px,1.8vw,22px) clamp(18px,2.8vw,36px) clamp(16px,2vw,24px)}
+.pick{margin:0 0 10px;font-size:1rem;color:var(--muted)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{min-height:44px;padding:.35em .85em;border-radius:var(--r-btn);border:1.5px solid var(--line-2);background:var(--surface);cursor:pointer;font-size:.975rem;transition:background-color .2s,color .2s,border-color .2s,transform .15s}
+.chip:hover{border-color:var(--accent);background:var(--teal-tint)}
+.chip:active{transform:scale(.97)}
+.chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.out{margin-top:clamp(10px,1.6vw,18px);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px clamp(16px,3vw,40px);align-items:center}
+.word{margin:0;font-size:clamp(3.75rem,6.6vw,6.25rem);line-height:1.45;direction:rtl;text-align:center;white-space:nowrap}
+.word{animation:rise .5s cubic-bezier(.2,.8,.2,1) both}
+.word span{animation:fadein .45s ease both;animation-delay:calc(var(--i)*90ms)}
+.word .r{color:var(--accent)}
+.word .x{color:var(--text)}
+@keyframes rise{from{transform:translateY(16px)}to{transform:none}}
+@keyframes fadein{from{opacity:0}to{opacity:1}}
+.facts{display:flex;flex-direction:column;gap:10px}
+.facts .tag{font-size:1rem}
+.gloss{margin:0;font-size:clamp(1.5rem,1.1rem + 1.2vw,2.125rem);line-height:1.15;letter-spacing:-.02em;font-weight:500}
+.tr{margin:0;color:var(--muted);font-size:1rem}
+.formula{display:flex;direction:ltr;flex-wrap:wrap;gap:6px;margin:0;padding:0;list-style:none}
+.tok{display:grid;place-items:center;min-width:34px;height:34px;padding:0 9px;border-radius:9px;font-weight:500;font-size:.9375rem;direction:ltr;border:1.5px solid var(--line-2);color:var(--text);background:var(--surface)}
+.tok.r{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.how{margin:0;color:var(--muted);font-size:1rem}
+.count{margin:0;font-size:1rem}
+.count b{font-weight:500}
+.cap{margin:clamp(14px,2vw,22px) 0 0;padding-top:14px;border-top:1px solid var(--line);color:var(--muted);font-size:.9375rem;display:flex;gap:8px;flex-wrap:wrap;justify-content:space-between}
+@media (max-width:980px){.grid{grid-template-columns:1fr}.dua-ar{justify-content:center}.dua{border-top:0;padding-top:0}.out{grid-template-columns:1fr}.facts{align-items:center;text-align:center}}
+@media (max-width:520px){.hero .cta-row .btn{flex:1 1 100%}.m-top{flex-direction:column;align-items:flex-start}}
+</style></head>
+<body>
+<a class="skip" href="#main">Skip to main content</a>
+<header class="site">
+  <a class="brand" href="#"><img src="../../../../public/favicon.svg" alt="">Quranic Grammar</a>
+  <nav aria-label="Primary"><a href="#">Learn</a><a href="#">Surahs</a><a href="#">Resources</a><a href="#">About</a></nav>
+  <a class="btn small primary start" href="#">Start learning</a>
+</header>
+
+<main id="main">
+<section class="hero">
+  <h1 class="h1">Understand the Holy Quran for Free.</h1>
+  <div class="grid">
+    <div class="copy">
+      <p class="sub">Learn the grammar of Quranic Arabic word by word, starting from the alphabet.</p>
+      <div class="cta-row">
+        <a class="btn primary" href="#">Start with the alphabet</a>
+        <a class="btn" href="#">I can already read Arabic</a>
+      </div>
+      <p class="fine">Free. No sign-up. No ads.</p>
+      <div class="dua">
+        <p class="dua-ar ar" dir="rtl" lang="ar"><span class="dw">رَبِّ</span><span class="dw">زِدْنِى</span><button class="dw hot" type="button" id="duaWord" aria-label="ʿilman, knowledge. Open its root in the machine.">عِلْمًا</button></p>
+        <p class="dua-en">“My Lord, increase me in knowledge.” Taha 20:114. The last word, <b>ʿilman</b>, is built on a root of three letters. Pick a pattern and watch the root become a new word.</p>
+      </div>
+    </div>
+
+    <div class="machine" role="group" aria-labelledby="m-h">
+      <div class="m-top">
+        <div>
+          <h2 id="m-h">Root: to know</h2>
+          <p>ʿ-l-m · 854 times in the Quran, in 14 word families</p>
+        </div>
+        <div class="roots ar" lang="ar" aria-label="Root letters ʿayn, lām, mīm">
+          <div class="rt"><span class="ar">ع</span><small>1st</small></div>
+          <div class="rt"><span class="ar">ل</span><small>2nd</small></div>
+          <div class="rt"><span class="ar">م</span><small>3rd</small></div>
+        </div>
+      </div>
+      <div class="m-body">
+        <p class="pick" id="pick">Pick a pattern</p>
+        <div class="chips" id="chips" role="group" aria-labelledby="pick"></div>
+        <div class="out" aria-live="polite">
+          <p class="word ar" id="word" lang="ar" dir="rtl"></p>
+          <div class="facts">
+            <p class="gloss" id="gloss"></p>
+            <p class="tr" id="tr"></p>
+            <p class="tag" id="tag"></p>
+            <p class="how" style="margin:0">Built as</p>
+            <ul class="formula" id="formula" aria-label="How the word is built, first to last letter"></ul>
+            <p class="how" id="how"></p>
+            <p class="count" id="count"></p>
+          </div>
+        </div>
+        <p class="cap"><span>Teal letters are the root. Dark letters and vowels are the pattern.</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<script>
+const P=[
+ {k:'knowledge',t:'noun',tx:'Noun',ar:[['r','عِ'],['r','لْ'],['r','م']],f:['1','i','2','3'],tr:'ʿilm',g:'knowledge',h:'The pattern for the thing itself.',n:105},
+ {k:'he knew',t:'verb',tx:'Verb',ar:[['r','عَ'],['r','لِ'],['r','مَ']],f:['1','a','2','i','3','a'],tr:'ʿalima',g:'he knew',h:'The “he did it” pattern.',n:382},
+ {k:'he taught',t:'verb',tx:'Verb',ar:[['r','عَ'],['r','لَّ'],['r','مَ']],f:['1','a','2','2','a','3','a'],tr:'ʿallama',g:'he taught',h:'Doubling the middle letter makes someone else do it: know becomes teach.',n:41},
+ {k:'knower',t:'noun',tx:'Noun',ar:[['r','عَ'],['x','ا'],['r','لِ'],['r','م']],f:['1','ā','2','i','3'],tr:'ʿālim',g:'one who knows',h:'The “one who does it” pattern.',n:18},
+ {k:'all-knowing',t:'noun',tx:'Noun',ar:[['r','عَ'],['r','لِ'],['x','ي'],['r','م']],f:['1','a','2','ī','3'],tr:'ʿalīm',g:'all-knowing',h:'The “always like this” pattern.',n:163},
+ {k:'known',t:'noun',tx:'Noun',ar:[['x','مَ'],['r','عْ'],['r','لُ'],['x','و'],['r','م']],f:['ma','1','2','ū','3'],tr:'maʿlūm',g:'known',h:'The “one it is done to” pattern.',n:11},
+ {k:'most knowing',t:'noun',tx:'Noun',ar:[['x','أَ'],['r','عْ'],['r','لَ'],['r','م']],f:['a','1','2','a','3'],tr:'aʿlam',g:'more knowing, most knowing',h:'The “more than” pattern.',n:49}
+];
+const $=id=>document.getElementById(id),chips=$('chips');
+P.forEach((p,i)=>{const b=document.createElement('button');b.type='button';b.className='chip';b.textContent=p.k;b.setAttribute('aria-pressed','false');b.addEventListener('click',()=>show(i));chips.appendChild(b)});
+function show(i){
+  const p=P[i];
+  [...chips.children].forEach((b,j)=>b.setAttribute('aria-pressed',String(i===j)));
+  $('word').innerHTML=p.ar.map((a,k)=>`<span class="${a[0]}" style="--i:${k}">${a[1]}</span>`).join('');
+  $('tag').className='tag '+p.t; $('tag').innerHTML=`<i class="shape"></i><span>${p.tx}</span>`;
+  $('gloss').textContent=p.g; $('tr').textContent=p.tr;
+  $('formula').innerHTML=p.f.map(x=>`<li class="tok${/^\d$/.test(x)?' r':''}">${x}</li>`).join('');
+  $('how').textContent=p.h;
+  $('count').innerHTML=`<b>${p.n}</b> times in the Quran`;
+}
+$('duaWord').addEventListener('click',()=>{show(0);$('chips').scrollIntoView({block:'center',behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'})});
+show(0);
+</script>
+</body></html>

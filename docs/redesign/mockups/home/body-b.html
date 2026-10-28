@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Home · Below the hero · B: The syllabus</title>
+<link rel="stylesheet" href="home.css">
+<link rel="stylesheet" href="body.css">
+<style>
+/* ---------- the course, as a table of contents ---------- */
+.course{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.6fr);gap:clamp(32px,6vw,96px);padding-block:clamp(80px,11vw,150px) clamp(56px,7vw,96px)}
+.course .side{position:sticky;top:40px;align-self:start}
+.course .side .btn{margin-top:28px}
+.side .facts{display:flex;gap:28px;margin:32px 0 0;padding:20px 0 0;border-top:1px solid var(--edge)}
+.side .facts div{display:flex;flex-direction:column}
+.side .facts b{font-size:1.75rem;font-weight:600;letter-spacing:-.03em;line-height:1.1}
+.side .facts span{font-size:.875rem;color:var(--muted)}
+
+.chapters{list-style:none;margin:0;padding:0;position:relative}
+.ch{position:relative;display:grid;grid-template-columns:72px 1fr;gap:0 28px;padding-bottom:clamp(48px,6vw,72px)}
+/* the rail: grey, and teal once a chapter has been read past */
+.ch::before{content:"";position:absolute;left:35px;top:76px;bottom:6px;width:2px;background:var(--soft-2)}
+.ch::after{content:"";position:absolute;left:35px;top:76px;width:2px;height:0;background:var(--accent);transition:height 1.1s cubic-bezier(.2,.8,.2,1)}
+.ch.seen::after{height:calc(100% - 82px)}
+.ch:last-child::before,.ch:last-child::after{display:none}
+.node{width:72px;height:72px;border-radius:50%;display:grid;place-items:center;border:1.5px solid var(--edge);background:var(--page);font-size:1.5rem;font-weight:600;letter-spacing:-.02em;color:var(--muted);position:relative;z-index:1;transition:all .5s}
+.ch.seen .node{background:var(--ink);border-color:var(--ink);color:#fff}
+.ch-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:4px 20px;padding-top:8px}
+.ch-head h3{margin:0;font-size:clamp(1.6rem,1.2rem + 1.4vw,2.4rem);font-weight:600;letter-spacing:-.035em;line-height:1.1}
+.ch-head .ar{font-family:'Amiri',serif;font-size:clamp(1.5rem,1.2rem + 1vw,2.1rem);color:var(--accent);line-height:1.4}
+.ch-end{margin:10px 0 0;font-size:clamp(1.0625rem,1rem + .3vw,1.25rem);line-height:1.5;color:var(--text);max-width:34em}
+.ch-end span{color:var(--muted)}
+.toc{margin:22px 0 0;padding:0;list-style:none;columns:2;column-gap:32px;counter-reset:l}
+.toc li{break-inside:avoid;counter-increment:l;display:flex;gap:12px;padding:9px 0;border-top:1px solid var(--soft-2);font-size:.9375rem}
+.toc li::before{content:counter(l,decimal-leading-zero);color:var(--muted);font-variant-numeric:tabular-nums;font-size:.8125rem;padding-top:2px}
+.toc li a{text-decoration:none}
+.toc li a:hover{text-decoration:underline;text-underline-offset:3px}
+.toc li.cp{color:var(--accent-2-text);font-weight:500}
+.toc li.cp::before{content:"✓";color:var(--accent-2)}
+.toc li.more{display:none}
+.ch.all .toc li.more{display:flex}
+.ch-foot{display:flex;flex-wrap:wrap;gap:12px 22px;align-items:center;margin-top:18px}
+.ch-foot .go{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 18px;border-radius:999px;border:1.5px solid var(--ink);font-weight:500;text-decoration:none}
+.ch-foot .go:hover{background:var(--ink);color:#fff}
+.ch-foot button{all:unset;cursor:pointer;color:var(--muted);text-decoration:underline;text-underline-offset:3px;min-height:44px;display:inline-flex;align-items:center}
+.ch-foot button:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+
+/* ---------- surahs: Juz ʿAmma set as a page ---------- */
+.surahs{padding-block:clamp(64px,8vw,112px);background:linear-gradient(var(--soft),var(--page))}
+.surahs .head{text-align:center;max-width:44em;margin:0 auto 44px}
+.surahs .head .lead{margin-inline:auto}
+.page{max-width:1080px;margin:0 auto;background:#fff;border-radius:24px;box-shadow:0 30px 70px -30px oklch(30% 0.04 220 / .28),0 0 0 1px var(--edge);padding:clamp(28px,5vw,64px) clamp(18px,5vw,72px)}
+.opening{display:flex;justify-content:center;margin-bottom:clamp(20px,3vw,32px);padding-bottom:clamp(20px,3vw,32px);border-bottom:1px solid var(--soft-2)}
+.flow{margin:0;text-align:justify;text-align-last:center;direction:rtl;line-height:2.5;font-size:clamp(1.5rem,1.1rem + 1.4vw,2.35rem)}
+.flow a,.opening a{position:relative;text-decoration:none;font-family:var(--font-ar);white-space:nowrap;padding:0 .08em;border-radius:8px;transition:color .2s,background-color .2s}
+.flow a:hover,.flow a:focus-visible,.opening a:hover{color:var(--accent);background:var(--teal-tint)}
+.pair{white-space:nowrap;display:inline-block}
+.mark{display:inline-grid;place-items:center;width:1.7em;height:1.7em;margin:0 .3em 0 .5em;border-radius:50%;border:1.5px solid oklch(80% 0.06 75);color:var(--accent-2-text);font-family:'Amiri',serif;font-size:.46em;line-height:1;vertical-align:middle;padding-top:.15em}
+.opening a{font-size:clamp(2.2rem,1.6rem + 2vw,3.4rem);line-height:1.6;padding:0 .3em}
+.opening small{display:block;text-align:center;font-family:var(--font);font-size:.875rem;color:var(--muted);line-height:1}
+.flow a .tip{position:absolute;left:50%;bottom:calc(100% - .35em);transform:translate(-50%,4px);direction:ltr;white-space:nowrap;font-family:var(--font);font-size:13px;line-height:1;background:var(--ink);color:#fff;padding:7px 10px;border-radius:8px;opacity:0;pointer-events:none;transition:opacity .15s,transform .15s}
+.flow a:hover .tip,.flow a:focus-visible .tip{opacity:1;transform:translate(-50%,0)}
+.page-foot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-top:clamp(20px,3vw,32px);padding-top:18px;border-top:1px solid var(--soft-2);font-size:.9375rem;color:var(--muted)}
+.page-foot a{color:var(--accent);font-weight:500}
+
+/* ---------- trust: three plain statements ---------- */
+.trust{padding-block:clamp(64px,8vw,104px)}
+.trust ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);border-top:1.5px solid var(--ink)}
+.trust li{padding:24px 28px 0 0}
+.trust li+li{padding-left:28px;border-left:1px solid var(--edge)}
+.trust b{display:block;font-size:clamp(1.4rem,1.1rem + 1vw,2rem);font-weight:600;letter-spacing:-.03em;line-height:1.15;margin-bottom:10px}
+.trust p{margin:0;color:var(--muted)}
+.trust a{color:var(--accent);font-weight:500}
+
+/* ---------- close: the dua, word by word ---------- */
+.close{text-align:center;padding:clamp(56px,8vw,120px) var(--gutter) clamp(64px,8vw,120px);border-top:1px solid var(--edge)}
+.close .eyebrow{justify-content:center}
+.dua{display:flex;justify-content:center;gap:clamp(18px,4vw,56px);direction:rtl;margin:12px 0 0;padding:0;list-style:none}
+.dua li{display:flex;flex-direction:column;align-items:center;gap:6px}
+.dua .ar{font-size:clamp(2.8rem,1.8rem + 5vw,6rem);line-height:1.55}
+.dua small{direction:ltr;font-size:clamp(.875rem,.8rem + .3vw,1.0625rem);color:var(--muted)}
+.mean{margin:22px 0 0;font-size:clamp(1.25rem,1.1rem + .6vw,1.75rem);font-weight:500;letter-spacing:-.015em}
+.ref{margin:6px 0 0;color:var(--muted);font-size:.9375rem}
+.close .cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:32px}
+
+@media (max-width:980px){
+  .course{grid-template-columns:1fr}
+  .course .side{position:static}
+}
+@media (max-width:640px){
+  .ch{grid-template-columns:44px 1fr;gap:0 16px}
+  .node{width:44px;height:44px;font-size:1.0625rem}
+  .ch::before,.ch::after{left:21px;top:50px}
+  .ch.seen::after{height:calc(100% - 56px)}
+  .toc{columns:1}
+  .trust ul{grid-template-columns:1fr}
+  .trust li,.trust li+li{padding:20px 0;border-left:0;border-bottom:1px solid var(--edge)}
+  .flow{line-height:2.3;text-align:center}
+}
+</style>
+</head>
+<body>
+<span class="mock-tag">B · The syllabus</span>
+<picture><source media="(max-width:600px)" srcset="hero-built-phone.jpg"><img class="hero-shot" src="hero-built-desk.jpg" alt="The hero as built: headline and the product tour window" width="1440" height="1125"></picture>
+
+<main>
+<section class="course wrap" aria-labelledby="course-h">
+  <div class="side">
+    <p class="eyebrow">The course</p>
+    <h2 class="h2" id="course-h">Five levels, from letters to reading.</h2>
+    <p class="lead">Every lesson builds on the one before. Each level ends with a surah you read on your own.</p>
+    <div class="facts"><div><b id="n-lessons">81</b><span>lessons</span></div><div><b>5</b><span>checkpoints</span></div><div><b>38</b><span>surahs decoded</span></div></div>
+    <a class="btn primary" href="#">Start with the alphabet</a>
+  </div>
+  <ol class="chapters" id="chapters"></ol>
+</section>
+
+<section class="surahs" aria-labelledby="surahs-h">
+  <div class="wrap">
+    <div class="head"><p class="eyebrow">Read along</p><h2 class="h2" id="surahs-h">The short surahs, word by word.</h2>
+      <p class="lead">Al-Fatiha and every surah of Juz ʿAmma, each word explained in place: its root, its case, its meaning.</p></div>
+    <div class="page">
+      <div class="opening" id="opening"></div>
+      <p class="flow" id="flow" lang="ar"></p>
+      <div class="page-foot"><span>Juz ʿAmma, surahs 78 to 114</span><a href="#">All surahs →</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="trust wrap" aria-label="How the site works">
+  <ul>
+    <li><b>Free, for everyone.</b><p>No sign-up, no ads, nothing to buy. It works on any phone.</p></li>
+    <li><b>Sourced, line by line.</b><p>Each lesson shows where its facts come from: the Quranic Arabic Corpus, al-Ajurrumiyyah and the Madinah books.</p></li>
+    <li><b>Corrected in the open.</b><p>Every page has a way to report a mistake, and we fix it. <a href="#">Send feedback</a></p></li>
+  </ul>
+</section>
+
+<section class="close" aria-labelledby="close-h">
+  <p class="eyebrow">A dua to begin</p>
+  <h2 class="vh" id="close-h">A dua to begin</h2>
+  <ol class="dua" lang="ar">
+    <li><span class="ar">رَبِّ</span><small lang="en">my Lord</small></li>
+    <li><span class="ar">زِدْنِى</span><small lang="en">increase me</small></li>
+    <li><span class="ar">عِلْمًا</span><small lang="en">in knowledge</small></li>
+  </ol>
+  <p class="mean">“My Lord, increase me in knowledge.”</p>
+  <p class="ref">Taha 20:114</p>
+  <div class="cta"><a class="btn primary" href="#">Start with the alphabet</a><a class="btn" href="#">See the whole course</a></div>
+</section>
+</main>
+
+<footer class="foot"><div class="in">
+  <nav aria-label="Footer"><a href="#">Learn</a><a href="#">Surahs</a><a href="#">Resources</a><a href="#">About and feedback</a><a href="#">RSS</a></nav>
+  <p>Word data from the Quranic Arabic Corpus (Kais Dukes, GPL). Quran text after Tanzil. English meanings on this site are our own plain-English wording, not a translation.</p>
+</div></footer>
+
+<script src="body-data.js"></script>
+<script>
+const LV = [
+  { name: 'Foundation', ar: 'الأساسيات', about: 'Letters, vowels and pronouns.', end: 'read the letters and vowel marks of any verse.' },
+  { name: 'Core grammar', ar: 'القواعد الأساسية', about: 'Sentences, the three cases, iḍāfah.', end: 'name the parts of a sentence and say why a word ends the way it does.' },
+  { name: 'Intermediate', ar: 'القواعد المتوسطة', about: 'Verbs, their tenses and their forms.', end: 'recognise a verb, its person and its form.' },
+  { name: 'Advanced', ar: 'القواعد المتقدمة', about: 'Ḥāl, tamyīz, conditions.', end: 'follow long and careful sentences.' },
+  { name: 'Applied study', ar: 'التطبيق القرآني', about: 'Real passages, read closely.', end: 'read a passage and explain every word.' },
+];
+const SHOW = 6;
+const ch = document.getElementById('chapters');
+ch.innerHTML = LV.map((l, i) => {
+  const t = LEVELS_DATA[i];
+  const rest = t.length - SHOW - 1; // the checkpoint always shows, last
+  const items = t.map(([, title], k) => {
+    const cp = k === t.length - 1, more = !cp && k >= SHOW;
+    return `<li class="${cp ? 'cp' : ''}${more ? ' more' : ''}"><a href="#">${title}</a></li>`;
+  }).join('');
+  return `<li class="ch"><span class="node" aria-hidden="true">${i + 1}</span><div>
+    <div class="ch-head"><h3><span class="vh">Level ${i + 1}: </span>${l.name}</h3><span class="ar" lang="ar" dir="rtl">${l.ar}</span></div>
+    <p class="ch-end"><span>${l.about}</span> By the end, you can ${l.end}</p>
+    <ol class="toc">${items}</ol>
+    <div class="ch-foot"><a class="go" href="#">Start level ${i + 1} →</a>${rest > 0 ? `<button type="button" aria-expanded="false" data-label="Show ${rest} more lessons">Show ${rest} more lessons</button>` : ''}</div>
+  </div></li>`;
+}).join('');
+ch.querySelectorAll('.ch-foot button').forEach((b) => b.addEventListener('click', () => {
+  const c = b.closest('.ch'), on = c.classList.toggle('all');
+  b.setAttribute('aria-expanded', String(on));
+  b.textContent = on ? 'Show fewer' : b.dataset.label;
+}));
+document.getElementById('n-lessons').textContent = LEVELS_DATA.flat().length;
+// The rail turns teal as each chapter is read past.
+const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) e.target.classList.add('seen'); }), { rootMargin: '0px 0px -55% 0px' });
+ch.querySelectorAll('.ch').forEach((c) => io.observe(c));
+
+const [fat, ...amma] = SURAHS_DATA;
+const toAr = (n) => String(n).replace(/\d/g, (d) => '٠١٢٣٤٥٦٧٨٩'[d]);
+document.getElementById('opening').innerHTML = `<a href="#" lang="ar" aria-label="${fat[0]}. ${fat[1]}">${fat[2]}<small lang="en">${fat[0]} · ${fat[1]} · The Opening</small></a>`;
+document.getElementById('flow').innerHTML = amma.map(([n, en, ar]) =>
+  `<span class="pair"><a href="#" aria-label="${n}. ${en}">${ar}<span class="tip" aria-hidden="true">${n} · ${en}</span></a><span class="mark" aria-hidden="true">${toAr(n)}</span></span>`).join(' ');
+</script>
+</body></html>

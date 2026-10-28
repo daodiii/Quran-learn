@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Home hero F · Recite, then understand</title>
+<link rel="stylesheet" href="home.css">
+<style>
+.hero{max-width:1360px;margin:0 auto;padding:clamp(20px,4vh,48px) var(--gutter) 72px}
+.hero .h1{text-align:center;margin-inline:auto;max-width:15em}
+.hero .sub{text-align:center;margin:18px auto 0;max-width:33em}
+.hero .cta-row{justify-content:center;margin-top:24px}
+.hero .fine{text-align:center;margin-top:12px}
+
+@property --x{syntax:'<percentage>';inherits:true;initial-value:100%}
+.rv{--x:100%;position:relative;margin-top:clamp(24px,4vh,44px);border-radius:32px;overflow:hidden;height:clamp(330px,46vh,440px);touch-action:pan-y;user-select:none}
+.rv.intro{transition:--x 1.8s cubic-bezier(.65,0,.2,1) .5s}
+.layer{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;padding:28px clamp(14px,3vw,48px)}
+.recite{background:oklch(21% 0.035 232);color:oklch(93% 0.008 215)}
+.know{background:
+  radial-gradient(50% 80% at 85% 20%, var(--verb-tint), transparent 70%),
+  radial-gradient(50% 80% at 15% 80%, var(--noun-tint), transparent 70%), var(--surface);
+  color:var(--text);clip-path:inset(0 0 0 var(--x))}
+.verse{display:flex;justify-content:center;align-items:flex-start;gap:clamp(18px,5vw,84px)}
+.wd{display:flex;flex-direction:column;align-items:center;min-width:0}
+.wd .ar{font-size:clamp(3.5rem,9vw,8.5rem);line-height:1.5;white-space:nowrap;margin:0}
+.ann{min-height:4.4em;display:flex;flex-direction:column;align-items:center;gap:4px;text-align:center;font-size:1rem;color:var(--muted)}
+.ann b{font-size:clamp(1.125rem,1rem + .8vw,1.625rem);font-weight:500;letter-spacing:-.015em;color:var(--text)}
+.recite .ann{visibility:hidden}
+.know .noun{color:var(--noun)}
+.know .verb{color:var(--verb)}
+.know .p{color:var(--noun)}
+.corner{position:absolute;bottom:18px;font-size:1rem;font-weight:500}
+.recite .corner{left:clamp(16px,2.4vw,32px);color:oklch(80% 0.025 220)}
+.know .corner{right:clamp(16px,2.4vw,32px);color:var(--accent)}
+/* the handle */
+.handle{position:absolute;top:0;bottom:0;left:var(--x);width:2px;margin-left:-1px;background:var(--accent-2);pointer-events:none}
+.handle::after{content:"";position:absolute;top:50%;left:50%;width:48px;height:48px;margin:-24px 0 0 -24px;border-radius:50%;background:var(--accent-2);box-shadow:0 6px 20px oklch(30% 0.05 60 / .35)}
+.handle svg{position:absolute;top:50%;left:50%;width:26px;height:26px;margin:-13px 0 0 -13px;z-index:1;color:#fff}
+.rv input{position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;cursor:ew-resize;-webkit-appearance:none;appearance:none}
+.rv:has(input:focus-visible){outline:3px solid var(--focus);outline-offset:3px}
+.corner .short{display:none}
+@media (max-width:640px){.corner .long{display:none}.corner .short{display:inline}}
+.under{display:flex;justify-content:space-between;gap:12px 24px;flex-wrap:wrap;margin-top:14px;font-size:1rem;color:var(--muted)}
+.under b{font-weight:500;color:var(--text)}
+@media (max-width:520px){.hero .cta-row .btn{flex:1 1 100%}.verse{gap:12px}.ann{font-size:.875rem}.corner{font-size:.9375rem;bottom:12px}}
+</style></head>
+<body>
+<a class="skip" href="#main">Skip to main content</a>
+<header class="site">
+  <a class="brand" href="#"><img src="../../../../public/favicon.svg" alt="">Quranic Grammar</a>
+  <nav aria-label="Primary"><a href="#">Learn</a><a href="#">Surahs</a><a href="#">Resources</a><a href="#">About</a></nav>
+  <a class="btn small primary start" href="#">Start learning</a>
+</header>
+
+<main id="main">
+<section class="hero">
+  <h1 class="h1">Understand the Holy Quran for Free.</h1>
+  <p class="sub">Learn the grammar of Quranic Arabic word by word, starting from the alphabet.</p>
+  <div class="cta-row">
+    <a class="btn primary" href="#">Start with the alphabet</a>
+    <a class="btn" href="#">I can already read Arabic</a>
+  </div>
+  <p class="fine">Free. No sign-up. No ads.</p>
+
+  <div class="rv intro" id="rv">
+    <div class="layer recite" aria-hidden="true">
+      <div class="verse" dir="rtl" lang="ar">
+        <div class="wd"><p class="ar">رَبِّ</p><div class="ann"><b>my Lord</b><span>noun</span></div></div>
+        <div class="wd"><p class="ar">زِدْنِى</p><div class="ann"><b>increase me</b><span>verb + me</span></div></div>
+        <div class="wd"><p class="ar">عِلْمًا</p><div class="ann"><b>in knowledge</b><span>noun</span></div></div>
+      </div>
+      <span class="corner"><span class="long">As many of us recite it</span><span class="short">Recited</span></span>
+    </div>
+    <div class="layer know">
+      <div class="verse" dir="rtl" lang="ar">
+        <div class="wd"><p class="ar noun">رَبِّ</p><div class="ann" dir="ltr" lang="en"><b>my Lord</b><span class="tag noun"><i class="shape"></i><span>Noun</span></span></div></div>
+        <div class="wd"><p class="ar"><span class="verb">زِدْ</span><span class="p">نِى</span></p><div class="ann" dir="ltr" lang="en"><b>increase me</b><span class="tag verb"><i class="shape"></i><span>Verb + “me”</span></span></div></div>
+        <div class="wd"><p class="ar noun">عِلْمًا</p><div class="ann" dir="ltr" lang="en"><b>in knowledge</b><span class="tag noun"><i class="shape"></i><span>Noun</span></span></div></div>
+      </div>
+      <span class="corner"><span class="long">As you will understand it</span><span class="short">Understood</span></span>
+    </div>
+    <div class="handle" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6-6 6 6 6M15 6l6 6-6 6"/></svg></div>
+    <input type="range" id="slide" min="0" max="100" value="100" aria-label="Move the line to see the verse understood, from the right" aria-valuetext="Nothing shown yet">
+  </div>
+  <div class="under"><span>Drag the line. <b>“My Lord, increase me in knowledge.”</b></span><span>Taha 20:114, where it follows “And say”.</span></div>
+</section>
+</main>
+
+<script>
+const rv=document.getElementById('rv'),s=document.getElementById('slide');
+function set(v){rv.style.setProperty('--x',v+'%');s.value=v;s.setAttribute('aria-valuetext',v>=95?'Nothing shown yet':v<=5?'The whole verse shown':'Part of the verse shown')}
+s.addEventListener('input',()=>{rv.classList.remove('intro');set(+s.value)});
+// a slow first reveal shows what the line does, then hands it to the reader
+if(matchMedia('(prefers-reduced-motion: reduce)').matches){rv.classList.remove('intro');set(40)}
+else{requestAnimationFrame(()=>requestAnimationFrame(()=>set(40)));setTimeout(()=>rv.classList.remove('intro'),2600)}
+</script>
+</body></html>

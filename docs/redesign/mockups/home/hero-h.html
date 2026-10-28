@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Home hero H · Sentence architecture</title>
+<link rel="stylesheet" href="home.css">
+<style>
+body{background:oklch(99% 0.003 215)}
+.hero{max-width:1440px;margin:0 auto;padding:clamp(16px,3vh,40px) var(--gutter) 64px}
+.top{display:flex;justify-content:space-between;align-items:flex-end;gap:24px 64px;flex-wrap:wrap}
+.top .h1{font-size:clamp(2.25rem,1.1rem + 3.4vw,5rem);max-width:11.5em}
+.side{max-width:27rem}
+.side .cta-row{margin-top:20px}
+.side .fine{margin-top:12px}
+
+.arch{position:relative;margin-top:clamp(8px,2vh,24px);padding-top:clamp(130px,16vw,230px)}
+svg.arcs{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
+svg.arcs path{fill:none;stroke-width:2;stroke-linecap:round;stroke-dasharray:var(--len);stroke-dashoffset:var(--len);animation:draw 1s cubic-bezier(.65,0,.2,1) forwards;animation-delay:var(--d)}
+svg.arcs circle{opacity:0;animation:fade .3s ease forwards;animation-delay:var(--d)}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes fade{to{opacity:1}}
+.rel{position:absolute;transform:translate(-50%,-100%);padding:4px 12px;border-radius:999px;background:var(--surface);font-size:clamp(.9375rem,.85rem + .3vw,1.0625rem);font-weight:500;white-space:nowrap;opacity:0;animation:fade .4s ease forwards;animation-delay:var(--d);box-shadow:inset 0 0 0 1.5px currentColor}
+.verse{display:flex;justify-content:center;align-items:flex-start;gap:clamp(20px,6vw,110px);direction:rtl}
+.tok{display:flex;flex-direction:column;align-items:center}
+.tok .ar{font-size:clamp(3.75rem,10vw,9.5rem);line-height:1.45;white-space:nowrap;margin:0}
+.tok .en{white-space:nowrap;font-size:clamp(1.0625rem,1rem + .5vw,1.5rem);font-weight:500;letter-spacing:-.01em}
+.tok .ty{font-size:1rem;color:var(--muted)}
+.noun{color:var(--noun)}.verb{color:var(--verb)}
+.ghost{margin-top:clamp(14px,2vw,22px);max-width:min(80vw,24rem);white-space:normal;text-align:left;display:inline-flex;align-items:center;gap:10px;padding:8px 16px;border-radius:12px;border:2px dashed var(--line-2);font-size:1rem;color:var(--muted);direction:ltr}
+.ghost b{font-weight:500;color:var(--text)}
+.line{margin:clamp(22px,3.4vw,40px) auto 0;text-align:center;font-size:clamp(1.25rem,1rem + 1vw,1.875rem);letter-spacing:-.015em;max-width:30ch;line-height:1.3}
+.src{margin:8px 0 0;text-align:center;color:var(--muted)}
+@media (max-width:640px){.side .cta-row .btn{flex:1 1 100%}.verse{gap:10px}.ghost{font-size:.875rem;padding:6px 10px}.tok .ty{font-size:.875rem}}
+@media (prefers-reduced-motion:reduce){svg.arcs path{stroke-dashoffset:0}svg.arcs circle,.rel{opacity:1}}
+</style></head>
+<body>
+<a class="skip" href="#main">Skip to main content</a>
+<header class="site">
+  <a class="brand" href="#"><img src="../../../../public/favicon.svg" alt="">Quranic Grammar</a>
+  <nav aria-label="Primary"><a href="#">Learn</a><a href="#">Surahs</a><a href="#">Resources</a><a href="#">About</a></nav>
+  <a class="btn small primary start" href="#">Start learning</a>
+</header>
+<main id="main">
+<section class="hero">
+  <div class="top">
+    <h1 class="h1">Understand the Holy Quran for Free.</h1>
+    <div class="side">
+      <p class="sub">Every verse has a structure. Learn to see it, word by word, starting from the alphabet.</p>
+      <div class="cta-row"><a class="btn primary" href="#">Start with the alphabet</a><a class="btn" href="#">I can already read Arabic</a></div>
+      <p class="fine">Free. No sign-up. No ads.</p>
+    </div>
+  </div>
+
+  <figure class="arch" id="arch" style="margin-inline:0;margin-bottom:0">
+    <figcaption class="vh">The dua as a sentence diagram. The verb “increase” is at the centre. It calls on “my Lord”, acts on “me”, asks for “knowledge”, and its doer, “you”, is hidden inside it.</figcaption>
+    <svg class="arcs" id="arcs" aria-hidden="true"></svg>
+    <div id="rels" aria-hidden="true"></div>
+    <div class="verse" lang="ar">
+      <div class="tok"><p class="ar noun" id="t-rabbi">رَبِّ</p><span class="en" dir="ltr" lang="en">my Lord</span><span class="ty" dir="ltr" lang="en">noun</span></div>
+      <div class="tok"><p class="ar"><span class="verb" id="t-zid">زِدْ</span><span class="noun" id="t-ni">نِى</span></p><span class="en" dir="ltr" lang="en">increase me</span><span class="ty" dir="ltr" lang="en">verb + pronoun</span>
+        <span class="ghost" id="t-you"><b>you</b> the doer, hidden inside the verb</span></div>
+      <div class="tok"><p class="ar noun" id="t-ilm">عِلْمًا</p><span class="en" dir="ltr" lang="en">knowledge</span><span class="ty" dir="ltr" lang="en">noun</span></div>
+    </div>
+  </figure>
+  <p class="line">“My Lord, increase me in knowledge.”</p>
+  <p class="src">Taha 20:114, where it follows “And say”. Plain-English meaning, not a translation.</p>
+</section>
+</main>
+<script>
+const R=[
+ {to:'t-rabbi',label:'calls on',c:'var(--noun)',h:.62},
+ {to:'t-ni',label:'acts on “me”',c:'var(--noun)',h:.3},
+ {to:'t-ilm',label:'asks for',c:'var(--accent)',h:.82}
+];
+const arch=document.getElementById('arch'),arcs=document.getElementById('arcs'),rels=document.getElementById('rels');
+function draw(){
+  const b=arch.getBoundingClientRect(),z=document.getElementById('t-zid').getBoundingClientRect();
+  const top=el=>{const r=document.getElementById(el).getBoundingClientRect();return [r.left+r.width/2-b.left,r.top-b.top+r.height*.28]};
+  const [zx,zy]=top('t-zid'),room=zy-48;
+  let p='',l='';
+  R.forEach((r,i)=>{
+    const [tx,ty]=top(r.to),h=room*r.h,y=Math.min(zy,ty),cy=y-h*1.3;
+    const d=`M${zx},${zy} C${zx},${cy} ${tx},${cy} ${tx},${ty}`,len=Math.abs(tx-zx)+h*2.4,del=(.35+i*.45)+'s';
+    p+=`<path d="${d}" stroke="${r.c}" style="--len:${len};--d:${del}"/><circle cx="${tx}" cy="${ty}" r="5" fill="${r.c}" style="--d:${(.35+i*.45+.8)}s"/>`;
+    l+=`<span class="rel" style="left:${(zx+tx)/2}px;top:${y-h*.98}px;color:${r.c};--d:${(.35+i*.45+.5)}s">${r.label}</span>`;
+  });
+  // the hidden doer: a short drop from the verb to its ghost
+  arcs.innerHTML=p;rels.innerHTML=l;
+}
+document.fonts.ready.then(draw);addEventListener('resize',draw);
+</script>
+</body></html>

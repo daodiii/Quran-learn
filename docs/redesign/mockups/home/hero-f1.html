@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Home hero F1 · Dawn</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="home.css">
+<style>
+:root{
+  --night:oklch(17.5% 0.034 254);
+  --night-ink:oklch(94.5% 0.012 85);
+  --night-soft:oklch(76% 0.025 240);
+  --day:oklch(98.7% 0.005 90);
+  --sun:oklch(79% 0.14 72);
+  --serif:'Instrument Serif','Iowan Old Style',Georgia,serif;
+}
+body{background:var(--day)}
+.layer .site{grid-column:1 / 13;grid-row:1;padding-inline:0;height:72px}
+.dark .site .brand,.dark .site nav a{color:var(--night-ink)}
+.dark .site nav a{color:var(--night-soft)}
+.dark .site .btn.primary{background:var(--night-ink);border-color:var(--night-ink);color:var(--night)}
+.mark{width:30px;height:30px;display:block}
+
+/* ---------- the stage: two identical layers, cut by a line of light ---------- */
+@property --x{syntax:'<percentage>';inherits:true;initial-value:100%}
+.stage{--x:100%;position:relative;height:100svh;min-height:700px;max-height:980px;overflow:hidden;isolation:isolate}
+.layer{position:absolute;inset:0;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));grid-template-rows:auto auto 1fr auto;column-gap:24px;
+  padding:0 var(--gutter) clamp(24px,4vh,44px)}
+.dark{background:var(--night);color:var(--night-ink);
+  background-image:radial-gradient(70% 55% at 20% 50%, oklch(22% 0.045 254), transparent 70%)}
+.light{background:linear-gradient(90deg,transparent var(--x),oklch(88% 0.1 76 / .42) var(--x),oklch(94% 0.06 82 / 0) calc(var(--x) + clamp(140px,16vw,260px))),var(--day);color:var(--text);clip-path:inset(0 0 0 var(--x))}
+
+/* top row: a sentence on the left, the claim on the right */
+.say{grid-column:1 / 6;grid-row:2;padding-top:clamp(16px,4vh,48px)}
+.claim{grid-column:7 / 13;grid-row:2;padding-top:clamp(16px,4vh,48px)}
+.serif{font-family:var(--serif);font-weight:400;letter-spacing:-.01em}
+.h1x{margin:0;font-family:var(--serif);font-weight:400;font-size:clamp(3rem,1.6rem + 3.6vw,5.5rem);line-height:.98;letter-spacing:-.015em;text-wrap:balance}
+.subx{margin:18px 0 0;font-size:clamp(1.0625rem,1rem + .3vw,1.25rem);line-height:1.5;max-width:24em;text-wrap:balance}
+.light .subx{color:var(--muted)}
+.dark .subx{color:var(--night-soft)}
+.statement{margin:0;font-family:var(--serif);font-weight:400;line-height:1.02;letter-spacing:-.015em}
+.statement.big{font-size:clamp(3rem,1.6rem + 3.6vw,5.5rem)}
+.statement.mid{font-size:clamp(2rem,1.2rem + 2vw,3.25rem);line-height:1.08}
+.note{margin:14px 0 0;font-size:1.0625rem;line-height:1.5;max-width:26em}
+.light .note{color:var(--muted)}
+.dark .note{color:var(--night-soft)}
+
+/* the verse */
+.verse{grid-column:1 / 13;grid-row:3;align-self:center;display:flex;justify-content:center;align-items:flex-start;gap:clamp(48px,9vw,168px)}
+.w{display:flex;flex-direction:column;align-items:center;background:none;border:0;padding:0;margin:0;color:inherit;cursor:pointer;font:inherit;border-radius:20px}
+.root{display:flex;align-items:baseline;gap:10px;font-family:'Amiri',var(--font-ar);font-size:1.5rem;line-height:1;color:var(--accent);height:1.6em;opacity:0;transform:translateY(6px);transition:opacity .5s ease .15s,transform .6s cubic-bezier(.2,.8,.2,1) .15s}
+.root small{font-family:var(--font);font-size:.8125rem;font-weight:500;letter-spacing:.02em;color:var(--accent)}
+.dark .root{visibility:hidden}
+.dark .mark circle{stroke:var(--night-ink)}
+.hint{position:absolute;bottom:clamp(26px,4.4vh,48px);right:18px;white-space:nowrap;font-size:1rem;font-weight:500;color:var(--night-ink);pointer-events:none;transition:opacity .5s ease}
+.hint.gone{opacity:0}
+.word{font-family:var(--font-ar);font-size:clamp(5.5rem,10vw,10rem);line-height:1.38;white-space:nowrap}
+.light .word.noun,.light .word .noun{color:var(--noun)}
+.light .word.verb,.light .word .verb{color:var(--verb)}
+.ann{display:flex;flex-direction:column;align-items:center;gap:6px;min-height:6.5rem}
+.lead{width:1px;height:30px;background:currentColor;opacity:.35;transform-origin:top;transform:scaleY(0);transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.m{font-family:var(--serif);font-size:clamp(1.625rem,1.2rem + 1vw,2.25rem);line-height:1.1;white-space:nowrap;opacity:0;transform:translateY(8px);transition:opacity .45s ease .2s,transform .6s cubic-bezier(.2,.8,.2,1) .2s}
+.t{display:inline-flex;align-items:center;gap:8px;font-size:.9375rem;font-weight:500;white-space:nowrap;opacity:0;transition:opacity .45s ease .35s}
+.t.noun{color:var(--noun)}.t.verb{color:var(--verb)}
+.light .w.lit .lead{transform:scaleY(1)}
+.light .w.lit .m,.light .w.lit .root{opacity:1;transform:none}
+.light .w.lit .t{opacity:1}
+.dark .lead{transform:scaleY(1);opacity:.25}
+.dark .m{opacity:1;transform:none;color:var(--night-soft);font-style:italic}
+.dark .t{display:none}
+.w:focus-visible{outline:3px solid var(--sun);outline-offset:8px}
+
+/* bottom row */
+.foot{grid-column:1 / 13;grid-row:4;display:flex;justify-content:space-between;align-items:flex-end;gap:24px}
+.how{margin:0;font-size:1.0625rem;line-height:1.5;max-width:28em}
+.light .how{color:var(--muted)}
+.dark .how{color:var(--night-soft)}
+.hint .arrow{display:inline-block;margin-left:6px;animation:nudge 2.4s ease-in-out infinite}
+@keyframes nudge{50%{transform:translateX(-6px)}}
+.cta{display:flex;align-items:center;gap:12px;flex-wrap:wrap;justify-content:flex-end}
+.cta .fine{width:100%;text-align:right;margin-top:2px}
+.dark .btn{border-color:oklch(80% 0.02 240 / .6);color:var(--night-ink)}
+.dark .btn.primary{background:var(--night-ink);border-color:var(--night-ink);color:var(--night)}
+.dark .fine{color:var(--night-soft)}
+
+/* the line of light */
+.beam{position:absolute;top:0;bottom:0;left:var(--x);width:2px;margin-left:-1px;background:var(--sun);z-index:3;pointer-events:none;opacity:0}
+
+.knob{position:absolute;left:50%;top:var(--ky,50%);width:60px;height:60px;margin:-30px 0 0 -30px;border-radius:50%;border:0;background:var(--sun);color:var(--night);display:grid;place-items:center;cursor:grab;pointer-events:auto;
+  box-shadow:0 0 0 6px oklch(79% 0.14 72 / .22),0 10px 30px oklch(30% 0.08 60 / .35);touch-action:none}
+.knob{opacity:0;transform:scale(.4)}
+.stage.ready .knob{opacity:1;transform:none;transition:transform .5s cubic-bezier(.34,1.56,.64,1),opacity .3s ease}
+.stage.ready .knob:hover{transform:scale(1.06);transition:transform .2s ease}
+.hint{opacity:0;translate:12px 0}
+.stage.ready .hint{opacity:1;translate:0 0;transition:opacity .5s ease .2s,translate .6s cubic-bezier(.2,.8,.2,1) .2s}
+.stage.ready .hint.gone{opacity:0}
+.knob:active{cursor:grabbing;transform:scale(.97)}
+.knob:focus-visible{outline:3px solid var(--night-ink);outline-offset:4px}
+.knob svg{width:26px;height:26px}
+.stage.dragging,.stage.dragging *{cursor:grabbing!important;user-select:none}
+@media (prefers-reduced-motion:reduce){.hint .arrow{animation:none}}
+</style></head>
+<body>
+<a class="skip" href="#main">Skip to main content</a>
+
+
+<main id="main">
+<section class="stage" id="stage" aria-label="Introduction">
+  <!-- the understood layer: the real content. The recited layer is cloned from it by the script. -->
+  <div class="layer light" id="light">
+    <header class="site">
+  <a class="brand" href="#">
+    <svg class="mark" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="15" fill="oklch(98.7% 0.005 90)" stroke="oklch(22% 0.035 230)" stroke-width="1.5"/><path d="M16 1a15 15 0 0 0 0 30z" fill="oklch(17.5% 0.034 254)"/><rect x="15.2" y="1" width="1.6" height="30" fill="oklch(79% 0.14 72)"/></svg>
+    Quranic Grammar</a>
+  <nav aria-label="Primary"><a href="#">Learn</a><a href="#">Surahs</a><a href="#">Resources</a><a href="#">About</a></nav>
+  <a class="btn small primary start" href="#">Start learning</a>
+</header>
+    <div class="say" data-dark='<p class="statement big">You recite it.</p><p class="note">Many of us know these words by heart, without knowing what each one does.</p>'>
+      <p class="statement mid">“My Lord, increase me in knowledge.”</p>
+      <p class="note">Taha 20:114, where it follows “And say”. A meaning in plain English, not a translation.</p>
+    </div>
+    <div class="claim">
+      <h1 class="h1x">Understand the Holy Quran for Free.</h1>
+      <p class="subx">Lessons in Quranic Arabic, word by word, starting from the alphabet.</p>
+    </div>
+    <div class="verse" dir="rtl" lang="ar" role="group" aria-label="The dua, word by word">
+      <button class="w" type="button" data-i="0">
+        <span class="root" aria-hidden="true"><span lang="ar">ر ب ب</span><small dir="ltr">root</small></span>
+        <span class="word noun">رَبِّ</span>
+        <span class="ann" dir="ltr" lang="en" data-dark='<span class="lead"></span><span class="m">rab·bi</span>'><span class="lead"></span><span class="m">my Lord</span><span class="t noun"><i class="shape"></i>Noun · the one called on</span></span>
+      </button>
+      <button class="w" type="button" data-i="1">
+        <span class="root" aria-hidden="true"><span lang="ar">ز ي د</span><small dir="ltr">root</small></span>
+        <span class="word"><span class="verb">زِدْ</span><span class="noun">نِى</span></span>
+        <span class="ann" dir="ltr" lang="en" data-dark='<span class="lead"></span><span class="m">zid·nī</span>'><span class="lead"></span><span class="m">increase me</span><span class="t verb"><i class="shape"></i>Verb, a command · + “me”</span></span>
+      </button>
+      <button class="w" type="button" data-i="2">
+        <span class="root" aria-hidden="true"><span lang="ar">ع ل م</span><small dir="ltr">root</small></span>
+        <span class="word noun">عِلْمًا</span>
+        <span class="ann" dir="ltr" lang="en" data-dark='<span class="lead"></span><span class="m">ʿil·mā</span>'><span class="lead"></span><span class="m">in knowledge</span><span class="t noun"><i class="shape"></i>Noun · ends in -an</span></span>
+      </button>
+    </div>
+    <div class="foot">
+      <p class="how" data-dark='Taha 20:114'>Every lesson works like this. First you see the verse. Then you understand it, word by word.</p>
+      <div class="cta">
+        <a class="btn primary" href="#">Start with the alphabet</a>
+        <a class="btn" href="#">I can already read Arabic</a>
+        <p class="fine">Free. No sign-up. No ads.</p>
+      </div>
+    </div>
+  </div>
+  <div class="beam" id="beam" aria-hidden="false">
+    <span class="hint" id="hint" aria-hidden="true">Drag the light <span class="arrow">←</span></span>
+    <button class="knob" id="knob" type="button" role="slider" aria-label="Line of light. Move it to understand the verse" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6-6 6 6 6M15 6l6 6-6 6"/></svg>
+    </button>
+  </div>
+</section>
+</main>
+
+<script src="../../../../node_modules/gsap/dist/gsap.min.js"></script>
+<script>
+const stage=document.getElementById('stage'),light=document.getElementById('light'),beam=document.getElementById('beam'),knob=document.getElementById('knob');
+// build the recited layer from the understood one, so every element sits in exactly the same place
+const dark=light.cloneNode(true);
+dark.id='dark';dark.className='layer dark';dark.setAttribute('aria-hidden','true');
+dark.querySelectorAll('[data-dark]').forEach(el=>{el.innerHTML=el.dataset.dark});
+dark.querySelector('h1').outerHTML='<p class="h1x">Understand the Holy Quran for Free.</p>';
+dark.querySelectorAll('a,button').forEach(el=>el.setAttribute('tabindex','-1'));
+stage.insertBefore(dark,light);
+
+const lw=[...light.querySelectorAll('.w')],dw=[...dark.querySelectorAll('.w')];
+let x=100,centers=[],rest=40;
+function measure(){
+  const s=stage.getBoundingClientRect();
+  centers=lw.map(w=>{const r=w.querySelector('.word').getBoundingClientRect();return {c:(r.left+r.width/2-s.left)/s.width*100,l:(r.left-s.left)/s.width*100,r:(r.right-s.left)/s.width*100}});
+  // rest between the last word (leftmost) and the middle one: two words understood, one still to discover
+  rest=(centers[2].r+centers[1].l)/2;
+  const v=lw[0].querySelector('.word').getBoundingClientRect();
+  stage.style.setProperty('--ky',(v.top+v.height*.55-s.top)+'px');
+}
+function set(v){
+  x=Math.max(2.5,Math.min(100,v));
+  stage.style.setProperty('--x',x+'%');
+  knob.setAttribute('aria-valuenow',Math.round(100-x));
+  knob.setAttribute('aria-valuetext',`${lw.filter((_,i)=>centers[i]&&centers[i].c>x).length} of 3 words understood`);
+  lw.forEach((w,i)=>w.classList.toggle('lit',centers[i]&&centers[i].c>x+1));
+}
+function go(to,d=1.1){gsap.to({v:x},{v:to,duration:d,ease:'power3.inOut',onUpdate(){set(this.targets()[0].v)}})}
+
+// drag the knob
+const hint=document.getElementById('hint');
+knob.addEventListener('pointerdown',e=>{hint.classList.add('gone');knob.setPointerCapture(e.pointerId);stage.classList.add('dragging');gsap.killTweensOf({});});
+knob.addEventListener('pointermove',e=>{if(!knob.hasPointerCapture(e.pointerId))return;const s=stage.getBoundingClientRect();set((e.clientX-s.left)/s.width*100)});
+knob.addEventListener('pointerup',e=>{knob.releasePointerCapture(e.pointerId);stage.classList.remove('dragging')});
+knob.addEventListener('keydown',e=>{hint.classList.add('gone');
+  const step=e.shiftKey?10:3;
+  if(e.key==='ArrowLeft'||e.key==='ArrowDown'){set(x-step);e.preventDefault()}
+  if(e.key==='ArrowRight'||e.key==='ArrowUp'){set(x+step);e.preventDefault()}
+  if(e.key==='Home'){go(100,.6);e.preventDefault()} if(e.key==='End'){go(0,.6);e.preventDefault()}
+});
+// tap a word that is still in the dark: the light moves to it
+[...lw,...dw].forEach(w=>w.addEventListener('click',()=>{const c=centers[+w.dataset.i];if(c.c<=x+1)go(Math.max(0,c.l-4))}));
+
+function intro(){
+  measure();
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches||!window.gsap){beam.style.opacity=1;stage.classList.add('ready');set(rest);return}
+  set(100);
+  const tl=gsap.timeline({defaults:{ease:'power3.out',duration:.7}});
+  // short on purpose: the page is readable within a second, the light arrives right after
+  tl.from(dark.querySelectorAll('.say > *, .claim > *'),{y:18,opacity:0,stagger:.06})
+    .from(dark.querySelectorAll('.word'),{y:22,opacity:0,stagger:.08},'<.15')
+    .from(dark.querySelectorAll('.ann .m, .foot > *'),{opacity:0,duration:.5,stagger:.04},'<.2')
+    .to(beam,{opacity:1,duration:.3},'.75')
+    .to({v:100},{v:rest,duration:1.8,ease:'power2.inOut',onUpdate(){set(this.targets()[0].v)}},'<')
+    .add(()=>stage.classList.add('ready'),'>-.35');
+}
+document.fonts.ready.then(intro);
+addEventListener('resize',()=>{measure();set(x)});
+</script>
+</body></html>

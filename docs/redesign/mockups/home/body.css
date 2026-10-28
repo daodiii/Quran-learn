@@ -1,0 +1,48 @@
+/* Below-hero mockups: tokens and pieces shared by body-a/b/c.html.
+   Values match src/styles/home.css (the built page), so the hero image and the new sections read as one page. */
+:root{
+  --page:oklch(99.2% 0.003 220);--ink:oklch(18% 0.03 240);--text:oklch(22% 0.035 230);--muted:oklch(43% 0.025 230);
+  --soft:oklch(96.5% 0.006 220);--soft-2:oklch(93.5% 0.008 220);--edge:oklch(90% 0.008 220);
+  --accent:oklch(40% 0.1 178);--accent-2:oklch(58% 0.15 58);--accent-2-text:oklch(46% 0.13 55);
+  --noun:oklch(41% 0.14 258);--verb:oklch(48% 0.18 25);--little:oklch(40% 0.11 160);
+  --noun-tint:oklch(94% 0.04 258);--verb-tint:oklch(94.5% 0.04 25);--teal-tint:oklch(94% 0.04 178);--amber-tint:oklch(95.5% 0.05 80);
+  --oasis:radial-gradient(120% 100% at 0% 0%,oklch(88% 0.07 178),transparent 60%),radial-gradient(120% 100% at 100% 0%,oklch(91% 0.09 75),transparent 60%),oklch(95% 0.03 150);
+  --wrap:1240px;
+}
+body{background:var(--page);color:var(--ink)}
+.wrap{max-width:var(--wrap);margin:0 auto;padding-inline:var(--gutter)}
+.mock-tag{position:fixed;left:12px;bottom:12px;z-index:50;background:var(--ink);color:#fff;font-size:12px;padding:6px 10px;border-radius:8px;opacity:.85}
+
+/* the built hero, as a picture */
+.hero-shot{display:block;width:100%;height:auto;max-width:1440px;margin:0 auto}
+
+/* buttons as built: pills, ink */
+.btn{border-radius:999px;border:1.5px solid oklch(85% 0.01 240);color:var(--ink);background:#fff}
+.btn:hover{background:var(--soft)}
+.btn.primary{background:var(--ink);border-color:var(--ink);color:#fff}
+.btn.primary:hover{background:oklch(28% 0.03 240)}
+
+/* section heads */
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:.875rem;font-weight:500;color:var(--accent);margin:0 0 14px}
+.eyebrow::before{content:"";width:18px;height:2px;background:currentColor;border-radius:2px}
+.h2{margin:0;font-weight:600;font-size:clamp(2.1rem,1.3rem + 2.6vw,3.75rem);line-height:1.02;letter-spacing:-.04em;text-wrap:balance}
+.lead{margin:18px 0 0;max-width:34em;font-size:clamp(1.0625rem,1rem + .3vw,1.25rem);line-height:1.5;color:var(--muted);text-wrap:pretty}
+
+/* Arabic inside an English line: keep it whole and in its own direction */
+.rt,.lens-cap .ar{unicode-bidi:isolate;direction:rtl;white-space:nowrap}
+
+/* word-type colours carry a shape too */
+.shape{display:inline-block;width:.62em;height:.62em;background:currentColor;flex:none}
+.shape.noun{border-radius:50%}
+.shape.verb{transform:rotate(45deg) scale(.86)}
+.shape.little{border-radius:2px;transform:scale(.8)}
+
+/* footer as built */
+.foot{border-top:1px solid var(--edge);padding:28px var(--gutter) 40px;font-size:.9375rem;color:var(--muted)}
+.foot .in{max-width:var(--wrap);margin:0 auto;display:flex;gap:16px 40px;flex-wrap:wrap;justify-content:space-between}
+.foot nav{display:flex;gap:6px 22px;flex-wrap:wrap}
+.foot nav a{text-decoration:none;padding:6px 0}
+.foot nav a:hover{color:var(--ink)}
+.foot p{margin:6px 0 0;max-width:46em}
+
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{transition-duration:.01ms!important;animation-duration:.01ms!important}}
