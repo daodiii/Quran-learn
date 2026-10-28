@@ -1,547 +1,1154 @@
 ---
 title: "Story Narratives: Prophet Musa"
+kicker: "Many people speak in one story: how the grammar tells them apart"
+titleArabic: "قِصَّة مُوسَىٰ"
 level: 5
 order: 10
-description: "Analyze complex narrative structures with multiple speakers in Prophet Musa's story from Ta-Ha and Al-Qasas, building on narrative grammar patterns from L5.09."
+template: steps
+description: "Read the story of Musa in Surah Ta-Ha (20:9 to 20:71) and Surah Al-Qasas (28:7 to 28:12), where many people speak. See how one verb, قَالَ, stands for different speakers, how a report, a command and a reason sit together, how a question is answered, what a verb with two objects looks like, and which words al-Jadwal says are left out. Ten verses go word by word."
 draft: false
 ---
 
-import ArabicExample from '../../../components/mdx/ArabicExample.astro';
-import GrammarTable from '../../../components/mdx/GrammarTable.astro';
-import Callout from '../../../components/mdx/Callout.astro';
-import ExerciseBox from '../../../components/mdx/ExerciseBox.astro';
-
-## Introduction
-
-<ArabicExample
-  arabic="وَهَلْ أَتَاكَ حَدِيثُ مُوسَىٰ"
-  transliteration="wa-hal atāka ḥadīthu mūsā"
-  translation="And has the story of Musa reached you?"
-  reference="Ta-Ha 20:9"
-  highlight="حَدِيثُ مُوسَىٰ"
-  words={[
-    { ar: "وَهَلْ", tr: "wa-hal", en: "and has" },
-    { ar: "أَتَاكَ", tr: "atāka", en: "reached you" },
-    { ar: "حَدِيثُ", tr: "ḥadīthu", en: "the story of" },
-    { ar: "مُوسَىٰ", tr: "mūsā", en: "Musa" }
-  ]}
-/>
-
-Prophet Musa's story is the MOST narrated in the Quran — it appears in over 20 surahs. The grammar is significantly more complex than Prophet Ibrahim's story: multiple speakers (Musa, Pharaoh, the people, Allah), rapid dialogue shifts, extensive action sequences, and genre transitions from narrative to du'a and back. Mastering Musa's narrative grammar prepares you to analyze ANY Quranic passage.
-
-In [L5.09 Story Narratives: Prophet Ibrahim](/learn/level-5/09-prophet-ibrahim-narrative/), you established the narrative grammar toolkit: past tense dominance, dialogue markers (قَالَ / قَالُوا), speaker shift tracking, quoted speech, and temporal/conditional structures. Ibrahim's story had TWO parties (Ibrahim vs. his people). Musa's story has MULTIPLE parties — the grammar must track more speakers simultaneously.
-
-**In this lesson, you will:**
-1. Analyze multi-speaker dialogue with rapid speaker shifts between 3+ parties
-2. Track dialogue through complex narrative involving Musa, Allah, Pharaoh, and others
-3. Identify feminine verb markers as speaker identification tools
-4. Compare narrative grammar patterns between Ibrahim and Musa stories
-
-**Connection to previous learning:** In [L5.09](/learn/level-5/09-prophet-ibrahim-narrative/), you mastered the narrative grammar toolkit with a simpler two-party dialogue. In [L4.03](/learn/level-4/03-conditional-sentences/), you studied conditional structures that appear in Musa's narrative. In [L3.08](/learn/level-3/08-imperative/), you learned imperative forms that dominate divine commands to Musa. Now you'll apply ALL these skills to the Quran's most complex narrative.
-
-<Callout type="tip" title="Why Musa's Story Matters for Grammar">
-
-Musa's story demonstrates every narrative grammar technique the Quran uses: past tense event sequences, present tense in quoted speech, divine speech in majestic plural, rapid dialogue shifts between 3+ speakers, feminine verb forms, conditional cause-effect structures, and genre transitions (narrative → du'a → narrative). Master this story's grammar and you have the tools for ANY Quranic narrative.
-
-</Callout>
-
-<Callout type="note" title="Plain-English key">
-Quick, everyday translations of the grammar terms in this lesson — glance back here whenever one trips you up:
-
-- **Past tense** (al-māḍī / الْمَاضِي) — the "did" verb: a finished action.
-- **Present tense** (al-muḍāriʿ / الْمُضَارِع) — the "does / is doing" verb: an ongoing or future action.
-- **Imperative** (al-amr / الأَمْر) — the command form: "do!"
-- **Passive voice** (al-majhūl / الْمَجْهُول) — the "was done" verb, where the doer is not named.
-- **Defective verb** (nāqiṣ / نَاقِص) — a verb whose *last* root letter is weak (like daʿā).
-</Callout>
-
-## Guided Analysis: Musa's Commission (Ta-Ha 20:9-36)
-
-### Narrative Introduction (Verses 9-12)
-
-The passage begins with a rhetorical question addressed to the Prophet Muhammad, then shifts to Musa's past-tense narrative:
-
-<ArabicExample
-  arabic="إِذْ رَأَىٰ نَارًا فَقَالَ لِأَهْلِهِ ٱمْكُثُوا إِنِّي آنَسْتُ نَارًا"
-  translation="When he saw a fire and said to his family: Stay here, indeed I have perceived a fire"
-  reference="Ta-Ha 20:10"
-  highlight="فَقَالَ لِأَهْلِهِ"
-  words={[
-    { ar: "إِذْ", tr: "idh", en: "when" },
-    { ar: "رَأَىٰ", tr: "raʾā", en: "he saw" },
-    { ar: "نَارًا", tr: "nāran", en: "a fire" },
-    { ar: "فَقَالَ", tr: "fa-qāla", en: "and he said" },
-    { ar: "لِأَهْلِهِ", tr: "li-ahlihī", en: "to his family" },
-    { ar: "ٱمْكُثُوا", tr: "umkuthū", en: "stay here" },
-    { ar: "إِنِّي", tr: "innī", en: "indeed I" },
-    { ar: "آنَسْتُ", tr: "ānastu", en: "have perceived" },
-    { ar: "نَارًا", tr: "nāran", en: "a fire" }
-  ]}
-/>
-
-**Grammatical analysis:**
-- **إِذْ**: Temporal particle (ظَرْفُ زَمَانٍ / ẓarfu zamānin) — "when/at that time." Locates the narrative in the past
-- **رَأَىٰ**: Past tense, third-person masculine singular — Musa is the implied subject. Root ر-أ-ي (defective verb)
-- **فَقَالَ لِأَهْلِهِ**: فَ (sequential conjunction — then) + قَالَ (dialogue marker, masculine singular = Musa) + لِأَهْلِهِ (to his family, prepositional phrase identifying addressee)
-- **ٱمْكُثُوا**: Imperative, second-person masculine plural — Musa commands his family
-- **إِنِّي آنَسْتُ نَارًا**: إِنَّ + ي (first-person pronoun, ism of inna) + آنَسْتُ (past tense, first-person singular — "I perceived") + نَارًا (accusative, indefinite). Quoted speech uses first person — grammatically independent from the narrative frame
-
-### Divine Speech (Verses 11-16): Allah Speaks to Musa
-
-<ArabicExample
-  arabic="فَلَمَّا أَتَاهَا نُودِيَ يَا مُوسَىٰ"
-  translation="And when he came to it, he was called: O Musa!"
-  reference="Ta-Ha 20:11"
-  highlight="نُودِيَ يَا مُوسَىٰ"
-  words={[
-    { ar: "فَلَمَّا", tr: "fa-lammā", en: "and when" },
-    { ar: "أَتَاهَا", tr: "atāhā", en: "he came to it" },
-    { ar: "نُودِيَ", tr: "nūdiya", en: "he was called" },
-    { ar: "يَا", tr: "yā", en: "O" },
-    { ar: "مُوسَىٰ", tr: "mūsā", en: "Musa" }
-  ]}
-/>
-
-**Speaker identification — How grammar tracks the shift:**
-- **نُودِيَ**: Passive voice (past tense, Form III — نَادَى / to call). The passive obscures the agent — WHO called him? The reader understands it's Allah, but the grammar maintains divine majesty through passivization
-- **يَا مُوسَىٰ**: Vocative particle يَا + مُوسَىٰ (proper name, vocative). Explicit naming identifies the addressee beyond any doubt
-
-<ArabicExample
-  arabic="إِنِّي أَنَا رَبُّكَ فَٱخْلَعْ نَعْلَيْكَ إِنَّكَ بِٱلْوَادِ ٱلْمُقَدَّسِ طُوًى"
-  translation="Indeed, I am your Lord, so remove your sandals. Indeed, you are in the sacred valley of Tuwa"
-  reference="Ta-Ha 20:12"
-  highlight="إِنِّي أَنَا رَبُّكَ"
-  words={[
-    { ar: "إِنِّي", tr: "innī", en: "indeed I" },
-    { ar: "أَنَا", tr: "anā", en: "I am" },
-    { ar: "رَبُّكَ", tr: "rabbuka", en: "your Lord" },
-    { ar: "فَٱخْلَعْ", tr: "fa-khlaʿ", en: "so remove" },
-    { ar: "نَعْلَيْكَ", tr: "naʿlayka", en: "your sandals" },
-    { ar: "إِنَّكَ", tr: "innaka", en: "indeed you are" },
-    { ar: "بِٱلْوَادِ", tr: "bi-l-wādi", en: "in the valley" },
-    { ar: "ٱلْمُقَدَّسِ", tr: "l-muqaddasi", en: "the sacred" },
-    { ar: "طُوًى", tr: "ṭuwan", en: "Tuwa" }
-  ]}
-/>
-
-**Grammatical analysis:**
-- **إِنِّي أَنَا رَبُّكَ**: Triple emphasis: إِنَّ (emphatic particle) + ي (first-person ism of inna) + أَنَا (independent pronoun for additional emphasis) + رَبُّكَ (khabar of inna). Allah identifies Himself through grammatical emphasis
-- **فَٱخْلَعْ نَعْلَيْكَ**: فَ (result conjunction) + ٱخْلَعْ (imperative, root خ-ل-ع) + نَعْلَيْكَ (dual noun, accusative — "your two sandals" + attached pronoun). Divine command uses imperative — the speaker (Allah) has authority to command
-- **إِنَّكَ بِٱلْوَادِ ٱلْمُقَدَّسِ طُوًى**: Reasoning clause — إِنَّ + كَ (you) + prepositional phrase (location) + طُوًى (proper name of the valley, badal/apposition)
-
-<Callout type="rule">
-**Divine Speech Markers:** When Allah speaks in Quranic narrative, the grammar uses:
-1. **First-person singular** (أَنَا / إِنِّي) when speaking directly to a prophet
-2. **Majestic plural** (نَحْنُ / إِنَّا) when speaking about divine actions
-3. **Imperative mood** for commands (فَٱخْلَعْ — remove, ٱسْتَمِعْ — listen)
-4. **Passive voice** for the narrative introduction (نُودِيَ — he was called) to maintain divine transcendence
-</Callout>
-
-### Dialogue Between Allah and Musa (Verses 17-23)
-
-<ArabicExample
-  arabic="وَمَا تِلْكَ بِيَمِينِكَ يَا مُوسَىٰ"
-  translation="And what is that in your right hand, O Musa?"
-  reference="Ta-Ha 20:17"
-  highlight="وَمَا تِلْكَ"
-  words={[
-    { ar: "وَمَا", tr: "wa-mā", en: "and what is" },
-    { ar: "تِلْكَ", tr: "tilka", en: "that" },
-    { ar: "بِيَمِينِكَ", tr: "bi-yamīnika", en: "in your right hand" },
-    { ar: "يَا", tr: "yā", en: "O" },
-    { ar: "مُوسَىٰ", tr: "mūsā", en: "Musa" }
-  ]}
-/>
-
-**Speaker:** Allah (continuing from the divine speech section — no new قَالَ marker needed because the speaker hasn't changed)
-- **مَا**: Interrogative pronoun (what?)
-- **تِلْكَ**: Demonstrative pronoun, feminine singular (that) — referring to Musa's staff
-- **بِيَمِينِكَ**: Prepositional phrase (in your right hand)
-- **يَا مُوسَىٰ**: Vocative — addressee explicitly named
-
-<ArabicExample
-  arabic="قَالَ هِيَ عَصَايَ أَتَوَكَّأُ عَلَيْهَا وَأَهُشُّ بِهَا عَلَىٰ غَنَمِي وَلِيَ فِيهَا مَآرِبُ أُخْرَىٰ"
-  translation="He said: It is my staff; I lean upon it, and I bring down leaves for my sheep, and I have other uses for it"
-  reference="Ta-Ha 20:18"
-  highlight="قَالَ هِيَ عَصَايَ"
-  words={[
-    { ar: "قَالَ", tr: "qāla", en: "he said" },
-    { ar: "هِيَ", tr: "hiya", en: "it is" },
-    { ar: "عَصَايَ", tr: "ʿaṣāya", en: "my staff" },
-    { ar: "أَتَوَكَّأُ", tr: "atawakkaʾu", en: "I lean" },
-    { ar: "عَلَيْهَا", tr: "ʿalayhā", en: "upon it" },
-    { ar: "وَأَهُشُّ", tr: "wa-ahushsh", en: "and I bring down" },
-    { ar: "بِهَا", tr: "bihā", en: "with it" },
-    { ar: "عَلَىٰ", tr: "ʿalā", en: "upon" },
-    { ar: "غَنَمِي", tr: "ghanamī", en: "my sheep" },
-    { ar: "وَلِيَ", tr: "wa-liya", en: "and I have" },
-    { ar: "فِيهَا", tr: "fīhā", en: "in it" },
-    { ar: "مَآرِبُ", tr: "maʾāribu", en: "uses" },
-    { ar: "أُخْرَىٰ", tr: "ukhrā", en: "other" }
-  ]}
-/>
-
-**Speaker shift:** قَالَ (masculine singular) = Musa responds. No explicit naming needed because context is clear (Allah asked, Musa answers).
-
-- **هِيَ عَصَايَ**: Nominal sentence — هِيَ (she/it, feminine pronoun — matching the feminine تِلْكَ) + عَصَايَ (my staff, mubtada's khabar, with attached first-person pronoun)
-- **أَتَوَكَّأُ عَلَيْهَا**: Present tense, first-person singular — Form V (تَوَكَّأَ / to lean). Quoted speech uses present tense for habitual actions
-- **وَأَهُشُّ بِهَا**: Present tense, first-person singular (to beat down leaves) — another habitual action in quoted speech
-
-### Musa's Mission (Verses 24-36)
-
-<ArabicExample
-  arabic="ٱذْهَبْ إِلَىٰ فِرْعَوْنَ إِنَّهُ طَغَىٰ"
-  translation="Go to Pharaoh. Indeed, he has transgressed"
-  reference="Ta-Ha 20:24"
-  highlight="ٱذْهَبْ إِلَىٰ فِرْعَوْنَ"
-  words={[
-    { ar: "ٱذْهَبْ", tr: "idhhab", en: "go" },
-    { ar: "إِلَىٰ", tr: "ilā", en: "to" },
-    { ar: "فِرْعَوْنَ", tr: "firʿawna", en: "Pharaoh" },
-    { ar: "إِنَّهُ", tr: "innahu", en: "indeed he" },
-    { ar: "طَغَىٰ", tr: "ṭaghā", en: "has transgressed" }
-  ]}
-/>
-
-**Divine command establishing the mission:**
-- **ٱذْهَبْ**: Imperative (root ذ-ه-ب), addressed to Musa — establishing the core mission
-- **إِنَّهُ طَغَىٰ**: Reasoning clause — إِنَّ + هُ (he, i.e., Pharaoh) + طَغَىٰ (past tense, defective verb, root ط-غ-ي — to transgress). Explains WHY Musa must go
-
-**Genre transition — Narrative to Du'a:**
-
-Immediately after receiving the command, Musa responds with a personal du'a:
-
-<ArabicExample
-  arabic="قَالَ رَبِّ ٱشْرَحْ لِي صَدْرِي وَيَسِّرْ لِي أَمْرِي"
-  translation="He said: My Lord, expand for me my chest, and ease for me my task"
-  reference="Ta-Ha 20:25-26"
-  highlight="رَبِّ ٱشْرَحْ"
-  words={[
-    { ar: "قَالَ", tr: "qāla", en: "he said" },
-    { ar: "رَبِّ", tr: "rabbi", en: "my Lord" },
-    { ar: "ٱشْرَحْ", tr: "ishraḥ", en: "expand" },
-    { ar: "لِي", tr: "lī", en: "for me" },
-    { ar: "صَدْرِي", tr: "ṣadrī", en: "my chest" },
-    { ar: "وَيَسِّرْ", tr: "wa-yassir", en: "and ease" },
-    { ar: "لِي", tr: "lī", en: "for me" },
-    { ar: "أَمْرِي", tr: "amrī", en: "my task" }
-  ]}
-/>
-
-**Grammar transition:** The text shifts from narrative (Allah commanding) to du'a (Musa requesting). Notice:
-- قَالَ: Dialogue marker reintroduced — speaker is Musa
-- رَبِّ: Personal vocative (see [L5.07 Du'a Patterns](/learn/level-5/07-dua-patterns/) — Pattern 2)
-- ٱشْرَحْ / وَيَسِّرْ: Imperative verbs, but now functioning as supplication (Musa speaking UP to Allah, not commanding)
-- The grammar FORM (imperative) is identical whether Musa is commanding his family (V10: ٱمْكُثُوا) or supplicating to Allah (V25: ٱشْرَحْ). CONTEXT determines the function
-
-<ArabicExample
-  arabic="وَٱحْلُلْ عُقْدَةً مِّن لِّسَانِي يَفْقَهُوا قَوْلِي"
-  translation="And untie a knot from my tongue, that they may understand my speech"
-  reference="Ta-Ha 20:27-28"
-  words={[
-    { ar: "وَٱحْلُلْ", tr: "wa-ḥlul", en: "and untie" },
-    { ar: "عُقْدَةً", tr: "ʿuqdatan", en: "a knot" },
-    { ar: "مِّن", tr: "min", en: "from" },
-    { ar: "لِّسَانِي", tr: "lisānī", en: "my tongue" },
-    { ar: "يَفْقَهُوا", tr: "yafqahū", en: "that they understand" },
-    { ar: "قَوْلِي", tr: "qawlī", en: "my speech" }
-  ]}
-/>
-
-- **وَٱحْلُلْ**: Imperative (root ح-ل-ل — to untie/loosen)
-- **عُقْدَةً مِّن لِّسَانِي**: Accusative object + partitive مِن + genitive (from my tongue)
-- **يَفْقَهُوا قَوْلِي**: Present tense, subjunctive mood (after implied لِ — purpose clause). Third-person plural — "so THEY understand" — switches from Musa addressing Allah to referring to his future audience
-
-## Complex Dialogue: Pharaoh's Court (Ta-Ha 20:49-73)
-
-This section demonstrates the most complex dialogue tracking in the Quran: THREE speakers (Musa, Pharaoh, and the magicians) in rapid alternation.
-
-### Pharaoh Questions Musa
-
-<ArabicExample
-  arabic="قَالَ فَمَن رَّبُّكُمَا يَا مُوسَىٰ"
-  translation="He [Pharaoh] said: Then who is the Lord of you two, O Musa?"
-  reference="Ta-Ha 20:49"
-  highlight="قَالَ فَمَن"
-  words={[
-    { ar: "قَالَ", tr: "qāla", en: "he said" },
-    { ar: "فَمَن", tr: "fa-man", en: "then who is" },
-    { ar: "رَّبُّكُمَا", tr: "rabbukumā", en: "the Lord of you two" },
-    { ar: "يَا", tr: "yā", en: "O" },
-    { ar: "مُوسَىٰ", tr: "mūsā", en: "Musa" }
-  ]}
-/>
-
-**Speaker identification challenge:** قَالَ is masculine singular — could be Musa OR Pharaoh. Context resolves it:
-- The vocative **يَا مُوسَىٰ** identifies the ADDRESSEE as Musa
-- Therefore the SPEAKER must be Pharaoh (the other party)
-- **رَّبُّكُمَا**: Dual pronoun كُمَا — "the Lord of you TWO" — referring to Musa and Harun together
-
-### Musa Responds
-
-<ArabicExample
-  arabic="قَالَ رَبُّنَا ٱلَّذِي أَعْطَىٰ كُلَّ شَيْءٍ خَلْقَهُ ثُمَّ هَدَىٰ"
-  translation="He said: Our Lord is the One who gave everything its creation, then guided"
-  reference="Ta-Ha 20:50"
-  highlight="قَالَ رَبُّنَا"
-  words={[
-    { ar: "قَالَ", tr: "qāla", en: "he said" },
-    { ar: "رَبُّنَا", tr: "rabbunā", en: "our Lord" },
-    { ar: "ٱلَّذِي", tr: "alladhī", en: "the One who" },
-    { ar: "أَعْطَىٰ", tr: "aʿṭā", en: "gave" },
-    { ar: "كُلَّ", tr: "kulla", en: "every" },
-    { ar: "شَيْءٍ", tr: "shayʾin", en: "thing" },
-    { ar: "خَلْقَهُ", tr: "khalqahu", en: "its creation" },
-    { ar: "ثُمَّ", tr: "thumma", en: "then" },
-    { ar: "هَدَىٰ", tr: "hadā", en: "guided" }
-  ]}
-/>
-
-**Speaker shift:** قَالَ again — now Musa responds:
-- No explicit naming, but context is clear (Pharaoh asked, Musa answers)
-- **رَبُّنَا**: Switches from Pharaoh's كُمَا (dual — you two) to نَا (plural — our Lord, inclusive of all)
-- **ٱلَّذِي أَعْطَىٰ**: Relative clause defining Allah through His actions
-
-### The Magicians' Conversion (Verses 70-73)
-
-The most dramatic speaker shift occurs when the magicians — initially Pharaoh's allies — suddenly change sides:
-
-<ArabicExample
-  arabic="فَأُلْقِيَ ٱلسَّحَرَةُ سُجَّدًا قَالُوا آمَنَّا بِرَبِّ هَارُونَ وَمُوسَىٰ"
-  translation="So the magicians fell down in prostration. They said: We have believed in the Lord of Harun and Musa"
-  reference="Ta-Ha 20:70"
-  highlight="قَالُوا آمَنَّا"
-  words={[
-    { ar: "فَأُلْقِيَ", tr: "fa-ulqiya", en: "so were cast down" },
-    { ar: "ٱلسَّحَرَةُ", tr: "as-saḥaratu", en: "the magicians" },
-    { ar: "سُجَّدًا", tr: "sujjadan", en: "in prostration" },
-    { ar: "قَالُوا", tr: "qālū", en: "they said" },
-    { ar: "آمَنَّا", tr: "āmannā", en: "we have believed" },
-    { ar: "بِرَبِّ", tr: "bi-rabbi", en: "in the Lord of" },
-    { ar: "هَارُونَ", tr: "hārūna", en: "Harun" },
-    { ar: "وَمُوسَىٰ", tr: "wa-mūsā", en: "and Musa" }
-  ]}
-/>
-
-**Grammar tracking the conversion:**
-- **فَأُلْقِيَ ٱلسَّحَرَةُ سُجَّدًا**: Passive voice (أُلْقِيَ — "were cast/thrown"), ٱلسَّحَرَةُ (the magicians, nominative — deputy agent in passive), سُجَّدًا (hal — state of prostration, accusative). The passive suggests they were overwhelmed — not choosing but compelled by truth
-- **قَالُوا**: PLURAL — the magicians speaking collectively (first time they speak with this marker)
-- **آمَنَّا**: Past tense, first-person plural — "we have believed." The shift from third-person narration (they fell) to first-person speech (we believe) is immediate and dramatic
-
-<ArabicExample
-  arabic="قَالَ آمَنتُمْ لَهُ قَبْلَ أَنْ آذَنَ لَكُمْ"
-  translation="He [Pharaoh] said: You believed in him before I gave you permission?"
-  reference="Ta-Ha 20:71"
-  highlight="قَالَ آمَنتُمْ"
-  words={[
-    { ar: "قَالَ", tr: "qāla", en: "he said" },
-    { ar: "آمَنتُمْ", tr: "āmantum", en: "you believed" },
-    { ar: "لَهُ", tr: "lahū", en: "in him" },
-    { ar: "قَبْلَ", tr: "qabla", en: "before" },
-    { ar: "أَنْ", tr: "an", en: "that" },
-    { ar: "آذَنَ", tr: "ādhana", en: "I gave permission" },
-    { ar: "لَكُمْ", tr: "lakum", en: "to you" }
-  ]}
-/>
-
-**Pharaoh's response:**
-- **قَالَ**: Masculine singular = Pharaoh (the magicians used قَالُوا plural)
-- **آمَنتُمْ لَهُ**: Second-person plural past tense — Pharaoh addresses the magicians directly. The لَ preposition (to/for him) rather than بِ (in him) carries subtle meaning — Pharaoh frames their belief as allegiance to Musa rather than faith in Allah
-- **قَبْلَ أَنْ آذَنَ لَكُمْ**: Temporal clause — "before I permitted you." أَنْ + present subjunctive (آذَنَ) — Pharaoh claims authority over their beliefs
-
-### Dialogue Flow Chart
-
-```
-V49:  قَالَ (Pharaoh)   → questions Musa (identified by يَا مُوسَىٰ)
-V50:  قَالَ (Musa)       → responds (context: answer to question)
-V51:  قَالَ (Pharaoh)    → follows up (context: continuation)
-V52:  قَالَ (Musa)       → responds (context: answer)
-V56:  فَأَرَيْنَاهُ    → NARRATION (no قَالَ — action sequence)
-V70:  قَالُوا (Magicians) → PLURAL = new speakers enter (conversion)
-V71:  قَالَ (Pharaoh)    → SINGULAR = switches back (response to magicians)
-```
-
-**Pattern:** Verb number (singular vs. plural) is the PRIMARY speaker identification tool. When two singular speakers alternate, CONTEXT (question-answer, vocative naming) resolves ambiguity.
-
-## Female Speakers: Al-Qasas 28:7-13
-
-Musa's childhood narrative in Al-Qasas introduces FEMININE verb markers — a new speaker identification tool.
-
-<ArabicExample
-  arabic="وَأَوْحَيْنَا إِلَىٰ أُمِّ مُوسَىٰ أَنْ أَرْضِعِيهِ"
-  translation="And We inspired to the mother of Musa: Nurse him"
-  reference="Al-Qasas 28:7"
-  highlight="أَوْحَيْنَا"
-  words={[
-    { ar: "وَأَوْحَيْنَا", tr: "wa-awḥaynā", en: "and We inspired" },
-    { ar: "إِلَىٰ", tr: "ilā", en: "to" },
-    { ar: "أُمِّ", tr: "ummi", en: "the mother of" },
-    { ar: "مُوسَىٰ", tr: "mūsā", en: "Musa" },
-    { ar: "أَنْ", tr: "an", en: "that" },
-    { ar: "أَرْضِعِيهِ", tr: "arḍiʿīhi", en: "nurse him" }
-  ]}
-/>
-
-**Divine speech marker:** أَوْحَيْنَا — majestic plural (نَا ending) = Allah. The verb وَحْيٌ (inspiration) is different from قَالَ (said) — divine communication to non-prophets uses inspiration, not direct speech.
-
-- **أَنْ أَرْضِعِيهِ**: أَنْ (explicative — explaining what was inspired) + أَرْضِعِي (imperative, Form IV, second-person FEMININE singular — addressed to Musa's mother) + هِ (attached pronoun — him)
-
-<ArabicExample
-  arabic="وَقَالَتِ ٱمْرَأَتُ فِرْعَوْنَ قُرَّتُ عَيْنٍ لِّي وَلَكَ لَا تَقْتُلُوهُ"
-  translation="And the wife of Pharaoh said: A comfort of the eye for me and for you. Do not kill him"
-  reference="Al-Qasas 28:9"
-  highlight="وَقَالَتِ ٱمْرَأَتُ فِرْعَوْنَ"
-  words={[
-    { ar: "وَقَالَتِ", tr: "wa-qālati", en: "and said" },
-    { ar: "ٱمْرَأَتُ", tr: "imraʾatu", en: "the wife of" },
-    { ar: "فِرْعَوْنَ", tr: "firʿawna", en: "Pharaoh" },
-    { ar: "قُرَّتُ", tr: "qurratu", en: "a comfort of" },
-    { ar: "عَيْنٍ", tr: "ʿaynin", en: "the eye" },
-    { ar: "لِّي", tr: "lī", en: "for me" },
-    { ar: "وَلَكَ", tr: "wa-laka", en: "and for you" },
-    { ar: "لَا", tr: "lā", en: "do not" },
-    { ar: "تَقْتُلُوهُ", tr: "taqtulūhu", en: "kill him" }
-  ]}
-/>
-
-**Feminine dialogue marker:**
-- **قَالَتِ**: Past tense, third-person FEMININE singular — the تِ suffix marks the speaker as female
-- **ٱمْرَأَتُ فِرْعَوْنَ**: Explicit naming — "the wife of Pharaoh." When a new speaker enters, the Quran names them for clarity
-- **لَا تَقْتُلُوهُ**: Prohibition — لَا + jussive, second-person MASCULINE PLURAL. She addresses Pharaoh and his court (male audience)
-
-<ArabicExample
-  arabic="فَقَالَتْ هَلْ أَدُلُّكُمْ عَلَىٰ أَهْلِ بَيْتٍ يَكْفُلُونَهُ لَكُمْ"
-  translation="So she said: Shall I direct you to a household that will nurse him for you?"
-  reference="Al-Qasas 28:12"
-  highlight="فَقَالَتْ"
-  words={[
-    { ar: "فَقَالَتْ", tr: "fa-qālat", en: "so she said" },
-    { ar: "هَلْ", tr: "hal", en: "shall" },
-    { ar: "أَدُلُّكُمْ", tr: "adullukum", en: "I direct you" },
-    { ar: "عَلَىٰ", tr: "ʿalā", en: "to" },
-    { ar: "أَهْلِ", tr: "ahli", en: "a household of" },
-    { ar: "بَيْتٍ", tr: "baytin", en: "a house" },
-    { ar: "يَكْفُلُونَهُ", tr: "yakfulūnahu", en: "who will nurse him" },
-    { ar: "لَكُمْ", tr: "lakum", en: "for you" }
-  ]}
-/>
-
-**Another feminine speaker — Musa's sister:**
-- **قَالَتْ**: Feminine singular — but which woman? Context resolves it: the previous verse establishes Musa's sister was following the basket
-- **هَلْ أَدُلُّكُمْ**: Interrogative هَلْ + present tense first-person singular + second-person plural pronoun. She addresses Pharaoh's household
-
-<GrammarTable>
-| Verse | Marker | Speaker | Gender Marker | Identification Method |
-|-------|--------|---------|---------------|----------------------|
-| 28:7 | أَوْحَيْنَا | Allah | Majestic plural نَا | Verb of divine inspiration |
-| 28:9 | قَالَتِ | Pharaoh's wife | Feminine تِ | Explicit naming (ٱمْرَأَتُ فِرْعَوْنَ) |
-| 28:12 | قَالَتْ | Musa's sister | Feminine تْ | Context (previous verse establishes her) |
-| 28:13 | فَرَدَدْنَاهُ | Allah (narrator) | Majestic plural نَا | Action verb with divine agent |
-</GrammarTable>
-
-<Callout type="tip">
-**Feminine markers as speaker ID:** In Al-Qasas 28:7-13, both قَالَتِ and قَالَتْ are feminine singular — but they refer to DIFFERENT women. Arabic grammar identifies them through: (1) explicit naming on first appearance, (2) contextual flow on subsequent appearances. The grammar alone (feminine singular) narrows the options; context pinpoints the speaker.
-</Callout>
-
-## Ibrahim vs. Musa Narrative Comparison
-
-<GrammarTable>
-| Feature | Ibrahim (Ash-Shu'ara 26) | Musa (Ta-Ha 20) |
-|---------|--------------------------|------------------|
-| Speaker count | 2 parties (Ibrahim + people) | 3+ parties (Musa, Allah, Pharaoh, magicians) |
-| Dialogue marker | قَالَ vs. قَالُوا (number alone) | قَالَ + explicit naming + context |
-| Speaker ID method | Verb number (singular/plural) | Number + naming + vocative + context |
-| Quoted speech types | Interrogative dominated | Mixed: command, question, du'a, declaration |
-| Narrative structure | Dialogue-heavy (debate format) | Mixed dialogue + action sequences |
-| Tense in narration | Past tense throughout | Past tense + present in quoted speech |
-| Genre transitions | None (pure dialogue) | Narrative → du'a → narrative → confrontation |
-| Feminine markers | Not present | قَالَتِ / قَالَتْ track female speakers |
-| Divine speech | Not present in passage | أَوْحَيْنَا, نُودِيَ, imperative commands |
-| Conditional structures | Minimal | فَلَمَّا (temporal), إِنْ (conditional), أَنْ (purpose) |
-</GrammarTable>
-
-**Key insight:** Ibrahim's narrative grammar is SIMPLER because it has fewer speakers and a single genre (debate). Musa's narrative grammar is COMPLEX because it combines multiple speakers, genre transitions, and diverse sentence types. The grammatical tools are the SAME — verb agreement, dialogue markers, vocative constructions — but Musa's story requires ALL of them simultaneously.
-
-## Practice
-
-<ExerciseBox question="Exercise 1: Speaker Tracking (Guided)">
-
-Read Ta-Ha 20:49-56 and track every speaker shift:
-
-For each قَالَ/قَالُوا occurrence, identify:
-1. Who is speaking?
-2. How do you know? (What grammatical clue identifies the speaker?)
-3. What sentence type is the quoted speech? (Interrogative, declarative, imperative)- **V49: قَالَ فَمَن رَّبُّكُمَا يَا مُوسَىٰ** — Speaker: Pharaoh. Clue: يَا مُوسَىٰ identifies Musa as ADDRESSEE, so speaker must be the other party. Sentence type: Interrogative (مَن — who?)
-- **V50: قَالَ رَبُّنَا ٱلَّذِي أَعْطَىٰ كُلَّ شَيْءٍ خَلْقَهُ ثُمَّ هَدَىٰ** — Speaker: Musa. Clue: Context (responds to Pharaoh's question). Sentence type: Declarative (nominal sentence — رَبُّنَا = mubtada)
-- **V51: قَالَ فَمَا بَالُ ٱلْقُرُونِ ٱلْأُولَىٰ** — Speaker: Pharaoh. Clue: New question (فَ indicates follow-up). Sentence type: Interrogative (مَا — what?)
-- **V52: قَالَ عِلْمُهَا عِندَ رَبِّي** — Speaker: Musa. Clue: Context (answer to question). Sentence type: Declarative (nominal)
-- **V56: فَأَرَيْنَاهُ آيَاتِنَا كُلَّهَا فَكَذَّبَ وَأَبَىٰ** — NOT dialogue. Narration: أَرَيْنَا (majestic plural = Allah as narrator). Sentence type: Narrative action sequence
-
-Pattern: Pharaoh asks (interrogative) → Musa answers (declarative) → repeat. The grammar creates a debate structure through alternating sentence types.
-</ExerciseBox>
-
-<ExerciseBox question="Exercise 2: Feminine Markers (Intermediate)">
-
-In Al-Qasas 28:7-13, find ALL instances of feminine verb forms. For each:
-1. What is the verb form and its root?
-2. Who is the speaker/agent?
-3. How does context (not just grammar) help identify the speaker?1. **V7: أَرْضِعِيهِ** — Imperative, feminine singular (يـِ ending), root ر-ض-ع, Form IV. Agent: Musa's mother (addressee of divine inspiration). Context: أَوْحَيْنَا إِلَىٰ أُمِّ مُوسَىٰ explicitly names the addressee.
-
-2. **V9: قَالَتِ ٱمْرَأَتُ فِرْعَوْنَ** — Past tense, feminine singular (تِ suffix), root ق-و-ل. Speaker: Pharaoh's wife. Context: Explicit naming (ٱمْرَأَتُ فِرْعَوْنَ) on first appearance.
-
-3. **V10: وَأَصْبَحَ فُؤَادُ أُمِّ مُوسَىٰ فَارِغًا إِن كَادَتْ لَتُبْدِي بِهِ** — كَادَتْ: Feminine singular past tense, root ك-و-د. Agent: Musa's mother. Context: أُمِّ مُوسَىٰ mentioned in same verse.
-
-4. **V11: وَقَالَتْ لِأُخْتِهِ قُصِّيهِ** — قَالَتْ: Feminine singular, root ق-و-ل. Speaker: Musa's mother. Context: She instructs his sister (لِأُخْتِهِ). قُصِّيهِ: Imperative, feminine singular (يـِ ending) — command addressed to the sister.
-
-5. **V12: فَقَالَتْ هَلْ أَدُلُّكُمْ** — قَالَتْ: Feminine singular, root ق-و-ل. Speaker: Musa's sister. Context: Previous verse established the sister's mission; she now approaches Pharaoh's household.
-
-Pattern: Three women (Musa's mother, Pharaoh's wife, Musa's sister) all use feminine markers. The Quran distinguishes them through: explicit naming (first mention), contextual flow (subsequent mentions), and addressee identification.
-</ExerciseBox>
-
-<ExerciseBox question="Exercise 3: Grammar Transition (Intermediate)">
-
-Musa's du'a in Ta-Ha 20:25-35 interrupts the narrative sequence. Analyze the grammar shift:
-
-1. What grammatical form marks the transition FROM narrative TO du'a?
-2. How does the verb tense change between narrative and du'a?
-3. How does the text transition BACK to narrative after the du'a?
-4. What vocative form does Musa use, and what does it tell us about the speaker?1. **Transition to du'a:** قَالَ رَبِّ ٱشْرَحْ لِي صَدْرِي (V25). The قَالَ marker re-establishes Musa as speaker, and رَبِّ (personal vocative) signals the shift to du'a genre. The imperative ٱشْرَحْ confirms supplication.
-
-2. **Tense change:** Narrative uses PAST tense (نُودِيَ, أَتَاهَا, قَالَ). Du'a uses IMPERATIVE (ٱشْرَحْ, يَسِّرْ, ٱحْلُلْ, ٱجْعَل) + PRESENT tense purpose clauses (يَفْقَهُوا — so they understand). The shift from past → imperative/present marks the genre boundary.
-
-3. **Transition back:** V36: قَالَ قَدْ أُوتِيتَ سُؤْلَكَ يَا مُوسَىٰ — Allah responds. قَالَ reintroduces dialogue, قَدْ + passive past tense (أُوتِيتَ — you have been given) returns to narrative-style divine speech, and يَا مُوسَىٰ explicitly identifies the addressee.
-
-4. **Vocative form:** رَبِّ (rabbi — "My Lord") — personal, singular. This identifies Musa as speaking ALONE in an intimate personal supplication. Compare with رَبَّنَا in communal du'a — Musa uses the individual form because this is his personal request before his prophetic mission.
-</ExerciseBox>
-
-<ExerciseBox question="Exercise 4: Comparative Analysis (Advanced)">
-
-Compare the opening of Ibrahim's story (Ash-Shu'ara 26:69-71) with Musa's story (Ta-Ha 20:9-12):
-
-1. How do the narrative introductions differ grammatically?
-2. What dialogue markers appear, and how do they establish speakers?
-3. How does the first quoted speech differ in sentence type and function?
-4. What does each grammatical structure emphasize about the narrative?**Ibrahim's opening (26:69-71):**
-- Introduction: وَٱتْلُ عَلَيْهِمْ نَبَأَ إِبْرَٰهِيمَ — Imperative addressed to Prophet Muhammad. "Recite TO THEM the story." نَبَأَ (news/story) introduces the narrative genre
-- First dialogue: إِذْ قَالَ لِأَبِيهِ وَقَوْمِهِ — إِذْ (temporal) + قَالَ (dialogue marker) + لِأَبِيهِ وَقَوْمِهِ (addressees). Ibrahim's audience identified immediately
-- First speech: مَا تَعْبُدُونَ — Interrogative (مَا). Ibrahim OPENS with a question — challenging his audience. Function: debate/confrontation
-
-**Musa's opening (20:9-12):**
-- Introduction: وَهَلْ أَتَاكَ حَدِيثُ مُوسَىٰ — Interrogative addressed to Prophet Muhammad. "Has the story reached you?" Rhetorical question creates audience engagement. حَدِيثُ (story/happening) introduces the narrative
-- First dialogue: إِذْ رَأَىٰ نَارًا فَقَالَ لِأَهْلِهِ — إِذْ (temporal) + action (رَأَىٰ — saw) BEFORE dialogue. Musa's story starts with an event, not a conversation
-- First speech: ٱمْكُثُوا إِنِّي آنَسْتُ نَارًا — Imperative (ٱمْكُثُوا). Musa COMMANDS his family to stay. Function: preparation/action
-
-**Key differences:**
-- Ibrahim starts with dialogue (debate). Musa starts with action leading to dialogue (journey → fire → divine encounter)
-- Ibrahim's introduction uses imperative (ٱتْلُ — recite). Musa's uses interrogative (هَلْ — has it reached you?). Different audience engagement strategies
-- Ibrahim's first speech is interrogative (confrontational). Musa's first speech is imperative (practical). Grammar reflects character: Ibrahim the debater vs. Musa the man of action
-- Ibrahim's narrative introduces addressees at the dialogue level. Musa's narrative introduces setting (fire, night journey) before any dialogue occurs. The grammar creates different pacing: Ibrahim is immediate confrontation, Musa is gradual revelation
-</ExerciseBox>
-
-## Related Lessons
-
-- **Prerequisite:** [L5.09 Story Narratives: Prophet Ibrahim](/learn/level-5/09-prophet-ibrahim-narrative/) — the narrative grammar toolkit established there
-- **Method:** [L5.01 Full I'rab Analysis](/learn/level-5/01-full-irab-analysis/) — the systematic analysis applied throughout
-- **Grammar foundations:** [L4.03 Conditional Sentences](/learn/level-4/03-conditional-sentences/) — conditionals in narrative; [L3.08 Imperative Mood](/learn/level-3/08-imperative/) — imperative forms in divine commands; [L3.05 Past Tense](/learn/level-3/05-past-tense/) — past tense conjugation dominating narrative
-- **Next:** [L5.11 Dialogue Patterns](/learn/level-5/11-dialogue-patterns/) — generalizing dialogue grammar across ALL Quranic genres
-- **Reference:** [Glossary](/resources/glossary/) — bilingual grammar terminology
+import Step from '../../../components/lesson/Step.astro';
+import Stage from '../../../components/lesson/Stage.astro';
+import Sentence from '../../../components/lesson/Sentence.astro';
+import Tiles from '../../../components/lesson/Tiles.astro';
+import Formula from '../../../components/lesson/Formula.astro';
+import Note from '../../../components/lesson/Note.astro';
+import Check from '../../../components/lesson/Check.astro';
+import Start from '../../../components/lesson/Start.astro';
+import Sources from '../../../components/lesson/Sources.astro';
+import Parse from '../../../components/lesson/Parse.astro';
+import Exercise from '../../../components/lesson/Exercise.astro';
+import Block from '../../../components/lesson/Block.astro';
+
+{/* Content spec: docs/redesign/specs/L5.10-prophet-musa-narrative.md. Every parse follows al-Jadwal (Mahmud Safi) on the pages for 20:9-10, 20:11-16, 20:17, 20:18, 20:19-20, 20:21-24, 20:36-41, 20:42-44, 20:45, 20:46, 20:49, 20:50, 20:70, 20:71 and 28:4-13. Who speaks in a verse is read from the story around it; al-Jadwal does not name speakers. */}
+
+<Step hero id="start" label="The scene" title={frontmatter.title} kicker={frontmatter.kicker} titleArabic={frontmatter.titleArabic}>
+<Block id="overview" title="In this lesson" level={2} uncounted>
+  <Stage label="The idea">
+    <Formula
+      label="one story, many speakers, the clues that tell them apart"
+      items={[
+        { kind: 'm', text: 'many speakers', small: 'Musa, Allah, Pharaoh, the women' },
+        { kind: 'k', text: 'the clues', small: 'a name, an ending, a called name, a question' },
+        { kind: 's', text: 'who says what', small: 'read from the verse' },
+      ]}
+    />
+  </Stage>
+  <Start
+    goal="Read the story of Musa in Ta-Ha and Al-Qasas and say, for each speech, <b>who speaks</b> and <b>how the verse shows it</b>. Take ten verses apart word by word. Tell a verb with <b>one object</b> from a verb with <b>two</b>. Name the words al-Jadwal says are <b>left out</b>."
+    minutes={150}
+    before="The verbal sentence and the two objects (L2.03), the past tense (L3.05), commands (L3.08), the passive (L3.09), the ḥāl (L4.01), condition and answer (L4.03), the lā of a ban (L4.10) and the weak verbs (L4.13 to L4.15). For narrative basics, see L5.09 Story Narratives: Prophet Ibrahim."
+    terms={[
+      { term: 'What is said', ar: 'مَقُول الْقَوْل', meaning: 'The words that come after “he said”. Al-Jadwal gives them a place of their own (L1.09).' },
+      { term: 'Called name', ar: 'مُنَادَى', meaning: 'A name after يَا, as in “O Musa” (L3.17).' },
+      { term: 'Stand-in for the doer', ar: 'نَائِب الْفَاعِل', meaning: 'The word that takes the doer’s place when the verb is passive (L3.09).' },
+      { term: 'Second object', ar: 'مَفْعُول بِهِ ثَانٍ', meaning: 'The second thing a verb like “give” carries (L2.03, L4.14).' },
+      { term: 'Left-out word', ar: 'مَحْذُوف', meaning: 'A word the grammar books put in because the sentence needs it. It is not written in the verse.' },
+      { term: 'Reason sentence', ar: 'جُمْلَة تَعْلِيلِيَّة', meaning: 'A sentence that gives the reason for what came before. Al-Jadwal’s name for it.' },
+      { term: 'Explaining start', ar: 'اِسْتِئْنَاف بَيَانِيّ', meaning: 'A new sentence that answers a question the listener could ask, such as “and then what?”. Al-Jadwal’s name for it.' },
+    ]}
+  />
+</Block>
+
+<Block id="see" title="One verb, two speakers" level={2}>
+  <Stage>
+    <Sentence
+      reference="Ta-Ha 20:49"
+      groups={[
+        { words: [{ ar: 'قَالَ', en: 'he said', say: 'qala', type: 'v' }] },
+        { words: [{ ar: 'فَمَن', en: 'then who', say: 'fa-man', type: 'p' }] },
+        { words: [{ ar: 'رَّبُّكُمَا', en: 'the Lord of you two', say: 'rabbukuma' }] },
+        { words: [{ ar: 'يَٰمُوسَىٰ', en: 'O Musa', say: 'ya-musa' }] },
+      ]}
+      en={['He said: Then who is the Lord of you two, O Musa?']}
+    />
+    <Sentence
+      reference="Ta-Ha 20:50"
+      groups={[
+        { words: [{ ar: 'قَالَ', en: 'he said', say: 'qala', type: 'v' }] },
+        { words: [{ ar: 'رَبُّنَا', en: 'our Lord', say: 'rabbuna' }] },
+        { words: [{ ar: 'ٱلَّذِىٓ', en: 'the one who', say: 'alladhi', type: 'p' }] },
+        { words: [{ ar: 'أَعْطَىٰ', en: 'gave', say: 'a-ta', type: 'v' }] },
+        { words: [{ ar: 'كُلَّ', en: 'every', say: 'kulla' }, { ar: 'شَىْءٍ', en: 'thing', say: 'shayin' }] },
+        { words: [{ ar: 'خَلْقَهُۥ', en: 'its form', say: 'khalqahu' }] },
+        { words: [{ ar: 'ثُمَّ', en: 'then', say: 'thumma', type: 'p' }] },
+        { words: [{ ar: 'هَدَىٰ', en: 'guided', say: 'hada', type: 'v' }] },
+      ]}
+      en={['He said: Our Lord is the One who gave everything its form, then guided.']}
+    />
+  </Stage>
+
+Read each verse from right to left. Both start with the same word, **قَالَ**, “he said”. In 20:49 Pharaoh speaks. In 20:50 Musa answers him. The verb does not tell you. It only says “one man spoke”.
+
+The verse gives other clues. In 20:49 the speaker calls the other person: **يَٰمُوسَىٰ**, “O Musa”. Nobody calls himself, so Musa is not the one speaking. In 20:50 the words are an answer to the question before them. This lesson collects these clues and uses them across the story.
+
+The Corpus counts the name Musa 136 times, in 34 surahs. That is more than the name of Pharaoh (74) or of Ibrahim (69). Quran Learn made these counts with a script over the Corpus file. This lesson reads one stretch of his story: Ta-Ha 20:9 to 20:71 and Al-Qasas 28:7 to 28:12.
+
+<Check n={1} q="In 20:49, which word shows that Musa is not the speaker?" options={['يَٰمُوسَىٰ, the name that is called', 'قَالَ, the verb', 'رَّبُّكُمَا, the Lord of you two']} answer={0} why="A speaker calls the other person by name. The called name is Musa, so someone else speaks." />
+</Block>
+
+<Block id="speakers" title="Who speaks, in the order of the story">
+  <Stage label="Four kinds of “said”">
+    <Tiles
+      label="the verb قَالَ in four shapes, one for each kind of speaker"
+      items={[
+        { ar: 'قَالَ', en: 'one man: 9 times in 20:9 to 20:50', type: 'v' },
+        { ar: 'قَالَا', en: 'two people: 20:45', type: 'v' },
+        { ar: 'قَالُوٓا۟', en: 'many people: 20:70', type: 'v' },
+        { ar: 'قَالَتْ', en: 'one woman: 28:9 to 28:12', type: 'v' },
+      ]}
+    />
+  </Stage>
+
+The table lists every speech this lesson reads, in story order. The last column gives the words that show who speaks. The “who” is our reading of the story around each verse. Al-Jadwal parses the words and does not name the speakers.
+
+| Verses | Who speaks | Words that show it |
+|---|---|---|
+| 20:10 | Musa, to his family | فَقَالَ لِأَهْلِهِ ٱمْكُثُوٓا۟ |
+| 20:11 to 20:16 | A voice that calls him | نُودِىَ يَٰمُوسَىٰٓ |
+| 20:17 | The same voice, asking | وَمَا تِلْكَ بِيَمِينِكَ يَٰمُوسَىٰ |
+| 20:18 | Musa | قَالَ هِىَ عَصَاىَ |
+| 20:19 and 20:21 | Allah | قَالَ أَلْقِهَا يَٰمُوسَىٰ |
+| 20:25 | Musa | قَالَ رَبِّ ٱشْرَحْ لِى صَدْرِى |
+| 20:36 | Allah | قَالَ قَدْ أُوتِيتَ سُؤْلَكَ يَٰمُوسَىٰ |
+| 20:45 | Musa and Harun | قَالَا رَبَّنَآ |
+| 20:46 | Allah | قَالَ لَا تَخَافَآ |
+| 20:49 | Pharaoh | قَالَ فَمَن رَّبُّكُمَا يَٰمُوسَىٰ |
+| 20:50 | Musa | قَالَ رَبُّنَا ٱلَّذِىٓ أَعْطَىٰ |
+| 20:70 | The magicians | قَالُوٓا۟ ءَامَنَّا |
+| 20:71 | Pharaoh | قَالَ ءَامَنتُمْ لَهُۥ |
+| 28:9 | Pharaoh’s wife | وَقَالَتِ ٱمْرَأَتُ فِرْعَوْنَ |
+| 28:11 | Musa’s mother, to his sister | وَقَالَتْ لِأُخْتِهِۦ قُصِّيهِ |
+| 28:12 | Musa’s sister | فَقَالَتْ هَلْ أَدُلُّكُمْ |
+
+In 20:9 to 20:50 the Corpus has nine قَالَ for one man, and one قَالَا. Four of the nine are Allah, four are Musa and one is Pharaoh. In 28:7 to 28:12 it has three قَالَتْ or قَالَتِ. These are counts from the Corpus tags, plus our reading of who speaks.
+
+Some speeches have no قَالَ at all. In 20:11 to 20:17 the voice goes on from one verse to the next with no new “he said”. The first new قَالَ is in 20:18, and it is Musa’s answer.
+
+<Check n={2} q="How many of the nine قَالَ in 20:9 to 20:50 are Allah, by our reading?" options={['Four', 'One', 'Nine']} answer={0} why="Allah speaks in 20:19, 20:21, 20:36 and 20:46. Musa speaks in 20:10, 20:18, 20:25 and 20:50. Pharaoh speaks in 20:49." />
+</Block>
+
+<Block id="toolbox" title="What you already have, and what is new">
+  <Stage label="Your toolbox">
+    <Tiles
+      label="the ideas of the story, and where each was taught"
+      items={[
+        { ar: 'مَقُول الْقَوْل', en: 'what is said: L1.09' },
+        { ar: 'نَائِب الْفَاعِل', en: 'the stand-in: L3.09' },
+        { ar: 'مَفْعُول ثَانٍ', en: 'two objects: L2.03, L4.14' },
+        { ar: 'مَحْذُوف', en: 'left out: new here', type: 'p' },
+      ]}
+    />
+  </Stage>
+
+| Lesson | What it taught | Where it shows in the story |
+|---|---|---|
+| [L1.09](/learn/level-1/09-simple-sentences/) | The words after “he said” are what is said | Every speech |
+| [L2.03](/learn/level-2/03-verbal-sentence/) | The doer, the object and a verb with two objects | 20:50, 28:9 |
+| [L2.10](/learn/level-2/10-inna-sisters/) | إِنَّ and the words like it | The reasons after a command |
+| [L3.05](/learn/level-3/05-past-tense/), [L3.08](/learn/level-3/08-imperative/) | Past endings, command endings | قَالَتْ, خِفْتِ, ٱمْكُثُوٓا۟, أَرْضِعِيهِ |
+| [L3.09](/learn/level-3/09-passive-voice/), [L3.17](/learn/level-3/17-verb-form-iii/) | The stand-in; a called name | نُودِىَ, أُوتِيتَ, أُلْقِىَ |
+| [L4.01](/learn/level-4/01-hal-clauses/) | The ḥāl | سُجَّدًا, وَهُمْ لَهُۥ نَٰصِحُونَ |
+| [L4.03](/learn/level-4/03-conditional-sentences/), [L4.10](/learn/level-4/10-negation-particles/) | The فَ before a command; the lā of a ban | فَٱخْلَعْ, لَا تَقْتُلُوهُ |
+| [L4.13](/learn/level-4/13-defective-verbs/), [L4.14](/learn/level-4/14-assimilated-verbs/), [L4.15](/learn/level-4/15-hamzated-verbs/) | Verbs with a weak or hamza letter | رَءَا, أَتَىٰ, أَعْطَىٰ, أَجِدُ, ءَانَسْتُ |
+| [L4.17](/learn/level-4/17-intro-balagha/), [L4.18](/learn/level-4/18-figures-of-speech/) | Style, and the question that asks you to agree | 20:9, 20:17, 20:18, 28:7, 28:12 |
+
+New here, and taught in the next steps:
+
+- one verb, قَالَ, for many speakers, and the clues that tell them apart;
+- a report, then a command, then a reason (20:10 to 20:12);
+- a question and its answer (20:17 and 20:18);
+- a verb with one object, two objects, or a passive that keeps the second one;
+- words that al-Jadwal says are left out: a condition, a preposition, an object.
+
+For the basics of a story told in the past, with قَالَ and قَالُوا, see [L5.09 Story Narratives: Prophet Ibrahim](/learn/level-5/09-prophet-ibrahim-narrative/). This lesson does not teach them again.
+
+<Check n={3} q="Which lesson taught the stand-in for the doer?" options={['L3.09', 'L2.10', 'L4.01']} answer={0} why="L3.09 is the lesson on the passive: the stand-in takes the doer’s place." />
+</Block>
+
+</Step>
+
+<Step id="fire" label="At the fire" title="At the fire: a report, a command and a reason (20:9 to 20:24)">
+<Block id="v9" title="Verse 9: the story opens with a question">
+  <Stage label="Read from right to left">
+    <Sentence
+      roles
+      reference="Ta-Ha 20:9"
+      groups={[
+        { words: [{ ar: 'وَهَلْ', en: 'and has', say: 'wa-hal', type: 'p' }] },
+        { role: 'fiil', label: 'fiʿl + object', hint: 'the -ka is the object: “you”', words: [{ ar: 'أَتَىٰكَ', en: 'reached you', say: 'ataka', type: 'v' }] },
+        { role: 'fail', label: 'fāʿil: an idafah', hint: 'the doer comes after its verb', words: [{ ar: 'حَدِيثُ', en: 'the story of', say: 'hadithu' }, { ar: 'مُوسَىٰٓ', en: 'Musa', say: 'musa' }] },
+      ]}
+      en={['And has the story of Musa reached you?']}
+    />
+  </Stage>
+
+The story opens with a question. **هَلْ** asks “has it?”. Al-Jadwal says this question is for *taqrīr*, “making the news firm”. L4.18 met the same word, taqrīr, in the question أَلَمْ. This lesson says no more about what the question is for.
+
+The verb **أَتَىٰكَ** is a past verb with the object -ka, “you”. The doer is **حَدِيثُ مُوسَىٰٓ**, “the story of Musa”, an idafah (L2.08). The verb comes first and the doer after it (L2.03). Al-Jadwal reads the sentence as a new start.
+
+Al-Jadwal’s style note on this verse gives the question a name: *tashwīq*, التَّشْوِيق, “raising eagerness”, and it adds “urging the listener to listen”. That is al-Jadwal’s description. The lesson only reports it.
+
+<Check n={4} q="In أَتَىٰكَ حَدِيثُ مُوسَىٰٓ, which word is the doer?" options={['حَدِيثُ, “the story”', 'The -ka at the end of the verb', 'هَلْ']} answer={0} why="The doer is nominative (-u) and comes after its verb. The -ka is the object, “you”." />
+</Block>
+
+<Block id="v10" title="Verse 10: a report, a command and a reason">
+  <Stage label="Word by word">
+    <Parse
+      reference="Ta-Ha 20:10 (start)"
+      words={[
+        { ar: 'إِذْ', en: 'when', type: 'p' },
+        { ar: 'رَءَا', en: 'he saw', type: 'v' },
+        { ar: 'نَارًا', en: 'a fire' },
+        { ar: 'فَقَالَ', en: 'and he said', type: 'v' },
+        { ar: 'لِأَهْلِهِ', en: 'to his family' },
+        { ar: 'ٱمْكُثُوٓا۟', en: 'stay', type: 'v' },
+        { ar: 'إِنِّىٓ', en: 'indeed I', type: 'p' },
+        { ar: 'ءَانَسْتُ', en: 'have perceived', type: 'v' },
+        { ar: 'نَارًا', en: 'a fire' },
+      ]}
+      cards={[
+        { at: 0, role: '“when”: a time word (ẓarf) for past time', case: 'in the place of the accusative (naṣb)', mark: 'none: it never changes', why: 'Al-Jadwal: it goes with حَدِيثُ in 20:9, so the verse reads “the story of Musa, when he saw a fire”.', irab: 'ظرف للزمن الماضي مبني في محل نصب متعلق بحديث' },
+        { at: 1, role: 'a past verb, root ر ء ي: “he saw”. Third person, masculine singular, active', case: 'none: a verb has no case', mark: 'built on a fatḥa you cannot see: the alif hides it', why: 'The last root letter is weak: a defective verb (L4.13), and the first is a hamza (L4.15). The doer is a hidden “he”: Musa. Al-Jadwal: the clause رَءَا is the second word of an idafah after إِذْ, in the place of the genitive.', irab: 'فعل ماض مبني على الفتح المقدر على الألف، والفاعل ضمير مستتر تقديره هو، والجملة في محل جر مضاف إليه' },
+        { at: 2, ar: 'نَارًا', role: 'the object (mafʿūl bihi): “a fire”. Root ن و ر', case: 'accusative (naṣb)', mark: '-an (fatḥa with tanwīn)', why: 'It is what he saw (L2.03).', irab: 'مفعول به منصوب وعلامة نصبه الفتحة الظاهرة' },
+        { at: 3, ar: 'فَ', role: '“and”: it joins', why: 'It joins the clause قَالَ to the clause رَءَا. Al-Jadwal: the clause فَقَالَ is joined to رَءَا and is also in the place of the genitive.', irab: 'الفاء عاطفة' },
+        { at: 3, ar: 'قَالَ', role: 'a past verb, root ق و ل: “he said”. Third person, masculine singular, active', case: 'none: a verb has no case', mark: 'built on a fatḥa', why: 'The middle root letter is و: a hollow verb (L4.12). The doer is a hidden “he”: Musa.', irab: 'فعل ماض مبني على الفتح، والفاعل ضمير مستتر تقديره هو، والجملة في محل جر معطوفة على جملة رأى' },
+        { at: 4, role: 'a phrase tied to قَالَ: “to his family”. لِ is a preposition, أَهْل is the noun after it and هِ is “his”', case: 'أَهْلِ: genitive (jarr). هِ: genitive, by place', mark: 'أَهْلِ: -i (kasra). هِ: none, a pronoun shows no case ending', why: 'Al-Jadwal: tied to قَالَ. It says to whom he spoke (L2.07).', irab: 'جار ومجرور متعلق بقال، والهاء ضمير في محل جر مضاف إليه' },
+        { at: 5, role: 'a command (fiʿl amr), root م ك ث: “stay”. Second person, masculine plural', case: 'none: a command is built', mark: 'built on the dropped nūn', why: 'The ending -ū is the doer: “you all”, his family (L3.08). Al-Jadwal: the clause ٱمْكُثُوٓا۟ is the words he said, in the place of the accusative (L1.09).', irab: 'فعل أمر مبني على حذف النون، والواو فاعل، والجملة في محل نصب مقول القول' },
+        { at: 6, role: '“indeed I”: إِنَّ and the pronoun ـىَ', case: 'the pronoun: accusative, by place (ism inna)', mark: 'none: a pronoun shows no case ending', why: 'إِنَّ puts its first word in the accusative (L2.10). Al-Jadwal calls the whole sentence a reason sentence: no place of its own.', irab: 'حرف مشبه بالفعل، والياء ضمير في محل نصب اسم إن' },
+        { at: 7, role: 'a past verb, Form IV, root ء ن س: “I have perceived”. First person singular, active', case: 'none: a verb has no case', mark: 'built on a sukūn, because the ending -tu is attached', why: 'The ending -tu is the doer: “I” (L3.05). The Corpus tags it Form IV: the أَ of the form and the root hamza made one long ā (L3.13). Al-Jadwal: the clause is the khabar of inna, in the place of the nominative.', irab: 'فعل ماض مبني على السكون، والتاء فاعل، والجملة في محل رفع خبر إن' },
+        { at: 8, ar: 'نَارًا', role: 'the object: “a fire”', case: 'accusative (naṣb)', mark: '-an (fatḥa with tanwīn)', why: 'The same word as in the first half of the verse: the fire he saw is the fire he has perceived.', irab: 'مفعول به منصوب وعلامة نصبه الفتحة الظاهرة' },
+        { at: [6, 7, 8], role: 'the sentence إِنِّىٓ ءَانَسْتُ نَارًا: the reason for the command', case: 'no place', why: 'Al-Jadwal: a reason sentence (taʿlīliyya). It gives the reason for ٱمْكُثُوٓا۟.', irab: 'جملة «إني آنست» لا محل لها تعليلية' },
+      ]}
+    />
+  </Stage>
+
+The speech has three layers. First, the story says Musa saw a fire. Then **فَقَالَ لِأَهْلِهِ**: “and he said to his family”. After that comes what he said. Al-Jadwal gives the whole speech a place of its own, the place of the accusative, because it is *what is said* (L1.09).
+
+Inside the speech there is a command, **ٱمْكُثُوٓا۟**, “stay”, and a reason, **إِنِّىٓ ءَانَسْتُ نَارًا**, “I have perceived a fire”. The second sentence gives the reason for the first. Al-Jadwal calls it a reason sentence. The next steps show that this order comes back: a command first and its reason after it.
+
+<Check n={5} q="In فَقَالَ لِأَهْلِهِ ٱمْكُثُوٓا۟, who is the doer of ٱمْكُثُوٓا۟?" options={['His family: the -ū is “you all”', 'Musa: a hidden “he”', 'The fire']} answer={0} why="The ending -ū is the doer of the command, “you all”. Musa is the doer of قَالَ, and the family is the one spoken to." />
+</Block>
+
+<Block id="one-object" title="Verse 10, second half: a verb with one object">
+  <Stage label="Read from right to left">
+    <Sentence
+      roles
+      reference="Ta-Ha 20:10 (end)"
+      groups={[
+        { role: 'ismInna', label: 'ism laʿalla', hint: 'the pronoun is “I”', words: [{ ar: 'لَّعَلِّىٓ', en: 'perhaps I', say: 'la-alli', type: 'p' }] },
+        { role: 'khabarInna', label: 'khabar laʿalla', hint: 'a footnote allows a verb reading', words: [{ ar: 'ءَاتِيكُم', en: 'will bring you', say: 'atikum', type: 'v' }] },
+        { role: 'tied', hint: 'goes with ءَاتِيكُم', words: [{ ar: 'مِّنْهَا', en: 'from it', say: 'minha', type: 'p' }] },
+        { role: 'tied', hint: 'goes with ءَاتِيكُم', words: [{ ar: 'بِقَبَسٍ', en: 'a burning piece', say: 'bi-qabasin' }] },
+        { words: [{ ar: 'أَوْ', en: 'or', say: 'aw', type: 'p' }] },
+        { role: 'fiil', label: 'fiʿl + doer', hint: 'the doer is a hidden “I”', words: [{ ar: 'أَجِدُ', en: 'find', say: 'ajidu', type: 'v' }] },
+        { role: 'tied', hint: 'goes with أَجِدُ', words: [{ ar: 'عَلَى', en: 'at', say: 'ala', type: 'p' }, { ar: 'ٱلنَّارِ', en: 'the fire', say: 'an-nari' }] },
+        { role: 'maful', hint: 'the only object', words: [{ ar: 'هُدًى', en: 'guidance', say: 'hudan' }] },
+      ]}
+      en={['Perhaps I will bring you a burning piece from it, or find guidance at the fire.']}
+    />
+  </Stage>
+
+The verb **أَجِدُ** is a present verb from the root و ج د. In 93:6 to 93:8 ([L4.19](/learn/level-4/19-checkpoint-ad-duha/)) the same verb takes two objects: “He found you an orphan”. Here it takes **one**: هُدًى, “guidance”.
+
+Al-Jadwal’s footnote gives the reason. In this verse the verb means “I meet”, and it takes a single object. So you cannot count objects from the letters of the verb. You have to read what the verb means in the verse.
+
+Al-Jadwal also gives a note about the word before it. It reads **ءَاتِيكُم** as the khabar of لَعَلَّ, a word of hope (L2.10), with the كُم as the second word of an idafah. A footnote allows a second reading: a present verb, with كُم as its object and a hidden “I” as the doer.
+
+<Check n={6} q="How many objects does أَجِدُ take in 20:10?" options={['One: هُدًى', 'Two', 'None']} answer={0} why="Al-Jadwal: the verb here means “I meet”, so it takes a single object, هُدًى." />
+</Block>
+
+<Block id="v11" title="Verse 11: a passive verb, then the call">
+  <Stage label="Read from right to left">
+    <Sentence
+      roles
+      reference="Ta-Ha 20:11"
+      groups={[
+        { words: [{ ar: 'فَلَمَّآ', en: 'so when', say: 'fa-lamma', type: 'p' }] },
+        { role: 'fiil', label: 'fiʿl + doer + object', hint: 'a hidden “he” is the doer; هَا is the object', words: [{ ar: 'أَتَىٰهَا', en: 'he came to it', say: 'atahā', type: 'v' }] },
+        { role: 'fiil', label: 'passive fiʿl', hint: 'the stand-in for the doer is a hidden “he”', words: [{ ar: 'نُودِىَ', en: 'he was called', say: 'nudiya', type: 'v' }] },
+        { words: [{ ar: 'يَٰمُوسَىٰٓ', en: 'O Musa', say: 'ya-musa' }] },
+      ]}
+      en={['So when he came to it, he was called: O Musa!']}
+    />
+  </Stage>
+
+The verb **نُودِىَ** is passive: “he was called”. L3.09 taught that a passive verb leaves the doer out. Here no word says who called. The next word, **يَٰمُوسَىٰٓ**, is the call itself. Al-Jadwal reads the call as an explaining start: it says what the calling was.
+
+The first speech of the voice follows at once, in 20:12: “Indeed I am your Lord.” No قَالَ comes in between. The verse that follows, 20:13, has أَنَا ٱخْتَرْتُكَ, “I chose you”, and 20:14 has إِنَّنِىٓ أَنَا ٱللَّهُ, “Indeed I am Allah”. The speaker is named by what the voice says. L3.17 takes 20:11 word by word.
+
+<Check n={7} q="Who called Musa in 20:11, by the verb نُودِىَ alone?" options={['The verb does not say', 'Allah', 'His family']} answer={0} why="A passive verb leaves the doer out (L3.09). The later words of the voice, such as أَنَا ٱللَّهُ in 20:14, name the speaker." />
+</Block>
+
+<Block id="v12" title="Verse 12: “I am”, a command and a reason">
+  <Stage label="Word by word">
+    <Parse
+      reference="Ta-Ha 20:12"
+      words={[
+        { ar: 'إِنِّىٓ', en: 'indeed I', type: 'p' },
+        { ar: 'أَنَا۠', en: 'I' },
+        { ar: 'رَبُّكَ', en: 'your Lord' },
+        { ar: 'فَٱخْلَعْ', en: 'so take off', type: 'v' },
+        { ar: 'نَعْلَيْكَ', en: 'your sandals' },
+        { ar: 'إِنَّكَ', en: 'indeed you', type: 'p' },
+        { ar: 'بِٱلْوَادِ', en: 'in the valley' },
+        { ar: 'ٱلْمُقَدَّسِ', en: 'the holy' },
+        { ar: 'طُوًى', en: 'Tuwa' },
+      ]}
+      cards={[
+        { at: 0, role: '“indeed I”: إِنَّ and the pronoun ـىَ', case: 'the pronoun: accusative, by place (ism inna)', mark: 'none: a pronoun shows no case ending', why: 'إِنَّ puts its first word in the accusative (L2.10). Al-Jadwal: the whole sentence إِنِّىٓ … رَبُّكَ is the answer to the call, with no place of its own.', irab: 'حرف مشبه بالفعل، والياء ضمير في محل نصب اسم إن' },
+        { at: 1, role: 'a separate pronoun: “I”, used to stress the pronoun ـىَ', case: 'in the place of the accusative, borrowed for stress', mark: 'none: a pronoun never changes', why: 'Al-Jadwal: a separate pronoun that stands in the place of the accusative to stress the ـىَ. A footnote allows another reading: أَنَا is a mubtadaʾ and رَبُّكَ its khabar.', irab: 'ضمير منفصل استعير لمحل النصب توكيدا للياء' },
+        { at: 2, role: 'khabar of inna: “your Lord”. The first word of an idafah', case: 'nominative (rafʿ)', mark: '-u (ḍamma)', why: 'The khabar of إِنَّ stays nominative (L2.10). The كَ is the second word of the idafah, genitive by place (L2.08).', irab: 'خبر إن مرفوع وعلامة رفعه الضمة الظاهرة وهو مضاف، والكاف ضمير في محل جر مضاف إليه' },
+        { at: 3, ar: 'فَ', role: 'a linking فَ: the answer of a condition that is not spoken', why: 'Al-Jadwal: the فَ ties the answer to a left-out condition: “if you have taken this in, then take off …”. A footnote allows an ordinary joining فَ (L4.03).', irab: 'الفاء رابطة لجواب شرط مقدر' },
+        { at: 3, ar: 'ٱخْلَعْ', role: 'a command, root خ ل ع: “take off”. Second person, masculine singular', case: 'none: a command is built', mark: 'built on a sukūn', why: 'The doer is a hidden “you” (L3.08). Al-Jadwal: the clause is the answer of the left-out condition, in the place of jazm.', irab: 'فعل أمر مبني على السكون، والفاعل ضمير مستتر تقديره أنت، والجملة في محل جزم جواب شرط مقدر' },
+        { at: 4, role: 'the object (mafʿūl bihi): “your two sandals”. The first word of an idafah', case: 'accusative (naṣb)', mark: 'a yāʾ: the dual in the accusative', why: 'Al-Jadwal: the yāʾ is the mark of the accusative. The كَ is the second word of the idafah. A note on the word says one sandal is نَعْل, and the dual stands for the pair.', irab: 'مفعول به منصوب وعلامة نصبه الياء لأنه مثنى وهو مضاف، والكاف ضمير في محل جر مضاف إليه' },
+        { at: 5, role: '“indeed you”: إِنَّ and the pronoun كَ', case: 'the كَ: accusative, by place (ism inna)', mark: 'none: a pronoun shows no case ending', why: 'Al-Jadwal: a reason sentence with no place. It says why to take off the sandals.', irab: 'حرف مشبه بالفعل، والكاف ضمير في محل نصب اسم إن' },
+        { at: 6, role: 'the khabar of inna: “in the valley”. بِ is a preposition and ٱلْوَادِ the noun after it', case: 'genitive (jarr)', mark: 'a kasra on a yāʾ that is not written here', why: 'Al-Jadwal calls the phrase the khabar of إِنَّكَ. It says the yāʾ of ٱلْوَادِى is dropped to lighten the word, and the kasra stays in the mind.', irab: 'خبر إن، والواد اسم مجرور وعلامة جره الكسرة المقدرة على الياء المحذوفة للتخفيف' },
+        { at: 7, role: 'an adjective (naʿt): “the holy”. Root ق د س. It comes from Form II and is a done-to word', case: 'genitive (jarr), like its noun', mark: '-i (kasra)', why: 'An adjective copies the case of its noun (L2.09). Al-Jadwal does not name it separately here.', irab: 'نعت مجرور وعلامة جره الكسرة الظاهرة' },
+        { at: 8, role: 'a name: Tuwa. Joined to the valley by a word that explains it (ʿaṭf bayān) or as a replacement (badal)', case: 'genitive (jarr)', mark: 'a kasra you cannot see: the alif hides it', why: 'Al-Jadwal allows both readings for the name. Its note adds that the name is read with tanwīn or without it. The Corpus tags the word accusative; al-Jadwal says genitive.', irab: 'عطف بيان أو بدل من الوادي مجرور وعلامة جره الكسرة المقدرة على الألف' },
+      ]}
+    />
+  </Stage>
+
+Verse 12 is the call itself, and it has three parts. The first says who speaks: **إِنِّىٓ أَنَا۠ رَبُّكَ**, “indeed I am your Lord”. The second is a command, **فَٱخْلَعْ نَعْلَيْكَ**. The third is the reason for it, إِنَّكَ بِٱلْوَادِ ٱلْمُقَدَّسِ طُوًى.
+
+The words **إِنِّىٓ أَنَا** have “I” twice. Al-Jadwal reads the second one as a stress on the first, and gives the other reading in a footnote. We follow the main reading.
+
+The **فَ** in فَٱخْلَعْ is a link, and al-Jadwal reads it as the link of an answer to a condition left out. Read it this way: “if you have taken this in, then take off your sandals”. This is the first *left-out word* of the lesson. The verse does not write it, and the grammar books put it in.
+
+<Check n={8} q="What does al-Jadwal read before the فَ in فَٱخْلَعْ?" options={['A left-out condition', 'A left-out verb “I say”', 'Nothing: the فَ is a simple “and”']} answer={0} why="Al-Jadwal: the فَ ties the answer to a condition that is not spoken. A footnote allows an ordinary joining فَ." />
+</Block>
+
+<Block id="reason" title="A command, then a reason">
+  <Stage label="Six places in the story">
+    <Tiles
+      label="the same two parts, again and again"
+      items={[
+        { ar: 'أَمْر أَوْ نَهْي', en: 'a command or a ban', type: 'v' },
+        { ar: 'إِنَّ …', en: 'the sentence that gives the reason', type: 'p' },
+      ]}
+    />
+  </Stage>
+
+The same shape came back in 20:12. A command or a ban comes first, and a sentence that gives the reason comes after it. In the six verses below, al-Jadwal gives the second sentence the name *taʿlīliyya*, “a reason sentence”, with no place of its own.
+
+| Verse | The command or ban | The reason that follows |
+|---|---|---|
+| 20:12 | فَٱخْلَعْ نَعْلَيْكَ | إِنَّكَ بِٱلْوَادِ ٱلْمُقَدَّسِ طُوًى |
+| 20:21 | خُذْهَا وَلَا تَخَفْ | سَنُعِيدُهَا سِيرَتَهَا ٱلْأُولَىٰ |
+| 20:24 | ٱذْهَبْ إِلَىٰ فِرْعَوْنَ | إِنَّهُۥ طَغَىٰ |
+| 20:43 | ٱذْهَبَآ إِلَىٰ فِرْعَوْنَ | إِنَّهُۥ طَغَىٰ |
+| 20:46 | لَا تَخَافَآ | إِنَّنِى مَعَكُمَآ أَسْمَعُ وَأَرَىٰ |
+| 28:7 | وَلَا تَخَافِى وَلَا تَحْزَنِىٓ | إِنَّا رَآدُّوهُ إِلَيْكِ |
+
+Five of the six reasons start with إِنَّ or a form of it. The sixth, in 20:21, starts with سَ, “will”. Look for this shape when you read a command in a story. Ask what the next sentence does: does it give the reason?
+
+This is a teaching summary. We looked only at these six verses, and we make no claim about the whole Quran.
+
+<Check n={9} q="In 20:24, which part is the reason?" options={['إِنَّهُۥ طَغَىٰ, “indeed he has transgressed”', 'ٱذْهَبْ, “go”', 'إِلَىٰ فِرْعَوْنَ, “to Pharaoh”']} answer={0} why="The command is ٱذْهَبْ إِلَىٰ فِرْعَوْنَ. Al-Jadwal calls the sentence after it a reason sentence." />
+</Block>
+
+<Block id="v17" title="Verse 17: the question">
+  <Stage label="Word by word">
+    <Parse
+      reference="Ta-Ha 20:17"
+      words={[
+        { ar: 'وَمَا', en: 'and what', type: 'p' },
+        { ar: 'تِلْكَ', en: 'that' },
+        { ar: 'بِيَمِينِكَ', en: 'in your right hand' },
+        { ar: 'يَٰمُوسَىٰ', en: 'O Musa' },
+      ]}
+      cards={[
+        { at: 0, ar: 'وَ', role: '“and”: a new start', why: 'Al-Jadwal: the wāw starts a new sentence (istiʾnāf). It joins nothing.', irab: 'الواو استئنافية' },
+        { at: 0, ar: 'مَا', role: 'a question word: “what?”. A noun', case: 'in the place of the nominative: mubtadaʾ', mark: 'none: it never changes', why: 'Al-Jadwal: a question noun, mubtadaʾ. The question is for taqrīr, the word L4.18 used for the question that leads you to agree.', irab: 'اسم استفهام مبني في محل رفع مبتدأ' },
+        { at: 1, role: 'a pointing word (L3.10): “that”, feminine. Khabar', case: 'in the place of the nominative', mark: 'none: it never changes', why: 'It is the khabar of مَا. It is feminine, and Musa’s answer in 20:18 uses the feminine هِىَ for the same thing.', irab: 'اسم إشارة مبني في محل رفع خبر' },
+        { at: 2, role: 'a phrase tied to a left-out ḥāl: “(being) in your right hand”', case: 'يَمِينِ: genitive (jarr). كَ: genitive, by place', mark: 'يَمِينِ: -i (kasra). كَ: none', why: 'Al-Jadwal: tied to a left-out ḥāl, and the pointing word is what works on it (L4.01). Read: “what is that, in your right hand?”.', irab: 'جار ومجرور متعلق بمحذوف حال عامله الإشارة' },
+        { at: 3, role: 'the one called (munādā): “O Musa”. يَا is the calling word', case: 'in the place of the accusative', mark: 'built on a ḍamma that the alif hides', why: 'A single name that is called is built on a ḍamma (L3.17). Al-Jadwal: the call is a remark put in, or a new start that stresses the call.', irab: 'يا حرف نداء، وموسى منادى مفرد علم مبني على الضم المقدر في محل نصب' },
+        { at: [0, 1, 2], role: 'the sentence وَمَا تِلْكَ بِيَمِينِكَ: a new start', case: 'no place', why: 'Al-Jadwal: no place, a new start (istiʾnāfiyya).', irab: 'جملة «ما تلك» لا محل لها استئنافية' },
+      ]}
+    />
+  </Stage>
+
+The verse has no قَالَ. The voice goes on from 20:12 to 20:16 and asks this question in 20:17. A question word comes first in the sentence, as مَا does here, and it is a noun. Al-Jadwal makes it the mubtadaʾ, and **تِلْكَ** is the news (L2.01).
+
+The question is about what Musa holds. The phrase **بِيَمِينِكَ** says where it is, “in your right hand”. Al-Jadwal ties it to a ḥāl that is left out. English can say it with “in your right hand” after the question.
+
+<Check n={10} q="Which word is the khabar of مَا in 20:17?" options={['تِلْكَ', 'بِيَمِينِكَ', 'يَٰمُوسَىٰ']} answer={0} why="Al-Jadwal: مَا is the mubtadaʾ and تِلْكَ is its khabar." />
+</Block>
+
+<Block id="v18" title="Verse 18: the answer, and more than was asked">
+  <Stage label="Word by word">
+    <Parse
+      reference="Ta-Ha 20:18"
+      words={[
+        { ar: 'قَالَ', en: 'he said', type: 'v' },
+        { ar: 'هِىَ', en: 'it is' },
+        { ar: 'عَصَاىَ', en: 'my staff' },
+        { ar: 'أَتَوَكَّؤُا۟', en: 'I lean', type: 'v' },
+        { ar: 'عَلَيْهَا', en: 'on it' },
+        { ar: 'وَأَهُشُّ', en: 'and I beat down', type: 'v' },
+        { ar: 'بِهَا', en: 'with it' },
+        { ar: 'عَلَىٰ', en: 'onto', type: 'p' },
+        { ar: 'غَنَمِى', en: 'my sheep' },
+        { ar: 'وَلِىَ', en: 'and for me' },
+        { ar: 'فِيهَا', en: 'in it' },
+        { ar: 'مَـَٔارِبُ', en: 'uses' },
+        { ar: 'أُخْرَىٰ', en: 'other' },
+      ]}
+      cards={[
+        { at: 0, role: 'a past verb, root ق و ل: “he said”. Third person, masculine singular', case: 'none: a verb has no case', mark: 'built on a fatḥa', why: 'The doer is a hidden “he”: Musa, who answers the question of 20:17. Al-Jadwal: the sentence is a new start with no place.', irab: 'فعل ماض مبني على الفتح، والفاعل ضمير مستتر تقديره هو، والجملة لا محل لها استئنافية' },
+        { at: 1, role: 'a separate pronoun: “it”, feminine. Mubtadaʾ', case: 'in the place of the nominative', mark: 'none: it never changes', why: 'It points back to what Musa holds, as the feminine تِلْكَ did.', irab: 'ضمير منفصل مبني في محل رفع مبتدأ' },
+        { at: 2, role: 'khabar: “my staff”. The first word of an idafah', case: 'nominative (rafʿ)', mark: 'a ḍamma you cannot see: the alif hides it', why: 'Al-Jadwal: khabar of هِىَ, and the ـىَ is the second word of the idafah. The sentence هِىَ عَصَاىَ is what he said, in the place of the accusative.', irab: 'خبر مرفوع وعلامة رفعه الضمة المقدرة على الألف، والياء ضمير في محل جر مضاف إليه' },
+        { at: 3, role: 'a present verb, Form V, root و ك أ: “I lean”. First person singular', case: 'raised (rafʿ): the plain ending', mark: 'a ḍamma on the hamza', why: 'The doer is a hidden “I”. The Corpus tags Form V (L3.15). The alif after the last letter is written and not said. Al-Jadwal: an explaining start, with no place.', irab: 'فعل مضارع مرفوع وعلامة رفعه الضمة الظاهرة، والفاعل ضمير مستتر تقديره أنا، والجملة لا محل لها استئناف بياني' },
+        { at: 4, role: 'a phrase tied to أَتَوَكَّؤُا۟: “on it”', why: 'Al-Jadwal: tied to the verb. The هَا is the staff.', irab: 'جار ومجرور متعلق بأتوكأ' },
+        { at: 5, ar: 'وَ', role: '“and”: it joins', why: 'It joins a second sentence to أَتَوَكَّؤُا۟.', irab: 'الواو عاطفة' },
+        { at: 5, ar: 'أَهُشُّ', role: 'a present verb, root ه ش ش: “I beat down”. First person singular', case: 'raised (rafʿ)', mark: 'a ḍamma on the last letter', why: 'The two last root letters are the same, so they are joined in one shadda. The doer is a hidden “I”. Al-Jadwal: its object is left out, “the leaves of the tree”.', irab: 'فعل مضارع مرفوع وعلامة رفعه الضمة الظاهرة، والفاعل ضمير مستتر تقديره أنا، والمفعول محذوف' },
+        { at: 6, role: 'a phrase tied to أَهُشُّ: “with it”', why: 'Al-Jadwal: tied to the verb. The هَا is the staff.', irab: 'جار ومجرور متعلق بأهش' },
+        { at: [7, 8], role: 'a phrase: “onto my sheep”', case: 'غَنَمِى: genitive (jarr)', mark: 'a kasra you cannot see before the ـىَ', why: 'Al-Jadwal: tied to a left-out ḥāl of the left-out object: “the leaves falling onto my sheep”. The ـىَ is the second word of an idafah.', irab: 'جار ومجرور متعلق بحال محذوفة من مفعول أهش' },
+        { at: 9, role: 'a phrase tied to a left-out khabar that comes first: “for me”', case: 'لِ: a preposition; the ـىَ is genitive by place', mark: 'none: a pronoun shows no case ending', why: 'Al-Jadwal: the khabar is left out and put first: “for me, in it, (there are) other uses” (L2.01). The wāw joins this sentence to أَتَوَكَّؤُا۟.', irab: 'الواو عاطفة، ولي متعلق بمحذوف خبر مقدم' },
+        { at: 10, role: 'a phrase tied to the same left-out khabar: “in it”', why: 'Al-Jadwal: tied to the khabar. The هَا is the staff.', irab: 'جار ومجرور متعلق بالخبر المحذوف' },
+        { at: 11, role: 'mubtadaʾ put later: “uses”. A broken plural of مَأْرَب', case: 'nominative (rafʿ)', mark: '-u (ḍamma)', why: 'The news comes first and the mubtadaʾ after it (L2.01). Al-Jadwal: مَآرِب is the plural of مَأْرَب and means a need.', irab: 'مبتدأ مؤخر مرفوع وعلامة رفعه الضمة الظاهرة' },
+        { at: 12, role: 'an adjective (naʿt) of مَآرِبُ: “other”. Feminine', case: 'nominative (rafʿ), like its noun', mark: 'a ḍamma you cannot see: the alif maqṣūra hides it', why: 'An adjective copies the case of its noun (L2.09). Al-Jadwal: nominative, with the mark hidden.', irab: 'نعت مرفوع وعلامة رفعه الضمة المقدرة على الألف' },
+        { at: [9, 10, 11, 12], role: 'the sentence وَلِىَ فِيهَا مَـَٔارِبُ أُخْرَىٰ: joined to أَتَوَكَّؤُا۟', case: 'no place', why: 'Al-Jadwal: no place, joined to the sentence أَتَوَكَّؤُا۟.', irab: 'جملة «لي فيها مآرب» لا محل لها معطوفة على جملة أتوكأ' },
+      ]}
+    />
+  </Stage>
+
+The answer has four parts. The first, **هِىَ عَصَاىَ**, “it is my staff”, answers the question. Then Musa goes on: “I lean on it, I beat down leaves with it onto my sheep, and I have other uses in it.”
+
+Al-Jadwal gives this style a name: *iṭnāb*, إِطْنَاب, saying more than the plain answer needs. In plain English, it is using more words than the bare meaning needs. Al-Jadwal says “it is my staff” would have been enough, and that Musa widened his answer for the pleasure of the speech. It also says he answered a question nobody asked: “and what do you do with it?”. It calls this way of answering *talfīf*, تَلْفِيف.
+
+Two words in the verse are left out. The object of **أَهُشُّ** is not written. Al-Jadwal gives it as “the leaves of the tree”. The khabar of the last part is also not written: **لِىَ فِيهَا**, “for me, in it”, stands in front of the mubtadaʾ **مَآرِبُ**. This is the fronted khabar of L2.01.
+
+<Check n={11} q="In وَلِىَ فِيهَا مَـَٔارِبُ أُخْرَىٰ, which word is the mubtadaʾ?" options={['مَـَٔارِبُ, put after the news', 'لِىَ', 'فِيهَا']} answer={0} why="The phrase لِىَ فِيهَا is tied to a left-out khabar that comes first. The mubtadaʾ, مَآرِبُ, comes later." />
+</Block>
+
+<Block id="v21" title="Verse 21: a command, a ban and a left-out “to”">
+  <Stage label="Read from right to left">
+    <Sentence
+      roles
+      reference="Ta-Ha 20:21"
+      groups={[
+        { words: [{ ar: 'قَالَ', en: 'he said', say: 'qala', type: 'v' }] },
+        { role: 'fiil', label: 'command + object', hint: 'the doer is a hidden “you”; هَا is the object', words: [{ ar: 'خُذْهَا', en: 'take it', say: 'khudhha', type: 'v' }] },
+        { role: 'fiil', label: 'ban', hint: 'لَا and a verb with a sukūn', words: [{ ar: 'وَلَا', en: 'and do not', say: 'wa-la', type: 'p' }, { ar: 'تَخَفْ', en: 'fear', say: 'takhaf', type: 'v' }] },
+        { role: 'fiil', label: 'fiʿl + object', hint: 'sa- is “will”; -nā is the doer', words: [{ ar: 'سَنُعِيدُهَا', en: 'we will return it', say: 'sa-nuiduha', type: 'v' }] },
+        { role: 'maful', label: 'a noun with a left-out “to”', hint: 'al-Jadwal: the noun is accusative because the preposition is dropped', words: [{ ar: 'سِيرَتَهَا', en: 'its state', say: 'siratahā' }, { ar: 'ٱلْأُولَىٰ', en: 'the first', say: 'al-ula' }] },
+      ]}
+      en={['He said: Take it, and do not fear. We will return it ', { gap: 'to' }, ' its first state.']}
+    />
+  </Stage>
+
+The verb **سَنُعِيدُهَا** needs “to” in English: “we will return it **to** its first state”. The Arabic has no preposition. The noun **سِيرَتَهَا** is accusative.
+
+Al-Jadwal says it is accusative because the preposition **إِلَىٰ** has been dropped. The grammar books call this *nazʿ al-khāfiḍ*, “taking away the word that makes a noun genitive”. In al-Jadwal’s parse, the word that follows, **ٱلْأُولَىٰ**, is an adjective of the noun and is genitive, with a kasra that the alif hides. The Corpus tags it accusative.
+
+Al-Jadwal also quotes another reading, from al-ʿUkbarī: **سِيرَتَهَا** is a replacement (badal) for the -hā of the verb. Both readings give the same English.
+
+Two small things in this verse come from earlier lessons. **تَخَفْ** has lost its middle letter in jazm (L4.12), after the lā of a ban (L4.10). **سَنُعِيدُهَا** starts with سَ, a word for the future (L3.06), and the Corpus tags it Form IV. Al-Jadwal calls the whole sentence سَنُعِيدُهَا a reason sentence, like the one in the previous block.
+
+<Check n={12} q="In al-Jadwal’s main reading, why is سِيرَتَهَا accusative?" options={['The word إِلَىٰ is dropped', 'It is the doer', 'It follows لَا']} answer={0} why="Al-Jadwal: it is accusative by dropping the preposition, “to its first state”. He also quotes a second reading, a badal." />
+</Block>
+
+</Step>
+
+<Step id="court" label="Musa and Pharaoh" title="Musa, Harun and Pharaoh (20:36 to 20:71)">
+<Block id="v36" title="Verse 36: the answer to a request, with a passive verb">
+  <Stage label="Word by word">
+    <Parse
+      reference="Ta-Ha 20:36"
+      words={[
+        { ar: 'قَالَ', en: 'he said', type: 'v' },
+        { ar: 'قَدْ', en: 'indeed', type: 'p' },
+        { ar: 'أُوتِيتَ', en: 'you have been given', type: 'v' },
+        { ar: 'سُؤْلَكَ', en: 'what you asked for' },
+        { ar: 'يَٰمُوسَىٰ', en: 'O Musa' },
+      ]}
+      cards={[
+        { at: 0, role: 'a past verb, root ق و ل: “he said”. Third person, masculine singular', case: 'none: a verb has no case', mark: 'built on a fatḥa', why: 'The doer is a hidden “he”: the one Musa asked in 20:25 to 20:35. The called name يَٰمُوسَىٰ shows he is not Musa. Al-Jadwal: a new start, with no place.', irab: 'فعل ماض مبني على الفتح، والفاعل ضمير مستتر تقديره هو، والجملة لا محل لها استئنافية' },
+        { at: 1, role: 'a little word that makes the past verb firm: “indeed”', case: 'none', mark: 'none: it never changes', why: 'The Corpus tags it a word of certainty. Al-Jadwal calls the same word in 20:56 a word of taḥqīq (making it sure).', irab: 'حرف تحقيق' },
+        { at: 2, role: 'a passive past verb, Form IV, root أ ت ي: “you have been given”. Second person, masculine singular', case: 'none: a verb has no case', mark: 'built on a sukūn, because the ending -ta is attached', why: 'The active verb is ءَاتَىٰ, “he gave”, which takes two objects (L2.03). In the passive the first object moves up and becomes the stand-in: the تَ, “you” (L3.09). Al-Jadwal: the تَ is the stand-in for the doer.', irab: 'فعل ماض مبني للمجهول مبني على السكون، والتاء نائب فاعل' },
+        { at: 3, role: 'the second object (mafʿūl bihi): “what you asked for”. The first word of an idafah', case: 'accusative (naṣb)', mark: '-a (fatḥa)', why: 'The second object stays accusative when the verb is passive (L3.09). Al-Jadwal: an object. It says the word names the thing asked for. The كَ is the second word of the idafah.', irab: 'مفعول به منصوب وعلامة نصبه الفتحة الظاهرة وهو مضاف، والكاف ضمير في محل جر مضاف إليه' },
+        { at: 4, role: 'the one called (munādā): “O Musa”', case: 'in the place of the accusative', mark: 'built on a ḍamma that the alif hides', why: 'Al-Jadwal: a called name, and the call is a remark put in between the parts of the sentence (L3.17).', irab: 'يا حرف نداء، وموسى منادى مفرد علم مبني على الضم المقدر في محل نصب، والجملة لا محل لها اعتراضية' },
+        { at: [1, 2, 3], role: 'the sentence قَدْ أُوتِيتَ سُؤْلَكَ: what is said', case: 'in the place of the accusative', why: 'Al-Jadwal: the words said, in the place of the accusative (L1.09).', irab: 'جملة «قد أوتيت» في محل نصب مقول القول' },
+      ]}
+    />
+  </Stage>
+
+In 20:25 Musa asks his Lord for help: قَالَ رَبِّ ٱشْرَحْ لِى صَدْرِى. The request itself is taught in L5.07. Here we only follow who speaks. That قَالَ is Musa, and the word **رَبِّ** shows he is speaking to his Lord. A few verses later, in 20:36, a new قَالَ answers him. Again the verb gives no name. The called name **يَٰمُوسَىٰ** at the end says the speaker is not Musa.
+
+The verb **أُوتِيتَ** is the passive of “give”. L2.03 showed that “give” takes two objects, and L3.09 showed what the passive does to them. The first object, “you”, moves up and becomes the stand-in for the doer. It is the -ta at the end of the verb. The second object, **سُؤْلَكَ**, “what you asked for”, stays accusative.
+
+A command and a request can have the same shape. In 20:10 Musa says ٱمْكُثُوٓا۟ to his family. In 20:25 he says ٱشْرَحْ to his Lord. Both are commands in form (L3.08). Who speaks to whom tells you whether it is an order or a request. This is a teaching summary. L5.07 teaches the patterns of requests.
+
+<Check n={13} q="In أُوتِيتَ سُؤْلَكَ, which word is the stand-in for the doer?" options={['The -ta, “you”, inside the verb', 'سُؤْلَكَ', 'يَٰمُوسَىٰ']} answer={0} why="The first object moves up and becomes the stand-in: -ta. The second object, سُؤْلَكَ, stays accusative." />
+</Block>
+
+<Block id="v45" title="Verses 45 and 46: two speakers, then an answer">
+  <Stage label="Read from right to left">
+    <Sentence
+      roles
+      reference="Ta-Ha 20:45 (start)"
+      groups={[
+        { role: 'fiil', label: 'fiʿl + doer', hint: 'the ending -ā is the doer: “the two”', words: [{ ar: 'قَالَا', en: 'the two said', say: 'qala', type: 'v' }] },
+        { words: [{ ar: 'رَبَّنَآ', en: 'our Lord', say: 'rabbana' }] },
+        { role: 'ismInna', label: 'ism inna', hint: 'the pronoun is “we”', words: [{ ar: 'إِنَّنَا', en: 'indeed we', say: 'innana', type: 'p' }] },
+        { role: 'fiil', label: 'fiʿl + doer', hint: 'a hidden “we”', words: [{ ar: 'نَخَافُ', en: 'fear', say: 'nakhafu', type: 'v' }] },
+      ]}
+      en={['The two said: Our Lord, we fear …']}
+    />
+    <Sentence
+      roles
+      reference="Ta-Ha 20:46"
+      groups={[
+        { words: [{ ar: 'قَالَ', en: 'he said', say: 'qala', type: 'v' }] },
+        { role: 'fiil', label: 'ban', hint: 'the -ā is the doer: “you two”', words: [{ ar: 'لَا', en: 'do not', say: 'la', type: 'p' }, { ar: 'تَخَافَآ', en: 'fear', say: 'takhafa', type: 'v' }] },
+        { role: 'ismInna', label: 'ism inna', hint: 'the pronoun is “I”', words: [{ ar: 'إِنَّنِى', en: 'indeed I', say: 'innani', type: 'p' }] },
+        { role: 'khabarInna', hint: 'the news: with you two', words: [{ ar: 'مَعَكُمَآ', en: 'with you two', say: 'maakuma', type: 'p' }] },
+        { role: 'fiil', label: 'fiʿl + doer', hint: 'a hidden “I”; the object is left out', words: [{ ar: 'أَسْمَعُ', en: 'hear', say: 'asmau', type: 'v' }] },
+        { role: 'fiil', label: 'fiʿl + doer', hint: 'a hidden “I”; the object is left out', words: [{ ar: 'وَأَرَىٰ', en: 'and see', say: 'wa-ara', type: 'v' }] },
+      ]}
+      en={['He said: Do not fear. I am with you two, hearing ', { gap: 'what he says' }, ' and seeing ', { gap: 'what he does' }, '.']}
+    />
+  </Stage>
+
+Verses 42 and 43 speak to two people: ٱذْهَبْ أَنتَ وَأَخُوكَ, “go, you and your brother” (20:42), and ٱذْهَبَآ, “go, you two” (20:43). So the next speaker is two people, and the verb has the dual ending: **قَالَا**, “the two said”. The -ā is the doer (L3.05). By the story they are Musa and Harun. Al-Jadwal reads رَبَّنَآ, “our Lord”, as a call put in between the parts of the sentence, to ask for mercy.
+
+Verse 46 answers them with a single قَالَ. The speaker is the one they asked, Allah, by our reading of the story. The ban **لَا تَخَافَآ** has the same ending -ā, “you two”, and its jazm shows in the dropped nūn (L3.07, L4.10). Al-Jadwal calls the sentence after it, **إِنَّنِى مَعَكُمَآ**, a reason sentence, as in the block “A command, then a reason”.
+
+The two verbs at the end have no written object. Al-Jadwal gives them: “I hear what he says and I see what he does”. English needs the two words, and the Arabic leaves them out. A left-out object is not a mistake in the verse. The meaning is clear without it.
+
+<Check n={14} q="What does the ending -ā on قَالَا tell you?" options={['Two people spoke', 'One woman spoke', 'The verb is a command']} answer={0} why="The -ā is the dual doer: “the two”. It is the same -ā as in the ban لَا تَخَافَآ, “you two”." />
+</Block>
+
+<Block id="v49" title="Verse 49: Pharaoh asks">
+  <Stage label="Word by word">
+    <Parse
+      reference="Ta-Ha 20:49"
+      words={[
+        { ar: 'قَالَ', en: 'he said', type: 'v' },
+        { ar: 'فَمَن', en: 'then who' },
+        { ar: 'رَّبُّكُمَا', en: 'the Lord of you two' },
+        { ar: 'يَٰمُوسَىٰ', en: 'O Musa' },
+      ]}
+      cards={[
+        { at: 0, role: 'a past verb, root ق و ل: “he said”. Third person, masculine singular', case: 'none: a verb has no case', mark: 'built on a fatḥa', why: 'The doer is a hidden “he”: Pharaoh, by the story. The called name يَٰمُوسَىٰ shows he is not Musa. Al-Jadwal: an explaining start, with no place.', irab: 'فعل ماض مبني على الفتح، والفاعل ضمير مستتر تقديره هو، والجملة لا محل لها استئناف بياني' },
+        { at: 1, ar: 'فَ', role: 'a linking فَ: the answer of a condition that is not spoken', why: 'Al-Jadwal: the فَ ties the answer to a left-out condition: “if it has been revealed to you two, then who is your Lord?”. A footnote allows a second reading: it is joined to a left-out sentence, “we have heard this, so who is your Lord?”.', irab: 'الفاء رابطة لجواب شرط مقدر' },
+        { at: 1, ar: 'مَن', role: 'a question word: “who?”. A noun', case: 'in the place of the nominative: mubtadaʾ', mark: 'none: it never changes', why: 'Al-Jadwal: a question noun and the mubtadaʾ. The Corpus tags this word as a joining noun (relative). We follow al-Jadwal.', irab: 'اسم استفهام مبني في محل رفع مبتدأ' },
+        { at: 2, role: 'khabar: “the Lord of you two”. The first word of an idafah', case: 'nominative (rafʿ)', mark: '-u (ḍamma)', why: 'The كُمَا is the second word of the idafah: the dual, “you two”, the people spoken to (L3.02). Al-Jadwal: the khabar of مَن.', irab: 'خبر مرفوع وعلامة رفعه الضمة الظاهرة وهو مضاف، وكما ضمير في محل جر مضاف إليه' },
+        { at: 3, role: 'the one called (munādā): “O Musa”', case: 'in the place of the accusative', mark: 'built on a ḍamma that the alif hides', why: 'Al-Jadwal: the call is a remark put in, or a new start.', irab: 'يا حرف نداء، وموسى منادى مفرد علم مبني على الضم المقدر في محل نصب' },
+        { at: [1, 2], role: 'the question مَن رَّبُّكُمَا: the answer of the left-out condition', case: 'in the place of jazm', why: 'Al-Jadwal: the answer of the left-out condition, in the place of jazm. The condition itself is in the place of the accusative: it is what was said.', irab: 'جملة «من ربكما» في محل جزم جواب شرط مقدر' },
+      ]}
+    />
+  </Stage>
+
+Pharaoh’s question has two clues to who is speaking. The called name **يَٰمُوسَىٰ** says Musa is not the speaker. The dual **رَّبُّكُمَا**, “the Lord of you two”, says that two people are spoken to. Verse 47 has just told us who they are: Musa and Harun went to Pharaoh.
+
+Al-Jadwal reads the **فَ** as the link for an answer to a condition left out: “if it has been revealed to you two, then who is your Lord?”. It is the same kind of left-out word as in 20:12. It also gives a second reading in a footnote.
+
+<Check n={15} q="What does رَّبُّكُمَا in 20:49 tell you about the listeners?" options={['They are two people', 'They are many people', 'They are one woman']} answer={0} why="The كُمَا is the dual pronoun, “you two”. It points at Musa and Harun." />
+</Block>
+
+<Block id="v50" title="Verse 50: Musa answers">
+  <Stage label="Word by word">
+    <Parse
+      reference="Ta-Ha 20:50"
+      words={[
+        { ar: 'قَالَ', en: 'he said', type: 'v' },
+        { ar: 'رَبُّنَا', en: 'our Lord' },
+        { ar: 'ٱلَّذِىٓ', en: 'the one who', type: 'p' },
+        { ar: 'أَعْطَىٰ', en: 'gave', type: 'v' },
+        { ar: 'كُلَّ', en: 'every' },
+        { ar: 'شَىْءٍ', en: 'thing' },
+        { ar: 'خَلْقَهُۥ', en: 'its form' },
+        { ar: 'ثُمَّ', en: 'then', type: 'p' },
+        { ar: 'هَدَىٰ', en: 'guided', type: 'v' },
+      ]}
+      cards={[
+        { at: 0, role: 'a past verb, root ق و ل: “he said”. Third person, masculine singular', case: 'none: a verb has no case', mark: 'built on a fatḥa', why: 'The doer is a hidden “he”: Musa, who answers the question. Al-Jadwal: an explaining start, with no place.', irab: 'فعل ماض مبني على الفتح، والفاعل ضمير مستتر تقديره هو، والجملة لا محل لها استئناف بياني' },
+        { at: 1, role: 'mubtadaʾ: “our Lord”. The first word of an idafah', case: 'nominative (rafʿ)', mark: '-u (ḍamma)', why: 'The sentence is about “our Lord” (L2.01). The نَا is the second word of the idafah.', irab: 'مبتدأ مرفوع وعلامة رفعه الضمة الظاهرة وهو مضاف، ونا ضمير في محل جر مضاف إليه' },
+        { at: 2, role: 'a joining noun (ism mawṣūl): “the one who”. Khabar', case: 'in the place of the nominative', mark: 'none: it never changes', why: 'Al-Jadwal: the khabar of رَبُّنَا, and the clause that follows finishes it (L3.11).', irab: 'اسم موصول مبني في محل رفع خبر' },
+        { at: 3, role: 'a past verb, Form IV, root ع ط و: “gave”. Third person, masculine singular', case: 'none: a verb has no case', mark: 'built on a fatḥa you cannot see: the alif hides it', why: 'The doer is a hidden “he”. The last root letter is weak (L4.13). Al-Jadwal: the clause أَعْطَىٰ is the finishing clause (ṣila) of ٱلَّذِىٓ, with no place.', irab: 'فعل ماض مبني على الفتح المقدر على الألف، والفاعل ضمير مستتر تقديره هو، والجملة لا محل لها صلة الموصول' },
+        { at: 4, role: 'the first object: “every”. The first word of an idafah', case: 'accusative (naṣb)', mark: '-a (fatḥa)', why: 'Al-Jadwal names خَلْقَهُۥ the second object, so كُلَّ شَىْءٍ is the first (L2.03).', irab: 'مفعول به أول منصوب وعلامة نصبه الفتحة الظاهرة وهو مضاف' },
+        { at: 5, role: 'the second word of the idafah: “thing”', case: 'genitive (jarr)', mark: '-in (kasra with tanwīn)', why: 'The second word of an idafah is genitive (L2.08).', irab: 'مضاف إليه مجرور وعلامة جره الكسرة الظاهرة' },
+        { at: 6, role: 'the second object (mafʿūl bihi thānin): “its form”', case: 'accusative (naṣb)', mark: '-a (fatḥa)', why: 'Al-Jadwal names it the second object and says it means form or nature. The هُ is the second word of an idafah and points back to “thing”.', irab: 'مفعول به ثان منصوب وعلامة نصبه الفتحة الظاهرة، والهاء ضمير في محل جر مضاف إليه' },
+        { at: 7, ar: 'ثُمَّ', role: '“then”: it joins', why: 'Al-Jadwal: the clause هَدَىٰ is joined to the clause أَعْطَىٰ.', irab: 'حرف عطف' },
+        { at: 8, role: 'a past verb, root ه د ي: “guided”. Third person, masculine singular', case: 'none: a verb has no case', mark: 'built on a fatḥa you cannot see: the alif hides it', why: 'The doer is a hidden “he”. The last root letter is weak: a defective verb (L4.13). Al-Jadwal: no place, joined to the clause أَعْطَىٰ.', irab: 'فعل ماض مبني على الفتح المقدر على الألف، والفاعل ضمير مستتر تقديره هو، والجملة لا محل لها معطوفة على جملة أعطى' },
+        { at: [1, 2], role: 'the sentence رَبُّنَا ٱلَّذِىٓ …: what is said', case: 'in the place of the accusative', why: 'Al-Jadwal: the words said, in the place of the accusative (L1.09).', irab: 'جملة «ربنا الذي» في محل نصب مقول القول' },
+      ]}
+    />
+  </Stage>
+
+Musa’s answer is a nominal sentence: **رَبُّنَا** is the mubtadaʾ, and the joining noun **ٱلَّذِىٓ**, with its clause, is the news. Compare 20:49. Pharaoh said **رَّبُّكُمَا**, “the Lord of you two”. Musa answers with **رَبُّنَا**, “our Lord”, and the نَا is plural. The question and the answer use the same word, رَبّ. Only the pronoun changes: -kumā in the question, -nā in the answer.
+
+The verb **أَعْطَىٰ** takes two objects. Al-Jadwal names **خَلْقَهُۥ** the second object and says it means “its form” or “its nature”. A footnote adds another reading. If the word means “creatures”, it is the first object, and كُلَّ شَىْءٍ is the second.
+
+<Check n={16} q="Which word is the second object of أَعْطَىٰ, in al-Jadwal’s main reading?" options={['خَلْقَهُۥ', 'كُلَّ', 'شَىْءٍ']} answer={0} why="Al-Jadwal names خَلْقَهُۥ the second object, “its form”. كُلَّ شَىْءٍ is the first." />
+</Block>
+
+<Block id="two-objects" title="One object, two objects, or a passive">
+  <Stage label="Verbs of the story">
+    <Tiles
+      label="count the things that follow the verb"
+      items={[
+        { ar: 'أَجِدُ', en: 'one object (20:10)', type: 'v' },
+        { ar: 'أُوتِيتَ', en: 'a stand-in and one object (20:36)', type: 'v' },
+        { ar: 'أَعْطَىٰ', en: 'two objects (20:50)', type: 'v' },
+        { ar: 'نَتَّخِذَهُۥ', en: 'two objects (28:9)', type: 'v' },
+      ]}
+    />
+  </Stage>
+
+| Verse | The words | The objects | Al-Jadwal |
+|---|---|---|---|
+| 20:10 | أَجِدُ عَلَى ٱلنَّارِ هُدًى | One: هُدًى | The verb means “I meet”, so it takes one |
+| 20:36 | أُوتِيتَ سُؤْلَكَ | The stand-in -ta, then سُؤْلَكَ | The first object became the stand-in |
+| 20:50 | أَعْطَىٰ كُلَّ شَىْءٍ خَلْقَهُۥ | كُلَّ شَىْءٍ, then خَلْقَهُۥ | Names خَلْقَهُۥ the second object |
+| 20:56 | أَرَيْنَٰهُ ءَايَٰتِنَا | The -hu, then ءَايَٰتِنَا | Names ءَايَٰتِنَا the second object |
+| 28:9 | نَتَّخِذَهُۥ وَلَدًا | The -hu, then وَلَدًا | Names وَلَدًا the second object |
+
+The two-object verbs here mean “give”, “show” and “take as”. Each takes a person or a thing, and then a second thing. The test is the one L4.19 used for the verb of finding, from L4.01: take the second word out. If the sentence is unfinished, the word was a second object. If the sentence is complete, it was another part, such as a ḥāl (L4.01).
+
+A verb can change how many objects it takes with its meaning. The verb أَجِدُ in 20:10 takes one, and the verb وَجَدَ in 93:7 takes two. Look at what the verb means in the verse.
+
+<Check n={17} q="In 20:56, which word is the second object of أَرَيْنَٰهُ?" options={['ءَايَٰتِنَا', 'The -hu', 'كُلَّهَا']} answer={0} why="The -hu, “him”, is the first object. Al-Jadwal names ءَايَٰتِنَا the second object: “We showed him our signs”." />
+</Block>
+
+<Block id="v70" title="Verse 70: the many speak">
+  <Stage label="Word by word">
+    <Parse
+      reference="Ta-Ha 20:70"
+      words={[
+        { ar: 'فَأُلْقِىَ', en: 'so were thrown', type: 'v' },
+        { ar: 'ٱلسَّحَرَةُ', en: 'the magicians' },
+        { ar: 'سُجَّدًا', en: 'bowing down' },
+        { ar: 'قَالُوٓا۟', en: 'they said', type: 'v' },
+        { ar: 'ءَامَنَّا', en: 'we have believed', type: 'v' },
+        { ar: 'بِرَبِّ', en: 'in the Lord of' },
+        { ar: 'هَٰرُونَ', en: 'Harun' },
+        { ar: 'وَمُوسَىٰ', en: 'and Musa' },
+      ]}
+      cards={[
+        { at: 0, ar: 'فَ', role: '“so”: it joins', why: 'Al-Jadwal: it joins this sentence to a left-out sentence: “Musa threw his staff, and it swallowed what they had made, and then the magicians were thrown down”. The story skips it.', irab: 'الفاء عاطفة' },
+        { at: 0, ar: 'أُلْقِىَ', role: 'a passive past verb, Form IV, root ل ق ي: “were thrown”. Third person, masculine', case: 'none: a verb has no case', mark: 'built on a fatḥa', why: 'The active verb is أَلْقَىٰ. The ending changed with the passive, as in نُودِىَ (L3.09). The stand-in for the doer is the next word.', irab: 'فعل ماض مبني للمجهول مبني على الفتح' },
+        { at: 1, role: 'the stand-in for the doer: “the magicians”', case: 'nominative (rafʿ)', mark: '-u (ḍamma)', why: 'Al-Jadwal: the stand-in for the doer. The passive verb does not say who threw them (L3.09).', irab: 'نائب فاعل مرفوع وعلامة رفعه الضمة الظاهرة' },
+        { at: 2, role: 'a ḥāl: “bowing down”. A doer word (ism fāʿil), plural, of the root س ج د', case: 'accusative (naṣb)', mark: '-an (fatḥa with tanwīn)', why: 'Al-Jadwal: a ḥāl. It says in what state they were thrown down (L4.01).', irab: 'حال منصوبة وعلامة نصبها الفتحة الظاهرة' },
+        { at: 3, role: 'a past verb, root ق و ل: “they said”. Third person, masculine plural', case: 'none: a verb has no case', mark: 'built on a ḍamma', why: 'The ending -ū is the doer: “they”, the magicians. The small circle after the alif means the alif is written and not said. Al-Jadwal: an explaining start, with no place.', irab: 'فعل ماض مبني على الضم، والواو فاعل، والجملة لا محل لها استئناف بياني' },
+        { at: 4, role: 'a past verb, Form IV, root أ م ن: “we have believed”. First person, plural', case: 'none: a verb has no case', mark: 'built on a sukūn, because the ending -nā is attached', why: 'The ending -nā is the doer: “we” (L3.05). The shadda comes from the root letter ن meeting the ن of -nā. Al-Jadwal: the clause is what was said, in the place of the accusative.', irab: 'فعل ماض مبني على السكون، ونا فاعل، والجملة في محل نصب مقول القول' },
+        { at: 5, role: 'a phrase tied to ءَامَنَّا: “in the Lord of Harun and Musa”. بِ is a preposition, رَبِّ the noun after it', case: 'genitive (jarr)', mark: '-i (kasra)', why: 'Al-Jadwal: tied to the verb. It says what they believed in. رَبِّ is the first word of an idafah (L2.08).', irab: 'جار ومجرور متعلق بآمنا، وهو مضاف' },
+        { at: 6, role: 'the second word of the idafah: “Harun”', case: 'genitive (jarr)', mark: 'a fatḥa instead of a kasra', why: 'A name that does not take the usual endings has a fatḥa as its genitive (L2.06).', irab: 'مضاف إليه مجرور وعلامة جره الفتحة نيابة عن الكسرة لأنه ممنوع من الصرف' },
+        { at: 7, ar: 'وَ', role: '“and”: it joins', why: 'It joins مُوسَىٰ to هَٰرُونَ.', irab: 'الواو عاطفة' },
+        { at: 7, ar: 'مُوسَىٰ', role: 'joined to هَٰرُونَ: “Musa”', case: 'genitive (jarr)', mark: 'a kasra you cannot see: the alif hides it', why: 'A word joined by “and” copies the case of the word before it (L2.06).', irab: 'اسم معطوف على هارون مجرور وعلامة جره الكسرة المقدرة على الألف' },
+      ]}
+    />
+  </Stage>
+
+The verb **قَالُوٓا۟** is plural: many people speak. Until now every قَالَ in the lesson has been one speaker. The ending -ū is the doer, and the story says who it is: the magicians, named by the word before it.
+
+Before the speech the verse has a passive verb, **أُلْقِىَ**, “they were thrown”. The stand-in is **ٱلسَّحَرَةُ**, “the magicians”, in the nominative. The verse does not say who threw them. Al-Jadwal reads a left-out sentence before it, which tells what happened first: the staff swallowed what they had made.
+
+The speech uses the first person: **ءَامَنَّا**, “we have believed”. In the same verse the story speaks about them in the third person (“they said”), and they speak about themselves in the first (“we”). The ending of the verb changes, from -ū to -nā, and nothing else marks the change.
+
+<Check n={18} q="What does the ending -ū on قَالُوٓا۟ tell you?" options={['Many people speak', 'Two people speak', 'One woman speaks']} answer={0} why="The -ū is the doer for a group: “they”. The doer of قَالُوٓا۟ is the magicians." />
+</Block>
+
+<Block id="v71" title="Verse 71: one voice after many">
+  <Stage label="Read from right to left">
+    <Sentence
+      roles
+      reference="Ta-Ha 20:71 (start)"
+      groups={[
+        { words: [{ ar: 'قَالَ', en: 'he said', say: 'qala', type: 'v' }] },
+        { role: 'fiil', label: 'fiʿl + doer', hint: 'the ending -tum is the doer: “you all”', words: [{ ar: 'ءَامَنتُمْ', en: 'you believed', say: 'amantum', type: 'v' }] },
+        { role: 'tied', hint: 'goes with ءَامَنتُمْ', words: [{ ar: 'لَهُۥ', en: 'in him', say: 'lahu', type: 'p' }] },
+        { role: 'zarf', hint: 'a time word', words: [{ ar: 'قَبْلَ', en: 'before', say: 'qabla', type: 'p' }] },
+        { role: 'mudafIlayh', label: 'muḍāf ilayh: a clause', hint: 'the clause is added to قَبْلَ', words: [{ ar: 'أَنْ', en: 'that', say: 'an', type: 'p' }, { ar: 'ءَاذَنَ', en: 'I give leave', say: 'adhana', type: 'v' }, { ar: 'لَكُمْ', en: 'to you', say: 'lakum', type: 'p' }] },
+      ]}
+      en={['He said: You believed in him before I gave you leave.']}
+    />
+  </Stage>
+
+The single **قَالَ** is back. It has no name, and the speech is addressed to a group: the ending **-tum** on ءَامَنتُمْ is “you all”, the magicians who have just spoken. By the story the speaker is Pharaoh. The singular verb after the plural one in 20:70 is one clue. The “you all” in his speech is another.
+
+Al-Jadwal ties **لَهُۥ** and **قَبْلَ** to the verb ءَامَنتُمْ. It reads the clause **أَنْ ءَاذَنَ لَكُمْ** as a noun clause, “my giving leave”, and puts it in the place of the genitive, because it is added to قَبْلَ. Its note on the spelling says that when two hamzas stand at the start of a word, the second becomes a long ā, as in ءَاذَنَ.
+
+<Check n={19} q="In ءَامَنتُمْ, who does the ending -tum point to?" options={['The magicians, “you all”', 'Pharaoh, “I”', 'Musa, “he”']} answer={0} why="The ending -tum is the doer “you all”. The speaker talks to the magicians who spoke in 20:70." />
+</Block>
+
+<Block id="iwe" title="The same speaker says “I” and “we”">
+  <Stage label="From 20:13 to 20:41">
+    <Tiles
+      label="verbs of the voice, with the doer’s ending"
+      items={[
+        { ar: 'ٱخْتَرْتُكَ', en: 'I chose you (20:13)', type: 'v' },
+        { ar: 'مَنَنَّا', en: 'we favoured (20:37)', type: 'v' },
+        { ar: 'أَوْحَيْنَآ', en: 'we inspired (20:38)', type: 'v' },
+        { ar: 'وَأَلْقَيْتُ', en: 'and I cast (20:39)', type: 'v' },
+        { ar: 'فَرَجَعْنَٰكَ', en: 'so we returned you (20:40)', type: 'v' },
+        { ar: 'وَٱصْطَنَعْتُكَ', en: 'and I made you (20:41)', type: 'v' },
+      ]}
+    />
+  </Stage>
+
+In 20:12 and 20:14 the voice says “I”: إِنِّىٓ أَنَا۠ and إِنَّنِىٓ أَنَا ٱللَّهُ. In 20:37 to 20:41 the voice tells Musa about his own life, and uses verbs with **-nā**, “we”, and verbs with **-tu**, “I”, side by side. The Corpus tags the six verbs above 1S (I) or 1P (we) as the endings show.
+
+Al-Jadwal gives no reason on these pages for the change between “I” and “we”. This lesson gives none either. The same holds in Al-Qasas, where 28:7 has أَوْحَيْنَآ and 28:12 has حَرَّمْنَا, both with -nā.
+
+<Check n={20} q="Which person is the doer of وَٱصْطَنَعْتُكَ in 20:41?" options={['“I”, the ending -tu', '“We”, the ending -nā', '“He”, a hidden doer']} answer={0} why="The ending -tu is “I” (L3.05). The ending -nā is “we”, as in مَنَنَّا in 20:37." />
+</Block>
+
+<Block id="clues" title="Six clues for who is speaking">
+  <Stage label="From the verses of this lesson">
+    <Tiles
+      label="six clues"
+      items={[
+        { ar: 'اسْم', en: 'a name is written', type: 'n' },
+        { ar: 'نِدَاء', en: 'a called name', type: 'n' },
+        { ar: 'قَالَ …', en: 'the ending of قَالَ', type: 'v' },
+        { ar: 'سُؤَال', en: 'a question, then its answer', type: 'p' },
+      ]}
+    />
+  </Stage>
+
+| Clue | Example | What it tells you |
+|---|---|---|
+| A name is written | وَقَالَتِ ٱمْرَأَتُ فِرْعَوْنَ (28:9) | The doer of قَالَتِ is the wife of Pharaoh |
+| A called name | قَالَ فَمَن رَّبُّكُمَا يَٰمُوسَىٰ (20:49) | The speaker is not the one called |
+| The ending of قَالَ | قَالَا (20:45), قَالُوٓا۟ (20:70), قَالَتْ (28:11) | Two people, many people, one woman |
+| A question, then its answer | 20:17 and 20:18, 20:49 and 20:50 | In these verses, the next قَالَ after a question is the person who was asked |
+| The pronoun in the words said | رَبُّكَ (20:12), إِلَيْكِ (28:7), رَبُّكُمَا (20:49) | One man, one woman, two people are spoken to |
+| What the words say | إِنِّىٓ أَنَا۠ رَبُّكَ (20:12), ءَامَنَّا (20:70) | The speaker calls himself “Lord”; the speakers say “we” |
+
+These six are a teaching summary of what the verses of this lesson show. No grammar book we use lists them. Where no clue is in the verse itself, the story before it decides. Verse 28:11 has قَالَتْ and no name. The verse before it, 28:10, names “the mother of Musa”, and that is who speaks.
+
+<Check n={21} q="Which clue tells you the speaker of 20:49 is not Musa?" options={['The called name يَٰمُوسَىٰ', 'The ending of قَالَ', 'The pronoun كَ']} answer={0} why="A speaker does not call himself. The name is in the call, so someone else speaks." />
+</Block>
+
+</Step>
+
+<Step id="women" label="The women" title="The women of the story (28:7 to 28:12)">
+<Block id="w7" title="Verse 7: a woman is told what to do">
+  <Stage label="Read from right to left">
+    <Sentence
+      roles
+      reference="Al-Qasas 28:7 (start)"
+      groups={[
+        { role: 'fiil', label: 'fiʿl + doer', hint: 'the ending -nā is the doer: “we”', words: [{ ar: 'وَأَوْحَيْنَآ', en: 'and we inspired', say: 'wa-awhayna', type: 'v' }] },
+        { role: 'tied', hint: 'to whom', words: [{ ar: 'إِلَىٰٓ', en: 'to', say: 'ila', type: 'p' }, { ar: 'أُمِّ', en: 'the mother of', say: 'ummi' }, { ar: 'مُوسَىٰٓ', en: 'Musa', say: 'musa' }] },
+        { words: [{ ar: 'أَنْ', en: 'that is', say: 'an', type: 'p' }] },
+        { role: 'fiil', label: 'command + object', hint: 'the -ī is the doer: “you”, one woman; the -hi is “him”', words: [{ ar: 'أَرْضِعِيهِ', en: 'nurse him', say: 'ardiihi', type: 'v' }] },
+      ]}
+      en={['And we inspired the mother of Musa: “Nurse him.”']}
+    />
+  </Stage>
+
+The verb **وَأَوْحَيْنَآ** ends in -nā, “we”. The speaker is the one who inspires. The next words say who is spoken to: **أُمِّ مُوسَىٰٓ**, “the mother of Musa”. Al-Jadwal reads **أَنْ** as an explaining word, “that is”, and gives the other reading, a word that makes a noun clause, in a footnote. The sentence **أَرْضِعِيهِ** explains what was inspired and has no place of its own.
+
+A woman is told what to do, so the command has her ending. **أَرْضِعِيهِ** ends in -ī: “you”, one woman (L3.08). Al-Jadwal reads the command as built on the dropped nūn. The -hi at the end is “him”.
+
+The same verse goes on with more words for one woman: فَإِذَا خِفْتِ عَلَيْهِ فَأَلْقِيهِ فِى ٱلْيَمِّ وَلَا تَخَافِى وَلَا تَحْزَنِىٓ, “then when you fear for him, throw him into the river, and do not fear and do not grieve”. Al-Jadwal names وَلَا تَخَافِى وَلَا تَحْزَنِىٓ an example of *iṭnāb*, saying more than the plain meaning needs. Its note says fear is for something that may come and grief is for something that has happened, so she is told not to feel either. Then comes the reason, إِنَّا رَآدُّوهُ إِلَيْكِ, “indeed we will return him to you”, a reason sentence (see “A command, then a reason”).
+
+<Check n={22} q="What does the ending -ī on أَرْضِعِيهِ tell you?" options={['One woman is told to do it', 'Many men are told to do it', 'The verb is past']} answer={0} why="The -ī in a command is “you”, one woman (L3.08). She is the mother of Musa, named in the verse." />
+</Block>
+
+<Block id="w9" title="Verse 9: the wife of Pharaoh speaks">
+  <Stage label="Word by word">
+    <Parse
+      reference="Al-Qasas 28:9 (start)"
+      words={[
+        { ar: 'وَقَالَتِ', en: 'and she said', type: 'v' },
+        { ar: 'ٱمْرَأَتُ', en: 'the wife of' },
+        { ar: 'فِرْعَوْنَ', en: 'Pharaoh' },
+        { ar: 'قُرَّتُ', en: 'a joy of' },
+        { ar: 'عَيْنٍ', en: 'an eye' },
+        { ar: 'لِّى', en: 'for me', type: 'p' },
+        { ar: 'وَلَكَ', en: 'and for you', type: 'p' },
+        { ar: 'لَا', en: 'do not', type: 'p' },
+        { ar: 'تَقْتُلُوهُ', en: 'kill him', type: 'v' },
+      ]}
+      cards={[
+        { at: 0, ar: 'وَ', role: '“and”: it joins', why: 'Al-Jadwal: the sentence is joined to the sentence of 28:8, فَٱلْتَقَطَهُۥٓ ءَالُ فِرْعَوْنَ. No place.', irab: 'الواو عاطفة' },
+        { at: 0, ar: 'قَالَتِ', role: 'a past verb, root ق و ل: “she said”. Third person, feminine singular', case: 'none: a verb has no case', mark: 'built on a fatḥa. The ت is the tāʾ of “she”', why: 'The doer is written after the verb, and it is feminine, so the verb takes -t (L2.03, L3.05). The ت has a kasra, not the usual sukūn, because the next word starts with a connecting alif.', irab: 'فعل ماض مبني على الفتح، والتاء تاء التأنيث' },
+        { at: 1, role: 'the doer (fāʿil): “the wife of”. The first word of an idafah', case: 'nominative (rafʿ)', mark: '-u (ḍamma)', why: 'The doer comes after its verb (L2.03). The word names the speaker.', irab: 'فاعل مرفوع وعلامة رفعه الضمة الظاهرة وهو مضاف' },
+        { at: 2, role: 'the second word of the idafah: “Pharaoh”', case: 'genitive (jarr)', mark: 'a fatḥa instead of a kasra', why: 'A name that does not take tanwīn has a fatḥa as its genitive (L2.06). Al-Jadwal says Pharaoh and Haman are non-Arabic names, so they take the fatḥa. The Corpus tags the word accusative; it is genitive.', irab: 'مضاف إليه مجرور وعلامة جره الفتحة نيابة عن الكسرة لأنه ممنوع من الصرف' },
+        { at: 3, role: 'a khabar whose mubtadaʾ is left out: “(he is) a joy of”. The first word of an idafah', case: 'nominative (rafʿ)', mark: '-u (ḍamma)', why: 'Al-Jadwal: a khabar of a mubtadaʾ that is left out: هُوَ, “he”. Read: “He is a joy of the eye for me and for you” (L2.01).', irab: 'خبر لمبتدأ محذوف تقديره هو مرفوع وعلامة رفعه الضمة الظاهرة وهو مضاف' },
+        { at: 4, role: 'the second word of the idafah: “an eye”', case: 'genitive (jarr)', mark: '-in (kasra with tanwīn)', why: 'The second word of an idafah is genitive (L2.08).', irab: 'مضاف إليه مجرور وعلامة جره الكسرة الظاهرة' },
+        { at: 5, role: 'a phrase: “for me”. لِ is a preposition and ـىَ is “me”', why: 'Al-Jadwal: tied to a description of قُرَّتُ عَيْنٍ (L2.07).', irab: 'جار ومجرور متعلق بنعت لقرة عين' },
+        { at: 6, ar: 'وَلَكَ', role: 'a phrase joined to the first: “and for you”', why: 'Al-Jadwal: the same as لِّى, and joined to it by the wāw.', irab: 'الواو عاطفة، ولك مثل لي ومعطوف عليه' },
+        { at: 7, role: 'the لَا of a ban: “do not”', case: 'none', mark: 'none: it never changes', why: 'Al-Jadwal: a ban that brings jazm (L4.10).', irab: 'لا ناهية جازمة' },
+        { at: 8, role: 'a present verb in jazm, root ق ت ل: “you all kill”. Second person, masculine plural', case: 'jazm', mark: 'the dropped nūn', why: 'The ending -ū is the doer: “you all”. The هُ is the object: “him”. Al-Jadwal: a new sentence inside the speech, with no place.', irab: 'فعل مضارع مجزوم بلا الناهية وعلامة جزمه حذف النون، والواو فاعل، والهاء مفعول به' },
+        { at: [3, 4, 5, 6], role: 'the words قُرَّتُ عَيْنٍ لِّى وَلَكَ: what is said', case: 'in the place of the accusative', why: 'Al-Jadwal: the words said, in the place of the accusative (L1.09).', irab: 'جملة «هو قرة عين» في محل نصب مقول القول' },
+      ]}
+    />
+  </Stage>
+
+A woman speaks for the first time. The verb **وَقَالَتِ** ends in the tāʾ of “she”, and the doer follows it: **ٱمْرَأَتُ فِرْعَوْنَ**, “the wife of Pharaoh”. Here two clues agree: a written name and a feminine ending.
+
+Her first words have no mubtadaʾ. **قُرَّتُ عَيْنٍ** is the news, and al-Jadwal puts in the word that is left out: “he is”. In English the sentence needs it: “He is a joy of the eye for me and for you.”
+
+The ban **لَا تَقْتُلُوهُ** ends in -ū, so she speaks to a group. The verse does not say who they are. Al-Jadwal does not say either. The ending gives number and gender, and the verse does not give the people.
+
+<Check n={23} q="What is left out in قُرَّتُ عَيْنٍ لِّى وَلَكَ?" options={['The mubtadaʾ: هُوَ, “he is”', 'The doer', 'The object']} answer={0} why="Al-Jadwal reads قُرَّتُ as a khabar of a mubtadaʾ that is left out, “he is”." />
+</Block>
+
+<Block id="w9b" title="Verse 9, the rest of her speech: a reason and a second object">
+  <Stage label="Read from right to left">
+    <Sentence
+      roles
+      reference="Al-Qasas 28:9 (part)"
+      groups={[
+        { role: 'fiil', label: 'fiʿl + clause as doer', hint: 'a complete verb: the clause that follows is its doer', words: [{ ar: 'عَسَىٰٓ', en: 'perhaps', say: 'asa', type: 'v' }] },
+        { role: 'fail', label: 'fāʿil: a clause', hint: 'أَنْ + a verb is read as a noun', words: [{ ar: 'أَن', en: 'that', say: 'an', type: 'p' }, { ar: 'يَنفَعَنَآ', en: 'he helps us', say: 'yanfaana', type: 'v' }] },
+        { words: [{ ar: 'أَوْ', en: 'or', say: 'aw', type: 'p' }] },
+        { role: 'fiil', label: 'fiʿl + first object', hint: '-nā is “we”; the -hu is the first object', words: [{ ar: 'نَتَّخِذَهُۥ', en: 'we take him', say: 'nattakhidhahu', type: 'v' }] },
+        { role: 'maful', label: 'second object', hint: 'take him (as) what?', words: [{ ar: 'وَلَدًا', en: 'as a son', say: 'waladan' }] },
+      ]}
+      en={['Perhaps he will help us, or we may take him as a son.']}
+    />
+  </Stage>
+
+Her speech ends with a reason. Al-Jadwal calls the sentence **عَسَىٰٓ أَن يَنفَعَنَآ** a reason sentence. It reads **عَسَىٰ** as a complete verb, and the clause **أَن يَنفَعَنَآ** is its doer. The verb **نَتَّخِذَهُۥ** takes two objects: the -hu, “him”, and **وَلَدًا**, “a son”. Al-Jadwal names وَلَدًا the second object. The Corpus tags the verb Form VIII (L3.14).
+
+The verse then leaves her speech: **وَهُمْ لَا يَشْعُرُونَ**, “and they do not perceive”. Al-Jadwal reads this as a ḥāl, with the wāw of ḥāl, and says the pronoun points to the people of Pharaoh’s house. Its footnote supplies a left-out verb before the ḥāl: “they obeyed her, while they did not perceive …” (L4.01).
+
+<Check n={24} q="Which word is the second object of نَتَّخِذَهُۥ?" options={['وَلَدًا', 'The -hu', 'The ن']} answer={0} why="Al-Jadwal: وَلَدًا is the second object, “as a son”. The -hu is the first object." />
+</Block>
+
+<Block id="w11" title="Verse 11: a second woman, with no name">
+  <Stage label="Read from right to left">
+    <Sentence
+      roles
+      reference="Al-Qasas 28:11 (start)"
+      groups={[
+        { role: 'fiil', label: 'fiʿl + hidden doer', hint: 'the ت is the tāʾ of “she”', words: [{ ar: 'وَقَالَتْ', en: 'and she said', say: 'wa-qalat', type: 'v' }] },
+        { role: 'tied', hint: 'to whom she spoke', words: [{ ar: 'لِأُخْتِهِۦ', en: 'to his sister', say: 'li-ukhtihi', type: 'p' }] },
+        { role: 'fiil', label: 'command + object', hint: 'the -ī is the doer: “you”, one woman; the -hi is “him”', words: [{ ar: 'قُصِّيهِ', en: 'follow him', say: 'qussihi', type: 'v' }] },
+      ]}
+      en={['And she said to his sister: “Follow him.”']}
+    />
+  </Stage>
+
+This **وَقَالَتْ** has no name after it. The doer is a hidden “she”. The verse before it, 28:10, speaks of **أُمِّ مُوسَىٰ**, “the mother of Musa”, and its three feminine verbs are about her. So the “she” of 28:11 is the mother, by the story. The phrase **لِأُخْتِهِۦ**, “to his sister”, says who is spoken to.
+
+The speech is one command, **قُصِّيهِ**. It ends in -ī, so it is a command for one woman. That fits: the sister is one woman. Al-Jadwal says the pronoun -hi at the end points to Musa, and the clause is what she said, in the place of the accusative (L1.09).
+
+<Check n={25} q="Who says قُصِّيهِ in 28:11, by our reading of the story?" options={['The mother of Musa, to his sister', 'The wife of Pharaoh', 'The sister of Musa']} answer={0} why="28:10 speaks of the mother of Musa, and 28:11 says “she said to his sister”. The command ends in -ī, one woman: the sister." />
+</Block>
+
+<Block id="w12" title="Verse 12: the sister speaks">
+  <Stage label="Word by word">
+    <Parse
+      reference="Al-Qasas 28:12 (end)"
+      words={[
+        { ar: 'فَقَالَتْ', en: 'so she said', type: 'v' },
+        { ar: 'هَلْ', en: 'shall', type: 'p' },
+        { ar: 'أَدُلُّكُمْ', en: 'I show you', type: 'v' },
+        { ar: 'عَلَىٰٓ', en: 'to', type: 'p' },
+        { ar: 'أَهْلِ', en: 'a household of' },
+        { ar: 'بَيْتٍ', en: 'a house' },
+        { ar: 'يَكْفُلُونَهُۥ', en: 'who will care for him', type: 'v' },
+        { ar: 'لَكُمْ', en: 'for you', type: 'p' },
+        { ar: 'وَهُمْ', en: 'while they' },
+        { ar: 'لَهُۥ', en: 'for him', type: 'p' },
+        { ar: 'نَٰصِحُونَ', en: 'are well-wishing' },
+      ]}
+      cards={[
+        { at: 0, ar: 'فَ', role: '“so”: it joins', why: 'Al-Jadwal: the sentence is joined to the sentence حَرَّمْنَا before it. The wet nurses were forbidden him, so she spoke.', irab: 'الفاء عاطفة' },
+        { at: 0, ar: 'قَالَتْ', role: 'a past verb, root ق و ل: “she said”. Third person, feminine singular', case: 'none: a verb has no case', mark: 'built on a fatḥa. The ت is the tāʾ of “she”', why: 'Al-Jadwal: the doer is a hidden “she”, and it points back to the sister of Musa. No name follows the verb.', irab: 'فعل ماض مبني على الفتح، والفاعل ضمير مستتر تقديره هي، والجملة لا محل لها معطوفة على جملة حرمنا' },
+        { at: 1, role: 'a question letter: “shall?”', case: 'none', mark: 'none: it never changes', why: 'Al-Jadwal: a letter of question.', irab: 'حرف استفهام' },
+        { at: 2, role: 'a present verb, root د ل ل: “I show”. First person singular', case: 'raised (rafʿ): the plain ending', mark: '-u (ḍamma)', why: 'The two last root letters are the same, joined in one shadda. The doer is a hidden “I”, and the كُمْ is the object: “you all”. Al-Jadwal: the sentence is what was said, in the place of the accusative.', irab: 'فعل مضارع مرفوع وعلامة رفعه الضمة الظاهرة، والفاعل ضمير مستتر تقديره أنا، والكاف ضمير مفعول به، والجملة في محل نصب مقول القول' },
+        { at: [3, 4, 5], role: 'a phrase tied to أَدُلُّكُمْ: “to a household of a house”. عَلَىٰ is a preposition. أَهْلِ is the first word of an idafah and بَيْتٍ the second', case: 'both genitive (jarr)', mark: 'أَهْلِ: -i (kasra). بَيْتٍ: -in (kasra with tanwīn)', why: 'Al-Jadwal: tied to the verb. It says what she shows them (L2.07, L2.08).', irab: 'جار ومجرور متعلق بأدلكم، وأهل مضاف وبيت مضاف إليه' },
+        { at: 6, role: 'a present verb, root ك ف ل: “they will care for”. Third person, masculine plural', case: 'raised (rafʿ)', mark: 'the nūn stays', why: 'The ending -ū is the doer: “they”. The هُ is the object: “him”. Al-Jadwal: the clause describes أَهْلِ بَيْتٍ, in the place of the genitive.', irab: 'فعل مضارع مرفوع وعلامة رفعه ثبوت النون، والواو فاعل، والهاء مفعول به، والجملة في محل جر نعت' },
+        { at: 7, role: 'a phrase tied to يَكْفُلُونَهُۥ: “for you”', why: 'Al-Jadwal: tied to the verb.', irab: 'جار ومجرور متعلق بيكفلونه' },
+        { at: 8, ar: 'وَ', role: 'the wāw of ḥāl: “while”', why: 'Al-Jadwal: a wāw ḥāliyya (L4.01).', irab: 'الواو حالية' },
+        { at: 8, ar: 'هُمْ', role: 'mubtadaʾ: “they”', case: 'in the place of the nominative', mark: 'none: a pronoun never changes', why: 'It points to أَهْلِ بَيْتٍ.', irab: 'ضمير منفصل مبني في محل رفع مبتدأ' },
+        { at: 9, role: 'a phrase tied to the khabar: “for him”', why: 'Al-Jadwal: tied to نَٰصِحُونَ.', irab: 'جار ومجرور متعلق بالخبر' },
+        { at: 10, role: 'khabar: “well-wishing”. A doer word (ism fāʿil) of the root ن ص ح', case: 'nominative (rafʿ)', mark: 'the wāw: a regular masculine plural', why: 'The khabar of هُمْ. A doer word has the pattern فَاعِل (L3.19).', irab: 'خبر مرفوع وعلامة رفعه الواو لأنه جمع مذكر سالم' },
+        { at: [8, 9, 10], role: 'the sentence وَهُمْ لَهُۥ نَٰصِحُونَ: a ḥāl', case: 'in the place of the accusative', why: 'Al-Jadwal: a ḥāl clause, in the place of the accusative (L4.01).', irab: 'جملة «هم له ناصحون» في محل نصب حال' },
+      ]}
+    />
+  </Stage>
+
+This is the third “she said” of the story and the second woman who speaks without a name beside the verb. Al-Jadwal says the hidden doer points to the sister of Musa. Her words are a question, **هَلْ أَدُلُّكُمْ**, “shall I show you?”, and a ḥāl clause closes them, **وَهُمْ لَهُۥ نَٰصِحُونَ**.
+
+The first half of this verse, وَحَرَّمْنَا عَلَيْهِ ٱلْمَرَاضِعَ مِن قَبْلُ, “and We forbade him the wet nurses beforehand”, is the narrator’s voice, with -nā, “we”. Al-Jadwal calls the word **حَرَّمْنَا** a metaphor (*istiʿāra*, L4.18): “forbidding” is borrowed for “preventing”, because he was kept from taking any nurse’s breast.
+
+<Check n={26} q="Who is the hidden doer of قَالَتْ in 28:12, according to al-Jadwal?" options={['The sister of Musa', 'The mother of Musa', 'The wife of Pharaoh']} answer={0} why="Al-Jadwal: the doer of قَالَتْ is a hidden pronoun that points back to the sister of Musa." />
+</Block>
+
+<Block id="feminine" title="Feminine endings in the women’s verses">
+  <Stage label="Thirteen verb words">
+    <Tiles
+      label="the endings that mean one woman"
+      items={[
+        { ar: 'قَالَتْ', en: 'she said (-at)', type: 'v' },
+        { ar: 'خِفْتِ', en: 'you (a woman) feared (-ti)', type: 'v' },
+        { ar: 'أَرْضِعِيهِ', en: 'a command to a woman (-ī)', type: 'v' },
+        { ar: 'إِلَيْكِ', en: 'to you (a woman) (-ki)', type: 'p' },
+      ]}
+    />
+  </Stage>
+
+In 28:7 to 28:12 the Corpus tags 13 verb words with a feminine person, 7 for “she” (3FS) and 6 for “you, a woman” (2FS). These are Quran Learn counts over the Corpus file.
+
+| Ending | What it means | In the verses |
+|---|---|---|
+| -at | she did it (past) | قَالَتِ (28:9), قَالَتْ (28:11, 28:12), كَادَتْ (28:10), فَبَصُرَتْ (28:11) |
+| -ti | you, one woman, did it (past) | خِفْتِ (28:7) |
+| -ī | you, one woman: command or ban | أَرْضِعِيهِ, فَأَلْقِيهِ, تَخَافِى, تَحْزَنِىٓ (28:7), قُصِّيهِ (28:11) |
+| -ki | to you, one woman (a pronoun) | إِلَيْكِ (28:7) |
+
+Who is “she” changes from verse to verse, and the verb does not change with it. The three women of the story are the mother of Musa, the wife of Pharaoh and the sister of Musa. Each time the speaker is found from a name, a hidden doer, the words before it or the words spoken, as in the clues table of the last step.
+
+<Check n={27} q="In 28:7, which word has the ending -ti, “you, a woman”?" options={['خِفْتِ', 'أَرْضِعِيهِ', 'إِلَيْكِ']} answer={0} why="خِفْتِ is a past verb: “you feared”, said to one woman. أَرْضِعِيهِ is a command and إِلَيْكِ is a pronoun." />
+</Block>
+
+</Step>
+
+<Step id="finish" label="Mistakes and practice" title="Mistakes, practice and summary">
+<Block id="m1" title="Mistake 1: one قَالَ, one speaker">
+  <Stage>
+    <Tiles
+      label="the same word, three speakers"
+      items={[
+        { ar: 'قَالَ', en: 'Pharaoh (20:49)', type: 'v' },
+        { ar: 'قَالَ', en: 'Musa (20:50)', type: 'v' },
+        { ar: 'قَالَ', en: 'Allah (20:46)', type: 'v' },
+      ]}
+    />
+  </Stage>
+
+It is easy to think that a قَالَ in one verse is the same man as the قَالَ before it. In 20:9 to 20:50 the same word is used for three different speakers. The verb says “one man spoke” and gives no name.
+
+When you meet a قَالَ, ask the clues: is a name written, is there a called name, does a question come before it, and what do the words say about the speaker? The block “Six clues for who is speaking” lists them.
+</Block>
+
+<Block id="m2" title="Mistake 2: naming the listeners from an ending">
+  <Stage>
+    <Tiles
+      label="three endings, three kinds of listener"
+      items={[
+        { ar: 'لَا تَقْتُلُوهُ', en: '-ū: a group (28:9)', type: 'v' },
+        { ar: 'لَا تَخَافَآ', en: '-ā: two people (20:46)', type: 'v' },
+        { ar: 'لَا تَخَافِى', en: '-ī: one woman (28:7)', type: 'v' },
+      ]}
+    />
+  </Stage>
+
+An ending tells you how many people are spoken to and whether they are men or women. It does not give their names. In 28:9 the ban لَا تَقْتُلُوهُ ends in -ū, so she speaks to a group. A reader might add “Pharaoh and his court”. The verse does not say it, and al-Jadwal does not either.
+
+Say what the ending shows, and look in the verse for the rest.
+</Block>
+
+<Block id="m3" title="Mistake 3: counting objects from the verb’s letters">
+  <Stage>
+    <Tiles
+      label="the same root, a different number of objects"
+      items={[
+        { ar: 'أَجِدُ', en: 'one object (20:10)', type: 'v' },
+        { ar: 'وَجَدَكَ', en: 'two objects (93:7)', type: 'v' },
+      ]}
+    />
+  </Stage>
+
+The verb **أَجِدُ** in 20:10 and the verb **وَجَدَكَ** in 93:7 come from the same root, و ج د. The first takes one object and the second takes two. The letters do not decide it.
+
+Al-Jadwal says the verb in 20:10 means “I meet”, so it takes one. Read what the verb means in the verse, then take the second word out and see if the sentence is still complete.
+</Block>
+
+<Block id="m4" title="Mistake 4: writing a left-out word into the verse">
+  <Stage>
+    <Tiles
+      label="three places where al-Jadwal puts in a word"
+      items={[
+        { ar: 'قُرَّتُ عَيْنٍ', en: 'he is: left out (28:9)', type: 'n' },
+        { ar: 'أَسْمَعُ وَأَرَىٰ', en: 'what he says: left out (20:46)', type: 'v' },
+        { ar: 'سِيرَتَهَا', en: 'to: left out (20:21)', type: 'n' },
+      ]}
+    />
+  </Stage>
+
+The grammar books put in a word so that the grammar works, and the verse does not have it. Some Sentences in this lesson show a gap in the English for a word English needs. A learner can be tempted to copy it into the Arabic, for example “هُوَ قُرَّتُ عَيْنٍ” (a made-up line, not the verse).
+
+Say “al-Jadwal reads a left-out هُوَ here”, and keep the verse as it is written. The verse is the text. The left-out word is the book’s reading of it.
+</Block>
+
+<Block id="m5" title="Mistake 5: reading a purpose into the grammar">
+  <Stage>
+    <Tiles
+      label="two passive verbs and one little word"
+      items={[
+        { ar: 'نُودِىَ', en: 'he was called (20:11)', type: 'v' },
+        { ar: 'أُلْقِىَ', en: 'were thrown (20:70)', type: 'v' },
+        { ar: 'لَهُۥ', en: 'in him (20:71)', type: 'p' },
+      ]}
+    />
+  </Stage>
+
+A passive verb leaves the doer out (L3.09). It is tempting to say why. “The passive keeps the Lord’s majesty.” “The passive shows the magicians had no choice.” “لَهُۥ and not بِهِۦ shows Pharaoh’s anger.” Al-Jadwal says none of these things on these verses. It explains a left-out doer from the story: the staff swallowed what the magicians had made.
+
+For style, report the name al-Jadwal gives and no more (L4.18, “Mistake 4”). This lesson gave three: tashwīq (20:9), iṭnāb (20:18 and 28:7) and istiʿāra (28:12).
+</Block>
+
+<Block id="practice-1" title="Practice: speakers, women and a request">
+  <Stage label="For each speech, say">
+    <ol class="lx-card-list">
+      <li><b>Who:</b> who speaks, and to whom?</li>
+      <li><b>Clue:</b> which clue shows it?</li>
+      <li><b>Sentence:</b> what kind of sentence is it?</li>
+      <li><b>Left out:</b> is anything left out?</li>
+    </ol>
+  </Stage>
+
+Work out each answer first, on paper or in your head. Then open the answer.
+
+<Exercise n={1} q="Track the speakers from Ta-Ha 20:49 to 20:56. For each one say who speaks and which clue shows it. (a) قَالَ فَمَن رَّبُّكُمَا يَٰمُوسَىٰ (Ta-Ha 20:49) (b) قَالَ رَبُّنَا ٱلَّذِىٓ أَعْطَىٰ كُلَّ شَىْءٍ خَلْقَهُۥ ثُمَّ هَدَىٰ (Ta-Ha 20:50) (c) قَالَ فَمَا بَالُ ٱلْقُرُونِ ٱلْأُولَىٰ (Ta-Ha 20:51) (d) قَالَ عِلْمُهَا عِندَ رَبِّى فِى كِتَٰبٍ لَّا يَضِلُّ رَبِّى وَلَا يَنسَى (Ta-Ha 20:52) (e) وَلَقَدْ أَرَيْنَٰهُ ءَايَٰتِنَا كُلَّهَا فَكَذَّبَ وَأَبَىٰ (Ta-Ha 20:56)">
+
+| Verse | Who speaks | The clue |
+|---|---|---|
+| (a) 20:49 | Pharaoh, asking | The called name يَٰمُوسَىٰ: the speaker is not Musa |
+| (b) 20:50 | Musa, answering | It answers the question of 20:49. The speaker says رَبُّنَا, “our Lord” |
+| (c) 20:51 | Pharaoh, asking again | A new question after Musa’s answer. Al-Jadwal reads the فَ as the link of an answer to a left-out condition: “if your Lord gave and guided, then what about …” |
+| (d) 20:52 | Musa, answering again | It answers the question of 20:51. The speaker says رَبِّى, “my Lord” |
+| (e) 20:56 | Not a speech: the narrator | No قَالَ. The verb أَرَيْنَٰهُ ends in -nā, “we”, and the -hu is “him” |
+
+The pattern in 20:49 to 20:52 is a question, an answer, a question and an answer. Al-Jadwal reads the قَالَ of 20:49 and 20:50 as an explaining start, and the قَالَ of 20:51 as a new start.
+
+</Exercise>
+
+<Exercise n={2} q="Find the verbs with a feminine ending in these two verses. For each say who “she” is and how you know. (a) وَأَصْبَحَ فُؤَادُ أُمِّ مُوسَىٰ فَٰرِغًا إِن كَادَتْ لَتُبْدِى بِهِۦ لَوْلَآ أَن رَّبَطْنَا عَلَىٰ قَلْبِهَا لِتَكُونَ مِنَ ٱلْمُؤْمِنِينَ (Al-Qasas 28:10) (b) وَقَالَتْ لِأُخْتِهِۦ قُصِّيهِ فَبَصُرَتْ بِهِۦ عَن جُنُبٍ وَهُمْ لَا يَشْعُرُونَ (Al-Qasas 28:11)">
+
+There are **six**: three in each verse.
+
+**(a) 28:10.** كَادَتْ (a past verb, she), لَتُبْدِى (a present verb, she) and لِتَكُونَ (a present verb after لِ, she). All three are about the same woman, the mother of Musa, named in the same verse by أُمِّ مُوسَىٰ. The pronoun in قَلْبِهَا, “her heart”, points to her too.
+
+**(b) 28:11.** قَالَتْ (a past verb, she): the mother, by the story, because 28:10 speaks of her. قُصِّيهِ (a command, -ī, “you, one woman”): the sister, because the phrase لِأُخْتِهِۦ says who is spoken to. فَبَصُرَتْ (a past verb, she): the sister, who follows him, by the story.
+
+The Corpus tags all six with a feminine person: 3FS for five and 2FS for قُصِّيهِ.
+
+</Exercise>
+
+<Exercise n={3} q="Musa asks and the answer comes. Say who speaks in each verse and which clue shows it. (a) ٱذْهَبْ إِلَىٰ فِرْعَوْنَ إِنَّهُۥ طَغَىٰ (Ta-Ha 20:24) (b) قَالَ رَبِّ ٱشْرَحْ لِى صَدْرِى (Ta-Ha 20:25) (c) قَالَ قَدْ أُوتِيتَ سُؤْلَكَ يَٰمُوسَىٰ (Ta-Ha 20:36) (d) قَالَا رَبَّنَآ إِنَّنَا نَخَافُ أَن يَفْرُطَ عَلَيْنَآ أَوْ أَن يَطْغَىٰ (Ta-Ha 20:45)">
+
+**(a)** The voice speaks. There is no قَالَ: the voice goes on from 20:12. The verse is a command and its reason.
+
+**(b)** Musa. The word رَبِّ, “my Lord”, shows he speaks to his Lord. ٱشْرَحْ is a command in form (L3.08), and in this verse it is a request, because of who speaks to whom. L5.07 teaches the patterns of requests.
+
+**(c)** The one Musa asked. The called name يَٰمُوسَىٰ says it is not Musa, and the passive أُوتِيتَ, “you have been given”, answers his request.
+
+**(d)** Two people: Musa and Harun. The verb قَالَا ends in the dual -ā. They say رَبَّنَآ, “our Lord”, with -nā, where Musa alone said رَبِّ with -ī. The pronoun shows how many speak.
+
+</Exercise>
+
+<Exercise n={4} q="Compare how two stories open. (a) وَٱتْلُ عَلَيْهِمْ نَبَأَ إِبْرَٰهِيمَ (Ash-Shuʿara 26:69) (b) وَهَلْ أَتَىٰكَ حَدِيثُ مُوسَىٰٓ (Ta-Ha 20:9) For each, say what kind of sentence it is and which word names the story.">
+
+**(a)** A command. **ٱتْلُ** is a command, “recite”, with a hidden “you” as the doer. Al-Jadwal reads it as a new start. The word that names the story is **نَبَأَ**, “news”, and its second word is the name Ibrahim, in an idafah. L5.09 takes this verse apart.
+
+**(b)** A question. **هَلْ** asks “has it?”, and the verb is a past verb, **أَتَىٰكَ**. The word that names the story is **حَدِيثُ**, “story”, the doer, with the name Musa after it in an idafah.
+
+The two openings have the same shape in one way: a noun for the story, and then the name of the prophet in an idafah. They differ in the sentence: a command in (a) and a question in (b). Do not say that a choice of sentence “reflects character” or “shows” a purpose. Al-Jadwal says nothing like that on these verses (L4.18, “Mistake 4”).
+
+</Exercise>
+</Block>
+
+<Block id="practice-2" title="Practice: left out words, objects, reasons and a retold speech">
+  <Stage label="The same tools on more verses">
+    <Tiles
+      label="four things to look for"
+      items={[
+        { ar: 'مَحْذُوف', en: 'a left-out word', type: 'p' },
+        { ar: 'مَفْعُول ثَانٍ', en: 'a second object', type: 'n' },
+        { ar: 'تَعْلِيل', en: 'a reason', type: 'p' },
+        { ar: 'قَالَتْ', en: 'a woman speaks', type: 'v' },
+      ]}
+    />
+  </Stage>
+
+<Exercise n={5} q="Each verse has a word that al-Jadwal says is left out. Name it. (a) قَالَ لَا تَخَافَآ إِنَّنِى مَعَكُمَآ أَسْمَعُ وَأَرَىٰ (Ta-Ha 20:46) (b) قَالَ خُذْهَا وَلَا تَخَفْ سَنُعِيدُهَا سِيرَتَهَا ٱلْأُولَىٰ (Ta-Ha 20:21) (c) وَأَصْبَحَ فُؤَادُ أُمِّ مُوسَىٰ فَٰرِغًا إِن كَادَتْ لَتُبْدِى بِهِۦ لَوْلَآ أَن رَّبَطْنَا عَلَىٰ قَلْبِهَا لِتَكُونَ مِنَ ٱلْمُؤْمِنِينَ (Al-Qasas 28:10) (d) إِنِّىٓ أَنَا۠ رَبُّكَ فَٱخْلَعْ نَعْلَيْكَ إِنَّكَ بِٱلْوَادِ ٱلْمُقَدَّسِ طُوًى (Ta-Ha 20:12)">
+
+| Verse | What is left out |
+|---|---|
+| (a) 20:46 | The objects of أَسْمَعُ and أَرَىٰ: “what he says” and “what he does” |
+| (b) 20:21 | The preposition إِلَىٰ before سِيرَتَهَا: “to its first state” |
+| (c) 28:10 | Two things. The khabar of the clause أَن رَّبَطْنَا, which is “present”. And the answer of لَوْلَآ, which al-Jadwal gives as “she would have shown her words” |
+| (d) 20:12 | A condition before the فَ of فَٱخْلَعْ: “if you have taken this in” |
+
+In each case the verse is complete as it is written. The left-out word is the book’s reading.
+
+</Exercise>
+
+<Exercise n={6} q="For each phrase, say how many objects the verb has and name them. (a) أَجِدُ عَلَى ٱلنَّارِ هُدًى (Ta-Ha 20:10, part) (b) أَعْطَىٰ كُلَّ شَىْءٍ خَلْقَهُۥ (Ta-Ha 20:50, part) (c) وَلَقَدْ أَرَيْنَٰهُ ءَايَٰتِنَا كُلَّهَا (Ta-Ha 20:56, part) (d) قَدْ أُوتِيتَ سُؤْلَكَ (Ta-Ha 20:36, part) (e) نَتَّخِذَهُۥ وَلَدًا (Al-Qasas 28:9, part)">
+
+| Phrase | Objects | Notes |
+|---|---|---|
+| (a) | One: هُدًى | The verb means “I meet” (al-Jadwal) |
+| (b) | Two: كُلَّ شَىْءٍ, then خَلْقَهُۥ | Al-Jadwal names خَلْقَهُۥ the second object, and gives another reading in a footnote |
+| (c) | Two: the -hu, then ءَايَٰتِنَا | Al-Jadwal names ءَايَٰتِنَا the second object. كُلَّهَا stresses it |
+| (d) | A stand-in and one object: the -ta, then سُؤْلَكَ | The verb is passive (L3.09). The first object became the stand-in |
+| (e) | Two: the -hu, then وَلَدًا | Al-Jadwal names وَلَدًا the second object |
+
+</Exercise>
+
+<Exercise n={7} q="Find the command or the ban and the reason that follows. Say what al-Jadwal calls the second sentence, and who the command is for. (a) ٱذْهَبْ إِلَىٰ فِرْعَوْنَ إِنَّهُۥ طَغَىٰ (Ta-Ha 20:24) (b) ٱذْهَبَآ إِلَىٰ فِرْعَوْنَ إِنَّهُۥ طَغَىٰ (Ta-Ha 20:43) (c) وَلَا تَخَافِى وَلَا تَحْزَنِىٓ إِنَّا رَآدُّوهُ إِلَيْكِ (Al-Qasas 28:7, part) Then say how (a) and (b) differ.">
+
+In all three, the second sentence is a reason sentence (*taʿlīliyya*) with no place.
+
+- **(a)** The command is ٱذْهَبْ, for one man. The reason is إِنَّهُۥ طَغَىٰ, “indeed he has transgressed”. The verb طَغَىٰ is a defective verb, root ط غ ي (L4.13).
+- **(b)** The command is ٱذْهَبَآ, for two people. The reason is the same sentence.
+- **(c)** The commands are bans, لَا تَخَافِى and لَا تَحْزَنِىٓ, for one woman. The reason is إِنَّا رَآدُّوهُ إِلَيْكِ, “indeed we will return him to you”.
+
+(a) and (b) differ in the command only. In (a) it ends with a sukūn, for one man. In (b) it ends in -ā, for two people. The reason does not change.
+
+</Exercise>
+
+<Exercise n={8} q="The sister’s offer is told twice. Compare the two. (a) إِذْ تَمْشِىٓ أُخْتُكَ فَتَقُولُ هَلْ أَدُلُّكُمْ عَلَىٰ مَن يَكْفُلُهُۥ (Ta-Ha 20:40, part) (b) فَقَالَتْ هَلْ أَدُلُّكُمْ عَلَىٰٓ أَهْلِ بَيْتٍ يَكْفُلُونَهُۥ لَكُمْ (Al-Qasas 28:12, part)">
+
+The offer has the same shape in both: هَلْ أَدُلُّكُمْ عَلَىٰ …. The differences are these.
+
+1. **The verb of speech.** In 20:40 it is present, **فَتَقُولُ**, “and she says”. In 28:12 it is past, **فَقَالَتْ**, “so she said”.
+2. **The doer.** In 20:40 the doer is written, **أُخْتُكَ**, “your sister”. In 28:12 it is a hidden “she”, and al-Jadwal says it points to the sister of Musa.
+3. **Who is spoken to.** In 20:40 the pronoun -ka speaks to Musa, “your sister”. In 28:12 the story speaks about him: “him”, as in عَلَيْهِ earlier in the same verse.
+4. **What she offers.** In 20:40 it is **مَن يَكْفُلُهُۥ**, “whoever will care for him”, with a singular verb. In 28:12 it is أَهْلِ بَيْتٍ يَكْفُلُونَهُۥ, “a household that will care for him”, with a plural verb.
+
+Al-Jadwal reads the clause فَتَقُولُ in 20:40 as joined to the clause تَمْشِى, both in the place of the genitive after إِذْ.
+
+</Exercise>
+</Block>
+
+<Block id="done" title="You have finished the lesson">
+  <Stage label="The idea">
+    <Formula
+      label="one story, many speakers, the clues that tell them apart"
+      items={[
+        { kind: 'm', text: 'many speakers', small: 'Musa, Allah, Pharaoh, the women' },
+        { kind: 'k', text: 'the clues', small: 'a name, an ending, a called name, a question' },
+        { kind: 's', text: 'who says what', small: 'read from the verse' },
+      ]}
+    />
+  </Stage>
+
+- **Many speakers.** In 20:9 to 20:50 the Corpus has nine قَالَ for one man: four are Allah, four are Musa and one is Pharaoh, by our reading of the story. The dual قَالَا (20:45), the plural قَالُوٓا۟ (20:70) and the feminine قَالَتْ (28:9 to 28:12) tell you how many speak and whether they are men or women.
+- **Six clues.** A written name, a called name, the ending of قَالَ, a question and its answer, the pronoun in the words said, and what the words say. This list is our teaching summary.
+- **Report and reason.** After قَالَ the words are what is said (L1.09). A command or a ban comes first and a reason sentence after it, in the six verses we read.
+- **Question and answer.** مَا in 20:17 and مَن in 20:49 are question nouns and the mubtadaʾ. Musa’s answer in 20:18 says more than the question asked, which al-Jadwal names iṭnāb.
+- **Objects.** أَجِدُ has one object, أَعْطَىٰ and نَتَّخِذَهُۥ have two, and the passive أُوتِيتَ keeps the second one.
+- **Left out.** A condition (20:12, 20:49), a preposition (20:21), objects (20:46, 20:18), a mubtadaʾ (28:9) and a khabar (28:10). We say “al-Jadwal puts in …” and keep the verse as it is.
+
+**Next:** [Dialogue Patterns in the Quran, L5.11](/learn/level-5/11-dialogue-patterns/) takes dialogue across the Quran. For the other story of this level, see [Story Narratives: Prophet Ibrahim, L5.09](/learn/level-5/09-prophet-ibrahim-narrative/). The requests of the prophets are in [Du'a Patterns in the Quran, L5.07](/learn/level-5/07-dua-patterns/), and the method for taking a verse apart is in [Full I'rab Analysis Method, L5.01](/learn/level-5/01-full-irab-analysis/).
+
+Lessons you can link back to: [the verbal sentence, L2.03](/learn/level-2/03-verbal-sentence/), [commands, L3.08](/learn/level-3/08-imperative/), [the passive, L3.09](/learn/level-3/09-passive-voice/), [the ḥāl, L4.01](/learn/level-4/01-hal-clauses/), [condition and answer, L4.03](/learn/level-4/03-conditional-sentences/), [negation, L4.10](/learn/level-4/10-negation-particles/), [defective verbs, L4.13](/learn/level-4/13-defective-verbs/), [assimilated verbs, L4.14](/learn/level-4/14-assimilated-verbs/), [figures of speech, L4.18](/learn/level-4/18-figures-of-speech/).
+
+<Sources
+    items={[
+      { label: 'Quran text', name: 'Tanzil (Uthmani text)', href: 'https://tanzil.net' },
+      { label: 'Roots, forms, tags, persons and counts', name: 'Quranic Arabic Corpus', href: 'https://corpus.quran.com' },
+      { label: 'Sentence places, word analysis (iʿrāb), word shapes (ṣarf), style notes and the readings that differ', name: 'Maḥmūd Ṣāfī, al-Jadwal fī Iʿrāb al-Qurʾān wa-Ṣarfihi wa-Bayānihi' },
+      { label: 'Counts of the name Musa, of قَالَ and of feminine verbs', name: 'Quran Learn count from the Quranic Arabic Corpus' },
+      { label: 'Who speaks in each verse, the six clues, the English under the verses', name: 'Our reading of the story and plain-English meanings by Quran Learn, not a translation' },
+    ]}
+  />
+</Block>
+
+</Step>
