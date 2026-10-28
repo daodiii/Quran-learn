@@ -23,13 +23,22 @@ for p in sorted(pathlib.Path(sys.argv[1]).rglob('*.mdx')):
         for m in re.finditer(r'\((?:[^()]*?\s)?(\d+):(\d+)', q):
             ex[f'{m[1]}:{m[2]}'].add(lid)
 
+# Whole-surah lessons that may be a third main use (documented in verse-ledger.md): verse -> lesson.
+EXCEPTIONS = {'1:1': 'L5.02', '1:5': 'L5.02', '1:6': 'L5.02'}
+
 key = lambda v: tuple(int(x) for x in v.split(':'))
 print('| Verse | Main example in | Exercise in |\n|---|---|---|')
 over = []
+exc = []
 for v in sorted(set(main) | set(ex), key=key):
     print(f"| {v} | {', '.join(sorted(main[v]))} | {', '.join(sorted(ex[v] - main[v]))} |")
     if len(main[v]) > 2:
-        over.append(f"{v}: {', '.join(sorted(main[v]))}")
-print(f'\nverses={len(set(main) | set(ex))} main={sum(1 for v in main if main[v])} over-limit={len(over)}')
+        if EXCEPTIONS.get(v) and main[v] - {EXCEPTIONS[v]} and len(main[v] - {EXCEPTIONS[v]}) <= 2:
+            exc.append(f"{v}: {', '.join(sorted(main[v]))} (exception for {EXCEPTIONS[v]})")
+        else:
+            over.append(f"{v}: {', '.join(sorted(main[v]))}")
+print(f'\nverses={len(set(main) | set(ex))} main={sum(1 for v in main if main[v])} over-limit={len(over)} documented-exceptions={len(exc)}')
+for e in exc:
+    print('EXCEPTION', e)
 for o in over:
     print('OVER', o)
