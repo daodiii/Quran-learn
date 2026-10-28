@@ -92,3 +92,26 @@ export function surahLine(k: RootKey, s: number): string {
   const c = ROOTS[k].perSurah[s];
   return `<b>${s + 1}. ${SURAH_NAMES[s]}</b>: ${c ? `${c} ${c === 1 ? 'time' : 'times'}` : 'not in this surah'}`;
 }
+
+/** One root of the verb form generator (public/data/verb-forms.json), as the home library bench shows it. */
+export type VerbForm = { past: string; translit: string; meaning: string; count: number; example: string };
+export type VerbRoot = { root: string; translit: string; forms: Record<string, VerbForm[]> };
+const FORM_NAMES = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X'];
+/** The form to open first: the first one after the plain Form I, so the root visibly moves. */
+export function verbDefaultForm(r: VerbRoot): number {
+  const used = Object.keys(r.forms).map(Number).filter((n) => n >= 1 && n <= 10).sort((a, b) => a - b);
+  return used.find((n) => n > 1) ?? used[0] ?? 1;
+}
+export function verbCells(r: VerbRoot, sel: number): string {
+  return FORM_NAMES.map((name, i) => {
+    const e = r.forms[String(i + 1)]?.[0];
+    return e
+      ? `<button class="cell on${i + 1 === sel ? ' sel' : ''}" type="button" data-n="${i + 1}" aria-pressed="${i + 1 === sel}"><small>Form ${name}</small><span class="ar" lang="ar" dir="rtl">${esc(e.past)}</span></button>`
+      : `<span class="cell off"><small>Form ${name}</small><span class="ar" aria-label="not used in the Quran">–</span></span>`;
+  }).join('');
+}
+export function verbDetail(r: VerbRoot, sel: number): string {
+  const e = r.forms[String(sel)]?.[0];
+  if (!e) return '';
+  return `<b>Form ${FORM_NAMES[sel - 1]}</b> · ${esc(e.translit)}<br><span>${esc(e.meaning)} · ${e.count} ${e.count === 1 ? 'time' : 'times'} · first at ${esc(e.example)}</span>`;
+}

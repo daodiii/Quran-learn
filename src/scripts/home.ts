@@ -3,7 +3,7 @@
  * this script makes them work, runs the tour, and offers returning learners their next lesson.
  * A tour step is a short scripted demo; any real input inside the window ends the tour for good.
  */
-import { LESSON_STEPS, LESSON_FEEDBACK, ROOTS, LOOKUP, LOOKUP_KEYS, ROOT_KEYS, DUA, lookupResult, decoderReadout, rootStats, barHeight, surahLine, readerText, readerCard, type LookupKey, type RootKey, type ReaderSurah } from '../lib/home-tools';
+import { LESSON_STEPS, LESSON_FEEDBACK, ROOTS, LOOKUP, LOOKUP_KEYS, ROOT_KEYS, DUA, lookupResult, decoderReadout, rootStats, barHeight, surahLine, readerText, readerCard, verbCells, verbDetail, verbDefaultForm, type VerbRoot, type LookupKey, type RootKey, type ReaderSurah } from '../lib/home-tools';
 import { parseResume } from '../lib/lesson-steps';
 import { getCompletedLessons } from '../lib/progress';
 
@@ -267,6 +267,31 @@ if (!reduce) {
     btns.forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
     gloss.innerHTML = DUA[+b.dataset.g!].note;
   }));
+}
+
+// ---------- the library bench: the word lookup and the verb generator, running ----------
+{
+  // The word lookup is the hero's tool again; it types two words once, when the bench scrolls into view.
+  const bench = $('#bench'), lk = lookup($('#w-bench'));
+  let played = false;
+  if (!reduce && 'IntersectionObserver' in window) {
+    new IntersectionObserver((entries, io) => { if (!played && entries.some((e) => e.isIntersecting)) { played = true; io.disconnect(); lk.demo(() => {}); } }, { threshold: 0.45 }).observe(bench);
+  }
+  // The verb generator: pick a root, pick a form the Quran uses.
+  const roots: VerbRoot[] = JSON.parse($('#vf-data').textContent || '[]');
+  const box = $('#w-verbs'), pick = $$<HTMLButtonElement>('.chipset button', box), cells = $('.cells', box), det = $('.det', box);
+  let cur = 0;
+  const show = (i: number, sel: number) => {
+    cur = i;
+    pick.forEach((b, k) => b.setAttribute('aria-pressed', String(k === i)));
+    cells.innerHTML = verbCells(roots[i], sel);
+    det.innerHTML = verbDetail(roots[i], sel);
+  };
+  pick.forEach((b, i) => b.addEventListener('click', () => { if (roots[i]) show(i, verbDefaultForm(roots[i])); }));
+  cells.addEventListener('click', (e) => {
+    const c = (e.target as Element).closest<HTMLButtonElement>('.cell.on');
+    if (c && roots[cur]) show(cur, +c.dataset.n!);
+  });
 }
 
 // ---------- sources: a note lights up the part of the sample lesson it feeds ----------
