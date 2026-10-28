@@ -12,6 +12,7 @@ import CookieBanner from '../components/CookieBanner.astro';
 import '../styles/fonts.css';
 import '../styles/home.css';
 import { readFileSync } from 'node:fs';
+import { testimonials } from '../data/testimonials';
 import { LESSON_STEPS, DECODER, DUA, LOOKUP_KEYS, ROOT_KEYS, ROOTS, lookupResult, decoderReadout, rootStats, barHeight, surahLine, readerText, readerCard, type ReaderSurah } from '../lib/home-tools';
 
 const lessons = (await getCollection('lessons')).sort((a, b) => a.data.level - b.data.level || a.data.order - b.data.order);
@@ -209,6 +210,23 @@ const step = LESSON_STEPS[1];
 </section>
 
 <div class="wrap">
+  <!-- Learner quotes, kept close to the top so a first-time visitor sees the page is worth their time.
+       The quotes (and the Arabic word beside each) live in src/data/testimonials.ts. -->
+  <section class="sec voices-sec" aria-labelledby="voices-h">
+    <div class="sec-head"><div><p class="eyebrow">From learners</p><h2 id="voices-h">It finally makes sense.</h2></div><p>Students, self-learners and teachers, on what changed when they started reading the Quran word by word.</p></div>
+    <div class="stack">
+      {testimonials.map((t, i) => (
+        <figure class={`sc k${(i % 3) + 1}`} style={`--i:${i}`}>
+          <div class="sc-t">
+            <blockquote><p>{t.text}</p></blockquote>
+            <figcaption class="who"><span class="mono" aria-hidden="true">{t.name.charAt(0)}</span><span><b>{t.name}</b>{t.role && <small>{t.role}</small>}</span></figcaption>
+          </div>
+          {t.word && <div class="sc-w" aria-hidden="true"><span class="ar" lang="ar">{t.word.ar}</span><small>{t.word.en}</small></div>}
+        </figure>
+      ))}
+    </div>
+  </section>
+
   <!-- The course map: one card per level, with a small sample of what it teaches.
        The bar under each card has a segment per lesson; src/scripts/home.ts fills them from saved progress. -->
   <section class="sec" aria-labelledby="levels-h">
@@ -255,11 +273,63 @@ const step = LESSON_STEPS[1];
     </div>
   </section>
 
-  <section class="sec" aria-label="How the site works">
-    <div class="bento">
-      <div><b>Sources on every lesson.</b><p>Each lesson shows where its facts come from.</p><ul class="chips-s"><li>Quranic Arabic Corpus</li><li>al-Ajurrumiyyah</li><li>Madinah books</li><li>Tanzil text</li></ul></div>
-      <div><b>Free, for everyone.</b><p>No sign-up, no ads, nothing to buy. It works on any phone.</p></div>
-      <div><b>Found a mistake?</b><p>Every page has a way to report it, and we fix it. <a href="/about/#feedback">Send feedback</a></p></div>
+  <section class="sec" aria-labelledby="trust-h">
+    <div class="sec-head"><div><p class="eyebrow">How it is run</p><h2 id="trust-h">Sourced, free and open to correction.</h2></div><p>A religious text deserves care. Here is where the facts come from, what it costs, and what happens when we get something wrong.</p></div>
+    <div class="trio">
+      <article class="tc">
+        <h3>Sources on every lesson.</h3>
+        <p>Each lesson shows where its facts come from.<span class="js-only"> Tap a source to see what it feeds.</span></p>
+        <div class="well">
+          <div class="les" id="les">
+            <div class="les-row" lang="ar" dir="rtl">
+              <span class="les-w"><span class="ar">هُوَ</span><small lang="en">he</small><span class="tag" lang="en">mubtadaʾ</span></span>
+              <span class="les-w"><span class="ar">ٱلْأَوَّلُ</span><small lang="en">the First</small><span class="tag" lang="en">khabar</span></span>
+            </div>
+            <p class="les-ref">Sample lesson footer · Al-Hadid 57:3</p>
+            <ul class="fn">
+              <li><button type="button" data-h="1" aria-pressed="false"><sup>1</sup><span><b>Tanzil</b> · the Quran text</span></button></li>
+              <li><button type="button" data-h="2" aria-pressed="false"><sup>2</sup><span><b>Quranic Arabic Corpus</b> · word data and roots</span></button></li>
+              <li><button type="button" data-h="3" aria-pressed="false"><sup>3</sup><span><b>al-Ajurrumiyyah</b> · classical grammar</span></button></li>
+              <li><button type="button" data-h="0" aria-pressed="false"><sup>4</sup><span><b>Madinah books</b> · textbook</span></button></li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <article class="tc">
+        <h3>Free, for everyone.</h3>
+        <p>No sign-up, no ads, nothing to buy. It works on any phone.</p>
+        <div class="well rc">
+          <div class="rcp" role="img" aria-label="A receipt: every level, the word lookup, the verse decoder and the surah reader are free. Total: free.">
+            <h4>QURANIC GRAMMAR · YOUR ORDER</h4>
+            <ul aria-hidden="true">
+              {LEVELS.map((l) => <li><span>Level {l.level} · {l.name}</span><span>Free</span></li>)}
+              <li><span>Word lookup and verse decoder</span><span>Free</span></li>
+              <li><span>Surah reader</span><span>Free</span></li>
+            </ul>
+            <div class="tot" aria-hidden="true"><span>Total</span><b>Free</b></div>
+            <p class="fine" aria-hidden="true">No sign-up. No ads. Thank you for reading.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="tc">
+        <h3>Found a mistake?</h3>
+        <p>Every page has a way to report it, and we fix it.</p>
+        <div class="well fx js-only" id="fx" data-ref={`${reader.name} ${reader.number}:1`}>
+          <p class="fx-hint">Try it: tap a word to report it.</p>
+          <div class="fx-verse" lang="ar" dir="rtl">
+            {reader.ayahs[0].words.slice(0, 3).map((w) => <button class="fx-w" type="button" aria-pressed="false" data-ar={w.ar}><span class="ar">{w.ar}</span><small lang="en">{w.s}</small></button>)}
+          </div>
+          <p class="fx-ref">{reader.name} {reader.number}:1</p>
+          <div class="fx-pan">
+            <p>What looks wrong?</p>
+            <div class="fx-opts" role="group" aria-label="What looks wrong?"><button type="button" aria-pressed="true">Meaning</button><button type="button" aria-pressed="false">Grammar label</button><button type="button" aria-pressed="false">Arabic text</button><button type="button" aria-pressed="false">Something else</button></div>
+            <a class="fx-send" href="/about/#feedback">Continue to the form</a>
+          </div>
+        </div>
+        <a class="link" href="/about/#feedback">Send feedback →</a>
+      </article>
     </div>
   </section>
 </div>

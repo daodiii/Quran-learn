@@ -269,6 +269,44 @@ if (!reduce) {
   }));
 }
 
+// ---------- sources: a note lights up the part of the sample lesson it feeds ----------
+{
+  const les = $('#les'), notes = $$<HTMLButtonElement>('.fn button', les);
+  const lit = () => notes.find((n) => n.getAttribute('aria-pressed') === 'true');
+  const set = (n?: HTMLButtonElement) => { if (n && n.dataset.h !== '0') les.dataset.hl = n.dataset.h; else delete les.dataset.hl; };
+  notes.forEach((n) => {
+    n.addEventListener('click', () => {
+      const wasOn = n.getAttribute('aria-pressed') === 'true';
+      notes.forEach((x) => x.setAttribute('aria-pressed', 'false'));
+      if (!wasOn) n.setAttribute('aria-pressed', 'true');
+      set(wasOn ? undefined : n);
+    });
+    n.addEventListener('pointerenter', () => set(n));
+    n.addEventListener('pointerleave', () => set(lit()));
+  });
+}
+
+// ---------- mistakes: tap a word, say what is wrong, carry on to the feedback form ----------
+{
+  const fx = $('#fx'), words = $$<HTMLButtonElement>('.fx-w', fx), opts = $$<HTMLButtonElement>('.fx-opts button', fx), go = $<HTMLAnchorElement>('.fx-send', fx);
+  let word = '';
+  // The About form reads ?report= and puts it in the message box, so the reader only adds their name and email.
+  const link = () => {
+    const kind = opts.find((o) => o.getAttribute('aria-pressed') === 'true')?.textContent ?? '';
+    go.href = `/about/?report=${encodeURIComponent(`Report from the home page: the word ${word} (${fx.dataset.ref}). Problem with: ${kind}.`)}#feedback`;
+  };
+  words.forEach((w) => w.addEventListener('click', () => {
+    words.forEach((x) => x.setAttribute('aria-pressed', String(x === w)));
+    word = w.dataset.ar!;
+    fx.classList.add('pick');
+    link();
+  }));
+  opts.forEach((o) => o.addEventListener('click', () => {
+    opts.forEach((x) => x.setAttribute('aria-pressed', String(x === o)));
+    link();
+  }));
+}
+
 // ---------- returning learners: offer the next lesson ----------
 try {
   const order: [string, string][] = JSON.parse($('#course-order').textContent || '[]');

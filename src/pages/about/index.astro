@@ -77,6 +77,12 @@ import Container from '../../components/primitives/Container.astro';
       </section>
     </article>
   </Container>
+  <script>
+    // The home page's "Found a mistake?" demo sends a short note in ?report=; put it in the message box.
+    const note = new URLSearchParams(location.search).get('report');
+    const box = document.getElementById('message') as HTMLTextAreaElement | null;
+    if (note && box && !box.value) box.value = note.slice(0, 500) + '\n\nWhat looks wrong: ';
+  </script>
 </BaseLayout>
 
 <style>
