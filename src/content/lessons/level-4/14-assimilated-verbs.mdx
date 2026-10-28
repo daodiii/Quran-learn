@@ -1,521 +1,928 @@
 ---
 title: "Assimilated Verbs (al-Mithal)"
+kicker: "Verbs that start with و: when it falls, when it stays"
+titleArabic: "اَلْفِعْل الْمِثَال"
 level: 4
 order: 14
-description: "Master assimilated verb conjugation through initial-waw deletion rules, understand when the waw stays vs drops, and apply systematic recognition to Quranic examples."
+template: steps
+description: "Learn the assimilated verb (مِثَال): a verb whose first root letter is و. See why the و falls in the present (يَعِدُ) and the command (عِدْ), where it stays (the past, the passive, Forms II to VI and X), which verbs keep it (وَجِلَ, وَدَّ), how it turns into ت in Form VIII (ٱتَّقَىٰ) and into ي in nouns (مِيثَاق), and go through four verses word by word."
 draft: false
 ---
 
-import ArabicExample from '../../../components/mdx/ArabicExample.astro';
-import GrammarTable from '../../../components/mdx/GrammarTable.astro';
-import VerbConjugation from '../../../components/mdx/VerbConjugation.astro';
-import Callout from '../../../components/mdx/Callout.astro';
-import ExerciseBox from '../../../components/mdx/ExerciseBox.astro';
-import ConjugationEngine from '../../../components/mdx/lab/ConjugationEngine.astro';
-
-## Introduction
-
-You've mastered hollow verbs (middle-weak) and defective verbs (final-weak). Now you're ready for the SIMPLEST weak verb category: assimilated verbs (al-mithal). These are verbs with a weak letter (usually و, rarely ي) in the INITIAL position that drops in present tense.
-
-<ArabicExample
-  arabic="وَوَجَدَكَ ضَآلًّا فَهَدَىٰ"
-  transliteration="wa-wajadaka ḍāllan fa-hadā"
-  translation="And He found you lost and guided [you]"
-  reference="Al-Duha 93:7"
-  highlight="وَجَدَكَ"
-  words={[
-    { ar: "وَوَجَدَكَ", tr: "wa-wajadaka", en: "And He found you" },
-    { ar: "ضَآلًّا", tr: "ḍāllan", en: "lost" },
-    { ar: "فَهَدَىٰ", tr: "fa-hadā", en: "and guided" }
-  ]}
-/>
-
-The word **وَجَدَكَ** (wajadaka) "He found you" is from the assimilated verb وَجَدَ (wajada) with root و-ج-د (w-j-d). In past tense, all three root letters appear. But in present tense, it becomes يَجِدُ (yajidu) — the initial و DROPS. This is the assimilated verb pattern: the initial و disappears in present tense Form I, making these verbs look like they start with the second root letter.
-
-**In this lesson, you will:**
-- Understand the initial-waw deletion RULE (simplest of all weak verb patterns)
-- Compare sound vs assimilated verb conjugation side by side
-- Learn when the waw STAYS (past tense, derived forms II-X)
-- Recognize common assimilated roots with transliteration
-- Apply assimilated verb analysis to Al-Duha examples
-
-**Connection to previous learning:** In [L4.12 Hollow Verbs](/learn/level-4/12-hollow-verbs/), you learned middle-weak contraction (3 principles). In [L4.13 Defective Verbs](/learn/level-4/13-defective-verbs/), you learned final-weak transformation (mood interaction). Assimilated verbs are MUCH SIMPLER — just ONE rule: initial و drops in present tense Form I.
-
-**Forward connection:** After assimilated verbs, [L4.15 Hamzated Verbs](/learn/level-4/15-hamzated-verbs/) completes the weak verb system with hamza spelling rules. You'll then have mastered ALL four weak verb categories!
-
-**Key insight:** Assimilated verbs are called "the easy weak verbs" by Arabic grammarians. Only Form I present tense is affected — everything else conjugates like sound verbs. This makes them the fastest weak verb category to master.
-
-<Callout type="note" title="Plain-English key">
-Quick, everyday translations of the grammar terms in this lesson — glance back here whenever one trips you up:
-
-- **Weak verb** (fiʿl muʿtall / مُعْتَلّ) — a verb with a weak letter (و / ي / ا) in its root, which shifts or drops.
-- **Assimilated verb** (mithāl / مِثَال) — a verb whose *first* root letter is weak (like waṣala).
-</Callout>
-
-## Understanding Assimilated Verbs
-
-**Plain English first:** Imagine a shy person at a party. When everyone's looking (past tense, derived forms), they show up. But when they can blend into the background (present tense Form I), they disappear. Assimilated verbs work the same way: the initial و is "shy" and drops when it can (present tense), but stays when it must (past tense, other forms).
-
-### What Makes a Verb "Assimilated"?
-
-**[Assimilated verb](/resources/glossary/#fil-mithal)** (fiʿl mithāl / فِعْلٌ مِثَالٌ) — verb with weak letter (و or rarely ي) in the INITIAL position (1st radical)
-
-**Examples:**
-- **و-ج-د** (w-j-d) "finding" → initial و
-- **و-ص-ل** (w-ṣ-l) "arriving/connecting" → initial و
-- **و-ق-ف** (w-q-f) "standing/stopping" → initial و
-- **و-ع-د** (w-ʿ-d) "promising" → initial و
-- **ي-س-ر** (y-s-r) "being easy" (rare initial-ya) → initial ي
-
-**Why "assimilated"?** The Arabic term مِثَالٌ (mithāl) comes from root م-ث-ل (m-th-l) meaning "likeness/resemblance," on the pattern فِعَال. Grammarians call assimilated verbs مِثَال because they "resemble" (from م-ث-ل) other verb types in certain conjugations — the initial weak letter behaves like a strong consonant in past tense and derived forms. The initial weak letter "assimilates" (disappears into) the following consonant in present tense.
-
-### Sound vs Assimilated: The Core Difference
-
-Let's compare a sound verb with an assimilated verb to see the pattern:
-
-<GrammarTable>
-| Form | Sound: ن-ص-ر (helping) | Assimilated: و-ج-د (finding) | Difference |
-|------|----------------------|---------------------------|------------|
-| **Root** | ن-ص-ر (n-ṣ-r) | و-ج-د (w-j-d) | First letter is و (weak) |
-| **Past 3MS** | نَصَرَ (naṣara) | وَجَدَ (wajada) | و appears |
-| **Present 3MS** | يَنْصُرُ (yanṣuru) | يَجِدُ (yajidu) | و DROPS! |
-| **Imperative 2MS** | ٱُنْصُرْ (unṣur) | جِدْ (jid) | و drops |
-| **Pattern** | All three radicals visible | Initial و drops in present | Weak letter disappears |
-</GrammarTable>
-
-**Key observation:** The sound verb ن-ص-ر keeps all three root letters visible in every form. The assimilated verb و-ج-د's initial و behaves differently:
-- In past tense: و appears (وَجَدَ wajada)
-- In present tense: و DROPS (يَجِدُ yajidu, not *يَوْجِدُ)
-- In imperative: و drops (جِدْ jid, not *ٱِوْجِدْ)
-
-This is the SIMPLEST weak verb pattern — just one change!
-
-## The Core Deletion Rule
-
-**THE RULE: Initial و drops in present tense Form I**
-
-When conjugating assimilated verbs in present tense Form I, the initial و DELETES.
-
-**Pattern:** Root و-ف-ع → Past وَفَعَ (wafaʿa) → Present يَفْعَلُ (yafʿalu) NOT *يَوْفَعُ
-
-**Examples:**
-- **و-ج-د** → Past: وَجَدَ (wajada) → Present: يَجِدُ (yajidu)
-- **و-ص-ل** → Past: وَصَلَ (waṣala) → Present: يَصِلُ (yaṣilu)
-- **و-ق-ف** → Past: وَقَفَ (waqafa) → Present: يَقِفُ (yaqifu)
-- **و-ع-د** → Past: وَعَدَ (waʿada) → Present: يَعِدُ (yaʿidu)
-
-**Why does the و drop?** Arabic phonology finds the consonant cluster يَوْـ (ya-w) at the start of present tense awkward. For ease of pronunciation, the و assimilates into the following consonant, effectively disappearing.
-
-<Callout type="note" title="Compare with Sound Verb">
-
-Sound verb present: يَنْصُرُ (yan-ṣu-ru) — prefix يَ + root ن-ص-ر
-Assimilated present: يَجِدُ (ya-ji-du) — prefix يَ + ج-د (و dropped!)
-
-The assimilated verb looks like a two-letter root in present tense, but it's actually three letters with the first one hidden.
-
-</Callout>
-
-<Callout type="rule" title="The Simplest Weak Verb Rule">
-
-**Initial و drops in present tense Form I. That's it.**
-
-- Past tense? و stays: وَجَدَ (wajada)
-- Form II-X? و stays: وَاصَلَ (wāṣala) Form III
-- Only present/imperative Form I? و drops: يَجِدُ (yajidu), جِدْ (jid)
-
-This is why assimilated verbs are called "easy" — memorize ONE rule, and you're done!
-
-</Callout>
-
-## When the Waw STAYS
-
-Understanding WHEN the initial و stays is just as important as knowing when it drops.
-
-### 1. Past Tense (All Forms)
-
-In past tense, the initial و ALWAYS appears:
-
-**Form I past:**
-- وَجَدَ (wajada) "he found"
-- وَصَلَ (waṣala) "he arrived"
-- وَقَفَ (waqafa) "he stood"
-- وَعَدَ (waʿada) "he promised"
-
-The و is fully visible and conjugates normally with past tense suffixes.
-
-### 2. Derived Forms (II-X)
-
-In derived forms (II through X), the initial و STAYS in BOTH past and present:
-
-**Examples from و-ص-ل (w-ṣ-l):**
-- **Form II:** وَصَّلَ (waṣṣala) / يُوَصِّلُ (yuwaṣṣilu) "to connect/link"
-- **Form IV:** أَوْصَلَ (awṣala) / يُوصِلُ (yūṣilu) "to deliver/convey"
-- **Form V:** تَوَصَّلَ (tawaṣṣala) / يَتَوَصَّلُ (yatawaṣṣalu) "to reach/arrive at"
-
-**Why و stays in derived forms:** The augmentation letters in Forms II-X create different syllable structures that don't have the awkward يَوْـ cluster. So the و doesn't need to drop.
-
-### 3. Imperative Exception Pattern
-
-**Standard imperative:** The و drops like in present tense:
-- وَجَدَ → Present يَجِدُ → Imperative جِدْ (jid) "find!"
-- وَقَفَ → Present يَقِفُ → Imperative قِفْ (qif) "stop!"
-
-But some grammars note the imperative can OPTIONALLY keep the و in classical usage (rare):
-- Rare: ٱِوْجِدْ (iwjid) alongside common جِدْ (jid)
-
-**For Quranic reading:** The short form (و dropped) is standard.
-
-## Common Assimilated Roots with Transliteration
-
-Here's a reference table of the most frequent assimilated verbs in Quranic Arabic:
-
-<GrammarTable>
-| Root | Past (3MS) | Trans. | Present (3MS) | Trans. | Imperative (2MS) | Trans. | Meaning |
-|------|-----------|--------|---------------|--------|------------------|--------|---------|
-| و-ج-د | وَجَدَ | wajada | يَجِدُ | yajidu | جِدْ | jid | find |
-| و-ص-ل | وَصَلَ | waṣala | يَصِلُ | yaṣilu | صِلْ | ṣil | arrive/connect |
-| و-ق-ف | وَقَفَ | waqafa | يَقِفُ | yaqifu | قِفْ | qif | stand/stop |
-| و-ع-د | وَعَدَ | waʿada | يَعِدُ | yaʿidu | عِدْ | ʿid | promise |
-| و-ض-ع | وَضَعَ | waḍaʿa | يَضَعُ | yaḍaʿu | ضَعْ | ḍaʿ | put/place |
-| و-ل-د | وَلَدَ | walada | يَلِدُ | yalidu | لِدْ | lid | give birth/beget |
-| و-ر-ث | وَرِثَ | waritha | يَرِثُ | yarithu | رِثْ | rith | inherit |
-| و-ق-ي | وَقَى | waqā | يَقِي | yaqī | قِ | qi | protect |
-| ي-س-ر | يَسَرَ | yasara | يَيْسِرُ | yaysiru | ٱِيْسِرْ | aysir | be easy (rare ي-initial) |
-</GrammarTable>
-
-**Pattern note:** In present tense column, notice the initial letter is NEVER و — it's always the second root consonant. The و has completely disappeared.
-
-**Transliteration comparison:**
-- Past: wa-ja-da, wa-ṣa-la (3 syllables, و pronounced)
-- Present: ya-ji-du, ya-ṣi-lu (3 syllables, و absent)
-- The syllable count stays the same, but the initial consonant changes!
-
-## Side-by-Side Conjugation: Sound vs Assimilated
-
-Let's conjugate two verbs completely to see the deletion pattern:
-
-<VerbConjugation
-  question="Present Tense Comparison: يَنْصُرُ (sound) vs يَجِدُ (assimilated)"
-  soundRoot="ن-ص-ر"
-  hollowRoot="و-ج-د"
->
-
-**Sound Verb: يَنْصُرُ (yanṣuru) "he helps"**
-
-| Person | Arabic | Transliteration | Pattern |
-|--------|--------|----------------|---------|
-| 3MS (he) | يَنْصُرُ | yanṣuru | All root letters visible |
-| 3FS (she) | تَنْصُرُ | tanṣuru | All root letters visible |
-| 3MD (they two) | يَنْصُرَانِ | yanṣurāni | All root letters visible |
-| 3FD (they two) | تَنْصُرَانِ | tanṣurāni | All root letters visible |
-| 3MP (they) | يَنْصُرُونَ | yanṣurūna | All root letters visible |
-| 3FP (they) | يَنْصُرْنَ | yanṣurna | All root letters visible |
-| 2MS (you) | تَنْصُرُ | tanṣuru | All root letters visible |
-| 2FS (you) | تَنْصُرِينَ | tanṣurīna | All root letters visible |
-| 1S (I) | أَنْصُرُ | anṣuru | All root letters visible |
-| 1P (we) | نَنْصُرُ | nanṣuru | All root letters visible |
-
-**Assimilated Verb: يَجِدُ (yajidu) "he finds"**
-
-| Person | Arabic | Transliteration | Pattern |
-|--------|--------|----------------|---------|
-| 3MS (he) | يَجِدُ | yajidu | Initial و DELETED |
-| 3FS (she) | تَجِدُ | tajidu | Initial و DELETED |
-| 3MD (they two) | يَجِدَانِ | yajidāni | Initial و DELETED |
-| 3FD (they two) | تَجِدَانِ | tajidāni | Initial و DELETED |
-| 3MP (they) | يَجِدُونَ | yajidūna | Initial و DELETED |
-| 3FP (they) | يَجِدْنَ | yajidna | Initial و DELETED |
-| 2MS (you) | تَجِدُ | tajidu | Initial و DELETED |
-| 2FS (you) | تَجِدِينَ | tajidīna | Initial و DELETED |
-| 1S (I) | أَجِدُ | ajidu | Initial و DELETED |
-| 1P (we) | نَجِدُ | najidu | Initial و DELETED |
-
-</VerbConjugation>
-
-**Critical observation:** In present tense conjugation, the assimilated verb NEVER shows the initial و. It conjugates exactly like a sound verb, but starting with the SECOND root letter.
-
-**Pattern consistency:** The deletion happens in ALL persons, ALL numbers, ALL genders. There are NO exceptions in present tense Form I — the و always drops.
-
-## Past Tense: Waw Appears Normally
-
-Let's see the same verb وَجَدَ in past tense where the و STAYS. Press each person and watch the و hold its place — only the suffix changes:
-
-<ConjugationEngine
-  roots={[
-    { id: "wajada", letters: "و-ج-د", gloss: "to find", stem: "وَجَد", tr: "wajad" }
-  ]}
-  persons={[
-    { suffix: "َ", tr: "a", pronoun: "هُوَ", label: "3rd masculine singular", behaviour: 0 },
-    { suffix: "َتْ", tr: "at", pronoun: "هِيَ", label: "3rd feminine singular", behaviour: 1 },
-    { suffix: "َا", tr: "ā", pronoun: "هُمَا", label: "3rd masculine dual", behaviour: 1 },
-    { suffix: "َتَا", tr: "atā", pronoun: "هُمَا", label: "3rd feminine dual", behaviour: 1 },
-    { suffix: "ُوْا", tr: "ū", pronoun: "هُمْ", label: "3rd masculine plural", behaviour: 1 },
-    { suffix: "ْنَ", tr: "na", pronoun: "هُنَّ", label: "3rd feminine plural", behaviour: 2 },
-    { suffix: "ْتَ", tr: "ta", pronoun: "أَنْتَ", label: "2nd masculine singular", behaviour: 2 },
-    { suffix: "ْتِ", tr: "ti", pronoun: "أَنْتِ", label: "2nd feminine singular", behaviour: 2 },
-    { suffix: "ْتُمَاْ", tr: "tumā", pronoun: "أَنْتُمَا", label: "2nd dual", behaviour: 2 },
-    { suffix: "ْتُمْ", tr: "tum", pronoun: "أَنْتُمْ", label: "2nd masculine plural", behaviour: 2 },
-    { suffix: "ْتُنَّ", tr: "tunna", pronoun: "أَنْتُنَّ", label: "2nd feminine plural", behaviour: 2 },
-    { suffix: "ْتُ", tr: "tu", pronoun: "أَنَا", label: "1st singular", behaviour: 2 },
-    { suffix: "ْنَا", tr: "nā", pronoun: "نَحْنُ", label: "1st plural", behaviour: 2 }
-  ]}
-/>
-
-**Key insight:** In past tense, assimilated verbs conjugate EXACTLY like sound verbs. The و behaves like a normal consonant. Only in present tense Form I does the special deletion rule apply.
-
-## Examples from Al-Duha
-
-Let's analyze assimilated verbs from Surah Al-Duha (Chapter 93), designated for this lesson:
-
-### Example 1: وَجَدَكَ (wajadaka) — Past Tense
-
-<ArabicExample
-  arabic="وَوَجَدَكَ ضَآلًّا فَهَدَىٰ"
-  transliteration="wa-wajadaka ḍāllan fa-hadā"
-  translation="And He found you lost and guided [you]"
-  reference="Al-Duha 93:7"
-  highlight="وَجَدَكَ"
-  words={[
-    { ar: "وَوَجَدَكَ", tr: "wa-wajadaka", en: "And He found you" },
-    { ar: "ضَآلًّا", tr: "ḍāllan", en: "lost" },
-    { ar: "فَهَدَىٰ", tr: "fa-hadā", en: "and guided" }
-  ]}
-/>
-
-**Morphological analysis:**
-
-- **وَجَدَكَ** (wajadaka)
-  - Root: و-ج-د (w-j-d) "finding"
-  - Verb form: Form I assimilated
-  - Tense: Past tense, 3rd person masculine singular
-  - Pattern: وَفَعَلَ (wafaʿala) — و fully visible in past
-  - Attached pronoun: كَ (ka) "you" (2MS object)
-  - Translation: "He found you"
-
-**Pattern note:** In past tense, the initial و appears normally. Allah (the implied subject "He") found the Prophet Muhammad (ﷺ) in a state of being lost (ضَآلًّا) and guided him.
-
-This demonstrates the theological theme of divine guidance — Allah FINDS (وَجَدَ) those who are lost and GUIDES (هَدَىٰ, defective verb from previous lesson!) them.
-
-### Example 2: Present Tense Pattern
-
-While Al-Duha uses past tense وَجَدَكَ, let's see how this verb appears in present tense elsewhere in the Quran:
-
-<ArabicExample
-  arabic="وَلَا تَجِدُ لَهُمْ مِنْ دُونِ ٱللَّهِ وَلِيًّا وَلَا نَصِيرًا"
-  transliteration="wa-lā tajidu lahum min dūni llāhi waliyyan wa-lā naṣīran"
-  translation="And you will not find for them besides Allah any protector or helper"
-  reference="An-Nisa 4:173"
-  highlight="تَجِدُ"
-  words={[
-    { ar: "وَلَا", tr: "wa-lā", en: "and not" },
-    { ar: "تَجِدُ", tr: "tajidu", en: "you will find" },
-    { ar: "لَهُمْ", tr: "lahum", en: "for them" },
-    { ar: "مِنْ", tr: "min", en: "from" },
-    { ar: "دُونِ", tr: "dūni", en: "besides" },
-    { ar: "ٱللَّهِ", tr: "llāhi", en: "Allah" },
-    { ar: "وَلِيًّا", tr: "waliyyan", en: "a protector" },
-    { ar: "وَلَا", tr: "wa-lā", en: "and not" },
-    { ar: "نَصِيرًا", tr: "naṣīran", en: "a helper" }
-  ]}
-/>
-
-**Morphological analysis:**
-
-- **تَجِدُ** (tajidu)
-  - Root: و-ج-د (w-j-d) "finding"
-  - Verb form: Form I assimilated
-  - Tense: Present tense indicative, 2nd person masculine singular
-  - Pattern: تَفْعِلُ (tafʿilu) — initial و DELETED
-  - Negation: لَا (lā) "not" precedes verb
-  - Translation: "you (will) find"
-
-**Deletion demonstration:** The root is و-ج-د, but in present tense it becomes تَجِدُ (ta-ji-du), not *تَوْجِدُ. The و has completely disappeared, leaving only ج-د visible.
-
-### Example 3: Al-Duha Context — Theological Significance
-
-Let's see the full context of the assimilated verb in Al-Duha:
-
-<ArabicExample
-  arabic="أَلَمْ يَجِدْكَ يَتِيمًا فَـَٔاوَىٰ ۝ وَوَجَدَكَ ضَآلًّا فَهَدَىٰ ۝ وَوَجَدَكَ عَآئِلًا فَأَغْنَىٰ"
-  transliteration="a-lam yajidka yatīman fa-āwā wa-wajadaka ḍāllan fa-hadā wa-wajadaka ʿāʾilan fa-aghnā"
-  translation="Did He not find you an orphan and give [you] refuge? And He found you lost and guided [you]. And He found you poor and made [you] self-sufficient."
-  reference="Al-Duha 93:6-8"
-  highlight="يَجِدْكَ"
-  words={[
-    { ar: "أَلَمْ", tr: "a-lam", en: "Did not" },
-    { ar: "يَجِدْكَ", tr: "yajidka", en: "He find you" },
-    { ar: "يَتِيمًا", tr: "yatīman", en: "an orphan" },
-    { ar: "فَـَٔاوَىٰ", tr: "fa-āwā", en: "and shelter" },
-    { ar: "وَوَجَدَكَ", tr: "wa-wajadaka", en: "and He found you" },
-    { ar: "ضَآلًّا", tr: "ḍāllan", en: "lost" },
-    { ar: "فَهَدَىٰ", tr: "fa-hadā", en: "and guided" },
-    { ar: "وَوَجَدَكَ", tr: "wa-wajadaka", en: "and He found you" },
-    { ar: "عَآئِلًا", tr: "ʿāʾilan", en: "poor" },
-    { ar: "فَأَغْنَىٰ", tr: "fa-aghnā", en: "and enriched" }
-  ]}
-/>
-
-**Three parallel structures using و-ج-د:**
-
-1. **يَجِدْكَ** (yajidka) — Present tense jussive (after أَلَمْ) "Did He find you?"
-   - Root: و-ج-د → يَجِدُ (present) → يَجِدْ (jussive, و deleted)
-
-2. **وَجَدَكَ** (wajadaka) — Past tense "He found you" (×2)
-   - Root: و-ج-د → وَجَدَ (past, و appears)
-
-**Mixed tense demonstration:** Verse 6 uses present/jussive (يَجِدْكَ) while verses 7-8 use past (وَجَدَكَ). This shows the و deletion (present) vs و appearance (past) in the SAME ROOT within three consecutive verses!
-
-<Callout type="note" title="Al-Duha's Theological Message">
-
-Surah Al-Duha consoles the Prophet (ﷺ) by reminding him of Allah's past favors:
-- Found you an orphan → gave refuge
-- Found you lost → guided
-- Found you poor → enriched
-
-The verb وَجَدَ (wajada) "to find" emphasizes Allah's ACTIVE seeking and care. Allah doesn't wait for us to be perfect — He FINDS us in our weakness and transforms us.
-
-Understanding the assimilated verb و-ج-د unlocks this powerful message of divine providence.
-
-</Callout>
-
-## Exercises
-
-<ExerciseBox
-  question="Exercise 1: Identify Assimilated Verbs"
->
-
-For each root, determine if it's an assimilated verb. If yes, identify the initial weak letter.
-
-
-1. **ك-ت-ب** (k-t-b) "writing"
-2. **و-ج-د** (w-j-d) "finding"
-3. **ن-ص-ر** (n-ṣ-r) "helping"
-4. **و-ص-ل** (w-ṣ-l) "arriving/connecting"
-5. **ق-و-ل** (q-w-l) "saying"
-6. **و-ع-د** (w-ʿ-d) "promising"
-7. **ه-د-ي** (h-d-y) "guiding"
-8. **و-ق-ف** (w-q-f) "standing/stopping"
-
-**Expected answers:**
-1. Not assimilated (sound verb)
-2. Assimilated (initial و)
-3. Not assimilated (sound verb)
-4. Assimilated (initial و)
-5. Not assimilated (hollow verb — middle و)
-6. Assimilated (initial و)
-7. Not assimilated (defective verb — final ي)
-8. Assimilated (initial و)
-
-</ExerciseBox>
-
-<ExerciseBox
-  question="Exercise 2: Apply Deletion Rule"
->
-
-Convert each past tense assimilated verb to present tense, applying the initial-waw deletion rule.
-
-
-Given these past tense forms:
-
-1. وَجَدَ (wajada) "he found" → Present tense?
-2. وَصَلَ (waṣala) "he arrived" → Present tense?
-3. وَقَفَ (waqafa) "he stood" → Present tense?
-4. وَعَدَ (waʿada) "he promised" → Present tense?
-
-**Work through the logic:**
-- Past: Root و-ف-ع → وَفَعَ (wafaʿa) — و appears
-- Present: Root و-ف-ع → يَفْعَلُ (yafʿalu) — و drops
-
-**Expected answers:**
-1. يَجِدُ (yajidu)
-2. يَصِلُ (yaṣilu)
-3. يَقِفُ (yaqifu)
-4. يَعِدُ (yaʿidu)
-
-</ExerciseBox>
-
-<ExerciseBox
-  question="Exercise 3: Tense Identification"
->
-
-For each verb form, identify whether it's past or present, and explain how you know based on the و.
-
-
-1. **وَجَدَ** (wajada) from root و-ج-د
-2. **يَجِدُ** (yajidu) from root و-ج-د
-3. **وَصَلَتْ** (waṣalat) from root و-ص-ل
-4. **تَصِلُ** (taṣilu) from root و-ص-ل
-
-**Hint:** Check if initial و is present or absent!
-
-**Expected answers:**
-1. Past tense — و appears (وَجَدَ)
-2. Present tense — و deleted (يَجِدُ, not *يَوْجِدُ)
-3. Past tense — و appears (وَصَلَتْ)
-4. Present tense — و deleted (تَصِلُ, not *تَوْصِلُ)
-
-</ExerciseBox>
-
-<ExerciseBox
-  question="Exercise 4: Al-Duha Analysis"
->
-
-Analyze the assimilated verb usage in Al-Duha 93:6-8. Compare the present/jussive form with the past tense forms.
-
-
-Read Al-Duha 93:6-8:
-- أَلَمْ يَجِدْكَ يَتِيمًا فَـَٔاوَىٰ (93:6)
-- وَوَجَدَكَ ضَآلًّا فَهَدَىٰ (93:7)
-- وَوَجَدَكَ عَآئِلًا فَأَغْنَىٰ (93:8)
-
-**Questions:**
-1. What is the root of يَجِدْكَ and وَجَدَكَ?
-2. Why does يَجِدْكَ NOT have initial و while وَجَدَكَ DOES?
-3. What mood is يَجِدْكَ (after أَلَمْ)?
-4. How many times does Allah "find" the Prophet in these verses?
-
-**Expected answers:**
-1. Root: و-ج-د (w-j-d) "finding"
-2. يَجِدْكَ is present/jussive (و drops), وَجَدَكَ is past (و appears)
-3. Jussive mood (after أَلَمْ "did not / did He not")
-4. Three times — orphan, lost, poor (showing comprehensive divine care)
-
-</ExerciseBox>
-
-## Summary
-
-You've now mastered assimilated verbs — the SIMPLEST weak verb category:
-
-**Key concepts:**
-1. **Assimilated verbs:** Initial weak letter (usually و) that drops in present tense Form I
-2. **THE rule:** Initial و deletes in present/imperative Form I ONLY
-3. **When و stays:** Past tense (all forms), derived forms II-X
-4. **Pronunciation:** Present tense sounds like two-letter root, but it's still three
-
-**Common assimilated verbs to remember:**
-- وَجَدَ (wajada) / يَجِدُ (yajidu) — find
-- وَصَلَ (waṣala) / يَصِلُ (yaṣilu) — arrive/connect
-- وَقَفَ (waqafa) / يَقِفُ (yaqifu) — stand/stop
-- وَعَدَ (waʿada) / يَعِدُ (yaʿidu) — promise
-- وَضَعَ (waḍaʿa) / يَضَعُ (yaḍaʿu) — put/place
-
-**Why assimilated verbs are "easy":**
-- Only ONE rule to memorize (vs hollow verbs' 3 principles, defective verbs' mood interactions)
-- Only affects Form I present/imperative
-- No subtypes to distinguish (unlike hollow waw/ya or defective waw/ya)
-- Past tense conjugates exactly like sound verbs
-
-**Critical insight:** When you see a present tense verb that LOOKS like it's missing a root letter, check if the root starts with و — it's probably an assimilated verb! The "missing" letter is hiding in the root, not in the conjugated form.
-
-**Next steps:**
-- [L4.15 Hamzated Verbs](/learn/level-4/15-hamzated-verbs/) — Complete weak verb system with hamza spelling rules
-- [L4.17 Introduction to Balagha](/learn/level-4/17-intro-balagha/) — Begin rhetorical figures in Quranic style
-- [L5.01 Advanced Morphology](/learn/level-5/16-sarf-synthesis/) — Combine all weak verb knowledge
-
-**Weak verb mastery progress:**
-- ✓ [L4.12 Hollow Verbs](/learn/level-4/12-hollow-verbs/) — Middle-weak (3 contraction principles)
-- ✓ [L4.13 Defective Verbs](/learn/level-4/13-defective-verbs/) — Final-weak (mood interaction)
-- ✓ **L4.14 Assimilated Verbs** — Initial-weak (simple deletion)
-- → Next: [L4.15 Hamzated Verbs](/learn/level-4/15-hamzated-verbs/) — Hamza spelling
-
-**Remember:** Assimilated verbs are your friends! Learn ONE simple rule (initial و drops in present Form I), and you've mastered the category. No complex transformations, no mood variations, just straightforward deletion. This is the reward for working through hollow and defective verbs first!
+import Step from '../../../components/lesson/Step.astro';
+import Stage from '../../../components/lesson/Stage.astro';
+import Sentence from '../../../components/lesson/Sentence.astro';
+import Tiles from '../../../components/lesson/Tiles.astro';
+import Formula from '../../../components/lesson/Formula.astro';
+import Conjugation from '../../../components/lesson/Conjugation.astro';
+import Note from '../../../components/lesson/Note.astro';
+import Check from '../../../components/lesson/Check.astro';
+import Start from '../../../components/lesson/Start.astro';
+import Sources from '../../../components/lesson/Sources.astro';
+import Parse from '../../../components/lesson/Parse.astro';
+import Exercise from '../../../components/lesson/Exercise.astro';
+import Block from '../../../components/lesson/Block.astro';
+
+{/* Content spec: docs/redesign/specs/L4.14-assimilated-verbs.md. Every parse follows al-Jadwal (Mahmud Safi). */}
+
+<Step hero id="start" label="The idea" title={frontmatter.title} kicker={frontmatter.kicker} titleArabic={frontmatter.titleArabic}>
+<Block id="overview" title="In this lesson" level={2} uncounted>
+  <Stage label="The idea">
+    <Formula
+      label="in the present of وَعَدَ, the و falls away"
+      items={[
+        { kind: 'm', text: 'يَوْعِدُ', small: 'starting form: not a word you will see' },
+        { kind: 'k', text: 'the و falls', small: 'it stands between يَ and a kasra' },
+        { kind: 's', text: 'يَعِدُ', small: 'he promises' },
+      ]}
+    />
+  </Stage>
+  <Start
+    goal="Say which verbs are <b>assimilated</b>, tell where their first و falls away (the present and the command) and where it stays (the past, the passive, the other forms), and read the changes in وَقَى, وَجِلَ and ٱتَّقَىٰ."
+    minutes={90}
+    before="Roots (L3.03) and Form I (L3.04). The past (L3.05), the present (L3.06), the jussive (L3.07), the command (L3.08) and the passive (L3.09). Weak verbs: the idea (L4.11)."
+    terms={[
+      { term: 'Assimilated verb', ar: 'مِثَال', meaning: 'A verb whose first root letter is و (or ي).' },
+      { term: 'Weak letter', ar: 'حَرْف الْعِلَّة', meaning: 'و, ي and the long ā: letters that can change or fall out of a verb.' },
+      { term: 'Dropping', ar: 'إِعْلَال بِالْحَذْف', meaning: 'A change where a weak letter falls out. Al-Jadwal uses this name.' },
+      { term: 'Substitution', ar: 'إِبْدَال', meaning: 'A change where one letter turns into another.' },
+      { term: 'Starting form', ar: 'أَصْل', meaning: 'The form a word had before the change. Al-Jadwal gives it with “its starting form is …”.' },
+    ]}
+  />
+</Block>
+
+<Block id="see" title="Look at these two verbs" level={2}>
+  <Stage>
+    <Sentence
+      size="big"
+      roles
+      reference="Ad-Duha 93:6"
+      groups={[
+        { words: [{ ar: 'أَلَمْ', en: 'did not', say: 'a-lam', type: 'p' }] },
+        { role: 'fiil', label: 'fiʿl + object', hint: 'present after لَمْ. No و at the start. كَ is the object, “you”', words: [{ ar: 'يَجِدْكَ', en: 'find you', say: 'yajidka', type: 'v' }] },
+        { role: 'maful', hint: 'the second object: what He found you as', words: [{ ar: 'يَتِيمًا', en: 'an orphan', say: 'yatiman' }] },
+        { role: 'fiil', label: 'fiʿl', hint: 'past: “and gave shelter”', words: [{ ar: 'فَـَٔاوَىٰ', en: 'and gave shelter', say: 'fa-awa', type: 'v' }] },
+      ]}
+      en={['Did He not find you an orphan, and give you shelter?']}
+    />
+    <Sentence
+      roles
+      reference="Ad-Duha 93:7"
+      groups={[
+        { role: 'fiil', label: 'fiʿl + object', hint: 'past. The root letter و shows. كَ is the object, “you”', words: [{ ar: 'وَوَجَدَكَ', en: 'and found you', say: 'wa-wajadaka', type: 'v' }] },
+        { role: 'maful', hint: 'the second object, like يَتِيمًا in 93:6', words: [{ ar: 'ضَآلًّا', en: 'lost', say: 'dallan' }] },
+        { role: 'fiil', label: 'fiʿl', hint: 'past: “and guided”', words: [{ ar: 'فَهَدَىٰ', en: 'and guided', say: 'fa-hada', type: 'v' }] },
+      ]}
+      en={['And He found you lost, and guided you.']}
+    />
+  </Stage>
+
+The two verses stand side by side in Surah ad-Duha. Both verbs come from one root, **و ج د**, “finding”. Look at how each verb starts.
+
+وَجَدَكَ starts with a و. In وَوَجَدَكَ there are two: the first is the little word “and”, the second is the root letter. يَجِدْكَ has no و at all.
+
+The root is the same in both verbs. The past shows the first root letter, and the present has lost it. The rest of the lesson shows where this happens and where it does not.
+
+<Check n={1} q="Which verb in these two verses shows the root letter و?" options={['يَجِدْكَ', 'وَجَدَكَ']} answer={1} why="وَجَدَكَ is the past, and the past keeps the و. يَجِدْكَ is the present, and the و has fallen out." />
+</Block>
+
+<Block id="name" title="Which verbs are assimilated">
+  <Stage label="Nine common roots">
+    <Tiles
+      label="one root, و ج د, in the past and the present"
+      items={[
+        { ar: 'و ج د', en: 'the root: first letter و', type: 'x' },
+        { ar: 'وَجَدَ', en: 'he found: past', type: 'v' },
+        { ar: 'يَجِدُ', en: 'he finds: present', type: 'v' },
+      ]}
+    />
+  </Stage>
+
+Every verb has a root of three letters (L3.03). When the **first** letter is و, the verb is an assimilated verb, مِثَال (*mithāl*). Al-Jadwal writes *muʿtall mithāl*, “a weak verb of the mithāl kind”. L4.11 listed the kinds of weak verbs, and this is the kind with a weak first letter. The other kinds are in L4.12 (middle), L4.13 (last) and L4.15 (a hamza).
+
+| Root | Past | Present | Meaning | Form I verb words |
+|---|---|---|---|---|
+| و ج د | وَجَدَ | يَجِدُ | he found | 106 |
+| و ع د | وَعَدَ | يَعِدُ | he promised | 70 |
+| و ه ب | وَهَبَ | يَهَبُ | he gave | 22 |
+| و ض ع | وَضَعَ | يَضَعُ | he put down | 21 |
+| و ق ي | وَقَىٰ | يَقِي | he protected | 16 |
+| و ر ث | وَرِثَ | يَرِثُ | he inherited | 13 |
+| و ق ع | وَقَعَ | يَقَعُ | it fell, it happened | 12 |
+| و ص ل | وَصَلَ | يَصِلُ | he reached | 10 |
+| و ل د | وَلَدَ | يَلِدُ | she gave birth | 9 |
+
+<Note kind="know">Quran Learn's count from the Quranic Arabic Corpus: a script read every verb word. There are 957 verb words with a three-letter root that starts with و. They come from 50 roots and make 4.9% of the 19,356 verb words (the same count as the 26.7% of hollow verbs in L3.05). 419 of them are Form I, from 35 roots, and the table shows nine of those roots. Only 42 verb words, from 4 roots, start with ي. The books use the name مِثَال as a label. This lesson does not explain where the name comes from.</Note>
+
+<Check n={2} q="Which root is an assimilated root?" options={['و ع د', 'ق و ل', 'ه د ي']} answer={0} why="و ع د has the weak letter first. ق و ل has it in the middle (hollow) and ه د ي has it last (defective)." />
+</Block>
+
+<Block id="drop" title="The و falls away in the present">
+  <Stage label="The present of وَصَلَ">
+    <Tiles
+      label="the root letter و falls out"
+      items={[
+        { ar: 'يَوْصِلُ', en: 'starting form: not a word you will see', type: 'x' },
+        { ar: 'يَصِلُ', en: 'he reaches: what you read', type: 'v' },
+      ]}
+    />
+    <Sentence
+      roles
+      reference="An-Nisa 4:90 (start)"
+      groups={[
+        { words: [{ ar: 'إِلَّا', en: 'except', say: 'illa', type: 'p' }, { ar: 'ٱلَّذِينَ', en: 'those who', say: 'alladhina' }] },
+        { role: 'fiil', label: 'fiʿl + fāʿil', hint: 'present of وَصَلَ: the و is gone. -ūna is the doer, “they”', words: [{ ar: 'يَصِلُونَ', en: 'reach', say: 'yasiluna', type: 'v' }] },
+        { role: 'jarMajrur', hint: 'ilā “to” with “a people”', words: [{ ar: 'إِلَىٰ', en: 'to', say: 'ila', type: 'p' }, { ar: 'قَوْمٍۭ', en: 'a people', say: 'qawmin' }] },
+      ]}
+      en={['…except those who reach a people…']}
+    />
+  </Stage>
+
+Take وَصَلَ, “he reached”, root **و ص ل**. Its present should be يَوْصِلُ: the prefix يَ, then the root letter و with a sukūn, then ص with a kasra. That form is not used. The و falls out, and you read **يَصِلُ**. In 4:90 the “they” form is يَصِلُونَ.
+
+Al-Jadwal gives the reason in his notes on 66:6 and 6:145. The first letter falls because it stands **between يَ and a kasra**. For أَجِدُ in 6:145 he gives the starting form أَوْجِدُ. In his note on 17:64 he adds that the first letter falls “in the present and the command”. The next step takes the command. You met the same verb in L3.03: of يَعِدُكُمُ (2:268) al-Jadwal says that it is a mithāl verb with a kasra in the present, and that its first letter has fallen.
+
+What is left looks like a verb with two root letters: يَصِلُ shows ص and ل. The root keeps its three letters, and the و is hidden. Put a sound verb next to an assimilated one:
+
+| Form | Sound verb, ن ص ر | Assimilated verb, و ج د |
+|---|---|---|
+| Past (he) | نَصَرَ | وَجَدَ |
+| Present (he) | يَنْصُرُ | يَجِدُ |
+| Command (you, one man) | ٱنصُرْ | جِدْ |
+| Root letters you see in the present | three | two |
+
+The Quran has no command of وَجَدَ, so جِدْ is a teaching form.
+
+<Note kind="know">In the pattern, the missing letter is the ف of فَعَلَ (L3.03). Al-Jadwal writes the pattern of يَعِدُ as يَعِلُ, and the pattern of the command عِدْ as عِلْ.</Note>
+
+<Check n={3} q="يَعِدُ shows only ع and د. What is its root?" options={['و ع د', 'ع د د', 'ي ع د']} answer={0} why="يَ is the prefix, and the first root letter و has fallen. Compare يَعُدُّ, “he counts”, which has a ḍamma and a shadda and the root ع د د." />
+</Block>
+</Step>
+
+<Step id="drop-step" label="The present and the command" title="Where the و falls: every person, the vowel, and the command">
+<Block id="forms" title="All 13 forms of the present">
+  <Stage label="A real verb">
+    <Conjugation
+      caption="يَجِدُ, “he finds”: present tense of وَجَدَ (root و ج د)"
+      endLabel="Prefix and ending"
+      rows={[
+        { group: 'One person' },
+        { who: 'he', pr: 'هُوَ', ar: 'يَجِدُ', end: 'يَـ + ـُ', say: 'yajidu', hi: true },
+        { who: 'she', pr: 'هِيَ', ar: 'تَجِدُ', end: 'تَـ + ـُ', say: 'tajidu' },
+        { who: 'you (one man)', pr: 'أَنْتَ', ar: 'تَجِدُ', end: 'تَـ + ـُ', say: 'tajidu' },
+        { who: 'you (one woman)', pr: 'أَنْتِ', ar: 'تَجِدِينَ', end: 'تَـ + ـِينَ', say: 'tajidīna' },
+        { who: 'I', pr: 'أَنَا', ar: 'أَجِدُ', end: 'أَ + ـُ', say: 'ajidu' },
+        { group: 'Two people' },
+        { who: 'they two (men)', pr: 'هُمَا', ar: 'يَجِدَانِ', end: 'يَـ + ـَانِ', say: 'yajidāni' },
+        { who: 'they two (women)', pr: 'هُمَا', ar: 'تَجِدَانِ', end: 'تَـ + ـَانِ', say: 'tajidāni' },
+        { who: 'you two', pr: 'أَنْتُمَا', ar: 'تَجِدَانِ', end: 'تَـ + ـَانِ', say: 'tajidāni' },
+        { group: 'Many people' },
+        { who: 'they (men)', pr: 'هُمْ', ar: 'يَجِدُونَ', end: 'يَـ + ـُونَ', say: 'yajidūna' },
+        { who: 'they (women)', pr: 'هُنَّ', ar: 'يَجِدْنَ', end: 'يَـ + ـْنَ', say: 'yajidna' },
+        { who: 'you all (men)', pr: 'أَنْتُمْ', ar: 'تَجِدُونَ', end: 'تَـ + ـُونَ', say: 'tajidūna' },
+        { who: 'you all (women)', pr: 'أَنْتُنَّ', ar: 'تَجِدْنَ', end: 'تَـ + ـْنَ', say: 'tajidna' },
+        { who: 'we', pr: 'نَحْنُ', ar: 'نَجِدُ', end: 'نَـ + ـُ', say: 'najidu' },
+      ]}
+    />
+  </Stage>
+
+This is the table of L3.06, with one change: no row has a و after the prefix. The prefixes and the endings are the ones you know. The first root letter is simply missing in all 13 forms.
+
+The table has 13 rows, as in L3.06: five for one person, three for two people and five for many.
+
+<Note kind="know">The Corpus has 200 active Form I present words from the verbs of this lesson (the roots in the next block). By person: he 49, they (men) 40, you (one man) 31, you all (men) 30, she 21, we 13, I 10, they (women) 4, and two dual words: تَنِيَا (20:42) and أَتَعِدَانِنِىٓ (46:17). Real examples: يَجِدُونَ (4:173), تَجِدُ (58:22), سَتَجِدُونَ (4:91), أَجِدُ (6:145) and نَعِدُهُمْ (10:46, “we promise them”). The other forms in the table are teaching forms, built by the pattern.</Note>
+
+<Check n={4} q="How do you say “they (men) find”?" options={['يَجِدُونَ', 'يَوْجِدُونَ', 'يَجُدُونَ']} answer={0} why="The ending is -ūna and there is no و after the prefix. يَوْجِدُونَ keeps the root letter that has fallen out, and يَجُدُونَ has the wrong vowel." />
+</Block>
+
+<Block id="vowel" title="Which vowel: kasra or fatḥa">
+  <Stage>
+    <Sentence
+      roles
+      reference="Ash-Shura 42:49 (part)"
+      groups={[
+        { role: 'fiil', label: 'fiʿl', hint: 'present of وَهَبَ: the و is gone and the vowel is a fatḥa', words: [{ ar: 'يَهَبُ', en: 'gives', say: 'yahabu', type: 'v' }] },
+        { role: 'tied', hint: '“to whoever He wills”: it belongs to يَهَبُ', words: [{ ar: 'لِمَن', en: 'to whom', say: 'liman', type: 'p' }, { ar: 'يَشَآءُ', en: 'He wills', say: 'yashau', type: 'v' }] },
+        { words: [{ ar: 'إِنَٰثًا', en: 'daughters', say: 'inathan' }] },
+      ]}
+      en={['He gives daughters to whomever He wills.']}
+    />
+  </Stage>
+
+Most of these verbs take a **kasra** on the middle letter in the present: يَجِدُ, يَعِدُ, يَصِلُ. A few take a **fatḥa**: يَهَبُ, يَضَعُ, يَقَعُ. The و falls in both groups.
+
+| Present vowel | Past and present | Words in the Quran (present and command) |
+|---|---|---|
+| kasra | وَجَدَ, يَجِدُ | 67 |
+| kasra | وَعَدَ, يَعِدُ | 20 |
+| kasra | وَصَفَ, يَصِفُ | 13 |
+| kasra | وَرِثَ, يَرِثُ | 9 |
+| kasra | وَصَلَ, يَصِلُ | 7 |
+| kasra | وَلَدَ, يَلِدُ | 3 |
+| fatḥa | وَضَعَ, يَضَعُ | 11 |
+| fatḥa | وَهَبَ, يَهَبُ | 10 |
+| fatḥa | وَقَعَ, يَقَعُ | 3 |
+| fatḥa | وَذَرَ, يَذَرُ | 45 |
+
+In the fatḥa verbs the last or middle root letter is a throat letter: ع in وَضَعَ and وَقَعَ, ه in وَهَبَ. Al-Jadwal says this about the verbal noun سَعَة (2:247): the fatḥa shows “in place of the kasra” because the last letter is ع. So the starting form had a kasra too, and the و fell before the fatḥa came. This is how the books explain the group. The reverse does not hold: وَهَنَ has a ه and still takes a kasra, as in تَهِنُوا۟ (3:139). Of the four fatḥa verbs, only يَذَرُ has no throat letter.
+
+The past of يَذَرُ is not used. Al-Jadwal says on 2:234 that the Arabs did not use وَذَرَ, and that the language uses تَرَكَ for the past. The Quran has only the present and the command of this verb (45 words in the Corpus). Learn يَذَرُ as it is.
+
+<Note kind="know">The table counts Form I active words that lost their و (232 in all), from the Corpus. The Quran has more verbs of this kind, such as وَعَظَ and وَزَرَ, that are not in the table.</Note>
+
+<Check n={5} q="Which present has a fatḥa on the middle letter?" options={['يَهَبُ', 'يَصِلُ', 'يَجِدُ']} answer={0} why="يَهَبُ, from وَهَبَ, has a throat letter ه and takes a fatḥa. يَصِلُ and يَجِدُ take a kasra." />
+</Block>
+
+<Block id="command" title="The command">
+  <Stage label="From the present to the command">
+    <Tiles
+      label="from تَعِدُ, “you promise”: the third move, the helper, is not needed"
+      items={[
+        { ar: 'تَعِدُ', en: 'you promise (present)', type: 'v' },
+        { ar: 'تَعِدْ', en: '1. end in a sukūn', type: 'x' },
+        { ar: 'عِدْ', en: '2. take off تَ: promise!', type: 'v' },
+      ]}
+    />
+    <Sentence
+      roles
+      reference="As-Saffat 37:24"
+      groups={[
+        { role: 'fiil', label: 'fiʿl + fāʿil + object', hint: 'command: -ū is “you all”, -hum is the object “them”. The و of وَقَفَ is gone', words: [{ ar: 'وَقِفُوهُمْ', en: 'and stop them', say: 'wa-qifuhum', type: 'v' }] },
+        { words: [{ ar: 'إِنَّهُم', en: 'indeed they', say: 'innahum', type: 'p' }, { ar: 'مَّسْـُٔولُونَ', en: 'will be asked', say: 'masuluna' }] },
+      ]}
+      en={['And stop them. Indeed they will be asked.']}
+    />
+  </Stage>
+
+The command comes from the present, with the three moves of L3.08. Take تَعِدُ. End it in a sukūn: تَعِدْ. Take off the prefix: عِدْ. L3.08 added a helping alif when the word began with a silent letter, as in ٱنصُرْ. Here the word begins with ع, and the ع has a kasra. Nothing needs a helper, so there is **no ٱ**.
+
+Al-Jadwal says in his notes on 37:24 and 66:6 that the و falls from the command too. In 37:24 he gives the reason: the middle letter has a kasra in the present, so the first letter falls from the command as well.
+
+| Command | Verb | Meaning | In the Quran |
+|---|---|---|---|
+| عِدْ | وَعَدَ | promise! | وَعِدْهُمْ (17:64) |
+| قِفْ | وَقَفَ | stop! | وَقِفُوهُمْ (37:24) |
+| هَبْ | وَهَبَ | give! | وَهَبْ لَنَا (3:8) |
+| دَعْ | وَدَعَ | leave! | وَدَعْ أَذَىٰهُمْ (33:48) |
+| ذَرْ | وَذَرَ | leave! | ذَرْنِى (74:11) |
+| قَعُوا | وَقَعَ | fall! | فَقَعُوا۟ لَهُۥ (15:29) |
+
+The Corpus has 44 Form I commands from the verbs of this lesson. All of them are “you”: 28 for one man and 16 for you all (men). In the verses, a و at the start of the written word is often the little word “and”. In وَعِدْهُمْ you read و + عِدْ + هُمْ, and the root letter is gone. The Quran forms in 37:24 and 15:29 are “you all”.
+
+<Check n={6} q="Make the command (one man) from تَصِلُ, “you reach”." options={['صِلْ', 'ٱصِلْ', 'وَصِلْ']} answer={0} why="End in a sukūn (تَصِلْ), take off تَ, and you have صِلْ. It starts with a letter that has a vowel, so there is no helper." />
+</Block>
+
+<Block id="qi" title="Two weak letters: وَقَى">
+  <Stage label="Protect!">
+    <Tiles
+      label="the root و ق ي loses a letter at each end"
+      items={[
+        { ar: 'يَقِي', en: 'he protects: و gone', type: 'v' },
+        { ar: 'قِ', en: 'protect! (one man): و and ي gone', type: 'v' },
+        { ar: 'قِنَا', en: 'protect us', type: 'v' },
+        { ar: 'قُوا', en: 'protect (you all)', type: 'v' },
+      ]}
+    />
+    <Sentence
+      roles
+      reference="At-Tahrim 66:6 (start)"
+      groups={[
+        { words: [{ ar: 'يَٰٓأَيُّهَا', en: 'O', say: 'ya ayyuha', type: 'p' }, { ar: 'ٱلَّذِينَ', en: 'those who', say: 'alladhina' }, { ar: 'ءَامَنُوا۟', en: 'believed', say: 'amanu', type: 'v' }] },
+        { role: 'fiil', label: 'fiʿl + fāʿil', hint: 'command of وَقَى: the و and the last ي are gone. -ū is “you all”', words: [{ ar: 'قُوٓا۟', en: 'guard', say: 'qu', type: 'v' }] },
+        { role: 'maful', hint: 'the first object', words: [{ ar: 'أَنفُسَكُمْ', en: 'yourselves', say: 'anfusakum' }] },
+        { role: 'matuf', hint: 'joined by “and”', words: [{ ar: 'وَأَهْلِيكُمْ', en: 'and your families', say: 'wa-ahlikum' }] },
+        { role: 'maful', hint: 'the second object', words: [{ ar: 'نَارًا', en: 'a fire', say: 'naran' }] },
+      ]}
+      en={['O you who believe, guard yourselves and your families ', { gap: 'from' }, ' a fire.']}
+    />
+  </Stage>
+
+The root **و ق ي** has a weak letter at **both ends**: و first and ي last. The verb is assimilated and defective at once (L4.13 teaches the last letter).
+
+The first و falls in the present, like any assimilated verb: يَقِي. In the command the last letter falls too, because the command is built on dropping it. Only ق is left, with its kasra: **قِ**. Al-Jadwal calls this a “doubled dropping” in his note on 2:201 (the first letter, then the last). With نَا, “us”, you read قِنَا. With the “you all” ending, the last letter is gone and the ending is ـُوا: قُوا.
+
+Six of the 16 Form I words of this root are commands. Parse 3 below goes through قِنَا in 2:201.
+
+<Check n={7} q="Which letters of the root و ق ي have fallen out of قِنَا?" options={['The و and the ي', 'Only the و', 'Only the ي']} answer={0} why="The و fell in the present and the command. The ي fell because the command is built on dropping the last weak letter. Only ق is left." />
+</Block>
+</Step>
+
+<Step id="stay" label="When it stays" title="Where the و stays, and the verbs that keep it">
+<Block id="past" title="The past keeps the و">
+  <Stage>
+    <Sentence
+      roles
+      reference="An-Naml 27:23 (part)"
+      groups={[
+        { words: [{ ar: 'إِنِّى', en: 'indeed I', say: 'inni', type: 'p' }] },
+        { role: 'fiil', label: 'fiʿl + fāʿil', hint: 'past: the و of وَجَدَ shows. -tu is the doer, “I”', words: [{ ar: 'وَجَدتُّ', en: 'found', say: 'wajadtu', type: 'v' }] },
+        { role: 'maful', hint: 'the object', words: [{ ar: 'ٱمْرَأَةً', en: 'a woman', say: 'imraatan' }] },
+        { role: 'naat', label: 'a sentence as naʿt', hint: 'it describes the woman: “who rules them”', words: [{ ar: 'تَمْلِكُهُمْ', en: 'rules them', say: 'tamlikuhum', type: 'v' }] },
+      ]}
+      en={['Indeed I found a woman ruling them.']}
+    />
+    <Conjugation
+      caption="وَجَدَ, “he found”: past tense (root و ج د)"
+      rows={[
+        { group: 'One person' },
+        { who: 'he', pr: 'هُوَ', ar: 'وَجَدَ', end: 'ـَ', say: 'wajada', hi: true },
+        { who: 'she', pr: 'هِيَ', ar: 'وَجَدَتْ', end: 'ـَتْ', say: 'wajadat' },
+        { who: 'you (one man)', pr: 'أَنْتَ', ar: 'وَجَدْتَ', end: 'ـْتَ', say: 'wajadta' },
+        { who: 'you (one woman)', pr: 'أَنْتِ', ar: 'وَجَدْتِ', end: 'ـْتِ', say: 'wajadti' },
+        { who: 'I', pr: 'أَنَا', ar: 'وَجَدْتُ', end: 'ـْتُ', say: 'wajadtu' },
+        { group: 'Two people' },
+        { who: 'the two (men)', pr: 'هُمَا', ar: 'وَجَدَا', end: 'ـَا', say: 'wajadā' },
+        { who: 'the two (women)', pr: 'هُمَا', ar: 'وَجَدَتَا', end: 'ـَتَا', say: 'wajadatā' },
+        { who: 'you two', pr: 'أَنْتُمَا', ar: 'وَجَدْتُمَا', end: 'ـْتُمَا', say: 'wajadtumā' },
+        { group: 'Many people' },
+        { who: 'they (men)', pr: 'هُمْ', ar: 'وَجَدُوا', end: 'ـُوا', say: 'wajadū' },
+        { who: 'they (women)', pr: 'هُنَّ', ar: 'وَجَدْنَ', end: 'ـْنَ', say: 'wajadna' },
+        { who: 'you all (men)', pr: 'أَنْتُمْ', ar: 'وَجَدْتُمْ', end: 'ـْتُمْ', say: 'wajadtum' },
+        { who: 'you all (women)', pr: 'أَنْتُنَّ', ar: 'وَجَدْتُنَّ', end: 'ـْتُنَّ', say: 'wajadtunna' },
+        { who: 'we', pr: 'نَحْنُ', ar: 'وَجَدْنَا', end: 'ـْنَا', say: 'wajadnā' },
+      ]}
+    />
+  </Stage>
+
+In the past the و is the first letter of the stem, and the verb takes the 13 endings of L3.05. Nothing falls out. In the Corpus all 126 active Form I past words of the verbs of this lesson begin with و.
+
+Of the 38 active past words of وَجَدَ in the Corpus, the forms are: we 15 (وَجَدْنَا, 5:104), he 11 (وَجَدَ, 3:37), they (men) 4 (لَوَجَدُوا۟, 4:64), you all (men) 4 (وَجَدتُّمُوهُمْ, 4:89), the two (men) 2 (فَوَجَدَا, 18:65) and I 2 (وَجَدتُّ, 27:23). The other rows are teaching forms.
+
+<Note kind="know">In the Quran text, وَجَدتُّ is written with a shadda on the ت. The د (the last root letter) and the ت of the ending are said as one sound. The word is still wajad + tu: the root, then “I”.</Note>
+
+<Check n={8} q="Which of these is a past verb?" options={['يَجِدُ', 'وَجَدْتُ', 'جِدْ']} answer={1} why="وَجَدْتُ has the و and the ending -tu, “I”. يَجِدُ is the present and جِدْ is a command." />
+</Block>
+
+<Block id="other" title="The other forms keep it too">
+  <Stage label="In one sentence">
+    <Sentence
+      roles
+      reference="Al-Anam 6:145 (part)"
+      groups={[
+        { words: [{ ar: 'لَّآ', en: 'not', say: 'la', type: 'p' }] },
+        { role: 'fiil', label: 'fiʿl + hidden doer', hint: 'Form I present: the و is gone. The doer is a hidden “I”', words: [{ ar: 'أَجِدُ', en: 'I find', say: 'ajidu', type: 'v' }] },
+        { role: 'tied', hint: '“in what…”: it belongs to أَجِدُ', words: [{ ar: 'فِى', en: 'in', say: 'fi', type: 'p' }, { ar: 'مَآ', en: 'what', say: 'ma' }] },
+        { role: 'fiil', label: 'passive verb', hint: 'Form IV, passive: the و stays', words: [{ ar: 'أُوحِىَ', en: 'was revealed', say: 'uhiya', type: 'v' }] },
+        { role: 'tied', hint: '“to me”', words: [{ ar: 'إِلَىَّ', en: 'to me', say: 'ilayya', type: 'p' }] },
+        { role: 'maful', hint: 'the object of أَجِدُ', words: [{ ar: 'مُحَرَّمًا', en: 'anything forbidden', say: 'muharraman' }] },
+      ]}
+      en={['I do not find, in what was revealed to me, anything forbidden…']}
+    />
+  </Stage>
+
+This verse has two verbs with a root that starts with و. أَجِدُ is from وَجَدَ (Form I): the و fell. أُوحِىَ is from وَحَى (Form IV): the و stays. Al-Jadwal says that أَجِدُ loses its first letter because the verb is “mithāl” with a kasra in the present, and that its starting form is أَوْجِدُ.
+
+The fall of the و belongs to one place: the Form I present, and the command made from it. Everywhere else the و stays.
+
+| Form | Verb (root) | The و | In the Quran |
+|---|---|---|---|
+| II | وَصَّىٰ (و ص ي) | stays | 2:132 |
+| III | وَٰعَدْنَا (و ع د) | stays | 2:51 |
+| IV | أَوْحَىٰ and يُوحِىٓ (و ح ي) | stays: aw in the past, long ū in the present | 53:10 and 42:3 |
+| V | يَتَوَكَّلُونَ (و ك ل) | stays | 8:2 |
+| VI | تَوَاصَوْا۟ (و ص ي) | stays | 103:3 |
+| X | ٱسْتَوْقَدَ (و ق د) | stays | 2:17 |
+| VIII | ٱتَّقَىٰ (و ق ي) | turns into ت | the next step |
+
+In Form IV the present starts with the prefix يُـ, which has a ḍamma. The و after it is read as a long ū: يُوحِىٓ. The Corpus has 72 Form IV verb words from the root و ح ي. In Form VIII the و turns into ت: the next step shows it.
+
+<Note kind="know">This table is a teaching summary. The grammar books and al-Jadwal explain each change case by case (the fall in 66:6, the ت in 84:18). The lesson puts them side by side. L3.12 to L3.18 teach the forms.</Note>
+
+<Check n={9} q="Is the و gone in أُوحِىَ (6:145)?" options={['No, it stays: it is a Form IV verb', 'Yes, like أَجِدُ', 'Yes, it is a command']} answer={0} why="Only the Form I present and the command lose the first و. أُوحِىَ is Form IV and passive, so the و stays." />
+</Block>
+
+<Block id="passive" title="The passive keeps it">
+  <Stage label="Active and passive of وَعَدَ">
+    <Tiles
+      label="the و falls in the active present, and stays in the passive"
+      items={[
+        { ar: 'وَعَدَ', en: 'he promised', type: 'v' },
+        { ar: 'وُعِدَ', en: 'he was promised', type: 'v' },
+        { ar: 'يَعِدُ', en: 'he promises', type: 'v' },
+        { ar: 'يُوعَدُ', en: 'he is promised', type: 'v' },
+      ]}
+    />
+    <Sentence
+      roles
+      reference="Adh-Dhariyat 51:22 (end)"
+      groups={[
+        { role: 'khabarFirst', hint: 'the news, put first: “in the sky”', words: [{ ar: 'وَفِى', en: 'and in', say: 'wa-fi', type: 'p' }, { ar: 'ٱلسَّمَآءِ', en: 'the sky', say: 'as-samai' }] },
+        { role: 'mubtadaLater', words: [{ ar: 'رِزْقُكُمْ', en: 'your provision', say: 'rizqukum' }] },
+        { role: 'matuf', hint: 'joined by “and”: “what…”', words: [{ ar: 'وَمَا', en: 'and what', say: 'wa-ma', type: 'p' }] },
+        { role: 'fiil', label: 'passive verb', hint: 'the wāw is the stand-in for the doer: “you are promised”', words: [{ ar: 'تُوعَدُونَ', en: 'you are promised', say: 'tuaduna', type: 'v' }] },
+      ]}
+      en={['And in the sky is your provision, and what you are promised.']}
+    />
+  </Stage>
+
+L3.09 taught the two passive shapes: **فُعِلَ** for the past and **يُفْعَلُ** for the present. In وُعِدَ the first root letter takes the ḍamma, and the و stays. In يُوعَدُ the prefix يُـ has a ḍamma and the root letter is read as a long ū. No kasra comes after the يُ, so nothing pushes the و out.
+
+Take care with the pair يَعِدُ and يُوعَدُ. One letter و and the vowels tell “he promises” from “he is promised”.
+
+In the Corpus all 49 passive Form I words of these roots show the و: 13 past (such as وُعِدَ, وُلِدَ, وُضِعَ) and 36 present (such as تُوعَدُونَ and يُولَدْ). The verse 112:3 has both: لَمْ يَلِدْ is active, and the و is gone. وَلَمْ يُولَدْ is passive, and the و stays. Exercise 7 uses it.
+
+<Check n={10} q="Which verb is passive?" options={['يَعِدُ', 'يُوعَدُ', 'عِدْ']} answer={1} why="يُوعَدُ has the ḍamma on the prefix and a fatḥa on the middle letter: the shape يُفْعَلُ. The و stays." />
+</Block>
+
+<Block id="keep" title="Verbs that keep the و in the present">
+  <Stage label="Two verbs">
+    <Tiles
+      label="وَجِلَ and وَدَّ keep their و"
+      items={[
+        { ar: 'وَجِلَ', en: 'he was afraid: past', type: 'v' },
+        { ar: 'تَوْجَلْ', en: 'you are afraid (15:53): present', type: 'v' },
+        { ar: 'وَدَّ', en: 'he wished: past', type: 'v' },
+        { ar: 'يَوَدُّ', en: 'he wishes: present', type: 'v' },
+      ]}
+    />
+    <Sentence
+      roles
+      reference="Al-Baqarah 2:96 (part)"
+      groups={[
+        { role: 'fiil', label: 'fiʿl', hint: 'present of وَدَّ: the و stays after the prefix', words: [{ ar: 'يَوَدُّ', en: 'wishes', say: 'yawaddu', type: 'v' }] },
+        { role: 'fail', hint: 'the doer: “one of them”', words: [{ ar: 'أَحَدُهُمْ', en: 'one of them', say: 'ahaduhum' }] },
+        { role: 'maful', label: 'what he wishes', hint: 'a whole clause: “that he be given a thousand years”', words: [{ ar: 'لَوْ', en: 'that', say: 'law', type: 'p' }, { ar: 'يُعَمَّرُ', en: 'be given long life', say: 'yuammaru', type: 'v' }, { ar: 'أَلْفَ', en: 'a thousand', say: 'alfa' }, { ar: 'سَنَةٍ', en: 'years', say: 'sanatin' }] },
+      ]}
+      en={['One of them wishes to be given a thousand years of life.']}
+    />
+  </Stage>
+
+Not every verb that starts with و loses it. Two verbs keep it in the present: **وَجِلَ**, “he was afraid”, and **وَدَّ**, “he wished”.
+
+The Corpus has 244 active Form I present and command words from the verbs of this lesson. 232 lose the و. 12 show a و after the prefix. 10 of these are real keepers: 9 words of the verb وَدَّ (يَوَدُّ and تَوَدُّ, from 2:96 on) and تَوْجَلْ (15:53). The other 2 are not Form I verbs: يُوَآدُّونَ (58:22) is Form III, and يُوصِينَ (4:12) is Form II or IV. The Corpus gives neither a form number, and a count that reads “no number” as Form I includes them.
+
+Al-Jadwal says in his note on 15:52 that وَجِلَ belongs to the same door as فَرِحَ: its present takes a **fatḥa**, تَوْجَلُ, and not a kasra. So no kasra follows the و, and the و stays. This gives the rule from both sides: the و falls between يَ and a kasra, and it stays where no kasra follows.
+
+<Note kind="know">The reason for the keepers is a teaching summary. Al-Jadwal names the door of وَجِلَ. He does not state the rule for وَدَّ, so the lesson does not claim it. The Quran has no command for these two verbs.</Note>
+
+<Check n={11} q="Which present keeps its و?" options={['يَوَدُّ', 'يَجِدُ', 'يَعِدُ']} answer={0} why="يَوَدُّ, from وَدَّ, keeps the و. يَجِدُ and يَعِدُ lose it, because a kasra follows." />
+</Block>
+
+<Block id="ya" title="Verbs that start with ي">
+  <Stage label="The ي stays">
+    <Sentence
+      roles
+      reference="Yusuf 12:87 (part)"
+      groups={[
+        { words: [{ ar: 'إِنَّهُۥ', en: 'indeed', say: 'innahu', type: 'p' }, { ar: 'لَا', en: 'not', say: 'la', type: 'p' }] },
+        { role: 'fiil', label: 'fiʿl', hint: 'present of يَئِسَ: the ي stays after the prefix', words: [{ ar: 'يَا۟يْـَٔسُ', en: 'despairs', say: 'yayasu', type: 'v' }] },
+        { role: 'tied', hint: '“of the mercy of Allah”: it belongs to the verb', words: [{ ar: 'مِن', en: 'of', say: 'min', type: 'p' }, { ar: 'رَّوْحِ', en: 'the mercy', say: 'rawhi' }, { ar: 'ٱللَّهِ', en: 'of Allah', say: 'allahi' }] },
+      ]}
+      en={['Indeed no one despairs of the mercy of Allah…']}
+    />
+  </Stage>
+
+A few roots start with **ي** and not و. The ي does not fall. In the Corpus, 42 verb words from 4 roots start with ي: ي م م, ي ق ن, ي أ س and ي س ر. The only Form I verb among them is يَئِسَ, “he despaired” (root ي أ س). In 12:87 its present is يَيْـَٔسُ, with the ي in place after the prefix. This verb also has a hamza, and L4.15 teaches it.
+
+A dictionary verb with a ي first is يَسَرَ, “it was easy” (root ي س ر). Its present would be يَيْسِرُ, a teaching form with the ي kept. The Quran does not use the Form I verb. It uses Form II, as in يَسَّرْنَا (54:17), “We made easy”, and Form X, as in ٱسْتَيْسَرَ (2:196).
+
+<Note kind="know">Form IV of ي ق ن turns the ي into a long ū after the prefix: يُوقِنُونَ (2:4), “they are certain”. It is the same sound change as يُوحِىٓ.</Note>
+
+<Check n={12} q="In يَيْـَٔسُ (12:87) the root letter ي ..." options={['stays after the prefix', 'falls like the و of يَعِدُ', 'turns into ت']} answer={0} why="The fall of the first letter belongs to the و of Form I verbs. The ي of يَئِسَ stays." />
+</Block>
+</Step>
+
+<Step id="change" label="Other changes" title="Nouns, Form VIII, four mistakes and four verses word by word">
+<Block id="masdar" title="The verbal noun can lose its و">
+  <Stage label="عِلَة and عَلَة">
+    <Tiles
+      label="verbal nouns with the و gone and a ة added"
+      items={[
+        { ar: 'عِدَة', en: 'from وَعَدَ: a teaching form', type: 'x' },
+        { ar: 'صِلَة', en: 'from وَصَلَ: a teaching form', type: 'x' },
+        { ar: 'سِنَة', en: 'from وَسَنَ: drowsiness (2:255)', type: 'n' },
+        { ar: 'دِيَة', en: 'from وَدَى: blood money (4:92)', type: 'n' },
+        { ar: 'سَعَة', en: 'from وَسِعَ: plenty (2:247)', type: 'n' },
+      ]}
+    />
+    <Sentence
+      roles
+      reference="Al-Baqarah 2:247 (part)"
+      groups={[
+        { words: [{ ar: 'وَلَمْ', en: 'and not', say: 'wa-lam', type: 'p' }] },
+        { role: 'fiil', label: 'fiʿl, passive', hint: '“was given”: a passive verb with a hidden stand-in', words: [{ ar: 'يُؤْتَ', en: 'was given', say: 'yuta', type: 'v' }] },
+        { role: 'maful', hint: 'the object: a verbal noun without its و', words: [{ ar: 'سَعَةً', en: 'plenty', say: 'saatan' }] },
+        { role: 'tied', hint: '“of wealth”: it describes سَعَةً', words: [{ ar: 'مِّنَ', en: 'of', say: 'mina', type: 'p' }, { ar: 'ٱلْمَالِ', en: 'the wealth', say: 'al-mali' }] },
+      ]}
+      en={['And he was not given plenty of wealth.']}
+    />
+  </Stage>
+
+The verbal noun of an assimilated verb often keeps its و: وَعْد, “a promise” (49 words in the Corpus), وَزْن, وُسْع. Some verbal nouns lose it and take a ة at the end, and the shape becomes **عِلَة** (a kasra on the first letter) or **عَلَة** (a fatḥa).
+
+Al-Jadwal says this about سِنَة in 2:255: the first letter fell from the verbal noun “as one says عِدَة”. On دِيَة (4:92) he gives the starting form وَدْيَة, with a fatḥa and a sukūn. On سَعَة (2:247) he says the verbal noun follows the present, which drops its first letter, and that the fatḥa shows because the last letter ع is a throat letter. The pattern of the three is عِلَة or عَلَة.
+
+عِدَة and صِلَة are teaching forms. They are Arabic words, but the Quran does not use them for these verbs: its verbal noun for وَعَدَ is وَعْد. عِدَّة with a shadda (65:1) is another word, from the root ع د د. The lesson cannot tell you which verbal noun an assimilated verb uses: learn each word.
+
+<Check n={13} q="Which word is the Quran's verbal noun of وَعَدَ?" options={['وَعْد', 'عِدَة', 'عِدَّة']} answer={0} why="وَعْد is in the Quran 49 times and keeps the و. عِدَة is the teaching shape, and عِدَّة with a shadda comes from ع د د." />
+</Block>
+
+<Block id="viii" title="Form VIII: the و turns into ت">
+  <Stage label="ٱتَّسَقَ">
+    <Tiles
+      label="the و turns into the ت of Form VIII"
+      items={[
+        { ar: 'ٱوْتَسَقَ', en: 'starting form: و + the added ت', type: 'x' },
+        { ar: 'ٱتَّسَقَ', en: 'what you read: a doubled ت', type: 'v' },
+      ]}
+    />
+    <Sentence
+      roles
+      reference="Al-Inshiqaq 84:18"
+      groups={[
+        { role: 'jarMajrur', hint: 'the oath: wa- “by” the moon', words: [{ ar: 'وَٱلْقَمَرِ', en: 'and by the moon', say: 'wal-qamari' }] },
+        { role: 'zarf', hint: 'a time word: “when”', words: [{ ar: 'إِذَا', en: 'when', say: 'idha', type: 'p' }] },
+        { role: 'fiil', label: 'fiʿl + hidden doer', hint: 'Form VIII, root و س ق: the و turned into ت. The doer is a hidden “it”', words: [{ ar: 'ٱتَّسَقَ', en: 'it becomes full', say: 'ittasaqa', type: 'v' }] },
+      ]}
+      en={['And by the moon when it becomes full.']}
+    />
+  </Stage>
+
+L3.14 taught Form VIII: ٱ in front and a ت after the first root letter. When the first root letter is **و**, it turns into ت and joins the added ت. You read a doubled ٱتَّ. Al-Jadwal says in his notes on 2:21 and 84:18 that this change is regular for every verb with a first و or ي, and for its two participles too. The starting form of ٱتَّسَقَ is ٱوْتَسَقَ.
+
+The most common case is ٱتَّقَىٰ, “he was mindful of Allah”, root و ق ي. It has 166 words in the Corpus. Its root has a last ي as well (L4.13). The Corpus has 168 Form VIII verb words from roots that start with و (of 963 Form VIII verb words in all). The other two are ٱتَّسَقَ (84:18) and يَتَّكِـُٔونَ (43:34, root و ك أ).
+
+A teaching form shows the rule. From وَعَدَ the starting form is ٱوْتَعَدَ, and the result is ٱتَّعَدَ. The Quran does not use it.
+
+Nouns show the same change. The participle مُتَّقِين (49 words) is Form VIII. Al-Jadwal also says it for ٱلتُّرَاثَ (89:19), “the inheritance”, and تُقَىٰةً (3:28), “protection”, whose starting forms had و.
+
+<Check n={14} q="What is the root of ٱتَّسَقَ?" options={['و س ق', 'ت س ق', 'س ق ق']} answer={0} why="The first و turned into ت and joined the added ت. The starting form is ٱوْتَسَقَ." />
+</Block>
+
+<Block id="ya-nouns" title="In nouns, a و after a kasra turns into ي">
+  <Stage label="Four nouns">
+    <Tiles
+      label="the starting form had و after a kasra"
+      items={[
+        { ar: 'مِيثَٰق', en: 'a covenant: root و ث ق (25 words)', type: 'n' },
+        { ar: 'مِيعَاد', en: 'an appointed time: root و ع د (6)', type: 'n' },
+        { ar: 'مِيزَان', en: 'a balance: root و ز ن (16)', type: 'n' },
+        { ar: 'مِيرَٰث', en: 'an inheritance: root و ر ث (2)', type: 'n' },
+      ]}
+    />
+  </Stage>
+
+Some nouns that start with م and a kasra have a ي after it, where the root has a و. Al-Jadwal says on مِيثَاق (2:27) and مِيعَاد (3:9) that the starting forms were مِوْثَاق and مِوْعَاد. The و was silent after a kasra, so it turned into ي.
+
+You will meet these words in 4:90 (مِّيثَٰقٌ, in the same verse as يَصِلُونَ), 3:9 (ٱلْمِيعَادَ) and 6:152 (وَٱلْمِيزَانَ). مِيزَان and مِيرَاث have the same shape as the other two. Al-Jadwal's notes that were read here did not give them.
+
+A noun of place or time keeps the و: مَوْعِد, “a promised time or place” (12 words), is the noun L3.21 showed. The ي appears only when the و is silent after a kasra.
+
+So a ي in the middle of a word can hide a root that starts with و. Look at the root in a dictionary: the root of مِيثَاق is و ث ق.
+
+<Check n={15} q="What is the root of مِيعَاد (3:9)?" options={['و ع د', 'ي ع د', 'م ع د']} answer={0} why="The ي turned from a و after the kasra. The root is و ع د, the same as وَعَدَ." />
+</Block>
+
+<Block id="mistake-write" title="Mistake 1: writing the و in the present">
+  <Stage label="Which one is a word?">
+    <Tiles
+      label="يَجِدُ is a word. يَوْجِدُ is the starting form."
+      items={[
+        { ar: 'يَجِدُ', en: 'he finds: correct', type: 'v' },
+        { ar: 'يَوْجِدُ', en: 'not a word: the starting form', type: 'x' },
+      ]}
+    />
+  </Stage>
+
+When you build a present from a root that starts with و, do not keep the و. Say the prefix, then the second root letter: يَ + جِدُ. The و stays in the past, the passive and the other forms. Two verbs are the exception, وَجِلَ and وَدَّ: the present يَوْجَلُ keeps its و.
+
+<Note kind="warn">Do not drop the و everywhere. وَجَدَ, وُجِدَ (12:75) and يُوعَدُونَ keep it.</Note>
+</Block>
+
+<Block id="mistake-root" title="Mistake 2: reading the root from the letters you see">
+  <Stage label="Two verbs, two roots">
+    <Tiles
+      label="يَعِدُ and يَعُدُّ"
+      items={[
+        { ar: 'يَعِدُ', en: 'he promises: root و ع د', type: 'v' },
+        { ar: 'يَعُدُّ', en: 'he counts: root ع د د (تَعُدُّونَ, 22:47)', type: 'v' },
+      ]}
+    />
+  </Stage>
+
+يَعِدُ shows ع and د, so it is easy to give it the root ع د د. That root belongs to يَعُدُّ, “he counts”, which has a ḍamma on the ع and a shadda on the د. To find the root of a present verb that seems to have two letters, add a و to the front and look it up. A kasra on the middle letter is a clue, not proof.
+
+A second trap is the و you see at the start of a written word. In وَعِدْهُمْ (17:64) the و is “and”. The root letter has fallen. Compare وَوَجَدَكَ in 93:7, where the first و is “and” and the second is the root letter.
+</Block>
+
+<Block id="mistake-helper" title="Mistake 3: adding a helper to the command">
+  <Stage label="Which one is a command?">
+    <Tiles
+      label="عِدْ is right. ٱعِدْ has a helper it does not need."
+      items={[
+        { ar: 'عِدْ', en: 'right: promise!', type: 'v' },
+        { ar: 'ٱعِدْ', en: 'wrong: no helper is needed', type: 'x' },
+        { ar: 'ٱنصُرْ', en: 'right: help! This verb needs it', type: 'v' },
+      ]}
+    />
+  </Stage>
+
+L3.08 added the helping alif ٱ when the command began with a silent letter. ٱنصُرْ needs it, because نْصُرْ starts with a sukūn. عِدْ, جِدْ, صِلْ and قِفْ start with a letter that already has a vowel, so they take no helper. In وَقِنَا and وَهَبْ the و you see is “and”.
+</Block>
+
+<Block id="mistake-all" title="Mistake 4: thinking the rule has no exceptions">
+  <Stage label="Count them">
+    <Tiles
+      label="the rule and what it leaves out"
+      items={[
+        { ar: 'يَجِدُ', en: 'the و falls', type: 'v' },
+        { ar: 'يَوَدُّ', en: 'the و stays', type: 'v' },
+        { ar: 'يُوعَدُ', en: 'the و stays (passive)', type: 'v' },
+        { ar: 'ٱتَّقَىٰ', en: 'the و turns into ت', type: 'v' },
+      ]}
+    />
+  </Stage>
+
+It is easy to think that the و simply drops and that is all. It is more than that. The و falls in the Form I active present and command, with a kasra or a fatḥa that replaced it. It stays in the past, the passive and Forms II to VI and X. It stays in وَجِلَ and وَدَّ. It turns into ت in Form VIII and into ي in nouns like مِيثَاق.
+
+Four things to ask of a verb that starts with a و, or seems to be missing one letter: Which form is it? Which tense? Is it active or passive? Does a kasra follow the و?
+</Block>
+
+<Block id="parse-1" title="Word by word: Al-Isra 17:64">
+  <Stage label="Word by word">
+    <Parse
+      reference="Al-Isra 17:64 (part)"
+      words={[
+        { ar: 'وَعِدْهُمْ', en: 'and promise them', type: 'v' },
+        { ar: 'وَمَا', en: 'while not', type: 'p' },
+        { ar: 'يَعِدُهُمُ', en: 'promises them', type: 'v' },
+        { ar: 'ٱلشَّيْطَٰنُ', en: 'the Shaytan' },
+      ]}
+      cards={[
+        { at: 0, ar: 'وَ', role: '“and”, a little word that joins this command to the commands before it', why: 'Little words have no case.', irab: 'الواو عاطفة' },
+        { at: 0, ar: 'عِدْ', role: 'a command: “promise!”', case: 'a verb has no case; it is built', mark: 'a sukūn on the last letter د', why: 'The root is و ع د. The و fell in the present, and it falls in the command too. The word begins with ع, which has a kasra, so there is no helper. The doer is a hidden “you”.', irab: 'فعل أمر مبني على السكون، والفاعل ضمير مستتر تقديره أنت' },
+        { at: 0, ar: 'هُمْ', role: '“them”: the object of the command', why: 'An attached pronoun (L3.02).', irab: 'ضمير متصل في محل نصب مفعول به' },
+        { at: 1, ar: 'وَ', role: '“while”, a little word that begins a state clause', why: 'The next sentence says in what state the command is given.', irab: 'الواو حالية' },
+        { at: 1, ar: 'مَا', role: '“not”, a little word of negation', why: 'Little words have no case.', irab: 'ما نافية' },
+        { at: 2, ar: 'يَعِدُ', role: 'a present-tense verb: “he promises”', case: 'rafʿ: the -u of a present-tense verb', mark: '-u (ḍamma)', why: 'The same root, و ع د. The و has fallen after the prefix يَ, because a kasra follows.', irab: 'فعل مضارع مرفوع وعلامة رفعه الضمة الظاهرة' },
+        { at: 2, ar: 'هُمُ', role: '“them”: the object of the verb', why: 'An attached pronoun. Its ḍamma comes from the word after it.', irab: 'ضمير متصل في محل نصب مفعول به' },
+        { at: 3, role: 'fāʿil: the doer', case: 'nominative (rafʿ)', mark: '-u (ḍamma)', why: 'It says who promises. It comes after the verb and its object.', irab: 'فاعل مرفوع وعلامة رفعه الضمة الظاهرة' },
+        { at: [1, 3], role: 'the whole sentence: it tells how things stand (ḥāl, L4.01)', why: 'Al-Jadwal reads the whole sentence, with إِلَّا غُرُورًا at its end, as a state. It is not read here.', irab: 'وجملة: يعدهم الشيطان في محل نصب حال' },
+      ]}
+    />
+  </Stage>
+
+The verse has the root و ع د twice, in a command and in a present. Both lose the و, and al-Jadwal says so in one note: the first letter falls “in the present and the command”, and the pattern is عِلْ, with a kasra on the middle letter.
+
+Press **Next word** and try each answer first. Before you read a card, say the root, the tense, and why the و is missing.
+
+<Note kind="know">The verse goes on with إِلَّا غُرُورًا, “only deception”. Al-Jadwal reads غُرُورًا as a noun made from the verb in 17:64, and as a second object in 4:120. This lesson stops before it.</Note>
+</Block>
+
+<Block id="parse-2" title="Word by word: Ar-Raad 13:35">
+  <Stage label="Word by word">
+    <Parse
+      reference="Ar-Raad 13:35 (part)"
+      words={[
+        { ar: 'مَّثَلُ', en: 'the likeness of' },
+        { ar: 'ٱلْجَنَّةِ', en: 'the Garden' },
+        { ar: 'ٱلَّتِى', en: 'which' },
+        { ar: 'وُعِدَ', en: 'was promised', type: 'v' },
+        { ar: 'ٱلْمُتَّقُونَ', en: 'the mindful' },
+      ]}
+      cards={[
+        { at: 0, role: 'mubtadaʾ: the sentence starts with it', case: 'nominative (rafʿ)', mark: '-u (ḍamma)', why: 'The sentence is about the likeness of the Garden. The news is left out.', irab: 'مبتدأ مرفوع والخبر محذوف' },
+        { at: 1, role: 'muḍāf ilayh: the second word of the idafah', case: 'genitive (jarr)', mark: '-i (kasra)', why: 'It completes مَّثَلُ: “the likeness of the Garden”.', irab: 'مضاف إليه مجرور وعلامة جره الكسرة' },
+        { at: 2, role: 'a joining word, “which”: it describes the Garden', case: 'a word with a fixed ending; it stands as genitive', mark: 'none', why: 'A sentence after it completes it.', irab: 'اسم موصول مبني في محل جر نعت للجنة' },
+        { at: 3, role: 'a passive past verb: “was promised”', case: 'a verb has no case; it is built', mark: 'a fatḥa on the last letter د', why: 'The root is و ع د. In the passive past the first root letter takes a ḍamma and the و stays (L3.09: فُعِلَ). The doer is not named.', irab: 'فعل ماض مبني للمجهول' },
+        { at: 4, role: 'nāʾib fāʿil: it stands in for the doer', case: 'nominative (rafʿ)', mark: 'the wāw: a plural noun', why: 'It names who was promised. Its root is و ق ي: the first و turned into ت (Form VIII, L3.14). The active participle is مُتَّقِي.', irab: 'نائب فاعل مرفوع وعلامة رفعه الواو' },
+        { at: [2, 4], role: 'the sentence وُعِدَ ٱلْمُتَّقُونَ: it completes ٱلَّتِى', why: 'A word is left out: “which the mindful were promised it”. The sentence has no case of its own.', irab: 'جملة وعد المتقون لا محل لها صلة الموصول' },
+      ]}
+    />
+  </Stage>
+
+Two words in this verse show the two sides of the lesson. وُعِدَ is a passive: the و stays. ٱلْمُتَّقُونَ comes from a verb that starts with و, and its و turned into ت.
+
+The stand-in for the doer, ٱلْمُتَّقُونَ, ends in a wāw because it is a plural noun in the nominative (L2.04). Do not mix that wāw with the root letter.
+</Block>
+
+<Block id="parse-3" title="Word by word: Al-Baqarah 2:201">
+  <Stage label="Word by word">
+    <Parse
+      reference="Al-Baqarah 2:201 (end)"
+      words={[
+        { ar: 'وَقِنَا', en: 'and protect us', type: 'v' },
+        { ar: 'عَذَابَ', en: 'the punishment of' },
+        { ar: 'ٱلنَّارِ', en: 'the Fire' },
+      ]}
+      cards={[
+        { at: 0, ar: 'وَ', role: '“and”, a little word that joins this to the asking before it', why: 'Little words have no case.', irab: 'الواو عاطفة' },
+        { at: 0, ar: 'قِ', role: 'a command: “protect!”', case: 'a verb has no case; it is built', mark: 'built by dropping the last weak letter', why: 'The root is و ق ي. The first و fell in the present (يَقِي) and the command. The last letter ي fell because the command is built on dropping it. Only ق is left, with its kasra. The doer is a hidden “you”.', irab: 'فعل أمر مبني على حذف حرف العلة، والفاعل ضمير مستتر تقديره أنت' },
+        { at: 0, ar: 'نَا', role: '“us”: the object of the command', why: 'An attached pronoun (L3.02).', irab: 'ضمير متصل في محل نصب مفعول به' },
+        { at: 1, role: 'mafʿūl bihi: the second object', case: 'accusative (naṣb)', mark: '-a (fatḥa)', why: 'The verb takes two objects: “protect us the punishment”. English needs “from”, and Arabic does not.', irab: 'مفعول به منصوب وعلامة نصبه الفتحة الظاهرة' },
+        { at: 2, role: 'muḍāf ilayh: the second word of the idafah', case: 'genitive (jarr)', mark: '-i (kasra)', why: 'It completes عَذَابَ: “the punishment of the Fire”.', irab: 'مضاف إليه مجرور وعلامة جره الكسرة' },
+      ]}
+    />
+  </Stage>
+
+Al-Jadwal gives the pattern of قِنَا as عِنَا. The first letter and the last letter of the root are both gone, and the middle letter and the ending remain.
+
+The same verb is in 66:6 as قُوٓا۟, “you all, protect”. The ending -ū replaces the نَا.
+</Block>
+
+<Block id="parse-4" title="Word by word: Al-Hijr 15:53">
+  <Stage label="Word by word">
+    <Parse
+      reference="Al-Hijr 15:53"
+      words={[
+        { ar: 'قَالُوا۟', en: 'they said', type: 'v' },
+        { ar: 'لَا', en: 'do not', type: 'p' },
+        { ar: 'تَوْجَلْ', en: 'be afraid', type: 'v' },
+        { ar: 'إِنَّا', en: 'indeed we', type: 'p' },
+        { ar: 'نُبَشِّرُكَ', en: 'give you good news', type: 'v' },
+        { ar: 'بِغُلَٰمٍ', en: 'of a boy' },
+        { ar: 'عَلِيمٍ', en: 'knowing' },
+      ]}
+      cards={[
+        { at: 0, role: 'a past verb: “they said”', case: 'a verb has no case; it is built', mark: 'a ḍamma on the last root letter ل', why: 'A hollow verb (L4.12). The wāw is the doer, “they”. The alif after it is written but not read.', irab: 'فعل ماض مبني على الضم، والواو ضمير متصل في محل رفع فاعل' },
+        { at: 1, role: 'a little word of banning: “do not”', why: 'Little words have no case. It cuts the verb short (L3.07).', irab: 'لا ناهية جازمة' },
+        { at: 2, role: 'a present verb in jazm: “be afraid”', case: 'jazm (jussive)', mark: 'a sukūn on the last letter ل', why: 'The root is و ج ل. The و stays after the prefix تَ, because the present of this verb takes a fatḥa (تَوْجَلُ) and no kasra follows. Compare تَجِدْ. The doer is a hidden “you”.', irab: 'فعل مضارع مجزوم وعلامة جزمه السكون، والفاعل ضمير مستتر تقديره أنت' },
+        { at: 3, ar: 'إِنَّ', role: 'a little word that begins the sentence: “indeed”', why: 'It makes the next word accusative (L2.10).', irab: 'حرف مشبه بالفعل' },
+        { at: 3, ar: 'نَا', role: 'ism inna: “we”', case: 'accusative: a word with a fixed ending', mark: 'none', why: 'An attached pronoun. It is what the sentence is about.', irab: 'ضمير متصل في محل نصب اسم إن' },
+        { at: 4, role: 'a present verb: “we give you good news”', case: 'rafʿ', mark: '-u (ḍamma)', why: 'Form II (L3.12). The prefix نُـ is “we”. كَ is “you”, the object. The doer is a hidden “we”.', irab: 'فعل مضارع مرفوع، والكاف ضمير مفعول به، والفاعل ضمير مستتر تقديره نحن' },
+        { at: [3, 4], role: 'the sentence نُبَشِّرُكَ: the khabar of inna', why: 'It completes إِنَّا. A sentence has no ending, but it stands in the place of the nominative.', irab: 'وجملة: نبشرك في محل رفع خبر إن' },
+        { at: 5, role: 'a preposition and its noun: “of a boy”. They belong to the verb.', case: 'genitive (jarr) after bi-', mark: '-in (kasra and tanwīn)', why: 'It says what the good news is.', irab: 'جار ومجرور متعلق بنبشر' },
+        { at: 6, role: 'naʿt (adjective) of غُلَٰم', case: 'genitive (jarr), like its noun', mark: '-in (kasra and tanwīn)', why: 'An adjective copies the ending of its noun (L2.09).', irab: 'نعت لغلام مجرور' },
+      ]}
+    />
+  </Stage>
+
+The angels speak to Ibrahim. The word to watch is تَوْجَلْ. It is a present verb in jazm, like لَمْ يَجِدْ in 93:6, and yet its و has not fallen. That is the sign of the keeper group.
+
+Al-Jadwal reads the other form of this verb in 15:52: وَجِلُونَ, “afraid”, an adjective from وَجِلَ, which is of the door of فَرِحَ.
+</Block>
+</Step>
+
+<Step id="practice" label="Practice" title="Practice">
+<Block id="practice-1" title="Practice: find and apply the rule">
+  <Stage label="For each verb, ask">
+    <ol class="lx-card-list">
+      <li><b>Root:</b> do the letters show three, or two?</li>
+      <li><b>Tense:</b> past, present, command, or passive?</li>
+      <li><b>The و:</b> is it there? If not, a kasra followed it.</li>
+      <li><b>Exceptions:</b> a keeper (وَجِلَ, وَدَّ), Form VIII, or a ي?</li>
+    </ol>
+  </Stage>
+
+Work out each answer first. Then open the answer.
+
+<Exercise n={1} q="Say if each root is assimilated. If it is, name the weak first letter. (a) ك ت ب (b) و ج د (c) ن ص ر (d) و ص ل (e) ق و ل (f) و ع د (g) ه د ي (h) و ق ف (i) ي س ر">
+
+- (a) No. A sound root.
+- (b) Yes. The first letter is و.
+- (c) No. A sound root.
+- (d) Yes. The first letter is و.
+- (e) No. The weak letter is in the middle: a hollow root (L4.12).
+- (f) Yes. The first letter is و.
+- (g) No. The weak letter is last: a defective root (L4.13).
+- (h) Yes. The first letter is و.
+- (i) Yes. The first letter is ي. The Form I verb يَسَرَ is not in the Quran, and the ي stays in the present.
+
+</Exercise>
+
+<Exercise n={2} q="Write the present (he) of each verb, and say whether the middle letter takes a kasra or a fatḥa. (a) وَجَدَ (b) وَصَلَ (c) وَعَدَ (d) وَضَعَ (e) وَهَبَ (f) وَلَدَ (g) وَقَفَ">
+
+- (a) يَجِدُ (*yajidu*): kasra.
+- (b) يَصِلُ (*yasilu*): kasra.
+- (c) يَعِدُ (*yaʿidu*): kasra.
+- (d) يَضَعُ (*yaḍaʿu*): fatḥa. The ع is a throat letter.
+- (e) يَهَبُ (*yahabu*): fatḥa. The ه is a throat letter.
+- (f) يَلِدُ (*yalidu*): kasra.
+- (g) يَقِفُ (*yaqifu*): kasra. Al-Jadwal reads the command وَقِفُوهُمْ (37:24) in this way.
+
+In all seven the و is gone from the present.
+
+</Exercise>
+
+<Exercise n={3} q="Say whether each verb is past, present, command or passive, and how you know. (a) وَجَدَ (b) يَجِدُ (c) وَصَلَتْ (d) تَصِلُ (e) عِدْ (f) وُعِدَ (g) يُوعَدُ">
+
+- (a) Past. The و shows and the vowel is a fatḥa.
+- (b) Present. The prefix يَ is there and the و has fallen.
+- (c) Past, “she reached”. The و shows, and the ending -at is “she”.
+- (d) Present. The prefix تَ is there and the و has fallen.
+- (e) Command. No prefix, no و, and no helper.
+- (f) Passive past. The و shows with a ḍamma (فُعِلَ).
+- (g) Passive present. The و shows, as a long ū after the prefix يُـ (يُفْعَلُ).
+
+</Exercise>
+
+<Exercise n={4} q="Read أَلَمْ يَجِدْكَ يَتِيمًا فَـَٔاوَىٰ (Ad-Duha 93:6) and وَوَجَدَكَ ضَآلًّا فَهَدَىٰ (Ad-Duha 93:7). (a) What is the root of both verbs? (b) Why has يَجِدْكَ no و, and وَجَدَكَ has one? (c) What shows that يَجِدْكَ is in jazm? (d) What does أَلَمْ add to the meaning?">
+
+- (a) و ج د, “finding”.
+- (b) يَجِدْكَ is a present. The و falls between يَ and the kasra: يَوْجِدُ becomes يَجِدُ. وَجَدَكَ is a past, and the past keeps the و.
+- (c) The sukūn on the د. It comes after لَمْ (L3.07).
+- (d) The question: “Did He not find you…?”. أَلَمْ is the question أَ and لَمْ, “not”. The next verse, 93:8, has وَجَدَكَ again, so the root is in three verses in a row.
+
+</Exercise>
+
+<Exercise n={5} q="Make the command for one man from each present. (a) تَصِلُ (b) تَقِفُ (c) تَهَبُ (d) تَضَعُ (e) تَلِدُ">
+
+- (a) صِلْ (*sil*)
+- (b) قِفْ (*qif*)
+- (c) هَبْ (*hab*)
+- (d) ضَعْ (*ḍaʿ*)
+- (e) لِدْ (*lid*)
+
+None needs the helper ٱ. Each word starts with a letter that has its own vowel. The Quran has وَقِفُوهُمْ (37:24, “you all”) and وَهَبْ لَنَا (3:8).
+
+</Exercise>
+
+<Exercise n={6} q="Build the present of وَعَدَ (root و ع د, “promise”) for each person. (a) she (b) they (men) (c) you (one woman) (d) I (e) we (f) they (women)">
+
+- (a) تَعِدُ (*taʿidu*)
+- (b) يَعِدُونَ (*yaʿiduna*)
+- (c) تَعِدِينَ (*taʿidina*)
+- (d) أَعِدُ (*aʿidu*)
+- (e) نَعِدُ (*naʿidu*). The Quran has نَعِدُهُمْ (10:46).
+- (f) يَعِدْنَ (*yaʿidna*)
+
+The prefix and ending are the ones of L3.06, and the و is missing in every form.
+
+</Exercise>
+</Block>
+
+<Block id="practice-2" title="Practice: active or passive, find the root, and the exceptions">
+  <Stage label="One verse, two verbs">
+    <Tiles
+      label="the same root in an active verb and a passive verb"
+      items={[
+        { ar: 'يَلِدْ', en: 'active: the و is gone', type: 'v' },
+        { ar: 'يُولَدْ', en: 'passive: the و stays', type: 'v' },
+      ]}
+    />
+  </Stage>
+
+<Exercise n={7} q="In لَمْ يَلِدْ وَلَمْ يُولَدْ (Al-Ikhlas 112:3), which verb is active and which is passive? What is the root? Why does one lose the و and the other keep it?">
+
+The root is و ل د, “giving birth”. **يَلِدْ** is active: “He has not begotten”. The و has fallen between يَ and the kasra, and the jazm after لَمْ shows as a sukūn on the د. **يُولَدْ** is passive: “He was not born”. The prefix has a ḍamma, the و is read as a long ū, and no kasra follows it. A passive verb keeps the و.
+
+</Exercise>
+
+<Exercise n={8} q="Give the root, and say what happened to the first و. (a) يَصِلُونَ (An-Nisa 4:90) (b) وَيَذَرُونَ (Al-Baqarah 2:234) (c) أَجِدُ (Al-Anam 6:145) (d) ٱتَّسَقَ (Al-Inshiqaq 84:18) (e) مِّيثَٰقٌ (An-Nisa 4:90)">
+
+- (a) Root و ص ل. The و fell from the present, because a kasra follows.
+- (b) Root و ذ ر. The و fell. This verb has no past in the Quran: it is used only in the present and the command (al-Jadwal on 2:234).
+- (c) Root و ج د. The و fell. Al-Jadwal gives the starting form أَوْجِدُ.
+- (d) Root و س ق. The و turned into ت and joined the added ت of Form VIII. The starting form is ٱوْتَسَقَ.
+- (e) Root و ث ق. The و turned into ي after the kasra of م. The starting form was مِوْثَاق (al-Jadwal on 2:27).
+
+</Exercise>
+
+<Exercise n={9} q="تَوْجَلْ (Al-Hijr 15:53) keeps its و, but تَجِدْ does not. Why?">
+
+Both are presents in jazm. The present of وَجَدَ takes a **kasra**: يَجِدُ. The و falls between يَ and the kasra. The present of وَجِلَ takes a **fatḥa**: تَوْجَلُ. Al-Jadwal says in his note on 15:52 that وَجِلَ belongs to the door of فَرِحَ. No kasra follows the و, so it stays. يَوَدُّ (2:96) works in the same way.
+
+</Exercise>
+
+<Exercise n={10} q="Read وَقِنَا عَذَابَ ٱلنَّارِ (Al-Baqarah 2:201). Which letters of the root و ق ي are gone from قِنَا, and when did each fall?">
+
+Two letters are gone: the **و** and the **ي**. The و fell in the present, يَقِي, because a kasra follows it, and the fall carries into the command. The ي fell because the command is built on dropping the last weak letter (L4.13). Only ق is left, with its kasra, and نَا is the object “us”. Al-Jadwal says the pattern is عِنَا.
+
+</Exercise>
+
+<Exercise n={11} q="Undo the change and give the starting form and the root. (a) ٱتَّسَقَ (Al-Inshiqaq 84:18) (b) ٱتَّعَدَ (a teaching form) (c) ٱتَّقَوا۟ (Ar-Raad 13:35)">
+
+- (a) Starting form ٱوْتَسَقَ. Root و س ق.
+- (b) Starting form ٱوْتَعَدَ. Root و ع د. The Quran does not use this verb.
+- (c) Starting form ٱوْتَقَىٰ (al-Jadwal, 2:21), then the ending -ū for “they”. Root و ق ي.
+
+In each the و turned into ت and joined the added ت of Form VIII. Look for a doubled ٱتَّ.
+
+</Exercise>
+</Block>
+
+<Block id="done" title="You have finished the lesson">
+  <Stage label="The idea">
+    <Formula
+      label="in the present of وَعَدَ, the و falls away"
+      items={[
+        { kind: 'm', text: 'يَوْعِدُ', small: 'starting form' },
+        { kind: 'k', text: 'the و falls', small: 'between يَ and a kasra' },
+        { kind: 's', text: 'يَعِدُ', small: 'he promises' },
+      ]}
+    />
+  </Stage>
+
+- An **assimilated verb** (مِثَال) has the root letter **و** first. The Quran has 957 such verb words, from 50 roots.
+- In the **present** of Form I the و falls: يَجِدُ, يَعِدُ, يَصِلُ. The same happens with a fatḥa that replaced the kasra: يَهَبُ, يَضَعُ. The reason in al-Jadwal: it stands between يَ and a kasra.
+- In the **command** it falls too, and there is no helper: عِدْ, جِدْ, قِفْ, هَبْ. وَقَى loses both ends: قِنَا, قُوا.
+- The و **stays** in the past, the passive (وُعِدَ, يُوعَدُ) and Forms II to VI and X. It stays in the keepers وَجِلَ (تَوْجَلْ) and وَدَّ (يَوَدُّ).
+- It **changes** in Form VIII (ٱوْتَسَقَ becomes ٱتَّسَقَ, and ٱتَّقَىٰ) and in nouns (مِيثَاق). Some verbal nouns lose it: سِنَة, دِيَة, سَعَة.
+- A verb with a ي first keeps it: يَيْـَٔسُ.
+- Several rules in this lesson are teaching summaries. The sources name each change case by case.
+
+**Next:** [L4.15](/learn/level-4/15-hamzated-verbs/) teaches verbs with a hamza as a root letter. L4.19 is the checkpoint on Surah ad-Duha, where يَجِدْكَ and وَجَدَكَ come back. [L5.16](/learn/level-5/16-sarf-synthesis/) brings all the changes of the verb together.
+
+Earlier lessons you can link back to: [weak verbs, the idea, L4.11](/learn/level-4/11-weak-verbs-intro/), [hollow verbs, L4.12](/learn/level-4/12-hollow-verbs/), [defective verbs, L4.13](/learn/level-4/13-defective-verbs/), [the present tense, L3.06](/learn/level-3/06-present-tense/), [the command, L3.08](/learn/level-3/08-imperative/), [the passive, L3.09](/learn/level-3/09-passive-voice/), [Form VIII, L3.14](/learn/level-3/14-verb-form-viii/).
+
+<Sources
+    items={[
+      { label: 'Quran text', name: 'Tanzil (Uthmani text)', href: 'https://tanzil.net' },
+      { label: 'Verb tags, roots, forms and counts', name: 'Quranic Arabic Corpus', href: 'https://corpus.quran.com' },
+      { label: 'Word-by-word analysis (iʿrāb) and word shapes (ṣarf) of the verses', name: 'Maḥmūd Ṣāfī, al-Jadwal fī Iʿrāb al-Qurʾān wa-Ṣarfihi wa-Bayānihi' },
+      { label: 'Counts of assimilated verbs, the kasra and fatḥa groups, and the keepers', name: 'Quran Learn count from the Quranic Arabic Corpus' },
+      { label: 'English under the verses', name: 'Plain-English meanings by Quran Learn, not a translation' },
+    ]}
+  />
+</Block>
+</Step>
