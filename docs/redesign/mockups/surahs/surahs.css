@@ -21,6 +21,9 @@
   --font:'Geist',system-ui,-apple-system,'Segoe UI',sans-serif;
   --font-ar:'Amiri','Traditional Arabic',serif;                        /* plain Arabic: names */
   --font-q:'Surah Hafs','Amiri','Traditional Arabic',serif;            /* Quranic text: opening words */
+  /* Word types keep one colour each, as on home: noun (ism), verb (fi'l), little word (harf). All at least 7:1 on white and on their tints. */
+  --noun:oklch(41% 0.14 258);--verb:oklch(43% 0.17 25);--little:oklch(40% 0.11 160);
+  --noun-tint:oklch(94% 0.04 258);--verb-tint:oklch(94.5% 0.04 25);--little-tint:oklch(94% 0.045 160);
   --ease:cubic-bezier(.2,.8,.2,1);
   color-scheme:light;
 }
@@ -98,3 +101,12 @@ a{color:inherit}button,input,select{font:inherit;color:inherit}img,svg{display:b
 
 .foot{margin-top:clamp(56px,9vw,120px);padding:28px var(--gutter) 48px;border-top:1px solid var(--edge);color:var(--muted);font-size:.9375rem;display:flex;gap:12px 28px;flex-wrap:wrap}
 .foot a{text-decoration:none;display:inline-flex;align-items:center;min-height:44px;min-width:44px}.foot a:hover{color:var(--ink)}
+
+/* word types: set --c and --t from the type class */
+.noun{--c:var(--noun);--t:var(--noun-tint)}.verb{--c:var(--verb);--t:var(--verb-tint)}.little{--c:var(--little);--t:var(--little-tint)}
+.comp{display:flex;gap:2px;height:6px;border-radius:3px;overflow:hidden;background:var(--soft-2)}
+.comp i{display:block;min-width:2px;background:var(--c)}
+.key{display:flex;flex-wrap:wrap;gap:6px 18px;margin:0;padding:0;list-style:none;font-size:.9375rem;color:var(--text)}
+.key li{display:inline-flex;align-items:center;gap:8px}
+.key li::before{content:"";width:12px;height:12px;border-radius:4px;background:var(--c)}
+.key b{font-weight:500;color:var(--c)}

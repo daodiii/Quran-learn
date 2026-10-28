@@ -159,6 +159,12 @@ window.SURAH_DATA = {
    "num": 1,
    "slug": "001-al-fatiha",
    "href": "/surahs/001-al-fatiha/",
+   "comp": {
+    "noun": 24,
+    "verb": 4,
+    "little": 1,
+    "words": 29
+   },
    "name": "Al-Fatiha",
    "ar": "الفاتحة",
    "verses": 7,
@@ -172,6 +178,12 @@ window.SURAH_DATA = {
    "num": 78,
    "slug": "078-an-naba",
    "href": "/surahs/078-an-naba/",
+   "comp": {
+    "noun": 109,
+    "verb": 40,
+    "little": 53,
+    "words": 202
+   },
    "name": "An-Naba",
    "ar": "النبإ",
    "verses": 40,
@@ -185,6 +197,12 @@ window.SURAH_DATA = {
    "num": 79,
    "slug": "079-an-naziat",
    "href": "/surahs/079-an-naziat/",
+   "comp": {
+    "noun": 106,
+    "verb": 44,
+    "little": 29,
+    "words": 179
+   },
    "name": "An-Naziʿat",
    "ar": "النازعات",
    "verses": 46,
@@ -198,6 +216,12 @@ window.SURAH_DATA = {
    "num": 80,
    "slug": "080-abasa",
    "href": "/surahs/080-abasa/",
+   "comp": {
+    "noun": 71,
+    "verb": 36,
+    "little": 57,
+    "words": 164
+   },
    "name": "ʿAbasa",
    "ar": "عبس",
    "verses": 42,
@@ -211,6 +235,12 @@ window.SURAH_DATA = {
    "num": 81,
    "slug": "081-at-takwir",
    "href": "/surahs/081-at-takwir/",
+   "comp": {
+    "noun": 54,
+    "verb": 24,
+    "little": 57,
+    "words": 135
+   },
    "name": "At-Takwir",
    "ar": "التكوير",
    "verses": 29,
@@ -224,6 +254,12 @@ window.SURAH_DATA = {
    "num": 82,
    "slug": "082-al-infitar",
    "href": "/surahs/082-al-infitar/",
+   "comp": {
+    "noun": 45,
+    "verb": 20,
+    "little": 35,
+    "words": 100
+   },
    "name": "Al-Infitar",
    "ar": "الإنفطار",
    "verses": 19,
@@ -237,6 +273,12 @@ window.SURAH_DATA = {
    "num": 83,
    "slug": "083-al-mutaffifin",
    "href": "/surahs/083-al-mutaffifin/",
+   "comp": {
+    "noun": 85,
+    "verb": 42,
+    "little": 42,
+    "words": 169
+   },
    "name": "Al-Mutaffifin",
    "ar": "المطففين",
    "verses": 36,
@@ -250,6 +292,12 @@ window.SURAH_DATA = {
    "num": 84,
    "slug": "084-al-inshiqaq",
    "href": "/surahs/084-al-inshiqaq/",
+   "comp": {
+    "noun": 55,
+    "verb": 31,
+    "little": 52,
+    "words": 138
+   },
    "name": "Al-Inshiqaq",
    "ar": "الإنشقاق",
    "verses": 25,
@@ -263,6 +311,12 @@ window.SURAH_DATA = {
    "num": 85,
    "slug": "085-al-buruj",
    "href": "/surahs/085-al-buruj/",
+   "comp": {
+    "noun": 77,
+    "verb": 14,
+    "little": 38,
+    "words": 129
+   },
    "name": "Al-Buruj",
    "ar": "البروج",
    "verses": 22,
@@ -276,6 +330,12 @@ window.SURAH_DATA = {
    "num": 86,
    "slug": "086-at-tariq",
    "href": "/surahs/086-at-tariq/",
+   "comp": {
+    "noun": 42,
+    "verb": 10,
+    "little": 25,
+    "words": 77
+   },
    "name": "At-Tariq",
    "ar": "الطارق",
    "verses": 17,
@@ -289,6 +349,12 @@ window.SURAH_DATA = {
    "num": 87,
    "slug": "087-al-ala",
    "href": "/surahs/087-al-ala/",
+   "comp": {
+    "noun": 36,
+    "verb": 26,
+    "little": 30,
+    "words": 92
+   },
    "name": "Al-A'la",
    "ar": "الأعلى",
    "verses": 19,
@@ -302,6 +368,12 @@ window.SURAH_DATA = {
    "num": 88,
    "slug": "088-al-ghashiyah",
    "href": "/surahs/088-al-ghashiyah/",
+   "comp": {
+    "noun": 56,
+    "verb": 17,
+    "little": 33,
+    "words": 106
+   },
    "name": "Al-Ghashiyah",
    "ar": "الغاشية",
    "verses": 26,
@@ -315,6 +387,12 @@ window.SURAH_DATA = {
    "num": 89,
    "slug": "089-al-fajr",
    "href": "/surahs/089-al-fajr/",
+   "comp": {
+    "noun": 78,
+    "verb": 32,
+    "little": 62,
+    "words": 172
+   },
    "name": "Al-Fajr",
    "ar": "الفجر",
    "verses": 30,
@@ -328,6 +406,12 @@ window.SURAH_DATA = {
    "num": 90,
    "slug": "090-al-balad",
    "href": "/surahs/090-al-balad/",
+   "comp": {
+    "noun": 48,
+    "verb": 18,
+    "little": 36,
+    "words": 102
+   },
    "name": "Al-Balad",
    "ar": "البلد",
    "verses": 20,
@@ -341,6 +425,12 @@ window.SURAH_DATA = {
    "num": 91,
    "slug": "091-ash-shams",
    "href": "/surahs/091-ash-shams/",
+   "comp": {
+    "noun": 25,
+    "verb": 19,
+    "little": 33,
+    "words": 77
+   },
    "name": "Ash-Shams",
    "ar": "الشمس",
    "verses": 15,
@@ -354,6 +444,12 @@ window.SURAH_DATA = {
    "num": 92,
    "slug": "092-al-layl",
    "href": "/surahs/092-al-layl/",
+   "comp": {
+    "noun": 32,
+    "verb": 23,
+    "little": 48,
+    "words": 103
+   },
    "name": "Al-Layl",
    "ar": "الليل",
    "verses": 21,
@@ -367,6 +463,12 @@ window.SURAH_DATA = {
    "num": 93,
    "slug": "093-ad-duha",
    "href": "/surahs/093-ad-duha/",
+   "comp": {
+    "noun": 14,
+    "verb": 14,
+    "little": 30,
+    "words": 58
+   },
    "name": "Ad-Duha",
    "ar": "الضحى",
    "verses": 11,
@@ -380,6 +482,12 @@ window.SURAH_DATA = {
    "num": 94,
    "slug": "094-ash-sharh",
    "href": "/surahs/094-ash-sharh/",
+   "comp": {
+    "noun": 13,
+    "verb": 7,
+    "little": 14,
+    "words": 34
+   },
    "name": "Ash-Sharh",
    "ar": "الشرح",
    "verses": 8,
@@ -393,6 +501,12 @@ window.SURAH_DATA = {
    "num": 95,
    "slug": "095-at-tin",
    "href": "/surahs/095-at-tin/",
+   "comp": {
+    "noun": 23,
+    "verb": 6,
+    "little": 15,
+    "words": 44
+   },
    "name": "At-Tin",
    "ar": "التين",
    "verses": 8,
@@ -406,6 +520,12 @@ window.SURAH_DATA = {
    "num": 96,
    "slug": "096-al-alaq",
    "href": "/surahs/096-al-alaq/",
+   "comp": {
+    "noun": 25,
+    "verb": 28,
+    "little": 35,
+    "words": 88
+   },
    "name": "Al-'Alaq",
    "ar": "العلق",
    "verses": 19,
@@ -419,6 +539,12 @@ window.SURAH_DATA = {
    "num": 97,
    "slug": "097-al-qadr",
    "href": "/surahs/097-al-qadr/",
+   "comp": {
+    "noun": 21,
+    "verb": 3,
+    "little": 9,
+    "words": 33
+   },
    "name": "Al-Qadr",
    "ar": "القدر",
    "verses": 5,
@@ -432,6 +558,12 @@ window.SURAH_DATA = {
    "num": 98,
    "slug": "098-al-bayyinah",
    "href": "/surahs/098-al-bayyinah/",
+   "comp": {
+    "noun": 55,
+    "verb": 18,
+    "little": 32,
+    "words": 105
+   },
    "name": "Al-Bayyinah",
    "ar": "البينة",
    "verses": 8,
@@ -445,6 +577,12 @@ window.SURAH_DATA = {
    "num": 99,
    "slug": "099-az-zalzalah",
    "href": "/surahs/099-az-zalzalah/",
+   "comp": {
+    "noun": 20,
+    "verb": 11,
+    "little": 11,
+    "words": 42
+   },
    "name": "Az-Zalzalah",
    "ar": "الزلزلة",
    "verses": 8,
@@ -458,6 +596,12 @@ window.SURAH_DATA = {
    "num": 100,
    "slug": "100-al-adiyat",
    "href": "/surahs/100-al-adiyat/",
+   "comp": {
+    "noun": 27,
+    "verb": 5,
+    "little": 24,
+    "words": 56
+   },
    "name": "Al-'Adiyat",
    "ar": "العاديات",
    "verses": 11,
@@ -471,6 +615,12 @@ window.SURAH_DATA = {
    "num": 101,
    "slug": "101-al-qariah",
    "href": "/surahs/101-al-qariah/",
+   "comp": {
+    "noun": 22,
+    "verb": 6,
+    "little": 17,
+    "words": 45
+   },
    "name": "Al-Qari'ah",
    "ar": "القارعة",
    "verses": 11,
@@ -484,6 +634,12 @@ window.SURAH_DATA = {
    "num": 102,
    "slug": "102-at-takathur",
    "href": "/surahs/102-at-takathur/",
+   "comp": {
+    "noun": 9,
+    "verb": 8,
+    "little": 14,
+    "words": 31
+   },
    "name": "At-Takathur",
    "ar": "التكاثر",
    "verses": 8,
@@ -497,6 +653,12 @@ window.SURAH_DATA = {
    "num": 103,
    "slug": "103-al-asr",
    "href": "/surahs/103-al-asr/",
+   "comp": {
+    "noun": 7,
+    "verb": 4,
+    "little": 10,
+    "words": 21
+   },
    "name": "Al-ʿAsr",
    "ar": "العصر",
    "verses": 3,
@@ -510,6 +672,12 @@ window.SURAH_DATA = {
    "num": 104,
    "slug": "104-al-humazah",
    "href": "/surahs/104-al-humazah/",
+   "comp": {
+    "noun": 21,
+    "verb": 7,
+    "little": 9,
+    "words": 37
+   },
    "name": "Al-Humazah",
    "ar": "الهمزة",
    "verses": 9,
@@ -523,6 +691,12 @@ window.SURAH_DATA = {
    "num": 105,
    "slug": "105-al-fil",
    "href": "/surahs/105-al-fil/",
+   "comp": {
+    "noun": 13,
+    "verb": 6,
+    "little": 9,
+    "words": 28
+   },
    "name": "Al-Fil",
    "ar": "الفيل",
    "verses": 5,
@@ -536,6 +710,12 @@ window.SURAH_DATA = {
    "num": 106,
    "slug": "106-quraysh",
    "href": "/surahs/106-quraysh/",
+   "comp": {
+    "noun": 12,
+    "verb": 3,
+    "little": 7,
+    "words": 22
+   },
    "name": "Quraysh",
    "ar": "قريش",
    "verses": 4,
@@ -549,6 +729,12 @@ window.SURAH_DATA = {
    "num": 107,
    "slug": "107-al-maun",
    "href": "/surahs/107-al-maun/",
+   "comp": {
+    "noun": 16,
+    "verb": 6,
+    "little": 10,
+    "words": 32
+   },
    "name": "Al-Maʿun",
    "ar": "الماعون",
    "verses": 7,
@@ -562,6 +748,12 @@ window.SURAH_DATA = {
    "num": 108,
    "slug": "108-al-kawthar",
    "href": "/surahs/108-al-kawthar/",
+   "comp": {
+    "noun": 6,
+    "verb": 3,
+    "little": 4,
+    "words": 13
+   },
    "name": "Al-Kawthar",
    "ar": "الكوثر",
    "verses": 3,
@@ -575,6 +767,12 @@ window.SURAH_DATA = {
    "num": 109,
    "slug": "109-al-kafirun",
    "href": "/surahs/109-al-kafirun/",
+   "comp": {
+    "noun": 15,
+    "verb": 6,
+    "little": 6,
+    "words": 27
+   },
    "name": "Al-Kafirun",
    "ar": "الكافرون",
    "verses": 6,
@@ -588,6 +786,12 @@ window.SURAH_DATA = {
    "num": 110,
    "slug": "110-an-nasr",
    "href": "/surahs/110-an-nasr/",
+   "comp": {
+    "noun": 11,
+    "verb": 6,
+    "little": 2,
+    "words": 19
+   },
    "name": "An-Nasr",
    "ar": "النصر",
    "verses": 3,
@@ -601,6 +805,12 @@ window.SURAH_DATA = {
    "num": 111,
    "slug": "111-al-masad",
    "href": "/surahs/111-al-masad/",
+   "comp": {
+    "noun": 15,
+    "verb": 5,
+    "little": 3,
+    "words": 23
+   },
    "name": "Al-Masad",
    "ar": "المسد",
    "verses": 5,
@@ -614,6 +824,12 @@ window.SURAH_DATA = {
    "num": 112,
    "slug": "112-al-ikhlas",
    "href": "/surahs/112-al-ikhlas/",
+   "comp": {
+    "noun": 8,
+    "verb": 4,
+    "little": 3,
+    "words": 15
+   },
    "name": "Al-Ikhlas",
    "ar": "الإخلاص",
    "verses": 4,
@@ -627,6 +843,12 @@ window.SURAH_DATA = {
    "num": 113,
    "slug": "113-al-falaq",
    "href": "/surahs/113-al-falaq/",
+   "comp": {
+    "noun": 11,
+    "verb": 5,
+    "little": 7,
+    "words": 23
+   },
    "name": "Al-Falaq",
    "ar": "الفلق",
    "verses": 5,
@@ -640,6 +862,12 @@ window.SURAH_DATA = {
    "num": 114,
    "slug": "114-an-nas",
    "href": "/surahs/114-an-nas/",
+   "comp": {
+    "noun": 14,
+    "verb": 3,
+    "little": 4,
+    "words": 21
+   },
    "name": "An-Nas",
    "ar": "الناس",
    "verses": 6,

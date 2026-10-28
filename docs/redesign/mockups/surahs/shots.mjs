@@ -1,5 +1,5 @@
 // Screenshots and checks the Surahs mockups, headless.
-//   CHR=<path to chrome-headless-shell.exe> node docs/redesign/mockups/surahs/shots.mjs [a b c]
+//   CHR=<path to chrome-headless-shell.exe> node docs/redesign/mockups/surahs/shots.mjs [a b c d e f]
 // Per mockup and size (desktop 1440, phone 390): first screen, full page, a filtered state, the empty state.
 // Also reports horizontal overflow, console errors, small touch targets and an axe scan (needs @axe-core/playwright).
 import { chromium } from '@playwright/test';
@@ -13,8 +13,8 @@ import { readFile } from 'node:fs/promises';
 const here = dirname(fileURLToPath(import.meta.url));
 const out = join(here, 'shots');
 mkdirSync(out, { recursive: true });
-const files = { a: 'a-reading.html', b: 'b-map.html', c: 'c-index.html' };
-const names = process.argv.slice(2).length ? process.argv.slice(2) : ['a', 'b', 'c'];
+const files = { a: 'a-reading.html', b: 'b-map.html', c: 'c-index.html', d: 'd-decode.html', e: 'e-wall.html', f: 'f-path.html' };
+const names = process.argv.slice(2).length ? process.argv.slice(2) : ['a', 'b', 'c', 'd', 'e', 'f'];
 const sizes = [['desk', 1440, 900, 1], ['phone', 390, 844, 2]];
 
 // axe cannot read stylesheets from file://, so serve the worktree root on a free local port for the run.
@@ -42,7 +42,7 @@ for (const n of names) {
     page.on('console', m => { if (m.type() === 'error') errors.push(m.text()); });
     await page.goto(url);
     await page.evaluate(() => document.fonts.ready);
-    await page.waitForTimeout(600);
+    await page.waitForTimeout(1900);
     await page.screenshot({ path: join(out, `${n}.${tag}.png`) });
     await page.screenshot({ path: join(out, `${n}.${tag}.full.png`), fullPage: true });
     const over = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);

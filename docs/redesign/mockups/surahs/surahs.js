@@ -60,10 +60,16 @@
 
   const levelOf = n => D.levels[n - 1];
 
-  function findHTML(placeholder) {
+  // The three word types, with the Arabic term the site teaches.
+  const TYPES = { noun: { label: 'Noun', term: 'ism', ar: 'اسم' }, verb: { label: 'Verb', term: 'fiʿl', ar: 'فعل' }, little: { label: 'Little word', term: 'ḥarf', ar: 'حرف' } };
+  // A thin bar of a surah's makeup. The counts are also in its accessible name, so colour is never the only signal.
+  const compHTML = s => `<span class="comp" role="img" aria-label="${s.comp.noun} nouns, ${s.comp.verb} verbs, ${s.comp.little} little words">${['noun', 'verb', 'little'].map(t => `<i class="${t}" style="flex:${s.comp[t]}"></i>`).join('')}</span>`;
+  const keyHTML = (counts) => `<ul class="key" aria-label="Word types">${Object.entries(TYPES).map(([k, t]) => `<li class="${k}"><b>${t.label}</b>${counts ? ` ${counts[k]}` : ''}</li>`).join('')}</ul>`;
+
+  function findHTML(placeholder, controls) {
     return `<form class="find" role="search" onsubmit="return false">
       <label class="vh" for="q">Filter surahs</label>${ICON.search}
-      <input id="q" type="search" autocomplete="off" placeholder="${esc(placeholder || 'Name, number or Arabic')}" aria-controls="list">
+      <input id="q" type="search" autocomplete="off" placeholder="${esc(placeholder || 'Name, number or Arabic')}" aria-controls="${controls || 'list'}">
       <span class="hint" aria-hidden="true">/</span>
       <button type="button" class="clear" aria-label="Clear filter">${ICON.x}</button>
     </form>`;
@@ -91,5 +97,5 @@
   const link = s => `#${s.slug}`;
   const plural = (n, one, many) => `${n} ${n === 1 ? one : many}`;
 
-  window.SurahUI = { D, S, esc, pad, fmt, norm, words, textMatch, withArabic, ICON, covers, levelOf, findHTML, emptyHTML, wireFind, link, plural };
+  window.SurahUI = { D, S, esc, pad, fmt, norm, words, textMatch, withArabic, ICON, covers, levelOf, TYPES, compHTML, keyHTML, findHTML, emptyHTML, wireFind, link, plural };
 })();

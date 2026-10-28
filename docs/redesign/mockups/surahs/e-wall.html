@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Surahs · E Wall</title>
+<link rel="stylesheet" href="surahs.css">
+<style>
+/* E Wall: all 38 surahs on one poster. Each tile is as big as its surah is long, with the Arabic name as large as the tile allows.
+   Colour the wall by level, or by what the surahs are made of. Hover, focus or tap a tile; the whole tile is the link. */
+:root{
+  --l1:oklch(88% 0.09 205);--l2:oklch(88.5% 0.1 172);--l3:oklch(90% 0.11 138);--l4:oklch(91% 0.12 100);--l5:oklch(89% 0.12 68);
+  --l1b:oklch(70% 0.11 205);--l2b:oklch(70% 0.12 172);--l3b:oklch(72% 0.13 138);--l4b:oklch(73% 0.14 100);--l5b:oklch(72% 0.15 68);
+}
+.top{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:end;gap:16px 48px;padding-block:clamp(18px,3vw,40px) clamp(16px,2vw,26px)}
+.top .h1{max-width:12em}
+.top .dek{max-width:30em}
+.tools{display:flex;flex-wrap:wrap;align-items:center;gap:12px 28px;margin-bottom:16px}
+.tools .find{flex:1 1 280px;max-width:380px}
+.tools .find input{min-height:52px}
+.mode{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.mode .chips-l{margin-right:2px}
+.legend{display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px;margin-left:auto;font-size:.9375rem;color:var(--text)}
+.legend .sw{display:inline-grid;place-items:center;width:28px;height:28px;border-radius:9px;font-size:.8125rem;font-weight:600;background:var(--f);border:1.5px solid var(--b)}
+.legend .sw[data-l="1"]{--f:var(--l1);--b:var(--l1b)}.legend .sw[data-l="2"]{--f:var(--l2);--b:var(--l2b)}.legend .sw[data-l="3"]{--f:var(--l3);--b:var(--l3b)}.legend .sw[data-l="4"]{--f:var(--l4);--b:var(--l4b)}.legend .sw[data-l="5"]{--f:var(--l5);--b:var(--l5b)}
+.legend .lvs{display:flex;gap:4px;align-items:center}
+
+.wall{position:relative;width:100%;height:clamp(540px,calc(100vh - 250px),720px);margin-bottom:6px}
+.t{position:absolute;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden;padding:clamp(8px,1vw,14px);border-radius:clamp(10px,1.4vw,18px);text-decoration:none;color:var(--ink);background:var(--f);box-shadow:inset 0 0 0 1.5px var(--b);transition:transform .25s var(--ease),box-shadow .25s,background-color .3s;will-change:transform}
+.t[data-l="1"]{--f:var(--l1);--b:var(--l1b)}.t[data-l="2"]{--f:var(--l2);--b:var(--l2b)}.t[data-l="3"]{--f:var(--l3);--b:var(--l3b)}.t[data-l="4"]{--f:var(--l4);--b:var(--l4b)}.t[data-l="5"]{--f:var(--l5);--b:var(--l5b)}
+.wallwrap{position:relative}
+.t:hover,.t:focus-visible{transform:translateY(-4px);box-shadow:inset 0 0 0 2px var(--ink),0 14px 30px -10px oklch(25% 0.05 220 / .35);z-index:3}
+.t:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+.t .tn{font-size:.8125rem;font-weight:600;font-variant-numeric:tabular-nums;line-height:1;display:flex;align-items:center;gap:6px}
+.t .tn i{font-style:normal;display:inline-grid;place-items:center;min-width:20px;height:20px;padding:0 5px;border-radius:10px;background:oklch(100% 0 0 / .65);font-weight:600}
+.t .nm{display:block;font-size:var(--fs);line-height:1.45;text-align:center;color:var(--ink);margin-block:auto}
+.t .tf{display:flex;flex-direction:column;gap:1px;line-height:1.25}
+.t .te{font-weight:600;font-size:.9375rem;letter-spacing:-.01em}
+.t .tv{font-size:.8125rem;color:oklch(28% 0.03 230)}
+.t .to{display:none;margin-top:4px;font-size:1.15rem;line-height:1.7;text-align:left;direction:rtl;color:var(--text)}
+.t .comp{display:none;position:absolute;left:0;right:0;bottom:0;height:9px;border-radius:0;gap:0}
+.t .tn,.t .tf,.t .te,.t .tv,.t .to{display:none}
+.t.hn .tn{display:flex}
+.t.he .tf,.t.he .te{display:flex}.t.he .te{display:block}
+.t.hm .tv{display:block}
+.t.ho .to{display:block}
+.t:not(.hn){justify-content:center;padding:4px}
+.t .te{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.t.out{background:var(--soft);box-shadow:inset 0 0 0 1.5px var(--edge);color:oklch(40% 0.02 230)}
+.t.out .nm{color:oklch(40% 0.02 230)}
+.t.out .tn i{background:var(--soft-2)}
+
+/* colour by word types: tiles go plain; a stripe at the foot shows the makeup */
+.by-words .t{background:#fff;box-shadow:inset 0 0 0 1.5px var(--edge)}
+.by-words .t:hover,.by-words .t:focus-visible{box-shadow:inset 0 0 0 2px var(--ink),0 14px 30px -10px oklch(25% 0.05 220 / .35)}
+.by-words .t.out{background:var(--soft)}
+.by-words .t .comp{display:flex}
+.by-words .t.out .comp{opacity:.35}
+.by-words .t .tn i{background:var(--soft)}
+.by-words .t{padding-bottom:calc(clamp(8px,1vw,14px) + 8px)}
+
+.enter .t{animation:pop .55s var(--ease) both;animation-delay:calc(var(--i) * 22ms)}
+@keyframes pop{from{opacity:0;transform:scale(.92)}to{opacity:1;transform:none}}
+
+.cap{display:flex;flex-wrap:wrap;align-items:center;gap:6px 24px;min-height:64px;margin-top:14px;padding:12px 18px;border-radius:18px;background:var(--soft);font-size:.9375rem;color:var(--text)}
+.cap b{font-weight:600;font-size:1.0625rem;color:var(--ink)}
+.cap .ar{font-size:1.5rem;line-height:1.2;color:var(--ink)}
+.cap .key{font-size:.875rem}
+.cap .grow{flex:1 1 auto}
+.after{margin:14px 2px 0}
+.after a{color:var(--ink)}
+
+@media (max-width:900px){
+  .top{grid-template-columns:1fr}
+  .legend{margin-left:0;flex-basis:100%}
+}
+@media (max-width:640px){
+  .top{padding-block:10px 12px;gap:6px}
+  .top .dek{font-size:1rem}
+  .tools{gap:10px;margin-bottom:12px}
+  .tools .find{flex-basis:100%;max-width:none}
+  .mode{width:100%}
+  .mode .chip{flex:1 1 0}
+  .legend{font-size:.875rem}
+  .wall{height:min(210vw,900px)}
+  .t{padding:6px}
+  .cap{display:none}
+}
+</style></head>
+<body>
+<a class="skip" href="#wall">Skip to the wall</a>
+<header class="site">
+  <a class="brand" href="#" aria-label="Quranic Grammar, home"><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="1" y="1" width="30" height="30" rx="9" fill="oklch(18% 0.03 240)"/><path d="M9 19h14" stroke="#fff" stroke-width="2" stroke-linecap="round"/><circle cx="16" cy="12" r="2.6" fill="oklch(79% 0.14 72)"/><circle cx="16" cy="24.5" r="1.6" fill="#fff"/></svg><span>Quranic Grammar</span></a>
+  <nav aria-label="Primary"><a href="#">Learn</a><a href="#" aria-current="page">Surahs</a><a href="#">Resources</a><a href="#">About</a></nav>
+</header>
+
+<main class="wrap" id="main">
+  <section class="top" aria-labelledby="h">
+    <div>
+      <h1 class="h1" id="h"></h1>
+      <p class="dek" id="dek"></p>
+    </div>
+  </section>
+
+  <div class="tools">
+    <div id="tools" class="find-host" style="flex:1 1 280px;max-width:380px;min-width:0"></div>
+    <div class="mode" role="group" aria-label="Colour the wall by"><span class="chips-l" aria-hidden="true">Colour by</span>
+      <button class="chip" type="button" data-mode="level" aria-pressed="true">Level</button>
+      <button class="chip" type="button" data-mode="words" aria-pressed="false">Word types</button>
+    </div>
+    <div class="legend" id="legend"></div>
+  </div>
+
+  <div class="wallwrap">
+    <div class="wall enter" id="wall" role="group" aria-label="Surahs, sized by length"></div>
+    <div id="emptyhost"></div>
+  </div>
+  <p class="count" id="count" aria-live="polite" style="margin-top:12px"></p>
+  <div class="cap" id="cap" aria-live="polite"></div>
+  <p class="after" id="after"></p>
+</main>
+<footer class="foot"><span>Quranic Grammar</span><a href="#">Learn</a><a href="#">Resources</a><a href="#">About and feedback</a></footer>
+
+<script src="surahs-data.js"></script>
+<script src="surahs.js"></script>
+<script>
+const U = SurahUI, D = U.D, S = U.S, esc = U.esc, T = U.TYPES;
+const phone = matchMedia('(max-width:640px)');
+const tot = S.reduce((a, s) => ({ verses: a.verses + s.verses, words: a.words + s.comp.words, noun: a.noun + s.comp.noun, verb: a.verb + s.comp.verb, little: a.little + s.comp.little }), { verses: 0, words: 0, noun: 0, verb: 0, little: 0 });
+
+document.querySelector('#h').textContent = `All ${S.length} surahs on one wall.`;
+document.querySelector('#dek').textContent = `Each tile is as big as its surah is long. Tap one to read it word by word.`;
+document.querySelector('#tools').innerHTML = U.findHTML('Find a surah', 'wall');
+document.querySelector('#emptyhost').innerHTML = U.emptyHTML();
+document.querySelector('#after').innerHTML = `The other ${U.covers.missing} surahs of the Quran are not analysed yet. Short surahs get a minimum size, so they stay readable.`;
+
+const wall = document.querySelector('#wall');
+const FLOOR = 14;
+const items = [...S].sort((a, b) => b.verses - a.verses || a.num - b.num);
+wall.innerHTML = items.map((s, i) => `<a class="t" href="${U.link(s)}" data-slug="${s.slug}" data-l="${s.level}" style="--i:${i}"
+  aria-label="Surah ${s.num}, ${esc(s.name)}, ${U.plural(s.verses, 'verse', 'verses')}, read after level ${s.level}. ${s.comp.noun} nouns, ${s.comp.verb} verbs, ${s.comp.little} little words.">
+  <span class="tn" aria-hidden="true"><i>${s.num}</i></span>
+  <span class="ar nm" lang="ar" dir="rtl">${esc(s.ar)}</span>
+  <span class="tf" aria-hidden="true"><span class="te">${esc(s.name)}</span><span class="tv">${U.plural(s.verses, 'verse', 'verses')} · Level ${s.level}</span><span class="q to" lang="ar" dir="rtl">${esc(s.open)}</span></span>
+  ${U.compHTML(s)}
+</a>`).join('');
+const tiles = [...wall.children];
+
+// Squarified treemap (Bruls et al.): tiles stay close to square so the Arabic names fit.
+function squarify(areas, W, H) {
+  const rects = []; let x = 0, y = 0, w = W, h = H, i = 0;
+  const sum = r => r.reduce((a, b) => a + b, 0);
+  const worst = (r, side) => { const s = sum(r); return Math.max(side * side * Math.max(...r) / (s * s), s * s / (side * side * Math.min(...r))); };
+  while (i < areas.length) {
+    const side = Math.min(w, h); const row = [areas[i]]; let j = i + 1;
+    while (j < areas.length && worst([...row, areas[j]], side) <= worst(row, side)) row.push(areas[j++]);
+    const s = sum(row);
+    if (w >= h) { const cw = s / h; let cy = y; row.forEach((a, k) => { const ch = a / cw; rects.push({ x, y: cy, w: cw, h: ch, i: i + k }); cy += ch; }); x += cw; w -= cw; }
+    else { const rh = s / w; let cx = x; row.forEach((a, k) => { const cw = a / rh; rects.push({ x: cx, y, w: cw, h: rh, i: i + k }); cx += cw; }); y += rh; h -= rh; }
+    i = j;
+  }
+  return rects;
+}
+function layout() {
+  const W = wall.clientWidth, H = wall.clientHeight, gap = phone.matches ? 4 : 6;
+  const weights = items.map(s => s.verses + FLOOR), total = weights.reduce((a, b) => a + b, 0);
+  const rects = squarify(weights.map(v => v / total * W * H), W, H);
+  rects.forEach(r => {
+    const t = tiles[r.i], s = items[r.i];
+    const w = r.w - gap, h = r.h - gap, m = Math.min(w, h);
+    Object.assign(t.style, { left: `${r.x + gap / 2}px`, top: `${r.y + gap / 2}px`, width: `${w}px`, height: `${h}px` });
+    const chars = s.ar.length;
+    // What fits decides what shows: number, English name, verses line, opening words
+    const hn = m >= 62 && w >= 70, he = w >= 104 && h >= 100, hm = w >= 150 && h >= 140, ho = w >= 170 && h >= 200 && !phone.matches;
+    t.classList.toggle('hn', hn); t.classList.toggle('he', he); t.classList.toggle('hm', hm); t.classList.toggle('ho', ho);
+    const reserved = (hn ? 26 : 0) + (he ? 22 : 0) + (hm ? 18 : 0) + (ho ? 48 : 0) + 32;
+    const fs = Math.max(20, Math.min((h - reserved) / 1.55, (w - 16) / (chars * 0.5), phone.matches ? 46 : 78));
+    t.style.setProperty('--fs', fs + 'px');
+  });
+}
+new ResizeObserver(layout).observe(wall);
+layout();
+setTimeout(() => wall.classList.remove('enter'), 1800);
+
+// Colour mode and legend
+let mode = 'level';
+const legend = document.querySelector('#legend');
+function paintLegend() {
+  legend.innerHTML = mode === 'level'
+    ? `<span>Read after level</span><span class="lvs">${D.levels.map(l => `<span class="sw" data-l="${l.n}" title="Level ${l.n}: ${esc(l.title)}">${l.n}</span>`).join('')}</span>`
+    : `${U.keyHTML()}<span class="count">Stripe: each tile’s makeup</span>`;
+}
+document.querySelectorAll('[data-mode]').forEach(b => b.addEventListener('click', () => {
+  mode = b.dataset.mode;
+  document.querySelectorAll('[data-mode]').forEach(o => o.setAttribute('aria-pressed', String(o === b)));
+  document.querySelector('.wallwrap').classList.toggle('by-words', mode === 'words');
+  paintLegend();
+}));
+paintLegend();
+
+// Caption: details of the tile you point at
+const cap = document.querySelector('#cap');
+const by = Object.fromEntries(S.map(s => [s.slug, s]));
+const summary = () => `<span class="grow">${S.length} surahs · ${U.fmt(tot.verses)} verses · ${U.fmt(tot.words)} words. Point at a tile for its details.</span>${U.keyHTML(tot)}`;
+function describe(slug) {
+  const s = by[slug];
+  cap.innerHTML = `<span class="ar" lang="ar" dir="rtl">${esc(s.ar)}</span><b>${esc(s.name)}</b><span>Surah ${s.num} · ${U.plural(s.verses, 'verse', 'verses')} · ${s.rev} · read after Level ${s.level}</span><span class="grow"></span>${U.keyHTML(s.comp)}`;
+}
+cap.innerHTML = summary();
+tiles.forEach(t => {
+  ['mouseenter', 'focus'].forEach(ev => t.addEventListener(ev, () => describe(t.dataset.slug)));
+  ['mouseleave', 'blur'].forEach(ev => t.addEventListener(ev, () => { cap.innerHTML = summary(); }));
+});
+
+// Filter: tiles that do not match go quiet
+const count = document.querySelector('#count'), empty = document.querySelector('#empty');
+function refresh() {
+  const ws = U.words(find.value); let shown = 0;
+  tiles.forEach(t => { const ok = U.textMatch(by[t.dataset.slug], ws, false); t.classList.toggle('out', !ok); t.tabIndex = ok ? 0 : -1; if (ok) shown++; });
+  count.textContent = ws.length ? `${shown} of ${S.length} surahs` : `${S.length} of ${D.quran.surahs} surahs analysed`;
+  empty.hidden = shown !== 0;
+}
+const find = U.wireFind(refresh);
+document.querySelector('#reset').addEventListener('click', () => find.clear());
+refresh();
+</script>
+</body></html>
