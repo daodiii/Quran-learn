@@ -6,14 +6,14 @@ Only the orchestrator edits this file, one accepted lesson at a time. The table 
 
 | Verse | Main example in | Exercise in |
 |---|---|---|
-| 1:1 | L1.03, L1.10 | L1.01, L1.05, L2.07, L2.09 |
+| 1:1 | L1.03, L1.10 | L1.01, L1.05, L2.07, L2.09, L4.17 |
 | 1:2 | L3.20 | L1.03, L1.05 |
 | 1:3 | L3.19 | L1.02 |
 | 1:5 | L3.01, L4.11 | L3.16 |
 | 1:6 | L4.11, L4.13 | L2.09 |
 | 1:7 | L3.02 | L4.11 |
 | 2:2 | L1.01, L3.10 | L2.07, L4.10 |
-| 2:3 | L1.06, L3.02 |  |
+| 2:3 | L1.06, L3.02 | L4.17 |
 | 2:4 | L3.01, L3.11 | L3.09 |
 | 2:5 | L2.06, L2.07 |  |
 | 2:6 | L2.07, L3.05 | L4.10 |
@@ -25,6 +25,8 @@ Only the orchestrator edits this file, one accepted lesson at a time. The table 
 | 2:13 | L4.12, L4.15 |  |
 | 2:15 | L2.01 |  |
 | 2:16 | L3.14 |  |
+| 2:17 |  | L4.17, L4.18 |
+| 2:18 | L4.18 |  |
 | 2:19 | L2.05, L4.08 | L4.15 |
 | 2:20 | L4.15 | L2.10, L4.11 |
 | 2:21 | L2.05 |  |
@@ -57,7 +59,7 @@ Only the orchestrator edits this file, one accepted lesson at a time. The table 
 | 2:58 |  | L3.13 |
 | 2:60 | L3.04, L3.16 | L3.18 |
 | 2:70 | L3.18 |  |
-| 2:74 |  | L4.02 |
+| 2:74 | L4.18 | L4.02 |
 | 2:77 | L3.06 |  |
 | 2:79 | L4.07 | L4.11 |
 | 2:80 | L2.09 |  |
@@ -106,13 +108,14 @@ Only the orchestrator edits this file, one accepted lesson at a time. The table 
 | 2:187 | L3.01 |  |
 | 2:190 | L3.17 |  |
 | 2:191 | L3.17 |  |
-| 2:196 | L3.21 |  |
+| 2:196 | L3.21, L4.16 |  |
 | 2:197 | L4.04 | L1.05 |
 | 2:201 | L4.14 |  |
 | 2:207 | L4.08 |  |
 | 2:211 | L4.15 |  |
+| 2:212 | L4.17 |  |
 | 2:213 |  | L4.15 |
-| 2:216 | L2.02 |  |
+| 2:216 | L2.02, L4.18 |  |
 | 2:217 | L3.20, L4.11 |  |
 | 2:218 | L2.10 |  |
 | 2:221 | L2.02, L3.15 |  |
@@ -123,16 +126,17 @@ Only the orchestrator edits this file, one accepted lesson at a time. The table 
 | 2:229 | L4.12 |  |
 | 2:231 | L4.06 |  |
 | 2:232 | L3.06 |  |
-| 2:234 | L3.05 | L4.14 |
+| 2:234 | L3.05, L4.16 | L4.14 |
 | 2:235 | L2.10 |  |
 | 2:237 | L3.20, L4.13 |  |
 | 2:243 | L2.10 | L4.08 |
 | 2:247 | L4.14 |  |
 | 2:249 | L4.05 |  |
 | 2:253 | L3.10 |  |
-| 2:255 | L1.01 | L4.04 |
+| 2:255 | L1.01 | L4.04, L4.18 |
 | 2:256 | L4.10 | L3.20 |
 | 2:259 | L2.01 |  |
+| 2:260 | L4.16 |  |
 | 2:264 | L2.09 |  |
 | 2:265 | L4.08 |  |
 | 2:268 | L3.03, L4.11 |  |
@@ -178,6 +182,7 @@ Only the orchestrator edits this file, one accepted lesson at a time. The table 
 | 3:109 | L2.02, L2.07 |  |
 | 3:114 | L3.17 |  |
 | 3:118 | L1.07 |  |
+| 3:119 | L4.18 |  |
 | 3:120 | L4.03, L4.04 | L4.11 |
 | 3:121 | L3.21 |  |
 | 3:123 |  | L3.04 |
@@ -189,7 +194,7 @@ Only the orchestrator edits this file, one accepted lesson at a time. The table 
 | 3:139 |  | L3.01, L3.07 |
 | 3:140 | L4.11 |  |
 | 3:142 | L4.09 |  |
-| 3:144 | L4.05 |  |
+| 3:144 | L4.05, L4.17 |  |
 | 3:146 | L3.17 |  |
 | 3:147 | L3.08 |  |
 | 3:150 | L2.01 |  |
@@ -253,6 +258,7 @@ Only the orchestrator edits this file, one accepted lesson at a time. The table 
 | 5:2 | L3.14, L3.18 | L3.15, L3.19 |
 | 5:3 | L3.09 |  |
 | 5:6 | L4.03, L4.04 |  |
+| 5:12 | L4.16 |  |
 | 5:21 | L2.09 |  |
 | 5:23 | L2.04 |  |
 | 5:30 | L4.06 |  |
@@ -261,6 +267,7 @@ Only the orchestrator edits this file, one accepted lesson at a time. The table 
 | 5:48 | L4.13 |  |
 | 5:61 | L4.01 |  |
 | 5:64 | L2.08 |  |
+| 5:73 | L4.16 |  |
 | 5:74 |  | L1.09 |
 | 5:75 | L3.06 |  |
 | 5:115 |  | L4.07 |
@@ -272,7 +279,7 @@ Only the orchestrator edits this file, one accepted lesson at a time. The table 
 | 6:15 | L2.08 |  |
 | 6:18 | L3.01 |  |
 | 6:24 | L3.12, L3.18 |  |
-| 6:26 |  | L2.07 |
+| 6:26 | L4.18 | L2.07 |
 | 6:27 | L2.10 |  |
 | 6:33 |  | L4.06 |
 | 6:54 | L3.04 |  |
@@ -287,7 +294,7 @@ Only the orchestrator edits this file, one accepted lesson at a time. The table 
 | 6:145 | L4.14 |  |
 | 6:149 |  | L4.04 |
 | 6:151 | L4.08 |  |
-| 6:160 | L3.09 |  |
+| 6:160 | L3.09, L4.16 |  |
 | 6:164 | L2.08 |  |
 | 7:3 | L3.14 |  |
 | 7:12 | L3.01 |  |
@@ -308,11 +315,13 @@ Only the orchestrator edits this file, one accepted lesson at a time. The table 
 | 7:143 | L3.16 |  |
 | 7:144 | L2.11 |  |
 | 7:145 | L3.05 |  |
+| 7:149 |  | L4.18 |
 | 7:150 | L3.16 |  |
 | 7:151 |  | L1.04, L3.02 |
 | 7:155 | L3.08 |  |
 | 7:157 | L1.05 | L3.20 |
 | 7:158 | L2.09 |  |
+| 7:160 | L4.16 |  |
 | 7:180 | L2.09 |  |
 | 7:184 | L4.10 |  |
 | 7:189 | L3.05 | L4.07 |
@@ -326,6 +335,7 @@ Only the orchestrator edits this file, one accepted lesson at a time. The table 
 | 8:39 | L4.06 |  |
 | 8:46 |  | L3.18 |
 | 8:47 | L4.08 |  |
+| 8:65 | L4.16 |  |
 | 8:72 | L3.17 |  |
 | 9:2 | L2.08 |  |
 | 9:18 | L4.11, L4.13 |  |
@@ -335,12 +345,14 @@ Only the orchestrator edits this file, one accepted lesson at a time. The table 
 | 9:28 | L4.03 |  |
 | 9:30 | L3.17 | L3.04 |
 | 9:33 | L4.06 |  |
+| 9:36 | L4.16 |  |
 | 9:38 | L3.18 |  |
 | 9:39 | L4.05 |  |
 | 9:40 | L3.01, L3.07 | L4.05 |
 | 9:67 | L2.04 |  |
 | 9:71 | L2.02 |  |
 | 9:80 | L4.03 |  |
+| 9:82 | L4.18 |  |
 | 9:100 | L4.13 |  |
 | 9:101 | L4.07 |  |
 | 9:103 | L4.15 |  |
@@ -366,7 +378,9 @@ Only the orchestrator edits this file, one accepted lesson at a time. The table 
 | 11:3 | L3.16 |  |
 | 11:4 |  | L2.07 |
 | 11:43 | L2.11 |  |
+| 11:44 | L4.17 |  |
 | 11:56 | L2.06 | L4.15 |
+| 11:65 | L4.16 |  |
 | 11:73 | L3.06 | L1.05 |
 | 11:77 |  | L4.02 |
 | 11:102 | L2.02 |  |
@@ -376,12 +390,12 @@ Only the orchestrator edits this file, one accepted lesson at a time. The table 
 | 11:118 | L2.11 |  |
 | 12:1 | L2.09 |  |
 | 12:2 | L2.10, L4.01 |  |
-| 12:4 | L4.02 |  |
+| 12:4 | L4.02 | L4.16 |
 | 12:6 | L3.12 |  |
 | 12:9 |  | L4.13 |
 | 12:16 | L2.05, L4.01 | L2.03 |
 | 12:17 | L3.04 | L4.01 |
-| 12:18 | L2.03 |  |
+| 12:18 | L2.03, L4.18 |  |
 | 12:19 | L2.03 | L4.01 |
 | 12:23 | L4.07 |  |
 | 12:25 |  | L3.16 |
@@ -391,8 +405,10 @@ Only the orchestrator edits this file, one accepted lesson at a time. The table 
 | 12:36 | L2.04 |  |
 | 12:39 | L1.06, L1.08 |  |
 | 12:40 | L4.05 |  |
+| 12:43 | L4.16 |  |
 | 12:45 | L3.14 |  |
-| 12:48 | L3.06 |  |
+| 12:47 |  | L4.16 |
+| 12:48 | L3.06 | L4.16 |
 | 12:60 |  | L4.04 |
 | 12:63 | L4.01 |  |
 | 12:64 | L4.15 |  |
@@ -403,6 +419,7 @@ Only the orchestrator edits this file, one accepted lesson at a time. The table 
 | 12:77 | L4.03 | L4.04 |
 | 12:78 | L2.10 |  |
 | 12:80 | L4.10 |  |
+| 12:82 | L4.18 |  |
 | 12:84 | L3.18 |  |
 | 12:85 | L2.11 |  |
 | 12:87 | L4.14 |  |
@@ -417,7 +434,7 @@ Only the orchestrator edits this file, one accepted lesson at a time. The table 
 | 13:35 | L4.14 |  |
 | 13:42 | L3.06 |  |
 | 13:43 | L2.11 |  |
-| 14:1 | L3.07 |  |
+| 14:1 | L3.07, L4.18 | L4.17 |
 | 14:10 |  | L2.02 |
 | 14:12 | L4.06 |  |
 | 14:22 |  | L4.12 |
@@ -443,6 +460,7 @@ Only the orchestrator edits this file, one accepted lesson at a time. The table 
 | 16:8 |  | L3.06 |
 | 16:22 |  | L3.16 |
 | 16:44 | L3.12 |  |
+| 16:51 | L4.16 |  |
 | 16:58 | L2.11 |  |
 | 16:78 | L3.13 |  |
 | 16:90 | L3.20 | L4.11 |
@@ -457,6 +475,7 @@ Only the orchestrator edits this file, one accepted lesson at a time. The table 
 | 17:11 | L2.05 |  |
 | 17:19 |  | L3.20 |
 | 17:23 | L4.10 | L4.11 |
+| 17:24 | L4.18 |  |
 | 17:29 | L4.12 |  |
 | 17:31 | L4.08 |  |
 | 17:33 | L3.19 |  |
@@ -476,10 +495,12 @@ Only the orchestrator edits this file, one accepted lesson at a time. The table 
 | 18:1 | L3.07 |  |
 | 18:14 | L4.12 | L4.11 |
 | 18:17 | L2.04 |  |
-| 18:18 | L3.19 |  |
-| 18:25 | L3.14, L4.02 |  |
+| 18:18 | L3.19, L4.18 |  |
+| 18:22 | L4.16 |  |
+| 18:25 | L3.14, L4.02 | L4.16 |
 | 18:27 |  | L3.21 |
 | 18:34 | L4.02 |  |
+| 18:42 | L4.18 |  |
 | 18:46 | L2.04 |  |
 | 18:49 | L2.04, L3.09 |  |
 | 18:58 | L3.21 |  |
@@ -492,8 +513,10 @@ Only the orchestrator edits this file, one accepted lesson at a time. The table 
 | 18:82 | L2.11 |  |
 | 18:96 | L2.08 |  |
 | 18:103 |  | L4.02 |
-| 19:4 | L2.05, L4.02 |  |
+| 18:104 | L4.18 |  |
+| 19:4 | L2.05, L4.02 | L4.18 |
 | 19:9 | L4.12 |  |
+| 19:10 | L4.16 |  |
 | 19:27 | L4.13 |  |
 | 19:31 | L2.11 |  |
 | 19:62 | L4.05 |  |
@@ -538,12 +561,17 @@ Only the orchestrator edits this file, one accepted lesson at a time. The table 
 | 23:29 | L3.13 |  |
 | 23:99 |  | L4.04 |
 | 23:100 | L4.12 |  |
+| 24:2 | L4.16 |  |
 | 24:4 | L3.06, L4.07 |  |
-| 24:35 |  | L4.11 |
+| 24:7 |  | L4.16 |
+| 24:35 | L4.18 | L4.11 |
+| 24:39 | L4.18 |  |
 | 24:45 |  | L3.11, L4.13 |
 | 24:48 | L4.13 |  |
 | 24:54 |  | L4.03 |
+| 24:58 | L4.16 |  |
 | 25:13 | L4.13 |  |
+| 25:27 | L4.17 | L4.18 |
 | 25:30 |  | L1.09 |
 | 25:43 | L4.15 |  |
 | 25:48 | L1.07 |  |
@@ -554,14 +582,18 @@ Only the orchestrator edits this file, one accepted lesson at a time. The table 
 | 26:8 | L2.10 |  |
 | 26:19 | L3.05 |  |
 | 26:47 |  | L3.05 |
-| 26:49 |  | L4.06 |
-| 26:78 | L3.02 |  |
+| 26:49 | L3.06 | L4.06 |
+| 26:78 | L3.02, L4.18 |  |
+| 26:79 |  | L4.18 |
+| 26:80 |  | L4.18 |
+| 26:81 |  | L4.18 |
 | 26:105 | L1.04 | L3.05 |
 | 26:192 | L3.12 |  |
 | 26:193 | L3.12 |  |
 | 27:16 | L1.09 |  |
 | 27:23 | L4.14 |  |
 | 27:30 | L1.03 |  |
+| 27:48 |  | L4.16 |
 | 27:60 | L2.02 |  |
 | 27:65 | L3.11 |  |
 | 27:88 | L2.01 |  |
@@ -578,7 +610,7 @@ Only the orchestrator edits this file, one accepted lesson at a time. The table 
 | 28:79 | L4.01 |  |
 | 28:88 | L4.13 |  |
 | 29:6 | L3.17, L4.03 |  |
-| 29:14 | L4.02, L4.05 |  |
+| 29:14 | L4.02, L4.05 | L4.16 |
 | 29:19 | L2.03 |  |
 | 29:40 | L4.15 | L3.13 |
 | 29:44 | L2.03 |  |
@@ -611,9 +643,14 @@ Only the orchestrator edits this file, one accepted lesson at a time. The table 
 | 35:2 |  | L3.11 |
 | 35:19 |  | L4.10 |
 | 35:27 | L3.13 |  |
+| 35:28 | L4.18 |  |
 | 35:43 |  | L3.16 |
+| 36:14 | L4.17 |  |
 | 36:15 |  | L4.05 |
+| 36:16 | L4.17 |  |
+| 36:17 | L4.17 |  |
 | 36:26 | L3.09 | L4.11 |
+| 36:37 | L4.18 |  |
 | 36:52 | L3.03, L3.11 |  |
 | 36:57 |  | L3.02 |
 | 36:69 | L4.10 |  |
@@ -625,19 +662,21 @@ Only the orchestrator edits this file, one accepted lesson at a time. The table 
 | 38:6 | L3.18 |  |
 | 38:7 | L4.04 |  |
 | 38:8 | L4.04 |  |
-| 38:23 |  | L4.02 |
+| 38:23 | L4.16 | L4.02 |
 | 38:31 | L1.01 |  |
 | 38:32 | L3.18 |  |
+| 38:44 |  | L4.19 |
 | 38:71 | L3.19 |  |
 | 38:82 | L4.06 |  |
 | 39:1 |  | L3.20 |
+| 39:6 | L4.16 |  |
 | 39:8 | L4.13 | L4.11 |
 | 39:13 | L4.03 |  |
 | 39:32 | L3.12 |  |
 | 39:33 | L3.12 |  |
 | 39:38 |  | L3.15 |
 | 39:53 |  | L3.07 |
-| 39:73 | L4.01 |  |
+| 39:73 | L4.01 | L4.18 |
 | 40:3 | L3.03 |  |
 | 40:12 | L4.13 |  |
 | 40:34 |  | L4.12 |
@@ -649,6 +688,7 @@ Only the orchestrator edits this file, one accepted lesson at a time. The table 
 | 41:46 | L4.10 |  |
 | 42:19 | L1.09, L1.10 |  |
 | 42:49 | L4.14 |  |
+| 46:15 | L4.16 |  |
 | 47:4 | L4.07 |  |
 | 47:7 | L3.07 | L4.03, L4.04 |
 | 47:12 |  | L3.06 |
@@ -675,7 +715,9 @@ Only the orchestrator edits this file, one accepted lesson at a time. The table 
 | 52:10 | L4.07 |  |
 | 53:2 | L4.10 | L4.11 |
 | 53:37 | L3.12 |  |
+| 53:43 | L4.17 |  |
 | 53:44 | L3.13 |  |
+| 53:45 | L4.17 |  |
 | 53:62 | L3.08 |  |
 | 54:1 | L1.06 |  |
 | 54:12 | L4.02 |  |
@@ -686,7 +728,7 @@ Only the orchestrator edits this file, one accepted lesson at a time. The table 
 | 55:3 | L3.04 |  |
 | 55:4 | L3.04 |  |
 | 55:6 | L1.08 |  |
-| 55:13 | L4.06 | L3.02 |
+| 55:13 | L4.06 | L3.02, L4.17 |
 | 55:14 | L2.07 | L3.05 |
 | 55:46 | L1.08 |  |
 | 55:50 | L2.02 |  |
@@ -695,6 +737,7 @@ Only the orchestrator edits this file, one accepted lesson at a time. The table 
 | 55:68 | L1.08 |  |
 | 55:70 | L1.08 |  |
 | 56:1 | L4.11 |  |
+| 56:7 | L4.16 |  |
 | 56:11 |  | L3.12 |
 | 56:30 | L3.19 |  |
 | 56:33 | L3.19 |  |
@@ -704,6 +747,7 @@ Only the orchestrator edits this file, one accepted lesson at a time. The table 
 | 57:21 |  | L3.17 |
 | 58:1 | L3.04 |  |
 | 58:2 | L4.10 |  |
+| 58:7 | L4.16 |  |
 | 58:11 | L3.21 |  |
 | 59:12 | L3.13 |  |
 | 59:14 | L1.08 |  |
@@ -719,6 +763,7 @@ Only the orchestrator edits this file, one accepted lesson at a time. The table 
 | 63:6 | L4.10 |  |
 | 63:9 |  | L4.04 |
 | 63:10 |  | L4.04 |
+| 64:1 | L4.17, L4.18 |  |
 | 64:11 | L3.03 |  |
 | 64:17 | L4.03 |  |
 | 65:4 | L3.07, L3.11 |  |
@@ -727,9 +772,11 @@ Only the orchestrator edits this file, one accepted lesson at a time. The table 
 | 66:4 | L1.08, L3.18 |  |
 | 66:6 | L4.14 |  |
 | 66:12 | L3.11 |  |
+| 67:3 |  | L4.16 |
 | 67:15 | L4.13 |  |
 | 69:1 | L2.02 |  |
 | 69:2 | L2.02 |  |
+| 69:7 | L4.16 |  |
 | 69:14 | L4.07 |  |
 | 69:22 | L1.07 |  |
 | 70:1 | L4.15 |  |
@@ -744,6 +791,7 @@ Only the orchestrator edits this file, one accepted lesson at a time. The table 
 | 73:11 |  | L4.09 |
 | 74:3 | L3.12 |  |
 | 74:4 | L3.12 |  |
+| 74:30 | L4.16 |  |
 | 74:50 |  | L2.10 |
 | 75:31 | L3.12 |  |
 | 76:1 | L3.07 |  |
@@ -762,22 +810,29 @@ Only the orchestrator edits this file, one accepted lesson at a time. The table 
 | 87:9 | L3.15 |  |
 | 87:10 | L3.15 |  |
 | 87:14 | L4.06 |  |
+| 88:17 | L4.18 |  |
 | 88:22 | L4.10 |  |
+| 89:2 |  | L4.16 |
 | 89:14 |  | L4.06 |
 | 89:21 |  | L4.07 |
 | 90:17 |  | L3.22 |
 | 91:1 | L1.06, L1.07 | L3.02 |
 | 91:2 | L1.06, L1.07 |  |
+| 92:1 |  | L4.19 |
 | 92:5 | L3.14 |  |
 | 92:20 |  | L4.08 |
-| 93:1 |  | L2.07 |
-| 93:3 |  | L4.10 |
-| 93:4 | L1.07 |  |
-| 93:5 | L1.04, L3.06 |  |
-| 93:6 | L4.14 |  |
-| 93:7 | L4.14 |  |
-| 93:9 |  | L4.10 |
-| 94:1 | L1.01 |  |
+| 93:1 | L4.19 | L2.07 |
+| 93:2 | L4.19 |  |
+| 93:3 | L4.19 | L4.10 |
+| 93:4 | L1.07, L4.19 |  |
+| 93:5 | L1.04, L4.19 |  |
+| 93:6 | L4.14, L4.19 |  |
+| 93:7 | L4.14, L4.19 |  |
+| 93:8 | L4.19 |  |
+| 93:9 | L4.19 | L4.10 |
+| 93:10 | L4.19 |  |
+| 93:11 | L4.19 |  |
+| 94:1 | L1.01, L4.18 |  |
 | 94:6 | L1.06 |  |
 | 95:1 | L1.04 | L4.06 |
 | 95:4 | L4.06 |  |
@@ -791,6 +846,7 @@ Only the orchestrator edits this file, one accepted lesson at a time. The table 
 | 96:18 | L1.04 |  |
 | 96:19 | L3.08 |  |
 | 97:1 | L3.13 |  |
+| 97:3 | L4.16 |  |
 | 97:4 | L3.15 |  |
 | 97:5 | L3.21 |  |
 | 98:1 | L4.12 |  |
@@ -802,13 +858,14 @@ Only the orchestrator edits this file, one accepted lesson at a time. The table 
 | 99:8 |  | L4.04 |
 | 100:6 | L2.10 |  |
 | 101:2 | L3.11 |  |
+| 101:5 | L4.18 |  |
 | 102:2 | L3.21 |  |
 | 102:3 | L4.06 |  |
 | 102:4 | L4.06 |  |
 | 103:1 | L2.07, L3.22 | L1.04 |
 | 103:2 | L1.04, L3.22 |  |
 | 103:3 | L3.22, L4.05 | L1.04 |
-| 105:1 | L4.10 | L3.07 |
+| 105:1 | L4.10, L4.18 | L3.07 |
 | 105:2 | L1.02 |  |
 | 106:3 | L1.02 |  |
 | 106:4 | L3.11 |  |
@@ -821,13 +878,13 @@ Only the orchestrator edits this file, one accepted lesson at a time. The table 
 | 109:2 | L1.02, L1.09 | L4.10 |
 | 109:3 | L1.09, L3.01 |  |
 | 109:4 | L3.01 | L1.09 |
-| 109:6 | L2.01 | L1.09 |
+| 109:6 | L2.01 | L1.09, L4.18 |
 | 110:1 | L1.02, L1.07 | L4.04 |
 | 110:3 | L3.03 | L3.14, L3.16 |
 | 111:1 | L1.02 |  |
 | 111:2 | L1.02 |  |
 | 111:3 | L1.02 |  |
-| 111:4 | L1.02 |  |
+| 111:4 | L1.02 | L4.18 |
 | 111:5 |  | L1.02 |
 | 112:1 | L1.11 | L1.01, L1.05, L4.12 |
 | 112:2 | L1.11 |  |
