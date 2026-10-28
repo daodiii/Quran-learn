@@ -16,6 +16,21 @@
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
+/* The Hafs font draws Tanzil's small high rounded zero (U+06DF, as in كَفَرُوا۟) as a dotted circle.
+   This copy of the font leaves U+06DF out, so the browser draws that letter and mark with Amiri Quran. */
+@font-face {
+  font-family: 'Lx Hafs';
+  src: url('/fonts/UthmanicHafs.woff2') format('woff2');
+  font-display: swap;
+  unicode-range: U+0600-06DE, U+06E0-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC;
+}
+@font-face {
+  font-family: 'Lx Amiri Quran';
+  src: url('/fonts/amiri-quran-400.woff2') format('woff2');
+  font-display: swap;
+  unicode-range: U+0600-06FF, U+0750-077F, U+08A0-08FF, U+FB50-FDFF, U+FE70-FEFF;
+}
+
 .lx {
   --lx-bg: oklch(98.6% 0.006 215);
   --lx-surface: oklch(99.7% 0.003 215);
@@ -42,7 +57,7 @@
   --lx-rem: oklch(50% 0.15 305); /* white label on it: 6.2:1 */
   --lx-rem-ink: oklch(99% 0.01 305);
   --lx-r: 14px;
-  --lx-font: 'Geist', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --lx-font: 'Geist', 'Lx Hafs', 'Lx Amiri Quran', system-ui, -apple-system, 'Segoe UI', sans-serif;
 
   background: var(--lx-bg);
   color: var(--lx-text);
@@ -106,7 +121,7 @@ html:has([data-lx]) {
 .lx .ar,
 .lx .ar-inline,
 .lx .lx-ar {
-  font-family: var(--font-arabic, 'KFGQPC Hafs Uthmani', 'Amiri', 'Traditional Arabic', serif);
+  font-family: 'Lx Hafs', 'Lx Amiri Quran', 'Amiri', serif;
   letter-spacing: 0;
   font-weight: 400;
 }
@@ -976,7 +991,7 @@ html:has([data-lx]) {
 }
 .lx-pcard-ar {
   margin: 0 0 0.2rem;
-  font-family: var(--font-arabic, 'KFGQPC Hafs Uthmani', 'Amiri', serif);
+  font-family: 'Lx Hafs', 'Lx Amiri Quran', 'Amiri', serif;
   font-size: 1.9rem;
   line-height: 1.7;
   text-align: center;
