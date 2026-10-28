@@ -52,6 +52,7 @@ You do not touch the template (`src/components/lesson/`, `src/styles/`, `src/scr
 - **`template: steps` in the frontmatter.** L4.01 left it out, so the site served it in the old layout and the ledger skipped it. Check it before you report.
 - **No work files in the lessons folder.** A draft such as `02-tamyiz.new.mdx` would be built as a lesson. Draft in place, or in your scratchpad.
 - **Empty table header cells.** `| | A | B |` fails the accessibility check. Give the first header a word.
+- **Keep bold short.** The template does not let `<b>` or `**bold**` wrap inside a paragraph or list item (`white-space: nowrap`), so a bold phrase wider than a phone screen (about 25 characters of English) runs off the edge and `qa.mjs` reports `WIDE 390px`. Bold the term, not the sentence.
 - **Roles.** `Sentence` has no `tamyiz` or `mustathna` role. Use `maful` with a `label` override, as L2.05 and L4.02 do.
 - **Tiles and tables with verse fragments** are not read by `check-verses.py`. Copy each fragment from `verse.py` output, not from memory.
 - Finished Level 4 lessons you can read for the same kind of topic: `level-4/01-hal-clauses.mdx` and `02-tamyiz.mdx` (a role in the sentence), `04-conditional-particles.mdx` (a list of particles with Corpus counts), `05-exception-particles.mdx`.
