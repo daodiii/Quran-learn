@@ -1,803 +1,982 @@
 ---
-title: "Subjunctive & Jussive Moods (al-Mansub & al-Majzum)"
+title: "Subjunctive and Jussive"
+kicker: "The endings of the present tense"
+titleArabic: "الْمَنْصُوبُ وَالْمَجْزُومُ مِنَ الْأَفْعَالِ"
 level: 3
 order: 7
-description: "Master the three moods of present tense verbs: indicative, subjunctive, and jussive — and the particles that trigger each mood change."
+template: steps
+description: "Learn how little words such as لَن, أَنْ and لَمْ change the end of a present-tense verb. See the -a of naṣb, the sukūn of jazm, the lost nūn, the hidden -a and the dropped weak letter, and go through four verses word by word."
 draft: false
 ---
 
-import ArabicExample from '../../../components/mdx/ArabicExample.astro';
-import GrammarTable from '../../../components/mdx/GrammarTable.astro';
-import VerbConjugation from '../../../components/mdx/VerbConjugation.astro';
-import Callout from '../../../components/mdx/Callout.astro';
-import ExerciseBox from '../../../components/mdx/ExerciseBox.astro';
-
-## Introduction
-
-One of the most powerful verses in the Quran — the entire creed of Allah's oneness — hinges on a subtle vowel change that most beginners miss entirely:
-
-<ArabicExample
-  arabic="لَمْ يَلِدْ وَلَمْ يُولَدْ"
-  transliteration="lam yalid wa-lam yūlad"
-  translation="He neither begets nor is He begotten"
-  reference="Al-Ikhlas 112:3"
-  highlight="يَلِدْ,يُولَدْ"
-  words={[
-    { ar: "لَمْ", tr: "lam", en: "did not" },
-    { ar: "يَلِدْ", tr: "yalid", en: "beget" },
-    { ar: "وَلَمْ", tr: "wa-lam", en: "and did not" },
-    { ar: "يُولَدْ", tr: "yūlad", en: "is begotten" },
-  ]}
-/>
-
-Look at the verb **يَلِدْ** (yalid). If you learned present tense in the previous lesson, you might expect it to end with a damma: **يَلِدُ** (yalidu) "he begets." But here it ends with **sukun** — no vowel at all. Why? Because the particle **لَمْ** (lam) before it CHANGED the mood of the verb from indicative to **jussive**. That tiny vowel change — from damma to sukun — signals that the action is negated in the past: "He did NOT beget."
-
-This is the concept of **verb moods** in Arabic. Present tense verbs don't just have ONE form. They have THREE forms — three "gears" — and specific particles shift the verb from one gear to another. Think of it like a car: first gear is the default (indicative), second gear is for purpose and intention (subjunctive), and third gear is for negation and conditions (jussive). The gear you're in changes how the verb ENDS.
-
-**In this lesson, you will:**
-- Understand the three moods of present tense: indicative, subjunctive, and jussive
-- Learn how mood markers differ for regular verbs, the five special verbs, and weak verbs
-- Master the five subjunctive particles (an, lan, kay, li, hatta)
-- Master the four jussive particles (lam, la an-nahiyah, lam al-amr, conditional particles)
-- Distinguish confusing particle pairs that look alike but trigger different moods
-- Analyze Surah Al-Ikhlas 112:3-4 as a worked example
-
-**Connection to previous learning:** In [L3.06 Present Tense Conjugation](/learn/level-3/06-present-tense/), you learned the 14-person present tense paradigm and noticed that the default ending is damma (ـُ). That damma marks the indicative mood — the "default gear." You also learned the four prefixes (anayta: أَنَيْتَ). Everything you learned there still applies. This lesson adds two more moods that CHANGE that final vowel when specific particles appear.
-
-**Forward connection:** This lesson is essential for [L4.03 Conditional Sentences](/learn/level-4/03-conditional-sentences/), where conditional particles put BOTH verbs in jussive mood. It also prepares you for [L4.10 Negation Particles](/learn/level-4/10-negation-particles/), where you'll see how different negation words (لَمْ, لَنْ, لَا, مَا) interact with different moods. Without understanding moods, those lessons cannot function.
-
-<Callout type="tip" title="Why This Matters in Your Quran Reading">
-لَمْ appears over 1,100 times in the Quran, and every time it triggers the jussive mood. لَنْ appears 130+ times, triggering the subjunctive. These tiny particles change verb endings — and missing that change means missing the meaning. Moods are how the Quran expresses negation, purpose, and divine commands.
-</Callout>
-
-<Callout type="note" title="Quick Win">
-In Surah Al-Ikhlas: لَمْ يَلِدْ وَلَمْ يُولَدْ — both verbs end with sukun (no vowel) because لَمْ triggers jussive mood. Without لَمْ, they'd be يَلِدُ and يُولَدُ with damma. You can now hear the mood change.
-</Callout>
-
-<Callout type="note" title="Plain-English key">
-Quick, everyday translations of the grammar terms in this lesson — glance back here whenever one trips you up:
-
-- **Present tense** (al-muḍāriʿ / الْمُضَارِع) — the "does / is doing" verb: an ongoing or future action.
-- **Subjunctive** (naṣb / مَنْصُوب) — the present verb after words like "to / so that", ending in a fatha (-a).
-- **Jussive** (jazm / مَجْزُوم) — the present verb after "not / if"-type words, ending in a sukun (no vowel).
-</Callout>
-
-## The Three Moods of Present Tense
-
-**Plain English first:** In English, verbs have moods too, but we barely notice them. "He writes" is indicative (stating a fact). "I suggest that he write" is subjunctive (purpose or desire — notice "write," not "writes"). "Write!" is imperative (a command). Arabic has similar moods for present tense, and they show up as changes to the LAST vowel on the verb.
-
-Think of it like traffic lights. The **indicative** is the green light — the verb just proceeds normally with its default damma ending. The **subjunctive** is the yellow light — certain particles signal a shift to fatha, indicating purpose, desire, or future negation. The **jussive** is the red light — particles signal a full stop to sukun, indicating negation of the past or prohibition.
-
-**Arabic terminology:** The three moods are called:
-- [Indicative](/resources/glossary/#marfu) (marfu' / مَرْفُوعٌ) — literally "raised," the default mood
-- [Subjunctive](/resources/glossary/#mansub) (mansub / مَنْصُوبٌ) — literally "set up" or "erected," triggered by specific particles
-- [Jussive](/resources/glossary/#majzum) (majzum / مَجْزُومٌ) — literally "cut off," triggered by different particles
-
-### The Three Moods at a Glance
-
-Here is the same verb in all three moods. Notice how ONLY the final vowel changes:
-
-<GrammarTable
-  caption="Three Moods of يَكْتُبُ (yaktubu — he writes)"
-  headers={["Mood", "Arabic Name", "Marker", "Example", "Context"]}
-  rows={[
-    ["Indicative (default)", "مَرْفُوعٌ", "Damma (ـُ)", "يَكْتُبُ", "He writes / is writing"],
-    ["Subjunctive", "مَنْصُوبٌ", "Fatha (ـَ)", "يَكْتُبَ", "that he write / he will not write"],
-    ["Jussive", "مَجْزُومٌ", "Sukun (ـْ)", "يَكْتُبْ", "he did not write / let him write"],
-  ]}
-/>
-
-<Callout type="rule" title="The One-Letter Difference">
-For regular verbs (singular forms), the ONLY difference between the three moods is the final vowel:
-
-- **يَكْتُبُ** (yaktubu) — damma = indicative
-- **يَكْتُبَ** (yaktuba) — fatha = subjunctive
-- **يَكْتُبْ** (yaktub) — sukun = jussive
-
-One letter. One vowel. That's the entire mood system for regular verbs. When you hear or read a present tense verb, check its ending and check what particle came before it — that tells you the mood.
-</Callout>
-
-## Mood Markers for Different Verb Types
-
-The one-vowel change works perfectly for regular singular verbs. But Arabic has other verb types where mood shows up differently. There are three categories you need to know.
-
-### Category 1: Regular Verbs (Sound Singular Forms)
-
-These are the straightforward cases — singular forms that end in a consonant + short vowel. The mood simply changes the final vowel:
-
-<GrammarTable
-  caption="Regular Verbs: Mood Changes on Final Vowel"
-  headers={["Person", "Indicative (ـُ)", "Subjunctive (ـَ)", "Jussive (ـْ)"]}
-  rows={[
-    ["هُوَ (he)", "يَكْتُبُ", "يَكْتُبَ", "يَكْتُبْ"],
-    ["هِيَ (she)", "تَكْتُبُ", "تَكْتُبَ", "تَكْتُبْ"],
-    ["أَنْتَ (you m)", "تَكْتُبُ", "تَكْتُبَ", "تَكْتُبْ"],
-    ["أَنَا (I)", "أَكْتُبُ", "أَكْتُبَ", "أَكْتُبْ"],
-    ["نَحْنُ (we)", "نَكْتُبُ", "نَكْتُبَ", "نَكْتُبْ"],
-    ["هُنَّ (they f)", "يَكْتُبْنَ", "يَكْتُبْنَ", "يَكْتُبْنَ"],
-    ["أَنْتُنَّ (you f pl)", "تَكْتُبْنَ", "تَكْتُبْنَ", "تَكْتُبْنَ"],
-  ]}
-/>
-
-<Callout type="tip" title="Feminine Plural Is Mood-Proof">
-Notice that **يَكْتُبْنَ** and **تَكْتُبْنَ** (the feminine plural forms) look IDENTICAL in all three moods. The sukun is already there on the third root letter, so mood cannot change it further. These forms are called **mabniyy** (invariable for mood). You can only tell their mood from context and particles.
-</Callout>
-
-### Category 2: The Five Special Verbs (al-Af'al al-Khamsah)
-
-Remember from present tense that five conjugation forms end with the letter **nun** (نَ)? These are the dual forms and the masculine plural / feminine singular "you" forms:
-
-<GrammarTable
-  caption="The Five Special Verbs (الأَفْعَالُ الخَمْسَة)"
-  headers={["Person", "Indicative", "Subjunctive", "Jussive"]}
-  rows={[
-    ["هُمَا (they two m)", "يَكْتُبَانِ", "يَكْتُبَا", "يَكْتُبَا"],
-    ["هُمَا (they two f)", "تَكْتُبَانِ", "تَكْتُبَا", "تَكْتُبَا"],
-    ["هُمْ (they m)", "يَكْتُبُونَ", "يَكْتُبُوا", "يَكْتُبُوا"],
-    ["أَنْتُمَا (you two)", "تَكْتُبَانِ", "تَكْتُبَا", "تَكْتُبَا"],
-    ["أَنْتُمْ (you m pl)", "تَكْتُبُونَ", "تَكْتُبُوا", "تَكْتُبُوا"],
-    ["أَنْتِ (you f sg)", "تَكْتُبِينَ", "تَكْتُبِي", "تَكْتُبِي"],
-  ]}
-/>
-
-<Callout type="rule" title="The Five Special Verbs: Delete the Nun">
-For the five special verbs, mood is marked by the **presence or absence of the nun** (نَ):
-
-- **Indicative:** Nun is PRESENT — يَكْتُبُونَ, يَكْتُبَانِ, تَكْتُبِينَ
-- **Subjunctive:** Nun is DELETED — يَكْتُبُوا, يَكْتُبَا, تَكْتُبِي
-- **Jussive:** Nun is DELETED — يَكْتُبُوا, يَكْتُبَا, تَكْتُبِي
-
-Both subjunctive and jussive look THE SAME for these verbs — both delete the nun. Only context and the particle before the verb tells you which mood it is.
-</Callout>
-
-This is extremely important for reading the Quran. When you see a present tense verb like **تَنَالُوا** instead of **تَنَالُونَ**, you know a mood-changing particle must be nearby. The missing nun is your clue.
-
-### Category 3: Verbs with Weak Final Letters (Defective Verbs)
-
-Some verbs end in a weak letter — alif (ا), waw (و), or ya (ي). These behave differently in jussive mood:
-
-<GrammarTable
-  caption="Weak-Final Verbs: Jussive Drops the Weak Letter"
-  headers={["Verb", "Root", "Indicative", "Subjunctive", "Jussive"]}
-  rows={[
-    ["to walk", "م-ش-ي", "يَمْشِي", "يَمْشِيَ", "يَمْشِ"],
-    ["to call/supplicate", "د-ع-و", "يَدْعُو", "يَدْعُوَ", "يَدْعُ"],
-    ["to fear", "خ-ش-ي", "يَخْشَى", "يَخْشَى", "يَخْشَ"],
-  ]}
-/>
-
-In jussive mood, the weak final letter DROPS entirely: **يَمْشِي** becomes **يَمْشِ**, **يَدْعُو** becomes **يَدْعُ**, and **يَخْشَى** becomes **يَخْشَ**. This shortening is a key recognition feature in the Quran.
-
-### Complete Mood Table: All 13 Persons
-
-Here is the full paradigm showing all persons across all three moods, using the root **ك-ت-ب**:
-
-<VerbConjugation
-  root="ك ت ب"
-  form="Form I"
-  pattern="يَفْعُلُ — Three Moods"
-  headers={["Person", "Indicative (مَرْفُوعٌ)", "Subjunctive (مَنْصُوبٌ)", "Jussive (مَجْزُومٌ)"]}
-  rows={[
-    ["هُوَ (he)", "يَكْتُبُ", "يَكْتُبَ", "يَكْتُبْ"],
-    ["هِيَ (she)", "تَكْتُبُ", "تَكْتُبَ", "تَكْتُبْ"],
-    ["هُمَا (they two m)", "يَكْتُبَانِ", "يَكْتُبَا", "يَكْتُبَا"],
-    ["هُمَا (they two f)", "تَكْتُبَانِ", "تَكْتُبَا", "تَكْتُبَا"],
-    ["هُمْ (they m)", "يَكْتُبُونَ", "يَكْتُبُوا", "يَكْتُبُوا"],
-    ["هُنَّ (they f)", "يَكْتُبْنَ", "يَكْتُبْنَ", "يَكْتُبْنَ"],
-    ["أَنْتَ (you m)", "تَكْتُبُ", "تَكْتُبَ", "تَكْتُبْ"],
-    ["أَنْتِ (you f)", "تَكْتُبِينَ", "تَكْتُبِي", "تَكْتُبِي"],
-    ["أَنْتُمَا (you two)", "تَكْتُبَانِ", "تَكْتُبَا", "تَكْتُبَا"],
-    ["أَنْتُمْ (you m pl)", "تَكْتُبُونَ", "تَكْتُبُوا", "تَكْتُبُوا"],
-    ["أَنْتُنَّ (you f pl)", "تَكْتُبْنَ", "تَكْتُبْنَ", "تَكْتُبْنَ"],
-    ["أَنَا (I)", "أَكْتُبُ", "أَكْتُبَ", "أَكْتُبْ"],
-    ["نَحْنُ (we)", "نَكْتُبُ", "نَكْتُبَ", "نَكْتُبْ"],
-  ]}
-/>
-
-## Part 1: Subjunctive Particles (Huruf an-Nasb)
-
-**Plain English first:** Certain particles act like "switches" that flip the verb from its default indicative mood into the subjunctive. Think of these particles as road signs — when the verb sees one of these signs ahead of it, it knows to shift down to fatha. There are five main subjunctive particles, and they all relate to PURPOSE, INTENTION, or FUTURE meaning.
-
-**Arabic terminology:** These are called [huruf an-nasb](/resources/glossary/#nasb) (huruf an-nasb / حُرُوفُ ٱلنَّصْبِ) — "particles of subjunctive."
-
-### 1. أَنْ (an) — "that / to"
-
-The most common subjunctive particle. It connects a main clause to a purpose or desired action, similar to English "to" in "I want TO learn."
-
-<ArabicExample
-  arabic="يُرِيدُ ٱللَّهُ أَنْ يُخَفِّفَ عَنكُمْ"
-  transliteration="yurīdu llāhu an yukhaffifa ʿankum"
-  translation="Allah wants to lighten [the burden] for you"
-  reference="An-Nisa 4:28"
-  highlight="أَنْ,يُخَفِّفَ"
-  words={[
-    { ar: "يُرِيدُ", tr: "yurīdu", en: "wants" },
-    { ar: "ٱللَّهُ", tr: "llāhu", en: "Allah" },
-    { ar: "أَنْ", tr: "an", en: "to" },
-    { ar: "يُخَفِّفَ", tr: "yukhaffifa", en: "lighten" },
-    { ar: "عَنكُمْ", tr: "ʿankum", en: "for you" },
-  ]}
-/>
-
-Look at **يُخَفِّفَ** — it ends with **fatha** (ـَ), not damma. That's the subjunctive mood triggered by **أَنْ**. Compare with the main verb **يُرِيدُ** which keeps its indicative damma because no particle is affecting it.
-
-Another common example:
-
-<ArabicExample
-  arabic="أُرِيدُ أَنْ أَتَعَلَّمَ"
-  transliteration="urīdu an ataʿallama"
-  translation="I want to learn"
-  highlight="أَنْ,أَتَعَلَّمَ"
-  words={[
-    { ar: "أُرِيدُ", tr: "urīdu", en: "I want" },
-    { ar: "أَنْ", tr: "an", en: "to" },
-    { ar: "أَتَعَلَّمَ", tr: "ataʿallama", en: "learn" },
-  ]}
-/>
-
-Notice **أَتَعَلَّمَ** ends with fatha — subjunctive after **أَنْ**. Without **أَنْ**, it would be **أَتَعَلَّمُ** with damma.
-
-### 2. لَنْ (lan) — "will not" (emphatic future negation)
-
-This particle negates the FUTURE emphatically. "He will NEVER do it." The verb after **لَنْ** takes subjunctive (fatha):
-
-<ArabicExample
-  arabic="لَنْ تَنَالُوا۟ ٱلْبِرَّ حَتَّىٰ تُنفِقُوا۟ مِمَّا تُحِبُّونَ"
-  transliteration="lan tanālū l-birra hattā tunfiqū mimmā tuhibbūna"
-  translation="You will never attain righteousness until you spend from what you love"
-  reference="Al 'Imran 3:92"
-  highlight="لَنْ,تَنَالُوا۟,تُنفِقُوا۟"
-  words={[
-    { ar: "لَنْ", tr: "lan", en: "will never" },
-    { ar: "تَنَالُوا۟", tr: "tanālū", en: "you attain" },
-    { ar: "ٱلْبِرَّ", tr: "l-birra", en: "righteousness" },
-    { ar: "حَتَّىٰ", tr: "hattā", en: "until" },
-    { ar: "تُنفِقُوا۟", tr: "tunfiqū", en: "you spend" },
-    { ar: "مِمَّا", tr: "mimmā", en: "from what" },
-    { ar: "تُحِبُّونَ", tr: "tuhibbūna", en: "you love" },
-  ]}
-/>
-
-This verse is a goldmine for mood analysis. Watch carefully:
-
-- **تَنَالُوا۟** — This is the five-special-verb form of تَنَالُونَ. The **nun is dropped** because **لَنْ** put it in subjunctive mood. In indicative, it would be تَنَالُونَ.
-- **تُنفِقُوا۟** — Same pattern. The particle **حَتَّىٰ** (another subjunctive particle) dropped the nun. In indicative, it would be تُنفِقُونَ.
-- **تُحِبُّونَ** — This one KEEPS its nun and damma because no subjunctive particle is affecting it. It's plain indicative.
-
-<Callout type="tip" title="Spotting the Missing Nun">
-Whenever you see a verb like تَنَالُوا or تُنفِقُوا that seems to be "missing" its final نَ, look for a subjunctive or jussive particle nearby. The missing nun is your proof that a mood change has occurred. This pattern appears hundreds of times throughout the Quran.
-</Callout>
-
-### 3. كَيْ (kay) — "in order to / so that"
-
-This particle expresses purpose — "in order to do something." The verb after **كَيْ** takes subjunctive:
-
-<ArabicExample
-  arabic="لِكَيْلَا تَأْسَوْا عَلَىٰ مَا فَاتَكُمْ"
-  transliteration="li-kaylā taʾsaw ʿalā mā fātakum"
-  translation="So that you may not grieve over what has escaped you"
-  reference="Al-Hadid 57:23"
-  highlight="لِكَيْلَا,تَأْسَوْا"
-  words={[
-    { ar: "لِكَيْلَا", tr: "li-kaylā", en: "so that not" },
-    { ar: "تَأْسَوْا", tr: "taʾsaw", en: "you grieve" },
-    { ar: "عَلَىٰ", tr: "ʿalā", en: "over" },
-    { ar: "مَا", tr: "mā", en: "what" },
-    { ar: "فَاتَكُمْ", tr: "fātakum", en: "has escaped you" },
-  ]}
-/>
-
-Here **لِكَيْلَا** combines three elements: the preposition **لِ**, the purpose particle **كَيْ**, and the negation **لَا**. The verb **تَأْسَوْا** is in subjunctive — the nun of تَأْسَوْنَ has dropped.
-
-### 4. لِ (li) — "in order to" (Lam at-Ta'lil / Purpose Lam)
-
-This single letter **لِ** (lam with kasra) is one of the MOST common subjunctive triggers in the Quran. It expresses purpose — "in order to":
-
-<ArabicExample
-  arabic="لِيَعْبُدُوا۟ رَبَّ هَٰذَا ٱلْبَيْتِ"
-  transliteration="li-yaʿbudū rabba hādhā l-bayt"
-  translation="Let them worship the Lord of this House"
-  reference="Quraysh 106:3"
-  highlight="لِيَعْبُدُوا۟"
-  words={[
-    { ar: "لِيَعْبُدُوا۟", tr: "li-yaʿbudū", en: "let them worship" },
-    { ar: "رَبَّ", tr: "rabba", en: "the Lord of" },
-    { ar: "هَٰذَا", tr: "hādhā", en: "this" },
-    { ar: "ٱلْبَيْتِ", tr: "l-bayt", en: "the House" },
-  ]}
-/>
-
-The verb **يَعْبُدُوا** is subjunctive — the nun of يَعْبُدُونَ has dropped because of **لِ**. Remember this verse — we will compare it with a nearly identical verse using a DIFFERENT lam later in this lesson.
-
-Another Quranic example:
-
-<ArabicExample
-  arabic="وَمَا خَلَقْتُ ٱلْجِنَّ وَٱلْإِنسَ إِلَّا لِيَعْبُدُونِ"
-  transliteration="wa-mā khalaqtu l-jinna wa-l-insa illā li-yaʿbudūni"
-  translation="And I did not create the jinn and mankind except to worship Me"
-  reference="Adh-Dhariyat 51:56"
-  highlight="لِيَعْبُدُونِ"
-  words={[
-    { ar: "وَمَا", tr: "wa-mā", en: "and not" },
-    { ar: "خَلَقْتُ", tr: "khalaqtu", en: "I created" },
-    { ar: "ٱلْجِنَّ", tr: "l-jinna", en: "the jinn" },
-    { ar: "وَٱلْإِنسَ", tr: "wa-l-insa", en: "and mankind" },
-    { ar: "إِلَّا", tr: "illā", en: "except" },
-    { ar: "لِيَعْبُدُونِ", tr: "li-yaʿbudūni", en: "to worship Me" },
-  ]}
-/>
-
-Here **لِيَعْبُدُونِ** shows the subjunctive — the نَ of يَعْبُدُونَ was dropped by **لِ**, and then the object pronoun **نِ** (ni, meaning "Me") was attached. The **لِ** + subjunctive pattern is extremely common: it appears over 200 times in the Quran.
-
-### 5. حَتَّى (hatta) — "until / so that"
-
-This particle indicates a goal or endpoint — "until such-and-such happens":
-
-<ArabicExample
-  arabic="وَلَا تَقْرَبُوا۟ مَالَ ٱلْيَتِيمِ إِلَّا بِٱلَّتِي هِيَ أَحْسَنُ حَتَّىٰ يَبْلُغَ أَشُدَّهُ"
-  transliteration="wa-lā taqrabū māla l-yatīmi illā bi-llatī hiya aḥsanu hattā yablugha ashuddahu"
-  translation="And do not approach the orphan's wealth except in the best way until he reaches maturity"
-  reference="Al-An'am 6:152"
-  highlight="حَتَّىٰ,يَبْلُغَ"
-  words={[
-    { ar: "حَتَّىٰ", tr: "hattā", en: "until" },
-    { ar: "يَبْلُغَ", tr: "yablugha", en: "he reaches" },
-    { ar: "أَشُدَّهُ", tr: "ashuddahu", en: "his maturity" },
-  ]}
-/>
-
-The verb **يَبْلُغَ** ends with **fatha** (ـَ) — subjunctive mood triggered by **حَتَّىٰ**. Without this particle, it would be **يَبْلُغُ** with damma.
-
-### Summary: The Five Subjunctive Particles
-
-<GrammarTable
-  caption="Subjunctive Particles (حُرُوفُ ٱلنَّصْبِ)"
-  headers={["Particle", "Meaning", "Function", "Quranic Frequency"]}
-  rows={[
-    ["أَنْ", "that / to", "Connects to purpose or desired action", "Very common"],
-    ["لَنْ", "will not", "Emphatic future negation", "Common (~80 times)"],
-    ["كَيْ", "in order to", "Expresses purpose", "Less common"],
-    ["لِ", "in order to", "Purpose (lam at-ta'lil)", "Extremely common (200+)"],
-    ["حَتَّى", "until / so that", "Goal or endpoint", "Common (~100 times)"],
-  ]}
-/>
-
-<Callout type="rule" title="All Subjunctive Particles Point Forward">
-Every subjunctive particle points to something that has NOT YET happened — a purpose, an intention, a future event, or a desired outcome. The subjunctive mood is the mood of the "not yet." If the action were already complete or ongoing, indicative would be used instead.
-</Callout>
-
-## Part 2: Jussive Particles (Huruf al-Jazm)
-
-**Plain English first:** Just as subjunctive particles signal purpose and future intention, jussive particles signal NEGATION of the past, PROHIBITION (negative commands), or CONDITIONS. When one of these particles appears before a present tense verb, the verb shifts to its shortest form — sukun on the final letter, or the deletion of a weak letter.
-
-**Arabic terminology:** These are called [huruf al-jazm](/resources/glossary/#jazm) (huruf al-jazm / حُرُوفُ ٱلْجَزْمِ) — "particles of cutting off" (because the verb is "cut short").
-
-### 1. لَمْ (lam) — "did not" (past negation)
-
-This is THE single most important jussive particle — and one of the most common particles in the entire Quran, appearing over **1,100 times**. It negates the past using a present tense form in jussive mood. Yes, you read that correctly: Arabic uses a PRESENT TENSE verb form to express PAST negation.
-
-<ArabicExample
-  arabic="لَمْ يَلِدْ وَلَمْ يُولَدْ"
-  transliteration="lam yalid wa-lam yūlad"
-  translation="He neither begets nor is He begotten"
-  reference="Al-Ikhlas 112:3"
-  highlight="لَمْ,يَلِدْ,يُولَدْ"
-  words={[
-    { ar: "لَمْ", tr: "lam", en: "did not" },
-    { ar: "يَلِدْ", tr: "yalid", en: "beget" },
-    { ar: "وَلَمْ", tr: "wa-lam", en: "and did not" },
-    { ar: "يُولَدْ", tr: "yūlad", en: "is begotten" },
-  ]}
-/>
-
-Both **يَلِدْ** and **يُولَدْ** end with **sukun** — jussive mood. Without **لَمْ**, they would be **يَلِدُ** (he begets) and **يُولَدُ** (he is begotten) with damma.
-
-<Callout type="tip" title="Why This Matters">
-Every single time you encounter **لَمْ** in the Quran, the next verb MUST be in jussive mood. And **لَمْ** appears over 1,100 times. That means over 1,100 verbs in the Quran are in jussive mood just from this ONE particle. Mastering **لَمْ** alone gives you the key to understanding a massive portion of Quranic verb forms.
-</Callout>
-
-Another powerful example:
-
-<ArabicExample
-  arabic="أَلَمْ نَشْرَحْ لَكَ صَدْرَكَ"
-  transliteration="a-lam nashraḥ laka ṣadraka"
-  translation="Did We not expand for you your chest?"
-  reference="Ash-Sharh 94:1"
-  highlight="أَلَمْ,نَشْرَحْ"
-  words={[
-    { ar: "أَلَمْ", tr: "a-lam", en: "did not?" },
-    { ar: "نَشْرَحْ", tr: "nashraḥ", en: "We expand" },
-    { ar: "لَكَ", tr: "laka", en: "for you" },
-    { ar: "صَدْرَكَ", tr: "ṣadraka", en: "your chest" },
-  ]}
-/>
-
-Here **أَلَمْ** is the interrogative hamza (أَ) + **لَمْ**. The verb **نَشْرَحْ** (nashraḥ) is jussive — sukun on the final letter. The question form أَلَمْ is a rhetorical question meaning "Did We not...?" — expecting the answer "Yes, You certainly did."
-
-### 2. لَا الناهية (La an-Nahiyah) — "do not!" (prohibition)
-
-This is the **لَا** of prohibition — it creates negative commands. When someone says "Don't do this!" in Arabic, they use **لَا** + jussive:
-
-<ArabicExample
-  arabic="لَا تَقْنَطُوا۟ مِن رَّحْمَةِ ٱللَّهِ"
-  transliteration="lā taqnaṭū min raḥmati llāh"
-  translation="Do not despair of the mercy of Allah"
-  reference="Az-Zumar 39:53"
-  highlight="لَا,تَقْنَطُوا۟"
-  words={[
-    { ar: "لَا", tr: "lā", en: "do not" },
-    { ar: "تَقْنَطُوا۟", tr: "taqnaṭū", en: "despair" },
-    { ar: "مِن", tr: "min", en: "of" },
-    { ar: "رَّحْمَةِ", tr: "raḥmati", en: "the mercy of" },
-    { ar: "ٱللَّهِ", tr: "llāh", en: "Allah" },
-  ]}
-/>
-
-The verb **تَقْنَطُوا** is jussive — the nun of تَقْنَطُونَ has been dropped by the prohibitive **لَا**. This is a direct prohibition: "Do NOT despair!"
-
-<Callout type="warning" title="Two Different لَا — Don't Confuse Them!">
-Arabic has TWO types of **لَا** that look identical but function differently:
-
-- **لَا النَّافِيَة** (la an-nafiyah) — simple negation, followed by **indicative**: لَا يَعْلَمُونَ "they do not know" (damma, indicative, nun present)
-- **لَا النَّاهِيَة** (la an-nahiyah) — prohibition, followed by **jussive**: لَا تَقْنَطُوا "do not despair!" (nun dropped, jussive)
-
-How to tell them apart? **Prohibitive لَا** addresses "you" (second person) and gives a command. **Negating لَا** describes "he/she/they" and states a fact. Context is the key.
-</Callout>
-
-### 3. لَامُ الأَمْر (Lam al-Amr) — "let him... / should..." (indirect command)
-
-This lam creates indirect commands — commands directed at third person ("let him do...") or first person ("let us do..."). It looks like the letter **لِ** (lam with kasra), but when preceded by **فَ** or **وَ**, it takes sukun: **فَلْ**, **وَلْ**:
-
-<ArabicExample
-  arabic="فَلْيَعْبُدُوا۟ رَبَّ هَٰذَا ٱلْبَيْتِ"
-  transliteration="fa-l-yaʿbudū rabba hādhā l-bayt"
-  translation="So let them worship the Lord of this House"
-  reference="Quraysh 106:3"
-  highlight="فَلْيَعْبُدُوا۟"
-  words={[
-    { ar: "فَلْيَعْبُدُوا۟", tr: "fa-l-yaʿbudū", en: "so let them worship" },
-    { ar: "رَبَّ", tr: "rabba", en: "the Lord of" },
-    { ar: "هَٰذَا", tr: "hādhā", en: "this" },
-    { ar: "ٱلْبَيْتِ", tr: "l-bayt", en: "the House" },
-  ]}
-/>
-
-Now compare this verse with the subjunctive example from earlier:
-
-<GrammarTable
-  caption="Same Root, Different Moods — Quraysh 106:3"
-  headers={["Reading", "Particle", "Mood", "Meaning"]}
-  rows={[
-    ["لِيَعْبُدُوا۟", "لِ (purpose lam)", "Subjunctive", "in order that they worship"],
-    ["فَلْيَعْبُدُوا۟", "لام الأمر (command lam)", "Jussive", "so let them worship"],
-  ]}
-/>
-
-Both readings exist in Quranic recitation traditions. The point is crucial: a **لِ** followed by subjunctive expresses PURPOSE ("in order to"), while **لام الأمر** followed by jussive expresses a COMMAND ("let them"). The verb form looks identical (nun dropped in both cases), but the meaning differs based on which lam is intended.
-
-### 4. Conditional Particles (Preview)
-
-Several conditional particles also trigger jussive mood — they put BOTH the condition verb and the result verb into jussive. Here is a preview:
-
-<ArabicExample
-  arabic="إِن تَنصُرُوا۟ ٱللَّهَ يَنصُرْكُمْ"
-  transliteration="in tanṣurū llāha yanṣurkum"
-  translation="If you support Allah, He will support you"
-  reference="Muhammad 47:7"
-  highlight="إِن,تَنصُرُوا۟,يَنصُرْكُمْ"
-  words={[
-    { ar: "إِن", tr: "in", en: "if" },
-    { ar: "تَنصُرُوا۟", tr: "tanṣurū", en: "you support" },
-    { ar: "ٱللَّهَ", tr: "llāha", en: "Allah" },
-    { ar: "يَنصُرْكُمْ", tr: "yanṣurkum", en: "He will support you" },
-  ]}
-/>
-
-The conditional particle **إِنْ** (in, meaning "if") puts BOTH verbs in jussive:
-- **تَنصُرُوا** — jussive (nun of تَنْصُرُونَ dropped)
-- **يَنصُرْكُمْ** — jussive (sukun on the final root letter)
-
-We will study conditional sentences fully in [L4.03 Conditional Sentences](/learn/level-4/03-conditional-sentences/). For now, just know that conditional particles (**إِنْ**, **مَنْ**, **مَا**, and others) also trigger jussive mood.
-
-### Summary: The Jussive Particles
-
-<GrammarTable
-  caption="Jussive Particles (حُرُوفُ ٱلْجَزْمِ)"
-  headers={["Particle", "Meaning", "Function", "Quranic Frequency"]}
-  rows={[
-    ["لَمْ", "did not", "Past negation using present form", "Extremely common (1,100+)"],
-    ["لَا النَّاهِيَة", "do not!", "Prohibition (negative command)", "Very common"],
-    ["لَامُ الأَمْر", "let him.../should...", "Indirect command (3rd/1st person)", "Common"],
-    ["إِنْ / مَنْ / مَا", "if / whoever / whatever", "Conditional particles (both verbs)", "Very common"],
-  ]}
-/>
-
-## Distinguishing Similar-Looking Particles
-
-One of the trickiest aspects of Arabic mood is that several particles LOOK alike but trigger DIFFERENT moods. Here is a quick-reference guide to the most confusing pairs:
-
-<Callout type="warning" title="Confusing Pairs: Know the Difference">
-
-**1. لَمْ vs. لَنْ — both negate, but different moods and times:**
-- **لَمْ** (lam) = "did not" = PAST negation = **jussive** (sukun): لَمْ يَكْتُبْ "he did not write"
-- **لَنْ** (lan) = "will not" = FUTURE negation = **subjunctive** (fatha): لَنْ يَكْتُبَ "he will not write"
-
-**2. لِ (purpose) vs. لَامُ الأَمْر (command) — both are lam, different functions:**
-- **لِ** (li, with kasra) = "in order to" = PURPOSE = **subjunctive**: لِيَعْبُدُوا "in order that they worship"
-- **لَامُ الأَمْر** (often فَلْ or وَلْ with sukun) = "let them" = COMMAND = **jussive**: فَلْيَعْبُدُوا "let them worship"
-
-**3. لَا النَّافِيَة vs. لَا النَّاهِيَة — identical spelling, different functions:**
-- **لَا النَّافِيَة** = simple negation = **indicative**: لَا يَعْلَمُونَ "they do not know" (nun present)
-- **لَا النَّاهِيَة** = prohibition = **jussive**: لَا تَقْنَطُوا "do not despair!" (nun dropped)
-
-The key to all three pairs: **read the context**. Is this negating the past or future? Is this a purpose statement or a command? Is this a statement of fact or a prohibition?
-</Callout>
-
-## Worked Example: Al-Ikhlas 112:3-4
-
-Let's do a complete mood analysis of two full verses, applying everything we've learned:
-
-<ArabicExample
-  arabic="لَمْ يَلِدْ وَلَمْ يُولَدْ ﴿٣﴾ وَلَمْ يَكُن لَّهُ كُفُوًا أَحَدٌ ﴿٤﴾"
-  transliteration="lam yalid wa-lam yūlad. wa-lam yakun lahu kufuwan aḥad"
-  translation="He neither begets nor is He begotten. And there is no one equal to Him."
-  reference="Al-Ikhlas 112:3-4"
-  highlight="لَمْ,يَلِدْ,يُولَدْ,يَكُن"
-  words={[
-    { ar: "لَمْ", tr: "lam", en: "did not" },
-    { ar: "يَلِدْ", tr: "yalid", en: "beget" },
-    { ar: "وَلَمْ", tr: "wa-lam", en: "and did not" },
-    { ar: "يُولَدْ", tr: "yūlad", en: "is begotten" },
-    { ar: "وَلَمْ", tr: "wa-lam", en: "and not" },
-    { ar: "يَكُن", tr: "yakun", en: "is/was" },
-    { ar: "لَّهُ", tr: "lahu", en: "to Him" },
-    { ar: "كُفُوًا", tr: "kufuwan", en: "equal" },
-    { ar: "أَحَدٌ", tr: "aḥad", en: "anyone" },
-  ]}
-/>
-
-### Verb 1: يَلِدْ (yalid)
-
-| Feature | Analysis |
-|---------|----------|
-| **Root** | و-ل-د (walada — "to give birth, to beget") |
-| **Form** | Form I present tense |
-| **Indicative form** | يَلِدُ (yalidu — "he begets") |
-| **Jussive form** | يَلِدْ (yalid — sukun on dal) |
-| **Particle** | لَمْ (past negation) |
-| **Translation** | "He did not beget" |
-| **Voice** | Active (the subject performs the action) |
-
-### Verb 2: يُولَدْ (yulad)
-
-| Feature | Analysis |
-|---------|----------|
-| **Root** | و-ل-د (walada — "to give birth") |
-| **Form** | Form I present tense, **passive voice** |
-| **Indicative form** | يُولَدُ (yūladu — "he is begotten") |
-| **Jussive form** | يُولَدْ (yūlad — sukun on dal) |
-| **Particle** | لَمْ (past negation) |
-| **Translation** | "He was not begotten" |
-| **Voice** | Passive (the subject receives the action) |
-
-Notice the passive pattern: the prefix vowel changes from **يَـ** (ya-) to **يُـ** (yu-), and the internal vowels change. But the jussive ending (sukun) works exactly the same way in both active and passive.
-
-### Verb 3: يَكُن (yakun)
-
-| Feature | Analysis |
-|---------|----------|
-| **Root** | ك-و-ن (kāna — "to be") |
-| **Form** | Form I present tense |
-| **Indicative form** | يَكُونُ (yakūnu — "he is/will be") |
-| **Jussive form** | يَكُنْ (yakun — the waw DROPS!) |
-| **Particle** | لَمْ (past negation) |
-| **Translation** | "There was not / there has never been" |
-| **Special feature** | Hollow verb — the middle waw drops in jussive |
-
-<Callout type="tip" title="Hollow Verbs in Jussive">
-The verb **يَكُونُ** (yakūnu) is a "hollow" verb — its middle radical is a weak letter (waw). In jussive mood, the long vowel shortens and the waw drops entirely: **يَكُونُ** becomes **يَكُنْ**. This happens to all hollow verbs:
-
-- يَقُولُ (yaqūlu — "he says") → jussive: يَقُلْ (yaqul)
-- يَكُونُ (yakūnu — "he is") → jussive: يَكُنْ (yakun)
-- يَزُورُ (yazūru — "he visits") → jussive: يَزُرْ (yazur)
-
-When you see **لَمْ يَكُنْ** in the Quran, recognize that the "missing" waw is not a mistake — it's the jussive form of a hollow verb.
-</Callout>
-
-**Full I'rab (grammatical parsing) of these verses:**
-
-The particle **لَمْ** appears three times, and each time it puts the following verb into jussive mood. The parallelism is masterful: **لَمْ يَلِدْ** (active) is balanced against **لَمْ يُولَدْ** (passive), covering both directions — Allah neither produces offspring nor is Himself produced. Then **لَمْ يَكُنْ** adds a third dimension: no one is His equal. Three **لَمْ** particles, three jussive verbs, three complete negations of any similarity between Allah and His creation.
-
-## The Rule
-
-<Callout type="rule" title="Present Tense Mood System">
-**Three moods, triggered by specific particles:**
-
-1. **Indicative (مَرْفُوعٌ)** — the DEFAULT:
-   - No special particle needed
-   - Regular verbs: damma (يَكْتُبُ)
-   - Five special verbs: nun present (يَكْتُبُونَ)
-   - Used for: plain statements, ongoing/habitual actions
-
-2. **Subjunctive (مَنْصُوبٌ)** — triggered by أَنْ, لَنْ, كَيْ, لِ, حَتَّى:
-   - Regular verbs: fatha (يَكْتُبَ)
-   - Five special verbs: nun deleted (يَكْتُبُوا)
-   - Used for: purpose, intention, future negation, unrealized goals
-
-3. **Jussive (مَجْزُومٌ)** — triggered by لَمْ, لَا النَّاهِيَة, لَامُ الأَمْر, conditionals:
-   - Regular verbs: sukun (يَكْتُبْ)
-   - Five special verbs: nun deleted (يَكْتُبُوا)
-   - Weak-final verbs: weak letter drops (يَمْشِ, يَدْعُ)
-   - Hollow verbs: long vowel shortens (يَكُنْ)
-   - Used for: past negation, prohibition, conditions, indirect commands
-
-**Recognition shortcut:** If you see a present tense verb with an unusual ending (fatha instead of damma, sukun instead of damma, or a missing nun), look for a particle before it. That particle tells you which mood the verb is in and WHY.
-</Callout>
-
-<Callout type="warning" title="Common Mistakes with Moods">
-
-1. **Confusing لَمْ and لَنْ**: Both negate, but **لَمْ** negates the PAST (jussive) and **لَنْ** negates the FUTURE (subjunctive). لَمْ يَكْتُبْ = "he did not write." لَنْ يَكْتُبَ = "he will not write."
-
-2. **Thinking jussive verbs are imperative**: Both can end with sukun (يَكْتُبْ vs. اُكْتُبْ), but jussive KEEPS the prefix (يَ, تَ, نَ, أَ), while imperative has NO prefix. If you see a prefix, it's NOT imperative.
-
-3. **Forgetting the five special verbs**: For يَكْتُبُونَ and similar forms, mood is shown by the presence or absence of nun — NOT by a vowel change. If the nun is missing, a subjunctive or jussive particle must be nearby.
-
-4. **Missing hollow verb shortening**: When يَكُونُ becomes يَكُنْ after لَمْ, the waw hasn't "disappeared" — it's a regular jussive shortening for hollow verbs. This is extremely common in the Quran with لَمْ يَكُنْ, لَمْ يَقُلْ, etc.
-
-5. **Assuming both subjunctive and jussive mean the same thing for the five special verbs**: Both delete the nun, but the MEANING is different based on which particle triggers the mood. يَكْتُبُوا after لَنْ means "they will not write." يَكْتُبُوا after لَمْ means "they did not write."
-</Callout>
-
-## Practice Exercises
-
-<ExerciseBox question="Exercise 1: Mood Identification" id="mood-identification">
-
-Identify the mood of each verb based on its ending. Is it indicative (marfu'), subjunctive (mansub), or jussive (majzum)?
-
-1. يَذْهَبُ
-2. يَذْهَبَ
-3. يَذْهَبْ
-4. يَعْلَمُونَ
-
-**Answers:**
-
-1. **يَذْهَبُ** — **Indicative (مَرْفُوعٌ)**: The final letter has damma (ـُ), which is the default indicative marker.
-
-2. **يَذْهَبَ** — **Subjunctive (مَنْصُوبٌ)**: The final letter has fatha (ـَ), indicating a subjunctive particle (أَنْ, لَنْ, لِ, كَيْ, or حَتَّى) must appear before it.
-
-3. **يَذْهَبْ** — **Jussive (مَجْزُومٌ)**: The final letter has sukun (ـْ), indicating a jussive particle (لَمْ, لَا النَّاهِيَة, لَامُ الأَمْر, or a conditional particle) must appear before it.
-
-4. **يَعْلَمُونَ** — **Indicative (مَرْفُوعٌ)**: This is one of the five special verbs. The nun (نَ) is present, which means it's indicative. If it were subjunctive or jussive, the nun would be deleted: يَعْلَمُوا.
-</ExerciseBox>
-
-<ExerciseBox question="Exercise 2: Particle to Mood Matching" id="particle-mood-matching">
-
-For each of the following particles, state what mood it triggers (indicative, subjunctive, or jussive):
-
-1. أَنْ
-2. لَمْ
-3. لِ (purpose lam)
-4. لَنْ
-5. حَتَّى
-6. لَا النَّاهِيَة
-
-**Answers:**
-
-1. **أَنْ** — **Subjunctive (نَصْب)**: "that / to" — purpose particle. Example: أُرِيدُ أَنْ أَتَعَلَّمَ "I want to learn."
-
-2. **لَمْ** — **Jussive (جَزْم)**: "did not" — past negation. Example: لَمْ يَكْتُبْ "he did not write."
-
-3. **لِ** (purpose lam) — **Subjunctive (نَصْب)**: "in order to" — purpose. Example: لِيَعْبُدُوا "in order that they worship."
-
-4. **لَنْ** — **Subjunctive (نَصْب)**: "will not" — future negation. Example: لَنْ يَكْتُبَ "he will not write."
-
-5. **حَتَّى** — **Subjunctive (نَصْب)**: "until / so that" — goal. Example: حَتَّى يَبْلُغَ "until he reaches."
-
-6. **لَا النَّاهِيَة** — **Jussive (جَزْم)**: "do not!" — prohibition. Example: لَا تَقْنَطُوا "do not despair!"
-</ExerciseBox>
-
-<ExerciseBox question="Exercise 3: Verse Analysis — Spotting the Subjunctive" id="verse-analysis-subjunctive">
-
-Read the following verse carefully:
-
-**لَنْ تَنَالُوا۟ ٱلْبِرَّ حَتَّىٰ تُنفِقُوا۟ مِمَّا تُحِبُّونَ** — Al 'Imran 3:92
-
-Answer the following questions:
-1. Which verb is in subjunctive mood after **لَنْ**?
-2. Why does this verb look different from the indicative form?
-3. Which other verb in this verse is also in subjunctive? What particle triggers it?
-4. Which verb remains in indicative? How can you tell?
-
-**Answers:**
-
-1. The verb **تَنَالُوا۟** is in subjunctive after **لَنْ** (future negation).
-
-2. The indicative form would be **تَنَالُونَ** (with the nun نَ at the end). Because **لَنْ** triggers subjunctive mood, and this is one of the five special verbs (second person masculine plural ending in ونَ), the nun is DELETED: تَنَالُونَ → تَنَالُوا.
-
-3. The verb **تُنفِقُوا۟** is also in subjunctive, triggered by **حَتَّىٰ** ("until"). Its indicative form would be تُنفِقُونَ, but the nun has been deleted by the subjunctive particle.
-
-4. The verb **تُحِبُّونَ** ("you love") remains in **indicative** mood. You can tell because it KEEPS its nun (ونَ). No subjunctive or jussive particle is affecting it — it's simply describing a fact ("what you love").
-</ExerciseBox>
-
-<ExerciseBox question="Exercise 4: Spot the Pattern — Mood Differences" id="spot-the-pattern-mood">
-
-Compare these two sentences and explain the mood difference:
-
-**Sentence A:** هُوَ يَكْتُبُ ٱلرِّسَالَةَ — "He writes the letter."
-**Sentence B:** لَمْ يَكْتُبْ ٱلرِّسَالَةَ — "He did not write the letter."
-
-1. What mood is the verb in Sentence A? What is the mood marker?
-2. What mood is the verb in Sentence B? What is the mood marker?
-3. What changed in the verb between the two sentences?
-4. If you wanted to say "He will not write the letter" (future negation), which particle would you use, and what would the verb look like?
-
-**Answers:**
-
-1. **Sentence A:** The verb **يَكْتُبُ** is in **indicative** mood (مَرْفُوعٌ). The marker is the **damma** (ـُ) on the final letter (بُ). No special particle precedes it.
-
-2. **Sentence B:** The verb **يَكْتُبْ** is in **jussive** mood (مَجْزُومٌ). The marker is the **sukun** (ـْ) on the final letter (بْ). The particle **لَمْ** triggers jussive and shifts the meaning to past negation.
-
-3. Only the FINAL VOWEL changed: damma (ـُ) became sukun (ـْ). The prefix يَ, the root letters ك-ت-ب, and the internal vowels all remain identical. One vowel change plus one particle changes both the mood and the tense.
-
-4. For future negation, use **لَنْ** (subjunctive particle): **لَنْ يَكْتُبَ ٱلرِّسَالَةَ** — "He will not write the letter." The verb takes **fatha** (ـَ) because لَنْ triggers subjunctive mood.
-</ExerciseBox>
-
-<ExerciseBox question="Exercise 5: Mini I'rab — Parse Every Verb in Al-Ikhlas 112:3-4" id="mini-irab-ikhlas">
-
-Parse the mood of every verb in the following two verses:
-
-**لَمْ يَلِدْ وَلَمْ يُولَدْ ﴿٣﴾ وَلَمْ يَكُن لَّهُ كُفُوًا أَحَدٌ ﴿٤﴾**
-
-For each verb, provide:
-- The verb
-- Its root
-- Its indicative (default) form
-- Its mood in this verse
-- The particle triggering the mood
-- A brief translation
-
-**Answers:**
-
-**Verb 1: يَلِدْ**
-- Root: و-ل-د (to beget)
-- Indicative form: يَلِدُ (yalidu)
-- Mood: **Jussive (مَجْزُومٌ)** — sukun on the dal
-- Particle: **لَمْ** (past negation)
-- Translation: "He did not beget"
-
-**Verb 2: يُولَدْ**
-- Root: و-ل-د (to be born/begotten)
-- Indicative form: يُولَدُ (yūladu) — passive voice
-- Mood: **Jussive (مَجْزُومٌ)** — sukun on the dal
-- Particle: **لَمْ** (past negation)
-- Translation: "nor was He begotten"
-
-**Verb 3: يَكُن**
-- Root: ك-و-ن (to be)
-- Indicative form: يَكُونُ (yakūnu)
-- Mood: **Jussive (مَجْزُومٌ)** — the waw drops because this is a hollow verb; in jussive, يَكُونُ shortens to يَكُنْ
-- Particle: **لَمْ** (past negation)
-- Translation: "And there has never been for Him any equal"
-
-**Summary:** All three verbs are in jussive mood, all triggered by **لَمْ**. The first two are regular jussive (sukun on final letter), while the third shows hollow-verb jussive behavior (deletion of the long vowel). Together, they form a triple negation declaring Allah's absolute uniqueness.
-</ExerciseBox>
-
-## Related Lessons
-
-**Prerequisites:**
-- [L3.06 Present Tense Conjugation](/learn/level-3/06-present-tense/) — The 14-person indicative paradigm that this lesson modifies
-- [L3.08 Imperative](/learn/level-3/08-imperative/) — Commands share the jussive stem with deleted prefix
-
-**Next Steps:**
-- [L3.01 Subject Pronouns](/learn/level-3/01-subject-pronouns/) — Independent pronouns used alongside mood-changed verbs
-- [L3.12 Verb Form II](/learn/level-3/12-verb-form-ii/) — Moods apply identically to all derived verb forms
-
-**Advanced Topics:**
-- [L4.03 Conditional Sentences](/learn/level-4/03-conditional-sentences/) — Both condition and result verbs take jussive mood
-- [L4.04 Conditional Particles](/learn/level-4/04-conditional-particles/) — Full study of particles that trigger jussive in both clauses
-- [L4.10 Negation Particles](/learn/level-4/10-negation-particles/) — How لَمْ, لَنْ, لَا, and مَا interact with different moods
-
-**Reference Resources:**
-- [Verb Forms Chart](/resources/verb-conjugation-tables/) — All moods for Forms I-X
-- [Glossary: Indicative (marfu')](/resources/glossary/#marfu) — Default present tense mood
-- [Glossary: Subjunctive (mansub)](/resources/glossary/#mansub) — Purpose/future mood
-- [Glossary: Jussive (majzum)](/resources/glossary/#majzum) — Negation/condition mood
+import Step from '../../../components/lesson/Step.astro';
+import Stage from '../../../components/lesson/Stage.astro';
+import Sentence from '../../../components/lesson/Sentence.astro';
+import Tiles from '../../../components/lesson/Tiles.astro';
+import Conjugation from '../../../components/lesson/Conjugation.astro';
+import Note from '../../../components/lesson/Note.astro';
+import Check from '../../../components/lesson/Check.astro';
+import Start from '../../../components/lesson/Start.astro';
+import Sources from '../../../components/lesson/Sources.astro';
+import Parse from '../../../components/lesson/Parse.astro';
+import Exercise from '../../../components/lesson/Exercise.astro';
+import Block from '../../../components/lesson/Block.astro';
+
+{/* Content spec: docs/redesign/specs/L3.07-subjunctive-jussive.md. Every parse follows al-Jadwal (Mahmud Safi). */}
+
+<Step hero id="start" label="Three endings" title={frontmatter.title} kicker={frontmatter.kicker} titleArabic={frontmatter.titleArabic}>
+<Block id="overview" title="In this lesson" level={2} uncounted>
+  <Stage label="One verb, three endings">
+    <Tiles
+      label="يَجْعَلُ with -u, يَجْعَلَ with -a, يَجْعَلْ with no vowel"
+      items={[
+        { ar: 'يَجْعَلُ', en: 'plain: -u', type: 'v' },
+        { ar: 'يَجْعَلَ', en: 'naṣb: -a', type: 'v' },
+        { ar: 'يَجْعَلْ', en: 'jazm: no vowel', type: 'v' },
+      ]}
+    />
+  </Stage>
+  <Start
+    goal="Read the end of a present-tense verb, name the little word in front that caused it, and go through four verses word by word."
+    minutes={55}
+    before="The present tense (L3.06). Little words (L1.04). The doer of a verb (L2.03). The three cases (L2.04 to L2.06)."
+    terms={[
+      { term: 'Mood', meaning: 'The ending of a present-tense verb. It can be plain, naṣb or jazm.' },
+      { term: 'Plain ending', ar: 'مَرْفُوع', meaning: 'The ordinary ending: -u, or a nūn that stays. The books call it rafʿ.' },
+      { term: 'Naṣb', ar: 'نَصْب', meaning: 'The ending after words such as أَنْ and لَن: -a, or a lost nūn. Also called the subjunctive.' },
+      { term: 'Jazm', ar: 'جَزْم', meaning: 'The ending after words such as لَمْ: no vowel, a lost nūn or a lost weak letter. Also called the jussive.' },
+      { term: 'Sukūn', ar: 'سُكُون', meaning: 'The mark ـْ. It says: no vowel on this letter.' },
+      { term: 'The five verbs', ar: 'الْأَفْعَالُ الْخَمْسَةُ', meaning: 'Five present-tense forms that end in a nūn: they two, you two, they (m), you all (m) and you (f).' },
+      { term: 'Weak letter', ar: 'حَرْفُ الْعِلَّةِ', meaning: 'The letters و, ي and the long ā. They can drop out of a verb. L4.11 teaches this.' },
+    ]}
+  />
+</Block>
+
+<Block id="see" title="Look at this verb" level={2}>
+  <Stage>
+    <Sentence
+      size="big"
+      roles
+      reference="Al-Kahf 18:1 (end)"
+      groups={[
+        { words: [{ ar: 'وَلَمْ', en: 'and did not', say: 'wa-lam', type: 'p' }] },
+        { role: 'fiil', hint: 'the last letter has no vowel', words: [{ ar: 'يَجْعَل', en: 'put', say: 'yajal', type: 'v' }] },
+        { role: 'tied', words: [{ ar: 'لَّهُۥ', en: 'for it', say: 'lahu', type: 'p' }] },
+        { role: 'maful', words: [{ ar: 'عِوَجَا', en: 'any crookedness', say: 'iwajan' }] },
+      ]}
+      en={['… and has not put any crookedness in it.']}
+    />
+  </Stage>
+
+The verse speaks about the Book. The verb is يَجْعَل, “he puts”. Its root is ج ع ل. The plain present-tense form is يَجْعَلُ, with -u at the end (L3.06).
+
+Here the last letter has a **sukūn**, the mark for “no vowel”. The little word لَمْ stands in front. It changed the ending, and it moved the meaning to the past: “has not put”.
+
+This lesson is about that change. A few little words come in front of a present-tense verb and change its last sound.
+
+<Check n={1} q="What does the verb يَجْعَل end in?" options={['-u (a ḍamma)', '-a (a fatḥa)', 'No vowel (a sukūn)']} answer={2} why="لَمْ in front of it took the vowel away. The plain verb يَجْعَلُ ends in -u." />
+</Block>
+
+<Block id="three" title="One verb, three endings" level={2}>
+  <Stage label="The same verb after two little words">
+    <Tiles
+      label="يَجْعَلُ, لَن يَجْعَلَ, لَمْ يَجْعَلْ"
+      items={[
+        { ar: 'يَجْعَلُ', en: 'he puts', type: 'v' },
+        { ar: 'لَن يَجْعَلَ', en: 'he will not put', type: 'v' },
+        { ar: 'لَمْ يَجْعَلْ', en: 'he did not put', type: 'v' },
+      ]}
+    />
+  </Stage>
+
+The three forms are made from one verb. The little word in front and the last sound are the two differences.
+
+| Ending | Arabic name | The last letter | Example |
+|---|---|---|---|
+| Plain | رَفْع (rafʿ) | -u | يَجْعَلُ |
+| Naṣb, the subjunctive | نَصْب (naṣb) | -a | لَن يَجْعَلَ |
+| Jazm, the jussive | جَزْم (jazm) | no vowel | لَمْ يَجْعَلْ |
+
+The grammar books use the same words, *rafʿ* and *naṣb*, for the cases of nouns and for the endings of verbs. In L2.01, L2.04 and L2.05 you met them on nouns. On a verb the books speak of its **mood**. Nouns have no jazm.
+
+The examples above are made-up combinations of a real verb from 18:1. The next steps show each ending in verses.
+
+<Check n={2} q="Which one is the jazm form?" options={['يَجْعَلُ', 'يَجْعَلَ', 'يَجْعَلْ']} answer={2} why="Jazm leaves the last letter with a sukūn. -u is the plain ending and -a is naṣb." />
+</Block>
+
+<Block id="book" title="How the first grammar book says it">
+  <Stage label="From al-Ajurrumiyyah">
+    <blockquote class="lx-quote lx-quote-list" lang="ar" dir="rtl">
+      <p>وَهُوَ مَرْفُوعٌ أَبَدًا حَتَّى يَدْخُلَ عَلَيْهِ نَاصِبٌ أَوْ جَازِمٌ</p>
+      <p>فَالنَّوَاصِبُ عَشَرَةٌ وَهِيَ: أَنْ وَلَنْ وَإِذَنْ وَكَيْ وَلَامُ كَيْ وَلَامُ الْجُحُودِ وَحَتَّى وَالْجَوَابُ بِالْفَاءِ وَالْوَاوِ وَأَوْ</p>
+      <p>وَالْجَوَازِمُ ثَمَانِيَةَ عَشَرَ وَهِيَ: لَمْ وَلَمَّا وَأَلَمْ وَأَلَمَّا وَلَامُ الْأَمْرِ وَالدُّعَاءِ وَلَا فِي النَّهْيِ وَالدُّعَاءِ وَإِنْ وَمَا وَمَنْ وَمَهْمَا …</p>
+      <p>وَلِلْأَفْعَالِ مِنْ ذَلِكَ الرَّفْعُ وَالنَّصْبُ وَالْجَزْمُ وَلَا خَفْضَ فِيهَا</p>
+    </blockquote>
+    <p class="lx-quote-note"><i>Al-Ajurrumiyyah</i>, chapter on the verbs and chapter on the signs of iʿrāb. The list of jazm words is cut short. Vowel marks added by Quran Learn.</p>
+  </Stage>
+
+*Al-Ajurrumiyyah*, the short grammar book from L2.01, says four things about the present tense.
+
+- The present tense is **marfūʿ**, with the plain ending, until a word of naṣb or a word of jazm comes in front of it.
+- It counts **ten** words of naṣb. This lesson teaches five of them: أَنْ, لَنْ, كَيْ, لِ (the book’s “lām of kay”, لَامُ كَيْ) and حَتَّى.
+- It counts **eighteen** words of jazm. This lesson teaches لَمْ, لَا of prohibition and the lām of command. The conditional words إِنْ, مَا and مَنْ are a preview. L4.03 and L4.04 teach them. The other words in the book’s lists are left out here.
+- A verb can be marfūʿ, naṣb or jazm. It has no khafḍ, the genitive. A noun is the other way round: it has no jazm.
+
+<Check n={3} q="Which endings can a present-tense verb take, according to the book?" options={['Rafʿ, naṣb and jazm', 'Rafʿ, naṣb, jazm and khafḍ', 'Naṣb and jazm, without the plain ending']} answer={0} why="The verb has no genitive (khafḍ). The plain ending is also one of its three." />
+
+<Note kind="know">Quran Learn counted in the Quranic Arabic Corpus file with a script. The file tags 8,330 verbs as present tense. Of these, 1,330 carry the subjunctive tag and 1,418 the jussive tag. These are the Corpus’s own tags and have not been checked verse by verse.</Note>
+</Block>
+
+<Block id="types" title="The ending looks different on different verbs">
+  <Stage label="Pattern">
+    <Conjugation
+      caption="يَجْعَلُ, “he puts”: the jazm form after لَمْ, in all 13 forms"
+      endLabel="Ending after لَمْ"
+      rows={[
+        { group: 'One person' },
+        { who: 'he', pr: 'هُوَ', ar: 'يَجْعَلْ', end: 'ـْ', say: 'yajʿal', hi: true },
+        { who: 'she', pr: 'هِيَ', ar: 'تَجْعَلْ', end: 'ـْ', say: 'tajʿal' },
+        { who: 'you (m)', pr: 'أَنْتَ', ar: 'تَجْعَلْ', end: 'ـْ', say: 'tajʿal' },
+        { who: 'you (f)', pr: 'أَنْتِ', ar: 'تَجْعَلِي', end: 'ـِي', say: 'tajʿalī' },
+        { who: 'I', pr: 'أَنَا', ar: 'أَجْعَلْ', end: 'ـْ', say: 'ajʿal' },
+        { who: 'we', pr: 'نَحْنُ', ar: 'نَجْعَلْ', end: 'ـْ', say: 'najʿal' },
+        { group: 'Two' },
+        { who: 'they two (m)', pr: 'هُمَا', ar: 'يَجْعَلَا', end: 'ـَا', say: 'yajʿalā' },
+        { who: 'they two (f)', pr: 'هُمَا', ar: 'تَجْعَلَا', end: 'ـَا', say: 'tajʿalā' },
+        { who: 'you two', pr: 'أَنْتُمَا', ar: 'تَجْعَلَا', end: 'ـَا', say: 'tajʿalā' },
+        { group: 'Many' },
+        { who: 'they (m)', pr: 'هُمْ', ar: 'يَجْعَلُوا۟', end: 'ـُوا۟', say: 'yajʿalū' },
+        { who: 'they (f)', pr: 'هُنَّ', ar: 'يَجْعَلْنَ', end: 'ـْنَ', say: 'yajʿalna' },
+        { who: 'you all (m)', pr: 'أَنْتُمْ', ar: 'تَجْعَلُوا۟', end: 'ـُوا۟', say: 'tajʿalū' },
+        { who: 'you all (f)', pr: 'أَنْتُنَّ', ar: 'تَجْعَلْنَ', end: 'ـْنَ', say: 'tajʿalna' },
+      ]}
+    />
+  </Stage>
+
+The table uses a real verb, يَجْعَلُ, a Form I verb. It shows that a sukūn is one sign among several. The same mood shows itself in four ways, depending on the kind of verb.
+
+| Kind of verb | Plain | Naṣb (after لَن) | Jazm (after لَمْ) |
+|---|---|---|---|
+| One person | يَجْعَلُ | يَجْعَلَ | يَجْعَلْ |
+| The five verbs | تَجْعَلُونَ | تَجْعَلُوا۟ | تَجْعَلُوا۟ |
+| Women, many | يَجْعَلْنَ | يَجْعَلْنَ | يَجْعَلْنَ |
+| Weak last letter ي | يَمْشِي | يَمْشِيَ | يَمْشِ |
+| Weak last letter و | يَدْعُو | يَدْعُوَ | يَدْعُ |
+| Weak last letter, long ā | يَخْشَىٰ | يَخْشَىٰ | يَخْشَ |
+
+- **One person** (he, she, you (m), I, we): -u becomes -a in naṣb and a sukūn in jazm.
+- **The five verbs** end in a nūn. The book lists them as يَفْعَلَانِ، تَفْعَلَانِ، يَفْعَلُونَ، تَفْعَلُونَ، تَفْعَلِينَ. In naṣb and in jazm the nūn is lost. In the table: يَجْعَلَا، تَجْعَلَا، يَجْعَلُوا۟، تَجْعَلُوا۟، تَجْعَلِي.
+- **The women’s plural** (they (f), you all (f)) has -na with a sukūn before it. It looks the same in all three moods.
+- **A weak last letter** shows naṣb with a visible -a on ي and و, a hidden -a on a long ā, and drops out in jazm. L4.11 to L4.13 teach weak verbs.
+
+<Check n={4} q="Which of these has lost its nūn, the sign of naṣb or jazm?" options={['تَجْعَلُونَ', 'تَجْعَلُوا۟', 'تَجْعَلْنَ']} answer={1} why="تَجْعَلُونَ is the plain form. تَجْعَلْنَ ends in -na, but that nūn is part of the women’s form and does not drop." />
+</Block>
+
+</Step>
+
+<Step id="nasb" label="Naṣb" title="Words that bring -a (naṣb)">
+<Block id="an" title="أَنْ: “to”">
+  <Stage>
+    <Sentence
+      roles
+      reference="An-Nisa 4:28 (start)"
+      groups={[
+        { role: 'fiil', hint: 'plain: -u', words: [{ ar: 'يُرِيدُ', en: 'wants', say: 'yuridu', type: 'v' }] },
+        { role: 'fail', words: [{ ar: 'ٱللَّهُ', en: 'Allah', say: 'allahu' }] },
+        { words: [{ ar: 'أَن', en: 'to', say: 'an', type: 'p' }] },
+        { role: 'fiil', label: 'verb after أَن', hint: 'ends in -a', words: [{ ar: 'يُخَفِّفَ', en: 'make light', say: 'yukhaffifa', type: 'v' }] },
+        { role: 'tied', words: [{ ar: 'عَنكُمْ', en: 'for you', say: 'ankum', type: 'p' }] },
+      ]}
+      en={['Allah wants to make it lighter for you.']}
+    />
+  </Stage>
+
+Two verbs stand side by side. The first, يُرِيدُ (“he wants”), has the plain -u. The second, يُخَفِّفَ (“he makes light”), ends in **-a**. The little word أَنْ stands in front of it.
+
+Al-Jadwal calls أَنْ here a little word that makes a verb into a noun idea and brings naṣb. أَنْ يُخَفِّفَ means “to make light”. The Corpus tags يُخَفِّفَ as a Form II verb in the subjunctive. L3.12 teaches Form II.
+
+<Check n={5} q="Which verb in this verse ends in -a because of a little word in front of it?" options={['يُرِيدُ', 'يُخَفِّفَ']} answer={1} why="أَن stands in front of يُخَفِّفَ and brings naṣb. يُرِيدُ has nothing of the kind in front, so it keeps -u." />
+</Block>
+
+<Block id="lan" title="لَن: “will not”">
+  <Stage>
+    <Sentence
+      roles
+      reference="Al-Isra 17:37 (end)"
+      groups={[
+        { words: [{ ar: 'لَن', en: 'will not', say: 'lan', type: 'p' }] },
+        { role: 'fiil', hint: 'ends in -a', words: [{ ar: 'تَخْرِقَ', en: 'split', say: 'takhriqa', type: 'v' }] },
+        { role: 'maful', words: [{ ar: 'ٱلْأَرْضَ', en: 'the earth', say: 'al-arda' }] },
+        { words: [{ ar: 'وَلَن', en: 'and will not', say: 'wa-lan', type: 'p' }] },
+        { role: 'fiil', hint: 'ends in -a', words: [{ ar: 'تَبْلُغَ', en: 'reach', say: 'tablugha', type: 'v' }] },
+        { role: 'maful', words: [{ ar: 'ٱلْجِبَالَ', en: 'the mountains', say: 'al-jibala' }] },
+        { words: [{ ar: 'طُولًا', en: 'in height', say: 'tulan' }] },
+      ]}
+      en={['You will not split the earth, and you will not reach the mountains in height.']}
+    />
+  </Stage>
+
+لَن means “will not”. Al-Jadwal calls it a little word of negation that brings naṣb and points to the future (17:37).
+
+The verse uses it twice. After each لَن the verb ends in -a: تَخْرِقَ and تَبْلُغَ. The plain forms are تَخْرِقُ and تَبْلُغُ.
+
+The Corpus tags لَن 106 times in the whole Quran. This is Quran Learn’s count by script on the Corpus file.
+</Block>
+
+<Block id="li" title="لِ: “so that”">
+  <Stage>
+    <Sentence
+      roles
+      reference="Ibrahim 14:1 (part)"
+      groups={[
+        { role: 'fiil', hint: 'li- plus a verb ending in -a', words: [{ ar: 'لِتُخْرِجَ', en: 'so that you bring out', say: 'li-tukhrija', type: 'v' }] },
+        { role: 'maful', words: [{ ar: 'ٱلنَّاسَ', en: 'the people', say: 'an-nasa' }] },
+        { role: 'jarMajrur', hint: 'from the darkness', words: [{ ar: 'مِنَ', en: 'from', type: 'p' }, { ar: 'ٱلظُّلُمَٰتِ', en: 'the darknesses', say: 'az-zulumati' }] },
+        { role: 'jarMajrur', hint: 'into the light', words: [{ ar: 'إِلَى', en: 'to', type: 'p' }, { ar: 'ٱلنُّورِ', en: 'the light', say: 'an-nuri' }] },
+      ]}
+      en={['… so that you bring the people out of the darkness into the light.']}
+    />
+  </Stage>
+
+The letter لِ at the front of a verb can mean “so that”. It is written joined to the verb: لِ + تُخْرِجَ. The verb ends in **-a**.
+
+Al-Jadwal calls this لِ the lām of reason. It says the -a comes from an أَنْ that is hidden right after the lām. So لِتُخْرِجَ works like “so that you bring out”, with an أَنْ understood between the lām and the verb.
+
+This is not the preposition لِ of L2.07, which stands before a noun, and it is not the lām of command that you meet in Step 3.
+</Block>
+
+<Block id="kay" title="كَيْ: “so that”">
+  <Stage>
+    <Sentence
+      roles
+      reference="Al-Imran 3:153 (part)"
+      groups={[
+        { words: [{ ar: 'لِّكَيْلَا', en: 'so that … not', say: 'li-kayla', type: 'p' }] },
+        { role: 'fiil', hint: 'naṣb: the nūn is gone', words: [{ ar: 'تَحْزَنُوا۟', en: 'you grieve', say: 'tahzanu', type: 'v' }] },
+        { role: 'tied', words: [{ ar: 'عَلَىٰ', en: 'over', type: 'p' }, { ar: 'مَا', en: 'what', say: 'ma' }] },
+        { words: [{ ar: 'فَاتَكُمْ', en: 'passed you by', say: 'fatakum', type: 'v' }] },
+      ]}
+      en={['… so that you do not grieve over what passed you by.']}
+    />
+  </Stage>
+
+كَيْ also means “so that”. In this verse it comes after the lām, and the little word لَا (“not”) follows: لِّكَيْلَا is **li + kay + lā**.
+
+Al-Jadwal says كَيْ is the word that brings naṣb here. The لَا just says “not”. The verb تَحْزَنُوا۟ is in naṣb, and its nūn is gone. The plain form is تَحْزَنُونَ.
+
+<Check n={6} q="In لِّكَيْلَا تَحْزَنُوا۟, which little word brings the naṣb?" options={['لِ', 'كَيْ', 'لَا']} answer={1} why="Al-Jadwal reads كَيْ as the word of naṣb. The لَا just says “not”." />
+</Block>
+
+<Block id="nun" title="The five verbs lose their nūn">
+  <Stage>
+    <Sentence
+      roles
+      reference="Al-Imran 3:92 (start)"
+      groups={[
+        { words: [{ ar: 'لَن', en: 'will not', say: 'lan', type: 'p' }] },
+        { role: 'fiil', hint: 'naṣb: the nūn is gone', words: [{ ar: 'تَنَالُوا۟', en: 'you reach', say: 'tanalu', type: 'v' }] },
+        { role: 'maful', words: [{ ar: 'ٱلْبِرَّ', en: 'goodness', say: 'al-birra' }] },
+        { words: [{ ar: 'حَتَّىٰ', en: 'until', say: 'hatta', type: 'p' }] },
+        { role: 'fiil', hint: 'naṣb: the nūn is gone', words: [{ ar: 'تُنفِقُوا۟', en: 'you spend', say: 'tunfiqu', type: 'v' }] },
+        { words: [{ ar: 'مِمَّا', en: 'from what', say: 'mimma', type: 'p' }] },
+        { role: 'fiil', hint: 'plain: the nūn stays', words: [{ ar: 'تُحِبُّونَ', en: 'you love', say: 'tuhibbuna', type: 'v' }] },
+      ]}
+      en={['You will not reach goodness until you spend from what you love.']}
+    />
+  </Stage>
+
+The “you all” form is one of the five verbs. In its plain form it ends in a nūn: تَنَالُونَ, تُنفِقُونَ, تُحِبُّونَ. After a word of naṣb the **nūn is lost**.
+
+In this verse, لَن takes the nūn off تَنَالُونَ, and حَتَّىٰ takes it off تُنفِقُونَ. The third verb, تُحِبُّونَ, keeps its nūn, because no word of naṣb or jazm stands right before it. The wāw is the doer, “you all” (L2.04). The alif after it is silent.
+
+So a verb like تَنَالُوا۟ is not a misprint or a noun. The missing nūn is the sign of naṣb. L2.05 named this sign.
+
+<Note kind="know">The book lists حَتَّى among the words of naṣb. Al-Jadwal reads حَتَّىٰ as a word that means “until” and takes a noun idea after it, and puts the naṣb on a hidden أَنْ after it: “until (that) you spend”. For the reader the result is the same: the verb after حَتَّىٰ is in naṣb.</Note>
+
+<Check n={7} q="Which verb in this verse keeps its nūn?" options={['تَنَالُوا۟', 'تُنفِقُوا۟', 'تُحِبُّونَ']} answer={2} why="No word of naṣb or jazm stands before تُحِبُّونَ, so it keeps its plain ending." />
+</Block>
+
+<Block id="hidden" title="A -a you cannot see">
+  <Stage>
+    <Sentence
+      roles
+      reference="Al-Baqarah 2:120 (part)"
+      groups={[
+        { words: [{ ar: 'وَلَن', en: 'and will not', say: 'wa-lan', type: 'p' }] },
+        { role: 'fiil', hint: 'naṣb: a hidden -a', words: [{ ar: 'تَرْضَىٰ', en: 'be pleased', say: 'tarda', type: 'v' }] },
+        { role: 'tied', words: [{ ar: 'عَنكَ', en: 'with you', say: 'anka', type: 'p' }] },
+        { role: 'fail', words: [{ ar: 'ٱلْيَهُودُ', en: 'the Jews', say: 'al-yahudu' }] },
+      ]}
+      en={['And the Jews will not be pleased with you.']}
+    />
+  </Stage>
+
+The verb تَرْضَىٰ (“is pleased”) ends in a long ā, written ىٰ. After لَن it should take -a. A long ā cannot carry a vowel mark, so the -a cannot be written.
+
+Al-Jadwal says the fatḥa is **hidden**, understood but not seen, on the alif. So the plain form and the naṣb form look the same: تَرْضَىٰ. L2.04 showed this verb and promised this explanation. In L2.01 you saw the same idea with a hidden ḍamma on مَوْلَىٰ.
+
+The same verse goes on with حَتَّىٰ تَتَّبِعَ مِلَّتَهُمْ, “until you follow their way”. There the -a of naṣb is easy to see on تَتَّبِعَ.
+
+<Check n={8} q="How do you know that تَرْضَىٰ is in naṣb here?" options={['It ends in a fatḥa', 'لَن stands in front of it, and the -a is hidden', 'It lost its nūn']} answer={1} why="The word before the verb decides. A long ā hides the -a." />
+</Block>
+
+<Block id="nasb-table" title="The five words of naṣb">
+  <Stage label="In this lesson">
+    <Tiles
+      label="لَن, أَنْ, كَيْ, لِ, حَتَّىٰ"
+      items={[
+        { ar: 'أَنْ', en: 'to', type: 'p' },
+        { ar: 'لَن', en: 'will not', type: 'p' },
+        { ar: 'كَيْ', en: 'so that', type: 'p' },
+        { ar: 'لِ', en: 'so that', type: 'p' },
+        { ar: 'حَتَّىٰ', en: 'until', type: 'p' },
+      ]}
+    />
+  </Stage>
+
+| Word | Meaning | In this lesson |
+|---|---|---|
+| أَنْ | to, that | 4:28 |
+| لَن | will not | 17:37, 3:92, 2:120 |
+| كَيْ | so that | 3:153 |
+| لِ | so that | 14:1 |
+| حَتَّىٰ | until | 3:92, 2:120 |
+
+After each of them, a verb with one person ends in -a. The five verbs lose the nūn. The women’s plural does not change. A long ā hides the -a.
+
+<Check n={9} q="Which of these little words does not bring naṣb?" options={['أَنْ', 'لَن', 'لَمْ']} answer={2} why="لَمْ brings jazm. You meet it in the next step." />
+</Block>
+
+</Step>
+
+<Step id="jazm" label="Jazm" title="Words that cut the verb short (jazm)">
+<Block id="signs" title="The two signs of jazm, as the book says it">
+  <Stage label="From al-Ajurrumiyyah">
+    <blockquote class="lx-quote lx-quote-list" lang="ar" dir="rtl">
+      <p>وَلِلْجَزْمِ عَلَامَتَانِ: السُّكُونُ وَالْحَذْفُ</p>
+      <p>فَأَمَّا السُّكُونُ فَيَكُونُ عَلَامَةً لِلْجَزْمِ فِي الْفِعْلِ الْمُضَارِعِ الصَّحِيحِ الْآخِرِ</p>
+      <p>وَأَمَّا الْحَذْفُ فَيَكُونُ عَلَامَةً لِلْجَزْمِ فِي الْفِعْلِ الْمُضَارِعِ الْمُعْتَلِّ الْآخِرِ وَفِي الْأَفْعَالِ الْخَمْسَةِ الَّتِي رَفْعُهَا بِثَبَاتِ النُّونِ</p>
+    </blockquote>
+    <p class="lx-quote-note"><i>Al-Ajurrumiyyah</i>, chapter on the signs of iʿrāb. Vowel marks added by Quran Learn.</p>
+  </Stage>
+
+The book says jazm has **two signs**.
+
+- The **sukūn**, on a present-tense verb whose last letter is sound (not a weak letter).
+- The **dropping** of a letter: the last weak letter of a weak verb, and the nūn of the five verbs, whose plain ending is a nūn that stays.
+
+You saw both in the table of Step 1. The rest of this step shows the little words that bring jazm, with verses.
+</Block>
+
+<Block id="lam" title="لَمْ: “did not”">
+  <Stage>
+    <Sentence
+      roles
+      reference="At-Tawbah 9:40 (part)"
+      groups={[
+        { role: 'jarMajrur', hint: 'with soldiers', words: [{ ar: 'بِجُنُودٍ', en: 'with soldiers', say: 'bi-junudin', type: 'p' }] },
+        { words: [{ ar: 'لَّمْ', en: 'did not', say: 'lam', type: 'p' }] },
+        { role: 'fiil', hint: 'jazm: the nūn is gone', words: [{ ar: 'تَرَوْهَا', en: 'you saw them', say: 'tarawha', type: 'v' }] },
+      ]}
+      en={['… with soldiers you did not see.']}
+    />
+  </Stage>
+
+لَمْ is the word of jazm you meet most. It does two things.
+
+- It puts the verb in **jazm**.
+- It moves the meaning to the **past**. The verb has a present-tense form, but لَمْ تَرَوْهَا means “you did not see them”.
+
+Al-Jadwal calls لَمْ a little word of negation, of “turning” and of jazm (2:24). The “turning” is the change to the past.
+
+Here the verb is one of the five. The nūn of تَرَوْنَ is gone, so it ends in a wāw and then the attached هَا, “them”. With a sound verb of one person, لَمْ gives a sukūn, as in 18:1 at the start of this lesson.
+
+The Corpus tags لَمْ 353 times in the whole Quran. This is Quran Learn’s count by script on the Corpus file.
+
+<Check n={10} q="What does لَمْ يَجْعَلْ mean?" options={['He puts', 'He did not put', 'He will not put']} answer={1} why="لَمْ moves a present-tense form to the past, with “not”." />
+</Block>
+
+<Block id="lam-lan" title="لَمْ or لَن?">
+  <Stage>
+    <Sentence
+      roles
+      reference="Al-Baqarah 2:24 (part)"
+      groups={[
+        { words: [{ ar: 'فَإِن', en: 'so if', say: 'fa-in', type: 'p' }] },
+        { words: [{ ar: 'لَّمْ', en: 'did not', say: 'lam', type: 'p' }] },
+        { role: 'fiil', hint: 'jazm: the nūn is gone', words: [{ ar: 'تَفْعَلُوا۟', en: 'you do', say: 'tafalu', type: 'v' }] },
+        { words: [{ ar: 'وَلَن', en: 'and will not', say: 'wa-lan', type: 'p' }] },
+        { role: 'fiil', hint: 'naṣb: the nūn is gone', words: [{ ar: 'تَفْعَلُوا۟', en: 'you do', say: 'tafalu', type: 'v' }] },
+      ]}
+      en={['So if you did not do it, and you will not do it, …']}
+    />
+  </Stage>
+
+One verse has both words. The two verbs look exactly the same: تَفْعَلُوا۟ twice, with no nūn. The word in front decides.
+
+| Word | Mood | Time | Example (made-up) |
+|---|---|---|---|
+| لَمْ | jazm | past | لَمْ يَجْعَلْ, “he did not put” |
+| لَن | naṣb | future | لَن يَجْعَلَ, “he will not put” |
+
+The five verbs lose the nūn in both moods, so on them the ending cannot tell you which mood it is. Read the little word.
+
+The word فَإِنْ at the start is “so if”. It also brings jazm, and the book lists إِنْ among the words of jazm. L4.03 and L4.04 teach it.
+
+<Check n={11} q="In وَلَن تَفْعَلُوا۟, what shows that the verb is in naṣb?" options={['Its ending', 'The word لَن in front of it', 'The wāw']} answer={1} why="After لَمْ the ending would look the same. The little word in front decides." />
+</Block>
+
+<Block id="nahy" title="لَا: “do not”">
+  <Stage>
+    <Sentence
+      roles
+      reference="At-Tawbah 9:40 (part)"
+      groups={[
+        { words: [{ ar: 'لَا', en: 'do not', say: 'la', type: 'p' }] },
+        { role: 'fiil', hint: 'jazm: no vowel', words: [{ ar: 'تَحْزَنْ', en: 'be sad', say: 'tahzan', type: 'v' }] },
+        { words: [{ ar: 'إِنَّ', en: 'indeed', say: 'inna', type: 'p' }] },
+        { role: 'ismInna', words: [{ ar: 'ٱللَّهَ', en: 'Allah', say: 'allaha' }] },
+        { role: 'khabarInna', words: [{ ar: 'مَعَنَا', en: 'with us', say: 'maana' }] },
+      ]}
+      en={['Do not be sad. Allah is with us.']}
+    />
+  </Stage>
+
+لَا before a verb can be a **ban**: “do not …”. Grammar books call it the لَا of prohibition (لَا النَّاهِيَة). It brings jazm. Here تَحْزَنْ ends in a sukūn. The plain form is تَحْزَنُ.
+
+Al-Jadwal names لَا here “prohibiting and bringing jazm” and says the doer is a hidden “you”. The second half, إِنَّ ٱللَّهَ مَعَنَا, is a sentence with *inna* (L2.10).
+
+A ban is a kind of command. L3.08 teaches commands.
+</Block>
+
+<Block id="la-two" title="Two kinds of لَا">
+  <Stage>
+    <Sentence
+      roles
+      reference="At-Talaq 65:7 (part)"
+      groups={[
+        { words: [{ ar: 'لَا', en: 'does not', say: 'la', type: 'p' }] },
+        { role: 'fiil', hint: 'plain: -u', words: [{ ar: 'يُكَلِّفُ', en: 'burden', say: 'yukallifu', type: 'v' }] },
+        { role: 'fail', words: [{ ar: 'ٱللَّهُ', en: 'Allah', say: 'allahu' }] },
+        { role: 'maful', words: [{ ar: 'نَفْسًا', en: 'a soul', say: 'nafsan' }] },
+      ]}
+      en={['Allah does not burden a soul.']}
+    />
+  </Stage>
+
+The same letters لَا can say “does not” or “do not”. Look at the verb that follows.
+
+| Verse | Verb | Its ending | So لَا is |
+|---|---|---|---|
+| 65:7 | يُكَلِّفُ | -u | a statement: “does not” |
+| 3:153 | تَلْوُۥنَ | the nūn stays | a statement: “you do not turn back” |
+| 9:40 | تَحْزَنْ | sukūn | a ban: “do not” |
+| 3:139 | تَحْزَنُوا۟ | the nūn is gone | a ban: “do not” |
+
+A plain ending means a statement. Al-Jadwal calls this لَا a little word of negation, with no effect on the verb. A jazm ending means a ban.
+
+<Note kind="know">A ban does not have to speak to “you”. In لَا يَسْخَرْ قَوْمٌ مِّن قَوْمٍ (Al-Hujurat 49:11) the ban is about “a people”. Al-Jadwal calls this لَا also “prohibiting and bringing jazm”. The verb’s ending is the test, not the person.</Note>
+
+<Check n={12} q="In لَا يُكَلِّفُ ٱللَّهُ نَفْسًا, is لَا a ban?" options={['Yes: “do not”', 'No: the verb keeps its -u, so it says “does not”']} answer={1} why="A ban puts the verb in jazm. يُكَلِّفُ has the plain -u." />
+</Block>
+
+<Block id="amr" title="The lām of command">
+  <Stage>
+    <Sentence
+      roles
+      reference="At-Talaq 65:7 (start)"
+      groups={[
+        { role: 'fiil', hint: 'lām of command plus a verb ending in a sukūn', words: [{ ar: 'لِيُنفِقْ', en: 'let him spend', say: 'li-yunfiq', type: 'v' }] },
+        { words: [{ ar: 'ذُو', en: 'the owner of', say: 'dhu' }, { ar: 'سَعَةٍ', en: 'wealth', say: 'saatin' }] },
+        { role: 'tied', words: [{ ar: 'مِّن', en: 'from', type: 'p' }, { ar: 'سَعَتِهِۦ', en: 'his wealth', say: 'saatihi' }] },
+      ]}
+      en={['Let the one who has wealth spend from his wealth.']}
+    />
+    <Sentence
+      roles
+      reference="At-Talaq 65:7 (part)"
+      groups={[
+        { role: 'fiil', hint: 'after فَ the lām has a sukūn', words: [{ ar: 'فَلْيُنفِقْ', en: 'then let him spend', say: 'fal-yunfiq', type: 'v' }] },
+        { role: 'tied', words: [{ ar: 'مِمَّآ', en: 'from what', type: 'p' }] },
+        { words: [{ ar: 'ءَاتَىٰهُ', en: 'gave him', say: 'atahu', type: 'v' }, { ar: 'ٱللَّهُ', en: 'Allah', say: 'allahu' }] },
+      ]}
+      en={['… then let him spend from what Allah has given him.']}
+    />
+  </Stage>
+
+A لِ at the front of a verb can also mean “let him …”. This is the **lām of command** (لَامُ الْأَمْر). It brings jazm: لِيُنفِقْ ends in a sukūn.
+
+Compare it with the lām of reason in 14:1.
+
+- لِتُخْرِجَ: lām and a verb in -a means “so that you bring out”.
+- لِيُنفِقْ: lām and a verb in a sukūn means “let him spend”.
+
+The verse repeats the idea after فَ: فَلْيُنفِقْ. Al-Jadwal says the lām has a kasra, and that after فَ and وَ it takes a sukūn more often than not. It can take a sukūn after ثُمَّ too. L3.08 teaches commands.
+
+<Check n={13} q="Which one means “let him put”?" options={['لِيَجْعَلَ', 'لِيَجْعَلْ']} answer={1} why="The lām of command goes with jazm, a sukūn. لِيَجْعَلَ ends in -a and means “so that he puts”. Both forms are made-up examples." />
+</Block>
+
+<Block id="fem" title="The women’s plural does not change">
+  <Stage>
+    <Sentence
+      roles
+      reference="At-Talaq 65:4 (part)"
+      groups={[
+        { words: [{ ar: 'وَٱلَّٰٓـِٔى', en: 'and those women who', say: 'wal-lai' }] },
+        { words: [{ ar: 'لَمْ', en: 'did not', say: 'lam', type: 'p' }] },
+        { role: 'fiil', hint: 'jazm: the form does not change', words: [{ ar: 'يَحِضْنَ', en: 'have a period', say: 'yahidna', type: 'v' }] },
+      ]}
+      en={['… and those women who have not had a period.']}
+    />
+    <Sentence
+      roles
+      reference="At-Talaq 65:4 (part)"
+      groups={[
+        { role: 'mubtada', words: [{ ar: 'أَجَلُهُنَّ', en: 'their time', say: 'ajaluhunna' }] },
+        { words: [{ ar: 'أَن', en: 'to', say: 'an', type: 'p' }] },
+        { role: 'fiil', hint: 'naṣb: the form does not change', words: [{ ar: 'يَضَعْنَ', en: 'put down', say: 'yadana', type: 'v' }] },
+        { role: 'maful', words: [{ ar: 'حَمْلَهُنَّ', en: 'their load', say: 'hamlahunna' }] },
+      ]}
+      en={['… their time is when they give birth.']}
+    />
+  </Stage>
+
+Both verbs end in -na with a sukūn before it. They are forms for women, many. The first follows لَمْ, so it is in jazm. The second follows أَن, so it is in naṣb. The form is the same in both, and in the plain form too.
+
+Al-Jadwal says such a verb is fixed on the sukūn. Its jazm or naṣb is “in the place of” the mood and cannot be seen. So you know the mood from the little word in front.
+
+<Check n={14} q="How do you know that يَضَعْنَ is in naṣb in أَجَلُهُنَّ أَن يَضَعْنَ?" options={['The ending changed', 'The word أَن stands in front of it; the ending is the same either way']} answer={1} why="The women’s plural looks the same in all three moods. The little word in front tells you." />
+</Block>
+
+<Block id="weak" title="A weak last letter drops">
+  <Stage>
+    <Sentence
+      roles
+      reference="Al-Isra 17:37 (start)"
+      groups={[
+        { words: [{ ar: 'وَلَا', en: 'and do not', say: 'wa-la', type: 'p' }] },
+        { role: 'fiil', hint: 'jazm: the ي of تَمْشِي is gone', words: [{ ar: 'تَمْشِ', en: 'walk', say: 'tamshi', type: 'v' }] },
+        { role: 'jarMajrur', hint: 'on the earth', words: [{ ar: 'فِى', en: 'in', type: 'p' }, { ar: 'ٱلْأَرْضِ', en: 'the earth', say: 'al-ardi' }] },
+        { words: [{ ar: 'مَرَحًا', en: 'proudly', say: 'marahan' }] },
+      ]}
+      en={['And do not walk on the earth proudly.']}
+    />
+    <Sentence
+      reference="Al-Insan 76:1 (part)"
+      groups={[
+        { words: [{ ar: 'لَمْ', en: 'did not', say: 'lam', type: 'p' }] },
+        { words: [{ ar: 'يَكُن', en: 'be', say: 'yakun', type: 'v' }] },
+        { words: [{ ar: 'شَيْـًٔا', en: 'anything', say: 'shayan' }, { ar: 'مَّذْكُورًا', en: 'mentioned', say: 'madhkuran' }] },
+      ]}
+      en={['… he was not anything to be mentioned.']}
+    />
+  </Stage>
+
+The plain form of تَمْشِ is تَمْشِي, “you walk”. It ends in a long ī, a weak letter. After لَا of a ban the **ي drops**. This is the second sign of jazm in the book: dropping the weak letter.
+
+Al-Jadwal says it in these words for the same kind of verb in the verse before: the sign of jazm is dropping the weak letter. In its notes on word forms it says the drop is made “because of jazm”.
+
+A weak letter in the middle can drop too. The plain form of يَكُن is يَكُونُ, “he is”. After لَمْ the long ū is gone, and the verb ends in a sukūn: لَمْ يَكُنْ. The Corpus tags this verb as *kāna* in the jussive. The same happens in لَا تَخَفْ (20:68) from تَخَافُ. It happens when a sukūn follows the middle letter. Where -ū or -ī follows instead, the long vowel stays. L4.12 gives the rules.
+
+L4.11 introduces weak verbs. L4.12 teaches verbs with a weak middle letter, and L4.13 verbs with a weak last letter.
+
+<Check n={15} q="What happens to the long ī of تَمْشِي after لَا of a ban?" options={['It stays: تَمْشِي', 'It drops: تَمْشِ']} answer={1} why="A weak last letter drops in jazm. The verb is left with a short kasra." />
+</Block>
+
+<Block id="cond" title="A look ahead: conditions">
+  <Stage>
+    <Sentence
+      roles
+      reference="Muhammad 47:7 (part)"
+      groups={[
+        { words: [{ ar: 'إِن', en: 'if', say: 'in', type: 'p' }] },
+        { role: 'fiil', hint: 'jazm: the nūn is gone', words: [{ ar: 'تَنصُرُوا۟', en: 'you help', say: 'tansuru', type: 'v' }] },
+        { role: 'maful', words: [{ ar: 'ٱللَّهَ', en: 'Allah', say: 'allaha' }] },
+        { role: 'fiil', hint: 'jazm: a sukūn', words: [{ ar: 'يَنصُرْكُمْ', en: 'he will help you', say: 'yansurkum', type: 'v' }] },
+      ]}
+      en={['If you help Allah, he will help you.']}
+    />
+  </Stage>
+
+A few words of jazm put **two** verbs in jazm: the condition and its result. The book lists إِنْ, مَا and مَنْ among them.
+
+In 47:7, both verbs are in jazm. تَنصُرُوا۟ lost its nūn. يَنصُرْكُمْ ends in a sukūn, and the attached كُمْ is “you”. Al-Jadwal reads the second sentence as the answer to the condition.
+
+The end of 3:92 has the same pattern with مَا: وَمَا تُنفِقُوا۟ مِن شَىْءٍ, “and whatever you spend”. Al-Jadwal calls مَا here a word of condition that brings jazm, and says تُنفِقُوا۟ is in jazm, shown by the lost nūn. L4.03 and L4.04 teach conditions.
+
+<Check n={16} q="In إِن تَنصُرُوا۟ ٱللَّهَ يَنصُرْكُمْ, how many verbs are in jazm?" options={['One', 'Two', 'None']} answer={1} why="إِن brings jazm to the condition, تَنصُرُوا۟, and to its result, يَنصُرْكُمْ." />
+</Block>
+
+<Block id="jazm-table" title="The words of jazm">
+  <Stage label="In this lesson">
+    <Tiles
+      label="لَمْ, لَا, لِ, إِنْ"
+      items={[
+        { ar: 'لَمْ', en: 'did not', type: 'p' },
+        { ar: 'لَا', en: 'do not', type: 'p' },
+        { ar: 'لِ', en: 'let him', type: 'p' },
+        { ar: 'إِنْ', en: 'if', type: 'p' },
+      ]}
+    />
+  </Stage>
+
+| Word | Meaning | In this lesson |
+|---|---|---|
+| لَمْ | did not | 18:1, 9:40, 2:24, 76:1 |
+| لَا of a ban | do not | 9:40, 3:139, 17:37 |
+| لِ of command | let him | 65:7 |
+| إِنْ, مَا (preview) | if, whatever | 47:7, 3:92, 2:24 |
+
+After each of them, a sound verb of one person ends in a sukūn. The five verbs lose the nūn. The women’s plural does not change. A weak last letter drops.
+
+</Block>
+
+</Step>
+
+<Step id="mistakes" label="Mistakes, word by word" title="Five mistakes, and four verses word by word">
+<Block id="mistake-command" title="Mistake 1: reading a jazm verb as a command">
+  <Stage label="Both end in a sukūn">
+    <Tiles
+      label="لَا تَحْزَنْ keeps its prefix, ٱقْرَأْ has none"
+      items={[
+        { ar: 'لَا تَحْزَنْ', en: 'do not be sad (9:40)', type: 'v' },
+        { ar: 'ٱقْرَأْ', en: 'read! (96:1)', type: 'v' },
+      ]}
+    />
+  </Stage>
+
+A ban such as لَا تَحْزَنْ ends in a sukūn, and so does a command such as ٱقْرَأْ. They are different forms. The jazm verb keeps its prefix (the تَ of تَحْزَنْ). A command has no prefix. L3.08 teaches commands.
+
+<Check n={17} q="Which one is a command, not a jazm verb?" options={['لَا تَحْزَنْ', 'ٱقْرَأْ']} answer={1} why="ٱقْرَأْ has no prefix. تَحْزَنْ keeps its تَ." />
+</Block>
+
+<Block id="mistake-lam-lan" title="Mistake 2: using لَمْ for the future">
+  <Stage label="Made-up example">
+    <Tiles
+      label="لَمْ يَجْعَلْ is past, لَن يَجْعَلَ is future"
+      items={[
+        { ar: 'لَمْ يَجْعَلْ', en: 'he did not put', type: 'v' },
+        { ar: 'لَن يَجْعَلَ', en: 'he will not put', type: 'v' },
+      ]}
+    />
+  </Stage>
+
+Both say “not”, and both can go in front of the same verb. لَمْ is jazm and points to the past. لَن is naṣb and points to the future.
+
+The five verbs hide the difference: after either word they lose the nūn. Then the meaning and the little word tell you the mood. يَجْعَلُوا۟ after لَمْ is “they did not put”. After لَن it is “they will not put”.
+
+<Check n={18} q="Which one means “he will not put”?" options={['لَمْ يَجْعَلْ', 'لَن يَجْعَلَ']} answer={1} why="لَن points to the future. لَمْ points to the past." />
+</Block>
+
+<Block id="mistake-nun" title="Mistake 3: thinking a missing nūn is a misprint">
+  <Stage label="Same verb, two endings">
+    <Tiles
+      label="تُحِبُّونَ keeps its nūn, تُنفِقُوا۟ lost it"
+      items={[
+        { ar: 'تُحِبُّونَ', en: 'you love (3:92)', type: 'v' },
+        { ar: 'تُنفِقُوا۟', en: 'you spend (3:92)', type: 'v' },
+      ]}
+    />
+  </Stage>
+
+A reader who knows the plain form تُنفِقُونَ may think the nūn fell out of تُنفِقُوا۟. Nothing fell out. The nūn is the plain ending of the five verbs, and a word of naṣb or jazm takes it away. When you see a verb of this kind without its nūn, look for the little word in front of it.
+
+The same letters also appear on nouns. A noun ending in -ūna is a plural and shows a case (L2.04). A verb ending in -ūna is a plain verb with a wāw as its doer.
+</Block>
+
+<Block id="mistake-lam-letters" title="Mistake 4: mixing the two lām and the two lā">
+  <Stage label="Look at the end of the verb">
+    <Tiles
+      label="لِتُخْرِجَ ends in -a, لِيُنفِقْ ends in a sukūn"
+      items={[
+        { ar: 'لِتُخْرِجَ', en: 'so that you bring out (14:1)', type: 'v' },
+        { ar: 'لِيُنفِقْ', en: 'let him spend (65:7)', type: 'v' },
+      ]}
+    />
+  </Stage>
+
+The letter لِ before a verb has two jobs, and لَا has two jobs. The first letters of the verb look alike, so check the end of the verb.
+
+- لِ and a verb in **-a**: “so that”.
+- لِ and a verb in a **sukūn**: “let him”.
+- لَا and a verb with the plain ending: “does not”.
+- لَا and a verb in jazm: “do not”.
+
+Both lām are different again from the preposition لِ before a noun (L2.07).
+</Block>
+
+<Block id="mistake-sukun" title="Mistake 5: expecting a sukūn on a jazm verb">
+  <Stage label="Three signs of jazm">
+    <Tiles
+      label="يَجْعَل has a sukūn, تَرَوْهَا lost a nūn, تَمْشِ lost a weak letter"
+      items={[
+        { ar: 'يَجْعَل', en: 'sukūn (18:1)', type: 'v' },
+        { ar: 'تَرَوْهَا', en: 'lost nūn (9:40)', type: 'v' },
+        { ar: 'تَمْشِ', en: 'lost weak letter (17:37)', type: 'v' },
+      ]}
+    />
+  </Stage>
+
+A reader who looks for a sukūn will miss two of the three signs. Jazm shows as a sukūn on a sound verb, as a lost nūn on the five verbs, and as a lost weak letter on a verb with a weak last letter.
+
+Naṣb has its own signs: -a, a lost nūn, a hidden -a. The little word in front shows which mood you have when the signs look alike.
+</Block>
+
+<Block id="parse-1" title="Word by word: Al-Imran 3:92">
+  <Stage label="Word by word">
+    <Parse
+      reference="Al-Imran 3:92 (start)"
+      words={[
+        { ar: 'لَن', en: 'will not', type: 'p' },
+        { ar: 'تَنَالُوا۟', en: 'you reach', type: 'v' },
+        { ar: 'ٱلْبِرَّ', en: 'goodness' },
+        { ar: 'حَتَّىٰ', en: 'until', type: 'p' },
+        { ar: 'تُنفِقُوا۟', en: 'you spend', type: 'v' },
+        { ar: 'مِمَّا', en: 'from what', type: 'p' },
+        { ar: 'تُحِبُّونَ', en: 'you love', type: 'v' },
+      ]}
+      cards={[
+        { at: 0, role: '“will not”: a little word of negation. It brings naṣb to the verb after it.', why: 'Little words have no case. This one is the reason the next verb ends the way it does.', irab: 'حرف نفي ونصب' },
+        { at: 1, role: 'a present-tense verb, “you reach”. The wāw is the doer, “you all”.', case: 'naṣb (subjunctive)', mark: 'the nūn is lost: تَنَالُونَ becomes تَنَالُوا۟', why: 'لَن stands in front. A verb of the five shows naṣb by losing its nūn.', irab: 'مضارع منصوب وعلامة نصبه حذف النون، والواو فاعل' },
+        { at: 2, role: 'what the verb acts on (mafʿūl bihi): “goodness”', case: 'accusative (naṣb)', mark: '-a (fatḥa) on the last letter', why: 'It is the thing that is reached.', irab: 'مفعول به منصوب وعلامة نصبه الفتحة' },
+        { at: 3, role: '“until”: a little word that gives an end point', why: 'Al-Jadwal calls it a word of end point and a preposition. The naṣb after it comes from a hidden أَنْ.', irab: 'حرف غاية وجر' },
+        { at: 4, role: 'a present-tense verb, “you spend”. The wāw is the doer. The Corpus tags it as Form IV (L3.13).', case: 'naṣb (subjunctive)', mark: 'the nūn is lost: تُنفِقُونَ becomes تُنفِقُوا۟', why: 'A hidden أَنْ stands after حَتَّىٰ and brings naṣb.', irab: 'مضارع منصوب بأن مضمرة بعد حتى وعلامة نصبه حذف النون، والواو فاعل' },
+        { at: 5, role: '“from what”: min with the word mā, which means “what”', why: 'They are written as one word, مِمَّا. Mā stands for what you love (L3.11).', irab: 'من حرف جر وما اسم موصول مبني في محل جر' },
+        { at: 6, role: 'a present-tense verb, “you love”. The wāw is the doer.', case: 'plain ending (marfūʿ)', mark: 'the nūn stays', why: 'No word of naṣb or jazm stands in front of it, so it keeps the plain ending.', irab: 'مضارع مرفوع وعلامة رفعه ثبوت النون، والواو فاعل' },
+      ]}
+    />
+  </Stage>
+
+The first verse shows all the endings of the five verbs. For each verb, ask: which little word stands in front, and is the nūn still there?
+
+Press **Next word** to go through it. Try each answer before you look.
+</Block>
+
+<Block id="parse-2" title="Word by word: Al-Kahf 18:1">
+  <Stage label="Word by word">
+    <Parse
+      reference="Al-Kahf 18:1 (end)"
+      words={[
+        { ar: 'وَلَمْ', en: 'and did not', type: 'p' },
+        { ar: 'يَجْعَل', en: 'put', type: 'v' },
+        { ar: 'لَّهُۥ', en: 'for it', type: 'p' },
+        { ar: 'عِوَجَا', en: 'any crookedness' },
+      ]}
+      cards={[
+        { at: 0, ar: 'وَ', role: '“and”, a little word that joins this to the sentence before', why: 'Little words have no case.', irab: 'الواو عاطفة' },
+        { at: 0, ar: 'لَمْ', role: '“did not”: a little word of negation. It brings jazm and moves the meaning to the past.', why: 'It stands in front of the verb and changes its ending.', irab: 'حرف نفي وجزم' },
+        { at: 1, role: 'a present-tense verb, “he puts”. The doer is a hidden “he”.', case: 'jazm (jussive)', mark: 'a sukūn on the last letter', why: 'لَمْ stands in front. The plain form يَجْعَلُ lost its ḍamma.', irab: 'مضارع مجزوم وعلامة جزمه السكون، والفاعل ضمير مستتر تقديره هو' },
+        { at: 2, role: '“for it”: li- with the pronoun hu', why: 'It says what the crookedness is about. The pronoun means the Book.', irab: 'اللام حرف جر والهاء ضمير في محل جر' },
+        { at: 3, role: 'what the verb acts on (mafʿūl bihi): “any crookedness”', case: 'accusative (naṣb)', mark: '-an (tanwīn fatḥa, with alif)', why: 'It is the thing that is not put in the Book.', irab: 'مفعول به منصوب وعلامة نصبه الفتحة' },
+      ]}
+    />
+  </Stage>
+
+This is the simplest case: a sound verb of one person after لَمْ. Look for two things. The sukūn shows the jazm. The past meaning comes from لَمْ.
+</Block>
+
+<Block id="parse-3" title="Word by word: At-Tawbah 9:40">
+  <Stage label="Word by word">
+    <Parse
+      reference="At-Tawbah 9:40 (part)"
+      words={[
+        { ar: 'لَا', en: 'do not', type: 'p' },
+        { ar: 'تَحْزَنْ', en: 'be sad', type: 'v' },
+        { ar: 'إِنَّ', en: 'indeed', type: 'p' },
+        { ar: 'ٱللَّهَ', en: 'Allah' },
+        { ar: 'مَعَنَا', en: 'with us' },
+      ]}
+      cards={[
+        { at: 0, role: '“do not”: a little word of prohibition. It brings jazm.', why: 'The verb after it ends in jazm, so this is a ban. The plain “does not” leaves the verb with its -u.', irab: 'لا ناهية جازمة' },
+        { at: 1, role: 'a present-tense verb, “you are sad”. The doer is a hidden “you”.', case: 'jazm (jussive)', mark: 'a sukūn on the last letter', why: 'لَا of the ban stands in front. The plain form is تَحْزَنُ.', irab: 'مضارع مجزوم وعلامة جزمه السكون، والفاعل ضمير مستتر تقديره أنت' },
+        { at: 2, role: '“indeed”: a little word that starts a new sentence about Allah (L2.10)', why: 'It puts the next noun in the accusative.', irab: 'حرف مشبه بالفعل ناسخ' },
+        { at: 3, role: 'ism of inna (“the subject of inna”): “Allah”', case: 'accusative (naṣb)', mark: '-a (fatḥa)', why: 'The word after inna is accusative (L2.10).', irab: 'لفظ الجلالة اسم إن منصوب' },
+        { at: 4, role: 'khabar of inna: “with us”. A place word joined to the pronoun nā.', case: 'accusative (naṣb), as a place word', mark: '-a (fatḥa) on مَعَ', why: 'مَعَ is a place word. The attached نَا means “us”.', irab: 'ظرف منصوب متعلق بمحذوف خبر إن، ونا ضمير مضاف إليه' },
+      ]}
+    />
+  </Stage>
+
+The verb here follows the ban لَا. It has a sukūn and keeps its prefix تَ. The rest of the verse is a sentence with *inna*. L2.10 taught it.
+</Block>
+
+<Block id="parse-4" title="Word by word: Al-Isra 17:37">
+  <Stage label="Word by word">
+    <Parse
+      reference="Al-Isra 17:37 (start)"
+      words={[
+        { ar: 'وَلَا', en: 'and do not', type: 'p' },
+        { ar: 'تَمْشِ', en: 'walk', type: 'v' },
+        { ar: 'فِى', en: 'in', type: 'p' },
+        { ar: 'ٱلْأَرْضِ', en: 'the earth' },
+        { ar: 'مَرَحًا', en: 'proudly' },
+      ]}
+      cards={[
+        { at: 0, ar: 'وَ', role: '“and”, a little word that joins this to the sentence before', why: 'Little words have no case.', irab: 'الواو عاطفة' },
+        { at: 0, ar: 'لَا', role: '“do not”: a little word of prohibition. It brings jazm.', why: 'The verb after it is in jazm.', irab: 'لا ناهية جازمة' },
+        { at: 1, role: 'a present-tense verb, “you walk”. The doer is a hidden “you”. Its last letter is weak.', case: 'jazm (jussive)', mark: 'the weak letter ي is dropped: تَمْشِي becomes تَمْشِ', why: 'لَا of the ban stands in front. A weak last letter drops in jazm. L4.13 teaches this kind of verb.', irab: 'مضارع مجزوم وعلامة جزمه حذف حرف العلة، والفاعل ضمير مستتر تقديره أنت' },
+        { at: [2, 3], role: 'a preposition and its noun: “on the earth”. It belongs to the verb.', case: 'genitive (jarr) on ٱلْأَرْضِ', mark: '-i (kasra)', why: 'The noun after a preposition is genitive (L2.07).', irab: 'جار ومجرور متعلق بتمش' },
+        { at: 4, role: 'a verbal noun used for the way it is done: “proudly”', case: 'accusative (naṣb)', mark: '-an (tanwīn fatḥa)', why: 'It tells how you walk.', irab: 'مصدر في موضع الحال منصوب' },
+      ]}
+    />
+  </Stage>
+
+The verb تَمْشِ shows the second sign of jazm: a lost weak letter. The verse goes on with لَن in two places, تَخْرِقَ and تَبْلُغَ, which you met in Step 2. So 17:37 shows a ban and a “will not” together.
+</Block>
+
+</Step>
+
+<Step id="practice" label="Practice" title="Practice">
+<Block id="practice-1" title="Practice: name the ending">
+  <Stage label="For each verb, ask">
+    <ol class="lx-card-list">
+      <li><b>In front:</b> is there a little word of naṣb or jazm?</li>
+      <li><b>The end:</b> -u, -a, a sukūn, a nūn that stays, a lost nūn, a lost weak letter?</li>
+      <li><b>The mood:</b> plain, naṣb or jazm?</li>
+      <li><b>The meaning:</b> “does”, “will not”, “did not”, “do not”, “so that”, “let him”?</li>
+    </ol>
+  </Stage>
+
+Work out each answer first. Then open the answer.
+
+<Exercise n={1} q="Name the mood of each verb. These are made-up forms of the verb يَجْعَلُ. (a) يَجْعَلُ (b) لَن يَجْعَلَ (c) لَمْ يَجْعَلْ (d) تَجْعَلُونَ (e) لَمْ تَجْعَلُوا۟ (f) لَن تَجْعَلُوا۟">
+
+- (a) **Plain.** It ends in -u and nothing stands in front.
+- (b) **Naṣb.** لَن stands in front, and the verb ends in -a.
+- (c) **Jazm.** لَمْ stands in front, and the verb ends in a sukūn.
+- (d) **Plain.** One of the five verbs, with its nūn.
+- (e) **Jazm.** The nūn is lost after لَمْ. It means “you all did not put”.
+- (f) **Naṣb.** The nūn is lost after لَن. It looks the same as (e). The word in front decides. It means “you all will not put”.
+
+</Exercise>
+
+<Exercise n={2} q="Which mood does each little word bring? (a) أَنْ (b) لَمْ (c) لِ meaning “so that” (d) لَن (e) حَتَّىٰ (f) لَا of a ban (g) كَيْ">
+
+- (a) **Naṣb.** “to, that”: أُرِيدُ أَنْ أَتَعَلَّمَ, “I want to learn” (a made-up example).
+- (b) **Jazm.** “did not”: لَمْ يَكْتُبْ, “he did not write” (made-up).
+- (c) **Naṣb.** “so that”, with a hidden أَنْ (14:1).
+- (d) **Naṣb.** “will not”: لَن يَكْتُبَ, “he will not write” (made-up).
+- (e) **Naṣb.** “until”, with a hidden أَنْ (3:92).
+- (f) **Jazm.** “do not”: لَا تَحْزَنْ (9:40).
+- (g) **Naṣb.** “so that” (3:153).
+
+</Exercise>
+
+<Exercise n={3} q="Find the word of naṣb and say what happened to the nūn: وَلَن يَتَمَنَّوْهُ أَبَدًۢا (Al-Baqarah 2:95, start). Meaning: “And they will not wish for it, ever.”">
+
+لَن brings the naṣb. The verb is one of the five, “they wish”: the plain form is يَتَمَنَّوْنَ. After لَن the **nūn is lost**, so you see يَتَمَنَّوْا. The ـهُ at the end is the attached “it”, so the form is يَتَمَنَّوْهُ. The wāw is the doer, “they”.
+
+The Corpus tags this verb as Form V in the subjunctive. L3.15 teaches Form V.
+
+</Exercise>
+
+<Exercise n={4} q="Say the mood of the verb in each sentence. These are made-up examples. (a) هُوَ يَكْتُبُ ٱلرِّسَالَةَ (b) لَمْ يَكْتُبْ ٱلرِّسَالَةَ (c) لَن يَكْتُبَ ٱلرِّسَالَةَ">
+
+- (a) “He writes the letter.” **Plain**, -u. Nothing is in front of the verb.
+- (b) “He did not write the letter.” **Jazm**, a sukūn, after لَمْ. The meaning is in the past.
+- (c) “He will not write the letter.” **Naṣb**, -a, after لَن. The meaning is in the future.
+
+The prefix يَ and the letters ك ت ب do not change. The last vowel and the little word are what differ.
+
+</Exercise>
+
+<Exercise n={5} q="Go back to Al-Ikhlas: لَمْ يَلِدْ وَلَمْ يُولَدْ (Al-Ikhlas 112:3). Say the mood of each verb, the word in front and the plain form.">
+
+Both verbs are in **jazm**, with a sukūn, after لَمْ. The plain forms are يَلِدُ, “he begets”, and يُولَدُ, “he is begotten”. The second one is passive (L3.09).
+
+You read this verse word by word in L1.11. The skill is the same as in 18:1: a sound verb of one person after لَمْ.
+
+</Exercise>
+
+<Exercise n={6} q="Is لَا a ban or a statement? How can you tell? وَلَا تَهِنُوا۟ وَلَا تَحْزَنُوا۟ (Al-Imran 3:139, start). Meaning: “Do not be weak and do not be sad.”">
+
+It is a **ban**. Both verbs are one of the five, and both have lost their nūn: the plain forms are تَهِنُونَ and تَحْزَنُونَ. A statement would keep the nūn. Al-Jadwal calls this لَا “prohibiting and bringing jazm” and reads both verbs as in jazm, shown by the lost nūn.
+
+</Exercise>
+
+<Exercise n={7} q="Say the mood and what happened to the long vowel: لَا تَخَفْ (Taha 20:68, start). Meaning: “Do not be afraid.”">
+
+The verb is in **jazm** after the ban لَا. The plain form is تَخَافُ, “you fear”. The long ā in the middle is gone, and the verb ends in a sukūn: تَخَفْ. The middle letter of the root is weak. L4.12 teaches verbs of this kind.
+
+</Exercise>
+
+<Exercise n={8} q="Say what each lām means and how you can tell. (a) لِتُخْرِجَ ٱلنَّاسَ (Ibrahim 14:1, part) (b) لِيُنفِقْ ذُو سَعَةٍ (At-Talaq 65:7, start)">
+
+- (a) **“So that”.** The verb ends in -a, naṣb. The lām is the lām of reason, with a hidden أَنْ. It means “so that you bring out the people”.
+- (b) **“Let him”.** The verb ends in a sukūn, jazm. This is the lām of command. It means “let the owner of wealth spend”.
+
+The verb ending tells you which lām it is.
+
+</Exercise>
+
+<Exercise n={9} q="Say the role of لَا, the mood, the sign and the plain form: لَا تَقْنَطُوا۟ مِن رَّحْمَةِ ٱللَّهِ (Az-Zumar 39:53, part). Meaning: “Do not give up hope of Allah’s mercy.”">
+
+لَا is the **ban** (“do not”). The verb تَقْنَطُوا۟ is in **jazm**. The sign is the **lost nūn**: the plain form is تَقْنَطُونَ, one of the five. The wāw is the doer, “you all”. Al-Jadwal calls this لَا “prohibiting and bringing jazm”.
+
+</Exercise>
+
+<Exercise n={10} q="Say what the verb is and what dropped: أَلَمْ تَرَ كَيْفَ فَعَلَ رَبُّكَ بِأَصْحَٰبِ ٱلْفِيلِ (Al-Fil 105:1). Meaning: “Did you not see how your Lord dealt with the men of the elephant?”">
+
+The first word is the question letter أَ and لَمْ. تَرَ is in **jazm**. The plain form is تَرَىٰ, “you see”. It ends in a long ā, a weak letter. In jazm the long ā **drops**, and the verb ends in the short vowel before it.
+
+The Corpus tags this verb as jussive, with the root ر أ ي. The online copy of al-Jadwal parses this verse at the level of the sentence.
+
+</Exercise>
+</Block>
+
+<Block id="practice-2" title="Practice: build it">
+  <Stage label="Pick the word, then the ending">
+    <ol class="lx-card-list">
+      <li><b>“did not”:</b> لَمْ and a sukūn</li>
+      <li><b>“will not”:</b> لَن and -a</li>
+      <li><b>“do not”:</b> لَا and a sukūn</li>
+      <li><b>“so that”:</b> لِ or أَنْ and -a</li>
+      <li><b>“let him”:</b> لِ and a sukūn</li>
+    </ol>
+  </Stage>
+
+<Exercise n={11} q="Use the verb يَذْهَبُ (“he goes”) to say: (a) he did not go (b) he will not go (c) do not go (to one man) (d) you all did not go (e) so that he goes (f) I want to learn, with the verb أَتَعَلَّمُ. These are made-up examples.">
+
+- (a) **لَمْ يَذْهَبْ.** لَمْ and a sukūn.
+- (b) **لَن يَذْهَبَ.** لَن and -a.
+- (c) **لَا تَذْهَبْ.** The ban لَا and a sukūn. The prefix is تَ, because you speak to one man.
+- (d) **لَمْ تَذْهَبُوا۟.** لَمْ, and the nūn of تَذْهَبُونَ is lost.
+- (e) **لِيَذْهَبَ.** The lām of reason and -a.
+- (f) **أُرِيدُ أَنْ أَتَعَلَّمَ.** أَنْ and -a on the verb: أَتَعَلَّمُ becomes أَتَعَلَّمَ.
+
+</Exercise>
+</Block>
+
+<Block id="done" title="You have finished the lesson">
+  <Stage label="The idea">
+    <Tiles
+      label="Plain -u, naṣb -a, jazm no vowel"
+      items={[
+        { ar: 'يَجْعَلُ', en: 'plain', type: 'v' },
+        { ar: 'لَن يَجْعَلَ', en: 'naṣb', type: 'v' },
+        { ar: 'لَمْ يَجْعَلْ', en: 'jazm', type: 'v' },
+      ]}
+    />
+  </Stage>
+
+- A present-tense verb has the plain ending until a little word of naṣb or jazm comes in front of it.
+- **Naṣb** comes after أَنْ, لَن, كَيْ, لِ (“so that”) and حَتَّىٰ. One person ends in -a. The five verbs lose the nūn. A long ā hides the -a.
+- **Jazm** comes after لَمْ, لَا of a ban, the lām of command and, as a preview, the words of condition. One person ends in a sukūn. The five verbs lose the nūn. A weak last letter drops.
+- The women’s plural looks the same in all three moods. The five verbs look the same in naṣb and jazm. Read the little word.
+- لَمْ means “did not” and لَن means “will not”.
+- With لَا, the verb’s ending tells a ban (jazm) from a statement (plain ending).
+- When a verb has an unusual ending (a -a, a sukūn or no nūn), look for the little word in front of it.
+
+**Next:** L3.08 teaches commands. L3.09 teaches the passive. L4.03 and L4.04 teach conditions, where both verbs are in jazm. L4.10 puts the words of negation side by side. L4.11 to L4.13 teach the weak verbs that drop a letter in jazm. If the table of the five verbs felt new, go back to L3.06 for the plain forms.
+
+<Sources
+    items={[
+      { label: 'Quran text', name: 'Tanzil (Uthmani text)', href: 'https://tanzil.net' },
+      { label: 'Word types, roots, verb forms and the mood tags', name: 'Quranic Arabic Corpus', href: 'https://corpus.quran.com' },
+      { label: 'Word-by-word analysis (iʿrāb) of the verses', name: 'Maḥmūd Ṣāfī, al-Jadwal fī Iʿrāb al-Qurʾān wa-Ṣarfihi wa-Bayānihi' },
+      { label: 'The words of naṣb and jazm, and the signs of each', name: 'Ibn Ājurrūm, al-Ajurrumiyyah, chapters on the verbs and on the signs of iʿrāb' },
+      { label: 'English under the verses', name: 'Plain-English meanings by Quran Learn, not a translation' },
+    ]}
+  />
+</Block>
+
+</Step>
