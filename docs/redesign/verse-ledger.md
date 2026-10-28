@@ -4,7 +4,7 @@ One line per verse used in a rewritten lesson. A verse is a **main example** (in
 
 Only the orchestrator edits this file, one accepted lesson at a time. The table is printed by `scripts/lesson-qa/ledger.py src/content/lessons <accepted lesson ids>`. Writers read it before picking verses. Old lessons on `main` are not counted here: they are being replaced.
 
-**Documented exception (Level 5, 2026-10-28, owner approval pending).** L5.02 analyses all of Al-Fatiha, one panel per verse, so 1:1 (L1.03, L1.10), 1:5 (L3.01, L4.11) and 1:6 (L4.11, L4.13) each have a third main use there. No earlier lesson was changed. No other Level 5 lesson uses a verse of surah 1 as a main example. If the owner declines, the alternative is to give new examples to L4.11 (for 1:5 and 1:6) and to L1.03 or L1.10 (for 1:1). `scripts/lesson-qa/ledger.py` lists these three under EXCEPTION and not OVER.
+**Documented exception (Level 5, 2026-10-28, approved by the owner).** L5.02 analyses all of Al-Fatiha, one panel per verse, so 1:1 (L1.03, L1.10), 1:5 (L3.01, L4.11) and 1:6 (L4.11, L4.13) each have a third main use there. No earlier lesson was changed. No other Level 5 lesson uses a verse of surah 1 as a main example. `scripts/lesson-qa/ledger.py` lists these three under EXCEPTION and not OVER.
 
 | Verse | Main example in | Exercise in |
 |---|---|---|

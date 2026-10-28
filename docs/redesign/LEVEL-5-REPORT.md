@@ -58,7 +58,7 @@ Counts come from the lesson files (grep for the components; cards are the `at:` 
 
 ## Decisions
 
-- **Ledger exception, pending the owner.** L5.02 parses all of Al-Fatiha, so 1:1 (L1.03, L1.10), 1:5 (L3.01, L4.11) and 1:6 (L4.11, L4.13) each have a third main use. I counted before writing: L5.03 to L5.05 cause no third use. Avoiding the three would mean new examples in at least two earlier lessons (L4.11 for 1:5 and 1:6, and L1.03 or L1.10 for 1:1). I asked the owner (through the session that started this work) and had no answer when L5.02 had to be written, so I wrote it on the recommended answer: no earlier lesson changed, the three verses listed in `verse-ledger.md` as a documented exception, and `ledger.py` printing them as EXCEPTION and not OVER. If the owner says no, only the three panels of L5.02 and the earlier examples named above change.
+- **Ledger exception, approved by the owner (2026-10-28).** L5.02 parses all of Al-Fatiha, so 1:1 (L1.03, L1.10), 1:5 (L3.01, L4.11) and 1:6 (L4.11, L4.13) each have a third main use. I counted before writing: L5.03 to L5.05 cause no third use. Avoiding the three would mean new examples in at least two earlier lessons (L4.11 for 1:5 and 1:6, and L1.03 or L1.10 for 1:1). I asked the owner (through the session that started this work). I had no answer when L5.02 had to be written, so I wrote it on the recommended answer, and the owner then approved it: no earlier lesson changed, the three verses listed in `verse-ledger.md` as a documented exception, and `ledger.py` printing them as EXCEPTION and not OVER.
 - L5.01 shows the Bismillah in a quote block, not a word-by-word panel, so it makes no fourth use of 1:1. It keeps L1.10's promise (the two views on what بِسْمِ is tied to).
 
 ## What was found and fixed during review
@@ -104,7 +104,7 @@ In `docs/redesign/screens/l5-rollout/`: for each lesson, `NN-desktop.png` (the s
 
 ## Questions
 
-1. **The Al-Fatiha exception.** Approve the documented exception for L5.02 only (three verses, no earlier lesson changed). Recommended: yes. The other way costs new examples in L4.11 and in L1.03 or L1.10.
+1. **The Al-Fatiha exception.** Answered: approved (three verses, L5.02 only, no earlier lesson changed).
 2. **Push and open PRs.** This branch holds Levels 1 to 5. Recommended: open the Level 5 PR from this branch after the Level 4 PR, once you have looked at the screenshots.
 3. **A reviewer who knows Arabic.** Recommended: yes, before any of this is called final. Start with L5.15, L5.16, then L5.08 to L5.14 (the lessons with the most teaching summaries), then the whole-surah lessons.
 4. **A ranked list of unbacked claims for the reviewer**, for Levels 1 to 5, built from the specs. Recommended: yes.

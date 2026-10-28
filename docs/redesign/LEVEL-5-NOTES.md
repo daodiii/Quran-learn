@@ -20,7 +20,7 @@ Written 2026-10-28 by the orchestrator. Read after `WRITER-BRIEF.md`. Level 5 is
 
 `verse-ledger.md` counts a verse as a main example when it is in a `Sentence` or `Parse` with a reference. A verse may be a main example in at most two lessons.
 
-**Whole-surah exception (owner decision pending; assume it holds for L5.02 only).** L5.02 (Al-Fatiha) may be a third main use of 1:1, 1:5 and 1:6. No other Level 5 lesson may use verses of surah 1 as a main example; use them in `Exercise` questions only.
+**Whole-surah exception (approved by the owner, 2026-10-28; L5.02 only).** L5.02 (Al-Fatiha) may be a third main use of 1:1, 1:5 and 1:6. No other Level 5 lesson may use verses of surah 1 as a main example; use them in `Exercise` questions only.
 
 **Territories.** These verses belong to the lesson named; every other Level 5 lesson uses them in `Exercise` questions or quotes only (a `blockquote.lx-quote` or text), not in `Sentence` or `Parse`:
 
