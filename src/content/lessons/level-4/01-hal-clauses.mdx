@@ -1,619 +1,823 @@
 ---
 title: "Hal Clauses (Circumstantial Expressions)"
+kicker: "How was it done?"
+titleArabic: "اَلْحَال"
 level: 4
 order: 1
-description: "Understand hal as describing the state or circumstance of an action, recognize accusative case marking, and distinguish hal from adjectives."
+template: steps
+description: "Learn the ḥāl: the word, sentence or phrase that says in what state someone did something. Find who it describes, learn its three kinds (one word, a sentence, a phrase), tell it from an adjective, a time word and a new sentence, and go through four verses word by word."
 draft: false
 ---
 
-import ArabicExample from '../../../components/mdx/ArabicExample.astro';
-import GrammarTable from '../../../components/mdx/GrammarTable.astro';
-import Callout from '../../../components/mdx/Callout.astro';
-import ExerciseBox from '../../../components/mdx/ExerciseBox.astro';
+import Step from '../../../components/lesson/Step.astro';
+import Stage from '../../../components/lesson/Stage.astro';
+import Sentence from '../../../components/lesson/Sentence.astro';
+import Tiles from '../../../components/lesson/Tiles.astro';
+import Formula from '../../../components/lesson/Formula.astro';
+import Note from '../../../components/lesson/Note.astro';
+import Check from '../../../components/lesson/Check.astro';
+import Start from '../../../components/lesson/Start.astro';
+import Sources from '../../../components/lesson/Sources.astro';
+import Parse from '../../../components/lesson/Parse.astro';
+import Exercise from '../../../components/lesson/Exercise.astro';
+import Block from '../../../components/lesson/Block.astro';
+
+{/* Content spec: docs/redesign/specs/L4.01-hal-clauses.md. Every parse follows al-Jadwal (Mahmud Safi). */}
+
+<Step hero id="start" label="What a ḥāl is" title={frontmatter.title} kicker={frontmatter.kicker} titleArabic={frontmatter.titleArabic}>
+<Block id="overview" title="In this lesson" level={2} uncounted>
+  <Stage label="The idea">
+    <Formula
+      label="a sentence plus a state"
+      items={[
+        { kind: 'm', text: 'the action', small: 'who did what: فَخَرَجَ' },
+        { kind: 'k', text: 'the state', small: 'how: خَآئِفًا' },
+        { kind: 's', text: 'a ḥāl', small: 'حَال' },
+      ]}
+    />
+  </Stage>
+  <Start
+    goal="Spot a <b>ḥāl</b>, say who it describes, know its three kinds (one word, a whole sentence, a phrase with a preposition), and tell it apart from an adjective, a time word and a new sentence."
+    minutes={60}
+    before="The accusative and its -an ending (L2.05). The verbal sentence (L2.03). Adjectives (L2.09). Doer words (L3.19)."
+    terms={[
+      { term: 'Ḥāl', ar: 'حَال', meaning: '“State”: a word, sentence or phrase that says in what state someone did something.' },
+      { term: 'Ṣāḥib al-ḥāl', ar: 'صَاحِب الْحَال', meaning: '“Owner of the state”: the person or thing the ḥāl describes.' },
+      { term: 'Wāw al-ḥāl', ar: 'وَاو الْحَال', meaning: 'A وَ that starts a describing sentence. It means “while”, not “and”.' },
+      { term: 'Nakira', ar: 'نَكِرَة', meaning: 'Indefinite: a word with no ٱلْ.' },
+      { term: 'Manṣūb', ar: 'مَنْصُوب', meaning: 'In the accusative (L2.05).' },
+      { term: 'Shibh jumla', ar: 'شِبْه جُمْلَة', meaning: '“Like a sentence”: a preposition and its noun, such as فِى زِينَتِهِۦ.' },
+    ]}
+  />
+</Block>
+
+<Block id="see" title="Look at this verse" level={2}>
+  <Stage>
+    <Sentence
+      size="big"
+      roles
+      reference="Al-Qasas 28:21 (start)"
+      groups={[
+        { role: 'fiil', label: 'fiʿl + hidden doer', hint: 'so he left: the doer is a hidden “he”', words: [{ ar: 'فَخَرَجَ', en: 'so he left', say: 'fa-kharaja', type: 'v' }] },
+        { role: 'jarMajrur', hint: 'min “from” with “it”', words: [{ ar: 'مِنْهَا', en: 'from it', say: 'minha', type: 'p' }] },
+        { role: 'hal', words: [{ ar: 'خَآئِفًا', en: 'afraid', say: 'khaifan' }] },
+        { role: 'hal', label: 'second ḥāl', hint: 'a sentence: watching out', words: [{ ar: 'يَتَرَقَّبُ', en: 'watching out', say: 'yataraqqabu', type: 'v' }] },
+      ]}
+      en={['So he left it, afraid and watching out.']}
+    />
+  </Stage>
+
+This is Musa, leaving a city. Read the verse from right to left.
+
+The verb فَخَرَجَ means “so he left”. With the words مِنْهَا, “from it”, the sentence is already complete: “So he left it.”
+
+Two more words say **how** he left: خَآئِفًا (afraid) and يَتَرَقَّبُ (watching out). Each one is a **ḥāl**, حَال, “state”. A ḥāl says in what state the doer was while the action happened.
+
+English does this with an -ing word or with “while”: “he left afraid”, “he left while watching out”.
+
+<Check n={1} q="Which question does خَآئِفًا answer?" options={['Where did he leave?', 'In what state did he leave?', 'Who left?']} answer={1} why="خَآئِفًا says how he was while he left: afraid. The place is already in مِنْهَا, and the doer is in the verb." />
+</Block>
+
+<Block id="name" title="What the grammar book says">
+  <Stage label="From al-Ajurrumiyyah">
+    <blockquote class="lx-quote" lang="ar" dir="rtl">
+      <p>اَلْحَالُ هُوَ الِاسْمُ الْمَنْصُوبُ الْمُفَسِّرُ لِمَا انْبَهَمَ مِنَ الْهَيْئَاتِ، نَحْوُ قَوْلِكَ: جَاءَ زَيْدٌ رَاكِبًا</p>
+    </blockquote>
+    <p class="lx-quote-note">Vowel marks added by Quran Learn.</p>
+  </Stage>
+
+*Al-Ajurrumiyyah* is a short grammar book by Ibn Ājurrūm (died 723 AH). It has a chapter on the ḥāl. Here is its definition in plain English: the ḥāl is a noun in the accusative that makes clear a state (هَيْئَة) that was left unclear.
+
+Its example is جَاءَ زَيْدٌ رَاكِبًا, “Zayd came riding”. Without رَاكِبًا you know that Zayd came. You do not know how. The ḥāl fills that gap.
+
+The word ḥāl means “state” or “condition”. It names a job in the sentence, like the doer or the object.
+
+<Note kind="know">The book speaks about a **noun** as a ḥāl. The Quran also uses a whole sentence or a phrase for the same job. Step 2 shows all three.</Note>
+
+<Check n={2} q="In جَاءَ زَيْدٌ رَاكِبًا, which word is the ḥāl?" options={['جَاءَ', 'زَيْدٌ', 'رَاكِبًا']} answer={2} why="رَاكِبًا says in what state Zayd came: riding. جَاءَ is the verb and زَيْدٌ is the doer." />
+</Block>
+
+<Block id="owner" title="Who does the ḥāl describe?">
+  <Stage>
+    <Sentence
+      roles
+      reference="Al-Baqarah 2:119 (part)"
+      groups={[
+        { words: [{ ar: 'إِنَّآ', en: 'indeed we', say: 'inna', type: 'p' }] },
+        { role: 'fiil', label: 'fiʿl + doer + object', hint: 'we sent you: the object is -ka, “you”', words: [{ ar: 'أَرْسَلْنَٰكَ', en: 'we sent you', say: 'arsalnaka', type: 'v' }] },
+        { role: 'jarMajrur', hint: 'bi- “with” and “the truth”', words: [{ ar: 'بِٱلْحَقِّ', en: 'with the truth', say: 'bil-haqqi', type: 'p' }] },
+        { role: 'hal', label: 'two ḥāls', hint: 'they describe -ka: “you”', words: [{ ar: 'بَشِيرًا', en: 'a bringer of good news', say: 'bashiran' }, { ar: 'وَنَذِيرًا', en: 'and a warner', say: 'wa-nadhiran' }] },
+      ]}
+      en={['Indeed we have sent you with the truth, as a bringer of good news and a warner.']}
+    />
+  </Stage>
+
+Every ḥāl describes someone. That someone is the **ṣāḥib al-ḥāl**, صَاحِب الْحَال, “the owner of the state”.
+
+In 28:21 the owner of خَآئِفًا is the doer of the verb: the hidden “he”. In 2:119 the owner of بَشِيرًا is the **object**: the -ka of أَرْسَلْنَٰكَ, “you”. L1.06 parsed this verse and called بَشِيرًا a ḥāl. Al-Jadwal says it is a ḥāl of the object.
+
+So the owner can be the doer or the object. To find it, ask: who was in this state while the action happened?
 
-## Introduction
-
-Welcome to Level 4! You've mastered Arabic sentence structure and word morphology. Now you're ready to explore specialized grammatical functions that add precision and nuance to Quranic expression.
-
-<ArabicExample
-  arabic="وَجَاءُوا أَبَاهُمْ عِشَآءً يَبْكُونَ"
-  transliteration="wa jāʾū abāhum ʿishāʾan yabkūna"
-  translation="And they came to their father at night, weeping"
-  reference="Yusuf 12:16"
-  highlight="يَبْكُونَ"
-  words={[
-    { ar: "وَجَاءُوا", tr: "wa jāʾū", en: "and they came" },
-    { ar: "أَبَاهُمْ", tr: "abāhum", en: "to their father" },
-    { ar: "عِشَآءً", tr: "ʿishāʾan", en: "at night" },
-    { ar: "يَبْكُونَ", tr: "yabkūna", en: "weeping" }
-  ]}
-/>
-
-In this verse, the brothers of Yusuf came to their father — but HOW did they come? The word **يَبْكُونَ** (yabkūna) "weeping" describes the STATE or CONDITION in which they arrived. This is a [hal clause](/resources/glossary/#hal) (ḥāl / ḥāl) — a circumstantial expression that tells us the manner or state accompanying an action.
-
-**In this lesson, you will:**
-- Understand hal as describing the state or circumstance in which an action occurs
-- Recognize the three types of hal expressions (single word, sentence, semi-sentence)
-- Master the accusative case marking required for hal
-- Distinguish hal from adjectives (na't) using definiteness and function tests
-
-**Connection to previous learning:** In [L2.05 Accusative Case](/learn/level-2/05-accusative-case/), you learned that the accusative (naṣb / نَصْبٌ) marks direct objects. Now discover a specialized accusative function: hal — describing the TEMPORARY STATE accompanying an action. While direct objects receive the action, hal describes the CIRCUMSTANCES of the action.
-
-**Key Level 4 advancement:** Level 3 taught you word morphology — how roots become verbs, nouns, and participles. Level 4 teaches you specialized grammatical functions — how words serve precise roles beyond basic subject/predicate/object. Hal is your first specialized function that adds descriptive depth to Quranic narrative.
-
-<Callout type="note" title="Plain-English key">
-Quick, everyday translations of the grammar terms in this lesson — glance back here whenever one trips you up:
-
-- **Ḥāl** (حَال) — a "state" word: says how or in what condition something happens ("he came *running*"); it is accusative.
-- **Tamyīz** (تَمْيِيز) — a "specifier": clears up a vague amount or measure ("a pound *of flour*"); it is accusative.
-</Callout>
-
-## Understanding Hal (Circumstantial Expressions)
-
-**Plain English first:** A hal clause answers the question "HOW?" or "IN WHAT STATE?" someone did something. It's like adding a descriptive snapshot to an action.
-
-Consider these English examples:
-- "She entered the room **smiling**" ← smiling describes HOW she entered
-- "He left **angry**" ← angry describes the STATE he was in when he left
-- "They arrived **exhausted**" ← exhausted describes their CONDITION upon arrival
-
-Arabic hal works the same way, but with specific grammatical rules. The hal must be:
-1. **Indefinite** (no ٱلْـ prefix)
-2. **Accusative case** (takes fatḥah or fatḥatain ending)
-3. **Temporary state** (not permanent characteristic)
-
-### Arabic Terminology
-
-**Hal** — [ḥāl](/resources/glossary/#hal) (*ḥāl*) literally means "state" or "condition"
-
-The hal describes the temporary state or circumstance of the subject (or object) when performing (or receiving) the action. It's always related to a noun in the sentence, called the [ṣāḥib al-ḥāl](/resources/glossary/#sahib-al-hal) (ṣāḥib al-ḥāl / صَاحِبُ ٱلْحَالِ) — "the owner of the state."
-
-**Example structure:**
-- ****jāʾa** مُحَمَّدٌ **ḍāḥikan**** (jāʾa muḥammadun ḍāḥikan) — "Muhammad came laughing"
-  - **jāʾa** = the action (came)
-  - مُحَمَّدٌ = the actor/subject (ṣāḥib al-ḥāl)
-  - **ḍāḥikan** = the hal (laughing) — describes Muhammad's state WHILE coming
-
-### The Three Types of Hal
-
-Arabic hal expressions come in three forms, each with distinct grammatical structure:
-
-#### 1. Single-Word Hal (Al-Ḥāl Al-Mufrad)
-
-The hal is a single word (noun or adjective) in the accusative case.
-
-**Pattern:** [Action] + [Actor] + [Hal in accusative]
-
-**Examples:**
-- **دَخَلَ ٱلطَّالِبُ مُسْرِعًا** (dakhala ṭ-ṭālibu musriʿan) — "The student entered hurrying"
-  - مُسْرِعًا (hurrying) — single accusative word describing the student's state
-
-- **رَجَعَ **khāʾifan**** (rajaʿa khāʾifan) — "He returned fearful"
-  - **khāʾifan** (fearful) — single accusative word
-
-#### 2. Sentence Hal (Al-Ḥāl Al-Jumlah)
-
-The hal is a complete sentence (nominal or verbal) that describes the state. Sentence hal often begins with **وَ** (wāw al-ḥāl / *wāwu* ٱلْحَالِ) — "the waw of circumstance" — or contains a pronoun referring back to the ṣāḥib al-ḥāl.
-
-**Pattern:** [Action] + [Actor] + **وَ** + [Sentence describing state]
-
-**Examples:**
-- ****jāʾa** مُحَمَّدٌ وَهُوَ يَضْحَكُ** (jāʾa muḥammadun wa-huwa yaḍḥaku) — "Muhammad came while he was laughing"
-  - وَهُوَ يَضْحَكُ = sentence hal (nominal sentence: "he is laughing")
-  - The pronoun هُوَ refers back to Muhammad
-
-- **خَرَجَ ٱلْقَوْمُ وَهُمْ يَبْكُونَ** (kharaja l-qawmu wa-hum yabkūna) — "The people went out while they were weeping"
-  - وَهُمْ يَبْكُونَ = sentence hal with plural pronoun
-
-**Key recognition:** The wāw at the beginning is NOT "and" — it's the wāw al-ḥāl marking a circumstantial clause.
-
-#### 3. Semi-Sentence Hal (Al-Ḥāl Shibh Al-Jumlah)
-
-The hal is a prepositional phrase or locational expression (ẓarf / ظَرْفٌ).
-
-**Pattern:** [Action] + [Actor] + [Prepositional phrase describing location/state]
-
-**Examples:**
-- **جَلَسَ ٱلطَّالِبُ فِي ٱلْفَصْلِ** (jalasa ṭ-ṭālibu fī l-faṣli) — "The student sat in the classroom"
-  - فِي ٱلْفَصْلِ = prepositional phrase describing circumstance
-
-- **رَأَيْتُهُۥ عِنْدَ ٱلْبَابِ** (raʾaytuhu ʿinda l-bābi) — "I saw him at the door"
-  - عِنْدَ ٱلْبَابِ = locational phrase describing where he was
-
-### Hal Must Be Indefinite and Accusative
-
-**Rule 1: Hal must be indefinite (nakirah / نَكِرَةٌ)**
-
-If the hal is a single word, it CANNOT have the definite article ٱلْـ or be in a possessive construction (iḍāfah).
-
-❌ Wrong: ****jāʾa** ٱلطَّالِبُ ٱلضَّاحِكَ** (definite)
-✓ Correct: ****jāʾa** ٱلطَّالِبُ **ḍāḥikan**** (indefinite)
-
-**Why?** Hal describes a TEMPORARY STATE, not a permanent characteristic. Definiteness implies permanence or specific identity, while indefiniteness captures the fleeting nature of circumstance.
-
-**Rule 2: Hal must be accusative (manṣūb / مَنْصُوبٌ)**
-
-Single-word hal takes fatḥah (ـَ) or fatḥatain (ـً) ending.
-
-**Example:**
-- **ضَاحِكٌ** (ḍāḥikun) nominative → ****ḍāḥikan**** (ḍāḥikan) accusative hal
-
-**For sentence and semi-sentence hal:** The hal itself doesn't take a case ending (sentences don't decline), but they function in the accusative position grammatically.
-
-### Hal vs Na't (Adjective) — Critical Distinction
-
-Learners often confuse hal with na't (adjective / نَعْتٌ) because both can describe nouns. The distinction is crucial:
-
-<GrammarTable>
-| Feature | Hal (*ḥāl*) | Na't (*naʿt*) |
-|---------|-------------|---------------|
-| **Function** | Describes TEMPORARY STATE during action | Describes PERMANENT characteristic |
-| **Definiteness** | Always INDEFINITE | Matches the noun it modifies |
-| **Case** | Always ACCUSATIVE | Matches the noun it modifies |
-| **Agreement** | Only in gender/number (not definiteness/case) with ṣāḥib al-ḥāl | Full agreement (gender/number/case/definiteness) |
-| **Example** | **jāʾa** ٱلرَّجُلُ **ḍāḥikan**<br/>"The man came laughing" | **jāʾa** ٱلرَّجُلُ ٱلْكَرِيمُ<br/>"The generous man came" |
-| **Translation test** | Can add "while" or "in a state of" | Translates as direct adjective |
-| **Definiteness test** | Making it definite breaks the meaning | Making it indefinite changes identity |
-</GrammarTable>
-
-**The quick test:** Can you make the descriptive word DEFINITE without changing the core meaning?
-
-- ****jāʾa** ٱلرَّجُلُ **ḍāḥikan**** (the man came laughing)
-  - Try making **ḍāḥikan** definite: **jāʾa** ٱلرَّجُلُ ٱلضَّاحِكُ
-  - Meaning CHANGES: now it's "the laughing man came" (identifying which man)
-  - Conclusion: ****ḍāḥikan** is HAL** (temporary state)
-
-- ****jāʾa** ٱلرَّجُلُ ٱلْكَرِيمُ** (the generous man came)
-  - Already definite — it's identifying which man (the generous one)
-  - Conclusion: **ٱلْكَرِيمُ is NA'T** (permanent characteristic)
-
-**Another test — "while":** Can you naturally insert "while" or "in a state of" in the translation?
-
-- ****jāʾa** **ḍāḥikan**** → "He came WHILE laughing" ✓ (hal)
-- ****jāʾa** ٱلْكَرِيمُ** → "He came WHILE generous" ✗ (doesn't make sense — na't)
-
-## Examples from the Quran (Surah Yusuf)
-
-Surah Yusuf contains numerous hal clauses that bring the narrative to life. Let's examine how hal describes the states of characters during key moments.
-
-### Example 1: The Brothers Weeping (Sentential Hal — Verbal Sentence)
-
-<ArabicExample
-  arabic="وَجَاءُوا أَبَاهُمْ عِشَآءً يَبْكُونَ"
-  transliteration="wa jāʾū abāhum ʿishāʾan yabkūna"
-  translation="And they came to their father at night, weeping"
-  reference="Yusuf 12:16"
-  highlight="يَبْكُونَ"
-  words={[
-    { ar: "وَجَاءُوا", tr: "wa jāʾū", en: "and they came" },
-    { ar: "أَبَاهُمْ", tr: "abāhum", en: "to their father" },
-    { ar: "عِشَآءً", tr: "ʿishāʾan", en: "at night" },
-    { ar: "يَبْكُونَ", tr: "yabkūna", en: "weeping" }
-  ]}
-/>
-
-**Word focus: يَبْكُونَ** (yabkūna) — "weeping"
-
-**Grammatical analysis:**
-- **Function:** Hal (circumstantial expression)
-- **Type:** Sentential hal (حال جملة فعلية / ḥāl jumlah fiʿliyyah) — a verbal sentence functioning as hal. يَبْكُونَ is a present tense verb (not a participle), so it constitutes a complete verbal sentence with an implicit subject pronoun (they). A single-word (mufrad) hal would require the participle form بَاكِينَ (bākīna, "weeping" as an adjective in the accusative).
-- **Ṣāḥib al-ḥāl:** The pronoun (they) in **jāʾū** refers to Yusuf's brothers
-- **Root:** ب-ك-ي (b-k-y) "weeping"
-- **Pattern:** يَفْعُلُونَ (yafʿulūna) — present tense, third person plural
-- **Connection to ṣāḥib al-ḥāl:** The implicit subject pronoun in يَبْكُونَ refers back to the brothers, linking the verbal sentence hal to its owner
-
-**Narrative power:** The hal يَبْكُونَ captures the brothers' STATE when they came to Ya'qub — they were weeping (falsely, as the story reveals). The verbal sentence hal paints a vivid, dynamic scene: their arrival at night, their tears, their deception.
-
-**Note:** When a present tense verb functions as hal without wāw al-ḥāl, it forms a verbal sentence hal (جملة فعلية), not a single-word hal. The connection to the ṣāḥib al-ḥāl is made through the implicit subject pronoun in the verb.
-
-### Example 2: Yusuf Found in the Well (Sentence Hal)
-
-<ArabicExample
-  arabic="وَجَاءَتْ سَيَّارَةٌ فَأَرْسَلُوا۟ وَارِدَهُمْ فَأَدْلَىٰ دَلْوَهُۥ ۖ قَالَ يَٰبُشْرَىٰ هَٰذَا غُلَٰمٌ"
-  transliteration="wa jāʾat sayyāratun fa-arsalū wāridahum fa-adlā dalwahu qāla yā bushrā hādhā ghulāmun"
-  translation="And there came a caravan, and they sent their water-drawer, and he let down his bucket. He said, 'Good news! This is a boy.'"
-  reference="Yusuf 12:19"
-  highlight="**qāla** يَٰبُشْرَىٰ"
-  words={[
-    { ar: "وَجَاءَتْ", tr: "wa jāʾat", en: "and there came" },
-    { ar: "سَيَّارَةٌ", tr: "sayyāratun", en: "a caravan" },
-    { ar: "فَأَرْسَلُوا۟", tr: "fa-arsalū", en: "and they sent" },
-    { ar: "وَارِدَهُمْ", tr: "wāridahum", en: "their water-drawer" },
-    { ar: "فَأَدْلَىٰ", tr: "fa-adlā", en: "and he let down" },
-    { ar: "دَلْوَهُۥ", tr: "dalwahu", en: "his bucket" },
-    { ar: "قَالَ", tr: "qāla", en: "he said" },
-    { ar: "يَٰبُشْرَىٰ", tr: "yā bushrā", en: "good news!" },
-    { ar: "هَٰذَا", tr: "hādhā", en: "this is" },
-    { ar: "غُلَٰمٌ", tr: "ghulāmun", en: "a boy" }
-  ]}
-/>
-
-**Word focus: **qāla** يَٰبُشْرَىٰ** (qāla yā bushrā) — "he said, 'Good news!'"
-
-**Grammatical analysis:**
-- **Function:** Sentence hal (verbal sentence describing the state/reaction)
-- **Type:** Verbal sentence (**qāla** + speech)
-- **Ṣāḥib al-ḥāl:** The water-drawer (وَارِدَهُمْ) who found Yusuf
-- **Connection:** The verbal sentence describes his STATE OF REACTION when he pulled up the bucket
-
-**Narrative power:** The sentence hal captures his immediate joyful exclamation upon discovering Yusuf — not just that he spoke, but that he spoke WHILE in a state of excitement and surprise.
-
-### Example 3: Yusuf's Brothers Returning (Sentence Hal with Wāw)
-
-<ArabicExample
-  arabic="فَلَمَّا رَجَعُوٓا۟ إِلَىٰٓ أَبِيهِمْ قَالُوا يَٰٓأَبَانَا مُنِعَ مِنَّا ٱلْكَيْلُ"
-  transliteration="fa-lammā rajaʿū ilā abīhim qālū yā abānā muniʿa minnā l-kaylu"
-  translation="So when they returned to their father, they said, 'O our father, [further] measure has been denied to us'"
-  reference="Yusuf 12:63"
-  highlight="**qālū**"
-  words={[
-    { ar: "فَلَمَّا", tr: "fa-lammā", en: "so when" },
-    { ar: "رَجَعُوٓا۟", tr: "rajaʿū", en: "they returned" },
-    { ar: "إِلَىٰٓ", tr: "ilā", en: "to" },
-    { ar: "أَبِيهِمْ", tr: "abīhim", en: "their father" },
-    { ar: "قَالُوا", tr: "qālū", en: "they said" },
-    { ar: "يَٰٓأَبَانَا", tr: "yā abānā", en: "O our father" },
-    { ar: "مُنِعَ", tr: "muniʿa", en: "has been denied" },
-    { ar: "مِنَّا", tr: "minnā", en: "from us" },
-    { ar: "ٱلْكَيْلُ", tr: "l-kaylu", en: "the measure" }
-  ]}
-/>
-
-**Word focus: **qālū**** (qālū) — "they said"
-
-**Grammatical analysis:**
-- **Function:** Sentence hal (verbal sentence)
-- **Type:** Verbal sentence describing their state upon return
-- **Ṣāḥib al-ḥāl:** The brothers (implied in رَجَعُوٓا۟)
-- **Meaning:** They returned WHILE speaking/saying (their state of complaint)
-
-**Pattern note:** Not all sentence hal have explicit wāw al-ḥāl. Context indicates the circumstantial relationship.
-
-### Example 4: Semi-Sentence Hal (Prepositional Phrase Describing State)
-
-<ArabicExample
-  arabic="وَدَخَلَ ٱلْمَدِينَةَ عَلَىٰ حِينِ غَفْلَةٍۢ مِّنْ أَهْلِهَا"
-  transliteration="wa dakhala l-madīnata ʿalā ḥīni ghaflatin min ahlihā"
-  translation="And he entered the city at a time of unawareness from its people"
-  reference="Al-Qasas 28:15"
-  highlight="عَلَىٰ حِينِ غَفْلَةٍۢ"
-  words={[
-    { ar: "وَدَخَلَ", tr: "wa dakhala", en: "and he entered" },
-    { ar: "ٱلْمَدِينَةَ", tr: "l-madīnata", en: "the city" },
-    { ar: "عَلَىٰ", tr: "ʿalā", en: "at/upon" },
-    { ar: "حِينِ", tr: "ḥīni", en: "a time of" },
-    { ar: "غَفْلَةٍۢ", tr: "ghaflatin", en: "unawareness" },
-    { ar: "مِّنْ", tr: "min", en: "from" },
-    { ar: "أَهْلِهَا", tr: "ahlihā", en: "its people" }
-  ]}
-/>
-
-**Word focus: عَلَىٰ حِينِ غَفْلَةٍۢ** (ʿalā ḥīni ghaflatin) — "at a time of unawareness"
-
-**Grammatical analysis:**
-- **Function:** Semi-sentence hal (حال شبه جملة / ḥāl shibh jumlah) — a prepositional phrase describing the STATE or CIRCUMSTANCE of the action
-- **Type:** Prepositional phrase describing the condition in which the subject performed the action
-- **Ṣāḥib al-ḥāl:** The implied subject "he" (Musa, peace be upon him)
-- **Meaning:** He entered the city WHILE (the people were) in a state of unawareness — the prepositional phrase describes the circumstance, not the destination
-
-**Why this is genuine semi-sentence hal:** The prepositional phrase عَلَىٰ حِينِ غَفْلَةٍۢ describes the STATE or CONDITION accompanying the action of entering. It answers the question "in what circumstance did he enter?" A prepositional phrase qualifies as hal only when it describes the state of the subject or object, not when it functions as a directional complement (muta'alliq) of the verb.
-
-**Important distinction:** Not every prepositional phrase is hal. For example, in ٱرْجِعْ إِلَىٰ رَبِّكَ (Yusuf 12:50, "Return to your master"), the phrase إِلَىٰ رَبِّكَ is the directional complement (مُتَعَلِّقٌ / mutaʿalliq) of the verb ٱرْجِعْ, indicating WHERE to return. It does not describe the state of the subject and is therefore NOT hal.
-
-### Example 5: Yusuf's Brothers' False Tears (Complex Hal)
-
-<ArabicExample
-  arabic="قَالُوا يَٰٓأَبَانَآ إِنَّا ذَهَبْنَا نَسْتَبِقُ وَتَرَكْنَا يُوسُفَ عِندَ مَتَٰعِنَا فَأَكَلَهُ ٱلذِّئْبُ"
-  transliteration="qālū yā abānā innā dhahabnā nastabiqu wa-taraknā yūsufa ʿinda matāʿinā fa-akalahu dh-dhiʾbu"
-  translation="They said, 'O our father, indeed we went racing and left Yusuf with our possessions, and a wolf ate him'"
-  reference="Yusuf 12:17"
-  highlight="نَسْتَبِقُ"
-  words={[
-    { ar: "قَالُوا", tr: "qālū", en: "they said" },
-    { ar: "يَٰٓأَبَانَآ", tr: "yā abānā", en: "O our father" },
-    { ar: "إِنَّا", tr: "innā", en: "indeed we" },
-    { ar: "ذَهَبْنَا", tr: "dhahabnā", en: "went" },
-    { ar: "نَسْتَبِقُ", tr: "nastabiqu", en: "racing" },
-    { ar: "وَتَرَكْنَا", tr: "wa-taraknā", en: "and we left" },
-    { ar: "يُوسُفَ", tr: "yūsufa", en: "Yusuf" },
-    { ar: "عِندَ", tr: "ʿinda", en: "with" },
-    { ar: "مَتَٰعِنَا", tr: "matāʿinā", en: "our possessions" },
-    { ar: "فَأَكَلَهُ", tr: "fa-akalahu", en: "and ate him" },
-    { ar: "ٱلذِّئْبُ", tr: "dh-dhiʾbu", en: "the wolf" }
-  ]}
-/>
-
-**Word focus: نَسْتَبِقُ** (nastabiqu) — "racing"
-
-**Grammatical analysis:**
-- **Function:** Verbal sentence hal
-- **Type:** Present tense verb functioning as circumstantial clause
-- **Ṣāḥib al-ḥāl:** The brothers (نَحْنُ implied in ذَهَبْنَا)
-- **Root:** س-ب-ق (s-b-q) "racing, competing"
-- **Pattern:** نَفْتَعِلُ (naftaʿilu) — Form VIII, first person plural present
-- **Meaning:** We went WHILE racing (describing their state during departure)
-
-**Narrative insight:** The hal نَسْتَبِقُ is part of their fabricated excuse — they claim they left Yusuf behind because they were busy racing. The circumstantial expression adds realism to their lie.
-
-## The Rule
-
-<Callout type="rule" title="Hal (Circumstantial Expression) Rules">
-
-**Definition:** Hal (*ḥāl*) is a word, sentence, or phrase that describes the temporary STATE or CIRCUMSTANCE of the subject (or object) when performing (or receiving) an action.
-
-**Three Types:**
-
-1. **Single-word hal (mufrad):** Indefinite accusative noun/adjective
-2. **Sentence hal (jumlah):** Complete nominal or verbal sentence (often with wāw al-ḥāl)
-3. **Semi-sentence hal (shibh jumlah):** Prepositional phrase or locational expression
-
-**Requirements for single-word hal:**
-
-1. **Must be indefinite** (nakirah / نَكِرَةٌ)
-   - No ٱلْـ prefix
-   - Not part of iḍāfah construction
-
-2. **Must be accusative** (manṣūb / مَنْصُوبٌ)
-   - Takes fatḥah (ـَ) or fatḥatain (ـً) ending
-   - Masculine plural: ـِينَ, feminine plural: ـَاتٍ
-
-3. **Describes temporary state**
-   - Not permanent characteristic (that would be na't/adjective)
-
-**Ṣāḥib al-ḥāl (Owner of the state):**
-- The noun that the hal describes (usually subject or object)
-- Must be definite (ma'rifah / مَعْرِفَةٌ)
-- Hal agrees with it in gender and number (but NOT case or definiteness)
-
-**Translation helpers:**
-- Add "while," "in a state of," "as," or "-ing" to capture the circumstantial meaning
-- Example: **jāʾa** **ḍāḥikan** → "He came laughing / while laughing / in a state of laughter"
-
-</Callout>
-
-<Callout type="warning" title="Common Mistakes with Hal">
-
-**Mistake 1: Confusing hal with na't (adjective)**
-
-❌ Wrong thinking: "Both describe nouns, so they're the same"
-
-✓ Correct understanding:
-- **Hal** describes TEMPORARY STATE during action (indefinite, accusative)
-- **Na't** describes PERMANENT characteristic (agrees in all four: gender, number, case, definiteness)
-
-**Test:** Can you make it definite without changing the meaning?
-- If YES → it's na't (adjective)
-- If NO → it's hal (circumstantial)
-
-**Example comparison:**
-
-****jāʾa** ٱلرَّجُلُ ٱلْكَرِيمُ** — "The generous man came"
-- ٱلْكَرِيمُ is DEFINITE (matches ٱلرَّجُلُ)
-- ٱلْكَرِيمُ is NOMINATIVE (matches ٱلرَّجُلُ)
-- This is **NA'T** (permanent characteristic identifying which man)
-
-****jāʾa** ٱلرَّجُلُ **ḍāḥikan**** — "The man came laughing"
-- **ḍāḥikan** is INDEFINITE (doesn't match ٱلرَّجُلُ)
-- **ḍāḥikan** is ACCUSATIVE (doesn't match ٱلرَّجُلُ)
-- This is **HAL** (temporary state while coming)
-
----
-
-**Mistake 2: Making hal definite**
-
-❌ Wrong: ****jāʾa** مُحَمَّدٌ ٱلضَّاحِكُ** (trying to say "Muhammad came laughing" but making hal definite)
-
-✓ Correct: ****jāʾa** مُحَمَّدٌ **ḍāḥikan****
-
-**Why wrong?** Making ٱلضَّاحِكُ definite changes it from "came WHILE laughing" (hal) to "the laughing one came" (na't identifying which person).
-
----
-
-**Mistake 3: Forgetting accusative case on single-word hal**
-
-❌ Wrong: **خَرَجَ سَعِيدٌ** (nominative — this just means "Sa'id went out")
-
-✓ Correct: **خَرَجَ **saʿīdan**** (accusative — "He went out happy/while happy")
-
-**Why it matters:** Without the accusative ending, you lose the circumstantial meaning entirely.
-
----
-
-**Mistake 4: Confusing wāw al-ḥāl with regular "and"**
-
-❌ Wrong translation: ****jāʾa** وَهُوَ يَضْحَكُ** → "He came AND he laughs" (treating وَ as conjunction)
-
-✓ Correct translation: "He came WHILE he was laughing" (recognizing وَ as wāw al-ḥāl)
-
-**Recognition tip:** When وَ introduces a sentence describing the STATE of the subject during the main action, it's wāw al-ḥāl, not a simple conjunction.
-
----
-
-**Mistake 5: Making ṣāḥib al-ḥāl indefinite**
-
-The ṣāḥib al-ḥāl (the noun being described by hal) must be DEFINITE.
-
-❌ Incorrect: ****jāʾa** رَجُلٌ **ḍāḥikan**** (might be acceptable in some contexts, but typically ṣāḥib al-ḥāl should be definite)
-
-✓ Better: ****jāʾa** ٱلرَّجُلُ **ḍāḥikan**** (definite ṣāḥib al-ḥāl)
-
-**Note:** There are exceptional cases where ṣāḥib al-ḥāl can be indefinite (when the indefinite noun is preceded by a negative or interrogative), but the default rule is that it must be definite.
-
-</Callout>
-
-## Practice
-
-<ExerciseBox question="Exercise 1: Identify whether the underlined word is HAL or NA'T (adjective): **jāʾa** ٱلْمُعَلِّمُ ٱلْجَدِيدُ">
-
-**Answer:**
-
-**ٱلْجَدِيدُ** (al-jadīdu) "the new (one)" is **NA'T** (adjective), NOT hal.
-
-**Analysis:**
-
-**Step 1: Check definiteness**
-- ٱلْجَدِيدُ is DEFINITE (has ٱلْـ prefix)
-- It MATCHES ٱلْمُعَلِّمُ (also definite)
-- Hal must be INDEFINITE → This is not hal
-
-**Step 2: Check case**
-- ٱلْجَدِيدُ is NOMINATIVE (ends with damma ـُ)
-- It MATCHES ٱلْمُعَلِّمُ (also nominative as subject)
-- Hal must be ACCUSATIVE → This is not hal
-
-**Step 3: Check meaning**
-- "The new teacher came"
-- ٱلْجَدِيدُ identifies WHICH teacher (the new one, not the old one)
-- This is a PERMANENT characteristic (he IS the new teacher)
-- Hal describes TEMPORARY state during action
-
-**Conclusion:** ٱلْجَدِيدُ is NA'T (adjective) because it:
-- Agrees in definiteness (both definite)
-- Agrees in case (both nominative)
-- Describes a permanent characteristic
-- Identifies which noun we're talking about
-
-**Translation:** "The new teacher came" (not "The teacher came newly")
-
-</ExerciseBox>
-
-<ExerciseBox question="Exercise 2: Identify the hal in this sentence and explain why it's hal: **jāʾa** ٱلطُّلَّابُ مُسْرِعِينَ">
-
-**Answer:**
-
-**مُسْرِعِينَ** (musriʿīna) "hurrying" is the **HAL**.
-
-**Analysis:**
-
-**Step 1: Check definiteness**
-- مُسْرِعِينَ is INDEFINITE (no ٱلْـ prefix)
-- ٱلطُّلَّابُ (the students) is DEFINITE
-- They DON'T match → This could be hal ✓
-
-**Step 2: Check case**
-- مُسْرِعِينَ ends with ـِينَ (accusative ending for masculine plural)
-- ٱلطُّلَّابُ is NOMINATIVE (subject of sentence)
-- They DON'T match in case → This is hal ✓
-
-**Step 3: Check meaning**
-- "The students came hurrying"
-- "Hurrying" describes the TEMPORARY STATE they were in WHILE coming
-- You can add "while": "The students came WHILE hurrying" ✓
-
-**Step 4: Check agreement**
-- مُسْرِعِينَ is masculine plural
-- ٱلطُّلَّابُ is masculine plural
-- They AGREE in gender and number ✓
-
-**Root and pattern:**
-- Root: س-ر-ع (s-r-ʿ) "speed, haste"
-- Pattern: مُفْعِل (mufʿil) — Form IV active participle
-- Meaning: "one who hastens" → "hurrying"
-
-**Ṣāḥib al-ḥāl:** ٱلطُّلَّابُ (the students) — they are the ones in the state of hurrying
-
-**Translation:** "The students came hurrying" or "The students came while hurrying"
-
-</ExerciseBox>
-
-<ExerciseBox question="Exercise 3: Analyze the hal in this verse: وَدَخَلَ ٱلْمَدِينَةَ *ʿalā* *ḥīni* غَفْلَةٍ مِّنْ أَهْلِهَا (Surah Al-Qasas 28:15). What type of hal is it?">
-
-**Answer:**
-
-***ʿalā* *ḥīni* غَفْلَةٍ مِّنْ أَهْلِهَا** (ʿalā ḥīni ghaflatin min ahlihā) "at a time of unawareness from its people" is a **SEMI-SENTENCE HAL** (shibh jumlah).
-
-**Analysis:**
-
-**Full verse translation:** "And he entered the city at a time of unawareness from its people"
-
-**Hal structure:**
-- Type: **Semi-sentence hal** (prepositional phrase)
-- Phrase: *ʿalā* *ḥīni* غَفْلَةٍ (at a time of unawareness)
-- Additional detail: مِّنْ أَهْلِهَا (from its people)
-
-**Grammatical breakdown:**
-
-1. ***ʿalā*** (ʿalā) — preposition "at/upon"
-2. ***ḥīni*** (ḥīni) — noun in genitive case (because of preposition *ʿalā*)
-   - Root: ح-ي-ن (ḥ-y-n) "time, moment"
-   - Meaning: "time"
-3. **غَفْلَةٍ** (ghaflatin) — second part of iḍāfah, genitive case
-   - Root: غ-ف-ل (gh-f-l) "heedlessness, unawareness"
-   - Meaning: "unawareness, inattention"
-4. **مِّنْ أَهْلِهَا** (min ahlihā) — additional prepositional phrase
-   - مِّنْ = "from"
-   - أَهْلِهَا = "its people" (genitive)
-
-**Why it's hal:**
-- Describes the CIRCUMSTANCE during which he entered
-- The prepositional phrase functions as hal describing the STATE of the city/people
-- Answers "WHEN/IN WHAT STATE did he enter?" → "at a time when people were unaware"
-
-**Ṣāḥib al-ḥāl:** The implied subject "he" (referring to Musa ʿalayhi s-salām in the story)
-
-**Narrative significance:** This hal sets the scene — Musa entered the city stealthily when people weren't paying attention, foreshadowing the encounter that would follow.
-
-</ExerciseBox>
-
-<ExerciseBox question="Exercise 4: Convert this sentence with single-word hal to sentence hal using wāw al-ḥāl: خَرَجَ ٱلْقَوْمُ فَرِحِينَ">
-
-**Answer:**
-
-**Original sentence (single-word hal):**
-**خَرَجَ ٱلْقَوْمُ فَرِحِينَ** (kharaja l-qawmu fariḥīna)
-"The people went out rejoicing"
-
-**Converted to sentence hal:**
-**خَرَجَ ٱلْقَوْمُ وَهُمْ فَرِحُونَ** (kharaja l-qawmu wa-hum fariḥūna)
-"The people went out while they were rejoicing"
-
-**Analysis:**
-
-**Original structure:**
-- خَرَجَ (kharaja) — verb "went out"
-- ٱلْقَوْمُ (al-qawmu) — subject "the people" (nominative, definite)
-- فَرِحِينَ (fariḥīna) — single-word hal "rejoicing" (accusative plural)
-
-**Converted structure:**
-- خَرَجَ ٱلْقَوْمُ — same main clause
-- **وَهُمْ فَرِحُونَ** — sentence hal (nominal sentence)
-  - **وَ** — wāw al-ḥāl (not "and," but marking circumstantial clause)
-  - **هُمْ** — pronoun referring back to ٱلْقَوْمُ (the people)
-  - **فَرِحُونَ** — predicate "rejoicing" (nominative because it's predicate in the nominal sentence)
-
-**Key changes:**
-
-1. **Added وَهُمْ:** The wāw al-ḥāl plus pronoun creates a complete nominal sentence
-2. **Case change:** فَرِحِينَ (accusative as single-word hal) → فَرِحُونَ (nominative as predicate in sentence hal)
-3. **Meaning:** Both versions convey the same meaning, but sentence hal makes the circumstance more explicit
-
-**Why both are valid:**
-- Arabic allows both single-word and sentence hal to express the same idea
-- Sentence hal can add emphasis or clarity
-- Single-word hal is more concise
-
-**Translation comparison:**
-- Single-word: "The people went out rejoicing"
-- Sentence: "The people went out while they were rejoicing" (more explicit)
-
-**Root:** ف-ر-ح (f-r-ḥ) "joy, gladness"
-
-</ExerciseBox>
-
-## Related Lessons
-
-**Prerequisites:**
-- [L2.05: Accusative Case](/learn/level-2/05-accusative-case/) — Foundation for understanding hal's accusative marking
-- [L2.09: Adjectives](/learn/level-2/09-adjective-agreement/) — Essential for distinguishing na't from hal
-
-**Build on this lesson:**
-- [L4.02: Tamyiz](/learn/level-4/02-tamyiz/) — Another specialized accusative function (specification)
-- [L5.11: Complex Sentence Structures](/learn/level-5/15-nahw-synthesis/) — Advanced sentence composition including multiple hal clauses
-
-**Related concepts:**
-- [L3.19: Active Participles](/learn/level-3/19-active-passive-participles/) — Active participles frequently function as hal
-- [L2.11: Nominal and Verbal Sentences Review](/learn/level-2/01-nominal-sentence/) — Understanding sentence hal requires mastery of sentence types
-
-**Resources:**
-- [Grammar Glossary](/resources/glossary/) — Definitions of hal, ṣāḥib al-ḥāl, wāw al-ḥāl
-- [Case System Reference](/resources/case-endings-chart/) — Complete case ending charts
+The ḥāl usually matches its owner in number and gender. One person, so بَشِيرًا is singular. Step 2 has a ḥāl for many men.
+
+<Check n={3} q="In 2:119, who is بَشِيرًا describing?" options={['The -ka of أَرْسَلْنَٰكَ, “you”', 'The word ٱلْحَقِّ, “the truth”', 'The -nā of إِنَّآ, “we”']} answer={0} why="The sending was done to “you”, and you are the one who brings good news. The -ka is the object, and it is the owner of the ḥāl." />
+</Block>
+
+<Block id="conditions" title="Four rules from the book">
+  <Stage label="Al-Ajurrumiyyah, in four words">
+    <Tiles
+      label="What the book says about a ḥāl"
+      items={[
+        { ar: 'اسْمٌ', en: 'a noun', type: 'x' },
+        { ar: 'مَنْصُوبٌ', en: 'accusative', type: 'x' },
+        { ar: 'نَكِرَةٌ', en: 'indefinite', type: 'x' },
+        { ar: 'بَعْدَ تَمَامِ الْكَلَامِ', en: 'after the sentence is complete', type: 'x' },
+      ]}
+    />
+  </Stage>
+
+The definition and the lines after it give four rules. Test them on خَآئِفًا in 28:21.
+
+- **The ḥāl is accusative.** خَآئِفًا ends in -an (tanwīn fatḥa).
+- **The ḥāl is indefinite.** خَآئِفًا has no ٱلْ. The tanwīn shows it.
+- **It comes after the sentence is complete.** فَخَرَجَ مِنْهَا is already a full sentence. The ḥāl is an extra.
+- **The owner is definite.** The owner of خَآئِفًا is the hidden “he”, a pronoun. A pronoun is definite. The owner of بَشِيرًا is -ka, also a pronoun.
+
+“Complete” gives you a quick test: take the ḥāl out. If a full sentence is left, it was a ḥāl. If the sentence breaks, the word was needed.
+
+A whole sentence or a phrase has no ending to show the accusative. The grammar books say it stands “in the place of the accusative” (فِي مَحَلِّ نَصْبٍ). Step 2 shows this.
+
+<Note kind="know">The book says the owner is definite. This lesson teaches that normal case. Other grammar books list a few exceptions. They are not taught here.</Note>
+
+<Check n={4} q="Which can be a ḥāl, by the book's rules: ضَاحِكًا or ٱلضَّاحِكُ?" options={['ضَاحِكًا', 'ٱلضَّاحِكُ']} answer={0} why="A ḥāl is indefinite and accusative. ضَاحِكًا has no ٱلْ and ends in -an. ٱلضَّاحِكُ has ٱلْ, so it would be an adjective." />
+</Block>
+</Step>
+
+<Step id="kinds" label="Three kinds" title="Three kinds of ḥāl: a word, a sentence, a phrase">
+<Block id="one-word" title="One word">
+  <Stage>
+    <Sentence
+      roles
+      reference="Az-Zumar 39:73 (end)"
+      groups={[
+        { role: 'fiil', label: 'fiʿl + doer + object', hint: 'so enter it: the doer is -ū, “you all”', words: [{ ar: 'فَٱدْخُلُوهَا', en: 'so enter it', say: 'fa-dkhuluha', type: 'v' }] },
+        { role: 'hal', hint: 'describes -ū: “you all”', words: [{ ar: 'خَٰلِدِينَ', en: 'staying for ever', say: 'khalidina' }] },
+      ]}
+      en={['So enter it, staying for ever.']}
+    />
+    <Sentence
+      reference="Made-up example"
+      groups={[
+        { role: 'fiil', words: [{ ar: 'دَخَلَ', en: 'entered', say: 'dakhala', type: 'v' }] },
+        { words: [{ ar: 'ٱلطَّالِبُ', en: 'the student', say: 'at-talibu' }] },
+        { words: [{ ar: 'مُسْرِعًا', en: 'hurrying', say: 'musrian' }] },
+      ]}
+      en={['The student entered hurrying.']}
+    />
+  </Stage>
+
+The first kind is **one word**. In 39:73 the word is خَٰلِدِينَ, “staying for ever”. It is a doer word (L3.19) from the root خ ل د.
+
+Look at its ending. The owner is “you all” (men), so the ḥāl is plural. A doer word in the plural ends in -ūna when it is nominative, and in **-īna** when it is accusative. خَٰلِدِينَ has -īna. That is the accusative of L2.05.
+
+The made-up sentence has the same pattern as the Quran: verb, doer, ḥāl. مُسْرِعًا is from أَسْرَعَ, “he hurried”, and it ends in -an. It is not a verse.
+
+<Note kind="know">Some words end in an alif, like كُسَالَىٰ, “lazy”, in 4:142. The alif hides the fatḥa, so you cannot see the ending. Al-Jadwal says the fatḥa is there but not seen. It is a ḥāl all the same.</Note>
+
+<Check n={5} q="A ḥāl describes many men. Which ending does a doer word take?" options={['-ūna', '-īna', '-un']} answer={1} why="A ḥāl is accusative. For many men the accusative ending is -īna, as in خَٰلِدِينَ. -ūna is the nominative." />
+</Block>
+
+<Block id="verb-sentence" title="A sentence with a verb">
+  <Stage>
+    <Sentence
+      roles
+      reference="Yusuf 12:16"
+      groups={[
+        { role: 'fiil', label: 'fiʿl + fāʿil', hint: 'and they came: the doer is -ū', words: [{ ar: 'وَجَآءُوٓ', en: 'and they came', say: 'wa-jau', type: 'v' }] },
+        { role: 'maful', words: [{ ar: 'أَبَاهُمْ', en: 'their father', say: 'abahum' }] },
+        { role: 'zarf', label: 'time word', hint: 'when: in the evening', words: [{ ar: 'عِشَآءً', en: 'in the evening', say: 'ishaan' }] },
+        { role: 'hal', label: 'ḥāl: a sentence', hint: 'a present verb, and its doer is “they”', words: [{ ar: 'يَبْكُونَ', en: 'weeping', say: 'yabkuna', type: 'v' }] },
+      ]}
+      en={['And they came to their father in the evening, weeping.']}
+    />
+  </Stage>
+
+The second kind is a **whole sentence**. يَبْكُونَ is a present verb. Its doer, “they”, is inside the verb, so it is a full sentence: “they are weeping”.
+
+Al-Jadwal says this sentence is a ḥāl of the doer of جَآءُوٓ. A sentence has no ending, so it stands in the place of the accusative.
+
+This sentence has **no وَ**. The hidden “they” inside يَبْكُونَ goes back to the brothers, the owner. That link joins the ḥāl to its owner.
+
+The root of يَبْكُونَ is ب ك ي. The last root letter ي drops before the ending -ūna. You can see it in يَبْكِي, “he weeps”. The form without it is يَبْكُونَ, on the pattern يَفْعُونَ. L4.13 teaches this kind of verb.
+
+A verse can have more than one ḥāl. In 28:21 Al-Jadwal calls يَتَرَقَّبُ a second ḥāl, after خَآئِفًا.
+
+The word عِشَآءً is not a ḥāl. It is a time word: it says when. Step 3 comes back to it.
+
+<Check n={6} q="In 12:16, who is weeping?" options={['The father', 'The brothers: the doer of جَآءُوٓ', 'The evening']} answer={1} why="The hidden “they” inside يَبْكُونَ goes back to the doer of جَآءُوٓ: the brothers. They are the owner of the ḥāl." />
+</Block>
+
+<Block id="nominal" title="A sentence with wāw">
+  <Stage>
+    <Sentence
+      roles
+      reference="An-Nisa 4:43 (part)"
+      groups={[
+        { role: 'fiil', label: 'fiʿl + fāʿil', hint: 'do not come near: the doer is -ū, “you all”', words: [{ ar: 'لَا', en: 'do not', say: 'la', type: 'p' }, { ar: 'تَقْرَبُوا۟', en: 'come near', say: 'taqrabu', type: 'v' }] },
+        { role: 'maful', words: [{ ar: 'ٱلصَّلَوٰةَ', en: 'the prayer', say: 'as-salata' }] },
+        { role: 'hal', label: 'ḥāl: a sentence', hint: 'wāw al-ḥāl, “while”, then a nominal sentence', words: [{ ar: 'وَأَنتُمْ', en: 'while you', say: 'wa-antum' }, { ar: 'سُكَٰرَىٰ', en: 'drunk', say: 'sukara' }] },
+      ]}
+      en={['Do not come near the prayer while you are drunk.']}
+    />
+    <Sentence
+      reference="Made-up example"
+      groups={[
+        { role: 'fiil', words: [{ ar: 'جَآءَ', en: 'came', say: 'jaa', type: 'v' }] },
+        { words: [{ ar: 'مُحَمَّدٌ', en: 'Muhammad', say: 'muhammadun' }] },
+        { role: 'hal', label: 'ḥāl: a sentence', words: [{ ar: 'وَهُوَ', en: 'while he', say: 'wa-huwa' }, { ar: 'يَضْحَكُ', en: 'laughs', say: 'yadhaku', type: 'v' }] },
+      ]}
+      en={['Muhammad came while he was laughing.']}
+    />
+  </Stage>
+
+A ḥāl can also be a **nominal sentence**: a starting point and its news (L2.01). In 4:43 it is أَنتُمْ سُكَٰرَىٰ, “you are drunk”.
+
+The sentence starts with a وَ. This is the **wāw al-ḥāl**, وَاو الْحَال. It means “while”, not “and”. Al-Jadwal calls it “wāw ḥāliyya”, and the Quranic Arabic Corpus tags it as a circumstantial wāw. Here the sentence is a ḥāl of the doer of تَقْرَبُوا.
+
+The pronoun أَنتُمْ goes back to the owner, “you all”. With nominal sentences, the pattern is: **وَ, then a pronoun for the owner, then the news.**
+
+The made-up sentence has the same pattern: وَهُوَ يَضْحَكُ. Here the news is a verb sentence, يَضْحَكُ, “laughs”.
+
+L2.02 and L1.08 showed this pattern before it had a name: وَأَنتُم مُّسْلِمُونَ (3:102) and وَأَنتُم مُّعْرِضُونَ (2:83). Both mean “while you are …”.
+
+<Check n={7} q="What does the وَ in وَأَنتُمْ سُكَٰرَىٰ mean?" options={['“and”', '“while”', '“but”']} answer={1} why="It is the wāw al-ḥāl. The sentence after it says in what state they come near the prayer: drunk." />
+</Block>
+
+<Block id="past-sentence" title="A past verb with qad">
+  <Stage>
+    <Sentence
+      roles
+      reference="Al-Maidah 5:61 (part)"
+      groups={[
+        { role: 'fiil', label: 'fiʿl + fāʿil', hint: 'they said: the doer is -ū', words: [{ ar: 'قَالُوٓا۟', en: 'they said', say: 'qalu', type: 'v' }] },
+        { hint: 'what they said', words: [{ ar: 'ءَامَنَّا', en: 'we believed', say: 'amanna', type: 'v' }] },
+        { role: 'hal', label: 'ḥāl: a sentence', hint: 'wāw al-ḥāl, qad, a past verb', words: [{ ar: 'وَقَد', en: 'while … already', say: 'wa-qad', type: 'p' }, { ar: 'دَّخَلُوا۟', en: 'they entered', say: 'dakhalu', type: 'v' }, { ar: 'بِٱلْكُفْرِ', en: 'with unbelief', say: 'bil-kufri' }] },
+      ]}
+      en={['They say “we believed”, when they have already come in with unbelief.']}
+    />
+  </Stage>
+
+A ḥāl can start with a **past verb**. In 5:61 it is دَّخَلُوا۟, “they entered”. It comes after وَ and the little word قَد, which here means “already”.
+
+The sentence says what was true while they spoke: they had already come in with unbelief. Al-Jadwal says it is a ḥāl of the doer of قَالُوٓا۟. The Corpus also tags the وَ as circumstantial, and قَد as a word of certainty.
+
+The wāw al-ḥāl with a past verb comes with قَد. This is the usual pattern in these verses. It is a teaching summary, not a rule taken from a source.
+
+The part ءَامَنَّا, “we believed”, is what they said. It is not a ḥāl.
+
+<Note kind="know">The verse goes on: وَهُمْ قَدْ خَرَجُوا۟ بِهِۦ, “and they have gone out with it”. Al-Jadwal joins this to the first ḥāl, so there are two.</Note>
+
+<Check n={8} q="In وَقَد دَّخَلُوا۟, what does قَد do?" options={['It makes “they entered” read as “they have already entered”', 'It makes the verb “not”', 'It makes the sentence a question']} answer={0} why="قَد before a past verb adds the sense “already”. With the wāw al-ḥāl, the sentence says what was already true." />
+</Block>
+
+<Block id="phrase" title="A phrase with a preposition">
+  <Stage>
+    <Sentence
+      roles
+      reference="Al-Qasas 28:79 (part)"
+      groups={[
+        { role: 'fiil', label: 'fiʿl + hidden doer', hint: 'so he went out: the doer is a hidden “he”', words: [{ ar: 'فَخَرَجَ', en: 'so he went out', say: 'fa-kharaja', type: 'v' }] },
+        { role: 'jarMajrur', hint: 'ʿalā “to” with “his people”: tied to the verb', words: [{ ar: 'عَلَىٰ', en: 'to', say: 'ala', type: 'p' }, { ar: 'قَوْمِهِۦ', en: 'his people', say: 'qawmihi' }] },
+        { role: 'hal', label: 'ḥāl: a phrase', hint: 'fī “in” with “his finery”: like “adorned”', words: [{ ar: 'فِى', en: 'in', say: 'fi', type: 'p' }, { ar: 'زِينَتِهِۦ', en: 'his finery', say: 'zinatihi' }] },
+      ]}
+      en={['So he went out to his people in his finery.']}
+    />
+  </Stage>
+
+The third kind is a **phrase**: a preposition and its noun. The Arabic grammar books call it شِبْه جُمْلَة, “like a sentence”.
+
+In 28:79 the phrase is فِى زِينَتِهِۦ, “in his finery”. It says how Qarun went out. Al-Jadwal reads it as a ḥāl of the doer of خَرَجَ, and he paraphrases it with the word مُتَزَيِّنًا, “adorned”.
+
+That paraphrase is a good test. A phrase is a ḥāl when you can swap it for a describing word and the sentence still says the same.
+
+The other phrase in the verse is different. عَلَىٰ قَوْمِهِۦ, “to his people”, is tied to the verb خَرَجَ. It says where he went, so it completes the verb. It is not a ḥāl.
+
+<Check n={9} q="Which phrase in 28:79 is the ḥāl?" options={['عَلَىٰ قَوْمِهِۦ, “to his people”', 'فِى زِينَتِهِۦ, “in his finery”']} answer={1} why="فِى زِينَتِهِۦ says in what state he went out, and you can swap it for “adorned”. عَلَىٰ قَوْمِهِۦ says where he went." />
+</Block>
+</Step>
+
+<Step id="rules" label="Look-alikes" title="Fixed states, adjectives, and words that only look like a ḥāl">
+<Block id="fixed" title="A state that does not change">
+  <Stage>
+    <Sentence
+      roles
+      reference="Al-Baqarah 2:91 (part)"
+      groups={[
+        { role: 'mubtada', words: [{ ar: 'وَهُوَ', en: 'and it', say: 'wa-huwa' }] },
+        { role: 'khabar', words: [{ ar: 'ٱلْحَقُّ', en: 'the truth', say: 'al-haqqu' }] },
+        { role: 'hal', label: 'ḥāl muʾakkida', hint: 'a confirming ḥāl: it repeats what is always true', words: [{ ar: 'مُصَدِّقًا', en: 'confirming', say: 'musaddiqan' }] },
+        { role: 'jarMajrur', hint: 'li- “for” with “what”: tied to the ḥāl', words: [{ ar: 'لِّمَا', en: 'what', say: 'lima', type: 'p' }, { ar: 'مَعَهُمْ', en: 'is with them', say: 'maahum' }] },
+      ]}
+      en={['And it is the truth, confirming what they have.']}
+    />
+  </Stage>
+
+Most ḥāls name a state that changes: afraid, laughing, hurrying. A few name a state that stays.
+
+In 2:91 the Quran is the truth, and it always confirms the earlier books. Al-Jadwal calls مُصَدِّقًا a **ḥāl muʾakkida**, حَال مُؤَكِّدَة, a “confirming” ḥāl. It does not describe a passing state. It says again what is already true.
+
+The same is true in وَخُلِقَ ٱلْإِنسَٰنُ ضَعِيفًا (4:28): “and the human being was created weak”. Al-Jadwal calls ضَعِيفًا a ḥāl. A person is weak from the start, so this state does not pass. L3.09 met this verse.
+
+So a ḥāl is not always a **temporary** state. The better test is the job: it describes its owner while the action happens.
+
+<Check n={10} q="In 4:28, ضَعِيفًا is a ḥāl even though the state lasts. What does that show?" options={['A ḥāl can name a state that does not change', 'The word is really an adjective', 'The verse has a mistake']} answer={0} why="Al-Jadwal reads ضَعِيفًا as a ḥāl. A ḥāl describes its owner while the action happens, and the state may or may not pass." />
+</Block>
+
+<Block id="naat" title="Ḥāl or adjective?">
+  <Stage label="Made-up examples">
+    <Tiles
+      label="Same words, different job"
+      items={[
+        { ar: 'جَآءَ ٱلرَّجُلُ ٱلْكَرِيمُ', en: 'naʿt: the generous man came', type: 'x' },
+        { ar: 'جَآءَ ٱلرَّجُلُ ضَاحِكًا', en: 'ḥāl: the man came laughing', type: 'x' },
+        { ar: 'جَآءَ رَجُلٌ ضَاحِكٌ', en: 'naʿt: a laughing man came', type: 'x' },
+      ]}
+    />
+  </Stage>
+  <Stage label="A ḥāl and an adjective together">
+    <Sentence
+      roles
+      reference="Yusuf 12:2"
+      groups={[
+        { words: [{ ar: 'إِنَّآ', en: 'indeed we', say: 'inna', type: 'p' }] },
+        { role: 'fiil', label: 'fiʿl + doer + object', hint: 'we sent it down: the object is -hu', words: [{ ar: 'أَنزَلْنَٰهُ', en: 'we sent it down', say: 'anzalnahu', type: 'v' }] },
+        { role: 'hal', label: 'ḥāl', hint: 'as a Quran', words: [{ ar: 'قُرْءَٰنًا', en: 'as a Quran', say: 'quranan' }] },
+        { role: 'naat', hint: 'describes قُرْءَٰنًا', words: [{ ar: 'عَرَبِيًّا', en: 'Arabic', say: 'arabiyyan' }] },
+      ]}
+      en={['Indeed we sent it down as an Arabic Quran.']}
+    />
+  </Stage>
+
+An adjective (naʿt) and a ḥāl can look alike. Both describe and both can end in -an. The difference is in the definiteness.
+
+An adjective **copies** its noun (L2.09). ٱلرَّجُلُ has ٱلْ, so ٱلْكَرِيمُ has ٱلْ too, and it copies the ending: it is a naʿt. In جَآءَ رَجُلٌ ضَاحِكٌ the noun is indefinite, so the describing word is indefinite too: also a naʿt.
+
+A ḥāl does **not** copy. The owner is definite (ٱلرَّجُلُ, a pronoun, a name) and the ḥāl is indefinite and accusative. So a describing word without ٱلْ after a definite noun is read as a ḥāl. L2.09 warned that كَبِيرًا without ٱلْ would be read this way.
+
+In 12:2, قُرْءَٰنًا is a ḥāl and عَرَبِيًّا is its naʿt: the adjective describes the ḥāl. Al-Jadwal also says قُرْءَٰنًا is a fixed word (not made from a verb), and that Arabic allows a fixed word as a ḥāl when it can be read as a describing word. He calls it a ḥāl muwaṭṭiʾa. Here the sense is “as a Quran, Arabic”. L2.10 met this verse.
+
+<Check n={11} q="In جَآءَ ٱلرَّجُلُ ٱلْكَرِيمُ, what is ٱلْكَرِيمُ?" options={['A ḥāl', 'A naʿt (adjective)']} answer={1} why="It has ٱلْ like ٱلرَّجُلُ and copies its ending. A ḥāl is indefinite and accusative, and it does not copy." />
+</Block>
+
+<Block id="tamyiz" title="Another look-alike: tamyīz">
+  <Stage label="Two accusative words">
+    <Tiles
+      label="Both are indefinite and accusative"
+      items={[
+        { ar: 'حَال', en: 'answers: in what state?', type: 'x' },
+        { ar: 'تَمْيِيز', en: 'answers: of what? in what way? (L4.02)', type: 'x' },
+      ]}
+    />
+  </Stage>
+
+A **tamyīz** (تَمْيِيز, “specifier”) is another word that is indefinite and accusative. It makes a vague word clear. L4.02 teaches it.
+
+The two jobs ask different questions. A ḥāl says **in what state** the owner was while the action happened. A tamyīz says **of what, or in what way** something is true.
+
+An example is in 28:78. The words أَشَدُّ مِنْهُ قُوَّةً mean “stronger than him in strength”. Al-Jadwal calls قُوَّةً a tamyīz. It does not describe someone while he acts. It says in what way he is stronger.
+
+Some words can be read both ways. In 4:69 Al-Jadwal reads رَفِيقًا as a tamyīz, and al-Durr al-Maṣūn gives a second reading as a ḥāl. L3.04 has the note. L4.02 teaches the test.
+
+<Check n={12} q="Which question does a ḥāl answer?" options={['In what state was the owner?', 'Of what is it a measure?']} answer={0} why="A ḥāl says in what state the owner was while the action happened. “Of what?” is the question of a tamyīz (L4.02)." />
+</Block>
+
+<Block id="not-hal" title="Words after the verb that are not a ḥāl">
+  <Stage label="Not a ḥāl">
+    <Sentence
+      roles
+      reference="Yusuf 12:63 (part)"
+      groups={[
+        { words: [{ ar: 'فَلَمَّا', en: 'so when', say: 'fa-lamma', type: 'p' }] },
+        { role: 'fiil', label: 'fiʿl + fāʿil', hint: 'they returned', words: [{ ar: 'رَجَعُوٓا۟', en: 'they returned', say: 'rajau', type: 'v' }] },
+        { role: 'jarMajrur', hint: 'ilā “to” with “their father”', words: [{ ar: 'إِلَىٰٓ', en: 'to', say: 'ila', type: 'p' }, { ar: 'أَبِيهِمْ', en: 'their father', say: 'abihim' }] },
+        { role: 'fiil', label: 'a new sentence', hint: 'the answer of فَلَمَّا, not a ḥāl', words: [{ ar: 'قَالُوا۟', en: 'they said', say: 'qalu', type: 'v' }] },
+      ]}
+      en={['So when they returned to their father, they said…']}
+    />
+    <Sentence
+      reference="Made-up example"
+      groups={[
+        { role: 'fiil', words: [{ ar: 'جَلَسَ', en: 'sat', say: 'jalasa', type: 'v' }] },
+        { words: [{ ar: 'ٱلطَّالِبُ', en: 'the student', say: 'at-talibu' }] },
+        { role: 'tied', hint: 'where: tied to the verb', words: [{ ar: 'فِي', en: 'in', say: 'fi', type: 'p' }, { ar: 'ٱلْفَصْلِ', en: 'the classroom', say: 'al-fasli' }] },
+      ]}
+      en={['The student sat in the classroom.']}
+    />
+  </Stage>
+
+Not every word after the verb is a ḥāl. Four look-alikes:
+
+- **A time word.** عِشَآءً in 12:16 says when. Al-Jadwal calls it a time word (ظَرْف) tied to the verb. L2.05 said the same of يَوْمًا in 2:19. A ḥāl says how, not when.
+- **A place phrase.** فِي ٱلْفَصْلِ says where. It completes the verb جَلَسَ, so it is tied to the verb and is not a ḥāl. You cannot swap it for a word like “adorned”.
+- **The answer of “when”.** In 12:63, قَالُوا۟ is the answer of فَلَمَّا: “when they returned, they said”. Al-Jadwal says it is a new sentence with no place of its own. It does not describe how they returned.
+- **A new sentence.** In 12:19 the sentence قَالَ يَٰبُشْرَىٰ starts after the drawer lets down his bucket. It tells what he said next. It is not a ḥāl (see exercise 6).
+
+The rule of thumb: a ḥāl is part of the first sentence. It describes the owner **while** the action happens. A new sentence says what happens **next**.
+
+<Check n={13} q="In 12:16, which word is a time word and not a ḥāl?" options={['عِشَآءً', 'يَبْكُونَ', 'أَبَاهُمْ']} answer={0} why="عِشَآءً says when they came: in the evening. يَبْكُونَ is the ḥāl, and أَبَاهُمْ is the object." />
+</Block>
+
+<Block id="earlier" title="Where you have met it">
+  <Stage label="Words you already know">
+    <Tiles
+      label="Four kinds from earlier lessons"
+      items={[
+        { ar: 'مُصَدِّقًا', en: 'one word (L3.12, 3:3)', type: 'n' },
+        { ar: 'وَأَنتُمُ ٱلْأَعْلَوْنَ', en: 'a sentence with wāw (L3.01, 3:139)', type: 'x' },
+        { ar: 'فِى سَبِيلِ ٱللَّهِ', en: 'a phrase (L3.17, 2:190)', type: 'x' },
+        { ar: 'يَبْكُونَ', en: 'a verb sentence (L2.05, 12:16)', type: 'x' },
+      ]}
+    />
+  </Stage>
+
+Earlier lessons pointed to this one. Here is where each came from, and its kind.
+
+| Verse | Word or phrase | Kind | Lesson |
+|---|---|---|---|
+| 2:119 | بَشِيرًا | one word | L1.06 |
+| 14:33 | دَآئِبَيْنِ | one word, dual | L2.05 |
+| 22:5 | طِفْلًا | one word | L3.13 |
+| 4:125 | حَنِيفًا | one word | L3.14 |
+| 15:46 | ءَامِنِينَ | one word | L3.19 |
+| 3:3 | مُصَدِّقًا | one word | L3.12 |
+| 7:73 | ءَايَةً | one word, fixed noun | L3.10 |
+| 12:2 | قُرْءَٰنًا | one word, fixed noun | L2.10 |
+| 4:28 | ضَعِيفًا | one word, lasting state | L3.09 |
+| 12:16 | يَبْكُونَ | sentence with a verb | L2.03, L2.05 |
+| 2:24 | أُعِدَّتْ لِلْكَٰفِرِينَ | sentence with a verb | L1.07 |
+| 3:102, 2:83 | وَأَنتُم مُّسْلِمُونَ, وَأَنتُم مُّعْرِضُونَ | sentence with wāw | L2.02, L1.08 |
+| 3:139 | وَأَنتُمُ ٱلْأَعْلَوْنَ | sentence with wāw | L3.01 |
+| 29:44, 16:3 | بِٱلْحَقِّ | phrase | L2.03 |
+| 110:3 | بِحَمْدِ رَبِّكَ | phrase | L3.03 |
+| 2:190 | فِى سَبِيلِ ٱللَّهِ | phrase | L3.17 |
+| 3:174 | بِنِعْمَةٍ مِّنَ ٱللَّهِ | phrase | L3.18 |
+| 3:103 | بِنِعْمَتِهِۦٓ | phrase | L2.11 |
+
+Each lesson read these as Al-Jadwal does. In 112:4, L1.11 also noted a second reading of كُفُوًا as a ḥāl. It is a reading from al-Durr al-Maṣūn that Abū Ḥayyān rejected.
+</Block>
+</Step>
+
+<Step id="irab" label="Mistakes and parsing" title="Four mistakes, and four verses word by word">
+<Block id="mistake-definite" title="Mistake 1: a ḥāl with ٱلْ, or an owner without it">
+  <Stage label="Look at ٱلْ">
+    <Tiles
+      label="Made-up examples"
+      items={[
+        { ar: 'جَآءَ ٱلطَّالِبُ ضَاحِكًا', en: 'ḥāl: the student came laughing', type: 'v' },
+        { ar: 'جَآءَ ٱلطَّالِبُ ٱلضَّاحِكُ', en: 'naʿt: the laughing student came', type: 'x' },
+      ]}
+    />
+  </Stage>
+
+A ḥāl is indefinite. If you add ٱلْ and copy the ending, the word becomes an adjective. The meaning changes: not “came laughing” but “the laughing one came”, which tells you which student.
+
+The other side matters too. The owner is normally definite. With an indefinite noun, the describing word copies it and is a naʿt: جَآءَ رَجُلٌ ضَاحِكٌ, “a laughing man came”.
+
+Check the two sides together. A ḥāl has no ٱلْ and is accusative. Its owner has ٱلْ or is a pronoun or a name.
+</Block>
+
+<Block id="mistake-ending" title="Mistake 2: the wrong ending on a one-word ḥāl">
+  <Stage label="Word or sentence">
+    <Tiles
+      label="Made-up examples"
+      items={[
+        { ar: 'خَرَجَ ٱلْقَوْمُ فَرِحِينَ', en: 'one word, accusative: the people left rejoicing', type: 'v' },
+        { ar: 'خَرَجَ ٱلْقَوْمُ وَهُمْ فَرِحُونَ', en: 'a sentence: the people left while they were rejoicing', type: 'v' },
+      ]}
+    />
+  </Stage>
+
+A one-word ḥāl is accusative: فَرِحِينَ, with -īna. If you want the nominative فَرِحُونَ, the word is the news of a nominal sentence. Then it needs the wāw and the pronoun: وَهُمْ فَرِحُونَ.
+
+Do not write خَرَجَ ٱلْقَوْمُ فَرِحُونَ. It looks like a ḥāl, but it has the nominative ending of a doer word and nothing to join it to the sentence.
+
+For a word like كُسَالَىٰ, where an alif hides the ending, remember that the fatḥa is there but not seen.
+</Block>
+
+<Block id="mistake-waw" title="Mistake 3: reading the wāw al-ḥāl as “and”">
+  <Stage label="Two meanings of وَ">
+    <Tiles
+      label="One pattern: وَ + pronoun + news"
+      items={[
+        { ar: 'وَأَنتُمْ سُكَٰرَىٰ', en: 'while you are drunk (4:43)', type: 'x' },
+        { ar: 'وَهُوَ يَضْحَكُ', en: 'while he laughs (made up)', type: 'x' },
+      ]}
+    />
+  </Stage>
+
+A وَ can mean “and”: it joins two things. It can also be the wāw al-ḥāl: it starts a sentence that says in what state the owner was.
+
+Look for the pattern: **وَ, then a pronoun that goes back to the owner, then the news.** وَأَنتُمْ سُكَٰرَىٰ is “while you are drunk”, not “and you are drunk”. The prayer verse does not say “come near the prayer and be drunk”.
+
+Translate the wāw al-ḥāl as “while”, and the sentence reads right.
+</Block>
+
+<Block id="mistake-temporary" title="Mistake 4: ruling out a ḥāl because the state lasts">
+  <Stage label="States that stay">
+    <Tiles
+      label="Two lasting states"
+      items={[
+        { ar: 'ضَعِيفًا', en: 'weak (4:28)', type: 'n' },
+        { ar: 'مُصَدِّقًا', en: 'confirming (2:91)', type: 'n' },
+      ]}
+    />
+  </Stage>
+
+Many books say “a ḥāl is a passing state”. That is the usual case, not the rule. Al-Jadwal calls ضَعِيفًا in 4:28 a ḥāl, and مُصَدِّقًا in 2:91 a ḥāl muʾakkida.
+
+So do not throw out a word because its state lasts. Ask the real questions: is it indefinite and accusative (or a sentence or phrase in that place)? Does it describe an owner while the action happens? Is the sentence complete without it?
+</Block>
+
+<Block id="parse-1" title="Word by word: Al-Qasas 28:21">
+  <Stage label="Word by word">
+    <Parse
+      reference="Al-Qasas 28:21 (start)"
+      words={[
+        { ar: 'فَخَرَجَ', en: 'so he left', type: 'v' },
+        { ar: 'مِنْهَا', en: 'from it', type: 'p' },
+        { ar: 'خَآئِفًا', en: 'afraid' },
+        { ar: 'يَتَرَقَّبُ', en: 'watching out', type: 'v' },
+      ]}
+      cards={[
+        { at: 0, ar: 'فَ', role: '“so”, a little word that joins this sentence to the story', why: 'Little words have no case.', irab: 'الفاء عاطفة' },
+        { at: 0, ar: 'خَرَجَ', role: 'a past-tense verb: “he left”. The doer is a hidden “he”.', case: 'a verb has no case; it is built', mark: 'a fatḥa on the last root letter ج', why: 'A past verb for “he” ends in a fatḥa (L3.05). This hidden “he” is the owner of the ḥāls.', irab: 'فعل ماض مبني على الفتح، والفاعل ضمير مستتر تقديره هو' },
+        { at: 1, role: '“from it”: min and a pronoun. It belongs to the verb.', why: 'It says what he left: the city.', irab: 'جار ومجرور متعلق بخرج' },
+        { at: 2, role: 'ḥāl: “afraid”', case: 'accusative (naṣb)', mark: '-an (tanwīn fatḥa)', why: 'It is indefinite and it describes the doer of خَرَجَ. It is a doer word from the root خ و ف (L3.19).', irab: 'حال منصوبة من فاعل خرج' },
+        { at: 3, role: 'a second ḥāl: a present verb, “watching out”. The whole sentence is the ḥāl.', case: 'a sentence has no case; it stands in the place of the accusative', why: 'Its doer is a hidden “he”, and that goes back to the owner. The root is ر ق ب, Form V (L3.15).', irab: 'وجملة «يترقب» في محل نصب حال ثانية' },
+      ]}
+    />
+  </Stage>
+
+This verse has a one-word ḥāl and a sentence ḥāl, both for the same owner.
+
+Press **Next word** and answer each card before you read it. The Arabic line on each card is how the grammar books write it. Al-Jadwal analyses this verse word by word.
+</Block>
+
+<Block id="parse-2" title="Word by word: An-Nisa 4:43">
+  <Stage label="Word by word">
+    <Parse
+      reference="An-Nisa 4:43 (part)"
+      words={[
+        { ar: 'لَا', en: 'do not', type: 'p' },
+        { ar: 'تَقْرَبُوا۟', en: 'come near', type: 'v' },
+        { ar: 'ٱلصَّلَوٰةَ', en: 'the prayer' },
+        { ar: 'وَأَنتُمْ', en: 'while you' },
+        { ar: 'سُكَٰرَىٰ', en: 'drunk' },
+      ]}
+      cards={[
+        { at: 0, role: '“do not”: a little word that forbids', why: 'It makes the verb after it jussive (L3.07).', irab: 'لا ناهية جازمة' },
+        { at: 1, role: 'a present verb: “come near”. The doer is -ū, “you all”.', case: 'jussive (jazm)', mark: 'the nūn drops: تَقْرَبُونَ becomes تَقْرَبُوا', why: 'The -ū is the owner of the ḥāl.', irab: 'فعل مضارع مجزوم وعلامة الجزم حذف النون، والواو فاعل' },
+        { at: 2, role: 'the object: “the prayer”', case: 'accusative (naṣb)', mark: '-a (fatḥa)', why: 'It receives the action.', irab: 'مفعول به منصوب' },
+        { at: 3, ar: 'وَ', role: 'wāw al-ḥāl: “while”', why: 'It starts a describing sentence. The Corpus tags it as a circumstantial wāw.', irab: 'الواو حالية' },
+        { at: 3, ar: 'أَنتُمْ', role: 'mubtadaʾ: “you all”', case: 'a pronoun with a fixed ending; it counts as nominative', mark: 'none', why: 'It goes back to the doer of تَقْرَبُوا. That link joins the ḥāl to its owner.', irab: 'ضمير منفصل في محل رفع مبتدأ' },
+        { at: 4, role: 'khabar: “drunk”', case: 'nominative (raf)', mark: 'a ḍamma that is not seen, because the word ends in an alif', why: 'The alif at the end hides the vowel.', irab: 'خبر مرفوع وعلامة الرفع الضمة المقدرة على الألف' },
+        { at: [3, 4], role: 'the whole sentence أَنتُمْ سُكَٰرَىٰ is the ḥāl', case: 'in the place of the accusative', why: 'It says in what state they come near the prayer. It describes the doer of تَقْرَبُوا.', irab: 'وجملة «أنتم سكارى» في محل نصب حال من الواو في تقربوا' },
+      ]}
+    />
+  </Stage>
+
+A nominal sentence is the ḥāl. The khabar has a nominative ending that you cannot see. The ending of the whole sentence is “in the place of the accusative”.
+</Block>
+
+<Block id="parse-3" title="Word by word: Al-Maidah 5:61">
+  <Stage label="Word by word">
+    <Parse
+      reference="Al-Maidah 5:61 (part)"
+      words={[
+        { ar: 'قَالُوٓا۟', en: 'they said', type: 'v' },
+        { ar: 'ءَامَنَّا', en: 'we believed', type: 'v' },
+        { ar: 'وَقَد', en: 'while … already', type: 'p' },
+        { ar: 'دَّخَلُوا۟', en: 'they entered', type: 'v' },
+        { ar: 'بِٱلْكُفْرِ', en: 'with unbelief' },
+      ]}
+      cards={[
+        { at: 0, role: 'a past-tense verb: “they said”. The doer is -ū.', case: 'a verb has no case; it is built', mark: 'a ḍamma on the last root letter', why: 'The -ū is the owner of the ḥāl.', irab: 'فعل ماض مبني على الضم، والواو فاعل' },
+        { at: 1, role: 'what they said: “we believed”', why: 'It is the quoted speech. It is not part of the ḥāl.', irab: 'وجملة «آمنا» في محل نصب مقول القول' },
+        { at: 2, ar: 'وَ', role: 'wāw al-ḥāl: “while”', why: 'It starts a describing sentence.', irab: 'الواو حالية' },
+        { at: 2, ar: 'قَد', role: '“already”, a little word', why: 'Little words have no case. It stands before a past verb used as a ḥāl.', irab: 'قد حرف تحقيق' },
+        { at: 3, role: 'a past-tense verb: “they entered”. The doer is -ū.', case: 'a verb has no case; it is built', mark: 'a ḍamma on the last root letter ل', why: 'The ending -ū is the doer, “they”.', irab: 'فعل ماض مبني على الضم، والواو فاعل' },
+        { at: 4, role: '“with unbelief”: bi- and a noun. It describes the doer of دَخَلُوا.', case: 'ٱلْكُفْرِ is genitive (jarr)', mark: '-i (kasra)', why: 'Al-Jadwal says this bi- is the “bi- of company”, meaning “carrying”. The phrase is tied to a hidden ḥāl.', irab: 'جار ومجرور متعلق بحال من فاعل دخلوا، والباء للمصاحبة' },
+        { at: [2, 4], role: 'the whole sentence وَقَد دَّخَلُوا۟ بِٱلْكُفْرِ is the ḥāl', case: 'in the place of the accusative', why: 'It says in what state they spoke: they had already come in with unbelief. Its owner is the doer of قَالُوٓا۟.', irab: 'وجملة «قد دخلوا بالكفر» في محل نصب حال من فاعل قالوا' },
+      ]}
+    />
+  </Stage>
+
+The ḥāl here has a verb, and the verb itself has a phrase that works as a ḥāl inside the sentence.
+
+The first card names the owner. Press **Next word** until the last card, and see the whole ḥāl in one piece.
+</Block>
+
+<Block id="parse-4" title="Word by word: Al-Qasas 28:79">
+  <Stage label="Word by word">
+    <Parse
+      reference="Al-Qasas 28:79 (part)"
+      words={[
+        { ar: 'فَخَرَجَ', en: 'so he went out', type: 'v' },
+        { ar: 'عَلَىٰ', en: 'to', type: 'p' },
+        { ar: 'قَوْمِهِۦ', en: 'his people' },
+        { ar: 'فِى', en: 'in', type: 'p' },
+        { ar: 'زِينَتِهِۦ', en: 'his finery' },
+      ]}
+      cards={[
+        { at: 0, ar: 'فَ', role: '“so”, a little word that joins the sentence to the story', why: 'Little words have no case.', irab: 'الفاء عاطفة' },
+        { at: 0, ar: 'خَرَجَ', role: 'a past-tense verb: “he went out”. The doer is a hidden “he”: Qarun.', case: 'a verb has no case; it is built', mark: 'a fatḥa on the last root letter ج', why: 'A past verb for “he” ends in a fatḥa. The hidden “he” is the owner of the ḥāl.', irab: 'فعل ماض مبني على الفتح، والفاعل ضمير مستتر تقديره هو' },
+        { at: [1, 2], role: '“to his people”: ʿalā and a noun with -hi. It belongs to the verb.', case: 'قَوْمِ is genitive (jarr)', mark: '-i (kasra)', why: 'It says where he went, so it completes the verb.', irab: 'جار ومجرور متعلق بخرج' },
+        { at: [3, 4], role: 'ḥāl: a phrase, “in his finery”', case: 'زِينَتِ is genitive (jarr)', mark: '-i (kasra) on the ت', why: 'The phrase says in what state he went out. Al-Jadwal paraphrases it with “adorned”. It describes the doer of خَرَجَ.', irab: 'جار ومجرور في محل نصب حال من فاعل خرج' },
+      ]}
+    />
+  </Stage>
+
+The word for his people is part of the verb's meaning. The word for his finery is the ḥāl. The test is the same: where, or in what state?
+</Block>
+</Step>
+
+<Step id="practice" label="Practice" title="Practice">
+<Block id="practice-1" title="Practice: find it and name it">
+  <Stage label="For each sentence, ask">
+    <ol class="lx-card-list">
+      <li><b>Complete?</b> Is there a full sentence without it?</li>
+      <li><b>Owner:</b> who was in this state?</li>
+      <li><b>Kind:</b> a word, a sentence or a phrase?</li>
+      <li><b>Not a ḥāl?</b> Time, place, adjective or new sentence?</li>
+    </ol>
+  </Stage>
+
+Try each question first, on paper or in your head. Then open the answer.
+
+<Exercise n={1} q="Is the last word a ḥāl or a naʿt? جَآءَ ٱلْمُعَلِّمُ ٱلْجَدِيدُ (made-up sentence)">
+
+**ٱلْجَدِيدُ**, “the new one”, is a **naʿt** (adjective).
+
+- It has ٱلْ, like ٱلْمُعَلِّمُ. A ḥāl is indefinite.
+- It copies the nominative ending of ٱلْمُعَلِّمُ. A ḥāl is accusative.
+- It says which teacher: the new one. It does not say in what state he came.
+
+“The new teacher came.” It does not mean “the teacher came newly”.
+
+</Exercise>
+
+<Exercise n={2} q="Find the ḥāl and its owner: جَآءَ ٱلطُّلَّابُ مُسْرِعِينَ (made-up sentence)">
+
+**مُسْرِعِينَ**, “hurrying”, is the ḥāl.
+
+- It has no ٱلْ, and the ending -īna is accusative (the doer is nominative).
+- The owner is **ٱلطُّلَّابُ**, “the students”. It is masculine plural and so is the ḥāl.
+- You can add “while”: “the students came while hurrying”.
+- The root is س ر ع. مُسْرِعِينَ is a doer word from أَسْرَعَ (Form IV), on the pattern مُفْعِلِينَ.
+
+</Exercise>
+
+<Exercise n={3} q="Name the ḥāl, its kind and its owner: وَدَخَلَ ٱلْمَدِينَةَ عَلَىٰ حِينِ غَفْلَةٍ مِّنْ أَهْلِهَا (Al-Qasas 28:15, part)">
+
+The ḥāl is **عَلَىٰ حِينِ غَفْلَةٍ**, “at a time of heedlessness”: a phrase (shibh jumla). It says in what state he entered.
+
+Al-Jadwal reads it as a ḥāl of the **doer** of دَخَلَ: the hidden “he”, Musa. The heedlessness belongs to the people, as مِّنْ أَهْلِهَا, “from its people”, says. The ḥāl still describes the one who enters: he enters the city while its people are not paying attention.
+
+Al-Durr al-Maṣūn calls it a ḥāl too. It allows the owner to be the doer, and also the object, ٱلْمَدِينَةَ. The role is the same in both readings. The lesson follows Al-Jadwal.
+
+The object ٱلْمَدِينَةَ is not a ḥāl. It is the thing he enters.
+
+</Exercise>
+
+<Exercise n={4} q="Change the one-word ḥāl into a sentence ḥāl with the wāw al-ḥāl: خَرَجَ ٱلْقَوْمُ فَرِحِينَ (made-up sentence)">
+
+**خَرَجَ ٱلْقَوْمُ وَهُمْ فَرِحُونَ**, “the people left while they were rejoicing”.
+
+- **وَ** is the wāw al-ḥāl, “while”.
+- **هُمْ** is a pronoun that goes back to ٱلْقَوْمُ.
+- **فَرِحُونَ** is now the news of a nominal sentence, so it is nominative (-ūna), not accusative (-īna).
+- The root is ف ر ح, “joy”.
+
+</Exercise>
+
+<Exercise n={5} q="Find the ḥāl and say its kind: إِنَّا ذَهَبْنَا نَسْتَبِقُ (Yusuf 12:17, part)">
+
+**نَسْتَبِقُ**, “racing”, is a ḥāl: a sentence with a present verb. Al-Jadwal reads it as a ḥāl of the doer of ذَهَبْنَا.
+
+- The owner is the -nā of ذَهَبْنَا, “we”.
+- The doer of نَسْتَبِقُ is “we”, so the verb goes back to the owner. There is no wāw.
+- The root is س ب ق. The verb is Form VIII (L3.14): ٱسْتَبَقَ, on the pattern نَفْتَعِلُ in the present for “we”.
+
+</Exercise>
+
+<Exercise n={6} q="Which look-alike is it? In فَأَدْلَىٰ دَلْوَهُۥ قَالَ يَٰبُشْرَىٰ هَٰذَا غُلَٰمٌ (Yusuf 12:19, part), is قَالَ يَٰبُشْرَىٰ a ḥāl?">
+
+**No.** It is a new sentence: the drawer lets down his bucket, then he says “Good news!”.
+
+- It does not describe how he let down the bucket while he did it.
+- It tells what happened next.
+- Al-Jadwal says the sentence قَالَ is an explaining sentence with no place of its own. It does not call it a ḥāl.
+
+</Exercise>
+</Block>
+
+<Block id="practice-2" title="Practice: lasting states, look-alikes and kinds">
+  <Stage label="Three kinds">
+    <ol class="lx-card-list">
+      <li><b>One word:</b> خَٰلِدِينَ</li>
+      <li><b>A sentence:</b> يَبْكُونَ, وَأَنتُمْ سُكَٰرَىٰ, وَقَد دَّخَلُوا۟</li>
+      <li><b>A phrase:</b> فِى زِينَتِهِۦ</li>
+    </ol>
+  </Stage>
+
+<Exercise n={7} q="Is ضَعِيفًا a ḥāl? وَخُلِقَ ٱلْإِنسَٰنُ ضَعِيفًا (An-Nisa 4:28, part). Say its owner.">
+
+**Yes.** Al-Jadwal calls ضَعِيفًا a ḥāl.
+
+- It is indefinite and accusative (-an), and the sentence is complete without it.
+- The owner is **ٱلْإِنسَٰنُ**, “the human being”. The verb is passive (L3.09), so ٱلْإِنسَٰنُ stands in for the doer.
+- The state is not temporary. A person is weak from creation. So a ḥāl does not have to pass.
+
+</Exercise>
+
+<Exercise n={8} q="Find the two ḥāls: وَإِذَا قَامُوٓا۟ إِلَى ٱلصَّلَوٰةِ قَامُوا۟ كُسَالَىٰ يُرَآءُونَ ٱلنَّاسَ (An-Nisa 4:142, part)">
+
+- **كُسَالَىٰ**, “lazy”: a one-word ḥāl. It ends in an alif, so the fatḥa is not seen. The owner is the doer of قَامُوا۟ the second time: “they”.
+- **يُرَآءُونَ ٱلنَّاسَ**, “showing off to people”: a sentence ḥāl with a present verb. Its doer, “they”, goes back to the owner. There is no wāw.
+
+Al-Jadwal reads the second one as a ḥāl, and allows a second reading: a new sentence with no place of its own. The first, كُسَالَىٰ, is clear.
+
+</Exercise>
+
+<Exercise n={9} q="In وَجَآءُوٓ أَبَاهُمْ عِشَآءً يَبْكُونَ (Yusuf 12:16), which word is the ḥāl and which is not? Say which question each answers.">
+
+- **يَبْكُونَ** is the ḥāl. It answers “in what state did they come?”: weeping.
+- **عِشَآءً** is a time word, not a ḥāl. It answers “when?”: in the evening. Al-Jadwal ties it to the verb.
+- **أَبَاهُمْ** is the object. It answers “whom?”.
+
+Remove each and see: without يَبْكُونَ or عِشَآءً the sentence is still complete. The question each answers tells them apart.
+
+</Exercise>
+
+<Exercise n={10} q="Which kind of ḥāl is each? (a) بَشِيرًا (Al-Baqarah 2:119) (b) وَأَنتُمْ سُكَٰرَىٰ (An-Nisa 4:43) (c) فِى زِينَتِهِۦ (Al-Qasas 28:79) (d) وَقَد دَّخَلُوا۟ بِٱلْكُفْرِ (Al-Maidah 5:61) (e) يَبْكُونَ (Yusuf 12:16)">
+
+- (a) **One word**. It describes the object -ka.
+- (b) **A sentence**, a nominal sentence with wāw al-ḥāl.
+- (c) **A phrase** (shibh jumla). It is like “adorned”.
+- (d) **A sentence** with a past verb, wāw al-ḥāl and qad.
+- (e) **A sentence** with a present verb and no wāw.
+
+</Exercise>
+
+<Exercise n={11} q="Build it. Start from جَآءَ ٱلرَّجُلُ (made-up). Add a one-word ḥāl, “laughing”, and then a sentence ḥāl with wāw, “while he was laughing”.">
+
+- One word: **جَآءَ ٱلرَّجُلُ ضَاحِكًا**. The ḥāl has no ٱلْ and ends in -an.
+- A sentence with wāw: **جَآءَ ٱلرَّجُلُ وَهُوَ يَضْحَكُ**. وَ is the wāw al-ḥāl, هُوَ goes back to ٱلرَّجُلُ, and يَضْحَكُ is the news.
+- A sentence without wāw is also possible with a present verb: **جَآءَ ٱلرَّجُلُ يَضْحَكُ**, as in يَبْكُونَ in 12:16.
+
+</Exercise>
+
+<Exercise n={12} q="What is the root of يَبْكُونَ in 12:16, and where did the last root letter go?">
+
+The root is **ب ك ي**. The last root letter ي does not show in يَبْكُونَ. It drops before the ending -ūna. You see it in the singular يَبْكِي, “he weeps”.
+
+The pattern is يَفْعُونَ. The root has three letters, but the third one does not show, and the ḍamma stays before the wāw. L4.13 teaches this kind of verb.
+
+</Exercise>
+</Block>
+
+<Block id="done" title="You have finished the lesson">
+  <Stage label="The idea">
+    <Formula
+      label="a sentence plus a state"
+      items={[
+        { kind: 'm', text: 'the action', small: 'who did what' },
+        { kind: 'k', text: 'the state', small: 'how, while it happened' },
+        { kind: 's', text: 'a ḥāl', small: 'حَال' },
+      ]}
+    />
+  </Stage>
+
+- A **ḥāl** says in what state the owner (ṣāḥib al-ḥāl) was while the action happened. The owner is the doer or the object.
+- Al-Ajurrumiyyah gives the rules: a noun, accusative, indefinite, after a complete sentence, and a definite owner.
+- It has **three kinds**: one word (خَٰلِدِينَ), a whole sentence (يَبْكُونَ, وَأَنتُمْ سُكَٰرَىٰ, وَقَد دَّخَلُوا۟) and a phrase (فِى زِينَتِهِۦ). A sentence or a phrase stands in the place of the accusative.
+- A nominal sentence ḥāl starts with the **wāw al-ḥāl**, “while”, and a pronoun that goes back to the owner.
+- A ḥāl is not always a passing state: ضَعِيفًا and مُصَدِّقًا name lasting states.
+- It is not an adjective (the adjective copies the noun), not a time or place word (when, where), and not a new sentence (what happened next).
+
+**Next:** L4.02 teaches the tamyīz, the other indefinite accusative word. It gives the test that tells a tamyīz from a ḥāl. L2.05 (the accusative), L2.09 (adjectives) and L3.19 (doer words) are the lessons behind this one.
+
+Earlier lessons you can link back to: [the accusative, L2.05](/learn/level-2/05-accusative-case/), [adjectives, L2.09](/learn/level-2/09-adjective-agreement/), [the verbal sentence, L2.03](/learn/level-2/03-verbal-sentence/), [doer and done-to words, L3.19](/learn/level-3/19-active-passive-participles/), [the tamyīz, L4.02](/learn/level-4/02-tamyiz/).
+
+<Sources
+    items={[
+      { label: 'Quran text', name: 'Tanzil (Uthmani text)', href: 'https://tanzil.net' },
+      { label: 'Word types and the circumstantial wāw tag', name: 'Quranic Arabic Corpus', href: 'https://corpus.quran.com' },
+      { label: 'Word-by-word analysis (iʿrāb) of the verses', name: 'Maḥmūd Ṣāfī, al-Jadwal fī Iʿrāb al-Qurʾān wa-Ṣarfihi wa-Bayānihi' },
+      { label: 'Second readings (28:15, 4:69, 112:4)', name: 'al-Samīn al-Ḥalabī, al-Durr al-Maṣūn' },
+      { label: 'The rules of the ḥāl', name: 'Ibn Ājurrūm, al-Ajurrumiyyah, chapter on the ḥāl' },
+      { label: 'English under the verses', name: 'Plain-English meanings by Quran Learn, not a translation' },
+    ]}
+  />
+</Block>
+</Step>
