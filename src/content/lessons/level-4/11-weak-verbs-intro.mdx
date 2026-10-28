@@ -1,429 +1,930 @@
 ---
 title: "Weak Verbs Introduction (al-Fi'l al-Mu'tall)"
+kicker: "Six kinds of verb, and how to tell which one you are reading"
+titleArabic: "اَلْفِعْل الْمُعْتَلّ"
 level: 4
 order: 11
-description: "Master the four-category weak verb classification system and learn the recognition strategy for identifying and analyzing weak verbs in Quranic text."
+template: steps
+description: "Get the map of the weak verbs of the Quran: the six kinds of verb (sound, hollow, defective, assimilated, hamzated, doubled), what the weak letters are, how to find the root and the kind of a verb in a verse, and the three things that can happen to a weak letter. Counts from the Quranic Arabic Corpus, four verses word by word, and eleven exercises."
 draft: false
 ---
 
-import ArabicExample from '../../../components/mdx/ArabicExample.astro';
-import GrammarTable from '../../../components/mdx/GrammarTable.astro';
-import Callout from '../../../components/mdx/Callout.astro';
-import ExerciseBox from '../../../components/mdx/ExerciseBox.astro';
-
-## Introduction
-
-You've mastered sound verbs — verbs with three strong consonants that conjugate regularly. Now you're ready for the most challenging topic in Arabic verb morphology: weak verbs. These are verbs containing a weak letter (waw و, ya ي, or alif ا/hamza ء) that causes irregularities in conjugation.
-
-<ArabicExample
-  arabic="ٱهْدِنَا ٱلصِّرَاطَ ٱلْمُسْتَقِيمَ"
-  transliteration="ihdinā ṣ-ṣirāṭa l-mustaqīma"
-  translation="Guide us to the straight path"
-  reference="Al-Fatiha 1:6"
-  highlight="ٱهْدِنَا"
-  words={[
-    { ar: "ٱهْدِنَا", tr: "ihdinā", en: "Guide us" },
-    { ar: "ٱلصِّرَاطَ", tr: "ṣ-ṣirāṭa", en: "the path" },
-    { ar: "ٱلْمُسْتَقِيمَ", tr: "l-mustaqīma", en: "the straight" }
-  ]}
-/>
-
-The word **ٱهْدِنَا** (ihdinā) "guide us" is an imperative verb from the root ه-د-ي (h-d-y). Notice that the final root letter is ي (ya) — a weak letter. This makes it a [defective verb](/resources/glossary/#fil-naqis) (fiʿl nāqiṣ / فِعْلٌ نَاقِصٌ), and it conjugates differently from sound verbs. Instead of adding suffixes directly, the weak letter undergoes changes.
-
-**In this lesson, you will:**
-- Understand what makes a verb "weak" vs "sound"
-- Master the four-category classification: hollow, defective, assimilated, hamzated
-- Learn the systematic 4-step recognition strategy for weak verbs
-- Apply categorization skills to Quranic examples from Al-Fatiha
-- Recognize weak verbs as patterns to learn, not exceptions to memorize
-
-**Connection to previous learning:** In [L3.04 Verb Form I](/learn/level-3/04-verb-form-i/), you learned the three vowel classes (faʿala, faʿila, faʿula) for sound verbs. In [L3.05 Past Tense](/learn/level-3/05-past-tense/) and [L3.06 Present Tense](/learn/level-3/06-present-tense/), you mastered sound verb conjugation. Now you'll discover that weak verbs follow DIFFERENT but SYSTEMATIC patterns based on which position contains the weak letter.
-
-**Forward connection:** This lesson establishes the framework. The next four lessons apply it systematically: [L4.12 Hollow Verbs](/learn/level-4/12-hollow-verbs/) (middle weak), [L4.13 Defective Verbs](/learn/level-4/13-defective-verbs/) (final weak), [L4.14 Assimilated Verbs](/learn/level-4/14-assimilated-verbs/) (initial weak), and [L4.15 Hamzated Verbs](/learn/level-4/15-hamzated-verbs/) (hamza complications).
-
-**Key mindset shift:** Weak verbs are NOT exceptions to memorize individually. They are CATEGORIES with consistent internal patterns. Learn the category rules, and you can handle hundreds of weak verbs systematically.
-
-<Callout type="note" title="Plain-English key">
-Quick, everyday translations of the grammar terms in this lesson — glance back here whenever one trips you up:
-
-- **Weak verb** (fiʿl muʿtall / مُعْتَلّ) — a verb with a weak letter (و / ي / ا) in its root, which shifts or drops.
-- **Hollow verb** (ajwaf / أَجْوَف) — a verb whose *middle* root letter is weak (like qāla).
-- **Defective verb** (nāqiṣ / نَاقِص) — a verb whose *last* root letter is weak (like daʿā).
-- **Assimilated verb** (mithāl / مِثَال) — a verb whose *first* root letter is weak (like waṣala).
-- **Hamzated verb** (mahmūz / مَهْمُوز) — a verb with a hamza (ء) as one of its root letters.
-</Callout>
-
-## Understanding Weak vs Sound Verbs
-
-**Plain English first:** Imagine you're building a tower. With strong bricks (sound verbs), you stack them predictably — each level is stable and follows the same rules. But if one brick is made of soft clay (weak letter), that level behaves differently — it might compress, change shape, or even disappear under pressure. Weak verbs work the same way: when conjugation rules "put pressure" on a weak letter (adding suffixes, changing vowels), that weak letter changes or drops.
-
-### What Makes a Letter "Weak"?
-
-In Arabic, three letters are called [weak letters](/resources/glossary/#hurufu-l-illah) (ḥurūfu l-ʿillah / حُرُوفُ ٱلْعِلَّةِ):
-
-1. **و (waw)** — pronounced like "w" or long "u"
-2. **ي (ya)** — pronounced like "y" or long "i"
-3. **ا (alif)** — represents long "a" (has no consonantal value)
-
-Additionally, **ء (hamza)** causes irregularities and is sometimes grouped with weak letters for conjugation purposes.
-
-**Why are they "weak"?** These letters are semi-vowels — they sit between consonants and vowels. When conjugation rules try to add vowels or suffixes, these letters often:
-- Contract into long vowels
-- Drop entirely
-- Transform into other letters
-- Merge with surrounding vowels
-
-### Sound Verb vs Weak Verb: The Difference
-
-**[Sound verb](/resources/glossary/#fil-sahih)** (fiʿl ṣaḥīḥ / فِعْلٌ صَحِيحٌ) — all three root letters are strong consonants
-
-Example: **ك-ت-ب** (k-t-b) "writing"
-- Past: كَتَبَ (kataba) "he wrote"
-- Present: يَكْتُبُ (yaktubu) "he writes"
-- Imperative: ٱُكْتُبْ (uktub) "write!"
-
-All conjugations follow predictable rules. No letters drop or change.
-
-**[Weak verb](/resources/glossary/#fil-mutall)** (fiʿl muʿtall / فِعْلٌ مُعْتَلٌّ) — contains at least one weak letter (و، ي، ا) or hamza (ء)
-
-Example: **ق-و-ل** (q-w-l) "saying"
-- Past: قَالَ (qāla) "he said" — middle و contracted to long ا
-- Present: يَقُولُ (yaqūlu) "he says" — middle و becomes long ū
-- Imperative: قُلْ (qul) "say!" — middle و dropped entirely!
-
-The weak letter و changes form or disappears depending on conjugation context.
-
-## The Four-Category Classification System
-
-**Key insight:** Weak verbs are NOT one random group. They divide into FOUR clear categories based on WHERE the weak letter appears in the root:
-
-<GrammarTable>
-| Category | Arabic Term | Position | Weak Letter | Example Root | Example Word | Pattern Behavior |
-|----------|-------------|----------|-------------|--------------|--------------|------------------|
-| **Hollow** | أَجْوَف | Middle (2nd radical) | و or ي | ق-و-ل | قَالَ (qāla) "said" | Middle letter contracts/drops |
-| **Defective** | نَاقِصٌ | Final (3rd radical) | و or ي | ه-د-ي | هَدَىٰ (hadā) "guided" | Final letter changes/drops |
-| **Assimilated** | مِثَالٌ | Initial (1st radical) | و (rarely ي) | و-ج-د | وَجَدَ (wajada) "found" | Initial و drops in some forms |
-| **Hamzated** | مَهْمُوزٌ | Any position | ء (hamza) | ق-ر-ء | قَرَأَ (qaraʾa) "read" | Hamza seat changes based on vowels |
-</GrammarTable>
-
-**Memory aid:** Think of the root as a three-position slot machine: [1st]–[2nd]–[3rd]. The weak letter's position determines which category and which rules apply.
-
-### Category 1: Hollow Verbs (al-Ajwaf)
-
-**[Hollow verb](/resources/glossary/#fil-ajwaf)** (fiʿl ajwaf / فِعْلٌ أَجْوَفٌ) — weak letter in the MIDDLE position
-
-**Arabic term etymology:** أَجْوَف (ajwaf) means "hollow" or "empty" — the middle is hollowed out or contracted.
-
-**Most common weak verb type** — appears frequently in the Quran
-
-Examples:
-- ق-و-ل (q-w-l) → قَالَ (qāla) "he said"
-- ك-و-ن (k-w-n) → كَانَ (kāna) "he was"
-- ج-ي-ء (j-y-ʾ) → جَاءَ (jāʾa) "he came"
-
-**Pattern rule:** The middle weak letter contracts into a long vowel (ا، و، ي) in most conjugations, or drops entirely in imperative and jussive forms.
-
-Detailed study in [L4.12 Hollow Verbs](/learn/level-4/12-hollow-verbs/).
-
-### Category 2: Defective Verbs (al-Naqis)
-
-**[Defective verb](/resources/glossary/#fil-naqis)** (fiʿl nāqiṣ / فِعْلٌ نَاقِصٌ) — weak letter in the FINAL position
-
-**Arabic term etymology:** نَاقِصٌ (nāqiṣ) means "deficient" or "lacking" — the verb lacks a full strong final letter.
-
-**Second most common** — many high-frequency verbs are defective
-
-Examples:
-- ه-د-ي (h-d-y) → هَدَىٰ (hadā) "he guided"
-- م-ش-ي (m-sh-y) → مَشَىٰ (mashā) "he walked"
-- د-ع-و (d-ʿ-w) → دَعَا (daʿā) "he called"
-
-**Pattern rule:** The final weak letter changes form depending on case endings and conjugation. It often appears as ى (alif maqṣūrah) in past tense, and drops before pronoun suffixes.
-
-Detailed study in [L4.13 Defective Verbs](/learn/level-4/13-defective-verbs/).
-
-### Category 3: Assimilated Verbs (al-Mithal)
-
-**[Assimilated verb](/resources/glossary/#fil-mithal)** (fiʿl mithāl / فِعْلٌ مِثَالٌ) — weak letter in the INITIAL position
-
-**Arabic term etymology:** مِثَالٌ (mithāl) means "similar" or "example" — these verbs resemble sound verbs except in certain forms.
-
-**Least irregular** — often conjugates like sound verbs, with exceptions in imperative and derived forms
-
-Examples:
-- و-ج-د (w-j-d) → وَجَدَ (wajada) "he found"
-- و-ص-ل (w-ṣ-l) → وَصَلَ (waṣala) "he arrived"
-- و-ق-ع (w-q-ʿ) → وَقَعَ (waqaʿa) "he fell"
-
-**Pattern rule:** The initial و drops in the imperative (جِدْ "find!" not *وِجِدْ) and present tense of Form I (يَجِدُ not *يَوْجِدُ). Otherwise fairly regular.
-
-Detailed study in [L4.14 Assimilated Verbs](/learn/level-4/14-assimilated-verbs/).
-
-### Category 4: Hamzated Verbs (al-Mahmuz)
-
-**[Hamzated verb](/resources/glossary/#fil-mahmuz)** (fiʿl mahmūz / فِعْلٌ مَهْمُوزٌ) — contains hamza ء in any position
-
-**Arabic term etymology:** مَهْمُوزٌ (mahmūz) means "having hamza."
-
-**Different type of irregularity** — hamza changes its "seat" (throne) depending on surrounding vowels
-
-Examples:
-- ء-م-ن (ʾ-m-n) → آمَنَ (āmana) "he believed" (initial hamza)
-- س-ء-ل (s-ʾ-l) → سَأَلَ (saʾala) "he asked" (middle hamza)
-- ق-ر-ء (q-r-ʾ) → قَرَأَ (qaraʾa) "he read" (final hamza)
-
-**Pattern rule:** Hamza sits on different "thrones" (ا، و، ي، or standalone ء) based on vowel hierarchy. The conjugation is otherwise regular — only the spelling changes.
-
-Detailed study in [L4.15 Hamzated Verbs](/learn/level-4/15-hamzated-verbs/).
-
-## The 4-Step Recognition Strategy
-
-**This is the most important section.** Don't memorize individual weak verbs. Instead, master this systematic approach:
-
-<Callout type="rule" title="4-Step Weak Verb Recognition Strategy">
-
-**Step 1: Find the root**
-Strip away prefixes, suffixes, case endings, and definite article to isolate the three (or four) root consonants.
-
-**Step 2: Identify any weak letters**
-Check if the root contains و، ي، ا، or ء. If all letters are strong consonants, it's a sound verb — stop here.
-
-**Step 3: Determine the position**
-Is the weak letter in position 1 (assimilated), position 2 (hollow), or position 3 (defective)? Is it hamza (hamzated)?
-
-**Step 4: Apply category rules**
-Use the appropriate category rules for conjugation patterns. Each category has systematic principles — not random exceptions.
-
-</Callout>
-
-### Step-by-Step Example: Analyzing ٱهْدِنَا
-
-Let's apply the 4-step strategy to the word from Al-Fatiha:
-
-**Word:** ٱهْدِنَا (ihdinā) "guide us"
-
-**Step 1: Find the root**
-- Strip prefix: ٱِ (imperative hamza) → leaves هْدِنَا
-- Strip suffix: ـنَا (us) → leaves هْدِ
-- Add the missing third radical → root is **ه-د-ي** (h-d-y)
-
-How did we know the third radical is ي? Because in Arabic dictionaries, defective verbs show the full trilateral root even when the final letter drops in conjugation.
-
-**Step 2: Identify weak letters**
-Root **ه-د-ي** contains ي (ya) — a weak letter.
-
-**Step 3: Determine position**
-The ي appears in the 3rd (final) position → **defective verb** category
-
-**Step 4: Apply category rules**
-Defective verb rules tell us:
-- In imperative, the final ي drops before pronoun suffixes
-- The base imperative is ٱِهْدِ (ihdi) "guide!" with the ي visible
-- When we add ـنَا (us), the ي drops: ٱِهْدِ + نَا → ٱِهْدِنَا
-
-Result: We systematically determined the verb type and understood why it conjugates this way — no memorization required!
-
-### Practice with Al-Fatiha Verbs
-
-Let's apply the 4-step strategy to other verbs from Al-Fatiha:
-
-**Example 2: نَعْبُدُ (naʿbudu) "we worship"**
-
-<ArabicExample
-  arabic="إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ"
-  transliteration="iyyāka naʿbudu wa-iyyāka nastaʿīnu"
-  translation="You alone we worship, and You alone we ask for help"
-  reference="Al-Fatiha 1:5"
-  highlight="نَعْبُدُ"
-  words={[
-    { ar: "إِيَّاكَ", tr: "iyyāka", en: "You alone" },
-    { ar: "نَعْبُدُ", tr: "naʿbudu", en: "we worship" },
-    { ar: "وَإِيَّاكَ", tr: "wa-iyyāka", en: "and You alone" },
-    { ar: "نَسْتَعِينُ", tr: "nastaʿīnu", en: "we ask for help" }
-  ]}
-/>
-
-**Step 1:** Root is **ع-ب-د** (ʿ-b-d)
-**Step 2:** No weak letters (ع، ب، د are all strong consonants)
-**Step 3:** N/A — this is a **sound verb**
-**Step 4:** Apply regular sound verb conjugation rules
-
-**Example 3: نَسْتَعِينُ (nastaʿīnu) "we ask for help"**
-
-**Step 1:** Root is **ع-و-ن** (ʿ-w-n) — derived Form X (اِسْتَفْعَلَ)
-**Step 2:** Contains و (waw) — weak letter
-**Step 3:** The و is in position 2 (middle) → **hollow verb** category
-**Step 4:** Hollow verb rules apply — the و became long ī in present tense
-
-Notice how the و transformed into ي in this conjugation. This is a hollow verb pattern!
-
-## Weak Verb Recognition in Context
-
-Now let's practice categorizing weak verbs from various Quranic contexts:
-
-<GrammarTable>
-| Quranic Word | Transliteration | Root | Weak Letter | Position | Category | Translation |
-|--------------|-----------------|------|-------------|----------|----------|-------------|
-| قَالَ | qāla | ق-و-ل | و | 2nd | Hollow | he said |
-| جَاءَ | jāʾa | ج-ي-ء | ي | 2nd | Hollow | he came |
-| هَدَىٰ | hadā | ه-د-ي | ي | 3rd | Defective | he guided |
-| دَعَا | daʿā | د-ع-و | و | 3rd | Defective | he called |
-| وَجَدَ | wajada | و-ج-د | و | 1st | Assimilated | he found |
-| قَرَأَ | qaraʾa | ق-ر-ء | ء | 3rd | Hamzated | he read |
-| آمَنَ | āmana | ء-م-ن | ء | 1st | Hamzated | he believed |
-| سَأَلَ | saʾala | س-ء-ل | ء | 2nd | Hamzated | he asked |
-</GrammarTable>
-
-**Key observation:** Once you identify the weak letter's position, you know which category and which rules to apply. The patterns are systematic, not random.
-
-<Callout type="note" title="Doubly Weak Verbs">
-
-Some verbs have TWO weak letters in the same root. These are called [doubly weak verbs](/resources/glossary/#fil-lafif) (fiʿl lafīf / فِعْلٌ لَفِيفٌ):
-
-- **و-ق-ي** (w-q-y) "to protect" — assimilated + defective
-- **ر-ء-ي** (r-ʾ-y) "to see" — hamzated + defective
-
-These combine the rules of both categories. They're less common, so we'll address them after mastering the four main categories.
-
-</Callout>
-
-## Why This Framework Matters
-
-**Traditional approach (DON'T do this):** Memorize each weak verb's conjugation as an individual exception. This requires memorizing hundreds of irregular patterns.
-
-**GSD approach (DO this):** Learn the FOUR category rules. Then apply them systematically to any weak verb you encounter. This requires understanding four rule sets — exponentially easier!
-
-**Practical benefit for Quran study:**
-
-When you encounter **فَقَالَ** (fa-qāla) "and he said" in your reading:
-1. Recognize root ق-و-ل with middle و → hollow verb
-2. Apply hollow verb rules → middle و contracts to ا in past tense
-3. Understand the morphology instantly — no dictionary needed!
-
-This skill accelerates your reading fluency and deepens comprehension.
-
-## Exercises
-
-<ExerciseBox
-  question="Exercise 1: Identify Weak Letters"
->
-
-For each root, identify if it contains a weak letter (و، ي، ء). If yes, state which letter and its position.
-
-
-1. **ن-ز-ل** (n-z-l) "descending"
-2. **ق-و-م** (q-w-m) "standing"
-3. **ر-ج-و** (r-j-w) "hoping"
-4. **ء-خ-ذ** (ʾ-kh-dh) "taking"
-5. **س-م-ع** (s-m-ʿ) "hearing"
-6. **ب-ي-ن** (b-y-n) "clarifying"
-7. **و-ع-د** (w-ʿ-d) "promising"
-8. **ك-ف-ر** (k-f-r) "disbelieving"
-
-**Expected answers:**
-1. No weak letter — sound verb
-2. و in position 2 — weak
-3. و in position 3 — weak
-4. ء in position 1 — weak
-5. No weak letter — sound verb
-6. ي in position 2 — weak
-7. و in position 1 — weak
-8. No weak letter — sound verb
-
-</ExerciseBox>
-
-<ExerciseBox
-  question="Exercise 2: Categorize Weak Verbs"
->
-
-For each weak verb root, identify the category: hollow, defective, assimilated, or hamzated.
-
-
-1. **ق-و-ل** (q-w-l) "saying" — weak letter: و in position 2
-2. **م-ش-ي** (m-sh-y) "walking" — weak letter: ي in position 3
-3. **و-ص-ل** (w-ṣ-l) "arriving" — weak letter: و in position 1
-4. **ق-ر-ء** (q-r-ʾ) "reading" — weak letter: ء in position 3
-5. **ك-و-ن** (k-w-n) "being" — weak letter: و in position 2
-6. **ر-م-ي** (r-m-y) "throwing" — weak letter: ي in position 3
-7. **و-ق-ف** (w-q-f) "stopping" — weak letter: و in position 1
-8. **س-ء-ل** (s-ʾ-l) "asking" — weak letter: ء in position 2
-
-**Expected answers:**
-1. Hollow (middle position)
-2. Defective (final position)
-3. Assimilated (initial position)
-4. Hamzated (hamza in any position)
-5. Hollow (middle position)
-6. Defective (final position)
-7. Assimilated (initial position)
-8. Hamzated (hamza in any position)
-
-</ExerciseBox>
-
-<ExerciseBox
-  question="Exercise 3: Apply the 4-Step Strategy"
->
-
-For each Quranic word, apply the 4-step recognition strategy to determine the verb category.
-
-
-1. **كَانَ** (kāna) "he was" — from verse "كَانَ ٱللَّهُ عَلَِيمًا حَكَِيمًا"
-2. **دَعَا** (daʿā) "he called" — from verse "دَعَا رَبَّهُ"
-3. **وَجَدَ** (wajada) "he found" — from verse "وَجَدَ ٱللَّهَ غَفُوُرًا رَّحِيمًا"
-4. **قَرَأَ** (qaraʾa) "he read" — from verb root in "ٱقْرَأْ بِٱسْمِ رَبِّكَ"
-
-**Work through each:**
-- Step 1: Find root
-- Step 2: Identify weak letter
-- Step 3: Determine position
-- Step 4: State category
-
-**Expected answers:**
-1. Root ك-و-ن, weak letter و, position 2 → Hollow
-2. Root د-ع-و, weak letter و, position 3 → Defective
-3. Root و-ج-د, weak letter و, position 1 → Assimilated
-4. Root ق-ر-ء, weak letter ء, position 3 → Hamzated
-
-</ExerciseBox>
-
-<ExerciseBox
-  question="Exercise 4: Al-Fatiha Weak Verb Hunt"
->
-
-Read Al-Fatiha (Chapter 1) and identify ALL weak verbs. State the root, weak letter position, and category for each.
-
-
-**Hint:** Al-Fatiha contains at least 3 weak verbs. Look carefully at:
-- Verse 5: إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ
-- Verse 6: ٱهْدِنَا ٱلصِّرَاطَ ٱلْمُسْتَقِيمَ
-- Verse 7: صِرَاطَ ٱلَّذِينَ أَنْعَمْتَ عَلَيْهِمْ
-
-**Challenge:** Identify the verb forms (Form I, IV, X, etc.) as well as the categories.
-
-**Expected verbs:**
-1. **نَعْبُدُ** (naʿbudu) — root ع-ب-د, no weak letter → SOUND verb (trick question!)
-2. **نَسْتَعِينُ** (nastaʿīnu) — root ع-و-ن, و in position 2 → Hollow, Form X
-3. **ٱهْدِنَا** (ihdinā) — root ه-د-ي, ي in position 3 → Defective, Form I imperative
-4. **أَنْعَمْتَ** (anʿamta) — root ن-ع-م, no weak letter → SOUND verb, Form IV
-
-Note: This exercise reinforces that not all verbs are weak — always check first!
-
-</ExerciseBox>
-
-## Summary
-
-You've now mastered the foundational framework for weak verbs:
-
-**Key concepts:**
-1. **Weak letters:** و، ي، ا، ء cause conjugation irregularities
-2. **Four categories:** Position determines category (hollow, defective, assimilated, hamzated)
-3. **Recognition strategy:** 4 systematic steps replace memorization
-4. **Pattern-based learning:** Each category follows consistent internal rules
-
-**Next steps:**
-- [L4.12 Hollow Verbs](/learn/level-4/12-hollow-verbs/) — Study middle-position weak verbs in detail
-- [L4.13 Defective Verbs](/learn/level-4/13-defective-verbs/) — Master final-position weak verbs
-- [L4.14 Assimilated Verbs](/learn/level-4/14-assimilated-verbs/) — Handle initial-position weak verbs
-- [L4.15 Hamzated Verbs](/learn/level-4/15-hamzated-verbs/) — Understand hamza spelling rules
-
-**Remember:** Weak verbs are systematic, not chaotic. Trust the categorization framework, and you'll handle them with confidence!
+import Step from '../../../components/lesson/Step.astro';
+import Stage from '../../../components/lesson/Stage.astro';
+import Sentence from '../../../components/lesson/Sentence.astro';
+import Tiles from '../../../components/lesson/Tiles.astro';
+import Formula from '../../../components/lesson/Formula.astro';
+import Note from '../../../components/lesson/Note.astro';
+import Check from '../../../components/lesson/Check.astro';
+import Start from '../../../components/lesson/Start.astro';
+import Sources from '../../../components/lesson/Sources.astro';
+import Parse from '../../../components/lesson/Parse.astro';
+import Exercise from '../../../components/lesson/Exercise.astro';
+import Block from '../../../components/lesson/Block.astro';
+
+{/* Content spec: docs/redesign/specs/L4.11-weak-verbs-intro.md. Every parse follows al-Jadwal (Mahmud Safi). */}
+
+<Step hero id="start" label="The map" title={frontmatter.title} kicker={frontmatter.kicker} titleArabic={frontmatter.titleArabic}>
+<Block id="overview" title="In this lesson" level={2} uncounted>
+  <Stage label="The idea">
+    <Formula
+      label="the root tells the kind, and the kind tells what to expect"
+      items={[
+        { kind: 'm', text: 'root', small: 'ق و ل' },
+        { kind: 'k', text: 'kind', small: 'hollow: the middle letter is weak' },
+        { kind: 's', text: 'what you see', small: 'قَالَ, يَقُولُ, قُلْ' },
+      ]}
+    />
+  </Stage>
+  <Start
+    goal="Name the <b>six kinds</b> of verb, find the root of a verb in a verse and say which kind it is, and tell the three things that can happen to a weak letter: it turns into another letter, it drops out, or it gets a sukūn."
+    minutes={90}
+    before="Roots and Form I (L3.03, L3.04). The past tense (L3.05), the present tense and jazm (L3.06, L3.07) and the command (L3.08)."
+    terms={[
+      { term: 'Weak verb', ar: 'فِعْل مُعْتَلّ', meaning: 'A verb with و or ي in its root. The weak letter can change shape.' },
+      { term: 'Weak letter', ar: 'حَرْف عِلَّة', meaning: 'One of و, ي and the long ā (ا).' },
+      { term: 'Sound verb', ar: 'فِعْل صَحِيح', meaning: 'A verb with three strong root letters, no hamza and no repeated letter, like كَتَبَ.' },
+      { term: 'Hollow verb', ar: 'أَجْوَف', meaning: 'The middle root letter is weak, as in قَالَ.' },
+      { term: 'Defective verb', ar: 'نَاقِص', meaning: 'The last root letter is weak, as in قَضَىٰ.' },
+      { term: 'Assimilated verb', ar: 'مِثَال', meaning: 'The first root letter is weak, as in وَعَدَ.' },
+      { term: 'Hamzated verb', ar: 'مَهْمُوز', meaning: 'One root letter is a hamza, as in يَأْمُرُ.' },
+      { term: 'Doubled verb', ar: 'مُضَعَّف', meaning: 'The second and third root letters are the same, as in مَسَّ.' },
+      { term: 'Iʿlāl', ar: 'إِعْلَال', meaning: 'A change in a weak letter.' },
+    ]}
+  />
+</Block>
+
+<Block id="see" title="Ten verbs in one verse" level={2}>
+  <Stage>
+    <Sentence
+      reference="Al ʿImran 3:47 (first half)"
+      groups={[
+        { words: [{ ar: 'قَالَتْ', en: 'she said', say: 'qalat', type: 'v' }] },
+        { words: [{ ar: 'رَبِّ', en: 'my Lord', say: 'rabbi' }] },
+        { words: [{ ar: 'أَنَّىٰ', en: 'how', say: 'anna', type: 'p' }] },
+        { words: [{ ar: 'يَكُونُ', en: 'can be', say: 'yakunu', type: 'v' }] },
+        { words: [{ ar: 'لِى', en: 'for me', say: 'li', type: 'p' }] },
+        { words: [{ ar: 'وَلَدٌ', en: 'a child', say: 'waladun' }] },
+        { words: [{ ar: 'وَلَمْ', en: 'and has not', say: 'wa-lam', type: 'p' }] },
+        { words: [{ ar: 'يَمْسَسْنِى', en: 'touched me', say: 'yamsasni', type: 'v' }] },
+        { words: [{ ar: 'بَشَرٌ', en: 'a human', say: 'basharun' }] },
+      ]}
+      en={['She said: “My Lord, how can I have a child when no human has touched me?”']}
+    />
+    <Sentence
+      reference="Al ʿImran 3:47 (second half)"
+      groups={[
+        { words: [{ ar: 'قَالَ', en: 'he said', say: 'qala', type: 'v' }] },
+        { words: [{ ar: 'كَذَٰلِكِ', en: 'so it is', say: 'kadhaliki', type: 'p' }] },
+        { words: [{ ar: 'ٱللَّهُ', en: 'Allah', say: 'allahu' }] },
+        { words: [{ ar: 'يَخْلُقُ', en: 'creates', say: 'yakhluqu', type: 'v' }] },
+        { words: [{ ar: 'مَا', en: 'what', say: 'ma', type: 'p' }] },
+        { words: [{ ar: 'يَشَآءُ', en: 'he wills', say: 'yashau', type: 'v' }] },
+        { words: [{ ar: 'إِذَا', en: 'when', say: 'idha', type: 'p' }] },
+        { words: [{ ar: 'قَضَىٰٓ', en: 'he decides', say: 'qada', type: 'v' }] },
+        { words: [{ ar: 'أَمْرًا', en: 'a matter', say: 'amran' }] },
+        { words: [{ ar: 'فَإِنَّمَا', en: 'then only', say: 'fa-innama', type: 'p' }] },
+        { words: [{ ar: 'يَقُولُ', en: 'he says', say: 'yaqulu', type: 'v' }] },
+        { words: [{ ar: 'لَهُۥ', en: 'to it', say: 'lahu', type: 'p' }] },
+        { words: [{ ar: 'كُن', en: 'be', say: 'kun', type: 'v' }] },
+        { words: [{ ar: 'فَيَكُونُ', en: 'and it is', say: 'fa-yakunu', type: 'v' }] },
+      ]}
+      en={['He said: “So it is. Allah creates what he wills. When he decides a matter, he only says to it, ‘Be’, and it is.”']}
+    />
+  </Stage>
+
+Read the verse from right to left. The Corpus tags ten of its words as verbs, and the verbs are coloured. Look at their shapes.
+
+- **يَخْلُقُ**, “he creates”: root خ ل ق. All three root letters are there, in order. This is a sound verb, like the ones in L3.04.
+- **قَالَتْ, قَالَ, يَقُولُ**: root ق و ل. Where the root has و, you read a long ā or a long ū. No plain و.
+- **يَكُونُ, كُن, فَيَكُونُ**: root ك و ن. The same. In كُن the و has gone altogether.
+- **يَشَآءُ**: root ش ي ء. The ي shows as a long ā, and the last root letter is a hamza.
+- **قَضَىٰٓ**: root ق ض ي. The last root letter ي shows as ىٰ.
+- **يَمْسَسْنِى**: root م س س. One letter, س, stands twice.
+
+Nine of the ten verbs are not sound. Each of the shapes above is one kind of verb, and each kind has its own lesson, L4.12 to L4.15. This lesson is the map. The last block of this step counts how common each kind is.
+
+<Check n={1} q="How many of the ten verbs in Al ʿImran 3:47 are sound?" options={['One', 'Five', 'Nine']} answer={0} why="Only يَخْلُقُ keeps its three root letters in plain view. The other nine have a weak letter, a hamza or a repeated letter." />
+</Block>
+
+<Block id="weak" title="What “weak” means">
+  <Stage label="One strong root and one weak root">
+    <Tiles
+      label="The root ك ت ب, always in view: he wrote, they write, write!, it was written"
+      items={[
+        { ar: 'كَتَبَ', en: 'he wrote', type: 'v' },
+        { ar: 'يَكْتُبُونَ', en: 'they write', type: 'v' },
+        { ar: 'ٱكْتُبْ', en: 'write!', type: 'v' },
+        { ar: 'كُتِبَ', en: 'it was written', type: 'v' },
+      ]}
+    />
+    <Tiles
+      label="The root ق و ل, not always in view: he said, they say, say!, it was said"
+      items={[
+        { ar: 'قَالَ', en: 'he said', type: 'v' },
+        { ar: 'يَقُولُونَ', en: 'they say', type: 'v' },
+        { ar: 'قُلْ', en: 'say!', type: 'v' },
+        { ar: 'قِيلَ', en: 'it was said', type: 'v' },
+      ]}
+    />
+  </Stage>
+
+Compare the two rows. In every form of كَتَبَ you can read ك, then ت, then ب. The root stays in view.
+
+Now read the second row. قَالَ has no و, only a long ā. يَقُولُونَ shows the و as a long ū. قُلْ has no و at all. قِيلَ has a ي that is not in the root. The letter و does not hold its place. That is what **weak** means: the letter gives way.
+
+The three weak letters are **و**, **ي** and the long **ā** (ا). They are called حُرُوف الْعِلَّة (*ḥurūf al-ʿilla*). In a root, as the Corpus writes it, the weak letters are only **و** and **ي**. The ā is a long vowel that stands in for one of them: in قَالَ it stands for the و of ق و ل.
+
+The **hamza** (ء) is not one of the three. A verb with a hamza also changes shape, mostly in how it is written. Many books place it near the weak verbs, and this lesson does the same. L4.15 teaches it.
+
+<Check n={2} q="قَالَ shows no و. Where is the و of its root ق و ل?" options={['It stands as the long ā', 'The root is wrong', 'It was added to the verb']} answer={0} why="The root keeps its و. In the word it shows as a long ā. The Corpus lists the root ق و ل for قَالَ." />
+</Block>
+
+<Block id="six" title="Six kinds of verb">
+  <Stage label="One verb of each kind">
+    <Tiles
+      label="Six kinds of verb, one word each"
+      items={[
+        { ar: 'يَخْلُقُ', en: 'sound', type: 'v' },
+        { ar: 'قَالَ', en: 'hollow', type: 'v' },
+        { ar: 'قَضَىٰٓ', en: 'defective', type: 'v' },
+        { ar: 'وَقَعَتِ', en: 'assimilated', type: 'v' },
+        { ar: 'يَأْمُرُ', en: 'hamzated', type: 'v' },
+        { ar: 'مَسَّ', en: 'doubled', type: 'v' },
+      ]}
+    />
+  </Stage>
+
+Every verb root in the Quran falls into one of six kinds. The kind depends on where the special letter sits in the root.
+
+| Kind | Arabic | The root has | Example root | Example |
+|---|---|---|---|---|
+| Sound | صَحِيح | no weak letter, no hamza, no repeat | خ ل ق | يَخْلُقُ |
+| Hollow | أَجْوَف | a weak letter in the middle | ق و ل | قَالَ |
+| Defective | نَاقِص | a weak letter at the end | ق ض ي | قَضَىٰٓ |
+| Assimilated | مِثَال | a weak letter at the start | و ق ع | وَقَعَتِ |
+| Hamzated | مَهْمُوز | a hamza as one of the letters | أ م ر | يَأْمُرُ |
+| Doubled | مُضَعَّف | the last two letters the same | م س س | مَسَّ |
+
+Hollow, defective and assimilated verbs have a weak letter. They are the **weak verbs**, الْأَفْعَال الْمُعْتَلَّة. Hamzated and doubled verbs have no weak letter, but their letters also change shape, so they are taught in the same run of lessons. Some roots belong to two kinds: جَآءَ, from ج ي ء, has a weak middle letter and a hamza. The next step shows how to read them.
+
+<Note kind="know">The Arabic names are the ones the classical books use. English books use other names for the same kinds, so keep the Arabic name beside the English one.</Note>
+
+<Check n={3} q="Which kind is قَضَىٰٓ, from the root ق ض ي?" options={['Hollow', 'Defective', 'Assimilated']} answer={1} why="The weak letter ي is the last root letter. A weak letter at the end makes a defective verb." />
+</Block>
+
+<Block id="count" title="How many verbs are of each kind">
+  <Stage label="From the Corpus">
+    <Formula
+      label="sound verbs and the rest, among all verb words"
+      items={[
+        { kind: 'm', text: 'sound', small: '8,030 words, 41.5%' },
+        { kind: 'k', text: 'not sound', small: '11,311 words, 58.4%' },
+        { kind: 's', text: 'verb words', small: '19,356 in the Corpus, 15 more with four-letter roots' },
+      ]}
+    />
+  </Stage>
+
+Quran Learn counted the kinds again for this lesson, from the Quranic Arabic Corpus. **The method:** the Corpus gives a root for every word. We took every word with a verb part (19,356) and read its root. The Corpus writes a hamza in a root as the letter A. A root is hollow if its second letter is و or ي, defective if its third is, assimilated if its first is, hamzated if it has a hamza, and doubled if its second and third letters are the same strong letter. A word can fall in more than one kind, so the shares below add up to more than 58.4%.
+
+| Kind | Verb words | Share |
+|---|---|---|
+| Sound | 8,030 | 41.5% |
+| Hollow | 5,162 | 26.7% |
+| Defective | 3,481 | 18.0% |
+| Hamzated | 2,955 | 15.3% |
+| Assimilated | 999 | 5.2% |
+| Doubled | 872 | 4.5% |
+
+Four of these counts match the earlier Quran Learn curriculum review (hollow, defective, hamzated and assimilated). The review gave 945 for the doubled verbs. That count also holds 73 words from the roots ح ي ي and ع ي ي, whose last letter is a ي, so this lesson counts them as defective and leaves them out here.
+
+Two more numbers. Verb words with a weak letter (و or ي) in the root are 9,021, or 46.6%. Words that fall in two or more kinds are 2,144, or 11.1%. Two roots alone, ق و ل (1,620 words) and ك و ن (1,358), make 2,978 verb words, or 15.4%.
+
+<Check n={4} q="About how many of the verb words in the Quran are sound?" options={['About 4 in 10', 'About 9 in 10', 'About 1 in 10']} answer={0} why="8,030 of 19,356 verb words are sound, 41.5%. More than half have a weak letter, a hamza or a repeated letter." />
+</Block>
+</Step>
+
+<Step id="find" label="Root and kind" title="From the word you see to the root and the kind">
+<Block id="peel" title="Four steps to the root">
+  <Stage>
+    <Sentence
+      roles
+      reference="Al-Fatiha 1:6"
+      groups={[
+        { role: 'fiil', label: 'fiʿl + object', hint: 'a command with -nā, “us”', words: [{ ar: 'ٱهْدِنَا', en: 'guide us', say: 'ihdina', type: 'v' }] },
+        { role: 'maful', label: 'second object', words: [{ ar: 'ٱلصِّرَٰطَ', en: 'the path', say: 'as-sirata' }] },
+        { role: 'naat', words: [{ ar: 'ٱلْمُسْتَقِيمَ', en: 'the straight', say: 'al-mustaqima' }] },
+      ]}
+      en={['Guide us to the straight path.']}
+    />
+  </Stage>
+
+Is ٱهْدِنَا a weak verb? Four steps tell you.
+
+1. **Peel it.** The ending -نَا is “us”. What is left is ٱهْدِ, “guide!”. The ٱ in front is the helping alif of a command (L3.08), not a root letter.
+2. **Count the letters.** Two are left: ه and د. A root has three, so one has dropped.
+3. **Find the letter.** The Corpus lists the root as ه د ي. The missing letter is the last one, ي.
+4. **Name the kind.** The ي is the third root letter, so ٱهْدِنَا is a **defective** verb.
+
+Al-Jadwal says the same about the missing letter. It gives the matching present verb, تَهْدِينَا, “you guide us”, with the ي in it. The command ٱهْدِ has lost that ي already, before the ending -nā comes on. The ي does not drop because of -nā.
+
+<Note kind="tip">Do not learn the kind of every verb one by one. Learn the four steps. If you can peel a verb down to its root and compare the letters with the three of a sound verb, you will find the weak letter.</Note>
+
+<Check n={5} q="ٱهْدِ shows two root letters. What does that tell you?" options={['A root letter has dropped', 'The verb is sound', 'The root has only two letters']} answer={0} why="Every root of a verb here has three letters. When only two show, one is hidden or dropped." />
+</Block>
+
+<Block id="clues" title="Six clues in the word">
+  <Stage label="Six verbs, six clues">
+    <Tiles
+      label="What the word shows"
+      items={[
+        { ar: 'قَالَ', en: 'a long ā between two letters', type: 'v' },
+        { ar: 'قَضَىٰٓ', en: 'ends in a long ā after two letters', type: 'v' },
+        { ar: 'يَعِدُ', en: 'present verb, first letter missing', type: 'v' },
+        { ar: 'يَأْمُرُ', en: 'a hamza inside the verb', type: 'v' },
+        { ar: 'مَسَّ', en: 'a shadda on the last letter', type: 'v' },
+        { ar: 'يَخْلُقُ', en: 'three letters in view', type: 'v' },
+      ]}
+    />
+  </Stage>
+
+A word often shows a clue before you look up its root. Here are six.
+
+| What you see | What to suspect | Example, with its root |
+|---|---|---|
+| A long ā, ū or ī in the middle, with only two other letters | Hollow | قَالَ, يَقُولُ: ق و ل |
+| A long ā (ىٰ or ا) at the end, after two letters | Defective | قَضَىٰٓ: ق ض ي |
+| A command or a verb after لَمْ with only two letters, the last one gone | Defective | ٱهْدِ: ه د ي. يَخْشَ: خ ش ي |
+| A present verb with only two letters after the prefix, the first one gone | Assimilated | يَعِدُ: و ع د |
+| A hamza on ا, و or ي, or by itself, inside the verb | Hamzated | يَأْمُرُ: أ م ر |
+| A shadda on the last root letter | Doubled | مَسَّ: م س س |
+
+Only the root decides. When a clue is not enough, look at the root in the Corpus. It lists the full root even when the word shows less (L1.05, L3.03).
+
+<Note kind="know">The clues are a teaching summary. They fit most verbs, and L4.12 to L4.15 give the cases where they do not. No approved book states the weak-verb rules as one list.</Note>
+
+<Check n={6} q="A past verb ends in ىٰ after two root letters. What do you suspect?" options={['A defective verb', 'A hollow verb', 'A doubled verb']} answer={0} why="A long ā at the end, standing for a weak last letter, is the mark of a defective verb. قَضَىٰٓ and دَعَا are examples." />
+</Block>
+
+<Block id="assim" title="The assimilated verb looks sound in the past">
+  <Stage>
+    <Sentence
+      roles
+      reference="Al-Waqiʿah 56:1"
+      groups={[
+        { role: 'zarf', label: 'time word', hint: '“when”', words: [{ ar: 'إِذَا', en: 'when', say: 'idha', type: 'p' }] },
+        { role: 'fiil', label: 'fiʿl', hint: 'a past verb: “it happens”', words: [{ ar: 'وَقَعَتِ', en: 'happens', say: 'waqaat', type: 'v' }] },
+        { role: 'fail', words: [{ ar: 'ٱلْوَاقِعَةُ', en: 'the Event', say: 'al-waqiatu' }] },
+      ]}
+      en={['When the Event takes place…']}
+    />
+  </Stage>
+
+The verb وَقَعَتِ has the root و ق ع. The first letter is a weak و, so this is an assimilated verb. But look at it: in the past the و stands in plain view, and you could take the verb for a sound one.
+
+The trouble comes in the present. The present of وَعَدَ, “he promised”, is يَعِدُ, “he promises”. The و has gone. In Al-Baqarah 2:268 the verse has يَعِدُكُمُ ٱلْفَقْرَ, “he promises you poverty”. Al-Jadwal says the first letter is dropped in the present, and gives the pattern of يَعِدُكُمْ as يَعِلُكُمْ.
+
+| Root | Past | Present |
+|---|---|---|
+| و ع د | وَعَدَ, “he promised” | يَعِدُ, “he promises” |
+| و ج د | وَجَدَ, “he found” | يَجِدْ, “he finds” (after لَمْ, Al-Baqarah 2:196) |
+
+The kind of an assimilated verb is easy to miss in the past and easy to see in the present. L4.14 teaches when the و drops.
+
+<Check n={7} q="Which form of وَعَدَ has lost its و?" options={['The past, وَعَدَ', 'The present, يَعِدُ', 'Neither']} answer={1} why="In the present, يَعِدُ, the و has dropped. In the past it stays." />
+</Block>
+
+<Block id="two" title="One verb, two kinds">
+  <Stage>
+    <Sentence
+      roles
+      reference="At-Tawbah 9:18 (part)"
+      groups={[
+        { words: [{ ar: 'مَنْ', en: 'whoever', say: 'man' }] },
+        { role: 'fiil', label: 'hamzated', hint: 'ءَامَنَ: the first root letter is a hamza', words: [{ ar: 'ءَامَنَ', en: 'believes', say: 'amana', type: 'v' }] },
+        { role: 'jarMajrur', words: [{ ar: 'بِٱللَّهِ', en: 'in Allah', say: 'billahi', type: 'p' }] },
+        { role: 'jarMajrur', words: [{ ar: 'وَٱلْيَوْمِ', en: 'and the day', say: 'wa-l-yawmi' }, { ar: 'ٱلْءَاخِرِ', en: 'the Last', say: 'al-akhiri' }] },
+        { role: 'fiil', label: 'hollow', hint: 'أَقَامَ: the middle letter is weak (ق و م)', words: [{ ar: 'وَأَقَامَ', en: 'and keeps up', say: 'wa-aqama', type: 'v' }] },
+        { role: 'maful', words: [{ ar: 'ٱلصَّلَوٰةَ', en: 'the prayer', say: 'as-salata' }] },
+        { role: 'fiil', label: 'two kinds', hint: 'ءَاتَى: a hamza first, a weak ي last', words: [{ ar: 'وَءَاتَى', en: 'and gives', say: 'wa-ata', type: 'v' }] },
+        { role: 'maful', words: [{ ar: 'ٱلزَّكَوٰةَ', en: 'the alms', say: 'az-zakata' }] },
+        { words: [{ ar: 'وَلَمْ', en: 'and does not', say: 'wa-lam', type: 'p' }] },
+        { role: 'fiil', label: 'defective, in jazm', hint: 'يَخْشَ: the last letter ي has dropped', words: [{ ar: 'يَخْشَ', en: 'fear', say: 'yakhsha', type: 'v' }] },
+        { words: [{ ar: 'إِلَّا', en: 'except', say: 'illa', type: 'p' }] },
+        { role: 'maful', words: [{ ar: 'ٱللَّهَ', en: 'Allah', say: 'allaha' }] },
+      ]}
+      en={['…whoever believes in Allah and the Last Day, keeps up the prayer, gives the alms, and fears no one except Allah.']}
+    />
+  </Stage>
+
+Four verbs in this verse, four kinds.
+
+- **ءَامَنَ**, root أ م ن: hamzated.
+- **أَقَامَ**, root ق و م: hollow.
+- **ءَاتَى**, root أ ت ي: it has a hamza at the start and a weak ي at the end, so it belongs to **two kinds**: hamzated and defective.
+- **يَخْشَ**, root خ ش ي: defective. The plain present is يَخْشَىٰ. After لَمْ the weak last letter drops. Al-Jadwal says the sign of jazm here is the dropping of the weak letter.
+
+Many roots hold two kinds. A root with two weak letters is called لَفِيف (*lafīf*). Here are the most common roots with two kinds, with their counts from the Corpus.
+
+| Word | Root | Kinds | Verb words from the root |
+|---|---|---|---|
+| أَتَىٰٓ | أ ت ي | hamzated and defective | 535 |
+| رَءَا | ر أ ي | hamzated and defective | 315 |
+| جَآءَ | ج ي ء | hollow and hamzated | 278 |
+| شَآءَ | ش ي ء | hollow and hamzated | 236 |
+| ٱتَّقَوْا۟ | و ق ي | assimilated and defective | 182 |
+| تَوَلَّىٰ | و ل ي | assimilated and defective | 109 |
+
+In L3.04 جَآءَ was the verb with the “I” form جِئْتُ. It is on this list because its middle letter is weak and its last letter is a hamza.
+
+<Check n={8} q="ءَاتَى has a hamza first and a weak ي last. How many kinds is it?" options={['One: hamzated', 'One: defective', 'Two: hamzated and defective']} answer={2} why="A root can have more than one special letter. ءَاتَى is both hamzated and defective." />
+</Block>
+
+<Block id="forms" title="The kind belongs to the root">
+  <Stage label="One root, many shapes">
+    <Tiles
+      label="The root ق و م, hollow: six words you have met"
+      items={[
+        { ar: 'قَامُوا۟', en: 'Form I verb', type: 'v' },
+        { ar: 'أَقَامَ', en: 'Form IV verb', type: 'v' },
+        { ar: 'ٱسْتَقَٰمُوا۟', en: 'Form X verb', type: 'v' },
+        { ar: 'قَآئِمٌ', en: 'participle', type: 'n' },
+        { ar: 'مُّقِيمٌ', en: 'Form IV participle', type: 'n' },
+        { ar: 'ٱلْمُسْتَقِيمَ', en: 'Form X participle', type: 'n' },
+      ]}
+    />
+  </Stage>
+
+L3.12 to L3.20 taught the verb forms with plain roots. A weak root keeps its kind in every form. The root ق و م is hollow in قَامُوا۟ (Al-Baqarah 2:20), in أَقَامَ (Form IV, At-Tawbah 9:18), in ٱسْتَقَٰمُوا۟ (Form X, At-Tawbah 9:7), and in the participles قَآئِمٌ, مُّقِيمٌ and ٱلْمُسْتَقِيمَ (Al-Fatiha 1:6). The Corpus gives the same root for all six.
+
+The table lists more words from earlier lessons.
+
+| Root | Kind | Words from earlier lessons |
+|---|---|---|
+| ق و م | hollow | أَقَامَ (L3.13), ٱسْتَقَٰمُوا۟ (Form X), قَآئِمٌ and مُّقِيمٌ (L3.19) |
+| ر و د | hollow | أَرَادَ (L3.13, Form IV) |
+| ج و ب | hollow | ٱسْتَجَابُوا۟ (Al ʿImran 3:172, Form X; L3.16 names the same verb) |
+| خ ف ي | defective | يَسْتَخْفُونَ (L3.16, Form X) |
+| ن د و | defective | نَادَىٰ (L3.17, Form III), as the Corpus writes the root |
+| ع ط و | defective | أَعْطَيْنَٰكَ (L3.13, Al-Kawthar 108:1, Form IV): before -nā the ā shows as ay |
+| ر ض و | defective | تَرَاضٍ (L3.20): the last letter is gone and the tanwīn stands in its place. The Corpus writes this root with و |
+| ب ق ي | defective | بَقِىَ (Al-Baqarah 2:278), بَاقٍ (L3.19, the last ي is gone and the tanwīn stands in its place) |
+| ب غ ي | defective | ٱبْتِغَآءَ (L3.20, Form VIII noun, the last ي is now a hamza) |
+| و ع د | assimilated | وَعَدَ (Al-Nisa 4:95), وَٰعَدْنَا (L3.17, Form III) |
+| و ل ي | assimilated and defective | تَوَلَّىٰ (L3.15, Form V) |
+
+So to read any verb, noun or participle with a weak root, find the root first. The kind then tells you what to expect.
+
+<Check n={9} q="مُّقِيمٌ and ٱلْمُسْتَقِيمَ are not verbs. What is true of them?" options={['They come from the hollow root ق و م', 'They have no root', 'Their root is sound']} answer={0} why="The Corpus lists the root ق و م for both. The weak middle letter shows as ī in both words." />
+</Block>
+</Step>
+
+<Step id="change" label="What changes" title="What happens to the weak letter">
+<Block id="three" title="Three things can happen">
+  <Stage label="Three kinds of iʿlāl">
+    <Tiles
+      label="The three changes, in the words of al-Jadwal"
+      items={[
+        { ar: 'إِعْلَال بِالْقَلْب', en: 'it turns into another letter', type: 'x' },
+        { ar: 'إِعْلَال بِالتَّسْكِين', en: 'it gets a sukūn', type: 'x' },
+        { ar: 'إِعْلَال بِالْحَذْف', en: 'it drops out', type: 'x' },
+      ]}
+    />
+  </Stage>
+
+A weak letter is hard to say with a short vowel on it. The books say the vowel is “heavy” on it, and the letter gives way. This happens in three ways. Al-Jadwal names each way in its notes on word shapes (*ṣarf*), and calls the change *iʿlāl*.
+
+| The change | What you see | Example |
+|---|---|---|
+| The weak letter turns into another letter (قَلْب) | a different letter stands where it was | قَضَىٰٓ: the ي became a long ā |
+| The weak letter gets a sukūn (تَسْكِين) | its vowel moves to the letter before | نَسْتَعِينُ |
+| The weak letter drops out (حَذْف) | the word is shorter | قُلْ, ٱهْدِنَا, يَعِدُ |
+
+Often two changes meet in one word. The next three blocks give an example of each, with the note of al-Jadwal that names it.
+
+<Note kind="know">The three-way split is how al-Jadwal names the changes. No approved book gives one full list of rules for weak verbs, so this lesson teaches the kinds of change and leaves the rules to L4.12 to L4.15. Where the lesson applies a rule from al-Jadwal to a verb the book does not name, it says so.</Note>
+
+<Check n={10} q="In قُلْ, which change has happened to the weak letter?" options={['It turned into another letter', 'It dropped out', 'It got a sukūn']} answer={1} why="قُلْ is shorter than قَالَ and has no و at all. The و dropped." />
+</Block>
+
+<Block id="turn" title="It turns into another letter">
+  <Stage label="Three words where a letter turned">
+    <Tiles
+      label="From the starting shape to the word you read"
+      items={[
+        { ar: 'قَضَيَ', en: 'starting shape (not a word you will find)', type: 'x' },
+        { ar: 'قَضَىٰٓ', en: 'Al ʿImran 3:47: he decides', type: 'v' },
+        { ar: 'قُوِلَ', en: 'starting shape (not a word you will find)', type: 'x' },
+        { ar: 'قِيلَ', en: 'Ya-Sin 36:26: it was said', type: 'v' },
+        { ar: 'ٱوْتَقَىٰ', en: 'starting shape (not a word you will find)', type: 'x' },
+        { ar: 'ٱتَّقَىٰ', en: 'the و became ت, as in تَتَّقُونَ (Al-Baqarah 2:21)', type: 'v' },
+      ]}
+    />
+  </Stage>
+
+In the second half of Al ʿImran 3:47, the verb قَضَىٰٓ began as قَضَيَ. Al-Jadwal says the ي had a fatḥa and came after a fatḥa, so it turned into an alif. The letter is still a ي in the root, and the Corpus lists ق ض ي.
+
+The same book explains قِيلَ (Al-Baqarah 2:11). The verb began as قُوِلَ. The و cannot carry the kasra, so the kasra moved to the ق and the و turned into a ي. That is two changes in one word: a sukūn and a turn.
+
+In ٱتَّقَوْا۟ and تَتَّقُونَ the root is و ق ي, and the first letter, a weak و, turned into a ت. Al-Jadwal explains it on Al-Baqarah 2:21: the verb began as ٱوْتَقَىٰ, and the و turned into ت because it stood before the ت of Form VIII. The two ت merged.
+
+The same turn explains قَالَ: its و, with a fatḥa after a fatḥa, became a long ā. Al-Jadwal gives this rule for the ي of قَضَىٰٓ. This lesson applies it to the و of قَالَ, and the book does not say it for that verb.
+
+<Note kind="tip">For a verb of three root letters, the way a final ā is written tells you the weak letter: ا stands for و (دَعَا, from د ع و) and ىٰ stands for ي (قَضَىٰٓ, from ق ض ي). This is a teaching summary.</Note>
+
+<Check n={11} q="What happened to the ي of قَضَىٰٓ?" options={['It turned into a long ā', 'It turned into a hamza', 'It dropped out']} answer={0} why="The ي had a fatḥa and came after a fatḥa, so it became a long ā, written ىٰ. The letter is still the third letter of the root." />
+</Block>
+
+<Block id="sukun" title="It gets a sukūn">
+  <Stage label="Three steps in one word">
+    <Tiles
+      label="From the starting shape to the word you read"
+      items={[
+        { ar: 'نَسْتَعْوِنُ', en: 'starting shape: the و carries a kasra', type: 'x' },
+        { ar: 'نَسْتَعِوْنُ', en: 'the kasra moves to ع, the و gets a sukūn', type: 'x' },
+        { ar: 'نَسْتَعِينُ', en: 'the و turns into ي: Al-Fatiha 1:5', type: 'v' },
+      ]}
+    />
+  </Stage>
+
+The verb نَسْتَعِينُ, “we ask for help”, comes from ع و ن. Al-Jadwal gives the steps on Al-Fatiha 1:5, and they give a good picture of iʿlāl.
+
+1. The verb begins as نَسْتَعْوِنُ, with a kasra on the و.
+2. A kasra is heavy on a weak letter, so it **moves back** to the ع. The و is left with a sukūn. The book calls this *iʿlāl bi-t-taskīn*.
+3. A و with a sukūn after a kasra turns into ي. The book calls this *iʿlāl bi-l-qalb*.
+
+The same thing happens in يَقُولُ. The starting shape يَقْوُلُ has a ḍamma on the و. The ḍamma moves back to the ق. The و is left with no vowel of its own after a ḍamma, and that is a long ū (L1.02). This is the standard account and a teaching summary for this verb. The book does not spell it out for يَقُولُ.
+
+This kind of change is why a hollow verb seems to have a long vowel in the middle. The root letter is still there, with a sukūn.
+
+<Check n={12} q="In the steps that make نَسْتَعِينُ, what moves back to the ع?" options={['The kasra', 'The و', 'The ن']} answer={0} why="The kasra moves from the و to the ع. The و stays, with a sukūn, and then turns into ي." />
+</Block>
+
+<Block id="drop" title="It drops out">
+  <Stage>
+    <Sentence
+      roles
+      reference="Al-Baqarah 2:217 (part)"
+      groups={[
+        { role: 'fiil', label: 'command', hint: 'قُلْ: the middle و has dropped', words: [{ ar: 'قُلْ', en: 'say', say: 'qul', type: 'v' }] },
+        { role: 'mubtada', words: [{ ar: 'قِتَالٌ', en: 'fighting', say: 'qitalun' }] },
+        { role: 'jarMajrur', words: [{ ar: 'فِيهِ', en: 'in it', say: 'fihi', type: 'p' }] },
+        { role: 'khabar', words: [{ ar: 'كَبِيرٌ', en: 'great', say: 'kabirun' }] },
+      ]}
+      en={['Say: “Fighting in it is a great wrong.”']}
+    />
+    <Sentence
+      roles
+      reference="Al-Baqarah 2:217 (part)"
+      groups={[
+        { label: 'sharṭ', hint: '“whoever”', words: [{ ar: 'وَمَن', en: 'and whoever', say: 'wa-man', type: 'p' }] },
+        { role: 'fiil', label: 'doubled, in jazm', hint: 'the two د stay apart', words: [{ ar: 'يَرْتَدِدْ', en: 'turns back', say: 'yartadid', type: 'v' }] },
+        { role: 'jarMajrur', words: [{ ar: 'مِنكُمْ', en: 'from you', say: 'minkum', type: 'p' }] },
+        { role: 'jarMajrur', words: [{ ar: 'عَن', en: 'from', say: 'an', type: 'p' }, { ar: 'دِينِهِۦ', en: 'his religion', say: 'dinihi' }] },
+        { role: 'fiil', label: 'hollow, in jazm', hint: 'the middle و has dropped', words: [{ ar: 'فَيَمُتْ', en: 'and dies', say: 'fa-yamut', type: 'v' }] },
+      ]}
+      en={['And whoever among you turns back from his religion and dies…']}
+    />
+  </Stage>
+
+A weak letter drops in three places.
+
+- **In a command.** قُلْ comes from تَقُولُ. Al-Jadwal says the verb began with two sukūns in a row, and the و dropped so that they would not meet. ٱهْدِ in ٱهْدِنَا drops its last ي the same way (Al-Fatiha 1:6).
+- **In jazm.** فَيَمُتْ comes from يَمُوتُ. Al-Jadwal says the same of it: the و dropped because two sukūns met. In لَمْ يَخْشَ (At-Tawbah 9:18) the last letter dropped, and the book calls the dropping the sign of jazm. The same happens to تَرَىٰ in أَلَمْ تَرَ (Al-Fil 105:1).
+- **Before a heavy ending.** In أَطَعْنَا (“we obeyed”, Al-Baqarah 2:285) al-Jadwal says the middle letter dropped “because of the building on a sukūn”. This is the ending of the past verb you know from L3.05, as in قَالَ and قُلْتُ.
+
+| Plain form | After the drop | Where |
+|---|---|---|
+| تَقُولُ | قُلْ | a command |
+| تَهْدِى | ٱهْدِ | a command |
+| يَمُوتُ | يَمُتْ | jazm |
+| يَخْشَىٰ | يَخْشَ | jazm |
+| تَرَىٰ | تَرَ | jazm |
+| قَالَ | قُلْتُ | the ending -tu |
+
+Every plain form in the first column occurs in the Quran. يَخْشَىٰ is in Taha 20:3.
+
+<Check n={13} q="Why does the و drop in فَيَمُتْ?" options={['Two sukūns would meet', 'A hamza follows it', 'The verb is a command']} answer={0} why="After jazm the last letter takes a sukūn, and the و before it would have a sukūn too. Al-Jadwal says the و dropped so that two sukūns do not meet." />
+</Block>
+
+<Block id="doubled" title="The doubled verb: two letters become one">
+  <Stage label="Merged and apart">
+    <Tiles
+      label="The root م س س, and the root ض ل ل"
+      items={[
+        { ar: 'مَسَّ', en: 'he touched, merged (Al ʿImran 3:140)', type: 'v' },
+        { ar: 'يَمْسَسْكُمْ', en: 'touches you, apart (Al ʿImran 3:140)', type: 'v' },
+        { ar: 'ضَلَّ', en: 'he went astray, merged', type: 'v' },
+        { ar: 'ضَلَلْتُ', en: 'I went astray, apart (Al-Anʿam 6:56)', type: 'v' },
+      ]}
+    />
+  </Stage>
+
+A doubled verb has no weak letter. Its second and third root letters are the same strong letter: م س س, ض ل ل. When the second one carries a vowel, the two letters merge into one, written with a shadda. This is مَسَّ. The merging is called إِدْغَام (*idghām*).
+
+When the last root letter has a sukūn, the two letters cannot merge, and they stay apart. This is يَمْسَسْكُمْ after إِن (jazm), and ضَلَلْتُ, where the ending -tu puts a sukūn on the last root letter (L3.05). Al-Baqarah 2:217 shows the same pair: يَرُدُّوكُمْ is merged, and يَرْتَدِدْ is apart.
+
+L3.03 gave رَبِّكَ (An-Nasr 110:3) as an example of a doubled root. It is a noun, from ر ب ب. The shadda in رَبِّ is the same merging. Doubled roots are 872 verb words in the Corpus (4.5%).
+
+<Note kind="warn">A shadda on a verb does not always mean a doubled root. In كَذَّبَ the shadda is Form II (L3.12), and the root ك ذ ب has three different letters. Count the root letters first.</Note>
+
+<Check n={14} q="Which form keeps its two س apart?" options={['مَسَّ', 'يَمْسَسْكُمْ', 'مَسَّتْهُ']} answer={1} why="After إِن the verb is in jazm, so the last letter has a sukūn. The first س cannot merge with it." />
+</Block>
+
+<Block id="five" title="The five short commands">
+  <Stage label="Five commands from L3.08">
+    <Tiles
+      label="Commands that are shorter than the pattern"
+      items={[
+        { ar: 'قُلْ', en: 'hollow: say', type: 'v' },
+        { ar: 'ٱدْعُ', en: 'defective: call', type: 'v' },
+        { ar: 'ٱهْدِ', en: 'defective: guide', type: 'v' },
+        { ar: 'كُلْ', en: 'hamzated: eat', type: 'v' },
+        { ar: 'خُذْ', en: 'hamzated: take', type: 'v' },
+      ]}
+    />
+  </Stage>
+
+L3.08 gave five commands that are shorter than the pattern and said that L4.11 would introduce them. Now you can name the kind of each.
+
+| Command | From | Root | Kind | What is missing |
+|---|---|---|---|---|
+| قُلْ | قَالَ | ق و ل | hollow | the middle و |
+| ٱدْعُ | دَعَا | د ع و | defective | the last و |
+| ٱهْدِ | هَدَىٰ | ه د ي | defective | the last ي |
+| كُلْ | أَكَلَ | أ ك ل | hamzated | the first hamza |
+| خُذْ | أَخَذَ | أ خ ذ | hamzated | the first hamza |
+
+Only قُلْ is hollow. ٱدْعُ and ٱهْدِ end in a weak letter, so they are defective. كُلْ and خُذْ begin with a hamza, so they are hamzated. L3.08 says the same in its warning. The weak letter comes back when an ending follows: قُولُوا۟ (Al-Ahzab 33:70), “say!” to a group. The Quran has no كُلْ, “eat!” to one man. It has كُلُوا۟ to a group, as in Al-Baqarah 2:57. Here كُلْ is the base form that L3.08 uses.
+
+<Check n={15} q="Which kind is ٱدْعُ, from دَعَا (root د ع و)?" options={['Hollow', 'Defective', 'Hamzated']} answer={1} why="The weak letter و is the last root letter. In the command it has dropped, and the verb is shorter." />
+</Block>
+</Step>
+
+<Step id="parse" label="Word by word" title="Four verses word by word, and four mistakes">
+<Block id="parse-1" title="Word by word: Al-Fatiha 1:5">
+  <Stage label="Word by word">
+    <Parse
+      reference="Al-Fatiha 1:5"
+      words={[
+        { ar: 'إِيَّاكَ', en: 'You alone' },
+        { ar: 'نَعْبُدُ', en: 'we worship', type: 'v' },
+        { ar: 'وَإِيَّاكَ', en: 'and You alone' },
+        { ar: 'نَسْتَعِينُ', en: 'we ask for help', type: 'v' },
+      ]}
+      cards={[
+        { at: 0, role: 'the object, put first: “You alone”', case: 'a built word, accusative in place', mark: 'none: the word is built', why: 'Putting it first limits the action to Him alone.', irab: 'ضمير منفصل مبني في محل نصب مفعول به مقدم' },
+        { at: 1, role: 'a present verb: “we worship”', case: 'nominative (rafʿ)', mark: 'ḍamma on the د', why: 'A sound verb: the root ع ب د is in view. The doer is a hidden “we”.', irab: 'فعل مضارع مرفوع، والفاعل ضمير مستتر وجوبا تقديره نحن' },
+        { at: 2, role: 'a joined object: “and You alone”', why: 'وَ joins this clause to the one before, and إِيَّاكَ is read as before.', irab: 'الواو عاطفة، وإياك تعرب كالسابق' },
+        { at: 3, role: 'a present verb: “we ask for help”', case: 'nominative (rafʿ)', mark: 'ḍamma on the ن', why: 'A hollow verb of Form X from ع و ن. The و got a sukūn after the kasra moved, then turned into ي. The doer is a hidden “we”.', irab: 'فعل مضارع مرفوع، والفاعل ضمير مستتر وجوبا تقديره نحن' },
+      ]}
+    />
+  </Stage>
+
+Two verbs side by side. نَعْبُدُ is sound: you can read all three root letters. نَسْتَعِينُ is hollow: the root ع و ن shows a long ī where the و was. Both are plain present verbs with a ḍamma.
+
+Al-Jadwal gives two readings of the first word. In the first, all of إِيَّاكَ is the pronoun, the object put first. In the second, only إِيَّا is the pronoun and the كَ is a particle of address. This lesson uses the first.
+</Block>
+
+<Block id="parse-2" title="Word by word: Al ʿImran 3:47 (end)">
+  <Stage label="Word by word">
+    <Parse
+      reference="Al ʿImran 3:47 (end)"
+      words={[
+        { ar: 'إِذَا', en: 'when', type: 'p' },
+        { ar: 'قَضَىٰٓ', en: 'he decides', type: 'v' },
+        { ar: 'أَمْرًا', en: 'a matter' },
+        { ar: 'فَإِنَّمَا', en: 'then only', type: 'p' },
+        { ar: 'يَقُولُ', en: 'he says', type: 'v' },
+        { ar: 'لَهُۥ', en: 'to it', type: 'p' },
+        { ar: 'كُن', en: 'be', type: 'v' },
+        { ar: 'فَيَكُونُ', en: 'and it is', type: 'v' },
+      ]}
+      cards={[
+        { at: 0, role: 'a time word that has “if” in it', why: 'It looks to the future and works like a condition.', irab: 'ظرف للزمن المستقبل متضمن معنى الشرط' },
+        { at: 1, role: 'a past verb: “he decides”', case: 'built on a hidden fatḥa', mark: 'a fatḥa on the ā that you cannot see', why: 'A defective verb from ق ض ي. The ي turned into a long ā. The doer is a hidden “he”.', irab: 'فعل ماض مبني على الفتح المقدر، والفاعل هو' },
+        { at: 2, role: 'the object: “a matter”', case: 'accusative (naṣb)', mark: '-an (fatḥatayn)', why: 'The verb takes it as its object.', irab: 'مفعول به منصوب' },
+        { at: 3, role: 'فَ ties the answer; إِنَّمَا is one particle', why: 'مَا stops إِنَّ from working, so the verb can follow directly.', irab: 'الفاء رابطة لجواب الشرط، وإنما كافة ومكفوفة' },
+        { at: 4, role: 'a present verb: “he says”', case: 'nominative (rafʿ)', mark: 'ḍamma on the ل', why: 'A hollow verb from ق و ل. The و shows as a long ū. The doer is a hidden “he”.', irab: 'فعل مضارع مرفوع، والفاعل هو' },
+        { at: 5, role: 'a phrase tied to the verb: “to it”', why: 'لِ with the pronoun هُ.', irab: 'جار ومجرور متعلق بيقول' },
+        { at: 6, role: 'a command: “be”', case: 'built on a sukūn', mark: 'sukūn on the ن', why: 'A hollow verb from ك و ن. The middle و dropped. The doer is a hidden “you”.', irab: 'فعل أمر تام، والفاعل ضمير مستتر تقديره أنت' },
+        { at: 7, role: 'a present verb: “and it is”', case: 'nominative (rafʿ)', mark: 'ḍamma on the ن', why: 'The same root, with فَ joined. It stands for the khabar of a left-out “it is”.', irab: 'الفاء عاطفة سببية، ويكون مضارع تام مرفوع خبر لمبتدأ محذوف تقديره هو' },
+      ]}
+    />
+  </Stage>
+
+Four of the eight words are verbs, and none of them is sound: one defective and three hollow. The three changes of this step are here. In قَضَىٰٓ a letter turned. In يَقُولُ a letter was made silent. In كُن a letter dropped.
+</Block>
+
+<Block id="parse-3" title="Word by word: Al-Baqarah 2:268 (part)">
+  <Stage label="Word by word">
+    <Parse
+      reference="Al-Baqarah 2:268 (part)"
+      words={[
+        { ar: 'ٱلشَّيْطَٰنُ', en: 'the devil' },
+        { ar: 'يَعِدُكُمُ', en: 'promises you', type: 'v' },
+        { ar: 'ٱلْفَقْرَ', en: 'poverty' },
+        { ar: 'وَيَأْمُرُكُم', en: 'and orders you', type: 'v' },
+        { ar: 'بِٱلْفَحْشَآءِ', en: 'to shameful acts' },
+      ]}
+      cards={[
+        { at: 0, role: 'the mubtadaʾ: “the devil”', case: 'nominative (rafʿ)', mark: 'ḍamma on the ن', why: 'It is what the sentence is about.', irab: 'مبتدأ مرفوع' },
+        { at: 1, role: 'a present verb: “he promises you”', case: 'nominative (rafʿ)', mark: 'ḍamma on the د; كُمُ is “you”', why: 'An assimilated verb from و ع د. The first letter و dropped in the present. The doer is a hidden “he”, and كُمُ is the first object.', irab: 'مضارع مرفوع، والفاعل هو، وكم ضمير مفعول به أول' },
+        { at: 2, role: 'the second object: “poverty”', case: 'accusative (naṣb)', mark: 'fatḥa on the ر', why: 'The verb takes two objects.', irab: 'مفعول به ثان منصوب' },
+        { at: 3, role: 'a present verb: “and he orders you”', case: 'nominative (rafʿ)', mark: 'ḍamma on the م', why: 'A hamzated verb from أ م ر. The hamza is the first root letter and stays in the word. وَ joins it to يَعِدُكُمُ.', irab: 'الواو عاطفة، ويأمركم مثل يعدكم' },
+        { at: 4, role: 'a phrase tied to the verb: “to shameful acts”', case: 'genitive (jarr)', mark: 'kasra on the last letter', why: 'بِ is the little word and ٱلْفَحْشَآءِ follows it.', irab: 'جار ومجرور متعلق بيأمر' },
+      ]}
+    />
+  </Stage>
+
+Two verbs side by side, with two different kinds. يَعِدُكُمُ has lost a letter and looks short. يَأْمُرُكُم has all its letters, and one of them is a hamza. L4.14 and L4.15 teach these two kinds.
+</Block>
+
+<Block id="parse-4" title="Word by word: Al ʿImran 3:140 (part)">
+  <Stage label="Word by word">
+    <Parse
+      reference="Al ʿImran 3:140 (part)"
+      words={[
+        { ar: 'إِن', en: 'if', type: 'p' },
+        { ar: 'يَمْسَسْكُمْ', en: 'touches you', type: 'v' },
+        { ar: 'قَرْحٌ', en: 'a wound' },
+        { ar: 'فَقَدْ', en: 'then already', type: 'p' },
+        { ar: 'مَسَّ', en: 'touched', type: 'v' },
+        { ar: 'ٱلْقَوْمَ', en: 'the people' },
+        { ar: 'قَرْحٌ', en: 'a wound' },
+        { ar: 'مِّثْلُهُۥ', en: 'like it' },
+      ]}
+      cards={[
+        { at: 0, role: 'a word of condition: “if”', why: 'It cuts short the verb of the condition.', irab: 'حرف شرط جازم' },
+        { at: 1, role: 'a present verb in jazm: “touches you”', case: 'jazm', mark: 'a sukūn on the last س', why: 'A doubled verb from م س س. The last letter has a sukūn, so the two س stay apart. كُمْ is “you”, the object.', irab: 'مضارع مجزوم فعل الشرط، وكم ضمير مفعول به' },
+        { at: 2, role: 'the doer: “a wound”', case: 'nominative (rafʿ)', mark: '-un (ḍammatayn)', why: 'It is the one that does the touching.', irab: 'فاعل مرفوع' },
+        { at: 3, role: 'فَ ties the answer; قَدْ: “already”', why: 'The answer is a past verb, so فَ ties it to the condition.', irab: 'الفاء رابطة لجواب الشرط، وقد حرف تحقيق' },
+        { at: 4, role: 'a past verb: “touched”', case: 'built on a fatḥa', mark: 'fatḥa on the last س', why: 'The same root, now merged: the second س has a fatḥa, so the two letters become one with a shadda.', irab: 'فعل ماض' },
+        { at: 5, role: 'the object, put before the doer: “the people”', case: 'accusative (naṣb)', mark: 'fatḥa on the م', why: 'The object comes first, and the doer comes after it.', irab: 'مفعول به مقدم منصوب' },
+        { at: 6, role: 'the doer: “a wound”', case: 'nominative (rafʿ)', mark: '-un (ḍammatayn)', why: 'It does the touching.', irab: 'فاعل مرفوع' },
+        { at: 7, role: 'describes قَرْحٌ: “like it”', case: 'nominative (rafʿ)', mark: 'ḍamma on the ل; هُ is “it”', why: 'An adjective follows the noun it describes.', irab: 'نعت لقرح مرفوع، وهو مضاف والهاء مضاف إليه' },
+      ]}
+    />
+  </Stage>
+
+The same root, م س س, in one verse: يَمْسَسْكُمْ with the two letters apart, and مَسَّ with the two letters merged. The vowel on the last letter decides.
+
+Al-Jadwal quotes Abū Ḥayyān in a note. He says the answer to the condition is left out (“console yourselves”), and that فَقَدْ مَسَّ gives the reason. Al-Jadwal does not accept this, and reads فَقَدْ مَسَّ ٱلْقَوْمَ قَرْحٌ مِّثْلُهُۥ as the answer. This lesson follows al-Jadwal.
+</Block>
+
+<Block id="mistake-root" title="Mistake 1: reading the root off the word">
+  <Stage label="The same verb, two readings">
+    <Tiles
+      label="What you see and what the root is"
+      items={[
+        { ar: 'قَالَ', en: 'you see ق ا ل, the root is ق و ل', type: 'v' },
+        { ar: 'قَضَىٰٓ', en: 'you see ق ض ىٰ, the root is ق ض ي', type: 'v' },
+      ]}
+    />
+  </Stage>
+
+The root of قَالَ is not ق ا ل. The alif is never a letter of the root: in the Corpus every root with a weak letter is written with **و** or **ي**. The ā in the word stands for one of them. Likewise ىٰ at the end of قَضَىٰٓ stands for ي.
+
+So when a verb has a long ā, do not write it into the root. Ask which weak letter it stands for. Check with the Corpus.
+</Block>
+
+<Block id="mistake-aa" title="Mistake 2: a long ā always means a weak letter">
+  <Stage label="Two verbs with a long ā">
+    <Tiles
+      label="Take the ā away and count the letters"
+      items={[
+        { ar: 'قَاتَلَ', en: 'ق ت ل: three letters, sound (Form III)', type: 'v' },
+        { ar: 'قَالَ', en: 'ق ل: two letters, so one is hidden', type: 'v' },
+      ]}
+    />
+  </Stage>
+
+قَاتَلَ has a long ā in the middle, like قَالَ. But قَاتَلَ is Form III (L3.17): the ā was added by the form, and the root ق ت ل is sound. The test is the one from L3.04: take the extra letter away and count what is left. قَاتَلَ leaves three root letters. قَالَ leaves two, so a root letter is hidden.
+</Block>
+
+<Block id="mistake-kinds" title="Mistake 3: mixing up the hamza, the doubled letter and the weak letter">
+  <Stage label="Three letters, three kinds">
+    <Tiles
+      label="Which one is not a weak letter?"
+      items={[
+        { ar: 'ء', en: 'hamza: hamzated', type: 'x' },
+        { ar: 'ي', en: 'weak letter', type: 'x' },
+        { ar: 'و', en: 'weak letter', type: 'x' },
+      ]}
+    />
+  </Stage>
+
+The hamza is not a weak letter, and a repeated letter is not a weak letter. A hamzated verb and a doubled verb are not weak verbs, even though they are taught in the same run of lessons.
+
+The mistake in the other direction is to think a root belongs to one kind only. جَآءَ is hollow and hamzated. أَتَىٰٓ is hamzated and defective. When you name a verb, check every letter of the root.
+</Block>
+
+<Block id="mistake-always" title="Mistake 4: a rule with “always” in it">
+  <Stage>
+    <Sentence
+      roles
+      reference="Al-Hijr 15:53 (part)"
+      groups={[
+        { role: 'fiil', label: 'fiʿl', hint: 'a past verb: “they said”', words: [{ ar: 'قَالُوا۟', en: 'they said', say: 'qalu', type: 'v' }] },
+        { label: 'lā of a ban', hint: '“do not”', words: [{ ar: 'لَا', en: 'do not', say: 'la', type: 'p' }] },
+        { role: 'fiil', label: 'assimilated, keeps its و', hint: 'jazm: a sukūn on the ل', words: [{ ar: 'تَوْجَلْ', en: 'be afraid', say: 'tawjal', type: 'v' }] },
+      ]}
+      en={['They said: “Do not be afraid…”']}
+    />
+  </Stage>
+
+It is tempting to say that the first و of an assimilated verb always drops in the present. تَوْجَلْ shows that it does not. The root is و ج ل, and the و stays in view. In يَعِدُ and يَجِدْ it dropped. L4.14 teaches which verbs drop it and which keep it.
+
+The same care applies to every statement in this lesson that sounds like a rule. The clues of this lesson tell you what to suspect. The root, in the Corpus, tells you what is true.
+</Block>
+</Step>
+
+<Step id="practice" label="Practice" title="Practice, and what comes next">
+<Block id="practice-1" title="Practice: letters, kinds and roots">
+  <Stage label="For each verb, ask">
+    <ol class="lx-card-list">
+      <li><b>The word:</b> what is left when the ending is off?</li>
+      <li><b>The letters:</b> three, or fewer, or a hamza?</li>
+      <li><b>The root:</b> write it with all three letters.</li>
+      <li><b>The kind:</b> where does the special letter sit?</li>
+    </ol>
+  </Stage>
+
+Work out each answer first, on paper or in your head. Then open the answer.
+
+<Exercise n={1} q="Say which roots have a weak letter or a hamza, which letter it is, and where it stands (first, second or third). The meanings are of the verbs from these roots. (a) ن ز ل, “come down” (b) ق و م, “stand” (c) ر ج و, “hope” (d) أ خ ذ, “take” (e) س م ع, “hear” (f) ب ي ن, “make clear” (g) و ع د, “promise” (h) ك ف ر, “disbelieve”">
+
+- (a) **None.** Sound.
+- (b) **و, second place.** A weak letter in the middle: hollow.
+- (c) **و, third place.** A weak letter at the end: defective.
+- (d) **A hamza, first place.** Not a weak letter. The verb is hamzated.
+- (e) **None.** Sound.
+- (f) **ي, second place.** Hollow.
+- (g) **و, first place.** Assimilated.
+- (h) **None.** Sound.
+
+Three of the eight are sound: (a), (e) and (h).
+
+</Exercise>
+
+<Exercise n={2} q="Name the kind of each root: hollow, defective, assimilated, hamzated, doubled, or two kinds. (a) ق و ل (b) م ش ي (c) و ص ل (d) ق ر أ (e) ك و ن (f) ر م ي (g) و ق ف (h) س أ ل (i) ر د د (j) ج ي ء">
+
+- (a) ق و ل: **hollow** (و in the middle).
+- (b) م ش ي: **defective** (ي at the end).
+- (c) و ص ل: **assimilated** (و at the start).
+- (d) ق ر أ: **hamzated** (the hamza is the last letter).
+- (e) ك و ن: **hollow**.
+- (f) ر م ي: **defective**.
+- (g) و ق ف: **assimilated**.
+- (h) س أ ل: **hamzated** (the hamza is the middle letter).
+- (i) ر د د: **doubled** (the same letter twice).
+- (j) ج ي ء: **two kinds**, hollow (ي in the middle) and hamzated (the hamza is last).
+
+</Exercise>
+
+<Exercise n={3} q="Peel each verb with the four steps and give the root and the kind. (a) وَكَانَ ٱللَّهُ عَلِيمًا حَكِيمًا (An-Nisa 4:17, part) (b) دَعَا رَبَّهُۥ مُنِيبًا إِلَيْهِ (Az-Zumar 39:8, part) (c) يَجِدِ ٱللَّهَ غَفُورًا رَّحِيمًا (An-Nisa 4:110, part) (d) ٱقْرَأْ بِٱسْمِ رَبِّكَ (Al-ʿAlaq 96:1, part)">
+
+- (a) **كَانَ**: take off nothing, count the letters: ك ا ن, and the ā stands for و. Root **ك و ن**, **hollow**.
+- (b) **دَعَا**: د ع and a final long ā. Root **د ع و**, **defective**. The ā at the end is written ا, which stands for و.
+- (c) **يَجِدِ**: take off the prefix ي: جِدِ. Two letters, and the first of the root is missing. Root **و ج د**, **assimilated**. The verb is in jazm after مَن, and the final kasra is only there to break two sukūns. The past, وَجَدَ, keeps the و.
+- (d) **ٱقْرَأْ**: take off the helping alif: قْرَأْ. Three letters, the last a hamza. Root **ق ر أ**, **hamzated**.
+
+</Exercise>
+
+<Exercise n={4} q="The Corpus tags four words in Al-Fatiha as verbs. Find them and name the kind of each. Then say whether ٱلضَّآلِّينَ is a verb. (a) إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ (Al-Fatiha 1:5) (b) ٱهْدِنَا ٱلصِّرَٰطَ ٱلْمُسْتَقِيمَ (Al-Fatiha 1:6) (c) صِرَٰطَ ٱلَّذِينَ أَنْعَمْتَ عَلَيْهِمْ غَيْرِ ٱلْمَغْضُوبِ عَلَيْهِمْ وَلَا ٱلضَّآلِّينَ (Al-Fatiha 1:7)">
+
+- **نَعْبُدُ** (ع ب د): sound.
+- **نَسْتَعِينُ** (ع و ن): hollow.
+- **ٱهْدِنَا** (ه د ي): defective.
+- **أَنْعَمْتَ** (ن ع م): sound.
+
+Two of the four are weak verbs: نَسْتَعِينُ and ٱهْدِنَا.
+
+**ٱلضَّآلِّينَ** is not a verb. The Corpus tags it as an active participle, “those who go astray”. Its root is ض ل ل, which is doubled, and the shadda is the merged ل. ٱلْمُسْتَقِيمَ in 1:6 is a participle from the hollow root ق و م.
+
+</Exercise>
+
+<Exercise n={5} q="Take off what was added, count the root letters, and give the root and the kind. (a) يَقُولُونَ هَٰذَا مِنْ عِندِ ٱللَّهِ (Al-Baqarah 2:79, part) (b) ٱدْعُ إِلَىٰ سَبِيلِ رَبِّكَ (An-Nahl 16:125, part) (c) وَكُلًّا وَعَدَ ٱللَّهُ ٱلْحُسْنَىٰ (An-Nisa 4:95, part) (d) إِنَّ ٱللَّهَ يَأْمُرُ بِٱلْعَدْلِ (An-Nahl 16:90, part) (e) رُدَّتْ إِلَيْهِمْ (Yusuf 12:65, part)">
+
+- (a) **يَقُولُونَ**: take off the prefix يـ and the ending -ونَ. What is left is قُول: the ū stands for و. Root **ق و ل**, **hollow**.
+- (b) **ٱدْعُ**: take off the helping alif: دْعُ. Two letters, so the last has dropped. Root **د ع و**, **defective**. It is a command, and the و dropped.
+- (c) **وَعَدَ**: three letters, and the first is و. Nothing was added. Root **و ع د**, **assimilated**. In the past it looks sound.
+- (d) **يَأْمُرُ**: take off the prefix: أْمُر. Three letters, the first a hamza. Root **أ م ر**, **hamzated**.
+- (e) **رُدَّتْ**: take off the tāʾ of “she”: رُدَّ. A shadda on the last letter. Root **ر د د**, **doubled**. It is a passive verb (L3.09).
+
+</Exercise>
+</Block>
+
+<Block id="practice-2" title="Practice: changes, pairs and mistakes">
+  <Stage label="For each word, ask">
+    <ol class="lx-card-list">
+      <li><b>Turned:</b> a different letter stands there?</li>
+      <li><b>Dropped:</b> the word is shorter?</li>
+      <li><b>Sukūn:</b> the vowel moved back?</li>
+      <li><b>None:</b> the letter stays in view?</li>
+    </ol>
+  </Stage>
+
+Try each one first, then open the answer.
+
+<Exercise n={6} q="Say what happened to the weak letter: turned, dropped, got a sukūn, or nothing. (a) قِيلَ ٱدْخُلِ ٱلْجَنَّةَ (Ya-Sin 36:26, part) (b) فَلَا تَقُل لَّهُمَآ أُفٍّ (Al-Isra 17:23, part) (c) لَن نَّدْعُوَا۟ مِن دُونِهِۦٓ (Al-Kahf 18:14, part) (d) لَا تَوْجَلْ (Al-Hijr 15:53, part) (e) ٱتَّقُوا۟ ٱللَّهَ (Al-Baqarah 2:278, part)">
+
+- (a) **قِيلَ**: two changes. The kasra moved back to the ق, so the و got a sukūn, and then the و turned into ي (al-Jadwal, Al-Baqarah 2:11).
+- (b) **تَقُلْ**: the middle و **dropped**. The verb is in jazm after لَا of a ban. Two sukūns would have met.
+- (c) **نَدْعُوَا۟**: **nothing**. The و stays in view, with a fatḥa after لَن (naṣb). The alif after it is silent.
+- (d) **تَوْجَلْ**: **nothing**. The first و stays. Only the last letter has a sukūn, for jazm.
+- (e) **ٱتَّقُوا۟**: two changes. The first و turned into ت, and the last ي dropped before the ending -ū. The pattern is Form VIII (al-Jadwal, Al-Baqarah 2:21).
+
+</Exercise>
+
+<Exercise n={7} q="Is the doubled root merged or apart, and why? (a) وَإِذَا مَسَّ ٱلْإِنسَٰنَ ضُرٌّ (Az-Zumar 39:8, part) (b) أَءِذَا ضَلَلْنَا فِى ٱلْأَرْضِ (As-Sajdah 32:10, part) (c) قَدْ ضَلَلْتُ إِذًا (Al-Anʿam 6:56, part) (d) مَا ضَلَّ صَاحِبُكُمْ (An-Najm 53:2, part) (e) وَلَوْ لَمْ تَمْسَسْهُ نَارٌ (An-Nur 24:35, part)">
+
+- (a) **مَسَّ**: merged. The last س has a fatḥa, so the two letters become one with a shadda.
+- (b) **ضَلَلْنَا**: apart. The ending -nā puts a sukūn on the last root letter (L3.05).
+- (c) **ضَلَلْتُ**: apart. The ending -tu does the same.
+- (d) **ضَلَّ**: merged, like مَسَّ.
+- (e) **تَمْسَسْهُ**: apart. After لَمْ the verb is in jazm, and the last letter has a sukūn.
+
+</Exercise>
+
+<Exercise n={8} q="Each root has two kinds. Name both. (a) أَوْفُوا۟ بِعَهْدِىٓ (Al-Baqarah 2:40, part), root و ف ي (b) وَوَصَّىٰ بِهَآ (Al-Baqarah 2:132, part), root و ص ي (c) ثُمَّ ٱسْتَوَىٰٓ إِلَى ٱلسَّمَآءِ (Al-Baqarah 2:29, part), root س و ي (d) تَسُؤْهُمْ (Al ʿImran 3:120, part), root س و ء (e) وَلَوْ شَآءَ ٱللَّهُ (Al-Baqarah 2:20, part), root ش ي ء">
+
+- (a) و ف ي: **assimilated** (weak first letter) and **defective** (weak last letter).
+- (b) و ص ي: **assimilated** and **defective**.
+- (c) س و ي: **hollow** (weak middle letter) and **defective** (weak last letter).
+- (d) س و ء: **hollow** and **hamzated** (the hamza is last).
+- (e) ش ي ء: **hollow** and **hamzated**.
+
+</Exercise>
+
+<Exercise n={9} q="Four of these six made-up statements are wrong. Find them and say what is true. (a) The alif in قَالَ is a letter of the root. (b) قَاتَلَ is hollow because it has a long ā. (c) The hamza is one of the three weak letters. (d) مَسَّ is a doubled verb with the root م س س. (e) جَآءَ is hollow and hamzated. (f) Every assimilated verb loses its first letter in the present.">
+
+- (a) **Wrong.** The root is ق و ل. The ā stands for the و.
+- (b) **Wrong.** قَاتَلَ is Form III of the sound root ق ت ل. The ā was added by the form.
+- (c) **Wrong.** The weak letters are و, ي and the long ā. The hamza is a kind of its own.
+- (d) **Right.** The same strong letter, س, is the second and third letter.
+- (e) **Right.** The root ج ي ء has a weak middle ي and a last hamza.
+- (f) **Wrong.** تَوْجَلْ (Al-Hijr 15:53) keeps its و. L4.14 teaches which verbs drop it.
+
+</Exercise>
+
+<Exercise n={10} q="Find the six verbs in this verse and name the kind of each. None of them is sound. وَإِذَا مَسَّ ٱلْإِنسَٰنَ ضُرٌّ دَعَا رَبَّهُۥ مُنِيبًا إِلَيْهِ ثُمَّ إِذَا خَوَّلَهُۥ نِعْمَةً مِّنْهُ نَسِىَ مَا كَانَ يَدْعُوٓا۟ إِلَيْهِ مِن قَبْلُ (Az-Zumar 39:8, part)">
+
+- **مَسَّ** (م س س): doubled.
+- **دَعَا** (د ع و): defective.
+- **خَوَّلَهُۥ** (خ و ل): hollow. This one is Form II. The و stays in view, under the shadda. A weak middle letter does not always change.
+- **نَسِىَ** (ن س ي): defective. The last letter ي is in view.
+- **كَانَ** (ك و ن): hollow.
+- **يَدْعُوٓا۟** (د ع و): defective. The و is in view, and the alif after it is silent.
+
+Six verbs, and not one is sound. Across the Quran 58.4% of verb words are not sound, so this verse is well above the usual share.
+
+</Exercise>
+
+<Exercise n={11} q="Sort the four verbs of this passage by kind, and say which one has a long vowel where a root letter is hidden. وَلَا يَزَالُونَ يُقَٰتِلُونَكُمْ حَتَّىٰ يَرُدُّوكُمْ عَن دِينِكُمْ إِنِ ٱسْتَطَٰعُوا۟ (Al-Baqarah 2:217, part)">
+
+- **يَزَالُونَ** (ز ي ل): hollow. The long ā stands for the ي.
+- **يُقَٰتِلُونَ** (ق ت ل): sound. The ā after the first letter is Form III, added by the form.
+- **يَرُدُّوكُمْ** (ر د د): doubled. The two د are merged with a shadda.
+- **ٱسْتَطَٰعُوا۟** (ط و ع): hollow, Form X. The long ā stands for the و.
+
+Two verbs here have a long ā that stands for a hidden letter, and one has a long ā that does not.
+
+</Exercise>
+</Block>
+
+<Block id="done" title="You have finished the lesson">
+  <Stage label="The idea">
+    <Formula
+      label="the root tells the kind, and the kind tells what to expect"
+      items={[
+        { kind: 'm', text: 'root', small: 'ق و ل' },
+        { kind: 'k', text: 'kind', small: 'six kinds' },
+        { kind: 's', text: 'what you see', small: 'turned, dropped or sukūn' },
+      ]}
+    />
+  </Stage>
+
+- **Six kinds:** sound, hollow (weak middle letter), defective (weak last letter), assimilated (weak first letter), hamzated and doubled. A root can have two.
+- **Weak letters:** و and ي in the root. The ā stands for one of them. The hamza and a repeated letter are not weak, but their words also change shape.
+- **Find the kind:** peel off what was added, count the root letters, look up the root, and name the kind from where the special letter sits.
+- **Three changes:** the weak letter turns into another letter (قَضَىٰٓ), drops out (قُلْ, يَعِدُ) or gets a sukūn (نَسْتَعِينُ). Often two meet in one word.
+- **Counts:** 41.5% of verb words in the Corpus are sound. Hollow verbs are 26.7%, defective 18.0%, hamzated 15.3%, assimilated 5.2% and doubled 4.5%.
+- The clues in this lesson are a teaching summary. The root, in the Corpus, tells you what is true.
+
+**Next:** L4.12 teaches hollow verbs, with the weak letter in the middle. L4.13 teaches defective verbs, with the weak letter at the end. L4.14 teaches assimilated verbs and L4.15 teaches hamzated verbs. Review L3.05 for the endings of the past verb and L3.07 for jazm if either felt thin.
+
+Earlier lessons you can link back to: [roots, L3.03](/learn/level-3/03-root-system/), [Form I, L3.04](/learn/level-3/04-verb-form-i/), [the past tense, L3.05](/learn/level-3/05-past-tense/), [the present tense, L3.06](/learn/level-3/06-present-tense/), [jazm and naṣb, L3.07](/learn/level-3/07-subjunctive-jussive/), [the command, L3.08](/learn/level-3/08-imperative/), [the passive, L3.09](/learn/level-3/09-passive-voice/), [the negation words, L4.10](/learn/level-4/10-negation-particles/). Ahead: [hollow verbs, L4.12](/learn/level-4/12-hollow-verbs/), [defective verbs, L4.13](/learn/level-4/13-defective-verbs/), [assimilated verbs, L4.14](/learn/level-4/14-assimilated-verbs/), [hamzated verbs, L4.15](/learn/level-4/15-hamzated-verbs/).
+
+<Sources
+    items={[
+      { label: 'Quran text', name: 'Tanzil (Uthmani text)', href: 'https://tanzil.net' },
+      { label: 'Roots, forms and the counts of the six kinds', name: 'Quranic Arabic Corpus', href: 'https://corpus.quran.com' },
+      { label: 'Word-by-word analysis (iʿrāb) of the verses and the notes on the three changes', name: 'Maḥmūd Ṣāfī, al-Jadwal fī Iʿrāb al-Qurʾān wa-Ṣarfihi wa-Bayānihi' },
+      { label: 'The six kinds and the clues in the word', name: 'A teaching summary by Quran Learn, built from al-Jadwal and the Corpus roots' },
+      { label: 'The counts', name: 'Quran Learn count from the Quranic Arabic Corpus; some tags are wrong' },
+      { label: 'English under the verses', name: 'Plain-English meanings by Quran Learn, not a translation' },
+    ]}
+  />
+</Block>
+</Step>
