@@ -65,7 +65,11 @@ export function omitResume(current: Record<string, string>, slug: string): strin
   return JSON.stringify(rest);
 }
 
-/** The saved map with one lesson's current step replaced, as a string for localStorage. */
+/**
+ * The saved map with one lesson's current step replaced, as a string for localStorage.
+ * The lesson moves to the end, so the map runs from least to most recently opened.
+ */
 export function serializeResume(current: Record<string, string>, slug: string, stepId: string): string {
-  return JSON.stringify({ ...current, [slug]: stepId });
+  const { [slug]: _old, ...rest } = current;
+  return JSON.stringify({ ...rest, [slug]: stepId });
 }

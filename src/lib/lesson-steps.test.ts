@@ -68,3 +68,8 @@ test('serializeResume round-trips', () => {
   const s = serializeResume({ 'level-2/01-nominal-sentence': 'rule' }, 'level-2/01-nominal-sentence', 'try');
   assert.deepEqual(parseResume(s), { 'level-2/01-nominal-sentence': 'try' });
 });
+
+test('serializeResume puts the lesson just opened last', () => {
+  const s = serializeResume({ a: 'x', b: 'y' }, 'a', 'z');
+  assert.deepEqual(Object.keys(parseResume(s)), ['b', 'a']);
+});
