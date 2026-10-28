@@ -1,568 +1,871 @@
 ---
-title: "Active & Passive Participles (Ism Fa'il & Ism Maf'ul)"
+title: "Doer Words and Done-To Words"
+kicker: "Active and passive participles"
+titleArabic: "ٱسْم ٱلْفَاعِل وَٱسْم ٱلْمَفْعُول"
 level: 3
 order: 19
-description: "Derive active participles (one who does) and passive participles (one to whom it is done) from verbs, and identify their dual function as nouns and adjectives in Quranic text."
+template: steps
+description: "Learn the two nouns that Arabic builds from a verb: the doer word (active participle) and the done-to word (passive participle). Build them in Form I and in Forms II to X, see that they take case endings, plurals and adjective agreement, see that a doer word can take an object, and go through four verses word by word."
 draft: false
 ---
 
-import ArabicExample from '../../../components/mdx/ArabicExample.astro';
-import GrammarTable from '../../../components/mdx/GrammarTable.astro';
-import Callout from '../../../components/mdx/Callout.astro';
-import ExerciseBox from '../../../components/mdx/ExerciseBox.astro';
-
-## Introduction
-
-Every verb in Arabic can transform into a noun that describes THE PERSON OR THING doing the action (active participle) or THE PERSON OR THING receiving the action (passive participle). These are not just grammar concepts — they're living words you encounter constantly in the Quran.
-
-<ArabicExample
-  arabic="بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ"
-  transliteration="bismi llāhi r-raḥmāni r-raḥīmi"
-  translation="In the name of Allah, the Most Gracious, the Most Merciful"
-  reference="Al-Fatiha 1:1"
-  highlight="ٱلرَّحْمَٰنِ ٱلرَّحِيمِ"
-  words={[
-    { ar: "بِسْمِ", tr: "bismi", en: "In the name of" },
-    { ar: "ٱللَّهِ", tr: "llāhi", en: "Allah" },
-    { ar: "ٱلرَّحْمَٰنِ", tr: "r-raḥmāni", en: "the Most Gracious" },
-    { ar: "ٱلرَّحِيمِ", tr: "r-raḥīmi", en: "the Most Merciful" }
-  ]}
-/>
-
-The words **ٱلرَّحْمَٰنِ** (ar-raḥmāni) "the Most Gracious" and **ٱلرَّحِيمِ** (ar-raḥīmi) "the Most Merciful" are both ACTIVE PARTICIPLES from the root ر-ح-م (r-ḥ-m) meaning "mercy/compassion." They describe Allah as "The One Who Shows Mercy" — transforming the verb "to show mercy" into a divine name.
-
-**In this lesson, you will:**
-- Understand the concept of participles as verb-derived nouns describing doers and receivers
-- Derive active participles using the pattern فَاعِلٌ (fāʿilun) from Form I verbs
-- Derive passive participles using the pattern مَفْعُولٌ (mafʿūlun) from Form I verbs
-- Apply root-and-pattern methodology to create participle families from 5-6 common roots
-- Recognize participles functioning BOTH as nouns (identity) AND adjectives (description)
-- Identify participles in Al-Fatiha and understand their theological significance
-- Learn brief patterns for derived form participles (Forms II-X)
-
-**Connection to previous learning:** In [L3.03 Root System](/learn/level-3/03-root-system/), you learned how Arabic builds word families from roots using different patterns. In [L3.04 Verb Form I](/learn/level-3/04-verb-form-i/), you mastered the base verb pattern. Now you'll see how verbs BECOME nouns through participle patterns — one of the most powerful features of Arabic morphology.
-
-**Forward connection:** This lesson prepares you for [L3.20 Verbal Nouns (Masdar)](/learn/level-3/20-verbal-nouns/), where you'll learn how verbs become abstract action nouns. Together, participles and masdars complete your understanding of how Arabic derives rich noun vocabularies from verb roots.
-
-<Callout type="note" title="Plain-English key">
-Quick, everyday translations of the grammar terms in this lesson — glance back here whenever one trips you up:
-
-- **Active participle** (ism al-fāʿil / اِسْم الْفَاعِل) — the "doer" word: "writer" from "wrote".
-- **Passive participle** (ism al-mafʿūl / اِسْم المَفْعُول) — the "done-to" word: "written".
-- **Root** (jadhr / جَذْر) — the 3 (sometimes 4) core letters that carry a word's basic meaning.
-- **Pattern / measure** (wazn / وَزْن) — the mould of vowels and extra letters poured over a root to make a specific word.
-</Callout>
-
-## Understanding Participles
-
-**Plain English first:** Think of a participle as a "verb-person" or "verb-thing." Instead of saying "the man who writes," Arabic has a single word: **كَاتِبٌ** (kātibun) "writer/one who writes." Instead of saying "the thing that is written," Arabic has: **مَكْتُوبٌ** (maktūbun) "written thing/something written."
-
-English has participles too:
-- **Active participle:** work → work**ing**, write → writ**er**, run → runn**er**
-- **Passive participle:** writ**ten**, spok**en**, brok**en**
-
-But Arabic's system is far more systematic and predictable.
-
-### Two Types of Participles
-
-**1. Active Participle — [ism al-fāʿil](/resources/glossary/#ism-fail) (اِسْمُ ٱلْفَاعِلِ)**
-
-The active participle describes THE DOER of the action:
-- Root ك-ت-ب "writing" → **كَاتِبٌ** (kātibun) "writer/one who writes"
-- Root ع-ل-م "knowing" → **عَالِمٌ** (ʿālimun) "knower/scholar"
-- Root ن-ص-ر "helping" → **نَاصِرٌ** (nāṣirun) "helper/one who helps"
-
-**2. Passive Participle — [ism al-mafʿūl](/resources/glossary/#ism-mafool) (اِسْمُ ٱلْمَفْعُولِ)**
-
-The passive participle describes THE RECEIVER of the action:
-- Root ك-ت-ب "writing" → **مَكْتُوبٌ** (maktūbun) "written/something written"
-- Root ع-ل-م "knowing" → **مَعْلُومٌ** (maʿlūmun) "known/something known"
-- Root ن-ص-ر "helping" → **مَنْصُورٌ** (manṣūrun) "helped/one who is helped"
-
-**The core distinction:**
-- **Active:** WHO DOES the action (subject relationship)
-- **Passive:** WHO RECEIVES the action (object relationship)
-
-### Arabic Terminology
-
-**Active Participle** — [ism al-fāʿil](/resources/glossary/#ism-fail) (ism al-fāʿil / اِسْمُ ٱلْفَاعِلِ)
-
-Literally "the noun of the doer." The word **فَاعِلٌ** (fāʿil) itself means "doer/agent" and is built on the pattern you'll learn.
-
-**Passive Participle** — [ism al-mafʿūl](/resources/glossary/#ism-mafool) (ism al-mafʿūl / اِسْمُ ٱلْمَفْعُولِ)
-
-Literally "the noun of the done-to." The word **مَفْعُولٌ** (mafʿūl) means "object/receiver of action."
-
-**Key grammatical insight:** Despite being called "nouns" (ism), participles retain some verb-like qualities — they can take objects, they imply time, and they describe actions. This dual nature (noun + verb qualities) makes them incredibly versatile.
-
-## Active Participle Pattern: فَاعِلٌ (fāʿilun)
-
-The active participle pattern for Form I verbs is **فَاعِلٌ** (fāʿilun).
-
-**Pattern structure:**
-- **ف** (fa) = first root letter
-- **ا** (alif) = long vowel inserted after first root letter
-- **ع** (ʿayn with kasra) = second root letter with kasra
-- **ل** (lam) = third root letter
-- **تَنْوِينٌ** = nunation (ـٌ, ـًا, ـٍ depending on case)
-
-**Template: فَاعِلٌ**
-
-### Active Participle Pattern Decomposition
-
-Let's see how the active participle is formed from a verb:
-
-**Root: ك-ت-ب (k-t-b) "writing"**
-
-```
-Step 1: Start with root letters
-        ك - ت - ب
-
-Step 2: Apply active participle template (فَاعِلٌ)
-        كَـ + ا + تِـ + بٌ
-        ↑    ↑   ↑    ↑
-        1st  long  2nd  3rd
-        (fatha) vowel (kasra) (nunation)
-
-Step 3: Result
-        كَاتِبٌ (kātibun) "writer/one who writes"
-```
-
-**Visual pattern:**
-
-<GrammarTable>
-| Component | Template Position | Pattern Element | Example (ك-ت-ب) |
-|-----------|------------------|-----------------|------------------|
-| First root | ف | fatha + letter | كَـ |
-| Long vowel | — | alif (ا) | ا |
-| Second root | ع | kasra + letter | تِـ |
-| Third root | ل | letter + nunation | بٌ |
-| **Result** | فَاعِلٌ | | **كَاتِبٌ** |
-</GrammarTable>
-
-### Active Participle Derivation Table
-
-Let's derive active participles from 6 common Quranic roots:
-
-<GrammarTable>
-| Root | Root Meaning | Form I Verb | Active Participle (فَاعِلٌ) | Translation |
-|------|--------------|-------------|----------------------------|-------------|
-| ك-ت-ب | writing | كَتَبَ (kataba) "wrote" | كَاتِبٌ (kātibun) | writer, scribe |
-| ع-ل-م | knowing | عَلِمَ (ʿalima) "knew" | عَالِمٌ (ʿālimun) | knower, scholar |
-| ع-ب-د | worshiping | عَبَدَ (ʿabada) "worshiped" | عَابِدٌ (ʿābidun) | worshiper |
-| ح-م-د | praising | حَمِدَ (ḥamida) "praised" | حَامِدٌ (ḥāmidun) | one who praises |
-| ن-ص-ر | helping | نَصَرَ (naṣara) "helped" | نَاصِرٌ (nāṣirun) | helper, supporter |
-| ر-ح-م | showing mercy | رَحِمَ (raḥima) "showed mercy" | رَاحِمٌ (rāḥimun) | one who shows mercy |
-</GrammarTable>
-
-**Pattern observation:** No matter what the Form I vowel class (فَعَلَ, فَعِلَ, فَعُلَ), the active participle ALWAYS follows **فَاعِلٌ** with alif after the first root letter and kasra on the second root letter.
-
-### Active Participles in Al-Fatiha
-
-Surah Al-Fatiha contains multiple active participles demonstrating their theological use:
-
-**1. ٱلرَّحْمَٰنِ (ar-raḥmāni) "the Most Gracious"**
-
-<ArabicExample
-  arabic="ٱلْحَمْدُ لِلَّهِ رَبِّ ٱلْعَٰلَمِينَ ۝ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ"
-  transliteration="al-ḥamdu lillāhi rabbi l-ʿālamīna, ar-raḥmāni r-raḥīmi"
-  translation="All praise is for Allah, Lord of all the worlds, the Most Gracious, the Most Merciful"
-  reference="Al-Fatiha 1:2-3"
-  highlight="ٱلرَّحْمَٰنِ"
-  words={[
-    { ar: "ٱلْحَمْدُ", tr: "al-ḥamdu", en: "All praise" },
-    { ar: "لِلَّهِ", tr: "lillāhi", en: "is for Allah" },
-    { ar: "رَبِّ", tr: "rabbi", en: "Lord of" },
-    { ar: "ٱلْعَٰلَمِينَ", tr: "l-ʿālamīna", en: "all the worlds" },
-    { ar: "ٱلرَّحْمَٰنِ", tr: "ar-raḥmāni", en: "the Most Gracious" },
-    { ar: "ٱلرَّحِيمِ", tr: "r-raḥīmi", en: "the Most Merciful" }
-  ]}
-/>
-
-**Root:** ر-ح-م (r-ḥ-m) "mercy"
-**Pattern:** فَعْلَانُ (faʿlān) — intensive active participle pattern
-**Morphological analysis:**
-- Root: ر-ح-م
-- Pattern: فَعْلَانُ (intensive/exaggerative form of فَاعِلٌ)
-- Form: I active participle (intensive)
-- Case: Genitive (ـِ) — describes Allah in genitive construction
-- Meaning: The One Who Shows Abundant Mercy
-
-**2. ٱلرَّحِيمِ (ar-raḥīmi) "the Most Merciful"**
-
-**Root:** ر-ح-م (r-ḥ-m) "mercy"
-**Pattern:** فَعِيلٌ (faʿīl) — another intensive active participle pattern
-**Morphological analysis:**
-- Root: ر-ح-م
-- Pattern: فَعِيلٌ (intensive form, different nuance from فَعْلَانُ)
-- Form: I active participle (intensive)
-- Case: Genitive (ـِ)
-- Meaning: The Ever-Merciful, The Continuously Compassionate
-
-<Callout type="tip" title="Why two mercy names?">
-Classical scholars distinguish **ٱلرَّحْمَٰنُ** (ar-raḥmān) as describing Allah's VAST, all-encompassing mercy in this world and the next, while **ٱلرَّحِيمُ** (ar-raḥīm) emphasizes CONTINUOUS, intimate mercy especially to believers. Both are active participles from the same root (ر-ح-م) but use different intensive patterns to convey different aspects of divine mercy.
-</Callout>
-
-**3. ٱلْعَٰلَمِينَ (al-ʿālamīna) "the worlds"**
-
-<ArabicExample
-  arabic="رَبِّ ٱلْعَٰلَمِينَ"
-  transliteration="rabbi l-ʿālamīna"
-  translation="Lord of all the worlds"
-  reference="Al-Fatiha 1:2"
-  highlight="ٱلْعَٰلَمِينَ"
-  words={[
-    { ar: "رَبِّ", tr: "rabbi", en: "Lord of" },
-    { ar: "ٱلْعَٰلَمِينَ", tr: "l-ʿālamīna", en: "all the worlds" }
-  ]}
-/>
-
-**Root:** ع-ل-م (ʿ-l-m) "knowing/knowledge"
-**Pattern:** فَاعِلٌ (fāʿil) → plural فَاعَلِينَ (fāʿalīna) becomes عَالَمِينَ (ʿālamīna)
-
-Wait — this requires explanation! **عَالَمٌ** (ʿālam) doesn't mean "knower" but "world/realm." This is because the original sense was "sign/indicator [of the Creator]" — things through which the Creator is known. Over time, it specialized to mean "world."
-
-**Morphological analysis:**
-- Root: ع-ل-م
-- Pattern: فَاعَلٌ (variant of فَاعِلٌ)
-- Plural: عَالَمِينَ (sound masculine plural, accusative/genitive)
-- Meaning: worlds, realms, created beings
-
-## Passive Participle Pattern: مَفْعُولٌ (mafʿūlun)
-
-The passive participle pattern for Form I verbs is **مَفْعُولٌ** (mafʿūlun).
-
-**Pattern structure:**
-- **م** (mīm with fatha) = prefix added before root
-- **ف** (first root letter with sukūn) = first root letter
-- **ع** (second root letter with damma) = second root letter with damma
-- **و** (waw) = long vowel after second root letter
-- **ل** (third root letter) = third root letter
-- **تَنْوِينٌ** = nunation
-
-**Template: مَفْعُولٌ**
-
-### Passive Participle Pattern Decomposition
-
-**Root: ك-ت-ب (k-t-b) "writing"**
-
-```
-Step 1: Start with root letters
-        ك - ت - ب
-
-Step 2: Apply passive participle template (مَفْعُولٌ)
-        مَـ + كْـ + تُـ + و + بٌ
-        ↑    ↑    ↑    ↑   ↑
-        prefix  1st  2nd  long  3rd
-        (fatha) (sukūn) (damma) vowel (nunation)
-
-Step 3: Result
-        مَكْتُوبٌ (maktūbun) "written/something written"
-```
-
-**Visual pattern:**
-
-<GrammarTable>
-| Component | Template Position | Pattern Element | Example (ك-ت-ب) |
-|-----------|------------------|-----------------|------------------|
-| Prefix | م | mīm with fatha | مَـ |
-| First root | ف | sukūn + letter | كْـ |
-| Second root | ع | damma + letter | تُـ |
-| Long vowel | — | waw (و) | و |
-| Third root | ل | letter + nunation | بٌ |
-| **Result** | مَفْعُولٌ | | **مَكْتُوبٌ** |
-</GrammarTable>
-
-### Passive Participle Derivation Table
-
-Let's derive passive participles from the same 6 roots:
-
-<GrammarTable>
-| Root | Root Meaning | Form I Verb | Passive Participle (مَفْعُولٌ) | Translation |
-|------|--------------|-------------|-----------------------------|-------------|
-| ك-ت-ب | writing | كَتَبَ (kataba) "wrote" | مَكْتُوبٌ (maktūbun) | written |
-| ع-ل-م | knowing | عَلِمَ (ʿalima) "knew" | مَعْلُومٌ (maʿlūmun) | known |
-| ع-ب-د | worshiping | عَبَدَ (ʿabada) "worshiped" | مَعْبُودٌ (maʿbūdun) | worshiped, deity |
-| ح-م-د | praising | حَمِدَ (ḥamida) "praised" | مَحْمُودٌ (maḥmūdun) | praised, praiseworthy |
-| ن-ص-ر | helping | نَصَرَ (naṣara) "helped" | مَنْصُورٌ (manṣūrun) | helped, victorious |
-| ر-ح-م | showing mercy | رَحِمَ (raḥima) "showed mercy" | مَرْحُومٌ (marḥūmun) | shown mercy, deceased |
-</GrammarTable>
-
-**Semantic note:** Passive participles describe the RESULT of an action being done TO someone/something:
-- **مَكْتُوبٌ** (maktūbun) = "a written thing" (something that has been written)
-- **مَعْبُودٌ** (maʿbūdun) = "a worshiped one" (something/someone that is worshiped = deity)
-- **مَرْحُومٌ** (marḥūmun) = "one shown mercy" (in Islamic contexts, refers to the deceased, those who received Allah's mercy)
-
-### Passive Participles in Al-Fatiha
-
-**ٱلْمُسْتَقِيمَ (al-mustaqīma) "the straight"**
-
-<ArabicExample
-  arabic="ٱهْدِنَا ٱلصِّرَٰطَ ٱلْمُسْتَقِيمَ"
-  transliteration="ihdinā ṣ-ṣirāṭa l-mustaqīma"
-  translation="Guide us to the straight path"
-  reference="Al-Fatiha 1:6"
-  highlight="ٱلْمُسْتَقِيمَ"
-  words={[
-    { ar: "ٱهْدِنَا", tr: "ihdinā", en: "Guide us" },
-    { ar: "ٱلصِّرَٰطَ", tr: "ṣ-ṣirāṭa", en: "the path" },
-    { ar: "ٱلْمُسْتَقِيمَ", tr: "l-mustaqīma", en: "the straight" }
-  ]}
-/>
-
-Wait — this is NOT a Form I passive participle! **ٱلْمُسْتَقِيمَ** (al-mustaqīma) is a Form X active participle from root ق-و-م (q-w-m) meaning "to be straight/upright."
-
-**Form X pattern:** اِسْتَفْعَلَ (istafʿala) → active participle **مُسْتَفْعِلٌ** (mustafʿilun)
-
-**Morphological analysis:**
-- Root: ق-و-م
-- Pattern: مُسْتَفْعِلٌ (Form X active participle)
-- Form: X
-- Case: Accusative (ـَ) — object of the verb "guide"
-- Meaning: that which is upright/straight
-
-This demonstrates that DERIVED FORMS (II-X) have their own participle patterns, which we'll explore shortly.
-
-## Participles as Nouns AND Adjectives
-
-**The dual function:** Participles in Arabic function BOTH as nouns (standalone entities) AND as adjectives (describing other nouns).
-
-### Participles as Nouns (Identity)
-
-When used as nouns, participles name a person or thing by their action:
-
-**Active participle as noun:**
-- **كَاتِبٌ** (kātibun) = "a writer" (person's profession/identity)
-- **عَالِمٌ** (ʿālimun) = "a scholar" (person's identity)
-- **مُؤْمِنٌ** (muʾminun) = "a believer" (person's religious identity)
-
-**Passive participle as noun:**
-- **مَكْتُوبٌ** (maktūbun) = "a written document" (thing's nature)
-- **مَعْبُودٌ** (maʿbūdun) = "a deity" (thing that is worshiped)
-
-Example from the Quran:
-
-<ArabicExample
-  arabic="إِنَّ ٱللَّهَ مَعَ ٱلصَّٰبِرِينَ"
-  transliteration="inna llāha maʿa ṣ-ṣābirīna"
-  translation="Indeed, Allah is with those who are patient"
-  reference="Al-Baqarah 2:153"
-  highlight="ٱلصَّٰبِرِينَ"
-  words={[
-    { ar: "إِنَّ", tr: "inna", en: "Indeed" },
-    { ar: "ٱللَّهَ", tr: "llāha", en: "Allah" },
-    { ar: "مَعَ", tr: "maʿa", en: "is with" },
-    { ar: "ٱلصَّٰبِرِينَ", tr: "ṣ-ṣābirīna", en: "the patient ones" }
-  ]}
-/>
-
-**ٱلصَّٰبِرِينَ** (aṣ-ṣābirīna) is the active participle from root ص-ب-ر (ṣ-b-r) "patience." Here it functions as a NOUN: "the patient ones" = those whose identity is characterized by patience.
-
-### Participles as Adjectives (Description)
-
-When used as adjectives, participles describe another noun and must AGREE with it in gender, number, case, and definiteness:
-
-**Active participle as adjective:**
-
-<ArabicExample
-  arabic="قُلْ هُوَ ٱللَّهُ أَحَدٌ ۝ ٱللَّهُ ٱلصَّمَدُ"
-  transliteration="qul huwa llāhu aḥad, allāhu ṣ-ṣamad"
-  translation="Say: He is Allah, One, Allah the Eternal Refuge"
-  reference="Al-Ikhlas 112:1-2"
-  highlight="ٱلصَّمَدُ"
-  words={[
-    { ar: "قُلْ", tr: "qul", en: "Say" },
-    { ar: "هُوَ", tr: "huwa", en: "He is" },
-    { ar: "ٱللَّهُ", tr: "llāhu", en: "Allah" },
-    { ar: "أَحَدٌ", tr: "aḥad", en: "One" },
-    { ar: "ٱللَّهُ", tr: "allāhu", en: "Allah" },
-    { ar: "ٱلصَّمَدُ", tr: "ṣ-ṣamad", en: "the Eternal Refuge" }
-  ]}
-/>
-
-**ٱلصَّمَدُ** (aṣ-ṣamad) is an active participle-like form from root ص-م-د meaning "that to which everything turns/the eternal refuge." Here it DESCRIBES Allah (noun) as an adjective.
-
-**Passive participle as adjective:**
-
-<ArabicExample
-  arabic="فِي صُحُفٖ مُّكَرَّمَةٖ"
-  transliteration="fī ṣuḥufin mukarramatin"
-  translation="In honored sheets [of scripture]"
-  reference="Abasa 80:13"
-  highlight="مُّكَرَّمَةٖ"
-  words={[
-    { ar: "فِي", tr: "fī", en: "In" },
-    { ar: "صُحُفٖ", tr: "ṣuḥufin", en: "sheets" },
-    { ar: "مُّكَرَّمَةٖ", tr: "mukarramatin", en: "honored" }
-  ]}
-/>
-
-**مُّكَرَّمَةٖ** (mukarramatin) is a Form II passive participle from root ك-ر-م "honor." It describes **صُحُفٖ** (ṣuḥufin) "sheets" as an adjective: "honored sheets."
-
-**Agreement rules:**
-- Gender: participle matches noun gender
-- Number: participle matches noun number (singular/dual/plural)
-- Case: participle matches noun case (nominative/accusative/genitive)
-- Definiteness: participle matches noun definiteness (definite/indefinite)
-
-<Callout type="rule" title="Adjective agreement with participles">
-When a participle functions as an adjective, it must show complete four-way agreement with the noun it describes. This is the same adjective agreement rule you learned in [L2.05 Adjective Agreement](/learn/level-2/09-adjective-agreement/), now applied to participles.
-</Callout>
-
-## Derived Form Participles (Forms II-X)
-
-Each verb form (II through X) has its own participle patterns. Here's a summary:
-
-### Active Participle Patterns by Form
-
-<GrammarTable>
-| Form | Active Participle Pattern | Example Root (ع-ل-م) | Translation |
-|------|--------------------------|----------------------|-------------|
-| I | فَاعِلٌ (fāʿilun) | عَالِمٌ (ʿālimun) | knower, scholar |
-| II | مُفَعِّلٌ (mufaʿʿilun) | مُعَلِّمٌ (muʿallimun) | teacher |
-| III | مُفَاعِلٌ (mufāʿilun) | مُعَالِمٌ (muʿālimun) | one who teaches [someone] |
-| IV | مُفْعِلٌ (mufʿilun) | مُعْلِمٌ (muʿlimun) | informer |
-| V | مُتَفَعِّلٌ (mutafaʿʿilun) | مُتَعَلِّمٌ (mutaʿallimun) | learner, student |
-| VI | مُتَفَاعِلٌ (mutafāʿilun) | مُتَعَالِمٌ (mutaʿālimun) | one who pretends to know |
-| VII | مُنْفَعِلٌ (munfaʿilun) | مُنْعَلِمٌ (munʿalimun) | (rare form) |
-| VIII | مُفْتَعِلٌ (muftaʿilun) | مُعْتَلِمٌ (muʿtalimun) | (theoretical form) |
-| X | مُسْتَفْعِلٌ (mustafʿilun) | مُسْتَعْلِمٌ (mustaʿlimun) | one who seeks knowledge |
-</GrammarTable>
-
-### Passive Participle Patterns by Form
-
-<GrammarTable>
-| Form | Passive Participle Pattern | Example Root (ع-ل-م) | Translation |
-|------|---------------------------|----------------------|-------------|
-| I | مَفْعُولٌ (mafʿūlun) | مَعْلُومٌ (maʿlūmun) | known |
-| II | مُفَعَّلٌ (mufaʿʿalun) | مُعَلَّمٌ (muʿallamun) | taught |
-| III | مُفَاعَلٌ (mufāʿalun) | مُعَالَمٌ (muʿālamun) | (rare) |
-| IV | مُفْعَلٌ (mufʿalun) | مُعْلَمٌ (muʿlamun) | informed |
-| V | مُتَفَعَّلٌ (mutafaʿʿalun) | مُتَعَلَّمٌ (mutaʿallamun) | learned |
-| VI | مُتَفَاعَلٌ (mutafāʿalun) | مُتَعَالَمٌ (mutaʿālamun) | (rare) |
-| VII | مُنْفَعَلٌ (munfaʿalun) | مُنْعَلَمٌ (munʿalamun) | (rare) |
-| VIII | مُفْتَعَلٌ (muftaʿalun) | مُعْتَلَمٌ (muʿtalamun) | (theoretical) |
-| X | مُسْتَفْعَلٌ (mustafʿalun) | مُسْتَعْلَمٌ (mustaʿlamun) | sought for knowledge |
-</GrammarTable>
-
-**Key pattern observation:**
-- Forms II-X active participles start with **مُـ** (mīm with damma)
-- Forms II-X passive participles ALSO start with **مُـ** (mīm with damma)
-- The distinction is in the internal vowels: active has kasra on penultimate letter, passive has fatha
-
-**You don't need to memorize all these now.** Focus on Form I patterns (فَاعِلٌ and مَفْعُولٌ) for this lesson. You'll encounter derived form participles naturally as you study Forms II-X in detail.
-
-<Callout type="tip" title="Why so many teacher words?">
-Notice how many words for "teacher" Arabic has! Each derived form creates a slightly different shade of meaning: مُعَلِّمٌ (Form II) emphasizes intensive teaching action, مُعَالِمٌ (Form III) suggests teaching IN RELATIONSHIP with a student, مُعْلِمٌ (Form IV) focuses on INFORMING/making known, and مُتَعَلِّمٌ (Form V) is a LEARNER (reflexive of teaching). This demonstrates Arabic's morphological richness — one root generates an entire semantic family.
-</Callout>
-
-## Exercises
-
-<ExerciseBox question="Exercise 1: Derive Active Participles">
-
-Given the root and Form I verb, derive the active participle using pattern فَاعِلٌ.
-
-**1. Root: ذ-ه-ب (going). Form I: ذَهَبَ (dhahaba) "he went". Derive active participle.**
-
-Active participle: ذَاهِبٌ (dhāhibun) "one who goes, goer". Pattern: فَاعِلٌ applied to ذ-ه-ب → ذَاهِبٌ.
-
-**2. Root: ق-ر-أ (reading). Form I: قَرَأَ (qaraʾa) "he read". Derive active participle.**
-
-Active participle: قَارِئٌ (qāriʾun) "reader, reciter". Pattern: فَاعِلٌ applied to ق-ر-أ → قَارِئٌ.
-
-**3. Root: س-م-ع (hearing). Form I: سَمِعَ (samiʿa) "he heard". Derive active participle.**
-
-Active participle: سَامِعٌ (sāmiʿun) "hearer, listener". Pattern: فَاعِلٌ applied to س-م-ع → سَامِعٌ.
-
-**4. Root: ش-ك-ر (thanking). Form I: شَكَرَ (shakara) "he thanked". Derive active participle.**
-
-Active participle: شَاكِرٌ (shākirun) "one who thanks, grateful person". Pattern: فَاعِلٌ applied to ش-ك-ر → شَاكِرٌ.
-
-</ExerciseBox>
-
-<ExerciseBox question="Exercise 2: Derive Passive Participles">
-
-Given the root and Form I verb, derive the passive participle using pattern مَفْعُولٌ.
-
-**1. Root: ذ-ك-ر (remembering). Form I: ذَكَرَ (dhakara) "he remembered". Derive passive participle.**
-
-Passive participle: مَذْكُورٌ (madhkūrun) "remembered, mentioned". Pattern: مَفْعُولٌ applied to ذ-ك-ر → مَذْكُورٌ.
-
-**2. Root: غ-ف-ر (forgiving). Form I: غَفَرَ (ghafara) "he forgave". Derive passive participle.**
-
-Passive participle: مَغْفُورٌ (maghfūrun) "forgiven". Pattern: مَفْعُولٌ applied to غ-ف-ر → مَغْفُورٌ.
-
-**3. Root: ر-ز-ق (providing). Form I: رَزَقَ (razaqa) "he provided". Derive passive participle.**
-
-Passive participle: مَرْزُوقٌ (marzūqun) "provided for, blessed with provision". Pattern: مَفْعُولٌ applied to ر-ز-ق → مَرْزُوقٌ.
-
-</ExerciseBox>
-
-<ExerciseBox question="Exercise 3: Identify Participle Function">
-
-Determine whether the participle functions as a NOUN (identity) or ADJECTIVE (description) in context.
-
-**1. إِنَّ ٱللَّهَ مَعَ ٱلصَّٰبِرِينَ (inna llāha maʿa ṣ-ṣābirīna) — "Indeed, Allah is with the patient ones"**
-
-ٱلصَّٰبِرِينَ (aṣ-ṣābirīna) functions as a NOUN. It identifies a group of people by their characteristic (patience). Root: ص-ب-ر. Pattern: فَاعِلِينَ (plural, genitive). Meaning: "the patient ones" as an identity category.
-
-**2. فِي صُحُفٖ مُّكَرَّمَةٖ (fī ṣuḥufin mukarramatin) — "In honored sheets"**
-
-مُّكَرَّمَةٖ (mukarramatin) functions as an ADJECTIVE. It describes the noun صُحُفٖ (sheets). Root: ك-ر-م. Pattern: مُفَعَّلَةٖ (Form II passive participle, feminine, genitive). Meaning: describes sheets as "honored."
-
-**3. ٱللَّهُ خَٰلِقُ كُلِّ شَىْءٖ (allāhu khāliqu kulli shayʾin) — "Allah is the Creator of everything"**
-
-خَٰلِقُ (khāliqu) functions as a NOUN (predicate). It identifies Allah's role/identity. Root: خ-ل-ق. Pattern: فَاعِلُ (nominative). Meaning: "Creator" as an identity/attribute of Allah.
-
-</ExerciseBox>
-
-<ExerciseBox question="Exercise 4: Participle Analysis in Al-Fatiha">
-
-Analyze the participle: identify root, pattern, form, and meaning.
-
-**1. ٱلرَّحْمَٰنِ (ar-raḥmāni) from Al-Fatiha 1:3**
-
-Root: ر-ح-م. Pattern: فَعْلَانُ (intensive active participle). Form: I (intensive variant). Case: Genitive. Meaning: "the Most Gracious" — one who shows abundant, overwhelming mercy.
-
-**2. ٱلرَّحِيمِ (ar-raḥīmi) from Al-Fatiha 1:3**
-
-Root: ر-ح-م. Pattern: فَعِيلٌ (intensive active participle). Form: I (intensive variant). Case: Genitive. Meaning: "the Most Merciful" — the continuously compassionate, ever-merciful one.
-
-**3. ٱلْمُسْتَقِيمَ (al-mustaqīma) from Al-Fatiha 1:6**
-
-Root: ق-و-م. Pattern: مُسْتَفْعِلٌ (Form X active participle). Form: X. Case: Accusative (object of "guide us"). Meaning: "the straight/upright [path]" — that which maintains uprightness.
-
-</ExerciseBox>
-
-## Summary
-
-**Active and Passive Participles key points:**
-
-1. **Active participle (ism al-fāʿil):** Pattern فَاعِلٌ (fāʿilun) — describes THE DOER of the action
-2. **Passive participle (ism al-mafʿūl):** Pattern مَفْعُولٌ (mafʿūlun) — describes THE RECEIVER of the action
-3. **Pattern methodology:** Apply فَاعِلٌ or مَفْعُولٌ template to any Form I root to derive participles
-4. **Dual function:** Participles work as NOUNS (identity) or ADJECTIVES (description)
-5. **Agreement:** When functioning as adjectives, participles agree in gender, number, case, and definiteness
-6. **Derived forms:** Forms II-X have their own participle patterns, mostly starting with مُـ prefix
-7. **Theological significance:** Divine names like ٱلرَّحْمَٰنُ and ٱلرَّحِيمُ are active participles describing Allah's attributes
-
-**Six core participle pairs from this lesson:**
-
-| Root | Active Participle | Translation | Passive Participle | Translation |
-|------|------------------|-------------|-------------------|-------------|
-| ك-ت-ب | كَاتِبٌ (kātibun) | writer | مَكْتُوبٌ (maktūbun) | written |
-| ع-ل-م | عَالِمٌ (ʿālimun) | scholar | مَعْلُومٌ (maʿlūmun) | known |
-| ع-ب-د | عَابِدٌ (ʿābidun) | worshiper | مَعْبُودٌ (maʿbūdun) | worshiped |
-| ح-م-د | حَامِدٌ (ḥāmidun) | praiser | مَحْمُودٌ (maḥmūdun) | praised |
-| ن-ص-ر | نَاصِرٌ (nāṣirun) | helper | مَنْصُورٌ (manṣūrun) | helped |
-| ر-ح-م | رَاحِمٌ (rāḥimun) | merciful one | مَرْحُومٌ (marḥūmun) | shown mercy |
-
-**Recognition checklist:**
-1. Active participle Form I: Look for alif after first root letter + kasra on second root letter (فَاعِلٌ)
-2. Passive participle Form I: Look for مَـ prefix + sukūn on first root + damma on second root + waw (مَفْعُولٌ)
-3. Derived forms: Look for مُـ prefix (both active and passive)
-4. Distinguish function: Is it naming an identity (noun) or describing another word (adjective)?
-
-**Next steps:** In [L3.20 Verbal Nouns (Masdar)](/learn/level-3/20-verbal-nouns/), you'll learn how verbs become abstract ACTION nouns (not doers/receivers, but the action itself). Participles + masdars complete your understanding of how Arabic derives comprehensive noun families from every verb root.
-
-**Topic Hub:** See [Arabic Verb Forms (I–X)](/learn/verb-forms/) for a unified overview of every form and how each generates its own participle patterns.
+import Step from '../../../components/lesson/Step.astro';
+import Stage from '../../../components/lesson/Stage.astro';
+import Sentence from '../../../components/lesson/Sentence.astro';
+import Tiles from '../../../components/lesson/Tiles.astro';
+import Formula from '../../../components/lesson/Formula.astro';
+import Conjugation from '../../../components/lesson/Conjugation.astro';
+import Note from '../../../components/lesson/Note.astro';
+import Check from '../../../components/lesson/Check.astro';
+import Start from '../../../components/lesson/Start.astro';
+import Sources from '../../../components/lesson/Sources.astro';
+import Parse from '../../../components/lesson/Parse.astro';
+import Exercise from '../../../components/lesson/Exercise.astro';
+import Block from '../../../components/lesson/Block.astro';
+
+{/* Content spec: docs/redesign/specs/L3.19-active-passive-participles.md. Every parse follows al-Jadwal (Mahmud Safi). */}
+
+<Step hero id="start" label="A noun from a verb" title={frontmatter.title} kicker={frontmatter.kicker} titleArabic={frontmatter.titleArabic}>
+<Block id="overview" title="In this lesson" level={2} uncounted>
+  <Stage label="The idea">
+    <Formula
+      label="a root plus the doer pattern equals a doer word"
+      items={[
+        { kind: 'm', text: 'root', small: 'the idea: ك ت ب' },
+        { kind: 'k', text: 'pattern', small: 'فَاعِل or مَفْعُول' },
+        { kind: 's', text: 'participle', small: 'كَاتِب, writer' },
+      ]}
+    />
+  </Stage>
+  <Start
+    goal="Find a doer word and a done-to word in a verse, build them from a verb in Form I and in Forms II to X, say what job they do in a sentence, and go through four verses word by word."
+    minutes={60}
+    before="Roots and patterns (L3.03). Form I (L3.04). The passive (L3.09). The three cases (L2.04 to L2.06) and adjectives (L2.09)."
+    terms={[
+      { term: 'Active participle', ar: 'اِسْم فَاعِل', meaning: 'A noun made from a verb. It names the one who does the action. This lesson also calls it a doer word.' },
+      { term: 'Passive participle', ar: 'اِسْم مَفْعُول', meaning: 'A noun made from a verb. It names the one the action is done to. This lesson also calls it a done-to word.' },
+      { term: 'فَاعِل', meaning: 'The Form I pattern of the doer word.' },
+      { term: 'مَفْعُول', meaning: 'The Form I pattern of the done-to word.' },
+      { term: 'Mafʿūl bihi', ar: 'مَفْعُول بِهِ', meaning: 'The object: what the action is done to (L2.05).' },
+      { term: 'Manqūṣ', ar: 'مَنْقُوص', meaning: 'A “shortened” noun: its last letter ي drops before the tanwīn, like بَاقٍ.' },
+    ]}
+  />
+</Block>
+
+<Block id="see" title="Look at this verse" level={2}>
+  <Stage>
+    <Sentence
+      size="big"
+      roles
+      reference="Al-Baqarah 2:30 (part)"
+      groups={[
+        { role: 'ismInna', words: [{ ar: 'إِنِّى', en: 'indeed I', say: 'inni' }] },
+        { role: 'khabarInna', words: [{ ar: 'جَاعِلٌ', en: 'one who makes', say: 'jailun' }] },
+        { role: 'tied', hint: 'belongs to جَاعِلٌ', words: [{ ar: 'فِى', en: 'on', say: 'fi', type: 'p' }, { ar: 'ٱلْأَرْضِ', en: 'the earth', say: 'al-ardi' }] },
+        { role: 'maful', hint: 'object of جَاعِلٌ', words: [{ ar: 'خَلِيفَةً', en: 'a successor', say: 'khalifatan' }] },
+      ]}
+      en={['Indeed, I ', { gap: 'am' }, ' going to put a successor on the earth.']}
+    />
+  </Stage>
+
+Allah speaks to the angels. Read from right to left and look at the third word, جَاعِلٌ.
+
+It ends in **-un**, like a noun. It is the khabar of *inna* (L2.10). But it also has an **object**: خَلِيفَةً, “a successor”, with **-an**. A plain noun such as “house” does not take an object. This word does, because it was made from a verb.
+
+<Check n={1} q="Which word in this phrase was made from a verb but works as a noun?" options={['إِنِّى', 'جَاعِلٌ', 'خَلِيفَةً']} answer={1} why="جَاعِلٌ comes from the verb جَعَلَ, “he made”. It is a noun, and it still takes an object." />
+</Block>
+
+<Block id="from-verb" title="A noun made from a verb">
+  <Stage label="One root, a verb and a noun">
+    <Tiles
+      label="جَعَلَ, then جَاعِلٌ: he made, one who makes"
+      items={[
+        { ar: 'جَعَلَ', en: 'he made', type: 'v' },
+        { ar: 'جَاعِلٌ', en: 'one who makes' },
+      ]}
+    />
+  </Stage>
+
+Both words come from the root **ج ع ل** (L3.03). The verb is جَعَلَ, “he made”. The noun is جَاعِلٌ, “one who makes”, a maker.
+
+You met the same step in L2.03: خَلَقَ is a verb, and خَالِق is a noun, “creator”. The grammar books call a noun like this **ism fāʿil**, اِسْم فَاعِل, “name of the doer”. English calls it an **active participle**. This lesson says **doer word** too.
+
+<Note kind="know">Do not mix up two names. A <i>fāʿil</i> is a role: the doer of a verb in a verbal sentence (L2.03). An <i>ism fāʿil</i> is a kind of noun. The next steps show that a doer word keeps being a noun, even when it has an object.</Note>
+</Block>
+
+<Block id="two" title="Two kinds: the doer and the done-to">
+  <Stage label="Same root, two nouns">
+    <Tiles
+      label="كَتَبَ, كَاتِبٌ, مَكْتُوبٌ: he wrote, one who writes, written"
+      items={[
+        { ar: 'كَتَبَ', en: 'he wrote', type: 'v' },
+        { ar: 'كَاتِبٌ', en: 'one who writes' },
+        { ar: 'مَكْتُوبٌ', en: 'written, what is written' },
+      ]}
+    />
+  </Stage>
+
+A verb gives two nouns.
+
+- The **doer word** names the one who does the action: كَاتِبٌ, “one who writes”. You find it in 2:282, “a scribe”.
+- The **done-to word** names the one the action is done to: مَكْتُوبٌ, “written”. It is **ism mafʿūl**, اِسْم مَفْعُول, “name of the one done to”. English calls it a **passive participle**. You met مَكْتُوبًا in 7:157, and L3.09 taught the passive verb. The done-to word is the passive in noun form.
+
+<Note kind="know">Quran Learn’s count from the Quranic Arabic Corpus: 2,956 words in the Quran are active participles and 550 are passive. Doer words are more than five times as common.</Note>
+
+<Check n={2} q="Which word means “written”?" options={['كَاتِبٌ', 'مَكْتُوبٌ']} answer={1} why="مَكْتُوبٌ is the done-to word: it names what the writing was done to. كَاتِبٌ is the one who writes." />
+</Block>
+
+<Block id="passive-verse" title="A done-to word in a verse">
+  <Stage>
+    <Sentence
+      size="big"
+      reference="Al-Waqiah 56:30"
+      groups={[
+        { words: [{ ar: 'وَظِلٍّ', en: 'and shade', say: 'wa-zillin' }] },
+        { words: [{ ar: 'مَّمْدُودٍ', en: 'stretched out', say: 'mamdudin' }] },
+      ]}
+      en={['And shade stretched out.']}
+    />
+  </Stage>
+
+This is a description of Paradise. The last word, مَمْدُودٍ, comes from the verb مَدَّ, “he stretched”. It says what was done to the shade: it has been stretched out.
+
+Al-Jadwal calls it a done-to word (*ism mafʿūl*) from the verb مَدَّ and gives it the pattern مَفْعُول.
+
+<Check n={3} q="What does مَمْدُودٍ say about the shade?" options={['The shade stretches something', 'The shade has been stretched out']} answer={1} why="A done-to word names what the action is done to. The shade is the one stretched." />
+</Block>
+
+</Step>
+
+<Step id="building" label="Building them" title="How a doer word and a done-to word are built">
+<Block id="build-active" title="Form I doer word: فَاعِل">
+  <Stage label="Pattern: a real verb, جَعَلَ">
+    <Formula
+      label="the root ج ع ل poured into فَاعِل gives جَاعِلٌ"
+      items={[
+        { kind: 'm', text: 'root', small: 'ج ع ل' },
+        { kind: 'k', text: 'pattern', small: 'فَاعِل' },
+        { kind: 's', text: 'جَاعِلٌ', small: 'one who makes' },
+      ]}
+    />
+  </Stage>
+
+Pour the three root letters into the pattern **فَاعِل** (L3.03):
+
+| Place in the pattern | What it is | In جَاعِلٌ |
+|---|---|---|
+| ف | first root letter, with fatḥa | جَ |
+| ا | a long ā (alif) | ا |
+| ع | second root letter, with kasra | عِ |
+| ل | third root letter, then the case ending | لٌ |
+
+Al-Jadwal gives this pattern, فَاعِل, for جَاعِل in 2:30, for فَالِق in 6:95 and for شَاكِر in 2:158. It says each time that the word is an *ism fāʿil*.
+
+<Check n={4} q="Which doer word comes from the root ظ ل م (to wrong)?" options={['مَظْلُومٌ', 'ظَالِمٌ', 'مُظْلِمٌ']} answer={1} why="ظَالِمٌ fits فَاعِل: alif after the first letter, kasra on the second. مَظْلُومٌ is the done-to word." />
+</Block>
+
+<Block id="build-passive" title="Form I done-to word: مَفْعُول">
+  <Stage label="Pattern: a real verb, ظَلَمَ">
+    <Formula
+      label="the root ظ ل م poured into مَفْعُول gives مَظْلُومٌ"
+      items={[
+        { kind: 'm', text: 'root', small: 'ظ ل م' },
+        { kind: 'k', text: 'pattern', small: 'مَفْعُول' },
+        { kind: 's', text: 'مَظْلُومٌ', small: 'wronged' },
+      ]}
+    />
+  </Stage>
+
+The done-to word has an extra **مَ** in front and a long **ū** (و) before the last letter:
+
+| Place in the pattern | What it is | In مَظْلُومٌ |
+|---|---|---|
+| مَ | an added mīm, with fatḥa | مَ |
+| ف | first root letter, with sukūn | ظْ |
+| ع | second root letter, with ḍamma | لُ |
+| و | a long ū (waw) | و |
+| ل | third root letter, then the case ending | مٌ |
+
+You see مَظْلُومًا in 17:33, and al-Jadwal gives its pattern as مَفْعُول. In the same verse مَنصُورًا (“helped”) has the same pattern.
+
+<Note kind="tip">Doer word: an **alif** after the first letter. Done-to word: a **مَ** in front and a **و** near the end.</Note>
+</Block>
+
+<Block id="pairs" title="Six pairs from the Quran">
+  <Stage label="Pattern: six real roots">
+    <Tiles
+      label="فَاعِل and مَفْعُول for the root ظ ل م"
+      items={[
+        { ar: 'ظَلَمَ', en: 'he wronged', type: 'v' },
+        { ar: 'ظَالِمٌ', en: 'one who wrongs' },
+        { ar: 'مَظْلُومٌ', en: 'wronged' },
+      ]}
+    />
+  </Stage>
+
+| Root | Verb | Doer word | Done-to word | In the Quran |
+|---|---|---|---|---|
+| ك ت ب | كَتَبَ, he wrote | كَاتِبٌ | مَكْتُوبٌ | 2:282, 7:157 |
+| ش ك ر | شَكَرَ, he thanked | شَاكِرٌ | مَشْكُورٌ | 2:158, 17:19 |
+| ذ ك ر | ذَكَرَ, he remembered | ذَاكِرٌ | مَذْكُورٌ | 33:35, 76:1 |
+| ظ ل م | ظَلَمَ, he wronged | ظَالِمٌ | مَظْلُومٌ | 2:92, 17:33 |
+| ن ص ر | نَصَرَ, he helped | نَاصِرٌ | مَنْصُورٌ | 3:22, 17:33 |
+| ف ع ل | فَعَلَ, he did | فَاعِلٌ | مَفْعُولٌ | 12:10, 4:47 |
+
+The forms in the table are teaching forms, with the single ending -un. In verses the ending changes: 2:92 has ظَٰلِمُونَ and 33:35 has ذَٰكِرِينَ (Step 3 shows why).
+
+<Note kind="know">Not every verb gives both words. A verb that cannot take an object, such as “he stood”, has a doer word but not a done-to word in normal use. Check a word in the Corpus or a dictionary before you build it.</Note>
+</Block>
+
+<Block id="rule" title="Forms II to X: مُ plus the present verb">
+  <Stage label="The rule">
+    <Formula
+      label="the present verb with مُ in place of the prefix gives the doer word"
+      items={[
+        { kind: 'm', text: 'present verb', small: 'يُصَدِّقُ' },
+        { kind: 'k', text: 'مُ instead of يُ', small: 'kasra before the last letter' },
+        { kind: 's', text: 'مُصَدِّقٌ', small: 'one who confirms' },
+      ]}
+    />
+  </Stage>
+
+Forms II to X use one rule. Al-Jadwal states it for مُصَدِّقًا in 2:41 and for مُؤْمِنِينَ in 2:8: the word has the shape of its present verb, with the prefix (يَ or يُ) replaced by **مُ**, and a **kasra** on the letter before the last.
+
+- **Doer word:** يُصَدِّقُ becomes مُصَدِّقٌ. The letter before the last has **kasra**.
+- **Done-to word:** يُكَرَّمُ becomes مُكَرَّمٌ. The letter before the last has **fatḥa**.
+
+Form I does not use this rule. Its words are فَاعِل and مَفْعُول. L3.06 teaches the present verb, and L3.12 to L3.18 teach each form.
+
+<Check n={5} q="Which word is the doer word of يُؤْمِنُ?" options={['مُؤْمِنٌ', 'مُؤْمَنٌ', 'مَؤْمُونٌ']} answer={0} why="مُ replaces يُ, and the letter before the last takes kasra. مُؤْمَنٌ, with fatḥa, would be the done-to word." />
+</Block>
+
+<Block id="active-table" title="The doer word in Forms II to X">
+  <Stage label="Pattern: a real verb for each form">
+    <Tiles
+      label="يُصَدِّقُ, مُصَدِّقٌ: he confirms, one who confirms"
+      items={[
+        { ar: 'يُصَدِّقُ', en: 'he confirms', type: 'v' },
+        { ar: 'مُصَدِّقٌ', en: 'one who confirms' },
+      ]}
+    />
+  </Stage>
+
+| Form | Present verb | Doer word | A Quran word |
+|---|---|---|---|
+| II | يُصَدِّقُ | مُصَدِّقٌ | مُصَدِّقًا (2:41) |
+| III | يُهَاجِرُ | مُهَاجِرٌ | مُهَاجِرًا (4:100) |
+| IV | يُؤْمِنُ | مُؤْمِنٌ | مُؤْمِنِينَ (2:8) |
+| V | يَتَكَبَّرُ | مُتَكَبِّرٌ | ٱلْمُتَكَبِّرِينَ (16:29) |
+| VI | يَتَقَابَلُ | مُتَقَابِلٌ | مُّتَقَٰبِلِينَ (15:47) |
+| VII | يَنفَطِرُ | مُنفَطِرٌ | مُنفَطِرٌۢ (73:18) |
+| VIII | يَخْتَلِفُ | مُخْتَلِفٌ | مُخْتَلِفًا (6:141) |
+| IX | يَصْفَرُّ | مُصْفَرٌّ | مُصْفَرًّا (30:51) |
+| X | يَسْتَكْبِرُ | مُسْتَكْبِرٌ | مُسْتَكْبِرُونَ (16:22) |
+
+Al-Jadwal calls each of these words an *ism fāʿil* and gives the pattern in its ṣarf notes. It counts letters: it calls Form III and IV “four-letter”, Forms V, VII, VIII and IX “five-letter”, and Form X “six-letter”.
+
+</Block>
+
+<Block id="passive-table" title="The done-to word in Forms II to X">
+  <Stage>
+    <Sentence
+      reference="Abasa 80:13"
+      groups={[
+        { words: [{ ar: 'فِى', en: 'in', say: 'fi', type: 'p' }, { ar: 'صُحُفٍ', en: 'sheets', say: 'suhufin' }] },
+        { words: [{ ar: 'مُّكَرَّمَةٍ', en: 'honoured', say: 'mukarramatin' }] },
+      ]}
+      en={['In honoured sheets.']}
+    />
+  </Stage>
+
+| Form | Present passive | Done-to word | A Quran word |
+|---|---|---|---|
+| II | يُكَرَّمُ | مُكَرَّمٌ | مُّكَرَّمَةٍ (80:13) |
+| III | يُبَارَكُ | مُبَارَكٌ | مُبَارَكًا (3:96) |
+| IV | يُرْسَلُ | مُرْسَلٌ | ٱلْمُرْسَلِينَ (2:252) |
+| VIII | يُتَّبَعُ | مُتَّبَعٌ | مُّتَّبَعُونَ (26:52) |
+| X | يُسْتَضْعَفُ | مُسْتَضْعَفٌ | ٱلْمُسْتَضْعَفِينَ (4:75) |
+
+Al-Jadwal says مُكَرَّمَةٍ is the feminine of مُكَرَّم, a done-to word on the pattern مُفَعَّل (80:13).
+
+Forms V, VI, VII and IX are left out of the table because their done-to words are very rare. A script counted the Corpus file: it tags no passive participle in Form VI or IX, one in Form V (47:19) and two in Form VII.
+
+<Note kind="know">Some words have the shape of a done-to word but name a place. Al-Jadwal calls مُرَٰغَمًا in 4:100 a noun of place with the shape of the done-to word. L3.21 teaches nouns of place and time.</Note>
+</Block>
+
+<Block id="one-vowel" title="One vowel apart">
+  <Stage label="Same letters, one vowel">
+    <Tiles
+      label="مُخْرِجٌ and مُخْرَجٌ: one who brings out, one who is brought out"
+      items={[
+        { ar: 'مُخْرِجٌ', en: 'one who brings out' },
+        { ar: 'مُخْرَجٌ', en: 'one who is brought out' },
+      ]}
+    />
+  </Stage>
+
+In Forms II to X the doer word and the done-to word differ by one vowel. You find مُخْرِجُ in 6:95 and مُخْرَجِينَ in 15:48. Al-Jadwal calls the first a doer word and the second a done-to word, from the verb أَخْرَجَ.
+
+Written without vowel marks, both are مخرج. The Quran text has the marks, so read the marks. If the marks are missing, the meaning decides.
+
+When the last two letters are the same letter doubled, the vowel is hidden inside the shadda. Al-Jadwal says of مُصْفَرًّا in 30:51 that the doer word and the done-to word have one shape, and only the meaning separates them.
+
+<Check n={6} q="In وَمَا هُم مِّنْهَا بِمُخْرَجِينَ (15:48), is مُخْرَجِينَ a doer word or a done-to word?" options={['A doer word', 'A done-to word']} answer={1} why="The vowel before the last letter is fatḥa (ـَ), so it names ones who are brought out. Al-Jadwal says the same." />
+</Block>
+
+<Block id="weak" title="Weak roots: قَائِم, مُقِيم, بَاقٍ">
+  <Stage>
+    <Sentence
+      roles
+      reference="Ibrahim 14:40 (part)"
+      groups={[
+        { role: 'fiil', words: [{ ar: 'ٱجْعَلْنِى', en: 'make me', say: 'ijalni', type: 'v' }] },
+        { role: 'maful', hint: 'second object', words: [{ ar: 'مُقِيمَ', en: 'one who keeps up', say: 'muqima' }] },
+        { words: [{ ar: 'ٱلصَّلَوٰةِ', en: 'the prayer', say: 'as-salati' }] },
+      ]}
+      en={['Make me one who keeps up the prayer.']}
+    />
+    <Sentence
+      roles
+      reference="An-Nahl 16:96 (part)"
+      groups={[
+        { role: 'mubtada', words: [{ ar: 'وَمَا', en: 'and what', say: 'wa-ma' }] },
+        { role: 'tied', hint: 'finishes مَا', words: [{ ar: 'عِندَ', en: 'with', say: 'inda', type: 'p' }, { ar: 'ٱللَّهِ', en: 'Allah', say: 'allahi' }] },
+        { role: 'khabar', words: [{ ar: 'بَاقٍ', en: 'remains', say: 'baqin' }] },
+      ]}
+      en={['And what is with Allah remains.']}
+    />
+  </Stage>
+
+Many doer words come from weak roots, roots with و or ي. The letters change, so the word does not look like فَاعِل.
+
+| Verb | Doer word | What changed | Al-Jadwal |
+|---|---|---|---|
+| قَامَ, he stood | قَائِمٌ | the middle و becomes a hamza (ئ) | 3:18 |
+| أَقَامَ, he set up | مُقِيمٌ | the و turns into ي | 14:40 |
+| بَقِيَ, he remained | بَاقٍ | the last ي drops before the tanwīn | 16:96 |
+
+Al-Jadwal says of قَائِمًا in 3:18 that a hollow verb turns its weak letter into a hamza in the فَاعِل shape. It calls بَاقٍ a *manqūṣ* noun: the ي dropped, and the ḍamma is hidden on it.
+
+You only need to recognise these words now. L4.11 gives an overview of weak verbs, and L4.12 and L4.13 teach the changes.
+
+<Check n={7} q="What is the root of بَاقٍ?" options={['ب ق ا', 'ب ق ي', 'ب ق']} answer={1} why="The root is ب ق ي. The last letter ي dropped before the tanwīn." />
+</Block>
+
+</Step>
+
+<Step id="noun-verb" label="Noun and verb" title="A noun that can work like a verb">
+<Block id="noun" title="A participle is a noun">
+  <Stage>
+    <Sentence
+      roles
+      reference="Al-Baqarah 2:92 (end)"
+      groups={[
+        { role: 'mubtada', words: [{ ar: 'وَأَنتُمْ', en: 'and you', say: 'wa-antum' }] },
+        { role: 'khabar', words: [{ ar: 'ظَٰلِمُونَ', en: 'wrongdoers', say: 'zalimuna' }] },
+      ]}
+      en={['And you ', { gap: 'were' }, ' wrongdoers.']}
+    />
+  </Stage>
+
+A doer word is a noun, so it behaves like one.
+
+- It takes **case endings**. Here ظَٰلِمُونَ is the khabar, nominative, shown by -ūna (L2.04). Al-Jadwal says the same.
+- It takes **ٱلْ** and **tanwīn**: ٱلْمُؤْمِنُونَ, مُؤْمِنٌ.
+- It can do the jobs of a noun. In the verses of this lesson: khabar of *inna* (جَاعِلٌ in 2:30), khabar (ظَٰلِمُونَ in 2:92), the first word of an idafah (فَالِقُ in 6:95), a delayed mubtadaʾ (هَادٍ in 13:7) and an adjective (مَقْطُوعَةٍ in 56:33).
+
+In L2.12 you met شَانِئَكَ in 108:3, “the one who hates you”. It is a doer word from the verb شَنِئَ. It was the *ism inna*, accusative, and the first word of an idafah. The ending told you its job, as it does for any noun.
+</Block>
+
+<Block id="number" title="Gender and number">
+  <Stage label="Pattern: a real doer word, مُؤْمِن">
+    <Conjugation
+      caption="مُؤْمِنٌ, “a believer”: one doer word in all its shapes"
+      formLabel="Word"
+      endLabel="Ending"
+      rows={[
+        { group: 'Nominative (-u)' },
+        { who: 'one man', ar: 'مُؤْمِنٌ', end: 'ـٌ', say: 'muʾminun', hi: true },
+        { who: 'one woman', ar: 'مُؤْمِنَةٌ', end: 'ـَةٌ', say: 'muʾminatun' },
+        { who: 'two men', ar: 'مُؤْمِنَانِ', end: 'ـَانِ', say: 'muʾmināni' },
+        { who: 'two women', ar: 'مُؤْمِنَتَانِ', end: 'ـَتَانِ', say: 'muʾminatāni' },
+        { who: 'men', ar: 'مُؤْمِنُونَ', end: 'ـُونَ', say: 'muʾminūna' },
+        { who: 'women', ar: 'مُؤْمِنَاتٌ', end: 'ـَاتٌ', say: 'muʾminātun' },
+        { group: 'Accusative and genitive' },
+        { who: 'two men', ar: 'مُؤْمِنَيْنِ', end: 'ـَيْنِ', say: 'muʾminayni' },
+        { who: 'two women', ar: 'مُؤْمِنَتَيْنِ', end: 'ـَتَيْنِ', say: 'muʾminatayni' },
+        { who: 'men', ar: 'مُؤْمِنِينَ', end: 'ـِينَ', say: 'muʾminīna' },
+        { who: 'women', ar: 'مُؤْمِنَاتٍ', end: 'ـَاتٍ', say: 'muʾminātin' },
+      ]}
+    />
+    <Sentence
+      reference="Abasa 80:15"
+      groups={[
+        { words: [{ ar: 'بِأَيْدِى', en: 'by hands of', say: 'bi-aydi' }] },
+        { words: [{ ar: 'سَفَرَةٍ', en: 'scribes', say: 'safaratin' }] },
+      ]}
+      en={['By the hands of scribes.']}
+    />
+  </Stage>
+
+The endings are the ones you know from L1.08 and L2.04 to L2.06. The table is a teaching table: not every shape is in the Quran.
+
+Some doer words have a **broken plural**, which changes inside (L1.08). Al-Jadwal says سَفَرَةٍ in 80:15 is the plural of سَافِر, a doer word meaning “scribe”, and بَرَرَةٍ in 80:16 is the plural of بَارّ, a doer word meaning “obedient”.
+
+</Block>
+
+<Block id="adjective" title="A participle can describe a noun">
+  <Stage>
+    <Sentence
+      roles
+      reference="Al-Waqiah 56:33"
+      groups={[
+        { words: [{ ar: 'لَّا', en: 'not', say: 'la', type: 'p' }] },
+        { role: 'naat', hint: 'describes فَٰكِهَةٍ (56:32)', words: [{ ar: 'مَقْطُوعَةٍ', en: 'cut off', say: 'maqtuatin' }] },
+        { words: [{ ar: 'وَلَا', en: 'and not', say: 'wa-la', type: 'p' }] },
+        { role: 'matuf', hint: 'joined to مَقْطُوعَةٍ', words: [{ ar: 'مَمْنُوعَةٍ', en: 'forbidden', say: 'mamnuatin' }] },
+      ]}
+      en={['Not cut off and not forbidden.']}
+    />
+  </Stage>
+
+The verse before says “and fruit” (فَٰكِهَةٍ). These two done-to words describe that fruit. They are **adjectives** (naʿt, L2.09).
+
+An adjective copies its noun in gender, number, case and definiteness. فَٰكِهَةٍ is feminine, single, indefinite and genitive. So مَقْطُوعَةٍ and مَمْنُوعَةٍ are feminine (-a), single, indefinite and genitive (-in).
+
+Al-Jadwal calls مَقْطُوعَةٍ an adjective of فَٰكِهَةٍ, and مَمْنُوعَةٍ “joined” to it. It says مَمْنُوعَةٍ is the feminine of مَمْنُوع, a done-to word from مَنَعَ.
+
+<Check n={8} q="Why does مَقْطُوعَةٍ end in -atin?" options={['It copies فَٰكِهَةٍ: feminine, single, indefinite, genitive', 'It is a verb', 'It is the doer']} answer={0} why="A describing word agrees with its noun in gender, number, case and definiteness." />
+</Block>
+
+<Block id="not-every" title="Not every describing word is a participle">
+  <Stage label="Two words from one root">
+    <Tiles
+      label="عَٰلِمٌ and عَلِيمٌ, both from ع ل م"
+      items={[
+        { ar: 'عَٰلِمٌ', en: 'one who knows (a doer word)' },
+        { ar: 'عَلِيمٌ', en: 'all-knowing (a describing word)' },
+      ]}
+    />
+  </Stage>
+
+The root ع ل م gives a doer word, عَٰلِمُ (6:73), on the pattern فَاعِل. It also gives عَلِيمٌ (4:26), on the pattern فَعِيل (L2.01). Both describe someone who knows, but only the first is a participle.
+
+A describing word is a participle when its pattern is فَاعِل or مَفْعُول (Form I), or مُ plus the present shape (Forms II to X). Other patterns give other describing words.
+
+- Al-Jadwal calls ٱلرَّحْمَٰنِ and ٱلرَّحِيمِ (1:3) adjectives (naʿt) of ٱللَّهِ. The Corpus tags both as adjectives, not participles.
+- Al-Jadwal calls ٱلصَّمَدُ (112:2) a *ṣifa mushabbaha*, صِفَة مُشَبَّهَة, “a word that looks like a participle”, on the pattern فَعَل.
+- Al-Jadwal says ٱلْعَٰلَمِينَ (1:2) is a plural of عَالَم, a word for “all the worlds” with no single form from its own letters. The Corpus tags it as a noun.
+
+<Check n={9} q="Which word is a doer word (active participle)?" options={['عَلِيمٌ', 'عَٰلِمٌ', 'ٱلرَّحِيمِ']} answer={1} why="عَٰلِمٌ has the pattern فَاعِل. عَلِيمٌ and ٱلرَّحِيمِ have the pattern فَعِيل." />
+</Block>
+
+<Block id="object" title="A doer word can take an object">
+  <Stage>
+    <Sentence
+      roles
+      reference="Sad 38:71 (end)"
+      groups={[
+        { words: [{ ar: 'إِنِّى', en: 'indeed I', say: 'inni' }] },
+        { words: [{ ar: 'خَٰلِقٌۢ', en: 'one who creates', say: 'khaliqun' }] },
+        { role: 'maful', hint: 'object of خَٰلِقٌ', words: [{ ar: 'بَشَرًا', en: 'a human', say: 'basharan' }] },
+        { role: 'tied', hint: 'describes بَشَرًا', words: [{ ar: 'مِّن', en: 'from', say: 'min', type: 'p' }, { ar: 'طِينٍ', en: 'clay', say: 'tinin' }] },
+      ]}
+      en={['Indeed, I ', { gap: 'am' }, ' going to create a human from clay.']}
+    />
+    <Sentence
+      roles
+      reference="Al-Kahf 18:18 (part)"
+      groups={[
+        { role: 'mubtada', words: [{ ar: 'وَكَلْبُهُم', en: 'and their dog', say: 'wa-kalbuhum' }] },
+        { role: 'khabar', words: [{ ar: 'بَٰسِطٌ', en: 'stretching', say: 'basitun' }] },
+        { role: 'maful', hint: 'object of بَٰسِطٌ', words: [{ ar: 'ذِرَاعَيْهِ', en: 'his two arms', say: 'dhiraayhi' }] },
+        { role: 'tied', hint: 'belongs to بَٰسِطٌ', words: [{ ar: 'بِٱلْوَصِيدِ', en: 'at the doorway', say: 'bil-wasidi', type: 'p' }] },
+      ]}
+      en={['And their dog is stretching out his two arms at the doorway.']}
+    />
+  </Stage>
+
+The verb خَلَقَ would say “he created a human”. The doer word says the same, and the object follows: خَٰلِقٌ بَشَرًا. Al-Jadwal calls بَشَرًا “the object of the doer word خَالِق”. In 18:18 it calls ذِرَاعَيْهِ “the object of the doer word بَاسِط”.
+
+The object has **-an** in 38:71. In 18:18 it has the dual ending -ayni, the accusative dual (L2.05). Al-Jadwal also ties the phrase بِٱلْوَصِيدِ to the doer word.
+
+<Check n={10} q="In إِنِّى خَٰلِقٌۢ بَشَرًا, what is بَشَرًا?" options={['The object of خَٰلِقٌ', 'The doer of a verb', 'A second khabar']} answer={0} why="Al-Jadwal calls it the object of the doer word خَالِق." />
+</Block>
+
+<Block id="object-forms" title="What follows a doer word: accusative or genitive">
+  <Stage>
+    <Sentence
+      roles
+      reference="Al-Anʿam 6:95 (part)"
+      groups={[
+        { words: [{ ar: 'إِنَّ', en: 'indeed', say: 'inna', type: 'p' }] },
+        { role: 'ismInna', words: [{ ar: 'ٱللَّهَ', en: 'Allah', say: 'allaha' }] },
+        { role: 'khabarInna', words: [{ ar: 'فَالِقُ', en: 'splitter of', say: 'faliqu' }] },
+        { role: 'mudafIlayh', words: [{ ar: 'ٱلْحَبِّ', en: 'the grain', say: 'al-habbi' }] },
+        { role: 'matuf', words: [{ ar: 'وَٱلنَّوَىٰ', en: 'and the date-stone', say: 'wan-nawa' }] },
+      ]}
+      en={['Indeed, Allah is the splitter of the grain and the date-stone.']}
+    />
+    <Sentence
+      roles
+      reference="Al-Ahzab 33:35 (part)"
+      groups={[
+        { role: 'matuf', hint: 'joined to ٱلْمُسْلِمِينَ, earlier in the verse', words: [{ ar: 'وَٱلْحَٰفِظِينَ', en: 'and the men who guard', say: 'wal-hafizina' }] },
+        { role: 'maful', hint: 'object of ٱلْحَٰفِظِينَ', words: [{ ar: 'فُرُوجَهُمْ', en: 'their chastity', say: 'furujahum' }] },
+      ]}
+      en={['and the men who guard their chastity']}
+    />
+  </Stage>
+
+Look at the word after the doer word in the verses of this lesson.
+
+| The doer word ends in... | The next word | Verse |
+|---|---|---|
+| tanwīn (-un) | accusative object (-an) | 2:30, 38:71 |
+| the plural -īna | accusative object | 33:35 |
+| no tanwīn, first word of an idafah | genitive, second word of the idafah | 6:95 |
+
+In 6:95, ٱلْحَبِّ is the *muḍāf ilayh* (L2.08), and the meaning is still “splits the grain”. L3.03 showed the same shape in غَافِرِ ٱلذَّنۢبِ (40:3), “forgiver of sin”.
+
+<Note kind="know">Al-Jadwal reads مُقِيمَ in 14:40 as the second object of ٱجْعَلْنِى, and ٱلصَّلَوٰةِ as its muḍāf ilayh. A doer word can be the first word of an idafah and still be in any case: here it is accusative.</Note>
+
+<Check n={11} q="In فَالِقُ ٱلْحَبِّ, why is ٱلْحَبِّ genitive?" options={['It is the second word of an idafah', 'It follows a preposition', 'It is the doer']} answer={0} why="فَالِقُ has no tanwīn: it is the first word of an idafah, and the second word is genitive (L2.08)." />
+</Block>
+
+<Block id="time" title="No time of its own">
+  <Stage>
+    <Sentence
+      roles
+      reference="Al-Hijr 15:46"
+      groups={[
+        { words: [{ ar: 'ٱدْخُلُوهَا', en: 'enter it', say: 'udkhuluha', type: 'v' }] },
+        { words: [{ ar: 'بِسَلَٰمٍ', en: 'in peace', say: 'bi-salamin', type: 'p' }] },
+        { role: 'hal', hint: 'how they enter', words: [{ ar: 'ءَامِنِينَ', en: 'safe', say: 'aminina' }] },
+      ]}
+      en={['Enter it in peace, safe.']}
+    />
+  </Stage>
+
+A doer word does not say when. The sentence around it does, as in any nominal sentence (L2.01). In 2:30 the Lord speaks before the creation, so جَاعِلٌ means “going to make”. In 18:18 the dog is lying there, so بَاسِطٌ means “is stretching”.
+
+<Note kind="know">A doer word often says how someone does an action. Al-Jadwal reads ءَامِنِينَ in 15:46 as a ḥāl, “in the state of being safe”. L4.01 teaches the ḥāl. Its accusative ending is the sign you already know.</Note>
+</Block>
+
+</Step>
+
+<Step id="word-by-word" label="Mistakes, word by word" title="Four mistakes, and four verses word by word">
+<Block id="mistake-verbal" title="Mistake 1: calling the sentence verbal because of the object">
+  <Stage>
+    <Sentence
+      roles
+      reference="Al-Baqarah 2:30 (start)"
+      groups={[
+        { words: [{ ar: 'وَإِذْ', en: 'and when', say: 'wa-idh', type: 'p' }] },
+        { role: 'fiil', words: [{ ar: 'قَالَ', en: 'said', say: 'qala', type: 'v' }] },
+        { role: 'fail', words: [{ ar: 'رَبُّكَ', en: 'your Lord', say: 'rabbuka' }] },
+        { role: 'tied', hint: 'belongs to the verb', words: [{ ar: 'لِلْمَلَٰٓئِكَةِ', en: 'to the angels', say: 'lil-malaikati', type: 'p' }] },
+      ]}
+      en={['And when your Lord said to the angels …']}
+    />
+  </Stage>
+
+In one verse you find both. قَالَ رَبُّكَ is a verbal sentence: رَبُّكَ is the *fāʿil*. Then comes إِنِّى جَاعِلٌ خَلِيفَةً. The doer word جَاعِلٌ has an object, but it is a noun, the khabar of *inna*.
+
+Only a real verb makes a sentence verbal (L2.03). A doer word with an object stays a noun.
+</Block>
+
+<Block id="mistake-describing" title="Mistake 2: calling every describing word a participle">
+  <Stage>
+    <Sentence
+      roles
+      reference="Al-Fatihah 1:3"
+      groups={[
+        { role: 'naat', words: [{ ar: 'ٱلرَّحْمَٰنِ', en: 'the Most Merciful', say: 'ar-rahmani' }] },
+        { role: 'naat', label: 'second naʿt', words: [{ ar: 'ٱلرَّحِيمِ', en: 'the Ever-Merciful', say: 'ar-rahimi' }] },
+      ]}
+      en={['The Most Merciful, the Ever-Merciful.']}
+    />
+  </Stage>
+
+These two are adjectives of ٱللَّهِ (al-Jadwal says naʿt, or badal as another reading). Their patterns are فَعْلَٰن and فَعِيل, not فَاعِل. The Corpus tags them as adjectives.
+
+Check the pattern first. فَاعِل, مَفْعُول and مُ words are participles. ٱلْعَٰلَمِينَ and ٱلصَّمَدُ are not (see the block “Not every describing word is a participle”).
+</Block>
+
+<Block id="mistake-vowel" title="Mistake 3: mixing up doer and done-to">
+  <Stage>
+    <Sentence
+      roles
+      reference="Al-Isra 17:33 (end)"
+      groups={[
+        { words: [{ ar: 'إِنَّهُۥ', en: 'indeed he', say: 'innahu', type: 'p' }] },
+        { words: [{ ar: 'كَانَ', en: 'was', say: 'kana', type: 'v' }] },
+        { role: 'khabarKana', words: [{ ar: 'مَنصُورًا', en: 'helped', say: 'mansuran' }] },
+      ]}
+      en={['Indeed, he was helped.']}
+    />
+  </Stage>
+
+مَنصُورًا is a done-to word. It says he is the one who is helped, not the one who helps. The helper would be نَاصِر, as in نَّٰصِرِينَ (3:22).
+
+A passive participle can be translated into English with an active verb by mistake. Check the pattern (مَفْعُول, or fatḥa before the last letter) before you choose the meaning.
+</Block>
+
+<Block id="mistake-weak" title="Mistake 4: losing the root of a weak doer word">
+  <Stage>
+    <Tiles
+      label="بَاقٍ, هَادٍ, قَائِمٌ: roots ب ق ي, ه د ي, ق و م"
+      items={[
+        { ar: 'بَاقٍ', en: 'remaining' },
+        { ar: 'هَادٍ', en: 'one who guides' },
+        { ar: 'قَائِمٌ', en: 'standing' },
+      ]}
+    />
+  </Stage>
+
+بَاقٍ and هَادٍ have two letters before the tanwīn, so a learner may look for a root of two letters. They are doer words with a last letter ي that dropped: ب ق ي and ه د ي (al-Jadwal, 16:96 and 13:7).
+
+قَائِمٌ has a hamza that stands for a weak letter: the root is ق و م (al-Jadwal, 3:18). When a doer word seems to have too few letters, or an odd hamza, think of a weak root.
+</Block>
+
+<Block id="parse-1" title="Word by word: Al-Baqarah 2:30">
+  <Stage label="Word by word">
+    <Parse
+      reference="Al-Baqarah 2:30 (part)"
+      words={[
+        { ar: 'إِنِّى', en: 'indeed I' },
+        { ar: 'جَاعِلٌ', en: 'one who makes' },
+        { ar: 'فِى', en: 'on', type: 'p' },
+        { ar: 'ٱلْأَرْضِ', en: 'the earth' },
+        { ar: 'خَلِيفَةً', en: 'a successor' },
+      ]}
+      cards={[
+        { at: 0, ar: 'إِنِّى', role: 'inna with the pronoun “I”: the ism inna', case: 'the pronoun is in the place of the accusative', why: 'The pronoun after inna takes the accusative (L2.10).', irab: 'إنّ حرف مشبه بالفعل، والياء ضمير متصل في محل نصب اسم إنّ' },
+        { at: 1, role: 'khabar of inna, and a doer word (ism fāʿil) from جَعَلَ', case: 'nominative (rafʿ)', mark: '-un (tanwīn ḍamma)', why: 'It is the news of inna. Al-Jadwal gives its pattern as فَاعِل.', irab: 'خبر إنّ مرفوع وعلامة رفعه الضمة الظاهرة' },
+        { at: [2, 3], role: 'phrase: fī “on” and “the earth”, tied to جَاعِلٌ', case: 'ٱلْأَرْضِ is genitive (jarr)', mark: '-i (kasra)', why: 'A noun after a preposition is genitive (L2.07). The phrase belongs to the doer word.', irab: 'جار ومجرور متعلق بجاعل' },
+        { at: 4, role: 'object (mafʿūl bihi) of the doer word جَاعِلٌ', case: 'accusative (naṣb)', mark: '-an (tanwīn fatḥa)', why: 'A doer word with tanwīn takes its object in the accusative.', irab: 'مفعول به لاسم الفاعل جاعل منصوب وعلامة نصبه الفتحة الظاهرة' },
+      ]}
+    />
+  </Stage>
+
+The new idea here is the last card: a noun, جَاعِلٌ, has an object. Everything else follows L2.10 (*inna*) and L2.07 (the phrase).
+</Block>
+
+<Block id="parse-2" title="Word by word: Al-Anʿam 6:95">
+  <Stage label="Word by word">
+    <Parse
+      reference="Al-Anʿam 6:95 (part)"
+      words={[
+        { ar: 'إِنَّ', en: 'indeed', type: 'p' },
+        { ar: 'ٱللَّهَ', en: 'Allah' },
+        { ar: 'فَالِقُ', en: 'splitter of' },
+        { ar: 'ٱلْحَبِّ', en: 'the grain' },
+        { ar: 'وَٱلنَّوَىٰ', en: 'and the date-stone' },
+      ]}
+      cards={[
+        { at: 0, ar: 'إِنَّ', role: '“indeed”, a little word that works on the sentence', why: 'Little words have no case (L2.10).', irab: 'حرف مشبه بالفعل ناسخ' },
+        { at: 1, role: 'ism inna', case: 'accusative (naṣb)', mark: '-a (fatḥa)', why: 'The word after inna takes the accusative.', irab: 'لفظ الجلالة اسم إنّ منصوب' },
+        { at: 2, role: 'khabar of inna, a doer word from فَلَقَ, and the first word of an idafah', case: 'nominative (rafʿ)', mark: '-u (ḍamma)', why: 'It has no tanwīn, because it has a word after it in an idafah. Al-Jadwal gives its pattern as فَاعِل.', irab: 'خبر إنّ مرفوع وعلامة رفعه الضمة الظاهرة، وهو مضاف' },
+        { at: 3, role: 'second word of the idafah (muḍāf ilayh): “of the grain”', case: 'genitive (jarr)', mark: '-i (kasra)', why: 'The second word of an idafah is genitive.', irab: 'مضاف إليه مجرور وعلامة جره الكسرة الظاهرة' },
+        { at: 4, ar: 'وَٱلنَّوَىٰ', role: '“and the date-stone”: joined to ٱلْحَبِّ', case: 'genitive (jarr)', mark: 'a hidden kasra: the word ends in a long ā', why: 'A word joined by “and” copies the case of the word before it. A long ā cannot carry a vowel mark.', irab: 'الواو عاطفة، والنوى معطوف على الحب مجرور وعلامة جره الكسرة المقدرة على الألف' },
+      ]}
+    />
+  </Stage>
+
+A doer word as the first word of an idafah: no tanwīn, and the next word is genitive.
+</Block>
+
+<Block id="parse-3" title="Word by word: Ar-Raʿd 13:7">
+  <Stage label="Word by word">
+    <Parse
+      reference="Ar-Raʿd 13:7 (end)"
+      words={[
+        { ar: 'إِنَّمَآ', en: 'only', type: 'p' },
+        { ar: 'أَنتَ', en: 'you' },
+        { ar: 'مُنذِرٌ', en: 'a warner' },
+        { ar: 'وَلِكُلِّ', en: 'and for every', type: 'p' },
+        { ar: 'قَوْمٍ', en: 'people' },
+        { ar: 'هَادٍ', en: 'a guide' },
+      ]}
+      cards={[
+        { at: 0, role: '“only”: innamā, a little word that stops inna from working', why: 'Al-Jadwal calls it kāffa and makfūfa: “holding back” and “held back”.', irab: 'إنّما كافّة ومكفوفة' },
+        { at: 1, role: 'mubtadaʾ: the pronoun “you”', case: 'in the place of the nominative', why: 'A separate pronoun keeps one shape (L2.01).', irab: 'ضمير منفصل مبني في محل رفع مبتدأ' },
+        { at: 2, role: 'khabar, a doer word from أَنذَرَ (Form IV)', case: 'nominative (rafʿ)', mark: '-un (tanwīn ḍamma)', why: 'It is the news about “you”. Its shape is مُفْعِل: مُ and a kasra before the last letter.', irab: 'خبر مرفوع وعلامة رفعه الضمة الظاهرة' },
+        { at: [3, 4], ar: 'وَلِكُلِّ قَوْمٍ', role: 'khabar put first (khabar muqaddam): lī-kulli “for every” and “people”', why: 'It is a phrase, and the mubtadaʾ is indefinite, so it comes first (L2.01).', irab: 'الواو عاطفة، لكل جار ومجرور متعلق بخبر مقدم، وقوم مضاف إليه مجرور' },
+        { at: 5, role: 'mubtadaʾ put later (mubtadaʾ muʾakhkhar), a doer word from هَدَىٰ', case: 'nominative (rafʿ)', mark: 'a hidden ḍamma: the last letter ي dropped before the tanwīn', why: 'Al-Jadwal calls it a doer word on the pattern فَاعٍ and a manqūṣ noun.', irab: 'مبتدأ مؤخر مرفوع وعلامة رفعه الضمة المقدرة على الياء المحذوفة، وهو اسم منقوص' },
+      ]}
+    />
+  </Stage>
+
+Two doer words in one verse: one from a derived form (Form IV, مُنذِرٌ) and one from a weak root (هَادٍ).
+</Block>
+
+<Block id="parse-4" title="Word by word: Al-Waqiah 56:33">
+  <Stage label="Word by word">
+    <Parse
+      reference="Al-Waqiah 56:33"
+      words={[
+        { ar: 'لَّا', en: 'not', type: 'p' },
+        { ar: 'مَقْطُوعَةٍ', en: 'cut off' },
+        { ar: 'وَلَا', en: 'and not', type: 'p' },
+        { ar: 'مَمْنُوعَةٍ', en: 'forbidden' },
+      ]}
+      cards={[
+        { at: 0, role: '“not”: a little word of denial', why: 'Little words have no case.', irab: 'لا نافية' },
+        { at: 1, role: 'adjective (naʿt) of فَٰكِهَةٍ (56:32), a done-to word from قَطَعَ', case: 'genitive (jarr), like its noun', mark: '-in (tanwīn kasra)', why: 'It copies فَٰكِهَةٍ: feminine, single, indefinite, genitive.', irab: 'نعت لفاكهة مجرور وعلامة جره الكسرة الظاهرة' },
+        { at: 2, ar: 'وَلَا', role: '“and”, with a second “not”', why: 'Al-Jadwal says the second لا is an added word of emphasis that stays.', irab: 'الواو عاطفة، ولا الثانية زائدة لازمة' },
+        { at: 3, role: 'joined to مَقْطُوعَةٍ, a done-to word from مَنَعَ', case: 'genitive (jarr)', mark: '-in (tanwīn kasra)', why: 'A word joined by “and” copies the case of the word before it. Al-Jadwal gives its pattern as مَفْعُول.', irab: 'معطوف على مقطوعة بالواو مجرور' },
+      ]}
+    />
+  </Stage>
+
+The done-to word works as an adjective and agrees with the noun, as in L2.09.
+</Block>
+
+</Step>
+
+<Step id="practice" label="Practice" title="Practice">
+<Block id="practice-1" title="Practice: build and recognise">
+  <Stage label="For each word, say">
+    <ol class="lx-card-list">
+      <li><b>Kind:</b> doer word or done-to word?</li>
+      <li><b>Pattern:</b> فَاعِل, مَفْعُول, or مُ plus the present shape?</li>
+      <li><b>Root:</b> which letters? Is a letter weak?</li>
+      <li><b>Job:</b> khabar, adjective, first word of an idafah?</li>
+    </ol>
+  </Stage>
+
+Work out each answer first. Then open the answer.
+
+<Exercise n={1} q="Build the doer word (فَاعِل) from each verb: (a) نَصَرَ (he helped) (b) ظَلَمَ (he wronged) (c) شَكَرَ (he thanked) (d) فَتَحَ (he opened). These are made-up exercises with real words.">
+
+- (a) نَاصِرٌ, “helper”.
+- (b) ظَالِمٌ, “wrongdoer”.
+- (c) شَاكِرٌ, “one who thanks”.
+- (d) فَاتِحٌ, “opener”.
+
+Alif after the first letter, kasra on the second.
+
+</Exercise>
+
+<Exercise n={2} q="Build the done-to word (مَفْعُول) from each verb: (a) ذَكَرَ (he remembered) (b) شَكَرَ (he thanked) (c) فَعَلَ (he did) (d) غَفَرَ (he forgave). These are made-up exercises with real words.">
+
+- (a) مَذْكُورٌ, “remembered”, as in 76:1.
+- (b) مَشْكُورٌ, “thanked”, as in 17:19.
+- (c) مَفْعُولٌ, “done”, as in 4:47.
+- (d) مَغْفُورٌ, “forgiven”.
+
+A مَ in front, sukūn on the first letter, ḍamma on the second, و before the last.
+
+</Exercise>
+
+<Exercise n={3} q="Give the doer word and the done-to word of each present verb: (a) يُصَدِّقُ (b) يُرْسِلُ (c) يَسْتَضْعِفُ. These are made-up exercises with real words.">
+
+- (a) مُصَدِّقٌ (kasra before the last letter) and مُصَدَّقٌ (fatḥa).
+- (b) مُرْسِلٌ and مُرْسَلٌ.
+- (c) مُسْتَضْعِفٌ and مُسْتَضْعَفٌ. You see the second in ٱلْمُسْتَضْعَفِينَ (4:75).
+
+Replace the prefix with مُ, then choose kasra or fatḥa before the last letter.
+
+</Exercise>
+
+<Exercise n={4} q="Doer word or done-to word? (a) فَالِقُ (Al-Anʿam 6:95) (b) مَّمْدُودٍ (Al-Waqiah 56:30) (c) مُّكَرَّمَةٍ (Abasa 80:13) (d) مُخْرَجِينَ (Al-Hijr 15:48) (e) مُصَدِّقًا (Al-Baqarah 2:41)">
+
+- (a) **Doer word**: فَاعِل, “splitter”.
+- (b) **Done-to word**: مَفْعُول, “stretched out”.
+- (c) **Done-to word**: Form II, fatḥa before the last letter (before the ة).
+- (d) **Done-to word**: Form IV, fatḥa before the ين ending.
+- (e) **Doer word**: Form II, kasra before the last letter.
+
+</Exercise>
+
+<Exercise n={5} q="Find the doer word and its object: وَلَآ ءَآمِّينَ ٱلْبَيْتَ ٱلْحَرَامَ (Al-Maidah 5:2, part). Meaning: “and do not [harm] those heading for the Sacred House.”">
+
+ءَآمِّينَ is the doer word, “those heading for”, plural, with -īna. Its object is ٱلْبَيْتَ, accusative (-a). ٱلْحَرَامَ describes ٱلْبَيْتَ. Al-Jadwal calls ٱلْبَيْتَ “the object of the doer word”.
+
+</Exercise>
+
+<Exercise n={6} q="What is the job of the doer word, and why does it end in -ūna? وَأَنتُمْ ظَٰلِمُونَ (Al-Baqarah 2:92, end). Meaning: “and you were wrongdoers.”">
+
+ظَٰلِمُونَ is the **khabar** of أَنتُمْ. It is nominative, and the mark is -ūna: a sound masculine plural shows the nominative with a و (L2.04). It comes from the root ظ ل م.
+
+</Exercise>
+
+<Exercise n={7} q="What is the root of the doer word, and what is its job? وَمَا عِندَ ٱللَّهِ بَاقٍ (An-Nahl 16:96, part). Meaning: “and what is with Allah remains.”">
+
+بَاقٍ comes from the root **ب ق ي**. The last ي dropped before the tanwīn, so al-Jadwal calls it a *manqūṣ* noun. It is the **khabar** of مَا, and its ḍamma is hidden.
+
+</Exercise>
+</Block>
+
+<Block id="practice-2" title="Practice: verb or participle, agreement and review">
+<Exercise n={8} q="One verse has a verb and a doer word with almost the same meaning. Find both and say what each does: يُخْرِجُ ٱلْحَىَّ مِنَ ٱلْمَيِّتِ وَمُخْرِجُ ٱلْمَيِّتِ مِنَ ٱلْحَىِّ (Al-Anʿam 6:95, part).">
+
+- يُخْرِجُ is a **verb** (present, Form IV). Its object ٱلْحَىَّ is accusative.
+- مُخْرِجُ is a **doer word** (kasra before the last letter). It is the first word of an idafah, so ٱلْمَيِّتِ is genitive.
+
+Both say “brings out”. Al-Jadwal says the verse switches from the verb to the doer word in its notes on style.
+
+</Exercise>
+
+<Exercise n={9} q="Why are both words feminine, single and genitive? لَّا مَقْطُوعَةٍ وَلَا مَمْنُوعَةٍ (Al-Waqiah 56:33).">
+
+Both describe فَٰكِهَةٍ, “fruit” (56:32), which is feminine, single, indefinite and genitive. A describing word copies its noun (L2.09). So each ends in -atin.
+
+</Exercise>
+
+<Exercise n={10} q="Is each of these a participle? ٱلرَّحْمَٰنِ ٱلرَّحِيمِ (Al-Fatihah 1:3)">
+
+No. Both are adjectives of ٱللَّهِ on the patterns فَعْلَٰن and فَعِيل. A participle needs فَاعِل, مَفْعُول or the مُ shape.
+
+</Exercise>
+
+<Exercise n={11} q="Review L2.12: what is شَانِئَكَ (Al-Kawthar 108:3, part), and which case is it in?">
+
+شَانِئَ is a doer word on the pattern فَاعِل, from the verb شَنِئَ, “he hated”, root ش ن أ. In 108:3 it is the *ism inna*, so it is accusative (-a). كَ is its second word in an idafah: “the one who hates you”.
+
+</Exercise>
+
+<Exercise n={12} q="Build both words from the root ر ز ق (to provide), then use one in a sentence. This is a made-up example.">
+
+The doer word is رَازِقٌ, “provider”. The done-to word is مَرْزُوقٌ, “provided for”.
+
+Made-up sentence: ٱللَّهُ رَازِقٌ, “Allah is a provider.” It is a nominal sentence: ٱللَّهُ is the mubtadaʾ and رَازِقٌ is the khabar, with -un.
+
+</Exercise>
+</Block>
+
+<Block id="done" title="You have finished the lesson">
+  <Stage label="The idea">
+    <Formula
+      label="a root plus the doer pattern equals a doer word"
+      items={[
+        { kind: 'm', text: 'root', small: 'ك ت ب' },
+        { kind: 'k', text: 'pattern', small: 'فَاعِل or مَفْعُول' },
+        { kind: 's', text: 'participle', small: 'كَاتِب, مَكْتُوب' },
+      ]}
+    />
+  </Stage>
+
+- A **doer word** (*ism fāʿil*, active participle) names the one who does the action. A **done-to word** (*ism mafʿūl*, passive participle) names the one the action is done to.
+- Form I: **فَاعِل** and **مَفْعُول**. Forms II to X: **مُ** plus the present shape, with **kasra** before the last letter for the doer word and **fatḥa** for the done-to word.
+- Both are nouns: they take case endings, ٱلْ, tanwīn, gender and number, and they can describe a noun.
+- A doer word can take an object: accusative after a tanwīn or a plural -īna, genitive when it is the first word of an idafah. It stays a noun, so the sentence stays nominal.
+- It has no time of its own. The sentence tells you when.
+- Not every describing word is a participle. ٱلرَّحْمَٰنِ, ٱلرَّحِيمِ and عَلِيمٌ are not.
+- Weak roots hide letters: قَائِمٌ, مُقِيمٌ, بَاقٍ. L4.11 to L4.13 teach the changes.
+
+**Next:** L3.20 teaches the verbal noun, the noun for the action itself. L3.21 teaches nouns of place and time. L4.01 teaches the ḥāl, where doer words are common.
+
+<Sources
+    items={[
+      { label: 'Quran text', name: 'Tanzil (Uthmani text)', href: 'https://tanzil.net' },
+      { label: 'Word types, forms, participle tags; counts', name: 'Quranic Arabic Corpus', href: 'https://corpus.quran.com' },
+      { label: 'Word-by-word analysis (iʿrāb) and the ṣarf notes (patterns) of the verses', name: 'Maḥmūd Ṣāfī, al-Jadwal fī Iʿrāb al-Qurʾān wa-Ṣarfihi wa-Bayānihi' },
+      { label: 'English under the verses', name: 'Plain-English meanings by Quran Learn, not a translation' },
+    ]}
+  />
+</Block>
+
+</Step>
