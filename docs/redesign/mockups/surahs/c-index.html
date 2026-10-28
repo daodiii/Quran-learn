@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Surahs · C Index</title>
+<link rel="stylesheet" href="surahs.css">
+<style>
+/* C Index: one dense table for someone who knows what they want. Sort by any column, narrow by level,
+   place of revelation or difficulty. Every surah is one line; the whole row is the link. */
+.top{padding-block:clamp(16px,3vw,36px) 0;display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:10px 40px}
+.top .h1{font-size:clamp(2rem,1.2rem + 2.2vw,3.25rem)}
+.top .dek{margin-top:10px;max-width:34em}
+
+.tools{display:flex;flex-direction:column;gap:14px;margin-top:clamp(20px,2.5vw,30px);padding:18px;border-radius:24px;background:var(--soft)}
+.tools .find{max-width:440px;flex:1 1 320px}
+.tools .find input{min-height:52px}
+.bar{display:flex;flex-wrap:wrap;align-items:center;gap:12px 28px}
+.grp{display:flex;flex-wrap:wrap;align-items:center;gap:6px}
+.grp .chips-l{margin-right:4px}
+.grp .chip{padding:0 14px}
+.opts{display:flex;flex-wrap:wrap;align-items:center;gap:12px 28px}
+.sortsel{display:none;align-items:center;gap:10px}
+.sortsel select{min-height:44px;padding:0 36px 0 14px;border-radius:999px;border:1.5px solid var(--edge);background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23444' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") no-repeat right 12px center / 16px;-webkit-appearance:none;appearance:none;font-size:.9375rem}
+.fbtn{display:none}
+.status{display:flex;flex-wrap:wrap;align-items:center;gap:6px 16px;margin:18px 0 8px;min-height:44px}
+.link{min-height:44px;padding:0 4px;border:0;background:none;cursor:pointer;color:var(--ink);text-decoration:underline;text-decoration-color:var(--line-2);text-underline-offset:4px;font-size:.9375rem}
+.link:hover{text-decoration-color:currentColor}
+
+/* the table */
+.tbl{--cols:68px minmax(150px,.9fr) 132px minmax(0,1.5fr) 132px 74px 138px 92px;font-size:1rem}
+.hd,.r{display:grid;grid-template-columns:var(--cols);column-gap:18px;align-items:center}
+.hd{position:sticky;top:0;z-index:4;background:var(--page);border-bottom:2px solid var(--ink);padding:0 14px}
+.hd > div{display:flex;align-items:center;min-height:52px}
+.hd button{display:inline-flex;align-items:center;gap:6px;min-height:44px;padding:0 6px;margin-left:-6px;border:0;border-radius:10px;background:none;cursor:pointer;font-weight:500;font-size:.9375rem;color:var(--muted);white-space:nowrap;transition:background-color .15s,color .15s}
+.hd button:hover{background:var(--soft);color:var(--ink)}
+.hd button svg{width:15px;height:15px;opacity:.55}
+.hd [aria-sort="ascending"] button,.hd [aria-sort="descending"] button{color:var(--ink)}
+.hd [aria-sort] button svg{opacity:1}
+.hd .plain{font-weight:500;font-size:.9375rem;color:var(--muted)}
+.hd .rt{justify-content:flex-end;padding-right:14px}
+.rows{display:flex;flex-direction:column}
+.r{position:relative;min-height:60px;padding:4px 14px;border-bottom:1px solid var(--soft-2);transition:background-color .15s}
+.r:hover{background:var(--soft)}
+.r:focus-within{background:var(--soft);outline:3px solid var(--focus);outline-offset:-3px;border-radius:12px}
+.r[hidden]{display:none}
+.r .n{font-size:.9375rem;font-weight:500;font-variant-numeric:tabular-nums;color:var(--muted)}
+.r .en a{display:inline-flex;align-items:center;min-height:44px;min-width:44px;font-weight:500;font-size:1.0625rem;letter-spacing:-.01em;text-decoration:none}
+.r .en a:focus-visible{outline:none}
+.r .en a::after{content:"";position:absolute;inset:0}
+.r .nm{font-size:1.75rem;line-height:1.4;color:var(--ink);text-align:left}
+.r .op{font-size:1.5rem;line-height:1.9;color:var(--text);text-align:right;padding-right:14px}
+.r .vs{display:flex;align-items:center;gap:10px;font-variant-numeric:tabular-nums}
+.r .vs b{font-weight:500;min-width:2ch;text-align:right}
+.r .vs i{flex:1;height:6px;border-radius:3px;background:var(--soft-2);overflow:hidden}
+.r .vs s{display:block;height:100%;width:var(--w);background:var(--accent);border-radius:3px}
+.r .lv{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--teal-tint);color:var(--accent);font-weight:600;font-size:.9375rem}
+.r .df{display:inline-flex;align-items:center;gap:8px;font-size:.9375rem}
+.bars{display:inline-flex;align-items:flex-end;gap:2px;height:14px}
+.bars s{display:block;width:4px;border-radius:1px;background:var(--soft-2);text-decoration:none}
+.bars s:nth-child(1){height:6px}.bars s:nth-child(2){height:10px}.bars s:nth-child(3){height:14px}
+.bars s.on{background:var(--ink)}
+.r .pl{font-size:.9375rem;color:var(--muted)}
+.r .pl.med{color:var(--accent-2-text);font-weight:500}
+.r .tags,.r .meta{display:none}
+.tbl:has(.hd [aria-sort="ascending"] button[data-k="verses"],.hd [aria-sort="descending"] button[data-k="verses"]) .r .vs s{background:var(--ink)}
+
+@media (max-width:1180px){
+  .tbl{--cols:60px minmax(130px,.9fr) 120px minmax(0,1.3fr) 120px 60px 120px 84px;font-size:.9375rem}
+  .hd,.r{column-gap:12px}
+  .r .nm{font-size:1.5rem}.r .op{font-size:1.375rem}
+}
+@media (max-width:980px){
+  .tbl{--cols:56px minmax(120px,1fr) 110px 120px 56px 118px 80px}
+  .hd .c-op,.r .op{display:none}
+}
+@media (max-width:820px){
+  .tools{padding:12px;gap:10px;border-radius:20px}
+  .top{padding-block:12px 0}
+  .top .dek{display:none}
+  .find-row{display:flex;gap:8px}
+  .tools .find{max-width:none;flex:1 1 auto}
+  .tools .find input{font-size:1rem;padding-left:48px}
+  .grp .chips-l{flex-basis:100%}
+  .fbtn{display:inline-flex;align-items:center;gap:6px;min-height:52px;padding:0 14px;border-radius:999px;border:1.5px solid oklch(85% 0.01 240);background:#fff;cursor:pointer;font-size:.9375rem}
+  .fbtn[aria-expanded="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
+  .fbtn svg{width:18px;height:18px}
+  .fbtn .nf{display:none;min-width:20px;height:20px;padding:0 6px;border-radius:10px;background:var(--accent-2);color:#fff;font-size:.75rem;font-weight:600;line-height:20px;text-align:center}
+  .fbtn.on .nf{display:inline-block}
+  .opts{display:none;flex-direction:column;align-items:stretch;gap:10px}
+  .opts.open{display:flex}
+  .grp{flex-wrap:wrap}
+  .sortsel{display:flex}
+  .status{margin:10px 0 0;justify-content:space-between}
+  .hd{display:none}
+  .r{grid-template-columns:44px minmax(0,1fr) auto;grid-template-areas:"n en nm" "n tags tags";min-height:0;padding:12px 6px;row-gap:4px;column-gap:8px}
+  .r .n{grid-area:n;align-self:start;padding-top:4px}
+  .r .en{grid-area:en;align-self:center}
+  .r .nm{grid-area:nm;font-size:1.875rem;line-height:1.3;text-align:right}
+  .r .lv,.r .df,.r .pl,.r .vs,.r .op{display:none}
+  .r .tags{grid-area:tags;display:flex;flex-wrap:wrap;gap:4px 8px;align-items:center;font-size:.875rem;color:var(--muted)}
+  .r .tags span + span::before{content:"·";margin-right:8px}
+  .r .tags .tlv{color:var(--accent);font-weight:500}
+  .r:focus-within{outline-offset:-3px}
+}
+</style></head>
+<body>
+<a class="skip" href="#table">Skip to the table</a>
+<header class="site">
+  <a class="brand" href="#" aria-label="Quranic Grammar, home"><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="1" y="1" width="30" height="30" rx="9" fill="oklch(18% 0.03 240)"/><path d="M9 19h14" stroke="#fff" stroke-width="2" stroke-linecap="round"/><circle cx="16" cy="12" r="2.6" fill="oklch(79% 0.14 72)"/><circle cx="16" cy="24.5" r="1.6" fill="#fff"/></svg><span>Quranic Grammar</span></a>
+  <nav aria-label="Primary"><a href="#">Learn</a><a href="#" aria-current="page">Surahs</a><a href="#">Resources</a><a href="#">About</a></nav>
+</header>
+
+<main class="wrap" id="main">
+  <section class="top" aria-labelledby="h">
+    <h1 class="h1" id="h">Every surah, at a glance.</h1>
+    <p class="dek" id="dek"></p>
+  </section>
+
+  <section class="tools" aria-label="Find and sort">
+    <div class="find-row"><div id="tools" style="flex:1 1 320px;max-width:440px;min-width:0"></div><button class="fbtn" id="fbtn" type="button" aria-expanded="false" aria-controls="opts"></button></div>
+    <div class="opts" id="opts"></div>
+  </section>
+
+  <div class="status">
+    <p class="count" id="count" aria-live="polite"></p>
+    <button class="link" id="resetf" type="button" hidden>Reset filters</button>
+    <label class="sortsel"><span class="count">Sort</span><select id="sortsel" aria-label="Sort surahs"></select></label>
+  </div>
+
+  <div class="tbl" id="table" role="table" aria-label="Analysed surahs" aria-rowcount="39">
+    <div role="rowgroup"><div class="hd" role="row" id="hd"></div></div>
+    <div role="rowgroup" class="rows" id="list"></div>
+  </div>
+  <div id="emptyhost"></div>
+</main>
+<footer class="foot"><span>Quranic Grammar</span><a href="#">Learn</a><a href="#">Resources</a><a href="#">About and feedback</a></footer>
+
+<script src="surahs-data.js"></script>
+<script src="surahs.js"></script>
+<script>
+const U = SurahUI, D = U.D, S = U.S, esc = U.esc;
+const maxV = Math.max(...S.map(s => s.verses));
+const DIFF = { beginner: 1, intermediate: 2, advanced: 3 };
+const cap = s => s[0].toUpperCase() + s.slice(1);
+
+document.querySelector('#dek').textContent = `Sort by length, level or place of revelation. ${S.length} of the Quran’s ${D.quran.surahs} surahs are analysed so far.`;
+document.querySelector('#tools').innerHTML = U.findHTML('Name or number');
+document.querySelector('#emptyhost').innerHTML = U.emptyHTML();
+
+// Filter groups
+const FILTERS = {
+  lv: { label: 'Level', all: 'All', items: D.levels.map(l => [String(l.n), String(l.n), `Level ${l.n}, ${l.title}`]) },
+  pl: { label: 'Revealed', all: 'All', items: [['Meccan', 'Meccan', 'Meccan'], ['Medinan', 'Medinan', 'Medinan']] },
+  df: { label: 'Difficulty', all: 'All', items: Object.keys(DIFF).map(k => [k, cap(k), cap(k)]) },
+};
+const fstate = { lv: '', pl: '', df: '' };
+document.querySelector('#opts').innerHTML = Object.entries(FILTERS).map(([k, f]) => `<div class="grp" role="group" aria-label="${f.label}" data-f="${k}">
+  <span class="chips-l" aria-hidden="true">${f.label}</span>
+  <button class="chip" type="button" data-v="" aria-pressed="true">${f.all}</button>
+  ${f.items.map(([v, t, a]) => `<button class="chip" type="button" data-v="${v}" aria-pressed="false" aria-label="${f.label}: ${esc(a)}">${esc(t)}</button>`).join('')}
+</div>`).join('');
+document.querySelector('#fbtn').innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M7 12h10M10 17h4"/></svg>Filters<span class="nf" id="nf"></span>`;
+
+// Header: each sortable column is a button.
+const COLS = [
+  { k: 'num', t: 'No.', sort: true, cls: '' },
+  { k: 'name', t: 'Surah', sort: true, cls: '' },
+  { k: 'ar', t: 'Arabic', sort: false, cls: '' },
+  { k: 'op', t: 'Opening words', sort: false, cls: 'c-op rt' },
+  { k: 'verses', t: 'Verses', sort: true, cls: '' },
+  { k: 'level', t: 'Level', sort: true, cls: '' },
+  { k: 'diff', t: 'Difficulty', sort: true, cls: '' },
+  { k: 'rev', t: 'Revealed', sort: true, cls: '' },
+];
+const SORTIC = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path class="u" d="M8 10l4-4 4 4"/><path class="d" d="M8 14l4 4 4-4"/></svg>';
+document.querySelector('#hd').innerHTML = COLS.map(c => c.sort
+  ? `<div role="columnheader" class="${c.cls}" data-k="${c.k}" aria-sort="none"><button type="button" data-k="${c.k}">${c.t}${SORTIC}</button></div>`
+  : `<div role="columnheader" class="plain ${c.cls}">${c.t}</div>`).join('');
+
+const KEY = {
+  num: s => s.num, name: s => U.norm(s.name), verses: s => s.verses, level: s => s.level, diff: s => DIFF[s.diff], rev: s => s.rev,
+};
+const SORTS = [
+  ['num:1', 'Quran order'], ['num:-1', 'Quran order, last first'], ['name:1', 'Name, A to Z'], ['name:-1', 'Name, Z to A'],
+  ['verses:1', 'Verses, fewest first'], ['verses:-1', 'Verses, most first'], ['level:1', 'Level, 1 first'], ['level:-1', 'Level, 5 first'],
+  ['diff:1', 'Difficulty, easiest first'], ['diff:-1', 'Difficulty, hardest first'], ['rev:1', 'Revealed, Meccan first'], ['rev:-1', 'Revealed, Medinan first'],
+];
+document.querySelector('#sortsel').innerHTML = SORTS.map(([v, t]) => `<option value="${v}">${t}</option>`).join('');
+
+// Rows
+const list = document.querySelector('#list');
+const els = new Map();
+S.forEach((s, i) => {
+  const row = document.createElement('div');
+  row.className = 'r'; row.setAttribute('role', 'row'); row.setAttribute('aria-rowindex', i + 2);
+  row.innerHTML = `
+    <div role="cell" class="n">${U.pad(s.num)}</div>
+    <div role="cell" class="en"><a href="${U.link(s)}">${esc(s.name)}</a></div>
+    <div role="cell" class="ar nm" lang="ar" dir="rtl">${esc(s.ar)}</div>
+    <div role="cell" class="q op" lang="ar" dir="rtl">${esc(s.open)}</div>
+    <div role="cell" class="vs"><b>${s.verses}</b><i aria-hidden="true"><s style="--w:${Math.round(100 * s.verses / maxV)}%"></s></i></div>
+    <div role="cell"><span class="lv" aria-label="Level ${s.level}">${s.level}</span></div>
+    <div role="cell"><span class="df"><span class="bars" aria-hidden="true">${[1, 2, 3].map(i => `<s class="${i <= DIFF[s.diff] ? 'on' : ''}"></s>`).join('')}</span>${cap(s.diff)}</span></div>
+    <div role="cell" class="pl${s.rev === 'Medinan' ? ' med' : ''}">${s.rev}</div>
+    <div class="tags" aria-hidden="true"><span>${U.plural(s.verses, 'verse', 'verses')}</span><span class="tlv">Level ${s.level}</span><span>${cap(s.diff)}</span><span>${s.rev}</span></div>`;
+  els.set(s.num, row);
+  list.appendChild(row);
+});
+
+// Sort + filter
+let sort = { k: 'num', dir: 1 };
+const count = document.querySelector('#count'), empty = document.querySelector('#empty'), resetf = document.querySelector('#resetf');
+function apply() {
+  const ws = U.words(find.value);
+  const sorted = [...S].sort((a, b) => {
+    const x = KEY[sort.k](a), y = KEY[sort.k](b);
+    return (x < y ? -1 : x > y ? 1 : 0) * sort.dir || a.num - b.num;
+  });
+  let shown = 0;
+  sorted.forEach(s => {
+    const ok = U.textMatch(s, ws, false) && (!fstate.lv || String(s.level) === fstate.lv) && (!fstate.pl || s.rev === fstate.pl) && (!fstate.df || s.diff === fstate.df);
+    const r = els.get(s.num); r.hidden = !ok; list.appendChild(r); if (ok) shown++;
+  });
+  const active = ws.length > 0 || Object.values(fstate).some(Boolean);
+  const nf = Object.values(fstate).filter(Boolean).length;
+  count.textContent = active ? `${shown} of ${S.length} surahs` : `${S.length} surahs`;
+  resetf.hidden = !active;
+  empty.hidden = shown !== 0;
+  document.querySelector('#table').hidden = shown === 0;
+  document.querySelector('#nf').textContent = nf; document.querySelector('#fbtn').classList.toggle('on', nf > 0);
+  document.querySelectorAll('#hd [role=columnheader][data-k]').forEach(h => h.setAttribute('aria-sort', h.dataset.k === sort.k ? (sort.dir === 1 ? 'ascending' : 'descending') : 'none'));
+  document.querySelectorAll('#hd .d,#hd .u').forEach(p => p.style.opacity = '');
+  const h = document.querySelector(`#hd [data-k="${sort.k}"]`);
+  if (h) { h.querySelector(sort.dir === 1 ? '.d' : '.u').style.opacity = '.25'; }
+  document.querySelector('#sortsel').value = `${sort.k}:${sort.dir}`;
+}
+const find = U.wireFind(apply);
+document.querySelectorAll('#hd button[data-k]').forEach(b => b.addEventListener('click', () => {
+  const k = b.dataset.k;
+  sort = { k, dir: sort.k === k ? -sort.dir : 1 };
+  apply();
+}));
+document.querySelector('#sortsel').addEventListener('change', e => { const [k, d] = e.target.value.split(':'); sort = { k, dir: +d }; apply(); });
+document.querySelectorAll('.grp').forEach(g => g.querySelectorAll('.chip').forEach(c => c.addEventListener('click', () => {
+  fstate[g.dataset.f] = c.dataset.v;
+  g.querySelectorAll('.chip').forEach(o => o.setAttribute('aria-pressed', String(o === c)));
+  apply();
+})));
+function resetAll() {
+  Object.keys(fstate).forEach(k => fstate[k] = '');
+  document.querySelectorAll('.grp').forEach(g => g.querySelectorAll('.chip').forEach((o, i) => o.setAttribute('aria-pressed', String(i === 0))));
+  find.clear();
+}
+resetf.addEventListener('click', resetAll);
+document.querySelector('#reset').addEventListener('click', resetAll);
+const fbtn = document.querySelector('#fbtn');
+fbtn.addEventListener('click', () => { const o = document.querySelector('#opts'); const open = !o.classList.contains('open'); o.classList.toggle('open', open); fbtn.setAttribute('aria-expanded', String(open)); });
+apply();
+</script>
+</body></html>
