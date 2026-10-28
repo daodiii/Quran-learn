@@ -1,5 +1,6 @@
 // Screenshots the hero mockups at three widths, headless.
-//   node docs/redesign/mockups/home/shots.mjs [a b c compare]
+//   node docs/redesign/mockups/home/shots.mjs [a b c compare trust-a trust-b trust-c]
+//   CHR=<path to a Chromium> uses that browser instead of Chrome.
 import { chromium } from '@playwright/test';
 import { mkdirSync } from 'node:fs';
 import { dirname, join } from 'node:path';
@@ -15,9 +16,9 @@ const sizes = [
   ['phone', 390, 844],
 ];
 
-const browser = await chromium.launch({ channel: 'chrome', headless: true });
+const browser = await chromium.launch(process.env.CHR ? { executablePath: process.env.CHR, headless: true } : { channel: 'chrome', headless: true });
 for (const n of names) {
-  const file = n === 'compare' ? 'compare.html' : `hero-${n}.html`;
+  const file = n === 'compare' ? 'compare.html' : n.startsWith('trust-') ? `${n}.html` : `hero-${n}.html`;
   for (const [tag, w, h] of sizes) {
     const ctx = await browser.newContext({ viewport: { width: w, height: h }, deviceScaleFactor: tag === 'phone' ? 2 : 1 });
     const page = await ctx.newPage();

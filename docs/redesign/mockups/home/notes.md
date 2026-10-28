@@ -2,6 +2,16 @@
 
 Open `compare.html` for the side-by-side, or any `hero-*.html` for the working mockup. `node docs/redesign/mockups/home/shots.mjs a b c compare` rebuilds the screenshots in `shots/`.
 
+## Trust area: three takes (Sonnet 5.5)
+
+Open `trust-a.html`, `trust-b.html`, `trust-c.html`. Each shows the learner quotes under the hero and the sources / free / mistakes trio near the foot, on the page's own Oasis tokens. Quotes are the three in `src/data/testimonials.ts` (owner confirmed they are real). `node docs/redesign/mockups/home/shots.mjs trust-a trust-b trust-c` rebuilds the screenshots.
+
+- **A Proof, set large**: one quote at full scale on the Oasis field, with the grammar it talks about shown beside it (aḥad, -un, rafʿ); the other two on white cards. Trio as a bento: "Free" fills a tall Oasis card, sources as four chips, a "Report it" demo that opens a form.
+- **B The colophon**: quotes beside a page of the Blue Qur'an; the trio set like a manuscript colophon under a band of the 8th-9th century folio, with its red vowel dots as markers: "Copied from sources you can check", "Given freely", "Corrected when wrong". Uses the real pictures and credits in `assets/credits.json`.
+- **C Shown, not told**: quotes as cards that stack on scroll, each beside the Arabic word it is about (فَهْم, إِعْرَاب, دَرْس; decoration only). Trio as three working objects: a sample lesson footer where tapping a source lights up what it feeds, a receipt that totals to Free, and a verse where you tap a word to report it.
+
+To confirm before any is built: the role label for each source ("Textbook", "Classical grammar"); the sample sentence in A and the footer in C are illustrations, so the source-to-part mapping in C needs a check against the lessons; "we fix it" is old copy. Report demos do nothing real yet; the built version posts to the existing Web3Forms form.
+
 ## The final two: M3 made live (Opus)
 
 Shared library: `tools.js` + `tools.css`. Each tool mounts into an element and returns `demo()`, `stop()`, `resume()`. A demo is a short scripted run; any pointer or key input inside the tool stops it for good.

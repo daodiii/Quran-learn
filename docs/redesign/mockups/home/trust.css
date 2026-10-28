@@ -1,0 +1,18 @@
+/* Trust mockups (trust-a/b/c.html): the learner quotes under the hero and the sources / free / mistakes trio near the foot.
+   Tokens come from home.css and body.css; this file only frames each mockup as a slice of the real page. */
+body{margin:0}
+.wrap{max-width:1320px;margin:0 auto;padding-inline:var(--gutter)}
+.sec{padding-block:clamp(56px,8vw,112px) 0}
+.sec-head{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:24px 64px;align-items:end;margin-bottom:clamp(28px,4vw,48px)}
+.sec-head h2{margin:0;font-weight:600;font-size:clamp(2rem,1.2rem + 2.6vw,3.5rem);line-height:1.02;letter-spacing:-.04em;text-wrap:balance}
+.sec-head p{margin:0;color:var(--muted);font-size:1.0625rem;line-height:1.55}
+@media (max-width:900px){.sec-head{grid-template-columns:minmax(0,1fr)}}
+
+/* stands in for the hero and the sections that sit between the two new areas */
+.ph{display:grid;place-items:center;margin-top:clamp(40px,6vw,72px);padding:clamp(28px,5vw,64px) 24px;border-radius:24px;background:var(--soft);color:var(--muted);font-size:.9375rem;text-align:center}
+.ph.hero{margin-top:0;border-radius:0;padding-block:clamp(72px,10vw,140px);background:var(--oasis)}
+.ph b{display:block;color:var(--ink);font-weight:600;font-size:1.0625rem;margin-bottom:2px}
+.credit{margin:12px 0 0;font-size:.8125rem;color:var(--muted)}
+.credit a{color:inherit}
+.tail{height:clamp(56px,8vw,112px)}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
