@@ -210,23 +210,6 @@ const step = LESSON_STEPS[1];
 </section>
 
 <div class="wrap">
-  <!-- Learner quotes, kept close to the top so a first-time visitor sees the page is worth their time.
-       The quotes (and the Arabic word beside each) live in src/data/testimonials.ts. -->
-  <section class="sec voices-sec" aria-labelledby="voices-h">
-    <div class="sec-head"><div><p class="eyebrow">From learners</p><h2 id="voices-h">It finally makes sense.</h2></div><p>Students, self-learners and teachers, on what changed when they started reading the Quran word by word.</p></div>
-    <div class="stack">
-      {testimonials.map((t, i) => (
-        <figure class={`sc k${(i % 3) + 1}`} style={`--i:${i}`}>
-          <div class="sc-t">
-            <blockquote><p>{t.text}</p></blockquote>
-            <figcaption class="who"><span class="mono" aria-hidden="true">{t.name.charAt(0)}</span><span><b>{t.name}</b>{t.role && <small>{t.role}</small>}</span></figcaption>
-          </div>
-          {t.word && <div class="sc-w" aria-hidden="true"><span class="ar" lang="ar">{t.word.ar}</span><small>{t.word.en}</small></div>}
-        </figure>
-      ))}
-    </div>
-  </section>
-
   <!-- The course map: one card per level, with a small sample of what it teaches.
        The bar under each card has a segment per lesson; src/scripts/home.ts fills them from saved progress. -->
   <section class="sec" aria-labelledby="levels-h">
@@ -270,6 +253,22 @@ const step = LESSON_STEPS[1];
           </div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- Learner quotes, after the reader so a visitor has seen the product first. Each card takes one of three tints.
+       The quotes live in src/data/testimonials.ts. -->
+  <section class="sec" aria-labelledby="voices-h">
+    <div class="sec-head"><div><p class="eyebrow">From learners</p><h2 id="voices-h">It finally makes sense.</h2></div><p>Students, self-learners and teachers, on what changed when they started reading the Quran word by word.</p></div>
+    <div class="stack">
+      {testimonials.map((t, i) => (
+        <figure class={`sc k${(i % 3) + 1}`} style={`--i:${i}`}>
+          <div class="sc-t">
+            <blockquote><p>{t.text}</p></blockquote>
+            <figcaption class="who"><span class="mono" aria-hidden="true">{t.name.charAt(0)}</span><span><b>{t.name}</b>{t.role && <small>{t.role}</small>}</span></figcaption>
+          </div>
+        </figure>
+      ))}
     </div>
   </section>
 
