@@ -1,711 +1,862 @@
 ---
-title: "The Root System (Jadhr)"
+title: "The Root System"
+kicker: "How to find a root and name a pattern"
+titleArabic: "الجَذْر وَالوَزْن"
 level: 3
 order: 3
-description: "Understand trilateral roots as the foundation of Arabic words, learn to extract roots from derived words, and master dictionary lookup strategy."
+template: steps
+description: "Learn the method behind roots and patterns: peel a word to find its root, name its pattern with the scale ف ع ل, look a root up in a dictionary, and meet the ten verb forms, the noun patterns, four-letter roots and the roots that hide a letter. Four verses are taken word by word."
 draft: false
 ---
 
-import ArabicExample from '../../../components/mdx/ArabicExample.astro';
-import GrammarTable from '../../../components/mdx/GrammarTable.astro';
-import Callout from '../../../components/mdx/Callout.astro';
-import ExerciseBox from '../../../components/mdx/ExerciseBox.astro';
-
-## Introduction
-
-Welcome to Level 3! You've mastered how Arabic sentences work — how nouns and verbs relate to each other through case endings. Now you're ready to discover how the WORDS THEMSELVES are built.
-
-<ArabicExample
-  arabic="ذَٰلِكَ ٱلْكِتَابُ لَا رَيْبَ فِيهِ"
-  transliteration="dhālika l-kitābu lā rayba fīhi"
-  translation="That is the Book; in it is no doubt"
-  reference="Al-Baqarah 2:2"
-  highlight="ٱلْكِتَابُ"
-  words={[
-    { ar: "ذَٰلِكَ", tr: "dhālika", en: "that" },
-    { ar: "ٱلْكِتَابُ", tr: "l-kitābu", en: "the Book" },
-    { ar: "لَا", tr: "lā", en: "no" },
-    { ar: "رَيْبَ", tr: "rayba", en: "doubt" },
-    { ar: "فِيهِ", tr: "fīhi", en: "in it" }
-  ]}
-/>
-
-The word **ٱلْكِتَابُ** (al-kitābu) "the Book" comes from a three-letter [root](/resources/glossary/#jadhr) (jadhr / جَذْرٌ): **ك-ت-ب** (k-t-b), which carries the core meaning of "writing." From these same three letters come dozens of related words: كَاتِبٌ (kātibun) "writer," مَكْتُوبٌ (maktūbun) "written," مَكْتَبٌ (maktabun) "desk/office," and many more.
-
-**In this lesson, you will:**
-- Understand the concept of [trilateral](/resources/glossary/#thulathi) (three-letter) roots as the foundation of Arabic words
-- Recognize how words are derived from root letters using [patterns](/resources/glossary/#wazn)
-- Extract roots from Quranic words for dictionary lookup
-- Master the practical skill of root-based vocabulary expansion
-
-**Connection to previous learning:** In [L1.04 Three Word Types](/learn/level-1/04-three-word-types/), you learned that Arabic has nouns, verbs, and particles. Now you'll discover that nouns and verbs are built from the same building blocks — roots and patterns. This is Arabic morphology (ṣarf / صَرْفٌ), the science of how words are formed.
-
-**Key Level 3 transition:** Level 2 taught you SENTENCE GRAMMAR (nahw / نَحْوٌ) — how words relate to each other. Level 3 teaches you WORD MORPHOLOGY (ṣarf / صَرْفٌ) — how words are built internally. Mastering both nahw and ṣarf is the path to deep Quranic understanding.
-
-<Callout type="tip" title="Why This Matters in Your Quran Reading">
-The root system is the master key to Arabic vocabulary. From a single root like ح-م-د (h-m-d) come حَمْدٌ (praise), مُحَمَّدٌ (Muhammad), أَحْمَدُ (Ahmad), حَامِدٌ (one who praises), and مَحْمُودٌ (praised). Once you recognize a root, you unlock an entire family of related Quranic words.
-</Callout>
-
-<Callout type="note" title="Quick Win">
-You already know the root ك-ت-ب (k-t-b) "writing" from ٱلْكِتَابُ ("the Book"). Now recognize كَاتِبٌ ("writer"), مَكْتُوبٌ ("written"), and كُتُبٌ ("books") — all from the same three letters. You just expanded your vocabulary fourfold.
-</Callout>
-
-<Callout type="note" title="Plain-English key">
-Quick, everyday translations of the grammar terms in this lesson — glance back here whenever one trips you up:
-
-- **Ṣarf** (صَرْف) — word-building: how Arabic grows many words out of one root.
-- **Root** (jadhr / جَذْر) — the 3 (sometimes 4) core letters that carry a word's basic meaning.
-- **Pattern / measure** (wazn / وَزْن) — the mould of vowels and extra letters poured over a root to make a specific word.
-</Callout>
-
-## Understanding the Root System
-
-**Plain English first:** Arabic words are built like LEGO bricks. Every word has two components:
-
-1. **Root letters** — the basic building blocks (3 consonants carrying core meaning)
-2. **Pattern** — the blueprint or template (vowels and extra letters showing word type)
-
-Different blueprints using the same bricks create different words with related meanings. Once you recognize the root, you unlock an entire family of words.
-
-### The LEGO Brick Analogy
-
-Imagine you have three LEGO bricks colored red, blue, and green. Now imagine you have different instruction blueprints:
-
-- **Blueprint A:** Stack them vertically → you get a tower
-- **Blueprint B:** Arrange them horizontally → you get a wall
-- **Blueprint C:** Connect them in an L-shape → you get a corner
-
-Same three bricks, different arrangements, different results — but all related because they use the same bricks.
-
-Arabic works exactly this way:
-
-- **Root:** ك-ت-ب (k-t-b) — three consonants meaning "writing" (your LEGO bricks)
-- **Pattern 1:** فَعَلَ (CaCaCa) → كَتَبَ (kataba) "he wrote" — past tense verb
-- **Pattern 2:** فَاعِلٌٌ (CāCiC) → كَاتِبٌ (kātibun) "writer" — active participle
-- **Pattern 3:** مَفْعُولٌٌ (maCCūC) → مَكْتُوبٌ (maktūbun) "written" — passive participle
-- **Pattern 4:** مَفْعَلٌ (maCCaC) → مَكْتَبٌ (maktabun) "desk/office" — place noun
-
-Same root letters (ك-ت-ب), different patterns, different meanings — but all connected to "writing"!
-
-### Arabic Terminology
-
-**Root** — [jadhr](/resources/glossary/#jadhr) (جَذْرٌ), also called [radical letters](/resources/glossary/#huruf-al-jadhr) (ḥurūf al-jadhr / حُرُوفُ ٱلْجَذْرِ)
-
-The root is a group of 3 consonants (sometimes 4) that carry the core semantic meaning. By applying different vowel patterns and adding letters, you create a whole FAMILY of related words.
-
-**Pattern** — [wazn](/resources/glossary/#wazn) (wazn / وَزْنٌ)
-
-The pattern is the template or mold that shapes the root into a specific word type. Patterns use the template letters **ف-ع-ل** (f-ʿ-l) to represent the three root positions:
-
-- **ف** (fāʾ al-fiʿl) represents the FIRST root letter
-- **ع** (ʿayn al-fiʿl) represents the SECOND root letter
-- **ل** (lām al-fiʿl) represents the THIRD root letter
-
-When you see the pattern فَعَلَ (faʿala), it means: "take your three root letters and arrange them with fatha-sukūn-fatha vowels."
-
-### Trilateral vs Quadrilateral Roots
-
-**[Trilateral roots](/resources/glossary/#thulathi)** (thulāthī / ثُلَاثِيٌّ) — three-letter roots
-
-The vast majority (80%+) of Arabic roots have exactly three consonants:
-- ك-ت-ب (k-t-b) "writing"
-- ع-ل-م (ʿ-l-m) "knowledge"
-- ح-م-د (ḥ-m-d) "praise"
-- ق-ر-ء (q-r-ʾ) "reading/recitation"
-
-**[Quadrilateral roots](/resources/glossary/#rubai)** (rubāʿī / رُبَاعِيٌّ) — four-letter roots
-
-Some roots have four consonants (less common):
-- د-ح-ر-ج (d-ḥ-r-j) "rolling"
-- ز-ل-ز-ل (z-l-z-l) "earthquake/shaking"
-- و-س-و-س (w-s-w-s) "whispering"
-
-For this lesson, we'll focus on trilateral roots, as they form the foundation of Arabic morphology.
-
-### The Root ك-ت-ب Word Family
-
-Let's explore one complete word family to see how roots and patterns work together:
-
-<GrammarTable>
-| Pattern | Arabic Term | Root ك-ت-ب Applied | Transliteration | Meaning | Word Type |
-|---------|-------------|-------------------|-----------------|---------|-----------|
-| فَعَلَ | faʿala | كَتَبَ | kataba | he wrote | Verb (past) |
-| يَفْعُلُ | yafʿulu | يَكْتُبُ | yaktubu | he writes | Verb (present) |
-| ٱُكْتُبْ | uktub | ٱُكْتُبْ | uktub | write! | Verb (imperative) |
-| فَاعِلٌ | fāʿil | كَاتِبٌ | kātibun | writer | Active participle |
-| مَفْعُولٌ | mafʿūl | مَكْتُوبٌ | maktūbun | written | Passive participle |
-| فِعَالٌ | fiʿāl | كِتَابٌٌ | kitābun | book | Verbal noun |
-| مَفْعَل | mafʿal | مَكْتَبٌ | maktabun | desk/office | Noun of place |
-| مَفْعَلَة | mafʿalah | مَكْتَبَةٌ | maktabatun | library | Noun of place (fem.) |
-| كِتَابٌَةٌ | kitābah | كِتَابٌَةٌٌ | kitābatun | writing (act of) | Verbal noun |
-</GrammarTable>
-
-**The key insight:** ALL of these words share the three root consonants ك-ت-ب in the same order. The vowels, prefixes, and suffixes change, but the root remains constant like a skeleton supporting different bodies.
-
-Once you know the root ك-ت-ب means "writing," you can recognize and understand dozens of related words — even if you've never seen them before!
-
-## Examples from the Quran
-
-Let's examine words from Surah Al-Baqarah to see roots in action. We'll focus on the root ك-ت-ب and explore how it appears in different forms.
-
-### Example 1: The Book (al-Kitāb)
-
-<ArabicExample
-  arabic="ذَٰلِكَ ٱلْكِتَابُ لَا رَيْبَ فِيهِ هُدًى لِّلْمُتَّقِينَ"
-  transliteration="dhālika l-kitābu lā rayba fīhi hudan li-l-muttaqīna"
-  translation="That is the Book; in it is no doubt, a guidance for the righteous"
-  reference="Al-Baqarah 2:2"
-  highlight="ٱلْكِتَابُ"
-  words={[
-    { ar: "ذَٰلِكَ", tr: "dhālika", en: "that" },
-    { ar: "ٱلْكِتَابُ", tr: "l-kitābu", en: "the Book" },
-    { ar: "لَا", tr: "lā", en: "no" },
-    { ar: "رَيْبَ", tr: "rayba", en: "doubt" },
-    { ar: "فِيهِ", tr: "fīhi", en: "in it" },
-    { ar: "هُدًى", tr: "hudan", en: "a guidance" },
-    { ar: "لِّلْمُتَّقِينَ", tr: "li-l-muttaqīna", en: "for the righteous" }
-  ]}
-/>
-
-**Word focus: ٱلْكِتَابُ** (al-kitābu) — "the Book"
-
-**Root extraction:**
-1. Remove the definite article: ٱلْـ → leaves كِتَابُ
-2. Strip case ending: ـُ → leaves كِتَابْ
-3. Identify the pattern: فِعَالٌ (CiCāC) with kasra-long ā-fatha
-4. Extract root consonants: **ك-ت-ب** (k-t-b)
-
-**Morphological analysis (iʿrāb):**
-
-- **ٱلْكِتَابُ** (al-kitābu) — "the Book"
-  - Function: Predicate (khabar) of nominal sentence
-  - Case marker: Nominative (rafʿ) with damma (ـُ)
-  - Reason: Predicate takes nominative case
-  - **Root:** ك-ت-ب (k-t-b) "writing"
-  - **Pattern:** فِعَالٌ (fiʿāl) — verbal noun pattern
-  - **Form:** Definite noun with ٱلْ prefix
-  - **Meaning:** The collected writing → "the Book" (referring to the Quran)
-
-### Example 2: It Was Written/Decreed (kutiba)
-
-<ArabicExample
-  arabic="يَٰٓأَيُّهَا ٱلَّذِينَ ءَامَنُوا۟ كُتِبَ عَلَيْكُمُ ٱلصِّيَامُ"
-  transliteration="yā ayyuhā lladhīna āmanū kutiba ʿalaykumu ṣ-ṣiyāmu"
-  translation="O you who have believed, fasting has been prescribed upon you"
-  reference="Al-Baqarah 2:183"
-  highlight="كُتِبَ"
-  words={[
-    { ar: "يَٰٓأَيُّهَا", tr: "yā ayyuhā", en: "O you" },
-    { ar: "ٱلَّذِينَ", tr: "lladhīna", en: "who" },
-    { ar: "ءَامَنُوا۟", tr: "āmanū", en: "have believed" },
-    { ar: "كُتِبَ", tr: "kutiba", en: "has been prescribed" },
-    { ar: "عَلَيْكُمُ", tr: "ʿalaykumu", en: "upon you" },
-    { ar: "ٱلصِّيَامُ", tr: "ṣ-ṣiyāmu", en: "the fasting" }
-  ]}
-/>
-
-**Word focus: كُتِبَ** (kutiba) — "it was written/prescribed"
-
-**Root extraction:**
-1. Recognize passive voice pattern: فُعِلَ (CuCiCa) with damma-kasra
-2. Extract root consonants: **ك-ت-ب** (k-t-b)
-
-**Morphological analysis (iʿrāb):**
-
-- **كُتِبَ** (kutiba) — "has been prescribed"
-  - Function: Verb (passive voice, past tense)
-  - Case: Verbs don't take case endings
-  - Reason: Main verb of sentence
-  - **Root:** ك-ت-ب (k-t-b) "writing"
-  - **Pattern:** فُعِلَ (fuʿila) — passive past tense, Form I
-  - **Form:** Passive verb (no explicit subject visible)
-  - **Meaning:** "it was written" → "it was prescribed/decreed"
-
-**Theological insight through morphology:** The passive voice emphasizes that fasting was prescribed BY ALLAH — the doer is understood from context but grammatically backgrounded, focusing attention on the obligation itself.
-
-### Example 3: The Root ع-ل-م (Knowledge)
-
-<ArabicExample
-  arabic="وَعَلَّمَ ءَادَمَ ٱلْأَسْمَآءَ كُلَّهَا"
-  transliteration="wa ʿallama ādama l-asmāʾa kullahā"
-  translation="And He taught Adam the names, all of them"
-  reference="Al-Baqarah 2:31"
-  highlight="عَلَّمَ"
-  words={[
-    { ar: "وَعَلَّمَ", tr: "wa ʿallama", en: "and He taught" },
-    { ar: "ءَادَمَ", tr: "ādama", en: "Adam" },
-    { ar: "ٱلْأَسْمَآءَ", tr: "l-asmāʾa", en: "the names" },
-    { ar: "كُلَّهَا", tr: "kullahā", en: "all of them" }
-  ]}
-/>
-
-**Word focus: عَلَّمَ** (ʿallama) — "he taught"
-
-**Root extraction:**
-1. Notice the doubled middle letter: عَلَّمَ
-2. Pattern recognition: فَعَّلَ (CaCCaCa) — Form II intensive pattern
-3. Extract root consonants: **ع-ل-م** (ʿ-l-m)
-
-**Morphological analysis (iʿrāb):**
-
-- **عَلَّمَ** (ʿallama) — "He taught"
-  - Function: Verb (active voice, past tense)
-  - Case: Verbs don't take case endings
-  - Reason: Main verb of sentence
-  - **Root:** ع-ل-م (ʿ-l-m) "knowledge"
-  - **Pattern:** فَعَّلَ (faʿʿala) — Form II (doubled middle letter)
-  - **Form:** Causative/intensive verb
-  - **Meaning:** Form II makes it causative: "he caused to know" → "he taught"
-
-**Word family from root ع-ل-م:**
-- عَلِمَ (ʿalima) — "he knew" (Form I)
-- عَالِمٌ (ʿālimun) — "scholar/knowledgeable one"
-- عِلْمٌ (ʿilmun) — "knowledge"
-- مَعْلُومٌ (maʿlūmun) — "known"
-- مُعَلِّمٌ (muʿallimun) — "teacher"
-
-### Example 4: Complete Verse Analysis
-
-<ArabicExample
-  arabic="وَٱللَّهُ بِكُلِّ شَىْءٍ عَلِيمٌ"
-  transliteration="wa llāhu bi-kulli shayʾin ʿalīmun"
-  translation="And Allah is Knowing of all things"
-  reference="Al-Baqarah 2:231"
-  highlight="عَلِيمٌ"
-  words={[
-    { ar: "وَٱللَّهُ", tr: "wa llāhu", en: "and Allah" },
-    { ar: "بِكُلِّ", tr: "bi-kulli", en: "of all/every" },
-    { ar: "شَىْءٍ", tr: "shayʾin", en: "thing" },
-    { ar: "عَلِيمٌ", tr: "ʿalīmun", en: "Knowing" }
-  ]}
-/>
-
-**Word-by-word morphological breakdown:**
-
-1. **وَ** (wa) — PARTICLE
-   - Function: Coordinating conjunction
-   - Meaning: "and"
-
-2. **ٱللَّهُ** (allāhu) — NOUN
-   - Function: Subject (mubtadaʾ) of nominal sentence
-   - Case marker: Nominative with damma (ـُ)
-   - Reason: Subject takes nominative case
-   - **Root:** ا-ل-ه (hamza-lam-ha) related to "divinity"
-   - **Form:** Proper noun (divine name)
-
-3. **بِ** (bi) — PARTICLE
-   - Function: Preposition meaning "with/about/concerning"
-   - Triggers genitive case on following word
-
-4. **كُلِّ** (kulli) — NOUN
-   - Function: Object of preposition (inside prepositional phrase)
-   - Case marker: Genitive with kasra (ـِ)
-   - Reason: Prepositions trigger genitive
-   - **Root:** ك-ل-ل (k-l-l) "totality"
-
-5. **شَىْءٍ** (shayʾin) — NOUN
-   - Function: Second part of possessive construction (muḍāf ilayhi)
-   - Case marker: Genitive with kasratain (ـٍ)
-   - Reason: Second noun in iḍāfah takes genitive
-   - **Root:** ش-ي-ء (sh-y-ʾ) "thing/something"
-
-6. **عَلِيمٌ** (ʿalīmun) — NOUN/ADJECTIVE
-   - Function: Predicate (khabar) of nominal sentence
-   - Case marker: Nominative with dammatain (ـٌ)
-   - Reason: Predicate takes nominative case
-   - **Root:** ع-ل-م (ʿ-l-m) "knowledge"
-   - **Pattern:** فَعِيلٌ (faʿīl) — intensive adjective pattern
-   - **Form:** Intensive attribute (extremely knowledgeable)
-   - **Meaning:** "All-Knowing" (one of Allah's beautiful names)
-
-**Structural insight:** This verse is a nominal sentence (ٱللَّهُ عَلِيمٌ) with an inserted prepositional phrase (بِكُلِّ شَىْءٍ) between subject and predicate for emphasis.
-
-## Dictionary Lookup Strategy
-
-Understanding roots isn't just academic — it's the KEY to independent Quran study. Arabic dictionaries are organized by ROOT, not alphabetically by the word you see. This means you MUST extract the root to look up any word.
-
-**Why root-based dictionaries?** Because organizing by roots groups all related words together. When you look up ك-ت-ب, you find كَاتِبٌ (writer), مَكْتُوبٌ (written), كِتَابٌٌ (book), مَكْتَبٌ (desk), and dozens more — all in one place!
-
-<Callout type="rule" title="Root Extraction and Dictionary Lookup Process">
-
-Follow these steps to extract roots and use an Arabic dictionary:
-
-**Step 1: Remove all prefixes**
-- Definite article: ٱلْـ, الْـ
-- Prepositions: بِـ, لِـ, كَـ, وَ
-- Verbal prefixes: أَ, تَ, يَ, نَ
-
-**Step 2: Remove all suffixes**
-- Case endings: ـُ, ـَ, ـِ, ـٌ, ـً, ـٍ
-- Pronoun suffixes: ـهُ, ـكَ, ـنَا, ـهُمْ, etc.
-- Plural/dual endings: ـُونَ, ـِينَ, ـَانِ, ـَيْنِ, ـَاتٍ
-
-**Step 3: Identify pattern letters vs root letters**
-
-Pattern letters (additions to the root):
-- م prefix in مَفْعُولٌ patterns (مَكْتُوبٌ → root is ك-ت-ب, not م-ك-ت-ب)
-- ت prefix in Form V/VI verbs (تَعَلَّمَ → root is ع-ل-م)
-- اِ prefix and نْ infix in Form VII (اِنْكَسَرَ → root is ك-س-ر)
-- Doubled letters (عَلَّمَ has doubled ل, root is ع-ل-م not ع-ل-ل)
-- Long vowels inserted between root letters (قَاتَلَ → root is ق-ت-ل)
-
-**Step 4: Extract the 3 (or 4) root consonants**
-
-Read through the word and pick out the consonants that remain after removing prefixes, suffixes, and pattern additions.
-
-**Step 5: Look up the root in the dictionary**
-
-Arabic dictionaries list roots alphabetically:
-- First by first root letter (ك before ع before ق)
-- Then by second root letter (ك-ت-ب before ك-ف-ر)
-- Then by third root letter (ك-ت-ب before ك-ت-م)
-
-</Callout>
-
-### Worked Example 1: مَكْتَبَةٌ (Library)
-
-Let's extract the root from **مَكْتَبَةٌ** (maktabatun) "library" step by step.
-
-**Step 1: Remove prefixes**
-- No ٱلْ prefix
-- No preposition prefix
-- Word: مَكْتَبَةٌ
-
-**Step 2: Remove suffixes**
-- Remove case ending ـٌ → مَكْتَبَة
-- Remove feminine marker ـة → مَكْتَب
-
-**Step 3: Identify pattern vs root letters**
-- Pattern: مَفْعَل (mafʿal) — noun of place pattern
-- The **م** prefix is part of the PATTERN, not the root
-- The root consonants come after the م
-
-**Step 4: Extract root consonants**
-- Remaining consonants: ك - ت - ب
-- Root: **ك-ت-ب** (k-t-b)
-
-**Step 5: Dictionary lookup**
-- Look under root ك-ت-ب
-- Core meaning: "writing"
-- Pattern مَفْعَلَة (mafʿalah) = place of action (feminine)
-- Word meaning: "place of writing" → **library**
-
-**Understanding:** Once you know the root ك-ت-ب means "writing" and the pattern مَفْعَلَة means "place where the action happens," you can DEDUCE the meaning "library" even if you've never seen this word before!
-
-### Worked Example 2: مُسْلِمُونَ (Muslims)
-
-Let's extract the root from **مُسْلِمُونَ** (muslimūna) "Muslims" (plural, nominative).
-
-**Step 1: Remove prefixes**
-- No definite article
-- No preposition
-- Word: مُسْلِمُونَ
-
-**Step 2: Remove suffixes**
-- Plural masculine sound ending ـُونَ → مُسْلِم
-
-**Step 3: Identify pattern vs root letters**
-- Pattern: مُفْعِل (mufʿil) — active participle Form IV
-- The **م** prefix is part of the PATTERN (Form IV adds م prefix)
-- Remaining letters after removing pattern prefix: س - ل - م
-
-**Step 4: Extract root consonants**
-- Root: **س-ل-م** (s-l-m)
-
-**Step 5: Dictionary lookup**
-- Look under root س-ل-م
-- Core meaning: "safety, peace, submission"
-- Pattern مُفْعِل from Form IV = doer of causative action
-- Form IV أَسْلَمَ (aslama) = "he submitted/surrendered (to Allah)"
-- Active participle مُسْلِمٌ = "one who submits" → **Muslim**
-
-**Theological precision:** The word "Muslim" literally means "one who submits (to Allah)" — this meaning is locked into the ROOT س-ل-م. Related words from the same root:
-- سَلَامٌ (salāmun) — "peace"
-- سَلَّمَ (sallama) — "he greeted, made peace"
-- إِسْلَامٌ (islāmun) — "submission" (the religion)
-- مُسَالَمَةٌ (musālamatun) — "making peace"
-
-All connected through the root س-ل-م!
-
-### Common Mistakes in Root Extraction
-
-<Callout type="warning" title="Common Root Extraction Errors">
-
-**Mistake 1: Counting pattern letters as root letters**
-
-❌ Wrong: مَكْتُوبٌ (maktūbun) has root م-ك-ت-ب
-✓ Correct: Root is ك-ت-ب (the م is a pattern prefix in مَفْعُولٌ)
-
-**Pattern prefixes to watch for:**
-- **م** in مَفْعُولٌ, مَفْعِل, مِفْعَالٌ patterns
-- **ت** in تَفَعَّلَ, تَفَاعَلَ patterns (Forms V, VI)
-- **اِسْتَـ** in اِسْتَفْعَلَ pattern (Form X)
-- **اِنْـ** in اِنْفَعَلَ pattern (Form VII)
-
-**Mistake 2: Not recognizing doubled root letters**
-
-❌ Wrong: عَلَّمَ (ʿallama) has root ع-ل-ل
-✓ Correct: Root is ع-ل-م (the ل is doubled in Form II, but it's still just ONE root letter)
-
-Form II pattern فَعَّلَ doubles the middle root letter for intensive meaning.
-
-**Mistake 3: Including long vowels as root letters**
-
-❌ Wrong: قَاتَلَ (qātala) has root ق-ا-ت-ل (4 letters)
-✓ Correct: Root is ق-ت-ل (the long ā is inserted by Form III pattern, not part of root)
-
-Long vowels (ا, و, ي) are often pattern additions, not root letters (though some roots DO have و or ي as actual root letters — you'll learn to distinguish these with practice).
-
-**Mistake 4: Assuming every 3 consecutive consonants are a root**
-
-Not every three-letter word has those three letters as its root!
-
-Example: **فِيهِ** (fīhi) "in it"
-- This is preposition فِي + pronoun suffix ـهِ
-- NOT a trilateral root word at all!
-
-**Learn to recognize:**
-- Particles (not derived from roots): فِي، مِنْ، إِلَىٰ، وَ، لَا
-- Pronouns (not root-derived): هُوَ، هِيَ، أَنْتَ، نَحْنُ
-- Proper nouns (may not follow Arabic root patterns): مُوسَىٰ، عِيسَىٰ
-
-</Callout>
-
-## Practice
-
-<ExerciseBox question="Exercise 1: What are the three root consonants of كَاتِبٌ (kātibun) 'writer'?">
-
-**Answer:**
-
-The root is **ك-ت-ب** (k-t-b).
-
-**Extraction process:**
-1. Remove case ending ـٌ → كَاتِبْ
-2. Identify pattern: فَاعِلٌ (CāCiC) — active participle pattern
-3. The pattern template فَاعِلٌ has a long ā vowel between first and second root letters
-4. Extract consonants: **ك - ت - ب**
-
-**Verification:** The pattern فَاعِلٌ means "doer of the action." Applied to root ك-ت-ب (writing), it produces كَاتِبٌ "one who writes" → "writer."
-
-**Word family connection:** Once you know the root is ك-ت-ب, you can recognize all these related words:
-- كَتَبَ (kataba) — "he wrote"
-- كِتَابٌٌ (kitābun) — "book"
-- مَكْتُوبٌ (maktūbun) — "written"
-- مَكْتَبٌ (maktabun) — "office/desk"
-
-</ExerciseBox>
-
-<ExerciseBox question="Exercise 2: Which of these words comes from root ع-ل-م (ʿ-l-m) 'knowledge'? Select all that apply: عَلِمَ / ذَهَبَ / عَالِمٌ / كَتَبَ / مُعَلِّمٌ">
-
-**Answer:**
-
-Words from root ع-ل-م:
-1. ✓ **عَلِمَ** (ʿalima) — "he knew"
-2. ✓ **عَالِمٌ** (ʿālimun) — "scholar, knowledgeable one"
-3. ✓ **مُعَلِّمٌ** (muʿallimun) — "teacher"
-
-Words from OTHER roots:
-- ✗ **ذَهَبَ** (dhahaba) — "he went" (root: ذ-ه-ب)
-- ✗ **كَتَبَ** (kataba) — "he wrote" (root: ك-ت-ب)
-
-**Analysis:**
-
-**عَلِمَ** (ʿalima):
-- Pattern: فَعِلَ (CaCiCa) — Form I past tense
-- Root extraction: ع - ل - م
-- Meaning: "he knew"
-
-**عَالِمٌ** (ʿālimun):
-- Pattern: فَاعِلٌ (CāCiC) — active participle
-- Root extraction: ع - ا - ل - م → remove long ā (pattern vowel) → ع - ل - م
-- Meaning: "knowing one" → "scholar"
-
-**مُعَلِّمٌ** (muʿallimun):
-- Pattern: مُفَعِّل (muCaCCiC) — Form II active participle
-- Root extraction: م is pattern prefix, doubled ل → ع - ل - م
-- Meaning: "one who causes to know" → "teacher"
-
-**Key insight:** The root ع-ل-م connects "knowing," "scholar," and "teacher" — all related to knowledge!
-
-</ExerciseBox>
-
-<ExerciseBox question="Exercise 3: Given root ح-م-د (ḥ-m-d) 'praise', list at least 3 words you can form from this root and identify their patterns.">
-
-**Answer:**
-
-Words from root ح-م-د (ḥ-m-d) "praise":
-
-1. **حَمِدَ** (ḥamida) — "he praised"
-   - Pattern: فَعِلَ (CaCiCa) — Form I past tense
-   - Meaning: Simple past action
-
-2. **حَامِدٌ** (ḥāmidun) — "one who praises, praising"
-   - Pattern: فَاعِلٌ (CāCiC) — active participle
-   - Meaning: Doer of praise
-
-3. **حَمْدٌ** (ḥamdun) — "praise" (the act itself)
-   - Pattern: فَعْلٌ (CaCC) — verbal noun
-   - Meaning: The abstract concept of praising
-
-4. **مَحْمُودٌ** (maḥmūdun) — "praised, praiseworthy"
-   - Pattern: مَفْعُولٌ (maCCūC) — passive participle
-   - Meaning: Recipient of praise
-
-5. **أَحْمَدُ** (aḥmadu) — "more praiseworthy" OR proper name "Ahmad"
-   - Pattern: أَفْعَل (aCCaC) — comparative/superlative OR Form IV
-   - Meaning: Most praised (also a name of Prophet Muhammad ﷺ)
-
-6. **مُحَمَّدٌ** (muḥammadun) — "highly praised" (proper name)
-   - Pattern: مُفَعَّل (muCaCCaC) — Form II passive participle
-   - Meaning: Intensively praised (the Prophet's name ﷺ)
-
-**Theological connection:** The root ح-م-د appears in the very first verse you recite in every prayer:
-
-**ٱلْحَمْدُ لِلَّهِ** (al-ḥamdu lillāhi) — "All praise belongs to Allah"
-
-This root is fundamental to Islamic expression of gratitude and worship!
-
-</ExerciseBox>
-
-<ExerciseBox question="Exercise 4: You encounter the word مُؤْمِنُونَ (muʾminūna) in a verse. Walk through the dictionary lookup steps to find its root and meaning.">
-
-**Answer:**
-
-**Word:** مُؤْمِنُونَ (muʾminūna) — appears in Al-Baqarah 2:3 وَٱلَّذِينَ يُؤْمِنُونَ
-
-**Step 1: Remove prefixes**
-- No definite article
-- No attached preposition
-- Word: مُؤْمِنُونَ
-
-**Step 2: Remove suffixes**
-- Plural masculine sound ending ـُونَ → مُؤْمِن
-
-**Step 3: Identify pattern vs root**
-- Pattern: مُفْعِل (muCCiC) — Form IV active participle
-- The **م** prefix is part of Form IV pattern (not root)
-- The **ؤ** (hamza on waw carrier) is a root letter
-
-**Step 4: Extract root consonants**
-- After removing pattern prefix م: ؤْمِنْ
-- Root letters: **ء - م - ن** (hamza-mīm-nūn)
-
-**Step 5: Dictionary lookup**
-- Look under root **ء-م-ن** (ʾ-m-n)
-- Core meaning: "safety, security, trust, belief"
-- Form IV: أَ prefix makes it causative/declarative
-- Form IV أَمَنَ (āmana) = "he believed, he had faith"
-- Active participle مُؤْمِنٌ (muʾminun) = "believer, one who has faith"
-- Plural: مُؤْمِنُونَ (muʾminūna) = "believers"
-
-**Complete meaning:** "Those who believe/believers"
-
-**Word family from root ء-م-ن:**
-- أَمْنٌ (amnun) — "safety, security"
-- أَمَانَةٌ (amānatun) — "trust, honesty, trustworthiness"
-- أَمِينٌ (amīnun) — "trustworthy" (often used for "treasurer")
-- إِيمَانٌ (īmānun) — "faith, belief" (Form IV verbal noun)
-- آمَنَ (āmana) — "he believed" (Form IV)
-- مُؤْمِنٌ (muʾminun) — "believer"
-
-**Theological insight:** The root ء-م-ن connects "safety," "trust," and "belief" — faith (īmān) is fundamentally about trusting in Allah and finding security in that trust!
-
-</ExerciseBox>
-
-<ExerciseBox question="Exercise 5 — Root Detective: Extract the trilateral root from each of these Quranic words: (1) نَاصِرٌ (nāṣirun), (2) مَغْفِرَةٌ (maghfiratun), (3) رَحِيمٌ (raḥīmun), (4) يَعْبُدُونَ (yaʿbudūna), (5) مُنْزَلٌ (munzalun)">
-
-**Answers:**
-
-1. **نَاصِرٌ** (nāṣirun) — "helper"
-   - Pattern: فَاعِلٌ (fāʿil) — active participle. Remove long ā (pattern vowel) and case ending.
-   - Root: **ن-ص-ر** (n-ṣ-r) — "help, victory"
-
-2. **مَغْفِرَةٌ** (maghfiratun) — "forgiveness"
-   - Pattern: مَفْعِلَة (mafʿilah) — noun of instance. The م is a pattern prefix, not a root letter.
-   - Root: **غ-ف-ر** (gh-f-r) — "covering, forgiving"
-
-3. **رَحِيمٌ** (raḥīmun) — "Most Merciful"
-   - Pattern: فَعِيلٌ (faʿīl) — intensive adjective. Remove the long ī (pattern vowel).
-   - Root: **ر-ح-م** (r-ḥ-m) — "mercy"
-
-4. **يَعْبُدُونَ** (yaʿbudūna) — "they worship"
-   - Remove prefix يَـ (present tense marker) and suffix ـُونَ (plural masculine) → عْبُد
-   - Root: **ع-ب-د** (ʿ-b-d) — "worship, servitude"
-
-5. **مُنْزَلٌ** (munzalun) — "sent down"
-   - Pattern: مُفْعَل (mufʿal) — Form IV passive participle. The م and ن are pattern additions.
-   - Root: **ن-ز-ل** (n-z-l) — "descending, sending down"
-
-</ExerciseBox>
-
-<ExerciseBox question="Exercise 6 — Meaning Prediction: The root ف-ت-ح (f-t-ḥ) carries the core meaning of 'opening.' Using this knowledge, predict the meaning of each derived word: (1) فَتَحَ (fataḥa), (2) فَاتِحَةٌ (fātiḥatun), (3) مِفْتَاحٌ (miftāḥun), (4) فَتَّاحٌ (fattāḥun)">
-
-**Answers:**
-
-1. **فَتَحَ** (fataḥa) — Pattern: فَعَلَ (faʿala) — Form I past tense
-   - Prediction: the basic action → **"he opened"**
-   - Quranic usage: إِنَّا فَتَحْنَا لَكَ فَتْحًا مُّبِينًا "Indeed, We have granted you a clear opening" (Al-Fatḥ 48:1)
-
-2. **فَاتِحَةٌ** (fātiḥatun) — Pattern: فَاعِلَة (fāʿilah) — active participle (feminine)
-   - Prediction: the one that opens / the opener → **"the Opening"**
-   - This is the name of Surah Al-Fātiḥah — the "Opening Chapter" of the Quran
-
-3. **مِفْتَاحٌ** (miftāḥun) — Pattern: مِفْعَالٌ (mifʿāl) — instrument noun
-   - Prediction: the tool used for opening → **"key"**
-   - Quranic usage: وَعِندَهُ مَفَاتِحُ ٱلْغَيْبِ "And with Him are the keys of the unseen" (Al-Anʿām 6:59)
-
-4. **فَتَّاحٌ** (fattāḥun) — Pattern: فَعَّالٌ (faʿʿāl) — intensive/habitual doer
-   - Prediction: the one who opens abundantly → **"the Supreme Opener / Judge"**
-   - This is one of Allah's names: ٱلْفَتَّاحُ (Al-Fattāḥ), the one who opens all doors of mercy and judgment
-
-**Key takeaway:** Knowing ONE root meaning unlocks an entire family. The pattern tells you the role (doer, tool, place, intensity) while the root provides the core meaning.
-
-</ExerciseBox>
-
-<ExerciseBox question="Exercise 7 — Verse Discovery: Read this verse from Al-Baqarah 2:282 — كَاتِبٌ بِٱلْعَدْلِ (kātibun bi-l-ʿadli) 'a scribe with justice.' Identify the root of every content word, then group the words by root family.">
-
-**Answer:**
-
-**Word-by-word root identification:**
-
-1. **كَاتِبٌ** (kātibun) — "scribe/writer"
-   - Pattern: فَاعِلٌ (fāʿil) — active participle
-   - Root: **ك-ت-ب** (k-t-b) — "writing"
-
-2. **بِ** (bi) — "with"
-   - Particle (preposition) — no root derivation
-
-3. **ٱلْعَدْلِ** (al-ʿadli) — "the justice"
-   - Remove ٱلْ (definite article), case ending ـِ (genitive after بِ)
-   - Pattern: فَعْلٌ (faʿl) — verbal noun
-   - Root: **ع-د-ل** (ʿ-d-l) — "justice, balance"
-
-**Root families in this phrase:**
-
-**Root ك-ت-ب (writing):** كَاتِبٌ (scribe). Other family members you know: كِتَابٌ (book), كَتَبَ (he wrote), مَكْتُوبٌ (written), مَكْتَبَةٌ (library).
-
-**Root ع-د-ل (justice):** عَدْلٌ (justice). Other family members: عَادِلٌ (ʿādilun) — "just person," عَدَلَ (ʿadala) — "he was just," تَعْدِيلٌ (taʿdīlun) — "adjustment/correction."
-
-**Insight:** Even in this short phrase, root analysis reveals layers of meaning. The Quran does not just say "a writer" but a كَاتِبٌ — someone defined by the ACT of writing (active participle). And the standard is عَدْل — justice rooted in balance and fairness.
-
-</ExerciseBox>
-
-## Related Lessons
-
-**Prerequisites:**
-- [L1.04: Three Word Types](/learn/level-1/04-three-word-types/) — Understanding nouns, verbs, and particles
-- [L2.03: Verbal Sentence](/learn/level-2/03-verbal-sentence/) — Verb structure and function
-
-**Build on this lesson:**
-- [L3.04: Verb Form I](/learn/level-3/04-verb-form-i/) — How roots become verbs using the simplest pattern
-- [L3.12: Verb Form II](/learn/level-3/12-verb-form-ii/) — How doubling a root letter changes meaning
-- [L3.19: Active and Passive Participles](/learn/level-3/19-active-passive-participles/) — Deriving nouns from verb roots
-- [L3.20: Verbal Nouns](/learn/level-3/20-verbal-nouns/) — Maṣdar forms and their patterns
-
-**Topic Hub:**
-- [Arabic Verb Forms (I–X)](/learn/verb-forms/) — Pedagogical overview of all ten forms, signature features, and learning path
-
-**Resources:**
-- [Root System Guide](/resources/root-system/) — Complete reference for root extraction and dictionary use
-- [200 Most Common Quranic Words](/resources/200-most-used-words/) — Practice root identification with frequently used words
-- [Grammar Glossary](/resources/glossary/) — Definitions of jadhr, wazn, and morphology terms
+import Step from '../../../components/lesson/Step.astro';
+import Stage from '../../../components/lesson/Stage.astro';
+import Sentence from '../../../components/lesson/Sentence.astro';
+import Tiles from '../../../components/lesson/Tiles.astro';
+import Formula from '../../../components/lesson/Formula.astro';
+import Legend from '../../../components/lesson/Legend.astro';
+import Note from '../../../components/lesson/Note.astro';
+import Check from '../../../components/lesson/Check.astro';
+import Start from '../../../components/lesson/Start.astro';
+import Sources from '../../../components/lesson/Sources.astro';
+import Parse from '../../../components/lesson/Parse.astro';
+import Exercise from '../../../components/lesson/Exercise.astro';
+import Block from '../../../components/lesson/Block.astro';
+
+{/* Content spec: docs/redesign/specs/L3.03-root-system.md. Roots and verb forms follow the Quranic Arabic Corpus tags. Patterns and parses follow al-Jadwal (Mahmud Safi). */}
+
+<Step hero id="start" label="Root, pattern, scale" title={frontmatter.title} kicker={frontmatter.kicker} titleArabic={frontmatter.titleArabic}>
+<Block id="overview" title="In this lesson" level={2} uncounted>
+  <Stage label="The idea">
+    <Formula
+      label="root plus pattern equals a word"
+      items={[
+        { kind: 'm', text: 'root', small: 'the idea: ع ل م' },
+        { kind: 'k', text: 'pattern', small: 'the shape: فَعَّلَ' },
+        { kind: 's', text: 'word', small: 'عَلَّمَ, he taught' },
+      ]}
+    />
+  </Stage>
+  <Start
+    goal="Find the root of a Quran word by peeling it, name its pattern with the scale <b>ف ع ل</b>, look a root up in a dictionary, and recognise the verb forms and root types that later lessons teach."
+    minutes={50}
+    before="Roots and patterns, a first look (L1.05). Noun, verb and little word (L1.04). The verbal sentence (L2.03)."
+    terms={[
+      { term: 'Root', ar: 'جَذْر', meaning: 'The three letters (sometimes four) that carry the core idea of a word.' },
+      { term: 'Pattern', ar: 'وَزْن', meaning: 'The shape the root is poured into: its vowels and any extra letters.' },
+      { term: 'Scale', meaning: 'The stand-in letters ف ع ل. You write a pattern with them.' },
+      { term: 'Ṣarf', ar: 'صَرْف', meaning: 'How a word is built. Level 2 was about naḥw, how words fit in a sentence.' },
+      { term: 'Form', meaning: 'One of ten ways to build a verb on a root. They are numbered I to X.' },
+      { term: 'Weak root', ar: 'مُعْتَلّ', meaning: 'A root with و or ي (or a hamza) that can hide or change in a word.' },
+      { term: 'Four-letter root', meaning: 'A root with four letters, such as و س و س. Most roots have three.' },
+    ]}
+  />
+</Block>
+
+<Block id="two-shapes" title="One root, two shapes" level={2}>
+  <Stage>
+    <Sentence
+      size="big"
+      reference="Al-Alaq 96:5"
+      groups={[
+        { words: [{ ar: 'عَلَّمَ', en: 'he taught', say: 'allama', type: 'v' }] },
+        { words: [{ ar: 'ٱلْإِنسَٰنَ', en: 'the human', say: 'al-insana' }] },
+        { words: [{ ar: 'مَا', en: 'what', say: 'ma', type: 'p' }] },
+        { words: [{ ar: 'لَمْ', en: 'did not', say: 'lam', type: 'p' }] },
+        { words: [{ ar: 'يَعْلَمْ', en: 'know', say: 'yalam', type: 'v' }] },
+      ]}
+      en={['He taught the human being what he did not know.']}
+    />
+    <Legend />
+  </Stage>
+
+Read it from right to left. The first word and the last word come from one root, **ع ل م** (the idea of knowing). Both are verbs. They do not look alike, because each one wears a different pattern.
+
+| Word | Root | What sits on top of the root |
+|---|---|---|
+| عَلَّمَ | ع ل م | The second letter, ل, is doubled. |
+| يَعْلَمْ | ع ل م | The present-tense prefix يَ in front. The ع has a sukūn. |
+
+You saw this idea in L1.05: many Arabic words are a root plus a pattern. This lesson gives you the method: how to find the root, and how to name the pattern.
+
+<Check n={1} q="Which root do عَلَّمَ and يَعْلَمْ share?" options={['ع ل م', 'ع ل ل', 'ل م ع']} answer={0} why="The doubled ل in عَلَّمَ is one root letter. The root is ع ل م." />
+</Block>
+
+<Block id="sarf" title="From sentences to word-building" level={2}>
+  <Stage label="Three skills">
+    <Tiles
+      label="the three skills of this lesson"
+      items={[
+        { ar: 'جَذْر', en: 'find the root', type: 'x' },
+        { ar: 'وَزْن', en: 'name the pattern', type: 'x' },
+        { ar: 'صَرْف', en: 'spot a root that changes', type: 'x' },
+      ]}
+    />
+  </Stage>
+
+Level 2 taught **naḥw**, نَحْو: how words work together in a sentence. This level teaches **ṣarf**, صَرْف: how one word is built.
+
+Al-Jadwal is Maḥmūd Ṣāfī’s book on the grammar of the Quran. Its notes on a verse come in two parts. First the iʿrāb, which you know. Then, for some verses, a short section headed الصرف. There it says وَزْنُهُ, “its pattern is”, and names the pattern. Reading those notes is one aim of this lesson.
+
+Three skills:
+
+1. **Find the root** of a word with pieces stuck to it (step 2).
+2. **Name the pattern** with the scale ف ع ل (this step, and step 3).
+3. **Spot a root that changes**: one with a weak letter, a doubled letter or a fourth letter (step 3).
+
+<Note kind="know">Al-Jadwal does not give a pattern for every word. Where it gives one, this lesson uses it. Where it does not, we read the pattern off with the scale and say so.</Note>
+
+<Check n={2} q="Which of these is about how a single word is built?" options={['Naḥw', 'Ṣarf', 'Iʿrāb']} answer={1} why="Ṣarf is word-building. Naḥw and iʿrāb are about how words fit in a sentence." />
+</Block>
+
+<Block id="scale" title="The scale ف ع ل" level={2}>
+  <Stage label="Three stand-in letters">
+    <Tiles
+      label="ف, ع and ل stand for the first, second and third root letters"
+      items={[
+        { ar: 'ف', en: 'first root letter', type: 'x' },
+        { ar: 'ع', en: 'second root letter', type: 'x' },
+        { ar: 'ل', en: 'third root letter', type: 'x' },
+      ]}
+    />
+  </Stage>
+
+Think of the root as the bricks and the pattern as the plan. The grammar books write the plan with three stand-in letters, ف ع ل. The word فَعَلَ means “he did”, so it is easy to remember.
+
+- **ف** stands for the first root letter (*fāʾ al-fiʿl*).
+- **ع** stands for the second root letter (*ʿayn al-fiʿl*).
+- **ل** stands for the third root letter (*lām al-fiʿl*).
+
+To read a word on the scale, put the root letters where ف ع ل stand. Keep the vowels and the extra letters of the scale word. Here the root **ك ت ب** (writing) is poured into four scale words. Each result is a word of the Quran.
+
+| Scale word | Word you get | Seen in |
+|---|---|---|
+| فَعَلَ | كَتَبَ | Al-Anʿam 6:12 |
+| يَفْعُلُونَ | يَكْتُبُونَ | Al-Baqarah 2:79 |
+| فَاعِل | كَاتِبٌ | Al-Baqarah 2:282 |
+| مَفْعُول | مَكْتُوبًا | Al-Aʿraf 7:157 |
+
+Everything in the scale word apart from ف ع ل is the pattern. فَاعِل has a long ā after the first letter. مَفْعُول has an extra م at the front and a long ū after the second letter. Al-Jadwal gives فَاعِل for كَاتِب and مَفْعُول for مَكْتُوب. The other two rows are the scale read directly.
+
+<Check n={3} q="In the scale word فَعَلَ, which stand-in letter takes the third root letter?" options={['ف', 'ع', 'ل']} answer={2} why="ف takes the first root letter, ع the second and ل the third." />
+</Block>
+
+<Block id="extra" title="Extra letters and a doubled letter" level={2}>
+  <Stage>
+    <Sentence
+      reference="Al-Jumua 62:2 (part)"
+      groups={[
+        { words: [{ ar: 'وَيُعَلِّمُهُمُ', en: 'and he teaches them', say: 'wa-yuallimuhumu', type: 'v' }] },
+        { words: [{ ar: 'ٱلْكِتَٰبَ', en: 'the Book', say: 'al-kitaba' }] },
+        { words: [{ ar: 'وَٱلْحِكْمَةَ', en: 'and the wisdom', say: 'wa-l-hikmata' }] },
+      ]}
+      en={['And he teaches them the Book and the wisdom.']}
+    />
+  </Stage>
+
+The verb in this phrase has the root ع ل م. It also has a prefix يُ and a doubled ل. The scale shows both. When the scale word has a mark that is not part of ف ع ل, that mark belongs to the pattern.
+
+| Scale word | Root poured in | Word | The clue |
+|---|---|---|---|
+| فَعَلَ | ك ت ب | كَتَبَ | Only vowels. No extra letter. |
+| فَعَّلَ | ع ل م | عَلَّمَ | The second letter is doubled (shadda on ع). |
+| يُفَعِّلُ | ع ل م | يُعَلِّمُ | يُ in front, and the second letter doubled. |
+| مَفْعُول | ك ت ب | مَكْتُوب | An extra م in front and an extra و after the second letter. |
+
+A letter you can read in the scale word that is not ف, ع or ل is an **extra letter**. An extra letter belongs to the pattern, not to the root. The Corpus calls عَلَّمَ a **Form II** verb. Step 3 shows all ten forms, and L3.12 teaches Form II.
+
+<Check n={4} q="In عَلَّمَ the second root letter is doubled. Which letter is it?" options={['ع', 'ل', 'م']} answer={1} why="The root is ع ل م. The second letter is ل, and it carries the shadda." />
+</Block>
+
+</Step>
+
+<Step id="finding" label="Finding the root" title="Peel the word, find the root">
+<Block id="layers" title="What to peel off">
+  <Stage label="Four pieces in one word">
+    <Tiles
+      label="وَيُعَلِّمُهُمُ is four pieces: and, he, the root inside, them"
+      items={[
+        { ar: 'وَ', en: 'and', type: 'p' },
+        { ar: 'يُ', en: 'he (present tense)', type: 'x' },
+        { ar: 'عَلِّمُ', en: 'the root ع ل م is inside', type: 'v' },
+        { ar: 'هُمُ', en: 'them', type: 'x' },
+      ]}
+    />
+  </Stage>
+
+A word in the Quran often has pieces stuck to it. Before you look for the root, peel them off, from the outside in. The word above, from Al-Jumua 62:2, is one example.
+
+| Piece | Examples | Taught in |
+|---|---|---|
+| A joining word or little prefix | وَ، فَ، بِ، لِ، كَ | [L1.04](/learn/level-1/04-three-word-types/), [L2.07](/learn/level-2/07-prepositions-genitive/) |
+| The article | ٱلْ | [L1.06](/learn/level-1/06-definite-article/) |
+| A pronoun ending | ـهُ، ـهُمْ، ـكُمْ، ـنَا | [L2.07](/learn/level-2/07-prepositions-genitive/), [L3.02](/learn/level-3/02-attached-pronouns/) |
+| A tense prefix or doer ending on a verb | يَ، تَ، نَ، أَ and ـُوا، ـُونَ، ـْتُ | [L3.05](/learn/level-3/05-past-tense/), [L3.06](/learn/level-3/06-present-tense/) |
+| A plural, dual or feminine ending | ـِينَ، ـُونَ، ـَانِ، ـَاتٌ، ـَةٌ | [L1.08](/learn/level-1/08-singular-dual-plural/), [L2.04](/learn/level-2/04-nominative-case/) |
+| A case ending | ـُ، ـَ، ـِ، ـٌ | [L1.10](/learn/level-1/10-case-endings/) |
+
+What is left is the **stem**. The root is inside the stem. The stem can still hold pattern letters, and the next blocks show how to see them.
+</Block>
+
+<Block id="worked-1" title="Worked example: وَيُعَلِّمُهُمُ">
+  <Stage label="Five steps">
+    <ol class="lx-card-list">
+      <li><b>Peel</b> وَ, “and”. Left: يُعَلِّمُهُمُ.</li>
+      <li><b>Peel</b> هُمُ, “them”. Left: يُعَلِّمُ.</li>
+      <li><b>Peel</b> the prefix يُ, “he”. Left: عَلِّمُ.</li>
+      <li><b>Peel</b> the vowel ending ـُ. Left: عَلِّم.</li>
+      <li><b>Undo</b> the doubling: عَلِّم has ل twice. The root is <b>ع ل م</b>.</li>
+    </ol>
+  </Stage>
+
+Now check the answer by pouring the root back into the pattern. The scale word is يُفَعِّلُ. Put ع ل م into it and you get يُعَلِّمُ. It is the word you started with, so the root is right.
+
+The pattern has two clues: the prefix يُ and the doubled second letter. Together they say: a present-tense verb of Form II. L3.06 teaches the present tense.
+
+<Check n={5} q="You peel وَ and هُمُ from وَيُعَلِّمُهُمُ. What is still wrapped around the root?" options={['The prefix يُ and a vowel ending', 'Nothing', 'A case ending']} answer={0} why="يُعَلِّمُ still has the prefix يُ in front and the vowel ending ـُ behind. Peel them to get عَلِّم." />
+</Block>
+
+<Block id="worked-2" title="Worked example: three names of Allah">
+  <Stage>
+    <Sentence
+      reference="Al-Hashr 59:24 (part)"
+      groups={[
+        { words: [{ ar: 'ٱلْخَٰلِقُ', en: 'the Creator', say: 'al-khaliqu' }] },
+        { words: [{ ar: 'ٱلْبَارِئُ', en: 'the Maker', say: 'al-bariu' }] },
+        { words: [{ ar: 'ٱلْمُصَوِّرُ', en: 'the Shaper', say: 'al-musawwiru' }] },
+      ]}
+      en={['The Creator, the Maker, the Shaper.']}
+    />
+  </Stage>
+
+Three names, one peeling method. Each has the article ٱلْ and a case ending ـُ to peel.
+
+| Word | Left after peeling | Root | Pattern |
+|---|---|---|---|
+| ٱلْخَٰلِقُ | خَالِق | خ ل ق | فَاعِل |
+| ٱلْبَارِئُ | بَارِئ | ب ر أ | فَاعِل |
+| ٱلْمُصَوِّرُ | مُصَوِّر | ص و ر | مُفَعِّل |
+
+In ٱلْمُصَوِّرُ the م is an extra letter of the pattern, and the و is a **root letter**, doubled by the pattern. Al-Jadwal gives the pattern مُفَعِّل for it. It gives no pattern for the other two. They are doer words (active participles in the Corpus), so the usual doer pattern فَاعِل fits. L3.19 teaches doer words. In ٱلْبَارِئُ the last root letter is a hamza, written on a ي-shaped seat.
+
+<Note kind="know">Al-Jadwal calls the verb صَوَّرَ “four-letter” (*rubāʿī*), because the doubled letter counts twice. The root ص و ر still has three letters. A four-letter root is a different thing, and you meet one in step 3.</Note>
+</Block>
+
+<Block id="pour-back" title="Check your root: pour it back">
+  <Stage label="Two tries for مَكْتُوبٌ">
+    <ol class="lx-card-list">
+      <li><b>Try 1:</b> the root م ك ت. Pour it into مَفْعُول and you get مَمْكُوتٌ. This is not the word.</li>
+      <li><b>Try 2:</b> the root ك ت ب. Pour it into مَفْعُول and you get مَكْتُوبٌ. This is the word.</li>
+    </ol>
+  </Stage>
+
+When you have a root, test it. Pour the root into the pattern you think the word has. If you get the same word back, the root is right.
+
+In try 1 the first letter م was taken for a root letter. In مَكْتُوبٌ it is an extra letter of the pattern مَفْعُول. The scale word has its own م, so the extra م cannot be a root letter as well.
+
+The test needs a good guess at the pattern. If the first try fails, try another pattern or another peeling.
+
+<Check n={6} q="Which root fits مَكْتُوبٌ?" options={['م ك ت', 'ك ت ب', 'ت و ب']} answer={1} why="Poured into مَفْعُول, ك ت ب gives مَكْتُوبٌ. The first م is an extra letter of the pattern." />
+</Block>
+
+<Block id="dictionary" title="Looking a root up in a dictionary">
+  <Stage label="The order of the Arabic letters">
+    <blockquote class="lx-quote" lang="ar" dir="rtl">
+      <p>ا ب ت ث ج ح خ د ذ ر ز س ش ص ض ط ظ ع غ ف ق ك ل م ن ه و ي</p>
+    </blockquote>
+    <Tiles
+      label="six roots in dictionary order"
+      items={[
+        { ar: 'ح م د', en: 'praise', type: 'x' },
+        { ar: 'ر ح م', en: 'mercy', type: 'x' },
+        { ar: 'س ل م', en: 'peace, submission', type: 'x' },
+        { ar: 'ع ل م', en: 'knowledge', type: 'x' },
+        { ar: 'ق ر أ', en: 'reading', type: 'x' },
+        { ar: 'ك ت ب', en: 'writing', type: 'x' },
+      ]}
+    />
+  </Stage>
+
+A dictionary of the Quran lists words under their roots. The Quranic Arabic Corpus has one on its website (corpus.quran.com). It groups the words of the Quran by root. To use it:
+
+1. Peel the word and find its root.
+2. Find the root’s first letter in the order above. Then the second letter. Then the third.
+3. Read what the dictionary says about the root, then find your word in the list.
+
+The six roots in the picture are in that order: ح, then ر, then س, then ع, then ق, then ك. So ع ل م comes before ك ت ب.
+
+The 500 most common roots cover 59.2% of all the words in the Quran (Quran Learn’s count from the Quranic Arabic Corpus, as in L1.05). So each root you learn helps you with many words.
+
+<Check n={7} q="Which root comes first in a dictionary?" options={['ك ت ب', 'ع ل م', 'They come together']} answer={1} why="ع comes before ك in the order of the Arabic letters, so ع ل م comes first." />
+</Block>
+
+</Step>
+
+<Step id="patterns" label="Patterns and changing roots" title="Patterns, forms and roots that change">
+<Block id="forms" title="Ten forms of the verb: a preview">
+  <Stage label="Scale words for four of the forms">
+    <Tiles
+      label="four scale words, for Forms I, II, IV and VIII"
+      items={[
+        { ar: 'فَعَلَ', en: 'Form I', type: 'x' },
+        { ar: 'فَعَّلَ', en: 'Form II', type: 'x' },
+        { ar: 'أَفْعَلَ', en: 'Form IV', type: 'x' },
+        { ar: 'اِفْتَعَلَ', en: 'Form VIII', type: 'x' },
+      ]}
+    />
+  </Stage>
+
+A Form I verb is the plain verb. In the other forms the root is wrapped in extra letters, or one letter is doubled. The Quran has ten forms, numbered I to X. The root stays the same in all ten. Only the shape around it changes.
+
+The table gives the scale word for each form (the “he did” word), a word from the Quran, and how many verb words use the form. The counts are Quran Learn’s count from the Quranic Arabic Corpus: 19,356 verb words in all.
+
+| Form | Scale word | A word from the Quran | Verb words | Taught in |
+|---|---|---|---|---|
+| I | فَعَلَ | كَتَبَ (6:12) | 12,356 | [L3.04](/learn/level-3/04-verb-form-i/) |
+| II | فَعَّلَ | عَلَّمَ (96:5) | 1,300 | [L3.12](/learn/level-3/12-verb-form-ii/) |
+| IV | أَفْعَلَ | أَنزَلَ (2:231) | 3,487 | [L3.13](/learn/level-3/13-verb-form-iv/) |
+| VIII | اِفْتَعَلَ | ٱكْتَتَبَهَا (25:5) | 963 | [L3.14](/learn/level-3/14-verb-form-viii/) |
+| V | تَفَعَّلَ | ٱلْمُتَكَبِّرُ (59:23) | 414 | [L3.15](/learn/level-3/15-verb-form-v/) |
+| X | اِسْتَفْعَلَ | وَٱسْتَغْفِرْهُ (110:3) | 369 | [L3.16](/learn/level-3/16-verb-form-x/) |
+| III | فَاعَلَ | قَٰتَلَهُمُ (9:30) | 334 | [L3.17](/learn/level-3/17-verb-form-iii/) |
+| VI | تَفَاعَلَ | تَعَاوَنُوا۟ (5:2) | 77 | [L3.18](/learn/level-3/18-verb-forms-vi-vii-ix/) |
+| VII | اِنْفَعَلَ | ٱنفَطَرَتْ (82:1) | 51 | [L3.18](/learn/level-3/18-verb-forms-vi-vii-ix/) |
+| IX | اِفْعَلَّ | ٱسْوَدَّتْ (3:106) | 5 | [L3.18](/learn/level-3/18-verb-forms-vi-vii-ix/) |
+
+Form I is 12,356 of the 19,356 verb words, about 64%. The table is in the order of the lessons. After Form I, the lessons go from the more common forms to the rarer ones: II, IV, VIII, V, X, III. The three rare forms share one lesson. Form IV has more verb words than Form II, so the order follows use roughly, not exactly. The counts are in the table.
+
+Two things you will see in al-Jadwal’s ṣarf notes:
+
+- **A Form I verb named by an example.** Al-Jadwal writes *bāb* (type) and then a verb, such as *bāb naṣara*. This names the vowels of a Form I verb. L3.04 teaches them.
+- **A pattern letter that changes.** In ٱصْطَادُوا۟ (Al-Maida 5:2) al-Jadwal says the ت of the Form VIII pattern turned into ط next to ص. The word began as ٱصْتَادُوا۟. So the scale word اِفْتَعَلَ is the plan, and a letter in it can change.
+
+<Check n={8} q="Which form has the most verb words in the Quran?" options={['Form I', 'Form II', 'Form X']} answer={0} why="Form I has 12,356 of the 19,356 verb words, about 64%." />
+</Block>
+
+<Block id="noun-jobs" title="Nouns have patterns too: four jobs">
+  <Stage>
+    <Sentence
+      reference="Ghafir 40:3 (start)"
+      groups={[
+        { words: [{ ar: 'غَافِرِ', en: 'forgiver of', say: 'ghafiri' }] },
+        { words: [{ ar: 'ٱلذَّنۢبِ', en: 'sin', say: 'adh-dhanbi' }] },
+        { words: [{ ar: 'وَقَابِلِ', en: 'and accepter of', say: 'wa-qabili' }] },
+        { words: [{ ar: 'ٱلتَّوْبِ', en: 'repentance', say: 'at-tawbi' }] },
+      ]}
+      en={['Forgiver of sin and accepter of repentance.']}
+    />
+  </Stage>
+
+Nouns are built on patterns as well. Four of the jobs a noun pattern can do have a lesson of their own.
+
+| Job | Pattern | A word from the Quran | Root | Taught in |
+|---|---|---|---|---|
+| The doer, اِسْم فَاعِل | فَاعِل | غَافِرِ (40:3) | غ ف ر | [L3.19](/learn/level-3/19-active-passive-participles/) |
+| What was done to, اِسْم مَفْعُول | مَفْعُول | مَكْتُوبًا (7:157) | ك ت ب | [L3.19](/learn/level-3/19-active-passive-participles/) |
+| The action itself, مَصْدَر | فَعْل | ٱلتَّوْبِ (40:3) | ت و ب | [L3.20](/learn/level-3/20-verbal-nouns/) |
+| The place of an action, اِسْم مَكَان | مَفْعَل | مَّرْقَدِنَا (36:52) | ر ق د | [L3.21](/learn/level-3/21-nouns-place-time/) |
+
+Al-Jadwal names the pattern of غَافِرِ as فَاعِل. It says قَابِلِ is “like” it. For ٱلتَّوْبِ it gives فَعْل, an action name. For مَرْقَد it gives مَفْعَل, a noun of place. L1.05 showed مَفْعُول on مَكْتُوبًا.
+
+There are many patterns for the action name, not only فَعْل. L3.20 shows them. The root ت و ب has a و in the middle. That is a weak letter, and a later block in this step returns to it.
+</Block>
+
+<Block id="describing" title="Describing patterns">
+  <Stage>
+    <Sentence
+      reference="Saba 34:26 (end)"
+      groups={[
+        { words: [{ ar: 'وَهُوَ', en: 'and he', say: 'wa-huwa' }] },
+        { words: [{ ar: 'ٱلْفَتَّاحُ', en: 'the Opener', say: 'al-fattahu' }] },
+        { words: [{ ar: 'ٱلْعَلِيمُ', en: 'the All-Knowing', say: 'al-alimu' }] },
+      ]}
+      en={['And he is the Opener, the All-Knowing.']}
+    />
+  </Stage>
+
+Many describing words, and many names of Allah, have a pattern of their own. Each row below gives the pattern, the word, the root, and what al-Jadwal says about it.
+
+| Pattern | A word from the Quran | Root | Al-Jadwal says |
+|---|---|---|---|
+| فَعِيل | ٱلْحَكِيمُ (2:32) | ح ك م | gives the pattern |
+| فَعَل | ٱلصَّمَدُ (112:2) | ص م د | a describing word, صِفَة مُشَبَّهَة |
+| فَعَّال | ٱلْفَتَّاحُ (34:26) | ف ت ح | an intensive form, صِيغَة مُبَالَغَة |
+| فَعُّول | ٱلْقُدُّوسُ (59:23) | ق د س | a describing word, from a root meaning “pure” |
+| أَفْعَل | ٱلْأَبْتَرُ (108:3) | ب ت ر | a describing word |
+| فَوْعَل | ٱلْكَوْثَرَ (108:1) | ك ث ر | a name, from the idea of “much” |
+
+A **describing word**, صِفَة مُشَبَّهَة, names a lasting quality. An **intensive form**, صِيغَة مُبَالَغَة, says “very much”, so ٱلْفَتَّاحُ is the one who opens abundantly. The same pattern appears in تَوَّابًا in 110:3, which a later block reads word by word.
+
+The root tells you the idea (opening, purity, cutting off). The pattern tells you how the word works. You learn the patterns one at a time, as they come up.
+</Block>
+
+<Block id="four-letter" title="Four-letter roots">
+  <Stage>
+    <Sentence
+      reference="An-Nas 114:4"
+      groups={[
+        { words: [{ ar: 'مِن', en: 'from', say: 'min', type: 'p' }] },
+        { words: [{ ar: 'شَرِّ', en: 'the evil of', say: 'sharri' }] },
+        { words: [{ ar: 'ٱلْوَسْوَاسِ', en: 'the whisperer', say: 'al-waswasi' }] },
+        { words: [{ ar: 'ٱلْخَنَّاسِ', en: 'who slinks away', say: 'al-khannasi' }] },
+      ]}
+      en={['From the evil of the whisperer who slinks away.']}
+    />
+  </Stage>
+
+Most roots have three letters. A few have four. The Corpus lists 1,642 different roots: 1,602 with three letters and 40 with four (Quran Learn’s count from the Quranic Arabic Corpus).
+
+| Word | Root | Letters | Pattern |
+|---|---|---|---|
+| ٱلْوَسْوَاسِ | و س و س | 4 | فَعْلَال: al-Jadwal |
+| ٱلْخَنَّاسِ | خ ن س | 3 | فَعَّال (our reading). Al-Jadwal calls it an intensive form of a three-letter root. |
+
+A four-letter root is written on the scale with a fourth stand-in letter: ف ع ل ل. The verb وَسْوَسَ is فَعْلَلَ, with the pair و س repeated. Another four-letter root is ز ل ز ل, in the verb زُلْزِلَتِ in Al-Zalzala 99:1.
+
+Compare the two words in the verse. ٱلْخَنَّاسِ also has a doubled letter, but it is the middle one of three, so it is a three-letter root with a doubled second letter.
+
+<Check n={9} q="How many letters does the root of ٱلْوَسْوَاسِ have?" options={['Three', 'Four', 'Five']} answer={1} why="The root is و س و س. Two of its letters repeat, but each still counts as a root letter." />
+</Block>
+
+<Block id="kinds" title="Roots that change: a preview">
+  <Stage>
+    <Sentence
+      reference="Ya-Sin 36:52"
+      groups={[
+        { words: [{ ar: 'قَالُوا۟', en: 'they said', say: 'qalu', type: 'v' }] },
+        { words: [{ ar: 'يَٰوَيْلَنَا', en: 'oh, our ruin', say: 'ya-waylana' }] },
+        { words: [{ ar: 'مَنۢ', en: 'who', say: 'man', type: 'p' }] },
+        { words: [{ ar: 'بَعَثَنَا', en: 'raised us', say: 'baathana', type: 'v' }] },
+        { words: [{ ar: 'مِن', en: 'from', say: 'min', type: 'p' }] },
+        { words: [{ ar: 'مَّرْقَدِنَا', en: 'our resting place', say: 'marqadina' }] },
+        { words: [{ ar: 'هَٰذَا', en: 'this', say: 'hadha' }] },
+        { words: [{ ar: 'مَا', en: 'what', say: 'ma', type: 'p' }] },
+        { words: [{ ar: 'وَعَدَ', en: 'promised', say: 'waada', type: 'v' }] },
+        { words: [{ ar: 'ٱلرَّحْمَٰنُ', en: 'the Most Merciful', say: 'ar-rahmanu' }] },
+        { words: [{ ar: 'وَصَدَقَ', en: 'and spoke the truth', say: 'wa-sadaqa', type: 'v' }] },
+        { words: [{ ar: 'ٱلْمُرْسَلُونَ', en: 'the messengers', say: 'al-mursalun' }] },
+      ]}
+      en={['They will say: “Oh, our ruin! Who raised us from our resting place? This is what the Most Merciful promised, and the messengers spoke the truth.”']}
+    />
+  </Stage>
+
+Some roots hold a letter that makes the word change shape. The weak letters are **و** and **ي**, and the hamza can behave like them. This preview names the kinds. It does not teach their conjugation. Level 4 does that.
+
+| Kind of root | The special letter | Example | Root | Taught in |
+|---|---|---|---|---|
+| Sound | none | بَعَثَنَا (36:52) | ب ع ث | no special rules |
+| Doubled | the second and third letters are the same | رَبِّكَ (110:3) | ر ب ب | [L4.11](/learn/level-4/11-weak-verbs-intro/) |
+| Assimilated | the first letter is weak: و or ي | وَعَدَ (36:52) | و ع د | [L4.14](/learn/level-4/14-assimilated-verbs/) |
+| Hollow | the middle letter is و or ي | قَالُوا۟ (36:52) | ق و ل | [L4.12](/learn/level-4/12-hollow-verbs/) |
+| Defective | the last letter is و or ي | يَتْلُوا۟ (62:2) | ت ل و | [L4.13](/learn/level-4/13-defective-verbs/) |
+| Hamzated | one letter is a hamza | يَأْمُرُكُم (2:268) | أ م ر | [L4.15](/learn/level-4/15-hamzated-verbs/) |
+
+Look at قَالُوا۟. You can hear a long ā, but the root has a و in the middle. The Corpus gives its root as ق و ل. The root letter is there, hidden inside the vowel.
+
+These weak roots are common. In the Corpus, hollow verbs are 5,162 of the verb words (26.7%) and defective verbs 3,481 (18.0%). The verbs قَالَ (“he said”) and كَانَ (“he was”) are both hollow.
+</Block>
+
+<Block id="hidden" title="A hidden letter: how to notice it">
+  <Stage>
+    <Sentence
+      reference="Al-Baqarah 2:183 (part)"
+      groups={[
+        { words: [{ ar: 'كُتِبَ', en: 'it was written', say: 'kutiba', type: 'v' }] },
+        { words: [{ ar: 'عَلَيْكُمُ', en: 'on you', say: 'alaykumu', type: 'p' }] },
+        { words: [{ ar: 'ٱلصِّيَامُ', en: 'the fasting', say: 'as-siyamu' }] },
+      ]}
+      en={['Fasting has been made a duty for you.']}
+    />
+  </Stage>
+
+A word with a hidden letter often gives you a clue. Here are four.
+
+1. **Only two letters are left after peeling.** If you cannot find three, a letter is hidden. In يَعِدُكُمُ (2:268) only ع and د are left. The root is و ع د, and the first letter has dropped. Al-Jadwal says the first letter is dropped in the present, so the pattern has no letter for it: يَعِلُ.
+2. **A long vowel sits where a root letter should be.** In قَالُوا۟ the long ā stands where the و of ق و ل belongs.
+3. **A weak letter shows as a different letter.** In ٱلصِّيَامُ the root is ص و م. Al-Jadwal says the word began as ٱلصِّوَامُ, and the و turned into ي. In يُزَكِّيهِمْ (62:2) the root is ز ك و, and the last و shows as ي.
+4. **The dictionary or the Corpus tag tells you.** When a clue is not enough, look the word up. The Corpus lists the full root even when the word shows less.
+
+كُتِبَ in the same verse comes from ك ت ب, the family of writing. It is a Form I verb in a form that does not name the doer. L3.09 teaches it.
+
+<Check n={10} q="You peel a word and find only two letters. What should you suspect?" options={['A hidden root letter', 'A mistake in the Quran text', 'The word is a verb of Form X']} answer={0} why="A root needs three letters. If only two show, a weak letter is probably hidden. L4.11 to L4.15 teach them." />
+</Block>
+
+</Step>
+
+<Step id="word-by-word" label="Mistakes, word by word" title="Five mistakes, and four verses word by word">
+<Block id="mistake-pattern" title="Mistake 1: counting a pattern letter as a root letter">
+  <Stage label="Three letters, not four">
+    <Tiles
+      label="مَكْتُوبًا: the wrong root has four letters, the right root has three"
+      items={[
+        { ar: 'مَكْتُوبًا', en: 'written', type: 'n' },
+        { ar: 'م ك ت ب', en: 'wrong: four letters', type: 'x' },
+        { ar: 'ك ت ب', en: 'right: three letters', type: 'x' },
+      ]}
+    />
+  </Stage>
+
+The wrong root م ك ت ب has four letters. The first م belongs to the pattern مَفْعُول. Some letters at the front are often pattern letters:
+
+- **م** in مَفْعُول, مَفْعَل, and in the doer words of the later forms, such as مُفْعِل and مُفَعِّل.
+- **ت** in Forms V and VI, as in تَعَاوَنُوا۟.
+- **ٱسْتَ** in Form X, as in وَٱسْتَغْفِرْهُ.
+- **ٱنْ** in Form VII, as in ٱنفَطَرَتْ.
+
+Say “often”, because a letter at the front can also be a root letter. In مَلِك (Al-Hashr 59:23) the م is the first root letter, م ل ك. Pour the root back (step 2) and see whether you get the word.
+</Block>
+
+<Block id="mistake-doubled" title="Mistake 2: counting a doubled letter twice">
+  <Stage label="One root letter, written twice">
+    <Tiles
+      label="عَلَّمَ has the root ع ل م, not ع ل ل"
+      items={[
+        { ar: 'عَلَّمَ', en: 'he taught', type: 'v' },
+        { ar: 'ع ل ل', en: 'wrong', type: 'x' },
+        { ar: 'ع ل م', en: 'right', type: 'x' },
+      ]}
+    />
+  </Stage>
+
+In عَلَّمَ the shadda doubles the second root letter. That is the pattern فَعَّلَ. The root is ع ل م, and it has one ل.
+
+Do not go too far the other way. Some roots really have two equal letters. رَبِّكَ (110:3) is ر ب ب, and كُلِّ (64:11) is ك ل ل. How can you tell? Undo the shadda and count the letters. If you get only two letters, the root has a repeated letter, as in ر ب ب. If you still have three different letters, as in ع ل م, the shadda came from the pattern. When you are unsure, look at the Corpus tag.
+</Block>
+
+<Block id="mistake-vowel" title="Mistake 3: counting a long vowel as a root letter, or missing one">
+  <Stage label="Two words with a long ā">
+    <Tiles
+      label="قَٰتَلَهُمُ has the root ق ت ل; قَالُوا۟ has the root ق و ل"
+      items={[
+        { ar: 'قَٰتَلَهُمُ', en: 'root ق ت ل: the ā is the pattern', type: 'v' },
+        { ar: 'قَالُوا۟', en: 'root ق و ل: the ā hides a و', type: 'v' },
+      ]}
+    />
+  </Stage>
+
+A long ā can be two different things.
+
+- In قَٰتَلَهُمُ (9:30) it is the extra letter of the Form III pattern فَاعَلَ. After you peel the ending هُمُ you find the three letters ق ت ل, with the ā between the first two. The root is ق ت ل.
+- In قَالُوا۟ (36:52) the long ā stands for a root letter. Only ق and ل show. The root is ق و ل.
+
+The clue from step 3 helps. If a long vowel sits between two letters and no third consonant shows, a root letter is hidden. If three consonants already show, the long vowel is a pattern letter.
+</Block>
+
+<Block id="mistake-noroot" title="Mistake 4: looking for a root in every word">
+  <Stage label="Words with no root">
+    <Tiles
+      label="هُوَ, مِن and مُوسَىٰ have no root tag in the Corpus"
+      items={[
+        { ar: 'هُوَ', en: 'he: a pronoun', type: 'n' },
+        { ar: 'مِن', en: 'from: a preposition', type: 'p' },
+        { ar: 'مُوسَىٰ', en: 'Musa: a name', type: 'n' },
+      ]}
+    />
+  </Stage>
+
+Not every word has a root. The Corpus tags no root on pronouns such as هُوَ, on little words such as مِن and فِيهِ (fī and the pronoun hi), or on some names, such as مُوسَىٰ. In the whole Quran, 27,462 of the 77,429 words (35%) have no root tag (Quran Learn’s count from the Quranic Arabic Corpus).
+
+Three consonants in a row do not make a root. فِيهِ has three letters ف ي ه, but they are the word فِي and the pronoun هِ.
+
+<Check n={11} q="Which of these words has no root?" options={['كَاتِبٌ', 'هُوَ', 'ٱلْحَكِيمُ']} answer={1} why="A pronoun has no root. كَاتِبٌ has ك ت ب, and ٱلْحَكِيمُ has ح ك م." />
+</Block>
+
+<Block id="mistake-lookup" title="Mistake 5: looking a word up under its first letter">
+  <Stage label="Look under the root">
+    <Tiles
+      label="مَكْتُوبًا is listed under ك ت ب, not under م"
+      items={[
+        { ar: 'مَكْتُوبًا', en: 'the word you see', type: 'n' },
+        { ar: 'ك ت ب', en: 'where to look', type: 'x' },
+      ]}
+    />
+  </Stage>
+
+A dictionary of the Quran lists words under their roots. If you look for مَكْتُوبًا under م, you will not find it. Peel the word, find the root ك ت ب, and look there.
+
+Two more small points for lookup:
+
+- Look in the order of the Arabic letters (step 2). Count ع before ك.
+- Two words that mean nearly the same can have different roots. وَٰحِدٌ (2:163) and أَحَدٌ (112:1) both mean “one”. The Corpus gives و ح د for the first and أ ح د for the second. L1.11 meets this.
+</Block>
+
+<Block id="parse-1" title="Word by word: Al-Baqarah 2:268">
+  <Stage label="Word by word">
+    <Parse
+      reference="Al-Baqarah 2:268 (start)"
+      words={[
+        { ar: 'ٱلشَّيْطَٰنُ', en: 'the devil' },
+        { ar: 'يَعِدُكُمُ', en: 'promises you', type: 'v' },
+        { ar: 'ٱلْفَقْرَ', en: 'poverty' },
+        { ar: 'وَيَأْمُرُكُم', en: 'and orders you', type: 'v' },
+        { ar: 'بِٱلْفَحْشَآءِ', en: 'with the shameful deed' },
+      ]}
+      cards={[
+        { at: 0, role: 'mubtadaʾ', case: 'nominative (rafʿ)', mark: '-u (ḍamma)', why: 'It starts the sentence (L2.01). The Corpus root is ش ط ن.', irab: 'مبتدأ مرفوع وعلامة رفعه الضمة الظاهرة' },
+        { at: 1, ar: 'يَعِدُ', role: 'a present-tense verb, “he promises”. Its doer is a hidden “he”.', case: 'rafʿ: the -u of a present-tense verb', mark: '-u (ḍamma)', why: 'Root و ع د. Peel يَ and only ع and د are left: the first letter, و, dropped. Al-Jadwal says so in its ṣarf note.', irab: 'فعل مضارع مرفوع وعلامة رفعه الضمة الظاهرة والفاعل ضمير مستتر تقديره هو' },
+        { at: 1, ar: 'كُمُ', role: '“you all”: the first object of the verb', why: 'A pronoun has no root.', irab: 'ضمير متصل في محل نصب مفعول به أول' },
+        { at: 2, role: 'the second object of the verb', case: 'accusative (naṣb)', mark: '-a (fatḥa)', why: 'Root ف ق ر, pattern فَعْل (an action name, al-Jadwal). The verb takes two objects, “promises you poverty”.', irab: 'مفعول به ثان منصوب وعلامة نصبه الفتحة الظاهرة' },
+        { at: [1, 2], ar: 'يَعِدُكُمُ ٱلْفَقْرَ', role: 'the khabar: a whole verbal sentence', case: 'a sentence shows no ending; it stands in the place of the nominative', why: 'It is the news about ٱلشَّيْطَٰنُ (L2.01).', irab: 'وجملة «يعدكم الفقر» في محل رفع خبر المبتدأ' },
+        { at: 3, ar: 'وَ', role: '“and”: a little word that joins two sentences', why: 'A little word has no root and no case.', irab: 'الواو عاطفة' },
+        { at: 3, ar: 'يَأْمُرُ', role: 'a present-tense verb, “he orders”, built like the one before', case: 'rafʿ', mark: '-u (ḍamma)', why: 'Root أ م ر, with a hamza as the first letter. Al-Jadwal says it is like يَعِدُكُمُ.', irab: 'فعل مضارع مرفوع والفاعل ضمير مستتر تقديره هو، والكاف ضمير في محل نصب مفعول به' },
+        { at: 4, role: 'a preposition and its noun: “with the shameful deed”. They belong to the verb.', case: 'genitive (jarr)', mark: '-i (kasra)', why: 'Root ف ح ش. The hamza at the end is part of the ending ـَاء, not a root letter. The Corpus gives three root letters.', irab: 'جار ومجرور متعلق بيأمر' },
+      ]}
+    />
+  </Stage>
+
+Read the verse with two questions at each word: what is the **root**, and what is its **job** in the sentence?
+
+The verb يَعِدُ is the word to watch in this verse. It shows only two root letters, but the root is و ع د. L4.14 teaches this kind of verb, and L3.06 the present tense it sits in.
+</Block>
+
+<Block id="parse-2" title="Word by word: An-Nasr 110:3">
+  <Stage label="Word by word">
+    <Parse
+      reference="An-Nasr 110:3"
+      words={[
+        { ar: 'فَسَبِّحْ', en: 'so glorify', type: 'v' },
+        { ar: 'بِحَمْدِ', en: 'with the praise of' },
+        { ar: 'رَبِّكَ', en: 'your Lord' },
+        { ar: 'وَٱسْتَغْفِرْهُ', en: 'and ask his forgiveness', type: 'v' },
+        { ar: 'إِنَّهُۥ', en: 'indeed he', type: 'p' },
+        { ar: 'كَانَ', en: 'is', type: 'v' },
+        { ar: 'تَوَّابًۢا', en: 'ever accepting of repentance' },
+      ]}
+      cards={[
+        { at: 0, ar: 'فَ', role: '“so”: a little word that ties this to the “when” of verse 1', why: 'A little word has no root.', irab: 'الفاء رابطة لجواب الشرط' },
+        { at: 0, ar: 'سَبِّحْ', role: 'a command, “glorify”. Its doer is a hidden “you”.', mark: 'sukūn on the last letter', why: 'Root س ب ح. The doubled ب is a Form II sign (Corpus): the scale word is فَعِّلْ.', irab: 'فعل أمر مبني على السكون والفاعل ضمير مستتر تقديره أنت' },
+        { at: 1, role: 'a preposition and its noun: “with the praise of”', case: 'genitive (jarr)', mark: '-i (kasra)', why: 'Root ح م د. Al-Jadwal ties the phrase to a ḥāl, “while praising” (L4.01).', irab: 'جار ومجرور، وحمد مضاف' },
+        { at: 2, ar: 'رَبِّ', role: 'second word of an idafah: “of the Lord”', case: 'genitive (jarr)', mark: '-i (kasra)', why: 'Root ر ب ب. The shadda comes from the root, which has two ب.', irab: 'مضاف إليه مجرور وعلامة جره الكسرة الظاهرة، وهو مضاف' },
+        { at: 2, ar: 'كَ', role: '“your”: a pronoun, the second word of an idafah', why: 'A pronoun has no root.', irab: 'ضمير متصل في محل جر مضاف إليه' },
+        { at: 3, ar: 'وَ', role: '“and”: a little word that joins two commands', why: 'A little word has no root.', irab: 'الواو عاطفة' },
+        { at: 3, ar: 'ٱسْتَغْفِرْ', role: 'a command, “ask forgiveness”. Its doer is a hidden “you”.', mark: 'sukūn on the last letter', why: 'Root غ ف ر. The extra letters ٱسْتَ show Form X (Corpus): the scale word is ٱسْتَفْعِلْ.', irab: 'فعل أمر مبني على السكون والفاعل ضمير مستتر تقديره أنت' },
+        { at: 3, ar: 'هُ', role: '“him”: the object', why: 'A pronoun has no root.', irab: 'ضمير متصل في محل نصب مفعول به' },
+        { at: 4, role: '“indeed he”: إِنَّ and its pronoun, which is its subject', case: 'the pronoun counts as accusative', why: 'L2.10 teaches inna.', irab: 'حرف مشبه بالفعل، والهاء ضمير متصل في محل نصب اسم إن' },
+        { at: 5, role: 'kāna, “he was”. Its subject is a hidden “he”.', mark: 'fatḥa on the last letter', why: 'Root ك و ن, a hollow root (Corpus): the middle و hides in the long ā. L2.11 teaches kāna.', irab: 'فعل ماض ناقص مبني على الفتح واسمه ضمير مستتر تقديره هو' },
+        { at: 6, role: 'the khabar of kāna', case: 'accusative (naṣb)', mark: '-an (tanwīn fatḥa)', why: 'Root ت و ب. The pattern is the intensive فَعَّال, as in ٱلْفَتَّاحُ.', irab: 'خبر كان منصوب وعلامة نصبه الفتحة الظاهرة' },
+        { at: [5, 6], ar: 'كَانَ تَوَّابًا', role: 'a whole sentence: the khabar of inna', case: 'a sentence shows no ending; it stands in the place of the nominative', why: 'Al-Jadwal reads the sentence كان توابا as the khabar of inna.', irab: 'وجملة «كان توابا» في محل رفع خبر إن' },
+      ]}
+    />
+  </Stage>
+
+This verse has seven words. Six have a root (س ب ح, ح م د, ر ب ب, غ ف ر, ك و ن and ت و ب). إِنَّهُ has none. It shows Form II (سَبِّحْ), Form X (ٱسْتَغْفِرْ), a doubled root (رَبّ), a hollow root (كَانَ and تَوَّاب) and an intensive pattern (تَوَّاب).
+
+<Note kind="know">Al-Jadwal explains this verse at sentence level. It does not name each word’s role. The roles on the cards follow its sentence analysis and the rules of L2.10 and L2.11.</Note>
+</Block>
+
+<Block id="parse-3" title="Word by word: Al-Hashr 59:24">
+  <Stage label="Word by word">
+    <Parse
+      reference="Al-Hashr 59:24 (start)"
+      words={[
+        { ar: 'هُوَ', en: 'he' },
+        { ar: 'ٱللَّهُ', en: 'Allah' },
+        { ar: 'ٱلْخَٰلِقُ', en: 'the Creator' },
+        { ar: 'ٱلْبَارِئُ', en: 'the Maker' },
+        { ar: 'ٱلْمُصَوِّرُ', en: 'the Shaper' },
+      ]}
+      cards={[
+        { at: 0, role: 'mubtadaʾ', case: 'counts as nominative (it never changes)', why: 'A pronoun has no root.', irab: 'ضمير منفصل مبني في محل رفع مبتدأ' },
+        { at: 1, role: 'khabar', case: 'nominative (rafʿ)', mark: '-u (ḍamma)', why: 'The Corpus gives the root أ ل ه. Scholars differ about where the name comes from, so this lesson claims nothing beyond the tag.', irab: 'لفظ الجلالة خبر مرفوع وعلامة رفعه الضمة الظاهرة' },
+        { at: 2, role: 'a describing word (naʿt) of the name ٱللَّهُ', case: 'nominative (rafʿ)', mark: '-u (ḍamma)', why: 'Root خ ل ق. Peel ٱل and the ending: خَالِق. The scale word is فَاعِل, a doer word. Al-Jadwal gives no pattern here. It says the describing words that follow are read in the same way.', irab: 'نعت للفظ الجلالة مرفوع وعلامة رفعه الضمة الظاهرة' },
+        { at: 3, role: 'a second describing word of ٱللَّهُ', case: 'nominative (rafʿ)', mark: '-u (ḍamma)', why: 'Root ب ر أ. The last root letter is a hamza on a ي seat.', irab: 'نعت ثان مرفوع وعلامة رفعه الضمة الظاهرة' },
+        { at: 4, role: 'a third describing word of ٱللَّهُ', case: 'nominative (rafʿ)', mark: '-u (ḍamma)', why: 'Root ص و ر. The pattern is مُفَعِّل (al-Jadwal): an extra م, and the second root letter و doubled.', irab: 'نعت ثالث مرفوع وعلامة رفعه الضمة الظاهرة' },
+      ]}
+    />
+  </Stage>
+
+Here the root work and the sentence work meet. The three describing words each describe the name ٱللَّهُ (L2.09 teaches describing words). The roots خ ل ق, ب ر أ and ص و ر give the three ideas behind the English names.
+
+In this verse, a single word like ٱلْمُصَوِّرُ gives you its root and its pattern together. That is what an iʿrāb and a ṣarf note do side by side.
+</Block>
+
+<Block id="parse-4" title="Word by word: At-Taghabun 64:11">
+  <Stage label="Word by word">
+    <Parse
+      reference="At-Taghabun 64:11 (end)"
+      words={[
+        { ar: 'وَٱللَّهُ', en: 'and Allah' },
+        { ar: 'بِكُلِّ', en: 'of every', type: 'p' },
+        { ar: 'شَىْءٍ', en: 'thing' },
+        { ar: 'عَلِيمٌ', en: 'all-knowing' },
+      ]}
+      cards={[
+        { at: 0, ar: 'وَ', role: '“and”: a little word that starts a new sentence', why: 'A little word has no root and no case.', irab: 'الواو استئنافية' },
+        { at: 0, ar: 'ٱللَّهُ', role: 'mubtadaʾ', case: 'nominative (rafʿ)', mark: '-u (ḍamma)', why: 'It starts a nominal sentence (L2.01). The Corpus gives the root أ ل ه.', irab: 'لفظ الجلالة مبتدأ مرفوع وعلامة رفعه الضمة الظاهرة' },
+        { at: 1, ar: 'بِكُلِّ', role: '“of every”: a preposition and the first word of an idafah', case: 'genitive (jarr)', mark: '-i (kasra)', why: 'Root ك ل ل: a doubled root, so the shadda comes from the root. L2.08 teaches the idafah.', irab: 'جار ومجرور متعلق بعليم، وكل مضاف' },
+        { at: 2, role: 'second word of the idafah: “of thing”', case: 'genitive (jarr)', mark: '-in (tanwīn kasra)', why: 'Root ش ي أ: a weak letter ي and a hamza together. The word shows only part of this.', irab: 'مضاف إليه مجرور وعلامة جره الكسرة الظاهرة' },
+        { at: 3, role: 'khabar', case: 'nominative (rafʿ)', mark: '-un (tanwīn ḍamma)', why: 'Root ع ل م. The scale word is فَعِيل: the same root as عَلَّمَ in 96:5, a different pattern.', irab: 'خبر مرفوع وعلامة رفعه الضمة الظاهرة' },
+      ]}
+    />
+  </Stage>
+
+The khabar comes last, and the phrase بِكُلِّ شَىْءٍ is tied to it. Word for word it reads: “and Allah, of every thing, all-knowing.”
+
+You now have three words with the root ع ل م in this lesson: عَلَّمَ, يَعْلَمْ and عَلِيمٌ. They share one root and have three patterns.
+</Block>
+
+</Step>
+
+<Step id="practice" label="Practice" title="Practice">
+<Block id="practice-1" title="Practice: peel, root and pattern">
+  <Stage label="To find a root">
+    <ol class="lx-card-list">
+      <li><b>Peel</b> little prefixes, the article, pronoun endings and case endings.</li>
+      <li><b>Peel</b> tense prefixes and doer endings if it is a verb.</li>
+      <li><b>Find</b> the extra letters and undo any doubling.</li>
+      <li><b>Pour back</b>: put the root into the pattern and see whether you get the word.</li>
+    </ol>
+  </Stage>
+
+Work out each answer first, on paper or in your head. Then open the answer.
+
+<Exercise n={1} q="Peel the word and name its root and pattern: ٱلْقُدُّوسُ (Al-Hashr 59:23). Meaning: “the Holy One”.">
+
+Peel ٱلْ and the ending ـُ. Left: قُدُّوس.
+
+The root is **ق د س**. The pattern is **فَعُّول**: the second letter د is doubled, and there is an extra long ū before the last letter. Al-Jadwal gives this pattern and calls the word a describing word from a root meaning “pure”.
+
+Pour back: ق د س into فَعُّول gives قُدُّوس.
+
+</Exercise>
+
+<Exercise n={2} q="Which of these words has the root ع ل م? (a) عَلَّمَ (Al-Alaq 96:5) (b) ٱلْقَلَمِ (Al-Alaq 96:4) (c) يَعْلَمْ (Al-Alaq 96:5) (d) عَلِيمٌ (At-Taghabun 64:11)">
+
+- (a) **Yes.** The doubled ل is one root letter.
+- (b) **No.** ٱلْقَلَمِ has the root ق ل م. After you peel ٱلْ and the ending you find ق ل م, which is a different root.
+- (c) **Yes.** Peel the prefix يَ.
+- (d) **Yes.** The pattern is فَعِيل.
+
+</Exercise>
+
+<Exercise n={3} q="Peel each word, then give its root and its form. (a) فَسَبِّحْ (An-Nasr 110:3) (b) بِحَمْدِ (An-Nasr 110:3) (c) وَٱسْتَغْفِرْهُ (An-Nasr 110:3)">
+
+- (a) Peel فَ. Left: سَبِّحْ. Root **س ب ح**. The doubled ب shows **Form II**, scale word فَعِّلْ.
+- (b) Peel بِ and the ending ـِ. Left: حَمْد. Root **ح م د**. This is a plain noun with no extra letters, so the scale word is فَعْل.
+- (c) Peel وَ and هُ. Left: ٱسْتَغْفِرْ. The extra letters ٱسْتَ show **Form X**, scale word ٱسْتَفْعِلْ. Root **غ ف ر**.
+
+</Exercise>
+
+<Exercise n={4} q="Pattern practice: pour the root ح م د (praise) into three scale words: فَاعِل, مَفْعُول and فَعِيل. Write the three words.">
+
+- فَاعِل gives **حَامِد**, one who praises. The Quran has its plural, ٱلْحَٰمِدُونَ (At-Tawba 9:112).
+- مَفْعُول gives **مَحْمُود**, praised. The Quran has مَّحْمُودًا (Al-Isra 17:79).
+- فَعِيل gives **حَمِيد**, worthy of praise. The Quran has حَمِيدٌ (Hud 11:73).
+
+The root gives the idea of praise. Each pattern gives the word its job.
+
+</Exercise>
+
+<Exercise n={5} q="A student says the root of مَّغْفِرَةً (Al-Baqarah 2:268) is م غ ف ر. What went wrong, and what is the right root?">
+
+The student counted the first م. It is an extra letter of the pattern.
+
+Peel the ending ـَةً (the feminine ـَة and tanwīn). Left: مَغْفِر. Take away the extra م. The root is **غ ف ر**. Pour back: غ ف ر into مَفْعِلَة gives مَغْفِرَة.
+
+Al-Jadwal gives no pattern for this word. The scale word مَفْعِلَة is our own reading. The same root appears in غَافِرِ (40:3) and in ٱسْتَغْفِرْهُ (110:3).
+
+</Exercise>
+</Block>
+
+<Block id="practice-2" title="Practice: lookup, forms and hidden letters">
+  <Stage label="The kinds of root">
+    <ol class="lx-card-list">
+      <li><b>Sound:</b> three strong letters.</li>
+      <li><b>Doubled:</b> the second and third letters are the same.</li>
+      <li><b>Assimilated:</b> the first letter is و or ي.</li>
+      <li><b>Hollow:</b> the middle letter is و or ي.</li>
+      <li><b>Defective:</b> the last letter is و or ي.</li>
+      <li><b>Hamzated:</b> one letter is a hamza.</li>
+    </ol>
+  </Stage>
+
+<Exercise n={6} q="Put these roots in dictionary order: ك ت ب, ع ل م, ح م د, س ل م, ر ح م.">
+
+The order is **ح م د, ر ح م, س ل م, ع ل م, ك ت ب**.
+
+Look at the first letters in the order of the Arabic alphabet: ح comes before ر, then س, then ع, then ك.
+
+</Exercise>
+
+<Exercise n={7} q="How many root letters does each word have? (a) ٱلْوَسْوَاسِ (An-Nas 114:4) (b) ٱلْخَنَّاسِ (An-Nas 114:4)">
+
+- (a) **Four.** The root is و س و س. The pair و س repeats.
+- (b) **Three.** The root is خ ن س. The doubled ن in the word comes from the pattern فَعَّال.
+
+</Exercise>
+
+<Exercise n={8} q="Which of these verbs has a weak letter in its root? (a) قَالُوا۟ (Ya-Sin 36:52) (b) بَعَثَنَا (Ya-Sin 36:52) (c) وَعَدَ (Ya-Sin 36:52)">
+
+- (a) **Yes.** The root is ق و ل: the middle letter is و, hidden in the long ā (a hollow root).
+- (b) **No.** The root is ب ع ث, three strong letters (a sound root).
+- (c) **Yes.** The root is و ع د: the first letter is و (an assimilated root).
+
+L4.12 and L4.14 teach how these verbs behave.
+
+</Exercise>
+
+<Exercise n={9} q="Name the pattern and the job of each word. (a) ٱلْفَتَّاحُ (Saba 34:26) (b) مَّرْقَدِنَا (Ya-Sin 36:52) (c) غَافِرِ (Ghafir 40:3)">
+
+- (a) **فَعَّال**, an intensive form (al-Jadwal), root ف ت ح. It says the one who opens very much.
+- (b) **مَفْعَل**, a noun of place (al-Jadwal), root ر ق د. It means the place of resting.
+- (c) **فَاعِل**, a doer word (al-Jadwal), root غ ف ر. It means the one who forgives.
+
+</Exercise>
+
+<Exercise n={10} q="Each word hides a root letter. Which letter, and where is it? (a) ٱلصِّيَامُ (Al-Baqarah 2:183) (b) يَلِدْ (Al-Ikhlas 112:3)">
+
+- (a) The root is **ص و م**. The middle letter و shows as ي in ٱلصِّيَامُ. Al-Jadwal says the word began as ٱلصِّوَامُ.
+- (b) The root is **و ل د**. The first letter و has dropped in يَلِدْ, as it did in يَعِدُكُمُ (2:268). The Corpus gives the root و ل د, and L1.11 met it in both يَلِدْ and يُولَدْ.
+
+</Exercise>
+
+<Exercise n={11} q="Walk through a dictionary lookup for وَيَأْمُرُكُم (Al-Baqarah 2:268, start). Meaning: “and he orders you”.">
+
+1. **Peel** وَ, “and”. Left: يَأْمُرُكُم.
+2. **Peel** كُم, “you all”. Left: يَأْمُرُ.
+3. **Peel** the prefix يَ and the vowel ending ـُ. Left: أْمُر.
+4. **Root:** أ م ر. The first letter is a hamza. The Corpus writes it as أ.
+5. **Look up:** use the order of the letters. Find أ, then م, then ر.
+
+The hamza is a root letter here, so the word is a hamzated verb. L4.15 teaches how such verbs behave.
+
+</Exercise>
+</Block>
+
+<Block id="done" title="You have finished the lesson">
+  <Stage label="The idea">
+    <Formula
+      label="root plus pattern equals a word"
+      items={[
+        { kind: 'm', text: 'root', small: 'the idea: ع ل م' },
+        { kind: 'k', text: 'pattern', small: 'the shape: فَعِيل' },
+        { kind: 's', text: 'word', small: 'عَلِيمٌ, all-knowing' },
+      ]}
+    />
+  </Stage>
+
+- A word is a **root** plus a **pattern**. The root gives the idea. The pattern gives the shape and the job.
+- The **scale ف ع ل** writes a pattern: ف, ع and ل stand for the three root letters. Any other letter in the scale word is an extra letter of the pattern.
+- To find a root, **peel** the word from the outside in. Peel little prefixes, the article, pronoun endings, tense prefixes, doer endings, plural and case endings. Then find the extra letters and undo any doubling.
+- **Pour the root back** into the pattern to test it. If you get the word back, the root is right.
+- A dictionary lists words under their **roots**, in the order of the Arabic letters.
+- A verb has one of ten **forms**, I to X. Form I is about 64% of the verb words in the Quran. L3.04 teaches it, and L3.12 to L3.18 teach the others.
+- Noun patterns do jobs: the doer (L3.19), the one done to (L3.19), the action (L3.20) and the place (L3.21).
+- Most roots have three letters. 40 of the 1,642 roots have four.
+- A **weak** letter or a hamza can hide or change. If only two letters show after peeling, suspect a hidden letter. L4.11 to L4.15 teach these roots.
+
+**Next:** L3.04 uses the scale to build the plain verb, Form I. After that you meet the tenses and the other forms one at a time.
+
+More to read: the [Root System Guide](/resources/root-system/), the list of the [200 most used words](/resources/200-most-used-words/) and the [verb forms hub](/learn/verb-forms/).
+
+<Sources
+    items={[
+      { label: 'Quran text', name: 'Tanzil (Uthmani text)', href: 'https://tanzil.net' },
+      { label: 'Roots, verb forms and the counts in this lesson', name: 'Quranic Arabic Corpus', href: 'https://corpus.quran.com' },
+      { label: 'Word-by-word analysis (iʿrāb) and word patterns (ṣarf) of each verse', name: 'Maḥmūd Ṣāfī, al-Jadwal fī Iʿrāb al-Qurʾān wa-Ṣarfihi wa-Bayānihi' },
+      { label: 'English under the verses', name: 'Plain-English meanings by Quran Learn, not a translation' },
+    ]}
+  />
+</Block>
+
+</Step>
