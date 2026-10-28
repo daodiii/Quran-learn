@@ -6,7 +6,7 @@ product
 
 ## Users
 
-Adults who care about the Quran and know little Arabic, from many countries. English is the language they use to learn Arabic, so it is plain B1 English, never a hurdle. Many read on a phone in short sittings. They start from the alphabet. Success for a learner is reading a verse, naming the grammar role of each word, and following the meaning of most verses without a translation.
+Every Muslim who wants to understand the Quran in its own language: people who have never read Arabic, people who read it but do not follow it, and people who know some grammar. Adults who care about the Quran and know little Arabic, from many countries. English is the language they use to learn Arabic, so it is plain B1 English, never a hurdle. Many read on a phone in short sittings. They start from the alphabet. Success for a learner is reading a verse, naming the grammar role of each word, and following the meaning of most verses without a translation.
 
 ## Product Purpose
 
@@ -14,12 +14,14 @@ Quran Learn (the site is called Quranic Grammar) teaches Quranic Arabic in two t
 
 ## Brand Personality
 
-Welcoming, clear, encouraging. A good teacher at a kitchen table, not a tech demo. Colourful and engaging enough that people want to read the page, calm enough to study from.
+Modern, precise, confident and open. Classical Arabic is treated with the craft of the best software: sharp type, working tools, motion that explains. The site shows that the oldest language of devotion and modern technology belong together, and that it is easy to learn. It is for every Muslim. Nobody is outside it. Colourful and engaging enough that people want to read the page, calm enough to study from. (Revised 2026-10-28 by the owner. The earlier line, "a good teacher at a kitchen table, not a tech demo", is retired.)
 
 ## Anti-references
 
-- The current site: dark, gold-on-black, monospace capital labels, starfields and scroll animation. It reads as a tech demo.
+- Stereotypical Islamic decor: gold stars, arabesque borders, green-and-gold. The old site: dark, gold-on-black, monospace capital labels and starfields.
 - Games: streaks, XP, badges, leaderboards. Progress is shown plainly.
+- Effects that do not teach: decoration-only animation, scroll-jacking, anything that slows a cheap phone.
+- Gatekeeping tone: language that makes the site sound meant for scholars, one school, one background or one level.
 - Walls of text, stacks of callout boxes, filler introductions.
 - Anything that makes Arabic harder to read.
 

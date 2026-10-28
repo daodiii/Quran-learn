@@ -4,9 +4,10 @@
 // (index, surahs) and inside the BaseLayout suite. Remembers the choice in
 // localStorage and, on decline, flips Google Analytics' opt-out flag.
 const GA_ID = 'G-1MSBYYQT5Z';
+const { tone = 'night' } = Astro.props as { tone?: 'night' | 'light' };
 ---
 
-<div id="cookie-banner" class="cookie-banner" role="region" aria-live="polite" aria-label="Cookie notice" hidden>
+<div id="cookie-banner" class:list={['cookie-banner', { 'cb-light': tone === 'light' }]} role="region" aria-live="polite" aria-label="Cookie notice" hidden>
   <div class="cb-icon" aria-hidden="true">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
       <path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5Z" stroke-linejoin="round"/>
@@ -86,6 +87,17 @@ const GA_ID = 'G-1MSBYYQT5Z';
   @media (max-width:480px){
     .cb-text{font-size:12px}
   }
+
+  /* Light variant for the light pages (home). */
+  .cookie-banner.cb-light{left:auto;right:clamp(14px,3vw,26px);background:#fff;color:oklch(18% 0.03 240);border:1px solid oklch(90% 0.008 220);box-shadow:0 18px 50px -16px oklch(30% 0.04 220 / .35);backdrop-filter:none;-webkit-backdrop-filter:none}
+  .cb-light .cb-icon{color:oklch(40% 0.1 178)}
+  .cb-light .cb-text{color:oklch(40% 0.025 230);font-size:13.5px}
+  .cb-light .cb-btn{font-family:'Geist',ui-sans-serif,system-ui,sans-serif;font-size:13.5px;font-weight:500;letter-spacing:0;text-transform:none;padding:9px 16px}
+  .cb-light .cb-btn:focus-visible{outline-color:oklch(50% 0.16 255)}
+  .cb-light .cb-accept{background:oklch(18% 0.03 240);color:#fff}
+  .cb-light .cb-accept:hover{background:oklch(28% 0.03 240)}
+  .cb-light .cb-decline{color:oklch(30% 0.03 240);border:1px solid oklch(85% 0.01 240)}
+  .cb-light .cb-decline:hover{color:oklch(18% 0.03 240);border-color:oklch(70% 0.02 240)}
   @media (prefers-reduced-motion:reduce){
     .cookie-banner{transition:opacity .3s linear}
     .cookie-banner.cb-in{transform:none}
