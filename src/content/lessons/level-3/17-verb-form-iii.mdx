@@ -1,647 +1,866 @@
 ---
-title: "Verb Form III (Mufa'alah)"
+title: "Verbs with a Long ā: Form III"
+kicker: "Form III"
+titleArabic: "فَاعَلَ"
 level: 3
 order: 17
-description: "Recognize Form III verbs with alif after the first root letter and understand their reciprocal and attempted-action meanings."
+template: steps
+description: "Learn Form III, the verb with a long ā after the first root letter. Build its past, present and command on a real verb, see how its prefix, passive, participle and verbal nouns work, learn what it adds to the meaning from verse pairs, and tell it from the look-alikes قَالَ and ءَامَنَ. Go through four verses word by word."
 draft: false
 ---
 
-import ArabicExample from '../../../components/mdx/ArabicExample.astro';
-import GrammarTable from '../../../components/mdx/GrammarTable.astro';
-import Callout from '../../../components/mdx/Callout.astro';
-import ExerciseBox from '../../../components/mdx/ExerciseBox.astro';
-import ConjugationEngine from '../../../components/mdx/lab/ConjugationEngine.astro';
-
-## Introduction
-
-In [L3.12 Verb Form II](/learn/level-3/12-verb-form-ii/), you learned how doubling the middle letter creates causative and intensive meanings. Now you'll discover another transformation: inserting a long vowel to create INTERACTIVE action — action directed toward someone or done WITH someone.
-
-<ArabicExample
-  arabic="وَقَاتِلُوا فِى سَبِيلِ ٱللَّهِ ٱلَّذِينَ يُقَٰتِلُونَكُمْ وَلَا تَعْتَدُوٓا ۚ إِنَّ ٱللَّهَ لَا يُحِبُّ ٱلْمُعْتَدِينَ"
-  transliteration="wa-qātilū fī sabīli llāhi lladhīna yuqātilūnakum wa-lā taʿtadū inna llāha lā yuḥibbu l-muʿtadīna"
-  translation="Fight in the cause of Allah those who fight you, but do not transgress. Indeed, Allah does not like transgressors"
-  reference="Al-Baqarah 2:190"
-  highlight="قَاتِلُوا,يُقَٰتِلُونَكُمْ"
-  words={[
-    { ar: "وَقَاتِلُوا", tr: "wa-qātilū", en: "And fight" },
-    { ar: "فِى", tr: "fī", en: "in" },
-    { ar: "سَبِيلِ", tr: "sabīli", en: "the cause" },
-    { ar: "ٱللَّهِ", tr: "llāhi", en: "of Allah" },
-    { ar: "ٱلَّذِينَ", tr: "alladhīna", en: "those who" },
-    { ar: "يُقَٰتِلُونَكُمْ", tr: "yuqātilūnakum", en: "fight you" },
-    { ar: "وَلَا", tr: "wa-lā", en: "but do not" },
-    { ar: "تَعْتَدُوٓا", tr: "taʿtadū", en: "transgress" },
-    { ar: "إِنَّ", tr: "inna", en: "indeed" },
-    { ar: "ٱللَّهَ", tr: "llāha", en: "Allah" },
-    { ar: "لَا", tr: "lā", en: "does not" },
-    { ar: "يُحِبُّ", tr: "yuḥibbu", en: "like" },
-    { ar: "ٱلْمُعْتَدِينَ", tr: "al-muʿtadīna", en: "the transgressors" }
-  ]}
-/>
-
-Look at a related root ق-ت-ل (q-t-l) "killing." The Form I verb قَتَلَ (qatala) means "he killed" — a simple, one-directional action. But if you want to say "he fought," you need a form that shows RECIPROCAL action — action exchanged between two parties. That's where Form III comes in: قَاتَلَ (qātala).
-
-<ArabicExample
-  arabic="وَقَاتِلُوا فِى سَبِيلِ ٱللَّهِ ٱلَّذِينَ يُقَٰتِلُونَكُمْ"
-  transliteration="wa-qātilū fī sabīli llāhi lladhīna yuqātilūnakum"
-  translation="Fight in the cause of Allah those who fight you"
-  reference="Al-Baqarah 2:190"
-  highlight="قَاتِلُوا,يُقَٰتِلُونَكُمْ"
-  words={[
-    { ar: "وَقَاتِلُوا", tr: "wa-qātilū", en: "And fight" },
-    { ar: "فِى", tr: "fī", en: "in" },
-    { ar: "سَبِيلِ", tr: "sabīli", en: "the cause" },
-    { ar: "ٱللَّهِ", tr: "llāhi", en: "of Allah" },
-    { ar: "ٱلَّذِينَ", tr: "lladhīna", en: "those who" },
-    { ar: "يُقَٰتِلُونَكُمْ", tr: "yuqātilūnakum", en: "fight you" }
-  ]}
-/>
-
-Notice قَاتِلُوا (qātilū) "fight" and يُقَاتِلُونَ (yuqātilūna) "they fight" — both Form III. The long ā after ق transforms simple killing into mutual combat.
-
-**In this lesson, you will:**
-- Recognize the Form III pattern (fāʿala / فَاعَلَ) with alif after the first root letter
-- Understand Form III's reciprocal and competitive meanings
-- Identify Form III verbs in Quranic text and explain the semantic shift from Form I
-- Learn representative conjugation forms for Form III verbs
-
-**Connection to previous learning:** Like [Form II](/learn/level-3/12-verb-form-ii/), Form III modifies the base [Form I](/learn/level-3/04-verb-form-i/) pattern. But instead of doubling the middle letter, Form III STRETCHES the verb by inserting a long vowel (ā) after the first root letter. This creates interactive meaning.
-
-**Forward connection:** Form III is the foundation for [Form VI](/learn/level-3/18-verb-forms-vi-vii-ix/), which adds تَ prefix to Form III for reflexive/reciprocal meaning (تَفَاعَلَ). Understanding Form III's "interactive" nature now prepares you for the entire family of reciprocal verb forms.
-
-<Callout type="note" title="Plain-English key">
-Quick, everyday translations of the grammar terms in this lesson — glance back here whenever one trips you up:
-
-- **Root** (jadhr / جَذْر) — the 3 (sometimes 4) core letters that carry a word's basic meaning.
-- **Pattern / measure** (wazn / وَزْن) — the mould of vowels and extra letters poured over a root to make a specific word.
-- **Verb Form I** (al-fiʿl al-mujarrad / مُجَرَّد) — the plain, basic 3-letter verb, with no extra letters added.
-- **Verb Forms II–X** — the standard "shapes" a root can take, each adding a shade of meaning (causative, intensive, reflexive, mutual, seeking…).
-</Callout>
-
-## Understanding Form III
-
-**Plain English first:** Form III makes an action INTERACTIVE. If Form I is just "doing" something, Form III is "doing it WITH someone" or "doing it TOWARD someone." The action has a second party — it's not done in isolation, it's directed or shared.
-
-Think of these English pairs:
-- "kill" → "fight (against)" — killing becomes mutual combat
-- "write" → "correspond with" — writing becomes exchange of letters
-- "precede" → "race (with)" — preceding becomes competitive running
-- "sit" → "sit with, accompany" — sitting becomes companionship
-
-In English, we often use different verbs or add prepositions. In Arabic, you insert one letter (alif ا) after the first root letter, and the meaning shifts to "interactive."
-
-**The Form III pattern: فَاعَلَ (fāʿala)**
-
-The template فَاعَلَ shows the Form III structure:
-- **ف** (fa) = position of the FIRST root letter
-- **ا** (ā) = LONG ALIF inserted after first root letter (THE Form III marker)
-- **ع** (ʿa) = position of the SECOND root letter
-- **ل** (la) = position of the THIRD root letter
-
-**Visual pattern breakdown:**
-
-```
-Root: ق-ت-ل (q-t-l) "killing"
-
-Form I pattern:  فَعَلَ  →  قَتَلَ  "he killed"
-                 (3 letters, no insertion)
-
-Form III pattern: فَاعَلَ  →  قَاتَلَ  "he fought"
-                  (long ا inserted after ق)
-```
-
-The alif (ا) between ق and ت is the KEY identifier for Form III. It stretches the verb and transforms the meaning from simple action to interactive/directed action.
-
-### The Core Meanings of Form III
-
-Form III expresses action that involves another party. Three main nuances:
-
-**1. Reciprocal — "doing the action WITH someone (mutually)"**
-
-The action is exchanged between two parties, back and forth.
-
-<GrammarTable
-  caption="Form I → Form III: Reciprocal Transformation"
-  headers={["Root", "Form I", "Meaning", "Form III", "Meaning"]}
-  rows={[
-    ["ك-ت-ب", "كَتَبَ", "he wrote", "كَاتَبَ", "he corresponded with"],
-    ["ق-ت-ل", "قَتَلَ", "he killed", "قَاتَلَ", "he fought (with/against)"],
-    ["س-ل-م", "سَلِمَ", "he was safe", "سَالَمَ", "he made peace with"],
-    ["ع-ه-د", "عَهِدَ", "he pledged", "عَاهَدَ", "he made covenant with"]
-  ]}
-/>
-
-**2. Attempted/Directed action — "trying to do the action to someone"**
-
-Form III can express ATTEMPTING or STRIVING to do the action toward another.
-
-<GrammarTable
-  caption="Form I → Form III: Attempted Action"
-  headers={["Root", "Form I", "Meaning", "Form III", "Meaning"]}
-  rows={[
-    ["خ-د-ع", "خَدَعَ", "he deceived", "خَادَعَ", "he tried to deceive"],
-    ["غ-ل-ب", "غَلَبَ", "he overcame", "غَالَبَ", "he tried to overcome"],
-    ["ج-ه-د", "جَهَدَ", "he exerted effort", "جَاهَدَ", "he strove against"],
-    ["ح-ك-م", "حَكَمَ", "he judged", "حَاكَمَ", "he brought to trial"]
-  ]}
-/>
-
-**3. Competitive action — "doing the action IN COMPETITION"**
-
-Form III can emphasize the competitive, adversarial nature of an action.
-
-<GrammarTable
-  caption="Form I → Form III: Competitive Transformation"
-  headers={["Root", "Form I", "Meaning", "Form III", "Meaning"]}
-  rows={[
-    ["س-ب-ق", "سَبَقَ", "he preceded", "سَابَقَ", "he raced (with)"],
-    ["ج-ل-س", "جَلَسَ", "he sat", "جَالَسَ", "he sat with, kept company"],
-    ["ن-ف-س", "نَفَسَ", "he breathed", "نَافَسَ", "he competed"],
-    ["ص-ر-ع", "صَرَعَ", "he threw down", "صَارَعَ", "he wrestled"]
-  ]}
-/>
-
-### Arabic Terminology
-
-**Form III** — [Mufāʿalah](/resources/glossary/#mufalah) (mufāʿalah / مُفَاعَلَةٌ)
-
-The term مُفَاعَلَةٌ (mufāʿalatun) means "mutual action, interaction, reciprocity." This form is called مُفَاعَلَةٌ because its verbal noun pattern is مُفَاعَلَةٌ (e.g., مُقَاتَلَةٌ muqātalatun "fighting" from قَاتَلَ).
-
-**Interactive action** — [Mushārakah](/resources/glossary/#musharakah) (mushārakah / مُشَارَكَةٌ)
-
-The concept of "participation, sharing in action" is called مُشَارَكَةٌ (mushārakatun), from root ش-ر-ك "to share."
-
-## Examples from the Quran
-
-Let's examine Form III verbs from Surah Al-Mumtahanah and related surahs.
-
-### Example 1: قَاتَلُوكُمْ — "They fought you"
-
-<ArabicExample
-  arabic="لَّا يَنْهَىٰكُمُ ٱللَّهُ عَنِ ٱلَّذِينَ لَمْ يُقَٰتِلُوكُمْ فِى ٱلدِّينِ وَلَمْ يُخْرِجُوكُم مِّن دِيَٰرِكُمْ أَن تَبَرُّوهُمْ وَتُقْسِطُوٓا إِلَيْهِمْ"
-  transliteration="lā yanhākumu llāhu ʿani lladhīna lam yuqātilūkum fī d-dīni wa-lam yukhrijūkum min diyārikum an tabarrūhum wa-tuqsiṭū ilayhim"
-  translation="Allah does not forbid you from those who do not fight you because of religion and do not expel you from your homes - from being righteous toward them and acting justly toward them"
-  reference="Al-Mumtahanah 60:8"
-  highlight="يُقَٰتِلُوكُمْ"
-  words={[
-    { ar: "لَّا", tr: "lā", en: "Not" },
-    { ar: "يَنْهَىٰكُمُ", tr: "yanhākumu", en: "does forbid you" },
-    { ar: "ٱللَّهُ", tr: "llāhu", en: "Allah" },
-    { ar: "عَنِ", tr: "ʿani", en: "from" },
-    { ar: "ٱلَّذِينَ", tr: "lladhīna", en: "those who" },
-    { ar: "لَمْ", tr: "lam", en: "do not" },
-    { ar: "يُقَٰتِلُوكُمْ", tr: "yuqātilūkum", en: "fight you" },
-    { ar: "فِى", tr: "fī", en: "in" },
-    { ar: "ٱلدِّينِ", tr: "d-dīni", en: "religion" },
-    { ar: "وَلَمْ", tr: "wa-lam", en: "and do not" },
-    { ar: "يُخْرِجُوكُم", tr: "yukhrijūkum", en: "expel you" },
-    { ar: "مِّن", tr: "min", en: "from" },
-    { ar: "دِيَٰرِكُمْ", tr: "diyārikum", en: "your homes" },
-    { ar: "أَن", tr: "an", en: "from" },
-    { ar: "تَبَرُّوهُمْ", tr: "tabarrūhum", en: "being righteous toward them" },
-    { ar: "وَتُقْسِطُوٓا", tr: "wa-tuqsiṭū", en: "and acting justly" },
-    { ar: "إِلَيْهِمْ", tr: "ilayhim", en: "toward them" }
-  ]}
-/>
-
-**Morphological analysis:**
-
-- **يُقَاتِلُوكُمْ** (yuqātilūkum) — "they fight you"
-  - **Root:** ق-ت-ل (q-t-l) "killing"
-  - **Pattern:** يُفَاعِلٌُ (Form III present, third person masculine plural)
-  - **Form III marker:** Alif (ا) after first root letter ق
-  - **Function:** Present tense verb + subject (they) + object suffix كُمْ (you plural)
-  - **Semantic shift:** Form I قَتَلَ "he killed" → Form III قَاتَلَ "he fought" (reciprocal killing)
-  - **Meaning transformation:** Simple killing → combat (interactive action)
-
-**Form I comparison:**
-- Form I: قَتَلَ (qatala) — "he killed" (one-directional, victim is passive)
-- Form III: قَاتَلَ (qātala) — "he fought" (two-directional, both parties active)
-
-The inserted alif transforms murder into combat. Fighting is mutual engagement — Form III captures this perfectly.
-
-### Example 2: يُخَٰدِعُونَ — "They deceive"
-
-<ArabicExample
-  arabic="يُخَٰدِعُونَ ٱللَّهَ وَٱلَّذِينَ ءَامَنُوا وَمَا يَخْدَعُونَ إِلَّآ أَنفُسَهُمْ وَمَا يَشْعُرُونَ"
-  transliteration="yukhādiʿūna llāha wa-lladhīna āmanū wa-mā yakhdaʿūna illā anfusahum wa-mā yashʿurūna"
-  translation="They [think to] deceive Allah and those who believe, but they deceive not except themselves and perceive [it] not"
-  reference="Al-Baqarah 2:9"
-  highlight="يُخَٰدِعُونَ"
-  words={[
-    { ar: "يُخَٰدِعُونَ", tr: "yukhādiʿūna", en: "They [try to] deceive" },
-    { ar: "ٱللَّهَ", tr: "llāha", en: "Allah" },
-    { ar: "وَٱلَّذِينَ", tr: "wa-lladhīna", en: "and those who" },
-    { ar: "ءَامَنُوا", tr: "āmanū", en: "believe" },
-    { ar: "وَمَا", tr: "wa-mā", en: "but not" },
-    { ar: "يَخْدَعُونَ", tr: "yakhdaʿūna", en: "do they deceive" },
-    { ar: "إِلَّآ", tr: "illā", en: "except" },
-    { ar: "أَنفُسَهُمْ", tr: "anfusahum", en: "themselves" },
-    { ar: "وَمَا", tr: "wa-mā", en: "and not" },
-    { ar: "يَشْعُرُونَ", tr: "yashʿurūna", en: "do they perceive" }
-  ]}
-/>
-
-**Morphological analysis:**
-
-- **يُخَادِعُونَ** (yukhādiʿūna) — "they [try to] deceive"
-  - **Root:** خ-د-ع (kh-d-ʿ) "deception"
-  - **Pattern:** يُفَاعِلٌُ (Form III present, third person masculine plural)
-  - **Form III marker:** Alif (ا) after خ
-  - **Function:** Present tense verb with embedded subject
-  - **Semantic shift:** Form I خَدَعَ "he deceived" → Form III خَادَعَ "he tried to deceive, he attempted deception"
-  - **Meaning transformation:** Simple deception → attempted deception (directed but unsuccessful)
-
-**Important semantic nuance:** The verse contrasts Form III يُخَادِعُونَ (they TRY to deceive) with Form I يَخْدَعُونَ (they [actually] deceive). Form III emphasizes the ATTEMPT or DIRECTED EFFORT, which may or may not succeed. They try to deceive Allah, but really they only deceive themselves.
-
-### Example 3: جَاهِدُوا — "Strive, struggle"
-
-<ArabicExample
-  arabic="وَجَٰهِدُوا فِى ٱللَّهِ حَقَّ جِهَادِهِۦ"
-  transliteration="wa-jāhidū fī llāhi ḥaqqa jihādihi"
-  translation="And strive for Allah with the striving due to Him"
-  reference="Al-Hajj 22:78"
-  highlight="جَٰهِدُوا"
-  words={[
-    { ar: "وَجَٰهِدُوا", tr: "wa-jāhidū", en: "And strive" },
-    { ar: "فِى", tr: "fī", en: "for" },
-    { ar: "ٱللَّهِ", tr: "llāhi", en: "Allah" },
-    { ar: "حَقَّ", tr: "ḥaqqa", en: "the right of" },
-    { ar: "جِهَادِهِۦ", tr: "jihādihi", en: "His striving" }
-  ]}
-/>
-
-**Morphological analysis:**
-
-- **جَاهِدُوا** (jāhidū) — "strive, struggle"
-  - **Root:** ج-ه-د (j-h-d) "effort, striving"
-  - **Pattern:** فَاعِلٌُوا (Form III imperative, second person masculine plural)
-  - **Form III marker:** Alif (ا) after ج
-  - **Function:** Command form addressing "you all"
-  - **Semantic shift:** Form I جَهَدَ "he exerted effort" → Form III جَاهَدَ "he strove against/with"
-  - **Meaning transformation:** Simple effort → directed struggle (against obstacles or with companions)
-
-**Related word:** جِهَادٌ (jihādun) — "striving, struggle" (Form III verbal noun)
-
-Form III adds the dimension of OPPOSITION or PARTNERSHIP — striving isn't done in isolation, it's done AGAINST something or WITH someone.
-
-### Example 4: عَاهَدتُّمْ — "You made covenant"
-
-<ArabicExample
-  arabic="إِلَّا ٱلَّذِينَ عَٰهَدتُّم مِّنَ ٱلْمُشْرِكِينَ ثُمَّ لَمْ يَنقُصُوكُمْ شَيْـًٔا"
-  transliteration="illā lladhīna ʿāhadtum mina l-mushrikīna thumma lam yanquṣūkum shayʾan"
-  translation="Excepted are those with whom you made a treaty among the polytheists and then they have not been deficient toward you in anything"
-  reference="At-Tawbah 9:4"
-  highlight="عَٰهَدتُّم"
-  words={[
-    { ar: "إِلَّا", tr: "illā", en: "Excepted are" },
-    { ar: "ٱلَّذِينَ", tr: "lladhīna", en: "those whom" },
-    { ar: "عَٰهَدتُّم", tr: "ʿāhadtum", en: "you made a treaty with" },
-    { ar: "مِّنَ", tr: "mina", en: "among" },
-    { ar: "ٱلْمُشْرِكِينَ", tr: "l-mushrikīna", en: "the polytheists" },
-    { ar: "ثُمَّ", tr: "thumma", en: "and then" },
-    { ar: "لَمْ", tr: "lam", en: "not" },
-    { ar: "يَنقُصُوكُمْ", tr: "yanquṣūkum", en: "been deficient toward you" },
-    { ar: "شَيْـًٔا", tr: "shayʾan", en: "in anything" }
-  ]}
-/>
-
-**Morphological analysis:**
-
-- **عَاهَدتُّمْ** (ʿāhadtum) — "you made covenant"
-  - **Root:** ع-ه-د (ʿ-h-d) "covenant, pledge"
-  - **Pattern:** فَاعَلَ (Form III past, second person masculine plural)
-  - **Form III marker:** Alif (ا) after ع
-  - **Function:** Past tense verb with plural subject suffix تُمْ
-  - **Semantic shift:** Form I عَهِدَ "he pledged" → Form III عَاهَدَ "he made covenant with"
-  - **Meaning transformation:** Simple pledge → mutual covenant (reciprocal commitment)
-
-**Form I comparison:**
-- Form I: عَهِدَ (ʿahida) — "he pledged" (personal commitment)
-- Form III: عَاهَدَ (ʿāhada) — "he made covenant with" (mutual binding agreement)
-
-Covenants are BY NATURE reciprocal — two parties binding themselves mutually. Form III perfectly expresses this interactive meaning.
-
-## Form III Conjugation
-
-Form III conjugates using the same suffix pattern as Forms I and II. Only the stem changes — the long ā after the first root letter remains throughout.
-
-### Representative Past Tense Conjugation
-
-We'll show 8 representative persons to illustrate the pattern. Press each person and watch the long ā after ق stay put — only the suffix changes:
-
-<ConjugationEngine
-  roots={[
-    { id: "qatala", letters: "ق-ت-ل", gloss: "to fight", stem: "قَاتَل", tr: "qātal" }
-  ]}
-  persons={[
-    { suffix: "َ", tr: "a", pronoun: "هُوَ", label: "3rd masculine singular", behaviour: 0 },
-    { suffix: "َتْ", tr: "at", pronoun: "هِيَ", label: "3rd feminine singular", behaviour: 1 },
-    { suffix: "ُوا", tr: "ū", pronoun: "هُمْ", label: "3rd masculine plural", behaviour: 1 },
-    { suffix: "ْتَ", tr: "ta", pronoun: "أَنْتَ", label: "2nd masculine singular", behaviour: 2 },
-    { suffix: "ْتِ", tr: "ti", pronoun: "أَنْتِ", label: "2nd feminine singular", behaviour: 2 },
-    { suffix: "ْتُ", tr: "tu", pronoun: "أَنَا", label: "1st singular", behaviour: 2 },
-    { suffix: "ْنَا", tr: "nā", pronoun: "نَحْنُ", label: "1st plural", behaviour: 2 },
-    { suffix: "ْتُمْ", tr: "tum", pronoun: "أَنْتُمْ", label: "2nd masculine plural", behaviour: 2 }
-  ]}
-/>
-
-**Key observations:**
-
-1. **The stem قَاتَلْ remains constant** — the long ā after ق never changes
-2. **Suffixes are identical to Forms I and II**
-3. **Conjugation pattern:** قَاتَلْ + suffix
-
-**Present tense stem:** يُفَاعِلٌُ pattern (damma-kasra vowels):
-- يُقَاتِلُ (yuqātilu) "he fights"
-- تُقَاتِلُ (tuqātilu) "she fights"
-- نُقَاتِلُ (nuqātilu) "we fight"
-
-**Note:** Full conjugation follows the same pattern. See [L3.05](/learn/level-3/05-past-tense/) for complete suffix system.
-
-## The Rule
-
-<Callout type="rule" title="Form III: The Inserted-Alif Pattern">
-
-**Form III** (فَاعَلَ / fāʿala) is characterized by:
-
-### Pattern Structure
-
-**Past tense:** فَاعَلَ (CāCaCa) — LONG ALIF (ا) inserted after first root letter
-
-**Template application:**
-- Root ق-ت-ل + Form III pattern فَاعَلَ = قَاتَلَ "he fought"
-- Root ك-ت-ب + Form III pattern فَاعَلَ = كَاتَبَ "he corresponded"
-
-### Core Meaning: Interactive Action
-
-Form III makes action INTERACTIVE — directed toward someone or done WITH someone:
-
-1. **Reciprocal** — mutual action exchanged between two parties
-   - قَتَلَ "he killed" → قَاتَلَ "he fought" (mutual killing)
-
-2. **Attempted** — trying to do the action to someone
-   - خَدَعَ "he deceived" → خَادَعَ "he tried to deceive"
-
-3. **Competitive** — doing the action in competition
-   - سَبَقَ "he preceded" → سَابَقَ "he raced"
-
-### Form III Identification
-
-**✓ Check for:** Long alif (ا) inserted AFTER first root letter
-**✓ Past pattern:** فَاعَلَ with fatha-fatha vowels
-**✓ Present pattern:** يُفَاعِلٌُ with damma-kasra vowels
-
-**Related lessons:**
-- [L3.04 Verb Form I](/learn/level-3/04-verb-form-i/) — Base form for comparison
-- [L3.12 Verb Form II](/learn/level-3/12-verb-form-ii/) — Doubled-middle pattern
-- [L3.18 Verb Form VI](/learn/level-3/18-verb-forms-vi-vii-ix/) — Reflexive of Form III (تَفَاعَلَ)
-
-</Callout>
-
-<Callout type="warning" title="Common Mistakes">
-
-**Mistake 1: Confusing Form III alif with other alifs**
-
-Not every alif in a verb is Form III! Check that it comes AFTER the first root letter and BEFORE the second.
-
-**Test:** Remove the alif. Do you get a 3-letter root?
-- قَاتَلَ → ق-ت-ل (root exists) → This IS Form III ✓
-- قَالَ → ق-ل (only 2 letters) → This is NOT Form III (weak verb with و or ي)
-
-**Mistake 2: Confusing Form III with active participle**
-
-Active participle (فَاعِلٌ) looks similar to Form III but has different voweling:
-- Form III verb: قَاتَلَ (qātala) — past tense, fatha-fatha
-- Active participle: قَاتِلٌ (qātilun) — "one who kills/fighter," kasra on second root
-
-Context and vowels distinguish them.
-
-**Mistake 3: Assuming all Form III verbs are reciprocal**
-
-Form III has THREE meanings: reciprocal, attempted, and competitive. Context determines which.
-
-- قَاتَلَ — reciprocal ("fought" = mutual killing)
-- خَادَعَ — attempted ("tried to deceive")
-- سَابَقَ — competitive ("raced" = competed in speed)
-
-Don't automatically translate every Form III as "did mutually" — check the context.
-
-**Mistake 4: Forgetting the preposition**
-
-Form III often requires a preposition to show the other party:
-- قَاتَلَ + مَعَ (maʿa) — "fought WITH"
-- قَاتَلَ + ضِدَّ (ḍidda) — "fought AGAINST"  
-- جَاهَدَ + فِي (fī) — "strove IN/FOR"
-
-The interactive meaning implies another party, which is often expressed by a preposition.
-
-**Mistake 5: Missing the alif lengthening**
-
-The alif (ا) is ESSENTIAL for Form III. Without it, you have Form I:
-
-- قَتَلَ (qatala) — Form I "he killed"
-- قَاتَلَ (qātala) — Form III "he fought"
-
-The long ā sound (marked by alif) distinguishes the forms. Listen for the lengthening!
-
-</Callout>
-
-## Practice
-
-<ExerciseBox question="Exercise 1: Identify which of these verbs is Form III. Explain your reasoning: (a) كَتَبَ (kataba), (b) كَاتَبَ (kātaba), (c) نَصَرَ (naṣara), (d) نَاصَرَ (nāṣara)">
-
-**Answer:**
-
-**(a) كَتَبَ (kataba) — ✗ NOT Form III**
-
-**Root:** ك-ت-ب (k-t-b) "writing"
-
-**Analysis:**
-- No alif inserted between root letters
-- Pattern: فَعَلَ (CaCaCa) — Form I
-- Meaning: "he wrote" (simple action)
-
-**Conclusion:** This is Form I, the base form.
-
-**(b) كَاتَبَ (kātaba) — ✓ Form III**
-
-**Root:** ك-ت-ب (k-t-b) "writing"
-
-**Analysis:**
-- Long alif (ا) inserted after first root letter ك
-- Pattern: فَاعَلَ (CāCaCa) — Form III
-- Semantic shift: Form I كَتَبَ "he wrote" → Form III كَاتَبَ "he corresponded with"
-- Meaning type: Reciprocal (exchanged letters back and forth)
-
-**Conclusion:** This IS Form III. The inserted alif makes writing reciprocal — correspondence.
-
-**(c) نَصَرَ (naṣara) — ✗ NOT Form III**
-
-**Root:** ن-ص-ر (n-ṣ-r) "help, victory"
-
-**Analysis:**
-- No alif inserted
-- Pattern: فَعَلَ (CaCaCa) — Form I
-- Meaning: "he helped" (simple assistance)
-
-**Conclusion:** This is Form I. Form III from this root would be نَاصَرَ (nāṣara).
-
-**(d) نَاصَرَ (nāṣara) — ✓ Form III**
-
-**Root:** ن-ص-ر (n-ṣ-r) "help, victory"
-
-**Analysis:**
-- Long alif (ا) inserted after ن
-- Pattern: فَاعَلَ (CāCaCa) — Form III
-- Semantic shift: Form I نَصَرَ "he helped" → Form III نَاصَرَ "he fought alongside, supported in battle"
-- Meaning type: Reciprocal/collaborative (helping WITH someone in struggle)
-
-**Conclusion:** This IS Form III. The alif transforms simple help into collaborative combat support.
-
-**Summary:** (b) كَاتَبَ and (d) نَاصَرَ are Form III. The others are Form I.
-
-</ExerciseBox>
-
-<ExerciseBox question="Exercise 2: Form I سَبَقَ means 'he preceded.' What does Form III سَابَقَ mean? Explain the semantic shift and identify which Form III meaning type applies.">
-
-**Answer:**
-
-**Form III meaning:** سَابَقَ (sābaqa) — "he raced (with), he competed in speed"
-
-**Semantic shift:**
-- **Form I:** سَبَقَ (sabaqa) — "he preceded, he surpassed" (simple position — being ahead)
-- **Form III:** سَابَقَ (sābaqa) — "he raced with, he competed" (competitive action — trying to be ahead)
-
-**Type of Form III meaning:** **Competitive**
-
-Form III takes the simple concept of "being first" and makes it COMPETITIVE — you're not just ahead, you're actively RACING to be ahead. Racing requires an opponent — Form III captures this perfectly.
-
-**Semantic transformation:**
-- Form I: static position (someone IS ahead)
-- Form III: dynamic competition (someone STRIVES to be ahead against another)
-
-**Quranic example context:**
-While سَابَقَ itself doesn't appear frequently, related competitive verbs like Form VIII اِسْتَبَقَ (istabaqaa) "they raced" appear in narrative contexts (e.g., Yusuf's brothers racing to the door).
-
-**Related Form III verbs showing competition:**
-- غَالَبَ (ghālaba) — "he tried to overcome, competed"
-- نَافَسَ (nāfasa) — "he competed, vied"
-- صَارَعَ (ṣāraʿa) — "he wrestled"
-
-All express the INTERACTIVE, COMPETITIVE nature that Form III adds to base actions.
-
-</ExerciseBox>
-
-<ExerciseBox question="Exercise 3: Identify the Form III verb in this verse: 'وَقَاتِلُوا فِى سَبِيلِ ٱللَّهِ ٱلَّذِينَ يُقَٰتِلُونَكُمْ' [Al-Baqarah 2:190]. Extract the root, explain the Form III marker, and compare with Form I.">
-
-**Answer:**
-
-**Form III verbs:** قَاتِلُوا (qātilū) and يُقَاتِلُونَكُمْ (yuqātilūnakum)
-
-**Focusing on the first:** قَاتِلُوا (qātilū) — "fight"
-
-**Root extraction:**
-- Imperative form: فَاعِلٌُوا
-- Remove plural imperative suffix ـُوا
-- Remaining: قَاتِلْ
-- Root letters: ق-ت-ل (q-t-l)
-- Root meaning: "killing"
-
-**Form III marker:**
-- Long alif (ا) inserted after first root letter ق
-- This is THE distinctive marker of Form III
-- Written: قَاتَلَ (with ا between ق and ت)
-- Pattern: فَاعَلَ (CāCaCa)
-
-**Comparison with Form I:**
-
-| Form | Verb | Pattern | Meaning | Nature |
-|------|------|---------|---------|--------|
-| Form I | قَتَلَ | فَعَلَ | "he killed" | One-directional, victim passive |
-| Form III | قَاتَلَ | فَاعَلَ | "he fought" | Reciprocal, both parties active |
-
-**Meaning transformation:**
-
-Form I قَتَلَ is SIMPLE killing — one person kills another, who cannot respond. Form III قَاتَلَ is FIGHTING — both parties are actively trying to kill each other. Combat is mutual engagement.
-
-**Second verb in verse:** يُقَاتِلُونَكُمْ (yuqātilūnakum) — "they fight you"
-- Present tense Form III with subject (they) + object suffix (you)
-- Same root, same Form III pattern in present tense
-- Shows reciprocal nature: "those who fight YOU" — the fighting is directed at you specifically
-
-**Verse structure:**
-"Fight (قَاتِلُوا) those who fight you (يُقَاتِلُونَكُمْ)"
-
-Both verbs are Form III, emphasizing the RECIPROCAL nature of combat — you fight those fighting you, not initiators of aggression but respondents.
-
-</ExerciseBox>
-
-<ExerciseBox question="Exercise 4: Compare Form II عَلَّمَ (doubled middle) with hypothetical Form III عَالَمَ (inserted alif). What would be the difference in meaning? (Note: عَالَمَ is not commonly used, but the comparison helps understand the forms.)">
-
-**Answer:**
-
-**Root:** ع-ل-م (ʿ-l-m) "knowledge"
-
-**Form II: عَلَّمَ (ʿallama) — "he taught"**
-
-**Pattern:** فَعَّلَ (doubled middle letter ل)
-
-**Meaning type:** Causative
-- Form I عَلِمَ "he knew" (had knowledge)
-- Form II عَلَّمَ "he taught" (caused someone to know)
-
-**Semantic focus:** The CAUSATION — making someone HAVE knowledge
-
-**Hypothetical Form III: عَالَمَ (ʿālama)**
-
-**Pattern:** فَاعَلَ (alif after first letter ع)
-
-**Expected meaning type:** Interactive/Reciprocal
-
-**What it WOULD mean:** "he exchanged knowledge with, he discussed with, he studied together with"
-
-**Semantic focus:** The INTERACTION — sharing knowledge mutually, not one-way transmission
-
-**Key difference:**
-
-| Form | Pattern | Focus | Direction | Example scenario |
-|------|---------|-------|-----------|------------------|
-| Form II عَلَّمَ | فَعَّلَ | Causation | Teacher → Student (one-way) | "He taught the student" (caused knowledge) |
-| Form III عَالَمَ | فَاعَلَ | Interaction | Scholar ↔ Scholar (two-way) | "He discussed with the scholar" (exchanged knowledge) |
-
-**Why Form III is rare here:**
-
-In practice, Arabic uses عَلَّمَ (Form II) for teaching because teaching is typically understood as one-directional causation. For mutual learning/discussion, Arabic uses other verbs:
-- تَعَلَّمَ (Form V) — "he learned" (reflexive of Form II)
-- تَدَارَسَ (Form VI) — "he studied with" (reflexive of Form III from د-ر-س)
-
-**General principle:**
-
-- **Form II** = "I CAUSE you to do the action" (one-way causation)
-- **Form III** = "I do the action WITH/TOWARD you" (two-way interaction)
-
-This comparison shows why understanding EACH form's core meaning helps predict verb semantics across roots!
-
-</ExerciseBox>
-
-## Related Lessons
-
-**Prerequisites:**
-- [L3.03: The Root System](/learn/level-3/03-root-system/) — Understanding trilateral roots
-- [L3.04: Verb Form I](/learn/level-3/04-verb-form-i/) — Base form for comparison
-- [L3.05: Past Tense Conjugation](/learn/level-3/05-past-tense/) — Conjugation suffix system
-
-**Build on this lesson:**
-- [L3.12: Verb Form II](/learn/level-3/12-verb-form-ii/) — Doubled-middle pattern for comparison
-- [L3.13: Verb Form IV](/learn/level-3/13-verb-form-iv/) — Another derived form pattern
-- [L3.18: Verb Form VI](/learn/level-3/18-verb-forms-vi-vii-ix/) — Reflexive of Form III (تَفَاعَلَ)
-- [L3.14: Verb Forms VII & VIII](/learn/level-3/14-verb-form-viii/) — Complete derived forms
-- [L3.19: Active & Passive Participles](/learn/level-3/19-active-passive-participles/) — Deriving nouns from Form III
-
-**Topic Hub:**
-- [Arabic Verb Forms (I–X)](/learn/verb-forms/) — Form III in context with all ten forms and a learning path
-
-**Resources:**
-- [Verb Forms Chart](/resources/verb-conjugation-tables/) — Visual comparison of all 10 verb forms
-- [Grammar Glossary](/resources/glossary/) — Definitions of Form III terminology
+import Step from '../../../components/lesson/Step.astro';
+import Stage from '../../../components/lesson/Stage.astro';
+import Sentence from '../../../components/lesson/Sentence.astro';
+import Tiles from '../../../components/lesson/Tiles.astro';
+import Formula from '../../../components/lesson/Formula.astro';
+import Legend from '../../../components/lesson/Legend.astro';
+import Note from '../../../components/lesson/Note.astro';
+import Check from '../../../components/lesson/Check.astro';
+import Start from '../../../components/lesson/Start.astro';
+import Sources from '../../../components/lesson/Sources.astro';
+import Parse from '../../../components/lesson/Parse.astro';
+import Exercise from '../../../components/lesson/Exercise.astro';
+import Block from '../../../components/lesson/Block.astro';
+import Conjugation from '../../../components/lesson/Conjugation.astro';
+
+{/* Content spec: docs/redesign/specs/L3.17-verb-form-iii.md. Every parse follows al-Jadwal (Mahmud Safi). */}
+
+<Step hero id="start" label="The shape" title={frontmatter.title} kicker={frontmatter.kicker} titleArabic={frontmatter.titleArabic}>
+<Block id="overview" title="In this lesson" level={2} uncounted>
+  <Stage label="The idea">
+    <Formula
+      label="the first root letter, a long ā, and the other two root letters make a Form III verb"
+      items={[
+        { kind: 'm', text: 'first root letter', small: 'قَ' },
+        { kind: 'k', text: 'a long ā', small: 'ا' },
+        { kind: 'k', text: 'the other two letters', small: 'تَلَ' },
+        { kind: 's', text: 'Form III verb', small: 'قَاتَلَ' },
+      ]}
+    />
+  </Stage>
+  <Start
+    goal="Spot a Form III verb by its long ā, build its past, present and command on a real verb, say what the form adds to a meaning, tell it from look-alikes such as قَالَ and ءَامَنَ, and go through four verses word by word."
+    minutes={50}
+    before="Form I (L3.04), the past tense (L3.05), the present tense (L3.06), the subjunctive and jussive (L3.07), the command (L3.08) and the passive (L3.09)."
+    terms={[
+      { term: 'Form III', ar: 'فَاعَلَ', meaning: 'A verb with a long ā after the first root letter.' },
+      { term: 'Pattern', ar: 'وَزْن', meaning: 'The shape a root is poured into. ف ع ل stand for the three root letters (L3.03).' },
+      { term: 'Small alif', meaning: 'The tiny alif above a letter in the Quran text. It stands for a long ā (L1.02).' },
+      { term: 'Hollow verb', ar: 'أَجْوَف', meaning: 'A verb whose middle root letter is و or ي, like قَالَ (L3.05).' },
+      { term: 'Participle', ar: 'اِسْم فَاعِل', meaning: 'A noun for the one who does the action, like “fighter”. L3.19 teaches it.' },
+      { term: 'Verbal noun', ar: 'مَصْدَر', meaning: 'A noun for the action itself, like “fighting”. L3.20 teaches it.' },
+    ]}
+  />
+</Block>
+
+<Block id="see" title="Look at this verse" level={2}>
+  <Stage>
+    <Sentence
+      size="big"
+      roles
+      reference="Al-Baqarah 2:190 (part)"
+      groups={[
+        { role: 'fiil', label: 'fiʿl + fāʿil', hint: 'the ending و is the doer: “you all”', words: [{ ar: 'وَقَٰتِلُوا۟', en: 'and fight', say: 'wa-qatilu', type: 'v' }] },
+        { role: 'tied', hint: 'goes with the command', words: [{ ar: 'فِى', en: 'in', say: 'fi', type: 'p' }, { ar: 'سَبِيلِ', en: 'the way of', say: 'sabili' }, { ar: 'ٱللَّهِ', en: 'Allah', say: 'allahi' }] },
+        { role: 'maful', hint: 'a joining noun: the ones you fight', words: [{ ar: 'ٱلَّذِينَ', en: 'those who', say: 'alladhina' }] },
+        { role: 'fiil', label: 'fiʿl + fāʿil + object', hint: 'they fight you', words: [{ ar: 'يُقَٰتِلُونَكُمْ', en: 'fight you', say: 'yuqatilunakum', type: 'v' }] },
+      ]}
+      en={['Fight in the way of Allah those who fight you.']}
+    />
+    <Legend />
+  </Stage>
+
+The verse has two verbs from the same root, ق ت ل (“killing”). The first is a command, “fight!”. The second is in the present tense, “they fight you”.
+
+In both, the first letter ق is followed by a long **ā**. The Quran writes it as a small alif above the ق. A Form I verb from this root is قَتَلَ, “he killed” (L3.04). The long ā makes a different verb: “he fought”. A verb with a long ā after the first root letter is **Form III**.
+
+Form III is not one of the most common forms. The Quranic Arabic Corpus has 334 Form III verb words. Forms I, IV, II, VIII, V and X all have more. These are Quran Learn's counts of the Corpus form tags. This is why Form III comes after those forms in the course.
+
+<Check n={1} q="Where is the long ā in قَٰتِلُوا۟?" options={['After ق, the first root letter', 'After ت, the second root letter', 'At the end of the word']} answer={0} why="The small alif sits above ق. That is the place of the long ā in Form III." />
+</Block>
+
+<Block id="shape" title="One extra letter makes a new verb">
+  <Stage label="Same root, two verbs">
+    <Tiles
+      label="قَتَلَ (Form I) and قَاتَلَ (Form III)"
+      items={[
+        { ar: 'قَتَلَ', en: 'Form I: he killed', type: 'v' },
+        { ar: 'قَاتَلَ', en: 'Form III: he fought', type: 'v' },
+      ]}
+    />
+  </Stage>
+
+Form III keeps the three root letters and adds one letter: a long ā after the first root letter.
+
+| Form | Root | Pattern | Verb | Meaning |
+|---|---|---|---|---|
+| I | ق ت ل | فَعَلَ | قَتَلَ | he killed |
+| III | ق ت ل | فَاعَلَ | قَاتَلَ | he fought |
+
+ف ع ل stand for the first, second and third root letters, as in L3.03. In the pattern فَاعَلَ (*fāʿala*) the ā sits between the first and second letters. Form I has three vowel patterns (L3.04). In the past, Form III has one: fatḥa, ā, fatḥa, fatḥa.
+
+<Note kind="know">Al-Jadwal counts the ā and calls a verb like جَاهَدَ a four-letter verb (*rubāʿī*). The root still has three letters, and this course counts the root. On corpus.quran.com a Form III verb carries the tag (III). In 2:190 both قَٰتِلُوا۟ and يُقَٰتِلُونَكُمْ have it.</Note>
+
+<Check n={2} q="Which of these verbs is Form III?" options={['ضَرَبَ', 'هَاجَرَ', 'عَلَّمَ']} answer={1} why="هَاجَرَ has a long ā after the first root letter ه (root ه ج ر). ضَرَبَ is Form I. عَلَّمَ has a doubled middle letter: that is Form II (L3.12)." />
+</Block>
+
+<Block id="spelling" title="The ā is often a small alif">
+  <Stage label="Two spellings, one sound">
+    <Tiles
+      label="وَهَاجَرُوا۟ with a full alif, وَجَٰهَدُوا۟ with a small alif"
+      items={[
+        { ar: 'وَهَاجَرُوا۟', en: 'full alif (8:72)', type: 'v' },
+        { ar: 'وَجَٰهَدُوا۟', en: 'small alif (8:72)', type: 'v' },
+      ]}
+    />
+  </Stage>
+
+The Quran text often writes the long ā of Form III as a small alif above the first letter: قَٰتَلَ, جَٰهَدَ. Some Form III verbs have a full alif instead: هَاجَرَ, عَاقَبَ, نَادَىٰ. Verse 8:72 has both, side by side: وَهَاجَرُوا۟ وَجَٰهَدُوا۟, “and they migrated and strove”.
+
+The sound and the form are the same. The tables in this lesson write the full alif, so the ā is easy to see. The verses keep the Quran's own spelling.
+
+<Check n={3} q="Are قَٰتَلَ and قَاتَلَ two different verbs?" options={['Yes, they have different roots', 'No, it is one verb with the ā written two ways']} answer={1} why="The small alif and the full alif both stand for the long ā. The root is ق ت ل in both." />
+</Block>
+
+</Step>
+
+<Step id="tenses" label="Past, present, command" title="Past, present and command">
+<Block id="past" title="The past tense: the Form I endings">
+  <Stage label="Pattern: a real verb">
+    <Conjugation
+      caption="جَاهَدَ, “he strove”: past tense of جَٰهَدَ (root ج ه د, Form III)"
+      rows={[
+        { group: 'He, she, they' },
+        { who: 'he', pr: 'هُوَ', ar: 'جَاهَدَ', end: 'ـَ', say: 'jāhada', hi: true },
+        { who: 'she', pr: 'هِيَ', ar: 'جَاهَدَتْ', end: 'ـَتْ', say: 'jāhadat' },
+        { who: 'the two (men)', pr: 'هُمَا', ar: 'جَاهَدَا', end: 'ـَا', say: 'jāhadā' },
+        { who: 'the two (women)', pr: 'هُمَا', ar: 'جَاهَدَتَا', end: 'ـَتَا', say: 'jāhadatā' },
+        { who: 'they (men)', pr: 'هُمْ', ar: 'جَاهَدُوا', end: 'ـُوا', say: 'jāhadū' },
+        { who: 'they (women)', pr: 'هُنَّ', ar: 'جَاهَدْنَ', end: 'ـْنَ', say: 'jāhadna' },
+        { group: 'You' },
+        { who: 'you (one man)', pr: 'أَنْتَ', ar: 'جَاهَدْتَ', end: 'ـْتَ', say: 'jāhadta' },
+        { who: 'you (one woman)', pr: 'أَنْتِ', ar: 'جَاهَدْتِ', end: 'ـْتِ', say: 'jāhadti' },
+        { who: 'you two', pr: 'أَنْتُمَا', ar: 'جَاهَدْتُمَا', end: 'ـْتُمَا', say: 'jāhadtumā' },
+        { who: 'you all (men)', pr: 'أَنْتُمْ', ar: 'جَاهَدْتُمْ', end: 'ـْتُمْ', say: 'jāhadtum' },
+        { who: 'you all (women)', pr: 'أَنْتُنَّ', ar: 'جَاهَدْتُنَّ', end: 'ـْتُنَّ', say: 'jāhadtunna' },
+        { group: 'I and we' },
+        { who: 'I', pr: 'أَنَا', ar: 'جَاهَدْتُ', end: 'ـْتُ', say: 'jāhadtu' },
+        { who: 'we', pr: 'نَحْنُ', ar: 'جَاهَدْنَا', end: 'ـْنَا', say: 'jāhadnā' },
+      ]}
+    />
+    <Sentence
+      reference="Al-Anfal 8:72 (part)"
+      groups={[
+        { words: [{ ar: 'وَهَاجَرُوا۟', en: 'and they migrated', say: 'wa-hajaru', type: 'v' }] },
+        { words: [{ ar: 'وَجَٰهَدُوا۟', en: 'and they strove', say: 'wa-jahadu', type: 'v' }] },
+        { words: [{ ar: 'بِأَمْوَٰلِهِمْ', en: 'with their wealth', say: 'bi-amwalihim', type: 'p' }] },
+        { words: [{ ar: 'وَأَنفُسِهِمْ', en: 'and their lives', say: 'wa-anfusihim' }] },
+        { words: [{ ar: 'فِى', en: 'in', say: 'fi', type: 'p' }, { ar: 'سَبِيلِ', en: 'the way of', say: 'sabili' }, { ar: 'ٱللَّهِ', en: 'Allah', say: 'allahi' }] },
+      ]}
+      en={['… and migrated and strove with their wealth and their lives in the way of Allah.']}
+    />
+  </Stage>
+
+The table is a pattern for one real verb. The Form III stem is **جَاهَدْ** (*jāhad*), and it stays the same in all 13 forms. The endings change, and they are the ones you know from L3.05. Nothing new has to be learned here.
+
+The Quran has some of these forms: جَٰهَدَ (he), جَٰهَدُوا۟ (they, 8:72), جَٰهَدَاكَ (the two of them, with كَ, “you”: 29:8), عَٰهَدتُّم (you all, 9:4, from عَاهَدَ, “he made a treaty”, root ع ه د) and وَٰعَدْنَا (we, 2:51, from وَاعَدَ, root و ع د). In عَٰهَدتُّم the ت carries a shadda in the Quran text.
+
+<Note kind="know">Counted by the Corpus person tags (Quran Learn's count; some tags are unreliable), the Quran has 126 active past-tense Form III words. Of these, 42 are “he” and 45 are “they (men)”. The full table is still worth knowing, because the endings do not change from verb to verb.</Note>
+
+<Check n={4} q="Which form means “they (men) strove”?" options={['جَاهَدُوا', 'جَاهَدْنَ', 'جَاهَدْنَا']} answer={0} why="ـُوا is “they (men)”. جَاهَدْنَ is “they (women)” and جَاهَدْنَا is “we”." />
+</Block>
+
+<Block id="present" title="The present tense: a ḍamma on the prefix">
+  <Stage label="Pattern: a real verb">
+    <Conjugation
+      caption="يُجَاهِدُ, “he strives”: present tense of جَٰهَدَ (root ج ه د, Form III)"
+      endLabel="Prefix and ending"
+      rows={[
+        { group: 'One person' },
+        { who: 'he', pr: 'هُوَ', ar: 'يُجَاهِدُ', end: 'يُـ + ـُ', say: 'yujāhidu', hi: true },
+        { who: 'she', pr: 'هِيَ', ar: 'تُجَاهِدُ', end: 'تُـ + ـُ', say: 'tujāhidu' },
+        { who: 'you (one man)', pr: 'أَنْتَ', ar: 'تُجَاهِدُ', end: 'تُـ + ـُ', say: 'tujāhidu' },
+        { who: 'you (one woman)', pr: 'أَنْتِ', ar: 'تُجَاهِدِينَ', end: 'تُـ + ـِينَ', say: 'tujāhidīna' },
+        { who: 'I', pr: 'أَنَا', ar: 'أُجَاهِدُ', end: 'أُ + ـُ', say: 'ujāhidu' },
+        { group: 'Two people' },
+        { who: 'they two (men)', pr: 'هُمَا', ar: 'يُجَاهِدَانِ', end: 'يُـ + ـَانِ', say: 'yujāhidāni' },
+        { who: 'they two (women)', pr: 'هُمَا', ar: 'تُجَاهِدَانِ', end: 'تُـ + ـَانِ', say: 'tujāhidāni' },
+        { who: 'you two', pr: 'أَنْتُمَا', ar: 'تُجَاهِدَانِ', end: 'تُـ + ـَانِ', say: 'tujāhidāni' },
+        { group: 'Many people' },
+        { who: 'they (men)', pr: 'هُمْ', ar: 'يُجَاهِدُونَ', end: 'يُـ + ـُونَ', say: 'yujāhidūna' },
+        { who: 'they (women)', pr: 'هُنَّ', ar: 'يُجَاهِدْنَ', end: 'يُـ + ـْنَ', say: 'yujāhidna' },
+        { who: 'you all (men)', pr: 'أَنْتُمْ', ar: 'تُجَاهِدُونَ', end: 'تُـ + ـُونَ', say: 'tujāhidūna' },
+        { who: 'you all (women)', pr: 'أَنْتُنَّ', ar: 'تُجَاهِدْنَ', end: 'تُـ + ـْنَ', say: 'tujāhidna' },
+        { who: 'we', pr: 'نَحْنُ', ar: 'نُجَاهِدُ', end: 'نُـ + ـُ', say: 'nujāhidu' },
+      ]}
+    />
+    <Tiles
+      label="the four prefixes of Form III, each with a ḍamma: يُقَٰتِلُونَ, تُقَٰتِلُونَ, نُقَٰتِلَ, أُخَالِفَكُمْ"
+      items={[
+        { ar: 'يُقَٰتِلُونَ', en: 'they fight (9:111)', type: 'v' },
+        { ar: 'تُقَٰتِلُونَ', en: 'you all fight (4:75)', type: 'v' },
+        { ar: 'نُقَٰتِلَ', en: 'we fight (2:246)', type: 'v' },
+        { ar: 'أُخَالِفَكُمْ', en: 'I go against you (11:88)', type: 'v' },
+      ]}
+    />
+  </Stage>
+
+The present of Form III is built on the stem **يُفَاعِلُ** (*yufāʿilu*). Compare it with Form I, where the prefix has a fatḥa and the first root letter has a sukūn: يَجْهَدُ (the pattern of L3.06). Form III changes three things:
+
+- The prefix takes a **ḍamma**: يُـ, تُـ, أُـ, نُـ. All four prefixes show it in the tiles above.
+- The long ā comes after the first root letter: جَا.
+- The middle root letter takes a **kasra**: هِ. The prefixes and endings are the ones from L3.06.
+
+Forms II and IV also have a ḍamma on the prefix (L3.12, L3.13). The long ā is what shows Form III. A present verb with a ḍamma on its prefix and a long ā after the first root letter is Form III.
+
+Here is the past and the present of the same verb in one verse:
+
+<Stage label="One verb, two tenses">
+    <Sentence
+      roles
+      reference="Al-Ankabut 29:6 (part)"
+      groups={[
+        { words: [{ ar: 'وَمَن', en: 'and whoever', say: 'wa-man' }], hint: 'a joining noun' },
+        { role: 'fiil', label: 'past, Form III', hint: 'hidden doer: “he”', words: [{ ar: 'جَٰهَدَ', en: 'strives', say: 'jahada', type: 'v' }] },
+        { words: [{ ar: 'فَإِنَّمَا', en: 'then', say: 'fa-innama', type: 'p' }] },
+        { role: 'fiil', label: 'present, Form III', hint: 'hidden doer: “he”', words: [{ ar: 'يُجَٰهِدُ', en: 'strives', say: 'yujahidu', type: 'v' }] },
+        { role: 'tied', hint: 'goes with the verb', words: [{ ar: 'لِنَفْسِهِۦٓ', en: 'for himself', say: 'li-nafsihi', type: 'p' }] },
+      ]}
+      en={['And whoever strives, strives for himself.']}
+    />
+</Stage>
+
+Both verbs are “he”. جَٰهَدَ is the past, and يُجَٰهِدُ is the present. The first has fatḥas. The second has the ḍamma on its prefix, the ā, and the kasra on the middle letter. L4.03 teaches the “whoever … then” pattern of this sentence.
+
+<Check n={5} q="Which of these present-tense verbs is Form III?" options={['يَقْتُلُ', 'يُقَاتِلُ', 'يُقَتِّلُ']} answer={1} why="يُقَاتِلُ has a ḍamma on the prefix and a long ā after the first root letter. يَقْتُلُ is Form I (fatḥa on the prefix). يُقَتِّلُ is Form II (a doubled middle letter)." />
+</Block>
+
+<Block id="moods" title="After لَا and حَتَّىٰ: the nūn drops">
+  <Stage>
+    <Sentence
+      roles
+      reference="Al-Baqarah 2:191 (part)"
+      groups={[
+        { words: [{ ar: 'وَلَا', en: 'and not', say: 'wa-la', type: 'p' }] },
+        { role: 'fiil', label: 'jussive', hint: 'Form III, “you all”: the nūn has dropped', words: [{ ar: 'تُقَٰتِلُوهُمْ', en: 'fight them', say: 'tuqatiluhum', type: 'v' }] },
+        { role: 'zarf', words: [{ ar: 'عِندَ', en: 'at', say: 'inda' }, { ar: 'ٱلْمَسْجِدِ', en: 'the mosque', say: 'al-masjidi' }, { ar: 'ٱلْحَرَامِ', en: 'the Sacred', say: 'al-harami' }] },
+        { words: [{ ar: 'حَتَّىٰ', en: 'until', say: 'hatta', type: 'p' }] },
+        { role: 'fiil', label: 'subjunctive', hint: 'Form III, “they”: the nūn has dropped', words: [{ ar: 'يُقَٰتِلُوكُمْ', en: 'they fight you', say: 'yuqatilukum', type: 'v' }] },
+        { words: [{ ar: 'فِيهِ', en: 'in it', say: 'fihi', type: 'p' }] },
+        { words: [{ ar: 'فَإِن', en: 'and if', say: 'fa-in', type: 'p' }] },
+        { role: 'fiil', label: 'past', hint: 'Form III, “they”', words: [{ ar: 'قَٰتَلُوكُمْ', en: 'they fight you', say: 'qatalukum', type: 'v' }] },
+        { role: 'fiil', label: 'command, Form I', hint: 'for comparison: no ā', words: [{ ar: 'فَٱقْتُلُوهُمْ', en: 'then kill them', say: 'fa-qtuluhum', type: 'v' }] },
+      ]}
+      en={['And do not fight them at the Sacred Mosque until they fight you in it. If they fight you, then kill them.']}
+    />
+  </Stage>
+
+This one verse shows Form III in the past, in the jussive and in the subjunctive. It also has a Form I verb, ٱقْتُلُوهُمْ, from the same root.
+
+- **لَا تُقَٰتِلُوهُمْ.** After لَا, which forbids, the verb is jussive (L3.07). The nūn of -ūna has dropped. Al-Jadwal says the same.
+- **حَتَّىٰ يُقَٰتِلُوكُمْ.** After حَتَّىٰ the verb is subjunctive, with a hidden أَنْ (L3.07). The nūn has dropped again.
+- **قَٰتَلُوكُمْ.** The past tense. The ending ـُوا is the doer, “they”, and كُمْ is the object, “you all”.
+
+Compare the verse before. In 2:190, يُقَٰتِلُونَكُمْ keeps its nūn, because nothing in front of it changes the verb. The moods work as in Form I.
+
+<Check n={6} q="Why does 2:190 have يُقَٰتِلُونَكُمْ, with a nūn, and 2:191 have يُقَٰتِلُوكُمْ, without one?" options={['After حَتَّىٰ the verb is subjunctive, and the subjunctive drops the nūn', 'The two verbs are different forms', 'The nūn drops before كُمْ in every verse']} answer={0} why="In 2:191 the verb follows حَتَّىٰ (with a hidden أَنْ). The subjunctive drops the nūn of -ūna, as in Form I." />
+</Block>
+
+<Block id="command" title="The command: no helper alif">
+  <Stage label="From present to command">
+    <Tiles
+      label="تُجَاهِدُ, then تُجَاهِدْ, then جَاهِدْ"
+      items={[
+        { ar: 'تُجَاهِدُ', en: 'you strive (present)', type: 'v' },
+        { ar: 'تُجَاهِدْ', en: '1. end in sukūn', type: 'x' },
+        { ar: 'جَاهِدْ', en: '2. take off تُ: strive!', type: 'v' },
+      ]}
+    />
+    <Conjugation
+      caption="جَاهِدْ, “strive!”: root ج ه د, Form III"
+      endLabel="Ending"
+      rows={[
+        { group: 'One person' },
+        { who: 'you (one man)', pr: 'أَنتَ', ar: 'جَاهِدْ', end: 'ـْ', say: 'jāhid', hi: true },
+        { who: 'you (one woman)', pr: 'أَنتِ', ar: 'جَاهِدِى', end: 'ـِى', say: 'jāhidī' },
+        { group: 'Two people' },
+        { who: 'you two', pr: 'أَنتُمَا', ar: 'جَاهِدَا', end: 'ـَا', say: 'jāhidā' },
+        { group: 'Three or more' },
+        { who: 'you all (men, or a mixed group)', pr: 'أَنتُمْ', ar: 'جَاهِدُوا۟', end: 'ـُوا۟', say: 'jāhidū' },
+        { who: 'you all (women)', pr: 'أَنتُنَّ', ar: 'جَاهِدْنَ', end: 'ـْنَ', say: 'jāhidna' },
+      ]}
+    />
+  </Stage>
+
+The three moves of L3.08 give a Form III command. Take the present for “you”, end it like the jussive, and take off the prefix. Then you have جَاهِدْ. You do not add the helper alif ٱ. The word now starts with the first root letter and its fatḥa, so you can say it: *jāhid*. (A Form I command often needs the helper, as in ٱسْجُدْ.)
+
+The Quran has three of the five: **وَجَٰهِدْهُم** for one man (25:52), **وَجَٰهِدُوا۟** for a group (22:78) and **فَقَٰتِلَآ** for two people (5:24). In 5:24 al-Jadwal says the alif is the doer: “you two”. Of the 41 Form III command words in the Corpus, 27 are for a group of men, 13 for one man and 1 for two people. No command is for women. These are Quran Learn's counts of the Corpus person tags.
+
+The doer of وَجَٰهِدْهُم is a hidden “you”. The attached هُم is the object, “them”.
+
+<Check n={7} q="Make the command for one man from تُجَاهِدُ." options={['ٱجَاهِدْ', 'جَاهِدْ', 'تُجَاهِدْ']} answer={1} why="End in a sukūn and take off تُ. The result starts with جَا, which can be said, so no helper alif is needed." />
+</Block>
+
+<Block id="passive" title="The passive: the ā becomes ū">
+  <Stage label="Pattern: the ā turns into و">
+    <Tiles
+      label="قَاتَلَ becomes قُوتِلَ, and يُقَاتِلُ becomes يُقَاتَلُ"
+      items={[
+        { ar: 'قَاتَلَ', en: 'he fought', type: 'v' },
+        { ar: 'قُوتِلَ', en: 'he was fought', type: 'v' },
+        { ar: 'يُقَاتِلُ', en: 'he fights', type: 'v' },
+        { ar: 'يُقَاتَلُ', en: 'he is fought', type: 'v' },
+      ]}
+    />
+    <Tiles
+      label="three real passives: نُودِىَ, قُوتِلُوا۟, يُقَٰتَلُونَ"
+      items={[
+        { ar: 'نُودِىَ', en: 'he was called (20:11)', type: 'v' },
+        { ar: 'قُوتِلُوا۟', en: 'they are fought (59:12)', type: 'v' },
+        { ar: 'يُقَٰتَلُونَ', en: 'they are being fought (22:39)', type: 'v' },
+      ]}
+    />
+  </Stage>
+
+L3.09 taught the passive: a ḍamma on the first letter, a kasra before the last letter in the past, and a fatḥa before the last letter in the present. Form III follows this, with one change: the long **ā becomes ū**, written و. So قَاتَلَ gives قُوتِلَ, and نَادَىٰ gives نُودِىَ.
+
+In the present, the prefix already has its ḍamma. The ā stays, and the middle letter gets a fatḥa: يُقَاتِلُ becomes يُقَاتَلُ. The Corpus tags 11 past and 13 present Form III words as passive, so the passive is rare. The passive نُودِىَ is parsed word by word at the end of this lesson.
+
+<Check n={8} q="What does the long ā turn into in the passive of Form III?" options={['و: قَاتَلَ becomes قُوتِلَ', 'ى: قَاتَلَ becomes قِيتِلَ', 'It stays an ā']} answer={0} why="The ḍamma on the first letter pulls the ā into a long ū, written و. That is why you read نُودِىَ, not نَادِىَ." />
+</Block>
+
+</Step>
+
+<Step id="meaning" label="What it means" title="What Form III adds to a meaning">
+<Block id="two-sides" title="Someone on the other side">
+  <Stage>
+    <Sentence
+      roles
+      reference="Al-Imran 3:146 (part)"
+      groups={[
+        { role: 'fiil', label: 'fiʿl', hint: 'Form III: “fought”', words: [{ ar: 'قَٰتَلَ', en: 'fought', say: 'qatala', type: 'v' }] },
+        { role: 'zarf', hint: 'with whom', words: [{ ar: 'مَعَهُۥ', en: 'with him', say: 'maahu', type: 'p' }] },
+        { role: 'fail', hint: 'the doers', words: [{ ar: 'رِبِّيُّونَ', en: 'devoted followers', say: 'ribbiyyuna' }, { ar: 'كَثِيرٌ', en: 'many', say: 'kathirun' }] },
+      ]}
+      en={['Many devoted followers fought with him.']}
+    />
+    <Sentence
+      roles
+      reference="Al-Baqarah 2:9 (start)"
+      groups={[
+        { role: 'fiil', label: 'Form III', hint: 'the object is the other side', words: [{ ar: 'يُخَٰدِعُونَ', en: 'they deceive', say: 'yukhadiuna', type: 'v' }] },
+        { role: 'maful', words: [{ ar: 'ٱللَّهَ', en: 'Allah', say: 'allaha' }] },
+        { role: 'matuf', words: [{ ar: 'وَٱلَّذِينَ', en: 'and those who', say: 'wal-ladhina' }, { ar: 'ءَامَنُوا۟', en: 'believe', say: 'amanu', type: 'v' }] },
+        { role: 'fiil', label: 'Form I', hint: 'the object is themselves', words: [{ ar: 'وَمَا', en: 'and not', say: 'wa-ma', type: 'p' }, { ar: 'يَخْدَعُونَ', en: 'they deceive', say: 'yakhdauna', type: 'v' }] },
+        { role: 'maful', words: [{ ar: 'إِلَّآ', en: 'except', say: 'illa', type: 'p' }, { ar: 'أَنفُسَهُمْ', en: 'themselves', say: 'anfusahum' }] },
+      ]}
+      en={['They deceive Allah and those who believe, but they deceive only themselves.']}
+    />
+  </Stage>
+
+Look at who stands on the other side of the action. These verses show it.
+
+- **3:146.** The followers fought *with* the prophet: مَعَهُ. The action has a partner.
+- **2:190 and 2:191.** You fight those who fight *you*: the other side is against you.
+- **2:9.** The Form III verb يُخَٰدِعُونَ has two objects: Allah and the believers. The Form I verb يَخْدَعُونَ, in the same verse, has the people themselves as its object.
+
+So in these verses a Form III verb has a second party. The exact relation depends on the verse: with someone, against someone, or aimed at someone. Read the verse to see which.
+
+<Check n={9} q="In قَٰتَلَ مَعَهُۥ رِبِّيُّونَ كَثِيرٌ, who did the fighting?" options={['The prophet alone', 'The many followers, with the prophet', 'The prophet fought the followers']} answer={1} why="رِبِّيُّونَ is the doer (fāʿil) of قَٰتَلَ. مَعَهُ says whom they fought with." />
+</Block>
+
+<Block id="no-partner" title="Not every Form III verb has a partner">
+  <Stage>
+    <Tiles
+      label="three Form III verbs with nobody on the other side"
+      items={[
+        { ar: 'وَهَاجَرُوا۟', en: 'and they migrated (8:72)', type: 'v' },
+        { ar: 'يُسَٰرِعُونَ', en: 'they hurry (3:114)', type: 'v' },
+        { ar: 'يُضَٰعِفُ', en: 'He multiplies (2:261)', type: 'v' },
+      ]}
+    />
+    <Sentence
+      roles
+      reference="Al-Imran 3:114 (part)"
+      groups={[
+        { role: 'fiil', label: 'fiʿl + fāʿil', hint: 'Form III, “they”', words: [{ ar: 'وَيُسَٰرِعُونَ', en: 'and they hurry', say: 'wa-yusiuna', type: 'v' }] },
+        { role: 'tied', hint: 'goes with the verb', words: [{ ar: 'فِى', en: 'in', say: 'fi', type: 'p' }, { ar: 'ٱلْخَيْرَٰتِ', en: 'the good things', say: 'al-khayrati' }] },
+      ]}
+      en={['And they hurry to the good things.']}
+    />
+  </Stage>
+
+The three verbs in the tiles have no second party. In 8:72 they migrate. In 3:114 they hurry towards good deeds. In 2:261 Allah multiplies a gift. Nobody fights, argues or competes with anyone.
+
+So the long ā does not always add “with someone”. You cannot work out the meaning of every Form III verb from its pattern. When you meet a new one, read the verse, and then learn the verb as a word.
+
+<Note kind="know">A Form I verb with the same root may not exist, or may mean something else. Quran Learn counted the Corpus form tags by root. 62 roots have a Form III verb. 23 of them have no Form I verb at all in the Corpus, among them ج ه د and ج د ل. For these roots Form III is the plain verb, and there is nothing to compare it with.</Note>
+</Block>
+
+<Block id="verbs" title="Five verbs make up half of Form III">
+  <Stage label="The most common Form III verbs">
+    <Tiles
+      label="قَٰتَلَ, نَادَىٰ, جَٰهَدَ, جَٰدَلَ, هَاجَرَ"
+      items={[
+        { ar: 'قَٰتَلَ', en: 'fight', type: 'v' },
+        { ar: 'نَادَىٰ', en: 'call out', type: 'v' },
+        { ar: 'جَٰهَدَ', en: 'strive', type: 'v' },
+        { ar: 'جَٰدَلَ', en: 'argue', type: 'v' },
+        { ar: 'هَاجَرَ', en: 'migrate', type: 'v' },
+      ]}
+    />
+  </Stage>
+
+| Verb | Root | Meaning | Words | In a verse |
+|---|---|---|---|---|
+| قَٰتَلَ | ق ت ل | fight | 54 | قَٰتَلُوكُمْ (2:191) |
+| نَادَىٰ | ن د و | call out | 44 | نَادَىٰ (19:3) |
+| جَٰهَدَ | ج ه د | strive | 27 | جَٰهَدَ (29:6) |
+| جَٰدَلَ | ج د ل | argue | 25 | جَٰدَلُوكَ (22:68) |
+| هَاجَرَ | ه ج ر | migrate | 16 | وَهَاجَرُوا۟ (8:72) |
+
+Together these five verbs make 166 of the 334 Form III words. The count is Quran Learn's, from the Corpus lemma tags, with all tenses and passives counted. Learn these five first. If you know them, you can read about half of the Form III verbs in the Quran.
+
+The same table shows how far the meaning can move from Form I. قَتَلَ (Form I) is “he killed”. قَٰتَلَ is “he fought”. But جَٰهَدَ and جَٰدَلَ have no Form I verb in the Corpus.
+
+<Check n={10} q="Which of these roots has no Form I verb in the Corpus?" options={['ق ت ل', 'ج ه د', 'ه ج ر']} answer={1} why="ج ه د has 27 Form III verb words and no Form I verb. ق ت ل has 83 Form I verb words, and ه ج ر has 5." />
+</Block>
+
+</Step>
+
+<Step id="family" label="Look-alikes and family" title="Look-alikes, and the words that grow from Form III">
+<Block id="lookalike" title="Not every long ā is Form III">
+  <Stage label="Same sound, different roots">
+    <Sentence
+      roles
+      reference="At-Tawbah 9:30 (start)"
+      groups={[
+        { role: 'fiil', label: 'fiʿl: Form I', hint: 'hollow, root ق و ل', words: [{ ar: 'وَقَالَتِ', en: 'and said', say: 'wa-qalati', type: 'v' }] },
+        { role: 'fail', words: [{ ar: 'ٱلْيَهُودُ', en: 'the Jews', say: 'al-yahudu' }] },
+      ]}
+      en={['And the Jews said …']}
+    />
+    <Sentence
+      roles
+      reference="At-Tawbah 9:30 (end)"
+      groups={[
+        { role: 'fiil', label: 'fiʿl: Form III', hint: 'root ق ت ل', words: [{ ar: 'قَٰتَلَهُمُ', en: 'fought them', say: 'qatalahumu', type: 'v' }] },
+        { role: 'fail', words: [{ ar: 'ٱللَّهُ', en: 'Allah', say: 'allahu' }] },
+      ]}
+      en={['May Allah fight them!']}
+    />
+  </Stage>
+
+Verse 9:30 has two verbs with a long ā after the first letter. Only one is Form III.
+
+Use this test. **Find the root first.** Take out the long ā and count the letters that are left.
+
+- قَٰتَلَهُمُ: take out the ā and you have ق ت ل. Three letters: Form III.
+- قَالَتْ: take out the ā and you have ق ل. Two letters. The ā stands for the و of the root ق و ل. It is a hollow Form I verb (L3.05, L4.12).
+
+Here are the look-alikes you will meet most.
+
+| Word | Why it looks like Form III | What it is | How to tell |
+|---|---|---|---|
+| قَالَ | a long ā after ق | Form I, hollow, root ق و ل | two letters are left without the ā |
+| كَانَ | a long ā after ك | Form I, hollow, root ك و ن | two letters are left without the ā |
+| ءَامَنَ | a long ā after the first letter | Form IV, root أ م ن | the present is يُؤْمِنُ, with no ā |
+| ٱلْقَٰعِدُونَ (4:95) | a long ā after ق | Form I participle, root ق ع د, a noun | it is a noun, and the verb قَعَدَ has no ā |
+
+ءَامَنَ is the one to watch. The first letter is a hamza, and the hamza and the ā are written together as ءَا. The Corpus tags ءَامَنُوا۟ as Form IV, which L3.13 teaches. The present shows it: يُؤْمِنُونَ has no ā, while a Form III present like يُؤَاخِذُ has one.
+
+<Check n={11} q="Is وَقَالَتِ in 9:30 a Form III verb?" options={['Yes, it has a long ā after the first letter', 'No, it is a hollow Form I verb: the ā stands for the و of ق و ل']} answer={1} why="Without the ā only two letters are left. In Form III the three root letters are all still there." />
+</Block>
+
+<Block id="different" title="Form III with weak and special letters">
+  <Stage label="Four verbs that look different">
+    <Tiles
+      label="نَادَىٰ, حَآجَّ, يُؤَاخِذُ, وَٰعَدْنَا"
+      items={[
+        { ar: 'نَادَىٰ', en: 'called out (19:3)', type: 'v' },
+        { ar: 'حَآجَّ', en: 'argued (2:258)', type: 'v' },
+        { ar: 'يُؤَاخِذُ', en: 'He holds to account (2:225)', type: 'v' },
+        { ar: 'وَٰعَدْنَا', en: 'we promised (2:51)', type: 'v' },
+      ]}
+    />
+  </Stage>
+
+The long ā is still there after the first letter in all four. What looks different is the root.
+
+| Verb | Root | What looks different | Words |
+|---|---|---|---|
+| نَادَىٰ | ن د و | the last root letter is weak: it shows as ىٰ (L4.13) | 44 |
+| حَآجَّ | ح ج ج | the last two root letters are the same, so they join under a shadda | 12 |
+| يُؤَاخِذُ | أ خ ذ | the first root letter is a hamza, and it sits on a و (L4.15) | 9 |
+| وَٰعَدْنَا | و ع د | the first root letter is و (L4.14) | 4 |
+
+The “Words” column counts Form III words of each root in the Corpus (Quran Learn's count, all tenses and passives). Nothing else changes: the ā is after the first root letter, and the present has the ḍamma prefix. L4.11 introduces the weak verbs in full.
+
+For يُؤَاخِذُ, the root is أ خ ذ, so there is no letter before the hamza. After the prefix يُـ the hamza is written on a و. That is why you read يُؤَاخِذُ, not يُاخِذُ.
+</Block>
+
+<Block id="participle" title="A first look: the participle">
+  <Stage label="One verse, two participles">
+    <Tiles
+      label="ٱلْمُجَٰهِدُونَ and ٱلْقَٰعِدُونَ, side by side in 4:95"
+      items={[
+        { ar: 'ٱلْمُجَٰهِدُونَ', en: 'those who strive: from Form III', type: 'n' },
+        { ar: 'ٱلْقَٰعِدُونَ', en: 'those who sit: from Form I', type: 'n' },
+      ]}
+    />
+  </Stage>
+
+A participle is a noun for the one who does the action. For Form III it has the pattern **مُفَاعِل** (*mufāʿil*). Take the present يُجَاهِدُ, put مُـ in the place of يُـ, and keep the ā and the kasra: مُجَاهِد, “one who strives”.
+
+Verse 4:95 has two participles next to each other. ٱلْمُجَٰهِدُونَ comes from جَٰهَدَ, Form III. Al-Jadwal says its pattern is مُفَاعِل, with a ḍamma on the mīm and a kasra on the ʿayn. ٱلْقَٰعِدُونَ, “those who sit”, comes from قَعَدَ, Form I. Its pattern is فَاعِل. Both have the ā after the first letter. The مُـ is what marks Form III.
+
+The Quran has more Form III participles, such as مُهَاجِرًا (4:100). L3.19 teaches the active and the passive participle.
+
+<Check n={12} q="Which word in 4:95 is the Form III participle?" options={['ٱلْقَٰعِدُونَ', 'ٱلْمُجَٰهِدُونَ']} answer={1} why="It starts with مُـ and has the ā and the kasra: مُفَاعِل. ٱلْقَٰعِدُونَ is the plain Form I participle, فَاعِل." />
+</Block>
+
+<Block id="verbal-noun" title="A first look: two verbal nouns">
+  <Stage>
+    <Sentence
+      reference="Al-Hajj 22:78 (start)"
+      groups={[
+        { words: [{ ar: 'وَجَٰهِدُوا۟', en: 'and strive', say: 'wa-jahidu', type: 'v' }] },
+        { words: [{ ar: 'فِى', en: 'for the sake of', say: 'fi', type: 'p' }, { ar: 'ٱللَّهِ', en: 'Allah', say: 'allahi' }] },
+        { words: [{ ar: 'حَقَّ', en: 'the due of', say: 'haqqa' }, { ar: 'جِهَادِهِۦ', en: 'His striving', say: 'jihadihi' }], hint: 'جِهَاد is a verbal noun' },
+      ]}
+      en={['And strive for Allah as He should be striven for.']}
+    />
+    <Tiles
+      label="two verbal nouns for each Form III verb: fiʿāl and mufāʿala"
+      items={[
+        { ar: 'جِهَاد', en: 'fiʿāl, “heard” (22:78)', type: 'n' },
+        { ar: 'مُجَاهَدَة', en: 'mufāʿala, the regular one', type: 'n' },
+        { ar: 'قِتَال', en: 'fiʿāl, “heard” (2:216)', type: 'n' },
+        { ar: 'مُقَاتَلَة', en: 'mufāʿala, the regular one', type: 'n' },
+      ]}
+    />
+  </Stage>
+
+A verbal noun is a noun for the action itself: “striving” from “strive”, “fighting” from “fight”. Al-Jadwal gives a Form III verb two of them.
+
+- **فِعَال** (*fiʿāl*): جِهَاد, قِتَال. Al-Jadwal calls this one *samāʿī*, “heard”. It is learned from how the word is used, not made by a rule. جِهَاد is in 22:78 and قِتَال is in 2:216.
+- **مُفَاعَلَة** (*mufāʿala*): مُجَاهَدَة, مُقَاتَلَة. Al-Jadwal calls this the regular one, *qiyāsī*. These two words are the pattern's forms: the lesson does not say the Quran uses them.
+
+In 25:52 a verbal noun repeats the verb, to stress it: وَجَٰهِدْهُم بِهِۦ جِهَادًا كَبِيرًا, “strive against them with it, a great striving”. L4.07 teaches that use. L3.20 teaches verbal nouns.
+
+<Check n={13} q="According to al-Jadwal, which pattern is the regular verbal noun of Form III?" options={['فِعَال, like جِهَاد', 'مُفَاعَلَة, like مُجَاهَدَة', 'فَعْل, like قَتْل']} answer={1} why="Al-Jadwal says مُفَاعَلَة is the regular (qiyāsī) one. فِعَال is the “heard” one. فَعْل is a Form I pattern." />
+</Block>
+
+<Block id="form-vi" title="One line on Form VI">
+  <Stage label="Form III with تَ in front">
+    <Tiles
+      label="بَٰرَكْنَا is Form III. تَبَٰرَكَ is Form VI."
+      items={[
+        { ar: 'بَٰرَكْنَا', en: 'Form III: we blessed (7:137)', type: 'v' },
+        { ar: 'تَبَٰرَكَ', en: 'Form VI: blessed is he (67:1)', type: 'v' },
+      ]}
+    />
+  </Stage>
+
+Put تَ in front of a Form III verb and you get **Form VI**, with the pattern تَفَاعَلَ. In 7:137 بَٰرَكْنَا (“we blessed”) is Form III, root ب ر ك. In 67:1 تَبَٰرَكَ is Form VI, from the same root. L3.18 teaches Form VI.
+</Block>
+
+</Step>
+
+<Step id="practice" label="Check yourself" title="Mistakes, four verses word by word, practice">
+<Block id="mistakes" title="Common mistakes">
+  <Stage label="Three wrong forms">
+    <Tiles
+      label="جَاهِدْ is right. ٱجَاهِدْ has a helper alif. يَجَاهِدُ has the wrong prefix."
+      items={[
+        { ar: 'جَاهِدْ', en: 'right: strive!', type: 'v' },
+        { ar: 'ٱجَاهِدْ', en: 'wrong: no helper alif', type: 'x' },
+        { ar: 'يَجَاهِدُ', en: 'wrong: the prefix needs a ḍamma', type: 'x' },
+      ]}
+    />
+  </Stage>
+
+1. **Reading every long ā as Form III.** Find the root first. قَالَ and كَانَ are hollow Form I verbs, ءَامَنَ is Form IV and ٱلْقَٰعِدُونَ is a Form I participle.
+2. **Missing the small alif.** In the Quran text قَٰتَلَ looks like قَتَلَ at a glance. They are two verbs: “he fought” and “he killed”. Look for the small alif above the first letter.
+3. **Giving the prefix a fatḥa.** The Form III present is يُفَاعِلُ. A prefix with a fatḥa and a long ā, like يَجَاهِدُ, is not a Form III form.
+4. **Adding a helper alif to the command.** The command is جَاهِدْ, not ٱجَاهِدْ. The helper is for words that would start with a silent letter (L3.08).
+5. **Translating every Form III verb as “with each other”.** In 3:146 it is “with”, in 2:190 it is “against”, and in 8:72 هَاجَرُوا۟ has no partner. Read the verse.
+6. **Thinking Form III needs a preposition.** وَقَٰتِلُوهُمْ (2:193) and وَجَٰهِدْهُم (25:52) take their object with no preposition. A preposition such as مَعَ in 3:146 adds to the picture.
+7. **Mixing the two participles.** ٱلْمُجَٰهِدُونَ has مُـ and is Form III. ٱلْقَٰعِدُونَ has no مُـ and is Form I.
+8. **Looking for the ā in the passive.** It becomes و: قُوتِلُوا۟, نُودِىَ.
+9. **Mixing up Form III and Form VI.** Form VI has تَ in front: تَبَٰرَكَ (L3.18).
+</Block>
+
+<Block id="parse-1" title="Word by word: Al-Baqarah 2:190">
+  <Stage label="Word by word">
+    <Parse
+      reference="Al-Baqarah 2:190 (part)"
+      words={[
+        { ar: 'وَقَٰتِلُوا۟', en: 'and fight', type: 'v' },
+        { ar: 'فِى', en: 'in', type: 'p' },
+        { ar: 'سَبِيلِ', en: 'the way of' },
+        { ar: 'ٱللَّهِ', en: 'Allah' },
+        { ar: 'ٱلَّذِينَ', en: 'those who' },
+        { ar: 'يُقَٰتِلُونَكُمْ', en: 'fight you', type: 'v' },
+      ]}
+      cards={[
+        { at: 0, ar: 'وَ', role: '“and”, a little word that starts a new sentence', why: 'A little word has no case. Al-Jadwal: it starts a new sentence.', irab: 'الواو استئنافية' },
+        { at: 0, ar: 'قَٰتِلُوا۟', role: 'a command, Form III: “fight!”. The و is the doer: “you all”', case: 'none: a verb has no case', mark: 'built on a dropped nūn', why: 'The present is تُقَٰتِلُونَ. The jussive drops the nūn, and the command takes off the prefix. No helper alif is needed.', irab: 'فعل أمر مبني على حذف النون، والواو ضمير مبني في محل رفع فاعل' },
+        { at: [1, 2], role: 'a phrase: فِى “in” and سَبِيلِ “the way of”', case: 'سَبِيلِ is genitive (jarr)', mark: '-i (kasra) on سَبِيلِ', why: 'A noun after فِى is genitive (L2.07). Al-Jadwal ties the phrase to a left-out ḥāl, a word that says in what state the doer acts (L4.01).', irab: 'جار ومجرور متعلق بمحذوف حال من فاعل قاتلوا، وسبيل مضاف' },
+        { at: 3, role: 'the second word of an idafah (muḍāf ilayh): “of Allah”', case: 'genitive (jarr)', mark: '-i (kasra) on the last letter', why: 'The second word of an idafah is genitive (L2.08).', irab: 'لفظ الجلالة مضاف إليه مجرور' },
+        { at: 4, role: 'a joining noun: “those who”. It is the object (mafʿūl bihi) of the command', case: 'accusative, by place (fī maḥall naṣb)', mark: 'none: it never changes', why: 'The command needs someone to fight. Al-Jadwal gives the joining noun this place (L3.11).', irab: 'اسم موصول مبني في محل نصب مفعول به' },
+        { at: 5, role: 'a present verb, Form III: “they fight you”. It finishes the joining noun (ṣila). The و is the doer, كُمْ is the object', case: 'raised (marfūʿ)', mark: '-ūna: the nūn is kept', why: 'Nothing in front changes the verb, so the nūn stays (L3.06). Al-Jadwal says the sentence is the ṣila and has no place of its own.', irab: 'فعل مضارع مرفوع وعلامة رفعه ثبوت النون، والواو فاعل، والكاف ضمير مفعول به، والجملة صلة الموصول لا محل لها' },
+      ]}
+    />
+  </Stage>
+
+Here a Form III command is followed by a Form III present verb in a joining-noun sentence. The ā is in both.
+</Block>
+
+<Block id="parse-2" title="Word by word: At-Tawbah 9:111">
+  <Stage label="Word by word">
+    <Parse
+      reference="At-Tawbah 9:111 (part)"
+      words={[
+        { ar: 'يُقَٰتِلُونَ', en: 'they fight', type: 'v' },
+        { ar: 'فِى', en: 'in', type: 'p' },
+        { ar: 'سَبِيلِ', en: 'the way of' },
+        { ar: 'ٱللَّهِ', en: 'Allah' },
+        { ar: 'فَيَقْتُلُونَ', en: 'so they kill', type: 'v' },
+        { ar: 'وَيُقْتَلُونَ', en: 'and are killed', type: 'v' },
+      ]}
+      cards={[
+        { at: 0, role: 'a present verb, Form III: “they fight”. The و is the doer', case: 'raised (marfūʿ)', mark: '-ūna: the nūn is kept', why: 'It starts a new sentence that explains the deal in the verse before. Al-Jadwal calls it explanatory (istiʾnāfiyya bayāniyya).', irab: 'فعل مضارع مرفوع وعلامة رفعه ثبوت النون، والواو فاعل' },
+        { at: [1, 2], role: 'a phrase: فِى “in” and سَبِيلِ “the way of”. It goes with يُقَٰتِلُونَ', case: 'سَبِيلِ is genitive (jarr)', mark: '-i (kasra)', why: 'A noun after فِى is genitive. Al-Jadwal: tied to يُقَٰتِلُونَ.', irab: 'جار ومجرور متعلق بيقاتلون، وسبيل مضاف' },
+        { at: 3, role: 'the second word of an idafah: “of Allah”', case: 'genitive (jarr)', mark: '-i (kasra)', why: 'The second word of an idafah is genitive.', irab: 'لفظ الجلالة مضاف إليه مجرور' },
+        { at: 4, ar: 'فَ', role: '“so”, a little word that joins two verbs', why: 'A little word has no case.', irab: 'الفاء عاطفة' },
+        { at: 4, ar: 'يَقْتُلُونَ', role: 'a present verb, Form I: “they kill”. The و is the doer', case: 'raised (marfūʿ)', mark: '-ūna: the nūn is kept', why: 'Al-Jadwal: “like يُقَٰتِلُونَ”. There is no long ā here: the prefix has a fatḥa. This is Form I, from قَتَلَ.', irab: 'فعل مضارع مرفوع وعلامة رفعه ثبوت النون، والواو فاعل' },
+        { at: 5, ar: 'وَ', role: '“and”, a little word', why: 'A little word has no case.', irab: 'الواو عاطفة' },
+        { at: 5, ar: 'يُقْتَلُونَ', role: 'a passive present verb, Form I: “they are killed”. The و is the stand-in for the doer (nāʾib al-fāʿil)', case: 'raised (marfūʿ)', mark: '-ūna: the nūn is kept', why: 'Passive (L3.09): ḍamma on the prefix and fatḥa before the last letter. There is no ā, so it is not Form III.', irab: 'فعل مضارع مبني للمجهول مرفوع وعلامة رفعه ثبوت النون، والواو نائب فاعل' },
+      ]}
+    />
+  </Stage>
+
+One verse, three verbs from one root: a Form III present, a Form I present and a Form I passive. Only the first has the long ā. They fight, so they kill and are killed.
+</Block>
+
+<Block id="parse-3" title="Word by word: Al-Furqan 25:52">
+  <Stage label="Word by word">
+    <Parse
+      reference="Al-Furqan 25:52 (end)"
+      words={[
+        { ar: 'وَجَٰهِدْهُم', en: 'and strive against them', type: 'v' },
+        { ar: 'بِهِۦ', en: 'with it', type: 'p' },
+        { ar: 'جِهَادًا', en: 'a striving' },
+        { ar: 'كَبِيرًا', en: 'great' },
+      ]}
+      cards={[
+        { at: 0, ar: 'وَ', role: '“and”, a little word that joins this command to the one before', why: 'A little word has no case. Al-Jadwal: the sentence is joined to لَا تُطِعِ.', irab: 'الواو عاطفة' },
+        { at: 0, ar: 'جَٰهِدْ', role: 'a command, Form III: “strive!”. Its doer is a hidden “you”', case: 'none: a verb has no case', mark: 'built on a sukūn', why: 'The present is تُجَٰهِدُ. The command ends in a sukūn and loses the prefix. There is no helper alif.', irab: 'فعل أمر مبني على السكون، والفاعل ضمير مستتر تقديره أنت' },
+        { at: 0, ar: 'هُم', role: 'the object: “them”. An attached pronoun (L3.02)', case: 'accusative, by place (fī maḥall naṣb)', mark: 'none: a pronoun never changes', why: 'It says who you strive against. Al-Jadwal does not name it in this verse. It is the object by the rule of L3.02.', irab: 'ضمير متصل مبني في محل نصب مفعول به' },
+        { at: 1, role: 'a phrase: بِ “with” and the pronoun هُ “it”. The pronoun points to the Quran', case: 'the pronoun is genitive, by place', mark: 'none: a pronoun never changes', why: 'Al-Jadwal: tied to جَاهِدْ, and the pronoun refers to the Quran.', irab: 'جار ومجرور متعلق بجاهد، والهاء ضمير في محل جر' },
+        { at: 2, role: 'an absolute object (mafʿūl muṭlaq): a verbal noun that repeats the verb to stress it', case: 'accusative (naṣb)', mark: '-an (tanwīn fatḥa)', why: 'The verb and the noun come from the same root ج ه د. L4.07 teaches this object.', irab: 'مفعول مطلق منصوب وعلامة نصبه الفتحة' },
+        { at: 3, role: 'an adjective (naʿt) of جِهَادًا: “great”', case: 'accusative (naṣb), like its noun', mark: '-an (tanwīn fatḥa)', why: 'An adjective copies the case of its noun (L2.09). Al-Jadwal does not name it separately here.', irab: 'نعت منصوب وعلامة نصبه الفتحة' },
+      ]}
+    />
+  </Stage>
+
+The command and its verbal noun come from one root, and both have the ā. The adjective كَبِيرًا adds to the stress.
+</Block>
+
+<Block id="parse-4" title="Word by word: Ta-Ha 20:11">
+  <Stage label="Word by word">
+    <Parse
+      reference="Ta-Ha 20:11"
+      words={[
+        { ar: 'فَلَمَّآ', en: 'so when', type: 'p' },
+        { ar: 'أَتَىٰهَا', en: 'he came to it', type: 'v' },
+        { ar: 'نُودِىَ', en: 'he was called', type: 'v' },
+        { ar: 'يَٰمُوسَىٰٓ', en: 'O Musa' },
+      ]}
+      cards={[
+        { at: 0, role: '“so when”: فَ “so” and لَمَّا “when”', why: 'A little word has no case. Al-Jadwal: لَمَّا is a time word that carries an “if”, and it goes with نُودِىَ.', irab: 'الفاء استئنافية، ولما ظرف بمعنى حين متضمن معنى الشرط متعلق بنودي' },
+        { at: 1, role: 'a past verb, Form I: “he came to it”. The doer is a hidden “he”: Musa. هَا is the object', case: 'none: a verb has no case', mark: 'built on a fatḥa', why: 'The whole sentence is the second word of an idafah after لَمَّا. Al-Jadwal gives it a place in the genitive.', irab: 'فعل ماض، والفاعل ضمير مستتر تقديره هو، والهاء مفعول به، والجملة في محل جر مضاف إليه' },
+        { at: 2, role: 'a passive past verb, Form III: “he was called”. The stand-in for the doer is a hidden “he”', case: 'none: a verb has no case', mark: 'built on a fatḥa, shown as ـىَ on the last letter', why: 'The active verb is نَادَىٰ, root ن د و. In the passive the ā turns into و, and there is a ḍamma on the first letter and a kasra before the last. Al-Jadwal names this change.', irab: 'فعل ماض مبني للمجهول مبني على الفتح، ونائب الفاعل ضمير مستتر تقديره هو' },
+        { at: 3, role: 'the one called (munādā): “O Musa”. يَا is the calling word', case: 'accusative, by place (fī maḥall naṣb)', mark: 'built on a ḍamma', why: 'A single name that is called is built on a ḍamma. Al-Jadwal: a called name.', irab: 'يا حرف نداء، وموسى منادى مفرد علم مبني على الضم في محل نصب' },
+      ]}
+    />
+  </Stage>
+
+Here the passive verb has no written stand-in. It is a hidden “he”, and the verb is followed by the call itself, يَٰمُوسَىٰٓ.
+</Block>
+
+<Block id="practice-1" title="Practice: spot it and say what it is">
+  <Stage label="The test">
+    <Formula
+      label="find the root, take out the long ā, count the letters that are left"
+      items={[
+        { kind: 'm', text: 'find the root', small: 'ق ت ل' },
+        { kind: 'k', text: 'take out the long ā', small: 'قَٰتَلَ → قتل' },
+        { kind: 's', text: 'three letters left: Form III', small: 'two: look closer' },
+      ]}
+    />
+  </Stage>
+
+Work out each answer first, on paper or in your head. Then open the answer. The tables in exercises 3, 9 and 10 are patterns, not verse quotes.
+
+<Exercise n={1} q="Which of these are Form III? Say how you know. (a) قَٰتَلَهُمُ (At-Tawbah 9:30) (b) وَقَالَتِ (At-Tawbah 9:30) (c) ءَامَنُوا۟ (Al-Anfal 8:72) (d) وَهَاجَرُوا۟ (Al-Anfal 8:72) (e) ٱلْقَٰعِدُونَ (An-Nisa 4:95)">
+
+- (a) **Form III.** Take out the ā: ق ت ل, three letters.
+- (b) **Not Form III.** Take out the ā: ق ل, two letters. The root is ق و ل, and this is a hollow Form I verb.
+- (c) **Not Form III.** It is Form IV, root أ م ن. Its present is يُؤْمِنُونَ, with no ā (L3.13).
+- (d) **Form III.** Take out the ā: ه ج ر, three letters. The Corpus tags it (III).
+- (e) **Not a verb.** It is a noun, the Form I participle of قَعَدَ: “those who sit”.
+
+</Exercise>
+
+<Exercise n={2} q="Which form is each verb: I, II or III? Say what shows it. (a) يُقَٰتِلُونَ (At-Tawbah 9:111) (b) يُقَتِّلُونَ (Al-Aʿraf 7:141) (c) يَقْتُلُونَ (At-Tawbah 9:111)">
+
+All three are present-tense verbs for “they”, from the root ق ت ل.
+
+- (a) **Form III.** A ḍamma on the prefix and a long ā after ق.
+- (b) **Form II.** A ḍamma on the prefix and a shadda on the middle letter ت (L3.12).
+- (c) **Form I.** A fatḥa on the prefix and a sukūn on ق. Nothing is added.
+
+</Exercise>
+
+<Exercise n={3} q="Build these forms of جَاهَدَ, “he strove”. (a) the past, “you all (men) strove” (b) the present, “she strives” (c) the command for one woman (d) the present, “they two (men) strive”. These are patterns.">
+
+- (a) **جَاهَدْتُمْ.** The stem جَاهَدْ and the ending ـْتُمْ (L3.05).
+- (b) **تُجَاهِدُ.** The prefix تُـ for “she”, the stem, and -u (L3.06).
+- (c) **جَاهِدِى.** The jussive form of تُجَاهِدِينَ, without the prefix. The ى is the doer.
+- (d) **يُجَاهِدَانِ.** The prefix يُـ and the ending ـَانِ, “two people”.
+
+The Quran has the same ending as (a) in عَٰهَدتُّم (9:4), “you all made a treaty”.
+
+</Exercise>
+
+<Exercise n={4} q="Find the Form III verbs in this verse. Give the tense and the person of each: وَمَن جَٰهَدَ فَإِنَّمَا يُجَٰهِدُ لِنَفْسِهِۦٓ (Al-Ankabut 29:6). Meaning: “And whoever strives, strives for himself.”">
+
+- **جَٰهَدَ** is the **past**, “he”. The root is ج ه د.
+- **يُجَٰهِدُ** is the **present**, “he”. Same root. It has the ḍamma on the prefix and a kasra on the middle letter.
+
+Both have the long ā after ج. In both, the doer is a hidden “he”. The phrase لِنَفْسِهِۦٓ goes with يُجَٰهِدُ. L4.03 teaches the “whoever … then” pattern.
+
+</Exercise>
+
+<Exercise n={5} q="Which word is passive, and what was the active verb? Who is the stand-in for the doer? إِذَا نُودِىَ لِلصَّلَوٰةِ مِن يَوْمِ ٱلْجُمُعَةِ (Al-Jumuʿah 62:9). Meaning: “when the call to prayer is made on Friday”.">
+
+**نُودِىَ** is the passive past, Form III. The active verb is **نَادَىٰ**, “he called”, root ن د و. The ā became و.
+
+Al-Jadwal says the phrase **لِلصَّلَوٰةِ** takes the place of the doer: it is the stand-in (nāʾib al-fāʿil). The call is “for the prayer”. L3.09 taught this stand-in.
+
+</Exercise>
+
+<Exercise n={6} q="Why is there no nūn in يُقَٰتِلُوكُمْ? لَمْ يُقَٰتِلُوكُمْ فِى ٱلدِّينِ (Al-Mumtahanah 60:8). Meaning: “who have not fought you because of religion”.">
+
+The verb is Form III, present, “they”: يُقَٰتِلُونَ with كُمْ, “you all”, on the end. After **لَمْ** the verb is jussive (L3.07), and the jussive drops the nūn of -ūna. The Corpus tags this verb as jussive.
+
+</Exercise>
+
+<Exercise n={7} q="Give the root and the form, and say who does what: لَّا يُؤَاخِذُكُمُ ٱللَّهُ بِٱللَّغْوِ (Al-Baqarah 2:225, start). Meaning: “Allah does not hold you to account for careless words.”">
+
+The root is **أ خ ذ** and the form is **Form III**: the Corpus tags it (III), with a ḍamma on the prefix and a long ā. The first root letter is a hamza, and it is written on a و.
+
+ٱللَّهُ is the doer. كُمْ, “you all”, is the object. Al-Jadwal: لَا is a negative, and the verb is a plain present verb (marfūʿ).
+
+</Exercise>
+
+<Exercise n={8} q="Who fought, and with whom? وَكَأَيِّن مِّن نَّبِىٍّ قَٰتَلَ مَعَهُۥ رِبِّيُّونَ كَثِيرٌ (Al-Imran 3:146).">
+
+The verb **قَٰتَلَ** is Form III, past, “he”. The doer is **رِبِّيُّونَ**, “devoted followers”, and كَثِيرٌ is its adjective. **مَعَهُۥ**, “with him”, says whom they fought with: the prophet.
+
+Al-Jadwal reads the sentence this way: the verb, then the place word, then the doer.
+
+</Exercise>
+</Block>
+
+<Block id="practice-2" title="Practice: commands, nouns and meaning">
+  <Stage label="Five commands">
+    <Tiles
+      label="five endings: sukūn, ī, ā, ū, na"
+      items={[
+        { ar: 'ـْ', en: 'one man', type: 'x' },
+        { ar: 'ـِى', en: 'one woman', type: 'x' },
+        { ar: 'ـَا', en: 'two people', type: 'x' },
+        { ar: 'ـُوا۟', en: 'men', type: 'x' },
+        { ar: 'ـْنَ', en: 'women', type: 'x' },
+      ]}
+    />
+  </Stage>
+
+<Exercise n={9} q="Give the command for all five “you” forms of قَاتَلَ, “he fought”. The present is تُقَاتِلُ. This is a pattern.">
+
+The three moves: end in a sukūn, take off the prefix, add no helper.
+
+1. One man: **قَاتِلْ** (*qātil*)
+2. One woman: **قَاتِلِى** (*qātilī*)
+3. Two people: **قَاتِلَا** (*qātilā*)
+4. A group of men: **قَاتِلُوا۟** (*qātilū*)
+5. A group of women: **قَاتِلْنَ** (*qātilna*)
+
+The Quran has three of these: فَقَٰتِلْ for one man (4:84), فَقَٰتِلَآ for two (5:24) and وَقَٰتِلُوا۟ for a group (2:190). Al-Jadwal says the doer of فَقَٰتِلْ is a hidden “you”.
+
+</Exercise>
+
+<Exercise n={10} q="Give the two verbal nouns that al-Jadwal gives for جَاهَدَ and for قَاتَلَ. Which one is “heard”?">
+
+- From جَاهَدَ: **جِهَاد** (fiʿāl, “heard”) and **مُجَاهَدَة** (mufāʿala, regular).
+- From قَاتَلَ: **قِتَال** (fiʿāl, “heard”) and **مُقَاتَلَة** (mufāʿala, regular).
+
+Al-Jadwal says this on 22:78 and on 2:216. The Quran has جِهَاد (22:78) and قِتَال (2:216). L3.20 teaches verbal nouns.
+
+</Exercise>
+
+<Exercise n={11} q="One of these two participles is Form III. Which, and what shows it? ٱلْمُجَٰهِدُونَ and ٱلْقَٰعِدُونَ (An-Nisa 4:95)">
+
+**ٱلْمُجَٰهِدُونَ** is Form III. It has the prefix مُـ, the long ā and a kasra on the middle letter: the pattern مُفَاعِل. The root is ج ه د.
+
+**ٱلْقَٰعِدُونَ** is Form I: the pattern فَاعِل with no مُـ. Both have the ā after the first letter, so the مُـ is the clue.
+
+</Exercise>
+
+<Exercise n={12} q="What form, tense and person is سَابِقُوٓا۟? What is its root? سَابِقُوٓا۟ إِلَىٰ مَغْفِرَةٍ مِّن رَّبِّكُمْ (Al-Hadid 57:21, start). Meaning: “Race to forgiveness from your Lord.”">
+
+**سَابِقُوٓا۟** is a **command**, **Form III**, for “you all” (men). The root is **س ب ق**. The و is the doer, and it is built on a dropped nūn.
+
+The phrase **إِلَىٰ مَغْفِرَةٍ** goes with the command. Al-Jadwal: tied to سَابِقُوٓا۟. This is a verse with a goal to race towards, and nobody to race against.
+
+</Exercise>
+</Block>
+
+<Block id="done" title="You have finished the lesson">
+  <Stage label="The idea">
+    <Formula
+      label="the first root letter, a long ā, and the other two root letters make a Form III verb"
+      items={[
+        { kind: 'm', text: 'first root letter', small: 'قَ' },
+        { kind: 'k', text: 'a long ā', small: 'ا' },
+        { kind: 'k', text: 'the other two letters', small: 'تَلَ' },
+        { kind: 's', text: 'Form III verb', small: 'قَاتَلَ' },
+      ]}
+    />
+  </Stage>
+
+- Form III is a verb with a long ā after the first root letter: فَاعَلَ. The Quran often writes the ā as a small alif: قَٰتَلَ.
+- The past takes the endings of L3.05 on the stem جَاهَدْ. The present is يُفَاعِلُ: a ḍamma on the prefix, the ā, and a kasra on the middle letter. The command is جَاهِدْ, with no helper alif.
+- The passive turns the ā into و: قُوتِلَ, نُودِىَ.
+- In many verses the action has someone on the other side: with, against or towards. Some Form III verbs have nobody there, like هَاجَرَ and سَارَعَ. Read the verse.
+- Find the root first. قَالَ and كَانَ are hollow Form I verbs, ءَامَنَ is Form IV, and ٱلْقَٰعِدُونَ is a Form I participle.
+- The participle is مُفَاعِل (ٱلْمُجَٰهِدُونَ). The verbal nouns are فِعَال (جِهَاد, قِتَال) and مُفَاعَلَة. Form VI is Form III with تَ in front.
+
+**Next:** L3.18 teaches Forms VI, VII and IX. L3.19 teaches the participles and L3.20 the verbal nouns. L4.11 to L4.15 teach the weak verbs behind نَادَىٰ and وَٰعَدْنَا. Before you go on, review L3.04 and L3.12 if the difference between the forms felt new.
+
+<Sources
+    items={[
+      { label: 'Quran text', name: 'Tanzil (Uthmani text)', href: 'https://tanzil.net' },
+      { label: 'Word types, forms and counts', name: 'Quranic Arabic Corpus', href: 'https://corpus.quran.com' },
+      { label: 'Word-by-word analysis (iʿrāb) and word patterns (ṣarf)', name: 'Maḥmūd Ṣāfī, al-Jadwal fī Iʿrāb al-Qurʾān wa-Ṣarfihi wa-Bayānihi' },
+      { label: 'Where scholars differ', name: 'al-Samīn al-Ḥalabī, al-Durr al-Maṣūn (not needed for the verses of this lesson)' },
+      { label: 'English under the verses', name: 'Plain-English meanings by Quran Learn, not a translation' },
+    ]}
+  />
+</Block>
+
+</Step>
