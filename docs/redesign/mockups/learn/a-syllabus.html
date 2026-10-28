@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Learn · A Syllabus</title>
+<link rel="stylesheet" href="learn.css">
+<style>
+/* A Syllabus: a typeset table of contents. Level on the left, topic groups and lessons on the right. */
+.panel{margin-top:8px;border-radius:32px;background:var(--oasis);padding:clamp(28px,5vw,64px)}
+.panel .dek{color:oklch(33% 0.03 230)}
+.panel .find{margin-top:clamp(24px,3.5vw,40px);max-width:760px}
+.panel .chips{margin-top:16px}
+.panel .chip{background:oklch(100% 0 0 / .72)}
+.panel .chip[aria-pressed="true"]{background:var(--ink)}
+.under{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:4px 24px;margin-top:20px}
+#resume{margin-top:20px}
+#resume:empty{display:none}
+
+.lvl{display:grid;grid-template-columns:minmax(250px,330px) minmax(0,1fr);gap:clamp(24px,5vw,88px);padding-block:clamp(40px,6vw,76px);border-top:1px solid var(--edge)}
+.lvl:first-of-type{border-top:0}
+.lvl-head{position:sticky;top:28px;align-self:start;display:flex;flex-direction:column;gap:12px}
+.num-row{display:flex;align-items:flex-end;justify-content:space-between;gap:16px}
+.num{font-weight:600;font-size:clamp(5.5rem,3rem + 7vw,9rem);letter-spacing:-.07em;line-height:.78;margin-left:-.04em}
+.lvl.complete .num{color:var(--accent)}
+.num-row .ar{font-size:clamp(1.75rem,1.4rem + 1vw,2.25rem);line-height:1.5;color:var(--accent);padding-bottom:2px}
+.lvl-head h2{margin:6px 0 0;font-size:1.625rem;font-weight:600;letter-spacing:-.03em;line-height:1.1}
+.blurb{margin:0;color:oklch(32% 0.025 230);max-width:26em}
+.lvl-head .fold{position:absolute;right:0;top:0}
+
+.grp{margin-top:34px}
+.grp:first-child{margin-top:0}
+.grp-h{display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 12px;margin:0 12px 6px}
+.grp-h h3{margin:0;font-size:1.0625rem;font-weight:600;letter-spacing:-.01em}
+.grp-h span{font-size:.9375rem;color:var(--muted)}
+.rows{display:flex;flex-direction:column}
+.rows .row{border-top:1px solid var(--soft-2);border-radius:0}
+.rows .row:first-child{border-top-color:transparent}
+.rows .row:hover{border-radius:14px}
+.rows .row:hover + .row{border-top-color:transparent}
+
+.filtering .panel h1,.filtering .panel .dek,.filtering #resume,.filtering .under .refs{display:none}
+.filtering .panel{padding-block:20px}
+.filtering .panel .find{margin-top:0}
+.filtering .lvl-body{display:block!important}
+.filtering .lvl .num{font-size:clamp(3rem,2rem + 3vw,4.5rem)}
+.filtering .lvl{padding-block:clamp(24px,3vw,40px)}
+.filtering .lvl-head h2~*{display:none}
+
+@media (max-width:760px){
+  .lvl{grid-template-columns:1fr;gap:18px;padding-block:22px}
+  .lvl-head{position:relative;top:auto;display:grid;grid-template-columns:auto 1fr auto;column-gap:16px;row-gap:6px;align-items:center;padding-right:0}
+  .num-row{display:contents}
+  .num{font-size:3.5rem;grid-row:1 / span 2}
+  .num-row .ar{grid-column:2;grid-row:2;justify-self:start;font-size:1.25rem;padding:0;line-height:1.3}
+  .lvl-head h2{grid-column:2;grid-row:1;margin:0;font-size:1.25rem;align-self:end}
+  .lvl-head .fold{position:static;grid-column:3;grid-row:1 / span 2}
+  .lvl-head .blurb,.lvl-head .assume,.lvl-head .prog{grid-column:1 / -1}
+  .lvl[data-collapsed="true"] .lvl-body,.lvl[data-collapsed="true"] .blurb,.lvl[data-collapsed="true"] .assume{display:none}
+  .lvl-head .prog i{max-width:none}
+  .panel{border-radius:24px;padding:22px 20px}
+  .panel .find{margin-top:18px}
+  .panel .chips{margin-top:12px}
+}
+</style></head>
+<body>
+<header class="site">
+  <a class="brand" href="#" aria-label="Quranic Grammar, home"><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="1" y="1" width="30" height="30" rx="9" fill="oklch(18% 0.03 240)"/><path d="M9 19h14" stroke="#fff" stroke-width="2" stroke-linecap="round"/><circle cx="16" cy="12" r="2.6" fill="oklch(79% 0.14 72)"/><circle cx="16" cy="24.5" r="1.6" fill="#fff"/></svg><span>Quranic Grammar</span></a>
+  <nav aria-label="Primary"><a href="#" aria-current="page">Learn</a><a href="#">Surahs</a><a href="#">Resources</a><a href="#">About</a></nav>
+</header>
+
+<main class="wrap" id="main">
+  <section class="panel" aria-labelledby="h">
+    <h1 class="h1" id="h">Every lesson, in the order it is taught.</h1>
+    <p class="dek" id="dek"></p>
+    <div id="tools"></div>
+  </section>
+  <div class="under">
+    <p class="count" id="count" aria-live="polite"></p>
+    <p class="refs"><span>Reference tools</span> <a href="#">Verb forms</a> <a href="#">I‘rab cases</a></p>
+  </div>
+  <div id="resume"></div>
+  <div id="list"></div>
+</main>
+<footer class="foot"><span>Quranic Grammar</span><a href="#">Surahs</a><a href="#">Resources</a><a href="#">About and feedback</a></footer>
+
+<script src="learn-data.js"></script>
+<script src="learn.js"></script>
+<script>
+const U = LearnUI, L = U.L;
+document.querySelector('#dek').textContent = `${L.total} lessons in ${L.levels.length} levels. Begin at Level 1, or type a topic such as “cases” to find it. Nothing is locked.`;
+document.querySelector('#tools').innerHTML = U.findHTML() + U.chipsHTML();
+document.querySelector('#resume').innerHTML = U.resumeHTML();
+document.querySelector('#list').innerHTML = L.levels.map(l => {
+  const s = U.stats(l.n);
+  const prog = s.done === 0 ? `0 of ${s.total} done` : s.done === s.total ? `All ${s.total} done` : `${s.done} of ${s.total} done`;
+  return `<section class="lvl${s.done === s.total ? ' complete' : ''}" data-level="${l.n}" aria-labelledby="l${l.n}">
+    <div class="lvl-head">
+      <div class="num-row"><span class="num" aria-hidden="true">${l.n}</span><span class="ar" lang="ar" dir="rtl">${l.ar}</span></div>
+      <h2 id="l${l.n}"><span class="vh">Level ${l.n}: </span>${l.title}</h2>
+      <p class="blurb">${l.blurb}</p>
+      <p class="assume">${l.needs}</p>
+      <div class="prog" style="--p:${Math.round(100 * s.done / s.total)}%"><i><s></s></i><span>${prog}</span></div>
+      <button class="fold" type="button" aria-expanded="true" aria-controls="b${l.n}">${U.ICON.chev}<span class="vh">Show or hide Level ${l.n}</span></button>
+    </div>
+    <div class="lvl-body" id="b${l.n}">
+      ${l.clusters.map(c => `<div class="grp"><div class="grp-h"><h3>${U.esc(c.title)}</h3><span>${c.note ? U.esc(c.note) : `${c.lessons.length} ${c.lessons.length === 1 ? 'lesson' : 'lessons'}`}</span></div>
+        <div class="rows">${c.lessons.map(x => U.rowHTML(U.byId[x.id])).join('')}</div></div>`).join('')}
+      ${U.moreHTML(l)}
+    </div>
+  </section>`;
+}).join('') + U.emptyHTML();
+U.wire();
+</script>
+</body></html>
