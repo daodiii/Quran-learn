@@ -10,7 +10,7 @@ A lesson is a run of short steps. One step shows at a time, with a progress bar,
 
 1. In the lesson's frontmatter add `template: steps`, a short plain-English `kicker`, and the usual `title`, `titleArabic`, `level`, `order`, `description`.
 2. Import the components from `src/components/lesson/` and write the lesson as `<Step>` blocks. `src/content/lessons/level-2/01-nominal-sentence.mdx` is the model.
-3. Keep the lesson file where it is: the lesson address and saved progress do not change.
+3. Keep the lesson file where it is: the lesson address and saved progress do not change. To move a lesson, add its old and new id to `src/data/lesson-moves.json`: the old address then redirects, saved progress moves with it, and a "What changed" note shows once to learners with saved progress (`src/components/LessonMovedNote.astro`, on the lesson and on the learn page). Level 3 was reordered this way on 2026-10-28.
 
 | Component | Use |
 |---|---|
@@ -22,6 +22,7 @@ A lesson is a run of short steps. One step shows at a time, with a progress bar,
 | `Exercise` | A worked exercise: question in `q`, the answer inside, behind a "Show the answer" button (`<details>`, works without JavaScript). Write the answer as markdown with blank lines around it |
 | `Tiles` | Big word tiles, with a dashed `ghost` tile for a word English needs and Arabic leaves out. `type: 'x'` is a plain grey tile for a letter, vowel or mark (no word-type colour; added for Level 1) |
 | `Formula` | "part + part = whole" card |
+| `Conjugation` | A conjugation table inside a `Stage`: one verb or pattern across persons. `caption` (required) names the verb and tense; each row has `who` (plain English: "he", "you all (women)"), `pr` (the pronoun, optional), `ar` (the form), `end` (the part that changes, shown alone, e.g. `ـْتُ`; header from `endLabel`, default "Ending", use "Prefix and ending" for the present), `say` (sound) and `hi: true` for the row the text is about. `{ group: 'Singular' }` is a sub-heading row. Five columns fit a phone at 390 px. The forms are teaching forms, not verse quotes, so `check-verses.py` does not read them: put the verse itself in a `Sentence` or `Parse`. Added for Level 3 on 2026-10-28 |
 | `Legend` | The word-type colour key |
 | `Note` | `tip`, `know` (good to know), `warn` (watch out), `remember`. Colour, icon and label all say the kind |
 | `Check` | One quick question with instant feedback |
@@ -70,5 +71,4 @@ Known behaviour: Back leaves the lesson, not the previous step, because steps us
 - **Content validators** (`npm run validate`) still ask for the old bilingual first-mention format and give 5 terminology warnings on L2.01, no errors. The new `Start` terms list is the intended pattern. The rule needs updating when more lessons move.
 - **Things the classic layout has that this one does not:** the "Words from this lesson" list, the reading track on the last lesson of a level, tap-a-word details on examples, and the table of contents. Word tiles here are not interactive. Whether any of these should come across is a Part 4/5 decision.
 - **Lesson navigator.** The stepped layout has no course sidebar yet (Part 4: navigation and the learning path).
-- **Lesson reorder notice** (agreed after Part 2) is Part 4/5.
 - Only Geist 400 and 500 are self-hosted. The site body font elsewhere is unchanged.

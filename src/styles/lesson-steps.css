@@ -895,6 +895,57 @@ html:has([data-lx]) {
   margin: 0.35rem 0;
 }
 
+/* ---- conjugation table (Conjugation.astro) ---- */
+.lx-conj {
+  margin: 0.5rem 0;
+  padding: 0.9rem 1rem 1rem;
+  background: var(--lx-surface);
+  border: 1px solid var(--lx-line);
+  border-radius: 16px;
+}
+.lx-conj caption {
+  caption-side: top;
+  text-align: start;
+  padding: 0 0 0.6rem;
+  font-weight: 500;
+  color: var(--lx-text);
+}
+.lx-conj th,
+.lx-conj td {
+  vertical-align: middle;
+}
+.lx-conj tbody th {
+  font-weight: 500;
+  color: var(--lx-text);
+}
+.lx-conj .lx-ar {
+  font-size: 1.6rem;
+  line-height: 1.7;
+  direction: rtl;
+  unicode-bidi: isolate;
+}
+.lx-conj-verb {
+  color: var(--lx-verb);
+}
+.lx-conj-end {
+  color: var(--lx-accent);
+}
+.lx-conj-say {
+  font-style: italic;
+  color: var(--lx-muted);
+}
+.lx-conj-group th {
+  padding-top: 0.8rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--lx-muted);
+}
+.lx-conj-hi > * {
+  background: color-mix(in oklab, var(--lx-verb) 8%, var(--lx-surface));
+}
+
 /* ---- parse panel (word by word) ---- */
 .lx-parse-words {
   flex-wrap: wrap;
@@ -1192,6 +1243,12 @@ html:has([data-lx]) {
   }
   .lx-f {
     padding: 0.5rem 0.8rem;
+  }
+  .lx-conj {
+    padding: 0.7rem 0.5rem 0.8rem;
+  }
+  .lx-conj .lx-ar {
+    font-size: 1.35rem;
   }
   /* Tables with five or six columns (letter charts, word lists) fit a phone without scrolling. */
   .lx .lx-step table {

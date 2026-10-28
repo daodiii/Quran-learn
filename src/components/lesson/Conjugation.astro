@@ -1,0 +1,68 @@
+---
+/**
+ * A conjugation table: one verb (or pattern) across persons. Put it inside a <Stage>.
+ * Columns: who (plain English), the pronoun (optional), the verb form, the part that changes
+ * (optional, shown on its own so it can be read without hunting inside the word), and how it sounds.
+ * A row with `group` is a sub-heading ("Singular", "Plural"). `hi: true` marks the row the text is about.
+ * The forms are made-up teaching forms, not verse quotes, so check-verses.py does not read them.
+ *
+ * <Conjugation caption="فَعَلَ, “he did”: past tense" rows={[
+ *   { group: 'Singular' },
+ *   { who: 'he', pr: 'هُوَ', ar: 'فَعَلَ', end: 'ـَ', say: 'faʿala', hi: true },
+ *   { who: 'she', pr: 'هِيَ', ar: 'فَعَلَتْ', end: 'ـَتْ', say: 'faʿalat' },
+ * ]} />
+ */
+import { inlineHtml } from '../../lib/lesson-steps';
+
+interface Row {
+  group?: string;
+  who?: string;
+  pr?: string;
+  ar?: string;
+  end?: string;
+  say?: string;
+  hi?: boolean;
+}
+interface Props {
+  rows: Row[];
+  caption: string;
+  /** Header for the "end" column: "Ending" for the past tense, "Prefix and ending" for the present. */
+  endLabel?: string;
+}
+const { rows, caption, endLabel = 'Ending' } = Astro.props;
+const forms = rows.filter((r) => !r.group);
+const hasPr = forms.some((r) => r.pr);
+const hasEnd = forms.some((r) => r.end);
+const hasSay = forms.some((r) => r.say);
+const cols = 2 + Number(hasPr) + Number(hasEnd) + Number(hasSay);
+---
+
+<div class="lx-conj">
+  <table>
+    <caption set:html={inlineHtml(caption)} />
+    <thead>
+      <tr>
+        <th scope="col">Who</th>
+        {hasPr && <th scope="col">Pronoun</th>}
+        <th scope="col">Verb</th>
+        {hasEnd && <th scope="col">{endLabel}</th>}
+        {hasSay && <th scope="col">Say it</th>}
+      </tr>
+    </thead>
+    <tbody>
+      {rows.map((r) =>
+        r.group ? (
+          <tr class="lx-conj-group"><th scope="colgroup" colspan={cols}>{r.group}</th></tr>
+        ) : (
+          <tr class={r.hi ? 'lx-conj-hi' : undefined}>
+            <th scope="row" set:html={inlineHtml(r.who ?? '')} />
+            {hasPr && <td><span class="lx-ar" lang="ar">{r.pr}</span></td>}
+            <td><span class="lx-ar lx-conj-verb" lang="ar">{r.ar}</span></td>
+            {hasEnd && <td><span class="lx-ar lx-conj-end" lang="ar">{r.end}</span></td>}
+            {hasSay && <td class="lx-conj-say">{r.say}</td>}
+          </tr>
+        ),
+      )}
+    </tbody>
+  </table>
+</div>
