@@ -1,0 +1,103 @@
+---
+/**
+ * "What changed" note for lessons that moved (src/data/lesson-moves.json).
+ * Without `lessonSlug` it is the dashboard version and lists every move.
+ * It shows only to learners with saved progress, once: after it has been shown it stays hidden.
+ */
+import { getCollection } from 'astro:content';
+import lessonMoves from '../data/lesson-moves.json';
+
+interface Props {
+  lessonSlug?: string;
+}
+
+const { lessonSlug } = Astro.props;
+const moves = Object.entries(lessonMoves.moves as Record<string, string>);
+const label = (id: string) => {
+  const [level, file] = id.split('/');
+  return `Lesson ${Number(file.slice(0, 2))} of Level ${level.replace('level-', '')}`;
+};
+const titles = new Map((await getCollection('lessons')).map((l) => [l.id, l.data.title]));
+const num = (id: string) => Number(id.split('/')[1].slice(0, 2));
+const mine = lessonSlug ? moves.find(([, to]) => to === lessonSlug) : undefined;
+const show = lessonSlug ? Boolean(mine) : moves.length > 0;
+const seenKey = lessonSlug ?? 'dashboard';
+---
+
+{show && (
+  <aside class="moved-note" data-moved-note data-seen-key={seenKey} hidden aria-label="What changed">
+    <p class="moved-note-title">What changed</p>
+    {mine ? (
+      <p>
+        This lesson used to be {label(mine[0])}. {lessonMoves.why} Your saved progress moved with it, and the old address still works.
+      </p>
+    ) : (
+      <>
+        <p>{lessonMoves.why} Your saved progress moved with each lesson, and old addresses still work.</p>
+        <ul>
+          {moves.map(([from, to]) => (
+            <li><a href={`/learn/${to}/`}>{titles.get(to) ?? label(to)}</a>: now {label(to)}, was lesson {num(from)}</li>
+          ))}
+        </ul>
+      </>
+    )}
+    <button type="button" class="moved-note-close" data-moved-note-close>Got it</button>
+  </aside>
+)}
+
+<script>
+  const SEEN_KEY = 'quran-learn-moves-seen';
+  document.querySelectorAll<HTMLElement>('[data-moved-note]').forEach((note) => {
+    try {
+      const progress = JSON.parse(localStorage.getItem('quran-learn-progress') ?? 'null');
+      if (!progress?.completedLessons?.length) return;
+      const seen: string[] = JSON.parse(localStorage.getItem(SEEN_KEY) ?? '[]');
+      const key = note.dataset.seenKey ?? '';
+      if (seen.includes(key)) return;
+      note.hidden = false;
+      localStorage.setItem(SEEN_KEY, JSON.stringify([...seen, key]));
+    } catch {
+      /* storage can be blocked; the note stays hidden */
+    }
+    note.querySelector('[data-moved-note-close]')?.addEventListener('click', () => {
+      note.hidden = true;
+    });
+  });
+</script>
+
+<style>
+  .moved-note {
+    margin: 0 0 1.5rem;
+    padding: 0.9rem 1.1rem;
+    border: 1px solid color-mix(in srgb, currentColor 30%, transparent);
+    border-radius: 10px;
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+  .moved-note[hidden] {
+    display: none;
+  }
+  .moved-note p {
+    margin: 0 0 0.5rem;
+  }
+  .moved-note-title {
+    font-weight: 700;
+  }
+  .moved-note ul {
+    margin: 0 0 0.75rem;
+    padding-left: 1.2rem;
+  }
+  .moved-note a {
+    color: inherit;
+    text-decoration: underline;
+  }
+  .moved-note-close {
+    font: inherit;
+    padding: 0.35rem 0.9rem;
+    border: 1px solid currentColor;
+    border-radius: 6px;
+    background: transparent;
+    color: inherit;
+    cursor: pointer;
+  }
+</style>

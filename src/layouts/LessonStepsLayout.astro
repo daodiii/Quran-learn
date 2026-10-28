@@ -8,6 +8,7 @@ import BaseLayout from './BaseLayout.astro';
 import BreadcrumbSchema from '../components/seo/BreadcrumbSchema.astro';
 import ArticleSchema from '../components/seo/ArticleSchema.astro';
 import '../styles/lesson-steps.css';
+import LessonMovedNote from '../components/LessonMovedNote.astro';
 
 interface Props {
   title: string;
@@ -74,6 +75,8 @@ const breadcrumbItems = [
         <a href={`/learn/#level-${level}`}>Level {level} · {levelNames[level]}</a>
         {positionInLevel && <span> · Lesson {positionInLevel.index} of {positionInLevel.total}</span>}
       </p>
+
+      <LessonMovedNote lessonSlug={lessonSlug} />
 
       <article class="lx-article">
         <slot />

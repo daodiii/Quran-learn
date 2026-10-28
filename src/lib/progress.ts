@@ -4,6 +4,7 @@
  */
 
 import { announceProgress } from '../scripts/progress-announcer';
+import lessonMoves from '../data/lesson-moves.json';
 
 const PROGRESS_KEY = 'quran-learn-progress';
 
@@ -25,11 +26,23 @@ function getProgressData(): ProgressData {
     if (!data) {
       return { completedLessons: [], lastUpdated: new Date().toISOString() };
     }
-    return JSON.parse(data);
+    return migrateMovedLessons(JSON.parse(data));
   } catch (error) {
     console.error('Error reading progress data:', error);
     return { completedLessons: [], lastUpdated: new Date().toISOString() };
   }
+}
+
+/**
+ * Lessons that moved keep their progress: a saved old id is swapped for the new one
+ * (src/data/lesson-moves.json), and the result is saved once.
+ */
+function migrateMovedLessons(data: ProgressData): ProgressData {
+  const moves: Record<string, string> = lessonMoves.moves;
+  if (!data.completedLessons.some((id) => id in moves)) return data;
+  const migrated = { ...data, completedLessons: [...new Set(data.completedLessons.map((id) => moves[id] ?? id))] };
+  saveProgressData(migrated);
+  return migrated;
 }
 
 /**

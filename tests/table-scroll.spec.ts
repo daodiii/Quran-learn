@@ -3,7 +3,7 @@ import { test, expect } from '@playwright/test';
 test.describe('mobile table overflow', () => {
   test.use({ viewport: { width: 390, height: 844 } });
 
-  for (const path of ['/surahs/093-ad-duha/', '/learn/level-3/14-verb-form-iv/']) {
+  for (const path of ['/surahs/093-ad-duha/', '/learn/level-3/13-verb-form-iv/']) {
     test(`no page-level horizontal overflow on ${path}`, async ({ page }) => {
       await page.goto(path);
       const docWidth = await page.evaluate(() => document.documentElement.scrollWidth);

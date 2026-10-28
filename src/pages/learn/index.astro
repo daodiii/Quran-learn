@@ -4,6 +4,7 @@ import CookieBanner from '../../components/CookieBanner.astro';
 import LessonRow from '../../components/LessonRow.astro';
 import ReadingTrack from '../../components/ReadingTrack.astro';
 import ResumeBand from '../../components/ResumeBand.astro';
+import LessonMovedNote from '../../components/LessonMovedNote.astro';
 import { getCollection } from 'astro:content';
 import { CURRICULUM_MAP, clusterForLesson } from '../../data/curriculum-map';
 
@@ -425,6 +426,7 @@ html:not(.js) .card, html:not(.js) #intro, html:not(.js) #finale{position:static
         </a>
       ))}
     </nav>
+    <LessonMovedNote />
     <ResumeBand manifest={manifest} totals={totals} />
     {CURRICULUM_MAP.map(({ level, clusters }) => (
       <section id={`level-${level}`} class="level-section" data-level={level}>

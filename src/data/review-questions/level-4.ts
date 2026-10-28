@@ -16,7 +16,7 @@ export const LEVEL_4_REVIEW: ReviewQuestion[] = [
     ],
     correctAnswer: 1,
     explanation: 'Past passive voice in Arabic is formed by placing damma on the first root letter and kasra on the second; كُتِبَ follows the fuʿila pattern (ك receives damma, ت receives kasra), identifying it as "it was written/prescribed." (Lesson: Passive Voice.)',
-    source: 'level-3/07-passive-voice',
+    source: 'level-3/09-passive-voice',
   },
   {
     id: 2,
@@ -29,7 +29,7 @@ export const LEVEL_4_REVIEW: ReviewQuestion[] = [
     ],
     correctAnswer: 1,
     explanation: 'In past tense conjugation, نَا attached to a verb stem is the first person plural subject suffix ("we did"); كَ attached after it is the second person masculine singular object pronoun ("you"). Together أَعْطَيْنَاكَ = "We gave you." (Lesson: Past Tense Conjugation.)',
-    source: 'level-3/03-past-tense',
+    source: 'level-3/05-past-tense',
   },
   {
     id: 3,
@@ -42,7 +42,7 @@ export const LEVEL_4_REVIEW: ReviewQuestion[] = [
     ],
     correctAnswer: 0,
     explanation: 'In present tense conjugation the prefix نَ on the verb stem marks first person plural ("we"); نَعْبُدُ means "we worship" and نَسْتَعِينُ means "we seek help." (Lesson: Present Tense Conjugation.)',
-    source: 'level-3/04-present-tense',
+    source: 'level-3/06-present-tense',
   },
   {
     id: 4,
@@ -55,7 +55,7 @@ export const LEVEL_4_REVIEW: ReviewQuestion[] = [
     ],
     correctAnswer: 2,
     explanation: 'The present passive (al-muḍāriʿ al-majhūl) puts damma on the prefix and fatha on the syllable before the last root consonant; يُولَدُ shows this pattern. (Lesson: Passive Voice.)',
-    source: 'level-3/07-passive-voice',
+    source: 'level-3/09-passive-voice',
   },
   {
     id: 5,
@@ -107,7 +107,7 @@ export const LEVEL_4_REVIEW: ReviewQuestion[] = [
     ],
     correctAnswer: 1,
     explanation: 'هِمْ is an attached pronoun (ḍamīr muttaṣil) for third person masculine plural; when attached after a preposition (عَلَيْ + هِمْ) it means "upon them." (Lesson: Attached Pronouns.)',
-    source: 'level-3/09-attached-pronouns',
+    source: 'level-3/02-attached-pronouns',
   },
   {
     id: 9,
@@ -120,7 +120,7 @@ export const LEVEL_4_REVIEW: ReviewQuestion[] = [
     ],
     correctAnswer: 1,
     explanation: 'Attached pronouns on verbs serve as either subjects or objects; in رَزَقْنَٰهُمْ the suffix ـنَا is the first-person plural subject ("we provided") and ـهُمْ is the third-person masculine plural object ("them"), both attached to the same verb. (Lesson: Attached Pronouns.)',
-    source: 'level-3/09-attached-pronouns',
+    source: 'level-3/02-attached-pronouns',
   },
   {
     id: 10,
@@ -133,6 +133,6 @@ export const LEVEL_4_REVIEW: ReviewQuestion[] = [
     ],
     correctAnswer: 2,
     explanation: 'هُوَ is an independent personal pronoun (ḍamīr munfaṣil), a subcategory of ism; it stands for third person masculine singular ("he") and here functions as a mubtadaʾ whose khabar is the sentence ٱللَّهُ أَحَدٌ. (Lesson: Subject Pronouns.)',
-    source: 'level-3/08-subject-pronouns',
+    source: 'level-3/01-subject-pronouns',
   },
 ];
