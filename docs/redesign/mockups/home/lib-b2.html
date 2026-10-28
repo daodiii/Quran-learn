@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Home · Library · B2: The bench</title>
+<link rel="stylesheet" href="home.css">
+<link rel="stylesheet" href="body.css">
+<link rel="stylesheet" href="trust.css">
+<style>
+/* ---------- B: The binder ----------
+   Show the library, not a list of it. Four of the real charts are laid on a colour desk as printed sheets,
+   each one filled with what the chart actually says, so the visitor reads some of it without clicking.
+   The two live tools and the remaining guides sit below as a plain, large index. */
+:root{--green:oklch(46% 0.12 170);--green-bg:oklch(93% 0.06 170)}
+
+.desk{padding:clamp(20px,4vw,56px) clamp(14px,3vw,48px) clamp(28px,4vw,56px);border-radius:36px;background:var(--oasis)}
+.sheets{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(12px,1.6vw,24px);list-style:none;margin:0;padding:0}
+.sheets>li{display:flex}
+.sheet{--c:var(--noun);--bg:var(--noun-tint);position:relative;display:flex;flex-direction:column;width:100%;overflow:hidden;border-radius:6px 22px 6px 6px;background:#fff;color:var(--ink);text-decoration:none;box-shadow:0 2px 4px oklch(30% 0.04 220 / .1),0 28px 50px -28px oklch(30% 0.06 230 / .55);transform:rotate(var(--r,0deg));transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s}
+.sheet:hover{transform:rotate(0) translateY(-8px);box-shadow:0 2px 4px oklch(30% 0.04 220 / .1),0 40px 60px -28px oklch(30% 0.06 230 / .6)}
+.sheet:focus-visible{outline:3px solid var(--focus);outline-offset:4px}
+.sheets>li:nth-child(1) .sheet{--r:-1.4deg}.sheets>li:nth-child(2) .sheet{--r:.9deg;--c:oklch(52% 0.14 65);--bg:var(--amber-tint)}
+.sheets>li:nth-child(3) .sheet{--r:-.7deg;--c:var(--verb);--bg:var(--verb-tint)}.sheets>li:nth-child(4) .sheet{--r:1.2deg;--c:var(--green);--bg:var(--green-bg)}
+.sheet::after{content:"";position:absolute;top:0;right:0;width:22px;height:22px;background:linear-gradient(225deg,var(--oasis-fold,oklch(88% 0.05 150)) 50%,transparent 50%);opacity:.0}
+.sh-head{display:flex;flex-direction:column;gap:2px;padding:18px 20px 16px;background:var(--c);color:#fff}
+.sh-head small{font-size:.75rem;font-weight:600;letter-spacing:.04em;opacity:.85}
+.sh-head h3{margin:0;font-size:clamp(1.125rem,1rem + .4vw,1.375rem);font-weight:600;line-height:1.15;letter-spacing:-.02em}
+.sh-body{flex:1;display:flex;flex-direction:column;gap:10px;padding:16px 16px 14px}
+.sh-body p{margin:0;font-size:.8125rem;color:var(--muted);line-height:1.4}
+.tb{width:100%;border-collapse:collapse;font-size:.875rem}
+.tb th{padding:0 6px 6px;text-align:left;font-size:.6875rem;font-weight:600;color:var(--c)}
+.tb td{padding:7px 6px;border-top:1px solid var(--soft-2);vertical-align:middle}
+.tb tr:nth-child(odd) td{background:color-mix(in oklab,var(--bg) 55%,#fff)}
+.tb .ar{font-size:1.45rem;line-height:1.4}
+.tb td:last-child{text-align:right}
+.tb b{font-weight:600}
+.tb em{font-style:normal;color:var(--muted);font-size:.75rem}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:5px}
+.grid div{display:flex;flex-direction:column;align-items:center;padding:6px 2px 5px;border-radius:10px;background:var(--bg)}
+.grid .ar{font-size:1.4rem;line-height:1.4}
+.grid small{font-size:.6875rem;color:var(--text);line-height:1.2}
+.sh-foot{display:flex;justify-content:space-between;align-items:center;padding:10px 16px 14px;font-size:.8125rem;font-weight:600;color:var(--c)}
+.sh-foot span:last-child{transition:transform .25s}
+.sheet:hover .sh-foot span:last-child{transform:translateX(4px)}
+
+/* the index below: large, plain, no boxes */
+.idx{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(28px,6vw,96px);margin-top:clamp(40px,6vw,80px)}
+.idx h3{margin:0 0 6px;font-size:.875rem;font-weight:600;color:var(--accent)}
+.idx ul{list-style:none;margin:0;padding:0}
+.row{display:grid;grid-template-columns:1fr auto;gap:2px 16px;align-items:baseline;padding:16px 0;border-top:1px solid var(--edge);text-decoration:none;transition:padding-left .25s}
+.idx li:last-child .row{border-bottom:1px solid var(--edge)}
+.row b{font-size:clamp(1.25rem,1.05rem + .8vw,1.75rem);font-weight:600;line-height:1.15;letter-spacing:-.03em}
+.row span.d{grid-column:1;font-size:.9375rem;color:var(--muted);line-height:1.4}
+.row i{grid-row:1 / span 2;grid-column:2;align-self:center;font-style:normal;font-size:1.5rem;color:var(--accent);transition:transform .25s}
+.row:hover{padding-left:10px}.row:hover i{transform:translateX(6px)}
+.row:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+.live{margin-left:8px;padding:2px 8px;border-radius:999px;background:var(--accent);color:#fff;font-size:.6875rem;font-weight:600;letter-spacing:.02em;vertical-align:.2em}
+.all{margin:28px 0 0}
+
+@media (max-width:1100px){
+  .sheets{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:minmax(260px,72%);overflow-x:auto;scroll-snap-type:x mandatory;margin-inline:calc(clamp(14px,3vw,48px) * -1);padding:16px clamp(14px,3vw,48px) 22px;scroll-padding-inline:clamp(14px,3vw,48px);scrollbar-width:none}
+  .sheets::-webkit-scrollbar{display:none}
+  .sheets>li{scroll-snap-align:start}
+  .idx{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width:560px){.desk{border-radius:26px}}
+@media (prefers-reduced-motion:reduce){.sheet,.sh-foot span:last-child,.row,.row i{transition:none}.sheet:hover{transform:rotate(var(--r,0deg))}}
+
+/* ---------- B2: The bench ----------
+   The desk of sheets stays. Under it, one deep-teal bench where the two live tools actually run, side by side, with
+   real data (the word lookup and the verb form generator). The six guides become a reading path along the bottom,
+   in a suggested order. */
+.bench{margin-top:clamp(24px,3.4vw,44px);padding:clamp(20px,3.6vw,52px);border-radius:36px;color:#fff;
+  background:radial-gradient(70% 70% at 90% 0%,oklch(47% 0.12 178),transparent 70%),radial-gradient(60% 70% at 0% 100%,oklch(42% 0.14 252),transparent 70%),oklch(33% 0.075 195)}
+.bench-top{display:flex;justify-content:space-between;align-items:end;gap:10px 40px;flex-wrap:wrap;margin-bottom:clamp(20px,3vw,36px)}
+.bench-top h3{margin:0;font-size:clamp(1.5rem,1.2rem + 1.2vw,2.5rem);font-weight:600;letter-spacing:-.035em;line-height:1.08}
+.bench-top p{margin:0;max-width:30em;color:oklch(88% 0.03 190)}
+.wins{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.w{display:flex;flex-direction:column;border-radius:22px;background:#fff;color:var(--ink);overflow:hidden;box-shadow:0 36px 70px -34px oklch(15% 0.06 240 / .8)}
+.w-bar{display:flex;align-items:center;gap:12px;padding:12px 16px;background:var(--soft);font-size:.75rem;color:var(--muted)}
+.w-bar i{display:inline-flex;gap:5px}.w-bar i b{width:9px;height:9px;border-radius:50%;background:var(--soft-2)}
+.w-bar .u{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.w-bar a{margin-left:auto;font-weight:600;color:var(--accent);text-decoration:none;white-space:nowrap}
+.w-body{flex:1;display:flex;flex-direction:column;gap:14px;padding:20px}
+.w-body h4{margin:0;font-size:1.25rem;font-weight:600;letter-spacing:-.025em}
+.sbar{display:flex;align-items:center;gap:10px;min-height:48px;padding:0 16px;border-radius:14px;background:var(--soft);font-size:1.125rem}
+.sbar svg{width:20px;height:20px;color:var(--muted)}
+.sbar .t::after{content:"";display:inline-block;width:2px;height:1.1em;margin-left:2px;vertical-align:-.15em;background:var(--accent);animation:bl 1s steps(1) infinite}
+.sbar .t.idle::after{animation:none;opacity:0}
+@keyframes bl{50%{opacity:0}}
+.pick{display:flex;flex-wrap:wrap;gap:6px}
+.pick button{all:unset;box-sizing:border-box;min-height:34px;padding:0 14px;display:inline-flex;align-items:center;border-radius:999px;background:var(--soft);font-size:.875rem;font-weight:500;cursor:pointer}
+.pick button:hover{box-shadow:0 0 0 1.5px var(--accent)}
+.pick button[aria-pressed="true"]{background:var(--ink);color:#fff}
+.pick button:focus-visible{outline:3px solid var(--focus)}
+.pick .ar{font-size:1.2rem;line-height:1.3}
+.res{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:18px;min-height:190px}
+.res .big{display:block;font-size:3.4rem;line-height:1.35}
+.res .gl{font-size:1.375rem;font-weight:600;letter-spacing:-.02em}
+.res .ct{margin:6px 0 0;font-size:.875rem}
+.fam{list-style:none;margin:0;padding:0;display:grid;gap:6px;align-content:start}
+.fam li{display:grid;grid-template-columns:64px 1fr 34px;gap:8px;align-items:center}
+.fam .ar{font-size:1.3rem;text-align:right}
+.fam .g{display:flex;flex-direction:column;gap:3px;font-size:.8125rem;color:var(--muted)}
+.fam .g i{display:block;height:5px;border-radius:3px;background:var(--accent);transform-origin:left;animation:gr .6s cubic-bezier(.2,.8,.2,1)}
+@keyframes gr{from{transform:scaleX(0)}}
+.fam .n{text-align:right;font-size:.8125rem;font-variant-numeric:tabular-nums}
+.cells{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:6px}
+.cell{all:unset;box-sizing:border-box;display:flex;flex-direction:column;align-items:center;gap:0;padding:8px 2px 6px;border-radius:12px;background:var(--soft);text-align:center;min-height:74px;justify-content:center}
+.cell small{font-size:.6875rem;font-weight:600;color:var(--muted)}
+.cell .ar{font-size:1.35rem;line-height:1.4;color:var(--ink)}
+.cell.off{opacity:.45}
+.cell.off .ar{font-size:1rem;color:var(--muted)}
+.cell.on{background:var(--verb-tint);cursor:pointer;box-shadow:0 0 0 1px oklch(85% 0.06 25)}
+.cell.on .ar{color:var(--verb)}
+.cell.on:hover{box-shadow:0 0 0 1.5px var(--verb)}
+.cell.sel{background:var(--verb);box-shadow:none}
+.cell.sel small,.cell.sel .ar{color:#fff}
+.cell:focus-visible{outline:3px solid var(--focus)}
+.det{margin:0;padding:12px 14px;border-radius:14px;background:var(--soft);font-size:.9375rem;line-height:1.4;min-height:3.6em}
+.det b{font-weight:600}
+.det span{color:var(--muted)}
+
+.path{margin-top:clamp(28px,4vw,52px)}
+.path h4{margin:0 0 clamp(18px,3vw,30px);font-size:1.125rem;font-weight:600;letter-spacing:-.02em}
+.path h4 span{color:oklch(88% 0.03 190);font-weight:400}
+.rail{position:relative;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:18px;margin:0;padding:30px 0 0;list-style:none}
+.rail::before{content:"";position:absolute;top:8px;left:0;right:0;height:2px;background:oklch(100% 0 0 / .3)}
+.rail li{position:relative}
+.rail li::before{content:"";position:absolute;top:-30px;left:0;width:18px;height:18px;border-radius:50%;background:oklch(80% 0.15 75);box-shadow:0 0 0 5px oklch(80% 0.15 75 / .25)}
+.rail a{display:block;color:#fff;text-decoration:none}
+.rail a:focus-visible{outline:3px solid oklch(85% 0.1 255);outline-offset:4px;border-radius:6px}
+.rail b{display:block;font-size:1.0625rem;font-weight:600;line-height:1.2;letter-spacing:-.02em}
+.rail span.d{display:block;margin-top:6px;font-size:.875rem;line-height:1.4;color:oklch(88% 0.03 190)}
+.rail a:hover b{text-decoration:underline;text-underline-offset:4px}
+.rail .go{display:inline-block;margin-bottom:6px;padding:1px 9px;border-radius:999px;background:oklch(80% 0.15 75);color:var(--ink);font-size:.6875rem;font-weight:700}
+.bench-foot{display:flex;justify-content:center;margin-top:clamp(26px,4vw,44px)}
+.bench-foot .btn{background:#fff;color:var(--ink);border-color:#fff}
+
+@media (max-width:1100px){
+  .wins{grid-template-columns:minmax(0,1fr)}
+  .rail{grid-template-columns:minmax(0,1fr);gap:22px;padding:0 0 0 34px}
+  .rail::before{top:6px;bottom:6px;left:8px;right:auto;width:2px;height:auto}
+  .rail li::before{top:2px;left:-34px}
+}
+@media (max-width:560px){.bench{border-radius:26px}.res{grid-template-columns:minmax(0,1fr)}.cells{grid-template-columns:repeat(5,minmax(0,1fr));gap:4px}.cell .ar{font-size:1.05rem}}
+@media (prefers-reduced-motion:reduce){.sbar .t::after,.fam .g i{animation:none}}
+
+</style></head>
+<body>
+<span class="mock-tag">B2 · The bench</span>
+<div class="ph hero"><div><b>The hero, course map and surah reader sit above</b>Learn the language of the Quran.</div></div>
+
+<main>
+<section class="sec wrap" aria-labelledby="lib-h">
+  <div class="sec-head"><div><p class="eyebrow">The library</p><h2 id="lib-h">Twelve free tools to keep open while you read.</h2></div><p>The charts you reach for most, set out like the printed cheat sheets they replace. Read them here, open the full version when you need it.</p></div>
+  <div class="desk">
+    <ul class="sheets" tabindex="0" aria-label="Four reference charts">
+      <li><a class="sheet" href="#">
+        <div class="sh-head"><small>CHART</small><h3>Case Endings Chart</h3></div>
+        <div class="sh-body">
+          <table class="tb"><thead><tr><th>Case</th><th>Ending</th><th>Example</th></tr></thead><tbody>
+            <tr><td><b>Doer</b><br><em>rafʿ</em></td><td>-un</td><td><span class="ar" lang="ar" dir="rtl">كِتَابٌ</span></td></tr>
+            <tr><td><b>Receiver</b><br><em>naṣb</em></td><td>-an</td><td><span class="ar" lang="ar" dir="rtl">كِتَابًا</span></td></tr>
+            <tr><td><b>“Of” word</b><br><em>jarr</em></td><td>-in</td><td><span class="ar" lang="ar" dir="rtl">كِتَابٍ</span></td></tr>
+            <tr><td><b>Two, doer</b><br><em>dual</em></td><td>-āni</td><td><span class="ar" lang="ar" dir="rtl">كِتَابَانِ</span></td></tr>
+            <tr><td><b>Two, other</b><br><em>dual</em></td><td>-ayni</td><td><span class="ar" lang="ar" dir="rtl">كِتَابَيْنِ</span></td></tr>
+          </tbody></table>
+          <p>Also: sound plurals, broken plurals and the five nouns.</p>
+        </div>
+        <div class="sh-foot"><span>Open the full chart</span><span aria-hidden="true">→</span></div>
+      </a></li>
+      <li><a class="sheet" href="#">
+        <div class="sh-head"><small>CHART</small><h3>Pronoun Reference Charts</h3></div>
+        <div class="sh-body">
+          <table class="tb"><thead><tr><th>Who</th><th>Arabic</th><th>Says</th></tr></thead><tbody>
+            <tr><td><b>I</b></td><td><span class="ar" lang="ar" dir="rtl">أَنَا</span></td><td><em>anaa</em></td></tr>
+            <tr><td><b>we</b></td><td><span class="ar" lang="ar" dir="rtl">نَحْنُ</span></td><td><em>nahnu</em></td></tr>
+            <tr><td><b>you (m)</b></td><td><span class="ar" lang="ar" dir="rtl">أَنْتَ</span></td><td><em>anta</em></td></tr>
+            <tr><td><b>he</b></td><td><span class="ar" lang="ar" dir="rtl">هُوَ</span></td><td><em>huwa</em></td></tr>
+            <tr><td><b>she</b></td><td><span class="ar" lang="ar" dir="rtl">هِيَ</span></td><td><em>hiya</em></td></tr>
+            <tr><td><b>they (m)</b></td><td><span class="ar" lang="ar" dir="rtl">هُمْ</span></td><td><em>hum</em></td></tr>
+          </tbody></table>
+          <p>Also: attached pronouns, “this/that” and “who/which”.</p>
+        </div>
+        <div class="sh-foot"><span>Open the full chart</span><span aria-hidden="true">→</span></div>
+      </a></li>
+      <li><a class="sheet" href="#">
+        <div class="sh-head"><small>CHEAT SHEET</small><h3>Verb Forms Master Reference</h3></div>
+        <div class="sh-body">
+          <table class="tb"><thead><tr><th>Form</th><th>Pattern</th><th>Adds</th></tr></thead><tbody>
+            <tr><td><b>I</b></td><td><span class="ar" lang="ar" dir="rtl">فَعَلَ</span></td><td><em>basic action</em></td></tr>
+            <tr><td><b>II</b></td><td><span class="ar" lang="ar" dir="rtl">فَعَّلَ</span></td><td><em>intensify, cause</em></td></tr>
+            <tr><td><b>III</b></td><td><span class="ar" lang="ar" dir="rtl">فَاعَلَ</span></td><td><em>do with or toward someone</em></td></tr>
+            <tr><td><b>IV</b></td><td><span class="ar" lang="ar" dir="rtl">أَفْعَلَ</span></td><td><em>cause something</em></td></tr>
+            <tr><td><b>V</b></td><td><span class="ar" lang="ar" dir="rtl">تَفَعَّلَ</span></td><td><em>reflexive of II</em></td></tr>
+            <tr><td><b>X</b></td><td><span class="ar" lang="ar" dir="rtl">اِسْتَفْعَلَ</span></td><td><em>seek, request</em></td></tr>
+          </tbody></table>
+          <p>All ten forms, with Quranic examples and the root-family tree.</p>
+        </div>
+        <div class="sh-foot"><span>Open the full sheet</span><span aria-hidden="true">→</span></div>
+      </a></li>
+      <li><a class="sheet" href="#">
+        <div class="sh-head"><small>WORD LIST</small><h3>200 Most Common Quranic Words</h3></div>
+        <div class="sh-body">
+          <div class="grid" lang="ar" dir="rtl">
+            <div><span class="ar">وَ</span><small lang="en">and</small></div><div><span class="ar">فِي</span><small lang="en">in</small></div><div><span class="ar">مِنْ</span><small lang="en">from</small></div>
+            <div><span class="ar">مَا</span><small lang="en">what, not</small></div><div><span class="ar">لَا</span><small lang="en">no, not</small></div><div><span class="ar">إِنَّ</span><small lang="en">indeed</small></div>
+            <div><span class="ar">عَلَىٰ</span><small lang="en">on</small></div><div><span class="ar">إِلَىٰ</span><small lang="en">to</small></div><div><span class="ar">بِ</span><small lang="en">with, by</small></div>
+            <div><span class="ar">هُوَ</span><small lang="en">he, it</small></div><div><span class="ar">هُمْ</span><small lang="en">they</small></div><div><span class="ar">كَانَ</span><small lang="en">was, is</small></div>
+          </div>
+          <p>Particles, verbs and nouns: 200 words, about half of all Quranic text.</p>
+        </div>
+        <div class="sh-foot"><span>Open the full list</span><span aria-hidden="true">→</span></div>
+      </a></li>
+    </ul>
+  </div>
+
+  <div class="bench">
+    <div class="bench-top"><h3>Two tools you can use right now.</h3><p>No account, nothing to install. Type a word, or pick a root, and read the answer in the Quran's own words.</p></div>
+    <div class="wins">
+      <section class="w" aria-labelledby="w1-h">
+        <div class="w-bar"><i aria-hidden="true"><b></b><b></b><b></b></i><span class="u">quranic-grammar.com/resources/word-lookup</span><a href="#">Open →</a></div>
+        <div class="w-body">
+          <h4 id="w1-h">Word lookup</h4>
+          <div class="sbar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span class="t idle" id="wq">mercy</span></div>
+          <div class="pick" role="group" aria-label="Try a word" id="wp"></div>
+          <div class="res" id="wr" aria-live="polite"></div>
+        </div>
+      </section>
+      <section class="w" aria-labelledby="w2-h">
+        <div class="w-bar"><i aria-hidden="true"><b></b><b></b><b></b></i><span class="u">quranic-grammar.com/resources/verb-forms</span><a href="#">Open →</a></div>
+        <div class="w-body">
+          <h4 id="w2-h">Verb form generator</h4>
+          <div class="pick" role="group" aria-label="Pick a root" id="vp"></div>
+          <div class="cells" id="vc" role="group" aria-label="The ten verb forms"></div>
+          <p class="det" id="vd" aria-live="polite"></p>
+        </div>
+      </section>
+    </div>
+
+    <div class="path">
+      <h4>Six guides, <span>in an order that helps most.</span></h4>
+      <ol class="rail">
+        <li><a href="#"><span class="go">START HERE</span><b>Quranic vs Modern Standard Arabic</b><span class="d">Decide which Arabic to study first, from your goal.</span></a></li>
+        <li><a href="#"><b>Learning Roadmap</b><span class="d">The phases from beginner to Quranic analysis.</span></a></li>
+        <li><a href="#"><b>Arabic in 7 Principles</b><span class="d">The always-open reference card.</span></a></li>
+        <li><a href="#"><b>Grammar Glossary</b><span class="d">Every term, in Arabic and plain English.</span></a></li>
+        <li><a href="#"><b>Root System Guide</b><span class="d">How words grow from three letters.</span></a></li>
+        <li><a href="#"><b>Conjugation Tables</b><span class="d">All ten forms, every person and tense.</span></a></li>
+      </ol>
+    </div>
+    <div class="bench-foot"><a class="btn primary" href="#">Open all resources</a></div>
+  </div>
+
+</section>
+<div class="tail"></div>
+</main>
+<script>
+
+const reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+/* ---- word lookup (real data from src/data/home-tools.json) ---- */
+const L={
+ mercy:{ar:'رَحْمَة',tr:'raḥma',g:'mercy',root:'ر ح م',c:114,rc:339,f:[['رَحِيم','most merciful',116],['رَحْمَة','mercy',114],['رَحْمَٰن','the Most Gracious',57],['رَحِمَ','to show mercy',28]]},
+ knowledge:{ar:'عِلْم',tr:'ʿilm',g:'knowledge',root:'ع ل م',c:105,rc:854,f:[['عَلِمَ','to know',382],['عَلِيم','all-knowing',163],['عِلْم','knowledge',105],['أَعْلَم','most knowing',49]]},
+ guidance:{ar:'هُدًى',tr:'hudā',g:'guidance',root:'ه د ي',c:85,rc:316,f:[['هَدَى','to guide',144],['هُدًى','guidance',85],['اهْتَدَىٰ','to be guided',40],['مُهْتَدُون','the guided',17]]},
+ book:{ar:'كِتَٰب',tr:'kitāb',g:'book',root:'ك ت ب',c:260,rc:319,f:[['كِتَٰب','book, scripture',260],['كَتَبَ','to write',49],['كَاتِب','scribe',6],['مَكْتُوب','written',1]]}
+};
+const wq=document.getElementById('wq'),wr=document.getElementById('wr'),wp=document.getElementById('wp');
+wp.innerHTML=Object.keys(L).map(k=>`<button type="button" data-k="${k}" aria-pressed="false">${k}</button>`).join('');
+let wt=null,wtour=!reduce;
+function wshow(k){
+  const d=L[k],m=d.f[0][2];
+  wr.innerHTML=`<div><span class="ar big" lang="ar" dir="rtl">${d.ar}</span><span class="gl">${d.g}</span> <span style="color:var(--muted)">${d.tr}</span><p class="ct"><b>${d.c} times</b> in the Quran · root <bdi class="ar" lang="ar" dir="rtl">${d.root}</bdi></p></div><div><p style="margin:0 0 8px;font-size:.8125rem;color:var(--muted)">Same root, ${d.rc} times in all</p><ul class="fam">${d.f.map(r=>`<li><span class="ar" lang="ar" dir="rtl">${r[0]}</span><span class="g">${r[1]}<i style="width:${Math.round(r[2]/m*100)}%"></i></span><span class="n">${r[2]}</span></li>`).join('')}</ul></div>`;
+  wp.querySelectorAll('button').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.k===k)));
+}
+function wtype(k,done){
+  clearInterval(wt);wr.innerHTML='';wq.classList.remove('idle');
+  if(reduce){wq.textContent=k;wshow(k);wq.classList.add('idle');return}
+  let i=0;wq.textContent='';
+  wt=setInterval(()=>{wq.textContent=k.slice(0,++i);if(i>=k.length){clearInterval(wt);setTimeout(()=>{wshow(k);wq.classList.add('idle');done&&done()},240)}},90);
+}
+const wk=Object.keys(L);let wi=0;
+function wnext(){if(!wtour)return;wi=(wi+1)%wk.length;wtype(wk[wi],()=>{if(wtour)setTimeout(wnext,4200)})}
+wp.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;wtour=false;wtype(b.dataset.k)});
+wq.textContent='mercy';wshow('mercy');if(!reduce)setTimeout(wnext,4200);
+
+/* ---- verb form generator (real data from public/data/verb-forms.json) ---- */
+const V={
+ 'نزل':{tr:'n-z-l',forms:{1:['نَزَلَ','nazala / yanzilu','to descend, come down',6,'17:105'],2:['نَزَّلَ','nazzala / yunazzilu','to send down, reveal gradually',62,'2:23'],4:['أَنْزَلَ','anzala / yunzilu','to send down, reveal',183,'2:4'],5:['تَنَزَّلَ','tanazzala / yatanazzalu','to descend gradually',7,'19:64']}},
+ 'علم':{tr:'ʿ-l-m',forms:{1:['عَلِمَ','ʿalima / yaʿlamu','to know, be aware of',382,'2:13'],2:['عَلَّمَ','ʿallama / yuʿallimu','to teach, instruct',41,'2:31'],5:['تَعَلَّمَ','taʿallama / yataʿallamu','to learn, acquire knowledge',2,'2:102']}},
+ 'كتب':{tr:'k-t-b',forms:{1:['كَتَبَ','kataba / yaktubu','to write, prescribe',49,'2:79'],3:['كَاتَبَ','kātaba / yukātibu','to contract for manumission',1,'24:33'],8:['اِكْتَتَبَ','iktataba / yaktatibu','to copy out, write down',1,'25:5']}}
+};
+const ROM=['I','II','III','IV','V','VI','VII','VIII','IX','X'];
+const vp=document.getElementById('vp'),vc=document.getElementById('vc'),vd=document.getElementById('vd');
+vp.innerHTML=Object.keys(V).map(k=>`<button type="button" data-k="${k}" aria-pressed="false"><span class="ar" lang="ar" dir="rtl">${k.split('').join(' ')}</span></button>`).join('');
+let cur='نزل';
+function vshow(k,sel){
+  cur=k;const f=V[k].forms;
+  vp.querySelectorAll('button').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.k===k)));
+  vc.innerHTML=ROM.map((r,i)=>{const e=f[i+1];return e?`<button class="cell on${(i+1)==sel?' sel':''}" type="button" data-n="${i+1}"><small>${r}</small><span class="ar" lang="ar" dir="rtl">${e[0]}</span></button>`:`<span class="cell off"><small>${r}</small><span class="ar">–</span></span>`}).join('');
+  const e=f[sel];
+  vd.innerHTML=e?`<b>Form ${ROM[sel-1]}</b> · ${e[1]}<br><span>${e[2]} · ${e[3]} ${e[3]==1?'time':'times'} · first at ${e[4]}</span>`:'';
+}
+function firstForm(k){return Object.keys(V[k].forms).map(Number).find(n=>n>1)||1}
+vp.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;vshow(b.dataset.k,firstForm(b.dataset.k))});
+vc.addEventListener('click',e=>{const b=e.target.closest('.cell.on');if(!b)return;vshow(cur,+b.dataset.n)});
+vshow('نزل',4);
+
+</script>
+</body></html>
