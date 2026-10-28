@@ -1,6 +1,6 @@
 # Writer brief: one lesson, stepped layout
 
-For the subagent that rewrites **one** lesson. The orchestrator gives you the lesson id (for example L4.03). Levels 1 to 3 were written this way; Level 4 is written the same way, to the same standard. Work in the worktree you were given. Do not use any other directory.
+For the subagent that rewrites **one** lesson. The orchestrator gives you the lesson id (for example L5.03). Levels 1 to 4 were written this way; Level 5 is written the same way, to the same standard. **Level 5 writers also read `docs/redesign/LEVEL-5-NOTES.md`** (verse territories, the ledger exception, what each lesson must do). Work in the worktree you were given. Do not use any other directory.
 
 ## What you produce
 
@@ -34,7 +34,7 @@ You do not touch the template (`src/components/lesson/`, `src/styles/`, `src/scr
 - **Parsing source:** al-Jadwal (Maḥmūd Ṣāfī) for every parse, read with `node scripts/lesson-qa/jadwal.mjs 4:28` (add `--book aldur-almasoon` where scholars differ). Read al-Jadwal for every verse you parse, and record the result per verse part: word level, sentence level only, or disagrees. Replace a verse whose parse al-Jadwal disputes. al-Jadwal's text is copyrighted: cite the book, paraphrase, keep its wording out of the lesson.
 - **Other sources you may cite:** the Quranic Arabic Corpus grammar pages, *al-Ajurrumiyyah* (the Arabic text, not Perowne's translation), the Madinah course books, Bayyinah. Do not cite Wright, Ryding, Haywood, Nahmad or Perowne. **Never invent a citation.** If you cannot confirm that an approved source says something, teach the rule from verses, say in the lesson that it is a tendency or a teaching summary, and list it under "What is not checked" in the spec. Some Level 4 topics (the figures of speech in L4.17 and L4.18, the numbers in L4.16) have no approved source in this project: be honest about that.
 - **Teaching forms (tables of verb or noun forms):** use `Conjugation` or `Tiles`. Check every vowel; where the Quran has the form, check it with `verse.py -t`. The orchestrator re-checks every table by hand, so list each table in the spec.
-- **Links:** link to other lessons by the **current** numbers. Levels 1 to 3 are done and use these numbers; Level 4 keeps its numbers (L4.01 to L4.19). Weak verbs are taught at L4.11 to L4.15. L3.05 and L3.04 already give a short "verbs that change shape" step, so L4.11 to L4.15 build on it and do not repeat it. Run `grep -rn "L4.NN" src/content/lessons/level-1 src/content/lessons/level-2 src/content/lessons/level-3` for your lesson number: every place that promises something to this lesson must be kept (a table "What earlier lessons promise this lesson" goes into the spec, as in L3.05).
+- **Links:** link to other lessons by the **current** numbers. Levels 1 to 4 are done and use these numbers; Level 5 keeps its numbers (L5.01 to L5.17). Weak verbs are taught at L4.11 to L4.15. L3.05 and L3.04 already give a short "verbs that change shape" step, so L4.11 to L4.15 build on it and do not repeat it. Run `grep -rn "L4.NN" src/content/lessons/level-1 src/content/lessons/level-2 src/content/lessons/level-3` for your lesson number: every place that promises something to this lesson must be kept (a table "What earlier lessons promise this lesson" goes into the spec, as in L3.05).
 
 ## The steps, in order
 
@@ -56,6 +56,15 @@ You do not touch the template (`src/components/lesson/`, `src/styles/`, `src/scr
 - **Roles.** `Sentence` has no `tamyiz` or `mustathna` role. Use `maful` with a `label` override, as L2.05 and L4.02 do.
 - **Tiles and tables with verse fragments** are not read by `check-verses.py`. Copy each fragment from `verse.py` output, not from memory.
 - Finished Level 4 lessons you can read for the same kind of topic: `level-4/01-hal-clauses.mdx` and `02-tamyiz.mdx` (a role in the sentence), `04-conditional-particles.mdx` (a list of particles with Corpus counts), `05-exception-particles.mdx`.
+
+## More slips, from the rest of Level 4 (do not repeat)
+
+- **Every `Parse` card needs `role` and `why`.** A card without `why` breaks `npm run build`, and `mdx-check.mjs` does not catch it. Before you report, compare `grep -o 'at: ' <lesson> | wc -l` with `grep -o 'why: ' <lesson> | wc -l`: the two numbers must match.
+- **Bold under about 25 characters.** Bold cannot wrap in a paragraph or list item; a longer phrase runs off a phone (`WIDE 390px`).
+- **A `Sentence` word group with many tiles overflows a phone.** Use short groups (one to three words).
+- **`check-verses.py` reads only the first verse of a multi-verse reference.** Give each verse its own `Parse` or `Sentence`, with its own reference.
+- **Link only to what the target lesson teaches.** Open the lesson you link to and read it before you promise a topic from it. Old Level 5 text sent "gradation" to L4.18, which does not teach it.
+- **Do not report a number you did not count in full.** `grep -c`, `wc -l`, a script. Say "at least N" if a listing might be cut.
 
 ## Report back (short, plain, numbers you counted)
 
