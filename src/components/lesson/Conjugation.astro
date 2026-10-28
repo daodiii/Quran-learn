@@ -28,8 +28,10 @@ interface Props {
   caption: string;
   /** Header for the "end" column: "Ending" for the past tense, "Prefix and ending" for the present. */
   endLabel?: string;
+  /** Header for the form column: "Verb" by default, "Word" for a noun with attached pronouns. */
+  formLabel?: string;
 }
-const { rows, caption, endLabel = 'Ending' } = Astro.props;
+const { rows, caption, endLabel = 'Ending', formLabel = 'Verb' } = Astro.props;
 const forms = rows.filter((r) => !r.group);
 const hasPr = forms.some((r) => r.pr);
 const hasEnd = forms.some((r) => r.end);
@@ -44,7 +46,7 @@ const cols = 2 + Number(hasPr) + Number(hasEnd) + Number(hasSay);
       <tr>
         <th scope="col">Who</th>
         {hasPr && <th scope="col">Pronoun</th>}
-        <th scope="col">Verb</th>
+        <th scope="col">{formLabel}</th>
         {hasEnd && <th scope="col">{endLabel}</th>}
         {hasSay && <th scope="col">Say it</th>}
       </tr>
