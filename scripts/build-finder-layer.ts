@@ -8,12 +8,12 @@ const DIR = 'src/data/finder';
 const KINDS = new Set(['action', 'thing', 'person or being', 'name', 'describing word', 'place or time', 'small word']);
 const BANNED = /\b(stem|nominative|accusative|genitive|relative pronoun|particle|preposition|conjunction|pronoun|imperfect|verbal noun|participle|demonstrative|adverb|vocative)\b/i;
 
-interface In { id: number; lemma: string; pos: string }
+interface In { id: number; lemma: string; pos: string; count: number; roots: string[] }
 interface Out { id: number; easy: string; kind: string; type: string[]; note: string | null; check: boolean }
 const read = <T>(f: string): T => JSON.parse(readFileSync(`${DIR}/${f}`, 'utf8'));
 
 const problems: string[] = [];
-const layer: Record<string, Omit<Out, 'id'>> = {};
+const layer: Record<string, Omit<Out, 'id'> & { n: number; r: string[] }> = {};
 let flagged = 0;
 
 function take(ins: In[], outs: Out[], label: string) {
@@ -33,7 +33,7 @@ function take(ins: In[], outs: Out[], label: string) {
     if (typeof o.check !== 'boolean') problems.push(`${at}: bad check`);
     const key = `${i.lemma}|${i.pos}`;
     if (layer[key]) problems.push(`${at}: duplicate key`);
-    layer[key] = { easy: o.easy, kind: o.kind, type: [...new Set(o.type)], note: o.note, check: o.check };
+    layer[key] = { easy: o.easy, kind: o.kind, type: [...new Set(o.type)], note: o.note, check: o.check, n: i.count, r: i.roots };
     if (o.check) flagged++;
   }
   const extra = outs.filter(o => !ins.some(i => i.id === o.id));
