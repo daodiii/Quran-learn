@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Quiz mockup B: Card</title><link rel="stylesheet" href="quiz.css"></head>
+<body>
+<header class="site"><b>Quranic Grammar</b><nav aria-label="Main"><span>Learn</span><span>Surahs</span><span>Resources</span><span>About</span></nav></header>
+<main class="b-field"><div class="b-card" id="app"></div></main>
+<script src="quiz-data.js"></script><script src="quiz-common.js"></script>
+<script>
+const { Q, picks, rich, optsHTML, feedbackHTML, resultHTML, preset, state, ICON_OK, ICON_NO, isRight } = QZ;
+const app = document.getElementById('app'); let cur = 0;
+function dots(i, fin) {
+  return `<ol class="b-dots" aria-label="Questions">${Q.map((_, k) => {
+    const a = picks[k] !== null; const c = a ? (isRight(k) ? 'r' : 'w') : (k === i && !fin ? 'on' : '');
+    const label = a ? (isRight(k) ? 'right' : 'wrong') : (k === i && !fin ? 'current' : 'not answered');
+    return `<li class="${c}" ${k === i && !fin ? 'aria-current="step"' : ''}><span aria-hidden="true">${a ? (isRight(k) ? ICON_OK : ICON_NO) : k + 1}</span><span class="vh">Question ${k + 1}, ${label}</span></li>`;
+  }).join('')}</ol>`;
+}
+function question() {
+  const i = cur, q = Q[i], done = picks[i] !== null;
+  const long = q.options.some((o) => o.length > 34);
+  app.innerHTML = `<div class="b-top"><span class="b-title">Level 5 Quiz · pass mark 70%</span>${dots(i)}</div>
+  <p class="b-n">Question ${i + 1} of ${Q.length}</p>
+  <h1 class="b-q" id="qq" tabindex="-1">${rich(q.question)}</h1>
+  <div class="opts b-grid ${long ? 'one' : ''}" role="group" aria-labelledby="qq">${optsHTML(i)}</div>
+  <div class="b-foot">${done ? `<div class="fb ${isRight(i) ? 'is-right' : 'is-wrong'}" role="status">${feedbackHTML(i)}</div>` : '<p class="b-idle">Pick one answer. You see why straight away.</p>'}
+  <button type="button" class="btn btn-primary" id="next" ${done ? '' : 'disabled'}>${i === Q.length - 1 ? 'See results' : 'Next question'}</button></div>`;
+  app.querySelectorAll('.opt').forEach((b) => b.addEventListener('click', () => { if (picks[i] !== null) return; picks[i] = +b.dataset.k; question(); app.querySelector('.b-foot').scrollIntoView({ block: 'nearest', behavior: 'smooth' }); }));
+  app.querySelector('#next').addEventListener('click', () => { if (i === Q.length - 1) results(); else { cur++; question(); } });
+}
+function results() {
+  app.innerHTML = `<div class="b-top"><span class="b-title">Level 5 Quiz · results</span>${dots(0, true)}</div><div style="margin-top:1.6rem" aria-live="polite">${resultHTML()}</div>`;
+  app.querySelector('[data-retry]').addEventListener('click', () => { picks.fill(null); cur = 0; question(); });
+}
+if (state === 'wrong') { preset('wrong'); cur = 2; question(); }
+else if (state === 'pass' || state === 'fail') { preset(state); results(); }
+else question();
+</script></body></html>

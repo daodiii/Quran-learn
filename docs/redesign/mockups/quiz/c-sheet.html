@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Quiz mockup C: Answer sheet</title><link rel="stylesheet" href="quiz.css"></head>
+<body>
+<header class="site"><b>Quranic Grammar</b><nav aria-label="Main"><span>Learn</span><span>Surahs</span><span>Resources</span><span>About</span></nav></header>
+<main class="c-wrap" id="app"></main>
+<script src="quiz-data.js"></script><script src="quiz-common.js"></script>
+<script>
+const { Q, picks, rich, optsHTML, feedbackHTML, resultHTML, preset, state, answered, isRight } = QZ;
+const app = document.getElementById('app'); let finished = false;
+const prog = () => Math.round(answered() / Q.length * 100);
+function render() {
+  const n = answered(), all = n === Q.length;
+  app.innerHTML = `<aside class="c-rail" aria-label="Progress"><h2>Level 5 Quiz</h2><p class="c-sub">${n} of ${Q.length} answered</p><div class="c-prog" aria-hidden="true"><i style="width:${prog()}%"></i></div>
+    <ol>${Q.map((_, k) => `<li><a href="#q${k}" class="${picks[k] !== null ? 'done' : ''}"><span class="cn" aria-hidden="true">${picks[k] !== null ? QZ.ICON_OK.replace('<svg', '<svg width="14" height="14"') : k + 1}</span><span>Question ${k + 1}<span class="vh">${picks[k] !== null ? ', answered' : ''}</span></span></a></li>`).join('')}</ol></aside>
+  <div><div class="c-mbar" aria-hidden="true">${n} of ${Q.length} answered · pass mark 70%<div class="c-prog"><i style="width:${prog()}%"></i></div></div>
+  <header class="c-h"><h1>Level 5 Quiz</h1><p>${Q.length} questions. Answer in any order. You pass with 70%.</p></header>
+  ${Q.map((q, i) => `<section class="c-q" id="q${i}" aria-labelledby="h${i}"><h2 class="c-qh" id="h${i}"><span class="c-qn" aria-hidden="true">${i + 1}</span><span>${rich(q.question)}</span></h2>
+    <div class="opts" role="group" aria-labelledby="h${i}">${optsHTML(i)}</div>
+    ${picks[i] !== null ? `<div class="fb ${isRight(i) ? 'is-right' : 'is-wrong'}" role="status">${feedbackHTML(i)}</div>` : ''}</section>`).join('')}
+  ${finished ? `<section class="c-res" id="result" aria-live="polite">${resultHTML()}</section>` : `<div class="c-finish"><p>${all ? 'All answered.' : `${Q.length - n} left to answer.`}</p><button type="button" class="btn btn-primary" id="fin" ${all ? '' : 'disabled'}>See my result</button></div>`}</div>`;
+  app.querySelectorAll('.c-q .opt').forEach((b) => b.addEventListener('click', () => { const i = +b.closest('.c-q').id.slice(1); if (picks[i] !== null) return; picks[i] = +b.dataset.k; const y = scrollY; render(); scrollTo(0, y); }));
+  app.querySelector('#fin')?.addEventListener('click', () => { finished = true; render(); document.getElementById('result').scrollIntoView(); });
+  app.querySelector('[data-retry]')?.addEventListener('click', () => { picks.fill(null); finished = false; render(); scrollTo(0, 0); });
+}
+if (state === 'wrong') { preset('wrong'); render(); document.getElementById('q2').scrollIntoView(); }
+else if (state === 'pass' || state === 'fail') { preset(state); finished = true; render(); document.getElementById('result').scrollIntoView(); }
+else render();
+</script></body></html>

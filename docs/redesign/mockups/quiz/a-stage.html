@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Quiz mockup A: Stage</title><link rel="stylesheet" href="quiz.css"></head>
+<body>
+<header class="site"><b>Quranic Grammar</b><nav aria-label="Main"><span>Learn</span><span>Surahs</span><span>Resources</span><span>About</span></nav></header>
+<main id="app"></main>
+<div class="a-dock" id="dock"><div class="a-dock-in"><span class="a-dock-c" id="dc" role="status"></span><button type="button" class="btn btn-primary" id="next" disabled>Next</button></div></div>
+<script src="quiz-data.js"></script><script src="quiz-common.js"></script>
+<script>
+const { Q, picks, rich, optsHTML, feedbackHTML, resultHTML, preset, state, isRight } = QZ;
+const app = document.getElementById('app'), dock = document.getElementById('dock'), nextBtn = document.getElementById('next'), dc = document.getElementById('dc');
+let cur = 0;
+function bar(i) { return `<nav class="a-bar" aria-label="Quiz progress">${Q.map((_, k) => `<span class="a-seg ${k < i || (picks[k] !== null && k !== i) ? 'done' : k === i ? 'on' : ''}"></span>`).join('')}</nav>`; }
+function question() {
+  const i = cur, q = Q[i], done = picks[i] !== null;
+  app.innerHTML = `${bar(i)}<div class="a-wrap"><p class="a-crumb"><a href="#">Level 5 · Applied Study</a> · Quiz</p>
+  <div class="a-main"><section aria-labelledby="qq">
+    <p class="a-count"><span class="a-num">${i + 1}</span><span class="a-of">of ${Q.length}</span></p>
+    <h1 class="a-q" id="qq" tabindex="-1">${rich(q.question)}</h1>
+    <div class="opts" role="group" aria-labelledby="qq">${optsHTML(i)}</div></section>
+    <aside class="a-side" aria-label="Answer"><div class="a-card"><span class="a-chip">${done ? 'Answer' : 'Your turn'}</span>
+      ${done ? `<div class="fb ${isRight(i) ? 'is-right' : 'is-wrong'}" role="status">${feedbackHTML(i)}</div>`
+             : `<div class="a-idle"><p>Pick one answer.</p><ul><li>You see the right answer and why straight away.</li><li>The answer locks, so choose with care.</li></ul></div>`}
+    </div></aside></div></div>`;
+  dc.textContent = `Question ${i + 1} of ${Q.length} · pass mark 70%`;
+  nextBtn.disabled = !done; nextBtn.textContent = i === Q.length - 1 ? 'See results' : 'Next';
+  dock.hidden = false;
+  app.querySelectorAll('.opt').forEach((b) => b.addEventListener('click', () => { if (picks[i] !== null) return; picks[i] = +b.dataset.k; question(); app.querySelector('.a-side').scrollIntoView({ block: 'nearest', behavior: 'smooth' }); }));
+}
+function results() {
+  dock.hidden = true;
+  app.innerHTML = `${bar(Q.length)}<div class="a-wrap"><p class="a-crumb"><a href="#">Level 5 · Applied Study</a> · Quiz results</p><section class="a-res" aria-live="polite">${resultHTML()}</section></div>`;
+  app.querySelector('[data-retry]').addEventListener('click', () => { picks.fill(null); cur = 0; question(); });
+}
+nextBtn.addEventListener('click', () => { if (cur === Q.length - 1) results(); else { cur++; question(); window.scrollTo(0, 0); } });
+if (state === 'wrong') { preset('wrong'); cur = 2; question(); }
+else if (state === 'pass' || state === 'fail') { preset(state); results(); }
+else question();
+</script></body></html>
