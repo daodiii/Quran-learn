@@ -1,0 +1,156 @@
+---
+/**
+ * Resource guide page. Light only, standalone (no BaseLayout), like home and learn.
+ * The hero holds the title and either a search box (with tabs where they help) or a 30-second summary;
+ * below it a contents rail sits beside the full-width guide text. All of this is plain HTML, so the page
+ * reads and links without JavaScript; src/scripts/guide.ts adds the search, tabs, rail and progress bar.
+ * The words come from src/data/guide-copy.ts, the text from src/content/resources/*.mdx.
+ */
+import CookieBanner from '../components/CookieBanner.astro';
+import BreadcrumbSchema from '../components/seo/BreadcrumbSchema.astro';
+import ArticleSchema from '../components/seo/ArticleSchema.astro';
+import '../styles/fonts.css';
+import '../styles/guide.css';
+import type { GuideCopy } from '../data/guide-copy';
+
+interface Props {
+  guide: GuideCopy;
+  description: string;
+  next: GuideCopy;
+}
+const { guide, description, next } = Astro.props;
+// The guide text is rendered once here, so the contents and the numbers under the title come from what is
+// really on the page (the MDX mixes # headings and hand-written <h2 id> headings).
+const html = await Astro.slots.render('default');
+const strip = (s: string) => s.replace(/<[^>]+>/g, '').replace(/&amp;/g, '&').replace(/&#39;|&#x27;/g, "'").replace(/\s+/g, ' ').trim();
+const headings = [...html.matchAll(/<h2[^>]*\sid="([^"]+)"[^>]*>([\s\S]*?)<\/h2>/g)].map((m) => ({ slug: m[1], text: strip(m[2]) }));
+const tables = (html.match(/<table[\s>]/g) ?? []).length;
+const verses = (html.match(/<figure[\s>]/g) ?? []).length;
+const mins = Math.max(1, Math.round(strip(html.replace(/<(?:script|style)[\s\S]*?<\/(?:script|style)>/g, '')).split(' ').length / 260));
+const stats = [
+  { value: String(headings.length), label: headings.length === 1 ? 'section' : 'sections' },
+  ...(tables ? [{ value: String(tables), label: tables === 1 ? 'table' : 'tables' }] : []),
+  ...(verses ? [{ value: String(verses), label: verses === 1 ? 'verse' : 'verses' }] : []),
+  { value: `${mins} min`, label: 'to read' },
+];
+const canonicalURL = new URL(`/resources/${guide.id}/`, Astro.site);
+const ogImageURL = new URL('/images/og-default.jpg', Astro.site);
+const pageTitle = `${guide.title} | Quranic Grammar`;
+// With section tabs the tabs do the navigating, so there is no contents rail.
+const rail = !guide.tabs && headings.length > 2;
+const tidy = (t: string) => t.replace(/^Part \d+: /, '').replace(/&amp;/g, '&');
+---
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1MSBYYQT5Z" is:inline></script>
+  <script is:inline>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-1MSBYYQT5Z');
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="description" content={description} />
+  <meta name="theme-color" content="#fbfcfd" />
+  <title>{pageTitle}</title>
+  <link rel="canonical" href={canonicalURL.href} />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content={canonicalURL.href} />
+  <meta property="og:title" content={pageTitle} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={ogImageURL.href} />
+  <meta property="og:site_name" content="Quranic Grammar" />
+  <meta property="og:locale" content="en_US" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={pageTitle} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={ogImageURL.href} />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="alternate" type="application/rss+xml" title="Quranic Grammar RSS" href="/rss.xml" />
+  <link rel="preload" href="/fonts/geist-500.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/geist-400.woff2" as="font" type="font/woff2" crossorigin />
+  <BreadcrumbSchema items={[{ label: 'Home', href: '/' }, { label: 'Resources', href: '/resources/' }, { label: guide.short }]} />
+  <ArticleSchema title={guide.title} description={description} url={Astro.url.pathname} type="LearningResource" />
+  <script src="https://analytics.ahrefs.com/analytics.js" data-key="sW/uZfxMauSpqoKnSL6i6g" async is:inline></script>
+</head>
+<body class="guide" style={`--hue:${guide.hue}`}>
+<a href="#main-content" class="skip">Skip to main content</a>
+<div class="g-bar" aria-hidden="true"><i data-progress></i></div>
+<header class="site">
+  <a class="brand" href="/" aria-label="Quranic Grammar, home">
+    <svg viewBox="0 0 32 32" aria-hidden="true"><rect x="1" y="1" width="30" height="30" rx="9" fill="oklch(18% 0.03 240)"/><path d="M9 19h14" stroke="#fff" stroke-width="2" stroke-linecap="round"/><circle cx="16" cy="12" r="2.6" fill="oklch(79% 0.14 72)"/><circle cx="16" cy="24.5" r="1.6" fill="#fff"/></svg>
+    <span>Quranic Grammar</span>
+  </a>
+  <nav aria-label="Primary"><a href="/learn/">Learn</a><a href="/surahs/">Surahs</a><a href="/resources/" aria-current="page">Resources</a><a href="/about/">About</a></nav>
+  <details class="menu">
+    <summary aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></summary>
+    <div class="menu-panel"><a href="/learn/">Learn</a><a href="/surahs/">Surahs</a><a href="/resources/">Resources</a><a href="/about/">About and feedback</a></div>
+  </details>
+</header>
+
+<main id="main-content">
+  <section class="g-hero" aria-labelledby="g-h">
+    <nav class="crumb" aria-label="Breadcrumb"><a href="/resources/">Resources</a><span aria-hidden="true">/</span><span>{guide.short}</span></nav>
+    <div class="g-hero-grid">
+      <div>
+        <p class="eyebrow">{guide.eyebrow}</p>
+        <h1 class="g-h1" id="g-h">{guide.title}</h1>
+        <p class="g-dek">{guide.dek}</p>
+        <ul class="g-stats" aria-label="About this guide">
+          {stats.map((s) => <li><b>{s.value}</b>{s.label}</li>)}
+        </ul>
+      </div>
+      {guide.search && (
+        <div class="g-card" data-tool>
+          <h2>Find in this guide</h2>
+          <div class="find">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+            <label class="vh" for="g-q">Search this guide</label>
+            <input id="g-q" type="search" placeholder={guide.search} autocomplete="off" />
+          </div>
+          <p class="g-count" data-count aria-live="polite"></p>
+          {guide.tabs && <div class="g-tabs" data-tabs role="group" aria-label="Sections"></div>}
+        </div>
+      )}
+      {guide.summary && (
+        <div class="g-card">
+          <h2>In 30 seconds</h2>
+          <ol class="g-sum">{guide.summary.map((s) => <li>{s}</li>)}</ol>
+        </div>
+      )}
+    </div>
+  </section>
+
+  <div class:list={['g-body', { 'no-rail': !rail }]} style={rail ? undefined : 'grid-template-columns:minmax(0,1fr)'}>
+    {rail && (
+      <aside class="g-rail" aria-label="On this page" data-toc>
+        <h2>On this page</h2>
+        <ol>{headings.map((h) => <li><a href={`#${h.slug}`}>{tidy(h.text)}</a></li>)}</ol>
+      </aside>
+    )}
+    <article class="g-main">
+      <div class="prose resource-content" set:html={html} />
+    </article>
+  </div>
+
+  <div class="g-end">
+    <a class="g-next" href={`/resources/${next.id}/`}><span><small>Next resource</small><b>{next.short}</b></span><span class="arrow" aria-hidden="true">→</span></a>
+    <a class="g-back" href="/resources/">All resources</a>
+  </div>
+</main>
+
+<footer class="foot">
+  <div class="in">
+    <nav aria-label="Footer"><a href="/learn/">Learn</a><a href="/surahs/">Surahs</a><a href="/resources/">Resources</a><a href="/about/">About and feedback</a><a href="/rss.xml">RSS</a></nav>
+    <p>Word data and counts from the <a href="https://corpus.quran.com/">Quranic Arabic Corpus</a> (Kais Dukes, GPL). Quran text after <a href="https://tanzil.net/">Tanzil</a>.</p>
+  </div>
+</footer>
+<CookieBanner tone="light" />
+<script>
+  import '../scripts/guide';
+</script>
+</body>
+</html>
