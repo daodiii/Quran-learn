@@ -64,8 +64,8 @@ test.describe('without JavaScript', () => {
 });
 
 test('a surah with no teaching layer still works: the box shows the parse and there is no question', async ({ page }) => {
-  await page.goto('/surahs/001-al-fatiha/');
-  await expect(page.locator('section.vs')).toHaveCount(7);
+  await page.goto('/surahs/093-ad-duha/');
+  await expect(page.locator('section.vs')).toHaveCount(11);
   await expect(page.locator('#v1 [data-detail]')).toContainText('Grammar:');
   await expect(page.locator('#v1 .try')).toHaveCount(0);
   await expect(page.locator('#sources')).toContainText('not yet been checked');

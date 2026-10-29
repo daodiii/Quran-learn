@@ -45,7 +45,7 @@ const data: SurahDecoderData = {
           "tr": "al-raḥmāni",
           "root": "ر ح م",
           "morph": "Adjective - masculine singular, definite, pattern فَعْلَان",
-          "irab": "Apposition (badal) following اللَّهِ - genitive (majrūr)",
+          "irab": "Adjective (na't) of اللَّهِ - genitive (majrūr); al-Jadwal also allows badal",
           "en": "The Most Gracious",
           "cs": "gen",
           "lens": [
@@ -57,7 +57,7 @@ const data: SurahDecoderData = {
           "tr": "al-raḥīmi",
           "root": "ر ح م",
           "morph": "Adjective - masculine singular, definite, pattern فَعِيل",
-          "irab": "Apposition (badal) following اللَّهِ - genitive (majrūr)",
+          "irab": "Second adjective (na't) of اللَّهِ - genitive (majrūr); al-Jadwal also allows badal",
           "en": "The Most Merciful",
           "cs": "gen",
           "lens": [
@@ -102,7 +102,7 @@ const data: SurahDecoderData = {
           "tr": "rabbi",
           "root": "ر ب ب",
           "morph": "Noun - masculine singular, definite (by iḍāfah)",
-          "irab": "Apposition (badal) of اللَّهِ - genitive (majrūr), muḍāf",
+          "irab": "Adjective (na't) of اللَّهِ - genitive (majrūr), muḍāf",
           "en": "Lord",
           "cs": "gen",
           "lens": [
@@ -114,7 +114,7 @@ const data: SurahDecoderData = {
           "tr": "al-'ālamīna",
           "root": "ع ل م",
           "morph": "Noun - masculine plural (sound masculine plural), definite",
-          "irab": "Muḍāf ilayhi - genitive (majrūr), indicated by ـِينَ",
+          "irab": "Muḍāf ilayhi - genitive (majrūr), marked by ـِينَ because it is attached to the sound masculine plural (it has no singular of its own)",
           "en": "The worlds",
           "cs": "gen",
           "lens": [
@@ -135,7 +135,7 @@ const data: SurahDecoderData = {
           "tr": "al-raḥmāni",
           "root": "ر ح م",
           "morph": "Adjective - masculine singular, definite, pattern فَعْلَان",
-          "irab": "Apposition (badal) of اللَّهِ from verse 2 - genitive (majrūr)",
+          "irab": "Adjective (na't) of اللَّهِ from verse 2 - genitive (majrūr); al-Jadwal also allows badal",
           "en": "The Most Gracious",
           "cs": "gen",
           "lens": [
@@ -147,7 +147,7 @@ const data: SurahDecoderData = {
           "tr": "al-raḥīmi",
           "root": "ر ح م",
           "morph": "Adjective - masculine singular, definite, pattern فَعِيل",
-          "irab": "Apposition (badal) of اللَّهِ from verse 2 - genitive (majrūr)",
+          "irab": "Second adjective (na't) of اللَّهِ from verse 2 - genitive (majrūr); al-Jadwal also allows badal",
           "en": "The Most Merciful",
           "cs": "gen",
           "lens": [
@@ -168,7 +168,7 @@ const data: SurahDecoderData = {
           "tr": "māliki",
           "root": "م ل ك",
           "morph": "Active participle (ism al-fā'il) - masculine singular, definite (by iḍāfah), pattern فَاعِل",
-          "irab": "Apposition (badal) of اللَّهِ from verse 2 - genitive (majrūr), muḍāf",
+          "irab": "Adjective (na't) of اللَّهِ from verse 2 - genitive (majrūr), muḍāf",
           "en": "Master/Owner",
           "cs": "gen",
           "lens": [
@@ -363,7 +363,7 @@ const data: SurahDecoderData = {
           "tr": "ghayri",
           "root": "غ ي ر",
           "morph": "Noun - masculine singular, definite (by iḍāfah)",
-          "irab": "Adjective (na't) of الَّذِينَ or badal of الصِّرَاطَ - genitive (majrūr), muḍāf",
+          "irab": "Badal of الَّذِينَ - genitive (majrūr), muḍāf (al-Jadwal also lists badal of the pronoun in عَلَيْهِمْ, and an adjective of الَّذِينَ)",
           "en": "Other than, not",
           "cs": "gen",
           "lens": [
@@ -387,17 +387,19 @@ const data: SurahDecoderData = {
           "tr": "'alayhim",
           "root": "-",
           "morph": "Preposition + attached pronoun, 3rd person masculine plural",
-          "irab": "Prepositional phrase connected to الْمَغْضُوبِ",
+          "irab": "Prepositional phrase; in the nominative position as the deputy subject (nā'ib fā'il) of الْمَغْضُوبِ",
           "en": "Upon them",
-          "cs": "mabni",
-          "lens": []
+          "cs": "nom",
+          "lens": [
+            "nom"
+          ]
         },
         {
           "ar": "وَلَا",
           "tr": "wa-lā",
           "root": "-",
           "morph": "Conjunction + negation particle",
-          "irab": "Coordinating conjunction + negation particle - mabnī",
+          "irab": "وَ is a conjunction; لَا is an extra particle that strengthens the negation (zā'ida) - mabnī",
           "en": "And not",
           "cs": "mabni",
           "lens": [
@@ -409,7 +411,7 @@ const data: SurahDecoderData = {
           "tr": "al-ḍāllīna",
           "root": "ض ل ل",
           "morph": "Active participle (ism al-fā'il) - masculine plural (sound masculine plural), definite",
-          "irab": "Coordinated with الْمَغْضُوبِ عَلَيْهِمْ - genitive (majrūr), indicated by ـِينَ",
+          "irab": "Coordinated with غَيْرِ - genitive (majrūr), indicated by ـِينَ",
           "en": "Those who are astray",
           "cs": "gen",
           "lens": [
@@ -35793,7 +35795,7 @@ const data: SurahDecoderData = {
           "tr": "fa",
           "root": "-",
           "morph": "Particle - conjunction",
-          "irab": "Consequential conjunction - not declinable",
+          "irab": "Fā' that opens the answer to an unspoken condition (al-Jadwal): \"if they will not worship Him for any other favour, let them worship Him for this one\" - not declinable",
           "en": "so, then",
           "cs": "mabni",
           "lens": [
@@ -35829,7 +35831,7 @@ const data: SurahDecoderData = {
           "tr": "rabba",
           "root": "ر ب ب",
           "morph": "Noun - masculine, singular, definite (by idafa)",
-          "irab": "Direct object (maf'ul bihi) - accusative (mansub) with fatha",
+          "irab": "Direct object (maf'ul bihi) of يَعْبُدُوا - accusative (mansub) with fatha, muḍāf",
           "en": "Lord",
           "cs": "acc",
           "lens": [
@@ -35841,7 +35843,7 @@ const data: SurahDecoderData = {
           "tr": "hādhā",
           "root": "-",
           "morph": "Demonstrative pronoun - near, masculine singular",
-          "irab": "First part of idafa (mudaf ilayh) - genitive position",
+          "irab": "Demonstrative (ism ishara) - muḍāf ilayhi of رَبَّ, in the genitive position (mabni)",
           "en": "this",
           "cs": "gen",
           "lens": [
@@ -35853,7 +35855,7 @@ const data: SurahDecoderData = {
           "tr": "al-bayti",
           "root": "ب ي ت",
           "morph": "Noun - masculine, singular, definite",
-          "irab": "Second part of idafa (mudaf ilayh) - genitive with kasra",
+          "irab": "Badal of هَـٰذَا - genitive with kasra (al-Daʿʿās)",
           "en": "the House",
           "cs": "gen",
           "lens": [
@@ -35886,7 +35888,7 @@ const data: SurahDecoderData = {
           "tr": "aṭʿamahum",
           "root": "ط ع م",
           "morph": "Verb - Form IV, past tense, 3rd person, masculine, singular + attached pronoun",
-          "irab": "Predicate verb (fi'l madi) + object pronoun accusative",
+          "irab": "Past verb (fi'l madi) in the relative clause (ṣila) of الَّذِي; the attached pronoun is its direct object (accusative position)",
           "en": "fed them",
           "cs": "verb",
           "lens": [
@@ -35910,7 +35912,7 @@ const data: SurahDecoderData = {
           "tr": "jūʿin",
           "root": "ج و ع",
           "morph": "Noun - masculine, singular, indefinite",
-          "irab": "Object of preposition (majrur) - genitive with tanwin kasra",
+          "irab": "Object of preposition (majrur) - genitive with tanwin kasra; the phrase belongs to أَطْعَمَهُمْ and مِنْ shows the cause (al-Jadwal)",
           "en": "hunger",
           "cs": "gen",
           "lens": [
@@ -35934,7 +35936,7 @@ const data: SurahDecoderData = {
           "tr": "āmanahum",
           "root": "ا م ن",
           "morph": "Verb - Form IV, past tense, 3rd person, masculine, singular + attached pronoun",
-          "irab": "Predicate verb (fi'l madi) + object pronoun accusative",
+          "irab": "Past verb (fi'l madi) joined to the clause before it; the attached pronoun is its direct object (accusative position)",
           "en": "made them safe",
           "cs": "verb",
           "lens": [
@@ -37925,7 +37927,7 @@ const data: SurahDecoderData = {
           "tr": "idhā",
           "root": "-",
           "morph": "Particle - conditional/temporal",
-          "irab": "Conditional particle (dharf li-l-mustaqbal) - mabni",
+          "irab": "Time word (ẓarf) in the accusative position, with no condition in it here; it belongs to the verbal noun شَرِّ (al-Jadwal) - mabni",
           "en": "When",
           "cs": "mabni",
           "lens": [
@@ -37937,7 +37939,7 @@ const data: SurahDecoderData = {
           "tr": "waqaba",
           "root": "و ق ب",
           "morph": "Verb - Form I, past tense, 3rd person masculine singular",
-          "irab": "Past tense verb (fi'l madi) - mabni, verb of the condition (fi'l al-shart)",
+          "irab": "Past tense verb (fi'l madi) - mabni; its clause is the muḍāf ilayhi of إِذَا, in the genitive position (al-Jadwal)",
           "en": "It settled, it penetrated, it deepened",
           "cs": "verb",
           "lens": [
@@ -38063,7 +38065,7 @@ const data: SurahDecoderData = {
           "tr": "idhā",
           "root": "-",
           "morph": "Particle - conditional/temporal",
-          "irab": "Conditional particle (dharf li-l-mustaqbal) - mabni",
+          "irab": "Time word (ẓarf) in the accusative position, with no condition in it here; it belongs to the verbal noun شَرِّ (al-Jadwal) - mabni",
           "en": "When",
           "cs": "mabni",
           "lens": [
@@ -38075,7 +38077,7 @@ const data: SurahDecoderData = {
           "tr": "hasada",
           "root": "ح س د",
           "morph": "Verb - Form I, past tense, 3rd person masculine singular",
-          "irab": "Past tense verb (fi'l madi) - mabni, verb of the condition (fi'l al-shart)",
+          "irab": "Past tense verb (fi'l madi) - mabni; its clause is the muḍāf ilayhi of إِذَا, in the genitive position (al-Jadwal)",
           "en": "He envied",
           "cs": "verb",
           "lens": [
@@ -38347,7 +38349,7 @@ const data: SurahDecoderData = {
           "tr": "mina",
           "root": "-",
           "morph": "Particle - preposition",
-          "irab": "Harf jarr - mabni, fatha due to meeting of two sukuns",
+          "irab": "Harf jarr - mabni, fatha due to meeting of two sukuns; the phrase belongs to a ḥāl of the doer of يُوَسْوِسُ (al-Jadwal)",
           "en": "From, among",
           "cs": "mabni",
           "lens": [
@@ -38359,7 +38361,7 @@ const data: SurahDecoderData = {
           "tr": "al-jinnati",
           "root": "ج ن ن",
           "morph": "Noun - collective, definite",
-          "irab": "Majrur by min - genitive with kasra",
+          "irab": "Majrur by min - genitive with kasra (the phrase is a ḥāl from the doer of يُوَسْوِسُ)",
           "en": "The jinn",
           "cs": "gen",
           "lens": [

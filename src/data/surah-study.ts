@@ -9,12 +9,15 @@
 // Drafted 2026-10-29 for Al-Ikhlas only. Each line follows the parse the surah file gives (checked against
 // al-Jadwal, 112:1-4). Someone who knows Arabic grammar should read these before they ship.
 
+import { LEVEL_1 } from './surah-study-level1';
+
 export interface WordNote { role: string; say: string }
 export interface VerseQuiz { word: number; q: string; options: string[]; answer: number; why: string }
 export interface VerseStudy { words: WordNote[]; quiz?: VerseQuiz }
 export interface SurahStudy { verses: Record<number, VerseStudy> }
 
 export const SURAH_STUDY: Record<string, SurahStudy> = {
+  ...LEVEL_1,
   '112-al-ikhlas': {
     verses: {
       1: {
