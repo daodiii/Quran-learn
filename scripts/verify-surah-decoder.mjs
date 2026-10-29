@@ -29,9 +29,9 @@ const golden = [
   // Pronoun-category mabnī fallback (relative pronoun, no case stated in i'rab).
   // NB: the coordinator's requested عَلَيْهِمْ example is ambiguous — Al-Fatiha 1:7
   // has two عَلَيْهِمْ and the first states "genitive (majrūr)" (→ gen, correct);
-  // only the second (i'rab names no case) hits the fallback. الَّذِي is a clean,
+  // only the second (i'rab names no case) hits the fallback. الَّذِي in 82:7 is a clean,
   // unique exemplar of the same fallback.
-  ['078-an-naba', 'الَّذِي', 'mabni'],
+  ['082-al-infitar', 'الَّذِي', 'mabni'],
 ];
 for (const [id, ar, want] of golden) {
   const got = wordCs(id, ar);

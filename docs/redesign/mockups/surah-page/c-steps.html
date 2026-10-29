@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Al-Ikhlas · C Steps</title>
+<link rel="stylesheet" href="base.css">
+<style>
+/* C Steps: one idea per screen, like the stepped lessons. Each verse goes Read, Words, Why, Try. After verse 4 comes the review. */
+.top{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 24px;padding-block:0 14px}
+.top .id{display:flex;align-items:center;gap:14px}
+.top .nm{font-size:2.25rem;line-height:1.3}
+.top h1{margin:0;font-size:1.5rem;font-weight:600;letter-spacing:-.03em}
+.stage{border-radius:36px;background:var(--oasis);padding:clamp(12px,2.2vw,28px);display:flex;flex-direction:column;gap:clamp(12px,1.8vw,20px);min-height:min(660px,calc(100vh - 170px))}
+.bar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 20px}
+.dots{display:flex;gap:6px;margin:0;padding:0;list-style:none}
+.dots button{display:grid;place-items:center;min-width:44px;min-height:44px;padding:0 14px;border-radius:999px;border:0;background:oklch(100% 0 0 / .7);cursor:pointer;font-weight:500;transition:background-color .18s,color .18s}
+.dots button:hover{background:#fff}
+.dots button[aria-current="step"]{background:var(--ink);color:#fff}
+.dots button.done:not([aria-current]){background:var(--teal-tint);color:var(--accent)}
+.steps{display:flex;gap:4px;margin:0;padding:0;list-style:none;color:oklch(28% 0.03 230)}
+.steps li{display:flex;align-items:center;gap:8px;min-height:44px;padding:0 8px;font-weight:500;font-size:.9375rem;white-space:nowrap}
+.steps li .n{display:grid;place-items:center;width:26px;height:26px;border-radius:50%;background:oklch(100% 0 0 / .75);font-size:.8125rem}
+.steps li[aria-current="step"]{color:var(--ink)}
+.steps li[aria-current="step"] .n{background:var(--ink);color:#fff}
+.steps li.done .n{background:var(--accent);color:#fff}
+.card{flex:1;display:flex;flex-direction:column;justify-content:center;gap:16px;padding:clamp(18px,3vw,40px);border-radius:28px;background:#fff;box-shadow:var(--shadow);min-width:0}
+.card h2{margin:0;font-size:.9375rem;font-weight:600;color:var(--muted);letter-spacing:0}
+.card .lead{margin:0;font-size:1.125rem;max-width:44ch;color:var(--text)}
+.whole{margin:0;text-align:center;font-size:clamp(2.6rem,1.6rem + 3.6vw,5rem);line-height:1.9;color:var(--ink)}
+.card.words .detail{max-width:760px;width:100%;margin-inline:auto}
+.card .prose{max-width:62ch;margin-inline:auto;width:100%}
+.card .tabs{justify-content:center}
+.card .note,.card .try{max-width:62ch;margin-inline:auto;width:100%}
+.quizword{display:flex;justify-content:center}
+.quizword .w{pointer-events:none}
+.nextrow{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.nextrow .btn.quiet{background:oklch(100% 0 0 / .85)}
+.review{gap:22px;justify-content:flex-start}
+.review h3{margin:0 0 10px;font-size:1.25rem;font-weight:600;letter-spacing:-.02em}
+.review .cols{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,3vw,40px)}
+.review .exs{display:grid;gap:10px}
+.fade{animation:in .22s var(--ease) both}
+@media (max-width:860px){.steps li span:not(.n){display:none}.steps li{padding:0 4px}.review .cols{grid-template-columns:1fr}}
+@media (max-width:640px){.stage{padding:10px;border-radius:24px}.card{padding:16px;border-radius:20px}.top .nm{font-size:1.875rem}.nextrow .btn{flex:1;padding-inline:12px}}
+</style></head>
+<body>
+<div id="head"></div>
+<main class="wrap" id="main">
+  <ol class="crumbs" aria-label="Breadcrumb"><li><a href="#">Surahs</a></li><li aria-current="page">Al-Ikhlas</li></ol>
+  <header class="top" id="top"></header>
+  <section class="stage" id="stage" aria-label="Study Al-Ikhlas step by step">
+    <div class="bar"><ol class="dots" id="dots" aria-label="Verses"></ol><ol class="steps" id="steps" aria-label="Steps in this verse"></ol></div>
+    <div class="card" id="card" aria-live="polite"></div>
+    <div class="nextrow"><button class="btn quiet" id="back" type="button">Back</button><button class="btn" id="next" type="button"></button></div>
+  </section>
+</main>
+<div id="foot"></div>
+<script src="ikhlas-data.js"></script><script src="lib.js"></script>
+<script>
+const U = IKUI, D = U.D, S = D.surah, $ = (s) => document.querySelector(s);
+const RM = matchMedia('(prefers-reduced-motion:reduce)').matches;
+$('#head').innerHTML = U.headerHTML(); $('#foot').innerHTML = U.footHTML();
+$('#top').innerHTML = `<div class="id"><span class="ar nm" lang="ar" dir="rtl">${S.ar}</span><h1>${S.name}</h1></div><p class="meta" style="margin:0"><span class="tag">Surah ${S.number}</span><span class="tag">${S.place}</span><span class="tag">${S.verses} verses</span><span class="tag lv">Read after Level ${S.level}</span></p>`;
+const STEPS = ['Read', 'Words', 'Why', 'Try'];
+let vi = 0, si = 0, review = false, visited = new Set(['0:0']);
+const cur = () => D.verses[vi];
+function card() {
+  const v = cur(), c = $('#card'); c.className = 'card'; let h = '';
+  if (review) {
+    c.classList.add('review');
+    h = `<h2>Review</h2><div><h3>Practice</h3><div class="exs">${U.exercisesHTML()}</div></div>
+      <div class="cols"><div><h3>Grammar in this surah</h3>${U.summaryHTML()}</div><div><h3>Words to keep</h3>${U.vocabHTML()}</div></div>${U.sourcesHTML()}
+      <nav class="pager" aria-label="Surah navigation"><span></span><a class="next" href="#"><small>Next surah</small><b>Al-Falaq</b></a></nav>`;
+  } else if (si === 0) {
+    h = `<h2>Verse ${v.n} of ${S.verses} · Read</h2><p class="whole q" lang="ar" dir="rtl">${U.esc(v.ar)}</p><p class="tl">${U.esc(v.tr)}</p><p class="trn">${U.esc(v.en)}</p>`;
+  } else if (si === 1) {
+    c.classList.add('words');
+    h = `<h2>Verse ${v.n} · Words</h2><p class="lead" style="text-align:center;margin-inline:auto">Tap a word to see what it is and what it does.</p><div id="words">${U.wordsHTML(v)}</div><div class="detail" id="detail" aria-live="polite"></div>${U.keyHTML().replace('class="key"', 'class="key" style="justify-content:center"')}`;
+  } else if (si === 2) {
+    h = `<h2>Verse ${v.n} · Why it is written this way</h2><div id="tabs">${U.tabsHTML('c', v)}</div>${v.callout ? U.noteHTML(v.callout) : ''}`;
+  } else {
+    const w = v.words[v.quiz.word];
+    h = `<h2>Verse ${v.n} · Try it</h2><div class="quizword"><div class="verse"><span class="w ${w.t}" style="--wfs:3.25rem"><span class="q wa" lang="ar" dir="rtl">${U.esc(w.ar)}</span><span class="wg">${U.esc(w.en)}</span></span></div></div><div id="quiz">${U.quizHTML('cq', v)}</div>`;
+  }
+  c.innerHTML = h;
+  if (!RM) { c.classList.remove('fade'); void c.offsetWidth; c.classList.add('fade'); }
+  if (!review && si === 1) { const set = U.wireWords($('#words'), $('#detail'), cur); set(0); }
+  if (!review && si === 2) U.wireTabs($('#tabs'), 'c', cur);
+  if (!review && si === 3) U.wireQuiz($('#quiz'), 'cq', cur);
+}
+function chrome() {
+  $('#dots').innerHTML = D.verses.map((v, i) => `<li><button type="button" data-i="${i}" ${!review && i === vi ? 'aria-current="step"' : ''} class="${i < vi || review ? 'done' : ''}" aria-label="Verse ${v.n}">${v.n}</button></li>`).join('') + `<li><button type="button" data-i="review" ${review ? 'aria-current="step"' : ''} aria-label="Review">Review</button></li>`;
+  $('#steps').innerHTML = review ? '' : STEPS.map((s, i) => `<li ${i === si ? 'aria-current="step"' : ''} class="${i < si ? 'done' : ''}"><span class="n">${i + 1}</span><span>${s}</span></li>`).join('');
+  $('#back').disabled = !review && vi === 0 && si === 0;
+  $('#next').innerHTML = review ? 'Finished' : si < 3 ? `${STEPS[si + 1]} <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>` : vi < 3 ? `Verse ${vi + 2} <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>` : 'Review the surah';
+  $('#next').disabled = review;
+}
+function go() { card(); chrome(); }
+$('#next').addEventListener('click', () => { if (si < 3) si++; else if (vi < 3) { vi++; si = 0; } else review = true; go(); });
+$('#back').addEventListener('click', () => { if (review) { review = false; si = 3; } else if (si > 0) si--; else if (vi > 0) { vi--; si = 3; } go(); });
+$('#dots').addEventListener('click', (e) => { const b = e.target.closest('button'); if (!b) return; if (b.dataset.i === 'review') review = true; else { review = false; vi = +b.dataset.i; si = 0; } go(); });
+go();
+</script>
+</body></html>

@@ -1,28 +1,85 @@
 ---
-import { getCollection, render } from 'astro:content';
-import SurahLayout from '../../layouts/SurahLayout.astro';
+/**
+ * One surah, word by word. The model for SurahLayout is built here from three sources that must agree:
+ * the surah's MDX (explanations, notes, exercises), the decoder data (every word of every verse) and the
+ * teaching layer in src/data/surah-study.ts (plain-English lines and questions, for the surahs that have them).
+ * Any disagreement fails the build.
+ */
+import { getCollection } from 'astro:content';
+import SurahLayout, { type SurahModel } from '../../layouts/SurahLayout.astro';
+import decoder from '../../data/surah-decoder';
+import { SURAH_OPENINGS } from '../../data/surah-openings';
+import { READING_TRACK } from '../../data/reading-track';
+import { SURAH_STUDY } from '../../data/surah-study';
+import { parseSurahBody, plainNote, wordType } from '../../lib/surah-study';
+import { ayahAudioUrl } from '../../lib/ayah-ref';
 
 export async function getStaticPaths() {
-  const surahs = await getCollection('surahs');
-
-  return surahs.map((surah) => ({
+  const surahs = (await getCollection('surahs')).sort((a, b) => a.data.surahNumber - b.data.surahNumber);
+  return surahs.map((surah, i) => ({
     params: { slug: surah.id },
-    props: { surah },
+    props: {
+      surah,
+      prev: i > 0 ? { name: surahs[i - 1].data.name, href: `/surahs/${surahs[i - 1].id}/` } : null,
+      next: i < surahs.length - 1 ? { name: surahs[i + 1].data.name, href: `/surahs/${surahs[i + 1].id}/` } : null,
+    },
   }));
 }
 
-const { surah } = Astro.props;
-const { Content, headings } = await render(surah);
----
+const { surah, prev, next } = Astro.props;
+const id = surah.id;
+const d = surah.data;
+const fail = (msg: string): never => { throw new Error(`surah ${id}: ${msg}`); };
 
-<SurahLayout
-  name={surah.data.name}
-  nameArabic={surah.data.nameArabic}
-  surahNumber={surah.data.surahNumber}
-  verseCount={surah.data.verseCount}
-  difficulty={surah.data.difficulty}
-  description={surah.data.description}
-  headings={headings}
->
-  <Content />
-</SurahLayout>
+const text = parseSurahBody(surah.body ?? '');
+const dec = decoder[id] ?? fail('no decoder data');
+if (dec.length !== d.verseCount) fail(`decoder has ${dec.length} verses, the file says ${d.verseCount}`);
+if (text.verses.length !== d.verseCount) fail(`the body has ${text.verses.length} verse sections, the file says ${d.verseCount}`);
+const opening = SURAH_OPENINGS[d.surahNumber] ?? fail('no entry in surah-openings');
+const track = READING_TRACK.find((e) => e.slug === id) ?? fail('no entry in the reading track');
+const study = SURAH_STUDY[id];
+
+const verses = dec.map((v, i) => {
+  const t = text.verses[i];
+  if (t.n !== v.ayah) fail(`verse sections out of order at ${v.ayah}`);
+  const s = study?.verses[v.ayah];
+  if (study && !s) fail(`src/data/surah-study.ts has no entry for verse ${v.ayah}`);
+  if (s && s.words.length !== v.words.length) fail(`verse ${v.ayah} has ${v.words.length} words, the teaching layer has ${s.words.length}`);
+  if (s?.quiz && !(s.quiz.word >= 0 && s.quiz.word < v.words.length && s.quiz.answer >= 0 && s.quiz.answer < s.quiz.options.length)) fail(`verse ${v.ayah}: the question points outside its words or answers`);
+  return {
+    n: v.ayah, ar: v.arabic, tr: v.transliteration, en: v.translation,
+    audio: ayahAudioUrl({ surah: d.surahNumber, ayah: v.ayah }),
+    words: v.words.map((w, k) => ({
+      ar: w.ar, tr: w.tr, en: w.en, root: w.root, irab: w.irab, morph: w.morph, cs: w.cs, lens: w.lens[0] ?? '',
+      t: wordType(w.morph), key: t.highlight.includes(w.ar), role: s?.words[k].role, say: s?.words[k].say,
+    })),
+    layers: [...t.layers],
+    callouts: t.callouts,
+    quiz: s?.quiz,
+  };
+});
+
+const model: SurahModel = {
+  slug: id,
+  number: d.surahNumber,
+  name: d.name,
+  nameArabic: d.nameArabic,
+  description: d.description ?? `Word-by-word grammatical breakdown of Surah ${d.name}.`,
+  place: opening.rev,
+  level: track.afterLevel,
+  note: plainNote(track.note),
+  theme: text.overview.find((o) => /^theme$/i.test(o.label))?.text ?? '',
+  focus: text.overview.find((o) => /^grammar focus$/i.test(o.label))?.text ?? '',
+  words: verses.reduce((n, v) => n + v.words.length, 0),
+  verses,
+  glance: text.glance,
+  surahLayers: text.surahLayers,
+  exercises: text.exercises,
+  vocab: text.vocab,
+  summary: text.summary,
+  sources: text.sources,
+  prev,
+  next,
+};
+---
+<SurahLayout m={model} />

@@ -21,6 +21,8 @@ export default defineConfig({
   integrations: [
     mdx({ rehypePlugins: [rehypeArabicWrap, rehypeTableScroll] }),
     sitemap({
+      // The retired tool pages only forward to /resources/find/.
+      filter: (page) => !/\/resources\/(word-lookup|verb-forms)\/$/.test(page),
       serialize(item) {
         item.lastmod = new Date().toISOString();
         return item;

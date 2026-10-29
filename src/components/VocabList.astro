@@ -16,7 +16,7 @@ const { entries } = Astro.props;
         <span class="vocab-gloss" data-vocab-gloss>{w.gloss}</span>
       </span>
       <span class="vocab-meta">
-        <a href={`/resources/word-lookup/?q=${encodeURIComponent(w.arabic)}`} class="vocab-lookup">analyze</a>
+        <a href={`/resources/find/#q=${encodeURIComponent(w.arabic)}`} class="vocab-lookup">analyze</a>
         <span class="vocab-count" title={`occurs ${w.count} times in the Quran`}>×{w.count}</span>
       </span>
     </li>

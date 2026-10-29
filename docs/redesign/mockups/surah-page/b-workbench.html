@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Al-Ikhlas · B Workbench</title>
+<link rel="stylesheet" href="base.css">
+<style>
+/* B Workbench: the verse and its explanation share one screen. Pick a verse, tap a word, read why, all without scrolling. */
+.top{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:10px 32px;padding-block:0 14px}
+.top .l{min-width:0}
+.top .h1{font-size:clamp(1.875rem,1.3rem + 1.6vw,2.75rem)}
+.top .nm{font-size:clamp(2.75rem,2rem + 2.2vw,4rem);line-height:1.2;color:var(--ink)}
+.top .dek{margin-top:8px;font-size:1rem;max-width:44em}
+.stage{border-radius:36px;background:var(--oasis);padding:clamp(12px,2vw,26px);display:grid;grid-template-columns:minmax(0,1.18fr) minmax(0,1fr);gap:clamp(12px,1.8vw,22px);align-items:stretch}
+.pane{display:flex;flex-direction:column;gap:14px;min-width:0;padding:clamp(14px,1.8vw,24px);border-radius:28px;background:#fff;box-shadow:var(--shadow)}
+.seg{display:flex;gap:4px;padding:4px;border-radius:999px;background:var(--soft);align-self:flex-start;max-width:100%}
+.seg button{min-height:44px;min-width:44px;padding:0 16px;border:0;border-radius:999px;background:none;cursor:pointer;font-weight:500;transition:background-color .18s,color .18s}
+.seg button:hover{background:#fff}
+.seg button[aria-selected="true"]{background:var(--ink);color:#fff}
+.read{display:flex;flex-direction:column;justify-content:center;gap:10px;flex:1;min-height:0;padding-block:6px}
+.read .tl,.read .trn{margin:0}
+.right{gap:14px}
+.right h2{margin:0;font-size:1.125rem;font-weight:600;letter-spacing:-.02em}
+.right .tabpanel{flex:1;overflow:auto;padding:14px 6px 0 0;scrollbar-width:thin}
+.right .try,.right .note{margin-right:0}
+.below{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,3vw,48px);margin-top:clamp(40px,6vw,72px)}
+.below h2{margin:0 0 12px;font-size:1.375rem;font-weight:600;letter-spacing:-.03em}
+.below .exs{display:grid;gap:10px}
+.below .span{grid-column:1 / -1}
+.key{margin-top:2px}
+.swap-in .read,.swap-in .right>*{animation:in .22s var(--ease) both}
+@media (max-width:1000px){
+  .stage{grid-template-columns:1fr;border-radius:28px}
+  .right .tabpanel{overflow:visible}
+  .below{grid-template-columns:1fr}
+}
+@media (max-width:640px){.stage{padding:10px;border-radius:24px}.pane{padding:12px;border-radius:20px}.top .nm{font-size:3.5rem}.seg{width:100%}.seg button{flex:1;padding:0}}
+</style></head>
+<body>
+<div id="head"></div>
+<main class="wrap" id="main">
+  <ol class="crumbs" aria-label="Breadcrumb"><li><a href="#">Surahs</a></li><li aria-current="page">Al-Ikhlas</li></ol>
+  <header class="top" id="top"></header>
+  <section class="stage" id="stage" aria-label="Study Al-Ikhlas verse by verse">
+    <div class="pane" id="left">
+      <div class="seg" role="tablist" aria-label="Verse" id="seg"></div>
+      <div class="read" id="read"></div>
+      <div class="detail" id="detail" aria-live="polite"></div>
+      <div id="keyrow"></div>
+    </div>
+    <div class="pane right" id="right" role="region" aria-label="Why this verse is written this way"></div>
+  </section>
+  <div class="below" id="below"></div>
+</main>
+<div id="foot"></div>
+<script src="ikhlas-data.js"></script><script src="lib.js"></script>
+<script>
+const U = IKUI, D = U.D, S = D.surah, $ = (s) => document.querySelector(s);
+const RM = matchMedia('(prefers-reduced-motion:reduce)').matches;
+$('#head').innerHTML = U.headerHTML(); $('#foot').innerHTML = U.footHTML();
+$('#top').innerHTML = `<div class="l"><p class="meta" style="margin:0 0 10px"><span class="tag">Surah ${S.number}</span><span class="tag">${S.place}</span><span class="tag">${S.verses} verses, ${U.totalWords} words</span><span class="tag lv">Read after Level ${S.level}</span></p><h1 class="h1">${S.name}</h1><p class="dek">${U.withArabic(S.note)}</p></div><span class="ar nm" lang="ar" dir="rtl">${S.ar}</span>`;
+$('#seg').innerHTML = D.verses.map((v) => `<button role="tab" type="button" data-n="${v.n}" aria-selected="false" aria-controls="read">Verse ${v.n}</button>`).join('');
+$('#keyrow').innerHTML = U.keyHTML();
+let cur = D.verses[0], set;
+function show(n, anim = true) {
+  cur = D.verses.find((v) => v.n === n);
+  document.querySelectorAll('#seg button').forEach((b) => b.setAttribute('aria-selected', String(+b.dataset.n === n)));
+  $('#read').innerHTML = `<div id="words">${U.wordsHTML(cur, 0, true)}</div><p class="tl">${U.esc(cur.tr)}</p><p class="trn">${U.esc(cur.en)}</p>`;
+  set = U.wireWords($('#words'), $('#detail'), () => cur); set(0);
+  rightTab('nahw');
+  history.replaceState(null, '', '#v' + n);
+  if (anim && !RM) { $('#stage').classList.remove('swap-in'); void $('#stage').offsetWidth; $('#stage').classList.add('swap-in'); }
+}
+// The right pane has five tabs so the whole verse fits one screen: the three layers, the worth-knowing note, and the question.
+function rightTab(k) {
+  const tabs = [['nahw', 'Syntax'], ['sarf', 'Word forms'], ['balagha', 'Style']];
+  if (cur.callout) tabs.push(['note', 'Worth knowing']);
+  tabs.push(['try', 'Try it']);
+  const body = k === 'note' ? U.noteHTML(cur.callout) : k === 'try' ? U.quizHTML('bq', cur) : `<div class="prose">${U.md(cur.why[k])}</div>`;
+  $('#right').innerHTML = `<h2>Why it is written this way</h2><div class="tabs" role="tablist" aria-label="Why verse ${cur.n} is written this way">` + tabs.map(([id, n]) => `<button class="tab" role="tab" type="button" id="b-t-${id}" aria-controls="b-p" aria-selected="${id === k}" data-k="${id}">${n}</button>`).join('') + `</div><div class="tabpanel" id="b-p" role="tabpanel" aria-labelledby="b-t-${k}" tabindex="0">${body}</div>`;
+}
+// delegated listeners are set once; they read `cur` at click time
+$('#right').addEventListener('click', (e) => {
+  const t = e.target.closest('.tab'); if (t) { rightTab(t.dataset.k); $('#b-t-' + t.dataset.k).focus(); }
+  const o = e.target.closest('.opt'); if (o) {
+    const ok = +o.dataset.i === cur.quiz.answer;
+    $('#right').querySelectorAll('.opt').forEach((x) => { x.setAttribute('aria-pressed', 'false'); x.classList.remove('right', 'wrong'); x.querySelector('.mark').textContent = ''; });
+    o.setAttribute('aria-pressed', 'true'); o.classList.add(ok ? 'right' : 'wrong'); o.querySelector('.mark').textContent = ok ? 'Correct' : 'Not this one';
+    $('#bq-fb').innerHTML = ok ? U.withArabic(cur.quiz.why) : 'Look at the word again and read its role in the box on the left, then try another answer.';
+  }
+});
+$('#seg').addEventListener('click', (e) => { const b = e.target.closest('button'); if (b) show(+b.dataset.n); });
+$('#seg').addEventListener('keydown', (e) => { if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return; e.preventDefault(); const n = Math.min(4, Math.max(1, cur.n + (e.key === 'ArrowRight' ? 1 : -1))); show(n); document.querySelector(`#seg [data-n="${n}"]`).focus(); });
+$('#below').innerHTML = `<section aria-labelledby="hp"><h2 id="hp">Practice</h2><div class="exs">${U.exercisesHTML()}</div></section>
+  <section aria-labelledby="hw"><h2 id="hw">Words to keep</h2>${U.vocabHTML()}</section>
+  <section class="span" aria-labelledby="hg"><h2 id="hg">Grammar in this surah</h2>${U.summaryHTML()}</section>
+  <section class="span">${U.sourcesHTML()}<nav class="pager" aria-label="Surah navigation"><span></span><a class="next" href="#"><small>Next surah</small><b>Al-Falaq</b></a></nav></section>`;
+show(Math.max(1, Math.min(4, +(location.hash.match(/^#v(\d)$/) || [, 1])[1])), false);
+</script>
+</body></html>
