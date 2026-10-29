@@ -1,23 +1,23 @@
 ---
 import { getCollection, render } from 'astro:content';
-import ResourceLayout from '../../layouts/ResourceLayout.astro';
+import GuideLayout from '../../layouts/GuideLayout.astro';
+import { GUIDES } from '../../data/guide-copy';
 
 export async function getStaticPaths() {
   const resources = await getCollection('resources');
-
-  return resources.map((resource) => ({
-    params: { slug: resource.id },
-    props: { resource },
-  }));
+  // Drift guard, both directions: every guide has its words in guide-copy.ts, and every line there has a guide.
+  for (const r of resources) if (!GUIDES.some((g) => g.id === r.id)) throw new Error(`resources: guide "${r.id}" has no entry in src/data/guide-copy.ts`);
+  for (const g of GUIDES) if (!resources.some((r) => r.id === g.id)) throw new Error(`resources: guide-copy.ts lists "${g.id}", which is not in the collection`);
+  return resources.map((resource) => ({ params: { slug: resource.id }, props: { resource } }));
 }
 
 const { resource } = Astro.props;
 const { Content } = await render(resource);
+const guide = GUIDES.find((g) => g.id === resource.id)!;
+const next = GUIDES[(GUIDES.indexOf(guide) + 1) % GUIDES.length];
+
 ---
 
-<ResourceLayout
-  title={resource.data.title}
-  description={resource.data.description}
->
+<GuideLayout guide={guide} description={resource.data.description ?? guide.dek} next={next}>
   <Content />
-</ResourceLayout>
+</GuideLayout>
