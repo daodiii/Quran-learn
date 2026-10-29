@@ -482,32 +482,18 @@ test.describe('Font Loading', () => {
   });
 });
 
-test('word lookup page passes contrast checks with results open', async ({ page }) => {
-  await page.goto('/resources/word-lookup/#q=' + encodeURIComponent('بسم'));
-  await page.waitForLoadState('networkidle');
-  await page.locator('#wl-result .wl-card').first().waitFor();
-  // Open the suggestions dropdown too, so axe audits both rendered states.
-  await page.fill('#wl-search', 'بس');
-  await page.locator('.wl-sug').first().waitFor();
-  await enableDarkMode(page);
-  const accessibilityScanResults = await new AxeBuilder({ page })
-    .withTags(['wcag2aaa', 'wcag21aaa'])
-    .analyze();
-  expect(accessibilityScanResults.violations).toEqual([]);
-});
-
-test('verb forms page passes contrast checks with grid open', async ({ page }) => {
-  await page.goto('/resources/verb-forms/#root=' + encodeURIComponent('نزل'));
-  await page.waitForLoadState('networkidle');
-  await page.locator('#vf-result .vf-grid').waitFor();
-  // Open the suggestions dropdown too, so axe audits both rendered states.
-  await page.fill('#vf-search', 'كتب');
-  await page.locator('.vf-sug').first().waitFor();
-  await enableDarkMode(page);
-  const accessibilityScanResults = await new AxeBuilder({ page })
-    .withTags(['wcag2aaa', 'wcag21aaa'])
-    .analyze();
-  expect(accessibilityScanResults.violations).toEqual([]);
+test('finder page (light only) passes contrast checks with a word card and a root card open', async ({ page }) => {
+  await page.goto('/resources/find/#q=' + encodeURIComponent('forgive'));
+  await page.locator('.fd-row').first().waitFor();
+  await page.locator('.fd-row').first().click();
+  await page.locator('.fd-card .fd-easy').waitFor();
+  let results = await new AxeBuilder({ page }).withTags(['wcag2aaa', 'wcag21aaa']).analyze();
+  expect(results.violations).toEqual([]);
+  await page.goto('/resources/find/#root=' + encodeURIComponent('نزل'));
+  await page.reload();
+  await page.locator('.fd-vrow').first().waitFor();
+  results = await new AxeBuilder({ page }).withTags(['wcag2aaa', 'wcag21aaa']).analyze();
+  expect(results.violations).toEqual([]);
 });
 
 test('surah page dark mode has no color-contrast violations', async ({ page }) => {

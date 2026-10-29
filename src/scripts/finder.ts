@@ -10,7 +10,8 @@ import { prepareIndex, search } from '../lib/lookup-search';
 import type { Prepared, ArabicResult, LatinResult, KeyRef } from '../lib/lookup-search';
 import { howBuilt, groupByLemma, rootKey } from '../lib/finder-card';
 import type { Row } from '../lib/finder-card';
-import { ROMAN_FORMS } from '../lib/grammar-labels';
+import { ROMAN_FORMS, grammarLine } from '../lib/grammar-labels';
+import { foldLatin } from '../lib/arabic-normalize';
 import * as saved from '../lib/finder-saved';
 
 interface VerbEntry { past: string; present: string | null; translit: string; meaning: string | null; count: number; example: string }
@@ -33,6 +34,7 @@ const ar = (text: string, extra = ''): HTMLElement => h('span', { class: `ar ${e
 
 const $ = <T extends HTMLElement>(id: string) => document.getElementById(id) as T;
 const input = $<HTMLInputElement>('q'), status = $('status'), grid = $('grid'), results = $('results'), card = $('card'), tryRow = $('try');
+const browse = $<HTMLDetailsElement>('browse'), browseBody = $('browse-body');
 const findForm = $('find'), mineBtn = $<HTMLButtonElement>('mine-btn'), minePanel = $('mine');
 
 // ---------- loading ----------
@@ -99,7 +101,8 @@ function formRow(key: string, C: Core, R: Rest): HTMLElement | null {
 // ---------- search ----------
 const isArabic = (q: string) => /[؀-ۿ]/.test(q);
 let seq = 0;
-function showResults() { minePanel.hidden = true; mineBtn.setAttribute('aria-expanded', 'false'); tryRow.hidden = true; card.hidden = true; grid.hidden = false; grid.classList.remove('has-card'); }
+const setHome = (on: boolean) => { tryRow.hidden = !on; browse.hidden = !on; };
+function showResults() { minePanel.hidden = true; mineBtn.setAttribute('aria-expanded', 'false'); setHome(false); card.hidden = true; grid.hidden = false; grid.classList.remove('has-card'); }
 
 async function run(raw: string, { fromHash = false } = {}) {
   const q = raw.trim();
@@ -118,7 +121,16 @@ async function run(raw: string, { fromHash = false } = {}) {
     try { status.textContent = 'Loading words…'; R = await loadRest(); } catch { return; }
     if (mine !== seq) return;
     const r = search(R.WP, q) as ArabicResult;
-    if (r.exact) { const a = r.exact.analyses[0]; status.textContent = ''; void openWord(`${a[3]}|${a[4]}`, r.exact.key); return; }
+    const asRoot = rootFromArabic(q, C, R);
+    if (asRoot) {
+      heading('As a root');
+      results.append(rootRow(asRoot, C, R));
+      if (r.exact) { heading('As a word'); const row = formRow(r.exact.key, C, R); if (row) results.append(row); }
+      status.textContent = r.exact ? '2 results.' : '1 result.';
+      if (!r.exact) void openRoot(asRoot);
+      return;
+    }
+    if (r.exact) { const a0 = r.exact.analyses[0]; status.textContent = ''; void openWord(`${a0[3]}|${a0[4]}`, r.exact.key); return; }
     const list = [...r.suggestions, ...r.didYouMean];
     if (list.length) heading(r.suggestions.length ? 'Words that start like that' : 'Did you mean');
     list.forEach(k => { const row = formRow(k.key, C, R); if (row) results.append(row); });
@@ -140,9 +152,11 @@ async function run(raw: string, { fromHash = false } = {}) {
     const sound = (search(R.WP, q) as LatinResult).sound.slice(0, 6);
     const rows = sound.map((k: KeyRef) => formRow(k.key, C, R)).filter(Boolean) as HTMLElement[];
     results.querySelector('.empty')?.remove();
+    const roots = rootsFromLatin(q, R);
+    if (roots.length) results.prepend(h('p', { class: 'fd-group' }, 'As a root'), ...roots.map(rk => rootRow(rk, C, R)));
     if (rows.length) { heading(concepts.length ? 'Or by sound' : 'By sound'); rows.forEach(r => results.append(r)); }
-    if (!concepts.length && !rows.length) empty();
-    status.textContent = `${concepts.length + rows.length} results.`;
+    if (!concepts.length && !rows.length && !roots.length) empty();
+    status.textContent = `${concepts.length + rows.length + roots.length} results.`;
   }).catch(() => {});
 }
 function heading(t: string) { results.append(h('p', { class: 'fd-group' }, t)); }
@@ -153,7 +167,7 @@ function empty() {
 }
 function clearAll() {
   seq++;
-  tryRow.hidden = false; grid.hidden = true; card.hidden = true; status.textContent = '';
+  setHome(true); grid.hidden = true; card.hidden = true; status.textContent = '';
   history.replaceState(null, '', location.pathname);
 }
 
@@ -175,7 +189,7 @@ function saveButton(key: string): HTMLElement {
 }
 
 function openMine() {
-  grid.hidden = true; tryRow.hidden = true; status.textContent = ''; minePanel.hidden = false; mineBtn.setAttribute('aria-expanded', 'true');
+  grid.hidden = true; setHome(false); status.textContent = ''; minePanel.hidden = false; mineBtn.setAttribute('aria-expanded', 'true');
   history.replaceState(null, '', '#mine');
   void renderMine();
 }
@@ -284,9 +298,11 @@ async function openWord(lk: string, formKey?: string) {
         h('p', { class: 'fd-meta' },
           h('span', { class: 'tag' }, e.kind),
           top ? h('span', {}, `say it: ${top[1]}`) : null,
+          e.r.length ? rootLink(e.r[0]) : null,
           e.check ? h('span', { class: 'tag next', title: 'A reader has not confirmed this meaning yet' }, 'meaning being checked') : null),
         saveButton(lk))));
   if (e.note) card.append(h('p', { class: 'fd-noteline' }, e.note));
+  const roots = e.r.map(rootKey).filter((r, i, all) => all.indexOf(r) === i);
 
   // How each written form is built
   const shown = formKey ? [formKey, ...keys.filter(k => k !== formKey)] : keys;
@@ -294,57 +310,16 @@ async function openWord(lk: string, formKey?: string) {
   shown.slice(0, formKey ? 5 : 6).forEach((k, i) => {
     const analyses = R.WP.data.words[k] as Row[] | undefined;
     if (!analyses) return;
-    const a = analyses[0];
-    const built = howBuilt(a, shortMeaning(e.easy));
-    forms.append(h('div', { class: `fd-form${formKey && i === 0 ? ' is-typed' : ''}` },
-      ar(a[0], 'fd-form-ar'),
-      h('div', { class: 'fd-form-t' },
-        h('div', { class: 'fd-parts' }, ...built.parts.flatMap((p, j) => [
-          j ? h('span', { class: 'fd-plus', 'aria-hidden': 'true' }, '+') : null,
-          h('span', { class: `fd-part fd-${p.role}` }, ar(p.ar), h('small', {}, p.say))])),
-        built.who || built.when
-          ? h('p', { class: 'fd-who' }, [built.who && `who: ${built.who}`, built.when && `when: ${built.when}`].filter(Boolean).join(' · '))
-          : null,
-        h('p', { class: 'fd-say' }, `${a[1]} · ${analyses.reduce((n, x) => n + x[10], 0)}×`))));
+    const typed = !!formKey && i === 0;
+    // A typed form can be read in more than one way: show each reading.
+    if (typed && analyses.length > 1) forms.append(h('p', { class: 'fd-sub' }, `This written form can be read ${Math.min(analyses.length, 4)} ways.`));
+    (typed ? analyses.slice(0, 4) : analyses.slice(0, 1)).forEach((a, j) =>
+      forms.append(formBlock(a, typed ? a[10] : analyses.reduce((n, x) => n + x[10], 0), C, e, typed && j === 0, `${a[3]}|${a[4]}` !== lk)));
   });
   card.append(forms);
-
-  // The family, by root
-  const roots = e.r.map(rootKey).filter((r, i, all) => all.indexOf(r) === i);
-  const kin = roots.flatMap(r => C.byRoot.get(r) ?? []).filter((k, i, all) => k !== lk && all.indexOf(k) === i);
-  if (kin.length) {
-    const fam = h('section', { class: 'fd-sec' },
-      h('h3', {}, 'Same root, same family'),
-      h('p', { class: 'fd-sub' }, 'Words built from the same three letters share one idea. ', ar(e.r[0].split('').join(' '))));
-    for (const kind of KIND_ORDER) {
-      const group = kin.filter(k => C.layer[k].kind === kind).sort((a, b) => C.layer[b].n - C.layer[a].n).slice(0, 5);
-      if (!group.length) continue;
-      const list = h('ul', { class: 'fd-kin' });
-      group.forEach(k => {
-        const b = h('button', { type: 'button', class: 'fd-chipword' }, ar(lemmaOf(k)), h('small', {}, C.layer[k].easy));
-        b.addEventListener('click', () => { void openWord(k).then(() => card.focus()); });
-        list.append(h('li', {}, b));
-      });
-      fam.append(h('p', { class: 'fd-kind' }, kind), list);
-    }
-    card.append(fam);
-  }
-
-  // Verb forms, when the root has verbs
+  card.append(familySection(C, roots, lk, e.r[0] ?? ''));
   const vroot = roots.map(r => R.verbs.get(r)).find(Boolean);
-  if (vroot) {
-    const used = Object.keys(vroot.forms).map(Number).filter(n => n <= 10).sort((a, b) => a - b);
-    const det = h('details', { class: 'fd-sec fd-verbs' }, h('summary', {}, `All verb forms of this root (${used.length} of 10 used in the Quran)`));
-    const table = h('div', { class: 'fd-vtable' });
-    used.forEach(n => (vroot.forms[String(n)] as VerbEntry[]).forEach(v => {
-      table.append(h('div', { class: 'fd-vrow' },
-        h('span', { class: 'fd-vform' }, ROMAN_FORMS[n - 1]),
-        ar(v.present ? `${v.past} · ${v.present}` : v.past, 'fd-var'),
-        h('span', { class: 'fd-vmean' }, v.meaning ?? 'meaning coming soon', h('small', {}, `${v.translit} · ${v.count}×`))));
-    }));
-    det.append(table, h('p', { class: 'fd-sub' }, 'What the forms usually add to the meaning: ', h('a', { href: '/resources/verb-forms-master-reference/' }, 'the verb forms sheet'), '.'));
-    card.append(det);
-  }
+  if (vroot) card.append(verbSection(vroot, false));
 
   // Where to see it, and the small facts last
   const ref = top?.[11]?.[0];
@@ -355,6 +330,186 @@ async function openWord(lk: string, formKey?: string) {
   scrollToCard();
   setHash(lk, formKey);
 }
+
+// ---------- shared pieces of the cards ----------
+const FORMS = [
+  { n: 1, past: 'فَعَلَ', present: 'يَفْعَلُ', shift: 'basic action' },
+  { n: 2, past: 'فَعَّلَ', present: 'يُفَعِّلُ', shift: 'intensify, cause' },
+  { n: 3, past: 'فَاعَلَ', present: 'يُفَاعِلُ', shift: 'do with or toward someone' },
+  { n: 4, past: 'أَفْعَلَ', present: 'يُفْعِلُ', shift: 'cause something' },
+  { n: 5, past: 'تَفَعَّلَ', present: 'يَتَفَعَّلُ', shift: 'reflexive of II' },
+  { n: 6, past: 'تَفَاعَلَ', present: 'يَتَفَاعَلُ', shift: 'mutual, gradual' },
+  { n: 7, past: 'اِنْفَعَلَ', present: 'يَنْفَعِلُ', shift: 'passive result' },
+  { n: 8, past: 'اِفْتَعَلَ', present: 'يَفْتَعِلُ', shift: 'do for oneself' },
+  { n: 9, past: 'اِفْعَلَّ', present: 'يَفْعَلُّ', shift: 'colours and defects' },
+  { n: 10, past: 'اِسْتَفْعَلَ', present: 'يَسْتَفْعِلُ', shift: 'seek, request' },
+];
+const spaced = (root: string) => [...root].join(' ');
+const quran = (ref: string) => `https://quran.com/${ref.replace(':', '/')}`;
+
+function rootLink(root: string): HTMLElement {
+  const b = h('button', { type: 'button', class: 'fd-rootlink' }, 'root ', ar(spaced(root)));
+  b.addEventListener('click', () => { void openRoot(rootKey(root)); });
+  return b;
+}
+
+function formBlock(a: Row, count: number, C: Core, e: LayerEntry, typed: boolean, other: boolean): HTMLElement {
+  const own = C.layer[`${a[3]}|${a[4]}`] ?? e;
+  const built = howBuilt(a, shortMeaning(own.easy));
+  return h('div', { class: `fd-form${typed ? ' is-typed' : ''}` },
+    ar(a[0], 'fd-form-ar'),
+    h('div', { class: 'fd-form-t' },
+      other ? h('p', { class: 'fd-reads' }, 'Read as: ', h('b', {}, own.easy)) : null,
+      h('div', { class: 'fd-parts' }, ...built.parts.flatMap((p, j) => [
+        j ? h('span', { class: 'fd-plus', 'aria-hidden': 'true' }, '+') : null,
+        h('span', { class: `fd-part fd-${p.role}` }, ar(p.ar), h('small', {}, p.say))])),
+      built.who || built.when
+        ? h('p', { class: 'fd-who' }, [built.who && `who: ${built.who}`, built.when && `when: ${built.when}`].filter(Boolean).join(' · '))
+        : null,
+      h('p', { class: 'fd-say' }, `${a[1]} · ${count}×`),
+      h('details', { class: 'fd-gram' },
+        h('summary', {}, 'Grammar details'),
+        h('p', {}, grammarLine(a[4], a[5], a[6])),
+        a[2] ? h('p', {}, 'Root: ', ar(spaced(a[2]))) : null,
+        a[3] ? h('p', {}, 'Base word: ', ar(a[3])) : null)));
+}
+
+// Words that share a root, grouped by kind.
+function familySection(C: Core, roots: string[], exclude: string | null, rootLetters: string): HTMLElement {
+  const kin = roots.flatMap(r => C.byRoot.get(r) ?? []).filter((k, i, all) => k !== exclude && all.indexOf(k) === i);
+  const fam = h('section', { class: 'fd-sec' });
+  if (!kin.length) return fam;
+  fam.append(h('h3', {}, exclude ? 'Same root, same family' : 'The family'),
+    h('p', { class: 'fd-sub' }, 'Words built from the same letters share one idea. ', ar(spaced(rootLetters))));
+  for (const kind of KIND_ORDER) {
+    const group = kin.filter(k => C.layer[k].kind === kind).sort((a, b) => C.layer[b].n - C.layer[a].n).slice(0, exclude ? 5 : 8);
+    if (!group.length) continue;
+    const list = h('ul', { class: 'fd-kin' });
+    group.forEach(k => {
+      const b = h('button', { type: 'button', class: 'fd-chipword' }, ar(lemmaOf(k)), h('small', {}, C.layer[k].easy));
+      b.addEventListener('click', () => { void openWord(k).then(() => card.focus()); });
+      list.append(h('li', {}, b));
+    });
+    fam.append(h('p', { class: 'fd-kind' }, kind), list);
+  }
+  return fam;
+}
+
+// The ten verb forms of a root: used forms with meanings, unused forms greyed, rare forms after.
+function verbSection(vroot: VerbRoot, open: boolean): HTMLElement {
+  const keys = Object.keys(vroot.forms);
+  const usedN = keys.map(Number).filter(n => n >= 1 && n <= 10);
+  const det = h('details', { class: 'fd-sec fd-verbs', ...(open ? { open: '' } : {}) },
+    h('summary', {}, `All verb forms of this root (${usedN.length} of 10 used in the Quran)`));
+  const table = h('div', { class: 'fd-vtable' });
+  const entryRow = (label: string, v: VerbEntry) => h('div', { class: 'fd-vrow' },
+    h('span', { class: 'fd-vform' }, label),
+    ar(v.present ? `${v.past} · ${v.present}` : v.past, 'fd-var'),
+    h('span', { class: 'fd-vmean' }, v.meaning ?? 'meaning coming soon',
+      h('small', {}, `${v.translit} · ${v.count}× · `, h('a', { href: quran(v.example), rel: 'noopener' }, `see ${v.example}`))));
+  for (const f of FORMS) {
+    const list = vroot.forms[String(f.n)] as VerbEntry[] | undefined;
+    if (list?.length) list.forEach(v => table.append(entryRow(ROMAN_FORMS[f.n - 1], v)));
+    else table.append(h('div', { class: 'fd-vrow is-off' },
+      h('span', { class: 'fd-vform' }, ROMAN_FORMS[f.n - 1]),
+      ar(`${f.past} · ${f.present}`, 'fd-var'),
+      h('span', { class: 'fd-vmean' }, 'Not used in the Quran for this root', h('small', {}, f.shift))));
+  }
+  keys.filter(k => Number(k) > 10).forEach(k => (vroot.forms[k] as VerbEntry[]).forEach(v => table.append(entryRow(ROMAN_FORMS[Number(k) - 1] ?? k, v))));
+  det.append(table, h('p', { class: 'fd-sub' }, 'What the forms usually add to the meaning: ', h('a', { href: '/resources/verb-forms-master-reference/' }, 'the verb forms sheet'), '.'));
+  return det;
+}
+
+// ---------- roots ----------
+// Is a typed Arabic string a root (two to four bare letters that some word or verb is built from)?
+function rootFromArabic(q: string, C: Core, R: Rest): string | null {
+  const bare = q.replace(/[ً-ْٰ·\s.\-]/g, '');
+  if (!/^[؀-ۿ]{2,4}$/.test(bare)) return null;
+  const rk = rootKey(bare);
+  return R.verbs.has(rk) || C.byRoot.has(rk) ? rk : null;
+}
+// "nzl", "n-z-l", "k t b": consonants only, compared with each root's letters.
+function rootsFromLatin(q: string, R: Rest): string[] {
+  const f = foldLatin(q);
+  if (f.length < 2 || f.length > 5 || /^[aeiou]+$/.test(f)) return [];
+  const out: string[] = [];
+  for (const [rk, v] of R.verbs) if (foldLatin(v.translit) === f) out.push(rk);
+  return out.slice(0, 3);
+}
+function rootCore(rk: string, C: Core, R: Rest): string {
+  const v = R.verbs.get(rk);
+  if (v) {
+    const all = Object.values(v.forms).flat() as VerbEntry[];
+    const top = all.reduce((a, b) => (b.count > a.count ? b : a), all[0]);
+    if (top?.meaning) return top.meaning;
+  }
+  const keys = [...(C.byRoot.get(rk) ?? [])].sort((a, b) => C.layer[b].n - C.layer[a].n);
+  return keys[0] ? C.layer[keys[0]].easy : '';
+}
+function rootLetters(rk: string, C: Core, R: Rest): string {
+  return R.verbs.get(rk)?.root ?? C.layer[(C.byRoot.get(rk) ?? [])[0]]?.r[0] ?? rk;
+}
+function rootRow(rk: string, C: Core, R: Rest): HTMLElement {
+  const n = (C.byRoot.get(rk) ?? []).length;
+  const b = h('button', { type: 'button', class: 'fd-row' },
+    ar(spaced(rootLetters(rk, C, R)), 'fd-row-ar'),
+    h('span', { class: 'fd-row-t' }, h('b', {}, rootCore(rk, C, R)), h('small', {}, `root · ${n} word${n === 1 ? '' : 's'} in this family`)));
+  b.addEventListener('click', () => { void openRoot(rk); });
+  return b;
+}
+
+async function openRoot(rk: string) {
+  let C: Core, R: Rest;
+  try { C = await loadCore(); R = await loadRest(); } catch { return; }
+  showResults();
+  card.hidden = false; grid.classList.add('has-card'); card.replaceChildren();
+  const back = h('button', { type: 'button', class: 'fd-back' }, '← Back to results');
+  back.addEventListener('click', () => { grid.classList.remove('has-card'); (results.querySelector('button') as HTMLElement | null)?.focus(); });
+  const v = R.verbs.get(rk);
+  const letters = rootLetters(rk, C, R);
+  card.append(back,
+    h('header', { class: 'fd-head' },
+      ar(spaced(letters), 'fd-big'),
+      h('div', {},
+        h('h2', { class: 'fd-easy' }, 'One root, one family of words'),
+        h('p', { class: 'fd-meta' }, h('span', { class: 'tag' }, 'root'), h('span', {}, `main idea: ${rootCore(rk, C, R)}`)))));
+  card.append(familySection(C, [rk], null, letters));
+  if (v) card.append(verbSection(v, true));
+  card.append(h('footer', { class: 'fd-foot' },
+    v ? h('span', {}, `Its verbs appear ${timesText(v.totalCount)} in the Quran.`) : null,
+    h('a', { href: '/about/#feedback' }, 'Report a mistake')));
+  scrollToCard();
+  history.replaceState(null, '', `#root=${encodeURIComponent(letters)}`);
+}
+
+// ---------- browse roots ----------
+let browsed = false;
+const LETTERS = [...'ءبتثجحخدذرزسشصضطظعغفقكلمنهوي'];
+browse.addEventListener('toggle', async () => {
+  if (!browse.open || browsed) return;
+  let R: Rest;
+  try { await loadCore(); R = await loadRest(); } catch { return; }
+  browsed = true;
+  browseBody.replaceChildren();
+  const roots = [...R.verbs.values()];
+  const tri = roots.filter(r => !r.quad), quad = roots.filter(r => r.quad);
+  const chip = (r: VerbRoot, count: boolean) => {
+    const b = h('button', { type: 'button', class: 'chip fd-rootchip' }, ar(spaced(r.root)), count ? h('small', {}, `${r.totalCount}×`) : null);
+    b.addEventListener('click', () => { void openRoot(rootKey(r.root)); });
+    return b;
+  };
+  browseBody.append(h('p', { class: 'fd-group' }, 'Most used roots'),
+    h('div', { class: 'fd-rootchips' }, ...[...tri].sort((a, b) => b.totalCount - a.totalCount).slice(0, 18).map(r => chip(r, true))));
+  browseBody.append(h('p', { class: 'fd-group' }, 'All roots by first letter'));
+  for (const L of LETTERS) {
+    const group = tri.filter(r => r.root.startsWith(L)).sort((a, b) => a.root.localeCompare(b.root, 'ar'));
+    if (!group.length) continue;
+    browseBody.append(h('details', { class: 'fd-letter' }, h('summary', {}, ar(L), h('small', {}, `${group.length} roots`)),
+      h('div', { class: 'fd-rootchips' }, ...group.map(r => chip(r, false)))));
+  }
+  if (quad.length) browseBody.append(h('details', { class: 'fd-letter' }, h('summary', {}, ar('رباعي'), h('small', {}, `four-letter roots · ${quad.length}`)),
+    h('div', { class: 'fd-rootchips' }, ...quad.map(r => chip(r, false)))));
+});
 
 function renderPhrase(lk: string, e: LayerEntry) {
   const ph = e.ph!;
@@ -397,8 +552,9 @@ document.addEventListener('keydown', ev => {
 // A shared link: #q=forgive, #w=<lemma|pos>&f=<written form>, or #mine
 (() => {
   const p = new URLSearchParams(location.hash.slice(1));
-  const q = p.get('q'), w = p.get('w'), f = p.get('f');
+  const q = p.get('q'), w = p.get('w'), f = p.get('f'), root = p.get('root');
   if (q) { input.value = q; findForm.classList.add('has'); void run(q, { fromHash: true }); }
   else if (w) { void openWord(w, f ?? undefined); }
+  else if (root) { void openRoot(rootKey(root)); }
   else if (location.hash === '#mine') openMine();
 })();

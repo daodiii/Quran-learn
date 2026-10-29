@@ -10,6 +10,10 @@ import CookieBanner from '../../../components/CookieBanner.astro';
 import '../../../styles/fonts.css';
 import '../../../styles/learn.css';
 import '../../../styles/finder.css';
+import { readFileSync } from 'node:fs';
+
+const wordMeta = JSON.parse(readFileSync('public/data/word-lookup.json', 'utf8')).meta;
+const verbMeta = JSON.parse(readFileSync('public/data/verb-forms.json', 'utf8')).meta;
 
 const title = 'Find a Word or Verb | Quranic Grammar';
 const description = 'Type any English word, a sound, or Arabic and find the Quranic word: what it means in plain English, how it is built, its root family and its verb forms.';
@@ -58,7 +62,7 @@ const EXAMPLES = ['pray', 'he said', 'sabr', 'they believed', 'bismillah', 'forg
 <main id="main-content" class="wrap fd">
   <p class="crumb"><a href="/resources/">Resources</a><span aria-hidden="true">/</span><span>Find a word</span></p>
   <h1 class="h1">Find a Quranic word</h1>
-  <p class="dek">Type it the way you would say it: an English word or phrase, a sound such as “sabr”, or the Arabic. Spelling mistakes are fine.</p>
+  <p class="dek">Type it the way you would say it: an English word or phrase, a sound such as “sabr”, or the Arabic. Spelling mistakes are fine. All {wordMeta.words.toLocaleString('en-US')} written word forms and {verbMeta.roots} verb roots of the Quran are here.</p>
 
   <div class="fd-bar">
     <form class="find js-only fd-find" role="search" id="find" action="#" onsubmit="return false">
@@ -72,6 +76,7 @@ const EXAMPLES = ['pray', 'he said', 'sabr', 'they believed', 'bismillah', 'forg
   <noscript><p class="fd-note">This tool needs JavaScript. The <a href="/resources/glossary/">glossary</a> and <a href="/resources/200-most-used-words/">200 most used words</a> work without it.</p></noscript>
 
   <p class="fd-try js-only" id="try"><span>Try</span>{EXAMPLES.map((e) => <button type="button" class="chip" data-q={e} lang={/[؀-ۿ]/.test(e) ? 'ar' : undefined} dir={/[؀-ۿ]/.test(e) ? 'rtl' : undefined}>{e}</button>)}</p>
+  <details class="fd-browse js-only" id="browse"><summary>Browse all verb roots</summary><div id="browse-body"></div></details>
   <p class="fd-status" id="status" role="status" aria-live="polite"></p>
 
   <section class="fd-mine" id="mine" aria-label="My words" hidden></section>

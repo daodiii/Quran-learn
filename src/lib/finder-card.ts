@@ -64,6 +64,6 @@ export function groupByLemma(words: Record<string, Row[]>): Map<string, string[]
   return g;
 }
 
-// Root letters compared the way verb-search compares them: hamza carriers collapse.
+// Root letters compared with hamza carriers collapsed: hamza carriers collapse.
 export const rootKey = (s: string): string =>
   s.replace(/[ً-ْٰ]/g, '').replace(/[أإآٱؤئ]/g, 'ء').replace(/[·\s\-]/g, '');
