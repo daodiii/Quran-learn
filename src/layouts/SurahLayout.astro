@@ -1,154 +1,335 @@
 ---
-import BaseLayout from './BaseLayout.astro';
+/**
+ * The surah study page: one calm column, one sheet per verse. Light only and standalone (no BaseLayout), like
+ * /learn and the home page. Each verse shows its words as the interface (tap one for what it is and what it does),
+ * then why it is written this way (Syntax, Word forms, Style), a note, and a question. The end of the page has
+ * practice, vocabulary, the grammar summary and the sources.
+ *
+ * The page is complete HTML without JavaScript: every explanation layer is visible, the first word of each verse
+ * is already explained. src/scripts/surah-study.ts adds the word box, the tabs, the questions, the rail and
+ * "mark studied". The model is built in src/pages/surahs/[...slug].astro from the surah's MDX, the decoder data
+ * and src/data/surah-study.ts.
+ */
 import BreadcrumbSchema from '../components/seo/BreadcrumbSchema.astro';
 import ArticleSchema from '../components/seo/ArticleSchema.astro';
-import Breadcrumbs from '../components/navigation/Breadcrumbs.astro';
-import SurahDecoder from '../components/mdx/lab/SurahDecoder.astro';
-import { getCollection } from 'astro:content';
-import '../styles/night.css';
-import '../styles/lesson-lab.css';
-import '../styles/surah-decoder.css';
+import CookieBanner from '../components/CookieBanner.astro';
+import '../styles/fonts.css';
+import '../styles/surah-study.css';
+import '../styles/surah-study-tools.css';
+import { WORD_TYPES, LENSES, wordSize, md, inline, withArabic, detailHTML, type Callout, type Layer, type Exercise, type StudyWord } from '../lib/surah-study';
 
-interface Props {
-  name: string; nameArabic: string; surahNumber: number; verseCount: number;
-  difficulty?: 'beginner' | 'intermediate' | 'advanced'; revelation?: string;
-  description?: string; headings?: { depth: number; slug: string; text: string }[];
+export interface StudyVerse {
+  n: number;
+  /** Recitation of this verse (everyayah.com, Alafasy), fetched only when played. */
+  audio: string;
+  ar: string;
+  tr: string;
+  en: string;
+  words: StudyWord[];
+  layers: Layer[];
+  callouts: Callout[];
+  quiz?: { word: number; q: string; options: string[]; answer: number; why: string };
 }
-const { name, nameArabic, surahNumber, verseCount, difficulty, revelation, description, headings } = Astro.props;
+export interface SurahModel {
+  slug: string;
+  number: number;
+  name: string;
+  nameArabic: string;
+  description: string;
+  place: string;
+  level: number;
+  /** The reading track's "what to notice" line. */
+  note: string;
+  /** The overview's "Theme" and "Grammar Focus" lines, if the file has them. */
+  theme: string;
+  focus: string;
+  words: number;
+  verses: StudyVerse[];
+  glance: { table: string; notes: Callout[] };
+  /** Only surah 80 has an explanation for the surah as a whole. */
+  surahLayers: Layer[];
+  exercises: Exercise[];
+  vocab: string[][];
+  summary: string;
+  sources: string;
+  prev: { name: string; href: string } | null;
+  next: { name: string; href: string } | null;
+}
+interface Props { m: SurahModel }
+const { m } = Astro.props;
 
-const all = (await getCollection('surahs')).sort((a, b) => a.data.surahNumber - b.data.surahNumber);
-const idx = all.findIndex((s) => s.data.surahNumber === surahNumber);
-const prev = idx > 0 ? all[idx - 1] : null;
-const next = idx >= 0 && idx < all.length - 1 ? all[idx + 1] : null;
-const surahId = all[idx]?.id.replace(/\.mdx?$/, '') ?? '';
-const hrefFor = (e: typeof all[number] | null) => e ? `/surahs/${e.id.replace(/\.mdx?$/, '')}/` : null;
+const title = `Surah ${m.name}: word by word | Quranic Grammar`;
+const canonicalURL = new URL(`/surahs/${m.slug}/`, Astro.site);
+const ogImageURL = new URL('/images/og-default.jpg', Astro.site);
+const crumbs = [{ label: 'Home', href: '/' }, { label: 'Surahs', href: '/surahs/' }, { label: `Surah ${m.name}` }];
 
-const difficultyLabel = difficulty ? `${difficulty.charAt(0).toUpperCase() + difficulty.slice(1)}-level ` : '';
-const surahDescription = description || `${difficultyLabel}word-by-word I'rab and grammatical breakdown of Surah ${name} (${nameArabic}), Surah ${surahNumber} of the Quran. Covers all ${verseCount} verses with Arabic syntax analysis.`;
-const breadcrumbItems = [ { label: 'Home', href: '/' }, { label: 'Surahs', href: '/surahs/' }, { label: `Surah ${name}` } ];
+const many = m.verses.length > 8;
+// Lenses the surah actually uses, with how many words each marks.
+const lensCount = (k: string) => m.verses.reduce((n, v) => n + v.words.filter((w) => w.lens === k).length, 0);
+const lenses = LENSES.map((l) => ({ ...l, count: lensCount(l.key) })).filter((l) => l.count > 0);
 
-const tocHeadings = (headings ?? []).filter((h) => h.depth === 2);
 const stations = [
-  { target: 'surah-brief', pip: '00', label: 'Briefing' },
-  { target: 'surah-decoder', pip: '01', label: "I'rab Decoder" },
-  ...tocHeadings.map((h, i) => ({ target: h.slug, pip: String(i + 2).padStart(2, '0'), label: h.text })),
+  { id: 'reader', label: 'Whole surah', n: '≡', verse: false, first: true },
+  ...m.verses.map((v) => ({ id: `v${v.n}`, label: `Verse ${v.n}`, n: String(v.n), verse: true })),
+  ...(m.surahLayers.length ? [{ id: 'across', label: 'Across the surah', n: '∑', verse: false }] : []),
+  { id: 'practice', label: 'Practice', n: '✎', verse: false },
+  { id: 'words', label: 'Words to keep', n: 'W', verse: false },
+  { id: 'sources', label: 'Sources', n: 'i', verse: false },
 ];
-const fontsHref = "https://fonts.googleapis.com/css2?family=Amiri+Quran&family=Amiri:ital,wght@0,400;0,700;1,400&family=Marcellus&family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&display=swap";
+
+// What the browser script needs: one entry per verse, in word order.
+const clientData = {
+  words: Object.fromEntries(m.verses.map((v) => [v.n, v.words.map((w) => ({ ar: w.ar, tr: w.tr, en: w.en, root: w.root, irab: w.irab, morph: w.morph, cs: w.cs, lens: w.lens, t: w.t, role: w.role, say: w.say }))])),
+  quiz: Object.fromEntries(m.verses.filter((v) => v.quiz).map((v) => [v.n, { answer: v.quiz!.answer, why: v.quiz!.why }])),
+};
+const json = JSON.stringify(clientData).replace(/</g, '\\u003c');
+
+const ICON = {
+  arrow: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>',
+  check: '<svg viewBox="0 0 15 15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8l4 4 7-9"/></svg>',
+};
 ---
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <!-- Google Analytics (GA4) and Ahrefs, queued now and loaded later (same loader as /learn). -->
+  <script is:inline>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-1MSBYYQT5Z');
+    (function () {
+      var started = false, timer;
+      var events = ['pointerdown', 'keydown', 'scroll', 'touchstart'];
+      function start() {
+        if (started) return;
+        started = true;
+        clearTimeout(timer);
+        events.forEach(function (t) { removeEventListener(t, start, true); });
+        var g = document.createElement('script'); g.async = true; g.src = 'https://www.googletagmanager.com/gtag/js?id=G-1MSBYYQT5Z'; document.head.appendChild(g);
+        var a = document.createElement('script'); a.async = true; a.src = 'https://analytics.ahrefs.com/analytics.js'; a.setAttribute('data-key', 'sW/uZfxMauSpqoKnSL6i6g'); document.head.appendChild(a);
+      }
+      events.forEach(function (t) { addEventListener(t, start, { capture: true, passive: true }); });
+      addEventListener('load', function () { timer = setTimeout(start, 5000); });
+    })();
+  </script>
+  <script is:inline>document.documentElement.classList.add('js')</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="description" content={m.description} />
+  <meta name="theme-color" content="#fbfcfd" />
+  <title>{title}</title>
+  <link rel="canonical" href={canonicalURL.href} />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content={canonicalURL.href} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={m.description} />
+  <meta property="og:image" content={ogImageURL.href} />
+  <meta property="og:site_name" content="Quranic Grammar" />
+  <meta property="og:locale" content="en_US" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={m.description} />
+  <meta name="twitter:image" content={ogImageURL.href} />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="alternate" type="application/rss+xml" title="Quranic Grammar RSS" href="/rss.xml" />
+  <link rel="preload" href="/fonts/geist-500.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/geist-400.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/UthmanicHafs.woff2" as="font" type="font/woff2" crossorigin />
+  <BreadcrumbSchema items={crumbs} />
+  <ArticleSchema title={`Surah ${m.name} - Grammatical Breakdown`} description={m.description} url={Astro.url.pathname} />
+</head>
+<body>
+<a href="#main-content" class="skip">Skip to the surah</a>
+<header class="site">
+  <a class="brand" href="/" aria-label="Quranic Grammar, home">
+    <svg viewBox="0 0 32 32" aria-hidden="true"><rect x="1" y="1" width="30" height="30" rx="9" fill="oklch(18% 0.03 240)"/><path d="M9 19h14" stroke="#fff" stroke-width="2" stroke-linecap="round"/><circle cx="16" cy="12" r="2.6" fill="oklch(79% 0.14 72)"/><circle cx="16" cy="24.5" r="1.6" fill="#fff"/></svg>
+    <span>Quranic Grammar</span>
+  </a>
+  <nav aria-label="Primary"><a href="/learn/">Learn</a><a href="/surahs/" aria-current="page">Surahs</a><a href="/resources/">Resources</a><a href="/about/">About</a></nav>
+  <details class="menu">
+    <summary aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></summary>
+    <div class="menu-panel"><a href="/learn/">Learn</a><a href="/surahs/" aria-current="page">Surahs</a><a href="/resources/">Resources</a><a href="/about/">About and feedback</a></div>
+  </details>
+</header>
 
-<BaseLayout title={`Surah ${name}`} description={surahDescription} type="article">
-  <Fragment slot="head">
-    <BreadcrumbSchema items={breadcrumbItems} />
-    <ArticleSchema title={`Surah ${name} - Grammatical Breakdown`} description={surahDescription} url={Astro.url.pathname} />
+<main class="wrap" id="main-content">
+  <ol class="crumbs" aria-label="Breadcrumb"><li><a href="/surahs/">Surahs</a></li><li aria-current="page">{m.name}</li></ol>
 
-    <!--
-      Surah pages are always the Anatomy Lab (always-night), regardless of
-      the visitor's site-wide theme preference. This never touches
-      localStorage — leaving the rest of the site on the reader's choice —
-      and re-forces on Astro's page-load/after-swap events in case view
-      transitions land here from a themed page mid-transition.
-    -->
-    <script is:inline>
-      (function () {
-        document.documentElement.dataset.theme = 'dark';
-        document.addEventListener('astro:page-load', function () { document.documentElement.dataset.theme = 'dark'; });
-        document.addEventListener('astro:after-swap', function () { document.documentElement.dataset.theme = 'dark'; });
-      })();
-    </script>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="stylesheet" href={fontsHref} media="print" onload="this.media='all'" />
-    <noscript><link rel="stylesheet" href={fontsHref} /></noscript>
-  </Fragment>
+  <header class="top">
+    <div>
+      <p class="tags"><span class="tag">Surah {m.number}</span><span class="tag">{m.place}</span><span class="tag">{m.verses.length} verses, {m.words} words</span><span class="tag lv">Read after Level {m.level}</span></p>
+      <h1 class="h1"><span class="vh">Surah </span>{m.name}</h1>
+      <p class="dek"><b>What to notice.</b> <Fragment set:html={withArabic(m.note)} /></p>
+      {m.theme && <p class="theme"><b>Theme.</b> <Fragment set:html={inline(m.theme)} /></p>}
+      {m.focus && <p class="theme"><b>Grammar focus.</b> <Fragment set:html={inline(m.focus)} /></p>}
+    </div>
+    <span class="ar nm" lang="ar" dir="rtl">{m.nameArabic}</span>
+  </header>
 
-  <div class="lesson-page">
-    <div class="lesson-grid lab">
-      <main class="lesson-main">
-        <Breadcrumbs items={breadcrumbItems} />
+  <div class={`body${many ? ' many' : ''}`}>
+    <nav class="nav" id="nav" aria-label="On this page">
+      <p class="h">On this page</p>
+      {stations.filter((s) => s.first).map((s) => <a href={`#${s.id}`} data-id={s.id} aria-current="true"><span class="n" aria-hidden="true">{s.n}</span>{s.label}</a>)}
+      {many ? (
+        <div class="many">{stations.filter((s) => s.verse).map((s) => <a href={`#${s.id}`} data-id={s.id} aria-label={s.label}>{s.n}</a>)}</div>
+      ) : stations.filter((s) => s.verse).map((s) => <a href={`#${s.id}`} data-id={s.id}><span class="n" aria-hidden="true">{s.n}</span>{s.label}</a>)}
+      {stations.filter((s) => !s.verse && !s.first).map((s) => <a href={`#${s.id}`} data-id={s.id}><span class="n" aria-hidden="true">{s.n}</span>{s.label}</a>)}
+      <ul class="key" aria-label="Word types">
+        {Object.entries(WORD_TYPES).map(([k, t]) => <li class={k} style={`--c:var(--${k})`}><b>{t.label}</b></li>)}
+        <li class="kw"><b>Key word</b></li>
+      </ul>
+      <div class="prog js-only"><span id="prog-text">Reading position 0%</span><i aria-hidden="true"><s id="prog-fill"></s></i></div>
+    </nav>
 
-        <div class="lab-body">
-          <aside class="rail" data-lesson-toc aria-label="Surah stations">
-            <p class="r-head">Surah {surahNumber} · {verseCount} verses<b>Surah {name}</b></p>
-            {stations.map((s, i) => (
-              <a class="station" href={`#${s.target}`} data-station-target={s.target} aria-current={i === 0 ? 'location' : undefined}>
-                <span class="pip">{s.pip}</span>{s.label}
-              </a>
-            ))}
-            <div class="r-stat">
-              Progress <b data-rail-pct>0%</b>
-              <span class="r-bar"><i data-rail-fill></i></span>
-              Words decoded <b data-rail-touch>0</b>
-            </div>
-          </aside>
-
-          <article class="lesson-article">
-            <header class="lesson-header" id="surah-brief">
-              <p class="sess">
-                <span class="level-badge">Surah {surahNumber}</span>
-                {revelation && <span class="lesson-position" style="text-transform:capitalize">{revelation}</span>}
-                <span class="lesson-position">{verseCount} verses</span>
-              </p>
-              <h1 class="lesson-title">Surah {name}</h1>
-              <p class="lesson-arabic" lang="ar" dir="rtl">{nameArabic}</p>
-              {description && <p class="lesson-description">{description}</p>}
-            </header>
-
-            <div id="surah-decoder" style="scroll-margin-top:6.5rem">
-              <SurahDecoder surahId={surahId} />
-            </div>
-
-            <div class="lesson-content">
-              <slot />
-            </div>
-
-            <div class="debrief">
-              <div class="complete-section" id="complete-section" data-lesson-slug={`surah/${surahId}`} data-reveal>
-                <button id="complete-btn" class="done-btn">
-                  <svg viewBox="0 0 15 15" aria-hidden="true"><path d="M2 8l4 4 7-9" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                  <span id="complete-btn-text">Mark surah studied</span>
-                </button>
-                <p id="complete-status" class="complete-status done-btn done" style="display:none;">
-                  <svg viewBox="0 0 15 15" aria-hidden="true"><path d="M2 8l4 4 7-9" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                  Studied — signed off
-                </p>
-              </div>
-            </div>
-
-            <nav class="pager" aria-label="Surah navigation">
-              {prev ? (
-                <a href={hrefFor(prev)} class="page-link prev"><span class="dir">&larr; Previous</span><span class="pt">Surah {prev.data.name}</span></a>
-              ) : <div></div>}
-              {next ? (
-                <a href={hrefFor(next)} class="page-link next"><span class="dir">Next &rarr;</span><span class="pt">Surah {next.data.name}</span></a>
-              ) : <div></div>}
-            </nav>
-          </article>
+    <div class="col" id="col">
+      <section class="sec first" id="reader" aria-labelledby="h-reader">
+        <h2 id="h-reader">The whole surah</h2>
+        <p class="lead js-only">Read it as one text. Pick a lens to mark every word of one kind, or tap a word to see what it is.</p>
+        <div class="lens js-only" role="group" aria-label="Lens: mark one kind of word across the whole surah">
+          <button class="chip" type="button" data-pick="all" aria-pressed="true">All words</button>
+          {lenses.map((l) => <button class="chip" type="button" data-pick={l.key} aria-pressed="false">{l.label} <span class="k ar" lang="ar" aria-hidden="true">{l.ar}</span> <span class="ct">{l.count}</span></button>)}
         </div>
-      </main>
+        <p class="lens-def js-only" id="lens-def" aria-live="polite" data-defs={JSON.stringify(Object.fromEntries(lenses.map((l) => [l.key, `${l.def} ${l.count} ${l.count === 1 ? 'word' : 'words'} in this surah.`])))}></p>
+        <div class="tools js-only">
+          <button class="chip" type="button" id="hide-mean" aria-pressed="false">Hide meanings</button>
+          <button class="chip" type="button" id="play-all" aria-pressed="false">Listen to the whole surah</button>
+        </div>
+        <div class="reader" id="reader-text" lang="ar" dir="rtl" tabindex="0" role="group" aria-label={`Surah ${m.name}, all ${m.verses.length} verses`}>
+          {m.verses.map((v) => (
+            <>
+              {v.words.map((w, i) => <button class={`rw ${w.t}`} type="button" tabindex="-1" data-v={v.n} data-i={i} data-lens={w.lens} aria-pressed="false" aria-label={`Verse ${v.n}: ${w.tr}, ${w.en}`}><bdi class="q">{w.ar}</bdi></button>)}
+              <a class="vno" href={`#v${v.n}`} aria-label={`Go to verse ${v.n}`}>{v.n}</a>{' '}
+            </>
+          ))}
+        </div>
+        <div class="detail js-only" id="reader-detail" aria-live="polite"><p class="say">Tap a word above to see its breakdown here.</p></div>
+      </section>
+
+      {m.verses.map((v) => {
+        const size = wordSize(v.words.length);
+        return (
+          <section class="vs" id={`v${v.n}`} aria-labelledby={`h${v.n}`} data-verse={v.n}>
+            <div class="vh-row">
+              <h2 id={`h${v.n}`}>Verse {v.n} <small>of {m.verses.length}</small></h2>
+              <button class="ayah-play js-only" type="button" data-audio-src={v.audio} aria-label={`Play recitation of verse ${v.n}`}>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg><span class="ayah-play-label">Listen</span>
+              </button>
+            </div>
+            <div class="sheet"><div class="in">
+              <div class="verse" role="group" aria-label={`Words of verse ${v.n}`} style={`--wfs:${size.size}rem;--wmin:${size.min}px`}>
+                {v.words.map((w, i) => (
+                  <button class={`w ${w.t}${w.key ? ' key' : ''}`} type="button" data-i={i} data-lens={w.lens} aria-pressed={i === 0 ? 'true' : 'false'} aria-label={`${w.tr}, ${w.en}, ${WORD_TYPES[w.t].label.toLowerCase()}${w.key ? ', key grammar word of this verse' : ''}`}>
+                    <span class="q wa" lang="ar" dir="rtl">{w.ar}</span><span class="wg">{w.en}</span><span class="wl">{WORD_TYPES[w.t].label}</span>
+                  </button>
+                ))}
+              </div>
+              <p class="tl">{v.tr}</p><p class="trn">{v.en}</p>
+              <div class={`detail ${v.words[0].t}`} aria-live="polite" data-detail set:html={detailHTML(v.words[0])} />
+            </div></div>
+            <details class="ex wt">
+              <summary><span>Every word of verse {v.n} in a table</span></summary>
+              <div class="ans"><div class="tbl" tabindex="0" role="region" aria-label="Every word of this verse, scrolls sideways on a small screen"><table class="vocab">
+                <thead><tr><th>#</th><th>Word</th><th>Say it</th><th>Root</th><th>Word form</th><th>Grammar</th><th>Meaning</th></tr></thead>
+                <tbody>{v.words.map((w, i) => <tr><td>{i + 1}</td><td class="q" lang="ar" dir="rtl">{w.ar}</td><td>{w.tr}</td><td class="ar" lang="ar" dir="rtl">{w.root === '-' ? '' : w.root}</td><td>{w.morph}</td><td set:html={withArabic(w.irab)} /><td>{w.en}</td></tr>)}</tbody>
+              </table></div></div>
+            </details>
+            {(v.layers.length > 0 || v.callouts.length > 0 || v.quiz) && (
+              <div class="why">
+                <h3>Why it is written this way</h3>
+                {v.layers.length > 1 && (
+                  <div class="tabs js-only" role="tablist" aria-label={`Why verse ${v.n} is written this way`}>
+                    {v.layers.map((l, i) => <button class="tab" role="tab" type="button" id={`t${v.n}-${l.key}`} aria-controls={`p${v.n}-${l.key}`} aria-selected={i === 0 ? 'true' : 'false'} data-key={l.key}>{l.label}</button>)}
+                  </div>
+                )}
+                <div class="layers">
+                  {v.layers.map((l, i) => (
+                    <div class="layer prose" id={`p${v.n}-${l.key}`} role={v.layers.length > 1 ? 'tabpanel' : undefined} aria-labelledby={v.layers.length > 1 ? `t${v.n}-${l.key}` : undefined} data-key={l.key} data-off={i === 0 ? undefined : ''}>
+                      <h4 class="layer-h">{l.label}</h4>
+                      <Fragment set:html={md(l.body)} />
+                    </div>
+                  ))}
+                </div>
+                {v.callouts.map((c) => <div class="note"><h3 set:html={withArabic(c.title)} /><div class="prose" set:html={md(c.body)} /></div>)}
+                {v.quiz && (
+                  <div class="try js-only" data-quiz>
+                    <h3>Try it</h3>
+                    <p class="qq" id={`q${v.n}`} set:html={withArabic(v.quiz.q)} />
+                    <div class="opts" role="group" aria-labelledby={`q${v.n}`}>
+                      {v.quiz.options.map((o, i) => <button class="opt" type="button" data-i={i} aria-pressed="false"><span set:html={withArabic(o)} /><span class="mark" aria-hidden="true"></span></button>)}
+                    </div>
+                    <p class="fb" aria-live="polite"></p>
+                  </div>
+                )}
+              </div>
+            )}
+          </section>
+        );
+      })}
+
+      {m.surahLayers.length > 0 && (
+        <section class="sec" id="across" aria-labelledby="h-across">
+          <h2 id="h-across">Across the surah</h2>
+          <div class="prose">{m.surahLayers.map((l) => <><h3>{l.label}</h3><Fragment set:html={md(l.body)} /></>)}</div>
+        </section>
+      )}
+
+      <section class="sec" id="practice" aria-labelledby="h-practice">
+        <h2 id="h-practice">Practice</h2>
+        <p class="lead">Questions that use the whole surah. Answers open when you want them.</p>
+        <div class="exs">
+          {m.exercises.map((x) => <details class="ex"><summary><span set:html={withArabic(x.q)} /></summary><div class="ans prose" set:html={md(x.a)} /></details>)}
+        </div>
+      </section>
+
+      <section class="sec" id="words" aria-labelledby="h-words">
+        <h2 id="h-words">Words to keep</h2>
+        <div class="tbl" tabindex="0" role="region" aria-label="Table, scrolls sideways on a small screen">
+          <table class="vocab">
+            <thead><tr><th>Word</th><th>Root</th><th>Pattern</th><th>Meaning</th><th>How often</th></tr></thead>
+            <tbody>{m.vocab.map((r) => <tr><td class="q" lang="ar" dir="rtl">{r[0]}</td><td class="ar" lang="ar" dir="rtl">{r[1] === '-' ? '' : r[1]}</td><td set:html={r[2] === '-' ? '' : withArabic(r[2])} /><td>{r[3]}</td><td>{r[4] ?? ''}</td></tr>)}</tbody>
+          </table>
+        </div>
+        <h3>Grammar in this surah</h3>
+        <div class="sum"><div class="prose" set:html={md(m.summary)} /></div>
+        <h3>The surah at a glance</h3>
+        <details class="ex">
+          <summary><span>Every verse, its sentence type and its message</span></summary>
+          <div class="ans prose"><Fragment set:html={md(m.glance.table)} />{m.glance.notes.map((c) => <div class="note"><h3 set:html={withArabic(c.title)} /><div class="prose" set:html={md(c.body)} /></div>)}</div>
+        </details>
+      </section>
+
+      <section class="sec" id="sources" aria-labelledby="h-sources">
+        <h2 id="h-sources" class="vh">Sources</h2>
+        <div class="sources">
+          <h2>Where this comes from</h2>
+          {m.sources
+            ? <div class="prose" set:html={md(m.sources)} />
+            : <p>Words and roots are from the <a href="https://corpus.quran.com/">Quranic Arabic Corpus</a>. The explanations on this page have not yet been checked against a classical i'rab book. Found a mistake? <a href="/about/#feedback">Tell us</a>.</p>}
+        </div>
+        <div class="complete" id="complete-section" data-lesson-slug={`surah/${m.slug}`}>
+          <button id="complete-btn" class="btn" type="button"><Fragment set:html={ICON.check} /><span id="complete-btn-text">Mark surah studied</span></button>
+          <p id="complete-status" class="done" hidden><Fragment set:html={ICON.check} /> Studied, signed off</p>
+        </div>
+        <nav class="pager" aria-label="Surah navigation">
+          {m.prev ? <a class="prev" href={m.prev.href}><small>Previous surah</small><b>{m.prev.name}</b></a> : <span></span>}
+          {m.next ? <a class="next" href={m.next.href}><small>Next surah</small><b>{m.next.name}</b></a> : <span></span>}
+        </nav>
+      </section>
     </div>
   </div>
-</BaseLayout>
+</main>
 
+<footer class="foot">
+  <div class="in">
+    <nav aria-label="Footer"><a href="/learn/">Learn</a><a href="/surahs/">Surahs</a><a href="/resources/">Resources</a><a href="/about/">About and feedback</a><a href="/rss.xml">RSS</a></nav>
+    <p>Word data from the <a href="https://corpus.quran.com/">Quranic Arabic Corpus</a> (Kais Dukes, GPL). Quran text after <a href="https://tanzil.net/">Tanzil</a>. English meanings on this site are our own plain-English wording, not a translation.</p>
+  </div>
+</footer>
+<CookieBanner tone="light" />
+<script id="study-data" type="application/json" is:inline set:html={json} />
 <script>
-  import { markLessonComplete, isLessonComplete } from '../lib/progress';
-  async function initCompleteButton() {
-    const section = document.getElementById('complete-section');
-    const btn = document.getElementById('complete-btn') as HTMLButtonElement;
-    const btnText = document.getElementById('complete-btn-text');
-    const status = document.getElementById('complete-status');
-    if (!section || !btn || !btnText || !status) return;
-    const slug = section.dataset.lessonSlug || '';
-    if (await isLessonComplete(slug)) { btn.style.display = 'none'; status.style.display = 'inline-flex'; return; }
-    btn.addEventListener('click', async () => {
-      btn.disabled = true; btnText.textContent = 'Saving…';
-      if (await markLessonComplete(slug)) { btn.style.display = 'none'; status.style.display = 'inline-flex'; }
-      else { btn.disabled = false; btnText.textContent = 'Mark surah studied'; }
-    });
-  }
-  initCompleteButton();
-  document.addEventListener('astro:page-load', initCompleteButton);
+  import '../scripts/surah-study-tools';
 </script>
-
-<script>
-  import '../scripts/lab-lesson';
-</script>
+</body>
+</html>

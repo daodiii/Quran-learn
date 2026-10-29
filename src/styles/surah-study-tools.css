@@ -1,0 +1,66 @@
+/* Surah study page: lenses, the whole-surah reader, listening and the word table. Loaded after surah-study.css. */
+:root{--dim:oklch(46% 0.01 230)}
+.sec.first{margin-top:0}
+.chip{min-height:44px;padding:0 14px;border-radius:999px;border:1.5px solid var(--edge);background:#fff;cursor:pointer;font-size:.9375rem;font-weight:500;transition:background-color .2s,border-color .2s,color .2s,transform .15s}
+.chip:hover{border-color:var(--accent)}.chip:active{transform:scale(.97)}
+.chip[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
+.chip .k{font-size:1.15em;line-height:1;margin-left:4px}
+.chip .ct{margin-left:6px;font-size:.8125rem;font-weight:400;font-variant-numeric:tabular-nums}
+.lens,.tools{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 12px}
+.lens-def{margin:0 0 14px;min-height:3.1em;max-width:62ch;color:var(--text);font-size:.9375rem}
+.reader{direction:rtl;text-align:center;max-height:clamp(300px,46vh,520px);overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin;padding:clamp(16px,2.4vw,28px);border-radius:24px;background:#fff;box-shadow:var(--shadow),inset 0 0 0 1px var(--edge);line-height:2.5}
+.rw{display:inline;padding:.02em .1em;border:0;border-radius:10px;background:none;cursor:pointer;color:var(--c,var(--ink));font-size:clamp(1.75rem,1.2rem + 1.6vw,2.4rem);line-height:inherit}
+html:not(.js) .rw{cursor:default}
+.rw:hover{background:var(--soft)}
+.rw[aria-pressed="true"]{box-shadow:inset 0 0 0 2px var(--ink);background:var(--soft)}
+.vno{position:relative;display:inline-grid;place-items:center;min-width:30px;height:30px;margin-inline:2px;border-radius:50%;box-shadow:inset 0 0 0 1.5px var(--line-2);font:500 .8125rem/1 var(--font);color:var(--muted);text-decoration:none;direction:ltr;vertical-align:middle}
+.vno::before{content:"";position:absolute;inset:-7px}
+.vno:hover{background:var(--soft);color:var(--ink)}
+#reader-detail{margin-top:12px}
+.detail .goto{font-size:.9375rem}.detail .goto a{font-weight:500}
+.detail .case{display:inline-flex;align-items:center;min-height:24px;padding:0 9px;border-radius:999px;background:#fff;box-shadow:inset 0 0 0 1px var(--edge);font-size:.8125rem;font-weight:500}
+
+/* a lens marks one kind of word and greys the rest; grey keeps its contrast, it only drops the colour */
+.col[data-pick="particle"] :is(.w,.rw):not([data-lens="particle"]),
+.col[data-pick="gen"] :is(.w,.rw):not([data-lens="gen"]),
+.col[data-pick="acc"] :is(.w,.rw):not([data-lens="acc"]),
+.col[data-pick="nom"] :is(.w,.rw):not([data-lens="nom"]),
+.col[data-pick="verb"] :is(.w,.rw):not([data-lens="verb"]){--c:var(--dim)}
+.col[data-pick="particle"] .rw[data-lens="particle"],
+.col[data-pick="gen"] .rw[data-lens="gen"],
+.col[data-pick="acc"] .rw[data-lens="acc"],
+.col[data-pick="nom"] .rw[data-lens="nom"],
+.col[data-pick="verb"] .rw[data-lens="verb"]{color:var(--c);background:var(--t);box-shadow:inset 0 0 0 1.5px var(--c)}
+.col[data-pick="particle"] .w[data-lens="particle"],
+.col[data-pick="gen"] .w[data-lens="gen"],
+.col[data-pick="acc"] .w[data-lens="acc"],
+.col[data-pick="nom"] .w[data-lens="nom"],
+.col[data-pick="verb"] .w[data-lens="verb"]{background:var(--t);box-shadow:inset 0 0 0 1.5px var(--c)}
+.col[data-pick] .rw[aria-pressed="true"]{box-shadow:inset 0 0 0 2px var(--ink)}
+
+/* the verse's key grammar word, and practice with the meanings hidden */
+.w.key .wa{text-decoration:underline dotted;text-decoration-thickness:3px;text-underline-offset:.22em;text-decoration-color:var(--accent-2-text)}
+.key li.kw::before{width:16px;height:0;border-radius:0;background:none;border-bottom:3px dotted var(--accent-2-text);align-self:flex-end;margin-bottom:5px}
+.key li.kw b{color:var(--text)}
+.col.nomean .w .wg,.col.nomean .trn{visibility:hidden}
+
+/* listening */
+.vh-row{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px}
+.vh-row h2{margin:0}
+.ayah-play{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 16px;border-radius:999px;border:1.5px solid var(--edge);background:#fff;cursor:pointer;font-size:.9375rem;font-weight:500;transition:background-color .2s,border-color .2s}
+.ayah-play:hover{border-color:var(--accent)}
+.ayah-play.playing{background:var(--teal-tint);border-color:var(--accent);color:var(--accent)}
+.ayah-play.unavailable{opacity:.6;cursor:default}
+.vs.playing .sheet{box-shadow:0 0 0 3px var(--accent)}
+
+/* the word table under each verse */
+details.wt{margin-top:12px}
+.wt .vocab td:first-child{font-size:inherit;line-height:inherit}
+.wt .vocab td.q{font-size:1.5rem;line-height:1.4;white-space:nowrap}
+.wt .ans{padding-top:0}
+
+.nav .prog{margin:12px 8px 4px;font-size:.8125rem;color:var(--muted)}
+.prog i{display:block;height:4px;margin-top:6px;border-radius:2px;background:var(--soft-2);overflow:hidden}
+.prog s{display:block;height:100%;width:var(--p,0%);background:var(--accent)}
+@media (max-width:1000px){.nav .prog{display:none}}
+@media (max-width:640px){.vh-row{flex-wrap:wrap}.ayah-play{min-width:44px}.reader{line-height:2.4;padding:14px 10px}.rw{font-size:2.1rem}}
