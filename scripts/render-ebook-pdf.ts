@@ -28,6 +28,7 @@ interface EbookTarget {
   slug: string;          // route slug under /ebooks/
   pdfName: string;       // output filename in dist/ebooks/
   listingPrefix: string; // prefix for listing PNGs
+  kind?: 'hadith';       // flowing-page book: numbers its own TOC, no listing images, free download copy
 }
 
 const EBOOKS: EbookTarget[] = [
@@ -41,7 +42,16 @@ const EBOOKS: EbookTarget[] = [
     pdfName: 'reference-companion.pdf',
     listingPrefix: 'reference-companion-listing',
   },
+  {
+    slug: 'forty-hadith',
+    pdfName: 'forty-hadith.pdf',
+    listingPrefix: '',
+    kind: 'hadith',
+  },
 ];
+
+// The free hadith PDF is committed here so the deployed site can serve it.
+const DOWNLOADS_DIR = path.resolve(__dirname, '..', 'public', 'downloads');
 
 // ---------- mini static file server ----------
 async function startServer(): Promise<{ close: () => void }> {
@@ -56,7 +66,7 @@ async function startServer(): Promise<{ close: () => void }> {
     '.json': 'application/json',
   };
   const server = createServer(async (req, res) => {
-    let url = req.url || '/';
+    let url = (req.url || '/').split('?')[0];
     if (url.endsWith('/')) url += 'index.html';
     const filePath = path.join(DIST, decodeURIComponent(url));
     try {
@@ -148,6 +158,78 @@ async function renderPdf(page: Page, target: EbookTarget) {
   console.log(`PDF written: ${out}`);
 }
 
+const PDF_OPTIONS = {
+  width: '5.5in',
+  height: '8.5in',
+  printBackground: true,
+  preferCSSPageSize: true,
+  margin: { top: 0, right: 0, bottom: 0, left: 0 },
+} as const;
+
+/** Counts pages in a Chromium-written PDF (its page objects are plain, uncompressed dictionaries). */
+function countPdfPages(pdf: Buffer): number {
+  return (pdf.toString('latin1').match(/\/Type\s*\/Page(?![s\w])/g) ?? []).length;
+}
+
+/**
+ * The hadith book flows across pages, so a chapter's page is not its position divided by
+ * the page height. Instead: render every unit (cover, about, contents, each hadith, back)
+ * on its own, count its pages, and add them up to get each hadith's first page. Each unit
+ * starts on a fresh page, so the counts add up exactly; the final PDF is checked against the sum.
+ */
+async function renderHadithPdf(page: Page, target: EbookTarget) {
+  const base = `http://localhost:${PORT}/ebooks/${target.slug}/`;
+  await page.emulateMedia({ media: 'print' });
+  await page.goto(base, { waitUntil: 'networkidle' });
+  await page.evaluate(() => document.fonts.ready);
+  const units: string[] = await page.evaluate(() =>
+    Array.from(document.querySelectorAll('[data-unit]')).map((el) => el.getAttribute('data-unit') as string),
+  );
+
+  const pageCounts: Record<string, number> = {};
+  for (const unit of units) {
+    await page.goto(`${base}?only=${unit}`, { waitUntil: 'networkidle' });
+    await page.evaluate(() => document.fonts.ready);
+    pageCounts[unit] = countPdfPages(await page.pdf(PDF_OPTIONS));
+  }
+
+  const firstPage: Record<string, number> = {};
+  let next = 1;
+  for (const unit of units) {
+    firstPage[unit] = next;
+    next += pageCounts[unit];
+  }
+  const expectedTotal = next - 1;
+  console.log(`Counted ${units.length} units, ${expectedTotal} pages expected for ${target.slug}`);
+  console.log('Pages per unit:', units.map((u) => `${u}=${pageCounts[u]}`).join(' '));
+
+  await page.goto(base, { waitUntil: 'networkidle' });
+  await page.evaluate(() => document.fonts.ready);
+  const filled = await page.evaluate((map) => {
+    let n = 0;
+    document.querySelectorAll('[data-toc-page-for]').forEach((slot) => {
+      const num = map[slot.getAttribute('data-toc-page-for') ?? ''];
+      if (num != null) {
+        slot.textContent = String(num);
+        n += 1;
+      }
+    });
+    return n;
+  }, firstPage);
+  if (filled !== 42) throw new Error(`Expected 42 contents entries to get a page number, filled ${filled}`);
+
+  const pdf = await page.pdf(PDF_OPTIONS);
+  const total = countPdfPages(pdf);
+  if (total !== expectedTotal) {
+    throw new Error(`Page numbers in the contents are wrong: the PDF has ${total} pages, the units add up to ${expectedTotal}`);
+  }
+
+  await fs.mkdir(DOWNLOADS_DIR, { recursive: true });
+  await fs.writeFile(path.join(OUT_DIR, target.pdfName), pdf);
+  await fs.writeFile(path.join(DOWNLOADS_DIR, target.pdfName), pdf);
+  console.log(`PDF written: ${path.join(OUT_DIR, target.pdfName)} and public/downloads/${target.pdfName} (${total} pages, ${(pdf.length / 1048576).toFixed(1)} MB)`);
+}
+
 async function renderListingImages(page: Page, target: EbookTarget) {
   const sizes = [
     { suffix: 'cover',    out: `${target.listingPrefix}-cover.png`,    width: 1600, height: 2400 },
@@ -190,6 +272,10 @@ async function main() {
     const page = await browser.newPage();
     for (const t of targets) {
       console.log(`\n=== Rendering: ${t.slug} ===`);
+      if (t.kind === 'hadith') {
+        await renderHadithPdf(page, t);
+        continue; // no listing images: the hadith book is a free download, not a shop listing
+      }
       if (t.slug === 'sampler') {
         await renderPdf(page, t);
       } else {

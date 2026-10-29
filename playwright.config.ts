@@ -1,5 +1,9 @@
 import { defineConfig, devices } from '@playwright/test';
 
+// Set PLAYWRIGHT_PORT to test this checkout on its own port. Another session may already
+// be serving a different build on 4321, and reuseExistingServer would silently test that.
+const PORT = process.env.PLAYWRIGHT_PORT ?? '4321';
+
 export default defineConfig({
   testDir: './tests',
   fullyParallel: true,
@@ -8,7 +12,7 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,
   reporter: 'html',
   use: {
-    baseURL: 'http://localhost:4321',
+    baseURL: `http://localhost:${PORT}`,
     trace: 'on-first-retry',
   },
   projects: [
@@ -20,8 +24,8 @@ export default defineConfig({
     },
   ],
   webServer: {
-    command: 'npm run preview',
-    url: 'http://localhost:4321',
+    command: `npm run preview -- --port ${PORT}`,
+    url: `http://localhost:${PORT}`,
     reuseExistingServer: !process.env.CI,
   },
 });

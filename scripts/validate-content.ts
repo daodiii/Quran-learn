@@ -115,12 +115,14 @@ function validateFile(filepath: string): ValidationResult {
 function validateContent() {
   const lessonsDir = join(__dirname, '..', 'src', 'content', 'lessons');
   const resourcesDir = join(__dirname, '..', 'src', 'content', 'resources');
+  const hadithDir = join(__dirname, '..', 'src', 'content', 'hadith');
 
-  console.log('🔍 Validating lesson and resource content...\n');
+  console.log('🔍 Validating lesson, resource and hadith content...\n');
 
   const lessonFiles = findMdxFiles(lessonsDir);
   const resourceFiles = findMdxFiles(resourcesDir);
-  const mdxFiles = [...lessonFiles, ...resourceFiles];
+  const hadithFiles = findMdxFiles(hadithDir);
+  const mdxFiles = [...lessonFiles, ...resourceFiles, ...hadithFiles];
 
   if (mdxFiles.length === 0) {
     console.log('ℹ️  No content files found');
@@ -174,7 +176,7 @@ function validateContent() {
 
   // Print summary
   console.log('─'.repeat(60));
-  console.log(`📊 Summary: ${mdxFiles.length} files checked (${lessonFiles.length} lessons, ${resourceFiles.length} resources)`);
+  console.log(`📊 Summary: ${mdxFiles.length} files checked (${lessonFiles.length} lessons, ${resourceFiles.length} resources, ${hadithFiles.length} hadith)`);
   console.log(`   Errors: ${totalErrors}`);
   console.log(`   Warnings: ${totalWarnings}`);
 
