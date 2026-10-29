@@ -6,7 +6,7 @@ import type { ReviewQuestion } from './index.ts';
 export const LEVEL_3_REVIEW: ReviewQuestion[] = [
   {
     id: 1,
-    question: 'In قُلْ هُوَ ٱللَّهُ أَحَدٌ (Al-Ikhlas 112:1), the phrase ٱللَّهُ أَحَدٌ is a nominal sentence. Which part is the mubtadaʾ (subject) and which is the khabar (predicate)?',
+    question: 'In قُلْ هُوَ ٱللَّهُ أَحَدٌ (Al-Ikhlas 112:1), the phrase ٱللَّهُ أَحَدٌ is a nominal sentence. Which part is the mubtadaʾ (the starting point) and which is the khabar (the news)?',
     options: [
       'ٱللَّهُ is the mubtadaʾ; أَحَدٌ is the khabar',
       'ٱللَّهُ is the khabar; أَحَدٌ is the mubtadaʾ',
@@ -14,7 +14,7 @@ export const LEVEL_3_REVIEW: ReviewQuestion[] = [
       'أَحَدٌ is the mubtadaʾ; ٱللَّهُ is the khabar',
     ],
     correctAnswer: 0,
-    explanation: 'In a nominal sentence the mubtadaʾ (subject) is the topic being spoken about; here ٱللَّهُ is the topic and أَحَدٌ ("One") is the khabar (predicate) that tells us something about it. (Lesson: Checkpoint: Reading Surah Al-Ikhlas.)',
+    explanation: 'In a nominal sentence the mubtadaʾ is the starting point and the khabar tells us something about it. Here ٱللَّهُ is the mubtadaʾ and أَحَدٌ ("One") is the khabar. This is al-Jadwal\'s main reading; the books read هُوَ in more than one way. (Lesson: Checkpoint: Reading Surah Al-Ikhlas.)',
     source: 'level-1/11-checkpoint-al-ikhlas',
   },
   {
@@ -110,7 +110,7 @@ export const LEVEL_3_REVIEW: ReviewQuestion[] = [
   },
   {
     id: 9,
-    question: 'In لَعَلَّكُمْ تُفْلِحُونَ (Al-Baqarah 2:189), which particle from the inna-sisters family is لَعَلَّ and what meaning does it add?',
+    question: 'In لَعَلَّكُمْ تُفْلِحُونَ (Al-Baqarah 2:189), which word of the inna family is لَعَلَّ and what meaning does it add?',
     options: [
       'It is equivalent to إِنَّ and adds emphasis',
       'It means "perhaps / may" and expresses hope or expectation',
@@ -118,7 +118,7 @@ export const LEVEL_3_REVIEW: ReviewQuestion[] = [
       'It means "but / however" and introduces contrast',
     ],
     correctAnswer: 1,
-    explanation: 'لَعَلَّ is one of the six sisters of إِنَّ; it conveys hope or expectation meaning "perhaps" or "so that you may," and like all inna-sisters it takes an accusative ism and nominative khabar. (Lesson: Six Words in Front of the Sentence.)',
+    explanation: 'لَعَلَّ is one of the six words of the inna family (inna and her five sisters). It expresses hope or expectation, "perhaps" or "so that you may". Like the others it takes an accusative ism and a nominative khabar. (Lesson: Six Words in Front of the Sentence.)',
     source: 'level-2/10-inna-sisters',
   },
   {

@@ -14,50 +14,75 @@ const nextLesson = nextLevelLessons.length > 0 ? `/learn/${nextLevelLessons[0].i
 const questions = [
   {
     id: 1,
-    question: "What are the three I'rab cases in Arabic?",
-    options: ["Marfu', Mansub, Majrur", "Fatha, Kasra, Damma", "Mubtada, Khabar, Fa'il", "Ism, Fi'l, Harf"],
+    question: "What are the three cases of an Arabic noun?",
+    options: [
+      "Nominative (rafʿ), accusative (naṣb), genitive (jarr)",
+      "Fatha, Kasra, Damma",
+      "Mubtadaʾ, Khabar, Fāʿil",
+      "Noun, Verb, Little word",
+    ],
     correctAnswer: 0,
-    explanation: "The three I'rab cases are Marfu' (nominative), Mansub (accusative), and Majrur (genitive)."
+    explanation: "The three cases are nominative (rafʿ, -u), accusative (naṣb, -a) and genitive (jarr, -i) (L2.04 to L2.06)."
   },
   {
     id: 2,
-    question: "What case marker indicates Marfu' for singular nouns?",
-    options: ["Fatha", "Kasra", "Damma", "Sukun"],
+    question: "Which mark shows the nominative on a single noun?",
+    options: [
+      "Fatha",
+      "Kasra",
+      "Damma",
+      "Sukun",
+    ],
     correctAnswer: 2,
-    explanation: "Damma (ُ) indicates the Marfu' (nominative) case for singular nouns."
+    explanation: "The damma (-u, or -un when indefinite) shows the nominative on a single noun (L2.04)."
   },
   {
     id: 3,
-    question: "What is Idafah (إضافة)?",
+    question: "What is an idafah (إضافة)?",
     options: [
-      "A possessive construction",
+      "Two nouns in a row that mean 'the X of Y'",
       "A verb conjugation",
       "A sentence type",
-      "A plural form"
+      "A plural form",
     ],
     correctAnswer: 0,
-    explanation: "Idafah is a possessive/genitive construction where two or more nouns are linked."
+    explanation: "An idafah puts two nouns together, 'the X of Y'. The first word is the muḍāf and the second the muḍāf ilayh (L2.08)."
   },
   {
     id: 4,
-    question: "In an Idafah construction, what case is the second noun (المضاف إليه)?",
-    options: ["Marfu'", "Mansub", "Majrur", "Mabni"],
+    question: "In an idafah, what case is the second word (the muḍāf ilayh)?",
+    options: [
+      "Nominative",
+      "Accusative",
+      "Genitive",
+      "It has no case",
+    ],
     correctAnswer: 2,
-    explanation: "The second noun (Mudaf Ilayh) in an Idafah is always in the Majrur (genitive) case."
+    explanation: "The second word of an idafah is always genitive. The sign changes with the word, not the case (L2.08)."
   },
   {
     id: 5,
-    question: "What is the Fa'il (فاعل)?",
-    options: ["The verb", "The subject/doer", "The object", "The predicate"],
+    question: "What is the fāʿil (فاعل)?",
+    options: [
+      "The verb",
+      "The doer of the verb",
+      "The thing acted on",
+      "The news of a nominal sentence",
+    ],
     correctAnswer: 1,
-    explanation: "Fa'il is the subject or doer of the verb in a verbal sentence."
+    explanation: "The fāʿil is the doer of the verb in a verbal sentence (L2.03)."
   },
   {
     id: 6,
-    question: "What case is the Fa'il always in?",
-    options: ["Marfu'", "Mansub", "Majrur", "Mabni"],
+    question: "In which case is the fāʿil (the doer)?",
+    options: [
+      "Nominative",
+      "Accusative",
+      "Genitive",
+      "It has no case",
+    ],
     correctAnswer: 0,
-    explanation: "The Fa'il (subject) is always in the Marfu' (nominative) case."
+    explanation: "The fāʿil is nominative (L2.03, L2.04)."
   },
   {
     id: 7,
@@ -68,29 +93,80 @@ const questions = [
   },
   {
     id: 8,
-    question: "What case is the Maf'ul Bihi in?",
-    options: ["Marfu'", "Mansub", "Majrur", "Mabni"],
+    question: "In which case is the mafʿūl bihi (the thing acted on)?",
+    options: [
+      "Nominative",
+      "Accusative",
+      "Genitive",
+      "It has no case",
+    ],
     correctAnswer: 1,
-    explanation: "The Maf'ul Bihi (direct object) is in the Mansub (accusative) case."
+    explanation: "The mafʿūl bihi is accusative, usually with a fatha (-a) (L2.05)."
   },
   {
     id: 9,
-    question: "In a Nominal Sentence, what case is the Mubtada (المبتدأ) in?",
-    options: ["Marfu'", "Mansub", "Majrur", "Mabni"],
+    question: "In a nominal sentence, in which case is the mubtadaʾ (المبتدأ)?",
+    options: [
+      "Nominative",
+      "Accusative",
+      "Genitive",
+      "It has no case",
+    ],
     correctAnswer: 0,
-    explanation: "The Mubtada (subject of nominal sentence) is in the Marfu' (nominative) case."
+    explanation: "The mubtadaʾ, the starting point of a nominal sentence, is nominative (L2.01)."
   },
   {
     id: 10,
-    question: "What preposition (Harf Jarr) is used to indicate possession 'of' or 'for'?",
-    options: ["في (fi)", "من (min)", "لِ (li)", "إلى (ila)"],
+    question: "Which little word means 'for' or 'belonging to'?",
+    options: [
+      "في (fī)",
+      "من (min)",
+      "لِ (li)",
+      "إلى (ilā)",
+    ],
     correctAnswer: 2,
-    explanation: "The preposition لِ (li) indicates possession, meaning 'of' or 'for'."
+    explanation: "لِ (li) means 'for' or 'belonging to': وَلِلَّهِ مَا فِى ٱلسَّمَٰوَٰتِ, 'to Allah belongs what is in the heavens' (3:109, L2.07)."
+  },
+  {
+    id: 11,
+    question: "An adjective must match its noun in how many things?",
+    options: [
+      "One: gender",
+      "Two: gender and number",
+      "Three: gender, number and case",
+      "Four: gender, number, case and definiteness",
+    ],
+    correctAnswer: 3,
+    explanation: "An adjective matches its noun in gender, number, case and definiteness (L2.09)."
+  },
+  {
+    id: 12,
+    question: "After إِنَّ, in which case is the first noun (the ism of inna)?",
+    options: [
+      "Nominative",
+      "Accusative",
+      "Genitive",
+      "It has no case",
+    ],
+    correctAnswer: 1,
+    explanation: "إِنَّ puts the first noun in the accusative, and the khabar stays nominative (L2.10)."
+  },
+  {
+    id: 13,
+    question: "After كَانَ, in which case is its khabar?",
+    options: [
+      "Nominative",
+      "Accusative",
+      "Genitive",
+      "It has no case",
+    ],
+    correctAnswer: 1,
+    explanation: "كَانَ keeps its ism in the nominative and puts its khabar in the accusative (L2.11)."
   }
 ];
 ---
 
-<BaseLayout title="Level 2 Quiz - Core Grammar" description="Test your Core Grammar knowledge: nominal and verbal sentences, I'rab cases (Marfu', Mansub, Majrur), Idafah, adjective agreement, Inna and Kaana sisters.">
+<BaseLayout title="Level 2 Quiz - Core Grammar" description="Test your Core Grammar knowledge: nominal and verbal sentences, the three cases, idafah, adjective agreement, inna and kāna.">
   <Container maxWidth="lg">
     <QuizComponent
       title="Level 2 Quiz: Core Grammar"
