@@ -7,6 +7,7 @@
 import { getCollection } from 'astro:content';
 import { READING_TRACK } from '../data/reading-track';
 import '../styles/site-nav.css';
+import LogoMark from './LogoMark.astro';
 
 interface Props { current?: 'learn' | 'surahs' | 'resources' | 'about'; }
 const { current } = Astro.props;
@@ -52,7 +53,7 @@ const chev = '<svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-
 ---
 <header class="sn" id="sn">
   <a class="sn-brand" href="/" aria-label="Quranic Grammar, home">
-    <svg viewBox="0 0 32 32" aria-hidden="true"><rect x="1" y="1" width="30" height="30" rx="9" fill="oklch(18% 0.03 240)"/><path d="M9 19h14" stroke="#fff" stroke-width="2" stroke-linecap="round"/><circle cx="16" cy="12" r="2.6" fill="oklch(79% 0.14 72)"/><circle cx="16" cy="24.5" r="1.6" fill="#fff"/></svg>
+    <LogoMark />
     <span>Quranic Grammar</span>
   </a>
   <nav class="sn-nav" id="sn-nav" aria-label="Primary">

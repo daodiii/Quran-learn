@@ -1,0 +1,8 @@
+/** The approved Harakat mark (concept 11), drawn as three scalable reading strokes. */
+export const HARAKAT_COLOR = '#c85447';
+export const HARAKAT_VIEWBOX = '0 0 320 340';
+export const HARAKAT_PATHS = [
+  "M206 0 234 32 188 71 161 39Z",
+  "M62 151C117 174 173 139 228 88C247 70 267 75 275 94C285 115 277 144 261 168C266 143 262 128 244 146C185 197 124 226 62 151Z",
+  "M0 227C86 287 211 284 307 181C298 262 250 309 177 319C94 332 28 299 0 227Z"
+];
