@@ -13,4 +13,3 @@ const app = `<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" vi
 mkdirSync('public/icons', { recursive: true });
 for (const size of [192, 512]) await sharp(Buffer.from(app)).resize(size, size).png().toFile(`public/icons/harakat-${size}.png`);
 console.log('Generated Harakat SVG, favicon and 192/512 px app icons.');
-
