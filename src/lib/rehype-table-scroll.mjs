@@ -1,6 +1,7 @@
 // Markdown pipe tables render as bare <table>; a table cannot be its own
 // scroll container, so wide tables clip on narrow viewports. Wrap each
-// top-level table in a scrollable div at build time.
+// top-level table in a scrollable div at build time. The div takes keyboard focus,
+// so a table wider than the screen can be scrolled without a mouse.
 export default function rehypeTableScroll() {
   return (tree) => {
     const visit = (node) => {
@@ -10,7 +11,7 @@ export default function rehypeTableScroll() {
           return {
             type: 'element',
             tagName: 'div',
-            properties: { className: ['table-scroll'] },
+            properties: { className: ['table-scroll'], tabIndex: 0 },
             children: [child],
           };
         }

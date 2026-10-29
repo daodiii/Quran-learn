@@ -1,652 +1,1028 @@
 ---
 title: "Negation Particles (Adawat al-Nafy)"
+kicker: "Eight words that say “not”, and what each does to the word after it"
+titleArabic: "أَدَوَات النَّفْي"
 level: 4
 order: 10
-description: "Master Arabic's five negation particles and understand how each affects tense, mood, and meaning in Quranic contexts."
+template: steps
+description: "Compare the words that say “not” in the Quran: لَمْ, لَمَّا, لَن, لَا, مَا, إِنْ, لَيْسَ and غَيْر. See which ones cut a verb short (jazm), which give it a fatḥa (naṣb) and which leave it alone, which ones work on a noun, what time each one points to, and how many times each is tagged in the Corpus. Avoid the usual mix-ups and go through four verses word by word."
 draft: false
 ---
 
-import ArabicExample from '../../../components/mdx/ArabicExample.astro';
-import GrammarTable from '../../../components/mdx/GrammarTable.astro';
-import Callout from '../../../components/mdx/Callout.astro';
-import ExerciseBox from '../../../components/mdx/ExerciseBox.astro';
-
-## Introduction
-
-In English, negation is simple: add "not" to any verb. Arabic is far more sophisticated — it has FIVE different negation particles, each used for specific tenses, moods, and contexts. Choosing the wrong particle isn't just awkward; it changes the grammatical structure of the entire sentence.
-
-<ArabicExample
-  arabic="قُلْ يَٰٓأَيُّهَا ٱلْكَٰفِرُونَ لَآ أَعْبُدُ مَا تَعْبُدُونَ"
-  transliteration="qul yā-ayyuhā l-kāfirūna lā aʿbudu mā taʿbudūna"
-  translation="Say, 'O disbelievers, I do not worship what you worship'"
-  reference="Al-Kafirun 109:1-2"
-  highlight="لَآ"
-  words={[
-    { ar: "قُلْ", tr: "qul", en: "say" },
-    { ar: "يَٰٓأَيُّهَا", tr: "yā-ayyuhā", en: "O" },
-    { ar: "ٱلْكَٰفِرُونَ", tr: "l-kāfirūna", en: "the disbelievers" },
-    { ar: "لَآ", tr: "lā", en: "not" },
-    { ar: "أَعْبُدُ", tr: "aʿbudu", en: "I worship" },
-    { ar: "مَا", tr: "mā", en: "what" },
-    { ar: "تَعْبُدُونَ", tr: "taʿbudūna", en: "you worship" }
-  ]}
-/>
-
-Surah Al-Kafirun (109) is the perfect teaching text for negation — it systematically demonstrates how Arabic uses different negation particles to express absolute rejection across multiple timeframes. The surah's precision makes it a masterclass in Arabic negation.
-
-**In this lesson, you will:**
-- Master five negation particles: **لَا** (lā), **لَمْ** (lam), **مَا** (mā), **لَنْ** (lan), **لَيْسَ** (laysa)
-- Understand each particle's tense and mood requirements
-- Recognize **لَمْ** (lam) as uniquely using PRESENT form with PAST meaning and jussive mood
-- Apply a decision tree to select the correct negation particle
-- Analyze complete negation patterns in Al-Kafirun and Al-Ikhlas
-- Build same-verb comparisons showing all five negations of one root
-
-**Connection to previous learning:** In [L3.04 Present Tense & Moods](/learn/level-3/04-present-tense/), you learned the three moods (indicative, subjunctive, jussive). Now you'll see how negation particles trigger these moods — particularly how **لَمْ** (lam) forces jussive mood while negating the past.
-
-**Forward connection:** This lesson prepares you for [L5.13 Rhetorical Questions & Negation](/learn/level-5/13-rhetorical-questions/), where you'll explore how negation combines with interrogative particles to create powerful Quranic rhetoric.
-
-<Callout type="note" title="Plain-English key">
-Quick, everyday translations of the grammar terms in this lesson — glance back here whenever one trips you up:
-
-- **Negation** (nafy / نَفْي) — making a sentence say "not / never / no".
-- **Jussive** (jazm / مَجْزُوم) — the present verb after "not / if"-type words, ending in a sukun (no vowel).
-- **Subjunctive** (naṣb / مَنْصُوب) — the present verb after words like "to / so that", ending in a fatha (-a).
-</Callout>
-
-## Understanding Arabic Negation
-
-**Plain English first:** Arabic doesn't have a single "not" word. Instead, it selects negation particles based on:
-1. **Tense** — past, present, or future
-2. **Sentence type** — verbal or nominal
-3. **Mood** — indicative, subjunctive, or jussive
-4. **Emphasis** — simple negation vs. emphatic rejection
-
-**Analogy for clarity:**
-
-Imagine negation particles as different keys on a keyboard:
-- **لَا** (lā) = general "NOT" key for present/future indicative
-- **لَمْ** (lam) = special "NEVER DID" key (past negation with present form)
-- **مَا** (mā) = casual "DIDN'T" key for past (less formal than لَمْ)
-- **لَنْ** (lan) = emphatic "WILL NEVER" key for future
-- **لَيْسَ** (laysa) = "IS NOT" key for nominal sentences (acts like a verb!)
-
-You can't use the wrong key — each unlocks a different grammatical structure.
-
-### Arabic Terminology
-
-**Adawat al-nafy** — [adawāt an-nafy](/resources/glossary/#adawat-al-nafy) (أَدَوَاتُ ٱلنَّفْيِ)
-
-Literally "tools of negation." Classical grammarians identified numerous negation particles, but five dominate Quranic usage. Each is called a particle of negation (**ḥarfu nafyin** / **حَرْفُ نَفْيٍ**).
-
-### The Five Core Negation Particles
-
-Here's the comprehensive comparison table showing all five particles side by side:
-
-<GrammarTable>
-| Particle | Tense/Context | Verb Form | Mood | Example | Translation |
-|----------|---------------|-----------|------|---------|-------------|
-| **لَا** (lā) | Present/Future | Present | Indicative (مَرْفُوعٌ) | لَا أَعْبُدُ (lā aʿbudu) | I do not worship |
-| **لَمْ** (lam) | Past | Present | **Jussive (مَجْزُومٌ)** | لَمْ يَعْبُدْ (lam yaʿbud) | He did not worship |
-| **مَا** (mā) | Past | Past | None (past tense) | مَا عَبَدَ (mā ʿabada) | He did not worship |
-| **لَنْ** (lan) | Future (emphatic) | Present | Subjunctive (مَنْصُوبٌ) | لَنْ أَعْبُدَ (lan aʿbuda) | I will never worship |
-| **لَيْسَ** (laysa) | Present (nominal) | Special conjugation | Acts like kāna | لَيْسَ عَابِدًا (laysa ʿābidan) | He is not a worshiper |
-</GrammarTable>
-
-**Critical observation:** Only **لَمْ** (lam) uses the PRESENT verb form to express PAST meaning. This is the most distinctive feature of Arabic negation.
-
-## The Five Negation Particles in Detail
-
-### 1. لَا (lā) — Present/Future Negation (Indicative)
-
-**Function:** Negates present or future tense verbs in indicative mood
-
-**Grammatical effect:** The verb remains in indicative mood (marfūʿ) with damma ending
-
-**Usage pattern:**
-- Verb stays in present tense form
-- Indicative mood maintained (ends in ـُ or ـُونَ/ـُنَ)
-- Most common negation in Quranic speech
-
-<ArabicExample
-  arabic="قُلْ يَٰٓأَيُّهَا ٱلْكَٰفِرُونَ لَآ أَعْبُدُ مَا تَعْبُدُونَ"
-  transliteration="qul yā-ayyuhā l-kāfirūna lā aʿbudu mā taʿbudūna"
-  translation="Say, 'O disbelievers, I do not worship what you worship'"
-  reference="Al-Kafirun 109:1-2"
-  highlight="لَآ أَعْبُدُ"
-  words={[
-    { ar: "قُلْ", tr: "qul", en: "say" },
-    { ar: "يَٰٓأَيُّهَا", tr: "yā-ayyuhā", en: "O" },
-    { ar: "ٱلْكَٰفِرُونَ", tr: "l-kāfirūna", en: "the disbelievers" },
-    { ar: "لَآ", tr: "lā", en: "not" },
-    { ar: "أَعْبُدُ", tr: "aʿbudu", en: "I worship" },
-    { ar: "مَا", tr: "mā", en: "what" },
-    { ar: "تَعْبُدُونَ", tr: "taʿbudūna", en: "you worship" }
-  ]}
-/>
-
-**Analysis:**
-- Particle: **لَا** (lā) "not"
-- Verb: **أَعْبُدُ** (aʿbudu) "I worship" — present tense, first person
-- Mood: Indicative — notice the damma (ـُ) ending
-- Meaning: Negates the present/ongoing action
-- Full meaning: "I do [presently] not worship"
-
-**Why indicative?** Because the speaker is making a statement of fact about their current practice, not expressing possibility or command.
-
-### 2. لَمْ (lam) — Past Negation with Jussive Mood ⭐
-
-**Function:** Negates past actions using PRESENT verb form with jussive mood
-
-**Grammatical effect:** Forces jussive mood (majzūm) on the present-form verb
-
-**THE UNIQUE FEATURE:** This is the ONLY Arabic construction where you use a present-tense verb form to express past-tense meaning. This makes **لَمْ** the most distinctive negation particle.
-
-**Usage pattern:**
-- Use PRESENT tense form of the verb (not past!)
-- Apply jussive mood (sukūn or dropping final letter)
-- Meaning shifts to PAST tense
-- More formal and emphatic than **مَا**
-
-<ArabicExample
-  arabic="لَمْ يَلِدْ وَلَمْ يُولَدْ"
-  transliteration="lam yalid wa-lam yūlad"
-  translation="He neither begets nor is begotten"
-  reference="Al-Ikhlas 112:3"
-  highlight="لَمْ يَلِدْ"
-  words={[
-    { ar: "لَمْ", tr: "lam", en: "did not" },
-    { ar: "يَلِدْ", tr: "yalid", en: "beget" },
-    { ar: "وَلَمْ", tr: "wa-lam", en: "nor did" },
-    { ar: "يُولَدْ", tr: "yūlad", en: "is begotten" }
-  ]}
-/>
-
-**Analysis:**
-- Particle: **لَمْ** (lam) "did not"
-- Verb form: **يَلِدْ** (yalid) — PRESENT form of وَلَدَ (walada) "to beget/give birth"
-- Mood: Jussive — notice the sukūn (ْ) instead of damma
-- Tense meaning: Despite present FORM, the meaning is PAST
-- Full meaning: "He did not beget [and never has]"
-
-**Compare with present indicative:**
-- Present indicative: **يَلِدُ** (yalidu) "he begets" — with damma
-- Past negation: **لَمْ يَلِدْ** (lam yalid) "he did not beget" — with sukūn
-
-<Callout type="rule" title="لَمْ (lam) uniqueness — Three features">
-**لَمْ** (lam) is the ONLY Arabic particle that combines all three features:
-
-1. **Present FORM:** Uses present-tense verb conjugation (يَفْعَلُ → يَفْعَلْ)
-2. **Past MEANING:** Despite present form, expresses completed past action
-3. **Jussive MOOD:** Forces jussive mood (majzūm) with sukūn or letter-dropping
-
-No other negation particle does this. **لَمْ** is Arabic's time-traveling negator.
-</Callout>
-
-### 3. مَا (mā) — Past Negation (Simple)
-
-**Function:** Negates past tense verbs using past tense form
-
-**Grammatical effect:** No mood change — verb stays in past tense
-
-**Usage pattern:**
-- Use PAST tense form (normal conjugation)
-- No mood considerations (past tense has no mood)
-- More casual than **لَمْ**
-- Common in narrative contexts
-
-<ArabicExample
-  arabic="مَا فَعَلْتُ ذَٰلِكَ"
-  transliteration="mā faʿaltu dhālika"
-  translation="I did not do that"
-  reference="Example sentence"
-  highlight="مَا فَعَلْتُ"
-  words={[
-    { ar: "مَا", tr: "mā", en: "not" },
-    { ar: "فَعَلْتُ", tr: "faʿaltu", en: "I did" },
-    { ar: "ذَٰلِكَ", tr: "dhālika", en: "that" }
-  ]}
-/>
-
-**Analysis:**
-- Particle: **مَا** (mā) "did not"
-- Verb: **فَعَلْتُ** (faʿaltu) "I did" — normal past tense
-- No mood change — past tense form used naturally
-- Simple, straightforward past negation
-
-**Comparison — لَمْ vs مَا:**
-
-Both negate the past, but with different structures:
-
-<GrammarTable>
-| Aspect | لَمْ (lam) | مَا (mā) |
-|--------|-----------|---------|
-| Verb form | **Present** (يَفْعَلْ) | **Past** (فَعَلَ) |
-| Mood | Jussive (majzūm) | No mood |
-| Formality | More formal/literary | More casual |
-| Emphasis | Emphatic (never happened) | Simple (didn't happen) |
-| Quranic usage | Very common | Less common |
-</GrammarTable>
-
-**Example with same verb:**
-- **لَمْ يَفْعَلْ** (lam yafʿal) "he did not do [emphatic]" — present form + jussive
-- **مَا فَعَلَ** (mā faʿala) "he did not do [simple]" — past form
-
-### 4. لَنْ (lan) — Future Negation (Emphatic)
-
-**Function:** Negates future actions with emphasis ("will never")
-
-**Grammatical effect:** Forces subjunctive mood (manṣūb) on present verb
-
-**Usage pattern:**
-- Use PRESENT tense form
-- Apply subjunctive mood (fatha ending: ـَ)
-- Meaning is emphatic future negation
-- Stronger than simple **لَا** for future
-
-<ArabicExample
-  arabic="وَلَن نُّؤْمِنَ لِرُقِيِّكَ حَتَّىٰ تُنَزِّلَ عَلَيْنَا كِتَٰبًا نَّقْرَؤُهُۥ"
-  transliteration="wa-lan nuʾmina li-ruqīyika ḥattā tunazzila ʿalaynā kitāban naqraʾuhu"
-  translation="And we will never believe in your ascension until you bring down to us a book we may read"
-  reference="Al-Isra 17:93"
-  highlight="لَن نُّؤْمِنَ"
-  words={[
-    { ar: "وَلَن", tr: "wa-lan", en: "and never will" },
-    { ar: "نُّؤْمِنَ", tr: "nuʾmina", en: "we believe" },
-    { ar: "لِرُقِيِّكَ", tr: "li-ruqīyika", en: "in your ascension" },
-    { ar: "حَتَّىٰ", tr: "ḥattā", en: "until" },
-    { ar: "تُنَزِّلَ", tr: "tunazzila", en: "you bring down" },
-    { ar: "عَلَيْنَا", tr: "ʿalaynā", en: "to us" },
-    { ar: "كِتَٰبًا", tr: "kitāban", en: "a book" },
-    { ar: "نَّقْرَؤُهُۥ", tr: "naqraʾuhu", en: "we may read it" }
-  ]}
-/>
-
-**Analysis:**
-- Particle: **لَنْ** (lan) "will never"
-- Verb: **نُؤْمِنَ** (nuʾmina) "we believe" — present form, first person plural
-- Mood: Subjunctive — notice the fatha on the final ن
-- Meaning: Emphatic future negation
-- Full meaning: "We will absolutely never believe"
-
-**Compare moods with نُؤْمِنُ:**
-- Indicative: **نُؤْمِنُ** (nuʾminu) "we believe" — damma ending
-- Subjunctive: **نُؤْمِنَ** (nuʾmina) "we [may] believe" — fatha ending
-- With لَنْ: **لَنْ نُؤْمِنَ** (lan nuʾmina) "we will never believe"
-
-### 5. لَيْسَ (laysa) — Nominal Negation (Acts Like a Verb)
-
-**Function:** Negates nominal sentences (sentences without verbs)
-
-**Grammatical effect:** Acts exactly like kāna — takes a subject in nominative and predicate in accusative
-
-**THE SPECIAL CASE:** **لَيْسَ** (laysa) is technically a verb (defective, past-tense form of "to not be"), but it's used as a negation particle for nominal sentences. It's the sister of kāna ("was/to be") in the negative.
-
-**Usage pattern:**
-- Conjugates for person, gender, number (like kāna)
-- Takes subject (اِسْمُ لَيْسَ - ismu laysa) in nominative case
-- Takes predicate (خَبَرُ لَيْسَ - khabaru laysa) in accusative case
-- Used when negating states of being, not actions
-
-<ArabicExample
-  arabic="لَيْسَ ٱلْبِرَّ أَن تُوَلُّوا۟ وُجُوهَكُمْ قِبَلَ ٱلْمَشْرِقِ وَٱلْمَغْرِبِ"
-  transliteration="laysa l-birra an tuwallū wujūhakum qibala l-mashriqi wa-l-maghribi"
-  translation="Righteousness is not that you turn your faces toward the east or the west"
-  reference="Al-Baqarah 2:177"
-  highlight="لَيْسَ ٱلْبِرَّ"
-  words={[
-    { ar: "لَيْسَ", tr: "laysa", en: "is not" },
-    { ar: "ٱلْبِرَّ", tr: "l-birra", en: "righteousness" },
-    { ar: "أَن", tr: "an", en: "that" },
-    { ar: "تُوَلُّوا۟", tr: "tuwallū", en: "you turn" },
-    { ar: "وُجُوهَكُمْ", tr: "wujūhakum", en: "your faces" },
-    { ar: "قِبَلَ", tr: "qibala", en: "toward" },
-    { ar: "ٱلْمَشْرِقِ", tr: "l-mashriqi", en: "the east" },
-    { ar: "وَٱلْمَغْرِبِ", tr: "wa-l-maghribi", en: "and the west" }
-  ]}
-/>
-
-**Analysis:**
-- Particle/Verb: **لَيْسَ** (laysa) "is not" — third person singular
-- Predicate (خَبَرُ لَيْسَ - khabaru laysa): **ٱلْبِرَّ** (al-birra) "righteousness" — accusative (مَنْصُوب, shown by the fatha ending). This is the FRONTED predicate (تقديم الخبر على الاسم)
-- Subject (اِسْمُ لَيْسَ - ismu laysa): **أَن تُوَلُّوا۟** (an tuwallū) "that you turn [your faces]" — the entire clause acts as the delayed subject
-- Meaning: "It is not righteousness that you turn your faces..." (literally: "Righteousness is not the turning of your faces...")
-
-**لَيْسَ conjugation (like kāna):**
-
-<GrammarTable>
-| Person | Singular | Dual | Plural |
-|--------|----------|------|--------|
-| 1st | لَسْتُ (lastu) | لَسْنَا (lasnā) | لَسْنَا (lasnā) |
-| 2nd (m) | لَسْتَ (lasta) | لَسْتُمَا (lastumā) | لَسْتُمْ (lastum) |
-| 2nd (f) | لَسْتِ (lasti) | لَسْتُمَا (lastumā) | لَسْتُنَّ (lastunna) |
-| 3rd (m) | لَيْسَ (laysa) | لَيْسَا (laysā) | لَيْسُوا۟ (laysū) |
-| 3rd (f) | لَيْسَتْ (laysat) | لَيْسَتَا (laysatā) | لَسْنَ (lasna) |
-</GrammarTable>
-
-## Same-Verb Comparison: Five Negations of عَبَدَ
-
-To see the five particles in action, let's negate the same verb (عَبَدَ - "to worship") using all five methods:
-
-<GrammarTable>
-| Particle | Complete Negation | Verb Analysis | Tense/Mood | Translation |
-|----------|-------------------|---------------|------------|-------------|
-| **لَا** (lā) | لَا يَعْبُدُ (lā yaʿbudu) | يَعْبُدُ — present, indicative (damma) | Present, indicative | He does not worship |
-| **لَمْ** (lam) | لَمْ يَعْبُدْ (lam yaʿbud) | يَعْبُدْ — present form, jussive (sukūn) | **Past meaning**, jussive | He did not worship |
-| **مَا** (mā) | مَا عَبَدَ (mā ʿabada) | عَبَدَ — past tense | Past | He did not worship |
-| **لَنْ** (lan) | لَنْ يَعْبُدَ (lan yaʿbuda) | يَعْبُدَ — present, subjunctive (fatha) | Future, subjunctive | He will never worship |
-| **لَيْسَ** (laysa) | لَيْسَ عَابِدًا (laysa ʿābidan) | ʿābidan (active participle, accusative) | Present state | He is not a worshiper |
-</GrammarTable>
-
-**Pattern observations:**
-
-1. **لَا** and **لَمْ** and **لَنْ** all use present-form verbs — but with different moods
-2. **مَا** is the only one using past-form verb for past meaning
-3. **لَمْ** is unique: present form + jussive mood = past meaning
-4. **لَيْسَ** doesn't negate a verb at all — it negates a nominal description
-
-This table demonstrates why you can't just add "not" in Arabic — each particle restructures the sentence grammatically.
-
-## Decision Tree: Choosing the Correct Negation Particle
-
-Use this decision tree to select the right negation particle:
-
-**Step 1: What type of sentence?**
-- **Nominal sentence** (no verb, describing state) → Use **لَيْسَ** (laysa)
-- **Verbal sentence** → Go to Step 2
-
-**Step 2: What tense are you negating?**
-- **Past tense** → Go to Step 3
-- **Present/future tense** → Go to Step 4
-
-**Step 3: Past tense — which particle?**
-- **Formal/emphatic past negation** → Use **لَمْ** (lam) + present form verb in jussive
-- **Simple past negation** → Use **مَا** (mā) + past form verb
-
-**Step 4: Present/future — which particle?**
-- **Present or general future** → Use **لَا** (lā) + present indicative
-- **Emphatic future ("will never")** → Use **لَنْ** (lan) + present subjunctive
-
-**Quick reference chart:**
-
-```
-Negating what?
-  │
-  ├─ State of being (no action verb) ──→ لَيْسَ (laysa)
-  │
-  ├─ Past action
-  │   ├─ Formal/emphatic ──→ لَمْ (lam) + present jussive
-  │   └─ Simple ──→ مَا (mā) + past tense
-  │
-  └─ Present/Future action
-      ├─ Present/general ──→ لَا (lā) + present indicative
-      └─ Emphatic future ──→ لَنْ (lan) + present subjunctive
-```
-
-## Negation in Surah Al-Kafirun (109)
-
-Surah Al-Kafirun is a masterclass in negation. It uses **لَا** (lā) systematically to express absolute rejection across time:
-
-<ArabicExample
-  arabic="قُلْ يَٰٓأَيُّهَا ٱلْكَٰفِرُونَ لَآ أَعْبُدُ مَا تَعْبُدُونَ وَلَآ أَنتُمْ عَٰبِدُونَ مَآ أَعْبُدُ"
-  transliteration="qul yā-ayyuhā l-kāfirūna lā aʿbudu mā taʿbudūna wa-lā antum ʿābidūna mā aʿbudu"
-  translation="Say, 'O disbelievers, I do not worship what you worship. Nor are you worshipers of what I worship.'"
-  reference="Al-Kafirun 109:1-3"
-  highlight="لَآ"
-  words={[
-    { ar: "قُلْ", tr: "qul", en: "say" },
-    { ar: "يَٰٓأَيُّهَا", tr: "yā-ayyuhā", en: "O" },
-    { ar: "ٱلْكَٰفِرُونَ", tr: "l-kāfirūna", en: "the disbelievers" },
-    { ar: "لَآ", tr: "lā", en: "not" },
-    { ar: "أَعْبُدُ", tr: "aʿbudu", en: "I worship" },
-    { ar: "مَا", tr: "mā", en: "what" },
-    { ar: "تَعْبُدُونَ", tr: "taʿbudūna", en: "you worship" },
-    { ar: "وَلَآ", tr: "wa-lā", en: "nor" },
-    { ar: "أَنتُمْ", tr: "antum", en: "you" },
-    { ar: "عَٰبِدُونَ", tr: "ʿābidūna", en: "worshipers of" },
-    { ar: "مَآ", tr: "mā", en: "what" },
-    { ar: "أَعْبُدُ", tr: "aʿbudu", en: "I worship" }
-  ]}
-/>
-
-**Analysis of first لَا:**
-- **لَآ أَعْبُدُ** (lā aʿbudu)
-- Particle: **لَا** (lā) — present/general negation
-- Verb: **أَعْبُدُ** (aʿbudu) "I worship" — present, first person, indicative
-- Mood: Indicative (damma: ـُ)
-- Meaning: "I do not worship [presently/ever]"
-
-**Analysis of second لَا:**
-- **لَآ أَنتُمْ عَٰبِدُونَ** (lā antum ʿābidūna)
-- Particle: **لَا** (lā) — nominal negation
-- Subject: **أَنتُمْ** (antum) "you [plural]"
-- Predicate: **عَٰبِدُونَ** (ʿābidūna) "worshipers" — active participle, nominative plural
-- Structure: Negated nominal sentence (لَا + subject + predicate)
-- Meaning: "You are not worshipers [of what I worship]"
-
-<ArabicExample
-  arabic="وَلَآ أَنَا۠ عَابِدٌۭ مَّا عَبَدتُّمْ وَلَآ أَنتُمْ عَٰبِدُونَ مَآ أَعْبُدُ"
-  transliteration="wa-lā anā ʿābidun mā ʿabadtum wa-lā antum ʿābidūna mā aʿbudu"
-  translation="And I will not be a worshiper of what you have worshiped. Nor will you be worshipers of what I worship."
-  reference="Al-Kafirun 109:4-5"
-  highlight="لَآ"
-  words={[
-    { ar: "وَلَآ", tr: "wa-lā", en: "and not" },
-    { ar: "أَنَا۠", tr: "anā", en: "I" },
-    { ar: "عَابِدٌۭ", tr: "ʿābidun", en: "a worshiper of" },
-    { ar: "مَّا", tr: "mā", en: "what" },
-    { ar: "عَبَدتُّمْ", tr: "ʿabadtum", en: "you have worshiped" },
-    { ar: "وَلَآ", tr: "wa-lā", en: "nor" },
-    { ar: "أَنتُمْ", tr: "antum", en: "you" },
-    { ar: "عَٰبِدُونَ", tr: "ʿābidūna", en: "worshipers of" },
-    { ar: "مَآ", tr: "mā", en: "what" },
-    { ar: "أَعْبُدُ", tr: "aʿbudu", en: "I worship" }
-  ]}
-/>
-
-**Negation pattern:**
-- Verse 2: Present action negated (لَا + present verb)
-- Verse 3: Present state negated (لَا + nominal sentence)
-- Verse 4: Past action referenced (مَا عَبَدتُّمْ) with present negation (لَا)
-- Verse 5: Future state negated (لَا + nominal with future meaning)
-
-**Why لَا throughout?** Because Al-Kafirun is declaring a permanent, absolute principle — not just a one-time past action. **لَا** with indicative expresses general, timeless truth.
-
-## Negation in Surah Al-Ikhlas (112)
-
-Al-Ikhlas uses **لَمْ** (lam) to negate past actions with theological precision:
-
-<ArabicExample
-  arabic="لَمْ يَلِدْ وَلَمْ يُولَدْ"
-  transliteration="lam yalid wa-lam yūlad"
-  translation="He neither begets nor is begotten"
-  reference="Al-Ikhlas 112:3"
-  highlight="لَمْ"
-  words={[
-    { ar: "لَمْ", tr: "lam", en: "did not" },
-    { ar: "يَلِدْ", tr: "yalid", en: "beget" },
-    { ar: "وَلَمْ", tr: "wa-lam", en: "nor did" },
-    { ar: "يُولَدْ", tr: "yūlad", en: "is begotten" }
-  ]}
-/>
-
-**Analysis of لَمْ يَلِدْ:**
-- Root: و-ل-د (begetting/giving birth)
-- Verb form: **يَلِدْ** (yalid) — present form of وَلَدَ (walada)
-- Without لَمْ: **يَلِدُ** (yalidu) "he begets" — indicative with damma
-- With لَمْ: **لَمْ يَلِدْ** (lam yalid) "he did not beget" — jussive with sukūn
-- Mood change: Damma (ـُ) → Sukūn (ْ)
-- Tense: Despite present form, meaning is PAST/PERFECT
-
-**Analysis of لَمْ يُولَدْ:**
-- Same root: و-ل-د
-- Passive voice: **يُولَدُ** (yūladu) "he is born" → **يُولَدْ** (yūlad) with jussive
-- With لَمْ: **لَمْ يُولَدْ** (lam yūlad) "he was not born"
-- Mood change: Damma (ـُ) → Sukūn (ْ)
-
-**Why لَمْ instead of مَا?** Because the theological statement requires formal, emphatic negation. **لَمْ** carries weight — it's not just "didn't happen," it's "absolutely never occurred and never will."
-
-**Theological precision:** The use of **لَمْ** with jussive creates an absolute, timeless negation. Allah didn't beget in the past, doesn't beget now, and never will — the perfect-aspect meaning of **لَمْ** captures this completely.
-
-## The Rule
-
-**Five negation particles — selection criteria:**
-
-1. **لَا (lā)** — Present/future negation with indicative mood
-   - Use: Negating present or future actions/states (general)
-   - Structure: لَا + present verb (indicative)
-   - Example: لَا يَفْعَلُ (lā yafʿalu) "he does not do"
-
-2. **لَمْ (lam)** — Past negation using present form with jussive mood ⭐
-   - Use: Formal/emphatic past negation
-   - Structure: لَمْ + present verb form (jussive mood)
-   - **Unique feature:** Present FORM + jussive MOOD = past MEANING
-   - Example: لَمْ يَفْعَلْ (lam yafʿal) "he did not do"
-
-3. **مَا (mā)** — Past negation using past form
-   - Use: Simple past negation
-   - Structure: مَا + past verb
-   - Example: مَا فَعَلَ (mā faʿala) "he did not do"
-
-4. **لَنْ (lan)** — Emphatic future negation with subjunctive mood
-   - Use: Strong future negation ("will never")
-   - Structure: لَنْ + present verb (subjunctive)
-   - Example: لَنْ يَفْعَلَ (lan yafʿala) "he will never do"
-
-5. **لَيْسَ (laysa)** — Nominal sentence negation
-   - Use: Negating states of being (no action verb)
-   - Structure: لَيْسَ + subject (nominative) + predicate (accusative)
-   - Conjugates like kāna
-   - Example: لَيْسَ فَاعِلًا (laysa fāʿilan) "he is not a doer"
-
-**Recognition checklist:**
-1. Identify the negation particle
-2. Check the verb form (past vs present) and mood (indicative/subjunctive/jussive)
-3. Determine actual tense meaning (watch for لَمْ paradox!)
-4. Assess emphasis level (simple vs emphatic)
-
-<Callout type="rule" title="لَمْ (lam) is the exception">
-**Every Arabic learner must memorize this:**
-
-**لَمْ** (lam) is the ONLY negation particle that uses:
-- PRESENT verb form (يَفْعَلُ → يَفْعَلْ)
-- To express PAST meaning
-- With JUSSIVE mood (majzūm) marked by sukūn or letter-dropping
-
-**Mnemonic:** "Lam flips time — present form, past meaning, jussive feeling."
-
-All other particles are logical: present particles use present forms, past particles use past forms. **لَمْ** is the time traveler.
-</Callout>
-
-## Practice
-
-<ExerciseBox question="Exercise 1: Identify Negation Particles and Their Functions">
-
-For each sentence, identify the negation particle, the verb form/mood, and explain the tense meaning.
-
-**1. لَمْ يَلِدْ — What particle? What verb form? What tense meaning?**
-
-Particle: لَمْ (lam). Verb: يَلِدْ (yalid) — present FORM of وَلَدَ (walada). Mood: Jussive (sukūn on final letter). Tense MEANING: Past (despite present form). Translation: 'He did not beget.'
-
-**2. لَا أَعْبُدُ مَا تَعْبُدُونَ — What particle? What mood? What tense?**
-
-Particle: لَا (lā). Verb: أَعْبُدُ (aʿbudu) — present tense, first person. Mood: Indicative (damma ending). Tense: Present/general. Translation: 'I do not worship what you worship.'
-
-**3. لَنْ نُؤْمِنَ — What particle? What mood? What emphasis?**
-
-Particle: لَنْ (lan). Verb: نُؤْمِنَ (nuʾmina) — present form, first person plural. Mood: Subjunctive (fatha on final ن). Emphasis: Emphatic future ('will never'). Translation: 'We will never believe.'
-
-**4. لَيْسَ ٱلْبِرَّ — What type of sentence? What case is ٱلْبِرَّ?**
-
-Particle: لَيْسَ (laysa) — acts like kāna. Sentence type: Nominal (negating state, not action). ٱلْبِرَّ (al-birra) is the KHABAR (predicate) of لَيْسَ in accusative case (مَنْصُوب), fronted before the subject (تقديم الخبر على الاسم). The ISM (subject) of لَيْسَ is the clause أَن تُوَلُّوا (that you turn your faces), which comes after. Translation: 'It is not righteousness that you turn...'
-
-</ExerciseBox>
-
-<ExerciseBox question="Exercise 2: Convert Between Negation Types">
-
-Given a sentence with one negation particle, rewrite it using a different particle and explain the meaning change.
-
-**1. Given: لَمْ يَفْعَلْ (lam yafʿal) 'he did not do.' Convert to مَا + verb. What changes?**
-
-Converted: مَا فَعَلَ (mā faʿala) 'he did not do.' Changes: (1) Verb form changes from present (يَفْعَلْ) to past (فَعَلَ). (2) Mood changes from jussive to no mood (past tense). (3) Emphasis decreases from formal/emphatic to simple past negation. Meaning is similar but لَمْ is stronger.
-
-**2. Given: لَا يَفْعَلُ (lā yafʿalu) 'he does not do.' Convert to لَنْ + verb. What changes?**
-
-Converted: لَنْ يَفْعَلَ (lan yafʿala) 'he will never do.' Changes: (1) Mood changes from indicative (damma: ـُ) to subjunctive (fatha: ـَ). (2) Tense shifts from present/general to emphatic future. (3) Meaning becomes stronger — not just 'doesn't do' but 'will never do.'
-
-**3. Given: لَا هُوَ مُؤْمِنٌ (lā huwa muʾminun) 'he is not a believer.' Convert to لَيْسَ. What changes?**
-
-Converted: لَيْسَ مُؤْمِنًا (laysa muʾminan) 'he is not a believer.' Changes: (1) Drop the pronoun هُوَ (redundant with لَيْسَ conjugation). (2) Predicate case changes from nominative (مُؤْمِنٌ) to accusative (مُؤْمِنًا) — required by لَيْسَ. (3) Structure changes from لَا + nominal to verbal negation structure.
-
-</ExerciseBox>
-
-<ExerciseBox question="Exercise 3: Apply Decision Tree">
-
-Use the decision tree to select the correct negation particle for each scenario.
-
-**1. You want to say: 'They will never enter Paradise.' What particle? Why?**
-
-Particle: لَنْ (lan). Reason: Emphatic FUTURE negation ('will never'). Structure: لَنْ يَدْخُلُوا۟ ٱلْجَنَّةَ (lan yadkhulū l-jannata). Verb: yadkhulū (present subjunctive, no final ن due to mood).
-
-**2. You want to say: 'The Prophet is not a liar.' What particle? Why?**
-
-Particle: لَيْسَ (laysa). Reason: Negating a STATE OF BEING (nominal sentence, no action verb). Structure: لَيْسَ ٱلنَّبِيُّ كَاذِبًا (laysa n-nabīyu kādhiban) 'the Prophet is not a liar.' Subject: ٱلنَّبِيُّ (nominative). Predicate: kādhiban (liar, accusative, required by laysa).
-
-**3. You want to say: 'Allah did not create the heavens in vain.' Formal, emphatic negation. What particle? Why?**
-
-Particle: لَمْ (lam). Reason: PAST negation requiring formal/emphatic tone. Structure: لَمْ يَخْلُقِ ٱللَّهُ ٱلسَّمَٰوَٰتِ بَٰطِلًا (lam yakhluqi llāhu s-samāwāti bāṭilan). Verb: يَخْلُقِ (yakhluqi) — PRESENT form in JUSSIVE mood (kasra because final letter is ق). Meaning: PAST despite present form.
-
-**4. You want to say: 'I do not lie.' Present, general statement. What particle? Why?**
-
-Particle: لَا (lā). Reason: PRESENT/general negation in indicative mood. Structure: لَا أَكْذِبُ (lā akdhibu) 'I do not lie.' Verb: أَكْذِبُ (akdhibu) — present form, first person, indicative mood (damma: ـُ).
-
-</ExerciseBox>
-
-<ExerciseBox question="Exercise 4: Full Morphological Analysis">
-
-Provide complete analysis: particle, root, verb form, mood, tense meaning, translation.
-
-**1. Analyze: لَمْ يُؤْمِنُوا۟ (lam yuʾminū) [Al-Baqarah 2:6]**
-
-Particle: لَمْ (lam) — past negation. Root: ء-م-ن (believing). Verb: yuʾminū (Form IV present, 3rd plural). Mood: Jussive (no final ن — dropped due to jussive). Tense meaning: PAST (despite present form). Translation: 'They did not believe.'
-
-**2. Analyze: لَا يَسْتَوِي ٱلْأَعْمَىٰ وَٱلْبَصِيرُ [Fatir 35:19]**
-
-Particle: لَا (lā) — present negation. Root: س-و-ي (being equal). Verb: يَسْتَوِي (yastawī) — Form VIII (اِفْتَعَلَ pattern), present, third person singular. Mood: Indicative (damma implied on weak final ي). Tense: Present/general. Translation: 'The blind and the seeing are not equal.'
-
-**3. Analyze: لَنْ تَنَالُوا۟ ٱلْبِرَّ حَتَّىٰ تُنفِقُوا۟ (lan tanālū l-birra ḥattā tunfiqū) [Al-ʿImran 3:92]**
-
-Particle: لَنْ (lan) — emphatic future negation. Root: ن-و-ل (attaining). Verb: tanālū (Form I present, 2nd plural). Mood: Subjunctive (no final ن due to subjunctive). Tense: Future (emphatic — 'will never'). Translation: 'You will never attain righteousness until you spend...'
-
-</ExerciseBox>
-
-## Summary
-
-**Five negation particles — core distinctions:**
-
-1. **لَا (lā):** General present/future negation, indicative mood — the default "not" for ongoing states
-2. **لَمْ (lam):** Formal past negation, UNIQUE for using present form with jussive mood to mean past
-3. **مَا (mā):** Simple past negation with past form — casual alternative to لَمْ
-4. **لَنْ (lan):** Emphatic future negation with subjunctive mood — "will never" force
-5. **لَيْسَ (laysa):** Nominal negation, conjugates like kāna, takes accusative predicate
-
-**The لَمْ exception:**
-- Only particle that uses PRESENT verb form for PAST meaning
-- Forces jussive mood (majzūm) — sukūn or letter-dropping
-- More formal and emphatic than مَا
-
-**Recognition strategy:**
-1. Spot the negation particle
-2. Check verb form (present vs past)
-3. Check mood (indicative/subjunctive/jussive)
-4. Determine actual tense (watch for لَمْ!)
-5. Assess the emphasis level
-
-**Same-verb comparison to remember:**
-- **لَا يَعْبُدُ** (lā yaʿbudu) — he does not worship [present, indicative]
-- **لَمْ يَعْبُدْ** (lam yaʿbud) — he did not worship [past meaning, jussive]
-- **مَا عَبَدَ** (mā ʿabada) — he did not worship [past, simple]
-- **لَنْ يَعْبُدَ** (lan yaʿbuda) — he will never worship [future, subjunctive]
-- **لَيْسَ عَابِدًا** (laysa ʿābidan - "he is not a worshiper") [nominal, state]
-
-**Next steps:** In [L4.11 Weak Verbs Introduction](/learn/level-4/11-weak-verbs-intro/), you'll discover how verbs containing weak letters (و، ي، ء) behave irregularly — including how they interact with negation particles and mood changes. Understanding negation first makes weak verb patterns easier to grasp.
+import Step from '../../../components/lesson/Step.astro';
+import Stage from '../../../components/lesson/Stage.astro';
+import Sentence from '../../../components/lesson/Sentence.astro';
+import Tiles from '../../../components/lesson/Tiles.astro';
+import Formula from '../../../components/lesson/Formula.astro';
+import Conjugation from '../../../components/lesson/Conjugation.astro';
+import Note from '../../../components/lesson/Note.astro';
+import Check from '../../../components/lesson/Check.astro';
+import Start from '../../../components/lesson/Start.astro';
+import Sources from '../../../components/lesson/Sources.astro';
+import Parse from '../../../components/lesson/Parse.astro';
+import Exercise from '../../../components/lesson/Exercise.astro';
+import Block from '../../../components/lesson/Block.astro';
+
+{/* Content spec: docs/redesign/specs/L4.10-negation-particles.md. Every parse follows al-Jadwal (Mahmud Safi). */}
+
+<Step hero id="start" label="Eight words" title={frontmatter.title} kicker={frontmatter.kicker} titleArabic={frontmatter.titleArabic}>
+<Block id="overview" title="In this lesson" level={2} uncounted>
+  <Stage label="The idea">
+    <Formula
+      label="a word of negation changes what comes after it"
+      items={[
+        { kind: 'm', text: 'word of negation', small: 'أَدَاة النَّفْي' },
+        { kind: 'k', text: 'the word after it', small: 'a verb or a noun' },
+        { kind: 's', text: 'negative sentence', small: 'جُمْلَة مَنْفِيَّة' },
+      ]}
+    />
+  </Stage>
+  <Start
+    goal="Name eight words that say “not”, say what each does to the verb or the noun after it (jazm, naṣb or nothing), say what time each points to, and choose the right one for a sentence."
+    minutes={90}
+    before="Jazm and naṣb of the present verb (L3.07). Kāna, laysa and the khabar (L2.11). Condition words (L4.03, L4.04). مَا as a joining noun (L3.11). Exception (L4.05)."
+    terms={[
+      { term: 'Negation', ar: 'نَفْي', meaning: 'Saying “not”. A word of negation is an أَدَاة نَفْي.' },
+      { term: 'Jazm', ar: 'جَزْم', meaning: 'The cut-short ending of a present verb: a sukūn, a lost nūn or a lost weak letter (L3.07).' },
+      { term: 'Naṣb', ar: 'نَصْب', meaning: 'The -a ending of a present verb after words like لَن and أَنْ (L3.07).' },
+      { term: 'Ban', ar: 'نَهْي', meaning: '“Do not …”. The لَا that makes a ban is لَا النَّاهِيَة.' },
+      { term: 'The lā that denies the kind', ar: 'لَا النَّافِيَة لِلْجِنْس', meaning: 'A لَا before a noun with no tanwīn that says “no … at all” (L4.05).' },
+      { term: 'Working like laysa', ar: 'عَامِلَة عَمَلَ لَيْسَ', meaning: 'A word that gives its first noun the nominative and the khabar the accusative, as laysa does (L2.11).' },
+      { term: 'Non-working', ar: 'مُهْمَلَة', meaning: 'A word of negation that changes nothing after it.' },
+    ]}
+  />
+</Block>
+
+<Block id="see" title="Three words that say “not”, in one verse" level={2}>
+  <Stage>
+    <Sentence
+      size="big"
+      roles
+      reference="Al-Munafiqun 63:6 (part)"
+      groups={[
+        { label: 'لَمْ', hint: '“did not”: it brings jazm', words: [{ ar: 'لَمْ', en: 'did not', say: 'lam', type: 'p' }] },
+        { role: 'fiil', hint: 'jazm: a sukūn on the last letter', words: [{ ar: 'تَسْتَغْفِرْ', en: 'you ask forgiveness', say: 'tastaghfir', type: 'v' }] },
+        { role: 'jarMajrur', hint: 'li- “for” with “them”', words: [{ ar: 'لَهُمْ', en: 'for them', say: 'lahum', type: 'p' }] },
+        { label: 'لَن', hint: '“will not”: it brings naṣb', words: [{ ar: 'لَن', en: 'will not', say: 'lan', type: 'p' }] },
+        { role: 'fiil', hint: 'naṣb: a fatḥa on the last letter', words: [{ ar: 'يَغْفِرَ', en: 'forgive', say: 'yaghfira', type: 'v' }] },
+        { role: 'fail', words: [{ ar: 'ٱللَّهُ', en: 'Allah', say: 'allahu' }] },
+        { role: 'jarMajrur', hint: 'li- “for” with “them”', words: [{ ar: 'لَهُمْ', en: 'for them', say: 'lahum', type: 'p' }] },
+        { words: [{ ar: 'إِنَّ', en: 'indeed', say: 'inna', type: 'p' }, { ar: 'ٱللَّهَ', en: 'Allah', say: 'allaha' }] },
+        { label: 'لَا', hint: '“does not”: it changes nothing', words: [{ ar: 'لَا', en: 'does not', say: 'la', type: 'p' }] },
+        { role: 'fiil', hint: 'the plain ending: a hidden -u on the ى', words: [{ ar: 'يَهْدِى', en: 'guides', say: 'yahdi', type: 'v' }] },
+        { role: 'maful', words: [{ ar: 'ٱلْقَوْمَ', en: 'the people', say: 'al-qawma' }, { ar: 'ٱلْفَٰسِقِينَ', en: 'who disobey', say: 'al-fasiqina' }] },
+      ]}
+      en={['…or you did not ask forgiveness for them: Allah will not forgive them. Allah does not guide the disobedient people.']}
+    />
+  </Stage>
+
+Three words of negation stand in this verse, and each one does something different to the verb after it.
+
+- **لَمْ** stands before تَسْتَغْفِرْ. The verb ends in a sukūn. That is jazm (L3.07).
+- **لَن** stands before يَغْفِرَ. The verb ends in a fatḥa. That is naṣb.
+- **لَا** stands before يَهْدِى. The verb keeps its plain ending, so لَا changed nothing.
+
+All three say “not”. What tells them apart is the ending of the word after them. This lesson takes eight words that say “not” and shows what each one does.
+
+Al-Jadwal gives each clause its own sentence and reads the last لَا as a plain negative. It does not parse the verbs word by word in this verse. The words لَمْ and لَن are the ones L3.07 parsed in other verses.
+
+<Check n={1} q="Which of the three words puts a sukūn on the verb after it?" options={['لَمْ', 'لَن', 'لَا']} answer={0} why="لَمْ brings jazm, so تَسْتَغْفِرْ ends in a sukūn. لَن brings a fatḥa and لَا changed nothing in this verse." />
+</Block>
+
+<Block id="map" title="Eight words on one page">
+  <Stage label="Eight words that say “not”">
+    <Tiles
+      label="Words of negation"
+      items={[
+        { ar: 'لَمْ', en: 'did not', type: 'p' },
+        { ar: 'لَمَّا', en: 'not yet', type: 'p' },
+        { ar: 'لَن', en: 'will not', type: 'p' },
+        { ar: 'لَا', en: 'does not, do not', type: 'p' },
+        { ar: 'مَا', en: 'does not, did not', type: 'p' },
+        { ar: 'إِنْ', en: 'not', type: 'p' },
+        { ar: 'لَيْسَ', en: 'is not', type: 'v' },
+        { ar: 'غَيْر', en: 'not, other than', type: 'n' },
+      ]}
+    />
+  </Stage>
+
+Five of these stand before a verb: لَمْ, لَمَّا, لَن, لَا and مَا. Others stand before a noun: لَيْسَ, مَا, إِنْ and غَيْر. لَا can stand before either.
+
+Ask what each word does to the thing after it. There are only a few answers.
+
+| What it does | Words |
+|---|---|
+| Jazm on a present verb | لَمْ, لَمَّا, and لَا when it makes a ban |
+| Naṣb on a present verb | لَن |
+| Nothing to a verb | لَا (a plain “not”), مَا, إِنْ |
+| Turns the khabar accusative | لَيْسَ, and مَا when it works like laysa |
+| Is a noun itself | غَيْر |
+
+The next two steps go through them one by one. The fourth step puts them side by side, with counts.
+
+<Check n={2} q="Which word gives a present verb a fatḥa (naṣb)?" options={['لَمْ', 'لَن', 'مَا']} answer={1} why="لَن is the only one of the eight that brings naṣb. لَمْ brings jazm and مَا changes nothing." />
+</Block>
+
+<Block id="books" title="What al-Ajurrumiyyah lists">
+  <Stage label="From al-Ajurrumiyyah">
+    <blockquote class="lx-quote lx-quote-list" lang="ar" dir="rtl">
+      <p>فَالنَّوَاصِبُ عَشَرَةٌ وَهِيَ: أَنْ وَلَنْ وَإِذَنْ وَكَيْ وَلَامُ كَيْ وَلَامُ الْجُحُودِ وَحَتَّى وَالْجَوَابُ بِالْفَاءِ وَالْوَاوِ وَأَوْ</p>
+      <p>وَالْجَوَازِمُ ثَمَانِيَةَ عَشَرَ وَهِيَ: لَمْ وَلَمَّا وَأَلَمْ وَأَلَمَّا وَلَامُ الْأَمْرِ وَالدُّعَاءِ وَلَا فِي النَّهْيِ وَالدُّعَاءِ وَإِنْ وَمَا وَمَنْ وَمَهْمَا …</p>
+    </blockquote>
+    <p class="lx-quote-note"><i>Al-Ajurrumiyyah</i>, chapter on the verbs. Vowel marks added by Quran Learn.</p>
+  </Stage>
+
+L3.07 showed these two lists. They hold the little words that change the ending of a present verb. Four of our words are in them. لَن is in the list of naṣb. لَمْ, لَمَّا and the لَا “in the ban” are in the list of jazm. أَلَمْ and أَلَمَّا are the same two words with the question أَ in front.
+
+The lists are about verbs, so they leave out the words that change no verb: the plain لَا, the negative مَا and the negative إِنْ. The مَا and إِنْ that are in the list of jazm are the condition words (L4.04).
+
+The book adds “and the request” to the ban. A ban spoken to God is a request, and it takes the same jazm: رَبَّنَا لَا تُؤَاخِذْنَآ (2:286), “our Lord, do not hold us to account”. The verb تُؤَاخِذْنَآ ends in a sukūn on the ذ.
+
+<Check n={3} q="Which of these is in al-Ajurrumiyyah’s list of naṣb?" options={['لَن', 'لَمْ', 'لَيْسَ']} answer={0} why="The book lists لَنْ among the words of naṣb. لَمْ is in the list of jazm, and لَيْسَ is a verb." />
+</Block>
+</Step>
+
+<Step id="verb" label="Before a verb" title="Words of negation before a verb">
+<Block id="la-say" title="لَا before a plain verb: “does not”">
+  <Stage>
+    <Sentence
+      roles
+      reference="Ta-Ha 20:52"
+      groups={[
+        { label: 'لَا', hint: '“does not”: it changes nothing', words: [{ ar: 'لَّا', en: 'does not', say: 'la', type: 'p' }] },
+        { role: 'fiil', hint: 'the plain ending: -u', words: [{ ar: 'يَضِلُّ', en: 'go astray', say: 'yadillu', type: 'v' }] },
+        { role: 'fail', hint: 'the doer: “my Lord”', words: [{ ar: 'رَبِّى', en: 'my Lord', say: 'rabbi' }] },
+        { label: 'لَا', hint: '“does not”, again', words: [{ ar: 'وَلَا', en: 'and does not', say: 'wa-la', type: 'p' }] },
+        { role: 'fiil', hint: 'the plain ending: a hidden -u on the long ā', words: [{ ar: 'يَنسَى', en: 'forget', say: 'yansa', type: 'v' }] },
+      ]}
+      en={['My Lord does not go astray and does not forget.']}
+    />
+  </Stage>
+
+لَا is the most common word that says “not”. In 20:52 it stands before two present verbs, يَضِلُّ and يَنسَى. Both keep the plain ending they would have without لَا. So لَا changed nothing. The sentence says “does not”: something that is true now, or always.
+
+Quran Learn counted in the Corpus file. 1,406 words are tagged as the negative لَا. A present verb follows right away in 1,017 of them. A noun follows in 300, and the next step deals with those.
+
+<Note kind="know">A past verb can come after لَا, but only six times, in five verses: 6:148, 10:16, 16:35, 75:31 and 90:11. In فَلَا صَدَّقَ وَلَا صَلَّىٰ (75:31), “he neither believed nor prayed”, the verbs keep their past form. Al-Jadwal calls the لَا a plain negative both times.</Note>
+
+<Check n={4} q="What ending does يَضِلُّ have after لَا in 20:52?" options={['The plain ending, -u', 'A sukūn (jazm)', 'A fatḥa (naṣb)']} answer={0} why="لَا changed nothing, so the verb keeps its plain -u." />
+</Block>
+
+<Block id="la-ban" title="لَا before a verb in jazm: “do not”">
+  <Stage>
+    <Sentence
+      roles
+      reference="Al-Isra 17:23 (part)"
+      groups={[
+        { label: 'the lā of a ban', hint: '“do not”: it brings jazm', words: [{ ar: 'فَلَا', en: 'so do not', say: 'fa-la', type: 'p' }] },
+        { role: 'fiil', hint: 'jazm: the long ū of تَقُولُ is gone', words: [{ ar: 'تَقُل', en: 'say', say: 'taqul', type: 'v' }] },
+        { role: 'jarMajrur', hint: 'li- “to” with “the two of them”', words: [{ ar: 'لَّهُمَآ', en: 'to them', say: 'lahuma', type: 'p' }] },
+        { label: 'a sound word', hint: '“uff”: the books call it a word that stands for a verb', words: [{ ar: 'أُفٍّ', en: 'uff', say: 'uffin' }] },
+        { label: 'the lā of a ban', hint: '“do not”, again', words: [{ ar: 'وَلَا', en: 'and do not', say: 'wa-la', type: 'p' }] },
+        { role: 'fiil', hint: 'jazm: a sukūn on the ر', words: [{ ar: 'تَنْهَرْهُمَا', en: 'scold them', say: 'tanharhuma', type: 'v' }] },
+      ]}
+      en={['So do not say “uff” to them, and do not scold them.']}
+    />
+  </Stage>
+
+Here the same letters لَا mean “do not”. The verb after it shows jazm. تَقُل ends in a sukūn, and the plain form is تَقُولُ: the long ū is gone. تَنْهَرْهُمَا is a sukūn on the ر, and the plain form is تَنْهَرُ. L3.07 taught the ban. What is new here is the comparison: in 20:52 the verb kept its -u and the sentence said “does not”. Here the verb is cut short and the sentence says “do not”.
+
+Al-Jadwal calls this لَا “prohibiting and bringing jazm”, and the doer is a hidden “you”.
+
+The Corpus tags 332 words as the لَا of prohibition, and a present verb follows 330 of them. About 110 more words tagged as a plain negative stand before a verb that is tagged jussive, and many of those are bans too, such as فَلَا تَكْفُرْ (2:102). The tags do not draw a clean line. Trust the verb’s ending.
+
+<Note kind="know">The verse starts with أَلَّا تَعْبُدُوٓا۟ إِلَّآ إِيَّاهُ, “that you worship none but Him”. Its verb has lost its nūn, which is naṣb, but أَنْ did that. أَلَّا is أَنْ plus لَا, and the لَا only says “not”.</Note>
+
+<Check n={5} q="How do you know that لَا in لَا تَنْهَرْهُمَا makes a ban?" options={['The verb ends in a sukūn', 'The verb keeps its plain -u', 'A noun comes after it']} answer={0} why="A sukūn is the mark of jazm. A plain -u would mean “does not”." />
+</Block>
+
+<Block id="lam" title="لَمْ: “did not”">
+  <Stage>
+    <Sentence
+      roles
+      reference="Al-Fil 105:1"
+      groups={[
+        { label: 'أَ + لَمْ', hint: '“did … not?”: a question, and jazm', words: [{ ar: 'أَلَمْ', en: 'did … not', say: 'alam', type: 'p' }] },
+        { role: 'fiil', hint: 'jazm: the ى of تَرَىٰ is gone', words: [{ ar: 'تَرَ', en: 'you see', say: 'tara', type: 'v' }] },
+        { words: [{ ar: 'كَيْفَ', en: 'how', say: 'kayfa' }] },
+        { role: 'fiil', words: [{ ar: 'فَعَلَ', en: 'did', say: 'faala', type: 'v' }] },
+        { role: 'fail', words: [{ ar: 'رَبُّكَ', en: 'your Lord', say: 'rabbuka' }] },
+        { role: 'jarMajrur', hint: 'bi- “with” “the owners of the elephant”', words: [{ ar: 'بِأَصْحَٰبِ', en: 'with the owners of', say: 'bi-ashabi', type: 'p' }, { ar: 'ٱلْفِيلِ', en: 'the elephant', say: 'al-fili' }] },
+      ]}
+      en={['Have you not seen how your Lord dealt with the owners of the elephant?']}
+    />
+  </Stage>
+
+لَمْ is the word of jazm you meet most. It changes the ending and moves the meaning to the past (L3.07). The plain form of تَرَ is تَرَىٰ, “you see”. After لَمْ the last letter ىٰ is gone.
+
+The أَ in front is a question. أَلَمْ تَرَ asks “have you not seen?”, and it is meant as a reminder: you have seen it.
+
+The Corpus tags 353 words as لَمْ. Of these, 347 are لَمْ itself and 6 are the لَمَّا of “not yet”, which comes later in this step. 125 of the لَمْ have a question أَ on the same word, like أَلَمْ here and أَوَلَمْ in 7:184. All of them stand before a present verb. The Corpus tags 350 of these verbs as jussive. The other three are 5:41, 18:82 and 62:3, and the text shows jazm in each.
+
+<Note kind="know">لَمْ points to the past in a plain sentence, but the time can follow the sentence. After a condition word it looks ahead. In فَإِن لَّمْ تَفْعَلُوا۟ وَلَن تَفْعَلُوا۟ (2:24), “and if you do not, and you will not”, the لَمْ speaks about what is still to come. L4.03 teaches the condition.</Note>
+
+<Check n={6} q="What does لَمْ do to تَرَىٰ?" options={['Nothing: the ىٰ stays', 'The ىٰ is gone: تَرَ', 'It adds a sukūn to the ر']} answer={1} why="A weak last letter drops in jazm (L3.07). تَرَىٰ becomes تَرَ." />
+</Block>
+
+<Block id="lan" title="لَن: “will not”">
+  <Stage>
+    <Sentence
+      roles
+      reference="Yusuf 12:80 (part)"
+      groups={[
+        { label: 'لَنْ', hint: '“will not”: it brings naṣb', words: [{ ar: 'فَلَنْ', en: 'so will not', say: 'fa-lan', type: 'p' }] },
+        { role: 'fiil', hint: 'naṣb: a fatḥa on the ح', words: [{ ar: 'أَبْرَحَ', en: 'I leave', say: 'abraha', type: 'v' }] },
+        { role: 'maful', words: [{ ar: 'ٱلْأَرْضَ', en: 'the land', say: 'al-arda' }] },
+        { label: 'حَتَّىٰ', hint: '“until”: it sets an end', words: [{ ar: 'حَتَّىٰ', en: 'until', say: 'hatta', type: 'p' }] },
+        { role: 'fiil', hint: 'naṣb: after حَتَّىٰ', words: [{ ar: 'يَأْذَنَ', en: 'gives leave', say: 'yadhana', type: 'v' }] },
+        { role: 'jarMajrur', hint: 'li- “to” with “me”', words: [{ ar: 'لِىٓ', en: 'to me', say: 'li', type: 'p' }] },
+        { role: 'fail', hint: 'the doer: “my father”', words: [{ ar: 'أَبِىٓ', en: 'my father', say: 'abi' }] },
+      ]}
+      en={['So I will not leave the land until my father gives me leave.']}
+    />
+  </Stage>
+
+لَن goes before a present verb and gives it a fatḥa. أَبْرَحَ ends in -a, and the plain form is أَبْرَحُ. Al-Jadwal calls لَن a word of negation and naṣb. The meaning looks ahead: “will not”.
+
+The Corpus tags 106 words as لَن, and the verb after it is tagged as naṣb in all 106. The verb after حَتَّىٰ is in naṣb too, because of a hidden أَنْ (L3.07).
+
+<Note kind="know">Some grammarians say لَن means “never, for ever”. The verses do not need that. In 10 of the 106 verses with لَن, the word حَتَّىٰ comes later and sets an end: 2:55, 2:120, 3:92, 5:22, 6:124, 12:66, 12:80, 17:90, 17:93 and 20:91. In 2:95, وَلَن يَتَمَنَّوْهُ أَبَدًۢا, “and they will not wish for it, ever”, the word for “ever” is a separate word. This lesson reads لَن as a plain “will not”. Quran Learn did not check who holds the other view in an approved source.</Note>
+
+<Check n={7} q="What ending does the verb take after لَن?" options={['A fatḥa (naṣb)', 'A sukūn (jazm)', 'The plain -u']} answer={0} why="لَن is a word of naṣb. After it أَبْرَحُ becomes أَبْرَحَ." />
+</Block>
+
+<Block id="lamma" title="لَمَّا: “not yet”">
+  <Stage>
+    <Sentence
+      roles
+      reference="Al-Jumuʿah 62:3 (part)"
+      groups={[
+        { words: [{ ar: 'وَءَاخَرِينَ', en: 'and others', say: 'wa-akharina' }] },
+        { role: 'jarMajrur', hint: 'min “of” with “them”', words: [{ ar: 'مِنْهُمْ', en: 'from among them', say: 'minhum', type: 'p' }] },
+        { label: 'لَمَّا', hint: '“not yet”: it brings jazm', words: [{ ar: 'لَمَّا', en: 'not yet', say: 'lamma', type: 'p' }] },
+        { role: 'fiil', hint: 'jazm: the nūn is gone', words: [{ ar: 'يَلْحَقُوا۟', en: 'they join', say: 'yalhaqu', type: 'v' }] },
+        { role: 'jarMajrur', hint: 'bi- “with” “them”', words: [{ ar: 'بِهِمْ', en: 'them', say: 'bihim', type: 'p' }] },
+      ]}
+      en={['…and others from among them who have not yet joined them.']}
+    />
+  </Stage>
+
+لَمَّا before a present verb says “not yet”. It brings jazm like لَمْ: يَلْحَقُوا۟ lost its nūn. The plain form is يَلْحَقُونَ.
+
+Al-Jadwal calls this لَمَّا a word of negation, of turning to the past, and of jazm. Teachers add that it points to something still expected. That extra sense is a teaching summary, and it fits this verse: the others have not joined them, and they are expected to.
+
+L4.04 met the other لَمَّا, “when”, before a past verb. It found the “not yet” one in eight verses: 2:214, 3:142, 9:16, 10:39, 38:8, 49:14, 62:3 and 80:23. The Corpus tags six of them with the same tag as لَمْ, which is why the count of لَمْ above includes them. The letters are the same, so look at the verb. A present verb in jazm after لَمَّا means “not yet”.
+
+<Check n={8} q="What does لَمَّا يَلْحَقُوا۟ mean?" options={['They have not joined yet', 'They will not join', 'Do not join']} answer={0} why="لَمَّا before a present verb in jazm says “not yet”. “Will not” is لَن and “do not” is the لَا of a ban." />
+</Block>
+
+<Block id="ma" title="مَا before a verb: past or present">
+  <Stage>
+    <Sentence
+      roles
+      reference="An-Najm 53:2"
+      groups={[
+        { label: 'مَا', hint: '“did not”: it changes nothing', words: [{ ar: 'مَا', en: 'did not', say: 'ma', type: 'p' }] },
+        { role: 'fiil', hint: 'a past verb, still built on fatḥa', words: [{ ar: 'ضَلَّ', en: 'go astray', say: 'dalla', type: 'v' }] },
+        { role: 'fail', words: [{ ar: 'صَاحِبُكُمْ', en: 'your companion', say: 'sahibukum' }] },
+        { label: 'مَا', hint: '“did not”, again', words: [{ ar: 'وَمَا', en: 'and did not', say: 'wa-ma', type: 'p' }] },
+        { role: 'fiil', hint: 'a past verb', words: [{ ar: 'غَوَىٰ', en: 'err', say: 'ghawa', type: 'v' }] },
+      ]}
+      en={['Your companion has not gone astray, and has not erred.']}
+    />
+    <Sentence
+      roles
+      reference="Ya-Sin 36:69 (part)"
+      groups={[
+        { label: 'مَا', hint: '“did not”', words: [{ ar: 'وَمَا', en: 'and did not', say: 'wa-ma', type: 'p' }] },
+        { role: 'fiil', hint: 'a past verb, with the doer -nā and the object -hu', words: [{ ar: 'عَلَّمْنَٰهُ', en: 'We taught him', say: 'allamnahu', type: 'v' }] },
+        { role: 'maful', words: [{ ar: 'ٱلشِّعْرَ', en: 'poetry', say: 'ash-shira' }] },
+        { label: 'مَا', hint: '“is not”: before a present verb', words: [{ ar: 'وَمَا', en: 'and is not', say: 'wa-ma', type: 'p' }] },
+        { role: 'fiil', hint: 'a present verb with its plain ending', words: [{ ar: 'يَنۢبَغِى', en: 'it is fitting', say: 'yanbaghi', type: 'v' }] },
+        { role: 'jarMajrur', hint: 'li- “for” with “him”', words: [{ ar: 'لَهُۥٓ', en: 'for him', say: 'lahu', type: 'p' }] },
+      ]}
+      en={['We did not teach him poetry, and it is not fitting for him.']}
+    />
+  </Stage>
+
+مَا before a verb changes nothing. A past verb stays past (ضَلَّ, غَوَىٰ, عَلَّمْنَٰهُ) and a present verb keeps its plain ending (يَنۢبَغِى). So مَا does not set the time. The verb does. In 53:2 the sentence is about the past, and in 36:69 the second clause is about what is fitting now.
+
+Al-Jadwal calls the مَا of 53:2 and of 36:69 a plain negative.
+
+The Corpus tags 705 words as the negative مَا. A past verb follows 334 of them (47%) and a present verb 141 (20%). A noun, a pronoun, a pointing word or a name follows 207 (29%), and the next step deals with those. A verse with إِلَّا later in it holds 262 of the 705 (37%).
+
+<Note kind="warn">مَا does not always say “not”. L3.11 showed the joining noun, “what”. L4.04 showed the condition word, “whatever”. In the Corpus the negative tag is on 705 words, the joining noun on 1,476 and the condition on 23. It is a negative when the sentence says “not” and no returning pronoun points back to it.</Note>
+
+<Check n={9} q="What does مَا do to the verb in مَا ضَلَّ صَاحِبُكُمْ?" options={['Nothing: the past verb stays past', 'Jazm', 'Naṣb']} answer={0} why="مَا changes no verb. ضَلَّ is a past verb and it stays built on its fatḥa." />
+</Block>
+
+<Block id="same-verb" title="One verb, nine ways to say “not”">
+  <Stage label="Teaching forms of عَبَدَ, “he worshipped”">
+    <Tiles
+      label="Nine negations of one verb"
+      items={[
+        { ar: 'لَا يَعْبُدُ', en: 'he does not worship', type: 'v' },
+        { ar: 'لَا تَعْبُدْ', en: 'do not worship', type: 'v' },
+        { ar: 'لَمْ يَعْبُدْ', en: 'he did not worship', type: 'v' },
+        { ar: 'لَمَّا يَعْبُدْ', en: 'he has not worshipped yet', type: 'v' },
+        { ar: 'لَنْ يَعْبُدَ', en: 'he will not worship', type: 'v' },
+        { ar: 'مَا عَبَدَ', en: 'he did not worship', type: 'v' },
+        { ar: 'مَا يَعْبُدُ', en: 'he does not worship', type: 'v' },
+        { ar: 'لَيْسَ عَابِدًا', en: 'he is not a worshipper', type: 'v' },
+        { ar: 'هُوَ غَيْرُ عَابِدٍ', en: 'he is not a worshipper', type: 'n' },
+      ]}
+    />
+  </Stage>
+
+These nine forms are teaching forms, not verses. The plain present is يَعْبُدُ.
+
+| Form | The verb shows | Time |
+|---|---|---|
+| لَا يَعْبُدُ | plain -u | now, or always |
+| لَا تَعْبُدْ | sukūn (jazm) | a ban, from now on |
+| لَمْ يَعْبُدْ | sukūn (jazm) | the past |
+| لَمَّا يَعْبُدْ | sukūn (jazm) | the past up to now |
+| لَنْ يَعْبُدَ | fatḥa (naṣb) | the future |
+| مَا عَبَدَ | a past verb | the past |
+| مَا يَعْبُدُ | plain -u | now |
+| لَيْسَ عَابِدًا | a noun, -an | the time of the sentence |
+| هُوَ غَيْرُ عَابِدٍ | a noun | the time of the sentence |
+
+Three of the forms end in a sukūn and one in a fatḥa. The other five do not change the ending of the verb at all. Notice that لَمْ يَعْبُدْ and مَا عَبَدَ both say “he did not worship”. They are two ways to say it, with two different verb forms.
+
+<Check n={10} q="Which form means “he will not worship”?" options={['لَنْ يَعْبُدَ', 'لَمْ يَعْبُدْ', 'مَا عَبَدَ']} answer={0} why="لَنْ with a fatḥa points to the future. لَمْ يَعْبُدْ and مَا عَبَدَ are both about the past." />
+</Block>
+</Step>
+
+<Step id="noun" label="Before a noun" title="Words of negation before a noun, and غَيْر">
+<Block id="laysa" title="لَيْسَ: the negative sister of kāna">
+  <Stage>
+    <Sentence
+      roles
+      reference="At-Tin 95:8"
+      groups={[
+        { role: 'fiil', label: 'laysa', hint: 'أَ makes it a question: “is … not?”', words: [{ ar: 'أَلَيْسَ', en: 'is not', say: 'alaysa', type: 'v' }] },
+        { role: 'ismKana', label: 'ism laysa', hint: 'nominative: -u', words: [{ ar: 'ٱللَّهُ', en: 'Allah', say: 'allahu' }] },
+        { role: 'khabarKana', label: 'khabar laysa', hint: 'bi- and a noun: genitive in form, accusative in place', words: [{ ar: 'بِأَحْكَمِ', en: 'the wisest of', say: 'bi-ahkami', type: 'p' }, { ar: 'ٱلْحَٰكِمِينَ', en: 'the judges', say: 'al-hakimina' }] },
+      ]}
+      en={['Is Allah not the wisest of the judges?']}
+    />
+  </Stage>
+
+L2.11 taught laysa. It is a verb with only a few forms. The first noun after it is the ism, in the nominative. The khabar is accusative. Nothing else changes when it says “not”.
+
+Here the khabar begins with an extra بِ. The noun after it, أَحْكَمِ, ends in a kasra, because of the بِ. Al-Jadwal says it is “genitive in form and accusative in place” (مَجْرُور لَفْظًا مَنْصُوب مَحَلًّا). The extra بِ adds strength and has no meaning of its own. In the Corpus, 27 of the 89 laysa stand before a phrase, and often that phrase is the khabar, put first, as in لَّيْسَ عَلَيْكَ هُدَىٰهُمْ (2:272), “their guidance is not on you”.
+
+laysa has no tense of its own. L2.11 called it a verb that just means “is not”. It takes its time from the sentence.
+
+<Note kind="know">Al-Jadwal calls laysa a verb (jāmid, with only a few forms). Some grammarians call it a little word. Quran Learn did not check who holds each view. It makes no difference to the endings you read.</Note>
+
+<Check n={11} q="In أَلَيْسَ ٱللَّهُ بِأَحْكَمِ ٱلْحَٰكِمِينَ, which word is the ism of laysa?" options={['ٱللَّهُ', 'بِأَحْكَمِ', 'أَلَيْسَ']} answer={0} why="ٱللَّهُ is nominative (-u), so it is the ism. The phrase with بِ is the khabar." />
+</Block>
+
+<Block id="laysa-forms" title="The forms of لَيْسَ">
+  <Stage label="One verb, 13 forms">
+    <Conjugation
+      caption="لَيْسَ, “is not”: all 13 forms"
+      endLabel="Ending"
+      formLabel="Verb"
+      rows={[
+        { group: 'One person' },
+        { who: 'he', pr: 'هُوَ', ar: 'لَيْسَ', end: 'ـَ', say: 'laysa' },
+        { who: 'she', pr: 'هِيَ', ar: 'لَيْسَتْ', end: 'ـَتْ', say: 'laysat' },
+        { group: 'Two people' },
+        { who: 'the two (men)', pr: 'هُمَا', ar: 'لَيْسَا', end: 'ـَا', say: 'laysā' },
+        { who: 'the two (women)', pr: 'هُمَا', ar: 'لَيْسَتَا', end: 'ـَتَا', say: 'laysatā' },
+        { group: 'Many people' },
+        { who: 'they (men)', pr: 'هُمْ', ar: 'لَيْسُوا', end: 'ـُوا', say: 'laysū' },
+        { who: 'they (women)', pr: 'هُنَّ', ar: 'لَسْنَ', end: 'ـْنَ', say: 'lasna' },
+        { group: 'You' },
+        { who: 'you (man)', pr: 'أَنْتَ', ar: 'لَسْتَ', end: 'ـْتَ', say: 'lasta' },
+        { who: 'you (woman)', pr: 'أَنْتِ', ar: 'لَسْتِ', end: 'ـْتِ', say: 'lasti' },
+        { who: 'you two', pr: 'أَنْتُمَا', ar: 'لَسْتُمَا', end: 'ـْتُمَا', say: 'lastumā' },
+        { who: 'you all (men)', pr: 'أَنْتُمْ', ar: 'لَسْتُمْ', end: 'ـْتُمْ', say: 'lastum' },
+        { who: 'you all (women)', pr: 'أَنْتُنَّ', ar: 'لَسْتُنَّ', end: 'ـْتُنَّ', say: 'lastunna' },
+        { group: 'I and we' },
+        { who: 'I', pr: 'أَنَا', ar: 'لَسْتُ', end: 'ـْتُ', say: 'lastu' },
+        { who: 'we', pr: 'نَحْنُ', ar: 'لَسْنَا', end: 'ـْنَا', say: 'lasnā' },
+      ]}
+    />
+  </Stage>
+
+laysa has the endings of a past verb (L3.05), the same ones that كَتَبَ takes. One difference: when the ending starts with a consonant, the ي of the stem is gone and a sukūn stands on the س. So you get لَسْتُ, not لَيْسْتُ.
+
+Not all 13 forms are in the Quran. The Corpus tags 89 words as laysa, in 7 forms: “he” 74 times, “you” (man) 4, “you all” (men) 3, “she” 3, “I” 2, “they” (men) 2 and “you all” (women) once. The form لَسْتَ is the one in 88:22 below.
+
+The ism is hidden inside the verb in “he”, “she” and “they”, as in a past verb. In the endings -ta, -tum and -tu, the ending itself is the ism: لَسْتَ, “you are not”.
+
+<Check n={12} q="In لَسْتَ, which part is the ism of laysa?" options={['The ending -ta, “you”', 'The letters لَسْ', 'A hidden “he”']} answer={0} why="The ending -ta is the ism, as the ending of a past verb is the doer. لَسْ is the stem." />
+</Block>
+
+<Block id="ma-laysa" title="مَا that works like laysa">
+  <Stage>
+    <Sentence
+      roles
+      reference="Al-Mujadilah 58:2 (part)"
+      groups={[
+        { label: 'مَا', hint: '“not”: it works like laysa', words: [{ ar: 'مَّا', en: 'not', say: 'ma', type: 'p' }] },
+        { role: 'ismKana', label: 'ism mā', hint: 'nominative: a fixed word', words: [{ ar: 'هُنَّ', en: 'they (women)', say: 'hunna' }] },
+        { role: 'khabarKana', label: 'khabar mā', hint: 'accusative: -i, as a sound feminine plural', words: [{ ar: 'أُمَّهَٰتِهِمْ', en: 'their mothers', say: 'ummahatihim' }] },
+        { label: 'إِنْ', hint: '“not”: it changes nothing', words: [{ ar: 'إِنْ', en: 'not', say: 'in', type: 'p' }] },
+        { role: 'mubtada', hint: 'nominative: -u', words: [{ ar: 'أُمَّهَٰتُهُمْ', en: 'their mothers', say: 'ummahatuhum' }] },
+        { words: [{ ar: 'إِلَّا', en: 'except', say: 'illa', type: 'p' }] },
+        { role: 'khabar', hint: 'the khabar: “those who”', words: [{ ar: 'ٱلَّٰٓـِٔى', en: 'those who', say: 'allai' }, { ar: 'وَلَدْنَهُمْ', en: 'gave birth to them', say: 'waladnahum', type: 'v' }] },
+      ]}
+      en={['They are not their mothers. Their mothers are only those who gave birth to them.']}
+    />
+    <Sentence
+      roles
+      reference="Fussilat 41:46 (end)"
+      groups={[
+        { label: 'مَا', hint: '“not”: it works like laysa', words: [{ ar: 'وَمَا', en: 'and not', say: 'wa-ma', type: 'p' }] },
+        { role: 'ismKana', label: 'ism mā', hint: 'nominative: -u', words: [{ ar: 'رَبُّكَ', en: 'your Lord', say: 'rabbuka' }] },
+        { role: 'khabarKana', label: 'khabar mā', hint: 'bi- and a noun: genitive in form, accusative in place', words: [{ ar: 'بِظَلَّٰمٍ', en: 'unjust', say: 'bi-zallamin', type: 'p' }] },
+        { role: 'jarMajrur', hint: 'li- “to” with “the servants”', words: [{ ar: 'لِّلْعَبِيدِ', en: 'to the servants', say: 'lil-abidi', type: 'p' }] },
+      ]}
+      en={['And your Lord is not unjust to the servants.']}
+    />
+  </Stage>
+
+مَا can stand before a noun and say “not”. Al-Jadwal reads the مَا of 58:2 as working like laysa (عَامِلَة عَمَلَ لَيْسَ). So هُنَّ is its ism, and أُمَّهَٰتِهِمْ is its khabar, in the accusative with a kasra.
+
+The same verse shows the other kind next to it. In إِنْ أُمَّهَٰتُهُمْ إِلَّا ٱلَّٰٓـِٔى the word أُمَّهَٰتُهُمْ is the same noun and ends in -u. إِنْ changed nothing. Compare أُمَّهَٰتِهِمْ (-i, the khabar of مَا) with أُمَّهَٰتُهُمْ (-u, after إِنْ).
+
+In 41:46 the khabar has the extra بِ, as in 95:8. ظَلَّٰمٍ is genitive in form and accusative in place.
+
+In the Corpus, a noun, pronoun, pointing word or name comes right after 207 of the 705 negative مَا. The pronoun is the commonest of these, 149 times.
+
+<Note kind="know">The same مَا may be read as plain. In 7:184, مَا بِصَاحِبِهِم مِّن جِنَّةٍ, the khabar comes first, and al-Jadwal calls the مَا a plain negative. You will parse this verse in the last step. The books give a rule that a مَا like this needs its ism before its khabar. Quran Learn did not confirm that rule in an approved source, so take it as a pattern in these verses.</Note>
+
+<Check n={13} q="In مَّا هُنَّ أُمَّهَٰتِهِمْ, which word is the khabar of مَا?" options={['هُنَّ', 'أُمَّهَٰتِهِمْ', 'مَّا']} answer={1} why="أُمَّهَٰتِهِمْ has -i, the accusative of a sound feminine plural. It is the khabar. هُنَّ is the ism." />
+</Block>
+
+<Block id="in" title="إِنْ: “not”, usually with إِلَّا">
+  <Stage>
+    <Sentence
+      roles
+      reference="Ya-Sin 36:69 (end)"
+      groups={[
+        { label: 'إِنْ', hint: '“not”: it changes nothing', words: [{ ar: 'إِنْ', en: 'not', say: 'in', type: 'p' }] },
+        { role: 'mubtada', words: [{ ar: 'هُوَ', en: 'it', say: 'huwa' }] },
+        { words: [{ ar: 'إِلَّا', en: 'except', say: 'illa', type: 'p' }] },
+        { role: 'khabar', words: [{ ar: 'ذِكْرٌ', en: 'a reminder', say: 'dhikrun' }] },
+        { role: 'matuf', words: [{ ar: 'وَقُرْءَانٌ', en: 'and a recitation', say: 'wa-qur’anun' }] },
+        { role: 'naat', words: [{ ar: 'مُّبِينٌ', en: 'clear', say: 'mubinun' }] },
+      ]}
+      en={['It is only a reminder and a clear recitation.']}
+    />
+    <Sentence
+      roles
+      reference="Al-Anʿam 6:116 (end)"
+      groups={[
+        { label: 'إِنْ', hint: '“not”', words: [{ ar: 'إِن', en: 'not', say: 'in', type: 'p' }] },
+        { role: 'fiil', hint: 'the plain ending: the nūn stays', words: [{ ar: 'يَتَّبِعُونَ', en: 'they follow', say: 'yattabiuna', type: 'v' }] },
+        { words: [{ ar: 'إِلَّا', en: 'except', say: 'illa', type: 'p' }] },
+        { role: 'maful', words: [{ ar: 'ٱلظَّنَّ', en: 'guesswork', say: 'az-zanna' }] },
+        { label: 'إِنْ', hint: '“not”, again', words: [{ ar: 'وَإِنْ', en: 'and not', say: 'wa-in', type: 'p' }] },
+        { role: 'mubtada', words: [{ ar: 'هُمْ', en: 'they', say: 'hum' }] },
+        { words: [{ ar: 'إِلَّا', en: 'except', say: 'illa', type: 'p' }] },
+        { role: 'khabar', hint: 'a verb with its plain ending', words: [{ ar: 'يَخْرُصُونَ', en: 'guess', say: 'yakhrusuna', type: 'v' }] },
+      ]}
+      en={['They follow only guesswork, and they only guess.']}
+    />
+  </Stage>
+
+L4.04 showed three words with the same letters: the condition إِنْ, the negative إِنْ and the إِنَّ of L2.10. This is the negative. It says “not” and it almost always has إِلَّا later in the sentence, which turns “not … except” into “only”. Al-Jadwal calls it a word of negation, and إِلَّا a word of limiting.
+
+It changes nothing. In 36:69 the khabar ذِكْرٌ is nominative, like any khabar. In 6:116 the verb يَتَّبِعُونَ keeps its nūn, so there is no jazm. Compare the مَا that works like laysa, which turned the khabar accusative.
+
+The Corpus tags 114 words as the negative إِنْ. In 106 of them (93%) إِلَّا comes later in the same verse. What follows إِنْ right away is a pronoun 33 times, a present verb 28, a noun 19, a pointing word 15 and a past verb 10.
+
+<Note kind="know">Al-Jadwal says in a note that the negative إِنْ has two kinds: one that works like laysa and one that does not. The verses in this step fit the second kind.</Note>
+
+<Check n={14} q="How can you tell the negative إِنْ from the condition إِنْ?" options={['إِلَّا comes later and nothing answers it', 'It has a sukūn', 'A verb follows it']} answer={0} why="The condition إِنْ has two linked clauses, a condition and an answer. The negative one stands with إِلَّا in 106 of its 114 Corpus tags." />
+</Block>
+
+<Block id="la-noun" title="لَا before a noun: two kinds">
+  <Stage>
+    <Sentence
+      roles
+      reference="Al-Baqarah 2:256 (part)"
+      groups={[
+        { label: 'the lā that denies the kind', hint: '“no … at all”', words: [{ ar: 'لَآ', en: 'no', say: 'la', type: 'p' }] },
+        { role: 'mubtada', label: 'ism lā', hint: 'built on fatḥa, with no tanwīn', words: [{ ar: 'إِكْرَاهَ', en: 'compulsion', say: 'ikraha' }] },
+        { role: 'khabar', label: 'khabar lā', hint: 'a phrase: left out, “existing”', words: [{ ar: 'فِى', en: 'in', say: 'fi', type: 'p' }, { ar: 'ٱلدِّينِ', en: 'the religion', say: 'ad-dini' }] },
+      ]}
+      en={['There is no compulsion in religion.']}
+    />
+    <Sentence
+      roles
+      reference="Al-Baqarah 2:38 (part)"
+      groups={[
+        { label: 'لَا', hint: '“no”: a plain negative', words: [{ ar: 'فَلَا', en: 'so no', say: 'fa-la', type: 'p' }] },
+        { role: 'mubtada', hint: 'nominative, with tanwīn: -un', words: [{ ar: 'خَوْفٌ', en: 'fear', say: 'khawfun' }] },
+        { role: 'khabar', hint: 'a phrase: “on them”', words: [{ ar: 'عَلَيْهِمْ', en: 'on them', say: 'alayhim', type: 'p' }] },
+        { label: 'لَا', hint: 'adds strength to the “no”', words: [{ ar: 'وَلَا', en: 'and not', say: 'wa-la', type: 'p' }] },
+        { role: 'mubtada', words: [{ ar: 'هُمْ', en: 'they', say: 'hum' }] },
+        { role: 'khabar', hint: 'a verb with its plain ending', words: [{ ar: 'يَحْزَنُونَ', en: 'grieve', say: 'yahzanuna', type: 'v' }] },
+      ]}
+      en={['…so no fear is on them, and they will not grieve.']}
+    />
+  </Stage>
+
+Both sentences say “no …” with a noun after لَا. The difference is in the ending of the noun.
+
+In 2:256 إِكْرَاهَ has a fatḥa and no tanwīn. This is the **lā that denies the kind** (L4.05). Al-Jadwal says the noun is built on a fatḥa, in the place of the accusative, and that the phrase after it is the khabar.
+
+In 2:38 خَوْفٌ has -un, the ending of an ordinary mubtadaʾ. Al-Jadwal calls this لَا non-working. A footnote adds that it may also be read as working like laysa, with خَوْفٌ as its ism and عَلَيْهِمْ as its khabar. The second لَا, in وَلَا هُمْ يَحْزَنُونَ, is called an extra one that strengthens the “no”.
+
+So before a noun, look at the ending. A fatḥa with no tanwīn marks the kind. A ḍamma or tanwīn marks a plain negative. A pronoun can follow لَا too: وَلَا هُمْ يَحْزَنُونَ (2:38) and وَلَآ أَنتُمْ عَٰبِدُونَ مَآ أَعْبُدُ (109:3). There لَا is a plain negative, and the khabar stays nominative. Al-Jadwal reads the لَا of Al-Kafirun as a plain negative.
+
+In the Corpus, 300 of the negative لَا stand before a noun, 40 before a pronoun and 27 before a preposition.
+
+<Check n={15} q="What shows the lā that denies the kind in لَآ إِكْرَاهَ?" options={['The noun ends in a fatḥa with no tanwīn', 'The noun ends in -un', 'A verb follows']} answer={0} why="إِكْرَاهَ is built on a fatḥa with no tanwīn. A word with -un after لَا, as in 2:38, is a plain negative." />
+</Block>
+
+<Block id="ghayr" title="غَيْر: “not”, inside a noun phrase">
+  <Stage>
+    <Sentence
+      roles
+      reference="Al-Inshiqaq 84:25 (part)"
+      groups={[
+        { role: 'khabarFirst', hint: 'li- “for” with “them”: the khabar, put first', words: [{ ar: 'لَهُمْ', en: 'for them', say: 'lahum', type: 'p' }] },
+        { role: 'mubtadaLater', hint: 'nominative: -un', words: [{ ar: 'أَجْرٌ', en: 'a reward', say: 'ajrun' }] },
+        { role: 'naat', label: 'naʿt', hint: 'غَيْرُ: “not”, a noun. It follows أَجْرٌ in case: -u', words: [{ ar: 'غَيْرُ', en: 'not', say: 'ghayru' }, { ar: 'مَمْنُونٍۭ', en: 'cut off', say: 'mamnunin' }] },
+      ]}
+      en={['…they will have a reward that is not cut off.']}
+    />
+    <Tiles
+      label="Another غَيْر, in the accusative"
+      items={[
+        { ar: 'عَطَآءً', en: 'a gift (11:108)', type: 'n' },
+        { ar: 'غَيْرَ', en: 'not', type: 'n' },
+        { ar: 'مَجْذُوذٍ', en: 'cut off', type: 'n' },
+      ]}
+    />
+  </Stage>
+
+غَيْر is not a little word of negation. It is a noun. It means “other than”, and in front of a describing word it comes out as “not”: غَيْرُ مَمْنُونٍ, “not cut off”. L4.05 taught it as a word of exception and showed that the word after it is genitive. That is مَمْنُونٍ here, the second part of an idafah.
+
+The case of غَيْر itself comes from the noun it describes. In 84:25 it describes أَجْرٌ (nominative), so it ends in -u. Al-Jadwal calls it an adjective of أَجْرٌ. In 11:108 it describes عَطَآءً (accusative), so it is غَيْرَ.
+
+The Corpus tags غَيْر 147 times, 144 as a noun and 3 as an adjective. L4.05 noted that not all of them mean “other than”. Many only mean “not”. They change nothing except that the next word is genitive.
+
+<Check n={16} q="In أَجْرٌ غَيْرُ مَمْنُونٍ, why does غَيْر end in -u?" options={['It follows أَجْرٌ, the noun it describes', 'It is the doer', 'مَمْنُونٍ is genitive']} answer={0} why="غَيْر describes أَجْرٌ and takes its case. مَمْنُونٍ is genitive because it comes after غَيْر, and that is a separate point." />
+</Block>
+</Step>
+
+<Step id="compare" label="Side by side" title="All eight side by side, and the usual mix-ups">
+<Block id="table" title="The eight words side by side">
+  <Stage label="What each one does">
+    <Tiles
+      label="Eight words, three effects"
+      items={[
+        { ar: 'لَمْ', en: 'jazm', type: 'p' },
+        { ar: 'لَمَّا', en: 'jazm', type: 'p' },
+        { ar: 'لَا (ban)', en: 'jazm', type: 'p' },
+        { ar: 'لَن', en: 'naṣb', type: 'p' },
+        { ar: 'لَا', en: 'nothing', type: 'p' },
+        { ar: 'مَا', en: 'nothing, or like laysa', type: 'p' },
+        { ar: 'إِنْ', en: 'nothing', type: 'p' },
+        { ar: 'لَيْسَ', en: 'khabar -an', type: 'v' },
+        { ar: 'غَيْر', en: 'a noun', type: 'n' },
+      ]}
+    />
+  </Stage>
+
+| Word | Comes before | What it does | Time | Corpus tags |
+|---|---|---|---|---|
+| لَمْ | a present verb | jazm | the past | 347 |
+| لَمَّا, “not yet” | a present verb | jazm | the past, up to now | 8 verses |
+| لَا, a plain “not” | a present verb, or a noun | nothing | now, always, or ahead | 1,406 |
+| لَا, a ban | a present verb | jazm | from now on | 332 |
+| لَن | a present verb | naṣb | the future | 106 |
+| مَا | a past or present verb, or a noun | nothing, or like laysa | from the verb | 705 |
+| إِنْ, “not” | a pronoun, a verb, a noun | nothing | from the sentence | 114 |
+| لَيْسَ | an ism and a khabar | ism nominative, khabar accusative | from the sentence | 89 |
+| غَيْر | it is a noun | the next word is genitive | none | 147 |
+| لَا that denies the kind | a noun with no tanwīn | fatḥa, in the place of the accusative | from the sentence | not counted |
+
+**How the counts were made.** Quran Learn counted segments in the Corpus file with a script. A segment is counted if it is tagged as a negative (NEG), or as prohibition (PRO) for the ban, and has the lemma of the word. For لَيْسَ and غَيْر it counted the lemma. In all, 3,105 segments carry these tags for the seven words: 1,406 (لَا, tagged negative) + 332 (لَا, tagged ban) + 705 (مَا) + 353 (لَمْ) + 106 (لَن) + 114 (إِنْ) + 89 (لَيْسَ). The 353 for لَمْ include 6 that are the “not yet” لَمَّا, so the table shows 347 for لَمْ itself. The Corpus tags have errors, so these are counts of tags. The line between the plain لَا and the ban is one place where the tags are not clean (the second block of step 2). The “not yet” count comes from L4.04, which found it by searching the text.
+
+<Check n={17} q="Which word brings jazm and points to the past?" options={['لَمْ', 'لَن', 'مَا']} answer={0} why="لَمْ brings jazm and moves the meaning to the past. لَن brings naṣb and looks ahead. مَا changes no verb." />
+</Block>
+
+<Block id="choose" title="Choosing the word, and what you see">
+  <Stage label="Four questions">
+    <ol class="lx-card-list">
+      <li><b>What comes next?</b> A present verb, a past verb or a noun.</li>
+      <li><b>What does the ending show?</b> A sukūn, a lost nūn or a lost weak letter (jazm). A fatḥa (naṣb). The plain ending.</li>
+      <li><b>What is the time?</b> The past, now, the future, or a ban.</li>
+      <li><b>Is it “not”?</b> Check that the word is not a joining or condition مَا.</li>
+    </ol>
+  </Stage>
+
+| After the word you see | The word is | Example |
+|---|---|---|
+| a verb with a sukūn, a lost nūn or a lost weak letter | لَمْ, لَمَّا, or a ban لَا | تَسْتَغْفِرْ (63:6) |
+| a verb with a fatḥa | لَن | يَغْفِرَ (63:6) |
+| a verb with its plain ending | لَا, مَا or إِنْ | يَهْدِى (63:6), يَنۢبَغِى (36:69) |
+| a past verb | مَا, rarely لَا | ضَلَّ (53:2) |
+| a khabar in the accusative | لَيْسَ, or مَا like laysa | بَشَرًا (12:31) |
+| a noun with a fatḥa and no tanwīn | the lā that denies the kind | إِكْرَاهَ (2:256) |
+| “not … except” in one sentence | مَا or إِنْ, with “only” | إِنْ هُوَ إِلَّا (36:69) |
+
+The five verbs (يَفْعَلُونَ, تَفْعَلُونَ and the others in L3.07) lose their nūn after لَمْ, لَمَّا, لَن and a ban. They look the same after all four. Then the word in front decides, and the time of the sentence helps.
+
+<Note kind="tip">To tell a negative مَا from a joining مَا, put “not” in the English. If the sentence makes sense and nothing in the Arabic points back to “what”, it is a negative. L3.11 and L4.04 give the other two jobs.</Note>
+
+<Check n={18} q="You see a verb with its plain -u after a word that says “not”. Which words can it be?" options={['لَا, مَا or إِنْ', 'لَمْ', 'لَن']} answer={0} why="لَمْ brings jazm and لَن brings naṣb. The plain -u means the word changed nothing." />
+</Block>
+
+<Block id="mistake-form" title="Mistake 1: the wrong verb form after the word">
+  <Stage label="Made-up examples">
+    <Tiles
+      label="Which form goes with which word"
+      items={[
+        { ar: 'لَمْ يَذْهَبْ', en: 'right: present form, jazm', type: 'v' },
+        { ar: 'لَمْ ذَهَبَ', en: 'wrong: a past verb after لَمْ', type: 'x' },
+        { ar: 'مَا ذَهَبَ', en: 'right: a past verb after مَا', type: 'v' },
+        { ar: 'مَا يَذْهَبْ', en: 'wrong: jazm after مَا', type: 'x' },
+        { ar: 'لَنْ يَذْهَبُ', en: 'wrong: the plain -u after لَنْ', type: 'x' },
+        { ar: 'لَنْ يَذْهَبَ', en: 'right: naṣb', type: 'v' },
+      ]}
+    />
+  </Stage>
+
+لَمْ, لَمَّا and لَن take a present verb in a fixed ending: jazm for the first two and naṣb for لَن. A past verb cannot follow them. This is the point of L3.07: the word in front sets the ending.
+
+مَا is the other way round. It changes nothing, so it takes the verb as it is: past, or present with its plain ending. A sukūn after مَا would be a mistake.
+
+The English “did not” can be لَمْ يَذْهَبْ or مَا ذَهَبَ. Pick the verb form that goes with the word.
+</Block>
+
+<Block id="mistake-time" title="Mistake 2: reading the time from the wrong word">
+  <Stage label="Real verbs">
+    <Tiles
+      label="Who sets the time?"
+      items={[
+        { ar: 'مَا يَنۢبَغِى', en: 'the verb: now (36:69)', type: 'v' },
+        { ar: 'مَا ضَلَّ', en: 'the verb: the past (53:2)', type: 'v' },
+        { ar: 'لَمْ تَرَ', en: 'the word: the past (105:1)', type: 'v' },
+        { ar: 'فَلَنْ أَبْرَحَ', en: 'the word: the future (12:80)', type: 'v' },
+      ]}
+    />
+  </Stage>
+
+لَمْ and لَن set the time. The verb after them is a present form in both, and the meaning is the past after لَمْ and the future after لَن.
+
+مَا does not set the time. A past verb after it is past, and a present verb is present. A learner who thinks “مَا means the past” will misread مَا يَنۢبَغِى (36:69) and the other 140 Corpus cases of مَا before a present verb.
+
+لَا does not set the time either. The ending of its verb tells a statement from a ban, and the sentence gives the time.
+</Block>
+
+<Block id="mistake-claims" title="Mistake 3: claims that are too strong">
+  <Stage label="Four common claims">
+    <Tiles
+      label="What the verses show"
+      items={[
+        { ar: 'لَن', en: 'not always “never” (12:80)', type: 'p' },
+        { ar: 'لَمْ', en: 'not the only word with jazm and a past sense', type: 'p' },
+        { ar: 'مَا', en: 'not only for the past', type: 'p' },
+        { ar: 'لَيْسَ', en: 'not only for a noun that names a state', type: 'v' },
+      ]}
+    />
+  </Stage>
+
+Four claims often seen in summaries do not hold up.
+
+- **“لَن means never.”** In 12:80 it is “until my father gives me leave”. See the note in step 2.
+- **“لَمْ is the only word that gives a present form a past meaning.”** لَمَّا does the same, with the sense “not yet”. (The ban and the lām of command also give jazm, but not a past sense.)
+- **“مَا is for the past.”** 141 of the 705 negative مَا stand before a present verb, and 207 before a noun.
+- **“لَمْ is formal and مَا is casual.”** Quran Learn found nothing in al-Jadwal or in the Corpus to support this. The Corpus has 705 مَا and 347 لَمْ. لَمْ occurs in 77 surahs and the negative مَا in 73.
+</Block>
+
+<Block id="mistake-ma" title="Mistake 4: every مَا is a negative">
+  <Stage label="Three مَا, three jobs">
+    <Tiles
+      label="Three مَا"
+      items={[
+        { ar: 'مَا ضَلَّ', en: 'negative: not (53:2)', type: 'p' },
+        { ar: 'مَا فِى ٱلسَّمَٰوَٰتِ', en: 'joining noun: what is in (2:284)', type: 'n' },
+        { ar: 'وَمَا تَفْعَلُوا۟', en: 'condition: whatever (2:197, L4.04)', type: 'n' },
+      ]}
+    />
+  </Stage>
+
+L3.11 showed that مَا does many jobs. In the Corpus, مَا is a negative in 705 tags, a joining noun in 1,476 and a condition word in 23. So a مَا is a negative only if the sentence says “not”.
+
+The same is true of إِنْ (condition, negative, or the إِنَّ of L2.10) and of لَا (a plain “not”, a ban, or the lā of the kind). Look at the words around it, and at the endings, before you decide.
+</Block>
+
+<Block id="mistake-laysa" title="Mistake 5: the wrong case for the khabar">
+  <Stage label="Made-up examples">
+    <Tiles
+      label="The khabar after laysa"
+      items={[
+        { ar: 'لَيْسَ مُؤْمِنًا', en: 'right: khabar accusative', type: 'v' },
+        { ar: 'لَيْسَ مُؤْمِنٌ', en: 'wrong: khabar nominative', type: 'x' },
+        { ar: 'مَا هُوَ مُؤْمِنًا', en: 'right: مَا like laysa, khabar accusative', type: 'v' },
+        { ar: 'وَلَآ أَنتُمْ عَٰبِدُونَ', en: 'right: a plain لَا, khabar nominative (109:3)', type: 'v' },
+      ]}
+    />
+  </Stage>
+
+The khabar of laysa is accusative. So is the khabar of a مَا that works like laysa. A khabar after إِنْ is nominative, because إِنْ changes nothing.
+
+To say “he is not a believer” you can use لَيْسَ مُؤْمِنًا or مَا هُوَ مُؤْمِنًا. The plain لَا is different. In وَلَآ أَنتُمْ عَٰبِدُونَ (109:3) it stands before a pronoun and leaves the khabar in the nominative.
+
+So the case of the khabar tells you which word came before it: the accusative for laysa and a مَا like it, the nominative for إِنْ and a plain لَا.
+</Block>
+</Step>
+
+<Step id="practice" label="Word by word, and practice" title="Four verses word by word, then practice">
+<Block id="parse-1" title="Word by word: Al-Aʿraf 7:184">
+  <Stage label="Word by word">
+    <Parse
+      reference="Al-Aʿraf 7:184"
+      words={[
+        { ar: 'أَوَلَمْ', en: 'did they not', type: 'p' },
+        { ar: 'يَتَفَكَّرُوا۟', en: 'reflect', type: 'v' },
+        { ar: 'مَا', en: 'not', type: 'p' },
+        { ar: 'بِصَاحِبِهِم', en: 'in their companion', type: 'p' },
+        { ar: 'مِّن', en: 'any', type: 'p' },
+        { ar: 'جِنَّةٍ', en: 'madness' },
+        { ar: 'إِنْ', en: 'not', type: 'p' },
+        { ar: 'هُوَ', en: 'he' },
+        { ar: 'إِلَّا', en: 'except', type: 'p' },
+        { ar: 'نَذِيرٌ', en: 'a warner' },
+        { ar: 'مُّبِينٌ', en: 'clear' },
+      ]}
+      cards={[
+        { at: 0, ar: 'أَ', role: 'a little word of question: “did they not …?”', why: 'It asks and scolds at the same time.', irab: 'الهمزة للاستفهام الإنكاري' },
+        { at: 0, ar: 'وَ', role: 'a little word: “and”', why: 'It joins this sentence to one that is left unsaid before it.', irab: 'الواو عاطفة' },
+        { at: 0, ar: 'لَمْ', role: 'a word of negation: “did not”', why: 'It brings jazm to the verb after it.', irab: 'حرف نفي وجزم وقلب' },
+        { at: 1, role: 'a present verb: “reflect”', case: 'jazm', mark: 'the nūn is gone: يَتَفَكَّرُونَ becomes يَتَفَكَّرُوا۟', why: 'لَمْ brings the jazm. The wāw is the doer, “they”. The alif after it is silent.', irab: 'مضارع مجزوم وعلامة الجزم حذف النون، والواو فاعل' },
+        { at: 2, role: 'a word of negation: “not”', why: 'It changes nothing. Al-Jadwal calls it a plain negative here, with the khabar before the mubtadaʾ. In 12:31 the same book says it works like laysa.', irab: 'حرف نفي' },
+        { at: 3, role: 'a phrase that is the khabar, put first: “in their companion”', case: 'genitive after bi-', mark: 'a kasra on the ب of صَاحِب; هِم is “their”', why: 'It is tied to a khabar that is left out.', irab: 'جار ومجرور متعلق بمحذوف خبر مقدم، وهم ضمير مضاف إليه' },
+        { at: [4, 5], role: 'the mubtadaʾ, put later: “any madness”', case: 'genitive in form, nominative in place', mark: '-in (kasratayn) after the extra مِن', why: 'مِن is an extra little word. It adds strength and has no meaning of its own.', irab: 'من حرف جر زائد، وجنة مجرور لفظا مرفوع محلا مبتدأ مؤخر' },
+        { at: 6, role: 'a word of negation: “not”', why: 'No verb to cut and no khabar to turn. It says “not”, and إِلَّا follows.', irab: 'حرف نفي' },
+        { at: 7, role: 'the mubtadaʾ: “he”', case: 'a word with a fixed ending; it counts as nominative', mark: 'none', why: 'A separate pronoun starts the clause.', irab: 'ضمير منفصل في محل رفع مبتدأ' },
+        { at: 8, role: 'a little word that limits: “only”', why: '“Not … except” becomes “only”.', irab: 'أداة حصر' },
+        { at: 9, role: 'the khabar: “a warner”', case: 'nominative (rafʿ)', mark: '-un (ḍammatayn)', why: 'After إِنْ the khabar stays nominative.', irab: 'خبر مرفوع' },
+        { at: 10, role: 'describes نَذِيرٌ: “clear”', case: 'nominative (rafʿ)', mark: '-un (ḍammatayn)', why: 'An adjective follows the noun it describes.', irab: 'نعت مرفوع' },
+      ]}
+    />
+  </Stage>
+
+One verse, three words of negation. Only لَمْ changed a word: يَتَفَكَّرُوا۟ lost its nūn. مَا and إِنْ changed nothing.
+
+Al-Jadwal adds in a footnote that some read مَا here as a question word, “what is in their companion of madness?”. This lesson follows the first reading, a negative.
+</Block>
+
+<Block id="parse-2" title="Word by word: Yusuf 12:31">
+  <Stage label="Word by word">
+    <Parse
+      reference="Yusuf 12:31 (part)"
+      words={[
+        { ar: 'مَا', en: 'not', type: 'p' },
+        { ar: 'هَٰذَا', en: 'this' },
+        { ar: 'بَشَرًا', en: 'a human' },
+        { ar: 'إِنْ', en: 'not', type: 'p' },
+        { ar: 'هَٰذَآ', en: 'this' },
+        { ar: 'إِلَّا', en: 'except', type: 'p' },
+        { ar: 'مَلَكٌ', en: 'an angel' },
+        { ar: 'كَرِيمٌ', en: 'noble' },
+      ]}
+      cards={[
+        { at: 0, role: 'a word of negation: “not”', why: 'It works like laysa. The first noun after it is its ism and the second is its khabar.', irab: 'ما نافية عاملة عمل ليس' },
+        { at: 1, role: 'the ism of مَا: “this”', case: 'a word with a fixed ending; it counts as nominative', mark: 'none', why: 'A pointing word does not change its ending. The هَا in front only points.', irab: 'ها حرف تنبيه، وذا اسم إشارة مبني في محل رفع اسم ما' },
+        { at: 2, role: 'the khabar of مَا: “a human”', case: 'accusative (naṣb)', mark: '-an (fatḥatayn)', why: 'The khabar after a word that works like laysa is accusative (L2.11).', irab: 'خبر ما منصوب' },
+        { at: 3, role: 'a word of negation: “not”', why: 'This one changes nothing. Compare the khabar that follows.', irab: 'حرف نفي' },
+        { at: 4, role: 'the mubtadaʾ: “this”', case: 'a word with a fixed ending; it counts as nominative', mark: 'none', why: 'The clause starts with a pointing word.', irab: 'مبتدأ' },
+        { at: 5, role: 'a little word that limits: “only”', why: '“Not … except” becomes “only”.', irab: 'أداة حصر' },
+        { at: 6, role: 'the khabar: “an angel”', case: 'nominative (rafʿ)', mark: '-un (ḍammatayn)', why: 'After إِنْ the khabar stays nominative.', irab: 'خبر مرفوع' },
+        { at: 7, role: 'describes مَلَكٌ: “noble”', case: 'nominative (rafʿ)', mark: '-un (ḍammatayn)', why: 'An adjective follows the noun it describes.', irab: 'نعت مرفوع' },
+      ]}
+    />
+  </Stage>
+
+The women who saw Yusuf say two things about him. The first has مَا, and its khabar بَشَرًا ends in -an. The second has إِنْ, and its khabar مَلَكٌ ends in -un. The two negatives look alike in English, “not a human” and “only an angel”. In Arabic the khabar shows which word came before it.
+</Block>
+
+<Block id="parse-3" title="Word by word: Al-Ghashiyah 88:22">
+  <Stage label="Word by word">
+    <Parse
+      reference="Al-Ghashiyah 88:22"
+      words={[
+        { ar: 'لَّسْتَ', en: 'you are not', type: 'v' },
+        { ar: 'عَلَيْهِم', en: 'over them', type: 'p' },
+        { ar: 'بِمُصَيْطِرٍ', en: 'a controller', type: 'p' },
+      ]}
+      cards={[
+        { at: 0, role: 'laysa: “you are not”, a verb', case: 'a verb is built', mark: 'a sukūn on the س; the ending -ta is “you”', why: 'laysa has only past forms. The ending -ta is its ism, as the ending of a past verb is the doer.', irab: 'ليس فعل ماض ناقص جامد مبني على السكون، والتاء ضمير في محل رفع اسم ليس' },
+        { at: 1, role: '“over them”: ʿalā and the pronoun, tied to مُصَيْطِرٍ', why: 'It says who the controller is over.', irab: 'جار ومجرور متعلق بمصيطر' },
+        { at: 2, ar: 'بِ', role: 'an extra little word: it adds strength', why: 'It has no meaning of its own. It takes the word after it into the genitive.', irab: 'الباء حرف جر زائد' },
+        { at: 2, ar: 'مُصَيْطِرٍ', role: 'the khabar of laysa: “a controller”', case: 'genitive in form, accusative in place', mark: '-in (kasratayn), because of the extra بِ', why: 'The khabar of laysa is accusative. The extra بِ turned its ending into a kasra.', irab: 'مصيطر مجرور لفظا منصوب محلا خبر ليس' },
+      ]}
+    />
+  </Stage>
+
+The verse is short: ism, khabar with the extra بِ, and a phrase tied to the khabar. The khabar looks genitive, and the books say it counts as accusative.
+
+Al-Jadwal does not write the line for لَسْتَ in its online text. The line here gives the standard form for a laysa verb built on a sukūn.
+</Block>
+
+<Block id="parse-4" title="Word by word: Al-Hujurat 49:14">
+  <Stage label="Word by word">
+    <Parse
+      reference="Al-Hujurat 49:14 (part)"
+      words={[
+        { ar: 'لَّمْ', en: 'did not', type: 'p' },
+        { ar: 'تُؤْمِنُوا۟', en: 'you believe', type: 'v' },
+        { ar: 'وَلَٰكِن', en: 'but', type: 'p' },
+        { ar: 'قُولُوٓا۟', en: 'say', type: 'v' },
+        { ar: 'أَسْلَمْنَا', en: 'we submit', type: 'v' },
+        { ar: 'وَلَمَّا', en: 'and not yet', type: 'p' },
+        { ar: 'يَدْخُلِ', en: 'enters', type: 'v' },
+        { ar: 'ٱلْإِيمَٰنُ', en: 'the faith' },
+        { ar: 'فِى', en: 'in', type: 'p' },
+        { ar: 'قُلُوبِكُمْ', en: 'your hearts' },
+      ]}
+      cards={[
+        { at: 0, role: 'a word of negation: “did not”', why: 'It brings jazm to the verb after it.', irab: 'حرف نفي وجزم' },
+        { at: 1, role: 'a present verb: “you believe”', case: 'jazm', mark: 'the nūn is gone: تُؤْمِنُونَ becomes تُؤْمِنُوا۟', why: 'لَمْ brings the jazm. The wāw is the doer, “you all”.', irab: 'مضارع مجزوم وعلامة الجزم حذف النون، والواو فاعل' },
+        { at: 2, role: 'a little word: “but”', why: 'It turns away from what came before. It changes nothing.', irab: 'الواو عاطفة، ولكن حرف استدراك لا عمل له' },
+        { at: 3, role: 'a command: “say”', case: 'a command is built', mark: 'the nūn of the plural is dropped', why: 'The wāw is the doer, “you all”. The alif after it is silent.', irab: 'فعل أمر مبني على حذف النون، والواو فاعل' },
+        { at: 4, role: 'a past verb: “we submitted”, the words they should say', case: 'a past verb is built', mark: 'a sukūn; the ending -nā is “we”', why: 'It is what the people are told to say.', irab: 'فعل ماض مبني على السكون، ونا ضمير فاعل' },
+        { at: 5, ar: 'وَ', role: 'a little word: “and”, with a state', why: 'It opens a clause that gives a state.', irab: 'الواو حالية' },
+        { at: 5, ar: 'لَمَّا', role: 'a word of negation: “not yet”', why: 'Like لَمْ, it brings jazm and turns the meaning to the past.', irab: 'حرف نفي وقلب وجزم' },
+        { at: 6, role: 'a present verb: “enters”', case: 'jazm', mark: 'a kasra on the ل: the sukūn became a kasra', why: 'لَمَّا brings the jazm. The next word begins with ٱ, so the sukūn is moved to a kasra to avoid two silent letters together.', irab: 'مضارع مجزوم بلما، وحرك بالكسر لالتقاء الساكنين' },
+        { at: 7, role: 'the doer: “the faith”', case: 'nominative (rafʿ)', mark: '-u (ḍamma)', why: 'The doer comes after its verb (L2.03).', irab: 'فاعل مرفوع' },
+        { at: [8, 9], role: '“in your hearts”: fī and a noun, tied to the verb', why: 'It says where the faith has not entered.', irab: 'جار ومجرور متعلق بيدخل' },
+      ]}
+    />
+  </Stage>
+
+Two words of jazm stand in one verse, and they mean different things. لَّمْ تُؤْمِنُوا۟ says “you did not believe”. وَلَمَّا يَدْخُلِ ٱلْإِيمَٰنُ says “and faith has not yet entered”: it is still expected. The two verbs show jazm in two ways: the lost nūn of تُؤْمِنُوا۟ and the kasra on يَدْخُلِ.
+
+The line for the verb أَسْلَمْنَا and the verb قُلْ at the start of the verse come from the standard forms. Al-Jadwal gives the sentence-level lines only.
+</Block>
+
+<Block id="practice-1" title="Practice: say what each word does">
+  <Stage label="For each word, say">
+    <ol class="lx-card-list">
+      <li><b>The word:</b> which one says “not”?</li>
+      <li><b>The effect:</b> jazm, naṣb or nothing? A khabar in the accusative?</li>
+      <li><b>The time:</b> the past, now, the future or a ban?</li>
+      <li><b>The proof:</b> what do you see on the next word?</li>
+    </ol>
+  </Stage>
+
+Work out each answer first, on paper or in your head. Then open the answer.
+
+<Exercise n={1} q="Say which word says “not”, what it does to the word after it, and the time. (a) لَمْ يَلِدْ وَلَمْ يُولَدْ (Al-Ikhlas 112:3) (b) لَآ أَعْبُدُ مَا تَعْبُدُونَ (Al-Kafirun 109:2) (c) وَلَن نُّؤْمِنَ لِرُقِيِّكَ (Al-Isra 17:93, part) (d) لَّيْسَ ٱلْبِرَّ أَن تُوَلُّوا۟ وُجُوهَكُمْ (Al-Baqarah 2:177, part)">
+
+- (a) **لَمْ**: jazm. يَلِدْ and يُولَدْ end in a sukūn. The plain forms are يَلِدُ and يُولَدُ. The time is the past: “He did not beget, and was not begotten.”
+- (b) **لَا**: nothing. أَعْبُدُ keeps its plain -u. “I do not worship”: a statement about now. The مَا in the verse is the joining noun, “what”, not a negative.
+- (c) **لَن**: naṣb. نُؤْمِنَ ends in a fatḥa. It looks ahead: “we will not believe”. حَتَّىٰ sets an end: “until you bring down …”.
+- (d) **لَيْسَ**: it works on nouns. ٱلْبِرَّ is accusative (-a), so it is the khabar, put first. The ism is the clause أَن تُوَلُّوا۟ وُجُوهَكُمْ (L2.11).
+
+</Exercise>
+
+<Exercise n={2} q="Change the sentence to use the word in brackets, and say what changes. The sentences are made-up examples. (a) لَمْ يَفْعَلْ, “he did not do”, with مَا (b) لَا يَفْعَلُ, “he does not do”, with لَن (c) هُوَ مُؤْمِنٌ, “he is a believer”, made negative with لَيْسَ (d) تَفْعَلُ, “you do”, made into a ban">
+
+- (a) **مَا فَعَلَ**. The verb changes from a present form with a sukūn to a past verb. Both say “he did not do”. Neither is more formal.
+- (b) **لَنْ يَفْعَلَ**. The ending changes from -u to -a (naṣb). The time moves ahead: “he will not do”.
+- (c) **لَيْسَ مُؤْمِنًا**. The khabar changes from -un to -an. The ism “he” is hidden inside لَيْسَ. You can also write لَيْسَ هُوَ مُؤْمِنًا.
+- (d) **لَا تَفْعَلْ**. The ending changes from -u to a sukūn, and the sentence becomes a ban: “do not do”.
+
+</Exercise>
+
+<Exercise n={3} q="Choose the word for each meaning, and say what the verb or noun looks like. All five sentences are made-up examples. (a) “They will not enter the garden.” (b) “The messenger is not a liar.” (c) “I do not lie.” (d) “Do not lie.” (e) “He has not come yet.”">
+
+- (a) **لَنْ يَدْخُلُوا ٱلْجَنَّةَ**. لَن, the future, with naṣb: يَدْخُلُونَ lost its nūn.
+- (b) **لَيْسَ ٱلرَّسُولُ كَاذِبًا**. laysa: ٱلرَّسُولُ is the ism (-u) and كَاذِبًا the khabar (-an). مَا هُوَ كَاذِبًا, with مَا like laysa, would also do.
+- (c) **لَا أَكْذِبُ**. A plain “not” with the plain -u.
+- (d) **لَا تَكْذِبْ**. A ban: the verb ends in a sukūn.
+- (e) **لَمَّا يَأْتِ**. “Not yet”, with jazm: the ي of يَأْتِي is gone.
+
+</Exercise>
+
+<Exercise n={4} q="Say the word, the effect and the time for each phrase, then name the root and the form of the verb. (a) أَمْ لَمْ تُنذِرْهُمْ (Al-Baqarah 2:6, part) (b) لَا يُؤْمِنُونَ (Al-Baqarah 2:6, end) (c) وَمَا يَسْتَوِى ٱلْأَعْمَىٰ وَٱلْبَصِيرُ (Fatir 35:19) (d) لَن تَنَالُوا۟ ٱلْبِرَّ حَتَّىٰ تُنفِقُوا۟ (Al-Imran 3:92, part)">
+
+- (a) **لَمْ**: jazm, the past. تُنذِرْهُمْ has a sukūn on the ر. The root is ن ذ ر and it is Form IV (أَنذَرَ). The -hum is the object.
+- (b) **لَا**: nothing. يُؤْمِنُونَ keeps its nūn, the plain ending. “They do not believe.” The root is ا م ن, Form IV.
+- (c) **مَا**: nothing. يَسْتَوِى is a present verb and the sentence says “are not equal”. The root is س و ي and it is Form VIII. The -u is hidden on the long ī.
+- (d) **لَن**: naṣb, the future. تَنَالُوا۟ lost its nūn. The Corpus gives the root as ن ي ل. The verb is Form I. حَتَّىٰ sets an end, and تُنفِقُوا۟ lost its nūn too.
+
+</Exercise>
+
+<Exercise n={5} q="Write each verb as it looks after لَمْ, after لَن and after a plain لَا. The plain forms are: (a) يَكْتُبُ (b) تَكْتُبُونَ (c) يَأْتِي (d) تَكْتُبْنَ">
+
+These are teaching forms, not verses.
+
+| Plain | After لَمْ | After لَن | After a plain لَا |
+|---|---|---|---|
+| (a) يَكْتُبُ | يَكْتُبْ | يَكْتُبَ | يَكْتُبُ |
+| (b) تَكْتُبُونَ | تَكْتُبُوا | تَكْتُبُوا | تَكْتُبُونَ |
+| (c) يَأْتِي | يَأْتِ | يَأْتِيَ | يَأْتِي |
+| (d) تَكْتُبْنَ | تَكْتُبْنَ | تَكْتُبْنَ | تَكْتُبْنَ |
+
+- In (b) لَمْ and لَن give the same form, the lost nūn. The word in front tells which is which.
+- In (c) the ي is gone after لَمْ and carries a visible fatḥa after لَن.
+- (d) is the women’s plural. Its nūn is part of the form, so nothing changes (L3.07).
+
+</Exercise>
+</Block>
+
+<Block id="practice-2" title="Practice: tell the kinds apart and mend the mistakes">
+  <Stage label="Two kinds of لَا">
+    <ol class="lx-card-list">
+      <li><b>A plain “not”:</b> the verb keeps its plain ending.</li>
+      <li><b>A ban:</b> the verb shows jazm.</li>
+      <li><b>Before a noun:</b> a fatḥa with no tanwīn is the lā of the kind.</li>
+    </ol>
+  </Stage>
+
+<Exercise n={6} q="Plain “not” or ban? Say which, and what the verb shows. (a) فَأَمَّا ٱلْيَتِيمَ فَلَا تَقْهَرْ (Ad-Duha 93:9) (b) وَلَا تَقْتُلُوٓا۟ أَنفُسَكُمْ (An-Nisa 4:29, part) (c) إِنَّ ٱللَّهَ لَا يَظْلِمُ مِثْقَالَ ذَرَّةٍ (An-Nisa 4:40, part) (d) رَبَّنَا لَا تُؤَاخِذْنَآ (Al-Baqarah 2:286, part)">
+
+- (a) **A ban**: “do not oppress”. تَقْهَرْ ends in a sukūn. The plain form is تَقْهَرُ.
+- (b) **A ban**: “do not kill yourselves”. تَقْتُلُوا۟ lost its nūn. The plain form is تَقْتُلُونَ.
+- (c) **A plain “not”**: يَظْلِمُ keeps its plain -u. “Allah does not wrong, even by the weight of an atom.”
+- (d) **A ban, spoken as a request**: “our Lord, do not hold us to account”. تُؤَاخِذْنَا ends in a sukūn on the ذ, with the object -nā.
+
+</Exercise>
+
+<Exercise n={7} q="Negative, joining noun or condition? Decide for the مَا in each. (a) مَا وَدَّعَكَ رَبُّكَ (Ad-Duha 93:3, part) (b) لِّلَّهِ مَا فِى ٱلسَّمَٰوَٰتِ (Al-Baqarah 2:284, part) (c) وَمَا تُنفِقُوا۟ مِن شَىْءٍ (Al-Imran 3:92, part) (d) مَا هَٰذَا بَشَرًا (Yusuf 12:31, part)">
+
+- (a) **Negative**: “your Lord has not left you”. A past verb follows, and nothing points back to “what”.
+- (b) **Joining noun**: “to Allah belongs what is in the heavens”. مَا means “what”.
+- (c) **Condition**: “whatever you spend”. تُنفِقُوا۟ lost its nūn, and an answer follows (L4.04).
+- (d) **Negative, working like laysa**: بَشَرًا is the khabar, in the accusative.
+
+</Exercise>
+
+<Exercise n={8} q="Give the second word the right ending. The sentences are made-up examples, except (a) and (b), which come from 12:31. (a) مَا هَٰذَا ____ (بَشَرٌ) (b) إِنْ هَٰذَا إِلَّا ____ (مَلَكٌ) (c) لَيْسَ ٱلْوَلَدُ ____ (مَرِيضٌ) (d) لَا رَيْبَ فِيهِ (Al-Baqarah 2:2, part) and فَلَا خَوْفٌ عَلَيْهِمْ (Al-Baqarah 2:38, part): which noun has tanwīn?">
+
+- (a) **بَشَرًا**. After مَا that works like laysa, the khabar is accusative.
+- (b) **مَلَكٌ**. After إِنْ the khabar is nominative.
+- (c) **مَرِيضًا**. After laysa the khabar is accusative: لَيْسَ ٱلْوَلَدُ مَرِيضًا.
+- (d) **خَوْفٌ** has tanwīn, so it follows a plain negative. **رَيْبَ** has a fatḥa and none, so it follows the lā of the kind (L4.05).
+
+</Exercise>
+
+<Exercise n={9} q="Is the word غَيْر nominative, accusative or genitive, and why? (a) لَهُمْ أَجْرٌ غَيْرُ (Al-Inshiqaq 84:25, part) (b) عَطَآءً غَيْرَ مَجْذُوذٍ (Hud 11:108, end) Then say the case of the word after غَيْر in each.">
+
+- (a) **Nominative.** It describes أَجْرٌ, which is nominative. The word after it is مَمْنُونٍ, genitive.
+- (b) **Accusative.** It describes عَطَآءً, which is accusative. The word after it is مَجْذُوذٍ, genitive.
+
+The word after غَيْر is genitive in both, because غَيْر starts an idafah (L4.05).
+
+</Exercise>
+
+<Exercise n={10} q="Four of these made-up sentences are wrong. Find them, say what is wrong, and mend them. (a) لَمْ ذَهَبَ زَيْدٌ (b) لَنْ يَذْهَبُ زَيْدٌ (c) مَا يَذْهَبْ زَيْدٌ (d) لَيْسَ زَيْدٌ طَالِبٌ (e) لَمَّا يَذْهَبْ زَيْدٌ">
+
+- (a) **Wrong.** لَمْ needs a present form with jazm. Write لَمْ يَذْهَبْ زَيْدٌ.
+- (b) **Wrong.** لَنْ needs naṣb. Write لَنْ يَذْهَبَ زَيْدٌ.
+- (c) **Wrong.** مَا changes nothing, so no sukūn. Write مَا يَذْهَبُ زَيْدٌ.
+- (d) **Wrong.** The khabar of laysa is accusative. Write لَيْسَ زَيْدٌ طَالِبًا.
+- (e) **Correct.** “Zayd has not gone yet.” The verb shows jazm after لَمَّا.
+
+</Exercise>
+</Block>
+
+<Block id="done" title="You have finished the lesson">
+  <Stage label="The idea">
+    <Formula
+      label="a word of negation changes what comes after it"
+      items={[
+        { kind: 'm', text: 'word of negation', small: 'eight words' },
+        { kind: 'k', text: 'the word after it', small: 'jazm, naṣb or nothing' },
+        { kind: 's', text: 'negative sentence', small: 'جُمْلَة مَنْفِيَّة' },
+      ]}
+    />
+  </Stage>
+
+- **Jazm:** لَمْ (the past), لَمَّا (“not yet”) and the لَا of a ban. **Naṣb:** لَن (the future). **Nothing:** the plain لَا, مَا and إِنْ.
+- **On nouns:** لَيْسَ gives the khabar the accusative, and so does a مَا that works like laysa. The lā that denies the kind goes with a noun built on a fatḥa. إِنْ and a plain لَا leave the nouns alone.
+- **Time:** لَمْ looks back and لَن looks ahead. مَا and the plain لَا take the time from the verb and the sentence.
+- غَيْر is a noun. It follows the case of the word it describes, and the word after it is genitive.
+- The same letters can be different words: مَا (negative, joining noun, condition), إِنْ (condition, negative, inna), لَا (plain “not”, ban, the lā of the kind) and لَمَّا (“when”, “not yet”). The ending of the next word and the sentence decide.
+
+**Next:** L4.11 teaches the verbs that lose a letter in jazm. L4.12 and L4.13 give the rules for the hollow and the defective verbs, which you met in تَقُل (17:23, hollow) and لَمْ تَرَ (105:1, defective). L5.13 teaches questions, which often come with لَمْ, as in أَلَمْ.
+
+Earlier lessons you can link back to: [the jazm and naṣb of the present verb, L3.07](/learn/level-3/07-subjunctive-jussive/), [the present tense, L3.06](/learn/level-3/06-present-tense/), [kāna and its sisters, L2.11](/learn/level-2/11-kaana-sisters/), [inna and its sisters, L2.10](/learn/level-2/10-inna-sisters/), [joining nouns, L3.11](/learn/level-3/11-relative-pronouns/), [condition sentences, L4.03](/learn/level-4/03-conditional-sentences/), [condition words, L4.04](/learn/level-4/04-conditional-particles/), [exception, L4.05](/learn/level-4/05-exception-particles/). Ahead: [weak verbs, L4.11](/learn/level-4/11-weak-verbs-intro/), [hollow verbs, L4.12](/learn/level-4/12-hollow-verbs/), [defective verbs, L4.13](/learn/level-4/13-defective-verbs/), [rhetorical questions, L5.13](/learn/level-5/13-rhetorical-questions/).
+
+<Sources
+    items={[
+      { label: 'Quran text', name: 'Tanzil (Uthmani text)', href: 'https://tanzil.net' },
+      { label: 'Tags and counts of the words of negation', name: 'Quranic Arabic Corpus', href: 'https://corpus.quran.com' },
+      { label: 'Word-by-word analysis (iʿrāb) of the verses', name: 'Maḥmūd Ṣāfī, al-Jadwal fī Iʿrāb al-Qurʾān wa-Ṣarfihi wa-Bayānihi' },
+      { label: 'The lists of naṣb and jazm', name: 'Ibn Ājurrūm, al-Ajurrumiyyah, chapter on the verbs' },
+      { label: 'The counts after each word', name: 'Quran Learn count from the Quranic Arabic Corpus; some tags are wrong' },
+      { label: 'English under the verses', name: 'Plain-English meanings by Quran Learn, not a translation' },
+    ]}
+  />
+</Block>
+</Step>

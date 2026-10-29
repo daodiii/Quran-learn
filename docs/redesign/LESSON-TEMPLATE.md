@@ -10,15 +10,19 @@ A lesson is a run of short steps. One step shows at a time, with a progress bar,
 
 1. In the lesson's frontmatter add `template: steps`, a short plain-English `kicker`, and the usual `title`, `titleArabic`, `level`, `order`, `description`.
 2. Import the components from `src/components/lesson/` and write the lesson as `<Step>` blocks. `src/content/lessons/level-2/01-nominal-sentence.mdx` is the model.
-3. Keep the lesson file where it is: the lesson address and saved progress do not change.
+3. Keep the lesson file where it is: the lesson address and saved progress do not change. To move a lesson, add its old and new id to `src/data/lesson-moves.json`: the old address then redirects, saved progress moves with it, and a "What changed" note shows once to learners with saved progress (`src/components/LessonMovedNote.astro`, on the lesson and on the learn page). Level 3 was reordered this way on 2026-10-28.
 
 | Component | Use |
 |---|---|
-| `Step` | One step. `id`, `label` (progress bar tooltip), `title`. `hero` on the first step makes the title the page `h1` |
-| `Stage` | The example panel. Put `Sentence`, `Tiles` or `Formula` inside |
-| `Sentence` | A Quran phrase as word tiles with word type, optional role bars (mubtadaʾ, khabar) and the English line with the missing word marked |
-| `Tiles` | Big word tiles, with a dashed `ghost` tile for a word English needs and Arabic leaves out |
+| `Step` | One step. `id`, `label` (progress bar tooltip), `title`. `hero` on the first step makes the title the page `h1`. `part="..."` on the first step of each part groups a long lesson into parts (see below) |
+| `Block` | One section of a big step: `id`, `title`, its own `Stage` and text. The script numbers the blocks in a step ("3 of 8"). `uncounted` leaves an overview out of the count; `level={2}` for blocks in the hero step |
+| `Stage` | The example panel. Put `Sentence`, `Tiles`, `Formula`, `Parse` or a `blockquote.lx-quote` inside |
+| `Sentence` | A Quran phrase as word tiles with word type, optional role bars and the English line (labelled "Meaning") with the missing word marked. Roles: first part of a pair, solid bar: `mubtada`, `mubtadaLater`, `ismKana`, `ismInna`, `fail`, `naibFail`, `mudaf`, `manut`; second part, dashed: `khabar`, `khabar2`, `khabarFirst`, `khabarKana`, `khabarInna`, `maful`, `mudafIlayh`, `naat`, `matuf`, `hal`, `majrur`; the verb, solid in the verb colour: `fiil`; dotted grey: `tied` (a phrase that belongs to another word), `jar` (a preposition), `jarMajrur` (a preposition with its noun in one tile), `zarf` (a place or time word). `label` and `hint` on a group override the text (added for Level 2 on 2026-10-27) |
+| `Parse` | Word-by-word iʿrāb of one verse: word tiles, then one card at a time (role, case, mark, why, and the parse as the Arabic grammar books word it). Back and Next light each word. Without JavaScript all cards are listed |
+| `Exercise` | A worked exercise: question in `q`, the answer inside, behind a "Show the answer" button (`<details>`, works without JavaScript). Write the answer as markdown with blank lines around it |
+| `Tiles` | Big word tiles, with a dashed `ghost` tile for a word English needs and Arabic leaves out. `type: 'x'` is a plain grey tile for a letter, vowel or mark (no word-type colour; added for Level 1) |
 | `Formula` | "part + part = whole" card |
+| `Conjugation` | A conjugation table inside a `Stage`: one verb or pattern across persons. `caption` (required) names the verb and tense; each row has `who` (plain English: "he", "you all (women)"), `pr` (the pronoun, optional), `ar` (the form), `end` (the part that changes, shown alone, e.g. `ـْتُ`; header from `endLabel`, default "Ending", use "Prefix and ending" for the present), `formLabel` (header of the form column, default "Verb"; "Word" for a noun with an attached pronoun), `say` (sound) and `hi: true` for the row the text is about. `{ group: 'Singular' }` is a sub-heading row. Five columns fit a phone at 390 px. The forms are teaching forms, not verse quotes, so `check-verses.py` does not read them: put the verse itself in a `Sentence` or `Parse`. Added for Level 3 on 2026-10-28 |
 | `Legend` | The word-type colour key |
 | `Note` | `tip`, `know` (good to know), `warn` (watch out), `remember`. Colour, icon and label all say the kind |
 | `Check` | One quick question with instant feedback |
@@ -26,6 +30,12 @@ A lesson is a run of short steps. One step shows at a time, with a progress bar,
 | `Sources` | "Where this comes from" and the "Found a mistake?" link |
 
 Writing rules (from the plan): B1 English, one idea per step, example first then the rule, no em dashes.
+
+**Big steps (the owner's decision, 2026-10-27).** A lesson has 3 to 5 steps. Each step is a run of `Block`s, and each block has its own example beside its text (above it on a phone). The step counter reads "1 of 5". L2.01 is the model: 5 steps of 8, 7, 8, 8 and 3 blocks.
+
+**Parts** (kept in the template, not used by L2.01 now). A lesson with many small steps can name its parts. The progress bar then shows one segment per part, opens the current part into its steps, and prints "Part 3 of 9: …" under the bar. Without parts it keeps one segment per step.
+
+**Checking the Arabic.** Every `Sentence` and `Parse` with a verse reference, and every verse quoted in an `Exercise` question, should match the Tanzil text in `src/data/morphology/quranic-corpus-morphology-0.4.txt` exactly, diacritics included. Convert the Corpus Buckwalter with the full table in `scripts/lib/buckwalter.ts` (`BW_ANNOTATION_MARKS`): the small wāw (`,`) and small yāʾ (`.`) are easy to swap.
 
 ## How it is wired
 
@@ -61,5 +71,4 @@ Known behaviour: Back leaves the lesson, not the previous step, because steps us
 - **Content validators** (`npm run validate`) still ask for the old bilingual first-mention format and give 5 terminology warnings on L2.01, no errors. The new `Start` terms list is the intended pattern. The rule needs updating when more lessons move.
 - **Things the classic layout has that this one does not:** the "Words from this lesson" list, the reading track on the last lesson of a level, tap-a-word details on examples, and the table of contents. Word tiles here are not interactive. Whether any of these should come across is a Part 4/5 decision.
 - **Lesson navigator.** The stepped layout has no course sidebar yet (Part 4: navigation and the learning path).
-- **Lesson reorder notice** (agreed after Part 2) is Part 4/5.
 - Only Geist 400 and 500 are self-hosted. The site body font elsewhere is unchanged.

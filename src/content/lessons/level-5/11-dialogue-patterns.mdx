@@ -1,943 +1,783 @@
 ---
 title: "Dialogue Patterns in the Quran"
+kicker: "Who speaks, who is spoken to, and what the grammar marks"
+titleArabic: "أَنْمَاط الْحِوَار فِي الْقُرْآن"
 level: 5
 order: 11
-description: "Master universal dialogue grammar patterns across the Quran through systematic classification of four dialogue types: narrative, divine command, prophetic address, and eschatological dialogue."
+template: steps
+description: "Read speech in the Quran as grammar. See the doer of قَالَ and the quoted words that stand where an object would, the command قُلْ, the call يَا and يَٰٓأَيُّهَا, a short exchange where the speaker changes, and the same verbs on the Last Day. Count them in the Corpus, read the verses with al-Jadwal, and go through four verses word by word."
 draft: false
 ---
 
-import ArabicExample from '../../../components/mdx/ArabicExample.astro';
-import GrammarTable from '../../../components/mdx/GrammarTable.astro';
-import Callout from '../../../components/mdx/Callout.astro';
-import ExerciseBox from '../../../components/mdx/ExerciseBox.astro';
-
-## Introduction
-
-The Quran is not a monologue. Over 40% of Quranic verses contain dialogue — prophets speaking to their people, Allah commanding the Prophet Muhammad, believers questioning, disbelievers objecting, angels conversing. Understanding dialogue grammar is essential for comprehending Quranic narrative and rhetoric.
-
-<ArabicExample
-  arabic="قَالُوا۟ يَٰنُوحُ قَدْ جَٰدَلْتَنَا فَأَكْثَرْتَ جِدَٰلَنَا"
-  transliteration="qālū yā nūḥu qad jādaltanā fa-aktharta jidālanā"
-  translation="They said: O Noah, you have disputed with us and multiplied disputation with us"
-  reference="Hud 11:32"
-  highlight="قَالُوا۟"
-  words={[
-    { ar: "قَالُوا۟", tr: "qālū", en: "they said" },
-    { ar: "يَٰنُوحُ", tr: "yā nūḥu", en: "O Noah" },
-    { ar: "قَدْ", tr: "qad", en: "verily" },
-    { ar: "جَٰدَلْتَنَا", tr: "jādaltanā", en: "you have disputed with us" },
-    { ar: "فَأَكْثَرْتَ", tr: "fa-aktharta", en: "and you have multiplied" },
-    { ar: "جِدَٰلَنَا", tr: "jidālanā", en: "disputation with us" }
-  ]}
-/>
-
-This verse from Surah Hud contains multiple dialogue markers: **قَالُوا۟** (qālū — narrative dialogue introduction), **يَٰنُوحُ** (yā nūḥu — vocative address), and reported speech. Each marker follows specific grammatical patterns that repeat across the Quran.
-
-**In this lesson, you will:**
-1. Classify dialogue into four universal types based on grammatical markers
-2. Identify speaker and addressee through verb forms and particles
-3. Analyze dialogue across multiple Quranic genres (narrative, legislative, eschatological)
-4. Apply dialogue recognition to complete surah passages
-
-**Connection to previous learning:** In [L5.02 Analyzing Surah Al-Fatiha](/learn/level-5/02-surah-al-fatiha/), you saw how **إِيَّاكَ** marks second-person address (iltifat shift). In [L5.04 Analyzing Surah Al-Ikhlas](/learn/level-5/04-surah-al-ikhlas/), you analyzed **قُلْ** as divine command. Now you'll systematically categorize ALL dialogue patterns across the Quran.
-
-<Callout type="tip">
-Dialogue grammar is not random. The Quran uses four predictable patterns: **قَالَ** / **قَالُوا۟** (qāla/qālū) for narrative dialogue, **قُلْ** (qul) for divine commands, **يَٰٓأَيُّهَا** (yā ayyuhā) for prophetic addresses, and **يَقُولُ** / **قَالَ** (yaqūlu/qāla) for eschatological dialogue. Master these four, and you unlock 40% of Quranic verses.
-</Callout>
-
-<Callout type="note" title="Plain-English key">
-Quick, everyday translations of the grammar terms in this lesson — glance back here whenever one trips you up:
-
-- **Fāʿil** (فَاعِل) — the doer: the one performing the verb.
-- **Imperative** (al-amr / الأَمْر) — the command form: "do!"
-- **Past tense** (al-māḍī / الْمَاضِي) — the "did" verb: a finished action.
-- **Present tense** (al-muḍāriʿ / الْمُضَارِع) — the "does / is doing" verb: an ongoing or future action.
-</Callout>
-
-## The Four Dialogue Types
-
-Quranic dialogue follows four grammatical patterns, each serving a distinct rhetorical purpose:
-
-<GrammarTable>
-| Type | Marker | Speaker | Addressee | Tense | Example Surah |
-|------|--------|---------|-----------|-------|---------------|
-| **Narrative** | قَالَ / قَالُوا۟ | Varies | Varies | Past | Yusuf (12) |
-| **Divine Command** | قُلْ | Allah | Prophet | Imperative | Al-Ikhlas (112) |
-| **Prophetic Address** | يَٰٓأَيُّهَا ٱلنَّاسُ | Prophet | Humanity/Believers | Imperative/Present | Al-Hujurat (49) |
-| **Eschatological** | يَقُولُ / قَالَ | Post-judgment | Allah/Angels | Past/Present | Al-Qiyamah (75) |
-</GrammarTable>
-
-Each type has distinct grammatical markers, verb tenses, and sentence structures. We'll analyze each systematically.
-
-## Type 1: Narrative Dialogue (قَالَ / قَالُوا۟)
-
-Narrative dialogue appears in prophet stories, where the Quran reports conversations between prophets and their people, believers and disbelievers, or humans and angels.
-
-### Grammatical Markers
-
-**Primary markers:** قَالَ (qāla — "he said") / قَالُوا۟ (qālū — "they said")
-
-<ArabicExample
-  arabic="قَالَ يَٰقَوْمِ ٱعْبُدُوا۟ ٱللَّهَ مَا لَكُم مِّنْ إِلَٰهٍ غَيْرُهُ"
-  transliteration="qāla yā qawmi ʿbudū llāha mā lakum min ilāhin ghayruhu"
-  translation="He said: O my people, worship Allah. You have no god other than Him."
-  reference="Al-A'raf 7:59"
-  highlight="قَالَ"
-  words={[
-    { ar: "قَالَ", tr: "qāla", en: "he said" },
-    { ar: "يَٰقَوْمِ", tr: "yā qawmi", en: "O my people" },
-    { ar: "ٱعْبُدُوا۟", tr: "ʿbudū", en: "worship" },
-    { ar: "ٱللَّهَ", tr: "llāha", en: "Allah" },
-    { ar: "مَا", tr: "mā", en: "not" },
-    { ar: "لَكُم", tr: "lakum", en: "for you" },
-    { ar: "مِّنْ", tr: "min", en: "any" },
-    { ar: "إِلَٰهٍ", tr: "ilāhin", en: "god" },
-    { ar: "غَيْرُهُ", tr: "ghayruhu", en: "other than Him" }
-  ]}
-/>
-
-**قَالَ** is Form I past tense of ق-و-ل (q-w-l), hollow verb. It introduces reported speech in narrative context.
-
-### Speaker Identification
-
-The **subject** of قَالَ determines the speaker:
-
-**1. Explicit subject (fa'il):**
-
-<ArabicExample
-  arabic="قَالَ فِرْعَوْنُ ءَامَنتُم بِهِۦ قَبْلَ أَنْ ءَاذَنَ لَكُمْ"
-  transliteration="qāla firʿawnu āmantum bihi qabla an ādhana lakum"
-  translation="Pharaoh said: You believed in him before I gave you permission"
-  reference="Ash-Shu'ara 26:49"
-  highlight="فِرْعَوْنُ"
-  words={[
-    { ar: "قَالَ", tr: "qāla", en: "said" },
-    { ar: "فِرْعَوْنُ", tr: "firʿawnu", en: "Pharaoh" },
-    { ar: "ءَامَنتُم", tr: "āmantum", en: "you believed" },
-    { ar: "بِهِۦ", tr: "bihī", en: "in him" },
-    { ar: "قَبْلَ", tr: "qabla", en: "before" },
-    { ar: "أَنْ", tr: "an", en: "that" },
-    { ar: "ءَاذَنَ", tr: "ādhana", en: "I gave permission" },
-    { ar: "لَكُمْ", tr: "lakum", en: "to you" }
-  ]}
-/>
-
-فِرْعَوْنُ is the explicit subject (fa'il) in nominative case — Pharaoh is the speaker.
-
-**2. Embedded pronoun (damir mustatir):**
-
-<ArabicExample
-  arabic="قَالَ إِنِّى عَبْدُ ٱللَّهِ ءَاتَىٰنِىَ ٱلْكِتَٰبَ وَجَعَلَنِى نَبِيًّا"
-  transliteration="qāla innī ʿabdu llāhi ātāniya l-kitāba wa-jaʿalanī nabiyyā"
-  translation="He said: Indeed, I am the servant of Allah. He gave me the Scripture and made me a prophet"
-  reference="Maryam 19:30"
-  highlight="قَالَ"
-  words={[
-    { ar: "قَالَ", tr: "qāla", en: "he said" },
-    { ar: "إِنِّى", tr: "innī", en: "indeed I am" },
-    { ar: "عَبْدُ", tr: "ʿabdu", en: "the servant of" },
-    { ar: "ٱللَّهِ", tr: "llāhi", en: "Allah" },
-    { ar: "ءَاتَىٰنِىَ", tr: "ātāniya", en: "He gave me" },
-    { ar: "ٱلْكِتَٰبَ", tr: "l-kitāba", en: "the Scripture" },
-    { ar: "وَجَعَلَنِى", tr: "wa-jaʿalanī", en: "and made me" },
-    { ar: "نَبِيًّا", tr: "nabiyyā", en: "a prophet" }
-  ]}
-/>
-
-No explicit subject after قَالَ — the embedded pronoun هُوَ is understood from context (baby Isa speaking from the cradle).
-
-**3. Plural dialogue (قَالُوا۟):**
-
-<ArabicExample
-  arabic="قَالُوا۟ يَٰشُعَيْبُ مَا نَفْقَهُ كَثِيرًا مِّمَّا تَقُولُ"
-  transliteration="qālū yā shuʿaybu mā nafqahu kathīran mimmā taqūlu"
-  translation="They said: O Shu'ayb, we do not understand much of what you say"
-  reference="Hud 11:91"
-  highlight="قَالُوا۟"
-  words={[
-    { ar: "قَالُوا۟", tr: "qālū", en: "they said" },
-    { ar: "يَٰشُعَيْبُ", tr: "yā shuʿaybu", en: "O Shu'ayb" },
-    { ar: "مَا", tr: "mā", en: "not" },
-    { ar: "نَفْقَهُ", tr: "nafqahu", en: "we understand" },
-    { ar: "كَثِيرًا", tr: "kathīran", en: "much" },
-    { ar: "مِّمَّا", tr: "mimmā", en: "of what" },
-    { ar: "تَقُولُ", tr: "taqūlu", en: "you say" }
-  ]}
-/>
-
-قَالُوا۟ = قَالَ + وا۟ (plural subject marker) — "they said" indicates a group speaking.
-
-### Addressee Identification
-
-The **vocative particle** يَٰ (yā) or **second-person verbs** identify the addressee:
-
-<ArabicExample
-  arabic="قَالُوا۟ يَٰٓأَبَانَا ٱسْتَغْفِرْ لَنَا ذُنُوبَنَآ"
-  transliteration="qālū yā abānā staghfir lanā dhunūbanā"
-  translation="They said: O our father, ask forgiveness for us of our sins"
-  reference="Yusuf 12:97"
-  highlight="يَٰٓأَبَانَا"
-  words={[
-    { ar: "قَالُوا۟", tr: "qālū", en: "they said" },
-    { ar: "يَٰٓأَبَانَا", tr: "yā abānā", en: "O our father" },
-    { ar: "ٱسْتَغْفِرْ", tr: "istaghfir", en: "ask forgiveness" },
-    { ar: "لَنَا", tr: "lanā", en: "for us" },
-    { ar: "ذُنُوبَنَآ", tr: "dhunūbanā", en: "of our sins" }
-  ]}
-/>
-
-يَٰٓأَبَانَا = vocative particle يَٰ + أَبَانَا (our father) — Yusuf's brothers are addressing their father Ya'qub.
-
-### Cross-Genre Examples
-
-Narrative dialogue appears in multiple contexts:
-
-**Prophet stories (قَصَصُ ٱلْأَنۢبِيَآءِ):**
-
-<ArabicExample
-  arabic="قَالَ رَبِّ إِنِّى وَهَنَ ٱلْعَظْمُ مِنِّى"
-  transliteration="qāla rabbi innī wahana l-ʿaẓmu minnī"
-  translation="He said: My Lord, indeed my bones have weakened from me"
-  reference="Maryam 19:4"
-  highlight="رَبِّ"
-  words={[
-    { ar: "قَالَ", tr: "qāla", en: "he said" },
-    { ar: "رَبِّ", tr: "rabbi", en: "my Lord" },
-    { ar: "إِنِّى", tr: "innī", en: "indeed" },
-    { ar: "وَهَنَ", tr: "wahana", en: "has weakened" },
-    { ar: "ٱلْعَظْمُ", tr: "l-ʿaẓmu", en: "the bone" },
-    { ar: "مِنِّى", tr: "minnī", en: "from me" }
-  ]}
-/>
-
-Zakariyya (peace be upon him) addressing Allah in supplication.
-
-**Quranic narrative (سِيرَةٌ):**
-
-<ArabicExample
-  arabic="قَالُوا۟ نَفْقِدُ صُوَاعَ ٱلْمَلِكِ"
-  transliteration="qālū nafqidu ṣuwāʿa l-maliki"
-  translation="They said: We are missing the king's measuring cup"
-  reference="Yusuf 12:72"
-  highlight="صُوَاعَ ٱلْمَلِكِ"
-  words={[
-    { ar: "قَالُوا۟", tr: "qālū", en: "they said" },
-    { ar: "نَفْقِدُ", tr: "nafqidu", en: "we are missing" },
-    { ar: "صُوَاعَ", tr: "ṣuwāʿa", en: "the measuring cup of" },
-    { ar: "ٱلْمَلِكِ", tr: "l-maliki", en: "the king" }
-  ]}
-/>
-
-Egyptian officials addressing Yusuf's brothers in the narrative of the lost cup.
-
-**Angelic dialogue:**
-
-<ArabicExample
-  arabic="قَالَتِ ٱلْمَلَٰٓئِكَةُ يَٰمَرْيَمُ إِنَّ ٱللَّهَ يُبَشِّرُكِ بِكَلِمَةٍۢ مِّنْهُ"
-  transliteration="qālati l-malā'ikatu yā maryamu inna llāha yubashshiruki bi-kalimatin minhu"
-  translation="The angels said: O Mary, indeed Allah gives you good tidings of a word from Him"
-  reference="Al 'Imran 3:45"
-  highlight="ٱلْمَلَٰٓئِكَةُ"
-  words={[
-    { ar: "قَالَتِ", tr: "qālati", en: "said" },
-    { ar: "ٱلْمَلَٰٓئِكَةُ", tr: "l-malāʾikatu", en: "the angels" },
-    { ar: "يَٰمَرْيَمُ", tr: "yā maryamu", en: "O Mary" },
-    { ar: "إِنَّ", tr: "inna", en: "indeed" },
-    { ar: "ٱللَّهَ", tr: "llāha", en: "Allah" },
-    { ar: "يُبَشِّرُكِ", tr: "yubashshiruki", en: "gives you good tidings" },
-    { ar: "بِكَلِمَةٍۢ", tr: "bi-kalimatin", en: "of a word" },
-    { ar: "مِّنْهُ", tr: "minhu", en: "from Him" }
-  ]}
-/>
-
-Angels addressing Maryam (Mary) with the announcement of Isa's birth.
-
-<Callout type="rule" title="Narrative Dialogue Recognition Rule">
-To identify narrative dialogue:
-
-1. **Look for قَالَ or قَالُوا۟** — primary marker for reported speech
-2. **Identify the fa'il** — explicit noun or embedded pronoun (speaker)
-3. **Check for يَٰ or second-person verbs** — identifies addressee
-4. **Consider context** — prophet stories use this pattern extensively
-
-If these four features are present, you're analyzing narrative dialogue.
-</Callout>
-
-## Type 2: Divine Command (قُلْ)
-
-Divine command dialogue uses the imperative **قُلْ** (qul — "Say!") to command the Prophet Muhammad to address specific audiences. This pattern appears 332 times in the Quran.
-
-### Grammatical Structure
-
-**Primary marker:** قُلْ (qul) — imperative verb from ق-و-ل (q-w-l)
-
-<ArabicExample
-  arabic="قُلْ هُوَ ٱللَّهُ أَحَدٌ"
-  transliteration="qul huwa llāhu aḥadun"
-  translation="Say: He is Allah, [the] One"
-  reference="Al-Ikhlas 112:1"
-  highlight="قُلْ"
-  words={[
-    { ar: "قُلْ", tr: "qul", en: "say" },
-    { ar: "هُوَ", tr: "huwa", en: "He is" },
-    { ar: "ٱللَّهُ", tr: "llāhu", en: "Allah" },
-    { ar: "أَحَدٌ", tr: "aḥadun", en: "the One" }
-  ]}
-/>
-
-**قُلْ** is the imperative form addressing the Prophet. Everything after قُلْ is what the Prophet is commanded to say.
-
-### Speaker and Addressee
-
-**Speaker:** Allah (commanding the Prophet)
-**Addressee 1:** The Prophet Muhammad (peace be upon him)
-**Addressee 2:** Varies (believers, disbelievers, People of the Book, humanity)
-
-<ArabicExample
-  arabic="قُلْ يَٰٓأَيُّهَا ٱلْكَٰفِرُونَ"
-  transliteration="qul yā ayyuhā l-kāfirūna"
-  translation="Say: O you disbelievers"
-  reference="Al-Kafirun 109:1"
-  highlight="ٱلْكَٰفِرُونَ"
-  words={[
-    { ar: "قُلْ", tr: "qul", en: "say" },
-    { ar: "يَٰٓأَيُّهَا", tr: "yā ayyuhā", en: "O you" },
-    { ar: "ٱلْكَٰفِرُونَ", tr: "l-kāfirūna", en: "disbelievers" }
-  ]}
-/>
-
-**Addressee 2** (ultimate audience) = ٱلْكَٰفِرُونَ (disbelievers).
-
-### Functional Categories
-
-قُلْ commands serve multiple rhetorical purposes:
-
-**1. Theological declaration:**
-
-<ArabicExample
-  arabic="قُلْ إِنَّمَآ أَنَا۠ بَشَرٌۭ مِّثْلُكُمْ يُوحَىٰٓ إِلَىَّ"
-  transliteration="qul innamā ana basharun mithlukum yūḥā ilayya"
-  translation="Say: I am only a human like you, to whom it is revealed"
-  reference="Al-Kahf 18:110"
-  highlight="بَشَرٌۭ"
-  words={[
-    { ar: "قُلْ", tr: "qul", en: "say" },
-    { ar: "إِنَّمَآ", tr: "innamā", en: "only" },
-    { ar: "أَنَا۠", tr: "ana", en: "I am" },
-    { ar: "بَشَرٌۭ", tr: "basharun", en: "a human" },
-    { ar: "مِّثْلُكُمْ", tr: "mithlukum", en: "like you" },
-    { ar: "يُوحَىٰٓ", tr: "yūḥā", en: "it is revealed" },
-    { ar: "إِلَىَّ", tr: "ilayya", en: "to me" }
-  ]}
-/>
-
-Prophet's human nature declared via divine command.
-
-**2. Response to objections:**
-
-<ArabicExample
-  arabic="قُلْ مَن يَرْزُقُكُم مِّنَ ٱلسَّمَٰوَٰتِ وَٱلْأَرْضِ"
-  transliteration="qul man yarzuqukum mina s-samāwāti wa-l-arḍi"
-  translation="Say: Who provides for you from the heavens and the earth?"
-  reference="Yunus 10:31"
-  highlight="مَن يَرْزُقُكُم"
-  words={[
-    { ar: "قُلْ", tr: "qul", en: "say" },
-    { ar: "مَن", tr: "man", en: "who" },
-    { ar: "يَرْزُقُكُم", tr: "yarzuqukum", en: "provides for you" },
-    { ar: "مِّنَ", tr: "mina", en: "from" },
-    { ar: "ٱلسَّمَٰوَٰتِ", tr: "s-samāwāti", en: "the heavens" },
-    { ar: "وَٱلْأَرْضِ", tr: "wa-l-arḍi", en: "and the earth" }
-  ]}
-/>
-
-Rhetorical question challenging disbelievers' rejection of divine providence.
-
-**3. Worship instructions:**
-
-<ArabicExample
-  arabic="قُلْ إِنَّ صَلَاتِى وَنُسُكِى وَمَحْيَاىَ وَمَمَاتِى لِلَّهِ رَبِّ ٱلْعَٰلَمِينَ"
-  transliteration="qul inna ṣalātī wa-nusukī wa-maḥyāya wa-mamātī lillāhi rabbi l-ʿālamīna"
-  translation="Say: Indeed, my prayer, my rites of sacrifice, my living and my dying are for Allah, Lord of the worlds"
-  reference="Al-An'am 6:162"
-  highlight="صَلَاتِى وَنُسُكِى"
-  words={[
-    { ar: "قُلْ", tr: "qul", en: "say" },
-    { ar: "إِنَّ", tr: "inna", en: "indeed" },
-    { ar: "صَلَاتِى", tr: "ṣalātī", en: "my prayer" },
-    { ar: "وَنُسُكِى", tr: "wa-nusukī", en: "and my sacrifice" },
-    { ar: "وَمَحْيَاىَ", tr: "wa-maḥyāya", en: "and my living" },
-    { ar: "وَمَمَاتِى", tr: "wa-mamātī", en: "and my dying" },
-    { ar: "لِلَّهِ", tr: "lillāhi", en: "are for Allah" },
-    { ar: "رَبِّ", tr: "rabbi", en: "Lord of" },
-    { ar: "ٱلْعَٰلَمِينَ", tr: "l-ʿālamīna", en: "the worlds" }
-  ]}
-/>
-
-Declaration of complete submission to Allah.
-
-### قُلْ with Conditional Clauses
-
-قُلْ often introduces conditional statements:
-
-<ArabicExample
-  arabic="قُلْ إِن كُنتُمْ تُحِبُّونَ ٱللَّهَ فَٱتَّبِعُونِى يُحْبِبْكُمُ ٱللَّهُ"
-  transliteration="qul in kuntum tuḥibbūna llāha fa-ttabiʿūnī yuḥbibkumu llāhu"
-  translation="Say: If you love Allah, then follow me; Allah will love you"
-  reference="Al 'Imran 3:31"
-  highlight="إِن كُنتُمْ"
-  words={[
-    { ar: "قُلْ", tr: "qul", en: "say" },
-    { ar: "إِن", tr: "in", en: "if" },
-    { ar: "كُنتُمْ", tr: "kuntum", en: "you are" },
-    { ar: "تُحِبُّونَ", tr: "tuḥibbūna", en: "loving" },
-    { ar: "ٱللَّهَ", tr: "llāha", en: "Allah" },
-    { ar: "فَٱتَّبِعُونِى", tr: "fa-ttabiʿūnī", en: "then follow me" },
-    { ar: "يُحْبِبْكُمُ", tr: "yuḥbibkumu", en: "will love you" },
-    { ar: "ٱللَّهُ", tr: "llāhu", en: "Allah" }
-  ]}
-/>
-
-Conditional structure: **إِن** (if) + **كُنتُمْ** (you are) + **فَٱتَّبِعُونِى** (then follow me).
-
-<Callout type="tip">
-قُلْ verses are ALWAYS Allah's words to the Prophet. When you see قُلْ, you're reading Allah commanding Muhammad to speak. This distinguishes divine command dialogue from other dialogue types where characters speak directly.
-</Callout>
-
-## Type 3: Prophetic Address (يَٰٓأَيُّهَا)
-
-Prophetic address uses the vocative structure **يَٰٓأَيُّهَا** (yā ayyuhā) to directly address groups — believers, humanity, or People of the Book. This pattern appears 154 times in the Quran.
-
-### Grammatical Structure
-
-**Primary marker:** يَٰٓأَيُّهَا (yā ayyuhā) — compound vocative particle
-
-<ArabicExample
-  arabic="يَٰٓأَيُّهَا ٱلنَّاسُ ٱعْبُدُوا۟ رَبَّكُمُ"
-  transliteration="yā ayyuhā n-nāsu ʿbudū rabbakumu"
-  translation="O mankind, worship your Lord"
-  reference="Al-Baqarah 2:21"
-  highlight="يَٰٓأَيُّهَا ٱلنَّاسُ"
-  words={[
-    { ar: "يَٰٓأَيُّهَا", tr: "yā ayyuhā", en: "O" },
-    { ar: "ٱلنَّاسُ", tr: "n-nāsu", en: "mankind" },
-    { ar: "ٱعْبُدُوا۟", tr: "ʿbudū", en: "worship" },
-    { ar: "رَبَّكُمُ", tr: "rabbakumu", en: "your Lord" }
-  ]}
-/>
-
-**Structure breakdown:**
-- يَٰ = vocative particle
-- أَيُّ = "which one" (attention-grabbing device)
-- هَا = demonstrative particle (pointing)
-- ٱلنَّاسُ = the addressee noun (definite, nominative)
-
-### Three Primary Addressee Categories
-
-**1. O mankind (يَٰٓأَيُّهَا ٱلنَّاسُ):**
-
-<ArabicExample
-  arabic="يَٰٓأَيُّهَا ٱلنَّاسُ كُلُوا۟ مِمَّا فِى ٱلْأَرْضِ حَلَٰلًۭا طَيِّبًۭا"
-  transliteration="yā ayyuhā n-nāsu kulū mimmā fī l-arḍi ḥalālan ṭayyiban"
-  translation="O mankind, eat from whatever is on earth [that is] lawful and good"
-  reference="Al-Baqarah 2:168"
-  highlight="كُلُوا۟"
-  words={[
-    { ar: "يَٰٓأَيُّهَا", tr: "yā ayyuhā", en: "O" },
-    { ar: "ٱلنَّاسُ", tr: "n-nāsu", en: "mankind" },
-    { ar: "كُلُوا۟", tr: "kulū", en: "eat" },
-    { ar: "مِمَّا", tr: "mimmā", en: "from whatever" },
-    { ar: "فِى", tr: "fī", en: "is on" },
-    { ar: "ٱلْأَرْضِ", tr: "l-arḍi", en: "the earth" },
-    { ar: "حَلَٰلًۭا", tr: "ḥalālan", en: "lawful" },
-    { ar: "طَيِّبًۭا", tr: "ṭayyiban", en: "and good" }
-  ]}
-/>
-
-Universal address — applies to all humanity, Muslim and non-Muslim.
-
-**2. O you who have believed (يَٰٓأَيُّهَا ٱلَّذِينَ ءَامَنُوا۟):**
-
-<ArabicExample
-  arabic="يَٰٓأَيُّهَا ٱلَّذِينَ ءَامَنُوا۟ كُتِبَ عَلَيْكُمُ ٱلصِّيَامُ"
-  transliteration="yā ayyuhā lladhīna āmanū kutiba ʿalaykumu ṣ-ṣiyāmu"
-  translation="O you who have believed, fasting has been decreed upon you"
-  reference="Al-Baqarah 2:183"
-  highlight="كُتِبَ عَلَيْكُمُ"
-  words={[
-    { ar: "يَٰٓأَيُّهَا", tr: "yā ayyuhā", en: "O" },
-    { ar: "ٱلَّذِينَ", tr: "lladhīna", en: "you who" },
-    { ar: "ءَامَنُوا۟", tr: "āmanū", en: "have believed" },
-    { ar: "كُتِبَ", tr: "kutiba", en: "has been decreed" },
-    { ar: "عَلَيْكُمُ", tr: "ʿalaykumu", en: "upon you" },
-    { ar: "ٱلصِّيَامُ", tr: "ṣ-ṣiyāmu", en: "fasting" }
-  ]}
-/>
-
-Specific address — applies only to Muslims. Often introduces religious obligations.
-
-**3. O People of the Book (يَٰٓأَهْلَ ٱلْكِتَٰبِ):**
-
-<ArabicExample
-  arabic="يَٰٓأَهْلَ ٱلْكِتَٰبِ لَا تَغْلُوا۟ فِى دِينِكُمْ"
-  transliteration="yā ahla l-kitābi lā taghlū fī dīnikum"
-  translation="O People of the Book, do not exceed limits in your religion"
-  reference="An-Nisa 4:171"
-  highlight="لَا تَغْلُوا۟"
-  words={[
-    { ar: "يَٰٓأَهْلَ", tr: "yā ahla", en: "O People of" },
-    { ar: "ٱلْكِتَٰبِ", tr: "l-kitābi", en: "the Book" },
-    { ar: "لَا", tr: "lā", en: "do not" },
-    { ar: "تَغْلُوا۟", tr: "taghlū", en: "exceed limits" },
-    { ar: "فِى", tr: "fī", en: "in" },
-    { ar: "دِينِكُمْ", tr: "dīnikum", en: "your religion" }
-  ]}
-/>
-
-Address to Jews and Christians specifically.
-
-### Sentence Patterns Following يَٰٓأَيُّهَا
-
-**1. Imperative commands:**
-
-<ArabicExample
-  arabic="يَٰٓأَيُّهَا ٱلَّذِينَ ءَامَنُوا۟ ٱتَّقُوا۟ ٱللَّهَ حَقَّ تُقَاتِهِۦ"
-  transliteration="yā ayyuhā lladhīna āmanū ttaqū llāha ḥaqqa tuqātihī"
-  translation="O you who have believed, fear Allah as He should be feared"
-  reference="Al 'Imran 3:102"
-  highlight="ٱتَّقُوا۟"
-  words={[
-    { ar: "يَٰٓأَيُّهَا", tr: "yā ayyuhā", en: "O" },
-    { ar: "ٱلَّذِينَ", tr: "lladhīna", en: "you who" },
-    { ar: "ءَامَنُوا۟", tr: "āmanū", en: "have believed" },
-    { ar: "ٱتَّقُوا۟", tr: "ttaqū", en: "fear" },
-    { ar: "ٱللَّهَ", tr: "llāha", en: "Allah" },
-    { ar: "حَقَّ", tr: "ḥaqqa", en: "as is His right of" },
-    { ar: "تُقَاتِهِۦ", tr: "tuqātihī", en: "being feared" }
-  ]}
-/>
-
-ٱتَّقُوا۟ = Form VIII imperative, plural — "fear [Allah]."
-
-**2. Declarative statements:**
-
-<ArabicExample
-  arabic="يَٰٓأَيُّهَا ٱلنَّاسُ إِنَّا خَلَقْنَٰكُم مِّن ذَكَرٍۢ وَأُنثَىٰ"
-  transliteration="yā ayyuhā n-nāsu innā khalaqnākum min dhakarin wa-unthā"
-  translation="O mankind, indeed We created you from male and female"
-  reference="Al-Hujurat 49:13"
-  highlight="خَلَقْنَٰكُم"
-  words={[
-    { ar: "يَٰٓأَيُّهَا", tr: "yā ayyuhā", en: "O" },
-    { ar: "ٱلنَّاسُ", tr: "n-nāsu", en: "mankind" },
-    { ar: "إِنَّا", tr: "innā", en: "indeed We" },
-    { ar: "خَلَقْنَٰكُم", tr: "khalaqnākum", en: "created you" },
-    { ar: "مِّن", tr: "min", en: "from" },
-    { ar: "ذَكَرٍۢ", tr: "dhakarin", en: "a male" },
-    { ar: "وَأُنثَىٰ", tr: "wa-unthā", en: "and a female" }
-  ]}
-/>
-
-إِنَّا خَلَقْنَٰكُم = emphatic particle + past tense verb — statement of fact.
-
-**3. Prohibitions:**
-
-<ArabicExample
-  arabic="يَٰٓأَيُّهَا ٱلَّذِينَ ءَامَنُوا۟ لَا تَتَّخِذُوا۟ عَدُوِّى وَعَدُوَّكُمْ أَوْلِيَآءَ"
-  transliteration="yā ayyuhā lladhīna āmanū lā tattakhidhū ʿaduwwī wa-ʿaduwwakum awliyā'a"
-  translation="O you who have believed, do not take My enemies and your enemies as allies"
-  reference="Al-Mumtahanah 60:1"
-  highlight="لَا تَتَّخِذُوا۟"
-  words={[
-    { ar: "يَٰٓأَيُّهَا", tr: "yā ayyuhā", en: "O" },
-    { ar: "ٱلَّذِينَ", tr: "lladhīna", en: "you who" },
-    { ar: "ءَامَنُوا۟", tr: "āmanū", en: "have believed" },
-    { ar: "لَا", tr: "lā", en: "do not" },
-    { ar: "تَتَّخِذُوا۟", tr: "tattakhidhū", en: "take" },
-    { ar: "عَدُوِّى", tr: "ʿaduwwī", en: "My enemies" },
-    { ar: "وَعَدُوَّكُمْ", tr: "wa-ʿaduwwakum", en: "and your enemies" },
-    { ar: "أَوْلِيَآءَ", tr: "awliyāʾa", en: "as allies" }
-  ]}
-/>
-
-لَا + present tense = prohibition (jussive mood).
-
-<Callout type="rule" title="Prophetic Address Recognition Rule">
-To identify prophetic address:
-
-1. **Look for يَٰٓأَيُّهَا** — compound vocative marker
-2. **Identify addressee category** — ٱلنَّاسُ (humanity), ٱلَّذِينَ ءَامَنُوا۟ (believers), أَهْلَ ٱلْكِتَٰبِ (People of the Book)
-3. **Check sentence type** — imperative (command), declarative (statement), or prohibition
-4. **Context** — legislative and ethical instructions use this pattern
-
-This structure is direct address — no intermediary "he said/they said."
-</Callout>
-
-## Type 4: Eschatological Dialogue (يَقُولُ / قَالَ)
-
-Eschatological dialogue describes conversations on the Day of Judgment — between believers and disbelievers, humans and Allah, or the condemned and their intercessors.
-
-### Grammatical Markers
-
-**Primary markers:** يَقُولُ (yaqūlu — present tense) / قَالَ (qāla — past tense)
-
-<ArabicExample
-  arabic="يَقُولُ ٱلْإِنسَٰنُ يَوْمَئِذٍۢ أَيْنَ ٱلْمَفَرُّ"
-  transliteration="yaqūlu l-insānu yawma'idhin ayna l-mafarru"
-  translation="Man will say on that Day: Where is the place of escape?"
-  reference="Al-Qiyamah 75:10"
-  highlight="يَقُولُ"
-  words={[
-    { ar: "يَقُولُ", tr: "yaqūlu", en: "will say" },
-    { ar: "ٱلْإِنسَٰنُ", tr: "l-insānu", en: "man" },
-    { ar: "يَوْمَئِذٍۢ", tr: "yawmaʾidhin", en: "on that Day" },
-    { ar: "أَيْنَ", tr: "ayna", en: "where is" },
-    { ar: "ٱلْمَفَرُّ", tr: "l-mafarru", en: "the place of escape" }
-  ]}
-/>
-
-**يَقُولُ** = present tense, but refers to future Day of Judgment. Arabic uses present tense for vividness (اِسْتِحْضَارُ الصُّورَةِ — bringing the scene to life).
-
-### Past Tense for Certainty
-
-The Quran often uses **past tense** for future eschatological events to convey certainty:
-
-<ArabicExample
-  arabic="وَقَالَ ٱلَّذِينَ كَفَرُوا۟ رَبَّنَآ أَرِنَا ٱللَّذَيْنِ أَضَلَّانَا مِنَ ٱلْجِنِّ وَٱلْإِنسِ"
-  transliteration="wa-qāla lladhīna kafarū rabbanā arinā lladhayni aḍallānā mina l-jinni wa-l-insi"
-  translation="And those who disbelieved will say: Our Lord, show us those who misled us from among the jinn and mankind"
-  reference="Fussilat 41:29"
-  highlight="قَالَ"
-  words={[
-    { ar: "وَقَالَ", tr: "wa-qāla", en: "and will say" },
-    { ar: "ٱلَّذِينَ", tr: "lladhīna", en: "those who" },
-    { ar: "كَفَرُوا۟", tr: "kafarū", en: "disbelieved" },
-    { ar: "رَبَّنَآ", tr: "rabbanā", en: "our Lord" },
-    { ar: "أَرِنَا", tr: "arinā", en: "show us" },
-    { ar: "ٱللَّذَيْنِ", tr: "lladhayni", en: "those two who" },
-    { ar: "أَضَلَّانَا", tr: "aḍallānā", en: "misled us" },
-    { ar: "مِنَ", tr: "mina", en: "from among" },
-    { ar: "ٱلْجِنِّ", tr: "l-jinni", en: "the jinn" },
-    { ar: "وَٱلْإِنسِ", tr: "wa-l-insi", en: "and mankind" }
-  ]}
-/>
-
-**قَالَ** (past tense) describes future speech — grammatical device emphasizing inevitability of the Day of Judgment.
-
-### Common Eschatological Dialogue Scenarios
-
-**1. Humans questioning Allah:**
-
-<ArabicExample
-  arabic="يَقُولُ ٱلْإِنسَٰنُ يَوْمَئِذٍۢ أَيْنَ ٱلْمَفَرُّ"
-  transliteration="yaqūlu l-insānu yawma'idhin ayna l-mafarru"
-  translation="Man will say on that Day: Where is the place of escape?"
-  reference="Al-Qiyamah 75:10"
-  highlight="أَيْنَ ٱلْمَفَرُّ"
-  words={[
-    { ar: "يَقُولُ", tr: "yaqūlu", en: "will say" },
-    { ar: "ٱلْإِنسَٰنُ", tr: "l-insānu", en: "man" },
-    { ar: "يَوْمَئِذٍۢ", tr: "yawmaʾidhin", en: "on that Day" },
-    { ar: "أَيْنَ", tr: "ayna", en: "where is" },
-    { ar: "ٱلْمَفَرُّ", tr: "l-mafarru", en: "the place of escape" }
-  ]}
-/>
-
-Rhetorical question expressing desperation — no escape exists.
-
-**2. Disbelievers blaming misleaders:**
-
-<ArabicExample
-  arabic="وَقَالُوا۟ رَبَّنَآ إِنَّآ أَطَعْنَا سَادَتَنَا وَكُبَرَآءَنَا فَأَضَلُّونَا ٱلسَّبِيلَا۠"
-  transliteration="wa-qālū rabbanā innā aṭaʿnā sādatanā wa-kubarā'anā fa-aḍallūnā s-sabīlā"
-  translation="And they will say: Our Lord, indeed we obeyed our masters and our dignitaries, and they led us astray from the way"
-  reference="Al-Ahzab 33:67"
-  highlight="أَطَعْنَا"
-  words={[
-    { ar: "وَقَالُوا۟", tr: "wa-qālū", en: "and they will say" },
-    { ar: "رَبَّنَآ", tr: "rabbanā", en: "our Lord" },
-    { ar: "إِنَّآ", tr: "innā", en: "indeed we" },
-    { ar: "أَطَعْنَا", tr: "aṭaʿnā", en: "obeyed" },
-    { ar: "سَادَتَنَا", tr: "sādatanā", en: "our masters" },
-    { ar: "وَكُبَرَآءَنَا", tr: "wa-kubarāʾanā", en: "and our dignitaries" },
-    { ar: "فَأَضَلُّونَا", tr: "fa-aḍallūnā", en: "and they led us astray from" },
-    { ar: "ٱلسَّبِيلَا۠", tr: "s-sabīlā", en: "the way" }
-  ]}
-/>
-
-Past tense أَطَعْنَا (we obeyed) within eschatological dialogue — describing earthly actions from post-judgment perspective.
-
-**3. Allah's response:**
-
-<ArabicExample
-  arabic="فَيَقُولُ رَبِّىٓ أَكْرَمَنِ"
-  transliteration="fa-yaqūlu rabbī akramani"
-  translation="And he says: My Lord has honored me"
-  reference="Al-Fajr 89:15"
-  highlight="أَكْرَمَنِ"
-  words={[
-    { ar: "فَيَقُولُ", tr: "fa-yaqūlu", en: "and he says" },
-    { ar: "رَبِّىٓ", tr: "rabbī", en: "my Lord" },
-    { ar: "أَكْرَمَنِ", tr: "akramani", en: "has honored me" }
-  ]}
-/>
-
-Human's misinterpretation of worldly blessings, quoted in eschatological context.
-
-**4. Prophets interceding:**
-
-<ArabicExample
-  arabic="وَيَقُولُ ٱلرَّسُولُ يَٰرَبِّ إِنَّ قَوْمِى ٱتَّخَذُوا۟ هَٰذَا ٱلْقُرْءَانَ مَهْجُورًۭا"
-  transliteration="wa-yaqūlu r-rasūlu yā rabbi inna qawmī ttakhadhū hādhā l-qur'āna mahjūrā"
-  translation="And the Messenger will say: O my Lord, indeed my people took this Quran as a thing abandoned"
-  reference="Al-Furqan 25:30"
-  highlight="مَهْجُورًۭا"
-  words={[
-    { ar: "وَيَقُولُ", tr: "wa-yaqūlu", en: "and will say" },
-    { ar: "ٱلرَّسُولُ", tr: "r-rasūlu", en: "the Messenger" },
-    { ar: "يَٰرَبِّ", tr: "yā rabbi", en: "O my Lord" },
-    { ar: "إِنَّ", tr: "inna", en: "indeed" },
-    { ar: "قَوْمِى", tr: "qawmī", en: "my people" },
-    { ar: "ٱتَّخَذُوا۟", tr: "ttakhadhū", en: "took" },
-    { ar: "هَٰذَا", tr: "hādhā", en: "this" },
-    { ar: "ٱلْقُرْءَانَ", tr: "l-qurʾāna", en: "Quran" },
-    { ar: "مَهْجُورًۭا", tr: "mahjūrā", en: "as abandoned" }
-  ]}
-/>
-
-Prophet Muhammad's complaint on the Day of Judgment about those who neglected the Quran.
-
-### Tense Variation in Eschatological Context
-
-Eschatological dialogue uses both past and present tenses for rhetorical effect:
-
-<GrammarTable>
-| Tense | Function | Example | Effect |
-|-------|----------|---------|--------|
-| **Present (يَقُولُ)** | Vivid immediacy | يَقُولُ ٱلْإِنسَٰنُ | Makes scene present, dramatic |
-| **Past (قَالَ)** | Inevitable certainty | وَقَالَ ٱلَّذِينَ كَفَرُوا۟ | Treats future as done deal |
-| **Mixed** | Narrative realism | قَالُوا۟... يَقُولُونَ... | Multiple timeframes simultaneously |
-</GrammarTable>
-
-<Callout type="tip" title="Why Past Tense for Future Events?">
-The Quran's use of past tense (قَالَ) for Day of Judgment dialogue emphasizes certainty. In Arabic rhetoric, past tense = completed action = undeniable reality. By narrating the Day of Judgment in past tense, the Quran treats it as ALREADY HAPPENED — emphasizing inevitability.
-
-This is called **الْمَاضِي بِمَعْنَى ٱلْمُسْتَقْبَلِ** (al-māḍī bi-maʿnā l-mustaqbali) — "past tense with future meaning." It's a rhetorical device, not a grammatical error.
-</Callout>
-
-## Dialogue Types Summary Table
-
-<GrammarTable>
-| Feature | Narrative | Divine Command | Prophetic Address | Eschatological |
-|---------|-----------|----------------|-------------------|----------------|
-| **Primary Marker** | قَالَ / قَالُوا۟ | قُلْ | يَٰٓأَيُّهَا | يَقُولُ / قَالَ |
-| **Speaker** | Prophet, people, angels | Allah (to Prophet) | Prophet/Allah | Humans, Allah |
-| **Addressee** | Varies | Prophet → audience | Believers/humanity | Post-judgment entities |
-| **Tense** | Past | Imperative | Present/imperative | Present/past (future) |
-| **Context** | Stories, narratives | Commands, responses | Laws, exhortations | Judgment Day scenes |
-| **Example Surah** | Yusuf (12) | Al-Ikhlas (112) | Al-Baqarah (2) | Al-Qiyamah (75) |
-</GrammarTable>
-
-## Cross-Surah Dialogue Analysis
-
-To see how dialogue patterns work across different Quranic contexts, let's analyze multiple surahs:
-
-### Narrative-Heavy Surah: Yusuf (12)
-
-Surah Yusuf is the longest continuous narrative in the Quran. Almost every verse contains dialogue:
-
-<ArabicExample
-  arabic="إِذْ قَالَ يُوسُفُ لِأَبِيهِ يَٰٓأَبَتِ إِنِّى رَأَيْتُ أَحَدَ عَشَرَ كَوْكَبًۭا"
-  transliteration="idh qāla yūsufu li-abīhi yā abati innī ra'aytu aḥada ʿashara kawkabā"
-  translation="When Yusuf said to his father: O my father, indeed I saw eleven stars"
-  reference="Yusuf 12:4"
-  highlight="قَالَ يُوسُفُ"
-  words={[
-    { ar: "إِذْ", tr: "idh", en: "when" },
-    { ar: "قَالَ", tr: "qāla", en: "said" },
-    { ar: "يُوسُفُ", tr: "yūsufu", en: "Yusuf" },
-    { ar: "لِأَبِيهِ", tr: "li-abīhi", en: "to his father" },
-    { ar: "يَٰٓأَبَتِ", tr: "yā abati", en: "O my father" },
-    { ar: "إِنِّى", tr: "innī", en: "indeed I" },
-    { ar: "رَأَيْتُ", tr: "raʾaytu", en: "saw" },
-    { ar: "أَحَدَ", tr: "aḥada", en: "eleven" },
-    { ar: "عَشَرَ", tr: "ʿashara", en: "" },
-    { ar: "كَوْكَبًۭا", tr: "kawkabā", en: "stars" }
-  ]}
-/>
-
-**Dialogue type:** Narrative (قَالَ)
-**Speaker:** Yusuf (explicit fa'il)
-**Addressee:** His father (لِأَبِيهِ + vocative يَٰٓأَبَتِ)
-
-<ArabicExample
-  arabic="قَالَ يَٰبُنَىَّ لَا تَقْصُصْ رُءْيَاكَ عَلَىٰٓ إِخْوَتِكَ"
-  transliteration="qāla yā bunayya lā taqṣuṣ ru'yāka ʿalā ikhwatika"
-  translation="He said: O my son, do not relate your vision to your brothers"
-  reference="Yusuf 12:5"
-  highlight="قَالَ"
-  words={[
-    { ar: "قَالَ", tr: "qāla", en: "he said" },
-    { ar: "يَٰبُنَىَّ", tr: "yā bunayya", en: "O my son" },
-    { ar: "لَا", tr: "lā", en: "do not" },
-    { ar: "تَقْصُصْ", tr: "taqṣuṣ", en: "relate" },
-    { ar: "رُءْيَاكَ", tr: "ruʾyāka", en: "your vision" },
-    { ar: "عَلَىٰٓ", tr: "ʿalā", en: "to" },
-    { ar: "إِخْوَتِكَ", tr: "ikhwatika", en: "your brothers" }
-  ]}
-/>
-
-**Dialogue type:** Narrative (قَالَ)
-**Speaker:** Ya'qub (embedded pronoun, understood from context)
-**Addressee:** Yusuf (vocative يَٰبُنَىَّ — O my son)
-
-Surah Yusuf contains 60+ instances of قَالَ/قَالُوا۟ — demonstrating that narrative dialogue dominates story-based surahs.
-
-### Command-Heavy Surah: Al-Kafirun (109)
-
-Surah Al-Kafirun is entirely divine command — Allah commanding the Prophet to address disbelievers:
-
-<ArabicExample
-  arabic="قُلْ يَٰٓأَيُّهَا ٱلْكَٰفِرُونَ"
-  transliteration="qul yā ayyuhā l-kāfirūna"
-  translation="Say: O you disbelievers"
-  reference="Al-Kafirun 109:1"
-  highlight="قُلْ"
-  words={[
-    { ar: "قُلْ", tr: "qul", en: "say" },
-    { ar: "يَٰٓأَيُّهَا", tr: "yā ayyuhā", en: "O you" },
-    { ar: "ٱلْكَٰفِرُونَ", tr: "l-kāfirūna", en: "disbelievers" }
-  ]}
-/>
-
-**Dialogue type:** Divine command (قُلْ)
-**Speaker:** Allah (commanding Prophet)
-**Addressee 1:** Prophet Muhammad
-**Addressee 2:** ٱلْكَٰفِرُونَ (disbelievers)
-
-The entire surah (6 verses) is framed as Allah's command to the Prophet to declare theological separation from polytheism.
-
-### Address-Heavy Surah: Al-Hujurat (49)
-
-Surah Al-Hujurat contains 5 instances of **يَٰٓأَيُّهَا ٱلَّذِينَ ءَامَنُوا۟** — repeated prophetic address teaching social ethics:
-
-<ArabicExample
-  arabic="يَٰٓأَيُّهَا ٱلَّذِينَ ءَامَنُوا۟ لَا تُقَدِّمُوا۟ بَيْنَ يَدَىِ ٱللَّهِ وَرَسُولِهِۦ"
-  transliteration="yā ayyuhā lladhīna āmanū lā tuqaddimū bayna yaday llāhi wa-rasūlihī"
-  translation="O you who have believed, do not put [yourselves] before Allah and His Messenger"
-  reference="Al-Hujurat 49:1"
-  highlight="لَا تُقَدِّمُوا۟"
-  words={[
-    { ar: "يَٰٓأَيُّهَا", tr: "yā ayyuhā", en: "O" },
-    { ar: "ٱلَّذِينَ", tr: "lladhīna", en: "you who" },
-    { ar: "ءَامَنُوا۟", tr: "āmanū", en: "have believed" },
-    { ar: "لَا", tr: "lā", en: "do not" },
-    { ar: "تُقَدِّمُوا۟", tr: "tuqaddimū", en: "put yourselves forward" },
-    { ar: "بَيْنَ", tr: "bayna", en: "before" },
-    { ar: "يَدَىِ", tr: "yaday", en: "the hands of" },
-    { ar: "ٱللَّهِ", tr: "llāhi", en: "Allah" },
-    { ar: "وَرَسُولِهِۦ", tr: "wa-rasūlihī", en: "and His Messenger" }
-  ]}
-/>
-
-Each يَٰٓأَيُّهَا introduces a new ethical principle — respect for Allah and His Messenger, verification of news, avoiding mockery, eschewing suspicion, etc.
-
-### Eschatological-Heavy Surah: Al-Qiyamah (75)
-
-Surah Al-Qiyamah describes the Day of Resurrection with vivid dialogue:
-
-<ArabicExample
-  arabic="يَقُولُ ٱلْإِنسَٰنُ يَوْمَئِذٍۢ أَيْنَ ٱلْمَفَرُّ"
-  transliteration="yaqūlu l-insānu yawma'idhin ayna l-mafarru"
-  translation="Man will say on that Day: Where is the place of escape?"
-  reference="Al-Qiyamah 75:10"
-  highlight="يَقُولُ"
-  words={[
-    { ar: "يَقُولُ", tr: "yaqūlu", en: "will say" },
-    { ar: "ٱلْإِنسَٰنُ", tr: "l-insānu", en: "man" },
-    { ar: "يَوْمَئِذٍۢ", tr: "yawmaʾidhin", en: "on that Day" },
-    { ar: "أَيْنَ", tr: "ayna", en: "where is" },
-    { ar: "ٱلْمَفَرُّ", tr: "l-mafarru", en: "the place of escape" }
-  ]}
-/>
-
-Present tense for future event — rhetorical immediacy.
-
-## Practice Exercises
-
-<ExerciseBox question="Identify the dialogue type and speaker in the following verse:">
-
-قَالَ رَبِّ ٱجْعَل لِّىٓ ءَايَةًۭ ۖ قَالَ ءَايَتُكَ أَلَّا تُكَلِّمَ ٱلنَّاسَ ثَلَٰثَ لَيَالٍۢ سَوِيًّۭا
-[Maryam 19:10]
-
-**Hint:** Look for قَالَ markers and identify who speaks based on vocative particles and context
-
-**Expected elements:**
-- Dialogue type: Narrative (قَالَ appears twice)
-- First قَالَ: Zakariyya addressing Allah (رَبِّ vocative)
-- Second قَالَ: Allah responding to Zakariyya (embedded pronoun)
-
-</ExerciseBox>
-
-<ExerciseBox question="Classify the following verses by dialogue type:">
-
-1. قُلْ أَعُوذُ بِرَبِّ ٱلْفَلَقِ
-2. يَٰٓأَيُّهَا ٱلنَّاسُ ٱتَّقُوا۟ رَبَّكُمُ
-3. قَالَتْ رَبِّ أَنَّىٰ يَكُونُ لِى وَلَدٌۭ
-4. يَقُولُ ٱلْكَٰفِرُ يَٰلَيْتَنِى كُنتُ تُرَٰبًۢا
-[Multiple surahs]
-
-**Hint:** Use the dialogue types summary table to classify each verse
-
-**Expected elements:**
-- 1. Divine Command (قُلْ marker)
-- 2. Prophetic Address (يَٰٓأَيُّهَا marker, addresses humanity)
-- 3. Narrative (قَالَتْ, Maryam addressing Allah)
-- 4. Eschatological (يَقُولُ, Day of Judgment scenario)
-
-</ExerciseBox>
-
-<ExerciseBox question="In the following verse, identify: (1) the speaker, (2) the addressee, and (3) the grammatical evidence for each.:">
-
-قَالُوا۟ يَٰصَٰلِحُ قَدْ كُنتَ فِينَا مَرْجُوًّۭا قَبْلَ هَٰذَآ
-[Hud 11:62]
-
-**Hint:** Identify the verb form for speaker, and look for vocative particle (يَٰ) for addressee
-
-**Expected elements:**
-- Speaker: The people of Thamud (قَالُوا۟ = plural third person, 'they said')
-- Addressee: Prophet Salih (يَٰصَٰلِحُ vocative, 'O Salih')
-- Evidence: قَالُوا۟ (verb indicates plural speaker), vocative particle يَٰ with proper name indicates addressee
-
-</ExerciseBox>
-
-<ExerciseBox question="Analyze the following passage from Surah Maryam. Identify: (1) how many speakers are present, (2) how speaker changes are marked grammatically, and (3) the dialogue type for each utterance.:">
-
-فَنَادَىٰهَا مِن تَحْتِهَآ أَلَّا تَحْزَنِى قَدْ جَعَلَ رَبُّكِ تَحْتَكِ سَرِيًّۭا ‎﴿٢٤﴾‏ وَهُزِّىٓ إِلَيْكِ بِجِذْعِ ٱلنَّخْلَةِ تُسَٰقِطْ عَلَيْكِ رُطَبًۭا جَنِيًّۭا ‎﴿٢٥﴾‏ فَكُلِى وَٱشْرَبِى وَقَرِّى عَيْنًۭا
-[Maryam 19:24-26]
-
-**Hint:** Look for the verb introducing the dialogue (فَنَادَىٰهَا) and analyze the imperative verbs that follow
-
-**Expected elements:**
-- One speaker: Baby Isa (or angel Gabriel, scholarly debate)
-- Speaker marked by: فَنَادَىٰهَا (he called her) — embedded pronoun in verb
-- Dialogue type: Narrative (verb نَادَىٰ introduces reported speech in story context)
-- Imperatives: هُزِّى، كُلِى، ٱشْرَبِى، قَرِّى (feminine singular commands addressed to Maryam)
-
-</ExerciseBox>
-
-## Summary
-
-Quranic dialogue follows four systematic grammatical patterns:
-
-1. **Narrative Dialogue (قَالَ / قَالُوا۟):** Reports conversations in stories — prophets, people, angels speaking. Speaker identified by fa'il (explicit or embedded). Addressee identified by vocative يَٰ or second-person verbs.
-
-2. **Divine Command (قُلْ):** Allah commanding the Prophet to speak. Everything after قُلْ is what the Prophet is commanded to say. Addressee varies (believers, disbelievers, humanity).
-
-3. **Prophetic Address (يَٰٓأَيُّهَا):** Direct address to groups using compound vocative. Three main audiences: ٱلنَّاسُ (humanity), ٱلَّذِينَ ءَامَنُوا۟ (believers), أَهْلَ ٱلْكِتَٰبِ (People of the Book). Often introduces commands or ethical principles.
-
-4. **Eschatological Dialogue (يَقُولُ / قَالَ):** Day of Judgment conversations. Uses present tense for vividness or past tense for inevitability despite being future events.
-
-Mastering these four patterns allows you to identify speakers, addressees, and rhetorical purposes across 40% of Quranic verses — enabling systematic dialogue analysis throughout the Quran.
-
-**Next lesson:** [L5.12 Parallelism & Repetition](/learn/level-5/12-parallelism-repetition/) — Transition from narrative analysis to applied rhetoric, exploring how parallel grammatical structures create emphasis and beauty in the Quran.
+import Step from '../../../components/lesson/Step.astro';
+import Stage from '../../../components/lesson/Stage.astro';
+import Sentence from '../../../components/lesson/Sentence.astro';
+import Tiles from '../../../components/lesson/Tiles.astro';
+import Formula from '../../../components/lesson/Formula.astro';
+import Note from '../../../components/lesson/Note.astro';
+import Check from '../../../components/lesson/Check.astro';
+import Start from '../../../components/lesson/Start.astro';
+import Sources from '../../../components/lesson/Sources.astro';
+import Parse from '../../../components/lesson/Parse.astro';
+import Exercise from '../../../components/lesson/Exercise.astro';
+import Block from '../../../components/lesson/Block.astro';
+
+{/* Content spec: docs/redesign/specs/L5.11-dialogue-patterns.md. Every parse follows al-Jadwal (Mahmud Safi). Counts are Quran Learn scripts over the Corpus file. The four openings are a Quran Learn teaching summary. */}
+
+<Step hero id="start" label="Speech" title={frontmatter.title} kicker={frontmatter.kicker} titleArabic={frontmatter.titleArabic}>
+<Block id="overview" title="In this lesson" level={2} uncounted>
+  <Stage label="The idea">
+    <Formula
+      label="a verb of saying, its doer, and the words that are said"
+      items={[
+        { kind: 'm', text: 'verb of saying', small: 'قَالَ' },
+        { kind: 'k', text: 'its doer', small: 'who speaks' },
+        { kind: 's', text: 'what is said', small: 'مَقُول الْقَوْل' },
+      ]}
+    />
+  </Stage>
+  <Start
+    goal="Find the verb that opens a speech, say who the doer is, mark where the quoted words start and end, read a call, and tell a new speaker from the same one. Know what the counts show and what they do not."
+    minutes={90}
+    before="The verbal sentence and its doer (L2.03). Commands (L3.08). Hollow verbs: قَالَ and قُلْ (L4.12). Condition sentences (L4.03). The method for one verse (L5.01)."
+    terms={[
+      { term: 'What is said', ar: 'مَقُول الْقَوْل', meaning: 'The words that come after قَالَ or قُلْ (L1.09).' },
+      { term: 'In the place of accusative', ar: 'فِي مَحَلّ نَصْب', meaning: 'A sentence shows no ending. The books give it the place of an object (L4.04, L4.12).' },
+      { term: 'Hidden doer', ar: 'ضَمِير مُسْتَتِر', meaning: 'A pronoun inside the verb, like the “he” in قَالَ or the “you” in قُلْ (L2.03).' },
+      { term: 'Call', ar: 'نِدَاء', meaning: 'Calling someone: “O Nuh”.' },
+      { term: 'The one called', ar: 'مُنَادَى', meaning: 'The noun that is called.' },
+      { term: 'Answer to the call', ar: 'جَوَاب النِّدَاء', meaning: 'The sentence that comes after a call and finishes it.' },
+      { term: 'Explaining start', ar: 'اسْتِئْنَاف بَيَانِيّ', meaning: 'A new sentence that answers a question in the reader’s mind, like “and what did he say?”.' },
+      { term: 'Badal', ar: 'بَدَل', meaning: 'A word that follows another word, stands in for it and takes its ending.' },
+    ]}
+  />
+</Block>
+
+<Block id="see" title="A verse with a speech in it" level={2}>
+  <Stage>
+    <Sentence
+      size="big"
+      roles
+      reference="Yusuf 12:5 (start)"
+      groups={[
+        { role: 'fiil', label: 'verb of saying', hint: 'the doer is a hidden “he”', words: [{ ar: 'قَالَ', en: 'he said', say: 'qala', type: 'v' }] },
+        { role: 'maful', label: 'what is said', hint: 'it starts with a call', words: [{ ar: 'يَٰبُنَىَّ', en: 'O my son', say: 'ya-bunayya' }] },
+        { role: 'maful', hint: 'a ban: “do not tell”', words: [{ ar: 'لَا', en: 'do not', say: 'la', type: 'p' }, { ar: 'تَقْصُصْ', en: 'tell', say: 'taqsus', type: 'v' }] },
+        { role: 'maful', hint: 'the dream and the ones it is told to', words: [{ ar: 'رُءْيَاكَ', en: 'your dream', say: 'ruyaka' }, { ar: 'عَلَىٰٓ', en: 'to', say: 'ala', type: 'p' }, { ar: 'إِخْوَتِكَ', en: 'your brothers', say: 'ikhwatika' }] },
+      ]}
+      en={['He said: O my son, do not tell your dream to your brothers.']}
+    />
+  </Stage>
+
+The first word, **قَالَ**, is the verb “he said”. Its doer is a hidden “he”. Al-Jadwal says it is Yaʿqub. Everything after قَالَ is what he says.
+
+That makes one speech: a verb of saying, its doer, and the words that are said. The Quran builds speech this way again and again. This lesson reads the words that open a speech (قَالَ, قُلْ, يَقُولُ), the call with يَا, and the way a new speaker shows in the grammar.
+
+The sentence قَالَ has no place of its own. The words after it do. Al-Jadwal puts them in the place of accusative and calls them مَقُول الْقَوْل, “what is said”. L1.09 met this name with قُلْ in 109:1.
+
+<Check n={1} q="In 12:5, which words are what is said?" options={['قَالَ', 'يَٰبُنَىَّ … إِخْوَتِكَ', 'إِخْوَتِكَ only']} answer={1} why="Everything after قَالَ is what Yaʿqub says: the call and the ban. قَالَ is the verb that opens the speech." />
+</Block>
+
+<Block id="count" title="How much of the Quran is speech?">
+  <Stage label="Counted in the Corpus">
+    <Tiles
+      label="The verb قَالَ in the Corpus"
+      items={[
+        { ar: '1,618', en: 'verb words from ق و ل', type: 'x' },
+        { ar: '1,321', en: 'verses that have one', type: 'x' },
+        { ar: '6,236', en: 'verses in the Quran', type: 'x' },
+        { ar: '21%', en: 'of the verses', type: 'x' },
+      ]}
+    />
+  </Stage>
+
+The Quranic Arabic Corpus has **1,618** verb words from the root ق و ل. They sit in **1,321** of its 6,236 verses, which is 21%. The old lesson said that over 40% of the verses contain dialogue. This count does not reach that. Other verbs open speech too, such as نَادَىٰ in 19:24, so the real share of speech is higher than 21%. No count in this lesson says by how much.
+
+| Form | Meaning | Words |
+|---|---|---|
+| قَالَ (also وَقَالَ, فَقَالَ) | he said | 524 |
+| قَالُوا۟ (two spellings) | they said | 328 |
+| قَالَتْ, قَالَتِ | she said | 41 |
+| يَقُولُ | he says, he will say | 58 |
+| يَقُولُونَ | they say, they will say | 80 |
+| قُلْ, قُل, قُلِ | say! (to one man) | 332 |
+
+The other 255 words are other persons and forms. 52 of them are passive, like قِيلَ, “it was said” (49). L4.12 teaches all these shapes.
+
+<Note kind="know">The counts are Quran Learn counts of Corpus tags. The Corpus tags have errors, and two matter in this lesson: it gives its “call” tag to the هَا of هَٰٓأَنتُمْ and هَٰهُنَا, and it gives the same tag to the يَا of يَٰلَيْتَنِى, which al-Jadwal reads as a word of attention. Mistake 3 comes back to this.</Note>
+
+<Check n={2} q="What does the count of 1,321 verses show?" options={['That 21% of the verses have a form of قَالَ', 'That over 40% of the verses are speech', 'That every قُلْ is spoken to the Prophet']} answer={0} why="A script counted verses that have a verb from ق و ل. It cannot count speech opened by other verbs, and it cannot say who is meant by قُلْ." />
+</Block>
+
+<Block id="plan" title="Four ways to open a speech">
+  <Stage label="Four openings, four verses">
+    <Tiles
+      label="Look at the first word"
+      items={[
+        { ar: 'قَالُوا۟ يَٰنُوحُ', en: 'a verb of saying and its doer (11:32)', type: 'x' },
+        { ar: 'قُلْ إِنَّ صَلَاتِى', en: 'the command “say!” (6:162)', type: 'x' },
+        { ar: 'يَٰٓأَيُّهَا ٱلنَّاسُ ٱتَّقُوا۟', en: 'a call, no verb of saying (22:1)', type: 'x' },
+        { ar: 'يَقُولُ ٱلْإِنسَٰنُ', en: 'a speech verb for the Last Day (75:10)', type: 'x' },
+      ]}
+    />
+  </Stage>
+
+The old lesson sorted speech into four types: narrative, divine command, prophetic address and Last Day. This lesson keeps a sorting as a way to find your place, and it sorts by the first word only. This is a **teaching summary** by Quran Learn. Quran Learn found no approved source that calls these “types” or gives each one a fixed job. The old lesson also gave each type a speaker, an audience and a tense. Here those are read from each verse.
+
+| Opening | Step | Who speaks | What the grammar marks |
+|---|---|---|---|
+| قَالَ, قَالُوا۟, قَالَتْ | 2 | the doer of the verb | the doer, in the verb or after it |
+| قُلْ | 3 | the doer of the command: a hidden “you” | a command, then what is said |
+| يَا, يَٰٓأَيُّهَا | 4 | not shown: no verb of saying | the one called |
+| يَقُولُ, وَقَالُوا۟ for the Last Day | 4 | the doer of the verb | a time word, or the verses before |
+
+The stories of Ibrahim (L5.09) and Musa (L5.10) have long speeches of their own. This lesson takes its verses from other speakers, so the verses stay apart.
+
+<Check n={3} q="Which opening has no verb of saying?" options={['قَالَ', 'قُلْ', 'يَٰٓأَيُّهَا']} answer={2} why="يَٰٓأَيُّهَا is a call. The verse does not say who speaks. It names who is called." />
+</Block>
+</Step>
+
+<Step id="qala" label="قَالَ" title="قَالَ: who says it, and what is said">
+<Block id="doer" title="The doer of قَالَ">
+  <Stage>
+    <Sentence
+      roles
+      reference="Al-Aʿraf 7:60"
+      groups={[
+        { role: 'fiil', hint: 'said', words: [{ ar: 'قَالَ', en: 'said', say: 'qala', type: 'v' }] },
+        { role: 'fail', hint: 'the doer, after its verb', words: [{ ar: 'ٱلْمَلَأُ', en: 'the chiefs', say: 'al-malau' }] },
+        { role: 'jarMajrur', hint: 'min “of” with “his people”', words: [{ ar: 'مِن', en: 'of', say: 'min', type: 'p' }, { ar: 'قَوْمِهِۦٓ', en: 'his people', say: 'qawmihi' }] },
+        { role: 'maful', label: 'what is said', hint: 'it starts with إِنَّ', words: [{ ar: 'إِنَّا', en: 'indeed we', say: 'inna', type: 'p' }, { ar: 'لَنَرَىٰكَ', en: 'see you', say: 'la-naraka', type: 'v' }] },
+        { role: 'maful', hint: 'in clear error', words: [{ ar: 'فِى', en: 'in', say: 'fi', type: 'p' }, { ar: 'ضَلَٰلٍ', en: 'error', say: 'dalalin' }, { ar: 'مُّبِينٍ', en: 'clear', say: 'mubinin' }] },
+      ]}
+      en={['The chiefs of his people said: We see you in clear error.']}
+    />
+    <Sentence
+      roles
+      reference="Hud 11:32 (start)"
+      groups={[
+        { role: 'fiil', hint: 'the wāw is the doer: “they”', words: [{ ar: 'قَالُوا۟', en: 'they said', say: 'qalu', type: 'v' }] },
+        { role: 'maful', label: 'what is said', hint: 'a call: “O Nuh”', words: [{ ar: 'يَٰنُوحُ', en: 'O Nuh', say: 'ya-nuhu' }] },
+        { role: 'maful', hint: 'the answer to the call', words: [{ ar: 'قَدْ', en: 'indeed', say: 'qad', type: 'p' }, { ar: 'جَٰدَلْتَنَا', en: 'you argued with us', say: 'jadaltana', type: 'v' }] },
+        { role: 'maful', words: [{ ar: 'فَأَكْثَرْتَ', en: 'and you did much', say: 'fa-aktharta', type: 'v' }, { ar: 'جِدَٰلَنَا', en: 'our arguing', say: 'jidalana' }] },
+      ]}
+      en={['They said: O Nuh, you have argued with us, and argued a lot.']}
+    />
+    <Sentence
+      roles
+      reference="Maryam 19:20 (start)"
+      groups={[
+        { role: 'fiil', hint: 'the ending -at shows a woman: a hidden “she”', words: [{ ar: 'قَالَتْ', en: 'she said', say: 'qalat', type: 'v' }] },
+        { role: 'maful', label: 'what is said', hint: 'a question word: “how?”', words: [{ ar: 'أَنَّىٰ', en: 'how', say: 'anna' }] },
+        { role: 'maful', words: [{ ar: 'يَكُونُ', en: 'will be', say: 'yakunu', type: 'v' }, { ar: 'لِى', en: 'for me', say: 'li', type: 'p' }] },
+        { role: 'maful', words: [{ ar: 'غُلَٰمٌ', en: 'a boy', say: 'ghulamun' }] },
+      ]}
+      en={['She said: How will I have a boy?']}
+    />
+  </Stage>
+
+The doer of a verb of saying can sit in four places. In 7:60 it is a noun after the verb: ٱلْمَلَأُ, “the chiefs”, in the nominative (L2.03). In 11:32 it is the ending -ū of قَالُوا۟, “they”. In 19:20 the ending -at of قَالَتْ says “she”, and no noun is written. In 12:5, in block 1, it is a hidden “he”.
+
+In the Corpus, قَالَ (524 words) is followed right away by a nominative noun 142 times, and by ٱلَّذِينَ or a noun like it 57 times, as in قَالَ ٱلَّذِينَ كَفَرُوا۟. In 47 the next word is a call. In the other 278 the next word is something else: the quote starts, or another word comes before the doer. So in 325 of the 524 (62%) no doer is written next to the verb. This is a count of tags. The Corpus does not mark doers.
+
+<Check n={4} q="In قَالَتْ أَنَّىٰ يَكُونُ لِى غُلَٰمٌ, what shows that the doer is a woman?" options={['The ending -at on the verb', 'The word أَنَّىٰ', 'The word غُلَٰمٌ']} answer={0} why="The ending -at is the “she” ending of the past tense (L3.05, L4.12). No noun is written, so the verb carries the doer." />
+</Block>
+
+<Block id="said" title="What is said">
+  <Stage>
+    <Sentence
+      roles
+      reference="Al-Aʿraf 7:61"
+      groups={[
+        { role: 'fiil', hint: 'a hidden “he”', words: [{ ar: 'قَالَ', en: 'he said', say: 'qala', type: 'v' }] },
+        { role: 'maful', label: 'what is said', hint: 'the call: “O my people”', words: [{ ar: 'يَٰقَوْمِ', en: 'O my people', say: 'ya-qawmi' }] },
+        { role: 'maful', hint: 'the answer to the call', words: [{ ar: 'لَيْسَ', en: 'there is not', say: 'laysa', type: 'v' }, { ar: 'بِى', en: 'in me', say: 'bi', type: 'p' }, { ar: 'ضَلَٰلَةٌ', en: 'any error', say: 'dalalatun' }] },
+        { role: 'maful', words: [{ ar: 'وَلَٰكِنِّى', en: 'and yet I am', say: 'wa-lakinni', type: 'p' }, { ar: 'رَسُولٌ', en: 'a messenger', say: 'rasulun' }] },
+        { role: 'maful', words: [{ ar: 'مِّن', en: 'from', say: 'min', type: 'p' }, { ar: 'رَّبِّ', en: 'the Lord', say: 'rabbi' }, { ar: 'ٱلْعَٰلَمِينَ', en: 'of the worlds', say: 'al-alamina' }] },
+      ]}
+      en={['He said: O my people, there is no error in me. I am a messenger from the Lord of the worlds.']}
+    />
+  </Stage>
+
+In 7:61 every word after قَالَ is what is said. It starts with a call, يَٰقَوْمِ. Al-Jadwal puts the call sentence in the place of accusative, and reads the rest as the answer to the call. The sentence قَالَ itself has no place. Al-Jadwal calls it an explaining start: it answers the question “and what did he say?”.
+
+What is said can be any kind of sentence. It takes the same place each time.
+
+| Verse | What is said starts with | Kind of sentence |
+|---|---|---|
+| 12:5 | يَٰبُنَىَّ | a call, then a ban |
+| 7:60 | إِنَّا | an إِنَّ sentence (L2.10) |
+| 19:20 | أَنَّىٰ | a question |
+| 7:61 | يَٰقَوْمِ | a call, then a statement |
+
+A sentence has no case ending, so you will not see an accusative on a quote. The place belongs to the whole sentence. L1.09 and L4.12 use the same name.
+
+<Check n={5} q="What does al-Jadwal call the words after قَالَ in 7:61?" options={['مَقُول الْقَوْل: what is said', 'The doer of قَالَ', 'The khabar of قَالَ']} answer={0} why="The quoted words stand in the place of accusative. The doer of قَالَ is a hidden “he”." />
+</Block>
+
+<Block id="inside" title="A speech inside a speech">
+  <Stage>
+    <Sentence
+      roles
+      reference="Maryam 19:21 (start)"
+      groups={[
+        { role: 'fiil', label: 'says (1)', hint: 'a hidden “he”', words: [{ ar: 'قَالَ', en: 'he said', say: 'qala', type: 'v' }] },
+        { role: 'maful', label: 'what is said (1)', hint: 'al-Jadwal: “the matter is so”', words: [{ ar: 'كَذَٰلِكِ', en: 'so it is', say: 'kadhaliki' }] },
+        { role: 'fiil', label: 'says (2)', hint: 'passes on a speech', words: [{ ar: 'قَالَ', en: 'said', say: 'qala', type: 'v' }] },
+        { role: 'fail', hint: 'the doer, after its verb', words: [{ ar: 'رَبُّكِ', en: 'your Lord', say: 'rabbuki' }] },
+        { role: 'maful', label: 'what is said (2)', words: [{ ar: 'هُوَ', en: 'it is', say: 'huwa' }, { ar: 'عَلَىَّ', en: 'for Me', say: 'alayya', type: 'p' }, { ar: 'هَيِّنٌ', en: 'easy', say: 'hayyinun' }] },
+      ]}
+      en={['He said: So it is. Your Lord has said: It is easy for Me.']}
+    />
+  </Stage>
+
+19:21 has two قَالَ. The first has a hidden “he”. Look back at 19:19: قَالَ إِنَّمَآ أَنَا۠ رَسُولُ رَبِّكِ, “he said: I am only the messenger of your Lord”. Then Maryam speaks in 19:20, and 19:21 answers her. So the hidden “he” is the one who spoke in 19:19. The verses show this. The grammar only says “he”.
+
+The second قَالَ has a written doer, رَبُّكِ, “your Lord”. It comes after كَذَٰلِكِ, in the same breath. The speaker passes on what the Lord said. Al-Jadwal puts كَذَٰلِكِ and هُوَ عَلَىَّ هَيِّنٌ each in the place of accusative, as what is said by their verbs. The sentence of the second قَالَ has no place of its own.
+
+<Check n={6} q="In قَالَ كَذَٰلِكِ قَالَ رَبُّكِ, who is the doer of the second قَالَ?" options={['رَبُّكِ, written after the verb', 'A hidden “he”', 'The ending -at']} answer={0} why="The second قَالَ has its doer written after it. The first has a hidden “he”." />
+</Block>
+
+<Block id="answers" title="Who answers whom">
+  <Stage label="Three verses in a row">
+    <blockquote class="lx-quote lx-quote-list" lang="ar" dir="rtl">
+      <p>لَقَدْ أَرْسَلْنَا نُوحًا إِلَىٰ قَوْمِهِۦ فَقَالَ يَٰقَوْمِ ٱعْبُدُوا۟ ٱللَّهَ مَا لَكُم مِّنْ إِلَٰهٍ غَيْرُهُۥٓ إِنِّىٓ أَخَافُ عَلَيْكُمْ عَذَابَ يَوْمٍ عَظِيمٍ</p>
+      <p>قَالَ ٱلْمَلَأُ مِن قَوْمِهِۦٓ إِنَّا لَنَرَىٰكَ فِى ضَلَٰلٍ مُّبِينٍ</p>
+      <p>قَالَ يَٰقَوْمِ لَيْسَ بِى ضَلَٰلَةٌ وَلَٰكِنِّى رَسُولٌ مِّن رَّبِّ ٱلْعَٰلَمِينَ</p>
+    </blockquote>
+    <p class="lx-quote-note">Al-Aʿraf 7:59, 7:60 and 7:61.</p>
+  </Stage>
+
+Each verse here has قَالَ, with no “and” or “then” in front of the second and the third. Each new قَالَ opens a new speech, and the doer tells you who speaks. Al-Jadwal reads each as an explaining start: it answers “and what did they say?”.
+
+| Verse | Who speaks | Who is spoken to |
+|---|---|---|
+| 7:59 | Nuh, a hidden “he” (the same verse names him: نُوحًا) | his people, called with يَٰقَوْمِ |
+| 7:60 | the chiefs, written: ٱلْمَلَأُ | Nuh, the كَ of لَنَرَىٰكَ, “you” |
+| 7:61 | Nuh, a hidden “he” (the one called “you” in 7:60) | his people, called with يَٰقَوْمِ |
+
+Two things show who is spoken to. A call inside what is said names the hearers. A pronoun “you” inside what is said points to the person the speaker faces. When a doer is hidden, the verses before it say who he is. The grammar of قَالَ cannot say it alone.
+
+<Check n={7} q="In 7:60, which word shows that the chiefs are speaking to Nuh?" options={['The كَ of لَنَرَىٰكَ, “you”', 'The word قَالَ', 'The word مِن']} answer={0} why="The pronoun “you” is one man, and he is the one the chiefs face. قَالَ only tells you that they speak." />
+</Block>
+
+<Block id="parse-1" title="Word by word: Yusuf 12:5">
+  <Stage label="Word by word">
+    <Parse
+      reference="Yusuf 12:5 (start)"
+      words={[
+        { ar: 'قَالَ', en: 'he said', type: 'v' },
+        { ar: 'يَٰبُنَىَّ', en: 'O my son' },
+        { ar: 'لَا', en: 'do not', type: 'p' },
+        { ar: 'تَقْصُصْ', en: 'tell', type: 'v' },
+        { ar: 'رُءْيَاكَ', en: 'your dream' },
+        { ar: 'عَلَىٰٓ', en: 'to', type: 'p' },
+        { ar: 'إِخْوَتِكَ', en: 'your brothers' },
+      ]}
+      cards={[
+        { at: 0, role: 'a past verb: “he said”', case: 'built', mark: 'a fatḥa on the last letter ل', why: 'The verb is hollow (L4.12). The doer is a hidden “he”, and al-Jadwal says it is Yaʿqub. The sentence قَالَ has no place of its own: it starts a new speech.', irab: 'فعل ماض مبني على الفتح، والفاعل ضمير مستتر تقديره هو أي يعقوب' },
+        { at: 1, ar: 'يَٰ', role: 'the call word, a little word', why: 'It makes the next noun “the one called”. Little words have no case.', irab: 'حرف نداء' },
+        { at: 1, ar: 'بُنَىَّ', role: 'the one called: “my son”', case: 'accusative (naṣb)', mark: 'a fatḥa you cannot see: it belongs to the letter before the yā of “my”', why: 'It is the small form of ٱبْن, with “my” joined to it (al-Jadwal’s note on word forms). The yā of “my” is its muḍāf ilayh (L2.08).', irab: 'منادى مضاف منصوب وعلامة نصبه الفتحة المقدرة على ما قبل ياء المتكلم، والياء ضمير مضاف إليه' },
+        { at: 1, role: 'the call sentence: it is what is said', case: 'in the place of accusative', mark: 'none', why: 'Al-Jadwal reads the call as the start of what قَالَ says.', irab: 'جملة النداء يا بني في محل نصب مقول القول' },
+        { at: 2, role: 'a little word: “do not”', why: 'It bans, and it cuts the verb after it (jazm, L3.07).', irab: 'ناهية جازمة' },
+        { at: 3, role: 'a present verb, the ban: “tell”', case: 'jazm', mark: 'a sukūn on the last letter ص', why: 'The doer is a hidden “you”.', irab: 'مضارع مجزوم وعلامة جزمه السكون، والفاعل ضمير مستتر تقديره أنت' },
+        { at: 4, role: 'the object: “your dream”', case: 'accusative (naṣb)', mark: 'a fatḥa you cannot see: the word ends in an alif', why: 'The كَ is “your”, the attached pronoun (L3.02).', irab: 'مفعول به منصوب وعلامة نصبه الفتحة المقدرة، والكاف ضمير مضاف إليه' },
+        { at: [5, 6], role: '“to your brothers”: a preposition and its noun, tied to تَقْصُصْ', case: 'genitive after عَلَىٰ', mark: 'a kasra on the last root letter', why: 'It says to whom the dream is told.', irab: 'جار ومجرور متعلق بتقصص، والكاف ضمير مضاف إليه' },
+        { at: [2, 3, 4, 5, 6], role: 'the answer to the call', case: 'no place', mark: 'none', why: 'It comes after the call and finishes it. It is part of what is said.', irab: 'جملة لا تقصص لا محل لها جواب النداء' },
+      ]}
+    />
+  </Stage>
+
+Every card follows al-Jadwal’s page for 12:5, which names the doer, the call, the ban, the object and the places of the sentences. The marks (the sukūn, the hidden fatḥa) are the usual ones the books give for the same forms.
+</Block>
+</Step>
+
+<Step id="qul" label="قُلْ" title="قُلْ: “say!” and what follows it">
+<Block id="qul" title="The command قُلْ">
+  <Stage>
+    <Sentence
+      roles
+      reference="Al-Anʿam 6:162"
+      groups={[
+        { role: 'fiil', hint: 'a command: the doer is a hidden “you”', words: [{ ar: 'قُلْ', en: 'say', say: 'qul', type: 'v' }] },
+        { role: 'maful', label: 'what is said', hint: 'an إِنَّ sentence', words: [{ ar: 'إِنَّ', en: 'indeed', say: 'inna', type: 'p' }, { ar: 'صَلَاتِى', en: 'my prayer', say: 'salati' }] },
+        { role: 'maful', words: [{ ar: 'وَنُسُكِى', en: 'and my rites', say: 'wa-nusuki' }, { ar: 'وَمَحْيَاىَ', en: 'and my living', say: 'wa-mahyaya' }, { ar: 'وَمَمَاتِى', en: 'and my dying', say: 'wa-mamati' }] },
+        { role: 'maful', hint: 'are for Allah, Lord of the worlds', words: [{ ar: 'لِلَّهِ', en: 'for Allah', say: 'lillahi' }, { ar: 'رَبِّ', en: 'Lord of', say: 'rabbi' }, { ar: 'ٱلْعَٰلَمِينَ', en: 'the worlds', say: 'al-alamina' }] },
+      ]}
+      en={['Say: My prayer, my rites, my living and my dying are for Allah, Lord of the worlds.']}
+    />
+  </Stage>
+
+**قُلْ** is a command: “say!”. Its doer is a hidden “you”, one man. What follows it is what is said, and here it is an إِنَّ sentence. Al-Jadwal puts the sentence إِنَّ صَلَاتِى … لِلَّهِ in the place of accusative. The sentence قُلْ has no place: it starts a new speech.
+
+L3.08 counted the commands of this verb: 349 words, and 332 of them are for one man (قُلْ, قُل and قُلِ). L3.08 also explains the three spellings. The new counts here: those 332 words stand in 306 verses of 57 surahs. In 187 of them the word is the first word of the verse. Al-Anʿam (6) has the most, with 44.
+
+<Note kind="know">Who is the “you” of قُلْ? The grammar says only “you, one man”: the Corpus tags it that way, and al-Jadwal says the doer is “you”. Who is meant comes from the surah around the verse. The old lesson said that قُلْ is always Allah speaking to the Prophet. No count can test that, and al-Jadwal does not state it, so this lesson does not say “always”. L1.11 and L5.04 read the قُلْ of 112:1 as a command to the Prophet.</Note>
+
+<Check n={8} q="What is the doer of قُلْ?" options={['A hidden “you”', 'A hidden “he”', 'The word that follows it']} answer={0} why="قُلْ is a command, and the doer of a command is “you”. L3.08 teaches this." />
+</Block>
+
+<Block id="qul-turns" title="Say, they will say, say again">
+  <Stage label="Three voices in one verse">
+    <Sentence
+      roles
+      reference="Yunus 10:31 (start)"
+      groups={[
+        { role: 'fiil', hint: 'a command: a hidden “you”', words: [{ ar: 'قُلْ', en: 'say', say: 'qul', type: 'v' }] },
+        { role: 'maful', label: 'what is said', hint: 'a question: مَن “who?” starts it', words: [{ ar: 'مَن', en: 'who', say: 'man' }, { ar: 'يَرْزُقُكُم', en: 'gives you provision', say: 'yarzuqukum', type: 'v' }] },
+        { role: 'maful', hint: 'from the sky and the earth', words: [{ ar: 'مِّنَ', en: 'from', say: 'mina', type: 'p' }, { ar: 'ٱلسَّمَآءِ', en: 'the sky', say: 'as-samai' }, { ar: 'وَٱلْأَرْضِ', en: 'and the earth', say: 'wal-ardi' }] },
+      ]}
+      en={['Say: Who gives you provision from the sky and the earth?']}
+    />
+    <Sentence
+      roles
+      reference="Yunus 10:31 (end)"
+      groups={[
+        { role: 'fiil', label: 'they say', hint: 'the wāw is the doer: “they”', words: [{ ar: 'فَسَيَقُولُونَ', en: 'so they will say', say: 'fa-sayaqulun', type: 'v' }] },
+        { role: 'maful', label: 'what they say', hint: 'a short answer', words: [{ ar: 'ٱللَّهُ', en: 'Allah', say: 'allahu' }] },
+        { role: 'fiil', label: 'say again', hint: 'a new command, tied by فَ', words: [{ ar: 'فَقُلْ', en: 'then say', say: 'fa-qul', type: 'v' }] },
+        { role: 'maful', label: 'what is said', hint: 'a question', words: [{ ar: 'أَفَلَا', en: 'will you not', say: 'a-fa-la', type: 'p' }, { ar: 'تَتَّقُونَ', en: 'guard yourselves', say: 'tattaqun', type: 'v' }] },
+      ]}
+      en={['So they will say: Allah. Then say: Will you not then guard yourselves?']}
+    />
+  </Stage>
+
+10:31 has three voices. The first قُلْ asks a question. Then the verse says what the ones who are asked will do: فَسَيَقُولُونَ ٱللَّهُ, “so they will say: Allah”. Then قُلْ comes again, with a new thing to say.
+
+The grammar marks each change. The speaker changes when the verb and its doer change: قُلْ has a hidden “you”, and يَقُولُونَ has the wāw, “they”. Al-Jadwal puts مَن يَرْزُقُكُم, ٱللَّهُ and أَفَلَا تَتَّقُونَ each in the place of accusative, as what is said. It reads فَسَيَقُولُونَ as the answer of a condition that is left out: “if you ask them, they will say”.
+
+<Check n={9} q="In فَسَيَقُولُونَ ٱللَّهُ, what is ٱللَّهُ?" options={['What they say', 'The doer of يَقُولُونَ', 'The one called']} answer={0} why="The doer of يَقُولُونَ is the wāw, “they”. ٱللَّهُ is the quoted answer." />
+</Block>
+
+<Block id="qul-after" title="What can follow قُلْ">
+  <Stage label="Four verses with قُلْ">
+    <Tiles
+      label="The first words after قُلْ"
+      items={[
+        { ar: 'إِنَّ صَلَاتِى', en: 'an إِنَّ sentence (6:162)', type: 'x' },
+        { ar: 'إِنَّمَآ أَنَا۠', en: 'only “I am” (18:110)', type: 'x' },
+        { ar: 'مَن يَرْزُقُكُم', en: 'a question (10:31)', type: 'x' },
+        { ar: 'إِن كُنتُمْ', en: 'a condition (3:31)', type: 'x' },
+      ]}
+    />
+  </Stage>
+
+Whatever follows قُلْ takes the same place. Al-Jadwal puts the sentence after قُلْ in the place of accusative in all four verses. In 3:31, قُلْ إِن كُنتُمْ تُحِبُّونَ ٱللَّهَ فَٱتَّبِعُونِى, the whole condition sentence is what is said (L4.03 teaches its parts).
+
+We sorted these four by what the quote starts with. This sorting is a teaching summary. The old lesson gave قُلْ three “functions”: a declaration about belief, an answer to objections, and instructions for worship. Those names say what a verse is for. The grammar does not say that, and al-Jadwal does not, so the lesson drops them.
+
+<Check n={10} q="In قُلْ إِن كُنتُمْ تُحِبُّونَ ٱللَّهَ فَٱتَّبِعُونِى, what is what is said?" options={['The whole condition sentence after قُلْ', 'Only فَٱتَّبِعُونِى', 'Only إِن']} answer={0} why="Al-Jadwal puts the condition sentence in the place of accusative, with its answer inside it." />
+</Block>
+
+<Block id="parse-2" title="Word by word: Al-Kahf 18:110">
+  <Stage label="Word by word">
+    <Parse
+      reference="Al-Kahf 18:110 (start)"
+      words={[
+        { ar: 'قُلْ', en: 'say', type: 'v' },
+        { ar: 'إِنَّمَآ', en: 'only', type: 'p' },
+        { ar: 'أَنَا۠', en: 'I' },
+        { ar: 'بَشَرٌ', en: 'a man' },
+        { ar: 'مِّثْلُكُمْ', en: 'like you' },
+        { ar: 'يُوحَىٰٓ', en: 'is revealed', type: 'v' },
+        { ar: 'إِلَىَّ', en: 'to me', type: 'p' },
+      ]}
+      cards={[
+        { at: 0, role: 'a command: “say!”', case: 'built', mark: 'a sukūn on the last letter ل', why: 'The middle و of ق و ل is cut short (L4.12). The doer is a hidden “you”. The sentence قُلْ starts a new speech and has no place of its own.', irab: 'فعل أمر مبني على السكون، والفاعل ضمير مستتر تقديره أنت' },
+        { at: 1, role: 'a little word: “only”', why: 'It is إِنَّ with مَا. The مَا stops إِنَّ from putting the next noun in the accusative (L2.10). Al-Jadwal calls it “stopping and stopped”.', irab: 'كافة ومكفوفة' },
+        { at: 2, role: 'the mubtadaʾ: “I”', case: 'a word with a fixed ending; it counts as nominative', mark: 'none', why: 'A separate pronoun (L3.01).', irab: 'ضمير منفصل مبني في محل رفع مبتدأ' },
+        { at: 3, role: 'the khabar: “a man”', case: 'nominative (rafʿ)', mark: '-un (ḍammatayn)', why: 'It is the first news about “I”.', irab: 'خبر المبتدأ مرفوع وعلامة رفعه الضمة' },
+        { at: 4, role: 'it describes بَشَرٌ: “like you”', case: 'nominative (rafʿ)', mark: '-u (ḍamma)', why: 'A describing word copies the ending of the word it describes (L2.09). The كُمْ is “you”.', irab: 'نعت لبشر مرفوع وعلامة رفعه الضمة، والكاف ضمير مضاف إليه' },
+        { at: 5, role: 'a present passive verb: “is revealed”', case: 'nominative (rafʿ)', mark: 'a ḍamma you cannot see: the word ends in an alif', why: 'In the whole verse, the clause that comes next (أَنَّمَآ إِلَٰهُكُمْ …) stands in for the doer (L3.09). It is outside this part.', irab: 'مضارع مبني للمجهول مرفوع وعلامة الرفع الضمة المقدرة على الألف' },
+        { at: 6, role: 'a preposition with “me”, tied to يُوحَىٰٓ', case: 'genitive: the pronoun has a fixed ending', mark: 'none', why: 'The ي is the attached “me” (L3.02).', irab: 'جار ومجرور متعلق بيوحى' },
+        { at: [5, 6], role: 'the second news of “I”', case: 'in the place of nominative', mark: 'none', why: 'Al-Jadwal reads it as a second khabar. A footnote allows an explaining sentence with no place.', irab: 'جملة يوحى إلي في محل رفع خبر ثان للمبتدأ أنا' },
+        { at: [1, 2, 3, 4, 5, 6], role: 'the whole sentence: what is said', case: 'in the place of accusative', mark: 'none', why: 'It is everything قُلْ asks to be said, in this part of the verse.', irab: 'جملة أنا بشر في محل نصب مقول القول' },
+      ]}
+    />
+  </Stage>
+
+Al-Jadwal’s page for 18:110 gives no line for قُلْ, أَنَا۠ and بَشَرٌ. Those cards use the usual short lines for the same words. The lines for إِنَّمَآ, مِّثْلُكُمْ, يُوحَىٰٓ, إِلَىَّ and the sentences are on the page.
+</Block>
+</Step>
+
+<Step id="call" label="Call, Last Day" title="The call, and speech on the Last Day">
+<Block id="call" title="The call: يَا and the one called">
+  <Stage label="Calls inside what is said">
+    <Tiles
+      label="Four calls from this lesson"
+      items={[
+        { ar: 'يَٰنُوحُ', en: 'a single name (11:32)', type: 'n' },
+        { ar: 'يَٰقَوْمِ', en: 'my people (7:61)', type: 'n' },
+        { ar: 'يَٰبُنَىَّ', en: 'my son (12:5)', type: 'n' },
+        { ar: 'رَبَّنَآ', en: 'our Lord, with no يَا (33:67)', type: 'n' },
+      ]}
+    />
+  </Stage>
+
+A call has the word **يَا** and the noun that is called (مُنَادَى). Al-Jadwal reads three kinds in this lesson.
+
+- **A single name.** يَٰنُوحُ ends in a ḍamma, and al-Jadwal says the name is built on the ḍamma and stands in the place of accusative (11:32, and يَٰصَٰلِحُ in 11:62).
+- **A noun with “my”.** يَٰقَوْمِ is “O my people”. The yā of “my” is dropped to make the word lighter, and the noun is accusative with a fatḥa you cannot see (7:59 and 7:61). يَٰبُنَىَّ in 12:5 is the same kind.
+- **A left-out call word.** رَبَّنَآ in 33:67 is “O our Lord”. Al-Jadwal says the call word is left out for the same word in 41:29, and the noun is accusative.
+
+In the Corpus, يَٰقَوْمِ is the most common call with a noun: 47 words (38, and 9 more with وَ). A call inside what is said also names the hearers. In 11:32 the people call Nuh. In 7:61 Nuh calls his people.
+
+<Check n={11} q="What does the call يَٰقَوْمِ in 7:61 tell you?" options={['Who hears the speech: “my people”', 'Who speaks: Nuh, written', 'That the verb is passive']} answer={0} why="A call names the hearers. In 7:61 the one who speaks is a hidden “he”, and the call says that he speaks to his people." />
+</Block>
+
+<Block id="ayyuha" title="يَٰٓأَيُّهَا: a call with no verb of saying">
+  <Stage>
+    <Sentence
+      roles
+      reference="Al-Baqarah 2:168 (start)"
+      groups={[
+        { label: 'the call word', hint: 'al-Jadwal: يَا, then أَيُّ, then هَا', words: [{ ar: 'يَٰٓأَيُّهَا', en: 'O', say: 'ya ayyuha', type: 'p' }] },
+        { role: 'tied', label: 'the one called', hint: 'a badal of أَيُّ', words: [{ ar: 'ٱلنَّاسُ', en: 'people', say: 'an-nasu' }] },
+        { role: 'fiil', hint: 'a command: the wāw is the doer', words: [{ ar: 'كُلُوا۟', en: 'eat', say: 'kulu', type: 'v' }] },
+        { role: 'jarMajrur', hint: 'min “of” with “what is on the earth”', words: [{ ar: 'مِمَّا', en: 'of what', say: 'mimma', type: 'p' }, { ar: 'فِى', en: 'is on', say: 'fi', type: 'p' }, { ar: 'ٱلْأَرْضِ', en: 'the earth', say: 'al-ardi' }] },
+        { hint: 'al-Jadwal gives three readings', words: [{ ar: 'حَلَٰلًا', en: 'lawful', say: 'halalan' }, { ar: 'طَيِّبًا', en: 'good', say: 'tayyiban' }] },
+      ]}
+      en={['O people, eat of what is on the earth, lawful and good.']}
+    />
+  </Stage>
+
+2:168 opens with a call and has no verb of saying. Al-Jadwal reads يَٰٓأَيُّهَا in three parts. **يَا** is the call word. **أَيُّ** is the noun that is called: it has no ٱل, it means a certain person, and it is built on the ḍamma. **هَا** is a word of attention. The next word, ٱلنَّاسُ, is a badal of أَيُّ. It copies the ḍamma in form.
+
+The sentence after the call is the answer to the call (جَوَاب النِّدَاء). Here it is a command, كُلُوا۟, then a ban, وَلَا تَتَّبِعُوا۟, and then a reason, إِنَّهُۥ لَكُمْ عَدُوٌّ مُّبِينٌ, which al-Jadwal calls a sentence of reason (تَعْلِيلِيَّة).
+
+Who speaks? The sentence does not say. There is no قَالَ and no قُلْ. The old lesson called this pattern “prophetic address” and gave the speaker as the Prophet. Quran Learn found no approved source for that label, so the lesson drops it. The grammar shows who is called, here ٱلنَّاسُ.
+
+| After يَٰٓأَيُّهَا | Words in the Corpus |
+|---|---|
+| ٱلَّذِينَ (89 of them with ءَامَنُوا۟) | 92 |
+| ٱلنَّاسُ | 20 |
+| ٱلنَّبِىُّ | 13 |
+| other nouns | 18 |
+| all | 143 |
+
+The old lesson said 154. The Corpus has 143 words of يَٰٓأَيُّهَا, and 124 of them are the first word of a verse. Al-Hujurat (49) has 6: 49:1, 49:2, 49:6, 49:11 and 49:12 with ٱلَّذِينَ ءَامَنُوا۟, and 49:13 with ٱلنَّاسُ. The old lesson’s count of 5 was for ٱلَّذِينَ ءَامَنُوا۟ only.
+
+<Check n={12} q="In يَٰٓأَيُّهَا ٱلنَّاسُ, what is ٱلنَّاسُ in al-Jadwal’s reading?" options={['A badal of أَيُّ', 'The doer of كُلُوا۟', 'The object of كُلُوا۟']} answer={0} why="أَيُّ is the noun that is called. ٱلنَّاسُ follows it, stands in for it and copies its ḍamma." />
+</Block>
+
+<Block id="lastday" title="The same verbs on the Last Day">
+  <Stage>
+    <blockquote class="lx-quote" lang="ar" dir="rtl">
+      <p>يَوْمَ تُقَلَّبُ وُجُوهُهُمْ فِى ٱلنَّارِ يَقُولُونَ يَٰلَيْتَنَآ أَطَعْنَا ٱللَّهَ وَأَطَعْنَا ٱلرَّسُولَا۠</p>
+    </blockquote>
+    <p class="lx-quote-note">Al-Ahzab 33:66.</p>
+    <Sentence
+      roles
+      reference="Al-Ahzab 33:67 (start)"
+      groups={[
+        { role: 'fiil', hint: 'a past verb, joined to يَقُولُونَ of 33:66 (al-Jadwal)', words: [{ ar: 'وَقَالُوا۟', en: 'and they said', say: 'wa-qalu', type: 'v' }] },
+        { role: 'maful', label: 'what is said', hint: 'a call with no يَا: “O our Lord”', words: [{ ar: 'رَبَّنَآ', en: 'our Lord', say: 'rabbana' }] },
+        { role: 'maful', words: [{ ar: 'إِنَّآ', en: 'indeed we', say: 'inna', type: 'p' }, { ar: 'أَطَعْنَا', en: 'obeyed', say: 'ataina', type: 'v' }] },
+        { role: 'maful', words: [{ ar: 'سَادَتَنَا', en: 'our masters', say: 'sadatana' }] },
+      ]}
+      en={['And they say: Our Lord, we obeyed our masters.']}
+    />
+  </Stage>
+
+Some verses report what people say on the Last Day. The grammar is the same as in the rest of this lesson. 33:66 has يَقُولُونَ, a present verb. 33:67 has وَقَالُوا۟, a past verb, joined to it with وَ. Al-Jadwal says the second sentence takes its reading from the first. In both, what is said is in the place of accusative.
+
+What puts the speech on the Last Day is a time word and what it says: يَوْمَ تُقَلَّبُ وُجُوهُهُمْ فِى ٱلنَّارِ, “on the day when their faces are turned in the Fire”, in 33:66, and يَوْمَئِذٍ, “on that day”, in 75:10. It is not the tense of the verb.
+
+The old lesson said that the Quran uses the past tense for the Last Day to show certainty, and gave it a name: الْمَاضِي بِمَعْنَى ٱلْمُسْتَقْبَلِ, “the past with the meaning of the future”. Al-Jadwal’s pages for 33:67, 41:29 and 75:10 do not say this, and Quran Learn found no approved source that does, so the lesson does not teach it. The Corpus does not mark which of its 58 يَقُولُ and 80 يَقُولُونَ are about the Last Day, so there is no count.
+
+<Check n={13} q="What shows that 33:66 and 75:10 speak of the Last Day?" options={['A time word with its clause: يَوْمَ, يَوْمَئِذٍ', 'The present tense of the verb', 'The word رَبَّنَآ']} answer={0} why="The verbs are ordinary speech verbs. The day comes from the time word and the verses around it." />
+</Block>
+
+<Block id="parse-3" title="Word by word: Al-Hajj 22:1">
+  <Stage label="Word by word">
+    <Parse
+      reference="Al-Hajj 22:1 (start)"
+      words={[
+        { ar: 'يَٰٓأَيُّهَا', en: 'O', type: 'p' },
+        { ar: 'ٱلنَّاسُ', en: 'people' },
+        { ar: 'ٱتَّقُوا۟', en: 'fear', type: 'v' },
+        { ar: 'رَبَّكُمْ', en: 'your Lord' },
+      ]}
+      cards={[
+        { at: 0, ar: 'يَٰٓ', role: 'the call word, a little word', why: 'It opens a call. Little words have no case.', irab: 'حرف نداء' },
+        { at: 0, ar: 'أَيُّ', role: 'the one called: “O you”', case: 'a word with a fixed ending; it counts as accusative', mark: 'built on a ḍamma', why: 'Al-Jadwal: a noun with no ٱل that means a certain person. The next word explains it.', irab: 'منادى نكرة مقصودة مبني على الضم في محل نصب' },
+        { at: 0, ar: 'هَا', role: 'a word of attention', why: 'It only draws the eye. It has no job.', irab: 'حرف تنبيه' },
+        { at: 1, role: 'a badal of أَيُّ: “people”', case: 'nominative in form', mark: '-u (ḍamma)', why: 'It follows أَيُّ and copies its ḍamma. Al-Jadwal also allows an explaining word (ʿaṭf bayān).', irab: 'بدل من أي مرفوع لفظا' },
+        { at: 2, role: 'a command: “fear”', case: 'built', mark: 'the nūn is dropped: ٱتَّقُونَ becomes ٱتَّقُوا۟', why: 'It is Form VIII (L3.14). The wāw is the doer, “you all”. The alif after it is not said.', irab: 'فعل أمر مبني على حذف النون، والواو فاعل' },
+        { at: 3, role: 'the object: “your Lord”', case: 'accusative (naṣb)', mark: '-a (fatḥa)', why: 'The كُمْ is “your”.', irab: 'مفعول به منصوب وعلامة نصبه الفتحة، والكاف ضمير مضاف إليه' },
+        { at: [0, 1], role: 'the call sentence', case: 'no place', mark: 'none', why: 'It opens the verse. Al-Jadwal calls it a plain start (ibtidāʾiyya).', irab: 'جملة النداء لا محل لها ابتدائية' },
+        { at: [2, 3], role: 'the answer to the call', case: 'no place', mark: 'none', why: 'It comes after the call and says what is wanted.', irab: 'جملة اتقوا ربكم لا محل لها جواب النداء' },
+      ]}
+    />
+  </Stage>
+
+The cards follow al-Jadwal for the three parts of يَٰٓأَيُّهَا, for ٱلنَّاسُ and for the two sentences. For ٱتَّقُوا۟ and رَبَّكُمْ the cards use its usual lines for the same words in 4:1.
+</Block>
+
+<Block id="parse-4" title="Word by word: Al-Qiyamah 75:10">
+  <Stage label="Word by word">
+    <Parse
+      reference="Al-Qiyamah 75:10"
+      words={[
+        { ar: 'يَقُولُ', en: 'says', type: 'v' },
+        { ar: 'ٱلْإِنسَٰنُ', en: 'man' },
+        { ar: 'يَوْمَئِذٍ', en: 'on that day' },
+        { ar: 'أَيْنَ', en: 'where' },
+        { ar: 'ٱلْمَفَرُّ', en: 'the escape' },
+      ]}
+      cards={[
+        { at: 0, role: 'a present verb: “says”', case: 'nominative (rafʿ)', mark: '-u (ḍamma)', why: 'The verb is hollow (L4.12): the present keeps the ū.', irab: 'مضارع مرفوع وعلامة رفعه الضمة' },
+        { at: 1, role: 'the doer: “man”', case: 'nominative (rafʿ)', mark: '-u (ḍamma)', why: 'The doer comes after its verb (L2.03).', irab: 'فاعل مرفوع وعلامة رفعه الضمة' },
+        { at: 2, role: 'a time word tied to يَقُولُ: “on that day”', case: 'accusative, or built: al-Jadwal gives both', mark: 'a fatḥa on يَوْمَ', why: 'إِذْ is a time word in the place of genitive. The day it points to is given in the verses before, 75:7 to 75:9.', irab: 'ظرف زمان منصوب أو مبني متعلق بيقول، وإذ اسم ظرفي في محل جر مضاف إليه' },
+        { at: 3, role: 'a question word for place: “where?”', case: 'a word with a fixed ending; it counts as accusative', mark: 'a fatḥa, built', why: 'It is tied to the khabar, which comes first: “where is the escape?”.', irab: 'اسم استفهام في محل نصب ظرف مكان متعلق بخبر مقدم' },
+        { at: 4, role: 'the mubtadaʾ, put last: “the escape”', case: 'nominative (rafʿ)', mark: '-u (ḍamma)', why: 'Al-Jadwal’s note on word forms: it is a verbal noun from فَرَّ, “to flee”, and the ر is doubled.', irab: 'مبتدأ مؤخر مرفوع وعلامة رفعه الضمة' },
+        { at: [3, 4], role: 'the sentence: what is said', case: 'in the place of accusative', mark: 'none', why: 'It is the words the man says. A question can be what is said.', irab: 'جملة أين المفر في محل نصب مقول القول' },
+        { at: [0, 1, 2, 3, 4], role: 'the whole sentence: the answer of the time clause', case: 'no place', mark: 'none', why: 'The verses before it begin with فَإِذَا, “so when” (75:7). The time word does not cut (L4.04), and this sentence is its answer.', irab: 'جملة يقول الإنسان لا محل لها جواب شرط غير جازم' },
+      ]}
+    />
+  </Stage>
+
+The word-level lines for يَقُولُ and ٱلْإِنسَٰنُ are not on al-Jadwal’s page for 75:7 to 75:10. The cards give the usual lines for them. The lines for يَوْمَئِذٍ, أَيْنَ, ٱلْمَفَرُّ and the sentences are on the page.
+</Block>
+</Step>
+
+<Step id="practice" label="Mistakes, practice" title="Five mistakes, and practice">
+<Block id="mistake-object" title="Mistake 1: looking for an ending on what is said">
+  <Stage label="Two things after قَالَ">
+    <Tiles
+      label="A doer has an ending. A quote has a place."
+      items={[
+        { ar: 'قَالَ ٱلْمَلَأُ', en: 'the doer: nominative (7:60)', type: 'n' },
+        { ar: 'إِنَّا لَنَرَىٰكَ', en: 'what is said: a place, no ending', type: 'x' },
+      ]}
+    />
+  </Stage>
+
+After قَالَ you can find a doer and what is said. The doer has a nominative ending, or an ending of the verb. What is said can be a whole sentence, and a sentence has no ending. Al-Jadwal gives it a place, in the accusative, and a name, “what is said”. Do not look for a fatḥa on a quote.
+
+The sentence of the verb has no place either. قَالَ ٱلْمَلَأُ is a new start. The quote after it is the part that has a place.
+</Block>
+
+<Block id="mistake-doer" title="Mistake 2: a doer that is always written">
+  <Stage label="One shape, two verses">
+    <Tiles
+      label="Two verses that look alike"
+      items={[
+        { ar: 'قَالَ فِرْعَوْنُ', en: 'doer written (7:123)', type: 'x' },
+        { ar: 'قَالَ ءَامَنتُمْ', en: 'no doer written (26:49)', type: 'x' },
+      ]}
+    />
+  </Stage>
+
+The old lesson quoted قَالَ فِرْعَوْنُ ءَامَنتُم بِهِۦ as 26:49 and used it to show a written doer. Those words are in 7:123. 26:49 reads قَالَ ءَامَنتُمْ لَهُۥ, and no doer is written. A reader finds him from the verses before.
+
+In the Corpus, 325 of the 524 words of قَالَ have no doer written right next to them. Test the verse. Do not assume the doer is a noun.
+</Block>
+
+<Block id="mistake-ya" title="Mistake 3: every يَا is a call">
+  <Stage label="Two words that start with يَا">
+    <Tiles
+      label="The same letters, two jobs"
+      items={[
+        { ar: 'يَٰنُوحُ', en: 'a call: a noun is called (11:32)', type: 'n' },
+        { ar: 'يَٰلَيْتَنِى', en: 'attention: no one is called (78:40)', type: 'x' },
+      ]}
+    />
+  </Stage>
+
+In 78:40 the disbeliever says يَٰلَيْتَنِى كُنتُ تُرَٰبًۢا, “if only I were dust”. Al-Jadwal calls this يَا a word of attention (حَرْف تَنْبِيه). The word لَيْتَ is a word of wishing that works like إِنَّ (L2.10). No noun is called, and nothing answers a call.
+
+The Corpus gives its “call” tag to 376 words. That includes this يَا, and it includes 8 words that start with هَا. Ask two questions. Is a noun called? Does a sentence follow that finishes the call?
+</Block>
+
+<Block id="mistake-types" title="Mistake 4: four types with fixed jobs">
+  <Stage label="A verse that fits none of the four">
+    <Tiles
+      label="Speech opened by another verb"
+      items={[
+        { ar: 'فَنَادَىٰهَا', en: 'so he called her (19:24)', type: 'v' },
+        { ar: 'أَلَّا تَحْزَنِى', en: 'that: do not grieve', type: 'x' },
+      ]}
+    />
+  </Stage>
+
+The four openings of step 1 are a way to find your place. They leave things out. 19:24 opens a speech with نَادَىٰ, “he called”, and أَنْ, “that”. Al-Jadwal calls this أَنْ a word that explains (حَرْف تَفْسِير), and the sentence after it has no place of its own. A verb other than قَالَ can open speech.
+
+The old lesson also gave each type a speaker and a purpose. يَٰٓأَيُّهَا had “the Prophet” as speaker, and قُلْ verses were “always” Allah to the Prophet. The sentence does not give those. Give a verse a speaker only when the verb, a call or the verses before it do.
+</Block>
+
+<Block id="mistake-day" title="Mistake 5: every يَقُولُ is the Last Day">
+  <Stage label="Two verses the old lesson misread">
+    <Tiles
+      label="Look for a time word"
+      items={[
+        { ar: 'فَيَقُولُ رَبِّىٓ أَكْرَمَنِ', en: 'a man says it (89:15)', type: 'x' },
+        { ar: 'وَقَالَ ٱلرَّسُولُ', en: 'the Tanzil text (25:30)', type: 'x' },
+      ]}
+    />
+  </Stage>
+
+The old lesson put 89:15 and 25:30 under the Last Day. 89:15 is about a man whom his Lord tests and honours: فَأَمَّا ٱلْإِنسَٰنُ إِذَا مَا ٱبْتَلَىٰهُ رَبُّهُۥ فَأَكْرَمَهُۥ وَنَعَّمَهُۥ فَيَقُولُ رَبِّىٓ أَكْرَمَنِ. The speaker is the man, and the old lesson called it “Allah’s response”. It is the man’s own saying, and no time word puts it on the Last Day.
+
+25:30 reads وَقَالَ ٱلرَّسُولُ يَٰرَبِّ in the Tanzil text, with the past verb. The old lesson wrote وَيَقُولُ. The verse does not name a day. Read the time from a time word, as in 33:66 and 75:10, and not from the verb.
+</Block>
+
+<Block id="practice-1" title="Practice: the doer, what is said, the call">
+  <Stage label="For each speech, ask">
+    <ol class="lx-card-list">
+      <li><b>The opening:</b> which verb or call starts it?</li>
+      <li><b>The doer:</b> written, in the verb, or hidden?</li>
+      <li><b>What is said:</b> where does it start and end?</li>
+      <li><b>The hearer:</b> what shows who is spoken to?</li>
+    </ol>
+  </Stage>
+
+Work out each answer first, on paper or in your head. Then open the answer.
+
+<Exercise n={1} q="Read this verse. (a) How many times does قَالَ open a speech? (b) Where does each speech start and end? (c) Does the verse say who speaks? قَالَ رَبِّ ٱجْعَل لِّىٓ ءَايَةً قَالَ ءَايَتُكَ أَلَّا تُكَلِّمَ ٱلنَّاسَ ثَلَٰثَ لَيَالٍ سَوِيًّا (Maryam 19:10)">
+
+- (a) Twice. Each قَالَ has a hidden “he”.
+- (b) The first speech is رَبِّ ٱجْعَل لِّىٓ ءَايَةً: a call, then a request. The second is ءَايَتُكَ … سَوِيًّا: a nominal sentence. Al-Jadwal reads the second قَالَ as an explaining start, and puts the second speech in the place of accusative. For the first speech it gives two readings: the call is what is said, or the call is a remark put in and the request is what is said.
+- (c) No. The verse has a hidden “he” twice. The verses before it name the first speaker: 19:2 names Zakariyya, and 19:3 says he called his Lord. The old lesson said that the second speaker is Allah. This verse does not say it, and al-Jadwal’s page for 19:10 gives no name.
+
+</Exercise>
+
+<Exercise n={2} q="Four verses. For each say the opening, the doer or the one called, and what is said. (a) قُلْ أَعُوذُ بِرَبِّ ٱلْفَلَقِ (Al-Falaq 113:1) (b) يَٰٓأَيُّهَا ٱلنَّاسُ ٱتَّقُوا۟ رَبَّكُمُ (An-Nisa 4:1) (c) قَالَتْ رَبِّ أَنَّىٰ يَكُونُ لِى وَلَدٌ (Al-Imran 3:47) (d) وَيَقُولُ ٱلْكَافِرُ يَٰلَيْتَنِى كُنتُ تُرَٰبًۢا (An-Naba 78:40)">
+
+- (a) The opening is **قُلْ**. The doer is a hidden “you”. What is said is أَعُوذُ بِرَبِّ ٱلْفَلَقِ, in the place of accusative.
+- (b) The opening is a call, with no verb of saying. The one called is أَيُّ, and ٱلنَّاسُ is its badal. The answer to the call is ٱتَّقُوا۟ رَبَّكُمُ.
+- (c) The opening is **قَالَتْ**. The doer is a hidden “she”, and al-Jadwal says it is Maryam. Al-Jadwal gives two readings. In the first, the call رَبِّ is a remark put in, and the question أَنَّىٰ يَكُونُ لِى وَلَدٌ is what is said. In the second, the call and the question together are what is said.
+- (d) The opening is **يَقُولُ**, a present verb. The doer is ٱلْكَافِرُ, written after the verb. What is said is يَٰلَيْتَنِى كُنتُ تُرَٰبًۢا, in the place of accusative. The يَا is a word of attention, and no one is called. The time comes from the clause before it in 78:40, يَوْمَ يَنظُرُ ٱلْمَرْءُ مَا قَدَّمَتْ يَدَاهُ.
+
+The sorting by opening is a teaching summary. Do not treat it as four types with set jobs.
+
+</Exercise>
+
+<Exercise n={3} q="Who speaks, who is spoken to, and what shows it? قَالُوا۟ يَٰصَٰلِحُ قَدْ كُنتَ فِينَا مَرْجُوًّا قَبْلَ هَٰذَآ (Hud 11:62)">
+
+- **Who speaks:** “they”, shown by the -ū of قَالُوا۟. The verse before names the people: وَإِلَىٰ ثَمُودَ أَخَاهُمْ صَٰلِحًا (11:61).
+- **Who is spoken to:** Salih, shown by the call يَٰصَٰلِحُ. Al-Jadwal says it is a single name built on the ḍamma, in the place of accusative.
+- **What is said:** the call sentence, in the place of accusative. قَدْ كُنتَ فِينَا مَرْجُوًّا is the answer to the call and has no place of its own.
+
+</Exercise>
+
+<Exercise n={4} q="Speech with no قَالَ. For each, name the verb that opens the speech, the doer, and what is said. (a) فَنَادَىٰهَا مِن تَحْتِهَآ أَلَّا تَحْزَنِى (Maryam 19:24) (b) فَقُولِىٓ إِنِّى نَذَرْتُ لِلرَّحْمَٰنِ صَوْمًا (Maryam 19:26)">
+
+- (a) The verb is **نَادَىٰ**, “he called”. The doer is a hidden “he”: al-Jadwal says it is Jibril, or ʿIsa. The word أَنْ is a word that explains, and لَا تَحْزَنِى is a ban to one woman (the ending -ī). It is an explaining sentence with no place.
+- (b) The verb is **قُولِىٓ**, a command with the ending -ī: the doer is the yā, “you” for one woman. What is said is إِنِّى نَذَرْتُ لِلرَّحْمَٰنِ صَوْمًا, in the place of accusative. Al-Jadwal reads the whole command as the answer of the condition فَإِمَّا تَرَيِنَّ مِنَ ٱلْبَشَرِ أَحَدًا.
+
+The commands هُزِّىٓ (19:25), كُلِى, ٱشْرَبِى and قَرِّى (19:26) end in -ī too. They are all for one woman. The old lesson gave the passage as “narrative dialogue”. It has no قَالَ, and the speech verb is نَادَىٰ.
+
+</Exercise>
+
+<Exercise n={5} q="Is the doer of قَالَ written next to the verb? (a) قَالَ ٱلْمَلَأُ مِن قَوْمِهِۦٓ (Al-Aʿraf 7:60) (b) قَالَ فِرْعَوْنُ ءَامَنتُم بِهِۦ (Al-Aʿraf 7:123) (c) قَالَ ءَامَنتُمْ لَهُۥ (Ash-Shuʿara 26:49) The old lesson gave (b) with the reference 26:49. Which verse is it?">
+
+- (a) Yes: ٱلْمَلَأُ, nominative, after the verb.
+- (b) Yes: فِرْعَوْنُ, nominative, after the verb.
+- (c) No. The doer is a hidden “he”.
+
+The words of (b) are in 7:123, not in 26:49. 26:49 begins قَالَ ءَامَنتُمْ لَهُۥ, with لَهُۥ and no doer written.
+
+</Exercise>
+</Block>
+
+<Block id="practice-2" title="Practice: what is said, who answers, the Last Day">
+  <Stage label="Three things to check">
+    <ol class="lx-card-list">
+      <li><b>The quote:</b> the same place after قَالَ and قُلْ.</li>
+      <li><b>The change:</b> a new verb and doer, a new speaker.</li>
+      <li><b>The day:</b> look for a time word.</li>
+    </ol>
+  </Stage>
+
+<Exercise n={6} q="Where does what is said start, and what is its first word? (a) قَالَ إِنَّمَآ أَنَا۠ رَسُولُ رَبِّكِ (Maryam 19:19) (b) قُلْ إِنَّ صَلَاتِى وَنُسُكِى وَمَحْيَاىَ وَمَمَاتِى لِلَّهِ رَبِّ ٱلْعَٰلَمِينَ (Al-Anʿam 6:162) (c) قُلْ إِن كُنتُمْ تُحِبُّونَ ٱللَّهَ فَٱتَّبِعُونِى يُحْبِبْكُمُ ٱللَّهُ (Al-Imran 3:31)">
+
+- (a) It starts at **إِنَّمَآ**. Al-Jadwal puts the sentence أَنَا رَسُولُ رَبِّكِ in the place of accusative.
+- (b) It starts at **إِنَّ**. The whole إِنَّ sentence is what is said.
+- (c) It starts at **إِن**. The whole condition sentence is what is said. Inside it, فَٱتَّبِعُونِى is the answer with فَ. Al-Jadwal reads يُحْبِبْكُمُ as the answer of a second condition that is left out: “if you follow me”.
+
+</Exercise>
+
+<Exercise n={7} q="Who speaks in each part of this verse, and how does the grammar show the change? (a) قُلْ مَن يَرْزُقُكُم مِّنَ ٱلسَّمَآءِ وَٱلْأَرْضِ (Yunus 10:31, start) (b) فَسَيَقُولُونَ ٱللَّهُ (Yunus 10:31, end) (c) فَقُلْ أَفَلَا تَتَّقُونَ (Yunus 10:31, end)">
+
+- (a) A hidden “you”, the doer of قُلْ. The question مَن يَرْزُقُكُم … is what is said.
+- (b) “They”, the wāw of يَقُولُونَ: the ones who were asked. ٱللَّهُ is what they say. Al-Jadwal reads the sentence as the answer of a condition that is left out: “if you ask them”.
+- (c) The hidden “you” of a second قُلْ, tied to the first with فَ. أَفَلَا تَتَّقُونَ is what is said.
+
+The change shows in the verb and its doer: قُلْ, then يَقُولُونَ, then قُلْ.
+
+</Exercise>
+
+<Exercise n={8} q="Name the one called and say what it is. (a) قَالُوا۟ يَٰنُوحُ قَدْ جَٰدَلْتَنَا (Hud 11:32, start) (b) قَالَ يَٰقَوْمِ لَيْسَ بِى ضَلَٰلَةٌ (Al-Aʿraf 7:61, start) (c) يَٰٓأَيُّهَا ٱلنَّاسُ ٱتَّقُوا۟ رَبَّكُمُ (An-Nisa 4:1, start)">
+
+- (a) **نُوحُ**: a single name, built on the ḍamma, in the place of accusative. The call sentence is what is said. قَدْ جَٰدَلْتَنَا is the answer to the call.
+- (b) **قَوْمِ**: a noun with “my”, accusative, with a fatḥa you cannot see because the yā of “my” is dropped.
+- (c) **أَيُّ**: a noun with no ٱل, built on the ḍamma, in the place of accusative. هَا is a word of attention. ٱلنَّاسُ is a badal of أَيُّ.
+
+</Exercise>
+
+<Exercise n={9} q="For each verse give the verb and its tense, the doer, what is said, and what puts the speech on the Last Day. Does the tense change the grammar? (a) يَقُولُ ٱلْإِنسَٰنُ يَوْمَئِذٍ أَيْنَ ٱلْمَفَرُّ (Al-Qiyamah 75:10) (b) وَقَالَ ٱلَّذِينَ كَفَرُوا۟ رَبَّنَآ أَرِنَا ٱلَّذَيْنِ أَضَلَّانَا مِنَ ٱلْجِنِّ وَٱلْإِنسِ (Fussilat 41:29)">
+
+- (a) The verb is **يَقُولُ**, present. The doer is ٱلْإِنسَٰنُ, after the verb. What is said is أَيْنَ ٱلْمَفَرُّ. The day comes from يَوْمَئِذٍ and from the verses before, 75:7 to 75:9.
+- (b) The verb is **قَالَ**, past. The doer is ٱلَّذِينَ كَفَرُوا۟, written after the verb. What is said is the call رَبَّنَآ, with the call word left out, and the request that follows. The part quoted has no time word, so the day comes from the verses around it.
+
+The tense does not change the grammar. In both verses al-Jadwal reads the verb like any speech verb, and the quote stands in the place of accusative.
+
+</Exercise>
+
+<Exercise n={10} q="Which statements do the counts of this lesson support? (a) Over 40% of the verses of the Quran contain a form of قَالَ. (b) The Corpus has 332 command words from قَالَ for one man. (c) The Corpus shows that every قُلْ is a command to the Prophet. (d) The Corpus has 143 words of يَٰٓأَيُّهَا.">
+
+- (a) **No.** 1,321 of 6,236 verses, which is 21%.
+- (b) **Yes.** L3.08 counted the same 332 words: قُلْ, قُل and قُلِ.
+- (c) **No.** The Corpus tags قُلْ as “you, one man”. It does not say who is meant.
+- (d) **Yes.** The old lesson said 154. The Corpus has 143.
+
+</Exercise>
+
+<Exercise n={11} q="Build this made-up sentence in Arabic: “He said: O my son, sit.” Then write it again with the doer written: “The father said: O my son, sit.”">
+
+This is a made-up example, not a verse.
+
+- With a hidden doer: قَالَ يَٰبُنَىَّ ٱجْلِسْ. The call is يَٰبُنَىَّ, and ٱجْلِسْ is the answer to the call. Both are what is said.
+- With the doer written: قَالَ ٱلْأَبُ يَٰبُنَىَّ ٱجْلِسْ. ٱلْأَبُ is the doer, nominative, after the verb, and the quote comes after it.
+
+The quote stays in the same place in both. Only the doer moves from the verb into a noun.
+
+</Exercise>
+</Block>
+
+<Block id="done" title="You have finished the lesson">
+  <Stage label="The idea">
+    <Formula
+      label="a verb of saying, its doer, and the words that are said"
+      items={[
+        { kind: 'm', text: 'verb of saying', small: 'قَالَ, قُلْ, يَقُولُ' },
+        { kind: 'k', text: 'its doer', small: 'in the verb or after it' },
+        { kind: 's', text: 'what is said', small: 'in the place of accusative' },
+      ]}
+    />
+  </Stage>
+
+- **قَالَ** opens a speech. The doer is the verb’s ending, a noun after it, or a hidden pronoun. What is said is in the place of accusative. The sentence of the verb has no place.
+- **قُلْ** is a command with a hidden “you”. What follows it is what is said, as after قَالَ. Who is meant comes from the surah around the verse.
+- A **call** names who hears. It can be a single name, a noun with “my”, or a noun with the call word left out. يَٰٓأَيُّهَا is a call with no verb of saying.
+- A **new speaker** shows in a new verb and a new doer. A call or a pronoun “you” inside the speech shows who is spoken to.
+- On the **Last Day**, the grammar is the same. A time word puts the speech there, and the tense does not.
+- The four openings are a **teaching summary**. The counts say what is there: 1,321 verses with قَالَ, 332 words of قُلْ, 143 words of يَٰٓأَيُّهَا.
+
+**Next:** [L5.12](/learn/level-5/12-parallelism-repetition/) studies parallel structures and repetition. [L5.13](/learn/level-5/13-rhetorical-questions/) studies questions, which appeared here as what is said in 19:20 and 10:31. The stories of Ibrahim ([L5.09](/learn/level-5/09-prophet-ibrahim-narrative/)) and Musa ([L5.10](/learn/level-5/10-prophet-musa-narrative/)) use this grammar in their own speeches.
+
+Earlier lessons you can link back to: [two kinds of sentence, L1.09](/learn/level-1/09-simple-sentences/), [Al-Ikhlas, L1.11](/learn/level-1/11-checkpoint-al-ikhlas/), [sentences that start with a verb, L2.03](/learn/level-2/03-verbal-sentence/), [six words in front of the sentence, L2.10](/learn/level-2/10-inna-sisters/), [the past tense, L3.05](/learn/level-3/05-past-tense/), [commands, L3.08](/learn/level-3/08-imperative/), [conditional sentences, L4.03](/learn/level-4/03-conditional-sentences/), [hollow verbs, L4.12](/learn/level-4/12-hollow-verbs/), [the full method, L5.01](/learn/level-5/01-full-irab-analysis/).
+
+<Sources
+    items={[
+      { label: 'Quran text', name: 'Tanzil (Uthmani text)', href: 'https://tanzil.net' },
+      { label: 'Tags, forms and roots', name: 'Quranic Arabic Corpus', href: 'https://corpus.quran.com' },
+      { label: 'Word-by-word analysis (iʿrāb) of the verses', name: 'Maḥmūd Ṣāfī, al-Jadwal fī Iʿrāb al-Qurʾān wa-Ṣarfihi wa-Bayānihi' },
+      { label: 'Every count in this lesson', name: 'Quran Learn scripts over the Quranic Arabic Corpus file; some tags are wrong' },
+      { label: 'The four openings and the sorting of what follows قُلْ', name: 'Quran Learn teaching summary, not from a book' },
+      { label: 'English under the verses', name: 'Plain-English meanings by Quran Learn, not a translation' },
+    ]}
+  />
+</Block>
+</Step>

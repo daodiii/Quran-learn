@@ -14,53 +14,63 @@ const nextLesson = nextLevelLessons.length > 0 ? `/learn/${nextLevelLessons[0].i
 const questions = [
   {
     id: 1,
-    question: "What is the conditional particle 'if' in Arabic?",
-    options: ["لو (law)", "إن (in)", "إذا (idha)", "All of the above"],
+    question: "Which of these words can open an 'if' sentence in the Quran?",
+    options: [
+      "لو (law)",
+      "إن (in)",
+      "إذا (idha)",
+      "All of the above",
+    ],
     correctAnswer: 3,
-    explanation: "Arabic has multiple conditional particles: إن (general condition), إذا (when/if with certainty), لو (contrary to fact)."
+    explanation: "إِنْ, إِذَا and لَوْ can all open an 'if' sentence. إِنْ leaves the case open, إِذَا is for what you expect ('when/if'), and لَوْ is for what is not so or did not happen (L4.04)."
   },
   {
     id: 2,
-    question: "What is the difference between إن (in) and إذا (idha)?",
+    question: "What is the usual difference between إن (in) and إذا (idha)?",
     options: [
       "No difference",
-      "إن for uncertain, إذا for certain/likely conditions",
+      "إِذَا is usually for what you expect, إِنْ for what is open",
       "إذا for past only",
-      "إن for present only"
+      "إن for present only",
     ],
     correctAnswer: 1,
-    explanation: "إن expresses uncertain conditions ('if'), while إذا expresses more certain or likely conditions ('when/if')."
+    explanation: "Teachers describe it this way and the verses often fit, as in 5:6 (إِذَا for standing up for prayer, إِنْ for illness). It is a tendency, not a rule: 21:34 uses إِنْ for death (L4.04)."
   },
   {
     id: 3,
-    question: "What particle is used for exception (meaning 'except')?",
-    options: ["لكن (laakin)", "إلا (illa)", "بل (bal)", "لولا (lawla)"],
+    question: "What word is used for exception (meaning 'except')?",
+    options: [
+      "لكن (laakin)",
+      "إلا (illa)",
+      "بل (bal)",
+      "لولا (lawla)",
+    ],
     correctAnswer: 1,
-    explanation: "إلا (illa) means 'except' and is the primary exception particle."
+    explanation: "إِلَّا (illā) means 'except' and is the exception word this lesson teaches. The book also lists غَيْر and سِوَى (nouns), among others (L4.05)."
   },
   {
     id: 4,
-    question: "What is Maf'ul Mutlaq (المفعول المطلق)?",
+    question: "What is the Maf'ul Mutlaq (المفعول المطلق)?",
     options: [
       "Direct object",
-      "Absolute/cognate object (same root as verb)",
+      "The verb's own verbal noun, or a stand-in for it, in naṣb: it says how the action happened",
       "Object of time",
-      "Object of place"
+      "Object of place",
     ],
     correctAnswer: 1,
-    explanation: "Maf'ul Mutlaq is a verbal noun (masdar) from the same root as the verb, used to emphasize or describe the action."
+    explanation: "The mafʿūl muṭlaq is a verbal noun in naṣb, usually from the verb's own root. It stresses the verb, gives its kind, or counts it (L4.07). A same-root word can still be an object, as in يَكْتُبُونَ ٱلْكِتَٰبَ."
   },
   {
     id: 5,
-    question: "What is Maf'ul Fih (المفعول فيه)?",
+    question: "Which word before a present verb gives it a fatha (naṣb) and means 'will not'?",
     options: [
-      "Object of time or place",
-      "Direct object",
-      "Indirect object",
-      "Object of purpose"
+      "لَمْ",
+      "لَنْ",
+      "لَمَّا",
+      "لَا",
     ],
-    correctAnswer: 0,
-    explanation: "Maf'ul Fih is the adverbial object indicating time (Zarf Zaman) or place (Zarf Makan)."
+    correctAnswer: 1,
+    explanation: "لَنْ is a word of negation and naṣb, and its meaning looks ahead ('will not'): فَلَنْ أَبْرَحَ, where the verb أَبْرَحُ becomes أَبْرَحَ (12:80). لَمْ and لَمَّا bring jazm and point to the past; لَا before a plain verb leaves it alone (L4.10)."
   },
   {
     id: 6,
@@ -76,22 +86,27 @@ const questions = [
   },
   {
     id: 7,
-    question: "What is Maf'ul Ma'ahu (المفعول معه)?",
+    question: "What is the Maf'ul Ma'ahu (المفعول معه)?",
     options: [
       "Object of time",
       "Object of accompaniment (with)",
       "Direct object",
-      "Object of place"
+      "Object of place",
     ],
     correctAnswer: 1,
-    explanation: "Maf'ul Ma'ahu indicates accompaniment, usually preceded by واو (waw) meaning 'with' or 'along with'."
+    explanation: "The mafʿūl maʿahu is the noun after the wāw of togetherness (wāw al-maʿiyya), meaning 'with' or 'along with'. The Quran has very few clear cases (L4.09)."
   },
   {
     id: 8,
-    question: "What grammatical term refers to the subject of a passive verb?",
-    options: ["Fa'il", "Naib al-Fa'il", "Maf'ul Bihi", "Mubtada"],
-    correctAnswer: 1,
-    explanation: "Naib al-Fa'il (نائب الفاعل) is the 'deputy subject' - the object that takes the place of the omitted Fa'il in passive voice."
+    question: "Which kind of verb has a weak letter (و or ي) in the middle of its root, like قَالَ from ق و ل?",
+    options: [
+      "Hollow (أَجْوَف)",
+      "Defective (نَاقِص)",
+      "Assimilated (مِثَال)",
+      "Doubled (مُضَعَّف)",
+    ],
+    correctAnswer: 0,
+    explanation: "L4.11 sorts verbs by where the special letter sits in the root: middle = hollow (قَالَ), end = defective (قَضَىٰ), start = assimilated (وَقَعَ)."
   },
   {
     id: 9,
@@ -100,27 +115,39 @@ const questions = [
       "The direct object",
       "The specification/clarification",
       "The predicate",
-      "The adjective"
+      "The adjective",
     ],
     correctAnswer: 1,
-    explanation: "Tamyiz is a noun in the Mansub case that clarifies or specifies an ambiguous noun or number."
+    explanation: "A tamyiz is an indefinite noun in the accusative that clears up something vague, such as a number or a measure. After the numbers 3 to 10 the counted word is a genitive plural, not a tamyiz (L4.02)."
   },
   {
     id: 10,
     question: "What is الحال (al-Haal)?",
     options: [
       "The subject",
-      "The circumstantial noun (describes state/manner)",
+      "The state of the doer or the object while the action happens (a word, sentence or phrase)",
       "The predicate",
-      "The object"
+      "The object",
     ],
     correctAnswer: 1,
-    explanation: "Haal is a noun in Mansub case describing the state or manner in which an action occurs (often translated with '-ly' adverbs or 'while')."
+    explanation: "The ḥāl says in what state its owner was while the action happened: خَآئِفًا, 'he left afraid' (28:21). In the books it is an accusative noun; the Quran also uses a sentence (wāw al-ḥāl, 'while') or a phrase (L4.01)."
+  },
+  {
+    id: 11,
+    question: "Which word before a present verb puts it in jazm and points to the past?",
+    options: [
+      "لَمْ",
+      "لَنْ",
+      "لَا",
+      "مَا",
+    ],
+    correctAnswer: 0,
+    explanation: "لَمْ puts the present verb in jazm and gives it a past meaning: لَمْ يَلِدْ, 'He has not fathered' (112:3) (L4.10)."
   }
 ];
 ---
 
-<BaseLayout title="Level 4 Quiz - Advanced" description="Test your Advanced knowledge: Hal clauses, Tamyiz, conditional sentences, exception particles, Maf'ul types, negation, weak verbs, and intro to Balagha.">
+<BaseLayout title="Level 4 Quiz - Advanced" description="Test your Advanced knowledge: ḥāl, tamyiz, conditional sentences, exception words, the maf'ul types, negation and weak verbs.">
   <Container maxWidth="lg">
     <QuizComponent
       title="Level 4 Quiz: Advanced Grammar"

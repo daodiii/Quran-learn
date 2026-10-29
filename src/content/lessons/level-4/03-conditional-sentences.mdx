@@ -1,378 +1,967 @@
 ---
 title: "Conditional Sentences (Shart & Jawab)"
+kicker: "If you do this, this follows"
+titleArabic: "اَلْجُمْلَةُ الشَّرْطِيَّةُ"
 level: 4
 order: 3
-description: "Understand conditional sentence structure with condition and result clauses, recognize verb mood changes, and identify conditionals in Quranic commands and warnings."
+template: steps
+description: "Learn the pattern of a conditional sentence: the word of condition, the condition and the answer. See how both verbs take jazm, why a past verb hides it, when the answer needs a فَ, and how إِنْ differs from إِنَّ. Go through four verses word by word."
 draft: false
 ---
 
-import ArabicExample from '../../../components/mdx/ArabicExample.astro';
-import GrammarTable from '../../../components/mdx/GrammarTable.astro';
-import VerbConjugation from '../../../components/mdx/VerbConjugation.astro';
-import Callout from '../../../components/mdx/Callout.astro';
-import ExerciseBox from '../../../components/mdx/ExerciseBox.astro';
-
-## Introduction
-
-Arabic expresses if-then relationships through conditional sentences — one of the most sophisticated structures in the language. These sentences appear throughout the Quran in commands, warnings, and promises.
-
-<ArabicExample
-  arabic="إِن كُنتُمْ صَٰدِقِينَ"
-  transliteration="in kuntum ṣādiqīna"
-  translation="if you are truthful"
-  reference="Al-Baqarah 2:23"
-  highlight="إِن كُنتُمْ"
-  words={[
-    { ar: "إِن", tr: "in", en: "if" },
-    { ar: "كُنتُمْ", tr: "kuntum", en: "you are" },
-    { ar: "صَٰدِقِينَ", tr: "ṣādiqīna", en: "truthful" }
-  ]}
-/>
-
-The particle **إِنْ** (in) "if" sets up a condition, and notice how the verb **كُنتُمْ** (kuntum) changes form — it's in the jussive mood, marked by the deletion of the final nūn. This mood change is the key to recognizing conditional sentences in Arabic.
-
-**In this lesson, you will:**
-- Understand the three-part conditional sentence structure (particle + condition + result)
-- Recognize how conditional particles trigger verb mood changes
-- Identify the jussive markers that signal conditional relationships
-- Analyze conditional sentences in Quranic commands and warnings
-- Distinguish between إِنْ (conditional "if") and إِنَّ (emphatic "indeed")
-
-**Connection to previous learning:** In [L2.03 Verbal Sentences](/learn/level-2/03-verbal-sentence/), you learned how verbal sentences work with their verb-subject-object structure. Conditional sentences are COMPOUND verbal sentences — two verbal sentences joined by an if-then relationship. The "if" part is the condition (**shart** / شَرْطٌ), and the "then" part is the result (**jawab** / جَوَابٌ).
-
-**Forward connection:** This lesson establishes the basic structure. In [L4.04 Types of Conditional Particles](/learn/level-4/04-conditional-particles/), you'll learn how different particles (إِنْ, إِذَا, لَوْ) change the meaning and certainty level of conditionals.
-
-<Callout type="note" title="Plain-English key">
-Quick, everyday translations of the grammar terms in this lesson — glance back here whenever one trips you up:
-
-- **Conditional sentence** (jumlah sharṭiyyah / شَرْطِيَّة) — an "if… then…" sentence.
-- **Condition clause** (jumlat ash-sharṭ / الشَّرْط) — the "if" part.
-- **Result clause** (jawāb ash-sharṭ / جَوَاب الشَّرْط) — the "then" part.
-</Callout>
-
-## Understanding Conditional Sentences
-
-**Plain English first:** Arabic conditionals work like English if-then statements: "If X happens, then Y will happen." But Arabic does something English doesn't — the verb forms CHANGE based on the conditional particle. The key insight: the particle controls the mood of BOTH verbs (the condition verb AND the result verb).
-
-**English comparison:**
-
-In English, we keep the same verb forms:
-- "If he **comes**, I **will help**" (present → future)
-- "If he **came**, I **would help**" (past → conditional)
-
-In Arabic, BOTH verbs change to show they're conditional. It's like English subjunctive: "If he **were to come**, then I **were to help**" — except Arabic has a specific mood marker (jussive) that makes this visible in the verb ending.
-
-### Arabic Terminology
-
-**Conditional particle** — [أَدَاةُ الشَّرْطِ](/resources/glossary/#adat-ash-shart) (adātu sh-sharṭi / particle of condition)
-
-This is the "if" word that introduces the conditional relationship. The most common is **إِنْ** (in), but there are others like إِذَا (idhā) "when," لَوْ (law) "if only," and مَنْ (man) "whoever."
-
-**Condition clause** — [جُمْلَةُ الشَّرْطِ](/resources/glossary/#jumlat-ash-shart) (jumlatu sh-sharṭi / sentence of condition)
-
-This is the "if" clause — the hypothetical situation being proposed. It always contains a verb (usually present tense in form, but conditional in meaning).
-
-**Result clause** — [جَوَابُ الشَّرْطِ](/resources/glossary/#jawab-ash-shart) (jawābu sh-sharṭi / answer of condition)
-
-This is the "then" clause — what happens if the condition is fulfilled. Some grammarians also call this **jazāʾ** (جَزَاءٌ / reward or consequence).
-
-### The Three-Part Structure
-
-Every conditional sentence has exactly three components:
-
-```
-[أَدَاةُ الشَّرْطِ] + [جُمْلَةُ الشَّرْطِ] + [جَوَابُ الشَّرْطِ]
-   Particle     +    Condition      +      Result
-     إِنْ        +   تَنْصُرُوا۟ اللَّهَ  +    يَنصُرْكُمْ
-     If          +   you support Allah +  He will support you
-```
-
-<ArabicExample
-  arabic="إِن تَنْصُرُوا۟ ٱللَّهَ يَنصُرْكُمْ"
-  transliteration="in tanṣurū llāha yanṣurkum"
-  translation="If you support Allah, He will support you"
-  reference="Muhammad 47:7"
-  highlight="تَنْصُرُوا۟"
-  words={[
-    { ar: "إِن", tr: "in", en: "if" },
-    { ar: "تَنْصُرُوا۟", tr: "tanṣurū", en: "you support" },
-    { ar: "ٱللَّهَ", tr: "llāha", en: "Allah" },
-    { ar: "يَنصُرْكُمْ", tr: "yanṣurkum", en: "He will support you" }
-  ]}
-/>
-
-Notice three things:
-1. **إِنْ** — the conditional particle
-2. **تَنْصُرُوا۟** — the condition verb (you support) — jussive mood
-3. **يَنصُرْكُمْ** — the result verb (He will support) — also jussive mood
-
-Both verbs changed form because of إِنْ.
-
-## Mood Changes in Conditional Sentences
-
-Here's where Arabic gets sophisticated: when certain conditional particles are used (especially **إِنْ**), BOTH the condition verb and the result verb must take the **jussive mood** (مَجْزُومٌ / majzūm).
-
-You learned in [L3.04 Past & Present Tense](/learn/level-3/03-past-tense/) that present tense verbs normally end in ḍamma (ـُ) for indicative mood. In conditional sentences with إِنْ, that changes to jussive mood with visible markers:
-
-### Jussive Mood Markers
-
-**For plural verbs ending in -ūna:**
-- **Indicative:** تَنْصُرُونَ (tanṣurūna) "you (plural) support" — with final nūn
-- **Jussive:** تَنْصُرُوا۟ (tanṣurū) "you (plural) support" — nūn DELETED
-
-**For dual verbs and feminine plural:**
-- **Indicative:** تَنْصُرَانِ (tanṣurāni) / تَنصُرْنَ (tanṣurna) — with final nūn
-- **Jussive:** تَنْصُرَا (tanṣurā) / تَنصُرْنَ (tanṣurna) — nūn DELETED (for dual)
-
-**For singular verbs:**
-- **Indicative:** يَنصُرُ (yanṣuru) — with ḍamma
-- **Jussive:** يَنصُرْ (yanṣur) — with sukūn
-
-The jussive mood is called majzūm (مَجْزُومٌ) because **jazm** (جَزْمٌ) means "cutting off" — the verb ending is "cut" or shortened.
-
-### How to Spot Jussive Mood
-
-Look for these signs:
-1. **Deleted nūn** (ن) — most obvious marker for plurals and duals
-2. **Sukūn** (ـْ) on final letter — for singular masculine verbs
-3. **Context** — appears after conditional particles like إِنْ
-
-<GrammarTable>
-| Verb | Indicative (Normal) | Jussive (Conditional) | What Changed |
-|------|---------------------|----------------------|--------------|
-| يَكْتُبُ (he writes) | يَكْتُبُ (yaktubu) | يَكْتُبْ (yaktub) | Final ḍamma → sukūn |
-| تَكْتُبُونَ (you write) | تَكْتُبُونَ (taktubūna) | تَكْتُبُوا۟ (taktubū) | Final nūn deleted |
-| يَكْتُبَانِ (they two write) | يَكْتُبَانِ (yaktubāni) | يَكْتُبَا (yaktubā) | Final nūn deleted |
-| تَكْتُبْنَ (you fem write) | تَكْتُبْنَ (taktubna) | تَكْتُبْنَ (taktubna) | No change (already sukūn) |
-</GrammarTable>
-
-**Key principle:** When إِنْ introduces a conditional, check BOTH verbs for jussive markers. The condition clause AND the result clause both take jussive mood.
-
-## Examples from the Quran
-
-Let's analyze complete conditional sentences from Surah Al-Baqarah to see the structure in context.
-
-### Example 1: Conditional Challenge
-
-<ArabicExample
-  arabic="وَإِن كُنتُمْ فِى رَيْبٍۢ مِّمَّا نَزَّلْنَا عَلَىٰ عَبْدِنَا فَأْتُوا۟ بِسُورَةٍۢ مِّن مِّثْلِهِۦ"
-  transliteration="wa in kuntum fī raybin mimmā nazzalnā ʿalā ʿabdinā fa'tū bi-sūratin min mithlihi"
-  translation="And if you are in doubt about what We have sent down upon Our Servant, then produce a surah the like thereof"
-  reference="Al-Baqarah 2:23"
-  highlight="إِن كُنتُمْ"
-  words={[
-    { ar: "وَإِن", tr: "wa in", en: "and if" },
-    { ar: "كُنتُمْ", tr: "kuntum", en: "you are" },
-    { ar: "فِى", tr: "fī", en: "in" },
-    { ar: "رَيْبٍۢ", tr: "raybin", en: "doubt" },
-    { ar: "مِّمَّا", tr: "mimmā", en: "about what" },
-    { ar: "نَزَّلْنَا", tr: "nazzalnā", en: "We have sent down" },
-    { ar: "عَلَىٰ", tr: "ʿalā", en: "upon" },
-    { ar: "عَبْدِنَا", tr: "ʿabdinā", en: "Our Servant" },
-    { ar: "فَأْتُوا۟", tr: "fa'tū", en: "then produce" },
-    { ar: "بِسُورَةٍۢ", tr: "bi-sūratin", en: "a surah" },
-    { ar: "مِّن", tr: "min", en: "of" },
-    { ar: "مِّثْلِهِۦ", tr: "mithlihi", en: "the like thereof" }
-  ]}
-/>
-
-**Structure breakdown:**
-- **Particle:** وَإِن (wa in) — "and if"
-- **Condition:** كُنتُمْ فِى رَيْبٍۢ (kuntum fī raybin) — "you are in doubt" (jussive)
-- **Result:** فَأْتُوا۟ بِسُورَةٍۢ (fa'tū bi-sūratin) — "then produce a surah" (imperative with فَ)
-
-**Morphological i'rab:**
-- **كُنتُمْ** — Root: ك-و-ن (k-w-n), Form: I hollow verb (past tense form used), Function: condition verb, Mood: serves as condition after إِنْ
-
-Note: **كَانَ** (kāna) "to be" uses past tense forms in present conditional meaning. The form **كُنتُمْ** is the standard 2nd person masculine plural past tense of كَانَ. Past tense verbs are مَبْنِيٌّ (mabniyy / morphologically indeclinable) — they do not change form based on grammatical mood. The jussive effect of إِنْ is present syntactically but is not visible in the form of past tense verbs.
-
-**Result with فَ:** When the result clause is an **imperative** (command), it must be introduced by **فَ** (fa) "then/so." The فَ links the result to the condition.
-
-### Example 2: Support and Victory
-
-<ArabicExample
-  arabic="إِن تَنْصُرُوا۟ ٱللَّهَ يَنصُرْكُمْ وَيُثَبِّتْ أَقْدَامَكُمْ"
-  transliteration="in tanṣurū llāha yanṣurkum wa yuthabbit aqdāmakum"
-  translation="If you support Allah, He will support you and make firm your feet"
-  reference="Muhammad 47:7"
-  highlight="تَنْصُرُوا۟"
-  words={[
-    { ar: "إِن", tr: "in", en: "if" },
-    { ar: "تَنْصُرُوا۟", tr: "tanṣurū", en: "you support" },
-    { ar: "ٱللَّهَ", tr: "llāha", en: "Allah" },
-    { ar: "يَنصُرْكُمْ", tr: "yanṣurkum", en: "He will support you" },
-    { ar: "وَيُثَبِّتْ", tr: "wa yuthabbit", en: "and make firm" },
-    { ar: "أَقْدَامَكُمْ", tr: "aqdāmakum", en: "your feet" }
-  ]}
-/>
-
-**Structure breakdown:**
-- **Particle:** إِن (in) — "if"
-- **Condition:** تَنْصُرُوا۟ ٱللَّهَ (tanṣurū llāha) — "you support Allah" (jussive — nūn deleted)
-- **Result:** يَنصُرْكُمْ (yanṣurkum) — "He will support you" (jussive — sukūn on ر marking the jussive mood)
-
-**Morphological i'rab:**
-- **تَنْصُرُوا۟** — Root: ن-ص-ر (n-ṣ-r), Form: I, Tense: present, Person: 2nd plural, Function: condition verb, Mood: jussive (majzūm) marked by deletion of final nūn, Reason: falls after conditional particle إِنْ
-- **يَنصُرْكُمْ** — Root: ن-ص-ر (n-ṣ-r), Form: I, Tense: present, Person: 3rd singular, Function: result verb, Mood: jussive (majzūm) marked by sukūn on ر (raa', the final radical), Reason: jawāb ash-sharṭ (result of condition)
-
-**Double result:** Notice وَيُثَبِّتْ (wa yuthabbit) "and make firm" — a second result verb, also in jussive mood with sukūn on ت. Multiple results can be chained with wāw (وَ).
-
-### Example 3: Belief and Good Deeds
-
-<ArabicExample
-  arabic="إِنَّ ٱلَّذِينَ ءَامَنُوا۟ وَعَمِلُوا۟ ٱلصَّٰلِحَٰتِ"
-  transliteration="inna lladhīna āmanū wa ʿamilū ṣ-ṣāliḥāti"
-  translation="Indeed, those who believed and did righteous deeds"
-  reference="Al-Baqarah 2:25"
-  highlight="إِنَّ"
-  words={[
-    { ar: "إِنَّ", tr: "inna", en: "indeed" },
-    { ar: "ٱلَّذِينَ", tr: "lladhīna", en: "those who" },
-    { ar: "ءَامَنُوا۟", tr: "āmanū", en: "believed" },
-    { ar: "وَعَمِلُوا۟", tr: "wa ʿamilū", en: "and did" },
-    { ar: "ٱلصَّٰلِحَٰتِ", tr: "ṣ-ṣāliḥāti", en: "righteous deeds" }
-  ]}
-/>
-
-**CRITICAL DISTINCTION:** This is NOT a conditional sentence!
-
-Notice **إِنَّ** (inna) with **shadda** (double nūn) — this is the emphatic particle meaning "indeed/verily," not the conditional particle إِنْ. The shadda makes all the difference:
-
-- **إِنْ** (in) — one nūn with sukūn — CONDITIONAL "if"
-- **إِنَّ** (inna) — doubled nūn with shadda — EMPHATIC "indeed"
-
-The verbs after إِنَّ do NOT change to jussive mood. This is one of the most common reading errors for learners.
-
-### Example 4: Protection from Hypocrisy
-
-<ArabicExample
-  arabic="وَإِن تُصِبْهُمْ حَسَنَةٌۭ يَقُولُوا۟ هَٰذِهِۦ مِنْ عِندِ ٱللَّهِ"
-  transliteration="wa in tuṣibhum ḥasanatun yaqūlū hādhihi min ʿindi llāhi"
-  translation="And if a good thing befalls them, they say: This is from Allah"
-  reference="An-Nisa 4:78"
-  highlight="تُصِبْهُمْ"
-  words={[
-    { ar: "وَإِن", tr: "wa in", en: "and if" },
-    { ar: "تُصِبْهُمْ", tr: "tuṣibhum", en: "befalls them" },
-    { ar: "حَسَنَةٌۭ", tr: "ḥasanatun", en: "a good thing" },
-    { ar: "يَقُولُوا۟", tr: "yaqūlū", en: "they say" },
-    { ar: "هَٰذِهِۦ", tr: "hādhihi", en: "this is" },
-    { ar: "مِنْ", tr: "min", en: "from" },
-    { ar: "عِندِ", tr: "ʿindi", en: "with/near" },
-    { ar: "ٱللَّهِ", tr: "llāhi", en: "Allah" }
-  ]}
-/>
-
-**Structure breakdown:**
-- **Particle:** وَإِن (wa in) — "and if"
-- **Condition:** تُصِبْهُمْ حَسَنَةٌۭ (tuṣibhum ḥasanatun) — "befalls them a good thing" (jussive)
-- **Result:** يَقُولُوا۟ (yaqūlū) — "they say" (jussive — nūn deleted)
-
-**Morphological i'rab:**
-- **تُصِبْهُمْ** — Root: ص-و-ب (ṣ-w-b), Form: IV (أَصَابَ), Tense: present, Person: 3rd singular feminine, Function: condition verb, Mood: jussive marked by sukūn on ب, Reason: falls after إِنْ
-- **يَقُولُوا۟** — Root: ق-و-ل (q-w-l), Form: I, Tense: present, Person: 3rd plural, Function: result verb, Mood: jussive marked by deletion of final nūn, Reason: jawāb ash-sharṭ
-
-**Subject position:** Notice حَسَنَةٌۭ (ḥasanatun) "a good thing" is the SUBJECT (فَاعِلٌ / fāʿilun) in nominative case, coming AFTER the verb — standard VSO order in verbal sentences.
-
-## The Rule
-
-<Callout type="rule">
-A conditional sentence has three parts:
-
-1. **Conditional particle** (أَدَاةُ الشَّرْطِ) — such as إِنْ (in) "if"
-2. **Condition clause** (جُمْلَةُ الشَّرْطِ) — the "if" part with a verb
-3. **Result clause** (جَوَابُ الشَّرْطِ) — the "then" part with a verb
-
-When **إِنْ** is used, BOTH the condition verb AND the result verb take **jussive mood** (مَجْزُومٌ / majzūm). Jussive markers include:
-- Deletion of final nūn (ن) for plural/dual verbs
-- Sukūn (ـْ) on final letter for singular verbs
-
-The result clause may need **فَ** (fa) before it when the result is:
-- An imperative (command)
-- A nominal sentence
-- A sentence starting with certain particles (قَدْ, سَ, لَنْ, مَا)
-</Callout>
-
-## Common Mistakes
-
-<Callout type="warning">
-**Don't forget mood changes:** The particle إِنْ requires jussive mood in BOTH clauses — both the condition AND the result. Don't leave the result verb in indicative mood (with final ḍamma or nūn).
-
-❌ **Wrong:** إِن تَكْتُبْ أَقْرَأُ (in taktub aqraʾu) — result verb should be jussive
-✓ **Correct:** إِن تَكْتُبْ أَقْرَأْ (in taktub aqraʾ) — both verbs jussive
-
-**Don't confuse إِنْ with إِنَّ:** The shadda makes all the difference:
-- **إِنْ** (in) — conditional "if" → verbs change to jussive
-- **إِنَّ** (inna) — emphatic "indeed" → no mood change
-
-❌ **Wrong:** Reading إِنَّ ٱلَّذِينَ ءَامَنُوا۟ as a conditional
-✓ **Correct:** Recognizing إِنَّ as emphatic particle, not conditional
-
-**Watch for فَ before the result:** When the result clause is an imperative, nominal sentence, or starts with certain particles, it MUST be introduced by فَ (fa).
-
-✓ **Correct:** إِن كُنتُمْ صَٰدِقِينَ فَأْتُوا۟ (if you are truthful, THEN produce)
-❌ **Wrong:** إِن كُنتُمْ صَٰدِقِينَ ائْتُوا۟ (missing فَ before imperative)
-
-**Don't assume all "if" sentences use إِنْ:** In the next lesson, you'll learn that إِذَا (idhā) "when" and لَوْ (law) "if only" are also used for conditionals, but they DON'T trigger jussive mood. Each particle has its own rules.
-</Callout>
-
-## Practice Exercises
-
-<ExerciseBox question="Identify the three parts of this conditional sentence: **وَإِن تُطِيعُوهُ۟ تَهْتَدُوا۟** (wa in tuṭīʿūhu tahtadū) 'And if you obey him, you will be rightly guided' [An-Nur 24:54]">
-
-(a) What is the conditional particle?
-(b) What is the condition clause?
-(c) What is the result clause?
-
-</ExerciseBox>
-
-<ExerciseBox question="Look at these two verbs from a conditional sentence: **تُنْفِقُوا۟** (tunfiqū) 'you spend' and **يُضَٰعِفْهُ** (yuḍāʿifhu) 'He will multiply it.'">
-
-What mood are these verbs in? How can you tell? What conditional particle likely introduced this sentence?
-
-</ExerciseBox>
-
-<ExerciseBox question="Parse this conditional sentence with full i'rab:">
-
-**إِن تَجْتَنِبُوا۟ كَبَآئِرَ مَا تُنْهَوْنَ عَنْهُ نُكَفِّرْ عَنكُمْ سَيِّـَٔاتِكُمْ**
-(in tajtanibū kabāʾira mā tunhawna ʿanhu nukaffir ʿankum sayyiʾātikum)
-'If you avoid the major sins which you are forbidden, We will remove from you your lesser sins' [An-Nisa 4:31]
-
-Identify: particle, condition verb (with root/form/mood), result verb (with root/form/mood)
-
-</ExerciseBox>
-
-<ExerciseBox question="Complete this conditional sentence using jussive mood for both verbs:">
-
-**إِن تَدْرُسُوا۟ بِٱجْتِهَادٍ _______**
-(in tadrusū bi-ijtihādin _______)
-'If you study diligently, _______'
-
-Create an appropriate result clause. Make sure the verb is in jussive mood. Consider adding فَ if needed.
-
-</ExerciseBox>
-
-## Summary
-
-Conditional sentences in Arabic express if-then relationships through a three-part structure: conditional particle + condition clause + result clause. The particle إِنْ (in) "if" is the most common, and it triggers a visible grammatical change — both verbs must take jussive mood (majzūm).
-
-The jussive mood is marked by:
-- **Deletion of final nūn** (ن) for plural and dual verbs
-- **Sukūn** (ـْ) on the final letter for singular verbs
-
-Mastering conditionals requires recognizing these mood markers and distinguishing إِنْ (conditional "if") from إِنَّ (emphatic "indeed"). The result clause may need the linking particle فَ (fa) before it in certain cases.
-
-This structural foundation prepares you for [L4.04 Types of Conditional Particles](/learn/level-4/04-conditional-particles/), where you'll learn how different particles (إِنْ, إِذَا, لَوْ) create different certainty levels and mood requirements.
-
-## Related Lessons
-
-**Prerequisites:**
-- [L2.03 Verbal Sentences](/learn/level-2/03-verbal-sentence/) — verbal sentence structure
-- [L3.04 Past & Present Tense](/learn/level-3/03-past-tense/) — verb moods (indicative established as baseline)
-
-**Next steps:**
-- [L4.04 Types of Conditional Particles](/learn/level-4/04-conditional-particles/) — in vs idha vs law certainty scale
-- [L4.10 Negation Particles](/learn/level-4/10-negation-particles/) — similar particle-based mood changes
-
-**Advanced application:**
-- [L5.07 Complex Conditional Structures](/learn/level-4/04-conditional-particles/) — nested conditionals and multiple clauses
+import Step from '../../../components/lesson/Step.astro';
+import Stage from '../../../components/lesson/Stage.astro';
+import Sentence from '../../../components/lesson/Sentence.astro';
+import Tiles from '../../../components/lesson/Tiles.astro';
+import Formula from '../../../components/lesson/Formula.astro';
+import Note from '../../../components/lesson/Note.astro';
+import Check from '../../../components/lesson/Check.astro';
+import Start from '../../../components/lesson/Start.astro';
+import Sources from '../../../components/lesson/Sources.astro';
+import Parse from '../../../components/lesson/Parse.astro';
+import Exercise from '../../../components/lesson/Exercise.astro';
+import Block from '../../../components/lesson/Block.astro';
+
+{/* Content spec: docs/redesign/specs/L4.03-conditional-sentences.md. Every parse follows al-Jadwal (Mahmud Safi). */}
+
+<Step hero id="start" label="Condition and answer" title={frontmatter.title} kicker={frontmatter.kicker} titleArabic={frontmatter.titleArabic}>
+<Block id="overview" title="In this lesson" level={2} uncounted>
+  <Stage label="The idea">
+    <Formula
+      label="condition plus answer equals a conditional sentence"
+      items={[
+        { kind: 'm', text: 'condition', small: 'the “if” half: شَرْط' },
+        { kind: 'k', text: 'answer', small: 'the “then” half: جَوَاب' },
+        { kind: 's', text: 'conditional sentence', small: 'جُمْلَة شَرْطِيَّة' },
+      ]}
+    />
+  </Stage>
+  <Start
+    goal="Find the condition and the answer in a Quran sentence, read the <b>jazm</b> on both verbs, know when the answer needs a <b>فَ</b>, and tell إِنْ (“if”) from إِنَّ (“indeed”)."
+    minutes={60}
+    before="The verbal sentence (L2.03), the past tense (L3.05), the jazm of the present verb (L3.07), kāna (L2.11) and the little word إِنَّ (L2.10)."
+    terms={[
+      { term: 'Condition', ar: 'شَرْط', meaning: 'The “if” half of the sentence.' },
+      { term: 'Answer', ar: 'جَوَاب الشَّرْط', meaning: 'The “then” half: what follows if the condition comes true.' },
+      { term: 'Word of condition', ar: 'أَدَاة الشَّرْط', meaning: 'The little word at the front, such as إِنْ.' },
+      { term: 'Verb of the condition', ar: 'فِعْل الشَّرْط', meaning: 'The verb inside the “if” half.' },
+      { term: 'Jazm', ar: 'جَزْم', meaning: 'The cut-short ending of a present verb (L3.07): a sukūn, a lost nūn or a dropped weak letter.' },
+      { term: 'In the place of jazm', ar: 'فِي مَحَلِّ جَزْم', meaning: 'A past verb cannot show jazm. The books say it stands where jazm would be.' },
+      { term: 'The linking fāʾ', ar: 'اَلْفَاء الرَّابِطَة', meaning: 'The فَ at the start of an answer that cannot show jazm.' },
+    ]}
+  />
+</Block>
+
+<Block id="see" title="Look at this sentence" level={2}>
+  <Stage>
+    <Sentence
+      size="big"
+      roles
+      reference="Al-Anfal 8:29 (part)"
+      groups={[
+        { role: 'jar', label: 'adāt ash-sharṭ', hint: 'the word of condition: “if”', words: [{ ar: 'إِن', en: 'if', say: 'in', type: 'p' }] },
+        { role: 'mubtada', label: 'sharṭ', hint: 'the condition: “you are mindful of Allah”', words: [{ ar: 'تَتَّقُوا۟', en: 'you are mindful of', say: 'tattaqu', type: 'v' }, { ar: 'ٱللَّهَ', en: 'Allah', say: 'allaha' }] },
+        { role: 'khabar', label: 'jawāb ash-sharṭ', hint: 'the answer: “he will give you a way to tell right from wrong”', words: [{ ar: 'يَجْعَل', en: 'he will make', say: 'yajal', type: 'v' }, { ar: 'لَّكُمْ', en: 'for you', say: 'lakum', type: 'p' }, { ar: 'فُرْقَانًا', en: 'a way to tell right from wrong', say: 'furqanan' }] },
+      ]}
+      en={['If you are mindful of Allah, he will give you a way to tell right from wrong.']}
+    />
+  </Stage>
+
+This is the middle of Al-Anfal 8:29. Read it from right to left.
+
+It has two halves. **إِن تَتَّقُوا۟ ٱللَّهَ** says “if you are mindful of Allah”. **يَجْعَل لَّكُمْ فُرْقَانًا** says what follows: “he will give you a way to tell right from wrong”. English says the same with “if” and “will”.
+
+Look at the two verbs. تَتَّقُوا۟ has lost the nūn of the plain present, تَتَّقُونَ. يَجْعَل ends without the ḍamma of the plain present, يَجْعَلُ. L3.07 taught this ending: it is **jazm**. In a conditional sentence the word إِنْ puts both verbs in jazm.
+
+<Check n={1} q="Which part of this sentence is the condition?" options={['إِن تَتَّقُوا۟ ٱللَّهَ', 'يَجْعَل لَّكُمْ فُرْقَانًا']} answer={0} why="The condition is the “if” half: “if you are mindful of Allah”. The other half is the answer." />
+</Block>
+
+<Block id="names" title="The condition and the answer">
+  <Stage label="Three pieces">
+    <Tiles
+      label="The pieces of 8:29"
+      items={[
+        { ar: 'إِن', en: 'the word of condition', type: 'p' },
+        { ar: 'تَتَّقُوا۟ ٱللَّهَ', en: 'the condition', type: 'v' },
+        { ar: 'يَجْعَل لَّكُمْ فُرْقَانًا', en: 'the answer', type: 'v' },
+      ]}
+    />
+  </Stage>
+
+English has two halves in “If you help, he will help you”. Arabic grammar names them.
+
+- **شَرْط** (*sharṭ*) is the condition, the “if” half. Its verb is the **فِعْل الشَّرْط** (*fiʿl ash-sharṭ*), “the verb of the condition”.
+- **جَوَاب الشَّرْط** (*jawāb ash-sharṭ*) is “the answer to the condition”, the “then” half. Some books call it **جَزَاء** (*jazāʾ*), “result”.
+- **أَدَاة الشَّرْط** (*adāt ash-sharṭ*) is the word of condition: the little word in front. In this lesson it is إِنْ. L4.04 teaches the other words.
+
+Together they make a **جُمْلَة شَرْطِيَّة** (*jumla sharṭiyya*), a conditional sentence. The usual order is the word of condition, then the condition, then the answer.
+
+<Note kind="know">Al-Jadwal uses these same names: “the verb of the condition” and “the answer”. When an answer starts with فَ, he calls that فَ “the one that ties the answer” (الفاء الرابطة لجواب الشرط). Step 3 is about it.</Note>
+
+<Check n={2} q="What is جَوَاب الشَّرْط?" options={['The “if” half', 'The “then” half', 'The little word in front']} answer={1} why="جَوَاب means “answer”. It is the half that follows if the condition comes true." />
+</Block>
+
+<Block id="book" title="What the first grammar book says">
+  <Stage label="From al-Ajurrumiyyah">
+    <blockquote class="lx-quote lx-quote-list" lang="ar" dir="rtl">
+      <p>وَالْجَوَازِمُ ثَمَانِيَةَ عَشَرَ، وَهِيَ: لَمْ وَلَمَّا وَأَلَمْ وَأَلَمَّا … وَإِنْ وَمَا وَمَنْ وَمَهْمَا وَإِذْمَا …</p>
+    </blockquote>
+    <p class="lx-quote-note"><i>Al-Ajurrumiyyah</i>, chapter on the verbs. The list is cut short. Vowel marks added by Quran Learn.</p>
+  </Stage>
+
+*Al-Ajurrumiyyah*, the short grammar book you met in L3.07, says there are eighteen words of jazm. إِنْ is on the list, with مَا and مَنْ.
+
+The book does not say that a word of condition puts **two** verbs in jazm. It only names the words. The verses show the two verbs, and al-Jadwal reads both of them in jazm.
+
+<Check n={3} q="What does the book's list say about إِنْ?" options={['It is one of the eighteen words of jazm', 'It is a word of naṣb', 'It is not on the list']} answer={0} why="The list of eighteen names إِنْ. How many verbs it puts in jazm comes from the verses." />
+</Block>
+
+<Block id="in-inna" title="إِنْ is not إِنَّ">
+  <Stage>
+    <Sentence
+      roles
+      reference="Luqman 31:8 (start)"
+      groups={[
+        { words: [{ ar: 'إِنَّ', en: 'indeed', say: 'inna', type: 'p' }] },
+        { role: 'ismInna', words: [{ ar: 'ٱلَّذِينَ', en: 'those who', say: 'alladhina' }] },
+        { role: 'tied', label: 'ṣila', hint: 'the sentence that completes “those who”', words: [{ ar: 'ءَامَنُوا۟', en: 'believed', say: 'amanu', type: 'v' }, { ar: 'وَعَمِلُوا۟', en: 'and did', say: 'wa-amilu', type: 'v' }, { ar: 'ٱلصَّٰلِحَٰتِ', en: 'the good deeds', say: 'as-salihati' }] },
+        { role: 'khabarInna', words: [{ ar: 'لَهُمْ', en: 'for them', say: 'lahum', type: 'p' }, { ar: 'جَنَّٰتُ', en: 'gardens of', say: 'jannatu' }, { ar: 'ٱلنَّعِيمِ', en: 'bliss', say: 'an-naimi' }] },
+      ]}
+      en={['Indeed, those who believed and did good deeds have gardens of bliss.']}
+    />
+    <Tiles
+      label="One spelling, two words"
+      items={[
+        { ar: 'إِنْ', en: 'if: a sukūn on the nūn; a verb follows', type: 'p' },
+        { ar: 'إِنَّ', en: 'indeed: a shadda on the nūn; a noun follows', type: 'p' },
+      ]}
+    />
+  </Stage>
+
+Two little words look the same when the vowel marks are missing.
+
+- **إِنْ** has a sukūn on the nūn. It means “if”, and a verb follows it.
+- **إِنَّ** has a shadda. It means “indeed”, and a noun follows it. L2.10 taught this word.
+
+In 31:8 the verbs ءَامَنُوا۟ and وَعَمِلُوا۟ come after ٱلَّذِينَ, not after إِنَّ. They tell who “those who” are. The sentence is a plain statement. It has no condition and no answer, so nothing is in jazm.
+
+<Note kind="know">Quran Learn counted in the Quranic Arabic Corpus file. 578 words are tagged as the conditional إِنْ. The next word is a past verb in 384 of them, a present verb tagged jussive in 116 and another present verb in 39. In 31 it is a negative word, in 6 a noun, and in 2 something else. Some tags are unreliable and this was not checked verse by verse.</Note>
+
+<Check n={4} q="Which of these starts a condition?" options={['إِنْ تَتَّقُوا۟', 'إِنَّ ٱلَّذِينَ']} answer={0} why="إِنْ with a sukūn means “if”, and a verb follows. إِنَّ with a shadda means “indeed”, and a noun follows." />
+</Block>
+</Step>
+
+<Step id="verbs" label="The two verbs" title="The two verbs: jazm, past forms and kāna">
+<Block id="jazm-both" title="Both verbs in jazm">
+  <Stage>
+    <Sentence
+      roles
+      reference="At-Taghabun 64:17 (part)"
+      groups={[
+        { role: 'jar', label: 'adāt ash-sharṭ', hint: 'the word of condition: “if”', words: [{ ar: 'إِن', en: 'if', say: 'in', type: 'p' }] },
+        { role: 'mubtada', label: 'sharṭ', hint: 'the nūn is gone from the verb', words: [{ ar: 'تُقْرِضُوا۟', en: 'you lend', say: 'tuqridu', type: 'v' }, { ar: 'ٱللَّهَ', en: 'Allah', say: 'allaha' }, { ar: 'قَرْضًا', en: 'a loan', say: 'qardan' }, { ar: 'حَسَنًا', en: 'good', say: 'hasanan' }] },
+        { role: 'khabar', label: 'jawāb ash-sharṭ', hint: 'a sukūn on the ف, then the attached -hu', words: [{ ar: 'يُضَٰعِفْهُ', en: 'he will multiply it', say: 'yudaifhu', type: 'v' }, { ar: 'لَكُمْ', en: 'for you', say: 'lakum', type: 'p' }] },
+      ]}
+      en={['If you lend Allah a good loan, he will multiply it for you.']}
+    />
+  </Stage>
+
+In 64:17 the two verbs show jazm in two different ways.
+
+- **تُقْرِضُوا۟** is the verb of the condition. The plain present is تُقْرِضُونَ. The nūn is gone.
+- **يُضَٰعِفْهُ** is the answer. The plain present is يُضَٰعِفُ, with a ḍamma. Now the ف has a sukūn, and the attached **هُ**, “it”, follows.
+
+These are the signs from L3.07. Here they are again on the verb يَكْتُبُ, used only as a pattern.
+
+| Plain present | In jazm | What changed |
+|---|---|---|
+| يَكْتُبُ | يَكْتُبْ | the ḍamma becomes a sukūn |
+| تَكْتُبُونَ | تَكْتُبُوا۟ | the nūn is gone |
+| يَكْتُبَانِ | يَكْتُبَا | the nūn is gone |
+| تَكْتُبِينَ | تَكْتُبِي | the nūn is gone |
+| تَكْتُبْنَ | تَكْتُبْنَ | nothing: it already ends in a sukūn, and the nūn is the doer |
+
+Every form for one person takes the sukūn: he, she, you (one man), I and we. In this lesson you will see يَسْرِقْ (he), تَكُ (she), تَجْهَرْ (you, 20:7) and نَعُدْ (we, 8:19).
+
+<Check n={5} q="In 64:17, which verb has lost its nūn?" options={['تُقْرِضُوا۟', 'يُضَٰعِفْهُ']} answer={0} why="تُقْرِضُوا۟ shows jazm by the lost nūn (the plain present is تُقْرِضُونَ). يُضَٰعِفْهُ shows it by the sukūn." />
+</Block>
+
+<Block id="chain" title="More than one answer">
+  <Stage>
+    <Sentence
+      roles
+      reference="Al-Anfal 8:29 (part)"
+      groups={[
+        { role: 'jar', label: 'adāt ash-sharṭ', hint: 'the word of condition', words: [{ ar: 'إِن', en: 'if', say: 'in', type: 'p' }] },
+        { role: 'mubtada', label: 'sharṭ', hint: 'the condition', words: [{ ar: 'تَتَّقُوا۟', en: 'you are mindful of', say: 'tattaqu', type: 'v' }, { ar: 'ٱللَّهَ', en: 'Allah', say: 'allaha' }] },
+        { role: 'khabar', label: 'jawāb', hint: 'the first answer', words: [{ ar: 'يَجْعَل', en: 'he will make', say: 'yajal', type: 'v' }, { ar: 'لَّكُمْ', en: 'for you', say: 'lakum', type: 'p' }, { ar: 'فُرْقَانًا', en: 'a way to tell right from wrong', say: 'furqanan' }] },
+        { role: 'matuf', label: 'joined answer', hint: 'joined with “and”: still in jazm', words: [{ ar: 'وَيُكَفِّرْ', en: 'and he will wipe out', say: 'wa-yukaffir', type: 'v' }, { ar: 'عَنكُمْ', en: 'from you', say: 'ankum', type: 'p' }, { ar: 'سَيِّـَٔاتِكُمْ', en: 'your bad deeds', say: 'sayyiatikum' }] },
+        { role: 'matuf', label: 'joined answer', hint: 'joined with “and”: still in jazm', words: [{ ar: 'وَيَغْفِرْ', en: 'and he will forgive', say: 'wa-yaghfir', type: 'v' }, { ar: 'لَكُمْ', en: 'you', say: 'lakum', type: 'p' }] },
+      ]}
+      en={['If you are mindful of Allah, he will give you a way to tell right from wrong, wipe out your bad deeds and forgive you.']}
+    />
+  </Stage>
+
+One condition can have several answers. In 8:29 there are three. The first is يَجْعَل. The next two are joined to it with وَ: **يُكَفِّرْ** and **يَغْفِرْ**.
+
+A verb joined with “and” to the answer takes the same ending as the answer. So both stay in jazm, and both end in a sukūn. Al-Jadwal reads them as “joined to” يَجْعَل.
+
+<Check n={6} q="Why is وَيَغْفِرْ in jazm?" options={['It is joined with “and” to the answer يَجْعَل', 'It is a command', 'It follows لَكُمْ']} answer={0} why="A verb joined to the answer by وَ takes the answer’s ending. The answer is in jazm, so the joined verb is too." />
+</Block>
+
+<Block id="doer" title="The doer comes after the verb">
+  <Stage>
+    <Sentence
+      roles
+      reference="An-Nisa 4:78 (part)"
+      groups={[
+        { role: 'jar', label: 'adāt ash-sharṭ', hint: 'the word of condition: “and if”', words: [{ ar: 'وَإِن', en: 'and if', say: 'wa-in', type: 'p' }] },
+        { role: 'fiil', label: 'fiʿl ash-sharṭ', hint: 'the verb of the condition; -hum is the object', words: [{ ar: 'تُصِبْهُمْ', en: 'befalls them', say: 'tusibhum', type: 'v' }] },
+        { role: 'fail', hint: 'the doer, after the verb', words: [{ ar: 'حَسَنَةٌ', en: 'something good', say: 'hasanatun' }] },
+        { role: 'khabar', label: 'jawāb ash-sharṭ', hint: 'the answer: the nūn is gone', words: [{ ar: 'يَقُولُوا۟', en: 'they say', say: 'yaqulu', type: 'v' }] },
+        { role: 'maful', label: 'what they say', hint: 'the words they speak', words: [{ ar: 'هَٰذِهِۦ', en: 'this', say: 'hadhihi' }, { ar: 'مِنْ', en: 'from', say: 'min', type: 'p' }, { ar: 'عِندِ', en: 'with', say: 'indi' }, { ar: 'ٱللَّهِ', en: 'Allah', say: 'allahi' }] },
+      ]}
+      en={['And if something good befalls them, they say: this is from Allah.']}
+    />
+  </Stage>
+
+In 4:78 the verb of the condition comes first and its doer comes after it, as in any verbal sentence (L2.03). تُصِبْهُمْ is “it befalls them”. The doer is **حَسَنَةٌ**, “something good”. The verb is feminine because the doer is. The **-hum** is the object.
+
+The verb shows jazm by a sukūn on the ب. The plain present is تُصِيبُ, so the long ī is gone as well. L4.12 teaches why.
+
+The answer is يَقُولُوا۟, “they say”, and it lost its nūn. The words after it, هَٰذِهِۦ مِنْ عِندِ ٱللَّهِ, are what they say. The next part of the verse repeats the pattern with سَيِّئَةٌ, “something bad”.
+
+<Check n={7} q="Which word is the doer of تُصِبْهُمْ?" options={['حَسَنَةٌ', 'هُمْ', 'يَقُولُوا۟']} answer={0} why="حَسَنَةٌ, “something good”, is the doer. The -hum is the object: “befalls them”." />
+</Block>
+
+<Block id="past" title="A past verb hides the jazm">
+  <Stage label="Past, past, then present">
+    <Sentence
+      roles
+      reference="Al-Isra 17:7 (part)"
+      groups={[
+        { role: 'jar', label: 'adāt ash-sharṭ', hint: 'the word of condition', words: [{ ar: 'إِنْ', en: 'if', say: 'in', type: 'p' }] },
+        { role: 'mubtada', label: 'sharṭ', hint: 'a past verb: in the place of jazm', words: [{ ar: 'أَحْسَنتُمْ', en: 'you did good', say: 'ahsantum', type: 'v' }] },
+        { role: 'khabar', label: 'jawāb', hint: 'a past verb again: no فَ', words: [{ ar: 'أَحْسَنتُمْ', en: 'you did good', say: 'ahsantum', type: 'v' }, { ar: 'لِأَنفُسِكُمْ', en: 'for yourselves', say: 'li-anfusikum' }] },
+      ]}
+      en={['If you do good, you do good for yourselves.']}
+    />
+    <Sentence
+      roles
+      reference="Al-Isra 17:8 (part)"
+      groups={[
+        { role: 'jar', label: 'adāt ash-sharṭ', hint: 'and if', words: [{ ar: 'وَإِنْ', en: 'and if', say: 'wa-in', type: 'p' }] },
+        { role: 'mubtada', label: 'sharṭ', hint: 'a past verb', words: [{ ar: 'عُدتُّمْ', en: 'you return', say: 'udtum', type: 'v' }] },
+        { role: 'khabar', label: 'jawāb', hint: 'a past verb: “we”', words: [{ ar: 'عُدْنَا', en: 'we return', say: 'udna', type: 'v' }] },
+      ]}
+      en={['And if you return, we return.']}
+    />
+    <Sentence
+      roles
+      reference="Al-Anfal 8:19 (part)"
+      groups={[
+        { role: 'jar', label: 'adāt ash-sharṭ', hint: 'and if', words: [{ ar: 'وَإِن', en: 'and if', say: 'wa-in', type: 'p' }] },
+        { role: 'mubtada', label: 'sharṭ', hint: 'present: the nūn is gone', words: [{ ar: 'تَعُودُوا۟', en: 'you return', say: 'taudu', type: 'v' }] },
+        { role: 'khabar', label: 'jawāb', hint: 'present: a sukūn on the د', words: [{ ar: 'نَعُدْ', en: 'we return', say: 'naud', type: 'v' }] },
+      ]}
+      en={['And if you return, we return.']}
+    />
+  </Stage>
+
+A past verb can follow إِنْ too. The Corpus count in step 1 shows it is the more common choice: the word after إِنْ is a past verb 384 times and a present verb in jazm 116 times.
+
+In 17:7 both the verb of the condition and the answer are past: أَحْسَنتُمْ … أَحْسَنتُمْ. In 17:8 they are عُدتُّمْ … عُدْنَا. A past verb never changes its ending (L3.05: it is built). So you cannot see the jazm. The books say the verb is **in the place of jazm** (فِي مَحَلِّ جَزْم). Al-Jadwal writes this for the verb of the condition, and says the second أَحْسَنتُمْ is “like the first”.
+
+Compare 17:8 with 8:19. The verb is the same, عَادَ, “return”, and the English is the same. In 8:19 the verbs are present, so the jazm shows: تَعُودُوا۟ lost its nūn and نَعُدْ has a sukūn. In 17:8 the verbs are past, so it does not.
+
+In these verses the English is “if you do”, not “if you did”. The action has not happened yet.
+
+<Check n={8} q="Why can you not see jazm on أَحْسَنتُمْ?" options={['A past verb is built: its ending does not change', 'It is a command', 'The nūn is missing']} answer={0} why="A past verb keeps its ending whatever comes before it. The books say it stands in the place of jazm." />
+</Block>
+
+<Block id="kana" title="كَانَ in the condition">
+  <Stage>
+    <Sentence
+      roles
+      reference="Al-Imran 3:31 (part)"
+      groups={[
+        { role: 'jar', label: 'adāt ash-sharṭ', hint: 'the word of condition', words: [{ ar: 'إِن', en: 'if', say: 'in', type: 'p' }] },
+        { role: 'fiil', label: 'fiʿl ash-sharṭ', hint: 'a past verb: in the place of jazm; -tum is “you”', words: [{ ar: 'كُنتُمْ', en: 'you are', say: 'kuntum', type: 'v' }] },
+        { role: 'khabarKana', label: 'khabar kāna', hint: 'a present verb: the nūn stays', words: [{ ar: 'تُحِبُّونَ', en: 'you love', say: 'tuhibbuna', type: 'v' }, { ar: 'ٱللَّهَ', en: 'Allah', say: 'allaha' }] },
+        { role: 'khabar', label: 'jawāb', hint: 'a command, tied with فَ', words: [{ ar: 'فَٱتَّبِعُونِى', en: 'then follow me', say: 'fa-ittabiuni', type: 'v' }] },
+        { role: 'matuf', label: 'jazm again', hint: 'in jazm: the answer to the command', words: [{ ar: 'يُحْبِبْكُمُ', en: 'he will love you', say: 'yuhbibkum', type: 'v' }, { ar: 'ٱللَّهُ', en: 'Allah', say: 'allahu' }] },
+      ]}
+      en={['If you love Allah, follow me, and Allah will love you.']}
+    />
+  </Stage>
+
+كَانَ often opens the condition: إِن كُنتُمْ, “if you are”. كُنتُمْ is a past verb, so it shows no jazm. It is built on a sukūn and stands in the place of jazm. Al-Jadwal reads it that way in 3:31.
+
+Then comes the khabar of kāna (L2.11). In 3:31 the khabar is a verb: تُحِبُّونَ, “you love”. This is **not** the verb of the condition. It is the khabar of كُنتُمْ, so it keeps the nūn of the plain present.
+
+The answer is a command, فَٱتَّبِعُونِى, tied with فَ. After it comes يُحْبِبْكُمُ, in jazm. Al-Jadwal reads it as the answer to the command: it is as if the verse said “if you follow me, Allah will love you”.
+
+<Check n={9} q="In إِن كُنتُمْ تُحِبُّونَ, which verb is the verb of the condition?" options={['كُنتُمْ', 'تُحِبُّونَ']} answer={0} why="كُنتُمْ is the verb of the condition. تُحِبُّونَ is the khabar of kāna, so it keeps its nūn." />
+</Block>
+
+<Block id="weak" title="A weak letter drops in jazm">
+  <Stage>
+    <Sentence
+      roles
+      reference="An-Nisa 4:40 (part)"
+      groups={[
+        { role: 'jar', label: 'adāt ash-sharṭ', hint: 'and if', words: [{ ar: 'وَإِن', en: 'and if', say: 'wa-in', type: 'p' }] },
+        { role: 'mubtada', label: 'sharṭ', hint: 'كَانَ in jazm: “she is”', words: [{ ar: 'تَكُ', en: 'she is', say: 'taku', type: 'v' }, { ar: 'حَسَنَةً', en: 'a good deed', say: 'hasanatan' }] },
+        { role: 'khabar', label: 'jawāb', hint: 'in jazm: a sukūn on the ف', words: [{ ar: 'يُضَٰعِفْهَا', en: 'he will double it', say: 'yudaifha', type: 'v' }] },
+        { role: 'matuf', label: 'joined answer', hint: 'in jazm: the final yā is gone', words: [{ ar: 'وَيُؤْتِ', en: 'and he will give', say: 'wa-yut', type: 'v' }, { ar: 'مِن', en: 'from', say: 'min', type: 'p' }, { ar: 'لَّدُنْهُ', en: 'himself', say: 'ladunhu' }, { ar: 'أَجْرًا', en: 'a reward', say: 'ajran' }, { ar: 'عَظِيمًا', en: 'great', say: 'azeeman' }] },
+      ]}
+      en={['And if it is a good deed, he doubles it and gives from himself a great reward.']}
+    />
+  </Stage>
+
+Two verbs in 4:40 look odd.
+
+- **تَكُ** is كَانَ in jazm, “she is”. The doer is hidden: it stands for the atom (ذَرَّة) mentioned earlier in the verse. The plain present is تَكُونُ. In jazm the wāw is gone, and the nūn is dropped too, to make the word lighter. Al-Jadwal says this.
+- **يُؤْتِ** is the plain present يُؤْتِي without its final yā. A weak last letter drops in jazm (L3.07).
+
+These are weak verbs. L4.11 to L4.13 teach how they change. Here you only need to recognise them as verbs in jazm.
+
+<Check n={10} q="What happened to يُؤْتِي in jazm?" options={['The final yā is gone', 'It gained a nūn', 'Nothing changed']} answer={0} why="A weak last letter drops in jazm: يُؤْتِي becomes يُؤْتِ." />
+</Block>
+</Step>
+
+<Step id="fa" label="The answer and فَ" title="The answer, and the فَ that ties it">
+<Block id="fa-why" title="When does the answer need a فَ?">
+  <Stage label="Two kinds of answer">
+    <Tiles
+      label="One shows jazm. One cannot."
+      items={[
+        { ar: 'يَنصُرْكُمْ', en: 'a verb in jazm: no فَ (47:7)', type: 'v' },
+        { ar: 'فَهُوَ خَيْرٌ', en: 'a noun sentence: needs فَ (2:271)', type: 'n' },
+      ]}
+    />
+  </Stage>
+
+So far the answer was a verb that shows jazm, or a past verb. Nothing else is needed to link it to the condition.
+
+Some answers cannot show jazm. A command has no jazm form. A noun sentence has no verb to cut. Then the answer starts with **فَ**. Al-Jadwal calls it “the one that ties the answer”, الفاء الرابطة.
+
+In the verses of this lesson al-Jadwal gives the answer sentence a different place in the two cases. With a فَ the whole answer sentence stands **in the place of jazm**. Without a فَ it has no place of its own (لا محل لها).
+
+<Check n={11} q="Which answer needs a فَ?" options={['يَنصُرْكُمْ, a verb in jazm', 'هُوَ خَيْرٌ لَّكُمْ, a noun sentence']} answer={1} why="A noun sentence has no verb to show jazm, so a فَ ties it to the condition. A verb in jazm needs no tie." />
+</Block>
+
+<Block id="fa-command" title="A command as the answer">
+  <Stage>
+    <Sentence
+      roles
+      reference="Al-Maidah 5:6 (part)"
+      groups={[
+        { role: 'jar', label: 'adāt ash-sharṭ', hint: 'and if', words: [{ ar: 'وَإِن', en: 'and if', say: 'wa-in', type: 'p' }] },
+        { role: 'mubtada', label: 'sharṭ', hint: 'kāna in the past: “you are”', words: [{ ar: 'كُنتُمْ', en: 'you are', say: 'kuntum', type: 'v' }, { ar: 'جُنُبًا', en: 'in need of a full wash', say: 'junuban' }] },
+        { role: 'khabar', label: 'jawāb', hint: 'a command, tied with فَ', words: [{ ar: 'فَٱطَّهَّرُوا۟', en: 'then purify yourselves', say: 'fa-ittahharu', type: 'v' }] },
+      ]}
+      en={['And if you are in need of a full wash, then purify yourselves.']}
+    />
+    <Tiles
+      label="Made-up example: the link is missing"
+      items={[
+        { ar: 'وَإِن كُنتُمْ جُنُبًا فَٱطَّهَّرُوا۟', en: 'the verse, with فَ', type: 'v' },
+        { ar: 'وَإِن كُنتُمْ جُنُبًا ٱطَّهَّرُوا۟', en: 'made up: no فَ', type: 'x' },
+      ]}
+    />
+  </Stage>
+
+The answer in 5:6 is a command: فَٱطَّهَّرُوا۟, “then purify yourselves”. A command has no jazm form to show, so the فَ ties it to the condition.
+
+In 2:23 the answer is a command too: فَأْتُوا۟ بِسُورَةٍ, “then bring a surah”. Parse 2 goes through that verse.
+
+Look at the two lines under the verse. The second is made up, to show the gap.
+
+Arabic grammar asks for the فَ when the answer is a command. Every verse in this lesson that has a command as its answer has it.
+
+<Note kind="know">The same verse 5:6 begins with إِذَا قُمْتُمْ إِلَى ٱلصَّلَوٰةِ فَٱغْسِلُوا۟. There the word of condition is إِذَا, and the answer has a فَ in the same way. L4.04 teaches إِذَا.</Note>
+
+<Check n={12} q="What is the answer in 5:6?" options={['فَٱطَّهَّرُوا۟', 'كُنتُمْ', 'جُنُبًا']} answer={0} why="The answer is the command “then purify yourselves”. كُنتُمْ جُنُبًا is the condition." />
+</Block>
+
+<Block id="fa-noun" title="A noun sentence as the answer">
+  <Stage>
+    <Sentence
+      roles
+      reference="Al-Baqarah 2:271 (part)"
+      groups={[
+        { role: 'jar', label: 'adāt ash-sharṭ', hint: 'if', words: [{ ar: 'إِن', en: 'if', say: 'in', type: 'p' }] },
+        { role: 'mubtada', label: 'sharṭ', hint: 'the nūn is gone', words: [{ ar: 'تُبْدُوا۟', en: 'you show', say: 'tubdu', type: 'v' }, { ar: 'ٱلصَّدَقَٰتِ', en: 'the charity gifts', say: 'as-sadaqati' }] },
+        { role: 'khabar', label: 'jawāb', hint: 'tied with فَ', words: [{ ar: 'فَنِعِمَّا', en: 'so how good', say: 'fa-niamma', type: 'v' }, { ar: 'هِىَ', en: 'it is', say: 'hiya' }] },
+        { role: 'jar', label: 'adāt ash-sharṭ', hint: 'and if', words: [{ ar: 'وَإِن', en: 'and if', say: 'wa-in', type: 'p' }] },
+        { role: 'mubtada', label: 'sharṭ', hint: 'two verbs joined, both without the nūn', words: [{ ar: 'تُخْفُوهَا', en: 'you hide it', say: 'tukhfuha', type: 'v' }, { ar: 'وَتُؤْتُوهَا', en: 'and give it to', say: 'wa-tutuha', type: 'v' }, { ar: 'ٱلْفُقَرَآءَ', en: 'the poor', say: 'al-fuqaraa' }] },
+        { role: 'khabar', label: 'jawāb', hint: 'a noun sentence, tied with فَ', words: [{ ar: 'فَهُوَ', en: 'then it', say: 'fa-huwa', type: 'p' }, { ar: 'خَيْرٌ', en: 'better', say: 'khayrun' }, { ar: 'لَّكُمْ', en: 'for you', say: 'lakum', type: 'p' }] },
+      ]}
+      en={['If you show your charity gifts, how good that is. And if you hide them and give them to the poor, that is better for you.']}
+    />
+  </Stage>
+
+A noun sentence has no verb to show jazm, so it takes **فَ**. In the second answer, فَهُوَ خَيْرٌ لَّكُمْ means “then it is better for you”. هُوَ is the mubtadaʾ and خَيْرٌ is the khabar (L2.01).
+
+The first answer, فَنِعِمَّا هِىَ, means “so how good it is”. Al-Jadwal reads it as a noun sentence, with نِعْمَ, a verb of praise that never changes.
+
+Notice the two conditions in a row, each with its own answer. The second condition has two verbs joined with وَ: تُخْفُوهَا and وَتُؤْتُوهَا. Both lost their nūn.
+
+<Note kind="know">The verse goes on: وَيُكَفِّرُ عَنكُم مِّن سَيِّـَٔاتِكُمْ. The verb has a ḍamma, so al-Jadwal reads it as the start of a new sentence, “and he wipes out some of your bad deeds”. It is not another answer in jazm.</Note>
+
+<Check n={13} q="Why does فَهُوَ خَيْرٌ need a فَ?" options={['It is a noun sentence, with no verb to show jazm', 'It is a past verb', 'It is a question']} answer={0} why="هُوَ خَيْرٌ is a mubtadaʾ and a khabar. There is no verb, so the فَ ties it to the condition." />
+</Block>
+
+<Block id="fa-particles" title="قَدْ, سَوْفَ and لَن after the فَ">
+  <Stage label="Three little words at the start of an answer">
+    <Sentence
+      roles
+      reference="Al-Anfal 8:19 (part)"
+      groups={[
+        { role: 'jar', label: 'adāt ash-sharṭ', hint: 'if', words: [{ ar: 'إِن', en: 'if', say: 'in', type: 'p' }] },
+        { role: 'mubtada', label: 'sharṭ', hint: 'the nūn is gone', words: [{ ar: 'تَسْتَفْتِحُوا۟', en: 'you ask for a decision', say: 'tastaftihu', type: 'v' }] },
+        { role: 'khabar', label: 'jawāb', hint: 'فَ, then قَدْ and a past verb', words: [{ ar: 'فَقَدْ', en: 'then already', say: 'fa-qad', type: 'p' }, { ar: 'جَآءَكُمُ', en: 'has come to you', say: 'jaakumu', type: 'v' }, { ar: 'ٱلْفَتْحُ', en: 'the decision', say: 'al-fathu' }] },
+      ]}
+      en={['If you ask for a decision, the decision has already come to you.']}
+    />
+    <Sentence
+      roles
+      reference="At-Tawbah 9:28 (part)"
+      groups={[
+        { role: 'jar', label: 'adāt ash-sharṭ', hint: 'and if', words: [{ ar: 'وَإِنْ', en: 'and if', say: 'wa-in', type: 'p' }] },
+        { role: 'mubtada', label: 'sharṭ', hint: 'a past verb: in the place of jazm', words: [{ ar: 'خِفْتُمْ', en: 'you fear', say: 'khiftum', type: 'v' }, { ar: 'عَيْلَةً', en: 'poverty', say: 'aylatan' }] },
+        { role: 'khabar', label: 'jawāb', hint: 'فَ, then سَوْفَ and a present verb', words: [{ ar: 'فَسَوْفَ', en: 'then soon', say: 'fa-sawfa', type: 'p' }, { ar: 'يُغْنِيكُمُ', en: 'will make you rich', say: 'yughnikumu', type: 'v' }, { ar: 'ٱللَّهُ', en: 'Allah', say: 'allahu' }, { ar: 'مِن', en: 'from', say: 'min', type: 'p' }, { ar: 'فَضْلِهِۦٓ', en: 'his bounty', say: 'fadlihi' }] },
+      ]}
+      en={['And if you fear poverty, then soon Allah will make you rich from his bounty.']}
+    />
+    <Sentence
+      roles
+      reference="At-Tawbah 9:80 (part)"
+      groups={[
+        { role: 'jar', label: 'adāt ash-sharṭ', hint: 'if', words: [{ ar: 'إِن', en: 'if', say: 'in', type: 'p' }] },
+        { role: 'mubtada', label: 'sharṭ', hint: 'in jazm: a sukūn on the ر', words: [{ ar: 'تَسْتَغْفِرْ', en: 'you ask forgiveness', say: 'tastaghfir', type: 'v' }, { ar: 'لَهُمْ', en: 'for them', say: 'lahum', type: 'p' }, { ar: 'سَبْعِينَ', en: 'seventy', say: 'sabina' }, { ar: 'مَرَّةً', en: 'times', say: 'marratan' }] },
+        { role: 'khabar', label: 'jawāb', hint: 'فَ, then لَن and a verb with fatḥa', words: [{ ar: 'فَلَن', en: 'then not', say: 'fa-lan', type: 'p' }, { ar: 'يَغْفِرَ', en: 'will forgive', say: 'yaghfira', type: 'v' }, { ar: 'ٱللَّهُ', en: 'Allah', say: 'allahu' }, { ar: 'لَهُمْ', en: 'them', say: 'lahum', type: 'p' }] },
+      ]}
+      en={['If you ask forgiveness for them seventy times, Allah will not forgive them.']}
+    />
+  </Stage>
+
+Three little words come first in many answers, and then the answer needs the فَ.
+
+- **قَدْ** with a past verb, “already”: فَقَدْ جَآءَكُمُ ٱلْفَتْحُ (8:19). You will see it again in Parse 4.
+- **سَوْفَ** with a present verb, “soon”: فَسَوْفَ يُغْنِيكُمُ (9:28).
+- **لَن** with a present verb, “will not”: فَلَن يَغْفِرَ (9:80).
+
+After the فَ the answer is an ordinary sentence. In 9:28 the verb يُغْنِيكُمُ has the plain present ending, with no jazm. In 9:80 يَغْفِرَ has the fatḥa that لَن brings (L3.07).
+
+The condition in 9:28 has a past verb, خِفْتُمْ. As in 17:7, its jazm is hidden.
+
+<Check n={14} q="In 9:80, which two words start the answer?" options={['فَلَن', 'إِن', 'سَبْعِينَ']} answer={0} why="The answer starts with فَ and لَن: “then … not”. إِن starts the condition." />
+</Block>
+
+<Block id="fa-table" title="Which answer needs a فَ">
+  <Stage label="The answer starts with فَ when it is…">
+    <Tiles
+      label="Five kinds of answer, from the verses"
+      items={[
+        { ar: 'فَٱطَّهَّرُوا۟', en: 'a command (5:6)', type: 'v' },
+        { ar: 'فَهُوَ خَيْرٌ', en: 'a noun sentence (2:271)', type: 'n' },
+        { ar: 'فَقَدْ جَآءَكُمُ', en: 'قَدْ and a past verb (8:19)', type: 'v' },
+        { ar: 'فَسَوْفَ يُغْنِيكُمُ', en: 'سَوْفَ and a verb (9:28)', type: 'v' },
+        { ar: 'فَلَن يَغْفِرَ', en: 'لَن and a verb (9:80)', type: 'v' },
+      ]}
+    />
+  </Stage>
+
+Here is the whole list in one place.
+
+| The answer is | Needs a فَ? | Example |
+|---|---|---|
+| a present verb in jazm | no | يَنصُرْكُمْ (47:7), يَجْعَل (8:29) |
+| a plain past verb | no | أَحْسَنتُمْ (17:7), عُدْنَا (17:8) |
+| a command | yes | فَٱطَّهَّرُوا۟ (5:6), فَأْتُوا۟ (2:23) |
+| a noun sentence | yes | فَهُوَ خَيْرٌ لَّكُمْ (2:271) |
+| a sentence that starts with إِنَّ | yes | فَإِنَّ ٱللَّهَ غَفُورٌ رَّحِيمٌ (64:14) |
+| a verb with قَدْ | yes | فَقَدْ جَآءَكُمُ (8:19), فَقَدْ سَرَقَ (12:77) |
+| a verb with سَوْفَ | yes | فَسَوْفَ يُغْنِيكُمُ (9:28) |
+| a verb with لَن | yes | فَلَن يَغْفِرَ (9:80) |
+| a negative with مَا | yes | فَمَا سَأَلْتُكُم (10:72, Exercise 7) |
+
+Teaching lists often add the short سَ, which works like سَوْفَ. This lesson has no verse for it. Each row above is checked in the verse named.
+
+<Note kind="tip">The rule of thumb: if the answer could not show jazm on its own, it starts with فَ.</Note>
+
+<Note kind="know">This table is a teaching summary. It is not a list from al-Ajurrumiyyah, and it is not complete for every verse of the Quran. In each verse named, al-Jadwal marks the فَ as the one that ties the answer.</Note>
+
+<Check n={15} q="In 20:7, وَإِن تَجْهَرْ بِٱلْقَوْلِ فَإِنَّهُۥ يَعْلَمُ ٱلسِّرَّ, why does the answer start with فَ?" options={['It starts with إِنَّ, so it cannot show jazm', 'It is a command', 'It is a past verb']} answer={0} why="فَإِنَّهُۥ يَعْلَمُ starts with إِنَّ and is not a verb in jazm, so the فَ ties it." />
+</Block>
+
+<Block id="other-words" title="Other opening words, same pattern">
+  <Stage>
+    <Sentence
+      roles
+      reference="Al-Ankabut 29:6 (part)"
+      groups={[
+        { role: 'jar', label: 'adāt ash-sharṭ', hint: 'and “whoever”', words: [{ ar: 'وَمَن', en: 'and whoever', say: 'wa-man', type: 'p' }] },
+        { role: 'mubtada', label: 'sharṭ', hint: 'a past verb: the jazm is hidden', words: [{ ar: 'جَٰهَدَ', en: 'strives', say: 'jahada', type: 'v' }] },
+        { role: 'khabar', label: 'jawāb', hint: 'tied with فَ: it starts with إِنَّمَا', words: [{ ar: 'فَإِنَّمَا', en: 'then only', say: 'fa-innama', type: 'p' }, { ar: 'يُجَٰهِدُ', en: 'he strives', say: 'yujahidu', type: 'v' }, { ar: 'لِنَفْسِهِۦٓ', en: 'for himself', say: 'li-nafsihi' }] },
+      ]}
+      en={['And whoever strives, strives only for himself.']}
+    />
+  </Stage>
+
+L3.17 promised this pattern: “whoever … then”. It is the same pattern as with إِنْ. There is a word of condition, a condition and an answer. Only the opening word changes: مَن means “whoever”.
+
+جَٰهَدَ is a past verb, so its jazm is hidden. The answer starts with **فَإِنَّمَا**, a little word that cannot show jazm, so it takes the فَ. L4.04 teaches مَن and the other words of condition: what each means and which ones put the verbs in jazm.
+
+<Note kind="know">Where مَن opens the sentence, grammarians read the clause after it in different ways. Al-Jadwal reads مَن as a mubtadaʾ and the condition clause as its khabar: here جَٰهَدَ is “in the place of the nominative”. In other verses (2:197 and 4:123) he adds that the khabar may be the condition and the answer together. This lesson follows the first reading. After إِنْ there is no such question: al-Jadwal gives the condition clause no place of its own.</Note>
+
+<Check n={16} q="What is the answer in 29:6?" options={['فَإِنَّمَا يُجَٰهِدُ لِنَفْسِهِۦٓ', 'جَٰهَدَ', 'وَمَن']} answer={0} why="جَٰهَدَ is the condition and وَمَن is the word of condition. The answer starts with the فَ." />
+</Block>
+
+<Block id="answer-first" title="When the answer comes first">
+  <Stage>
+    <Sentence
+      roles
+      reference="Az-Zumar 39:13"
+      groups={[
+        { role: 'tied', label: 'points to the answer', hint: 'the words that stand for the answer', words: [{ ar: 'إِنِّىٓ', en: 'indeed I', say: 'inni', type: 'p' }, { ar: 'أَخَافُ', en: 'fear', say: 'akhafu', type: 'v' }] },
+        { role: 'jar', label: 'adāt ash-sharṭ', hint: 'if', words: [{ ar: 'إِنْ', en: 'if', say: 'in', type: 'p' }] },
+        { role: 'mubtada', label: 'sharṭ', hint: 'a past verb: in the place of jazm', words: [{ ar: 'عَصَيْتُ', en: 'I disobey', say: 'asaytu', type: 'v' }, { ar: 'رَبِّى', en: 'my Lord', say: 'rabbi' }] },
+        { role: 'maful', hint: 'the object of أَخَافُ', words: [{ ar: 'عَذَابَ', en: 'the punishment of', say: 'adhaba' }, { ar: 'يَوْمٍ', en: 'a day', say: 'yawmin' }, { ar: 'عَظِيمٍ', en: 'great', say: 'azimin' }] },
+      ]}
+      en={['Indeed I fear, if I disobey my Lord, the punishment of a great day.']}
+    />
+  </Stage>
+
+The condition usually comes first. In 39:13 it comes later: “I fear the punishment of a great day, if I disobey my Lord.”
+
+The verb of the condition is عَصَيْتُ, a past verb in the place of jazm. The answer is not written after it. Al-Jadwal says the answer is left out and the words before إِنْ point to it, so the sentence needs no second answer.
+
+<Note kind="know">Some grammarians read it differently: they call the earlier words the answer itself, put first. This lesson follows al-Jadwal.</Note>
+
+<Check n={17} q="In 39:13, where does the condition start?" options={['At إِنْ', 'At أَخَافُ', 'At عَذَابَ']} answer={0} why="إِنْ عَصَيْتُ رَبِّى is the condition. The words before it point to the answer." />
+</Block>
+
+<Block id="plain-present" title="An answer with a plain ending">
+  <Stage>
+    <Sentence
+      roles
+      reference="Al-Imran 3:120 (part)"
+      groups={[
+        { role: 'jar', label: 'adāt ash-sharṭ', hint: 'and if', words: [{ ar: 'وَإِن', en: 'and if', say: 'wa-in', type: 'p' }] },
+        { role: 'mubtada', label: 'sharṭ', hint: 'two verbs, both without the nūn', words: [{ ar: 'تَصْبِرُوا۟', en: 'you are patient', say: 'tasbiru', type: 'v' }, { ar: 'وَتَتَّقُوا۟', en: 'and you are mindful of Allah', say: 'wa-tattaqu', type: 'v' }] },
+        { role: 'khabar', label: 'jawāb', hint: 'the verb has a ḍamma: no sign of jazm', words: [{ ar: 'لَا', en: 'not', say: 'la', type: 'p' }, { ar: 'يَضُرُّكُمْ', en: 'will harm you', say: 'yadurrukum', type: 'v' }, { ar: 'كَيْدُهُمْ', en: 'their scheming', say: 'kayduhum' }, { ar: 'شَيْـًٔا', en: 'at all', say: 'shayan' }] },
+      ]}
+      en={['And if you are patient and mindful of Allah, their scheming will not harm you at all.']}
+    />
+  </Stage>
+
+Almost every answer so far showed jazm, or sat in a place that hid it. In 3:120 the answer verb يَضُرُّكُمْ ends in a ḍamma, the ending of the plain present.
+
+Al-Jadwal explains it with a فَ that is understood but not written: “then their scheming will not harm you”. After a فَ the verb takes the plain ending, as in 9:28.
+
+<Note kind="know">Al-Jadwal says this reading is the one of al-Mubarrad. Sibawayh read it differently: the verb only points to an answer that is put first in meaning, so it keeps its plain ending. This lesson follows al-Jadwal’s first reading.</Note>
+
+So an answer with a plain ending is not always a mistake. When you write your own answer without a فَ, use jazm.
+
+<Check n={18} q="What does the ḍamma on يَضُرُّكُمْ in 3:120 tell you?" options={['Al-Jadwal reads an unwritten فَ before the answer', 'The verb is a command', 'The verb is in jazm']} answer={0} why="The ḍamma is the plain ending, not the sign of jazm. Al-Jadwal reads a فَ that is understood." />
+</Block>
+</Step>
+
+<Step id="irab" label="Mistakes, word by word" title="Five mistakes, and four verses word by word">
+<Block id="mistake-nun" title="Mistake 1: looking for a lost nūn on every verb">
+  <Stage label="Three verbs after إِنْ">
+    <Tiles
+      label="Only one of them is cut"
+      items={[
+        { ar: 'تَتَّقُوا۟', en: 'verb of the condition: the nūn is gone', type: 'v' },
+        { ar: 'كُنتُمْ', en: 'past verb: no change to see', type: 'v' },
+        { ar: 'تُحِبُّونَ', en: 'khabar of kāna: the nūn stays', type: 'v' },
+      ]}
+    />
+  </Stage>
+
+After إِنْ you do not always find a lost nūn. There are three reasons.
+
+- The verb is **past**, like كُنتُمْ in 2:23 and 3:31. It cannot change, so it stands in the place of jazm.
+- The verb is the **khabar of kāna**, like تُحِبُّونَ in 3:31. It is not the verb of the condition.
+- The verb comes after a **فَ**, like يُغْنِيكُمُ in 9:28. It is an ordinary sentence.
+
+Find the verb of the condition first, then look at its ending.
+
+<Check n={19} q="In إِن كُنتُمْ تُحِبُّونَ ٱللَّهَ, why does تُحِبُّونَ keep its nūn?" options={['It is the khabar of kāna, not the verb of the condition', 'It is a past verb', 'The nūn is the doer']} answer={0} why="كُنتُمْ is the verb of the condition. تُحِبُّونَ is its khabar, and only the verb of the condition and the answer are put in jazm." />
+</Block>
+
+<Block id="mistake-fa" title="Mistake 2: leaving out the فَ">
+  <Stage label="Which one is right?">
+    <Tiles
+      label="The فَ is part of the answer"
+      items={[
+        { ar: 'فَهُوَ خَيْرٌ لَّكُمْ', en: 'the verse (8:19 and 2:271)', type: 'v' },
+        { ar: 'هُوَ خَيْرٌ لَّكُمْ', en: 'made up: no فَ', type: 'x' },
+      ]}
+    />
+  </Stage>
+
+When the answer is a command, a noun sentence or starts with قَدْ, سَوْفَ or لَن, it needs the فَ. Without it the answer is not tied to the condition.
+
+The فَ is easy to skip because English does not need a word there. In English the answer can follow straight after: “if you stop, it is better for you”. Arabic ties it: وَإِن تَنتَهُوا۟ فَهُوَ خَيْرٌ لَّكُمْ (8:19).
+
+<Note kind="warn">Not every فَ near a condition is the tying فَ. The فَ in front of إِنْ, as in فَإِنْ, “so if”, joins the sentence to the one before it. Al-Jadwal reads it that way in 3:20. The tying فَ is the first word of the answer.</Note>
+</Block>
+
+<Block id="mistake-in" title="Mistake 3: reading every إن as “if”">
+  <Stage label="One spelling, three words">
+    <Tiles
+      label="إِنْ, إِنَّ and a third إِنْ"
+      items={[
+        { ar: 'إِنْ', en: 'if: a verb follows', type: 'p' },
+        { ar: 'إِنَّ', en: 'indeed: a noun follows', type: 'p' },
+        { ar: 'إِنْ', en: 'not: a noun follows, and إِلَّا later', type: 'p' },
+      ]}
+    />
+  </Stage>
+
+You met إِنْ and إِنَّ in the first step. There is a third word that is spelled like إِنْ: the negative إِنْ, “not”. L4.04 teaches it.
+
+It appears in the verse of Exercise 7. Right after the condition فَإِن تَوَلَّيْتُمْ comes إِنْ أَجْرِىَ إِلَّا عَلَى ٱللَّهِ, “my reward is only from Allah”. Al-Jadwal calls this إِنْ a negative word. It is not a condition: nothing follows it that needs an answer.
+
+To tell them apart, look at the vowel marks, then at the next word. A verb after إِنْ means “if”. A noun after إِنَّ means “indeed”.
+
+<Check n={20} q="Which little word has a shadda?" options={['إِنْ, “if”', 'إِنَّ, “indeed”']} answer={1} why="إِنَّ has a shadda on the nūn. إِنْ has a sukūn." />
+</Block>
+
+<Block id="mistake-words" title="Mistake 4: thinking every “if” word cuts the verbs">
+  <Stage label="Words of condition">
+    <Tiles
+      label="Some cut the verbs, and some do not"
+      items={[
+        { ar: 'إِنْ', en: 'cuts both verbs', type: 'p' },
+        { ar: 'مَن', en: 'cuts both verbs (29:6, 48:17)', type: 'p' },
+        { ar: 'لَوْ', en: 'does not cut (8:19)', type: 'p' },
+        { ar: 'إِذَا', en: 'does not cut (5:6)', type: 'p' },
+      ]}
+    />
+  </Stage>
+
+Arabic has more than one word of condition. This lesson uses إِنْ, with مَن in 29:6. They put the verbs in jazm.
+
+Other words do not. In 8:19, after the conditions with إِنْ, the verse says وَلَوْ كَثُرَتْ, “even if it is many”. Al-Jadwal calls لَوْ here a word of condition that does not cut. In 5:6 he reads إِذَا as a word for future time that carries the meaning of a condition. Neither puts a verb in jazm there.
+
+In 48:17, وَمَن يُطِعِ ٱللَّهَ وَرَسُولَهُۥ يُدْخِلْهُ جَنَّٰتٍ, the word مَن does cut: يُطِعِ and يُدْخِلْهُ are both in jazm.
+
+So do not expect jazm after every “if”. L4.04 gives the full list of the words and what each one does.
+
+<Check n={21} q="Which word of condition does not put the verbs in jazm?" options={['إِنْ', 'لَوْ', 'مَن']} answer={1} why="لَوْ is a word of condition that does not cut, as in 8:19. إِنْ and مَن do cut." />
+</Block>
+
+<Block id="mistake-own" title="Mistake 5: forcing jazm onto your own answer">
+  <Stage label="Made-up examples">
+    <Tiles
+      label="Made-up example: two good answers"
+      items={[
+        { ar: 'إِن تَدْرُسُوا۟ تَنْجَحُوا۟', en: 'jazm: the nūn is gone from both', type: 'v' },
+        { ar: 'إِن تَدْرُسُوا۟ فَسَوْفَ تَنْجَحُونَ', en: 'فَ and سَوْفَ: plain present', type: 'v' },
+      ]}
+    />
+  </Stage>
+
+Jazm shows on an answer only when the answer can carry it. An answer that starts with فَ keeps the plain ending, as in 9:28. An answer without فَ shows jazm when it can.
+
+When you write your own answer, choose one of the two shapes above. Do not put a فَ in front of a verb in jazm, and do not leave a plain ending on an answer that has no فَ.
+
+For the real verses that do not fit, see 3:120 in step 3.
+</Block>
+
+<Block id="parse-1" title="Word by word: Al-Anfal 8:29">
+  <Stage label="Word by word">
+    <Parse
+      reference="Al-Anfal 8:29 (part)"
+      words={[
+        { ar: 'إِن', en: 'if', type: 'p' },
+        { ar: 'تَتَّقُوا۟', en: 'you are mindful of', type: 'v' },
+        { ar: 'ٱللَّهَ', en: 'Allah' },
+        { ar: 'يَجْعَل', en: 'he will make', type: 'v' },
+        { ar: 'لَّكُمْ', en: 'for you', type: 'p' },
+        { ar: 'فُرْقَانًا', en: 'a way to tell right from wrong' },
+      ]}
+      cards={[
+        { at: 0, role: '“if”, the word of condition', why: 'It opens the condition and puts the next two verbs in jazm. A little word has no case.', irab: 'حرف شرط جازم' },
+        { at: 1, role: 'the verb of the condition: “you are mindful of”', case: 'jazm', mark: 'the nūn is gone (the plain present is تَتَّقُونَ)', why: 'إِنْ puts it in jazm. The wāw is the doer, “you all”. The alif after it is written but not read.', irab: 'مضارع مجزوم فعل الشرط وعلامة الجزم حذف النون، والواو فاعل' },
+        { at: 2, role: 'mafʿūl bihi: what you are mindful of', case: 'accusative (naṣb)', mark: '-a (fatḥa)', why: 'The verb acts on it (L2.05).', irab: 'لفظ الجلالة مفعول به منصوب' },
+        { at: [0, 1, 2], role: 'the whole condition: إِن تَتَّقُوا۟ ٱللَّهَ', why: 'After إِنْ the condition sentence has no place of its own in the sentence.', irab: 'جملة تتقوا لا محل لها' },
+        { at: 3, role: 'the answer: “he will make”', case: 'jazm', mark: 'no ḍamma at the end; the sukūn is not written, because the ل joins the ل of لَّكُمْ', why: 'The answer is in jazm too. The doer is a hidden “he”: Allah.', irab: 'مضارع مجزوم جواب الشرط والفاعل هو أي الله' },
+        { at: 4, role: '“for you”: li- with -kum. It belongs to the verb.', why: 'It says for whom he makes it.', irab: 'جار ومجرور متعلق بيجعل' },
+        { at: 5, role: 'mafʿūl bihi: what he makes', case: 'accusative (naṣb)', mark: '-an (fatḥatayn)', why: 'The verb يَجْعَل acts on it.', irab: 'مفعول به منصوب' },
+        { at: [3, 4, 5], role: 'the whole answer: يَجْعَل لَّكُمْ فُرْقَانًا', why: 'The answer has no فَ, so the sentence has no place of its own.', irab: 'جملة يجعل لا محل لها جواب الشرط غير مقترنة بالفاء' },
+      ]}
+    />
+  </Stage>
+
+This verse has the whole pattern with no extras: a word of condition, a condition and an answer, with both verbs in jazm.
+
+Press **Next word**. Before you read each card, say what the word is and what shows its jazm. Al-Jadwal analyses this verse word by word.
+</Block>
+
+<Block id="parse-2" title="Word by word: Al-Baqarah 2:23">
+  <Stage label="Word by word">
+    <Parse
+      reference="Al-Baqarah 2:23 (part)"
+      words={[
+        { ar: 'وَإِن', en: 'and if', type: 'p' },
+        { ar: 'كُنتُمْ', en: 'you are', type: 'v' },
+        { ar: 'فِى', en: 'in', type: 'p' },
+        { ar: 'رَيْبٍ', en: 'doubt' },
+        { ar: 'مِّمَّا', en: 'about what', type: 'p' },
+        { ar: 'نَزَّلْنَا', en: 'we sent down', type: 'v' },
+        { ar: 'عَلَىٰ', en: 'on', type: 'p' },
+        { ar: 'عَبْدِنَا', en: 'our servant' },
+        { ar: 'فَأْتُوا۟', en: 'then bring', type: 'v' },
+        { ar: 'بِسُورَةٍ', en: 'a surah' },
+      ]}
+      cards={[
+        { at: 0, ar: 'وَ', role: '“and”, a little word that starts a new sentence', why: 'A little word has no case.', irab: 'الواو استئنافية' },
+        { at: 0, ar: 'إِن', role: '“if”, the word of condition', why: 'It opens the condition.', irab: 'حرف شرط جازم' },
+        { at: 1, role: 'the verb of the condition: “you are”', case: 'a past verb has no jazm sign; it is built', mark: 'a sukūn on the ن', why: 'إِنْ cannot show its jazm on a past verb, so the verb is “in the place of jazm”. The ت is “you”, the subject of kāna (L2.11).', irab: 'فعل ماض ناقص مبني على السكون في محل جزم فعل الشرط، والتاء اسم كان' },
+        { at: [2, 3], role: 'khabar of kāna: “in doubt”', why: 'A fī phrase can be the khabar of kāna.', irab: 'جار ومجرور متعلق بمحذوف خبر كان' },
+        { at: [4, 5, 6, 7], role: 'a phrase that goes with رَيْبٍ: “about what we sent down on our servant”', why: 'مَا is “what”, and the sentence نَزَّلْنَا completes it (L3.11).', irab: 'جار ومجرور متعلق بريب، وجملة نزلنا لا محل لها صلة الموصول' },
+        { at: 8, ar: 'فَ', role: 'the فَ that ties the answer', why: 'The answer is a command, which cannot show jazm.', irab: 'الفاء رابطة لجواب الشرط' },
+        { at: 8, ar: 'أْتُوا۟', role: 'the answer: a command, “bring”', case: 'a command is built', mark: 'the nūn is gone (the plain present is تَأْتُونَ)', why: 'The wāw is the doer, “you all”.', irab: 'فعل أمر مبني على حذف النون، والواو فاعل' },
+        { at: 9, role: '“with a surah”: bi- and a noun. It belongs to the verb.', why: 'It says what to bring.', irab: 'جار ومجرور متعلق بائتوا' },
+        { at: [8, 9], role: 'the whole answer: فَأْتُوا۟ بِسُورَةٍ', why: 'It starts with فَ, so as a whole it stands in the place of jazm.', irab: 'جملة ائتوا بسورة في محل جزم جواب الشرط مقترنة بالفاء' },
+      ]}
+    />
+  </Stage>
+
+The condition has a past verb, so the jazm is hidden. The answer is a command, so it starts with فَ.
+
+Say which two words tell you where the answer begins.
+</Block>
+
+<Block id="parse-3" title="Word by word: Al-Isra 17:7">
+  <Stage label="Word by word">
+    <Parse
+      reference="Al-Isra 17:7 (part)"
+      words={[
+        { ar: 'إِنْ', en: 'if', type: 'p' },
+        { ar: 'أَحْسَنتُمْ', en: 'you did good', type: 'v' },
+        { ar: 'أَحْسَنتُمْ', en: 'you did good', type: 'v' },
+        { ar: 'لِأَنفُسِكُمْ', en: 'for yourselves' },
+        { ar: 'وَإِنْ', en: 'and if', type: 'p' },
+        { ar: 'أَسَأْتُمْ', en: 'you did wrong', type: 'v' },
+        { ar: 'فَلَهَا', en: 'then for them', type: 'p' },
+      ]}
+      cards={[
+        { at: 0, role: '“if”, the word of condition', why: 'A little word has no case.', irab: 'حرف شرط جازم' },
+        { at: 1, role: 'the verb of the condition: “you did good”', case: 'a past verb has no jazm sign; it is built', mark: 'a sukūn on the ن', why: 'The ending -tum is the doer, “you all”. The verb is in the place of jazm.', irab: 'فعل ماض مبني على السكون في محل جزم فعل الشرط، والتاء فاعل' },
+        { at: 2, role: 'the answer: the same verb again', case: 'built on a sukūn, in the place of jazm', mark: 'a sukūn on the ن', why: 'The answer repeats the verb. It has no فَ, because a past verb needs no tie.', irab: 'مثل الأول جواب الشرط' },
+        { at: 3, role: '“for yourselves”: li- and a noun. It belongs to the second أَحْسَنتُمْ.', why: 'It says for whom you do good.', irab: 'جار ومجرور متعلق بأحسنتم الثاني' },
+        { at: 4, ar: 'وَإِنْ', role: '“and if”: a second condition, joined to the first', why: 'وَ joins the two conditions.', irab: 'الواو عاطفة، وإن حرف شرط جازم' },
+        { at: 5, role: 'the verb of the second condition: “you did wrong”', case: 'built on a sukūn, in the place of jazm', mark: 'a sukūn on the ء', why: 'The same shape as the first condition.', irab: 'مثل أحسنتم الأول' },
+        { at: 6, ar: 'فَ', role: 'the فَ that ties the answer', why: 'The answer is a noun sentence with a word left out.', irab: 'الفاء رابطة لجواب الشرط' },
+        { at: 6, ar: 'لَهَا', role: 'what is written of the answer: “for them”', why: 'The ل is “for”, and ها is “them”: your selves. The missing noun is “your wrongdoing”, so the answer means “your wrongdoing is for them”.', irab: 'جار ومجرور متعلق بخبر لمبتدأ محذوف تقديره إساءتكم' },
+        { at: 6, role: 'the whole second answer', why: 'It starts with فَ, so it stands in the place of jazm.', irab: 'جملة لها في محل جزم جواب الشرط الثاني مقترنة بالفاء' },
+      ]}
+    />
+  </Stage>
+
+This verse has two conditions. The first answer is a past verb with no فَ. The second answer is a short noun sentence, and it needs the فَ.
+
+Look at the two answers side by side. They show the rule from step 3: a plain past verb needs no فَ, and a noun sentence does.
+</Block>
+
+<Block id="parse-4" title="Word by word: Yusuf 12:77">
+  <Stage label="Word by word">
+    <Parse
+      reference="Yusuf 12:77 (part)"
+      words={[
+        { ar: 'إِن', en: 'if', type: 'p' },
+        { ar: 'يَسْرِقْ', en: 'he steals', type: 'v' },
+        { ar: 'فَقَدْ', en: 'then already', type: 'p' },
+        { ar: 'سَرَقَ', en: 'stole', type: 'v' },
+        { ar: 'أَخٌ', en: 'a brother' },
+        { ar: 'لَّهُۥ', en: 'of his', type: 'p' },
+        { ar: 'مِن', en: 'from', type: 'p' },
+        { ar: 'قَبْلُ', en: 'before' },
+      ]}
+      cards={[
+        { at: 0, role: '“if”, the word of condition', why: 'A little word has no case.', irab: 'حرف شرط جازم' },
+        { at: 1, role: 'the verb of the condition: “he steals”', case: 'jazm', mark: 'a sukūn on the ق (the plain present is يَسْرِقُ)', why: 'The doer is a hidden “he”.', irab: 'مضارع مجزوم فعل الشرط، والفاعل هو' },
+        { at: 2, ar: 'فَ', role: 'the فَ that ties the answer', why: 'The answer is a past verb with قَدْ.', irab: 'الفاء رابطة لجواب الشرط' },
+        { at: 2, ar: 'قَدْ', role: 'a little word: “already”', why: 'It makes the past verb sure. It has no case.', irab: 'حرف تحقيق' },
+        { at: 3, role: 'a past verb: “stole”', case: 'a past verb has no case; it is built', mark: 'a fatḥa on the ق', why: 'The doer comes after it.', irab: 'فعل ماض مبني على الفتح' },
+        { at: 4, role: 'fāʿil: the doer, “a brother”', case: 'nominative (rafʿ)', mark: '-un (ḍammatayn)', why: 'The doer comes after the verb (L2.03).', irab: 'فاعل مرفوع وعلامة الرفع الضمة' },
+        { at: 5, role: 'a phrase that describes أَخٌ: “of his”', why: 'li- and -hu say whose brother.', irab: 'جار ومجرور متعلق بنعت لأخ' },
+        { at: [6, 7], role: '“before”: min and a time word. It belongs to the verb.', case: 'قَبْلُ has a fixed ending, a ḍamma; it stands in the place of the genitive', mark: 'a ḍamma', why: 'It says when the brother stole.', irab: 'جار ومجرور، وقبل اسم ظرفي مبني على الضم في محل جر متعلق بسرق' },
+        { at: [2, 3, 4, 5, 6, 7], role: 'the whole answer: فَقَدْ سَرَقَ أَخٌ لَّهُۥ مِن قَبْلُ', why: 'It starts with فَ, so it stands in the place of jazm.', irab: 'جملة قد سرق أخ في محل جزم جواب الشرط مقترنة بالفاء' },
+      ]}
+    />
+  </Stage>
+
+This is the speech of Yusuf's brothers about Binyamin. The condition has a verb that shows its jazm. The answer is a past verb, so it needs قَدْ and the فَ.
+
+Compare this verse with 17:7. There the past answer needed no فَ. Here it has قَدْ, so it does.
+</Block>
+</Step>
+
+<Step id="practice" label="Practice" title="Practice">
+<Block id="practice-1" title="Practice: find the parts">
+  <Stage label="For each sentence, say">
+    <ol class="lx-card-list">
+      <li><b>Word:</b> which word of condition?</li>
+      <li><b>Condition:</b> which verb, and how does it show jazm?</li>
+      <li><b>Answer:</b> where does it start, and is there a فَ?</li>
+      <li><b>Hidden:</b> is a past verb in the place of jazm?</li>
+    </ol>
+  </Stage>
+
+Work out each answer first, on paper or in your head. Then open the answer.
+
+<Exercise n={1} q="Find the three parts in وَإِن تُطِيعُوهُ تَهْتَدُوا۟ (An-Nur 24:54, part): the word of condition, the condition and the answer. Say how each verb shows jazm.">
+
+- The word of condition is **وَإِن**, “and if”.
+- The condition is **تُطِيعُوهُ**, “you obey him”. The plain present is تُطِيعُونَهُ. The nūn is gone, and -hu is the object.
+- The answer is **تَهْتَدُوا۟**, “you will be guided”. The plain present is تَهْتَدُونَ. The nūn is gone here too.
+
+The meaning is “and if you obey him, you will be guided”. There is no فَ, because the answer shows jazm.
+
+</Exercise>
+
+<Exercise n={2} q="Look at إِن تُقْرِضُوا۟ ٱللَّهَ قَرْضًا حَسَنًا يُضَٰعِفْهُ لَكُمْ (At-Taghabun 64:17, part). Which word is the verb of the condition and which is the answer? How does each show jazm?">
+
+The verb of the condition is **تُقْرِضُوا۟**. It shows jazm by the lost nūn (the plain present is تُقْرِضُونَ).
+
+The answer is **يُضَٰعِفْهُ**. It shows jazm by the sukūn on the ف (the plain present is يُضَٰعِفُ), and the attached -hu, “it”, follows. The word of condition is **إِن**.
+
+</Exercise>
+
+<Exercise n={3} q="Analyse إِن تَجْتَنِبُوا۟ كَبَآئِرَ مَا تُنْهَوْنَ عَنْهُ نُكَفِّرْ عَنكُمْ سَيِّـَٔاتِكُمْ (An-Nisa 4:31, start). Find the word of condition, the verb of the condition and the answer. Give the root, the form and the sign of jazm for each verb.">
+
+- The word of condition is **إِن**.
+- The verb of the condition is **تَجْتَنِبُوا۟**, “you all keep away from”. Root ج ن ب, Form VIII (L3.14). The nūn is gone (the plain present is تَجْتَنِبُونَ).
+- Its object is كَبَآئِرَ مَا تُنْهَوْنَ عَنْهُ, “the great sins that you are forbidden”. The verb تُنْهَوْنَ keeps its nūn. It is a passive verb (L3.09) inside the clause that completes مَا (L3.11), so it is not cut.
+- The answer is **نُكَفِّرْ**, “we will wipe out”. Root ك ف ر, Form II (L3.12). The sukūn is on the ر (the plain present is نُكَفِّرُ). The doer is “we”.
+
+The verse goes on with وَنُدْخِلْكُم, “and we will bring you in”. It is joined to the answer with وَ and is also in jazm: a sukūn on the ل, from Form IV.
+
+</Exercise>
+
+<Exercise n={4} q="Made-up example. Finish the sentence with an answer in jazm: إِن تَدْرُسُوا۟ بِٱجْتِهَادٍ … (“If you study hard, …”). Then write a second answer that needs a فَ.">
+
+A good answer in jazm is **تَنْجَحُوا۟**, “you will succeed”. The plain present is تَنْجَحُونَ, so the nūn is gone: إِن تَدْرُسُوا۟ بِٱجْتِهَادٍ تَنْجَحُوا۟. The verb of the condition, تَدْرُسُوا۟, has lost its nūn too.
+
+An answer with a فَ can be a noun sentence, such as **فَٱلنَّجَاحُ لَكُمْ**, “then success is yours”. It can also be a command, such as **فَٱسْتَمِرُّوا۟**, “then keep going”. Neither could show jazm, so each starts with فَ.
+
+</Exercise>
+
+<Exercise n={5} q="Say whether each verb is past, in jazm, or has a plain ending: (a) كُنتُمْ (Al-Baqarah 2:23) (b) تُحِبُّونَ (Al-Imran 3:31) (c) يُحْبِبْكُمُ (Al-Imran 3:31) (d) عُدْنَا (Al-Isra 17:8) (e) نَعُدْ (Al-Anfal 8:19) (f) يَضُرُّكُمْ (Al-Imran 3:120)">
+
+- (a) **past**, built on a sukūn, in the place of jazm: it is the verb of the condition.
+- (b) **plain ending**: the nūn stays, because it is the khabar of kāna.
+- (c) **in jazm**: the answer to the command فَٱتَّبِعُونِى, with a sukūn on the last ب.
+- (d) **past**, “we returned”, built on a sukūn: the answer, with its jazm hidden.
+- (e) **in jazm**: a sukūn on the د, in the answer.
+- (f) **plain ending**: a ḍamma. Al-Jadwal reads an unwritten فَ before it.
+
+</Exercise>
+</Block>
+
+<Block id="practice-2" title="Practice: the فَ, the verses and the lines">
+  <Stage label="When the answer needs a فَ">
+    <ol class="lx-card-list">
+      <li><b>A command:</b> فَٱطَّهَّرُوا۟</li>
+      <li><b>A noun sentence:</b> فَهُوَ خَيْرٌ</li>
+      <li><b>قَدْ, سَوْفَ, لَن:</b> فَقَدْ, فَسَوْفَ, فَلَن</li>
+      <li><b>Starts with إِنَّ or مَا:</b> فَإِنَّ, فَمَا</li>
+      <li><b>No فَ:</b> a verb in jazm, or a plain past verb</li>
+    </ol>
+  </Stage>
+
+<Exercise n={6} q="Does the answer need a فَ? (a) يَنصُرْكُمْ (Muhammad 47:7) (b) هُوَ خَيْرٌ لَّكُمْ (Al-Baqarah 2:271) (c) أَحْسَنتُمْ (Al-Isra 17:7) (d) ٱطَّهَّرُوا۟ (Al-Maidah 5:6) (e) لَن يَغْفِرَ (At-Tawbah 9:80) (f) نَعُدْ (Al-Anfal 8:19)">
+
+- (a) **No.** A verb in jazm shows the link.
+- (b) **Yes.** A noun sentence: the verse has فَهُوَ خَيْرٌ.
+- (c) **No.** A plain past verb needs no tie.
+- (d) **Yes.** A command: the verse has فَٱطَّهَّرُوا۟.
+- (e) **Yes.** After لَن: the verse has فَلَن يَغْفِرَ.
+- (f) **No.** A verb in jazm.
+
+</Exercise>
+
+<Exercise n={7} q="Look at فَإِن تَوَلَّيْتُمْ فَمَا سَأَلْتُكُم مِّنْ أَجْرٍ (Yunus 10:72, part). Find the verb of the condition and the answer. What is the tense of the verb of the condition? Why does the answer start with فَ?">
+
+The word of condition is **إِن**. The verb of the condition is **تَوَلَّيْتُمْ**, “you turned away” (Form V). It is a **past** verb, so it is built on a sukūn and stands in the place of jazm.
+
+The answer is **مَا سَأَلْتُكُم مِّنْ أَجْرٍ**, “I have not asked you for any reward”. It starts with the negative مَا and a past verb. Neither can show jazm, so the فَ ties it. Al-Jadwal marks it as the فَ of the answer.
+
+The verse goes on with إِنْ أَجْرِىَ إِلَّا عَلَى ٱللَّهِ. That إِنْ means “not” (see Mistake 3).
+
+</Exercise>
+
+<Exercise n={8} q="Find the two conditions and their answers in فَإِن تُطِيعُوا۟ يُؤْتِكُمُ ٱللَّهُ أَجْرًا حَسَنًا وَإِن تَتَوَلَّوْا۟ كَمَا تَوَلَّيْتُم مِّن قَبْلُ يُعَذِّبْكُمْ عَذَابًا أَلِيمًا (Al-Fath 48:16, part). Say how each verb shows jazm.">
+
+- First condition: **تُطِيعُوا۟**, “you obey”. The nūn is gone. Its answer is **يُؤْتِكُمُ ٱللَّهُ أَجْرًا حَسَنًا**, “Allah will give you a good reward”. The verb يُؤْتِكُمُ shows jazm by the dropped final yā of يُؤْتِي.
+- Second condition: **تَتَوَلَّوْا۟**, “you turn away”. The nūn is gone. Its answer is **يُعَذِّبْكُمْ عَذَابًا أَلِيمًا**, “he will punish you with a painful punishment”. The verb يُعَذِّبْكُمْ has a sukūn on the ب.
+
+Inside the second condition, كَمَا تَوَلَّيْتُم مِّن قَبْلُ means “as you turned away before”. Its verb, تَوَلَّيْتُم, is past and belongs to that phrase, not to the condition.
+
+Neither answer has a فَ, because both show jazm.
+
+</Exercise>
+
+<Exercise n={9} q="Which one is it: “if”, “indeed” or “not”? Say what follows each. (a) إِن تَنصُرُوا۟ ٱللَّهَ (Muhammad 47:7) (b) إِنَّ ٱلَّذِينَ ءَامَنُوا۟ (Luqman 31:8) (c) إِنْ أَجْرِىَ إِلَّا عَلَى ٱللَّهِ (Yunus 10:72)">
+
+- (a) **“If”.** A verb follows, تَنصُرُوا۟, and it has lost its nūn.
+- (b) **“Indeed”.** A noun follows: ٱلَّذِينَ. It has a shadda.
+- (c) **“Not”.** A noun follows, أَجْرِىَ, and later إِلَّا. The meaning is “my reward is only from Allah”. L4.04 teaches this إِنْ.
+
+</Exercise>
+
+<Exercise n={10} q="Write the iʿrāb line, as in the cards, for: (a) كُنتُمْ (Al-Baqarah 2:23) (b) يَقُولُوا۟ (An-Nisa 4:78) (c) the second أَحْسَنتُمْ (Al-Isra 17:7)">
+
+- (a) فعل ماض ناقص مبني على السكون في محل جزم فعل الشرط، والتاء اسم كان
+- (b) فعل مضارع مجزوم جواب الشرط وعلامة الجزم حذف النون، والواو فاعل
+- (c) فعل ماض مبني على السكون في محل جزم جواب الشرط، والتاء فاعل
+
+The line names the sound the verb is built on or the sign of jazm, the part it plays (verb of the condition or answer), and its doer.
+
+</Exercise>
+</Block>
+
+<Block id="done" title="You have finished the lesson">
+  <Stage label="The idea">
+    <Formula
+      label="condition plus answer equals a conditional sentence"
+      items={[
+        { kind: 'm', text: 'condition', small: 'the “if” half' },
+        { kind: 'k', text: 'answer', small: 'the “then” half' },
+        { kind: 's', text: 'conditional sentence', small: 'جُمْلَة شَرْطِيَّة' },
+      ]}
+    />
+  </Stage>
+
+- A conditional sentence has a **word of condition**, a **condition** and an **answer**: إِن تَتَّقُوا۟ ٱللَّهَ يَجْعَل لَّكُمْ.
+- With إِنْ both verbs take **jazm** when they can show it: a lost nūn, a sukūn or a dropped weak letter. Answers joined with وَ stay in jazm.
+- A **past verb** cannot show jazm. The books say it is **in the place of jazm**: كُنتُمْ, أَحْسَنتُمْ.
+- An answer that cannot show jazm starts with **فَ**: a command, a noun sentence, or a sentence with قَدْ, سَوْفَ or لَن.
+- Look for the **verb of the condition** first. The khabar of kāna keeps its nūn (3:31).
+- إِنْ “if” has a sukūn and a verb after it. إِنَّ “indeed” has a shadda and a noun after it.
+
+**Next:** L4.04 teaches the other words of condition: إِذَا, لَوْ, مَن, مَا and more. L4.04 also shows the إِنْ that means “not”, and L4.10 puts the words of negation side by side. L4.11 to L4.13 teach the weak verbs you met in jazm.
+
+Earlier lessons you can link back to: [the verbal sentence, L2.03](/learn/level-2/03-verbal-sentence/), [kāna and its sisters, L2.11](/learn/level-2/11-kaana-sisters/), [the past tense, L3.05](/learn/level-3/05-past-tense/), [the jazm and naṣb of the present verb, L3.07](/learn/level-3/07-subjunctive-jussive/), [relative pronouns, L3.11](/learn/level-3/11-relative-pronouns/). Ahead: [the conditional words, L4.04](/learn/level-4/04-conditional-particles/), [the words of negation, L4.10](/learn/level-4/10-negation-particles/), [weak verbs, L4.11](/learn/level-4/11-weak-verbs-intro/).
+
+<Sources
+    items={[
+      { label: 'Quran text', name: 'Tanzil (Uthmani text)', href: 'https://tanzil.net' },
+      { label: 'Verb tags and the count of conditional إِنْ', name: 'Quranic Arabic Corpus', href: 'https://corpus.quran.com' },
+      { label: 'Word-by-word analysis (iʿrāb) of the verses', name: 'Maḥmūd Ṣāfī, al-Jadwal fī Iʿrāb al-Qurʾān wa-Ṣarfihi wa-Bayānihi' },
+      { label: 'The list of jazm words', name: 'Ibn Ājurrūm, al-Ajurrumiyyah, chapter on verbs' },
+      { label: 'Count of conditional إِنْ', name: 'Quran Learn count from the Quranic Arabic Corpus' },
+      { label: 'English under the verses', name: 'Plain-English meanings by Quran Learn, not a translation' },
+    ]}
+  />
+</Block>
+</Step>

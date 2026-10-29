@@ -26,9 +26,10 @@ export const CURRICULUM_MAP: LevelMap[] = [
     { title: 'Checkpoint', lessons: [12], checkpoint: true },
   ]},
   { level: 3, clusters: [
-    { title: 'Roots & Form I', lessons: [1, 2] },
-    { title: 'Conjugation & moods', lessons: [3, 4, 5, 6, 7] },
-    { title: 'Pronouns', lessons: [8, 9, 10, 11] },
+    { title: 'Pronouns', lessons: [1, 2] },
+    { title: 'Roots & Form I', lessons: [3, 4] },
+    { title: 'Conjugation & moods', lessons: [5, 6, 7, 8, 9] },
+    { title: 'Pointing & relative words', lessons: [10, 11] },
     { title: 'Forms II–X', lessons: [12, 13, 14, 15, 16, 17, 18] },
     { title: 'Derived nouns', lessons: [19, 20, 21] },
     { title: 'Checkpoint', lessons: [22], checkpoint: true },

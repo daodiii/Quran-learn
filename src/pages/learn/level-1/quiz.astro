@@ -22,75 +22,163 @@ const questions = [
   {
     id: 2,
     question: "What are the three short vowels (harakat) in Arabic?",
-    options: ["Fatha, Kasra, Damma", "Alif, Waw, Ya", "Sukun, Shadda, Tanwin", "Noon, Meem, Lam"],
+    options: [
+      "Fatha, Kasra, Damma",
+      "Hamza, Ba, Ta",
+      "Sukun, Shadda, Tanwin",
+      "Noon, Meem, Lam",
+    ],
     correctAnswer: 0,
-    explanation: "Fatha (َ), Kasra (ِ), and Damma (ُ) are the three short vowels."
+    explanation: "Fatha (َ), Kasra (ِ), and Damma (ُ) are the three short vowels (L1.01)."
   },
   {
     id: 3,
-    question: "What does a Sukun (ْ) indicate?",
-    options: ["A long vowel", "No vowel/silence", "Doubled consonant", "Nasalization"],
+    question: "What does a Sukun (ْ) show?",
+    options: [
+      "A long vowel",
+      "No vowel after the letter",
+      "A doubled letter",
+      "A silent letter that is written but not said",
+    ],
     correctAnswer: 1,
-    explanation: "Sukun indicates the absence of a vowel after a letter."
+    explanation: "Sukun (ْ) means the letter has no vowel after it. You say the letter and go straight on (L1.02)."
   },
   {
     id: 4,
-    question: "What is a Shadda (ّ)?",
-    options: ["A long vowel marker", "A doubled consonant marker", "A pause marker", "A stress marker"],
+    question: "What does a Shadda (ّ) show?",
+    options: [
+      "A long vowel",
+      "The letter counts twice",
+      "A pause",
+      "No vowel",
+    ],
     correctAnswer: 1,
-    explanation: "Shadda indicates that a consonant is doubled (geminated)."
+    explanation: "Shadda (ّ) means the letter counts twice: once with no vowel, once with its vowel (L1.02)."
   },
   {
     id: 5,
-    question: "What are the two main types of sentences in Arabic?",
-    options: ["Past and Present", "Nominal and Verbal", "Active and Passive", "Simple and Complex"],
+    question: "What are the two main kinds of sentence in Arabic?",
+    options: [
+      "Past and Present",
+      "Nominal and Verbal",
+      "Active and Passive",
+      "Simple and Complex",
+    ],
     correctAnswer: 1,
-    explanation: "Arabic sentences are classified as Nominal (Jumlah Ismiyyah) or Verbal (Jumlah Fi'liyyah)."
+    explanation: "A sentence is nominal (jumla ismiyya) if it starts with a noun, or verbal (jumla fiʿliyya) if it starts with a verb (L1.09)."
   },
   {
     id: 6,
-    question: "What does Tanwin (nunation) add to a word?",
-    options: ["The sound 'n'", "The sound 'm'", "The sound 'l'", "The sound 'h'"],
+    question: "What does tanwīn add to the end of a word?",
+    options: [
+      "The sound 'n'",
+      "The sound 't'",
+      "The sound 'l'",
+      "The sound 'h'",
+    ],
     correctAnswer: 0,
-    explanation: "Tanwin adds an 'n' sound at the end of a noun, indicated by double vowel marks."
+    explanation: "Tanwīn is a doubled vowel sign (ـٌ ـً ـٍ) that adds an -n sound: -un, -an, -in (L1.02)."
   },
   {
     id: 7,
-    question: "Which letters are called 'Sun Letters' (Huruf Shamsiyyah)?",
+    question: "Which letters are called 'Sun Letters' (ḥurūf shamsiyya)?",
     options: [
-      "Letters that assimilate the 'L' of 'Al'",
-      "Letters that keep the 'L' of 'Al'",
+      "Letters that swallow the lām of ٱلْ",
+      "Letters that keep the lām of ٱلْ",
       "Letters that come at the beginning",
-      "Letters written in the sun"
+      "Letters written in the sun",
     ],
     correctAnswer: 0,
-    explanation: "Sun letters assimilate the 'L' of the definite article 'Al-', making it silent."
+    explanation: "Before a sun letter the lām of ٱلْ is written but not said, and the sun letter is doubled: ash-shamsu (L1.06)."
   },
   {
     id: 8,
-    question: "What is the basic word order of a Nominal Sentence?",
-    options: ["Verb-Subject-Object", "Subject-Verb-Object", "Subject-Predicate", "Predicate-Subject"],
-    correctAnswer: 2,
-    explanation: "A Nominal Sentence (Jumlah Ismiyyah) begins with a Subject (Mubtada) followed by a Predicate (Khabar)."
+    question: "In the usual nominal sentence, which part comes first?",
+    options: [
+      "Mubtadaʾ, then khabar",
+      "Verb, then doer",
+      "Doer, then verb",
+      "Khabar, then verb",
+    ],
+    correctAnswer: 0,
+    explanation: "A nominal sentence starts with a noun, the mubtadaʾ, followed by the khabar (L1.09). Sometimes the khabar comes first; L2.01 shows when."
   },
   {
     id: 9,
-    question: "What is the basic word order of a Verbal Sentence?",
-    options: ["Subject-Verb-Object", "Verb-Subject-Object", "Object-Verb-Subject", "Verb-Object-Subject"],
+    question: "What is the usual order of a verbal sentence?",
+    options: [
+      "Doer-Verb-Object",
+      "Verb-Doer-Object",
+      "Object-Verb-Doer",
+      "Verb-Object-Doer",
+    ],
     correctAnswer: 1,
-    explanation: "A Verbal Sentence (Jumlah Fi'liyyah) begins with a Verb, followed by Subject, then Object (if any)."
+    explanation: "A verbal sentence starts with the verb, then the doer, then the object if there is one (L1.09). English puts the doer first; Arabic puts the verb first."
   },
   {
     id: 10,
-    question: "What are the three long vowels in Arabic?",
-    options: ["Fatha, Kasra, Damma", "Alif, Waw, Ya", "Sukun, Shadda, Tanwin", "Noon, Meem, Lam"],
+    question: "Which three letters can stretch a short vowel into a long one?",
+    options: [
+      "Fatha, Kasra, Damma",
+      "Alif, Waw, Ya",
+      "Sukun, Shadda, Tanwin",
+      "Noon, Meem, Lam",
+    ],
     correctAnswer: 1,
-    explanation: "The three long vowels are Alif (ا) for 'aa', Waw (و) for 'oo', and Ya (ي) for 'ee'."
+    explanation: "A long vowel is a short vowel held for two beats: fatha + ا gives ā, damma + و gives ū, kasra + ي gives ī. The و or ي must have no mark of its own (L1.02)."
+  },
+  {
+    id: 11,
+    question: "Which sign shows that a word is a noun?",
+    options: [
+      "ٱلْ at the start, or tanwīn at the end",
+      "قَدْ in front of it",
+      "A silent ت at the end",
+      "سَ in front of it",
+    ],
+    correctAnswer: 0,
+    explanation: "A word with ٱلْ, tanwīn, a genitive ending or a preposition before it is a noun. قَدْ, سَ, سَوْفَ and a silent ت are signs of a verb (L1.04)."
+  },
+  {
+    id: 12,
+    question: "How many letters does an Arabic root usually have?",
+    options: [
+      "Two",
+      "Three",
+      "Five",
+      "Seven",
+    ],
+    correctAnswer: 1,
+    explanation: "Most roots have three letters, like ك ت ب, and the words of a family are built around them (L1.05)."
+  },
+  {
+    id: 13,
+    question: "Which sign most often shows that a noun is feminine?",
+    options: [
+      "ة at the end",
+      "ٱلْ at the start",
+      "A damma at the end",
+      "A shadda",
+    ],
+    correctAnswer: 0,
+    explanation: "The ة at the end is the most common sign of a feminine noun. Some feminine words have no sign, such as أَرْضٌ (L1.07)."
+  },
+  {
+    id: 14,
+    question: "Which ending shows the dual (two) in the nominative?",
+    options: [
+      "ـَانِ",
+      "ـُونَ",
+      "ـَاتٌ",
+      "ـِينَ",
+    ],
+    correctAnswer: 0,
+    explanation: "The dual ends in -āni, as in يَسْجُدَانِ (55:6) (L1.08)."
   }
 ];
 ---
 
-<BaseLayout title="Level 1 Quiz - Foundation" description="Test your Foundation knowledge: Arabic alphabet, short and long vowels, sukun, shadda, tanween, word types, the definite article, and basic sentence structure.">
+<BaseLayout title="Level 1 Quiz - Foundation" description="Test your Foundation knowledge: letters and vowels, sukun, shadda, tanwin, nouns and verbs, roots, gender, number, the definite article and the two kinds of sentence.">
   <Container maxWidth="lg">
     <QuizComponent
       title="Level 1 Quiz: Foundation"
