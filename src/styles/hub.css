@@ -14,7 +14,8 @@
 .card{position:relative;display:flex;flex-direction:column;gap:14px;min-height:250px;padding:24px 24px 22px;border-radius:28px;text-decoration:none;color:var(--ink);
   background:linear-gradient(160deg,oklch(95.5% .045 var(--h)),oklch(97.5% .03 calc(var(--h) + 50)));
   box-shadow:inset 0 0 0 1px oklch(88% .05 var(--h));transition:transform .25s var(--ease),box-shadow .25s,background .25s}
-.card:hover{transform:translateY(-4px);background:#fff;box-shadow:inset 0 0 0 1.5px oklch(70% .12 var(--h)),0 22px 40px -22px oklch(40% .12 var(--h) / .5)}
+@media (hover:hover){.card:hover{transform:translateY(-4px);background:#fff;box-shadow:inset 0 0 0 1.5px oklch(70% .12 var(--h)),0 22px 40px -22px oklch(40% .12 var(--h) / .5)}
+.card:hover .go svg{transform:translateX(4px)}}
 .card:active{transform:translateY(0)}
 .card[hidden]{display:none}
 .card .kind{display:flex;align-items:center;justify-content:space-between}
@@ -25,7 +26,6 @@
 .card .peek{flex:1;display:flex;align-items:center;min-height:84px}
 .card .go{display:inline-flex;align-items:center;gap:8px;margin-top:auto;font-weight:600;font-size:.9375rem;color:oklch(40% .13 var(--h))}
 .card .go svg{width:16px;height:16px;transition:transform .2s var(--ease)}
-.card:hover .go svg{transform:translateX(4px)}
 .tools .cards{grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),720px))}
 .tools .card{min-height:290px}
 /* previews */

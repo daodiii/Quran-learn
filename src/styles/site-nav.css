@@ -67,7 +67,7 @@
 @media (max-width:900px){
   .sn-burger{display:grid}
   .sn-cta{display:none}
-  .sn-nav{display:none;position:absolute;left:0;right:0;top:100%;flex-direction:column;gap:0;margin:0;padding:8px var(--sn-gutter) 20px;background:var(--sn-page);max-height:calc(100vh - 72px);overflow:auto;box-shadow:0 18px 30px oklch(30% 0.04 220/.12)}
+  .sn-nav{display:none;position:absolute;left:0;right:0;top:100%;flex-direction:column;gap:0;margin:0;padding:8px var(--sn-gutter) 20px;background:var(--sn-page);max-height:calc(100vh - 72px);max-height:calc(100dvh - 72px);overflow:auto;-webkit-overflow-scrolling:touch;box-shadow:0 18px 30px oklch(30% 0.04 220/.12)}
   .sn.menu-open .sn-nav{display:flex}
   .sn-i{flex-wrap:wrap}
   .sn-l{flex:1;padding-left:4px;border-radius:12px}
@@ -82,12 +82,6 @@
 .sf-dua{display:flex;gap:18px;justify-content:center;font-family:'KFGQPC Hafs Uthmani','Amiri',serif;font-size:clamp(2.2rem,5vw,3.4rem);line-height:1.5}
 .sf-mean{margin:6px 0 32px;color:oklch(82% 0.02 230)}
 .sf-in{max-width:1320px;margin:0 auto;text-align:left}
-.sf-levels{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:36px}
-.sf-levels a{display:flex;flex-direction:column;gap:2px;padding:14px;border-radius:16px;background:oklch(25% 0.03 240)}
-.sf-levels a:hover{background:oklch(30% 0.035 240)}
-.sf-levels b{font-weight:500}
-.sf-levels small{color:oklch(78% 0.02 230)}
-.sf-levels .sn-n{background:#fff;color:var(--sn-ink);margin-bottom:8px}
 .sf-row{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;padding-top:24px;border-top:1px solid oklch(32% 0.03 240);margin-bottom:16px}
 .sf-brand{display:flex;align-items:center;gap:12px;font-weight:500;font-size:1.125rem}
 .sf-brand svg{width:30px;height:30px}
@@ -96,5 +90,7 @@
 .sf-row nav a:hover,.sf-legal a:hover{color:#fff}
 .sf-legal{margin:0;max-width:60em;font-size:.8125rem;line-height:1.6;color:oklch(78% 0.02 230)}
 .sf-legal a{color:#fff;text-decoration:underline!important;text-underline-offset:2px}
+.sf-credit{margin:18px 0 0;font-size:.625rem;line-height:1;letter-spacing:.02em;color:oklch(63% 0.02 230)}
+.sf-credit a{color:inherit}
+.sf-credit a:hover{color:oklch(78% 0.02 230)}
 .sf a:focus-visible{outline:2px solid #fff;outline-offset:2px}
-@media (max-width:900px){.sf-levels{grid-template-columns:1fr 1fr}}

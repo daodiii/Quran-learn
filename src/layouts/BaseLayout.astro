@@ -1,7 +1,7 @@
 ---
 import '../styles/global.css';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
+import SiteNav from '../components/SiteNav.astro';
+import SiteFoot from '../components/SiteFoot.astro';
 import AriaLiveRegion from '../components/AriaLiveRegion.astro';
 import CookieBanner from '../components/CookieBanner.astro';
 
@@ -23,6 +23,9 @@ const siteName = 'Quranic Grammar';
 const fullTitle = `${title} | ${siteName}`;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const ogImageURL = new URL(image, Astro.site);
+// Which header link to mark as the current page.
+const first = Astro.url.pathname.split('/')[1];
+const current = (['learn', 'surahs', 'resources', 'about'] as const).find((k) => k === first);
 ---
 
 <!DOCTYPE html>
@@ -58,8 +61,6 @@ const ogImageURL = new URL(image, Astro.site);
   <meta name="twitter:description" content={description} />
   <meta name="twitter:image" content={ogImageURL.href} />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <!-- RSS feed (lessons + surahs + resources) -->
-  <link rel="alternate" type="application/rss+xml" title={`${siteName} RSS`} href="/rss.xml" />
   <!-- Preload critical Arabic fonts -->
   <link rel="preload" href="/fonts/amiri-regular-arabic.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="/fonts/UthmanicHafs.woff2" as="font" type="font/woff2" crossorigin />
@@ -93,11 +94,11 @@ const ogImageURL = new URL(image, Astro.site);
   <!-- Skip link for keyboard navigation -->
   <a href="#main-content" class="skip-link">Skip to main content</a>
   <slot name="before-header" />
-  <Header />
+  <SiteNav current={current} />
   <main id="main-content" class="flex-1">
     <slot />
   </main>
-  <Footer />
+  <SiteFoot />
   <AriaLiveRegion />
   <CookieBanner />
   <script>
