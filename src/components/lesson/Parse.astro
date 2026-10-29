@@ -30,6 +30,8 @@ interface Card {
   why: string;
   irab?: string; // the parse as the Arabic grammar books word it
 }
+import AyahListen from './AyahListen.astro';
+
 interface Props {
   words: Word[];
   cards: Card[];
@@ -61,7 +63,7 @@ for (const c of cards) {
         </div>
       ))}
     </div>
-    {reference && <figcaption>{reference}</figcaption>}
+    {reference && <figcaption>{reference} <AyahListen reference={reference} /></figcaption>}
   </figure>
 
   <div class="lx-pcards" aria-live="polite">

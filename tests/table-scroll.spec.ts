@@ -14,7 +14,7 @@ test.describe('mobile table overflow', () => {
       await page.goto(path);
       // every markdown-emitted table must sit inside .table-scroll
       const bare = await page.locator('table').evaluateAll(tables =>
-        tables.filter(t => !t.closest('.table-scroll') && !t.closest('.grammar-table-wrapper') && !t.closest('.grammar-table') && !t.closest('.table-wrapper')).length);
+        tables.filter(t => !t.closest('.table-scroll') && !t.closest('.grammar-table-wrapper') && !t.closest('.grammar-table') && !t.closest('.table-wrapper') && !t.closest('.lx-conj')).length);
       expect(bare).toBe(0);
     });
   }

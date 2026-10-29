@@ -18,6 +18,8 @@
  *   en={['He ', { gap: 'is' }, ' the First.']}
  * />
  */
+import AyahListen from './AyahListen.astro';
+
 interface Word {
   ar: string;
   en: string;
@@ -111,5 +113,5 @@ const ROLE: Record<Role, { label: string; hint: string; fam: 'm' | 'k' | 'v' | '
       {en.map((p) => (typeof p === 'string' ? p : <span class="lx-gap">{p.gap}</span>))}
     </p>
   )}
-  {reference && <figcaption>{reference}</figcaption>}
+  {reference && <figcaption>{reference} <AyahListen reference={reference} /></figcaption>}
 </figure>

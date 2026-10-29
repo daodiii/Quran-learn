@@ -1,15 +1,11 @@
 import { test, expect } from '@playwright/test';
 
-test('lesson with vocab shows the words section', async ({ page }) => {
+test('lesson links to the vocabulary review of its level', async ({ page }) => {
   await page.goto('/learn/level-1/01-arabic-script-vowels/');
-  const section = page.locator('[data-vocab-section]');
-  await expect(section).toBeVisible();
-  const rows = section.locator('[data-vocab-row]');
-  expect(await rows.count()).toBeGreaterThan(0);
-  await expect(section.locator('h2')).toContainText(/words from this lesson/i);
+  await expect(page.locator('a[href="/learn/level-1/vocabulary/"]')).toHaveCount(1);
 });
 
-test('lesson with no new vocab renders no section', async ({ page }) => {
+test('stepped lessons render no per-lesson word list', async ({ page }) => {
   await page.goto('/learn/level-1/03-reading-bismillah/');
   await expect(page.locator('[data-vocab-section]')).toHaveCount(0);
 });
