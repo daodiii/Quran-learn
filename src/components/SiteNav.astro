@@ -1,0 +1,125 @@
+---
+/**
+ * The site header for every light page: logo, three menus (Learn, Surahs, Resources) and a link to About.
+ * Each menu opens a panel on hover, focus or tap, and every panel link is a plain link, so the pages
+ * work without JavaScript. On a phone the header collapses to a Menu button with the same panels stacked.
+ */
+import { getCollection } from 'astro:content';
+import { READING_TRACK } from '../data/reading-track';
+import '../styles/site-nav.css';
+
+interface Props { current?: 'learn' | 'surahs' | 'resources' | 'about'; }
+const { current } = Astro.props;
+
+const LEVELS = [
+  { name: 'Foundation', end: 'Al-Ikhlas' },
+  { name: 'Core grammar', end: 'Al-Kawthar' },
+  { name: 'Intermediate', end: 'Al-ʿAsr' },
+  { name: 'Advanced', end: 'Ad-Duha' },
+  { name: 'Applied study', end: 'Luqman’s counsel' },
+];
+const lessons = (await getCollection('lessons')).sort((a, b) => a.data.level - b.data.level || a.data.order - b.data.order);
+const surahs = await getCollection('surahs');
+const surahName = new Map(surahs.map((s) => [s.id, s.data.name]));
+const learn = LEVELS.map((l, i) => {
+  const mine = lessons.filter((x) => x.data.level === i + 1);
+  return { ...l, level: i + 1, count: mine.length, first: mine.slice(0, 4) };
+});
+const bySurah = LEVELS.map((l, i) => ({
+  ...l,
+  level: i + 1,
+  items: READING_TRACK.filter((r) => r.afterLevel === i + 1 && surahName.has(r.slug))
+    .map((r) => ({ slug: r.slug, name: surahName.get(r.slug)!, n: Number(r.slug.slice(0, 3)) }))
+    .sort((a, b) => b.n - a.n),
+}));
+// Guides are listed by hand: a short name and one line each. A guide missing from the collection fails the build.
+const guides = await getCollection('resources');
+const GUIDES: [string, string, string][] = [
+  ['quran-arabic-vs-msa', 'Quranic vs Modern Arabic', 'Which Arabic to study first'],
+  ['learning-roadmap', 'Learning roadmap', 'Beginner to Quranic analysis'],
+  ['arabic-in-7-principles', 'Arabic in 7 principles', 'The always-open reference card'],
+  ['glossary', 'Grammar glossary', 'Every term, in plain English'],
+  ['root-system', 'Root system guide', 'Words grow from three letters'],
+  ['verb-conjugation-tables', 'Conjugation tables', 'All ten forms, every person'],
+  ['case-endings-chart', 'Case endings chart', 'Rafʿ, naṣb and jarr at a glance'],
+  ['pronoun-charts', 'Pronoun charts', 'Every pronoun, attached or free'],
+  ['verb-forms-master-reference', 'Verb forms reference', 'The ten forms with examples'],
+  ['200-most-used-words', '200 common words', 'About half of all Quranic text'],
+];
+for (const [id] of GUIDES) if (!guides.some((g) => g.id === id)) throw new Error(`site nav: resource "${id}" is missing from the collection`);
+const cur = (k: string) => (current === k ? 'page' : undefined);
+const chev = '<svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg>';
+---
+<header class="sn" id="sn">
+  <a class="sn-brand" href="/" aria-label="Quranic Grammar, home">
+    <svg viewBox="0 0 32 32" aria-hidden="true"><rect x="1" y="1" width="30" height="30" rx="9" fill="oklch(18% 0.03 240)"/><path d="M9 19h14" stroke="#fff" stroke-width="2" stroke-linecap="round"/><circle cx="16" cy="12" r="2.6" fill="oklch(79% 0.14 72)"/><circle cx="16" cy="24.5" r="1.6" fill="#fff"/></svg>
+    <span>Quranic Grammar</span>
+  </a>
+  <nav class="sn-nav" id="sn-nav" aria-label="Primary">
+    <div class="sn-i" data-k="learn">
+      <a class="sn-l" href="/learn/" aria-current={cur('learn')}>Learn</a>
+      <button class="sn-c" type="button" aria-expanded="false" aria-controls="sn-p-learn" aria-label="Learn menu"><Fragment set:html={chev} /></button>
+      <div class="sn-p" id="sn-p-learn"><div class="sn-g">
+        {learn.map((l) => (
+          <div class={`sn-col t${l.level}`}>
+            <a class="sn-h" href={`/learn/#level-${l.level}`}><span class="sn-n">{l.level}</span><b>{l.name}</b><small>{l.count} lessons</small></a>
+            <ul>{l.first.map((x) => <li><a href={`/learn/${x.id}/`}>{x.data.title}</a></li>)}</ul>
+            <a class="sn-more" href={`/learn/#level-${l.level}`}>All {l.count} lessons →</a>
+            <p class="sn-end">Ends with {l.end}</p>
+          </div>
+        ))}
+      </div></div>
+    </div>
+    <div class="sn-i" data-k="surahs">
+      <a class="sn-l" href="/surahs/" aria-current={cur('surahs')}>Surahs</a>
+      <button class="sn-c" type="button" aria-expanded="false" aria-controls="sn-p-surahs" aria-label="Surahs menu"><Fragment set:html={chev} /></button>
+      <div class="sn-p" id="sn-p-surahs"><div class="sn-g">
+        {bySurah.map((l) => (
+          <div class={`sn-col t${l.level}`}>
+            <a class="sn-h" href="/surahs/"><span class="sn-n">{l.level}</span><b>{l.name}</b><small>{l.items.length} surahs</small></a>
+            <ul class="sn-chips">{l.items.map((s) => <li><a href={`/surahs/${s.slug}/`}>{s.name}</a></li>)}</ul>
+          </div>
+        ))}
+      </div></div>
+    </div>
+    <div class="sn-i" data-k="resources">
+      <a class="sn-l" href="/resources/" aria-current={cur('resources')}>Resources</a>
+      <button class="sn-c" type="button" aria-expanded="false" aria-controls="sn-p-resources" aria-label="Resources menu"><Fragment set:html={chev} /></button>
+      <div class="sn-p" id="sn-p-resources"><div class="sn-g res">
+        <div class="sn-col tools">
+          <p class="sn-k">Tools</p>
+          <a class="sn-tool" href="/resources/find/"><b>Word and verb finder</b><span>Type an English word, or any verb. See every place it appears in the Quran.</span><i>Open the finder →</i></a>
+        </div>
+        <div class="sn-col"><p class="sn-k">Start here</p><ul class="sn-rows">{GUIDES.slice(0, 5).map(([id, t, d]) => <li><a href={`/resources/${id}/`}><b>{t}</b><span>{d}</span></a></li>)}</ul></div>
+        <div class="sn-col"><p class="sn-k">Charts and lists</p><ul class="sn-rows">{GUIDES.slice(5).map(([id, t, d]) => <li><a href={`/resources/${id}/`}><b>{t}</b><span>{d}</span></a></li>)}</ul><a class="sn-more" href="/resources/">All 10 guides →</a></div>
+      </div></div>
+    </div>
+    <div class="sn-i"><a class="sn-l" href="/about/" aria-current={cur('about')}>About</a></div>
+  </nav>
+  <div class="sn-right">
+    <a class="sn-cta" href="/learn/">Start learning</a>
+    <button class="sn-burger" type="button" aria-expanded="false" aria-controls="sn-nav" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+  </div>
+</header>
+<script>
+  const head = document.getElementById('sn')!;
+  const items = [...head.querySelectorAll<HTMLElement>('.sn-i[data-k]')];
+  const wide = () => matchMedia('(min-width: 901px)').matches;
+  const set = (it: HTMLElement | null, on: boolean) => items.forEach((o) => {
+    const x = o === it && on;
+    o.classList.toggle('open', x);
+    o.querySelector('.sn-c')!.setAttribute('aria-expanded', String(x));
+  });
+  items.forEach((it) => {
+    let t: number;
+    it.querySelector('.sn-c')!.addEventListener('click', () => set(it, !it.classList.contains('open')));
+    it.addEventListener('pointerenter', (e) => { if (e.pointerType === 'mouse' && wide()) { clearTimeout(t); set(it, true); } });
+    it.addEventListener('pointerleave', (e) => { if (e.pointerType === 'mouse' && wide()) t = window.setTimeout(() => set(it, false), 160); });
+    it.addEventListener('focusin', () => { if (wide()) { clearTimeout(t); set(it, true); } });
+    it.addEventListener('focusout', (e) => { if (wide() && !it.contains(e.relatedTarget as Node | null)) set(it, false); });
+  });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') { set(null, false); head.classList.remove('menu-open'); } });
+  document.addEventListener('click', (e) => { if (!(e.target as Element).closest('.sn-i')) set(null, false); });
+  const burger = head.querySelector('.sn-burger')!;
+  burger.addEventListener('click', () => burger.setAttribute('aria-expanded', String(head.classList.toggle('menu-open'))));
+</script>

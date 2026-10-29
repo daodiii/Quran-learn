@@ -8,6 +8,8 @@
  * so the page reads without JavaScript; src/scripts/home.ts adds the behaviour.
  */
 import { getCollection } from 'astro:content';
+import SiteNav from '../components/SiteNav.astro';
+import SiteFoot from '../components/SiteFoot.astro';
 import CookieBanner from '../components/CookieBanner.astro';
 import '../styles/fonts.css';
 import '../styles/home.css';
@@ -124,20 +126,7 @@ const step = LESSON_STEPS[1];
 </head>
 <body>
 <a href="#main-content" class="skip">Skip to main content</a>
-<header class="site">
-  <a class="brand" href="/" aria-label="Quranic Grammar, home">
-    <svg viewBox="0 0 32 32" aria-hidden="true"><rect x="1" y="1" width="30" height="30" rx="9" fill="oklch(18% 0.03 240)"/><path d="M9 19h14" stroke="#fff" stroke-width="2" stroke-linecap="round"/><circle cx="16" cy="12" r="2.6" fill="oklch(79% 0.14 72)"/><circle cx="16" cy="24.5" r="1.6" fill="#fff"/></svg>
-    <span>Quranic Grammar</span>
-  </a>
-  <nav aria-label="Primary"><a href="/learn/">Learn</a><a href="/surahs/">Surahs</a><a href="/resources/">Resources</a><a href="/about/">About</a></nav>
-  <div class="right">
-    <a class="btn small primary start" href="/learn/">Start learning</a>
-    <details class="menu">
-      <summary aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></summary>
-      <div class="menu-panel"><a href="/learn/">Learn</a><a href="/surahs/">Surahs</a><a href="/resources/">Resources</a><a href="/about/">About and feedback</a></div>
-    </details>
-  </div>
-</header>
+<SiteNav />
 
 <main id="main-content">
 <section class="hero" aria-labelledby="hero-h">
@@ -473,12 +462,7 @@ const step = LESSON_STEPS[1];
 </section>
 </main>
 
-<footer class="foot">
-  <div class="in">
-    <nav aria-label="Footer"><a href="/learn/">Learn</a><a href="/surahs/">Surahs</a><a href="/resources/">Resources</a><a href="/about/">About and feedback</a><a href="/rss.xml">RSS</a></nav>
-    <p>Word data from the <a href="https://corpus.quran.com/">Quranic Arabic Corpus</a> (Kais Dukes, GPL). Quran text after <a href="https://tanzil.net/">Tanzil</a>. English meanings on this site are our own plain-English wording, not a translation.</p>
-  </div>
-</footer>
+<SiteFoot dua={false} />
 <CookieBanner tone="light" />
 <script type="application/json" id="rd-data" is:inline set:html={JSON.stringify(reader).replace(/<\//g, '<\\/')}></script>
 <script type="application/json" id="vf-data" is:inline set:html={JSON.stringify(benchVerbs).replace(/<\//g, '<\\/')}></script>

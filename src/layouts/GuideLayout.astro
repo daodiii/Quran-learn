@@ -6,6 +6,8 @@
  * reads and links without JavaScript; src/scripts/guide.ts adds the search, tabs, rail and progress bar.
  * The words come from src/data/guide-copy.ts, the text from src/content/resources/*.mdx.
  */
+import SiteNav from '../components/SiteNav.astro';
+import SiteFoot from '../components/SiteFoot.astro';
 import CookieBanner from '../components/CookieBanner.astro';
 import BreadcrumbSchema from '../components/seo/BreadcrumbSchema.astro';
 import ArticleSchema from '../components/seo/ArticleSchema.astro';
@@ -79,17 +81,7 @@ const tidy = (t: string) => t.replace(/^Part \d+: /, '').replace(/&amp;/g, '&');
 <body class="guide" style={`--hue:${guide.hue}`}>
 <a href="#main-content" class="skip">Skip to main content</a>
 <div class="g-bar" aria-hidden="true"><i data-progress></i></div>
-<header class="site">
-  <a class="brand" href="/" aria-label="Quranic Grammar, home">
-    <svg viewBox="0 0 32 32" aria-hidden="true"><rect x="1" y="1" width="30" height="30" rx="9" fill="oklch(18% 0.03 240)"/><path d="M9 19h14" stroke="#fff" stroke-width="2" stroke-linecap="round"/><circle cx="16" cy="12" r="2.6" fill="oklch(79% 0.14 72)"/><circle cx="16" cy="24.5" r="1.6" fill="#fff"/></svg>
-    <span>Quranic Grammar</span>
-  </a>
-  <nav aria-label="Primary"><a href="/learn/">Learn</a><a href="/surahs/">Surahs</a><a href="/resources/" aria-current="page">Resources</a><a href="/about/">About</a></nav>
-  <details class="menu">
-    <summary aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></summary>
-    <div class="menu-panel"><a href="/learn/">Learn</a><a href="/surahs/">Surahs</a><a href="/resources/">Resources</a><a href="/about/">About and feedback</a></div>
-  </details>
-</header>
+<SiteNav current="resources" />
 
 <main id="main-content">
   <section class="g-hero" aria-labelledby="g-h">
@@ -142,12 +134,7 @@ const tidy = (t: string) => t.replace(/^Part \d+: /, '').replace(/&amp;/g, '&');
   </div>
 </main>
 
-<footer class="foot">
-  <div class="in">
-    <nav aria-label="Footer"><a href="/learn/">Learn</a><a href="/surahs/">Surahs</a><a href="/resources/">Resources</a><a href="/about/">About and feedback</a><a href="/rss.xml">RSS</a></nav>
-    <p>Word data and counts from the <a href="https://corpus.quran.com/">Quranic Arabic Corpus</a> (Kais Dukes, GPL). Quran text after <a href="https://tanzil.net/">Tanzil</a>.</p>
-  </div>
-</footer>
+<SiteFoot />
 <CookieBanner tone="light" />
 <script>
   import '../scripts/guide';

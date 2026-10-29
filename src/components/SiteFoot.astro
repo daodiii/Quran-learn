@@ -1,0 +1,29 @@
+---
+/** The dark footer for every light page: the dua, the five levels, the main links and the sources. */
+import { getCollection } from 'astro:content';
+import '../styles/site-nav.css';
+
+// The home page already ends on the dua, so it passes dua={false}.
+const { dua = true } = Astro.props;
+
+const NAMES = ['Foundation', 'Core grammar', 'Intermediate', 'Advanced', 'Applied study'];
+const lessons = await getCollection('lessons');
+const levels = NAMES.map((name, i) => ({ name, level: i + 1, count: lessons.filter((l) => l.data.level === i + 1).length }));
+---
+<footer class="sf">
+  {dua && <div class="sf-dua" lang="ar" dir="rtl"><span>رَبِّ</span><span>زِدْنِى</span><span>عِلْمًا</span></div>}
+  {dua && <p class="sf-mean">“My Lord, increase me in knowledge.” · Taha 20:114</p>}
+  <div class="sf-in">
+    <nav class="sf-levels" aria-label="The five levels">
+      {levels.map((l) => <a href={`/learn/#level-${l.level}`}><span class="sn-n">{l.level}</span><b>{l.name}</b><small>{l.count} lessons</small></a>)}
+    </nav>
+    <div class="sf-row">
+      <a class="sf-brand" href="/" aria-label="Quranic Grammar, home">
+        <svg viewBox="0 0 32 32" aria-hidden="true"><rect x="1" y="1" width="30" height="30" rx="9" fill="oklch(98% 0.005 220)"/><path d="M9 19h14" stroke="oklch(18% 0.03 240)" stroke-width="2" stroke-linecap="round"/><circle cx="16" cy="12" r="2.6" fill="oklch(66% 0.16 62)"/><circle cx="16" cy="24.5" r="1.6" fill="oklch(18% 0.03 240)"/></svg>
+        <span>Quranic Grammar</span>
+      </a>
+      <nav aria-label="Footer"><a href="/learn/">Learn</a><a href="/surahs/">Surahs</a><a href="/resources/">Resources</a><a href="/about/">About and feedback</a><a href="/rss.xml">RSS</a></nav>
+    </div>
+    <p class="sf-legal">Word data from the <a href="https://corpus.quran.com/">Quranic Arabic Corpus</a> (Kais Dukes, GPL). Quran text after <a href="https://tanzil.net/">Tanzil</a>. English meanings on this site are our own plain-English wording, not a translation.</p>
+  </div>
+</footer>
