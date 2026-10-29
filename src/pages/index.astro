@@ -70,9 +70,9 @@ const ogImageURL = new URL('/images/og-default.jpg', Astro.site);
 
 const TABS = [
   { k: 'lesson', name: 'Lessons', d: 'One idea at a time, then check it', url: 'quranic-grammar.com/learn/level-2/nominal-sentence', icon: '<path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5z"/><path d="M4 20.5A2.5 2.5 0 0 0 6.5 23H20"/>' },
-  { k: 'lookup', name: 'Word lookup', d: 'Any English word, in the Quran', url: 'quranic-grammar.com/resources/word-lookup', icon: '<circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/>' },
+  { k: 'lookup', name: 'Word lookup', d: 'Any English word, in the Quran', url: 'quranic-grammar.com/resources/find', icon: '<circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/>' },
   { k: 'decoder', name: 'Verse decoder', d: 'Tap a word, see its grammar', url: 'quranic-grammar.com/surahs', icon: '<path d="M4 7h16M4 12h10M4 17h7"/><circle cx="18" cy="16" r="3"/>' },
-  { k: 'roots', name: 'Roots', d: 'One root across the whole Quran', url: 'quranic-grammar.com/resources/word-lookup', icon: '<path d="M5 20V10M10 20V4M15 20v-7M20 20V8"/>' },
+  { k: 'roots', name: 'Roots', d: 'One root across the whole Quran', url: 'quranic-grammar.com/resources/find', icon: '<path d="M5 20V10M10 20V4M15 20v-7M20 20V8"/>' },
 ];
 const step = LESSON_STEPS[1];
 ---
@@ -189,7 +189,7 @@ const step = LESSON_STEPS[1];
           <div class="panel" role="tabpanel" id="p-lookup" aria-labelledby="t-lookup" data-k="lookup">
             <h2>Word lookup</h2><p class="ln">Start from a word you already know.</p>
             <div class="tool" id="w-lookup">
-              <form class="lk-form js-only" role="search" action="/resources/word-lookup/">
+              <form class="lk-form js-only" role="search" action="/resources/find/">
                 <label class="vh" for="lk-q">Search the Quran by an English word</label>
                 <div class="lk-bar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
                 <input id="lk-q" type="search" autocomplete="off" spellcheck="false" placeholder="Type an English word" enterkeyhint="search"></div>
@@ -197,7 +197,7 @@ const step = LESSON_STEPS[1];
               </form>
               <div class="lk-chips js-only" role="group" aria-label="Try a word">{LOOKUP_KEYS.map((k) => <button class="chip" type="button" aria-pressed={k === 'knowledge' ? 'true' : 'false'}>{k}</button>)}</div>
               <div class="lk-out" aria-live="polite" set:html={lookupResult('knowledge')} />
-              <a class="full-link" href="/resources/word-lookup/">Open the full word lookup →</a>
+              <a class="full-link" href="/resources/find/">Open the full finder →</a>
             </div>
           </div>
           <!-- Verse decoder -->
@@ -348,10 +348,10 @@ const step = LESSON_STEPS[1];
       <div class="bench-top"><h3>Two tools you can use right now.</h3><p>No account, nothing to install. Type a word, or pick a root, and read the answer in the Quran's own words.</p></div>
       <div class="wins">
         <section class="w" aria-labelledby="w1-h">
-          <div class="w-bar"><i aria-hidden="true"><b></b><b></b><b></b></i><span class="u" aria-hidden="true">quranic-grammar.com/resources/word-lookup</span><a href="/resources/word-lookup/" aria-label="Open the word lookup">Open →</a></div>
+          <div class="w-bar"><i aria-hidden="true"><b></b><b></b><b></b></i><span class="u" aria-hidden="true">quranic-grammar.com/resources/find</span><a href="/resources/find/" aria-label="Open the word finder">Open →</a></div>
           <div class="w-body" id="w-bench">
             <h4 id="w1-h">Word lookup</h4>
-            <form class="lk-form js-only" role="search" action="/resources/word-lookup/">
+            <form class="lk-form js-only" role="search" action="/resources/find/">
               <label class="vh" for="lb-q">Search the Quran by an English word</label>
               <div class="lk-bar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
               <input id="lb-q" type="search" autocomplete="off" spellcheck="false" placeholder="Type an English word" enterkeyhint="search"></div>
@@ -362,7 +362,7 @@ const step = LESSON_STEPS[1];
           </div>
         </section>
         <section class="w" aria-labelledby="w2-h">
-          <div class="w-bar"><i aria-hidden="true"><b></b><b></b><b></b></i><span class="u" aria-hidden="true">quranic-grammar.com/resources/verb-forms</span><a href="/resources/verb-forms/" aria-label="Open the verb form generator">Open →</a></div>
+          <div class="w-bar"><i aria-hidden="true"><b></b><b></b><b></b></i><span class="u" aria-hidden="true">quranic-grammar.com/resources/find</span><a href="/resources/find/" aria-label="Open the word and verb finder">Open →</a></div>
           <div class="w-body" id="w-verbs">
             <h4 id="w2-h">Verb form generator</h4>
             <p class="w-sub">{verbRoots} verbal roots, each moving through the ten forms. Every verb shown is in the Quran; greyed forms are not.</p>

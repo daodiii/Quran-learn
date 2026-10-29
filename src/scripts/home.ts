@@ -76,7 +76,7 @@ function lookup(root: HTMLElement): Tool {
   }
   const r = runner();
   inp.addEventListener('input', () => { r.stop(); go(inp.value); });
-  form.addEventListener('submit', (e) => { e.preventDefault(); r.stop(); const q = inp.value.trim(); location.href = `/resources/word-lookup/${q ? `#q=${encodeURIComponent(q)}` : ''}`; });
+  form.addEventListener('submit', (e) => { e.preventDefault(); r.stop(); const q = inp.value.trim(); location.href = `/resources/find/${q ? `#q=${encodeURIComponent(q)}` : ''}`; });
   chips.forEach((c) => c.addEventListener('click', () => { r.stop(); inp.value = c.textContent!; go(inp.value); }));
   function type(word: string, start: number) { [...word].forEach((_, j) => r.at(start + j * 90, () => { inp.value = word.slice(0, j + 1); go(inp.value); })); return start + word.length * 90; }
   return {

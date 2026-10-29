@@ -8,28 +8,13 @@ import ArabicExample from '../../components/mdx/ArabicExample.astro';
 import Callout from '../../components/mdx/Callout.astro';
 import GrammarTable from '../../components/mdx/GrammarTable.astro';
 
-# Arabic Root System Guide
-
 **Think of Arabic roots like LEGO bricks.** Each brick (root) can be combined with different patterns (molds) to create an entire family of related words. Once you understand how these work, you can decode thousands of Quranic words you've never seen before.
 
 This guide teaches you the root-and-pattern system that powers Arabic morphology, shows you how words derive from roots, and most importantly, gives you a practical strategy for looking up unfamiliar Quranic words in an Arabic dictionary.
 
-## Quick Navigation
-
-- [What Are Roots?](#what-are-roots)
-- [Trilateral Roots (Three Letters)](#trilateral-roots)
-- [Quadrilateral Roots (Four Letters)](#quadrilateral-roots)
-- [Common Derivation Patterns](#derivation-patterns)
-- [How to Look Up a Quranic Word](#dictionary-lookup)
-- [Common Quranic Root Families](#root-families)
-- [Practical Application](#practical-application)
-- [Next Steps in Your Journey](#next-steps)
-
----
-
 <h2 id="what-are-roots">What Are Roots?</h2>
 
-An **Root (jadhr / جَذْرٌ)** is a cluster of consonants (usually three, sometimes four) that carries a core meaning. All words derived from that root share a family resemblance in meaning.
+A **root** (jadhr, جَذْرٌ) is a cluster of consonants (usually three, sometimes four) that carries a core meaning. All words derived from that root share a family resemblance in meaning.
 
 For example, the root **ك ت ب** (k-t-b) carries the core idea of **"writing."** From this single root come dozens of related words:
 
@@ -49,7 +34,7 @@ When you encounter an unfamiliar word in the Quran, identifying its root helps y
 
 <h2 id="trilateral-roots">Trilateral Roots (Three Letters)</h2>
 
-**About 95% of Quranic vocabulary comes from trilateral (three-consonant) roots.** These roots follow predictable patterns that help you identify word types.
+**Almost every Quranic root has three consonants.** In the Quranic Arabic Corpus, 1,602 of the 1,642 roots (98%) are trilateral. These roots follow predictable patterns that help you identify word types.
 
 Arabic grammarians use the template **ف ع ل** (f-ʿ-l) to represent any trilateral root:
 
@@ -57,7 +42,7 @@ Arabic grammarians use the template **ف ع ل** (f-ʿ-l) to represent any trila
 - **ع** (ʿayn) - represents the 2nd root letter
 - **ل** (lām) - represents the 3rd root letter
 
-When linguists describe a pattern, they use a template. The doer-of-action pattern is called **Subject (verbal) (fāʿil / فَاعِلْ)** in Arabic grammar. This creates words like "كَاتِبٌ" (kātibun / writer), which is a type of **Noun (ism / اِسْمٌ)**. This pattern appears with various case endings: فَاعِلٌ (nominative), فَاعِلٍ (genitive), فَاعِلَ (accusative).
+Grammarians describe a word pattern by writing ف ع ل with the vowels and extra letters of that pattern. The "doer" pattern is فَاعِلٌ (fāʿil). It makes nouns such as كَاتِبٌ (kātibun, "writer"). Like any noun, it takes the three case endings: فَاعِلٌ, فَاعِلٍ, فَاعِلًا.
 
 ### Example: Applying فَاعِلٌ Pattern
 
@@ -71,30 +56,32 @@ When linguists describe a pattern, they use a template. The doer-of-action patte
     ["ع ب د", "worshipping", "عَابِدٌ", "worshipper"],
     ["س م ع", "hearing", "سَامِعٌ", "hearer"],
   ]}
+  rtl={false}
 />
 
 Notice how the pattern stays the same (فَاعِلٌ) but the root letters change. This is the key to Arabic morphology.
 
 <h2 id="quadrilateral-roots">Quadrilateral Roots (Four Letters)</h2>
 
-**About 5% of roots have four consonants instead of three.** These are less common but important in Quranic vocabulary.
+**Only 40 roots have four consonants.** They are rare, and mostly sound-repeating words like *zalzala* (to shake).
 
 <Callout type="note">
-When analyzing roots, remember that **Hamza above alif (ʾa / أَ)** and **Hamza below alif (ʾi / إِ)** count as root letters, not just vowel markers. Also note that **Doubled consonant (shaddah / شَدَّة)** indicates a geminated root letter.
+When you pick out the root, a hamza (أ, ئ, ؤ, ء) counts as a root letter when it belongs to the root, as in قَرَأَ (root ق ر ء). A shadda (ّ) means the same letter is written twice, as in مَدَّ (root م د د).
 </Callout>
 
 Common quadrilateral roots in the Quran:
 
 - **و س و س** (w-s-w-s) - whispering (Shayṭān's whispers)
 - **ز ل ز ل** (z-l-z-l) - shaking/earthquake
-- **ج ع ف ر** (j-ʿ-f-r) - a specific type of plant
-- **ط م ن ن** (ṭ-m-n-n) - tranquility/peace of heart
+- **ب ر ه ن** (b-r-h-n) - proof (*burhān*)
+- **ك و ك ب** (k-w-k-b) - star, planet (*kawkab*)
+- **ص ل ص ل** (ṣ-l-ṣ-l) - dry, ringing clay (*ṣalṣāl*)
 
 <ArabicExample
   arabic="إِذَا زُلْزِلَتِ الْأَرْضُ زِلْزَالَهَا"
   transliteration="ithā zulzilati l-arḍu zilzālahā"
   translation="When the earth is shaken with its [final] earthquake"
-  reference="Surah Al-Zalzalah 99:1"
+  reference="Surah Az-Zalzalah 99:1"
   highlight="زُلْزِلَتِ,زِلْزَالَهَا"
 />
 
@@ -106,26 +93,27 @@ Here are the most frequent patterns you'll encounter in Quranic Arabic. Knowing 
 
 <GrammarTable
   caption="Major Derivation Patterns"
-  headers={["Pattern", "Function", "ك ت ب Example", "Translation"]}
+  headers={["Pattern", "Function", "Example (root ك ت ب)", "Translation"]}
   rows={[
     ["فَعَلَ", "Past tense verb (he did)", "كَتَبَ", "he wrote"],
     ["يَفْعَلُ", "Present tense verb (he does)", "يَكْتُبُ", "he writes"],
     ["فَاعِلٌ", "Active participle (doer)", "كَاتِبٌ", "writer"],
     ["مَفْعُولٌ", "Passive participle (done to)", "مَكْتُوبٌ", "written"],
-    ["فِعْلٌ", "Verbal noun - Verb (fiʿl / فِعْلٌ)", "كِتَابَةٌ", "writing (act of)"],
+    ["فِعَالَةٌ", "Verbal noun (the act itself)", "كِتَابَةٌ", "writing (act of)"],
     ["فَعَّالٌ", "Intensive doer (does a lot)", "كَتَّابٌ", "scribe/clerk"],
     ["مَفْعَلٌ", "Place/time of action", "مَكْتَبٌ", "desk/office"],
-    ["أَفْعَلَ", "Causative verb (made someone do)", "أَكْتَبَ", "made someone write"],
-    ["تَفَعَّلَ", "Reflexive verb (did to oneself)", "تَكَتَّبَ", "enrolled/registered"],
-    ["اِفْتَعَلَ", "Intensive/reciprocal verb", "اِكْتَتَبَ", "copied down"],
+    ["أَفْعَلَ", "Causative verb (made someone do)", "أَعْلَمَ (root ع ل م)", "he informed"],
+    ["تَفَعَّلَ", "Reflexive verb (did to oneself)", "تَعَلَّمَ (root ع ل م)", "he learned"],
+    ["اِفْتَعَلَ", "Reflexive verb (did for oneself)", "اِكْتَتَبَ", "he had it written down (25:5)"],
   ]}
+  rtl={false}
 />
 
 <Callout type="rule" title="Pattern Recognition">
 When you see a word with:
-- **مَ** prefix - Often a **place, time, or instrument** (مَسْجِدٌ - masjid/place of prostration)
-- **تَ** prefix - Often **reflexive or reciprocal** action (تَعَلَّمَ - taught oneself/learned)
-- **اِ** prefix - Often **intensive or middle voice** (اِسْتَغْفَرَ - sought forgiveness)
+- **مَ** prefix - Often a **place, time, or instrument** (مَسْجِدٌ - masjid, place of prostration)
+- **تَ** prefix - Often **reflexive or reciprocal** action (تَعَلَّمَ - he learned)
+- **اِ** prefix - Often marks a **derived verb** such as Form VII, VIII or X (اِسْتَغْفَرَ - he asked forgiveness)
 - Double middle letter - Often **intensive or causative** (عَلَّمَ - taught/made someone know)
 </Callout>
 
@@ -143,8 +131,7 @@ Remove common prefixes and suffixes to find the core word.
 - **وَ**, **فَ**, **ثُمَّ** (conjunctions: and, then)
 - **الْ** (definite article: the)
 - **بِ**, **لِ**, **كَ** (prepositions: by/with, to/for, like)
-- **سَ**, **يَ**, **تَ**, **نَ**, **hamza above alif (ʾa / أَ)** (present tense markers)
-- **hamza below alif (ʾi / إِ)** (appears on some Form IV and Form VIII verbs)
+- **سَ** (future), and **يَ**, **تَ**, **نَ**, **أَ** (present-tense person markers)
 
 **Common suffixes to strip:**
 - **ُونَ**, **ِينَ** (masculine plural endings)
@@ -167,13 +154,9 @@ Look at what remains and identify the **3 (or 4) core consonants**, ignoring:
 - Doubled letters (marked by shaddah / شَدَّة - the doubling mark)
 - Weak letters that might be pattern markers
 
-From **مُسْلِم** (muslim), the root consonants are:
-- **م** (first root letter)
-- **س** (second root letter)
-- **ل** (third root letter)
-- **م** (wait, two mīms? The pattern مُفْعِل has a prefix مُ)
+From **مُسْلِم** (muslim), first take off the pattern. The **مُ** at the front belongs to the active-participle pattern مُفْعِل, so it is not a root letter. What is left is **س ل م**.
 
-**Correction:** The pattern **مُفْعِلٌ** has a prefix **مُ**, so the root is actually **س ل م** (s-l-m).
+The root is **س ل م** (s-l-m), "to be safe, to submit".
 
 ### Step 3: Arrange Root Letters in Dictionary Order
 
@@ -188,12 +171,12 @@ The root **س ل م** would be listed in the **س** section, under words startin
 Some root types need special handling:
 
 **Hollow verbs (middle weak letter):**
-- **قَاْلَ** (qāla - he said) → root is **ق و ل** not **قَاْلَ** (the alif is from wāw)
-- **بَاْعَ** (bāʿa - he sold) → root is **ب ي ع** (the alif is from yāʾ)
+- **قَالَ** (qāla - he said) → root is **ق و ل**. The alif is not a root letter. It stands in for a wāw.
+- **بَاعَ** (bāʿa - he sold) → root is **ب ي ع** (the alif is from yāʾ)
 
 **Defective verbs (final weak letter):**
-- **هَدْىَٰ** (hadā - he guided) → root is **ه د ي** (final alif maqṣūrah represents yāʾ)
-- **دَعَاْ** (daʿā - he called) → root is **د ع و** (final alif represents wāw)
+- **هَدَىٰ** (hadā - he guided) → root is **ه د ي** (final alif maqṣūrah represents yāʾ)
+- **دَعَا** (daʿā - he called) → root is **د ع و** (final alif represents wāw)
 
 **Doubled/geminate verbs:**
 - **مَدَّ** (madda - he extended) → root is **م د د** (doubled dāl)
@@ -227,10 +210,12 @@ Once you find candidate meanings, verify which fits your verse's context:
 />
 
 **Challenge:** Look up **يَنقَلِبُ** (yanqalibu - turns back)
-1. Strip **يَ** (present tense marker)
-2. Remaining: **نَقَلِبُ**
-3. Root consonants: **ن ق ل ب** (n-q-l-b) - a quadrilateral root meaning "to overturn/turn upside down"
-4. Pattern: **يَنْفَعِلُ** (Form VII - passive/reflexive)
+1. Strip **يَ** (the present-tense person marker). What remains: **نقَلِبُ**
+2. The **نْ** is the Form VII prefix (اِنْفَعَلَ, present يَنْفَعِلُ). Strip it too: **قَلِبُ**
+3. Root consonants: **ق ل ب** (q-l-b), "to turn over". Three letters.
+4. Pattern: **يَنْفَعِلُ**, Form VII (a result that happens by itself: "he is turned back").
+
+A fourth consonant is a warning sign. Before you call a root four-letter, check whether one letter belongs to a pattern.
 
 <Callout type="warning" title="Common Mistakes to Avoid">
 **Mistake 1: Keeping pattern letters as root letters**
@@ -238,12 +223,12 @@ Once you find candidate meanings, verify which fits your verse's context:
 - ✅ Recognizing pattern elements vs. root consonants
 
 **Mistake 2: Confusing long vowels with root consonants**
-- ❌ Treating **قَاْلَ** root as **قَ الَ** (alif is not a root letter here)
+- ❌ Treating the alif of **قَالَ** as a root letter (it stands in for a wāw)
 - ✅ Recognizing **ا** represents original **و** or **ي** in hollow verbs
 
 **Mistake 3: Not checking for attached pronouns**
 - ❌ Looking up **رَبُّهُ** as one word
-- ✅ Splitting into **رَبُّ** (lord) + **هُ** (his/him)
+- ✅ Splitting into **رَبُّ** (lord) + **هُ** (his)
 
 **Mistake 4: Forgetting assimilated letters**
 - ❌ Looking up **اتَّقَى** with only **ت ق ي** (missing original **و**)
@@ -328,11 +313,11 @@ Here are 15 high-frequency Quranic roots with their most common derivatives. Mem
 ### 5. ك ف ر (k-f-r) - Disbelieving/Covering Truth
 
 <ArabicExample
-  arabic="إِنَّ الَّذِينَ كَفَرُوْا سَوَاءٌ عَلَيْهِمْ أَأَنذَرْتَهُمْ أَمْ لَمْ تُنذِرْهُمْ لَا يُؤْمِنُونَ"
+  arabic="إِنَّ الَّذِينَ كَفَرُوا سَوَاءٌ عَلَيْهِمْ أَأَنذَرْتَهُمْ أَمْ لَمْ تُنذِرْهُمْ لَا يُؤْمِنُونَ"
   transliteration="inna lladhīna kafarū sawāʾun ʿalayhim a-andhartahum am lam tundhirhum lā yuʾminūna"
   translation="Indeed, those who disbelieve - it is all the same for them whether you warn them or do not warn them - they will not believe"
   reference="Surah Al-Baqarah 2:6"
-  highlight="كَفَرُوْا"
+  highlight="كَفَرُوا"
 />
 
 **Key derivatives:**
@@ -345,15 +330,15 @@ Here are 15 high-frequency Quranic roots with their most common derivatives. Mem
 ### 6. أ م ن (ʾ-m-n) - Believing/Security
 
 <ArabicExample
-  arabic="آمَنََ الرَّسُولُ بِمَا أُنزِلَ إِلَيْهِ مِن رَّبِّهِ وَالْمُؤْمِنُونَ"
+  arabic="آمَنَ الرَّسُولُ بِمَا أُنزِلَ إِلَيْهِ مِن رَّبِّهِ وَالْمُؤْمِنُونَ"
   transliteration="āmana r-rasūlu bi-mā unzila ilayhi min rabbihi wa-l-muʾminūna"
   translation="The Messenger has believed in what was revealed to him from his Lord, and [so have] the believers"
   reference="Surah Al-Baqarah 2:285"
-  highlight="آمَنََ,الْمُؤْمِنُونَ"
+  highlight="آمَنَ,الْمُؤْمِنُونَ"
 />
 
 **Key derivatives:**
-- **آمَنََ** (āmana) - he believed (Form IV)
+- **آمَنَ** (āmana) - he believed (Form IV)
 - **يُؤْمِنُ** (yuʾminu) - he believes
 - **إِيْمَانٌ** (īmānun) - faith, belief
 - **مُؤْمِنٌ** (muʾminun) - believer
@@ -381,27 +366,28 @@ Here are 15 high-frequency Quranic roots with their most common derivatives. Mem
 ### 8. ق و ل (q-w-l) - Saying
 
 <ArabicExample
-  arabic="قَاْلَ رَبِّ اشْرَحْ لِي صَدْرِي"
+  arabic="قَالَ رَبِّ اشْرَحْ لِي صَدْرِي"
   transliteration="qāla rabbi shraḥ lī ṣadrī"
   translation="He said, 'My Lord, expand for me my chest [with assurance]'"
   reference="Surah Ta-Ha 20:25"
-  highlight="قَاْلَ"
+  highlight="قَالَ"
 />
 
 **Key derivatives:**
-- **قَاْلَ** (qāla) - he said
+- **قَالَ** (qāla) - he said
 - **يَقُولُ** (yaqūlu) - he says
 - **قَوْلٌ** (qawlun) - speech, saying
 - **قَائِلٌ** (qāʾilun) - speaker
-- **مَقَاْلَةٌ** (maqālatun) - statement, article
+- **مَقَالَةٌ** (maqālatun) - statement, article
 
 ### 9. ف ع ل (f-ʿ-l) - Doing/Acting
 
 <ArabicExample
-  arabic="أَتَأْمُرُونَ النَّاسَ بِالْبِرِّ وَتَنسَوْنَ أَنفُسَكُمْ وَأَنتُمْ تَتْلُونَ الْكِتَابَ ۚ أَفَلَا تَعْقِلُونَ"
-  transliteration="a-taʾmurūna n-nāsa bi-l-birri wa-tansawna anfusakum wa-antum tatlūna l-kitāba a-fa-lā taʿqilūna"
-  translation="Do you order righteousness of the people and forget yourselves while you recite the Scripture? Then will you not reason?"
-  reference="Surah Al-Baqarah 2:44"
+  arabic="قَالَ بَلْ فَعَلَهُ كَبِيرُهُمْ هَٰذَا فَاسْأَلُوهُمْ"
+  transliteration="qāla bal faʿalahu kabīruhum hādhā fa-sʾalūhum"
+  translation="He said, 'Rather, this one, the biggest of them, did it. So ask them.'"
+  reference="Surah Al-Anbiya 21:63"
+  highlight="فَعَلَهُ"
 />
 
 **Key derivatives:**
@@ -418,7 +404,7 @@ Here are 15 high-frequency Quranic roots with their most common derivatives. Mem
   transliteration="walladhīna āmanū wa-ʿamilū ṣ-ṣāliḥāti ulāʾika aṣḥābu l-jannati hum fīhā khālidūna"
   translation="But those who believe and do righteous deeds - those are the companions of Paradise; they will abide therein eternally"
   reference="Surah Al-Baqarah 2:82"
-  highlight="الصَّالِْحَاتِ"
+  highlight="الصَّالِحَاتِ"
 />
 
 **Key derivatives:**
@@ -446,7 +432,7 @@ Here are 15 high-frequency Quranic roots with their most common derivatives. Mem
 - **حَامِدٌ** (ḥāmidun) - one who praises
 - **مَحْمُودٌ** (maḥmūdun) - praiseworthy
 - **مُحَمَّدٌ** (Muḥammadun) - Muhammad (the praised one)
-- **أَحْمَدُ** (Aḥmadu) - more praiseworthy
+- **أَحْمَدُ** (Aḥmadu) - more praiseworthy; also a name
 
 ### 12. س ج د (s-j-d) - Prostrating/Bowing
 
@@ -494,21 +480,21 @@ Here are 15 high-frequency Quranic roots with their most common derivatives. Mem
 />
 
 **Key derivatives:**
-- **هَدْىَٰ** (hadā) - he guided
+- **هَدَىٰ** (hadā) - he guided
 - **يَهْدِي** (yahdī) - he guides
 - **هُدْىً** (hudan) - guidance
-- **هَاْدٍ** (hādin) - guide
+- **هَادٍ** (hādin) - guide
 - **مَهْدِيٌّ** (mahdiyyun) - guided one
 - **اِهْتَدَىٰ** (ihtadā) - he was guided (Form VIII - reflexive)
 
 ### 15. ج ه د (j-h-d) - Striving/Struggling
 
 <ArabicExample
-  arabic="وَالَّذِينَ جَاَهِدُوْا فِينَا لَنَهْدِيَنَّهُمْ سُبُلَنَا"
+  arabic="وَالَّذِينَ جَاهَدُوا فِينَا لَنَهْدِيَنَّهُمْ سُبُلَنَا"
   transliteration="walladhīna jāhadū fīnā la-nahdiyanna-hum subulanā"
   translation="And those who strive for Us - We will surely guide them to Our ways"
   reference="Surah Al-'Ankabut 29:69"
-  highlight="جَاَهِدُوْا"
+  highlight="جَاهَدُوا"
 />
 
 **Key derivatives:**

@@ -1,18 +1,26 @@
 ---
-import '../../styles/night.css';
-import CookieBanner from '../../components/CookieBanner.astro';
+/**
+ * /resources/: the hub. Light only, standalone (no BaseLayout), like home, learn and the guides.
+ * Two tools lead; the guides follow in groups by what you are trying to do. The cards live in
+ * src/data/resource-hub.ts, and the page fails the build if a guide in the collection has no card or a card
+ * has no guide. Counts are never typed in here.
+ */
 import { getCollection } from 'astro:content';
+import CookieBanner from '../../components/CookieBanner.astro';
+import '../../styles/fonts.css';
+import '../../styles/guide.css';
+import '../../styles/hub.css';
+import { HUB_GROUPS } from '../../data/resource-hub';
 
 const resources = await getCollection('resources');
-// If this list changes, also update the hand-written counts in the copy:
-// the h1 ("Twelve tools"), the HUD data-hud-tools value, and the foot-meta line.
-const EXPECTED = ['200-most-used-words','arabic-in-7-principles','case-endings-chart','glossary','learning-roadmap','pronoun-charts','quran-arabic-vs-msa','root-system','verb-conjugation-tables','verb-forms-master-reference'];
-const ids = new Set(resources.map(r => r.id));
-for (const id of EXPECTED) if (!ids.has(id)) throw new Error(`resources: expected entry "${id}" missing — update the control-room rack`);
-if (resources.length !== EXPECTED.length) throw new Error(`resources: collection has ${resources.length} entries, rack is built for ${EXPECTED.length} — add the new tile`);
+const guideCards = HUB_GROUPS.flatMap((g) => g.cards).filter((c) => c.kind === 'guide');
+for (const r of resources) if (!guideCards.some((c) => c.id === r.id)) throw new Error(`resources hub: guide "${r.id}" has no card in src/data/resource-hub.ts`);
+for (const c of guideCards) if (!resources.some((r) => r.id === c.id)) throw new Error(`resources hub: card "${c.id}" is not a guide in src/content/resources`);
+const toolCount = HUB_GROUPS.flatMap((g) => g.cards).filter((c) => c.kind === 'tool').length;
 const guideCount = resources.length;
+
 const title = 'Resources | Quranic Grammar';
-const description = 'Quick-reference charts and guides for Quranic Arabic: verb conjugation tables, pronoun charts, case endings, 200 most-used Quranic words, and Arabic root system guide.';
+const description = 'Free tools and guides for Quranic Arabic: look up a word, generate verb forms, and keep the case endings, pronouns, verb tables and the 200 most common words open next to any lesson.';
 const canonicalURL = new URL('/resources/', Astro.site);
 const ogImageURL = new URL('/images/og-default.jpg', Astro.site);
 ---
@@ -20,7 +28,6 @@ const ogImageURL = new URL('/images/og-default.jpg', Astro.site);
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
-  <!-- Google Analytics (GA4) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-1MSBYYQT5Z" is:inline></script>
   <script is:inline>
     window.dataLayer = window.dataLayer || [];
@@ -31,10 +38,9 @@ const ogImageURL = new URL('/images/og-default.jpg', Astro.site);
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="description" content={description} />
-  <meta name="theme-color" content="#05070e" />
+  <meta name="theme-color" content="#fbfcfd" />
   <title>{title}</title>
   <link rel="canonical" href={canonicalURL.href} />
-  <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content={canonicalURL.href} />
   <meta property="og:title" content={title} />
@@ -42,506 +48,81 @@ const ogImageURL = new URL('/images/og-default.jpg', Astro.site);
   <meta property="og:image" content={ogImageURL.href} />
   <meta property="og:site_name" content="Quranic Grammar" />
   <meta property="og:locale" content="en_US" />
-  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content={title} />
   <meta name="twitter:description" content={description} />
   <meta name="twitter:image" content={ogImageURL.href} />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="alternate" type="application/rss+xml" title="Quranic Grammar RSS" href="/rss.xml" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Amiri+Quran&family=Amiri:ital,wght@0,400;0,700;1,400&family=Marcellus&family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
-  <!-- Keep the stored theme in sync for the rest of the site (this page is always night) -->
-  <script is:inline>
-    (function() {
-      const theme = localStorage.getItem('theme') ||
-        (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-      document.documentElement.setAttribute('data-theme', theme);
-    })();
-  </script>
+  <link rel="preload" href="/fonts/geist-500.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/geist-400.woff2" as="font" type="font/woff2" crossorigin />
   <script src="https://analytics.ahrefs.com/analytics.js" data-key="sW/uZfxMauSpqoKnSL6i6g" async is:inline></script>
-  <style is:global>
-/* ============================================================
-   THE CONTROL ROOM · resources section page
-   body, head + HUD, rack grid, .mod family, swap helper, demos
-   :root / reset / a / :focus-visible / [lang=ar] / ::selection /
-   [data-reveal] pattern / #veil family / .nav family /
-   footer / .foot-meta / .skip-link are provided by night.css
-   ============================================================ */
-
-html{background:#05070e}
-@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
-body{background:linear-gradient(180deg,#05070e,#070a13);color:var(--ink);font-family:var(--font-body);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-
-/* head + HUD */
-.head{padding:clamp(120px,15vh,170px) var(--pad-x) clamp(20px,3.5vh,40px);max-width:1400px;margin:0 auto;display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap}
-.head h1{font-family:var(--font-display);font-weight:400;font-size:clamp(38px,5vw,66px);line-height:1.08;max-width:15ch}
-.head h1 em{font-style:normal;color:var(--gold-bright)}
-.head .dek{color:var(--ink-dim);font-weight:300;font-size:clamp(14px,1.3vw,16.5px);line-height:1.8;max-width:44ch}
-#hud{border:1px solid rgba(227,179,92,.35);border-radius:12px;padding:14px 20px;background:rgba(9,13,25,.7);min-width:250px}
-#hud .h-row{display:flex;justify-content:space-between;gap:20px;font-family:var(--font-mono);font-size:9.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-faint);padding:3px 0}
-#hud .h-row b{color:var(--gold-bright);font-weight:500;letter-spacing:.12em}
-#hud .beatlamp{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--gold-deep);vertical-align:middle;margin-right:8px;transition:background .12s,box-shadow .12s}
-#hud .beatlamp.on{background:var(--gold-bright);box-shadow:0 0 12px var(--gold-glow)}
-
-/* rack */
-#rack{max-width:1400px;margin:0 auto;padding:0 var(--pad-x) 70px;display:grid;gap:clamp(12px,1.5vw,20px);grid-template-columns:repeat(4,1fr);grid-auto-rows:minmax(150px,auto)}
-@media (max-width:1100px){#rack{grid-template-columns:repeat(2,1fr)}}
-@media (max-width:560px){#rack{grid-template-columns:1fr}}
-.c-2w{grid-column:span 2}.c-2h{grid-row:span 2}
-@media (max-width:560px){.c-2w{grid-column:span 1}}
-
-.mod{position:relative;border:1px solid rgba(228,209,164,.2);border-radius:14px;overflow:hidden;padding:16px 20px 18px;display:flex;flex-direction:column;
-  background:
-    linear-gradient(180deg,rgba(227,179,92,.06),transparent 22%),
-    linear-gradient(168deg,#0d1224,#080c17);
-  box-shadow:inset 0 1px 0 rgba(228,209,164,.08);
-  transition:border-color .5s,transform .5s var(--ease-out),box-shadow .5s}
-.mod:hover{transform:translateY(-4px);border-color:rgba(227,179,92,.45);box-shadow:0 24px 64px rgba(0,0,0,.55)}
-/* corner screws */
-.mod .screws i{position:absolute;width:5px;height:5px;border-radius:50%;background:radial-gradient(circle at 35% 35%,rgba(244,237,218,.5),rgba(90,80,55,.9));font-style:normal}
-.mod .screws i:nth-child(1){left:8px;top:8px}.mod .screws i:nth-child(2){right:8px;top:8px}
-.mod .screws i:nth-child(3){left:8px;bottom:8px}.mod .screws i:nth-child(4){right:8px;bottom:8px}
-/* header strip: label + meter + led */
-.mod .strip{display:flex;align-items:center;gap:12px;border-bottom:1px solid var(--hairline-soft);padding-bottom:10px}
-.mod .strip .lbl{font-family:var(--font-mono);font-size:8.5px;letter-spacing:.26em;color:var(--gold);text-transform:uppercase;flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.mod .meter{width:44px;height:18px;flex:none}
-.mod .meter svg{width:100%;height:100%;overflow:visible}
-.mod .meter .arc{fill:none;stroke:rgba(228,209,164,.25);stroke-width:1}
-.mod .meter .needle{stroke:var(--gold-bright);stroke-width:1.3;transform-origin:22px 17px;transform:rotate(-38deg);transition:transform .5s var(--ease-io)}
-.mod.beat .meter .needle{transform:rotate(30deg);transition:transform .16s var(--ease-out)}
-.mod .led{width:7px;height:7px;border-radius:50%;background:#3a3320;flex:none;transition:background .12s,box-shadow .12s}
-.mod.beat .led,.mod.on .led.idle{background:var(--gold-bright);box-shadow:0 0 10px var(--gold-glow)}
-.mod h2{font-family:var(--font-display);font-weight:400;font-size:clamp(16px,1.6vw,19.5px);line-height:1.25;margin-top:10px}
-.mod .demo{flex:1;display:grid;place-items:center;min-height:60px;padding:8px 0 2px}
-.mod .ds{font-size:11.5px;color:var(--ink-faint);font-weight:300;line-height:1.55}
-.mod .go{position:absolute;inset:0;z-index:3;border-radius:14px}
-.mod .go:focus-visible{outline:2px solid var(--gold);outline-offset:-4px}
-/* boot states */
-.js .mod .inner{opacity:0}
-.js .mod.booting .inner{animation:bootflick .5s steps(2,end) forwards}
-@keyframes bootflick{0%{opacity:0}25%{opacity:.7}50%{opacity:.12}75%{opacity:.85}100%{opacity:1}}
-.js .mod.on .inner{opacity:1}
-@media (prefers-reduced-motion:reduce){.js .mod .inner{opacity:1!important;animation:none!important}}
-.mod .inner{display:flex;flex-direction:column;height:100%}
-
-/* swap helper */
-.sw{transition:opacity .32s,filter .32s,transform .32s}
-.swapping .sw{opacity:0;filter:blur(5px);transform:translateY(4px)}
-
-/* demos (compact set) */
-.d-big-ar{font-family:var(--font-quran);font-size:clamp(30px,3vw,40px);direction:rtl;line-height:1.55;color:var(--ink);text-align:center}
-.d-lbl{font-family:var(--font-mono);font-size:8.5px;letter-spacing:.26em;color:var(--gold-bright);text-transform:uppercase;text-align:center;margin-top:3px}
-.d-sub{font-family:var(--font-mono);font-size:8.5px;letter-spacing:.22em;color:var(--ink-faint);text-transform:uppercase;text-align:center;margin-top:3px}
-
-#formrow{display:flex;align-items:center;justify-content:space-around;width:100%;gap:10px}
-#formrow .fr{font-family:var(--font-display);font-size:40px;color:var(--gold-bright);min-width:64px;text-align:center}
-#formrow .fp{font-family:var(--font-ar);font-size:28px;direction:rtl;color:var(--ink)}
-#formrow .fm{font-family:var(--font-mono);font-size:8.5px;letter-spacing:.2em;color:var(--ink-faint);text-transform:uppercase;text-align:right;max-width:150px;line-height:1.7}
-
-#lkp{width:100%}
-#lkp .line{display:flex;align-items:center;gap:10px;border:1px solid var(--hairline);border-radius:9px;padding:8px 14px;font-family:var(--font-mono);font-size:12px}
-#lkp .line .q{direction:rtl;font-family:var(--font-ar);font-size:18px;min-height:1.5em;line-height:1.5}
-#lkp .caret{width:1px;height:15px;background:var(--gold-bright);animation:blink 1.1s steps(1) infinite}
-@keyframes blink{50%{opacity:0}}
-@media (prefers-reduced-motion:reduce){#lkp .caret{animation:none}}
-#lkp .chips{display:flex;gap:7px;flex-wrap:wrap;margin-top:10px;opacity:0;transition:opacity .5s}
-#lkp .chips.on{opacity:1}
-#lkp .chips span{font-family:var(--font-mono);font-size:8.5px;letter-spacing:.12em;color:var(--ink-dim);border:1px solid var(--hairline-soft);border-radius:999px;padding:4px 10px;text-transform:uppercase}
-#lkp .chips b{color:var(--gold-bright);font-weight:500}
-
-#ticker{height:100%;max-height:250px;overflow:hidden;width:100%;-webkit-mask-image:linear-gradient(180deg,transparent,#000 16%,#000 84%,transparent);mask-image:linear-gradient(180deg,transparent,#000 16%,#000 84%,transparent)}
-#ticker ul{list-style:none;display:flex;flex-direction:column;gap:8px;animation:tick 15s linear infinite}
-@keyframes tick{to{transform:translateY(-50%)}}
-@media (prefers-reduced-motion:reduce){#ticker ul{animation:none}}
-#ticker li{display:flex;justify-content:space-between;align-items:baseline;gap:10px;border:1px solid var(--hairline-soft);border-radius:8px;padding:6px 11px}
-#ticker li b{font-family:var(--font-ar);font-weight:400;font-size:16px;direction:rtl;line-height:1.6}
-#ticker li span{font-family:var(--font-mono);font-size:8px;letter-spacing:.14em;color:var(--ink-faint);text-transform:uppercase}
-
-#conj{display:grid;grid-template-columns:repeat(3,1fr);gap:5px;width:100%;max-width:190px}
-#conj i{height:23px;border:1px solid var(--hairline-soft);border-radius:5px;transition:background .3s,border-color .3s,color .3s;font-style:normal;display:grid;place-items:center;font-family:var(--font-mono);font-size:7.5px;color:var(--ink-faint)}
-#conj i.hot{background:rgba(227,179,92,.16);border-color:rgba(227,179,92,.5);color:var(--gold-bright)}
-
-#road2{width:100%;display:flex;align-items:center}
-#road2 .st{flex:1;display:flex;flex-direction:column;align-items:center;gap:7px;position:relative}
-#road2 .st::before{content:'';position:absolute;top:5px;left:-50%;width:100%;height:1px;background:var(--hairline)}
-#road2 .st:first-child::before{display:none}
-#road2 .st i{width:10px;height:10px;border-radius:50%;border:1.5px solid rgba(228,209,164,.4);background:#090d19;transition:background .4s,border-color .4s,box-shadow .4s;font-style:normal;z-index:1}
-#road2 .st.hot i{background:var(--gold-bright);border-color:var(--gold-bright);box-shadow:0 0 12px var(--gold-glow)}
-#road2 .st span{font-family:var(--font-mono);font-size:7px;letter-spacing:.16em;color:var(--ink-faint);text-transform:uppercase;white-space:nowrap}
-#road2 .st.hot span{color:var(--gold-bright)}
-
-#pron{position:relative;width:104px;height:104px}
-#pron .p-ring{position:absolute;inset:0;border:1px dashed rgba(228,209,164,.16);border-radius:50%}
-#pron .p-rot{position:absolute;inset:0;animation:orb 22s linear infinite}
-@keyframes orb{to{transform:rotate(360deg)}}
-@media (prefers-reduced-motion:reduce){#pron .p-rot{animation:none}}
-#pron .p{position:absolute;left:50%;top:50%;font-family:var(--font-ar);font-size:13px;color:var(--gold);transform:translate(-50%,-50%) rotate(var(--a)) translateY(-48px) rotate(calc(var(--a) * -1))}
-#pron .c{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-family:var(--font-ar);font-size:20px;color:var(--gold-bright)}
-
-#msa .tgl{position:relative;width:150px;height:34px;border:1px solid var(--hairline);border-radius:999px;display:flex;align-items:center;margin:0 auto}
-#msa .tgl i{position:absolute;top:3px;bottom:3px;width:calc(50% - 3px);left:3px;border-radius:999px;background:linear-gradient(160deg,rgba(227,179,92,.35),rgba(169,126,53,.25));transition:transform .6s var(--ease-io);font-style:normal}
-#msa.flip .tgl i{transform:translateX(100%)}
-#msa .tgl span{flex:1;text-align:center;font-family:var(--font-mono);font-size:8px;letter-spacing:.2em;color:var(--ink-dim);position:relative;z-index:1;text-transform:uppercase}
-  </style>
 </head>
-<body>
-
-<a href="#main-content" class="skip-link">Skip to main content</a>
-
-<div id="veil" aria-hidden="true">
-  <svg viewBox="0 0 40 40" fill="none"><path d="M20 2l3.4 10.2L34 8.8l-6.8 8.6L38 20l-10.8 2.6L34 31.2l-10.6-3.4L20 38l-3.4-10.2L6 31.2l6.8-8.6L2 20l10.8-2.6L6 8.8l10.6 3.4z" fill="#e3b35c"/></svg>
-</div>
-
-<header class="nav" id="nav">
+<body class="guide hub" style="--hue:178">
+<a href="#main-content" class="skip">Skip to main content</a>
+<header class="site">
   <a class="brand" href="/" aria-label="Quranic Grammar, home">
-    <svg viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M20 2l3.4 10.2L34 8.8l-6.8 8.6L38 20l-10.8 2.6L34 31.2l-10.6-3.4L20 38l-3.4-10.2L6 31.2l6.8-8.6L2 20l10.8-2.6L6 8.8l10.6 3.4z" fill="#e3b35c"/></svg>
-    Quranic Grammar
+    <svg viewBox="0 0 32 32" aria-hidden="true"><rect x="1" y="1" width="30" height="30" rx="9" fill="oklch(18% 0.03 240)"/><path d="M9 19h14" stroke="#fff" stroke-width="2" stroke-linecap="round"/><circle cx="16" cy="12" r="2.6" fill="oklch(79% 0.14 72)"/><circle cx="16" cy="24.5" r="1.6" fill="#fff"/></svg>
+    <span>Quranic Grammar</span>
   </a>
-  <nav class="nav-links" aria-label="Primary">
-    <a href="/learn/">LEARN</a><a href="/surahs/">SURAHS</a><a class="active" href="/resources/" aria-current="page">RESOURCES</a><a href="/about/">ABOUT</a>
-  </nav>
+  <nav aria-label="Primary"><a href="/learn/">Learn</a><a href="/surahs/">Surahs</a><a href="/resources/" aria-current="page">Resources</a><a href="/about/">About</a></nav>
+  <details class="menu">
+    <summary aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></summary>
+    <div class="menu-panel"><a href="/learn/">Learn</a><a href="/surahs/">Surahs</a><a href="/resources/">Resources</a><a href="/about/">About and feedback</a></div>
+  </details>
 </header>
 
 <main id="main-content">
-
-<header class="head">
-  <div>
-    <h1 data-reveal>Twelve tools, <em>one goal</em>.</h1>
-    <p class="dek" data-reveal>Charts, tables, a glossary, and two live tools — everything you reach for while reading the Quran. All of it free, all of it always open.</p>
-  </div>
-  <div id="hud" data-reveal aria-live="off">
-    <div class="h-row"><span><span class="beatlamp" id="beatlamp"></span>Reference guides</span><b data-hud-guides>{guideCount}</b></div>
-    <div class="h-row"><span>Live tools</span><b data-hud-tools>2</b></div>
-    <div class="h-row"><span>Open</span><b>ALWAYS</b></div>
-    <div class="h-row"><span>Price</span><b>FREE</b></div>
-  </div>
-</header>
-
-<section id="rack" aria-label="All resources">
-
-  <article class="mod c-2w" data-boot="0">
-    <span class="screws" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
-    <div class="inner">
-      <div class="strip"><span class="lbl">Every root, ten forms · Live</span><span class="meter" aria-hidden="true"><svg viewBox="0 0 44 18"><path class="arc" d="M6 17 A17 17 0 0 1 38 17"/><line class="needle" x1="22" y1="17" x2="22" y2="4"/></svg></span><span class="led idle"></span></div>
-      <h2>Verb Form Generator</h2>
-      <div class="demo"><div id="formrow" aria-hidden="true">
-        <span class="fr sw" id="fr">I</span>
-        <span class="fp sw" id="fp" lang="ar" dir="rtl">فَعَلَ</span>
-        <span class="fm sw" id="fm">BASE MEANING<br>THE BARE ROOT</span>
-      </div></div>
-      <p class="ds">Any Quranic root through all ten forms — attested verbs, meanings, verse references.</p>
-    </div>
-    <a class="go" href="/resources/verb-forms/" data-testid="resource-verb-forms" aria-label="Open the Verb Form Generator"></a>
-  </article>
-
-  <article class="mod c-2w" data-boot="1">
-    <span class="screws" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
-    <div class="inner">
-      <div class="strip"><span class="lbl">Any word, one answer · Live</span><span class="meter" aria-hidden="true"><svg viewBox="0 0 44 18"><path class="arc" d="M6 17 A17 17 0 0 1 38 17"/><line class="needle" x1="22" y1="17" x2="22" y2="4"/></svg></span><span class="led idle"></span></div>
-      <h2>Word Lookup</h2>
-      <div class="demo" style="display:block"><div id="lkp" aria-hidden="true">
-        <div class="line"><span style="opacity:.4">⌕</span><span class="q" id="lq" lang="ar" dir="rtl"></span><span class="caret"></span></div>
-        <div class="chips" id="lchips"><span><b lang="ar" dir="rtl">قَالَ</b> qāla</span><span>ROOT <b lang="ar" dir="rtl">ق و ل</b></span><span>FORM <b>I</b></span><span><b>412×</b></span><span>"TO SAY"</span></div>
-      </div></div>
-      <p class="ds">Arabic, sound, or meaning — one field answers with root, form, and grammar.</p>
-    </div>
-    <a class="go" href="/resources/word-lookup/" data-testid="resource-word-lookup" aria-label="Open Word Lookup"></a>
-  </article>
-
-  <article class="mod c-2h" data-boot="2">
-    <span class="screws" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
-    <div class="inner">
-      <div class="strip"><span class="lbl">Core vocabulary</span><span class="led idle"></span></div>
-      <h2>200 Most Common Words</h2>
-      <div class="demo"><div id="ticker" aria-hidden="true"><ul id="tickerlist"></ul></div></div>
-      <p class="ds">The words on every page.</p>
-    </div>
-    <a class="go" href="/resources/200-most-used-words/" data-testid="resource-200-most-used-words" aria-label="Open 200 Most Common Quranic Words"></a>
-  </article>
-
-  <article class="mod" data-boot="3">
-    <span class="screws" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
-    <div class="inner">
-      <div class="strip"><span class="lbl">The three cases</span><span class="led idle"></span></div>
-      <h2>Case Endings Chart</h2>
-      <div class="demo"><div aria-hidden="true">
-        <div class="d-big-ar sw" id="cw" lang="ar" dir="rtl" translate="no">كِتَابٌ</div>
-        <div class="d-lbl sw" id="cl">RAFʿ — SUBJECT</div>
-      </div></div>
-      <p class="ds">One noun, three cases.</p>
-    </div>
-    <a class="go" href="/resources/case-endings-chart/" data-testid="resource-case-endings-chart" aria-label="Open the Case Endings Chart"></a>
-  </article>
-
-  <article class="mod" data-boot="4">
-    <span class="screws" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
-    <div class="inner">
-      <div class="strip"><span class="lbl">Every term defined</span><span class="led idle"></span></div>
-      <h2>Grammar Glossary</h2>
-      <div class="demo"><div aria-hidden="true">
-        <div class="d-big-ar sw" id="gt" lang="ar" dir="rtl" translate="no">إعراب</div>
-        <div class="d-lbl sw" id="gd">IʿRĀB — CASE ANALYSIS</div>
-      </div></div>
-      <p class="ds">Every term, both languages.</p>
-    </div>
-    <a class="go" href="/resources/glossary/" data-testid="resource-glossary" aria-label="Open the Arabic Grammar Glossary"></a>
-  </article>
-
-  <article class="mod" data-boot="5">
-    <span class="screws" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
-    <div class="inner">
-      <div class="strip"><span class="lbl">Who is speaking</span><span class="led idle"></span></div>
-      <h2>Pronoun Charts</h2>
-      <div class="demo"><div id="pron" aria-hidden="true">
-        <span class="p-ring"></span>
-        <div class="p-rot">
-          <span class="p" style="--a:0deg" lang="ar">هُوَ</span><span class="p" style="--a:60deg" lang="ar">هِيَ</span><span class="p" style="--a:120deg" lang="ar">أَنْتَ</span><span class="p" style="--a:180deg" lang="ar">أَنَا</span><span class="p" style="--a:240deg" lang="ar">نَحْنُ</span><span class="p" style="--a:300deg" lang="ar">هُمْ</span>
+  <section class="g-hero hub-hero" aria-labelledby="hub-h">
+    <div class="g-hero-grid">
+      <div>
+        <p class="eyebrow">Free, no sign-up</p>
+        <h1 class="g-h1" id="hub-h">Look it up while you read</h1>
+        <p class="g-dek">{toolCount === 1 ? 'One finder' : `${toolCount} tools`} and {guideCount} guides for Quranic Arabic. Keep them open next to any lesson, or next to the Quran itself.</p>
+        <div class="find" role="search">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+          <label class="vh" for="hub-q">Find a resource</label>
+          <input id="hub-q" type="search" placeholder="Find a resource, e.g. cases" autocomplete="off" />
         </div>
-        <span class="c" lang="ar" translate="no">ضمائر</span>
-      </div></div>
-      <p class="ds">Detached, attached, and more.</p>
+      </div>
+      <ul class="g-stats" aria-label="What is here" style="margin:0">
+        <li><b data-hub-tools>{toolCount}</b>{toolCount === 1 ? 'live tool' : 'live tools'}</li>
+        <li><b data-hub-guides>{guideCount}</b>guides</li>
+        <li><b>Free</b>always open</li>
+      </ul>
     </div>
-    <a class="go" href="/resources/pronoun-charts/" data-testid="resource-pronoun-charts" aria-label="Open Pronoun Reference Charts"></a>
-  </article>
+  </section>
 
-  <article class="mod" data-boot="6">
-    <span class="screws" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
-    <div class="inner">
-      <div class="strip"><span class="lbl">How words are born</span><span class="led idle"></span></div>
-      <h2>Root System Guide</h2>
-      <div class="demo"><div aria-hidden="true">
-        <div class="d-big-ar sw" id="rb" lang="ar" dir="rtl" translate="no">كِتَاب</div>
-        <div class="d-lbl sw" id="rl">KITĀB — BOOK</div>
-        <div class="d-sub">FROM THE ROOT ك ت ب</div>
-      </div></div>
-      <p class="ds">Three letters, one family.</p>
-    </div>
-    <a class="go" href="/resources/root-system/" data-testid="resource-root-system" aria-label="Open the Arabic Root System Guide"></a>
-  </article>
-
-  <article class="mod" data-boot="7">
-    <span class="screws" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
-    <div class="inner">
-      <div class="strip"><span class="lbl">Every person &amp; tense</span><span class="led idle"></span></div>
-      <h2>Conjugation Tables</h2>
-      <div class="demo"><div id="conj" aria-hidden="true"><i>3MS</i><i>3FS</i><i>2MS</i><i>2FS</i><i>1S</i><i>3MP</i><i>3FP</i><i>2MP</i><i>1P</i></div></div>
-      <p class="ds">Ten forms, every person.</p>
-    </div>
-    <a class="go" href="/resources/verb-conjugation-tables/" data-testid="resource-verb-conjugation-tables" aria-label="Open Verb Conjugation Tables"></a>
-  </article>
-
-  <article class="mod" data-boot="8">
-    <span class="screws" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
-    <div class="inner">
-      <div class="strip"><span class="lbl">Which Arabic first</span><span class="led idle"></span></div>
-      <h2>Quranic vs MSA</h2>
-      <div class="demo"><div id="msa" aria-hidden="true">
-        <div class="tgl"><i></i><span>Quranic</span><span>MSA</span></div>
-        <div class="d-lbl sw" id="mnote" style="margin-top:9px">SAME ROOTS · DIFFERENT REGISTER</div>
-      </div></div>
-      <p class="ds">Decide where to start.</p>
-    </div>
-    <a class="go" href="/resources/quran-arabic-vs-msa/" data-testid="resource-quran-arabic-vs-msa" aria-label="Open Quranic Arabic vs MSA"></a>
-  </article>
-
-  <article class="mod c-2w" data-boot="9">
-    <span class="screws" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
-    <div class="inner">
-      <div class="strip"><span class="lbl">The route &amp; timelines</span><span class="meter" aria-hidden="true"><svg viewBox="0 0 44 18"><path class="arc" d="M6 17 A17 17 0 0 1 38 17"/><line class="needle" x1="22" y1="17" x2="22" y2="4"/></svg></span><span class="led idle"></span></div>
-      <h2>Learning Roadmap</h2>
-      <div class="demo"><div id="road2" aria-hidden="true">
-        <div class="st"><i></i><span>Script</span></div><div class="st"><i></i><span>Words</span></div><div class="st"><i></i><span>Iʿrāb</span></div><div class="st"><i></i><span>Forms</span></div><div class="st"><i></i><span>Cold read</span></div>
-      </div></div>
-      <p class="ds">Beginner to full analysis, with honest timelines and weekly commitments.</p>
-    </div>
-    <a class="go" href="/resources/learning-roadmap/" data-testid="resource-learning-roadmap" aria-label="Open the Learning Roadmap"></a>
-  </article>
-
-  <article class="mod" data-boot="10">
-    <span class="screws" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
-    <div class="inner">
-      <div class="strip"><span class="lbl">90% of the grammar</span><span class="led idle"></span></div>
-      <h2>Arabic in 7 Principles</h2>
-      <div class="demo"><div aria-hidden="true">
-        <div class="d-big-ar sw" id="sn" lang="ar" style="font-size:44px;color:var(--gold-bright)">١</div>
-        <div class="d-lbl">OF ٧ · 90% OF THE GRAMMAR</div>
-      </div></div>
-      <p class="ds">Seven cheat-codes, always open.</p>
-    </div>
-    <a class="go" href="/resources/arabic-in-7-principles/" data-testid="resource-arabic-in-7-principles" aria-label="Open Arabic in 7 Principles"></a>
-  </article>
-
-  <article class="mod" data-boot="11">
-    <span class="screws" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
-    <div class="inner">
-      <div class="strip"><span class="lbl">The ten forms mapped</span><span class="led idle"></span></div>
-      <h2>Verb Forms Master</h2>
-      <div class="demo"><div aria-hidden="true">
-        <div class="sw" id="vr" style="font-family:var(--font-display);font-size:38px;text-align:center">II</div>
-        <div class="d-lbl sw" id="vm">INTENSIVE · CAUSATIVE</div>
-      </div></div>
-      <p class="ds">The one-page cheat sheet.</p>
-    </div>
-    <a class="go" href="/resources/verb-forms-master-reference/" data-testid="resource-verb-forms-master-reference" aria-label="Open the Verb Forms Master Reference"></a>
-  </article>
-
-</section>
-
+  <div class="groups" id="groups">
+    {HUB_GROUPS.map((g) => (
+      <section class:list={['grp', { tools: g.id === 'tools' }]} aria-labelledby={`g-${g.id}`} style={`--h:${g.hue}`}>
+        <div class="g-head"><h2 id={`g-${g.id}`}>{g.title}</h2><p>{g.line}</p></div>
+        <div class="cards">
+          {g.cards.map((c) => (
+            <a class="card" href={c.href} data-k={c.keys} data-testid={`resource-${c.id}`}>
+              <div class="kind"><span class:list={['tag', { live: c.kind === 'tool' }]}>{c.kind === 'tool' ? 'Live tool' : 'Guide'}</span></div>
+              <h3>{c.title}</h3>
+              <div class="peek" aria-hidden="true" set:html={c.peek} />
+              <p>{c.blurb}</p>
+              <span class="go">{c.kind === 'tool' ? 'Open the tool' : 'Read the guide'} <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+            </a>
+          ))}
+        </div>
+      </section>
+    ))}
+    <div class="empty" id="hub-none" hidden><b>No resource matches that.</b><p>Try a shorter word, or <a href="/search/">search the whole site</a>.</p></div>
+  </div>
 </main>
 
-<footer>
-  <div class="foot-meta">
-    <span>QURANIC GRAMMAR · RESOURCES</span>
-    <span>10 GUIDES + 2 LIVE TOOLS · ALWAYS OPEN</span>
-    <span>FREE · NO SIGN-UP</span>
-    <span>Nettsiden er laget av <a href="https://www.idweb.no" target="_blank" rel="noopener noreferrer">IDweb</a></span>
+<footer class="foot">
+  <div class="in">
+    <nav aria-label="Footer"><a href="/learn/">Learn</a><a href="/surahs/">Surahs</a><a href="/resources/">Resources</a><a href="/about/">About and feedback</a><a href="/rss.xml">RSS</a></nav>
+    <p>Word data and counts from the <a href="https://corpus.quran.com/">Quranic Arabic Corpus</a> (Kais Dukes, GPL). Quran text after <a href="https://tanzil.net/">Tanzil</a>.</p>
   </div>
 </footer>
-
-<CookieBanner />
-
+<CookieBanner tone="light" />
 <script>
-// @ts-nocheck
-import { initCapacitor } from '../../scripts/capacitor-init';
-initCapacitor();
-
-(function(){
-'use strict';
-document.documentElement.classList.add('js');
-var RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
-var hidden=false;
-document.addEventListener('visibilitychange',function(){hidden=document.hidden;});
-var veil=document.getElementById('veil');
-addEventListener('load',function(){setTimeout(function(){veil.classList.add('gone');},RM?0:320);});
-setTimeout(function(){veil.classList.add('gone');},2600);
-var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target);}});},{threshold:.1});
-document.querySelectorAll('[data-reveal]').forEach(function(el,i){el.style.transitionDelay=(i%5*90)+'ms';io.observe(el);});
-addEventListener('scroll',function(){document.getElementById('nav').classList.toggle('scrolled',scrollY>40);},{passive:true});
-
-/* ---------- boot sequence ---------- */
-var mods=[].slice.call(document.querySelectorAll('.mod'));
-var booted=0,bootStarted=false;
-mods.sort(function(a,b){return +a.dataset.boot-+b.dataset.boot;});
-function bootAll(){
-  if(bootStarted)return; /* load can fire after the 2400ms fallback (render-blocking fonts gate it) — boot once */
-  bootStarted=true;
-  mods.forEach(function(m,i){
-    var delay=RM?0:500+i*260;
-    setTimeout(function(){
-      m.classList.add('booting');
-      setTimeout(function(){m.classList.remove('booting');m.classList.add('on');booted++;},RM?0:520);
-    },delay);
-  });
-}
-addEventListener('load',bootAll);
-setTimeout(bootAll,2400);
-
-/* ---------- master heartbeat: 1.2s ---------- */
-var BEAT=1200,beatN=0;
-var beatlamp=document.getElementById('beatlamp');
-var subs=[];   /* {every, phase, fn} */
-function onBeat(every,phase,fn){subs.push({every:every,phase:phase,fn:fn});}
-setInterval(function(){
-  if(hidden||RM)return;
-  beatN++;
-  beatlamp.classList.add('on');
-  mods.forEach(function(m){if(m.classList.contains('on'))m.classList.add('beat');});
-  setTimeout(function(){
-    beatlamp.classList.remove('on');
-    mods.forEach(function(m){m.classList.remove('beat');});
-  },200);
-  subs.forEach(function(s){if((beatN+s.phase)%s.every===0)s.fn();});
-},BEAT);
-
-/* swap helper */
-function swap(el,apply){
-  var host=el.closest('.demo')||el.parentElement;
-  host.classList.add('swapping');
-  setTimeout(function(){apply();host.classList.remove('swapping');},330);
-}
-function statik(el,txt){el.textContent=txt;}
-
-/* ---------- demos on the beat ---------- */
-var ROMANS=['I','II','III','IV','V','VI','VII','VIII','IX','X'];
-var PATS=['فَعَلَ','فَعَّلَ','فَاعَلَ','أَفْعَلَ','تَفَعَّلَ','تَفَاعَلَ','اِنْفَعَلَ','اِفْتَعَلَ','اِفْعَلَّ','اِسْتَفْعَلَ'];
-var MEANS=['BASE MEANING|THE BARE ROOT','INTENSIVE · CAUSATIVE|DOUBLED MIDDLE','RECIPROCAL|LONG FIRST VOWEL','CAUSATIVE|HAMZA PREFIX','REFLEXIVE OF II|TA- PREFIX','MUTUAL ACTION|TA- + LONG VOWEL','PASSIVE-LIKE|IN- PREFIX','REFLEXIVE|-TA- INFIX','COLORS &amp; DEFECTS|DOUBLED LAM','SEEKING|ISTA- PREFIX'];
-var fr=document.getElementById('fr'),fp=document.getElementById('fp'),fm=document.getElementById('fm');
-var fi=0;
-onBeat(2,0,function(){
-  fi=(fi+1)%10;
-  swap(fr,function(){
-    fr.textContent=ROMANS[fi];fp.textContent=PATS[fi];
-    fm.textContent='';
-    MEANS[fi].replace(/&amp;/g,'&').split('|').forEach(function(l,k){if(k)fm.appendChild(document.createElement('br'));fm.appendChild(document.createTextNode(l.trim()));});
-  });
-});
-if(RM){statik(fr,'II');statik(fp,PATS[1]);fm.textContent='';MEANS[1].split('|').forEach(function(l,k){if(k)fm.appendChild(document.createElement('br'));fm.appendChild(document.createTextNode(l.trim()));});}
-
-/* lookup typing (own rhythm) */
-var lq=document.getElementById('lq'),lchips=document.getElementById('lchips');
-(function loop(){
-  if(RM){lq.textContent='قَالَ';lchips.classList.add('on');return;}
-  var Wd='قَالَ',i=0;lq.textContent='';lchips.classList.remove('on');
-  var t=setInterval(function(){
-    if(hidden)return;
-    i++;lq.textContent=Wd.slice(0,i);
-    if(i>=Wd.length){clearInterval(t);setTimeout(function(){lchips.classList.add('on');},300);setTimeout(loop,5600);}
-  },230);
-})();
-
-/* ticker */
-var TICK=[['مِن','FROM'],['فِي','IN'],['عَلَى','UPON'],['مَا','WHAT · NOT'],['لَا','NO · NOT'],['إِنَّ','INDEED'],['كُلّ','EVERY'],['يَوْم','DAY']];
-var list=document.getElementById('tickerlist');
-TICK.concat(TICK).forEach(function(w){
-  var li=document.createElement('li');
-  var b=document.createElement('b');b.setAttribute('lang','ar');b.setAttribute('dir','rtl');b.textContent=w[0];
-  var s=document.createElement('span');s.textContent=w[1];
-  li.appendChild(b);li.appendChild(s);list.appendChild(li);
-});
-
-/* case cycler */
-var CASES=[['كِتَابٌ','RAFʿ — SUBJECT'],['كِتَابًا','NASB — OBJECT'],['كِتَابٍ','JARR — AFTER PREPOSITIONS']];
-var cw=document.getElementById('cw'),cl=document.getElementById('cl'),ci=0;
-onBeat(2,1,function(){ci=(ci+1)%3;swap(cw,function(){cw.textContent=CASES[ci][0];cl.textContent=CASES[ci][1];});});
-
-/* glossary */
-var TERMS=[['إعراب','IʿRĀB — CASE ANALYSIS'],['مُبْتَدَأ','MUBTADAʾ — SUBJECT'],['خَبَر','KHABAR — PREDICATE'],['فَاعِل','FĀʿIL — DOER']];
-var gt=document.getElementById('gt'),gd=document.getElementById('gd'),gi=0;
-onBeat(3,0,function(){gi=(gi+1)%TERMS.length;swap(gt,function(){gt.textContent=TERMS[gi][0];gd.textContent=TERMS[gi][1];});});
-
-/* root births */
-var BORN=[['كِتَاب','KITĀB — BOOK'],['كَاتِب','KĀTIB — WRITER'],['مَكْتُوب','MAKTŪB — WRITTEN'],['يَكْتُبُ','YAKTUBU — HE WRITES']];
-var rb=document.getElementById('rb'),rl=document.getElementById('rl'),ri=0;
-onBeat(3,1,function(){ri=(ri+1)%BORN.length;swap(rb,function(){rb.textContent=BORN[ri][0];rl.textContent=BORN[ri][1];});});
-
-/* conj scan — every beat */
-var conjCells=[].slice.call(document.querySelectorAll('#conj i')),cj=0;
-onBeat(1,0,function(){cj=(cj+1)%conjCells.length;conjCells.forEach(function(c,k){c.classList.toggle('hot',k===cj);});});
-conjCells[0].classList.add('hot');
-
-/* roadmap — every beat */
-var steps=[].slice.call(document.querySelectorAll('#road2 .st')),rs=0;
-onBeat(1,0,function(){rs=(rs+1)%(steps.length+2);steps.forEach(function(s,j){s.classList.toggle('hot',j<=rs&&rs<steps.length);});});
-steps[0].classList.add('hot');
-
-/* seven */
-var AR7=['١','٢','٣','٤','٥','٦','٧'];
-var sn=document.getElementById('sn'),si=0;
-onBeat(2,0,function(){si=(si+1)%7;swap(sn,function(){sn.textContent=AR7[si];});});
-
-/* vfm */
-var vr=document.getElementById('vr'),vm=document.getElementById('vm'),vi=1;
-onBeat(2,1,function(){vi=(vi+1)%10;swap(vr,function(){vr.textContent=ROMANS[vi];vm.textContent=MEANS[vi].replace(/&amp;/g,'&').split('|')[0].trim();});});
-
-/* msa */
-var msa=document.getElementById('msa'),mnote=document.getElementById('mnote');
-var MN=['SAME ROOTS · DIFFERENT REGISTER','QURANIC KEEPS FULL IʿRĀB'];
-var mi=0;
-onBeat(3,2,function(){mi++;msa.classList.toggle('flip');swap(mnote,function(){mnote.textContent=MN[mi%2];});});
-})();
+  import '../../scripts/hub';
 </script>
-
 </body>
 </html>

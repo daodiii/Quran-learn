@@ -1,7 +1,7 @@
 // src/lib/latin-match.ts
 // English token matching with a light, deterministic stemmer. Browser-safe,
-// dependency-free. Shared by lookup-search (word glosses) and verb-search
-// (verb meanings). NOT a linguistic stemmer: correctness = both sides of a
+// dependency-free. Shared by lookup-search (word glosses) and finder-english.
+// NOT a linguistic stemmer: correctness = both sides of a
 // comparison pass through the same function, so only CONSISTENCY matters.
 
 const IRREGULAR: Record<string, string> = {
