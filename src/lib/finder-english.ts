@@ -7,9 +7,11 @@ import { stem } from './latin-match.ts';
 
 export interface LayerEntry {
   easy: string; kind: string; type: string[]; note: string | null; check: boolean;
-  n: number;          // times in the Quran
+  n: number;          // times in the Quran (a ranking weight for phrases)
   r: string[];        // root(s), Arabic letters as in the corpus
+  ph?: Phrase;        // set for opening phrases such as bismillah
 }
+export interface Phrase { ar: string; translit: string; ref: string; parts: Array<{ ar: string; say: string }> }
 export type Layer = Record<string, LayerEntry>;   // key: "lemma|pos"
 
 export interface Hint {

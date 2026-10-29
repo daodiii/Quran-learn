@@ -75,6 +75,7 @@ for (const [q, expect] of [
   ['day of judgement', /day/], ['come out', /come out|go out/], ['beleive', /believe/],
   ['fogive', /forgive/], ['ate', /eat/], ['saw', /see/], ['sabr', /patien/],
   ['jihad', /strive|struggle/], ['salah', /pray/], ['afterlife', /next life|hereafter/],
+  ['bismillah', /in the name of god/], ['inshallah', /if god wills/], ['alhamdulillah', /all praise/],
   ['shukr', /thank|grateful/], ['jannah', /garden|paradise/], ['sadaqah', /charity|give/],
 ] as Array<[string, RegExp]>) {
   test(`real layer: "${q}" finds the right word`, () => assert.match(easyOf(q), expect));

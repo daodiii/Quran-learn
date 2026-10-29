@@ -19,7 +19,7 @@ const ICON = {
   search: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>',
   x: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>',
 };
-const EXAMPLES = ['pray', 'he said', 'sabr', 'they believed', 'afterlife', 'forgive', 'وَٱلَّذِينَ', 'beleive'];
+const EXAMPLES = ['pray', 'he said', 'sabr', 'they believed', 'bismillah', 'forgive', 'وَٱلَّذِينَ', 'beleive'];
 ---
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -60,16 +60,21 @@ const EXAMPLES = ['pray', 'he said', 'sabr', 'they believed', 'afterlife', 'forg
   <h1 class="h1">Find a Quranic word</h1>
   <p class="dek">Type it the way you would say it: an English word or phrase, a sound such as “sabr”, or the Arabic. Spelling mistakes are fine.</p>
 
-  <form class="find js-only fd-find" role="search" id="find" action="#" onsubmit="return false">
-    <label class="vh" for="q">Search for a word or verb</label>
-    <Fragment set:html={ICON.search} />
-    <input id="q" type="search" autocomplete="off" autocapitalize="none" spellcheck="false" placeholder="Try “forgive”, “they believed”, “sabr” or Arabic" aria-controls="results" />
-    <button type="button" class="clear" aria-label="Clear search"><Fragment set:html={ICON.x} /></button>
-  </form>
+  <div class="fd-bar">
+    <form class="find js-only fd-find" role="search" id="find" action="#" onsubmit="return false">
+      <label class="vh" for="q">Search for a word or verb</label>
+      <Fragment set:html={ICON.search} />
+      <input id="q" type="search" autocomplete="off" autocapitalize="none" spellcheck="false" placeholder="Try “forgive”, “they believed”, “sabr” or Arabic" aria-controls="results" />
+      <button type="button" class="clear" aria-label="Clear search"><Fragment set:html={ICON.x} /></button>
+    </form>
+    <button type="button" class="pill js-only fd-mine-btn" id="mine-btn" aria-expanded="false" aria-controls="mine">My words</button>
+  </div>
   <noscript><p class="fd-note">This tool needs JavaScript. The <a href="/resources/glossary/">glossary</a> and <a href="/resources/200-most-used-words/">200 most used words</a> work without it.</p></noscript>
 
   <p class="fd-try js-only" id="try"><span>Try</span>{EXAMPLES.map((e) => <button type="button" class="chip" data-q={e} lang={/[؀-ۿ]/.test(e) ? 'ar' : undefined} dir={/[؀-ۿ]/.test(e) ? 'rtl' : undefined}>{e}</button>)}</p>
   <p class="fd-status" id="status" role="status" aria-live="polite"></p>
+
+  <section class="fd-mine" id="mine" aria-label="My words" hidden></section>
 
   <div class="fd-grid" id="grid" hidden>
     <section class="fd-results" id="results" aria-label="Results"></section>

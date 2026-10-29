@@ -87,3 +87,39 @@
 
 .fd-results:empty{display:none}
 .fd-grid:has(.fd-results:empty){grid-template-columns:minmax(0,1fr)}
+
+/* search bar with My words beside it */
+.fd-bar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:26px}
+.fd-bar .fd-find{margin-top:0;flex:1 1 360px;max-width:680px}
+.fd-mine-btn{min-height:60px;padding:0 24px;font-size:1rem}
+.pill{display:inline-flex;align-items:center;min-height:44px;padding:0 18px;border-radius:999px;border:1.5px solid var(--edge);background:#fff;text-decoration:none;font-size:.9375rem;cursor:pointer}
+.pill:hover{border-color:var(--accent)}
+.pill[aria-expanded="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
+
+/* phrases */
+.fd-row-ar.is-phrase{font-size:1.25rem;line-height:1.7;text-align:center}
+.fd-big-phrase{font-size:clamp(2rem,1.5rem + 2.4vw,3.25rem);line-height:1.8}
+.fd-phparts{align-items:stretch}
+
+/* save */
+.fd-save{display:inline-flex;align-items:center;min-height:44px;margin-top:12px;padding:0 18px;border-radius:999px;border:1.5px solid var(--ink);background:#fff;font-weight:500;cursor:pointer}
+.fd-save:hover{background:var(--soft-2)}
+.fd-save[aria-pressed="true"]{background:var(--teal-tint);border-color:var(--accent);color:var(--accent)}
+
+/* My words */
+.fd-mine{margin-top:20px;padding:clamp(20px,3vw,36px);border-radius:28px;background:var(--soft);max-width:820px}
+.fd-mine-head h2{margin:0;font-size:1.5rem;letter-spacing:-.02em}
+.fd-mine-actions{display:flex;align-items:center;gap:12px 18px;flex-wrap:wrap;margin:18px 0}
+.fd-go[disabled]{opacity:.45;cursor:default}
+.fd-mine-list{display:flex;flex-direction:column;gap:6px}
+.fd-mine-item{display:flex;align-items:stretch;gap:8px}
+.fd-mine-item .fd-row{flex:1 1 auto;background:#fff}
+.fd-rm{flex:none;min-width:44px;padding:0 14px;border:0;border-radius:14px;background:none;color:var(--muted);cursor:pointer;text-decoration:underline;text-decoration-color:var(--edge);text-underline-offset:4px}
+.fd-rm:hover{color:var(--ink)}
+.fd-review{margin-top:18px}
+.fd-rev-card{display:flex;flex-direction:column;align-items:center;gap:14px;padding:clamp(20px,4vw,44px);border-radius:24px;background:#fff;text-align:center}
+.fd-rev-card .fd-big{font-size:clamp(3.5rem,3rem + 4vw,6rem)}
+.fd-rev-back{display:flex;flex-direction:column;align-items:center;gap:8px;max-width:34em}
+.fd-rev-back .fd-meta{justify-content:center}
+.fd-rev-actions{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:8px}
+@media (max-width:900px){.fd-mine-btn{min-height:48px;flex:none}.fd-bar .fd-find{flex-basis:100%}}

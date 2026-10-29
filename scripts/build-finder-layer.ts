@@ -48,6 +48,24 @@ for (const f of readdirSync(`${DIR}/batches`).filter(f => /^in-\d+\.json$/.test(
   take(read<In[]>(`batches/${f}`), read<Out[]>(outFile), `batch ${n}`);
 }
 
+// Opening phrases (scripts/build-finder-phrases.ts) join the layer as extra entries.
+const phrases = existsSync(`${DIR}/phrases.json`) ? read<Record<string, any>>('phrases.json') : {};
+for (const [k, v] of Object.entries(phrases)) {
+  if (layer[k]) problems.push(`phrase ${k}: duplicate key`);
+  layer[k] = v;
+}
+// A word must not answer for a phrase: drop typing terms on ordinary words that contain a phrase's own terms
+// (the corpus verse 11:41 gave majraha the term "bismillah majraha").
+const phraseTerms = Object.values(phrases).flatMap((v: any) => v.type as string[]).filter(t => t.length >= 8);
+let dropped = 0;
+for (const [k, v] of Object.entries(layer)) {
+  if (k.startsWith('phrase|')) continue;
+  const keep = v.type.filter(t => !phraseTerms.some(pt => t === pt || t.split(' ').join(' ').includes(pt)));
+  dropped += v.type.length - keep.length;
+  if (keep.length >= 3) v.type = keep;
+}
+console.log(`typing terms removed for phrases: ${dropped}`);
+
 console.log(`entries=${Object.keys(layer).length} check=${flagged} problems=${problems.length}`);
 if (problems.length) { console.log(problems.slice(0, 60).join('\n')); process.exitCode = 1; }
 else {
