@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Quiz mockups side by side</title>
+<style>
+body{margin:0;font:16px/1.5 system-ui,sans-serif;background:#eef2f3;color:#15262e}
+h1{font-size:1.3rem;margin:0;padding:16px 20px 4px}
+p.s{margin:0;padding:0 20px 12px;color:#44555d}
+.row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;padding:0 20px 24px}
+.col h2{font-size:1rem;margin:0 0 6px}
+.col small{display:block;color:#44555d;margin-bottom:8px}
+.frame{background:#fff;border:1px solid #b8c4c9;border-radius:8px;overflow:hidden;position:relative}
+.d{height:420px}.d iframe{width:1280px;height:800px;border:0;transform:scale(var(--k,.3));transform-origin:0 0}
+.p{height:560px;width:290px}.p iframe{width:390px;height:844px;border:0;transform:scale(.66);transform-origin:0 0}
+.links{margin:6px 0 0;font-size:.9rem}
+</style></head><body>
+<h1>Quiz and review mockups: A, B, C</h1>
+<p class="s">Real Level 5 questions and the real scoring. Each opens full size; add <code>?state=wrong</code>, <code>?state=pass</code> or <code>?state=fail</code> to jump to a state.</p>
+<div class="row" id="row"></div>
+<script>
+const V=[['a','A Stage','a-stage.html','One question at a time, like a lesson step. Segmented bar, big counter, answer panel beside the question, Next in the bottom bar.'],
+['b','B Card','b-card.html','One question in a centred card on the Oasis field. A row of dots shows right and wrong as you go. Next sits in the card.'],
+['c','C Answer sheet','c-sheet.html','All questions on one page, answered in any order, with a rail that tracks progress. Result at the bottom.']];
+const row=document.getElementById('row');
+V.forEach(([k,n,f,d])=>{
+  const c=document.createElement('div');c.className='col';
+  const w=(location.search.includes('w=')?0:0);
+  c.innerHTML=`<h2>${n}</h2><small>${d}</small>
+  <div class="frame d" id="d${k}"><iframe src="${f}?state=wrong" title="${n} desktop"></iframe></div>
+  <div class="frame p" style="margin-top:12px"><iframe src="${f}?state=wrong" title="${n} phone"></iframe></div>
+  <p class="links">Open: <a href="${f}">question</a> · <a href="${f}?state=wrong">wrong answer</a> · <a href="${f}?state=pass">passed</a> · <a href="${f}?state=fail">failed</a></p>`;
+  row.appendChild(c);
+});
+function fit(){document.querySelectorAll('.d').forEach(d=>{d.style.setProperty('--k',(d.clientWidth/1280).toFixed(3));d.style.height=(800*d.clientWidth/1280)+'px'})}
+fit();addEventListener('resize',fit);
+</script></body></html>

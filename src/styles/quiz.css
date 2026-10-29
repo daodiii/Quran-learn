@@ -1,0 +1,643 @@
+/* Level quizzes and cumulative reviews, in the stepped lessons' look (the "Card" mockup,
+   docs/redesign/mockups/quiz/b-card.html). Everything is scoped under .qz and prefixed qz-.
+   Tokens, Geist and the Arabic fonts are the ones in lesson-steps.css; light on purpose, like the lessons. */
+
+@font-face {
+  font-family: 'Geist';
+  src: url('/fonts/geist-400.woff2') format('woff2');
+  font-weight: 400;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Geist';
+  src: url('/fonts/geist-500.woff2') format('woff2');
+  font-weight: 500 700;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* The Hafs font draws Tanzil's small high rounded zero (U+06DF) as a dotted circle; this copy leaves it out
+   so the browser draws that mark with Amiri Quran (same arrangement as the lessons). */
+@font-face {
+  font-family: 'Lx Hafs';
+  src: url('/fonts/UthmanicHafs.woff2') format('woff2');
+  font-display: swap;
+  unicode-range: U+0600-06DE, U+06E0-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC;
+}
+@font-face {
+  font-family: 'Lx Amiri Quran';
+  src: url('/fonts/amiri-quran-400.woff2') format('woff2');
+  font-display: swap;
+  unicode-range: U+0600-06FF, U+0750-077F, U+08A0-08FF, U+FB50-FDFF, U+FE70-FEFF;
+}
+
+.qz {
+  --qz-bg: oklch(98.6% 0.006 215);
+  --qz-surface: oklch(99.7% 0.003 215);
+  --qz-text: oklch(22% 0.035 230);
+  --qz-muted: oklch(43% 0.025 230);
+  --qz-line: oklch(90% 0.014 215);
+  --qz-line-2: oklch(66% 0.03 215); /* 3:1 against the page, for borders that identify a control */
+  --qz-soft: oklch(96.5% 0.008 215);
+  --qz-accent: oklch(40% 0.1 178);
+  --qz-on-accent: oklch(98.5% 0.01 178);
+  --qz-accent-2-text: oklch(46% 0.13 55);
+  --qz-focus: oklch(50% 0.16 255);
+  --qz-good: oklch(44% 0.12 160);
+  --qz-bad: oklch(50% 0.18 28);
+  --qz-teal-tint: oklch(94% 0.04 178);
+  --qz-font: 'Geist', 'Lx Hafs', 'Lx Amiri Quran', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  background: var(--qz-bg);
+  color: var(--qz-text);
+  font-family: var(--qz-font);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  overflow-x: clip;
+}
+/* BaseLayout's body has a slowly drifting background layer (.mesh-bg::before) that pokes a few pixels past the
+   screen edge after a few seconds. The quiz field covers it anyway, so it is switched off on these pages. */
+/* The site header (Header.astro) gets 12 px shorter once the page is scrolled past 10 px. That moves the content, which
+   moves the scroll position back across 10 px, and a page left there bounces for ever. On these pages the header keeps
+   its height (its shadow still appears). !important because Header.astro's scoped rule is more specific. */
+body:has([data-qz]) .header.scrolled .header-container {
+  height: 80px !important;
+}
+html:has([data-qz]) {
+  scroll-padding-top: 5.5rem;
+}
+body:has([data-qz])::before {
+  display: none;
+}
+.qz *,
+.qz *::before,
+.qz *::after {
+  box-sizing: border-box;
+}
+.qz :focus-visible {
+  outline: 3px solid var(--qz-focus);
+  outline-offset: 3px;
+}
+.qz a {
+  color: var(--qz-accent);
+  text-underline-offset: 3px;
+}
+.qz h1,
+.qz h2,
+.qz p,
+.qz ul,
+.qz ol {
+  margin: 0;
+}
+.qz .ar-inline {
+  font-family: 'Lx Hafs', 'Lx Amiri Quran', 'Amiri', serif;
+  font-size: 1.25em;
+  line-height: 1.5;
+  margin-inline: 0.2em;
+  direction: rtl;
+  unicode-bidi: isolate;
+  letter-spacing: 0;
+  font-weight: 400;
+}
+.qz-vh {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* ---- the field and the heading above the card ---- */
+.qz-field {
+  min-height: 70vh;
+  padding: clamp(20px, 4vw, 56px) max(12px, 3vw) 4rem;
+  background: linear-gradient(150deg, oklch(94.5% 0.05 175), oklch(97% 0.04 215) 50%, oklch(96.5% 0.05 85));
+}
+.qz-head {
+  max-width: 46rem;
+  margin: 0 auto 1.4rem;
+  padding-inline: 0.2rem;
+}
+.qz-crumb {
+  font-size: 0.9rem;
+  color: var(--qz-muted);
+}
+.qz-title {
+  margin-top: 0.5rem !important;
+  font-size: 2.6rem;
+  font-weight: 500;
+  letter-spacing: -0.035em;
+  line-height: 1.1;
+  text-wrap: balance;
+}
+.qz-dek {
+  margin-top: 0.7rem !important;
+  color: var(--qz-muted);
+  max-width: 60ch;
+}
+
+/* ---- the card ---- */
+.qz-card {
+  max-width: 46rem;
+  margin: 0 auto;
+  background: var(--qz-surface);
+  border-radius: 28px;
+  box-shadow: 0 1px 3px oklch(30% 0.03 220 / 0.08), 0 24px 60px oklch(30% 0.04 220 / 0.1);
+  padding: clamp(18px, 3.2vw, 36px);
+}
+.qz-card[hidden],
+.qz-fb[hidden] {
+  display: none;
+}
+.qz-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem 1rem;
+  flex-wrap: wrap;
+}
+.qz-top-label {
+  font-size: 0.95rem;
+  color: var(--qz-muted);
+}
+.qz-dots {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  list-style: none;
+  padding: 0;
+  max-width: 100%;
+}
+.qz-dots li {
+  position: relative;
+  flex: none;
+  width: 2rem;
+  height: 2rem;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  border: 1.5px solid var(--qz-line-2);
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--qz-muted);
+  background: var(--qz-surface);
+}
+.qz-dots li.on {
+  border-color: var(--qz-accent-2-text);
+  color: var(--qz-accent-2-text);
+  box-shadow: 0 0 0 3px color-mix(in oklab, oklch(58% 0.15 58) 25%, transparent);
+}
+.qz-dots li.r {
+  background: var(--qz-good);
+  border-color: var(--qz-good);
+  color: #fff;
+}
+.qz-dots li.w {
+  background: var(--qz-bad);
+  border-color: var(--qz-bad);
+  border-style: dashed;
+  color: #fff;
+}
+.qz-dots svg {
+  width: 0.8rem;
+  height: 0.8rem;
+}
+.qz-n {
+  margin-top: 1.6rem;
+  font-size: 0.95rem;
+  color: var(--qz-accent-2-text);
+  font-weight: 500;
+}
+.qz-q {
+  margin: 0.3rem 0 1.4rem !important;
+  font-size: 1.5rem;
+  line-height: 1.4;
+  font-weight: 500;
+  letter-spacing: -0.015em;
+}
+.qz-q:focus {
+  outline: none;
+}
+
+/* Answer options. State is told three ways: border, icon and a word ("Correct answer", "Your answer"). */
+.qz-opts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.6rem;
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+.qz-opts.one {
+  grid-template-columns: 1fr;
+}
+.qz-opt {
+  display: grid;
+  grid-template-columns: 2.1rem 1fr;
+  grid-template-areas: 'mark text' 'mark tag';
+  align-items: center;
+  column-gap: 0.85rem;
+  min-height: 56px;
+  padding: 0.65em 1em;
+  font: inherit;
+  font-size: 1.05rem;
+  line-height: 1.45;
+  text-align: start;
+  color: var(--qz-text);
+  background: var(--qz-surface);
+  border: 1.5px solid var(--qz-line-2);
+  border-radius: 14px;
+  cursor: pointer;
+  transition: border-color 0.15s ease-out, background-color 0.15s ease-out;
+}
+.qz-opt:hover:not([aria-disabled='true']) {
+  border-color: var(--qz-accent);
+  background: var(--qz-teal-tint);
+}
+.qz-opt[aria-disabled='true'] {
+  cursor: default;
+}
+.qz-ol {
+  grid-area: mark;
+  display: grid;
+  place-items: center;
+  width: 2.1rem;
+  height: 2.1rem;
+  border-radius: 50%;
+  background: var(--qz-soft);
+  border: 1px solid var(--qz-line);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--qz-muted);
+}
+.qz-ol svg {
+  width: 1.05rem;
+  height: 1.05rem;
+}
+.qz-ot {
+  grid-area: text;
+}
+.qz-otag {
+  grid-area: tag;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+.qz-otag:empty {
+  display: none;
+}
+.qz-opt.right {
+  border: 2px solid var(--qz-good);
+  background: color-mix(in oklab, var(--qz-good) 12%, var(--qz-surface));
+}
+.qz-opt.right .qz-ol {
+  background: var(--qz-good);
+  border-color: var(--qz-good);
+  color: #fff;
+}
+.qz-opt.right .qz-otag {
+  color: var(--qz-good);
+}
+.qz-opt.wrong {
+  border: 2px dashed var(--qz-bad);
+  background: color-mix(in oklab, var(--qz-bad) 10%, var(--qz-surface));
+}
+.qz-opt.wrong .qz-ol {
+  background: var(--qz-bad);
+  border-color: var(--qz-bad);
+  color: #fff;
+}
+.qz-opt.wrong .qz-otag {
+  color: var(--qz-bad);
+}
+.qz-opt.dim {
+  opacity: 0.62;
+}
+
+/* ---- footer of the card: feedback and Next ---- */
+.qz-foot {
+  margin-top: 1.4rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid var(--qz-line);
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+.qz-idle {
+  flex: 1;
+  color: var(--qz-muted);
+  font-size: 0.95rem;
+}
+.qz-fb {
+  flex: 1;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.2rem 0.8rem;
+}
+.qz-fb-i {
+  grid-row: 1 / span 3;
+  display: grid;
+  place-items: center;
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 50%;
+  color: #fff;
+}
+.qz-fb.is-right .qz-fb-i {
+  background: var(--qz-good);
+}
+.qz-fb.is-wrong .qz-fb-i {
+  background: var(--qz-bad);
+}
+.qz-fb-i svg {
+  width: 1.2rem;
+  height: 1.2rem;
+}
+.qz-fb-h {
+  align-self: center;
+  font-weight: 500;
+  font-size: 1.15rem;
+  line-height: 1.3;
+}
+.qz-fb.is-right .qz-fb-h {
+  color: var(--qz-good);
+}
+.qz-fb.is-wrong .qz-fb-h {
+  color: var(--qz-bad);
+}
+.qz-fb-w {
+  color: var(--qz-muted);
+}
+.qz-fb-l {
+  font-size: 0.95rem;
+  margin-top: 0.3rem !important;
+}
+.qz-fb-l a {
+  display: inline-block;
+  padding-block: 0.3rem;
+}
+
+/* ---- buttons ---- */
+.qz-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  min-width: 6.5rem;
+  padding: 0.6em 1.4em;
+  font: inherit;
+  font-weight: 500;
+  text-decoration: none;
+  color: var(--qz-accent);
+  background: transparent;
+  border: 1.5px solid var(--qz-accent);
+  border-radius: 12px;
+  cursor: pointer;
+}
+.qz a.qz-btn {
+  text-decoration: none;
+}
+.qz-btn-primary,
+.qz a.qz-btn-primary {
+  color: var(--qz-on-accent);
+  background: var(--qz-accent);
+}
+.qz-btn:hover {
+  filter: brightness(1.08);
+}
+.qz-btn[disabled] {
+  opacity: 0.45;
+  cursor: not-allowed;
+  filter: none;
+}
+.qz-foot .qz-btn {
+  flex: none;
+}
+
+/* ---- results ---- */
+.qz-res-h {
+  margin-top: 1.6rem !important;
+  font-size: 2.6rem;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+.qz-res-h:focus {
+  outline: none;
+}
+.qz-score {
+  margin-top: 0.6rem !important;
+  color: var(--qz-muted);
+  font-size: 1.15rem;
+}
+.qz-score b {
+  color: var(--qz-text);
+  font-weight: 500;
+}
+.qz-meter {
+  position: relative;
+  margin-top: 1rem;
+  height: 10px;
+  border-radius: 5px;
+  background: var(--qz-line);
+  max-width: 26rem;
+}
+.qz-meter i {
+  display: block;
+  height: 100%;
+  border-radius: 5px;
+  background: var(--qz-accent);
+}
+.qz-meter u {
+  position: absolute;
+  top: -5px;
+  bottom: -5px;
+  width: 2px;
+  background: var(--qz-text);
+}
+.qz-meter-note {
+  margin-top: 0.5rem !important;
+  font-size: 0.88rem;
+  color: var(--qz-muted);
+}
+.qz-rev {
+  margin-top: 2rem;
+}
+.qz-rev h2,
+.qz-all h2 {
+  font-size: 1.4rem;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.6rem !important;
+}
+.qz-rev ul {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 0.6rem;
+}
+.qz-rev li {
+  padding: 0.6rem 1.1rem 0.8rem;
+  background: var(--qz-bg);
+  border: 1px solid var(--qz-line);
+  border-radius: 14px;
+}
+.qz-rev li a {
+  display: inline-block;
+  padding-block: 0.3rem;
+  font-weight: 500;
+}
+.qz-rev li p {
+  color: var(--qz-muted);
+  font-size: 0.95rem;
+}
+.qz-acts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin-top: 1.6rem;
+}
+.qz-all {
+  margin-top: 2rem;
+}
+.qz-all details {
+  border-top: 1px solid var(--qz-line);
+  padding: 0.2rem 0;
+}
+.qz-all summary {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 0.7rem;
+  align-items: center;
+  min-height: 48px;
+  cursor: pointer;
+  list-style: none;
+}
+.qz-all summary::-webkit-details-marker {
+  display: none;
+}
+.qz-mk {
+  display: grid;
+  place-items: center;
+  width: 1.7rem;
+  height: 1.7rem;
+  border-radius: 50%;
+  color: #fff;
+}
+.qz-mk.r {
+  background: var(--qz-good);
+}
+.qz-mk.w {
+  background: var(--qz-bad);
+}
+.qz-mk svg {
+  width: 1rem;
+  height: 1rem;
+}
+.qz-all .qz-qt {
+  font-size: 0.98rem;
+  line-height: 1.4;
+}
+.qz-all .qz-st {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--qz-muted);
+  white-space: nowrap;
+}
+.qz-all .qz-body {
+  padding: 0.2rem 0 0.9rem 2.4rem;
+  color: var(--qz-muted);
+  font-size: 0.98rem;
+}
+.qz-all .qz-body p + p {
+  margin-top: 0.4rem !important;
+}
+
+/* ---- below the card, and the version without JavaScript ---- */
+.qz-nav {
+  max-width: 46rem;
+  margin: 1.6rem auto 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.2rem 1.6rem;
+  font-size: 0.95rem;
+}
+.qz-nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+}
+.qz-static {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: clamp(18px, 3.2vw, 36px);
+  background: var(--qz-surface);
+  border-radius: 28px;
+  box-shadow: 0 1px 3px oklch(30% 0.03 220 / 0.08), 0 24px 60px oklch(30% 0.04 220 / 0.1);
+}
+.qz-static ol {
+  padding-inline-start: 1.4rem;
+  display: grid;
+  gap: 1.8rem;
+}
+.qz-static li > p:first-child {
+  font-weight: 500;
+  font-size: 1.15rem;
+  line-height: 1.45;
+}
+.qz-static ul {
+  list-style: none;
+  padding-inline-start: 0;
+  margin-top: 0.6rem !important;
+}
+.qz-static ul li {
+  padding: 0.2rem 0;
+}
+.qz-static .qz-ans {
+  margin-top: 0.6rem !important;
+  color: var(--qz-muted);
+}
+.qz-static .qz-ans b {
+  color: var(--qz-text);
+  font-weight: 500;
+}
+
+@media (max-width: 640px) {
+  .qz-opts {
+    grid-template-columns: 1fr;
+  }
+  .qz-foot {
+    flex-direction: column;
+  }
+  .qz-foot .qz-btn {
+    width: 100%;
+  }
+  .qz-q {
+    font-size: 1.3rem;
+  }
+  .qz-title,
+  .qz-res-h {
+    font-size: 2.1rem;
+  }
+  .qz-dots {
+    flex: 1 1 100%;
+    gap: 0.3rem;
+  }
+  .qz-dots li {
+    width: 1.7rem;
+    height: 1.7rem;
+    font-size: 0.75rem;
+  }
+  .qz-dots svg {
+    width: 0.75rem;
+    height: 0.75rem;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .qz * {
+    transition: none !important;
+    animation: none !important;
+    scroll-behavior: auto !important;
+  }
+}

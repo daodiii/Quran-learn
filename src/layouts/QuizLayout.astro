@@ -1,0 +1,127 @@
+---
+/**
+ * Layout for the level quizzes and the cumulative reviews, in the stepped lessons' look
+ * ("Card" mockup: docs/redesign/mockups/quiz/b-card.html). One question at a time; the card is drawn by
+ * src/scripts/quiz.ts. Without JavaScript the page prints every question with its answer and reason.
+ *
+ * The questions come from the page (quizzes) or src/data/review-questions (reviews) and are not changed here:
+ * this only scores them and finds the lessons each one points to (its `source`, and every "L5.13" in its explanation).
+ */
+import BaseLayout from './BaseLayout.astro';
+import '../styles/quiz.css';
+import { getCollection } from 'astro:content';
+import { LEVEL_COPY } from '../data/learn-copy';
+import { inlineHtml } from '../lib/lesson-steps';
+import { makeLessonLookup, type RawQuestion } from '../lib/quiz';
+
+interface Props {
+  /** Page title (browser tab and search results). */
+  pageTitle: string;
+  description: string;
+  /** The h1. */
+  title: string;
+  kind: 'quiz' | 'review';
+  level: 1 | 2 | 3 | 4 | 5;
+  questions: RawQuestion[];
+  passingScore?: number;
+  /** What the questions test, e.g. "Level 1 grammar". */
+  scopeLabel?: string;
+}
+
+const { pageTitle, description, title, kind, level, questions: rawQuestions, passingScore = 70, scopeLabel } = Astro.props;
+
+const collection = await getCollection('lessons');
+const lessons = collection.map((l) => ({ id: l.id, level: l.data.level, order: l.data.order, title: l.data.title }));
+const questions = makeLessonLookup(lessons)(rawQuestions);
+const inLevel = (n: number) => lessons.filter((l) => l.level === n).sort((a, b) => a.order - b.order);
+
+// Where to go next, and what sits before this page.
+const levelName = LEVEL_COPY[level].title;
+const allLessons = { href: `/learn/#level-${level}`, label: 'All lessons' };
+let next: { href: string; label: string };
+let previous: { href: string; label: string } | undefined;
+if (kind === 'quiz') {
+  const last = inLevel(level).at(-1);
+  if (last) previous = { href: `/learn/${last.id}/`, label: `Back to the last lesson: ${last.title}` };
+  const first = inLevel(level + 1)[0];
+  next = first
+    ? { href: `/learn/${first.id}/`, label: `Start Level ${level + 1}` }
+    : { href: '/surahs/', label: 'Read a surah now' };
+} else {
+  previous = { href: `/learn/level-${level - 1}/quiz/`, label: `Level ${level - 1} quiz` };
+  const first = inLevel(level)[0];
+  next = { href: `/learn/${first.id}/`, label: `Start Level ${level}` };
+}
+
+const scope = scopeLabel ?? `Level ${level} grammar`;
+const total = questions.length;
+const dek =
+  kind === 'review'
+    ? 'Every question revisits a lesson from an earlier level. Mixing old topics back in is deliberate: remembering them now is what makes them stick.'
+    : `${total} questions on ${scope}. Each answer shows why, and the lesson to open.`;
+
+// The client script reads this. The lessons are already found, so `source` is not sent.
+const data = {
+  title,
+  kind,
+  level,
+  totalQuestions: total,
+  passingScore,
+  next,
+  allLessons,
+  questions: questions.map(({ source, ...q }) => q),
+};
+const json = JSON.stringify(data).replace(/</g, '\\u003c');
+---
+
+<BaseLayout title={pageTitle} description={description}>
+  <div class="qz" data-qz>
+    <div class="qz-field">
+      <header class="qz-head">
+        <p class="qz-crumb"><a href={`/learn/#level-${level}`}>Level {level} · {levelName}</a> · {kind === 'quiz' ? 'Quiz' : 'Cumulative review'}</p>
+        <h1 class="qz-title">{title}</h1>
+        <p class="qz-dek">{dek} You need {passingScore}% to pass.</p>
+      </header>
+
+      <div class="qz-card" id="qz-card" data-testid="quiz-container" hidden></div>
+
+      <noscript>
+        <div class="qz-static" data-testid="quiz-static">
+          <ol>
+            {questions.map((q) => (
+              <li>
+                <p set:html={inlineHtml(q.question)} />
+                <ul>
+                  {q.options.map((o, k) => (
+                    <li><b>{String.fromCharCode(65 + k)}.</b> <span set:html={inlineHtml(o)} /></li>
+                  ))}
+                </ul>
+                <p class="qz-ans">
+                  <b>Answer: {String.fromCharCode(65 + q.correctAnswer)}.</b>{' '}
+                  <span set:html={inlineHtml(q.explanation ?? '')} />
+                  {q.lessons.length > 0 && (
+                    <>
+                      {' '}Lesson: {q.lessons.map((l, i) => (<>{i > 0 && ' · '}<a href={l.href}>{l.label}</a></>))}
+                    </>
+                  )}
+                </p>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </noscript>
+
+      <nav class="qz-nav" aria-label="Quiz navigation">
+        {previous && <a href={previous.href}>&larr; {previous.label}</a>}
+        <a href={allLessons.href}>All Level {level} lessons</a>
+        <a href={next.href}>{next.label} &rarr;</a>
+      </nav>
+    </div>
+  </div>
+
+  <script id="quiz-data" type="application/json" set:html={json} />
+</BaseLayout>
+
+<script>
+  import '../scripts/quiz';
+</script>

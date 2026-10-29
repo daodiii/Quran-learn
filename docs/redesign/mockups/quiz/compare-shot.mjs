@@ -1,0 +1,11 @@
+import { chromium } from 'playwright';
+import path from 'node:path';
+import { pathToFileURL } from 'node:url';
+const root = 'C:/Users/daodi/code/Quran-learn/.claude/worktrees/quiz-redesign-ab7c2f/';
+const exe = path.join(process.env.LOCALAPPDATA, 'ms-playwright', 'chromium_headless_shell-1243', 'chrome-headless-shell-win64', 'chrome-headless-shell.exe');
+const b = await chromium.launch({ headless: true, executablePath: exe });
+const p = await (await b.newContext({ viewport: { width: 1500, height: 1000 } })).newPage();
+await p.goto(pathToFileURL(root + 'docs/redesign/mockups/quiz/compare.html').href);
+await p.waitForTimeout(1500);
+await p.screenshot({ path: root + 'docs/redesign/mockups/quiz/shots/compare.png', fullPage: true });
+await b.close();
