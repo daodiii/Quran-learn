@@ -21,7 +21,7 @@ Serve the worktree root so the fonts load, then open any page:
 python -I -X utf8 -m http.server 5199
 ```
 
-`http://localhost:5199/docs/redesign/mockups/surahs/a-reading.html` (also `b-map.html`, `c-index.html`, `d-reader.html`, `e-command.html`, `f-ladder.html`). They also open from disk.
+`http://localhost:5199/docs/redesign/mockups/surahs/a-reading.html` (also `b-map.html`, `c-index.html`, `d-reader.html`, `e-command.html`, `f-ladder.html`, `g-mix.html`). They also open from disk.
 
 `node docs/redesign/mockups/surahs/build-data.mjs` rebuilds `surahs-data.js` from the source files. `CHR=<chrome-headless-shell.exe> node docs/redesign/mockups/surahs/shots.mjs [a b c]` writes `shots/` (desktop 1440 and phone 390: first screen, full page, a filtered state, the empty state) and prints overflow, console errors, an axe scan and touch targets under 44 px. `shots/` is not committed.
 
@@ -146,3 +146,22 @@ D is the most convincing: it shows the product doing its job in the first second
 ## Checked
 
 Desktop 1440 and phone 390, D, E and F: no horizontal overflow, no console errors, no axe violations (first screen, filtered state and empty state), and every touch target at least 44 px. Also exercised by script: D's arrow keys, surah change and word arrows; E's typing, arrow keys, level chip and the invitation state; F's rung clicks, `?level=4` and "Everything open". Screenshots are in `shots/` (not committed).
+
+---
+
+# G Mix (`g-mix.html`): D and E together
+
+Requested by the owner: E's search and scrolling list of all the chapters on the left, D's word-by-word box on the right, with the chapter's name underneath it.
+
+- **Left:** the search field (name, number, Arabic with or without vowels, or a topic such as "idafa"), the level chips (All, 1 to 5), and the scrolling list of all 38 in course order with the level labels. Matches are highlighted. Up and down in the field move through the list, Enter opens the chapter, and `/` focuses the field.
+- **Right, top:** D's white box: the first verse read word by word, with each word's meaning and a coloured bar with a text label (noun, verb, little word). Tap a word, or press left and right inside the verse, for its type and grammar role. The level tag sits in the box header.
+- **Right, underneath:** the chapter's name very large in Arabic, the English name, surah number, verses, place and word count, the "what to notice" line, and the "Read it word by word" button.
+- **Changing chapter:** pick one in the list (or use the arrows) and the verse and the name change together in 220 ms. Each chapter has a link (`#078-an-naba`), and swiping the right side changes chapter on a phone.
+- **No match:** the right side becomes an invitation with the coverage ("Only 38 of the Quran's 114 surahs are analysed so far: Al-Fatiha (1) and 78 to 114") and five things to try.
+- **Phone:** the field and level chips come first, then the box and the name, then the list (it scrolls inside its own frame).
+- **Height:** 900 px at 1440 and 1,621 px at 390, so one screen on desktop and under two on a phone.
+- **Checked:** no overflow, no console errors, no axe violations (first screen, filtered state, empty state), all touch targets at least 44 px; arrows, click, word tap and topic search exercised by script.
+
+Compared with D and E: it keeps D's best part (the verse in colour) and E's best part (the always-visible list and the search), and loses D's big name stage and E's large hero field. It is the most useful of the three for someone browsing, because the list is always there. It is slightly busier than D.
+
+Recommendation update: if the owner likes this combination, G is the one to build. The same confirmations as round two apply (word-type rule, role text, loading only the first verse per surah, the Hafs fix).

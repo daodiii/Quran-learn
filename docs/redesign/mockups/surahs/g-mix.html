@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Surahs · G Mix</title>
+<link rel="stylesheet" href="surahs.css">
+<style>
+/* G Mix: E's search and scrolling list of all 38 on the left; D's word-by-word verse on the right, with the chapter's name
+   and a button to open it underneath. Pick a surah and the verse and name change together. Up and down move through the list. */
+.stage{margin-top:8px;border-radius:36px;background:var(--oasis);padding:clamp(14px,2.2vw,28px);display:grid;grid-template-columns:minmax(320px,410px) minmax(0,1fr);gap:clamp(12px,2vw,26px)}
+.left{display:flex;flex-direction:column;gap:12px;min-width:0;min-height:0;height:clamp(540px,calc(100vh - 176px),660px)}
+.left .h1{font-size:clamp(1.75rem,1.3rem + 1.2vw,2.5rem);padding-inline:4px}
+.left .find svg{left:20px;width:22px;height:22px;color:var(--ink)}
+.left .find input{min-height:60px;padding-left:54px;border-radius:20px;border:2px solid #fff;font-size:1.125rem;box-shadow:0 1px 2px oklch(30% 0.03 220 / .06),0 12px 30px -14px oklch(30% 0.07 200 / .35)}
+.left .find input:focus-visible{border-color:var(--focus)}
+.left .find .hint{right:18px}.left .find .clear{right:8px}
+.shortcuts{display:flex;flex-wrap:wrap;align-items:center;gap:6px 8px}
+.shortcuts .chips-l{color:oklch(28% 0.03 230)}
+.shortcuts .chip{background:oklch(100% 0 0 / .72)}
+.shortcuts .chip[aria-pressed="true"]{background:var(--ink)}
+
+.res{position:relative;flex:1;overflow:auto;min-height:0;border-radius:28px;background:#fff;padding:6px;box-shadow:0 1px 2px oklch(30% 0.03 220 / .06),0 22px 50px -22px oklch(30% 0.06 200 / .35);scrollbar-width:thin;overscroll-behavior:contain}
+.gh{position:sticky;top:-6px;z-index:2;display:flex;justify-content:space-between;margin:0;padding:10px 12px 6px;background:#fff;font-size:.8125rem;font-weight:500;color:var(--muted)}
+.opt{display:grid;grid-template-columns:36px minmax(0,1fr) auto;align-items:center;column-gap:8px;min-height:58px;padding:6px 12px 6px 6px;border-radius:14px;cursor:pointer}
+.opt .n{font-size:.875rem;font-weight:500;font-variant-numeric:tabular-nums;color:var(--muted);text-align:center}
+.opt .t b{display:block;font-weight:500;font-size:1.0625rem;letter-spacing:-.01em;line-height:1.25}
+.opt .t span{font-size:.8125rem;color:var(--muted)}
+.opt .ar{font-size:1.625rem;line-height:1.4;color:var(--ink)}
+.opt:hover{background:var(--soft)}
+.opt[aria-selected="true"]{background:var(--ink);color:#fff}
+.opt[aria-selected="true"] .n,.opt[aria-selected="true"] .t span{color:oklch(100% 0 0 / .72)}
+.opt[aria-selected="true"] .ar{color:#fff}
+mark{background:var(--amber-tint);color:inherit;border-radius:4px;padding:0 1px}
+.opt[aria-selected="true"] mark{background:oklch(100% 0 0 / .25);color:#fff}
+.nores{padding:24px 16px;color:var(--muted)}.nores b{display:block;font-size:1.0625rem;color:var(--ink)}
+
+.right{display:flex;flex-direction:column;gap:clamp(12px,1.6vw,20px);min-width:0}
+.sheet{flex:1;display:flex;flex-direction:column;justify-content:space-between;gap:12px;padding:clamp(14px,1.8vw,24px);border-radius:28px;background:#fff;box-shadow:0 1px 2px oklch(30% 0.03 220 / .06),0 22px 50px -22px oklch(30% 0.06 200 / .35);min-width:0}
+.sheet .sh{display:flex;align-items:center;justify-content:space-between;gap:10px;font-size:.875rem;font-weight:500;color:var(--muted)}
+.sheet .sh b{font-weight:600;color:var(--ink)}
+.verse{display:flex;direction:rtl;flex-wrap:wrap;justify-content:center;align-content:center;gap:6px 4px;flex:1;min-height:0}
+.w{display:flex;flex-direction:column;align-items:center;gap:1px;min-width:var(--wmin,84px);padding:4px 8px 10px;border:0;border-radius:18px;background:none;cursor:pointer;text-align:center;transition:background-color .18s}
+.w:hover{background:var(--soft)}
+.w[aria-pressed="true"]{background:var(--t)}
+.w .wa{font-size:var(--wfs,3.5rem);line-height:1.55;color:var(--c)}
+.w .wg{display:block;direction:ltr;font-size:.9375rem;font-weight:500;line-height:1.25;max-width:9em}
+.w .wl{display:flex;flex-direction:column;align-items:center;gap:4px;direction:ltr;margin-top:6px;font-size:.8125rem;font-weight:500;color:var(--c)}
+.w .wl::before{content:"";display:block;width:100%;min-width:40px;height:4px;border-radius:2px;background:var(--c)}
+.w:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+.trn{margin:0;text-align:center;font-size:1rem;color:oklch(33% 0.025 230)}
+.detail{display:grid;grid-template-columns:auto minmax(0,1fr);gap:4px 14px;align-items:start;padding:12px 14px;border-radius:16px;background:var(--soft);min-height:76px}
+.detail .ty{display:inline-flex;align-items:center;gap:8px;font-weight:600;color:var(--c);white-space:nowrap}
+.detail .ty::before{content:"";width:12px;height:12px;border-radius:4px;background:var(--c)}
+.detail .ty em{font-style:normal;font-weight:400;color:var(--muted)}
+.detail p{margin:0;font-size:.9375rem;line-height:1.45}
+.detail .mn{font-weight:600;font-size:1.0625rem}
+.detail .rl{grid-column:1 / -1;color:oklch(33% 0.025 230)}
+.detail .rl .ar{font-size:1.15em}
+
+/* the chapter's name, underneath the box */
+.name{display:grid;grid-template-columns:auto minmax(0,1fr);align-items:center;gap:0 clamp(16px,2.4vw,32px);padding:0 clamp(6px,1.2vw,16px) 4px}
+.name .nm{display:block;font-size:clamp(4rem,2.4rem + 3.6vw,6.5rem);line-height:1.3;color:var(--ink);text-align:left;margin-left:-.02em}
+.name .en{margin:0;font-size:clamp(1.375rem,1.1rem + .8vw,1.875rem);font-weight:600;letter-spacing:-.035em;line-height:1.1}
+.name .meta{margin:2px 0 0;color:oklch(30% 0.03 230);font-size:.9375rem}
+.name .nt{margin:8px 0 0;max-width:36em;color:oklch(24% 0.035 230);font-size:.9375rem;line-height:1.55}
+.name .nt .ar{font-size:1.2em}
+.name .act{margin-top:10px}
+.swap .name > *,.swap .name .nb > *{animation:in .22s var(--ease) both}
+.swap .w{animation:in .24s var(--ease) both;animation-delay:calc(var(--i) * 35ms + 40ms)}
+@keyframes in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+.invite{display:flex;flex-direction:column;gap:10px;align-items:flex-start;justify-content:center;flex:1;padding:clamp(20px,3vw,40px);border-radius:28px;background:#fff;box-shadow:0 22px 50px -22px oklch(30% 0.06 200 / .3)}
+.invite h2{margin:0;font-size:1.75rem;font-weight:600;letter-spacing:-.03em;line-height:1.15}
+.invite p{margin:0;max-width:34em;color:var(--muted)}
+.try button{min-height:44px;min-width:44px;padding:0 8px;border:0;background:none;cursor:pointer;font-weight:500;text-decoration:underline;text-decoration-color:var(--line-2);text-underline-offset:4px}
+.try button:hover{text-decoration-color:currentColor}.try .ar{font-size:1.2em}
+.cov{margin:0;font-size:.875rem;color:oklch(30% 0.03 230);padding-inline:4px}
+.foot{margin-top:20px;padding-block:14px 22px}
+
+@media (max-width:1000px){
+  .stage{grid-template-columns:1fr}
+  .left{height:auto}
+  .res{height:320px;flex:none}
+  .right{order:-1}
+  .left{display:contents}
+  .left .h1,#tools,.shortcuts{order:-2}
+  .left .res,.left .cov{order:3}
+  .stage{display:flex;flex-direction:column;gap:12px}
+  .sheet{flex:none}
+}
+@media (max-width:640px){
+  .stage{border-radius:26px;padding:12px}
+  .left .h1{font-size:1.75rem}
+  .shortcuts .chips-l{display:none}.shortcuts{flex-wrap:nowrap;gap:6px}.shortcuts .chip{flex:1 1 0;min-width:44px;padding:0 6px}
+  .detail{grid-template-columns:1fr}
+  .name{grid-template-columns:1fr}
+  .name .nm{font-size:4.25rem}
+  .name .act .btn{width:100%}
+  .res{height:300px}
+}
+</style></head>
+<body>
+<a class="skip" href="#q">Skip to the search</a>
+<header class="site">
+  <a class="brand" href="#" aria-label="Quranic Grammar, home"><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="1" y="1" width="30" height="30" rx="9" fill="oklch(18% 0.03 240)"/><path d="M9 19h14" stroke="#fff" stroke-width="2" stroke-linecap="round"/><circle cx="16" cy="12" r="2.6" fill="oklch(79% 0.14 72)"/><circle cx="16" cy="24.5" r="1.6" fill="#fff"/></svg><span>Quranic Grammar</span></a>
+  <nav aria-label="Primary"><a href="#">Learn</a><a href="#" aria-current="page">Surahs</a><a href="#">Resources</a><a href="#">About</a></nav>
+</header>
+
+<main class="wrap" id="main">
+  <section class="stage" aria-labelledby="h" id="stage">
+    <div class="left">
+      <h1 class="h1" id="h">Find any surah.</h1>
+      <div id="tools"></div>
+      <div class="shortcuts" id="sc"></div>
+      <p class="vh" id="count" aria-live="polite"></p>
+      <div class="res" id="list" role="listbox" aria-label="Surahs"></div>
+      <p class="cov" id="cov"></p>
+    </div>
+    <div class="right" id="right" aria-live="polite"></div>
+  </section>
+</main>
+<footer class="foot"><span>Quranic Grammar</span><a href="#">Learn</a><a href="#">Resources</a><a href="#">About and feedback</a></footer>
+
+<script src="surahs-data.js"></script>
+<script src="surahs-words.js"></script>
+<script src="surahs.js"></script>
+<script>
+const U = SurahUI, D = U.D, S = U.S, W = SURAH_WORDS, esc = U.esc, T = U.TYPES;
+const q = id => document.querySelector(id);
+const NO = D.quran.surahs;
+const RM = matchMedia('(prefers-reduced-motion:reduce)').matches;
+const ORDER = D.levels.flatMap(l => S.filter(s => s.level === l.n));   // the order the course teaches them
+let lv = 0, active = ORDER.find(s => s.slug === decodeURIComponent(location.hash.slice(1))) || ORDER.find(s => s.num === 112), shown = [], wi = 0;
+
+q('#cov').textContent = `${S.length} of the Quran's ${NO} surahs are analysed. The other ${U.covers.missing} are not analysed yet.`;
+q('#tools').innerHTML = U.findHTML('Name, number or topic', 'list');
+const inp = q('#q');
+inp.setAttribute('role', 'combobox'); inp.setAttribute('aria-expanded', 'true'); inp.setAttribute('aria-autocomplete', 'list');
+q('#sc').innerHTML = `<span class="chips-l" aria-hidden="true">Level</span><button class="chip" type="button" data-lv="0" aria-pressed="true">All</button>` +
+  D.levels.map(l => `<button class="chip" type="button" data-lv="${l.n}" aria-pressed="false" aria-label="Level ${l.n}, ${esc(l.title)}">${l.n}</button>`).join('');
+
+function hi(name, raw) {
+  const ws = raw.trim().split(/\s+/).filter(w => /^[A-Za-z'’ʿ-]+$/.test(w)).map(w => w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
+  if (!ws.length) return esc(name);
+  return name.split(new RegExp('(' + ws.join('|') + ')', 'ig')).map((p, i) => i % 2 ? `<mark>${esc(p)}</mark>` : esc(p)).join('');
+}
+const rank = (s, ws) => { const n = U.norm(s.name), w0 = ws[0] || ''; return !w0 ? 0 : n.replace(/^(al|an|ar|as|at|ad|ash|az) /, '').startsWith(w0) ? 0 : n.includes(w0) ? 1 : 2; };
+const optHTML = (s, raw) => `<div class="opt" role="option" id="o-${s.slug}" data-slug="${s.slug}" aria-selected="false" aria-label="${esc(s.name)}, surah ${s.num}, ${U.plural(s.verses, 'verse', 'verses')}, read after level ${s.level}">
+  <span class="n" aria-hidden="true">${s.num}</span><span class="t"><b>${hi(s.name, raw)}</b><span>${U.plural(s.verses, 'verse', 'verses')} · Level ${s.level}</span></span><span class="ar" lang="ar" dir="rtl">${esc(s.ar)}</span></div>`;
+
+function renderList() {
+  const raw = inp.value, ws = U.words(raw);
+  shown = ORDER.filter(s => (lv === 0 || s.level === lv) && U.textMatch(s, ws, true));
+  if (ws.length) shown.sort((a, b) => rank(a, ws) - rank(b, ws) || a.num - b.num);
+  const list = q('#list');
+  if (shown.length) list.setAttribute('role', 'listbox'); else list.removeAttribute('role');
+  if (!shown.length) list.innerHTML = `<div class="nores"><b>No surah matches${raw ? ` “${esc(raw)}”` : ''}.</b>Try another word.</div>`;
+  else if (ws.length || lv) list.innerHTML = shown.map(s => optHTML(s, raw)).join('');
+  else list.innerHTML = D.levels.map(l => `<div role="group" aria-label="Read after Level ${l.n}, ${esc(l.title)}"><p class="gh" aria-hidden="true"><span>Read after Level ${l.n}</span><span>${esc(l.title)}</span></p>${shown.filter(s => s.level === l.n).map(s => optHTML(s, raw)).join('')}</div>`).join('');
+  q('#count').textContent = `${shown.length} of ${S.length} surahs`;
+  const keep = shown.find(s => active && s.slug === active.slug);
+  select(keep || shown[0] || null, { scroll: !!keep && !ws.length && !lv ? 'center' : false, anim: !keep });
+}
+
+function wordsHTML(v) {
+  const n = v.w.length, ph = matchMedia('(max-width:640px)').matches;
+  const fs = (n <= 4 ? 4 : n <= 6 ? 3.25 : n <= 9 ? 2.6 : 2.1) * (ph ? .8 : 1);
+  wordsHTML.vars = [fs + 'rem', (ph ? 70 : n <= 4 ? 96 : n <= 6 ? 80 : 64) + 'px'];
+  return v.w.map((w, i) => `<button class="w ${w.t}" type="button" style="--i:${i}" data-i="${i}" aria-pressed="${i === wi}" aria-label="${esc(w.tr)}, ${esc(w.en)}, ${T[w.t].label.toLowerCase()}"><span class="q wa" lang="ar" dir="rtl">${esc(w.ar)}</span><span class="wg">${esc(w.en)}</span><span class="wl">${T[w.t].label}</span></button>`).join('');
+}
+function detail() {
+  const w = W[active.slug][0].w[wi], t = T[w.t];
+  q('#detail').innerHTML = `<span class="ty ${w.t}" style="--c:var(--${w.t})">${t.label} <em>${t.term}</em></span><p class="mn">${esc(w.tr)}: ${esc(w.en)}</p><p class="rl">${U.withArabic(w.role)}</p>`;
+}
+function paint(anim) {
+  const R = q('#right'), s = active;
+  R.classList.remove('swap'); void R.offsetWidth;
+  if (!s) {
+    R.innerHTML = `<div class="invite"><h2>Nothing here yet. Try one of these.</h2><p>Only ${S.length} of the Quran's ${NO} surahs are analysed so far: ${esc(U.covers.short)}. Search by name, by number in that range, by Arabic (vowels are optional) or by a topic such as “idafa”.</p>
+      <span class="try"><button type="button" data-try="ikhlas">ikhlas</button><button type="button" data-try="112">112</button><button type="button" data-try="قل"><span class="ar" lang="ar">قل</span></button><button type="button" data-try="idafa">idafa</button><button type="button" data-try="level 3">level 3</button></span></div>`;
+    return;
+  }
+  if (anim && !RM) R.classList.add('swap');
+  const v = W[s.slug][0]; wi = 0;
+  R.innerHTML = `<div class="sheet" id="sheet">
+      <div class="sh"><span><b>Verse 1</b>, word by word</span><span class="tag lv">Read after Level ${s.level}: ${esc(U.levelOf(s.level).title)}</span></div>
+      <div class="verse" id="verse" role="group" aria-label="Words of the first verse">${wordsHTML(v)}</div>
+      <p class="trn">${esc(v.en)}</p>
+      <div class="detail" id="detail" aria-live="polite"></div>
+    </div>
+    <div class="name"><span class="ar nm" lang="ar" dir="rtl">${esc(s.ar)}</span>
+      <div class="nb"><p class="en">${esc(s.name)}</p><p class="meta">Surah ${s.num} · ${U.plural(s.verses, 'verse', 'verses')} · ${s.rev} · ${s.comp.words} words</p>
+        <p class="nt">${U.withArabic(s.note)}</p>
+        <div class="act"><a class="btn" id="open" href="${U.link(s)}" aria-label="Read ${esc(s.name)} word by word">Read it word by word ${U.ICON.arrow}</a></div></div></div>`;
+  q('#sheet').style.setProperty('--wfs', wordsHTML.vars[0]); q('#sheet').style.setProperty('--wmin', wordsHTML.vars[1]);
+  detail();
+  history.replaceState(null, '', '#' + s.slug);
+}
+// Scroll the list itself (never the page) so the chosen row is in view, under the sticky level label.
+function reveal(el, center) {
+  const l = q('#list'); if (!el) return;
+  if (center) l.scrollTop = el.offsetTop - (l.clientHeight - el.offsetHeight) / 2;
+  else if (el.offsetTop < l.scrollTop + 44) l.scrollTop = el.offsetTop - 44;
+  else if (el.offsetTop + el.offsetHeight > l.scrollTop + l.clientHeight) l.scrollTop = el.offsetTop + el.offsetHeight - l.clientHeight + 8;
+}
+function select(s, o = {}) {
+  const changed = s !== active || !q('#sheet') ;
+  active = s;
+  document.querySelectorAll('.opt').forEach(x => x.setAttribute('aria-selected', String(!!s && x.dataset.slug === s.slug)));
+  if (s) { inp.setAttribute('aria-activedescendant', 'o-' + s.slug); if (o.scroll) reveal(q('#o-' + s.slug), o.scroll === 'center'); } else inp.removeAttribute('aria-activedescendant');
+  if (changed || o.anim) paint(o.anim !== false);
+}
+
+q('#list').addEventListener('click', e => { const o = e.target.closest('.opt'); if (o) { select(S.find(s => s.slug === o.dataset.slug), { anim: true }); } });
+inp.addEventListener('keydown', e => {
+  if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+    e.preventDefault(); if (!shown.length) return;
+    const i = Math.max(0, shown.findIndex(s => active && s.slug === active.slug)) + (e.key === 'ArrowDown' ? 1 : -1);
+    select(shown[(i + shown.length) % shown.length], { scroll: 'nearest', anim: true });
+  }
+  if (e.key === 'Enter' && active) { e.preventDefault(); q('#open')?.click(); }
+});
+q('#right').addEventListener('click', e => { const b = e.target.closest('.w'); if (!b) return; wi = +b.dataset.i; q('#verse').querySelectorAll('.w').forEach(x => x.setAttribute('aria-pressed', String(x === b))); detail(); });
+// In the verse, arrows walk the words (Arabic runs right to left, so left is next).
+q('#right').addEventListener('keydown', e => {
+  if (!e.target.closest('#verse') || (e.key !== 'ArrowLeft' && e.key !== 'ArrowRight')) return;
+  e.preventDefault(); const bs = [...q('#verse').querySelectorAll('.w')];
+  wi = Math.min(bs.length - 1, Math.max(0, wi + (e.key === 'ArrowLeft' ? 1 : -1)));
+  bs.forEach((x, i) => x.setAttribute('aria-pressed', String(i === wi))); bs[wi].focus(); detail();
+});
+document.addEventListener('click', e => { const t = e.target.closest('[data-try]'); if (t) { inp.value = t.dataset.try; inp.dispatchEvent(new Event('input')); inp.focus({ preventScroll: true }); } });
+document.querySelectorAll('.chip[data-lv]').forEach(c => c.addEventListener('click', () => { lv = +c.dataset.lv; document.querySelectorAll('.chip[data-lv]').forEach(o => o.setAttribute('aria-pressed', String(o === c))); renderList(); }));
+// Swipe the right side on a touch screen to change surah
+let sx = null;
+q('#right').addEventListener('pointerdown', e => { sx = e.pointerType === 'touch' && !e.target.closest('.verse') ? e.clientX : null; });
+q('#right').addEventListener('pointerup', e => { if (sx === null || !shown.length) return; const dx = e.clientX - sx; sx = null; if (Math.abs(dx) < 70) return; const i = Math.max(0, shown.findIndex(s => s.slug === active.slug)) + (dx < 0 ? 1 : -1); select(shown[(i + shown.length) % shown.length], { scroll: 'nearest', anim: true }); });
+window.addEventListener('hashchange', () => { const s = ORDER.find(x => x.slug === decodeURIComponent(location.hash.slice(1))); if (s && s !== active) select(s, { scroll: 'nearest', anim: true }); });
+
+const find = U.wireFind(renderList);
+renderList();
+reveal(q('#o-' + active.slug), true);
+</script>
+</body></html>
