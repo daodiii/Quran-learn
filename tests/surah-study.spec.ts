@@ -63,12 +63,12 @@ test.describe('without JavaScript', () => {
   });
 });
 
-test('a surah with no teaching layer still works: the box shows the parse and there is no question', async ({ page }) => {
-  await page.goto('/surahs/093-ad-duha/');
-  await expect(page.locator('section.vs')).toHaveCount(11);
-  await expect(page.locator('#v1 [data-detail]')).toContainText('Grammar:');
-  await expect(page.locator('#v1 .try')).toHaveCount(0);
-  await expect(page.locator('#sources')).toContainText('not yet been checked');
+// Every surah has a teaching layer now (Levels 1 to 5), so no real page shows the no-layer fallback any more.
+test('a Level 3 surah: the box shows the parse and each verse has its question', async ({ page }) => {
+  await page.goto('/surahs/094-ash-sharh/');
+  await expect(page.locator('section.vs')).toHaveCount(8);
+  await expect(page.locator('#v1 [data-detail]')).toContainText('For the grammar book');
+  await expect(page.locator('section.vs .try')).toHaveCount(8);
 });
 
 test('a long surah: 40 verses, a rail with 40 verse links, and the whole page reads', async ({ page }) => {
