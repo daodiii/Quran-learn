@@ -139,10 +139,11 @@ export function withArabic(text: string): string {
   return esc(text).replace(AR_RUN, (m) => `<span class="ar" lang="ar" dir="rtl">${m}</span>`);
 }
 
-/** Inline: Arabic runs, **bold** and [text](/path or https://...) links. Returns HTML. */
+/** Inline: Arabic runs, **bold**, *italic* and [text](/path or https://...) links. Returns HTML. */
 export function inline(text: string): string {
   return withArabic(text)
     .replace(/\*\*([^*]+)\*\*/g, '<b>$1</b>')
+    .replace(/(^|[^*\w])\*([^*\s][^*]*?)\*(?![*\w])/g, '$1<em>$2</em>')
     .replace(/\[([^\]]+)\]\(((?:\/|https:\/\/)[^)\s]*)\)/g, '<a href="$2">$1</a>');
 }
 

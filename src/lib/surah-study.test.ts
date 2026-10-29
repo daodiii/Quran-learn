@@ -29,6 +29,7 @@ test('withArabic wraps each run of Arabic and escapes the rest', () => {
 test('inline handles bold and only relative or https links', () => {
   assert.equal(inline('**x** and [us](/about/#feedback)'), '<b>x</b> and <a href="/about/#feedback">us</a>');
   assert.equal(inline('[bad](javascript:alert(1))'), '[bad](javascript:alert(1))');
+  assert.equal(inline('the *fa-* is **extra**, not *aw* or 2 * 3'), 'the <em>fa-</em> is <b>extra</b>, not <em>aw</em> or 2 * 3');
 });
 
 test('md makes paragraphs, lists and tables', () => {
