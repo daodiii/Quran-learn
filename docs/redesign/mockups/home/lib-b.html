@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Home · Library · B: The binder</title>
+<link rel="stylesheet" href="home.css">
+<link rel="stylesheet" href="body.css">
+<link rel="stylesheet" href="trust.css">
+<style>
+/* ---------- B: The binder ----------
+   Show the library, not a list of it. Four of the real charts are laid on a colour desk as printed sheets,
+   each one filled with what the chart actually says, so the visitor reads some of it without clicking.
+   The two live tools and the remaining guides sit below as a plain, large index. */
+:root{--green:oklch(46% 0.12 170);--green-bg:oklch(93% 0.06 170)}
+
+.desk{padding:clamp(20px,4vw,56px) clamp(14px,3vw,48px) clamp(28px,4vw,56px);border-radius:36px;background:var(--oasis)}
+.sheets{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(12px,1.6vw,24px);list-style:none;margin:0;padding:0}
+.sheets>li{display:flex}
+.sheet{--c:var(--noun);--bg:var(--noun-tint);position:relative;display:flex;flex-direction:column;width:100%;overflow:hidden;border-radius:6px 22px 6px 6px;background:#fff;color:var(--ink);text-decoration:none;box-shadow:0 2px 4px oklch(30% 0.04 220 / .1),0 28px 50px -28px oklch(30% 0.06 230 / .55);transform:rotate(var(--r,0deg));transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s}
+.sheet:hover{transform:rotate(0) translateY(-8px);box-shadow:0 2px 4px oklch(30% 0.04 220 / .1),0 40px 60px -28px oklch(30% 0.06 230 / .6)}
+.sheet:focus-visible{outline:3px solid var(--focus);outline-offset:4px}
+.sheets>li:nth-child(1) .sheet{--r:-1.4deg}.sheets>li:nth-child(2) .sheet{--r:.9deg;--c:oklch(52% 0.14 65);--bg:var(--amber-tint)}
+.sheets>li:nth-child(3) .sheet{--r:-.7deg;--c:var(--verb);--bg:var(--verb-tint)}.sheets>li:nth-child(4) .sheet{--r:1.2deg;--c:var(--green);--bg:var(--green-bg)}
+.sheet::after{content:"";position:absolute;top:0;right:0;width:22px;height:22px;background:linear-gradient(225deg,var(--oasis-fold,oklch(88% 0.05 150)) 50%,transparent 50%);opacity:.0}
+.sh-head{display:flex;flex-direction:column;gap:2px;padding:18px 20px 16px;background:var(--c);color:#fff}
+.sh-head small{font-size:.75rem;font-weight:600;letter-spacing:.04em;opacity:.85}
+.sh-head h3{margin:0;font-size:clamp(1.125rem,1rem + .4vw,1.375rem);font-weight:600;line-height:1.15;letter-spacing:-.02em}
+.sh-body{flex:1;display:flex;flex-direction:column;gap:10px;padding:16px 16px 14px}
+.sh-body p{margin:0;font-size:.8125rem;color:var(--muted);line-height:1.4}
+.tb{width:100%;border-collapse:collapse;font-size:.875rem}
+.tb th{padding:0 6px 6px;text-align:left;font-size:.6875rem;font-weight:600;color:var(--c)}
+.tb td{padding:7px 6px;border-top:1px solid var(--soft-2);vertical-align:middle}
+.tb tr:nth-child(odd) td{background:color-mix(in oklab,var(--bg) 55%,#fff)}
+.tb .ar{font-size:1.45rem;line-height:1.4}
+.tb td:last-child{text-align:right}
+.tb b{font-weight:600}
+.tb em{font-style:normal;color:var(--muted);font-size:.75rem}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:5px}
+.grid div{display:flex;flex-direction:column;align-items:center;padding:6px 2px 5px;border-radius:10px;background:var(--bg)}
+.grid .ar{font-size:1.4rem;line-height:1.4}
+.grid small{font-size:.6875rem;color:var(--text);line-height:1.2}
+.sh-foot{display:flex;justify-content:space-between;align-items:center;padding:10px 16px 14px;font-size:.8125rem;font-weight:600;color:var(--c)}
+.sh-foot span:last-child{transition:transform .25s}
+.sheet:hover .sh-foot span:last-child{transform:translateX(4px)}
+
+/* the index below: large, plain, no boxes */
+.idx{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(28px,6vw,96px);margin-top:clamp(40px,6vw,80px)}
+.idx h3{margin:0 0 6px;font-size:.875rem;font-weight:600;color:var(--accent)}
+.idx ul{list-style:none;margin:0;padding:0}
+.row{display:grid;grid-template-columns:1fr auto;gap:2px 16px;align-items:baseline;padding:16px 0;border-top:1px solid var(--edge);text-decoration:none;transition:padding-left .25s}
+.idx li:last-child .row{border-bottom:1px solid var(--edge)}
+.row b{font-size:clamp(1.25rem,1.05rem + .8vw,1.75rem);font-weight:600;line-height:1.15;letter-spacing:-.03em}
+.row span.d{grid-column:1;font-size:.9375rem;color:var(--muted);line-height:1.4}
+.row i{grid-row:1 / span 2;grid-column:2;align-self:center;font-style:normal;font-size:1.5rem;color:var(--accent);transition:transform .25s}
+.row:hover{padding-left:10px}.row:hover i{transform:translateX(6px)}
+.row:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+.live{margin-left:8px;padding:2px 8px;border-radius:999px;background:var(--accent);color:#fff;font-size:.6875rem;font-weight:600;letter-spacing:.02em;vertical-align:.2em}
+.all{margin:28px 0 0}
+
+@media (max-width:1100px){
+  .sheets{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:minmax(260px,72%);overflow-x:auto;scroll-snap-type:x mandatory;margin-inline:calc(clamp(14px,3vw,48px) * -1);padding:16px clamp(14px,3vw,48px) 22px;scroll-padding-inline:clamp(14px,3vw,48px);scrollbar-width:none}
+  .sheets::-webkit-scrollbar{display:none}
+  .sheets>li{scroll-snap-align:start}
+  .idx{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width:560px){.desk{border-radius:26px}}
+@media (prefers-reduced-motion:reduce){.sheet,.sh-foot span:last-child,.row,.row i{transition:none}.sheet:hover{transform:rotate(var(--r,0deg))}}
+</style></head>
+<body>
+<span class="mock-tag">B · The binder</span>
+<div class="ph hero"><div><b>The hero, course map and surah reader sit above</b>Learn the language of the Quran.</div></div>
+
+<main>
+<section class="sec wrap" aria-labelledby="lib-h">
+  <div class="sec-head"><div><p class="eyebrow">The library</p><h2 id="lib-h">Twelve free tools to keep open while you read.</h2></div><p>The charts you reach for most, set out like the printed cheat sheets they replace. Read them here, open the full version when you need it.</p></div>
+  <div class="desk">
+    <ul class="sheets" tabindex="0" aria-label="Four reference charts">
+      <li><a class="sheet" href="#">
+        <div class="sh-head"><small>CHART</small><h3>Case Endings Chart</h3></div>
+        <div class="sh-body">
+          <table class="tb"><thead><tr><th>Case</th><th>Ending</th><th>Example</th></tr></thead><tbody>
+            <tr><td><b>Doer</b><br><em>rafʿ</em></td><td>-un</td><td><span class="ar" lang="ar" dir="rtl">كِتَابٌ</span></td></tr>
+            <tr><td><b>Receiver</b><br><em>naṣb</em></td><td>-an</td><td><span class="ar" lang="ar" dir="rtl">كِتَابًا</span></td></tr>
+            <tr><td><b>“Of” word</b><br><em>jarr</em></td><td>-in</td><td><span class="ar" lang="ar" dir="rtl">كِتَابٍ</span></td></tr>
+            <tr><td><b>Two, doer</b><br><em>dual</em></td><td>-āni</td><td><span class="ar" lang="ar" dir="rtl">كِتَابَانِ</span></td></tr>
+            <tr><td><b>Two, other</b><br><em>dual</em></td><td>-ayni</td><td><span class="ar" lang="ar" dir="rtl">كِتَابَيْنِ</span></td></tr>
+          </tbody></table>
+          <p>Also: sound plurals, broken plurals and the five nouns.</p>
+        </div>
+        <div class="sh-foot"><span>Open the full chart</span><span aria-hidden="true">→</span></div>
+      </a></li>
+      <li><a class="sheet" href="#">
+        <div class="sh-head"><small>CHART</small><h3>Pronoun Reference Charts</h3></div>
+        <div class="sh-body">
+          <table class="tb"><thead><tr><th>Who</th><th>Arabic</th><th>Says</th></tr></thead><tbody>
+            <tr><td><b>I</b></td><td><span class="ar" lang="ar" dir="rtl">أَنَا</span></td><td><em>anaa</em></td></tr>
+            <tr><td><b>we</b></td><td><span class="ar" lang="ar" dir="rtl">نَحْنُ</span></td><td><em>nahnu</em></td></tr>
+            <tr><td><b>you (m)</b></td><td><span class="ar" lang="ar" dir="rtl">أَنْتَ</span></td><td><em>anta</em></td></tr>
+            <tr><td><b>he</b></td><td><span class="ar" lang="ar" dir="rtl">هُوَ</span></td><td><em>huwa</em></td></tr>
+            <tr><td><b>she</b></td><td><span class="ar" lang="ar" dir="rtl">هِيَ</span></td><td><em>hiya</em></td></tr>
+            <tr><td><b>they (m)</b></td><td><span class="ar" lang="ar" dir="rtl">هُمْ</span></td><td><em>hum</em></td></tr>
+          </tbody></table>
+          <p>Also: attached pronouns, “this/that” and “who/which”.</p>
+        </div>
+        <div class="sh-foot"><span>Open the full chart</span><span aria-hidden="true">→</span></div>
+      </a></li>
+      <li><a class="sheet" href="#">
+        <div class="sh-head"><small>CHEAT SHEET</small><h3>Verb Forms Master Reference</h3></div>
+        <div class="sh-body">
+          <table class="tb"><thead><tr><th>Form</th><th>Pattern</th><th>Adds</th></tr></thead><tbody>
+            <tr><td><b>I</b></td><td><span class="ar" lang="ar" dir="rtl">فَعَلَ</span></td><td><em>basic action</em></td></tr>
+            <tr><td><b>II</b></td><td><span class="ar" lang="ar" dir="rtl">فَعَّلَ</span></td><td><em>intensify, cause</em></td></tr>
+            <tr><td><b>III</b></td><td><span class="ar" lang="ar" dir="rtl">فَاعَلَ</span></td><td><em>do with or toward someone</em></td></tr>
+            <tr><td><b>IV</b></td><td><span class="ar" lang="ar" dir="rtl">أَفْعَلَ</span></td><td><em>cause something</em></td></tr>
+            <tr><td><b>V</b></td><td><span class="ar" lang="ar" dir="rtl">تَفَعَّلَ</span></td><td><em>reflexive of II</em></td></tr>
+            <tr><td><b>X</b></td><td><span class="ar" lang="ar" dir="rtl">اِسْتَفْعَلَ</span></td><td><em>seek, request</em></td></tr>
+          </tbody></table>
+          <p>All ten forms, with Quranic examples and the root-family tree.</p>
+        </div>
+        <div class="sh-foot"><span>Open the full sheet</span><span aria-hidden="true">→</span></div>
+      </a></li>
+      <li><a class="sheet" href="#">
+        <div class="sh-head"><small>WORD LIST</small><h3>200 Most Common Quranic Words</h3></div>
+        <div class="sh-body">
+          <div class="grid" lang="ar" dir="rtl">
+            <div><span class="ar">وَ</span><small lang="en">and</small></div><div><span class="ar">فِي</span><small lang="en">in</small></div><div><span class="ar">مِنْ</span><small lang="en">from</small></div>
+            <div><span class="ar">مَا</span><small lang="en">what, not</small></div><div><span class="ar">لَا</span><small lang="en">no, not</small></div><div><span class="ar">إِنَّ</span><small lang="en">indeed</small></div>
+            <div><span class="ar">عَلَىٰ</span><small lang="en">on</small></div><div><span class="ar">إِلَىٰ</span><small lang="en">to</small></div><div><span class="ar">بِ</span><small lang="en">with, by</small></div>
+            <div><span class="ar">هُوَ</span><small lang="en">he, it</small></div><div><span class="ar">هُمْ</span><small lang="en">they</small></div><div><span class="ar">كَانَ</span><small lang="en">was, is</small></div>
+          </div>
+          <p>Particles, verbs and nouns: 200 words, about half of all Quranic text.</p>
+        </div>
+        <div class="sh-foot"><span>Open the full list</span><span aria-hidden="true">→</span></div>
+      </a></li>
+    </ul>
+  </div>
+
+  <div class="idx">
+    <div>
+      <h3>Live tools</h3>
+      <ul>
+        <li><a class="row" href="#"><b>Word lookup<span class="live">LIVE</span></b><span class="d">Any word of the Quran: its root, grammar and word family.</span><i aria-hidden="true">→</i></a></li>
+        <li><a class="row" href="#"><b>Verb form generator<span class="live">LIVE</span></b><span class="d">943 roots, each moving through the ten verb forms.</span><i aria-hidden="true">→</i></a></li>
+      </ul>
+      <p class="all"><a class="btn primary" href="#">Open all resources</a></p>
+    </div>
+    <div>
+      <h3>More guides</h3>
+      <ul>
+        <li><a class="row" href="#"><b>Arabic in 7 Principles</b><span class="d">The always-open reference card.</span><i aria-hidden="true">→</i></a></li>
+        <li><a class="row" href="#"><b>Learning Roadmap</b><span class="d">From absolute beginner to full Quranic analysis, phase by phase.</span><i aria-hidden="true">→</i></a></li>
+        <li><a class="row" href="#"><b>Arabic Grammar Glossary</b><span class="d">Every grammar term, in Arabic and plain English.</span><i aria-hidden="true">→</i></a></li>
+        <li><a class="row" href="#"><b>Arabic Root System Guide</b><span class="d">Three- and four-letter roots, and how words grow from them.</span><i aria-hidden="true">→</i></a></li>
+        <li><a class="row" href="#"><b>Verb Conjugation Tables</b><span class="d">All ten forms across every person and tense.</span><i aria-hidden="true">→</i></a></li>
+        <li><a class="row" href="#"><b>Quranic vs Modern Standard Arabic</b><span class="d">What differs, and which to study first.</span><i aria-hidden="true">→</i></a></li>
+      </ul>
+    </div>
+  </div>
+</section>
+<div class="tail"></div>
+</main>
+</body></html>

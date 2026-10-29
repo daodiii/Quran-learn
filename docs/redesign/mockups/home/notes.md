@@ -2,6 +2,23 @@
 
 Open `compare.html` for the side-by-side, or any `hero-*.html` for the working mockup. `node docs/redesign/mockups/home/shots.mjs a b c compare` rebuilds the screenshots in `shots/`.
 
+## Library (resources) section: three takes (Sonnet 5.5)
+
+The first library section on the home page was a 2-card + 10-small-tile grid; the owner did not like the twelve small boxes and wanted it more colourful and organised by what you do. Three mockups, all with real content from `src/content/resources/` (case endings, pronouns, the verb forms, the 200 words, the seven principles) and the word-lookup data.
+
+- **A `lib-a.html`, What do you need right now?** Five questions (a word I do not know, why it ends like that, what a verb form means, which words first, where to start). Each turns the stage its own colour, shows the answer working, and lists the tools and charts that answer it. All twelve resources are reachable. Interactive tabs, arrow keys work.
+- **B `lib-b.html`, The binder.** Four real charts as coloured printed sheets on the Oasis desk (case endings, pronouns, verb forms, the 200 words), each filled with what the chart says. The two live tools and the six other guides are a plain large index below. Sheets swipe on a phone.
+- **C `lib-c.html`, One search bar.** A command bar on a vivid colour stage: it types "mercy", "taught", "rafʿ", "huwa" in turn and shows typed results (word, verb, chart, term, lesson). Twelve resources as a three-column text index below. Concept: one search over all of them does not exist yet; the lookup and charts are separate pages today, so C needs a build task (Pagefind is already on the site).
+
+To confirm before building: the lesson mapping shown in C ("L2.04 nominative case" comes from the case chart's own text), the 943 roots figure (from `public/data/verb-forms.json`), and "about half of all Quranic text" (the 200-words guide's own claim). The live home page still carries the first, tile-based library section until one of these is chosen.
+
+### Library, round two: under B's four sheets (Sonnet 5.5)
+
+The owner likes B's top (four chart sheets on the Oasis desk) and not the index under it. `lib-b1.html` and `lib-b2.html` keep the sheets and change what is below.
+
+- **B1 The shelf** (`lib-b1.html`): the two live tools as small devices with a working screen, and the six guides as coloured book spines (an Arabic word on each: مَبَادِئ, طَرِيق, مُصْطَلَحَات, جَذْر, تَصْرِيف, فُصْحَى). Hover or focus pulls a spine out and the caption names it; on a phone the spines lie down as full-width bars. The Arabic words are decoration, to check with a reader.
+- **B2 The bench** (`lib-b2.html`): one deep-teal panel where both live tools run side by side with real data (word lookup typing mercy, knowledge, guidance, book; the verb generator for the roots ن ز ل, ع ل م, ك ت ب, with the forms the Quran does not use greyed), and the six guides as a reading path in a suggested order that starts with Quranic vs MSA. The order is an editorial suggestion, to confirm.
+
 ## Trust area: three takes (Sonnet 5.5)
 
 Open `trust-a.html`, `trust-b.html`, `trust-c.html`. Each shows the learner quotes under the hero and the sources / free / mistakes trio near the foot, on the page's own Oasis tokens. Quotes are the three in `src/data/testimonials.ts` (owner confirmed they are real). `node docs/redesign/mockups/home/shots.mjs trust-a trust-b trust-c` rebuilds the screenshots.

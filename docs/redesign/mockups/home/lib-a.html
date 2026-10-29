@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Home · Library · A: What do you need right now?</title>
+<link rel="stylesheet" href="home.css">
+<link rel="stylesheet" href="body.css">
+<link rel="stylesheet" href="trust.css">
+<style>
+/* ---------- A: What do you need right now? ----------
+   The library is organised by the question a learner actually has, not by file name.
+   Pick a question: the stage turns that question's colour, shows the answer working (real data from the guides),
+   and lists the tools and charts that answer it. All twelve resources are reachable, none is a box. */
+:root{--green-tint:oklch(94% 0.05 160)}
+
+.qa{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(16px,3vw,40px);align-items:start}
+.qs{display:grid;gap:6px}
+.q{all:unset;box-sizing:border-box;display:grid;grid-template-columns:14px 1fr;gap:4px 16px;align-items:start;padding:18px 20px;border-radius:22px;cursor:pointer;transition:background-color .25s,transform .25s cubic-bezier(.2,.8,.2,1)}
+.q:hover{background:var(--soft)}
+.q:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+.q .dot{grid-row:1 / span 2;width:14px;height:14px;margin-top:.5em;border-radius:50%;background:var(--c);transition:transform .25s}
+.q b{font-size:clamp(1.25rem,1.05rem + .8vw,1.75rem);font-weight:600;line-height:1.15;letter-spacing:-.03em;color:var(--muted);transition:color .25s}
+.q small{font-size:.9375rem;line-height:1.4;color:var(--muted);max-height:0;opacity:0;overflow:hidden;transition:max-height .3s,opacity .3s}
+.q[aria-selected="true"]{background:var(--t)}
+.q[aria-selected="true"] b{color:var(--ink)}
+.q[aria-selected="true"] .dot{transform:scale(1.5)}
+.q[aria-selected="true"] small{max-height:3em;opacity:1;color:var(--text)}
+.k-word{--c:oklch(52% 0.11 178);--t:var(--teal-tint);--ink2:var(--accent)}
+.k-end{--c:var(--noun);--t:var(--noun-tint);--ink2:var(--noun)}
+.k-verb{--c:var(--verb);--t:var(--verb-tint);--ink2:var(--verb)}
+.k-words{--c:oklch(66% 0.15 65);--t:var(--amber-tint);--ink2:var(--accent-2-text)}
+.k-start{--c:oklch(52% 0.13 160);--t:var(--green-tint);--ink2:var(--little)}
+
+.stage{position:relative;border-radius:32px;min-height:560px;overflow:hidden}
+.pn{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:space-between;gap:24px;padding:clamp(22px,3.4vw,44px);background:var(--t);opacity:0;visibility:hidden;transform:translateY(10px);transition:opacity .35s,transform .35s,visibility 0s .35s}
+.pn.on{opacity:1;visibility:visible;transform:none;transition:opacity .35s,transform .35s}
+.pn h3{margin:0;font-size:.875rem;font-weight:600;color:var(--ink2)}
+.demo{flex:1;display:flex;flex-direction:column;justify-content:center;gap:16px}
+.ans{display:flex;flex-wrap:wrap;gap:8px}
+.ans a{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 18px;border-radius:999px;background:#fff;color:var(--ink);font-weight:500;text-decoration:none;box-shadow:0 1px 2px oklch(30% 0.04 220 / .12);transition:transform .2s,box-shadow .2s}
+.ans a:hover{transform:translateY(-2px);box-shadow:0 10px 22px -12px oklch(30% 0.04 220 / .4)}
+.ans a:focus-visible{outline:3px solid var(--focus)}
+.ans a::after{content:"→";color:var(--ink2)}
+.live{padding:2px 8px;border-radius:999px;background:var(--ink2);color:#fff;font-size:.6875rem;font-weight:600;letter-spacing:.02em}
+
+/* demos */
+.say{margin:0;font-size:clamp(1.0625rem,1rem + .35vw,1.25rem);line-height:1.4;color:var(--text);max-width:26em;text-wrap:balance}
+.bar{display:flex;align-items:center;gap:10px;min-height:52px;padding:0 18px;border-radius:16px;background:#fff;font-size:1.125rem;box-shadow:0 1px 2px oklch(30% 0.04 220 / .12)}
+.bar svg{width:20px;height:20px;color:var(--muted)}
+.res{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:22px;padding:22px;border-radius:22px;background:#fff}
+.res .big{display:block;font-size:4rem;line-height:1.35}
+.res .gl{font-size:1.5rem;font-weight:600;letter-spacing:-.02em}
+.res .ct{margin:6px 0 0;font-size:.9375rem;color:var(--text)}
+.fam{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.fam li{display:grid;grid-template-columns:70px 1fr 38px;gap:10px;align-items:center}
+.fam .ar{font-size:1.4rem;text-align:right}
+.fam .g{display:flex;flex-direction:column;gap:3px;font-size:.875rem;color:var(--muted)}
+.fam .g i{display:block;height:5px;border-radius:3px;background:var(--accent)}
+.fam .n{text-align:right;font-variant-numeric:tabular-nums;font-size:.875rem}
+.three{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.cs{display:flex;flex-direction:column;align-items:center;gap:4px;padding:18px 8px 16px;border-radius:20px;background:#fff;text-align:center}
+.cs .ar{font-size:clamp(2.4rem,1.6rem + 2.4vw,3.6rem);line-height:1.5}
+.cs .ar mark{background:none;color:var(--noun)}
+.cs b{font-size:1rem;font-weight:600}
+.cs small{font-size:.8125rem;color:var(--muted);line-height:1.3}
+.cs .job{padding:2px 10px;border-radius:999px;background:var(--noun-tint);color:var(--noun);font-size:.75rem;font-weight:600}
+.shift{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:12px;align-items:center}
+.vw{display:flex;flex-direction:column;align-items:center;gap:2px;padding:18px 8px;border-radius:20px;background:#fff;text-align:center}
+.vw .ar{font-size:clamp(2.4rem,1.6rem + 2.6vw,3.8rem);line-height:1.5;color:var(--verb)}
+.vw small{font-size:.875rem;color:var(--muted)}
+.vw b{font-size:1.0625rem}
+.arrow{display:flex;flex-direction:column;align-items:center;gap:4px;font-size:.8125rem;font-weight:600;color:var(--verb)}
+.arrow svg{width:44px;height:20px}
+.pat{display:flex;flex-wrap:wrap;gap:6px}
+.pat span{padding:4px 12px;border-radius:12px;background:#fff;font-size:1.25rem;line-height:1.5}
+.pat span:nth-child(2){background:var(--verb);color:#fff}
+.chips{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px}
+.chip{display:flex;flex-direction:column;align-items:center;padding:12px 4px 10px;border-radius:16px;background:#fff;text-align:center}
+.chip .ar{font-size:1.9rem;line-height:1.4}
+.chip small{font-size:.75rem;color:var(--muted);line-height:1.25}
+.pr{margin:0;padding:0;list-style:none;display:grid;gap:6px;counter-reset:p}
+.pr li{counter-increment:p;display:grid;grid-template-columns:30px 1fr;gap:12px;align-items:center;padding:10px 14px;border-radius:14px;background:#fff;font-size:.9375rem;line-height:1.3}
+.pr li::before{content:counter(p);display:grid;place-items:center;width:26px;height:26px;border-radius:50%;background:var(--green-tint);color:var(--little);font-weight:700;font-size:.8125rem}
+
+@media (max-width:1000px){
+  .qa{grid-template-columns:minmax(0,1fr)}
+  .qs{display:flex;gap:6px;overflow-x:auto;margin-inline:calc(var(--gutter) * -1);padding:2px var(--gutter) 10px;scrollbar-width:none}
+  .qs::-webkit-scrollbar{display:none}
+  .q{flex:none;display:flex;align-items:center;gap:10px;padding:10px 16px;border-radius:999px;background:var(--soft)}
+  .q .dot{margin:0}
+  .q b{font-size:1rem;white-space:nowrap}
+  .q small{display:none}
+  .q[aria-selected="true"] .dot{transform:none}
+  .stage{min-height:0}
+  .pn{position:static;display:none;transform:none;opacity:1;visibility:visible}
+  .pn.on{display:flex}
+}
+@media (max-width:560px){
+  .res{grid-template-columns:minmax(0,1fr);gap:14px}
+  .chips{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .shift{grid-template-columns:minmax(0,1fr)}
+  .arrow{flex-direction:row;justify-content:center}.arrow svg{transform:rotate(90deg);width:28px}
+  .three{gap:6px}
+  .cs{padding-inline:2px}
+}
+@media (prefers-reduced-motion:reduce){.pn,.q,.q small,.ans a{transition:none}}
+</style></head>
+<body>
+<span class="mock-tag">A · What do you need right now?</span>
+<div class="ph hero"><div><b>The hero, course map and surah reader sit above</b>Learn the language of the Quran.</div></div>
+
+<main>
+<section class="sec wrap" aria-labelledby="lib-h">
+  <div class="sec-head"><div><p class="eyebrow">The library</p><h2 id="lib-h">What do you need right now?</h2></div><p>Twelve free tools and charts, sorted by the question you actually have. Pick one and see the answer working.</p></div>
+  <div class="qa">
+    <div class="qs" role="tablist" aria-label="What do you need?">
+      <button class="q k-word" role="tab" type="button" id="t-word" aria-controls="p-word" aria-selected="true" data-k="word"><span class="dot" aria-hidden="true"></span><b>I met a word I don't know.</b><small>Find its root and every word that shares it.</small></button>
+      <button class="q k-end" role="tab" type="button" id="t-end" aria-controls="p-end" aria-selected="false" tabindex="-1" data-k="end"><span class="dot" aria-hidden="true"></span><b>Why does it end like that?</b><small>Case endings, pronouns and what each one marks.</small></button>
+      <button class="q k-verb" role="tab" type="button" id="t-verb" aria-controls="p-verb" aria-selected="false" tabindex="-1" data-k="verb"><span class="dot" aria-hidden="true"></span><b>What does this verb form mean?</b><small>Ten forms, with real Quranic verbs and tables.</small></button>
+      <button class="q k-words" role="tab" type="button" id="t-words" aria-controls="p-words" aria-selected="false" tabindex="-1" data-k="words"><span class="dot" aria-hidden="true"></span><b>Which words come first?</b><small>The words that open almost every verse.</small></button>
+      <button class="q k-start" role="tab" type="button" id="t-start" aria-controls="p-start" aria-selected="false" tabindex="-1" data-k="start"><span class="dot" aria-hidden="true"></span><b>Where do I even start?</b><small>A roadmap, seven principles and a plain glossary.</small></button>
+    </div>
+
+    <div class="stage">
+      <div class="pn k-word on" role="tabpanel" id="p-word" aria-labelledby="t-word">
+        <h3>Word lookup · any word, Arabic or English</h3>
+        <div class="demo">
+          <div class="bar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>mercy</div>
+          <div class="res">
+            <div><span class="ar big" lang="ar" dir="rtl">رَحْمَة</span><span class="gl">mercy</span> <span style="color:var(--muted)">raḥma</span><p class="ct"><b>114 times</b> in the Quran · root <bdi lang="ar" dir="rtl" class="ar">ر ح م</bdi></p></div>
+            <div><p style="margin:0 0 8px;font-size:.8125rem;color:var(--muted)">Same root, 339 times in all</p>
+              <ul class="fam">
+                <li><span class="ar" lang="ar" dir="rtl">رَحِيم</span><span class="g">most merciful<i style="width:100%"></i></span><span class="n">116</span></li>
+                <li><span class="ar" lang="ar" dir="rtl">رَحْمَة</span><span class="g">mercy<i style="width:98%"></i></span><span class="n">114</span></li>
+                <li><span class="ar" lang="ar" dir="rtl">رَحْمَٰن</span><span class="g">the Most Gracious<i style="width:49%"></i></span><span class="n">57</span></li>
+                <li><span class="ar" lang="ar" dir="rtl">رَحِمَ</span><span class="g">to show mercy<i style="width:24%"></i></span><span class="n">28</span></li>
+              </ul></div>
+          </div>
+        </div>
+        <div class="ans"><a href="#">Word lookup <span class="live">LIVE</span></a><a href="#">Arabic Root System Guide</a></div>
+      </div>
+
+      <div class="pn k-end" role="tabpanel" id="p-end" aria-labelledby="t-end" hidden>
+        <h3>Case endings · one word, three jobs</h3>
+        <div class="demo">
+          <p class="say">The ending is not decoration. It tells you what the word is doing in the sentence.</p>
+          <div class="three">
+            <div class="cs"><span class="ar" lang="ar" dir="rtl">كِتَاب<mark>ٌ</mark></span><b>kitābun</b><span class="job">the doer · rafʿ</span><small>a book, as the subject</small></div>
+            <div class="cs"><span class="ar" lang="ar" dir="rtl">كِتَاب<mark>ً</mark>ا</span><b>kitāban</b><span class="job">the receiver · naṣb</span><small>a book, as the object</small></div>
+            <div class="cs"><span class="ar" lang="ar" dir="rtl">كِتَاب<mark>ٍ</mark></span><b>kitābin</b><span class="job">the “of” word · jarr</span><small>of a book, after in, from, to</small></div>
+          </div>
+        </div>
+        <div class="ans"><a href="#">Case Endings Chart</a><a href="#">Pronoun Reference Charts</a></div>
+      </div>
+
+      <div class="pn k-verb" role="tabpanel" id="p-verb" aria-labelledby="t-verb" hidden>
+        <h3>Verb forms · one root, ten shapes</h3>
+        <div class="demo">
+          <p class="say">Same three letters, ع ل م. Double the middle letter and the meaning shifts.</p>
+          <div class="shift">
+            <div class="vw"><small>Form I</small><span class="ar" lang="ar" dir="rtl">عَلِمَ</span><b>he knew</b></div>
+            <div class="arrow"><span>intensify, cause</span><svg viewBox="0 0 44 20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 10h38M32 3l8 7-8 7"/></svg></div>
+            <div class="vw"><small>Form II</small><span class="ar" lang="ar" dir="rtl">عَلَّمَ</span><b>he taught</b></div>
+          </div>
+          <div class="pat" lang="ar" aria-label="The ten verb form patterns"><span>فَعَلَ</span><span>فَعَّلَ</span><span>فَاعَلَ</span><span>أَفْعَلَ</span><span>تَفَعَّلَ</span><span>تَفَاعَلَ</span><span>اِنْفَعَلَ</span><span>اِفْتَعَلَ</span><span>اِفْعَلَّ</span><span>اِسْتَفْعَلَ</span></div>
+        </div>
+        <div class="ans"><a href="#">Verb form generator <span class="live">LIVE</span></a><a href="#">Verb Forms Master Reference</a><a href="#">Verb Conjugation Tables</a></div>
+      </div>
+
+      <div class="pn k-words" role="tabpanel" id="p-words" aria-labelledby="t-words" hidden>
+        <h3>200 most common words · start with these ten</h3>
+        <div class="demo">
+          <div class="chips" lang="ar" dir="rtl">
+            <div class="chip"><span class="ar">وَ</span><small lang="en">wa · and</small></div>
+            <div class="chip"><span class="ar">فِي</span><small lang="en">fī · in</small></div>
+            <div class="chip"><span class="ar">مِنْ</span><small lang="en">min · from</small></div>
+            <div class="chip"><span class="ar">مَا</span><small lang="en">mā · what, not</small></div>
+            <div class="chip"><span class="ar">لَا</span><small lang="en">lā · no, not</small></div>
+            <div class="chip"><span class="ar">إِنَّ</span><small lang="en">inna · indeed</small></div>
+            <div class="chip"><span class="ar">عَلَىٰ</span><small lang="en">ʿalā · on</small></div>
+            <div class="chip"><span class="ar">إِلَىٰ</span><small lang="en">ilā · to</small></div>
+            <div class="chip"><span class="ar">بِ</span><small lang="en">bi · with, by</small></div>
+            <div class="chip"><span class="ar">لِ</span><small lang="en">li · for, to</small></div>
+          </div>
+          <p class="say">The full list has 200 words, and the guide says they make up about half of all Quranic text.</p>
+        </div>
+        <div class="ans"><a href="#">200 Most Common Quranic Words</a></div>
+      </div>
+
+      <div class="pn k-start" role="tabpanel" id="p-start" aria-labelledby="t-start" hidden>
+        <h3>Arabic in 7 principles · the always-open card</h3>
+        <div class="demo">
+          <ol class="pr">
+            <li>Every word is a noun, a verb or a particle.</li>
+            <li>Every verb comes from a three-letter root.</li>
+            <li>The verb changes, so you need no separate pronoun.</li>
+            <li>Nouns change their endings by their job.</li>
+            <li>Masculine is the default; feminine is marked.</li>
+            <li>Definite is ال, indefinite is tanween.</li>
+            <li>Word order is flexible; the endings carry the meaning.</li>
+          </ol>
+        </div>
+        <div class="ans"><a href="#">Learning Roadmap</a><a href="#">Arabic in 7 Principles</a><a href="#">Quranic vs Modern Standard Arabic</a><a href="#">Grammar Glossary</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="tail"></div>
+</main>
+<script>
+const tabs=[...document.querySelectorAll('.q')], panels=[...document.querySelectorAll('.pn')];
+function pick(t,focus){
+  tabs.forEach(x=>{const on=x===t;x.setAttribute('aria-selected',on);x.tabIndex=on?0:-1});
+  panels.forEach(p=>{const on=p.id==='p-'+t.dataset.k;p.hidden=false;p.classList.toggle('on',on);if(!on&&matchMedia('(min-width:1001px)').matches)p.setAttribute('aria-hidden','true');else p.removeAttribute('aria-hidden')});
+  if(focus)t.focus();
+}
+tabs.forEach((t,i)=>{
+  t.addEventListener('click',()=>pick(t));
+  t.addEventListener('keydown',e=>{
+    const d={ArrowDown:1,ArrowRight:1,ArrowUp:-1,ArrowLeft:-1}[e.key];
+    if(d){e.preventDefault();pick(tabs[(i+d+tabs.length)%tabs.length],true)}
+  });
+});
+pick(tabs[0]);
+</script>
+</body></html>
