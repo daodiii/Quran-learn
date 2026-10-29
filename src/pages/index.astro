@@ -23,8 +23,6 @@ const verbData = JSON.parse(readFileSync('public/data/verb-forms.json', 'utf8'))
 const verbRoots: number = verbData.meta.roots;
 // The verb generator on the bench shows three real roots; the page embeds them so the client can switch.
 const benchVerbs = ['نزل', 'علم', 'كتب'].map((r) => verbData.roots.find((x: VerbRoot) => x.root === r)).filter(Boolean) as VerbRoot[];
-const NUM = ['Zero', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten', 'Eleven', 'Twelve', 'Thirteen', 'Fourteen', 'Fifteen', 'Sixteen', 'Seventeen', 'Eighteen', 'Nineteen', 'Twenty'];
-const toolCount = guides.length + 2;
 // Four guides are shown as sheets; the rest form a reading path, in a suggested order (short titles and lines are ours).
 const SHEET_IDS = ['case-endings-chart', 'pronoun-charts', 'verb-forms-master-reference', '200-most-used-words'];
 const PATH: [string, string, string][] = [
@@ -56,7 +54,6 @@ const LEVELS = [
 ].map((l, i) => ({ ...l, level: i + 1, count: lessons.filter((x) => x.data.level === i + 1).length, href: `/learn/${firstOf(i + 1).id}/` }));
 
 const startHref = LEVELS[0].href;
-const readerHref = LEVELS[1].href;
 // For the "continue where you left off" button: lesson ids and titles, in course order.
 const courseOrder = lessons.map((l) => [l.id, l.data.title]);
 
@@ -148,8 +145,8 @@ const step = LESSON_STEPS[1];
   <h1 id="hero-h" class="rise">Learn the language of the Quran.</h1>
   <p class="lede rise" style="--d:.08s">Short, clear lessons that take you from the Arabic alphabet to reading a verse and knowing what every word does. Free, for everyone.</p>
   <div class="cta rise" style="--d:.16s">
-    <a class="btn primary" id="primary-cta" href={startHref}>Start with the alphabet</a>
-    <a class="btn" href={readerHref}>I can already read Arabic</a>
+    <a class="btn primary" id="primary-cta" href="/learn/">Start learning</a>
+    <a class="btn" href="/resources/">Explore the free resources</a>
   </div>
   <p class="fine rise" style="--d:.2s">No sign-up. No ads. Works on any phone.</p>
 
@@ -235,7 +232,7 @@ const step = LESSON_STEPS[1];
   <!-- The course map: one card per level, with a small sample of what it teaches.
        The bar under each card has a segment per lesson; src/scripts/home.ts fills them from saved progress. -->
   <section class="sec" aria-labelledby="levels-h">
-    <div class="sec-head"><div><p class="eyebrow">The course</p><h2 id="levels-h">Five levels, from letters to reading.</h2></div><p>Each level ends with a surah you read on your own. Your progress stays on your phone, no account needed.</p></div>
+    <div class="sec-head"><h2 id="levels-h">Five levels, from letters to reading.</h2></div>
     <ol class="track">
       {LEVELS.map((l) => (
         <li class="card" data-level={l.level}>
@@ -254,7 +251,7 @@ const step = LESSON_STEPS[1];
 
   <!-- The reader: Al-Ikhlas renders here; other surahs load from public/data/home-reader/<n>.json. -->
   <section class="sec" aria-labelledby="surahs-h">
-    <div class="sec-head"><div><p class="eyebrow">Read along</p><h2 id="surahs-h">The short surahs, word by word.</h2></div><p>Al-Fatiha and every surah of Juz ʿAmma. Tap any word to see what it means, where it comes from and what it does in the verse.</p></div>
+    <div class="sec-head"><h2 id="surahs-h">The short surahs, word by word.</h2></div>
     <div class="rd-stage">
       <div class="rd-win" id="reader">
         <div class="bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="url" id="rd-url" aria-hidden="true">quranic-grammar.com/surahs/{reader.id}</span><span class="pad"></span></div>
@@ -281,7 +278,7 @@ const step = LESSON_STEPS[1];
   <!-- The library (/resources/): four of the charts as sheets, the two live tools running, and the other guides as a reading path.
        Every guide in the resources collection is reachable from here; one that is added later lands at the end of the path. -->
   <section class="sec lib" aria-labelledby="lib-h">
-    <div class="sec-head"><div><p class="eyebrow">The library</p><h2 id="lib-h">{NUM[toolCount] ?? toolCount} free tools to keep open while you read.</h2></div><p>The charts you reach for most, set out like the printed cheat sheets they replace. Read them here, open the full version when you need it.</p></div>
+    <div class="sec-head"><h2 id="lib-h">Free tools to keep open while you read.</h2></div>
     <div class="desk">
       <ul class="sheets" tabindex="0" aria-label="Four reference charts">
       <li><a class="sheet" href="/resources/case-endings-chart/" aria-label="Case Endings Chart: open the full version">
@@ -388,7 +385,7 @@ const step = LESSON_STEPS[1];
   <!-- Learner quotes, after the reader so a visitor has seen the product first. Each card takes one of three tints.
        The quotes live in src/data/testimonials.ts. -->
   <section class="sec" aria-labelledby="voices-h">
-    <div class="sec-head"><div><p class="eyebrow">From learners</p><h2 id="voices-h">It finally makes sense.</h2></div><p>Students, self-learners and teachers, on what changed when they started reading the Quran word by word.</p></div>
+    <div class="sec-head"><h2 id="voices-h">It finally makes sense.</h2></div>
     <div class="stack">
       {testimonials.map((t, i) => (
         <figure class={`sc k${(i % 3) + 1}`} style={`--i:${i}`}>
@@ -402,7 +399,7 @@ const step = LESSON_STEPS[1];
   </section>
 
   <section class="sec" aria-labelledby="trust-h">
-    <div class="sec-head"><div><p class="eyebrow">How it is run</p><h2 id="trust-h">Sourced, free and open to correction.</h2></div><p>A religious text deserves care. Here is where the facts come from, what it costs, and what happens when we get something wrong.</p></div>
+    <div class="sec-head"><h2 id="trust-h">Sourced, free and open to correction.</h2></div>
     <div class="trio">
       <article class="tc">
         <h3>Sources on every lesson.</h3>

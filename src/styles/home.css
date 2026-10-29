@@ -225,9 +225,8 @@ button.tile{cursor:default}
 
 /* sections below the hero */
 .sec{padding:clamp(72px,11vh,128px) 0 0}
-.sec-head{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:24px 64px;align-items:end;margin-bottom:clamp(28px,4vh,44px)}
-.sec-head h2{margin:0;font-weight:600;font-size:clamp(2rem,1.2rem + 2.6vw,3.5rem);line-height:1.02;letter-spacing:-.04em;text-wrap:balance}
-.sec-head p{margin:0;color:var(--muted);font-size:1.0625rem;line-height:1.55}
+.sec-head{text-align:center;margin-bottom:clamp(28px,4vh,44px)}
+.sec-head h2{margin:0;font-weight:600;font-size:clamp(1.1rem,.4rem + 3.3vw,2.75rem);line-height:1.1;letter-spacing:-.035em;white-space:nowrap}
 .eyebrow{display:inline-flex;align-items:center;gap:8px;margin:0 0 14px;font-size:.875rem;font-weight:500;color:var(--accent)}
 .eyebrow::before{content:"";width:18px;height:2px;border-radius:2px;background:currentColor}
 
@@ -536,7 +535,6 @@ html:not(.js) .fn button{cursor:default;pointer-events:none}
 }
 @media (prefers-reduced-motion:reduce){.sc{position:relative;top:auto}}
 @media (max-width:980px){
-  .sec-head{grid-template-columns:minmax(0,1fr)}
 }
 @media (max-width:760px){
   .rd-stage{margin-inline:calc(var(--gutter) * -1);padding:10px;border-radius:24px}
