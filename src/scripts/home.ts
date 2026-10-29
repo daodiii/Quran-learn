@@ -269,7 +269,7 @@ if (!reduce) {
   }));
 }
 
-// ---------- the library bench: the word lookup and the verb generator, running ----------
+// ---------- the library bench: the finder window, with its word lookup and its ten-forms root pane, running ----------
 {
   // The word lookup is the hero's tool again; it types two words once, when the bench scrolls into view.
   const bench = $('#bench'), lk = lookup($('#w-bench'));
@@ -277,7 +277,7 @@ if (!reduce) {
   if (!reduce && 'IntersectionObserver' in window) {
     new IntersectionObserver((entries, io) => { if (!played && entries.some((e) => e.isIntersecting)) { played = true; io.disconnect(); lk.demo(() => {}); } }, { threshold: 0.45 }).observe(bench);
   }
-  // The verb generator: pick a root, pick a form the Quran uses.
+  // The ten-forms pane: pick a root, pick a form the Quran uses.
   const roots: VerbRoot[] = JSON.parse($('#vf-data').textContent || '[]');
   const box = $('#w-verbs'), pick = $$<HTMLButtonElement>('.chipset button', box), cells = $('.cells', box), det = $('.det', box);
   let cur = 0;
