@@ -78,7 +78,7 @@ const ogImageURL = new URL('/images/og-default.jpg', Astro.site);
       <div>
         <p class="eyebrow">Free, no sign-up</p>
         <h1 class="g-h1" id="hub-h">Look it up while you read</h1>
-        <p class="g-dek">Two tools and {guideCount} guides for Quranic Arabic. Keep them open next to any lesson, or next to the Quran itself.</p>
+        <p class="g-dek">{toolCount === 1 ? 'One finder' : `${toolCount} tools`} and {guideCount} guides for Quranic Arabic. Keep them open next to any lesson, or next to the Quran itself.</p>
         <div class="find" role="search">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
           <label class="vh" for="hub-q">Find a resource</label>
@@ -86,7 +86,7 @@ const ogImageURL = new URL('/images/og-default.jpg', Astro.site);
         </div>
       </div>
       <ul class="g-stats" aria-label="What is here" style="margin:0">
-        <li><b data-hub-tools>{toolCount}</b>live tools</li>
+        <li><b data-hub-tools>{toolCount}</b>{toolCount === 1 ? 'live tool' : 'live tools'}</li>
         <li><b data-hub-guides>{guideCount}</b>guides</li>
         <li><b>Free</b>always open</li>
       </ul>

@@ -24,6 +24,7 @@ export const LEARN_PAGE = {
   h1: 'Every lesson, in the order it is taught.',
   /** The reference tools linked once near the top (agreed in the 2026-10-28 grilling). */
   tools: [
+    { href: '/resources/find/', label: 'Find a word' },
     { href: '/learn/verb-forms/', label: 'Verb forms' },
     { href: '/learn/irab-cases/', label: 'I‘rab cases' },
   ],

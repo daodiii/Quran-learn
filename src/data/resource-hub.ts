@@ -21,12 +21,10 @@ const guide = (id: string, title: string, blurb: string, keys: string, peek: str
 
 export const HUB_GROUPS: HubGroup[] = [
   {
-    id: 'tools', title: 'Tools', line: 'Type something and get an answer.', hue: 178,
+    id: 'tools', title: 'Find', line: 'Type something and get an answer.', hue: 178,
     cards: [
-      { id: 'word-lookup', kind: 'tool', href: '/resources/word-lookup/', title: 'Word Lookup', blurb: 'Type Arabic, a sound or a meaning. You get the root, the form and the grammar.', keys: 'search arabic sound meaning root form grammar dictionary',
-        peek: '<div class="pk-search"><div class="in"><span class="ar" lang="ar" dir="rtl">قَالَ</span><i>qāla</i></div><div class="out"><span class="tag">Root ق و ل</span><span class="tag">Form I</span><span class="tag">1,618 times</span><span class="tag">“to say”</span></div></div>' },
-      { id: 'verb-forms', kind: 'tool', href: '/resources/verb-forms/', title: 'Verb Form Generator', blurb: 'Pick any root from the Quran and see all ten forms, with meanings and verses.', keys: 'verb generator root ten forms attested verses',
-        peek: '<div class="pk-forms"><span lang="ar">فَعَلَ<b>I</b></span><span lang="ar">فَعَّلَ<b>II</b></span><span lang="ar">فَاعَلَ<b>III</b></span><span lang="ar">أَفْعَلَ<b>IV</b></span></div>' },
+      { id: 'find', kind: 'tool', href: '/resources/find/', title: 'Find a word or verb', blurb: 'Type English, a sound or Arabic. You get the plain meaning, how the word is built, its root family and all its verb forms.', keys: 'word lookup verb form generator find search arabic english sound meaning root forms grammar dictionary',
+        peek: '<div class="pk-search"><div class="in"><span class="ar" lang="ar" dir="rtl">قَالَ</span><i>“he said”</i></div><div class="out"><span class="tag">Root ق و ل</span><span class="tag">Form I</span><span class="tag">1,618 times</span><span class="tag">10 verb forms</span></div></div>' },
     ],
   },
   {
