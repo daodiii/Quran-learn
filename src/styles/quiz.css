@@ -57,6 +57,12 @@
 }
 /* BaseLayout's body has a slowly drifting background layer (.mesh-bg::before) that pokes a few pixels past the
    screen edge after a few seconds. The quiz field covers it anyway, so it is switched off on these pages. */
+/* The site header (Header.astro) gets 12 px shorter once the page is scrolled past 10 px. That moves the content, which
+   moves the scroll position back across 10 px, and a page left there bounces for ever. On these pages the header keeps
+   its height (its shadow still appears). !important because Header.astro's scoped rule is more specific. */
+body:has([data-qz]) .header.scrolled .header-container {
+  height: 80px !important;
+}
 html:has([data-qz]) {
   scroll-padding-top: 5.5rem;
 }

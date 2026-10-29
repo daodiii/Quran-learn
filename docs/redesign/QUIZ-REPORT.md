@@ -38,20 +38,25 @@ The old start screen is gone: question 1 shows at once, and the pass mark is in 
 
 - `npm run build`: passes (exit 0). A question that names a lesson that does not exist fails the build.
 - `npm run test:site`: 41 of 41 pass (the 6 new tests included).
-- Playwright `tests/quiz.spec.ts` and `tests/review-quiz.spec.ts`: 10 of 10 pass. They cover a wrong answer, a full pass, a full fail with Try again, the 70% line (7 of 10 passes, 6 does not), the review's lesson links, the no-JavaScript print, and no sideways scroll at 390 px.
-- `scripts/lesson-qa/quiz-qa.mjs` (headless Chromium): Level 5 quiz, Level 3 review and Level 1 quiz each report "no problems". For each page it checks four states (first question, a wrong answer, passed, failed) at 390 and 1280 px: axe-core on the quiz part of the page (no violations), nothing wider than the screen or poking out of the card, no touch target under 44 px, and the no-JavaScript print. The Level 5 quiz and Level 3 review passed on two runs in a row after the last fix.
+- Playwright `tests/quiz.spec.ts` and `tests/review-quiz.spec.ts`: 11 of 11 pass. They cover a wrong answer, a full pass, a full fail with Try again, the 70% line (7 of 10 passes, 6 does not), the review's lesson links, the no-JavaScript print, no sideways scroll at 390 px, and the page never resting near the top of the screen at 1280 px (see the header finding below).
+- `scripts/lesson-qa/quiz-qa.mjs` (headless Chromium): all nine pages (the five quizzes and the four reviews) report "no problems" on the final build. For each page it checks four states (first question, a wrong answer, passed, failed) at 390 and 1280 px: axe-core on the quiz part of the page (no violations), nothing wider than the screen or poking out of the card, no touch target under 44 px, no sideways scroll when trying to scroll, and the no-JavaScript print. The Level 4 quiz also passed three runs in a row.
 - Screenshots: `docs/redesign/screens/quiz-redesign/` (20 files: Level 5 quiz and Level 3 review in four states at 1280 and 390 px, plus Level 1 quiz first and wrong). I looked at two of them (Level 5 phone, Level 3 review failed result at desktop).
 
 ## Found and fixed on the way
 
 - **The 14 progress dots poked out of the card by 6 px at 390 px** (inside the screen, so a screen-width check missed it). They now have a fixed size and wrap to a second row. The check now tests against the card.
 - **Sideways scroll of 2 to 8 px:** `BaseLayout`'s `body.mesh-bg::before` is a decorative layer that drifts for 25 seconds and grows the page a few pixels past the edge. It is switched off on the quiz pages (the card field covers it).
-- **Scroll bounce:** `Header.astro` adds a `scrolled` class above 10 px of scroll and shrinks the header by about 9 px. A page parked at 10 to 11 px then bounces without end, and clicks fail as "not stable". My answer-reveal scroll landed there. The quiz now never stops between 1 and 47 px from the top.
+- **Scroll bounce (the header flip):** see the finding below. The quiz's own scrolling no longer ends between 1 and 47 px from the top (`settleY` in `src/scripts/quiz.ts`, which also cuts a target to the scroll the page really has, because a short page can scroll only about 10 px). The first version of this fix missed two cases, found by running all nine pages and by the new 1280 px test.
+
+## Finding for the owner: the site header flips at 10 px of scroll
+
+`src/components/Header.astro` adds a `scrolled` class when the page is scrolled more than 10 px, and the class makes the header 12 px shorter (its container goes from 80 to 68 px). That shifts the content up, which moves the scroll position back across 10 px, which removes the class, which makes the header tall again, and so on. A page left at about 10 px scroll bounces for ever, and automated clicks fail as "element is not stable". It happens on every page that uses `BaseLayout`, so a visitor on any page (lessons, Surahs, Resources and others) who scrolls a little and stops there gets it. I reproduced it on the quiz pages only. A small gap between the two thresholds (add the class above 10 px, remove it below 2 px) would fix it for the whole site; that is a change to the shared header and is the owner's call.
+
+**What I did about it, and exactly what it touches.** One CSS rule in `src/styles/quiz.css`: on pages that contain `[data-qz]` (only the quiz layout writes it), `.header.scrolled .header-container` keeps `height: 80px`, so the header does not change size there (its shadow still appears). `Header.astro` is not changed. I checked the built site: the only CSS file with this rule is loaded by exactly nine pages (`learn/level-1/quiz` to `level-5/quiz`, `learn/level-2/review` to `level-5/review`). No page outside the quiz and review pages is affected. The same file also switches off the drifting background layer (`body:has([data-qz])::before`), again only on those nine pages.
 
 ## Not changed on purpose, for the owner to decide
 
 - **The lesson pages' sideways scroll.** I did not touch the lessons. On an unchanged Level 5 lesson page I measured `scrollWidth` growing from 390 to 395 over 15 seconds, the same layer. I did not test whether that lesson page can actually scroll sideways by hand, so this is unconfirmed for lessons. It probably shows up in the lesson QA as an occasional random "WIDE" result.
-- **The header bounce** affects every page that uses `BaseLayout`. A small gap between the two thresholds would fix it.
 - **`.footer-heading` contrast.** Once the drifting layer was off, axe flagged the footer heading (gold text) as low contrast. The footer is not part of this work and axe in `quiz-qa.mjs` is limited to the quiz. I did not measure the ratio myself.
 
 ## Content findings (listed, not changed)
@@ -67,6 +72,6 @@ The result is plain numbers inside `src/scripts/quiz.ts` (`scoreOf`, `hasPassed`
 
 - No keyboard or screen-reader walk-through by hand. Focus moves to the question heading on Next and to the result heading on the results screen; the reason sits in a `role="status"` region. I read the code, not a screen reader.
 - No real phone. The 390 px results come from headless Chromium.
-- axe and the width check ran on the Level 5 quiz, Level 3 review and Level 1 quiz only. The Level 2, 3 and 4 quizzes and the Level 2, 4 and 5 reviews build and the review pages return 200, but were not run through axe.
+- Every page was run through the browser checks, but only headless Chromium on this machine, with the preview server, and with the cookie banner declined. I did not run them in Safari, Firefox or a real phone.
 - Dark mode: the quiz is light only, like the lessons, and I did not test it with the site's dark theme on.
 - The Arabic in the questions was not re-read: the page shows the text as it was.

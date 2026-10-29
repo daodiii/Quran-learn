@@ -94,3 +94,20 @@ test('quiz and review pages do not scroll sideways at 390 px', async ({ page }) 
     expect(over, path).toBeLessThanOrEqual(0);
   }
 });
+
+test('the page does not park near the top, where the site header bounces it, at 1280 px', async ({ page }) => {
+  // The header changes size at 10 px of scroll; a page left at 1 to 20 px flips between the two sizes for ever.
+  await page.setViewportSize({ width: 1280, height: 900 });
+  const data = await open(page, '/learn/level-4/quiz/');
+  for (let i = 0; i < data.questions.length; i++) {
+    await page.locator('.qz-opt').nth(data.questions[i].correctAnswer).click();
+    await page.waitForTimeout(700);
+    const y1 = await page.evaluate(() => scrollY);
+    await page.waitForTimeout(400);
+    const y2 = await page.evaluate(() => scrollY);
+    expect(y2 === 0 || y2 > 20, `question ${i + 1}: scrollY ${y2}`).toBe(true);
+    expect(Math.abs(y2 - y1), `question ${i + 1}: still moving (${y1} to ${y2})`).toBeLessThanOrEqual(1);
+    await page.locator('#qz-next').click();
+  }
+  await expect(page.locator('.qz-res-h')).toBeVisible();
+});

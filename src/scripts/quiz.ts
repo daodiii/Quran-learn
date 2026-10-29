@@ -32,6 +32,25 @@ const html = (text: string) => inlineHtml(text);
 const attr = (text: string) => text.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
 const reduced = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+/**
+ * Where a scroll may end. The site header (src/components/Header.astro) changes size at 10 px of scroll, so a page left
+ * between 1 and 47 px from the top bounces for ever. The target is first cut to what the page can really scroll (a short
+ * page may scroll only 10 px, and the browser would clip a bigger target into that zone); anything under 48 px becomes 0.
+ */
+function settleY(y: number) {
+  const room = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+  const clamped = Math.min(y, room);
+  return clamped < 48 ? 0 : clamped;
+}
+
+/** Bring the card to the top of the screen, under the site header. */
+function scrollToCard() {
+  const card = document.getElementById('qz-card');
+  if (!card) return;
+  const target = card.getBoundingClientRect().top + window.scrollY - 88;
+  window.scrollTo({ top: settleY(target), behavior: reduced() ? 'auto' : 'smooth' });
+}
+
 function init() {
   const card = document.getElementById('qz-card');
   const dataEl = document.getElementById('quiz-data');
@@ -98,7 +117,7 @@ function init() {
       // preventScroll: the focus call would otherwise scroll the page to about 10 px from the top, where the site
       // header changes size and the page bounces. Scroll the card to the top of the screen ourselves instead.
       card!.querySelector<HTMLElement>('#qz-qh')!.focus({ preventScroll: true });
-      card!.scrollIntoView({ block: 'start', behavior: reduced() ? 'auto' : 'smooth' });
+      scrollToCard();
     }
   }
 
@@ -131,11 +150,11 @@ function init() {
     status.innerHTML = feedbackHTML(cur);
     const nextBtn = card!.querySelector<HTMLButtonElement>('#qz-next')!;
     nextBtn.disabled = false;
-    // Bring the reason into view if it is below the fold. Never park the page between 1 and 47 px from the top: the
-    // site header (src/components/Header.astro) changes size at 10 px of scroll, and a page parked there bounces.
+    // Bring the reason into view if it is below the fold, but only when that moves the page somewhere stable.
     const below = status.getBoundingClientRect().bottom + 16 - window.innerHeight;
     if (below > 0) {
-      window.scrollTo({ top: Math.max(window.scrollY + below, 48), behavior: reduced() ? 'auto' : 'smooth' });
+      const y = settleY(window.scrollY + below);
+      if (y > window.scrollY) window.scrollTo({ top: y, behavior: reduced() ? 'auto' : 'smooth' });
     }
   }
 
@@ -195,7 +214,7 @@ function init() {
     });
     const heading = card!.querySelector<HTMLElement>('#qz-res-h')!;
     heading.focus({ preventScroll: true });
-    card!.scrollIntoView({ block: 'start', behavior: reduced() ? 'auto' : 'smooth' });
+    scrollToCard();
   }
 
   card.hidden = false;
