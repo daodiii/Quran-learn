@@ -1,4 +1,5 @@
 import { readFileSync } from 'fs';
+import { isUnvowelledOk } from './irab-terms.js';
 
 /**
  * Validation script for Arabic diacritics completeness
@@ -87,6 +88,9 @@ function extractArabicSegments(content: string): Array<{ text: string; line: num
 
     // Remove JSX expressions {content}
     processedLine = processedLine.replace(/\{[^}]*\}/g, '');
+
+    // Remove text in «guillemets»: a quote of an i'rab book, kept as the book prints it (no vowels)
+    processedLine = processedLine.replace(/«[^»]*»/g, '');
 
     // Remove markdown link URLs — slugs can't carry diacritics
     processedLine = processedLine.replace(/\]\([^)]*\)/g, ']');
@@ -295,6 +299,7 @@ export function validateDiacritics(content: string, filename: string): Validatio
   }
 
   for (const segment of segments) {
+    if (isUnvowelledOk(segment.text)) continue;
     const { ratio, letters, diacritics } = checkDiacritics(segment.text);
     const threshold = getThreshold(letters);
 

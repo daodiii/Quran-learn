@@ -73,7 +73,7 @@ const breadcrumbItems = [
     <div class="lx-wrap">
       <p class="lx-crumb">
         <a href={`/learn/#level-${level}`}>Level {level} · {levelNames[level]}</a>
-        {positionInLevel && <span> · Lesson {positionInLevel.index} of {positionInLevel.total}</span>}
+        {positionInLevel && <span data-lesson-position> · Lesson {positionInLevel.index} of {positionInLevel.total}</span>}
       </p>
 
       <LessonMovedNote lessonSlug={lessonSlug} />
@@ -94,6 +94,7 @@ const breadcrumbItems = [
           </button>
         </div>
         <p class="lx-muted" data-lx-complete-status role="status" hidden>Saved. This lesson is marked complete.</p>
+        <p class="lx-vocab-link"><a href={`/learn/level-${level}/vocabulary/`}>Review the Level {level} vocabulary &rarr;</a></p>
       </div>
     </div>
 
@@ -109,4 +110,5 @@ const breadcrumbItems = [
 
 <script>
   import '../scripts/lesson-steps';
+  import '../scripts/ayah-audio';
 </script>

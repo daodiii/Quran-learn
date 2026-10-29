@@ -1284,3 +1284,45 @@ html:has([data-lx]) {
     animation: none !important;
   }
 }
+
+/* ---- listen button on a verse caption ---- */
+.lx .ayah-play {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-inline-start: 0.5rem;
+  padding: 0.2rem 0.75rem;
+  border: 1px solid var(--lx-line-2);
+  border-radius: 999px;
+  background: var(--lx-surface);
+  color: var(--lx-accent);
+  font: inherit;
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+  vertical-align: middle;
+}
+.lx .ayah-play:hover {
+  border-color: var(--lx-accent);
+}
+.lx .ayah-play:focus-visible {
+  outline: 3px solid var(--lx-focus);
+  outline-offset: 2px;
+}
+.lx .ayah-play.playing {
+  background: var(--lx-accent);
+  color: var(--lx-on-accent);
+  border-color: var(--lx-accent);
+}
+.lx .ayah-play.unavailable {
+  opacity: 0.5;
+  cursor: default;
+}
+.lx-vocab-link {
+  margin: 1rem 0 0;
+  text-align: center;
+  font-size: 0.9rem;
+}
+.lx-vocab-link a {
+  color: var(--lx-accent);
+}

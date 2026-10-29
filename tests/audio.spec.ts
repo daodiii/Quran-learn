@@ -12,7 +12,7 @@ test('listen button count never exceeds reference count', async ({ page }) => {
   await page.goto('/learn/level-3/13-verb-form-iv/');
   const counts = await page.evaluate(() => ({
     buttons: document.querySelectorAll('.ayah-play').length,
-    refs: document.querySelectorAll('.arabic-example .reference').length,
+    refs: document.querySelectorAll('.lx-sentence figcaption, .lx-parse-verse figcaption').length,
   }));
   expect(counts.buttons).toBeGreaterThan(0);
   expect(counts.buttons).toBeLessThanOrEqual(counts.refs);

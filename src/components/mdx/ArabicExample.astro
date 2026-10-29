@@ -126,34 +126,11 @@ const hasWords = words && words.length > 0;
 </figure>
 
 <script>
-  // Two independently-delegated handlers (Astro dedupes identical component
+  // Delegated handlers (Astro dedupes identical component
   // scripts to one instance per page — no astro:page-load re-clone needed).
 
-  // ---------- audio playback ----------
-  let current: HTMLAudioElement | null = null;
-  let currentBtn: HTMLElement | null = null;
-
-  document.addEventListener('click', (e) => {
-    const btn = (e.target as HTMLElement).closest('.ayah-play') as HTMLElement | null;
-    if (!btn || btn.hasAttribute('disabled')) return;
-    if (currentBtn === btn && current) {
-      if (current.paused) { current.play(); btn.classList.add('playing'); }
-      else { current.pause(); btn.classList.remove('playing'); }
-      return;
-    }
-    current?.pause();
-    currentBtn?.classList.remove('playing');
-    current = new Audio(btn.dataset.audioSrc!); // fetched on demand, never preloaded
-    currentBtn = btn;
-    btn.classList.add('playing');
-    current.play().catch(() => { btn.classList.add('unavailable'); btn.setAttribute('disabled', ''); });
-    current.addEventListener('ended', () => btn.classList.remove('playing'));
-    current.addEventListener('error', () => {
-      btn.classList.add('unavailable');
-      btn.setAttribute('disabled', '');
-      btn.classList.remove('playing');
-    });
-  });
+  // Audio playback is handled by the shared script, imported once per page.
+  import '../../scripts/ayah-audio';
 
   // ---------- verse console readout ----------
   function showWord(w: HTMLElement, panel: Element) {
