@@ -9,11 +9,11 @@ async function saveProgress(page: Page, count: number) {
   await page.reload();
 }
 
-test('renders all 81 lessons in 31 topic groups under 5 levels', async ({ page }) => {
+test('renders all 81 lessons in 32 topic groups under 5 levels', async ({ page }) => {
   await page.goto('/learn/');
   await expect(page.locator('.row')).toHaveCount(81);
   await expect(page.locator('section.lvl')).toHaveCount(5);
-  await expect(page.locator('.grp')).toHaveCount(31);
+  await expect(page.locator('.grp')).toHaveCount(32);
 });
 
 test('checkpoints are tagged, one per level', async ({ page }) => {
@@ -106,7 +106,7 @@ test('phone: only the level holding the next lesson is open, and a fold opens an
 });
 
 test('no axe violations, first visit and returning, desktop and phone', async ({ page }) => {
-  const scan = () => new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'wcag22aa', 'best-practice']).analyze();
+  const scan = async () => { await page.waitForTimeout(900); return new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'wcag22aa', 'best-practice']).analyze(); };
   await page.setViewportSize({ width: 1440, height: 900 });
   await page.goto('/learn/');
   expect((await scan()).violations).toEqual([]);

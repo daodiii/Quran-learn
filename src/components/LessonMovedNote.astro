@@ -25,7 +25,7 @@ const seenKey = lessonSlug ?? 'dashboard';
 ---
 
 {show && (
-  <aside class="moved-note" data-moved-note data-seen-key={seenKey} hidden aria-label="What changed">
+  <div class="moved-note" role="note" data-moved-note data-seen-key={seenKey} hidden aria-label="What changed">
     <p class="moved-note-title">What changed</p>
     {mine ? (
       <p>
@@ -42,7 +42,7 @@ const seenKey = lessonSlug ?? 'dashboard';
       </>
     )}
     <button type="button" class="moved-note-close" data-moved-note-close>Got it</button>
-  </aside>
+  </div>
 )}
 
 <script>
