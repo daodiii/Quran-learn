@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Surahs · D Reader</title>
+<link rel="stylesheet" href="surahs.css">
+<style>
+/* D Reader: one stage. The selected surah is huge: its name, what to notice, and its first verse read word by word in the
+   site's grammar colours. A strip of all 38 sits underneath. Arrow keys, swipe and a link per surah (#112-al-ikhlas) change it. */
+.stage{margin-top:8px;border-radius:36px;background:var(--oasis);padding:clamp(14px,2.2vw,28px);display:flex;flex-direction:column;gap:clamp(12px,1.6vw,20px)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:10px 18px;padding-inline:clamp(2px,.6vw,8px)}
+.bar .l{display:flex;align-items:center;gap:6px 12px;flex-wrap:wrap;min-width:0}
+.bar .r{flex:none}
+.pos{margin:0;font-size:.9375rem;font-weight:500;color:oklch(28% 0.03 230);font-variant-numeric:tabular-nums}
+.bar .r{display:flex;align-items:center;gap:8px}
+.nb{display:grid;place-items:center;width:48px;height:48px;border-radius:50%;border:1.5px solid oklch(100% 0 0 / .9);background:oklch(100% 0 0 / .75);cursor:pointer;transition:background-color .15s,transform .15s}
+.nb:hover{background:#fff}.nb:active{transform:scale(.95)}
+.nb svg{width:20px;height:20px}
+
+.main{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:clamp(14px,2.2vw,28px);min-height:clamp(380px,calc(100vh - 360px),470px)}
+.hero{display:flex;flex-direction:column;justify-content:center;gap:6px;min-width:0;padding:0 clamp(4px,1.4vw,18px)}
+.hero .nm{display:block;font-size:clamp(5rem,2.5rem + 6vw,9.5rem);line-height:1.3;color:var(--ink);text-align:left;margin-left:-.02em}
+.hero .en{margin:0;font-size:clamp(1.5rem,1.2rem + .8vw,2rem);font-weight:600;letter-spacing:-.035em;line-height:1.1}
+.hero .meta{margin:0;color:oklch(31% 0.03 230)}
+.hero .nt{margin:10px 0 0;max-width:34em;color:oklch(24% 0.035 230);font-size:1.0625rem;line-height:1.6}
+.hero .nt .ar{font-size:1.2em}
+.hero .nt small{display:block;margin-bottom:2px;font-size:.8125rem;font-weight:500;color:oklch(33% 0.03 230)}
+.hero .act{margin-top:12px}
+
+.sheet{display:flex;flex-direction:column;justify-content:space-between;gap:14px;padding:clamp(16px,2vw,26px);border-radius:28px;background:#fff;box-shadow:0 1px 2px oklch(30% 0.03 220 / .06),0 22px 50px -22px oklch(30% 0.06 200 / .35);min-width:0}
+.sheet .sh{display:flex;align-items:center;justify-content:space-between;gap:10px;font-size:.875rem;font-weight:500;color:var(--muted)}
+.sheet .sh b{font-weight:600;color:var(--ink)}
+.verse{display:flex;direction:rtl;flex-wrap:wrap;justify-content:center;align-content:center;gap:6px 4px;flex:1}
+.w{display:flex;flex-direction:column;align-items:center;gap:1px;min-width:var(--wmin,84px);padding:4px 8px 10px;border:0;border-radius:18px;background:none;cursor:pointer;text-align:center;transition:background-color .18s}
+.w:hover{background:var(--soft)}
+.w[aria-pressed="true"]{background:var(--t)}
+.w .wa{font-size:var(--wfs,3.5rem);line-height:1.55;color:var(--c);transition:color .3s}
+.w .wg{display:block;direction:ltr;font-size:.9375rem;font-weight:500;line-height:1.25;max-width:9em}
+.w .wl{display:flex;flex-direction:column;align-items:center;gap:4px;direction:ltr;margin-top:6px;font-size:.8125rem;font-weight:500;color:var(--c)}
+.w .wl::before{content:"";display:block;width:100%;min-width:40px;height:4px;border-radius:2px;background:var(--c)}
+.w:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+.sheet.plain .w .wa,.sheet.plain .w .wl{color:var(--ink)}
+.sheet.plain .w .wl::before{background:var(--edge)}
+.detail{display:grid;grid-template-columns:auto minmax(0,1fr);gap:4px 14px;align-items:start;padding:12px 14px;border-radius:16px;background:var(--soft);min-height:78px}
+.detail .ty{display:inline-flex;align-items:center;gap:8px;font-weight:600;color:var(--c);white-space:nowrap}
+.detail .ty::before{content:"";width:12px;height:12px;border-radius:4px;background:var(--c)}
+.detail .ty em{font-style:normal;font-weight:400;color:var(--muted)}
+.detail p{margin:0;font-size:.9375rem;line-height:1.45}
+.detail .mn{font-weight:600;font-size:1.0625rem}
+.detail .rl{grid-column:1 / -1;color:oklch(33% 0.025 230)}
+.detail .rl .ar{font-size:1.15em}
+.trn{margin:0;text-align:center;font-size:1rem;color:oklch(33% 0.025 230)}
+
+.strip{display:flex;align-items:center;gap:10px;padding:8px;border-radius:24px;background:oklch(100% 0 0 / .8)}
+.strip .tools{flex:0 0 220px;min-width:0}
+.strip .find{width:100%}
+.strip .find input{min-height:48px;border-color:transparent;background:var(--soft);font-size:1rem;padding-right:44px}
+.strip .find .hint{right:12px}
+.track{position:relative;display:flex;align-items:center;gap:6px;flex:1;min-width:0;overflow-x:auto;scrollbar-width:none;scroll-snap-type:x proximity;padding:2px 0}
+.track::-webkit-scrollbar{display:none}
+.lvl{flex:none;display:flex;align-items:center;gap:6px;padding-left:10px;border-left:1.5px solid var(--edge);margin-left:6px}
+.lvl:first-child{border-left:0;margin-left:0;padding-left:0}
+.lvl > span{flex:none;font-size:.8125rem;font-weight:500;color:var(--muted);writing-mode:horizontal-tb;max-width:3.6em;line-height:1.15}
+.cp{flex:none;scroll-snap-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0;min-width:72px;min-height:56px;padding:2px 12px 4px;border:0;border-radius:16px;background:none;cursor:pointer;transition:background-color .15s,color .15s,transform .15s}
+.cp:hover{background:var(--soft)}
+.cp .ar{font-size:1.5rem;line-height:1.5;color:var(--ink)}
+.cp small{font-size:.75rem;color:var(--muted);font-variant-numeric:tabular-nums;line-height:1}
+.cp[aria-pressed="true"]{background:var(--ink)}
+.cp[aria-pressed="true"] .ar{color:#fff}.cp[aria-pressed="true"] small{color:oklch(100% 0 0 / .75)}
+.cp[hidden]{display:none}
+.strip .none{padding:0 12px;font-size:.9375rem;color:var(--muted)}
+.cov{margin:0;padding-inline:clamp(2px,.6vw,8px);font-size:.875rem;color:oklch(30% 0.03 230)}
+
+.swap .hero > *{animation:in .24s var(--ease) both}
+.swap .hero > *:nth-child(2){animation-delay:30ms}.swap .hero > *:nth-child(3){animation-delay:60ms}.swap .hero > *:nth-child(n+4){animation-delay:90ms}
+.swap .w{animation:in .24s var(--ease) both;animation-delay:calc(var(--i) * 35ms + 60ms)}
+@keyframes in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.foot{margin-top:20px;padding-block:14px 22px}
+
+@media (max-width:980px){
+  .main{grid-template-columns:1fr;min-height:0}
+  .hero{padding-block:4px}
+  .hero .nm{font-size:clamp(4.5rem,18vw,7rem)}
+}
+@media (max-width:640px){
+  .stage{border-radius:26px;padding:12px;gap:12px}
+  .bar .r .nb{width:48px}
+  .strip{flex-direction:column;align-items:stretch;gap:6px;padding:8px}
+  .strip .tools{flex:none}
+  .detail{grid-template-columns:1fr}
+  .hero .act .btn{width:100%}
+  .w{padding:2px 6px 8px}
+  .foot{margin-top:12px}
+}
+</style></head>
+<body>
+<a class="skip" href="#reader">Skip to the reader</a>
+<header class="site">
+  <a class="brand" href="#" aria-label="Quranic Grammar, home"><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="1" y="1" width="30" height="30" rx="9" fill="oklch(18% 0.03 240)"/><path d="M9 19h14" stroke="#fff" stroke-width="2" stroke-linecap="round"/><circle cx="16" cy="12" r="2.6" fill="oklch(79% 0.14 72)"/><circle cx="16" cy="24.5" r="1.6" fill="#fff"/></svg><span>Quranic Grammar</span></a>
+  <nav aria-label="Primary"><a href="#">Learn</a><a href="#" aria-current="page">Surahs</a><a href="#">Resources</a><a href="#">About</a></nav>
+</header>
+
+<main class="wrap" id="main">
+  <h1 class="vh" id="h">Surahs you can read word by word</h1>
+  <section class="stage" id="reader" aria-label="Surah reader">
+    <div class="bar">
+      <div class="l"><p class="pos" id="pos" aria-live="polite"></p><span class="tag lv" id="lvtag"></span></div>
+      <div class="r"><button class="nb" id="prev" type="button" aria-label="Previous surah"></button><button class="nb" id="next" type="button" aria-label="Next surah"></button></div>
+    </div>
+    <div class="main" id="mainc">
+      <div class="hero" id="hero"></div>
+      <div class="sheet" id="sheet">
+        <div class="sh"><span><b>Verse 1</b>, word by word</span><span id="tapnote">Tap a word</span></div>
+        <div class="verse" id="verse" role="group" aria-label="Words of the first verse"></div>
+        <p class="trn" id="trn"></p>
+        <div class="detail" id="detail" aria-live="polite"></div>
+      </div>
+    </div>
+    <div class="strip">
+      <div id="tools" class="tools"></div>
+      <div class="track" id="track" role="group" aria-label="All surahs"></div>
+    </div>
+    <p class="cov" id="cov"></p>
+  </section>
+</main>
+<footer class="foot"><span>Quranic Grammar</span><a href="#">Learn</a><a href="#">Resources</a><a href="#">About and feedback</a></footer>
+
+<script src="surahs-data.js"></script>
+<script src="surahs-words.js"></script>
+<script src="surahs.js"></script>
+<script>
+const U = SurahUI, D = U.D, S = U.S, W = SURAH_WORDS, esc = U.esc, T = U.TYPES;
+const q = id => document.querySelector(id);
+const RM = matchMedia('(prefers-reduced-motion:reduce)').matches;
+const by = Object.fromEntries(S.map(s => [s.slug, s]));
+const ORDER = D.levels.flatMap(l => S.filter(s => s.level === l.n));   // learning order, same as the strip
+let idx = Math.max(0, ORDER.findIndex(s => s.slug === decodeURIComponent(location.hash.slice(1))));
+if (location.hash === '') idx = ORDER.findIndex(s => s.num === 112);
+let wi = 0, filtered = S;
+
+const ICON = d => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="${d}"/></svg>`;
+q('#prev').innerHTML = ICON('M15 6l-6 6 6 6'); q('#next').innerHTML = ICON('M9 6l6 6-6 6');
+q('#tools').innerHTML = U.findHTML('Find a surah', 'track');
+q('#cov').textContent = `${S.length} of the Quran's ${D.quran.surahs} surahs are analysed: ${U.covers.sentence}. The other ${U.covers.missing} are not analysed yet.`;
+
+// strip, in learning order
+q('#track').innerHTML = D.levels.map(l => `<div class="lvl" role="group" aria-label="Read after Level ${l.n}, ${esc(l.title)}"><span>After Level ${l.n}</span>${S.filter(s => s.level === l.n).map(s => `<button class="cp" type="button" data-slug="${s.slug}" aria-pressed="false" aria-label="${esc(s.name)}"><span class="ar" lang="ar" dir="rtl">${esc(s.ar)}</span><small>${s.num}</small></button>`).join('')}</div>`).join('') + `<p class="none" id="none" hidden>No surah matches that. Only ${S.length} of ${D.quran.surahs} are analysed: ${esc(U.covers.short)}.</p>`;
+const chips = [...document.querySelectorAll('.cp')];
+
+function wordsHTML(v) {
+  const n = v.w.length, ph = matchMedia('(max-width:640px)').matches;
+  const fs = (n <= 4 ? 4.25 : n <= 6 ? 3.5 : n <= 9 ? 2.75 : 2.25) * (ph ? .78 : 1);
+  q('#sheet').style.setProperty('--wfs', fs + 'rem'); q('#sheet').style.setProperty('--wmin', (ph ? 72 : n <= 4 ? 100 : n <= 6 ? 84 : 68) + 'px');
+  return v.w.map((w, i) => `<button class="w ${w.t}" type="button" style="--i:${i}" data-i="${i}" aria-pressed="${i === wi}" aria-label="${esc(w.tr)}, ${esc(w.en)}, ${T[w.t].label.toLowerCase()}"><span class="q wa" lang="ar" dir="rtl">${esc(w.ar)}</span><span class="wg">${esc(w.en)}</span><span class="wl">${T[w.t].label}</span></button>`).join('');
+}
+function detail() {
+  const w = W[ORDER[idx].slug][0].w[wi], t = T[w.t];
+  q('#detail').innerHTML = `<span class="ty ${w.t}" style="--c:var(--${w.t})">${t.label} <em>${t.term}</em></span><p class="mn">${esc(w.tr)}: ${esc(w.en)}</p><p class="rl">${U.withArabic(w.role)}</p>`;
+}
+function paint(anim) {
+  const s = ORDER[idx], v = W[s.slug][0], n = ORDER.length;
+  const m = q('#mainc'); m.classList.remove('swap'); void m.offsetWidth; if (anim && !RM) m.classList.add('swap');
+  q('#pos').textContent = `Surah ${s.num} · ${idx + 1} of ${n}`;
+  q('#lvtag').textContent = `Read after Level ${s.level}: ${U.levelOf(s.level).title}`;
+  q('#hero').innerHTML = `<span class="ar nm" lang="ar" dir="rtl">${esc(s.ar)}</span><p class="en">${esc(s.name)}</p>
+    <p class="meta">${U.plural(s.verses, 'verse', 'verses')} · ${s.rev} · ${s.comp.words} words</p>
+    <p class="nt"><small>What to notice</small>${U.withArabic(s.note)}</p>
+    <div class="act"><a class="btn" href="${U.link(s)}" aria-label="Read ${esc(s.name)} word by word">Read it word by word ${U.ICON.arrow}</a></div>`;
+  wi = 0; q('#verse').innerHTML = wordsHTML(v);
+  q('#trn').textContent = v.en;
+  detail();
+  chips.forEach(c => { const on = c.dataset.slug === s.slug; c.setAttribute('aria-pressed', String(on)); if (on) { const t = q('#track'); t.scrollTo({ left: c.offsetLeft - (t.clientWidth - c.offsetWidth) / 2, behavior: RM || !anim ? 'auto' : 'smooth' }); } });
+  history.replaceState(null, '', '#' + s.slug);
+}
+function go(i) { idx = (i + ORDER.length) % ORDER.length; paint(true); }
+q('#prev').addEventListener('click', () => go(idx - 1));
+q('#next').addEventListener('click', () => go(idx + 1));
+chips.forEach(c => c.addEventListener('click', () => go(ORDER.findIndex(s => s.slug === c.dataset.slug))));
+q('#verse').addEventListener('click', e => { const b = e.target.closest('.w'); if (!b) return; wi = +b.dataset.i; q('#verse').querySelectorAll('.w').forEach(x => x.setAttribute('aria-pressed', String(x === b))); detail(); });
+// In the verse, arrows walk the words (Arabic runs right to left, so left is next). Elsewhere they change the surah.
+document.addEventListener('keydown', e => {
+  if (e.key !== 'ArrowLeft' && e.key !== 'ArrowRight') return;
+  const a = document.activeElement;
+  if (a && /INPUT|SELECT|TEXTAREA/.test(a.tagName)) return;
+  e.preventDefault();
+  if (a && a.closest('#verse')) {
+    const n = W[ORDER[idx].slug][0].w.length;
+    wi = Math.min(n - 1, Math.max(0, wi + (e.key === 'ArrowLeft' ? 1 : -1)));
+    const bs = [...q('#verse').querySelectorAll('.w')]; bs.forEach((x, i) => x.setAttribute('aria-pressed', String(i === wi))); bs[wi].focus(); detail();
+  } else go(idx + (e.key === 'ArrowRight' ? 1 : -1));
+});
+// Swipe on touch
+let sx = null;
+q('#reader').addEventListener('pointerdown', e => { sx = e.pointerType === 'touch' && !e.target.closest('.track,.find,.verse') ? e.clientX : null; });
+q('#reader').addEventListener('pointerup', e => { if (sx === null) return; const dx = e.clientX - sx; sx = null; if (Math.abs(dx) > 70) go(idx + (dx < 0 ? 1 : -1)); });
+
+// Filter the strip; Enter opens the first match
+const none = q('#none');
+function refresh() {
+  const ws = U.words(find.value); let first = null, n = 0;
+  chips.forEach(c => { const ok = U.textMatch(by[c.dataset.slug], ws, false); c.hidden = !ok; if (ok) { n++; first = first || c; } });
+  document.querySelectorAll('.lvl').forEach(l => { l.hidden = !l.querySelector('.cp:not([hidden])'); });
+  none.hidden = n !== 0; refresh.first = first;
+}
+const find = U.wireFind(refresh);
+find.input.addEventListener('keydown', e => { if (e.key === 'Enter' && refresh.first) { e.preventDefault(); go(ORDER.findIndex(s => s.slug === refresh.first.dataset.slug)); find.input.blur(); } });
+window.addEventListener('hashchange', () => { const i = ORDER.findIndex(s => s.slug === decodeURIComponent(location.hash.slice(1))); if (i >= 0 && i !== idx) go(i); });
+refresh(); paint(false);
+</script>
+</body></html>

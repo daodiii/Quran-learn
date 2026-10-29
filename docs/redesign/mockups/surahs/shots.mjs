@@ -13,7 +13,7 @@ import { readFile } from 'node:fs/promises';
 const here = dirname(fileURLToPath(import.meta.url));
 const out = join(here, 'shots');
 mkdirSync(out, { recursive: true });
-const files = { a: 'a-reading.html', b: 'b-map.html', c: 'c-index.html', d: 'd-decode.html', e: 'e-wall.html', f: 'f-path.html' };
+const files = { a: 'a-reading.html', b: 'b-map.html', c: 'c-index.html', d: 'd-reader.html', e: 'e-command.html', f: 'f-ladder.html' };
 const names = process.argv.slice(2).length ? process.argv.slice(2) : ['a', 'b', 'c', 'd', 'e', 'f'];
 const sizes = [['desk', 1440, 900, 1], ['phone', 390, 844, 2]];
 
@@ -45,6 +45,7 @@ for (const n of names) {
     await page.waitForTimeout(1900);
     await page.screenshot({ path: join(out, `${n}.${tag}.png`) });
     await page.screenshot({ path: join(out, `${n}.${tag}.full.png`), fullPage: true });
+    const pageH = await page.evaluate(() => document.documentElement.scrollHeight);
     const over = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
     const small = await page.evaluate(() => [...document.querySelectorAll('a,button,input,select,summary,[role=button]')]
       .filter(e => { const r = e.getBoundingClientRect(); return r.width > 0 && r.height > 0 && !e.closest('[inert],[hidden]') && (r.width < 44 || r.height < 44) && getComputedStyle(e).visibility !== 'hidden'; })
@@ -63,7 +64,7 @@ for (const n of names) {
     const axe2 = await new AxeBuilder({ page }).analyze();
     axe2.violations.forEach(v => bad.push(`[empty state] ${v.id} (${v.nodes.length}): ${v.nodes.slice(0, 2).map(x => x.target.join(' ')).join(' | ')}`));
 
-    console.log(`${n} ${tag} ${w}x${h}: overflow ${over}px; filter "قل": ${shown}; axe violations ${bad.length}${bad.length ? '\n   ' + bad.join('\n   ') : ''}; targets under 44px: ${small.length}${small.length ? ' [' + [...new Set(small)].slice(0, 6).join(', ') + ']' : ''}${errors.length ? '; ERRORS ' + errors.join(' | ') : '; no console errors'}`);
+    console.log(`${n} ${tag} ${w}x${h}: page height ${pageH}px; overflow ${over}px; filter "قل": ${shown}; axe violations ${bad.length}${bad.length ? '\n   ' + bad.join('\n   ') : ''}; targets under 44px: ${small.length}${small.length ? ' [' + [...new Set(small)].slice(0, 6).join(', ') + ']' : ''}${errors.length ? '; ERRORS ' + errors.join(' | ') : '; no console errors'}`);
     await ctx.close();
   }
 }
