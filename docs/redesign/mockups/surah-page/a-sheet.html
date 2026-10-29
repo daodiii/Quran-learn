@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Al-Ikhlas · A Study sheet</title>
+<link rel="stylesheet" href="base.css">
+<style>
+/* A Study sheet: one calm reading column. Each verse is a sheet you read down: the words, what each one is, then why. */
+.top{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:end;gap:16px 32px;padding-block:8px 28px}
+.top .nm{font-size:clamp(4.5rem,2.5rem + 6vw,8.5rem);line-height:1.2;color:var(--ink);text-align:right}
+.body{display:grid;grid-template-columns:200px minmax(0,1fr);gap:clamp(24px,4vw,64px);align-items:start}
+.nav{position:sticky;top:16px;display:flex;flex-direction:column;gap:2px;padding:14px;border-radius:22px;background:var(--soft)}
+.nav .h{margin:0 8px 6px;font-size:.875rem;font-weight:600;color:var(--muted)}
+.nav a{display:flex;align-items:center;gap:10px;min-height:44px;padding:0 10px;border-radius:12px;text-decoration:none;font-weight:500;transition:background-color .18s}
+.nav a:hover{background:#fff}
+.nav a[aria-current="true"]{background:#fff;box-shadow:0 0 0 1px var(--edge)}
+.nav a .n{display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:#fff;box-shadow:inset 0 0 0 1.5px var(--edge);font-size:.875rem}
+.nav a[aria-current="true"] .n{background:var(--ink);color:#fff;box-shadow:none}
+.nav .key{margin:12px 8px 4px;flex-direction:column;gap:6px}
+.col{max-width:860px;min-width:0}
+.vs{padding-block:clamp(28px,4vw,48px);border-top:2px solid var(--ink)}
+.vs:first-of-type{border-top:0;padding-top:0}
+.vs h2{margin:0 0 14px;display:flex;align-items:baseline;gap:12px;font-size:1.5rem;font-weight:600;letter-spacing:-.03em}
+.vs h2 small{font-size:.9375rem;font-weight:400;letter-spacing:0;color:var(--muted)}
+.sheet{display:flex;flex-direction:column;gap:14px;padding:clamp(14px,2.2vw,28px);border-radius:28px;background:var(--oasis);}
+.sheet .in{display:flex;flex-direction:column;gap:12px;padding:clamp(14px,2vw,24px);border-radius:22px;background:#fff;box-shadow:var(--shadow)}
+.sheet .detail{background:var(--soft)}
+.why{margin-top:22px;display:grid;gap:14px}
+.why h3{margin:0;font-size:1.125rem;font-weight:600;letter-spacing:-.02em}
+.after{display:grid;gap:14px;margin-top:20px}
+.sec{margin-top:clamp(40px,6vw,72px)}
+.sec h2{margin:0 0 14px;font-size:1.5rem;font-weight:600;letter-spacing:-.03em}
+.sec .lead{margin:0 0 16px;color:var(--muted);max-width:60ch}
+.exs{display:grid;gap:10px}
+@media (max-width:1000px){
+  .body{grid-template-columns:1fr}
+  .nav{position:sticky;top:0;z-index:20;flex-direction:row;align-items:center;gap:6px;overflow-x:auto;margin-inline:calc(-1 * var(--gutter));padding:8px var(--gutter);border-radius:0;background:var(--page);border-bottom:1px solid var(--edge);scrollbar-width:none}
+  .nav .h,.nav .key{display:none}
+  .nav a{flex:none;box-shadow:inset 0 0 0 1.5px var(--edge);background:#fff}
+}
+@media (max-width:640px){
+  .top{grid-template-columns:1fr}.top .nm{text-align:left;font-size:4.5rem}
+  .sheet{padding:10px;border-radius:22px}.sheet .in{padding:12px;border-radius:18px}
+}
+</style></head>
+<body>
+<div id="head"></div>
+<main class="wrap" id="main">
+  <ol class="crumbs" aria-label="Breadcrumb"><li><a href="#">Surahs</a></li><li aria-current="page">Al-Ikhlas</li></ol>
+  <header class="top" id="top"></header>
+  <div class="body">
+    <nav class="nav" id="nav" aria-label="On this page"></nav>
+    <div class="col" id="col"></div>
+  </div>
+</main>
+<div id="foot"></div>
+<script src="ikhlas-data.js"></script><script src="lib.js"></script>
+<script>
+const U = IKUI, D = U.D, S = D.surah, $ = (s) => document.querySelector(s);
+$('#head').innerHTML = U.headerHTML(); $('#foot').innerHTML = U.footHTML();
+$('#top').innerHTML = `<div><p class="meta" style="margin:0 0 14px"><span class="tag">Surah ${S.number}</span><span class="tag">${S.place}</span><span class="tag">${S.verses} verses, ${U.totalWords} words</span><span class="tag lv">Read after Level ${S.level}</span></p>
+  <h1 class="h1">${S.name}</h1><p class="dek"><b style="font-weight:500;color:var(--ink)">What to notice.</b> ${U.withArabic(S.note)}</p></div>
+  <span class="ar nm" lang="ar" dir="rtl">${S.ar}</span>`;
+const stations = [...D.verses.map((v) => ['v' + v.n, 'Verse ' + v.n, v.n]), ['practice', 'Practice', '✎'], ['words', 'Words to keep', 'W'], ['sources', 'Sources', 'i']];
+$('#nav').innerHTML = `<p class="h">On this page</p>` + stations.map(([id, t, n], i) => `<a href="#${id}" data-id="${id}" ${i === 0 ? 'aria-current="true"' : ''}><span class="n" aria-hidden="true">${n}</span>${t}</a>`).join('') + U.keyHTML();
+
+$('#col').innerHTML = D.verses.map((v) => `<section class="vs" id="v${v.n}" aria-labelledby="h${v.n}">
+  <h2 id="h${v.n}">Verse ${v.n} <small>of ${S.verses}</small></h2>
+  <div class="sheet"><div class="in">
+    <div data-words>${U.wordsHTML(v)}</div>
+    <p class="tl">${U.esc(v.tr)}</p><p class="trn">${U.esc(v.en)}</p>
+    <div class="detail" aria-live="polite" data-detail></div>
+  </div></div>
+  <div class="why"><h3>Why it is written this way</h3><div data-tabs>${U.tabsHTML('s' + v.n, v)}</div>
+    ${v.callout ? U.noteHTML(v.callout) : ''}
+    <div data-quiz>${U.quizHTML('q' + v.n, v)}</div></div>
+</section>`).join('') + `
+<section class="sec" id="practice" aria-labelledby="hp"><h2 id="hp">Practice</h2><p class="lead">Two questions that use the whole surah. Answers open when you want them.</p><div class="exs">${U.exercisesHTML()}</div></section>
+<section class="sec" id="words" aria-labelledby="hw"><h2 id="hw">Words to keep</h2>${U.vocabHTML()}<h3 style="margin:28px 0 10px;font-size:1.125rem;font-weight:600">Grammar in this surah</h3>${U.summaryHTML()}</section>
+<section class="sec" id="sources" aria-labelledby="hs"><h2 id="hs" class="vh">Sources</h2>${U.sourcesHTML()}
+  <nav class="pager" aria-label="Surah navigation"><span></span><a class="next" href="#"><small>Next surah</small><b>Al-Falaq</b></a></nav></section>`;
+
+D.verses.forEach((v) => {
+  const sec = $('#v' + v.n), det = sec.querySelector('[data-detail]');
+  const set = U.wireWords(sec.querySelector('[data-words]'), det, () => v); set(0);
+  U.wireTabs(sec.querySelector('[data-tabs]'), 's' + v.n, () => v);
+  U.wireQuiz(sec.querySelector('[data-quiz]'), 'q' + v.n, () => v);
+});
+// highlight the station being read
+const links = [...document.querySelectorAll('#nav a')];
+const io = new IntersectionObserver((es) => es.forEach((e) => {
+  if (!e.isIntersecting) return;
+  links.forEach((a) => (a.dataset.id === e.target.id ? a.setAttribute('aria-current', 'true') : a.removeAttribute('aria-current')));
+}), { rootMargin: '-20% 0px -70% 0px' });
+stations.forEach(([id]) => io.observe(document.getElementById(id)));
+</script>
+</body></html>
