@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Surahs · B Map</title>
+<link rel="stylesheet" href="surahs.css">
+<style>
+/* B Map: all 114 surahs in book order. The 38 that are ready are lit; the rest are marked as not analysed yet.
+   Hover or select a square to read about it; the list and filter sit beside the map. */
+:root{
+  --l1:oklch(91% 0.07 200);--l1b:oklch(72% 0.1 200);
+  --l2:oklch(91% 0.08 170);--l2b:oklch(72% 0.11 170);
+  --l3:oklch(92% 0.09 140);--l3b:oklch(73% 0.12 140);
+  --l4:oklch(92% 0.1 105);--l4b:oklch(74% 0.13 105);
+  --l5:oklch(91% 0.11 75);--l5b:oklch(73% 0.14 75);
+  --cols:19;
+}
+.top{padding-block:clamp(20px,3.5vw,44px) clamp(18px,2.5vw,32px)}
+.top .h1{max-width:none}
+.stage{display:grid;grid-template-columns:minmax(0,1fr) minmax(320px,400px);gap:clamp(28px,4vw,64px);align-items:start}
+
+.legend{display:flex;flex-wrap:wrap;align-items:center;gap:8px 22px;margin:0 0 14px;padding:0;list-style:none;font-size:.9375rem;color:var(--muted)}
+.legend li{display:flex;align-items:center;gap:8px}
+.legend .lvs{display:flex;gap:4px}
+.sw{display:grid;place-items:center;width:26px;height:26px;border-radius:8px;font-size:.8125rem;font-weight:500;color:var(--ink);border:1.5px solid var(--b);background:var(--f)}
+.sw.off{border:1.5px dashed oklch(78% 0.012 230);background:none;color:var(--muted)}
+
+.map{display:grid;grid-template-columns:repeat(var(--cols),minmax(0,1fr));gap:5px;margin:0;padding:0;list-style:none}
+.map li{display:block;min-width:0}
+.c{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;width:100%;aspect-ratio:1 / 1.12;padding:0;border-radius:10px;font-size:.9375rem;font-weight:500;font-variant-numeric:tabular-nums;line-height:1}
+.c.off::after{content:'';display:block;height:4px}
+.c.off{border:1.5px dashed oklch(86% 0.012 230);color:oklch(50% 0.02 230);font-weight:400;cursor:default}
+button.c{border:1.5px solid var(--b);background:var(--f);color:var(--ink);cursor:pointer;transition:transform .15s var(--ease),box-shadow .15s,background-color .2s,opacity .2s}
+button.c:hover{transform:translateY(-2px);box-shadow:0 6px 14px oklch(30% 0.05 200 / .18)}
+button.c:active{transform:translateY(0) scale(.97)}
+button.c[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
+button.c.dim{background:var(--page);border:1.5px solid var(--edge);color:oklch(50% 0.02 230)}
+button.c.dim .pips s{background:var(--edge)}
+.c[data-l="1"]{--f:var(--l1);--b:var(--l1b)}.c[data-l="2"]{--f:var(--l2);--b:var(--l2b)}.c[data-l="3"]{--f:var(--l3);--b:var(--l3b)}.c[data-l="4"]{--f:var(--l4);--b:var(--l4b)}.c[data-l="5"]{--f:var(--l5);--b:var(--l5b)}
+.sw[data-l="1"]{--f:var(--l1);--b:var(--l1b)}.sw[data-l="2"]{--f:var(--l2);--b:var(--l2b)}.sw[data-l="3"]{--f:var(--l3);--b:var(--l3b)}.sw[data-l="4"]{--f:var(--l4);--b:var(--l4b)}.sw[data-l="5"]{--f:var(--l5);--b:var(--l5b)}
+.pips{display:flex;gap:2px}
+.pips s{display:block;width:4px;height:4px;border-radius:1px;background:oklch(18% 0.03 240 / .16);text-decoration:none}
+.pips s.on{background:currentColor}
+button.c[aria-pressed="true"] .pips s{background:oklch(100% 0 0 / .3)}
+button.c[aria-pressed="true"] .pips s.on{background:#fff}
+
+.strip{margin-top:22px}
+.strip svg{width:100%;height:14px;border-radius:4px;overflow:hidden}
+.strip p{margin:8px 0 0;font-size:.9375rem;color:var(--muted)}
+.strip p b{font-weight:500;color:var(--ink)}
+
+.peek{margin-top:28px;padding:clamp(22px,3vw,34px);border-radius:28px;background:var(--soft);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:6px clamp(20px,3vw,44px);min-height:300px}
+.peek .eyebrow{grid-column:1 / -1;display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center;margin:0 0 4px}
+.peek .nm{font-size:clamp(3.25rem,2.2rem + 3vw,4.75rem);line-height:1.3;text-align:left;display:block;color:var(--ink)}
+.peek .en{font-weight:600;font-size:1.375rem;letter-spacing:-.025em;margin:2px 0 0}
+.peek .meta{margin:2px 0 0;color:var(--muted)}
+.peek .op{margin:0;align-self:center;font-size:clamp(1.875rem,1.4rem + 1.6vw,2.5rem);line-height:1.95;text-align:right;color:var(--text)}
+.peek .nt{grid-column:1 / -1;margin:8px 0 0;line-height:1.7;max-width:62ch;color:oklch(33% 0.025 230)}
+.peek .nt .ar{font-size:1.2em}
+.peek .act{grid-column:1 / -1;margin-top:12px}
+
+.side{position:sticky;top:16px;display:flex;flex-direction:column;gap:14px;max-height:calc(100vh - 32px);min-height:0}
+.side .find input{min-height:52px}
+.side .chips{gap:6px}
+.side .chips-l{font-size:.9375rem}
+#list{margin:0;padding:0;list-style:none;overflow:auto;border-top:1px solid var(--edge);scrollbar-width:thin;overscroll-behavior:contain;min-height:0}
+.li{display:grid;grid-template-columns:44px minmax(0,1fr) auto;align-items:center;gap:0 8px;min-height:64px;padding:8px 10px 8px 6px;border-radius:14px;text-decoration:none;transition:background-color .18s}
+.li:hover,.li.look{background:var(--soft)}
+.li .n{font-size:.9375rem;font-weight:500;font-variant-numeric:tabular-nums;color:var(--muted);text-align:center}
+.li .t{display:flex;flex-direction:column;min-width:0}
+.li .t b{font-weight:500;font-size:1.0625rem;letter-spacing:-.01em;line-height:1.3}
+.li .t span{font-size:.875rem;color:var(--muted)}
+.li .nm{font-size:1.75rem;line-height:1.4;color:var(--ink)}
+.li[hidden]{display:none}
+.lvsel{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;background:var(--f);border:1px solid var(--b)}
+.empty{padding:28px 8px}
+
+@media (max-width:1080px){
+  .stage{grid-template-columns:1fr}
+  .side{position:static;max-height:none}
+  #list{overflow:visible}
+}
+@media (max-width:720px){
+  :root{--cols:12}
+  .top{padding-block:12px 16px}
+  .dek .more{display:none}
+  .map{gap:3px}
+  .c{border-radius:7px;font-size:.75rem;aspect-ratio:1 / 1.1;letter-spacing:-.02em}
+  .c .pips{display:none}
+  button.c:hover{transform:none;box-shadow:none}
+  .legend{font-size:.875rem;gap:6px 16px}
+  .sw{width:22px;height:22px;border-radius:6px}
+  .strip{margin-top:14px}
+  /* The squares are too small to tap, so the map is a picture here and the list does the work. */
+  .peek{display:none}
+  button.c[aria-pressed="true"]{background:var(--f);border-color:var(--b);color:var(--ink)}
+  .stage{gap:20px}
+}
+</style></head>
+<body>
+<a class="skip" href="#list">Skip to the list</a>
+<header class="site">
+  <a class="brand" href="#" aria-label="Quranic Grammar, home"><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="1" y="1" width="30" height="30" rx="9" fill="oklch(18% 0.03 240)"/><path d="M9 19h14" stroke="#fff" stroke-width="2" stroke-linecap="round"/><circle cx="16" cy="12" r="2.6" fill="oklch(79% 0.14 72)"/><circle cx="16" cy="24.5" r="1.6" fill="#fff"/></svg><span>Quranic Grammar</span></a>
+  <nav aria-label="Primary"><a href="#">Learn</a><a href="#" aria-current="page">Surahs</a><a href="#">Resources</a><a href="#">About</a></nav>
+</header>
+
+<main class="wrap" id="main">
+  <section class="top" aria-labelledby="h">
+    <h1 class="h1" id="h">Where the surahs sit in the Quran.</h1>
+    <p class="dek" id="dek"></p>
+  </section>
+
+  <div class="stage">
+    <div class="mapcol">
+      <ul class="legend" id="legend" aria-label="Map key"></ul>
+      <ol class="map" id="map" aria-label="All 114 surahs in book order. Lit squares are analysed."></ol>
+      <div class="strip" id="strip"></div>
+      <article class="peek" id="peek" aria-live="polite"></article>
+    </div>
+
+    <aside class="side" aria-label="Find a surah">
+      <div id="tools"></div>
+      <div class="chips" id="chips" role="group" aria-label="Show level"></div>
+      <p class="count" id="count" aria-live="polite"></p>
+      <ol id="list"></ol>
+      <div id="emptyhost"></div>
+    </aside>
+  </div>
+</main>
+<footer class="foot"><span>Quranic Grammar</span><a href="#">Learn</a><a href="#">Resources</a><a href="#">About and feedback</a></footer>
+
+<script src="surahs-data.js"></script>
+<script src="surahs.js"></script>
+<script>
+const U = SurahUI, D = U.D, S = U.S, esc = U.esc, N = D.quran.surahs;
+const by = Object.fromEntries(S.map(s => [s.num, s]));
+const isPhone = matchMedia('(max-width:720px)');
+
+document.querySelector('#dek').innerHTML = `The Quran has ${N} surahs. This map shows them in book order. The ${S.length} lit squares are ready to read word by word.<span class="more"> The other ${U.covers.missing} are not analysed yet.</span>`;
+
+// Key: the five levels (colour plus the number) and the unlit square.
+document.querySelector('#legend').innerHTML =
+  `<li><span>Read after level</span><span class="lvs">${D.levels.map(l => `<span class="sw" data-l="${l.n}" title="Level ${l.n}: ${esc(l.title)}">${l.n}</span>`).join('')}</span></li>
+   <li><span class="sw off" aria-hidden="true">·</span><span>Not analysed yet (${U.covers.missing})</span></li>`;
+
+// The map: one square per surah, 1 to 114.
+const pips = n => `<span class="pips" aria-hidden="true">${[1, 2, 3, 4, 5].map(i => `<s class="${i <= n ? 'on' : ''}"></s>`).join('')}</span>`;
+document.querySelector('#map').innerHTML = Array.from({ length: N }, (_, i) => {
+  const n = i + 1, s = by[n];
+  return s
+    ? `<li><button type="button" class="c" data-n="${n}" data-l="${s.level}" aria-pressed="false" aria-label="Surah ${n}, ${esc(s.name)}, ${U.plural(s.verses, 'verse', 'verses')}, read after level ${s.level}" tabindex="-1">${n}${pips(s.level)}</button></li>`
+    : `<li aria-hidden="true"><span class="c off" title="Surah ${n}: not analysed yet">${n}</span></li>`;
+}).join('');
+const cells = [...document.querySelectorAll('button.c')];
+
+// Strip: the same 114 surahs, each as wide as its verse count, so you can see how much of the Quran is covered.
+(() => {
+  const V = D.quran.versesBySurah, tot = D.quran.verses;
+  let x = 0, rects = '';
+  V.forEach((v, i) => { rects += `<rect x="${x}" y="0" width="${v}" height="1" fill="${by[i + 1] ? 'oklch(55% 0.1 178)' : 'oklch(93.5% 0.008 220)'}" stroke="oklch(99.2% 0.003 220)" stroke-width="1" vector-effect="non-scaling-stroke"/>`; x += v; });
+  document.querySelector('#strip').innerHTML = `<svg viewBox="0 0 ${tot} 1" preserveAspectRatio="none" aria-hidden="true">${rects}</svg>
+    <p>By length, each surah as wide as its verses: the ${S.length} lit surahs hold <b>${U.fmt(D.versesAvailable)} of the Quran’s ${U.fmt(tot)} verses</b>.</p>`;
+})();
+
+// Chips
+document.querySelector('#tools').innerHTML = U.findHTML('Name, number or Arabic');
+document.querySelector('#chips').innerHTML = `<span class="chips-l" aria-hidden="true">Level</span>
+  <button class="chip" type="button" data-lv="0" aria-pressed="true" aria-label="All levels">All</button>` +
+  D.levels.map(l => `<button class="chip" type="button" data-lv="${l.n}" aria-pressed="false" aria-label="Level ${l.n}, ${esc(l.title)}">${l.n}</button>`).join('');
+
+// List, in book order
+document.querySelector('#list').innerHTML = S.map(s => `<li><a class="li" href="${U.link(s)}" data-n="${s.num}">
+  <span class="n" aria-hidden="true">${U.pad(s.num)}</span>
+  <span class="t"><b>${esc(s.name)}</b><span><span class="lvsel" style="--f:var(--l${s.level});--b:var(--l${s.level}b)" aria-hidden="true"></span>Level ${s.level} · ${U.plural(s.verses, 'verse', 'verses')}</span></span>
+  <span class="ar nm" lang="ar" dir="rtl">${esc(s.ar)}</span>
+</a></li>`).join('');
+document.querySelector('#emptyhost').innerHTML = U.emptyHTML();
+
+// Peek
+const peek = document.querySelector('#peek');
+let sel = S[0].num, looking = null;
+function paint(n) {
+  const s = by[n], l = U.levelOf(s.level);
+  peek.innerHTML = `<p class="eyebrow"><span class="tag plain">Surah ${s.num} of ${N}</span><span class="tag lv">Read after Level ${s.level}: ${esc(l.title)}</span></p>
+    <div><span class="ar nm" lang="ar" dir="rtl">${esc(s.ar)}</span><p class="en">${esc(s.name)}</p><p class="meta">${U.plural(s.verses, 'verse', 'verses')} · ${s.rev}</p></div>
+    <p class="q op" lang="ar" dir="rtl">${esc(s.open)}</p>
+    <p class="nt">${U.withArabic(s.note)}</p>
+    <div class="act"><a class="btn" href="${U.link(s)}">Open ${esc(s.name)} ${U.ICON.arrow}</a></div>`;
+}
+function show(n) { looking = n; paint(n); document.querySelectorAll('.li').forEach(a => a.classList.toggle('look', +a.dataset.n === n && n !== sel)); }
+function select(n, focus) {
+  sel = n; looking = null;
+  cells.forEach(c => { const on = +c.dataset.n === n; c.setAttribute('aria-pressed', String(on)); c.tabIndex = on ? 0 : -1; });
+  paint(n);
+  document.querySelectorAll('.li').forEach(a => a.classList.remove('look'));
+  if (focus) cells.find(c => +c.dataset.n === n).focus();
+}
+function unlook() { if (looking !== null) { looking = null; paint(sel); document.querySelectorAll('.li').forEach(a => a.classList.remove('look')); } }
+
+cells.forEach(c => {
+  c.addEventListener('click', () => select(+c.dataset.n));
+  c.addEventListener('mouseenter', () => show(+c.dataset.n));
+  c.addEventListener('mouseleave', unlook);
+});
+document.querySelector('#map').addEventListener('keydown', e => {
+  const open = cells.filter(c => !c.hidden && c.getAttribute('aria-disabled') !== 'true').map(c => +c.dataset.n);
+  const cur = +document.activeElement.dataset?.n; if (!cur) return;
+  const cols = +getComputedStyle(document.documentElement).getPropertyValue('--cols');
+  let target = null;
+  if (e.key === 'ArrowRight') target = open[open.indexOf(cur) + 1];
+  if (e.key === 'ArrowLeft') target = open[open.indexOf(cur) - 1];
+  if (e.key === 'ArrowDown' || e.key === 'ArrowUp') { const want = cur + (e.key === 'ArrowDown' ? cols : -cols); target = open.filter(n => e.key === 'ArrowDown' ? n > cur : n < cur).sort((a, b) => Math.abs(a - want) - Math.abs(b - want))[0]; }
+  if (e.key === 'Home') target = open[0];
+  if (e.key === 'End') target = open[open.length - 1];
+  if (target) { e.preventDefault(); select(target, true); }
+});
+document.querySelectorAll('.li').forEach(a => {
+  a.addEventListener('mouseenter', () => show(+a.dataset.n));
+  a.addEventListener('focus', () => show(+a.dataset.n));
+  a.addEventListener('mouseleave', unlook);
+  a.addEventListener('blur', unlook);
+});
+
+// On a phone the squares are too small to tap, so the map is a picture and the list does the work.
+const inertMap = () => { const m = document.querySelector('#map'); m.inert = isPhone.matches; m.setAttribute('aria-hidden', String(isPhone.matches)); };
+isPhone.addEventListener('change', inertMap); inertMap();
+
+// Filter: the list narrows and the map dims what is left out.
+let lv = 0;
+const chips = [...document.querySelectorAll('.chip[data-lv]')];
+const count = document.querySelector('#count'), empty = document.querySelector('#empty');
+function refresh() {
+  const ws = U.words(find.value);
+  const filtering = ws.length > 0 || lv !== 0;
+  let shown = 0, firstOk = null;
+  S.forEach(s => {
+    const ok = (lv === 0 || s.level === lv) && U.textMatch(s, ws, false);
+    document.querySelector(`.li[data-n="${s.num}"]`).parentElement.hidden = !ok;
+    cells.find(c => +c.dataset.n === s.num).classList.toggle('dim', filtering && !ok);
+    if (ok) { shown++; firstOk = firstOk || s.num; }
+  });
+  count.textContent = filtering ? `${shown} of ${S.length} surahs` : `${S.length} of ${N} surahs analysed`;
+  empty.hidden = shown !== 0;
+  if (filtering && shown && !(by[sel] && !cells.find(c => +c.dataset.n === sel).classList.contains('dim'))) select(firstOk);
+}
+const find = U.wireFind(refresh);
+chips.forEach(c => c.addEventListener('click', () => { lv = +c.dataset.lv; chips.forEach(o => o.setAttribute('aria-pressed', String(o === c))); refresh(); }));
+document.querySelector('#reset').addEventListener('click', () => { lv = 0; chips.forEach((o, i) => o.setAttribute('aria-pressed', String(i === 0))); find.clear(); });
+select(sel);
+refresh();
+</script>
+</body></html>

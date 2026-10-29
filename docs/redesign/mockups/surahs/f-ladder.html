@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Surahs · F Ladder</title>
+<link rel="stylesheet" href="surahs.css">
+<style>
+/* F Ladder: the five levels are a ladder. Climb a rung ("after Level 3") and the surahs that rung opens appear as large Arabic
+   tiles in a fixed stage. Switch to "Everything open" to see all the surahs up to that rung. Nothing is locked. */
+.stage{margin-top:8px;border-radius:36px;background:var(--oasis);padding:clamp(18px,2.6vw,36px);display:grid;grid-template-columns:minmax(300px,380px) minmax(0,1fr);gap:clamp(16px,3vw,40px);align-items:start}
+.left{display:flex;flex-direction:column;gap:10px;min-width:0}
+.left .h1{font-size:clamp(2rem,1.3rem + 2vw,3rem)}
+.left .dek{margin:0;font-size:1.0625rem;color:oklch(30% 0.03 230)}
+.left .find input{min-height:52px;border-color:#fff}
+.cov{align-self:flex-start;display:inline-flex;align-items:center;gap:8px;min-height:32px;padding:0 12px;border-radius:999px;background:oklch(100% 0 0 / .72);font-size:.875rem;color:oklch(28% 0.03 230)}
+
+.ladder{margin-top:6px}
+.ladder > p{margin:0 0 6px;font-size:.9375rem;font-weight:500;color:oklch(28% 0.03 230)}
+.rungs{position:relative;display:flex;flex-direction:column}
+.line{position:absolute;left:27px;top:27px;bottom:27px;width:4px;border-radius:2px;background:oklch(100% 0 0 / .75)}
+.fill{position:absolute;inset:0;border-radius:2px;background:var(--accent);transform-origin:top;transform:scaleY(var(--p,0));transition:transform .25s var(--ease)}
+.rg{position:relative;display:grid;grid-template-columns:56px minmax(0,1fr);align-items:center;column-gap:14px;min-height:54px;padding:0;border:0;background:none;text-align:left;cursor:pointer;border-radius:16px}
+.rg .c{display:grid;place-items:center;width:44px;height:44px;margin-inline:6px;border-radius:50%;background:#fff;box-shadow:inset 0 0 0 2px oklch(100% 0 0 / .9);font-weight:600;font-size:1.0625rem;transition:background-color .2s,color .2s,transform .2s var(--ease)}
+.rg .t b{display:block;font-weight:600;font-size:1.0625rem;letter-spacing:-.015em;line-height:1.25}
+.rg .t span{font-size:.875rem;color:oklch(33% 0.03 230)}
+.rg:hover .c{transform:scale(1.08)}
+.rg:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+.rg.done .c{background:var(--accent);color:#fff;box-shadow:none}
+.rg[aria-checked="true"] .c{background:var(--ink);color:#fff;box-shadow:0 0 0 5px oklch(100% 0 0 / .7);transform:scale(1.12)}
+.rg[aria-checked="true"] .t b{font-size:1.1875rem}
+
+.mode{display:inline-flex;padding:4px;border-radius:999px;background:oklch(100% 0 0 / .6);align-self:flex-start}
+.mode button{min-height:44px;padding:0 16px;border:0;border-radius:999px;background:none;cursor:pointer;font-size:.9375rem;font-weight:500;color:oklch(28% 0.03 230);transition:background-color .2s,color .2s}
+.mode button[aria-pressed="true"]{background:var(--ink);color:#fff}
+
+.pane{display:flex;flex-direction:column;min-width:0;height:clamp(500px,calc(100vh - 170px),560px);padding:clamp(16px,2vw,26px);border-radius:28px;background:#fff;box-shadow:0 1px 2px oklch(30% 0.03 220 / .06),0 22px 50px -22px oklch(30% 0.06 200 / .35)}
+.ph{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:4px 20px;margin-bottom:14px}
+.ph h2{margin:0;font-size:clamp(1.375rem,1.1rem + 1vw,1.875rem);font-weight:600;letter-spacing:-.03em;line-height:1.15}
+.ph p{margin:2px 0 0;color:var(--muted);font-size:.9375rem;max-width:36em}
+.ph .ct{font-size:.9375rem;color:var(--muted);white-space:nowrap}
+.tiles{flex:1;min-height:0;overflow:auto;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));grid-auto-rows:minmax(112px,1fr);gap:10px;scrollbar-width:thin;padding:2px}
+.tl{position:relative;display:flex;flex-direction:column;justify-content:space-between;gap:2px;min-width:0;padding:12px 16px 12px;border-radius:20px;background:var(--soft);text-decoration:none;transition:transform .2s var(--ease),box-shadow .2s,background-color .2s}
+.tl.new{background:var(--teal-tint);box-shadow:inset 0 0 0 1px oklch(86% 0.05 178)}
+.tl:hover{transform:translateY(-3px);box-shadow:inset 0 0 0 2px var(--ink),0 12px 24px -12px oklch(30% 0.05 200 / .4)}
+.tl:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+.tl .nm{display:block;font-size:2.75rem;line-height:1.35;color:var(--ink);text-align:left;margin-top:-4px}
+.tl .t b{display:block;font-weight:600;font-size:1rem;letter-spacing:-.01em}
+.tl .t span{font-size:.8125rem;color:oklch(35% 0.03 230)}
+.tl .lt{position:absolute;top:8px;left:12px}
+.tiles.cmp{grid-template-columns:repeat(auto-fill,minmax(150px,1fr));grid-auto-rows:84px;padding-bottom:30px;-webkit-mask-image:linear-gradient(#000 calc(100% - 30px),transparent);mask-image:linear-gradient(#000 calc(100% - 30px),transparent)}
+.cmp .tl{padding:8px 12px;justify-content:center}
+.cmp .tl .nm{font-size:1.875rem;line-height:1.4;margin:0}
+.cmp .tl .t span{display:none}
+.tiles.enter .tl{animation:in .22s var(--ease) both;animation-delay:calc(var(--i) * 28ms)}
+@keyframes in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.none{grid-column:1 / -1;padding:24px 8px;color:var(--muted)}
+.none b{display:block;font-size:1.125rem;color:var(--ink)}
+.foot{margin-top:20px;padding-block:14px 22px}
+
+@media (max-width:1000px){
+  .stage{grid-template-columns:1fr}
+  .pane{height:auto}
+  .tiles{overflow:visible}
+}
+@media (max-width:760px){
+  .stage{border-radius:26px;padding:16px 12px 12px;gap:12px}
+  .left{gap:10px}
+  .left .dek{display:none}
+  .cov{min-height:28px}
+  .ladder{margin-top:2px}
+  .rungs{flex-direction:row}
+  .line{left:10%;right:10%;top:22px;bottom:auto;width:auto;height:4px}
+  .fill{transform-origin:left;transform:scaleX(var(--p,0))}
+  .rg{flex:1;grid-template-columns:1fr;justify-items:center;row-gap:6px;min-height:84px;align-content:start;text-align:center}
+  .rg .c{margin:0 auto}
+  .rg .t span{display:none}
+  .rg .t b{font-size:.8125rem;font-weight:500}
+  .rg[aria-checked="true"] .t b{font-size:.8125rem;font-weight:600}
+  .rg .t em{display:none}
+  .mode{align-self:stretch}.mode button{flex:1;padding:0 8px}
+  .pane{padding:14px;border-radius:22px}
+  .tiles{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:minmax(104px,auto);gap:8px}
+  .tl{padding:10px 12px}.tl .nm{font-size:2.25rem}
+  .tiles.cmp{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:76px}
+}
+</style></head>
+<body>
+<a class="skip" href="#pane">Skip to the surahs</a>
+<header class="site">
+  <a class="brand" href="#" aria-label="Quranic Grammar, home"><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="1" y="1" width="30" height="30" rx="9" fill="oklch(18% 0.03 240)"/><path d="M9 19h14" stroke="#fff" stroke-width="2" stroke-linecap="round"/><circle cx="16" cy="12" r="2.6" fill="oklch(79% 0.14 72)"/><circle cx="16" cy="24.5" r="1.6" fill="#fff"/></svg><span>Quranic Grammar</span></a>
+  <nav aria-label="Primary"><a href="#">Learn</a><a href="#" aria-current="page">Surahs</a><a href="#">Resources</a><a href="#">About</a></nav>
+</header>
+
+<main class="wrap" id="main">
+  <section class="stage" aria-labelledby="h">
+    <div class="left">
+      <h1 class="h1" id="h">Which surahs fit your level?</h1>
+      <p class="dek">Climb the ladder. Each rung shows the surahs the course prepares you for.</p>
+      <span class="cov" id="cov"></span>
+      <div id="tools"></div>
+      <div class="ladder">
+        <p id="ll">I have finished</p>
+        <div class="rungs" id="rungs" role="radiogroup" aria-labelledby="ll"><div class="line" aria-hidden="true"><div class="fill" id="fill"></div></div></div>
+      </div>
+      <div class="mode" role="group" aria-label="Which surahs to show"><button type="button" data-m="new" aria-pressed="true">New at this level</button><button type="button" data-m="all" aria-pressed="false">Everything open</button></div>
+    </div>
+    <section class="pane" id="pane" aria-label="Surahs">
+      <div class="ph"><div><h2 id="ph"></h2><p id="pp"></p></div><span class="ct" id="count" aria-live="polite"></span></div>
+      <div class="tiles enter" id="tiles"></div>
+    </section>
+  </section>
+</main>
+<footer class="foot"><span>Quranic Grammar</span><a href="#">Learn</a><a href="#">Resources</a><a href="#">About and feedback</a></footer>
+
+<script src="surahs-data.js"></script>
+<script src="surahs.js"></script>
+<script>
+// ?level=1 to 5 sets the rung (the built page would start at the learner's own level).
+const U = SurahUI, D = U.D, S = U.S, esc = U.esc;
+const q = id => document.querySelector(id);
+const LV = D.levels.length;
+const params = new URLSearchParams(location.search);
+let level = params.has('level') ? Math.min(LV, Math.max(1, +params.get('level') || 1)) : 2, mode = 'new';
+const at = n => S.filter(s => s.level === n), upTo = n => S.filter(s => s.level <= n);
+
+q('#cov').textContent = `${S.length} of ${D.quran.surahs} surahs analysed`;
+q('#tools').innerHTML = U.findHTML('Find a surah', 'tiles');
+q('#rungs').insertAdjacentHTML('beforeend', D.levels.map(l => `<button class="rg" type="button" role="radio" aria-checked="false" data-n="${l.n}" aria-label="Level ${l.n}, ${esc(l.title)}. ${U.plural(at(l.n).length, 'surah', 'surahs')} open after it">
+  <span class="c" aria-hidden="true">${l.n}</span><span class="t" aria-hidden="true"><b>Level ${l.n}<em style="font-style:normal"> · ${esc(l.title)}</em></b><span>+${at(l.n).length} surahs</span></span></button>`).join(''));
+const rungs = [...document.querySelectorAll('.rg')];
+
+function tile(s, i, opt) {
+  return `<a class="tl${opt.isNew ? ' new' : ''}" href="${U.link(s)}" style="--i:${i}" data-num="${s.num}">
+    <span class="ar nm" lang="ar" dir="rtl">${esc(s.ar)}</span>
+    <span class="t"><b>${esc(s.name)}</b><span>${opt.level ? `Level ${s.level} · ` : ''}${s.num} · ${U.plural(s.verses, 'verse', 'verses')} · ${s.rev}</span></span></a>`;
+}
+function render(anim) {
+  const ws = U.words(find.value), searching = ws.length > 0;
+  const l = D.levels[level - 1];
+  rungs.forEach(r => { const n = +r.dataset.n; r.setAttribute('aria-checked', String(n === level)); r.tabIndex = n === level ? 0 : -1; r.classList.toggle('done', n < level); });
+  q('#fill').parentElement.style.setProperty('--p', (level - 1) / (LV - 1)); q('#fill').style.setProperty('--p', (level - 1) / (LV - 1));
+  document.querySelectorAll('.mode button').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.m === mode)));
+  let list, head, sub;
+  if (searching) {
+    list = S.filter(s => U.textMatch(s, ws, true)).sort((a, b) => a.level - b.level || a.num - b.num);
+    head = 'Matching surahs'; sub = 'Every surah is open to you. The level shows when the course prepares you for it.';
+  } else if (mode === 'all') {
+    list = upTo(level); head = `Everything open after Level ${level}`; sub = `The new ones from Level ${level} are tinted.`;
+  } else {
+    list = at(level); head = `After Level ${level}: ${l.title}`; sub = l.blurb;
+  }
+  q('#ph').textContent = head; q('#pp').textContent = sub;
+  q('#count').textContent = searching ? `${list.length} of ${S.length} surahs` : mode === 'all' ? `${U.plural(list.length, 'surah', 'surahs')} open` : `${U.plural(list.length, 'new surah', 'new surahs')}`;
+  const t = q('#tiles');
+  t.classList.toggle('cmp', !searching && mode === 'all');
+  t.classList.remove('enter'); void t.offsetWidth; if (anim) t.classList.add('enter');
+  t.innerHTML = list.length ? list.map((s, i) => tile(s, i, { isNew: !searching && mode === 'all' && s.level === level, level: searching })).join('')
+    : `<div class="none"><b>No surah matches that.</b>Only ${S.length} of the Quran's ${D.quran.surahs} surahs are analysed: ${esc(U.covers.short)}. Try a name, a number in that range, or a topic such as “idafa”.</div>`;
+  document.body.classList.toggle('searching', searching);
+}
+rungs.forEach(r => r.addEventListener('click', () => { level = +r.dataset.n; if (find.value) find.clear(); render(true); }));
+q('#rungs').addEventListener('keydown', e => {
+  const d = e.key === 'ArrowDown' || e.key === 'ArrowRight' ? 1 : e.key === 'ArrowUp' || e.key === 'ArrowLeft' ? -1 : 0;
+  if (!d) return; e.preventDefault(); level = Math.min(LV, Math.max(1, level + d)); render(true); rungs[level - 1].focus();
+});
+document.querySelectorAll('.mode button').forEach(b => b.addEventListener('click', () => { mode = b.dataset.m; render(true); }));
+const find = U.wireFind(() => render(true));
+render(true);
+</script>
+</body></html>
