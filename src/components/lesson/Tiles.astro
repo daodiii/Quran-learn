@@ -1,14 +1,15 @@
 ---
 /**
  * A row of big word tiles read right to left. A tile with `ghost` is a dashed placeholder for a word
- * that English needs and Arabic leaves out.
+ * that English needs and Arabic leaves out. `type: 'x'` gives a plain tile with no word-type colour, for
+ * letters, vowels and marks.
  *
  * <Tiles items={[{ ar: 'هُوَ', en: 'he' }, { ghost: 'is', note: 'English only' }, { ar: 'ٱلْأَوَّلُ', en: 'the First' }]} />
  */
 interface Item {
   ar?: string;
   en?: string;
-  type?: 'n' | 'v' | 'p';
+  type?: 'n' | 'v' | 'p' | 'x';
   ghost?: string;
   note?: string;
 }
@@ -17,7 +18,7 @@ interface Props {
   label?: string;
 }
 const { items, label } = Astro.props;
-const CLS = { n: 'noun', v: 'verb', p: 'little' } as const;
+const CLS = { n: 'noun', v: 'verb', p: 'little', x: 'plain' } as const;
 ---
 
 <div class="lx-tiles" role="group" aria-label={label}>

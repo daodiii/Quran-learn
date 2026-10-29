@@ -1,0 +1,782 @@
+---
+title: "Commands"
+kicker: "The imperative"
+titleArabic: "الْأَمْر"
+level: 3
+order: 8
+template: steps
+description: "Learn the command (al-amr): how it is made from the present tense, the helping alif, the five ways to say “you”, why its ending does not change, and the commands that look different. Go through four verses word by word."
+draft: false
+---
+
+import Step from '../../../components/lesson/Step.astro';
+import Stage from '../../../components/lesson/Stage.astro';
+import Sentence from '../../../components/lesson/Sentence.astro';
+import Tiles from '../../../components/lesson/Tiles.astro';
+import Formula from '../../../components/lesson/Formula.astro';
+import Legend from '../../../components/lesson/Legend.astro';
+import Note from '../../../components/lesson/Note.astro';
+import Check from '../../../components/lesson/Check.astro';
+import Start from '../../../components/lesson/Start.astro';
+import Sources from '../../../components/lesson/Sources.astro';
+import Parse from '../../../components/lesson/Parse.astro';
+import Exercise from '../../../components/lesson/Exercise.astro';
+import Block from '../../../components/lesson/Block.astro';
+import Conjugation from '../../../components/lesson/Conjugation.astro';
+
+{/* Content spec: docs/redesign/specs/L3.08-imperative.md. Every parse follows al-Jadwal (Mahmud Safi). */}
+
+<Step hero id="start" label="Making a command" title={frontmatter.title} kicker={frontmatter.kicker} titleArabic={frontmatter.titleArabic}>
+<Block id="overview" title="In this lesson" level={2} uncounted>
+  <Stage label="The idea">
+    <Formula
+      label="the present tense for you, plus three small changes, equals a command"
+      items={[
+        { kind: 'm', text: 'present “you”', small: 'تَقْرَأُ' },
+        { kind: 'k', text: 'three small changes', small: 'sukūn, no تَ, add ٱ' },
+        { kind: 's', text: 'command', small: 'ٱقْرَأْ' },
+      ]}
+    />
+  </Stage>
+  <Start
+    goal="Make a command from a present-tense verb, say who it is for, say why its ending does not change, spot the commands that look different, and go through four verses word by word."
+    minutes={45}
+    before="The present tense (L3.06) and the jussive (L3.07). The hidden doer (L2.03)."
+    terms={[
+      { term: 'Command', ar: 'أَمْر', meaning: 'A verb that asks “you” to do something. The grammar books call it al-amr.' },
+      { term: 'Helping alif', ar: 'هَمْزَة الْوَصْل', meaning: 'The ٱ at the start of many commands. It lets you start a word that begins with a silent letter.' },
+      { term: 'Built', ar: 'مَبْنِي', meaning: 'A word whose ending stays the same, whatever its job.' },
+      { term: 'Jussive', ar: 'جَزْم', meaning: 'A mood of the present tense that ends in a sukūn or drops a letter. L3.07 teaches it.' },
+      { term: 'Weak letter', ar: 'حَرْف عِلَّة', meaning: 'One of و، ا، ي. Verbs with a weak letter in the root change their shape.' },
+      { term: 'Hidden doer', ar: 'ضَمِير مُسْتَتِر', meaning: 'A doer that is not written. It is understood from the verb (L2.03).' },
+    ]}
+  />
+</Block>
+
+<Block id="see" title="Look at this command" level={2}>
+  <Stage>
+    <Sentence
+      size="big"
+      roles
+      reference="Al-ʿAlaq 96:1 (start)"
+      groups={[
+        { role: 'fiil', label: 'fiʿl + hidden fāʿil', hint: 'the doer is a hidden “you”', words: [{ ar: 'ٱقْرَأْ', en: 'read!', say: 'iqra', type: 'v' }] },
+        { role: 'tied', hint: 'goes with the command', words: [{ ar: 'بِٱسْمِ', en: 'in the name of', say: 'bismi', type: 'p' }, { ar: 'رَبِّكَ', en: 'your Lord', say: 'rabbika' }] },
+      ]}
+      en={['Read in the name of your Lord.']}
+    />
+    <Tiles
+      label="ٱقْرَأْ, with a hidden you"
+      items={[
+        { ar: 'ٱقْرَأْ', en: 'read!', type: 'v' },
+        { ghost: 'you', note: 'hidden in the verb' },
+      ]}
+    />
+    <Legend />
+  </Stage>
+
+You met this word in L1.04. It is a **command**, أَمْر (*amr*): a verb that asks someone to do something. In Arabic it is one word. In English it is one word too: “Read!”
+
+Who is told to read? **You**, the person spoken to. Nobody writes أَنتَ (“you”). The “you” is hidden inside the verb, as in L2.03. Al-Jadwal reports that most commentators say these opening verses were the first revelation.
+
+Commands are common. The Quranic Arabic Corpus tags 1,876 words as commands, and 1,181 of them are Form I, the basic verb (L3.04). This is Quran Learn's count of the words whose verb is tagged as a command. A command is easy to learn, because it is the present tense with a few small changes.
+
+<Check n={1} q="Who is told to read in ٱقْرَأْ?" options={['“You”, the person spoken to', '“He”, someone else', '“I”, the speaker']} answer={0} why="A command is said to the person you speak to. The “you” is hidden inside the verb." />
+</Block>
+
+<Block id="recipe" title="Make a command in three moves">
+  <Stage label="From present to command">
+    <Tiles
+      label="تَقْرَأُ, then تَقْرَأْ, then قْرَأْ, then ٱقْرَأْ"
+      items={[
+        { ar: 'تَقْرَأُ', en: 'you read (present)', type: 'v' },
+        { ar: 'تَقْرَأْ', en: '1. end in sukūn', type: 'x' },
+        { ar: 'قْرَأْ', en: '2. take off تَ', type: 'x' },
+        { ar: 'ٱقْرَأْ', en: '3. add ٱ: read!', type: 'v' },
+      ]}
+    />
+  </Stage>
+
+Start with the present tense for “you”, one man: تَقْرَأُ, “you read” (L3.06). Then make three moves.
+
+1. **End in a sukūn.** The ending -u becomes ـْ. This is what the jussive does to a present verb (L3.07). تَقْرَأُ becomes تَقْرَأْ.
+2. **Take off the prefix تَ.** What is left is قْرَأْ.
+3. **Add a helper if the word now starts with a silent letter.** The قْ starts with a sukūn, and Arabic does not start a word with a silent letter. So add the **helping alif**, ٱ, called هَمْزَة الْوَصْل (*hamzat al-waṣl*, “the joining hamza”). Now you have ٱقْرَأْ.
+
+<Note kind="tip">After move 2, try to say the word. If you cannot say it without a vowel in front, you need the helper ٱ.</Note>
+
+<Note kind="know">The jussive (جَزْم, *jazm*) is a mood of the present tense, taught in L3.07. You only need its endings here: a sukūn, a dropped nūn, or a dropped weak letter. Step 3 of this lesson shows how the command uses them.</Note>
+
+<Check n={2} q="Make the command for one man from تَذْهَبُ, “you go”." options={['ٱذْهَبْ', 'ذْهَبْ', 'تَذْهَبْ']} answer={0} why="End in a sukūn, take off تَ, then add ٱ, because ذْ starts with a silent letter. ٱذْهَبْ means “go!”." />
+</Block>
+
+<Block id="helper" title="The helping alif sounds u or i">
+  <Stage label="Which vowel?">
+    <Tiles
+      label="three commands with a helper: usjud, idhhab, ijlis"
+      items={[
+        { ar: 'ٱسْجُدْ', en: 'usjud: bow down!', type: 'v' },
+        { ar: 'ٱذْهَبْ', en: 'idhhab: go!', type: 'v' },
+        { ar: 'ٱجْلِسْ', en: 'ijlis: sit!', type: 'v' },
+      ]}
+    />
+  </Stage>
+
+In the Quran the helper is written ٱ with no vowel mark. You choose its sound. For a Form I verb, look at the present tense for “he” and find the vowel on the **middle** root letter.
+
+| Verb (root) | Present “he” | Vowel on the middle letter | Command | The helper sounds |
+|---|---|---|---|---|
+| س ج د | يَسْجُدُ | ḍamma | ٱسْجُدْ | u |
+| ذ ه ب | يَذْهَبُ | fatḥa | ٱذْهَبْ | i |
+| ج ل س | يَجْلِسُ | kasra | ٱجْلِسْ | i |
+| ق ر أ | يَقْرَأُ | fatḥa | ٱقْرَأْ | i |
+| ن ح ر | يَنْحَرُ | fatḥa | ٱنْحَرْ | i |
+
+A ḍamma gives **u**. A fatḥa or a kasra gives **i**. Some learner books write the helper as أُ or إِ. It is the same sound.
+
+You say the helper at the start of a sentence. After a little word in front, it is silent. The Quran writes ٱ either way, but you say وَٱنْحَرْ as *wa-nḥar* (108:2) and وَٱسْجُدِى as *wa-sjudī* (3:43).
+
+<Note kind="warn">Not every command starts with ٱ. A Form IV command starts with أَ, a hamza that is said even after وَ. Step 4 shows it.</Note>
+
+<Check n={3} q="Which sound does the helper take in the command from يَجْلِسُ, “he sits”?" options={['u', 'i']} answer={1} why="The middle letter ل has a kasra in the present, so the helper sounds i: ijlis." />
+</Block>
+
+</Step>
+
+<Step id="persons" label="Who is told" title="Five ways to say “you”">
+<Block id="five" title="One command for each “you”">
+  <Stage label="Pattern">
+    <Conjugation
+      caption="ٱسْجُدْ, “bow down!”: root س ج د, Form I"
+      endLabel="Ending"
+      rows={[
+        { group: 'One person' },
+        { who: 'you (one man)', pr: 'أَنتَ', ar: 'ٱسْجُدْ', end: 'ـْ', say: 'usjud', hi: true },
+        { who: 'you (one woman)', pr: 'أَنتِ', ar: 'ٱسْجُدِى', end: 'ـِى', say: 'usjudī' },
+        { group: 'Two people' },
+        { who: 'you two', pr: 'أَنتُمَا', ar: 'ٱسْجُدَا', end: 'ـَا', say: 'usjudā' },
+        { group: 'Three or more' },
+        { who: 'you all (men, or a mixed group)', pr: 'أَنتُمْ', ar: 'ٱسْجُدُوا۟', end: 'ـُوا۟', say: 'usjudū' },
+        { who: 'you all (women)', pr: 'أَنتُنَّ', ar: 'ٱسْجُدْنَ', end: 'ـْنَ', say: 'usjudna' },
+      ]}
+    />
+  </Stage>
+
+A command is said to “you”, and Arabic has five ways to say “you”: one man, one woman, two people, a group of men (or a mixed group), and a group of women. So there are five commands. The stem ٱسْجُدْ stays the same, and the ending says who is told.
+
+The table is a pattern for one real verb. ٱسْجُدْ is in 96:19, ٱسْجُدِى is in 3:43 and ٱسْجُدُوا۟ is in 53:62. The forms for “you two” and “you women” are shown as part of the pattern.
+
+Where is the doer? In ٱسْجُدْ it is the hidden “you”. In the other four, the ending **is** the doer: the ى is “you, one woman”, the ا is “you two”, the و is “you all”, and the نَ is “you women”. L2.03 taught this for the endings -tu, -ū and -nā.
+
+<Note kind="remember">A command has a doer, and the doer is “you”. For one man it is hidden. For the other four it is the ending.</Note>
+
+<Check n={4} q="ٱسْجُدُوا۟ is a command for:" options={['one man', 'one woman', 'you all (men, or a mixed group)']} answer={2} why="The ending و is the doer, “you all”. The final alif is written but not said." />
+</Block>
+
+<Block id="from-present" title="Each command comes from its present form">
+  <Stage label="From present to command">
+    <Tiles
+      label="تَسْجُدُونَ, then تَسْجُدُوا۟, then سْجُدُوا۟, then ٱسْجُدُوا۟"
+      items={[
+        { ar: 'تَسْجُدُونَ', en: 'you all bow (present)', type: 'v' },
+        { ar: 'تَسْجُدُوا۟', en: '1. drop the nūn', type: 'x' },
+        { ar: 'سْجُدُوا۟', en: '2. take off تَ', type: 'x' },
+        { ar: 'ٱسْجُدُوا۟', en: '3. add ٱ: bow down!', type: 'v' },
+      ]}
+    />
+  </Stage>
+
+The three moves work for all five persons. Only move 1 changes: the command takes the ending that the jussive would give.
+
+| Who | Present “you” | Move 1: the jussive ending | Command |
+|---|---|---|---|
+| one man | تَسْجُدُ | تَسْجُدْ | ٱسْجُدْ |
+| one woman | تَسْجُدِينَ | تَسْجُدِى | ٱسْجُدِى |
+| two people | تَسْجُدَانِ | تَسْجُدَا | ٱسْجُدَا |
+| men | تَسْجُدُونَ | تَسْجُدُوا۟ | ٱسْجُدُوا۟ |
+| women | تَسْجُدْنَ | تَسْجُدْنَ | ٱسْجُدْنَ |
+
+Three present forms end in a nūn that the jussive drops: -īna, -āni and -ūna. The women's form keeps its nūn. In تَسْجُدْنَ the nūn is the doer, “you women”, so it is not an ending that can drop.
+
+<Note kind="know">*Al-Ajurrumiyyah* says the nūn is the sign of the nominative in these present forms, and that dropping it is the sign of the jussive. The book calls them “the five verbs”: the forms for two people, a group and one woman. L3.07 teaches them.</Note>
+
+<Check n={5} q="Which present form keeps its nūn when it becomes a command?" options={['تَسْجُدُونَ', 'تَسْجُدِينَ', 'تَسْجُدْنَ']} answer={2} why="The nūn of تَسْجُدْنَ is the doer, “you women”, so it stays: ٱسْجُدْنَ." />
+</Block>
+
+<Block id="men" title="A group: the ending -ū">
+  <Stage>
+    <Sentence
+      roles
+      reference="An-Najm 53:62"
+      groups={[
+        { role: 'fiil', label: 'fiʿl + fāʿil', hint: 'the ending -ū is the doer: “you all”', words: [{ ar: 'فَٱسْجُدُوا۟', en: 'so bow down', say: 'fa-sjudu', type: 'v' }] },
+        { role: 'tied', hint: 'goes with the command', words: [{ ar: 'لِلَّهِ', en: 'to Allah', say: 'lillahi', type: 'p' }] },
+        { role: 'fiil', label: 'fiʿl + fāʿil', hint: 'the same ending: “you all”', words: [{ ar: 'وَٱعْبُدُوا۟', en: 'and worship', say: 'wa-budu', type: 'v' }] },
+      ]}
+      en={['So bow down to Allah, and worship.']}
+    />
+  </Stage>
+
+This verse has two commands for a group: ٱسْجُدُوا۟, “bow down”, and ٱعْبُدُوا۟, “worship”. Each ends in -ū. The little words فَ and وَ come in front, so the helper ٱ is silent: you say *fa-sjudū* and *wa-ʿbudū*. The small circle over the last alif means the alif is written but not said.
+
+Commands for a group of men and for one man are the most common. In the Corpus, 951 command words are for one man and 870 are for a group of men. That is 1,821 of the 1,876. The other three persons have only 55 words between them: 27 for one woman, 20 for two people and 8 for women. These are counts of the Corpus person tags, made by Quran Learn.
+
+<Check n={6} q="What is the doer in فَٱسْجُدُوا۟?" options={['The و: “you all”', 'A hidden “you”', 'لِلَّهِ']} answer={0} why="The ending -ū is the doer, as in أَقِيمُوا۟ in L2.03. لِلَّهِ is the phrase that goes with the verb." />
+</Block>
+
+<Block id="others" title="One woman, two people, women">
+  <Stage>
+    <Sentence
+      roles
+      reference="Al-Imran 3:43 (part)"
+      groups={[
+        { role: 'fiil', label: 'fiʿl + fāʿil', hint: 'the ending ى is the doer: one woman', words: [{ ar: 'ٱقْنُتِى', en: 'be devoted', say: 'uqnuti', type: 'v' }] },
+        { role: 'tied', hint: 'goes with the command', words: [{ ar: 'لِرَبِّكِ', en: 'to your Lord', say: 'li-rabbiki', type: 'p' }] },
+        { role: 'fiil', label: 'fiʿl + fāʿil', hint: 'the same ending: one woman', words: [{ ar: 'وَٱسْجُدِى', en: 'and bow down', say: 'wa-sjudi', type: 'v' }] },
+      ]}
+      en={['Be devoted to your Lord, and bow down.']}
+    />
+    <Sentence
+      roles
+      reference="Taha 20:43"
+      groups={[
+        { role: 'fiil', label: 'fiʿl + fāʿil', hint: 'the ending ā is the doer: you two', words: [{ ar: 'ٱذْهَبَآ', en: 'go, you two', say: 'idhhaba', type: 'v' }] },
+        { role: 'tied', hint: 'goes with the command', words: [{ ar: 'إِلَىٰ', en: 'to', type: 'p' }, { ar: 'فِرْعَوْنَ', en: 'Pharaoh' }] },
+        { words: [{ ar: 'إِنَّهُۥ', en: 'indeed he', type: 'p' }, { ar: 'طَغَىٰ', en: 'went too far', type: 'v' }] },
+      ]}
+      en={['Go, both of you, to Pharaoh. He has gone too far.']}
+    />
+    <Sentence
+      roles
+      reference="Al-Ahzab 33:34 (part)"
+      groups={[
+        { role: 'fiil', label: 'fiʿl + fāʿil', hint: 'the ending -na is the doer: you women', words: [{ ar: 'وَٱذْكُرْنَ', en: 'and remember', say: 'wa-dhkurna', type: 'v' }] },
+        { role: 'maful', hint: 'what you remember', words: [{ ar: 'مَا', en: 'what' }, { ar: 'يُتْلَىٰ', en: 'is recited', type: 'v' }, { ar: 'فِى', en: 'in', type: 'p' }, { ar: 'بُيُوتِكُنَّ', en: 'your homes' }] },
+      ]}
+      en={['And remember what is recited in your homes.']}
+    />
+  </Stage>
+
+- **One woman, -ī.** The angels speak to Maryam: ٱقْنُتِى and ٱسْجُدِى (3:43). The ى is the doer.
+- **Two people, -ā.** The verse before (20:42) says “you and your brother”, so ٱذْهَبَآ is said to Musa and his brother. The ا is the doer. Al-Jadwal reads the same ending as the doer in لَا تَنِيَا in 20:42.
+- **Women, -na.** Allah speaks to the wives of the Prophet (33:32). The نَ is the doer. Al-Jadwal says so for وَقَرْنَ in 33:33, the verse before.
+
+<Note kind="warn">A command ending in ـِى is for one woman. It does not mean “me”. After a verb, “me” is ـنِى, as in ٱهْدِنِى. L3.02 teaches the attached pronouns.</Note>
+
+<Check n={7} q="In ٱقْنُتِى, what does the final ى mean?" options={['“me”', '“you”, one woman', '“you two”']} answer={1} why="After a command, ـِى is the doer: one woman. “Me” would be ـنِى." />
+</Block>
+
+</Step>
+
+<Step id="built" label="A fixed ending" title="Why the ending does not change">
+<Block id="mabni" title="A command is built, not moved">
+  <Stage label="Three kinds of fixed ending">
+    <Tiles
+      label="three commands: built on a sukūn, on a dropped nūn, on a dropped weak letter"
+      items={[
+        { ar: 'ٱنْحَرْ', en: 'built on a sukūn', type: 'v' },
+        { ar: 'ٱقْنُتِى', en: 'built on a dropped nūn', type: 'v' },
+        { ar: 'صَلِّ', en: 'built on a dropped weak letter', type: 'v' },
+      ]}
+    />
+  </Stage>
+
+A noun changes its ending with its job: -u, -a or -i (L2.04 to L2.06). A present-tense verb changes its ending with its mood (L3.07). A command does not change. ٱنْحَرْ stays ٱنْحَرْ, whatever words are around it.
+
+The grammar books call a word with a fixed ending **built**, مَبْنِي (*mabnī*). Al-Jadwal says a command is built on whatever the jussive would show:
+
+- a **sukūn**, as in ٱنْحَرْ (108:2);
+- a **dropped nūn**, as in ٱقْنُتِى (3:43);
+- a **dropped weak letter**, as in صَلِّ (108:2).
+
+You know all three from the present tense: it is the same ending that you chose in move 1 of the recipe. L2.12 showed ٱنْحَرْ and صَلِّ in Al-Kawthar, and their endings are different for this reason.
+
+<Check n={8} q="What is ٱقْنُتِى built on?" options={['a sukūn', 'a dropped nūn', 'a dropped weak letter']} answer={1} why="The present for one woman is تَقْنُتِينَ. The jussive drops the nūn, and the command is built on that. The ى is the doer." />
+</Block>
+
+<Block id="words" title="Al-Jadwal's words for each one">
+  <Stage label="Pattern">
+    <Tiles
+      label="the five persons and the weak verb, with what each is built on"
+      items={[
+        { ar: 'ٱسْجُدْ', en: 'one man: sukūn', type: 'v' },
+        { ar: 'ٱسْجُدْنَ', en: 'women: sukūn', type: 'v' },
+        { ar: 'ٱسْجُدِى', en: 'one woman: dropped nūn', type: 'v' },
+        { ar: 'ٱسْجُدَا', en: 'two people: dropped nūn', type: 'v' },
+        { ar: 'ٱسْجُدُوا۟', en: 'men: dropped nūn', type: 'v' },
+        { ar: 'ٱدْعُ', en: 'weak verb: dropped weak letter', type: 'v' },
+      ]}
+    />
+  </Stage>
+
+| You | Example from a verse | Built on | Al-Jadwal's words |
+|---|---|---|---|
+| one man | ٱنْحَرْ (108:2) | sukūn | فعل أمر مبني على السكون |
+| women | وَقَرْنَ (33:33) | sukūn, and the nūn is the doer | فعل أمر مبني على السكون والنون فاعل |
+| one woman, two people, men | ٱقْنُتِى (3:43), أَقِيمُوا۟ (2:110) | dropped nūn | فعل أمر مبني على حذف النون |
+| one man, from a weak verb | ٱدْعُ (16:125) | dropped weak letter | فعل أمر مبني على حذف حرف العلة |
+
+The women's form ends in a sukūn, like the form for one man. The nūn there is the doer, so it is not dropped. The weak verb ٱدْعُ is in step 4.
+
+A built word has no case and no mood. So when you go through a command word by word, you give three things: it is a command, what it is built on, and who the doer is.
+</Block>
+
+<Block id="first-book" title="How the first grammar book says it">
+  <Stage label="From al-Ajurrumiyyah">
+    <blockquote class="lx-quote" lang="ar" dir="rtl">
+      <p>والأَمْرُ مَجْزُومٌ أبَداً</p>
+      <p>ولِلْجَزْمِ عَلامتانِ السكون والحذف</p>
+    </blockquote>
+    <p class="lx-quote-note">Text as on Wikisource.</p>
+  </Stage>
+
+*Al-Ajurrumiyyah* is a short grammar book by Ibn Ājurrūm (died 723 AH). It names three kinds of verb: past, present and command. For the command it says it is **jussive** (*majzūm*). It then says the jussive has two signs: the sukūn, and dropping a letter.
+
+<Note kind="know">Al-Jadwal says the command is **built**. Al-Ajurrumiyyah says it is **jussive**. The two books name the same endings: a sukūn, a dropped nūn, a dropped weak letter. They give the endings a different label. This course follows al-Jadwal. Al-Durr al-Maṣūn on 2:21 and 2:110 does not discuss the ending of the command, so it does not settle the point.</Note>
+</Block>
+
+<Block id="not-he" title="A command for “he” or “she”">
+  <Stage>
+    <Sentence
+      roles
+      reference="Al-Hashr 59:18 (part)"
+      groups={[
+        { role: 'fiil', label: 'fiʿl + fāʿil', hint: 'a command to “you all”: the ending -ū is the doer', words: [{ ar: 'ٱتَّقُوا۟', en: 'fear', say: 'ittaqu', type: 'v' }] },
+        { role: 'maful', words: [{ ar: 'ٱللَّهَ', en: 'Allah', say: 'allaha' }] },
+        { role: 'fiil', label: 'lām + present verb', hint: 'a command for “she”: لِ and تَنظُرْ', words: [{ ar: 'وَلْتَنظُرْ', en: 'and let look', say: 'wal-tanzur', type: 'v' }] },
+        { role: 'fail', hint: 'a soul', words: [{ ar: 'نَفْسٌ', en: 'a soul', say: 'nafsun' }] },
+      ]}
+      en={['Fear Allah, and let a soul look.']}
+    />
+  </Stage>
+
+The command form is only for “you”. Arabic has no command form for “he”, “she” or “they”. To tell someone who is not there, Arabic puts the little word لِ (*lām al-amr*, “the lām of command”) in front of a present verb. The Corpus tags the verb as jussive.
+
+This verse has both kinds side by side. ٱتَّقُوا۟ is a command for “you all”. It has no prefix, and its ending is a dropped nūn. وَلْتَنظُرْ is a command for “a soul”, which is “she”. It keeps the prefix تَ, and the لِ in front makes the command.
+
+L3.07 teaches the little words that put a present verb in the jussive: the لِ of this command, and the لَا of “do not”.
+
+<Note kind="remember">If a verb has a present-tense prefix (يَ, تَ, نَ, أَ) and means a command, it is لِ plus the jussive. It is not the command form.</Note>
+
+<Check n={9} q="In وَلْتَنظُرْ نَفْسٌ, is لْتَنظُرْ a command form like ٱتَّقُوا۟?" options={['Yes: it has no prefix', 'No: it is a present verb with the prefix تَ, and لِ makes it a command']} answer={1} why="The command form has no present-tense prefix. Here the prefix تَ is still there. The لِ gives the meaning of a command." />
+</Block>
+
+</Step>
+
+<Step id="shapes" label="Other shapes" title="Commands that look different">
+<Block id="weak" title="Weak verbs make short commands">
+  <Stage>
+    <Sentence
+      roles
+      reference="An-Nas 114:1"
+      groups={[
+        { role: 'fiil', label: 'fiʿl + hidden fāʿil', hint: 'the doer is a hidden “you”', words: [{ ar: 'قُلْ', en: 'say!', say: 'qul', type: 'v' }] },
+        { role: 'maful', label: 'what is said', hint: 'the words after “say”', words: [{ ar: 'أَعُوذُ', en: 'I seek refuge', type: 'v' }, { ar: 'بِرَبِّ', en: 'with the Lord of', type: 'p' }, { ar: 'ٱلنَّاسِ', en: 'the people' }] },
+      ]}
+      en={['Say: I seek refuge with the Lord of the people.']}
+    />
+  </Stage>
+
+L1.11 taught قُلْ in 112:1. Here it is again in a verse you have not met. Five surahs open with it: 72, 109, 112, 113 and 114. Quran Learn checked this in the Corpus by reading the first word of verse 1 of every surah. In the Corpus, 349 command words come from the verb قَالَ, “he said”, and 332 of them are for one man: قُلْ, قُلِ and قُل.
+
+قُلْ is a **weak verb** command. The root ق و ل has a weak letter in the middle, so the command is shorter than the pattern says.
+
+| Verb | Present “you” | Command | What changed | Taught in |
+|---|---|---|---|---|
+| قَالَ, say | تَقُولُ | قُلْ | the middle و drops | L4.12 |
+| دَعَا, call | تَدْعُو | ٱدْعُ | the last و drops | L4.13 |
+| هَدَى, guide | تَهْدِى | ٱهْدِ | the last ى drops | L4.13 |
+| أَكَلَ, eat | تَأْكُلُ | كُلْ | the first hamza drops | L4.15 |
+| أَخَذَ, take | تَأْخُذُ | خُذْ | the first hamza drops | L4.15 |
+
+The weak letter comes back when an ending follows. You see قُولُوا۟ (33:70) for a group and قُولِىٓ (19:26) for one woman. When a word that starts with ٱ comes next, the sukūn of قُلْ changes to a kasra: قُلِ ٱللَّهُمَّ (3:26). The verb خُذِ in خُذِ ٱلْعَفْوَ (7:199) does the same.
+
+<Note kind="warn">Of these five, only قُلْ is a hollow verb, with a weak letter in the middle. كُلْ and خُذْ begin with a hamza (L4.15). ٱدْعُ and ٱهْدِ end in a weak letter (L4.13). L4.11 introduces all of these.</Note>
+
+<Check n={10} q="Which present form does قُلْ come from?" options={['تَقُولُ', 'تَأْكُلُ', 'تَدْعُو']} answer={0} why="قَالَ, “he said”, has the root ق و ل. In the command the middle و drops: تَقُولُ gives قُلْ." />
+</Block>
+
+<Block id="forms" title="Commands of the other verb forms">
+  <Stage label="Words from verses">
+    <Tiles
+      label="four commands of four forms: Form II, IV, VIII and X"
+      items={[
+        { ar: 'صَلِّ', en: 'Form II (108:2)', type: 'v' },
+        { ar: 'أَقِيمُوا۟', en: 'Form IV (2:110)', type: 'v' },
+        { ar: 'ٱتَّقُوا۟', en: 'Form VIII (59:18)', type: 'v' },
+        { ar: 'ٱسْتَعِينُوا۟', en: 'Form X (2:45)', type: 'v' },
+      ]}
+    />
+    <Sentence
+      roles
+      reference="Al-Baqarah 2:110 (part)"
+      groups={[
+        { role: 'fiil', label: 'fiʿl + fāʿil', hint: 'the ending -ū is the doer: “you all”', words: [{ ar: 'وَأَقِيمُوا۟', en: 'and keep up', say: 'wa-aqimu', type: 'v' }] },
+        { role: 'maful', words: [{ ar: 'ٱلصَّلَوٰةَ', en: 'the prayer', say: 'as-salata' }] },
+        { role: 'fiil', label: 'fiʿl + fāʿil', hint: 'the ending -ū is the doer: “you all”', words: [{ ar: 'وَءَاتُوا۟', en: 'and give', say: 'wa-atu', type: 'v' }] },
+        { role: 'maful', words: [{ ar: 'ٱلزَّكَوٰةَ', en: 'the zakat', say: 'az-zakata' }] },
+      ]}
+      en={['And keep up the prayer, and give the zakat.']}
+    />
+  </Stage>
+
+The other verb forms make commands in the same way: take the present for “you”, end it like the jussive, take off the prefix, and add a helper only if the word starts with a silent letter. Form I is the most common among the commands (1,181), then Form IV (289), Form VIII (160) and Form II (105). Quran Learn made these counts from the Corpus form tags.
+
+| Form | Present “you” | Command | It starts with | Taught in |
+|---|---|---|---|---|
+| II | تُصَلِّى | صَلِّ | the stem letter, no helper | L3.12 |
+| III | تُجَٰدِلُ | جَٰدِلْ | the stem letter, no helper | L3.17 |
+| IV | تُقِيمُونَ | أَقِيمُوا۟ | أَ, a hamza that is said | L3.13 |
+| V | تَتَوَفَّى | تَوَفَّ | تَ, which is part of the form | L3.15 |
+| VIII | تَتَّقُونَ | ٱتَّقُوا۟ | ٱ and the sound i | L3.14 |
+| X | تَسْتَعِينُونَ | ٱسْتَعِينُوا۟ | ٱ and the sound i | L3.16 |
+
+Form IV is the one to watch. Its command starts with أَ, the **cutting hamza** (*hamzat al-qaṭʿ*). It is said even after وَ: *wa-aqīmū*. Compare وَٱسْجُدِى, where you say *wa-sjudī*. In ءَاتُوا۟ the hamza and a long ā are written together as ءَ. L3.13 teaches Form IV.
+
+L2.03 promised this command: أَقِيمُوا۟ is a Form IV command for “you all”, built on a dropped nūn, and its doer is the wāw. The verb ٱتَّقُوا۟ from L1.07 and L1.10 is the same kind, in Form VIII.
+
+<Check n={11} q="Which command is Form IV?" options={['صَلِّ', 'أَقِيمُوا۟', 'ٱسْتَعِينُوا۟']} answer={1} why="It begins with أَ, a hamza that is said. صَلِّ is Form II and ٱسْتَعِينُوا۟ is Form X." />
+</Block>
+
+<Block id="pronoun" title="A pronoun on the end of a command">
+  <Stage>
+    <Sentence
+      roles
+      reference="Al-Imran 3:147 (end)"
+      groups={[
+        { role: 'fiil', label: 'fiʿl + “us”', hint: 'نَا is the object: “us”', words: [{ ar: 'وَٱنصُرْنَا', en: 'and help us', say: 'wa-nsurna', type: 'v' }] },
+        { role: 'tied', hint: 'goes with the command', words: [{ ar: 'عَلَى', en: 'against', type: 'p' }, { ar: 'ٱلْقَوْمِ', en: 'the people' }, { ar: 'ٱلْكَٰفِرِينَ', en: 'who reject' }] },
+      ]}
+      en={['And help us against the people who reject.']}
+    />
+  </Stage>
+
+A command can carry a short pronoun on its end. Here نَا is “us”, and it is the **object**. The command ٱنصُرْ keeps its shape in front of it. The doer is still the hidden “you”.
+
+You know the endings that show the doer: ـِى, ـَا, ـُوا۟ and ـْنَ. An object pronoun is a different ending. It comes after them. L3.02 teaches the attached pronouns.
+
+A command is not always strict. The believers in this verse are asking. Al-Jadwal calls a command that is a request to Allah an *amr duʿāʾī*, “a command that is a prayer”. The form is the same. The situation decides the meaning: an order, advice or a request. ٱهْدِنَا in 1:6 is ٱهْدِ with نَا, a prayer of the same kind.
+
+<Check n={12} q="In وَٱنصُرْنَا, what is نَا?" options={['The doer: “we”', 'The object: “us”', 'The doer: “you”']} answer={1} why="The doer of ٱنصُرْ is the hidden “you”. نَا is joined to the end and is the object: “help us”." />
+</Block>
+
+<Block id="spot" title="Spot a command in a verse">
+  <Stage>
+    <Sentence
+      roles
+      reference="Al-ʿAlaq 96:19"
+      groups={[
+        { words: [{ ar: 'كَلَّا', en: 'no!', type: 'p' }, { ar: 'لَا', en: 'do not', type: 'p' }] },
+        { role: 'fiil', label: 'present after لَا', hint: 'a prefix, so not a command form: “obey him”', words: [{ ar: 'تُطِعْهُ', en: 'obey him', type: 'v' }] },
+        { role: 'fiil', label: 'command', hint: 'no prefix: “bow down”', words: [{ ar: 'وَٱسْجُدْ', en: 'and bow down', type: 'v' }] },
+        { role: 'fiil', label: 'command, Form VIII', hint: 'no prefix: “come near”', words: [{ ar: 'وَٱقْتَرِب', en: 'and come near', type: 'v' }] },
+      ]}
+      en={['No! Do not obey him. Bow down and come near.']}
+    />
+  </Stage>
+
+Here are three clues for a command form.
+
+1. **It has no present-tense prefix** (يَ, تَ, نَ, أَ) in front of the stem. Forms V and VI are the exception, because their تَ is part of the form (L3.15, L3.18).
+2. **Its ending is one of the five:** a sukūn, ـِى, ـَا, ـُوا۟ or ـْنَ. A weak verb may drop its last letter instead.
+3. **It tells “you” to do something.**
+
+In this verse, لَا تُطِعْهُ looks like a command because it ends in a sukūn. But it has the prefix تُ and it follows لَا, so it is a present verb that says “do not”. L3.07 teaches that. The next two words have no prefix, so they are commands.
+
+<Check n={13} q="Which word is a command form?" options={['تَنظُرُ', 'ٱنظُرْ', 'نَظَرَ']} answer={1} why="ٱنظُرْ has no prefix and ends in a sukūn: “look!”. تَنظُرُ is the present, “you look”. نَظَرَ is the past, “he looked”." />
+</Block>
+
+</Step>
+
+<Step id="practice" label="Check yourself" title="Mistakes, four verses word by word, practice">
+<Block id="mistakes" title="Common mistakes">
+  <Stage label="Three look-alikes">
+    <Tiles
+      label="ٱكْتُبْ is right. تَكْتُبْ keeps the prefix. كْتُبْ has no helper."
+      items={[
+        { ar: 'ٱكْتُبْ', en: 'right: write!', type: 'v' },
+        { ar: 'تَكْتُبْ', en: 'prefix kept: jussive', type: 'x' },
+        { ar: 'كْتُبْ', en: 'no helper: cannot be said', type: 'x' },
+      ]}
+    />
+  </Stage>
+
+1. **Keeping the prefix.** تَكْتُبْ ends in a sukūn like the command, but it keeps the prefix تَ. It is a jussive. ٱكْتُبْ, “write!”, is a command. تَكْتُبُ, “you write”, is only a statement.
+2. **Leaving out the helper.** كْتُبْ cannot be said, because Arabic does not start a word with a silent letter. Write ٱكْتُبْ.
+3. **Using the wrong helper sound.** Look at the present “he” form. A ḍamma on the middle letter gives u, as in ٱسْجُدْ. A fatḥa or a kasra gives i, as in ٱذْهَبْ and ٱجْلِسْ.
+4. **Calling every short command “hollow”.** Only قُلْ is hollow. كُلْ and خُذْ begin with a hamza, and ٱدْعُ ends in a weak letter. L4.11 introduces all of them.
+5. **Looking for a written “you”.** A command has a doer, but it is hidden in ٱقْرَأْ and it is the ending in ٱسْجُدِى, ٱسْجُدَا, ٱسْجُدُوا۟ and ٱسْجُدْنَ.
+6. **Reading “do not” as a command.** لَا تُطِعْهُ is a present verb after لَا. It keeps the prefix.
+7. **Looking for a command form for “he” or “she”.** There is none. Arabic uses لِ and the jussive: وَلْتَنظُرْ نَفْسٌ.
+8. **Thinking every command starts with ٱ.** A Form IV command starts with أَ, a hamza that is said.
+9. **Thinking every command is strict.** A command can be a request or a prayer, as in 3:147.
+</Block>
+
+<Block id="parse-1" title="Word by word: Al-Imran 3:43">
+  <Stage label="Word by word">
+    <Parse
+      reference="Al-Imran 3:43 (end)"
+      words={[
+        { ar: 'ٱقْنُتِى', en: 'be devoted', type: 'v' },
+        { ar: 'لِرَبِّكِ', en: 'to your Lord', type: 'p' },
+        { ar: 'وَٱسْجُدِى', en: 'and bow down', type: 'v' },
+        { ar: 'وَٱرْكَعِى', en: 'and bow', type: 'v' },
+        { ar: 'مَعَ', en: 'with', type: 'p' },
+        { ar: 'ٱلرَّٰكِعِينَ', en: 'those who bow' },
+      ]}
+      cards={[
+        { at: 0, ar: 'ٱقْنُتِى', role: 'a command: “be devoted!”. Its doer is the ى: “you”, one woman', case: 'none: a verb has no case', mark: 'built on a dropped nūn', why: 'The present for one woman is تَقْنُتِينَ. The jussive drops the nūn, and the command takes off the تَ and adds the helper ٱ. The ى is the doer.', irab: 'فعل أمر مبني على حذف النون، والياء ضمير مبني في محل رفع فاعل' },
+        { at: 1, role: 'a phrase that goes with the verb: لِ “to”, رَبِّ “Lord of”, كِ “your”, one woman', case: 'رَبِّ is genitive (jarr)', mark: '-i (kasra) on رَبِّ', why: 'A noun after لِ is genitive (L2.07). كِ is the second word of an idafah. Al-Jadwal: the phrase is tied to ٱقْنُتِى.', irab: 'جار ومجرور متعلق باقنتي، والكاف ضمير مضاف إليه' },
+        { at: 2, ar: 'وَ', role: '“and”, a little word that joins this command to the one before', why: 'A little word has no case.', irab: 'الواو عاطفة' },
+        { at: 2, ar: 'ٱسْجُدِى', role: 'a command: “bow down!”. The ى is the doer again', case: 'none: a verb has no case', mark: 'built on a dropped nūn', why: 'The same as ٱقْنُتِى. Say it *wa-sjudī*: the helper is silent after وَ. Al-Jadwal: “like ٱقْنُتِى”.', irab: 'فعل أمر مبني على حذف النون والياء فاعل' },
+        { at: 3, ar: 'وَ', role: '“and”, a little word', why: 'A little word has no case.', irab: 'الواو عاطفة' },
+        { at: 3, ar: 'ٱرْكَعِى', role: 'a command: “bow!”. The ى is the doer', case: 'none: a verb has no case', mark: 'built on a dropped nūn', why: 'The same as ٱقْنُتِى. The present stem has a fatḥa on the middle letter, so the helper sounds i.', irab: 'فعل أمر مبني على حذف النون والياء فاعل' },
+        { at: 4, role: 'a place word: “with”. It goes with ٱرْكَعِى', case: 'accusative (naṣb)', mark: '-a (fatḥa)', why: 'A place word is accusative (L2.05).', irab: 'ظرف مكان منصوب متعلق باركعي' },
+        { at: 5, role: 'the second word of an idafah (muḍāf ilayh): “of those who bow”', case: 'genitive (jarr)', mark: '-īna: a sound masculine plural shows its case with ي (L2.06)', why: 'The second word of an idafah is genitive.', irab: 'مضاف إليه مجرور وعلامة جره الياء' },
+      ]}
+    />
+  </Stage>
+
+This verse has three commands in a row, all for one woman, all built on a dropped nūn. The ى is the doer each time. The little word وَ joins them.
+</Block>
+
+<Block id="parse-2" title="Word by word: Al-Baqarah 2:110">
+  <Stage label="Word by word">
+    <Parse
+      reference="Al-Baqarah 2:110 (part)"
+      words={[
+        { ar: 'وَأَقِيمُوا۟', en: 'and keep up', type: 'v' },
+        { ar: 'ٱلصَّلَوٰةَ', en: 'the prayer' },
+        { ar: 'وَءَاتُوا۟', en: 'and give', type: 'v' },
+        { ar: 'ٱلزَّكَوٰةَ', en: 'the zakat' },
+      ]}
+      cards={[
+        { at: 0, ar: 'وَ', role: '“and”, a little word that starts a new sentence', why: 'A little word has no case. Al-Jadwal: it starts a new sentence.', irab: 'الواو استئنافية' },
+        { at: 0, ar: 'أَقِيمُوا۟', role: 'a command: “keep up!”. Form IV. Its doer is the و: “you all”', case: 'none: a verb has no case', mark: 'built on a dropped nūn', why: 'The present for a group is تُقِيمُونَ. The jussive drops the nūn. A Form IV command starts with أَ, which you always say (L3.13). The و is the doer, as in L2.03.', irab: 'فعل أمر مبني على حذف النون، والواو فاعل' },
+        { at: 1, role: 'mafʿūl bihi: the object. It is what you keep up', case: 'accusative (naṣb)', mark: '-a (fatḥa) on the last letter', why: 'The action of the verb falls on it (L2.05).', irab: 'مفعول به منصوب وعلامة نصبه الفتحة الظاهرة' },
+        { at: 2, ar: 'وَ', role: '“and”, a little word that joins this command to the one before', why: 'A little word has no case.', irab: 'الواو عاطفة' },
+        { at: 2, ar: 'ءَاتُوا۟', role: 'a command: “give!”. Form IV, like أَقِيمُوا۟', case: 'none: a verb has no case', mark: 'built on a dropped nūn', why: 'Al-Jadwal: “like أَقِيمُوا۟”. It starts with ءَ, a hamza and a long ā (L3.13). The و is the doer.', irab: 'فعل أمر مبني على حذف النون، والواو فاعل' },
+        { at: 3, role: 'mafʿūl bihi: the object. It is what you give', case: 'accusative (naṣb)', mark: '-a (fatḥa) on the last letter', why: 'The action of the verb falls on it.', irab: 'مفعول به منصوب وعلامة نصبه الفتحة الظاهرة' },
+        { at: [0, 1], role: 'the sentence “keep up the prayer”', case: 'no place', why: 'Al-Jadwal: it starts a new sentence, so it has no place in a bigger one.', irab: 'وجملة «أقيموا ...» لا محل لها استئنافية' },
+        { at: [2, 3], role: 'the sentence “give the zakat”', case: 'no place', why: 'It is joined to the first sentence, so it has the same job: none.', irab: 'وجملة «آتوا ...» لا محل لها معطوفة على أقيموا' },
+      ]}
+    />
+  </Stage>
+
+This verse answers the promise of L2.03. أَقِيمُوا۟ is a command, the wāw is the doer, and the object follows. The only new thing is the shape of the verb: Form IV, which begins with أَ.
+</Block>
+
+<Block id="parse-3" title="Word by word: An-Nahl 16:125">
+  <Stage label="Word by word">
+    <Parse
+      reference="An-Nahl 16:125 (start)"
+      words={[
+        { ar: 'ٱدْعُ', en: 'call', type: 'v' },
+        { ar: 'إِلَىٰ', en: 'to', type: 'p' },
+        { ar: 'سَبِيلِ', en: 'the way of' },
+        { ar: 'رَبِّكَ', en: 'your Lord' },
+      ]}
+      cards={[
+        { at: 0, ar: 'ٱدْعُ', role: 'a command: “call!”. A weak verb. Its doer is a hidden “you”', case: 'none: a verb has no case', mark: 'built on dropping the weak letter', why: 'The present is تَدْعُو. The jussive drops the last letter و, giving تَدْعُ. The command takes off the تَ and adds the helper ٱ, which sounds u. L4.13 teaches verbs like this.', irab: 'فعل أمر مبني على حذف حرف العلة، والفاعل ضمير مستتر تقديره أنت' },
+        { at: 1, role: 'a preposition: “to”', why: 'A little word has no case. It makes the next noun genitive (L2.07).', irab: 'حرف جر' },
+        { at: 2, role: 'the noun after the preposition. It is also the first word of an idafah: “the way of …”', case: 'genitive (jarr)', mark: '-i (kasra) on the last letter', why: 'The preposition pulls it (L2.07). The first word of an idafah takes the case its own place gives (L2.08).', irab: 'اسم مجرور بإلى وعلامة جره الكسرة الظاهرة، وهو مضاف' },
+        { at: 3, ar: 'رَبِّ', role: 'the second word of an idafah (muḍāf ilayh): “of the Lord”', case: 'genitive (jarr)', mark: '-i (kasra)', why: 'The second word of an idafah is genitive. It is also the first word of a second idafah with كَ.', irab: 'مضاف إليه مجرور' },
+        { at: 3, ar: 'كَ', role: 'the second word of the idafah: “your”', case: 'genitive (jarr), by place', mark: 'none: a pronoun never changes', why: 'It is an attached pronoun (L3.02).', irab: 'ضمير متصل مبني في محل جر مضاف إليه' },
+        { at: [1, 2, 3], role: 'a phrase that goes with the command: where the call goes', why: 'Al-Jadwal: the phrase is tied to ٱدْعُ.', irab: 'جار ومجرور متعلق بادع' },
+      ]}
+    />
+  </Stage>
+
+This is a command from a weak verb. Al-Jadwal writes its ending in the same way as for a command that drops a letter: “built on dropping the weak letter”. The doer is hidden: it is “you”, one man.
+</Block>
+
+<Block id="parse-4" title="Word by word: Al-Aʿraf 7:155">
+  <Stage label="Word by word">
+    <Parse
+      reference="Al-Aʿraf 7:155 (part)"
+      words={[
+        { ar: 'فَٱغْفِرْ', en: 'so forgive', type: 'v' },
+        { ar: 'لَنَا', en: 'us', type: 'p' },
+        { ar: 'وَٱرْحَمْنَا', en: 'and have mercy on us', type: 'v' },
+      ]}
+      cards={[
+        { at: 0, ar: 'فَ', role: '“so”: a little word that ties the request to a condition left out', why: 'A little word has no case. Al-Jadwal: it ties the request to the answer of a condition that is understood.', irab: 'الفاء رابطة لجواب شرط مقدر' },
+        { at: 0, ar: 'ٱغْفِرْ', role: 'a command that is a prayer: “forgive!”. Its doer is a hidden “you”', case: 'none: a verb has no case', mark: 'built on a sukūn', why: 'The present is تَغْفِرُ. The jussive gives تَغْفِرْ. The command takes off the تَ and adds the helper ٱ, which sounds i. Al-Jadwal calls a command to Allah an *amr duʿāʾī*.', irab: 'فعل أمر دعائي مبني على السكون، والفاعل ضمير مستتر تقديره أنت' },
+        { at: 1, role: 'a phrase that goes with the verb: لِ “for” and نَا “us”', case: 'نَا is genitive, by place', mark: 'none: a pronoun never changes', why: 'It says who is forgiven. Al-Jadwal: tied to ٱغْفِرْ.', irab: 'جار ومجرور متعلق باغفر، ونا ضمير في محل جر' },
+        { at: 2, ar: 'وَ', role: '“and”, a little word that joins two prayers', why: 'A little word has no case.', irab: 'الواو عاطفة' },
+        { at: 2, ar: 'ٱرْحَمْ', role: 'a command that is a prayer: “have mercy!”. Its doer is a hidden “you”', case: 'none: a verb has no case', mark: 'built on a sukūn', why: 'Al-Jadwal: “like ٱغْفِرْ”. The helper sounds i, because the present stem has a fatḥa on the middle letter.', irab: 'فعل أمر دعائي مبني على السكون، والفاعل ضمير مستتر تقديره أنت' },
+        { at: 2, ar: 'نَا', role: 'mafʿūl bihi: the object, “us”. An attached pronoun', case: 'accusative, by place (fī maḥall naṣb)', mark: 'none: a pronoun never changes', why: 'The mercy falls on “us”. Al-Jadwal: nā is the object (L3.02).', irab: 'ضمير متصل مبني في محل نصب مفعول به' },
+      ]}
+    />
+  </Stage>
+
+Two prayers, each a command with a hidden “you”. The second has a pronoun on its end, which is its object.
+</Block>
+
+<Block id="practice-1" title="Practice: making and spotting">
+  <Stage label="The recipe">
+    <Formula
+      label="the present for you, plus three small changes, equals a command"
+      items={[
+        { kind: 'm', text: 'present “you”', small: 'تَقْرَأُ' },
+        { kind: 'k', text: 'sukūn, no تَ, add ٱ', small: 'three small changes' },
+        { kind: 's', text: 'command', small: 'ٱقْرَأْ' },
+      ]}
+    />
+  </Stage>
+
+Work out each answer first, on paper or in your head. Then open the answer. The verbs in exercises 1 and 4 are real verbs from the Quran, but the forms are patterns, not verse quotes.
+
+<Exercise n={1} q="Make the command for one man from each present form. Say which sound the helper takes. (a) تَذْكُرُ, “you remember” (b) تَضْرِبُ, “you strike” (c) تَدْخُلُ, “you enter” (d) تَذْهَبُ, “you go”">
+
+Use the three moves: end in a sukūn, take off تَ, add ٱ. For the sound, look at the present “he” form.
+
+- (a) تَذْكُرُ gives ٱذْكُرْ. يَذْكُرُ has a ḍamma on the middle letter, so the helper sounds **u**: *udhkur*.
+- (b) تَضْرِبُ gives ٱضْرِبْ. يَضْرِبُ has a kasra, so **i**: *iḍrib*.
+- (c) تَدْخُلُ gives ٱدْخُلْ. يَدْخُلُ has a ḍamma, so **u**: *udkhul*.
+- (d) تَذْهَبُ gives ٱذْهَبْ. يَذْهَبُ has a fatḥa, so **i**: *idhhab*.
+
+</Exercise>
+
+<Exercise n={2} q="Which of these are command forms? (a) قُلْ (b) يَقُولُ (c) ٱسْجُدْ (d) سَجَدَ (e) ٱقْرَأْ (f) تَقْرَأُ (g) وَلْتَنظُرْ">
+
+- (a) **Command.** “Say!”, from تَقُولُ.
+- (b) Present, “he says”. It has the prefix يَ.
+- (c) **Command.** “Bow down!”
+- (d) Past, “he bowed down”.
+- (e) **Command.** “Read!”
+- (f) Present, “you read”. It has the prefix تَ and the ending -u.
+- (g) Not a command form. It is a present verb with the prefix تَ, and the لِ in front makes the meaning a command, for “she” (59:18).
+
+</Exercise>
+
+<Exercise n={3} q="Find the commands in this verse, and say what the other verb is: كَلَّا لَا تُطِعْهُ وَٱسْجُدْ وَٱقْتَرِب (Al-ʿAlaq 96:19). Meaning: “No! Do not obey him. Bow down and come near.”">
+
+- **وَٱسْجُدْ** is a command, Form I, for one man. It is built on a sukūn.
+- **وَٱقْتَرِب** is a command, Form VIII, for one man. The helper sounds i. The doer of both is a hidden “you”.
+- **لَا تُطِعْهُ** is not a command form. It is a present verb, Form IV, with the prefix تُ. After لَا it says “do not obey him”. Al-Jadwal calls this لَا *nāhiya*, “the لَا that forbids”, and says it makes the verb jussive.
+
+</Exercise>
+
+<Exercise n={4} q="Give the command for all five “you” forms of نَصَرَ, “he helped”. The present is تَنْصُرُ.">
+
+يَنْصُرُ has a ḍamma on the middle letter, so the helper sounds u.
+
+1. One man: ٱنصُرْ (*unṣur*)
+2. One woman: ٱنصُرِى (*unṣurī*)
+3. Two people: ٱنصُرَا (*unṣurā*)
+4. A group of men: ٱنصُرُوا۟ (*unṣurū*)
+5. A group of women: ٱنصُرْنَ (*unṣurna*)
+
+The Quran has the form for one man in وَٱنصُرْنَا (3:147), with نَا, “us”, on the end.
+
+</Exercise>
+
+<Exercise n={5} q="Make a command for “Write!”, said to one woman, from تَكْتُبِينَ. This is a made-up example.">
+
+تَكْتُبِينَ is the present for one woman. The jussive drops the nūn: تَكْتُبِى. Take off the تَ: كْتُبِى. Add the helper: **ٱكْتُبِى** (*uktubī*). It is built on a dropped nūn, and the ى is the doer. The helper sounds u, because يَكْتُبُ has a ḍamma on the middle letter.
+
+</Exercise>
+</Block>
+
+<Block id="practice-2" title="Practice: endings, forms and verses">
+  <Stage label="Five endings">
+    <Tiles
+      label="five endings: sukūn, ī, ā, ū, na"
+      items={[
+        { ar: 'ـْ', en: 'one man', type: 'x' },
+        { ar: 'ـِى', en: 'one woman', type: 'x' },
+        { ar: 'ـَا', en: 'two people', type: 'x' },
+        { ar: 'ـُوا۟', en: 'men', type: 'x' },
+        { ar: 'ـْنَ', en: 'women', type: 'x' },
+      ]}
+    />
+  </Stage>
+
+<Exercise n={6} q="What is each command built on? (a) ٱقْنُتِى (Al-Imran 3:43) (b) أَقِيمُوا۟ (Al-Baqarah 2:110) (c) ٱدْعُ (An-Nahl 16:125) (d) ٱذْكُرْنَ (Al-Ahzab 33:34) (e) ٱغْفِرْ (Al-Aʿraf 7:155)">
+
+- (a) A **dropped nūn**. The ى is the doer, one woman.
+- (b) A **dropped nūn**. The و is the doer, “you all”. It is Form IV.
+- (c) A **dropped weak letter**. The و of تَدْعُو drops. The doer is a hidden “you”.
+- (d) A **sukūn**. The نَ is the doer, “you women”, so it is not dropped.
+- (e) A **sukūn**. The doer is a hidden “you”. It is a command that is a prayer.
+
+</Exercise>
+
+<Exercise n={7} q="Match each command with its present “you” form, and say where its kind is taught. Commands: (a) قُلْ (b) ٱدْعُ (c) خُذْ (d) ٱسْتَعِينُوا۟ (e) صَلِّ. Present forms: تَدْعُو, تَسْتَعِينُونَ, تَأْخُذُ, تُصَلِّى, تَقُولُ.">
+
+- (a) قُلْ comes from **تَقُولُ**. The middle و drops. A hollow verb: L4.12.
+- (b) ٱدْعُ comes from **تَدْعُو**. The last و drops. A defective verb: L4.13.
+- (c) خُذْ comes from **تَأْخُذُ**. The first hamza drops, so there is no helper. A hamzated verb: L4.15.
+- (d) ٱسْتَعِينُوا۟ comes from **تَسْتَعِينُونَ**. Form X, built on a dropped nūn: L3.16.
+- (e) صَلِّ comes from **تُصَلِّى**. Form II, built on a dropped weak letter: L3.12.
+
+</Exercise>
+
+<Exercise n={8} q="Who is told in each command? (a) ٱسْجُدِى (b) ٱسْجُدُوا۟ (c) ٱسْجُدَا (d) ٱسْجُدْنَ (e) ٱسْجُدْ">
+
+- (a) One woman. The ى is the doer.
+- (b) A group of men, or a mixed group. The و is the doer.
+- (c) Two people. The ا is the doer.
+- (d) A group of women. The نَ is the doer.
+- (e) One man. The doer is a hidden “you”.
+
+</Exercise>
+
+<Exercise n={9} q="Read this verse and answer. (a) Who is told to go? (b) Who is the doer of طَغَىٰ? ٱذْهَبَآ إِلَىٰ فِرْعَوْنَ إِنَّهُۥ طَغَىٰ (Taha 20:43). Meaning: “Go, both of you, to Pharaoh. He has gone too far.”">
+
+- (a) **Two people**: Musa and his brother (20:42). The ending ا is the doer, “you two”. The command is built on a dropped nūn.
+- (b) طَغَىٰ is a past verb with a hidden doer: “he”, Pharaoh (L2.03). It is not a command, because it says what he did.
+
+</Exercise>
+
+<Exercise n={10} q="How do you say these aloud, and why do they differ? وَٱرْكَعِى (Al-Imran 3:43) and وَأَقِيمُوا۟ (Al-Baqarah 2:110)">
+
+- وَٱرْكَعِى is *wa-rkaʿī*. The helper ٱ is silent after وَ. Only the و is heard, and then the word starts with رْ.
+- وَأَقِيمُوا۟ is *wa-aqīmū*. The أَ is a cutting hamza, from Form IV. You say it, even after وَ.
+
+</Exercise>
+
+<Exercise n={11} q="Go through this phrase word by word: وَٱسْتَعِينُوا۟ بِٱلصَّبْرِ (Al-Baqarah 2:45, start). Meaning: “And ask for help with patience.”">
+
+- وَ is a little word that joins this sentence to the one before.
+- **ٱسْتَعِينُوا۟** is a command, Form X, from the root ع و ن. The present is تَسْتَعِينُونَ. It is built on a dropped nūn, and the و is the doer, “you all”. It starts with ٱ, and the helper sounds i. Al-Jadwal: “built on dropping the nūn, and the wāw is the doer”.
+- **بِٱلصَّبْرِ** is a phrase that goes with the verb: بِ, “with”, and a noun in the genitive (-i). Al-Jadwal: tied to ٱسْتَعِينُوا۟.
+
+</Exercise>
+</Block>
+
+<Block id="done" title="You have finished the lesson">
+  <Stage label="The idea">
+    <Formula
+      label="the present tense for you, plus three small changes, equals a command"
+      items={[
+        { kind: 'm', text: 'present “you”', small: 'تَقْرَأُ' },
+        { kind: 'k', text: 'three small changes', small: 'sukūn, no تَ, add ٱ' },
+        { kind: 's', text: 'command', small: 'ٱقْرَأْ' },
+      ]}
+    />
+  </Stage>
+
+- A command is a verb that asks “you” to do something. Make it from the present for “you”: end like the jussive, take off the prefix, and add a helper if the word starts with a silent letter.
+- The helper ٱ sounds u after a ḍamma and i after a fatḥa or a kasra. It is silent after وَ and فَ.
+- There are five commands: one man (sukūn), one woman (ـِى), two people (ـَا), men (ـُوا۟) and women (ـْنَ). The doer is hidden for one man and is the ending for the other four.
+- A command is built. It is built on a sukūn, a dropped nūn or a dropped weak letter, and it has no case and no mood. Al-Ajurrumiyyah calls it jussive.
+- “He” and “she” have no command form. Arabic uses لِ and the jussive. “Do not” uses لَا and the jussive (L3.07).
+- Weak verbs make short commands (قُلْ, ٱدْعُ, خُذْ). Other forms have their own commands: Form IV starts with أَ.
+
+**Next:** L3.09 teaches the passive voice. L3.12 and L3.13 teach Form II and Form IV in full, and L4.11 starts the weak verbs. Before you go on, review L3.06 and L3.07 if the recipe felt new.
+
+<Sources
+    items={[
+      { label: 'Quran text', name: 'Tanzil (Uthmani text)', href: 'https://tanzil.net' },
+      { label: 'Word types, forms and counts', name: 'Quranic Arabic Corpus', href: 'https://corpus.quran.com' },
+      { label: 'Word-by-word analysis (iʿrāb) of every verse', name: 'Maḥmūd Ṣāfī, al-Jadwal fī Iʿrāb al-Qurʾān wa-Ṣarfihi wa-Bayānihi' },
+      { label: 'Where scholars differ', name: 'al-Samīn al-Ḥalabī, al-Durr al-Maṣūn (2:21 and 2:110: no entry on the command)' },
+      { label: 'Grammar', name: 'Ibn Ājurrūm, al-Ajurrumiyyah, chapters on the verbs and the signs of the jussive' },
+      { label: 'English under the verses', name: 'Plain-English meanings by Quran Learn, not a translation' },
+    ]}
+  />
+</Block>
+
+</Step>

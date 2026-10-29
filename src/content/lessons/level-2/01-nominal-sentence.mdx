@@ -5,7 +5,7 @@ titleArabic: "جُمْلَة اِسْمِيَّة"
 level: 2
 order: 1
 template: steps
-description: "Learn the nominal sentence: a sentence that starts with a noun and needs no verb. Find its two parts, the mubtadaʾ and the khabar, and see why both end in -u."
+description: "Learn the nominal sentence: a sentence that starts with a noun and needs no verb. Find the mubtadaʾ and the khabar, see why both end in -u, learn the five kinds of khabar and when the khabar comes first, and go through four verses word by word."
 draft: false
 ---
 
@@ -19,32 +19,41 @@ import Note from '../../../components/lesson/Note.astro';
 import Check from '../../../components/lesson/Check.astro';
 import Start from '../../../components/lesson/Start.astro';
 import Sources from '../../../components/lesson/Sources.astro';
+import Parse from '../../../components/lesson/Parse.astro';
+import Exercise from '../../../components/lesson/Exercise.astro';
+import Block from '../../../components/lesson/Block.astro';
 
-<Step hero id="start" label="Start" title={frontmatter.title} kicker={frontmatter.kicker} titleArabic={frontmatter.titleArabic}>
+{/* Content spec: docs/redesign/specs/L2.01-nominal-sentence.md. Every parse follows al-Jadwal (Mahmud Safi). */}
+
+<Step hero id="start" label="The two parts" title={frontmatter.title} kicker={frontmatter.kicker} titleArabic={frontmatter.titleArabic}>
+<Block id="overview" title="In this lesson" level={2} uncounted>
   <Stage label="The idea">
     <Formula
       label="mubtadaʾ plus khabar equals a nominal sentence"
       items={[
-        { kind: 'm', text: 'mubtadaʾ', small: 'the topic' },
+        { kind: 'm', text: 'mubtadaʾ', small: 'the starting point' },
         { kind: 'k', text: 'khabar', small: 'the news' },
         { kind: 's', text: 'nominal sentence', small: 'جُمْلَة اِسْمِيَّة' },
       ]}
     />
   </Stage>
   <Start
-    goal="Find the two parts of a nominal sentence, and say why both of them end in <b>-u</b>."
-    minutes={15}
-    before="Noun, verb and little word (L1.04). The -u ending (L1.10)."
+    goal="Find the two parts of a nominal sentence in a verse, say why both end in <b>-u</b>, name the kind of khabar, and go through a short verse word by word."
+    minutes={40}
+    before="Noun, verb and little word (L1.04). Simple sentences (L1.09). The three case endings (L1.10)."
     terms={[
       { term: 'Nominal sentence', ar: 'جُمْلَة اِسْمِيَّة', meaning: 'A sentence that starts with a noun.' },
-      { term: 'Mubtadaʾ', ar: 'مُبْتَدَأ', meaning: 'What the sentence is about.' },
-      { term: 'Khabar', ar: 'خَبَر', meaning: 'What the sentence says about it.' },
+      { term: 'Mubtadaʾ', ar: 'مُبْتَدَأ', meaning: 'The starting point: what the sentence is about.' },
+      { term: 'Khabar', ar: 'خَبَر', meaning: 'The news: what the sentence says about it.' },
       { term: 'Nominative', ar: 'رَفْع', meaning: 'The -u ending.' },
+      { term: 'Khabar muqaddam', ar: 'خَبَر مُقَدَّم', meaning: 'A khabar put first.' },
+      { term: 'Mubtadaʾ muʾakhkhar', ar: 'مُبْتَدَأ مُؤَخَّر', meaning: 'A mubtadaʾ put later.' },
+      { term: 'Iʿrāb', ar: 'إِعْرَاب', meaning: 'Going word by word: the role and case of each word.' },
     ]}
   />
-</Step>
+</Block>
 
-<Step id="see" label="See it" title="Look at this sentence">
+<Block id="see" title="Look at this sentence" level={2}>
   <Stage>
     <Sentence
       size="big"
@@ -60,10 +69,12 @@ import Sources from '../../../components/lesson/Sources.astro';
 
 It is part of a verse about Allah. Read it from right to left.
 
-**Count the words.** The Arabic has two. The English has three. Which English word is extra?
-</Step>
+**Count the words.** The Arabic has two. The English has three.
 
-<Step id="no-is" label="No “is”" title="Arabic leaves out “is”">
+<Check n={1} q="Which English word has no Arabic word under it?" options={['He', 'is', 'the First']} answer={1} why="Arabic puts the two words side by side. English needs “is” to join them." />
+</Block>
+
+<Block id="no-is" title="Arabic leaves out “is”" level={2}>
   <Stage label="The missing word">
     <Tiles
       label="هُوَ, then nothing, then ٱلْأَوَّلُ: He is the First"
@@ -75,151 +86,829 @@ It is part of a verse about Allah. Read it from right to left.
     />
   </Stage>
 
-English needs a small word like *is*, *am* or *are*: “The sky <u>is</u> blue.” Arabic does not. It puts two words side by side.
+English needs a small word like *is*, *am* or *are*: “The sky <u>is</u> blue.” Arabic does not. It puts the two words side by side, and the reader understands “is”.
 
-A sentence like this is called a **nominal sentence**, جُمْلَة اِسْمِيَّة. *Ism* means noun, so it is a sentence that starts with a noun. No verb is needed.
+So do not look for a hidden verb. Nothing is missing in the Arabic. You add “is” only when you say the sentence in English.
 
-  <Note kind="remember">You add “is” when you say it in English. There is no Arabic word for it.</Note>
-</Step>
+<Note kind="remember">A nominal sentence has no word for “is”. You add it in English.</Note>
+</Block>
 
-<Step id="parts" label="Two parts" title="Every nominal sentence has two parts">
-  <Stage>
+<Block id="name" title="Why it is called a “noun sentence”" level={2}>
+  <Stage label="Said in every prayer">
     <Sentence
-      roles
-      reference="Al-Hadid 57:3 (part)"
+      reference="Said in the prayer (not a verse)"
       groups={[
-        { role: 'mubtada', words: [{ ar: 'هُوَ', en: 'he', say: 'huwa' }] },
-        { role: 'khabar', words: [{ ar: 'ٱلْأَوَّلُ', en: 'the First', say: 'al-awwalu' }] },
+        { words: [{ ar: 'ٱللَّهُ', en: 'Allah', say: 'allahu' }] },
+        { words: [{ ar: 'أَكْبَرُ', en: 'greater', say: 'akbaru' }] },
       ]}
-      en={['He ', { gap: 'is' }, ' the First.']}
-    />
-    <Sentence
-      roles
-      reference="Al-Baqarah 2:2 (part)"
-      groups={[
-        { role: 'mubtada', words: [{ ar: 'ذَٰلِكَ', en: 'that', say: 'dhalika' }] },
-        { role: 'khabar', words: [{ ar: 'ٱلْكِتَٰبُ', en: 'the Book', say: 'al-kitabu' }] },
-      ]}
-      en={['That ', { gap: 'is' }, ' the Book.']}
+      en={['Allah ', { gap: 'is' }, ' greater than all.']}
     />
   </Stage>
 
-- **Mubtadaʾ** مُبْتَدَأ: the starting point. What the sentence is about.
-- **Khabar** خَبَر: the news. What the sentence says about it.
+This kind of sentence is called a **nominal sentence**, جُمْلَة اِسْمِيَّة (*jumla ismiyya*). *Ism* means noun. It is a sentence that starts with a noun, and it needs no verb.
 
-In the second sentence, *that* is the topic and *the Book* is the news about it.
+You already say one many times a day. ٱللَّهُ أَكْبَرُ is a nominal sentence: two nouns side by side, and English adds “is”.
 
-  <Note kind="know">Many grammar books say **subject** and **predicate**. They mean roughly the same as mubtadaʾ and khabar.</Note>
-</Step>
+<Note kind="know">The other kind is the **verbal sentence**, جُمْلَة فِعْلِيَّة, which starts with a verb. You met both in L1.09. L2.03 teaches the verbal sentence.</Note>
+</Block>
 
-<Step id="rule" label="The rule" title="The rule: both end in -u">
+<Block id="parts" title="Every nominal sentence has two parts" level={2}>
   <Stage>
     <Sentence
       roles
-      reference="Al-Baqarah 2:218 (end)"
+      reference="Al-Imran 3:68 (end)"
       groups={[
         { role: 'mubtada', words: [{ ar: 'وَٱللَّهُ', en: 'and Allah', say: 'wa-llahu' }] },
-        { role: 'khabar', words: [{ ar: 'غَفُورٌ', en: 'Forgiving', say: 'ghafurun' }, { ar: 'رَّحِيمٌ', en: 'Merciful', say: 'rahimun' }] },
+        { role: 'khabar', words: [{ ar: 'وَلِىُّ', en: 'protector of', say: 'waliyyu' }, { ar: 'ٱلْمُؤْمِنِينَ', en: 'the believers', say: 'al-muminina' }] },
       ]}
-      en={['And Allah ', { gap: 'is' }, ' Forgiving, Merciful.']}
+      en={['And Allah ', { gap: 'is' }, ' the protector of the believers.']}
     />
   </Stage>
 
-The mubtadaʾ and the khabar both take the **nominative** case, رَفْع. That means they end in **-u** (like بُ) or **-un** (like بٌ).
+- **Mubtadaʾ**, مُبْتَدَأ: “the thing you start with”. It is what the sentence is about. Here it is ٱللَّهُ.
+- **Khabar**, خَبَر: “news”. It is what the sentence says about the mubtadaʾ. Here it is وَلِىُّ ٱلْمُؤْمِنِينَ, “the protector of the believers”.
 
-وَٱللَّهُ ends in **-u**. غَفُورٌ and رَّحِيمٌ end in **-un**. The khabar can be more than one word. Both words say something about Allah.
+The little word وَ (and) at the front joins this sentence to the one before it in the verse. It is not part of the mubtadaʾ.
 
-  <Note kind="know">Words like *huwa* (he) and *dhalika* (that) never show an ending. They are still the mubtadaʾ.</Note>
+<Note kind="know">Many English grammar books say **subject** and **predicate**. They mean roughly the same as mubtadaʾ and khabar. This course uses the Arabic names, because the Arabic grammar books do.</Note>
+</Block>
 
-  <Note kind="warn">The mubtadaʾ is not the doer of a verb (the *fāʿil*). Both end in -u, but they belong to different sentence types. You will meet the fāʿil in L2.03.</Note>
-</Step>
-
-<Step id="more" label="A longer one" title="A longer one">
+<Block id="rule" title="The rule: both end in -u" level={2}>
   <Stage>
     <Sentence
       roles
-      reference="An-Nur 24:35 (part)"
+      reference="Al-Imran 3:68 (end)"
       groups={[
-        { role: 'mubtada', words: [{ ar: 'ٱللَّهُ', en: 'Allah', say: 'allahu' }] },
-        { role: 'khabar', words: [{ ar: 'نُورُ', en: 'light of', say: 'nuru' }, { ar: 'ٱلسَّمَٰوَٰتِ', en: 'the heavens', say: 'as-samawati' }, { ar: 'وَٱلْأَرْضِ', en: 'and the earth', say: 'wa-l-ardi' }] },
+        { role: 'mubtada', words: [{ ar: 'وَٱللَّهُ', en: 'and Allah', say: 'wa-llahu' }] },
+        { role: 'khabar', words: [{ ar: 'وَلِىُّ', en: 'protector of', say: 'waliyyu' }, { ar: 'ٱلْمُؤْمِنِينَ', en: 'the believers', say: 'al-muminina' }] },
       ]}
-      en={['Allah ', { gap: 'is' }, ' the light of the heavens and the earth.']}
     />
   </Stage>
 
-The mubtadaʾ is a single word here. The khabar is a group of words that belong together.
+The mubtadaʾ and the khabar are both **nominative**, رَفْع (*rafʿ*). In L1.10 you saw what that looks like: **-u** (a ḍamma, ـُ) or **-un** (ـٌ) at the end.
 
-Look for the -u ending to find where each part starts. ٱللَّهُ is the topic. نُورُ begins the news, and the words after it finish the idea.
+- ٱللَّهُ ends in -u.
+- وَلِىُّ ends in -u. It is the first word of the khabar, so the -u goes on it.
 
-  <Note kind="tip">To find the end of the khabar, say the whole phrase out loud. Stop when the idea is finished.</Note>
+Why nominative? Because of their place in the sentence: one is the starting point, the other is the news about it. The khabar does not copy the mubtadaʾ. Later you will meet words like *inna* and *kāna*. When they come in front of a nominal sentence, the endings change (L2.10, L2.11).
+
+<Note kind="warn">ٱلْمُؤْمِنِينَ ends in -īna, not -u. It is not the khabar on its own. It means “of the believers” and hangs on وَلِىُّ (an idafah, L2.08).</Note>
+
+<Check n={2} q="Which ending do the mubtadaʾ and the khabar both take?" options={['-u or -un (ḍamma)', '-a or -an (fatḥa)', '-i or -in (kasra)']} answer={0} why="Both are nominative (rafʿ), the -u family." />
+</Block>
+
+<Block id="hidden" title="Sometimes you cannot see the -u" level={2}>
+  <Stage>
+    <Sentence
+      roles
+      reference="Al-Imran 3:150 (start)"
+      groups={[
+        { words: [{ ar: 'بَلِ', en: 'no, rather', say: 'bal', type: 'p' }] },
+        { role: 'mubtada', words: [{ ar: 'ٱللَّهُ', en: 'Allah', say: 'allahu' }] },
+        { role: 'khabar', words: [{ ar: 'مَوْلَىٰكُمْ', en: 'your protector', say: 'mawlakum' }] },
+      ]}
+      en={['No, Allah ', { gap: 'is' }, ' your Protector.']}
+    />
+  </Stage>
+
+مَوْلَىٰ (*mawlā*, protector) ends in a long **ā**, written ى. A long ā cannot carry a vowel mark, so the -u cannot be written on it.
+
+The word is still nominative. The grammar books say its ḍamma is **hidden**: *muqaddara*, “understood but not seen”. Al-Jadwal says exactly this about this verse.
+
+<Note kind="warn">A word that ends in ى or ا keeps its case. You just cannot see it. Use the word’s place in the sentence to know its case.</Note>
+
+<Check n={3} q="In ٱللَّهُ مَوْلَىٰكُمْ, which case is مَوْلَىٰ in?" options={['Nominative, with a hidden -u', 'Accusative, because it ends in -ā', 'Genitive']} answer={0} why="It is the khabar, so it is nominative. The -u is hidden because a long ā cannot carry it." />
+</Block>
+
+<Block id="pronoun" title="A pronoun can be the mubtadaʾ" level={2}>
+  <Stage>
+    <Sentence
+      roles
+      reference="Al-Imran 3:150 (end)"
+      groups={[
+        { role: 'mubtada', words: [{ ar: 'وَهُوَ', en: 'and he', say: 'wa-huwa' }] },
+        { role: 'khabar', words: [{ ar: 'خَيْرُ', en: 'best of', say: 'khayru' }, { ar: 'ٱلنَّٰصِرِينَ', en: 'the helpers', say: 'an-nasirina' }] },
+      ]}
+      en={['And He ', { gap: 'is' }, ' the best of helpers.']}
+    />
+  </Stage>
+
+The same verse goes on with a second nominal sentence. Its mubtadaʾ is هُوَ, “he”.
+
+Pronouns like هُوَ never change their ending. It is still the mubtadaʾ, and it still counts as nominative. The grammar books say it is “in the place of” the nominative (*fī maḥall rafʿ*).
+
+The khabar خَيْرُ ends in -u, as you expect.
+
+<Note kind="know">The first grammar book many students learn, *al-Ajurrumiyyah*, lists twelve pronouns that can be a mubtadaʾ: أَنَا، نَحْنُ، أَنْتَ، أَنْتِ، أَنْتُمَا، أَنْتُمْ، أَنْتُنَّ، هُوَ، هِيَ، هُمَا، هُمْ، هُنَّ.</Note>
+</Block>
+
+<Block id="two-khabars" title="One mubtadaʾ, two khabars" level={2}>
+  <Stage>
+    <Sentence
+      roles
+      reference="An-Nisa 4:26 (end)"
+      groups={[
+        { role: 'mubtada', words: [{ ar: 'وَٱللَّهُ', en: 'and Allah', say: 'wa-llahu' }] },
+        { role: 'khabar', words: [{ ar: 'عَلِيمٌ', en: 'all-knowing', say: 'alimun' }] },
+        { role: 'khabar2', words: [{ ar: 'حَكِيمٌ', en: 'all-wise', say: 'hakimun' }] },
+      ]}
+      en={['And Allah ', { gap: 'is' }, ' All-Knowing, All-Wise.']}
+    />
+  </Stage>
+
+One mubtadaʾ can have more than one khabar. Here ٱللَّهُ has two: عَلِيمٌ and حَكِيمٌ. Al-Jadwal calls حَكِيمٌ the **second khabar**. Both end in -un.
+
+Look at the two khabars closely. They are built the same way:
+
+- عَلِيم comes from the root ع ل م (knowing).
+- حَكِيم comes from the root ح ك م (wisdom, judging).
+- Both follow the pattern فَعِيل (*faʿīl*), a common pattern for a word that describes a quality.
+
+<Note kind="know">You will meet roots and patterns properly in Level 3. For now: many names of Allah in the Quran follow فَعِيل, such as رَحِيم and سَمِيع.</Note>
+</Block>
+
 </Step>
 
-<Step id="first" label="Reversed" title="Sometimes the news comes first">
+<Step id="kinds-of-khabar" label="Kinds of khabar" title="What the khabar can be">
+<Block id="first-book" title="How the first grammar book says it">
+  <Stage label="From al-Ajurrumiyyah">
+    <blockquote class="lx-quote" lang="ar" dir="rtl">
+      <p>وَالْمُبْتَدَأُ قِسْمَانِ: ظَاهِرٌ وَمُضْمَرٌ</p>
+      <p>وَالْخَبَرُ قِسْمَانِ: مُفْرَدٌ وَغَيْرُ مُفْرَدٍ</p>
+    </blockquote>
+    <p class="lx-quote-note">Vowel marks added by Quran Learn.</p>
+  </Stage>
+
+*Al-Ajurrumiyyah* is a short grammar book by Ibn Ājurrūm (died 723 AH). For centuries it has been the first grammar book many students learn. Its chapter on the mubtadaʾ and the khabar says:
+
+- “The mubtadaʾ is of two kinds: a plain noun and a pronoun.” You have seen both: ٱللَّهُ and هُوَ.
+- “The khabar is of two kinds: single and not single.”
+
+The rest of this lesson is about that second line: what a khabar can be.
+</Block>
+
+<Block id="single" title="A single khabar">
+  <Stage>
+    <Sentence
+      roles
+      reference="An-Nisa 4:26 (end)"
+      groups={[
+        { role: 'mubtada', words: [{ ar: 'وَٱللَّهُ', en: 'and Allah' }] },
+        { role: 'khabar', words: [{ ar: 'عَلِيمٌ', en: 'all-knowing' }] },
+        { role: 'khabar2', words: [{ ar: 'حَكِيمٌ', en: 'all-wise' }] },
+      ]}
+    />
+    <Sentence
+      roles
+      reference="Al-Imran 3:68 (end)"
+      groups={[
+        { role: 'mubtada', words: [{ ar: 'وَٱللَّهُ', en: 'and Allah' }] },
+        { role: 'khabar', words: [{ ar: 'وَلِىُّ', en: 'protector of' }, { ar: 'ٱلْمُؤْمِنِينَ', en: 'the believers' }] },
+      ]}
+    />
+  </Stage>
+
+Every khabar you have seen so far is **single**, مُفْرَد (*mufrad*).
+
+“Single” does not mean “one word”. وَلِىُّ ٱلْمُؤْمِنِينَ is two words, and it is still a single khabar. Single means: **not a sentence, and not a phrase that starts with a little word** like *li-* or *fī*.
+
+<Note kind="remember">Single (mufrad) means “not a sentence”. It does not mean “one word”.</Note>
+</Block>
+
+<Block id="phrase" title="The khabar can be a phrase">
+  <Stage>
+    <Sentence
+      roles
+      reference="Al-Aʿraf 7:128 (end)"
+      groups={[
+        { role: 'mubtada', words: [{ ar: 'وَٱلْعَٰقِبَةُ', en: 'and the good end', say: 'wal-aqibatu' }] },
+        { role: 'khabar', words: [{ ar: 'لِلْمُتَّقِينَ', en: 'for the God-fearing', say: 'lil-muttaqina', type: 'p' }] },
+      ]}
+      en={['And the good end ', { gap: 'is' }, ' for those who fear Allah.']}
+    />
+  </Stage>
+
+Here the khabar is a short phrase: the little word *li-* (for) and a noun, لِلْمُتَّقِينَ. The noun after *li-* is genitive, as you learned in L1.10.
+
+The mubtadaʾ ٱلْعَٰقِبَةُ ends in -u as usual. The khabar does not end in -u, because a phrase like this has no ending of its own.
+
+<Note kind="know">Al-Jadwal words it more exactly: the phrase is “tied to a khabar that is left out”, a word like “is found”. So “the good end is (found) for the God-fearing”. In this course we simply call the phrase the khabar, as *al-Ajurrumiyyah* does.</Note>
+
+<Check n={4} q="In وَٱلْعَٰقِبَةُ لِلْمُتَّقِينَ, which part is the khabar?" options={['وَٱلْعَٰقِبَةُ', 'لِلْمُتَّقِينَ']} answer={1} why="لِلْمُتَّقِينَ is the news about the good end: it is for the God-fearing." />
+</Block>
+
+<Block id="verbal" title="The khabar can be a verbal sentence">
+  <Stage>
+    <Sentence
+      roles
+      reference="Al-Baqarah 2:15 (start)"
+      groups={[
+        { role: 'mubtada', words: [{ ar: 'ٱللَّهُ', en: 'Allah', say: 'allahu' }] },
+        { role: 'khabar', hint: 'a verb with its doer', words: [{ ar: 'يَسْتَهْزِئُ', en: 'mocks', say: 'yastahziu', type: 'v' }, { ar: 'بِهِمْ', en: 'at them', say: 'bihim', type: 'p' }] },
+      ]}
+      en={['Allah mocks them in return.']}
+    />
+  </Stage>
+
+The khabar can be a whole **verbal sentence**: a verb with its doer. Here the khabar is يَسْتَهْزِئُ بِهِمْ.
+
+Where is the doer? It is hidden inside the verb: يَسْتَهْزِئُ means “**he** mocks”. So the sentence is: “Allah: He mocks them.”
+
+Notice that the English needs no extra “is” this time. The khabar has its own verb.
+
+<Note kind="know">Al-Jadwal explains in its notes that this is Allah paying them back for their mocking. The payback is given the name of what they did.</Note>
+</Block>
+
+<Block id="nominal" title="The khabar can be a nominal sentence">
+  <Stage>
+    <Sentence
+      roles
+      reference="Al-Imran 3:14 (end)"
+      groups={[
+        { role: 'mubtada', words: [{ ar: 'وَٱللَّهُ', en: 'and Allah', say: 'wa-llahu' }] },
+        { role: 'khabar', hint: 'a whole nominal sentence', words: [{ ar: 'عِندَهُۥ', en: 'with him', say: 'indahu' }, { ar: 'حُسْنُ', en: 'the best of', say: 'husnu' }, { ar: 'ٱلْمَـَٔابِ', en: 'the return', say: 'al-maabi' }] },
+      ]}
+      en={['And Allah: with Him ', { gap: 'is' }, ' the best place to return to.']}
+    />
+  </Stage>
+
+The khabar can be a whole **nominal sentence**: a sentence inside a sentence.
+
+Here the mubtadaʾ is ٱللَّهُ. The news about Allah is a complete sentence of its own: عِندَهُۥ حُسْنُ ٱلْمَـَٔابِ, “with Him is the best return”.
+
+That inner sentence has its own two parts. You will see how they work in the next step.
+
+<Check n={5} q="What is the khabar of ٱللَّهُ in this verse?" options={['عِندَهُۥ', 'حُسْنُ', 'the whole of عِندَهُۥ حُسْنُ ٱلْمَـَٔابِ']} answer={2} why="Al-Jadwal: the sentence عِندَهُۥ حُسْنُ ٱلْمَـَٔابِ is the khabar of ٱللَّهُ." />
+</Block>
+
+<Block id="place" title="The khabar can be a place or time word">
+  <Stage>
+    <Sentence
+      roles
+      reference="Al-Anʿam 6:59 (start)"
+      groups={[
+        { role: 'khabarFirst', words: [{ ar: 'وَعِندَهُۥ', en: 'and with him', say: 'wa-indahu' }] },
+        { role: 'mubtadaLater', words: [{ ar: 'مَفَاتِحُ', en: 'keys of', say: 'mafatihu' }, { ar: 'ٱلْغَيْبِ', en: 'the unseen', say: 'al-ghaybi' }] },
+      ]}
+      en={['And with Him ', { gap: 'are' }, ' the keys of the unseen.']}
+    />
+  </Stage>
+
+The last kind of khabar is a word for a place or a time, a ظَرْف (*ẓarf*). Words like عِنْدَ (with, at), فَوْقَ (above) and يَوْمَ (on the day) are place and time words.
+
+Here the khabar is عِندَهُۥ, “with Him”. A place word like this ends in -a, not -u.
+
+In this verse the khabar comes **first**, and the mubtadaʾ مَفَاتِحُ comes after it. The next step explains why.
+</Block>
+
+<Block id="kinds" title="The five kinds of khabar">
+  <Stage label="The book’s own examples">
+    <blockquote class="lx-quote lx-quote-list" lang="ar" dir="rtl">
+      <p>زَيْدٌ قَائِمٌ</p>
+      <p>زَيْدٌ فِي الدَّارِ</p>
+      <p>زَيْدٌ عِنْدَكَ</p>
+      <p>زَيْدٌ قَامَ أَبُوهُ</p>
+      <p>زَيْدٌ جَارِيَتُهُ ذَاهِبَةٌ</p>
+    </blockquote>
+    <p class="lx-quote-note"><i>Al-Ajurrumiyyah</i>, in order: single; phrase; place word; verbal sentence; nominal sentence. Vowel marks added by Quran Learn.</p>
+  </Stage>
+
+*Al-Ajurrumiyyah* says the khabar that is not single is “four things”. With the single khabar, that makes five kinds:
+
+| Kind | In this lesson |
+|---|---|
+| Single, مُفْرَد | وَٱللَّهُ عَلِيمٌ حَكِيمٌ |
+| A phrase, جَارّ وَمَجْرُور | وَٱلْعَٰقِبَةُ لِلْمُتَّقِينَ |
+| A place or time word, ظَرْف | وَعِندَهُۥ مَفَاتِحُ ٱلْغَيْبِ |
+| A verbal sentence, جُمْلَة فِعْلِيَّة | ٱللَّهُ يَسْتَهْزِئُ بِهِمْ |
+| A nominal sentence, جُمْلَة اِسْمِيَّة | وَٱللَّهُ عِندَهُۥ حُسْنُ ٱلْمَـَٔابِ |
+
+The book’s own examples, on the right, all use the name Zayd: “Zayd is standing”, “Zayd is in the house”, “Zayd is with you”, “Zayd, his father stood up”, “Zayd, his servant is going”.
+
+<Check n={6} q="In ٱللَّهُ يَسْتَهْزِئُ بِهِمْ, what kind of khabar is it?" options={['Single', 'A phrase', 'A verbal sentence', 'A nominal sentence']} answer={2} why="The khabar starts with a verb, يَسْتَهْزِئُ, and its doer is hidden inside it." />
+</Block>
+
+</Step>
+
+<Step id="order" label="Which comes first" title="Which part comes first, and more">
+<Block id="order" title="The usual order">
+  <Stage label="The usual order">
+    <Formula
+      label="mubtadaʾ first, then khabar"
+      items={[
+        { kind: 'm', text: 'mubtadaʾ', small: 'first' },
+        { kind: 'k', text: 'khabar', small: 'second' },
+        { kind: 's', text: 'nominal sentence', small: 'the usual order' },
+      ]}
+    />
+  </Stage>
+
+Usually the mubtadaʾ comes first and the khabar second. That is the order in almost every verse so far: ٱللَّهُ first, then the news about Allah.
+
+But the khabar can come first. When it does, the two parts get new names:
+
+- **khabar muqaddam**, خَبَر مُقَدَّم: the khabar, put first.
+- **mubtadaʾ muʾakhkhar**, مُبْتَدَأ مُؤَخَّر: the mubtadaʾ, put later.
+
+The roles stay the same; only their order changes.
+</Block>
+
+<Block id="by-choice" title="The khabar first, by choice">
   <Stage>
     <Sentence
       roles
       reference="Al-Kafirun 109:6"
       groups={[
-        { role: 'khabar', words: [{ ar: 'لَكُمْ', en: 'for you', say: 'lakum', type: 'p' }] },
-        { role: 'mubtada', words: [{ ar: 'دِينُكُمْ', en: 'your religion', say: 'dinukum' }] },
+        { role: 'khabarFirst', words: [{ ar: 'لَكُمْ', en: 'for you', say: 'lakum', type: 'p' }] },
+        { role: 'mubtadaLater', words: [{ ar: 'دِينُكُمْ', en: 'your religion', say: 'dinukum' }] },
+        { role: 'khabarFirst', words: [{ ar: 'وَلِىَ', en: 'and for me', say: 'wa-liya', type: 'p' }] },
+        { role: 'mubtadaLater', words: [{ ar: 'دِينِ', en: 'my religion', say: 'dini' }] },
       ]}
-      en={['For you ', { gap: 'is' }, ' your religion.']}
+      en={['For you ', { gap: 'is' }, ' your religion, and for me ', { gap: 'is' }, ' my religion.']}
     />
   </Stage>
 
-The khabar can be a little phrase such as “for you”. Then it often comes **before** the mubtadaʾ.
+This verse has two nominal sentences, and both put the khabar first. The khabar is the phrase (“for you”, “for me”). The mubtadaʾ is the religion.
 
-Word for word: “For you <u>is</u> your religion.” The mubtadaʾ is still the word that ends in **-u**.
+The mubtadaʾ is still the word that ends in -u: دِينُكُمْ. Moving words to the front usually gives them weight: *for you* your religion, *for me* mine. L5.14 looks at word order and weight.
 
-  <Note kind="tip">A phrase that starts with a little word like *li-* (for) is not the topic. The topic is the next word that ends in -u.</Note>
-</Step>
+<Note kind="know">دِينِ is دِينِي, “my religion”, with the long ī of “my” left out. Its -u is hidden: al-Jadwal says the ḍamma is understood on the letter before the dropped ī.</Note>
 
-<Step id="try" label="Try it" title="Try it">
-  <Stage label="Look back">
+<Check n={7} q="In لَكُمْ دِينُكُمْ, which word is the mubtadaʾ?" options={['لَكُمْ', 'دِينُكُمْ']} answer={1} why="دِينُكُمْ ends in -u and is what the sentence is about. لَكُمْ is the khabar, put first." />
+</Block>
+
+<Block id="must" title="When the khabar must come first">
+  <Stage>
     <Sentence
-      reference="Al-Baqarah 2:218 (end)"
+      roles
+      reference="Al-Baqarah 2:10 (part)"
       groups={[
-        { words: [{ ar: 'وَٱللَّهُ', en: 'and Allah', say: 'wa-llahu' }] },
-        { words: [{ ar: 'غَفُورٌ', en: 'Forgiving', say: 'ghafurun' }, { ar: 'رَّحِيمٌ', en: 'Merciful', say: 'rahimun' }] },
+        { role: 'khabarFirst', words: [{ ar: 'وَلَهُمْ', en: 'and for them', say: 'wa-lahum', type: 'p' }] },
+        { role: 'mubtadaLater', words: [{ ar: 'عَذَابٌ', en: 'a punishment', say: 'adhabun' }, { ar: 'أَلِيمٌۢ', en: 'painful', say: 'alimun' }] },
+      ]}
+      en={['And for them ', { gap: 'is' }, ' a painful punishment.']}
+    />
+  </Stage>
+
+Look at the mubtadaʾ: عَذَابٌ, “**a** punishment”. It ends in -un, so it is **indefinite**.
+
+Arabic does not usually start a sentence with an indefinite noun like this. So when the khabar is a phrase or a place word, it **must** come first. *Al-Durr al-Maṣūn*, a classical book on the language of the Quran, calls this “a khabar put first that must come first”.
+
+<Check n={8} q="Why does لَهُمْ come first here?" options={['Because the mubtadaʾ عَذَابٌ is indefinite', 'Because لَهُمْ is a verb', 'There is no reason']} answer={0} why="An indefinite mubtadaʾ with a phrase as khabar: the khabar must come first." />
+</Block>
+
+<Block id="place-first" title="Finding the mubtadaʾ when the khabar is first">
+  <Stage>
+    <Sentence
+      roles
+      reference="Al-Anʿam 6:59 (start)"
+      groups={[
+        { role: 'khabarFirst', words: [{ ar: 'وَعِندَهُۥ', en: 'and with him' }] },
+        { role: 'mubtadaLater', words: [{ ar: 'مَفَاتِحُ', en: 'keys of' }, { ar: 'ٱلْغَيْبِ', en: 'the unseen' }] },
+      ]}
+      en={['And with Him ', { gap: 'are' }, ' the keys of the unseen.']}
+    />
+  </Stage>
+
+Back to the keys of the unseen. Here the mubtadaʾ is **definite** (*the* keys of the unseen), so the khabar did not have to come first. The verse chose this order. It goes on: “No one knows them except Him.”
+
+When a sentence starts with a phrase or a place word, find the mubtadaʾ like this: look for the next noun that ends in -u and does not come after a little word. Here it is مَفَاتِحُ.
+
+<Note kind="tip">The mubtadaʾ is never the noun right after *li-*, *bi-* or *fī*. Those nouns end in -i. Look further for the -u.</Note>
+</Block>
+
+<Block id="sentence-phrase" title="A sentence or just a phrase?">
+  <Stage>
+    <Sentence
+      roles
+      reference="Made-up example"
+      groups={[
+        { role: 'mubtada', words: [{ ar: 'ٱلْكِتَابُ', en: 'the book', say: 'al-kitabu' }] },
+        { role: 'khabar', words: [{ ar: 'جَدِيدٌ', en: 'new', say: 'jadidun' }] },
+      ]}
+      en={['The book ', { gap: 'is' }, ' new.']}
+    />
+    <Sentence
+      reference="Made-up example"
+      groups={[
+        { words: [{ ar: 'ٱلْكِتَابُ', en: 'the book', say: 'al-kitabu' }, { ar: 'ٱلْجَدِيدُ', en: 'the new', say: 'al-jadidu' }] },
+      ]}
+      en={['the new book …']}
+    />
+  </Stage>
+
+The two lines look almost the same. Only one is a sentence.
+
+- ٱلْكِتَابُ جَدِيدٌ: **the** book, **a** new … The first word is definite (it has *al-*), the second is not. This is a sentence: “The book is new.”
+- ٱلْكِتَابُ ٱلْجَدِيدُ: both words have *al-*. This is a phrase, a noun with its adjective: “the new book”. It is not finished. It waits for news about the new book.
+
+So the usual pattern of a nominal sentence is a definite mubtadaʾ and an indefinite khabar. L2.09 teaches nouns and adjectives.
+
+<Note kind="warn">This is a first guide, not a law. A khabar can be definite too. You saw one at the very start: هُوَ ٱلْأَوَّلُ, “He is the First”.</Note>
+</Block>
+
+<Block id="phrase-mubtada" title="A noun and its adjective can be the mubtadaʾ">
+  <Stage>
+    <Sentence
+      roles
+      reference="Al-Baqarah 2:10 (part)"
+      groups={[
+        { role: 'khabarFirst', words: [{ ar: 'وَلَهُمْ', en: 'and for them', type: 'p' }] },
+        { role: 'mubtadaLater', hint: 'a noun and its adjective', words: [{ ar: 'عَذَابٌ', en: 'a punishment' }, { ar: 'أَلِيمٌۢ', en: 'painful' }] },
+      ]}
+      en={['And for them ', { gap: 'is' }, ' a painful punishment.']}
+    />
+  </Stage>
+
+In this verse, عَذَابٌ أَلِيمٌۢ is a phrase: a noun, “a punishment”, and its adjective, “painful”. Both are indefinite, and the adjective copies the noun’s ending: -un and -un.
+
+The whole phrase is the mubtadaʾ. The khabar is لَهُمْ, put first. Al-Jadwal: أَلِيمٌ is “an adjective of عَذَاب, nominative like it”.
+
+<Check n={9} q="Is عَذَابٌ أَلِيمٌ a sentence here?" options={['No. It is a noun and its adjective, and together they are the mubtadaʾ.', 'Yes. عَذَابٌ is the mubtadaʾ and أَلِيمٌ is the khabar.']} answer={0} why="The khabar of this sentence is لَهُمْ, put first. أَلِيمٌ only describes the punishment." />
+</Block>
+
+<Block id="gender" title="The khabar matches a feminine mubtadaʾ">
+  <Stage>
+    <Sentence
+      roles
+      reference="Al-Baqarah 2:259 (part)"
+      groups={[
+        { role: 'mubtada', words: [{ ar: 'وَهِىَ', en: 'and it', say: 'wa-hiya' }] },
+        { role: 'khabar', words: [{ ar: 'خَاوِيَةٌ', en: 'fallen down', say: 'khawiyatun' }] },
+        { role: 'tied', hint: 'belongs to خَاوِيَةٌ', words: [{ ar: 'عَلَىٰ', en: 'on', type: 'p' }, { ar: 'عُرُوشِهَا', en: 'its roofs' }] },
+      ]}
+      en={['And it ', { gap: 'was' }, ' fallen down on its roofs.']}
+    />
+    <Sentence
+      roles
+      reference="An-Naml 27:88 (part)"
+      groups={[
+        { role: 'mubtada', words: [{ ar: 'وَهِىَ', en: 'and they', say: 'wa-hiya' }] },
+        { role: 'khabar', words: [{ ar: 'تَمُرُّ', en: 'pass', say: 'tamurru', type: 'v' }, { ar: 'مَرَّ', en: 'passing of', say: 'marra' }, { ar: 'ٱلسَّحَابِ', en: 'the clouds', say: 'as-sahabi' }] },
+      ]}
+      en={['And they pass by as the clouds pass.']}
+    />
+  </Stage>
+
+In 2:259, هِىَ, “she, it”, is a town, which is feminine in Arabic. The khabar خَاوِيَةٌ (“fallen down, in ruins”) is feminine too: it ends in -atun (ـَةٌ). A khabar like this matches its mubtadaʾ.
+
+In 27:88, هِىَ is the mountains. The khabar is a verb, and the verb shows the feminine too: تَمُرُّ starts with *ta-*.
+
+Look at the English of 2:259: “was”, not “is”. A nominal sentence has no time of its own. The verse around it tells you the time.
+
+<Note kind="know">Arabic often uses هِىَ, “she”, for a plural of things, like “the mountains”. You will meet this rule again.</Note>
+
+<Check n={10} q="Why does خَاوِيَةٌ end in -atun?" options={['It matches the feminine mubtadaʾ هِىَ', 'It is accusative', 'It is a verb']} answer={0} why="The town is feminine, so its khabar is feminine too." />
+</Block>
+
+<Block id="kana" title="A look ahead: kāna changes the khabar">
+  <Stage>
+    <Sentence
+      roles
+      reference="An-Nisa 4:26 (end)"
+      groups={[
+        { role: 'mubtada', words: [{ ar: 'وَٱللَّهُ', en: 'and Allah', say: 'wa-llahu' }] },
+        { role: 'khabar', words: [{ ar: 'عَلِيمٌ', en: 'all-knowing', say: 'alimun' }] },
+        { role: 'khabar2', words: [{ ar: 'حَكِيمٌ', en: 'all-wise', say: 'hakimun' }] },
       ]}
     />
     <Sentence
-      reference="Al-Hadid 57:3 (part)"
+      roles
+      reference="An-Nisa 4:17 (end)"
       groups={[
-        { words: [{ ar: 'هُوَ', en: 'he', say: 'huwa' }] },
-        { words: [{ ar: 'ٱلْأَوَّلُ', en: 'the First', say: 'al-awwalu' }] },
+        { words: [{ ar: 'وَكَانَ', en: 'and was', say: 'wa-kana', type: 'v' }] },
+        { role: 'ismKana', words: [{ ar: 'ٱللَّهُ', en: 'Allah', say: 'allahu' }] },
+        { role: 'khabarKana', words: [{ ar: 'عَلِيمًا', en: 'all-knowing', say: 'aliman' }] },
+        { role: 'khabarKana', label: 'second khabar', words: [{ ar: 'حَكِيمًا', en: 'all-wise', say: 'hakiman' }] },
+      ]}
+      en={['And Allah has always been All-Knowing, All-Wise.']}
+    />
+  </Stage>
+
+Compare two verses from the same surah. The words are almost the same.
+
+In the second, the verb كَانَ (*kāna*, “was”) comes first. Watch the endings:
+
+- ٱللَّهُ keeps its -u. It is now called the *ism* of kāna.
+- عَلِيمًا and حَكِيمًا change from -un to **-an**. The khabar of kāna is accusative.
+
+L2.11 teaches kāna and the words like it.
+
+<Check n={11} q="In وَكَانَ ٱللَّهُ عَلِيمًا حَكِيمًا, which word still ends in -u?" options={['ٱللَّهُ', 'عَلِيمًا', 'حَكِيمًا']} answer={0} why="kāna leaves the first part nominative and makes the khabar accusative (-an)." />
+</Block>
+
+</Step>
+
+<Step id="word-by-word" label="Mistakes, word by word" title="Four mistakes, and four verses word by word">
+<Block id="mistake-is" title="Mistake 1: looking for the verb “is”">
+  <Stage label="Nothing is missing">
+    <Tiles
+      label="وَٱللَّهُ, then nothing, then وَلِىُّ ٱلْمُؤْمِنِينَ"
+      items={[
+        { ar: 'وَٱللَّهُ', en: 'and Allah' },
+        { ghost: 'is', note: 'English only' },
+        { ar: 'وَلِىُّ ٱلْمُؤْمِنِينَ', en: 'protector of the believers' },
       ]}
     />
   </Stage>
 
-Three quick questions. Pick an answer to see if you are right.
+Learners who think in English often look for a word for “is”, or think a word has fallen out of the verse. Nothing has fallen out. Two nouns side by side, both ending in -u, already make a full sentence.
 
-  <Check n={1} q="In ٱللَّهُ غَفُورٌ رَّحِيمٌ, which word is the mubtadaʾ (the starting point)?" options={['ٱللَّهُ', 'غَفُورٌ', 'رَّحِيمٌ']} answer={0} why="ٱللَّهُ is what the sentence is about. The other two words say something about Allah, so they are the khabar." />
-  <Check n={2} q="In هُوَ ٱلْأَوَّلُ, which English word has no Arabic word?" options={['He', 'is', 'the First']} answer={1} why="Arabic puts the two words side by side. You add “is” when you say it in English." />
-  <Check n={3} q="Which ending do the mubtadaʾ and the khabar both take?" options={['-u or -un (damma)', '-a or -an (fatha)', '-i or -in (kasra)']} answer={0} why="Both parts are in the nominative case (rafʿ). That is the -u family." />
+And when the khabar is a verbal sentence, like ٱللَّهُ يَسْتَهْزِئُ بِهِمْ, English needs no “is” at all.
+</Block>
+
+<Block id="mistake-faail" title="Mistake 2: mixing up the mubtadaʾ and the doer">
+  <Stage>
+    <Sentence
+      roles
+      reference="Al-Baqarah 2:15 (start)"
+      groups={[
+        { role: 'mubtada', words: [{ ar: 'ٱللَّهُ', en: 'Allah', say: 'allahu' }] },
+        { role: 'khabar', hint: 'a verb with its doer', words: [{ ar: 'يَسْتَهْزِئُ', en: 'mocks', type: 'v' }, { ar: 'بِهِمْ', en: 'at them', type: 'p' }] },
+      ]}
+    />
+    <Sentence
+      roles
+      reference="Al-Baqarah 2:7 (start)"
+      groups={[
+        { words: [{ ar: 'خَتَمَ', en: 'sealed', say: 'khatama', type: 'v' }] },
+        { role: 'mubtada', label: 'fāʿil', hint: 'the doer of the verb', words: [{ ar: 'ٱللَّهُ', en: 'Allah', say: 'allahu' }] },
+        { role: 'tied', hint: 'belongs to the verb', words: [{ ar: 'عَلَىٰ', en: 'over', type: 'p' }, { ar: 'قُلُوبِهِمْ', en: 'their hearts' }] },
+      ]}
+      en={['Allah has sealed their hearts.']}
+    />
+  </Stage>
+
+In both verses ٱللَّهُ ends in -u. But it has a different job in each.
+
+- In 2:15, ٱللَّهُ comes **before** the verb. It starts a nominal sentence, so it is the **mubtadaʾ**.
+- In 2:7, ٱللَّهُ comes **after** the verb خَتَمَ. It is the doer of that verb, the **fāʿil**, فَاعِل. That is a verbal sentence.
+
+Both are nominative, so the ending does not tell them apart. The order does. L2.03 teaches the verbal sentence and the fāʿil.
+</Block>
+
+<Block id="mistake-order" title="Mistake 3: thinking word order does not matter">
+  <Stage>
+    <Sentence
+      roles
+      reference="Al-Kafirun 109:6 (start)"
+      groups={[
+        { role: 'khabarFirst', words: [{ ar: 'لَكُمْ', en: 'for you', type: 'p' }] },
+        { role: 'mubtadaLater', words: [{ ar: 'دِينُكُمْ', en: 'your religion' }] },
+      ]}
+    />
+  </Stage>
+
+Endings show the role of each word, so learners sometimes think the order is free. It is not.
+
+- Sometimes the order is a rule: with an indefinite mubtadaʾ and a phrase as khabar, the khabar must come first (2:10).
+- Sometimes it is a choice, and the choice changes the weight of the sentence (109:6).
+</Block>
+
+<Block id="mistake-stop" title="Mistake 4: stopping at the phrase">
+  <Stage>
+    <Sentence
+      roles
+      reference="Al-Imran 3:189 (end)"
+      groups={[
+        { role: 'mubtada', words: [{ ar: 'وَٱللَّهُ', en: 'and Allah', say: 'wa-llahu' }] },
+        { role: 'tied', hint: 'belongs to قَدِيرٌ', words: [{ ar: 'عَلَىٰ', en: 'over', type: 'p' }, { ar: 'كُلِّ', en: 'every' }, { ar: 'شَىْءٍ', en: 'thing' }] },
+        { role: 'khabar', words: [{ ar: 'قَدِيرٌ', en: 'able', say: 'qadirun' }] },
+      ]}
+      en={['And Allah ', { gap: 'has' }, ' power over everything.']}
+    />
+  </Stage>
+
+You know that a phrase can be the khabar. So when a phrase comes after the mubtadaʾ, it is tempting to stop there and call it the khabar.
+
+Here that would be wrong. The phrase عَلَىٰ كُلِّ شَىْءٍ, “over every thing”, belongs to the last word, قَدِيرٌ, “able”. The khabar is قَدِيرٌ. Al-Jadwal says the same.
+
+<Note kind="tip">Read to the end of the sentence. If a word with -u or -un comes after the phrase, check whether that word is the news.</Note>
+
+<Check n={12} q="In وَٱللَّهُ عَلَىٰ كُلِّ شَىْءٍ قَدِيرٌ, which is the khabar?" options={['عَلَىٰ كُلِّ شَىْءٍ', 'قَدِيرٌ']} answer={1} why="قَدِيرٌ is the news about Allah. The phrase “over every thing” belongs to it." />
+</Block>
+
+<Block id="parse-1" title="Word by word: Al-Imran 3:68">
+  <Stage label="Word by word">
+    <Parse
+      reference="Al-Imran 3:68 (end)"
+      words={[
+        { ar: 'وَٱللَّهُ', en: 'and Allah' },
+        { ar: 'وَلِىُّ', en: 'protector of' },
+        { ar: 'ٱلْمُؤْمِنِينَ', en: 'the believers' },
+      ]}
+      cards={[
+        { at: 0, ar: 'وَ', role: '“and”, a little word that joins this sentence to the one before', why: 'Little words have no case.', irab: 'الواو عاطفة' },
+        { at: 0, ar: 'ٱللَّهُ', role: 'mubtadaʾ', case: 'nominative (rafʿ)', mark: '-u (ḍamma) on the last letter', why: 'It starts the sentence. It is what the sentence is about.', irab: 'لفظ الجلالة مبتدأ مرفوع وعلامة رفعه الضمة الظاهرة' },
+        { at: 1, role: 'khabar', case: 'nominative (rafʿ)', mark: '-u (ḍamma) on the last letter', why: 'It is the news about Allah. It is also the first word of an idafah: “protector of …”.', irab: 'خبر مرفوع وعلامة رفعه الضمة الظاهرة، وهو مضاف' },
+        { at: 2, role: 'second word of the idafah (muḍāf ilayh): “of the believers”', case: 'genitive (jarr)', mark: '-īna: a sound plural shows its case with a letter, here ي (L2.06)', why: 'The second word of an idafah is always genitive.', irab: 'مضاف إليه مجرور وعلامة جره الياء لأنه جمع مذكر سالم' },
+      ]}
+    />
+  </Stage>
+
+Now put it all together. For each word, say four things: its **role**, its **case**, the **mark** that shows the case, and the **reason**. The grammar books call this *iʿrāb*.
+
+Press **Next word** in the panel to go through the verse. Try to say each answer before you look.
+
+Each card also gives the same analysis in Arabic, in the way the grammar books write it. You do not need to learn those lines yet. They show you what you will be able to read later.
+</Block>
+
+<Block id="parse-2" title="Word by word: Al-Baqarah 2:15">
+  <Stage label="Word by word">
+    <Parse
+      reference="Al-Baqarah 2:15 (start)"
+      words={[
+        { ar: 'ٱللَّهُ', en: 'Allah' },
+        { ar: 'يَسْتَهْزِئُ', en: 'mocks', type: 'v' },
+        { ar: 'بِهِمْ', en: 'at them', type: 'p' },
+      ]}
+      cards={[
+        { at: 0, role: 'mubtadaʾ', case: 'nominative (rafʿ)', mark: '-u (ḍamma)', why: 'It starts the sentence. It is what the sentence is about.', irab: 'لفظ الجلالة مبتدأ مرفوع' },
+        { at: 1, role: 'a present-tense verb, “he mocks”. Its doer is a hidden “he” inside it.', case: 'rafʿ: the grammar books use the same word for the -u of a present-tense verb', mark: '-u (ḍamma) on the last letter', why: 'A present-tense verb ends in -u when no little word before it changes it. L3.06 teaches this.', irab: 'فعل مضارع مرفوع، والفاعل ضمير مستتر تقديره هو' },
+        { at: 2, role: '“at them”: bi- with the pronoun hum. It belongs to the verb.', why: 'It says who is mocked.', irab: 'جار ومجرور متعلق بيستهزئ' },
+        { at: [1, 2], role: 'the khabar: a whole verbal sentence', case: 'a sentence shows no ending; it stands in the place of the nominative', why: 'It is the news about Allah.', irab: 'وجملة «يستهزئ بهم» في محل رفع خبر المبتدأ' },
+      ]}
+    />
+  </Stage>
+
+This verse has a verbal sentence as its khabar. It has one new idea: a **sentence** can have a role, even though it has no ending of its own.
+
+The last card shows this. The grammar books say the sentence is “in the place of” the nominative, as they say for a pronoun like هُوَ.
+</Block>
+
+<Block id="parse-3" title="Word by word: Al-Imran 3:14">
+  <Stage label="Word by word">
+    <Parse
+      reference="Al-Imran 3:14 (end)"
+      words={[
+        { ar: 'وَٱللَّهُ', en: 'and Allah' },
+        { ar: 'عِندَهُۥ', en: 'with him' },
+        { ar: 'حُسْنُ', en: 'the best of' },
+        { ar: 'ٱلْمَـَٔابِ', en: 'the return' },
+      ]}
+      cards={[
+        { at: 0, ar: 'وَ', role: '“and”, a little word', why: 'Little words have no case.', irab: 'الواو عاطفة' },
+        { at: 0, ar: 'ٱللَّهُ', role: 'mubtadaʾ of the whole sentence', case: 'nominative (rafʿ)', mark: '-u (ḍamma)', why: 'It starts the sentence.', irab: 'لفظ الجلالة مبتدأ مرفوع' },
+        { at: 1, role: 'a place word, “with”, plus “him”. It is the khabar of the inner sentence, put first.', case: 'accusative (naṣb), as place words are', mark: '-a (fatḥa) on عِندَ', why: 'A place word can be a khabar. Here it comes before its mubtadaʾ.', irab: 'ظرف مكان منصوب متعلق بمحذوف خبر مقدم، والهاء مضاف إليه' },
+        { at: 2, role: 'mubtadaʾ of the inner sentence, put later (mubtadaʾ muʾakhkhar)', case: 'nominative (rafʿ)', mark: '-u (ḍamma)', why: 'It is what the inner sentence is about: “the best”.', irab: 'مبتدأ مؤخر مرفوع، وهو مضاف' },
+        { at: 3, role: 'second word of an idafah: “of the return”', case: 'genitive (jarr)', mark: '-i (kasra)', why: 'The second word of an idafah is genitive.', irab: 'مضاف إليه مجرور' },
+        { at: [1, 2, 3], role: 'the khabar of ٱللَّهُ: a whole nominal sentence', case: 'it stands in the place of the nominative', why: 'The whole inner sentence is the news about Allah.', irab: 'وجملة «عنده حسن المآب» في محل رفع خبر' },
+      ]}
+    />
+  </Stage>
+
+This is the hardest of the four. It has a sentence inside a sentence, and the inner sentence puts its khabar first.
+
+Go slowly. The outer sentence is ٱللَّهُ + (the news). The news is the inner sentence: عِندَهُۥ (khabar, first) + حُسْنُ ٱلْمَـَٔابِ (mubtadaʾ, later).
+</Block>
+
+<Block id="parse-4" title="Word by word: Al-Baqarah 2:10">
+  <Stage label="Word by word">
+    <Parse
+      reference="Al-Baqarah 2:10 (part)"
+      words={[
+        { ar: 'وَلَهُمْ', en: 'and for them', type: 'p' },
+        { ar: 'عَذَابٌ', en: 'a punishment' },
+        { ar: 'أَلِيمٌۢ', en: 'painful' },
+      ]}
+      cards={[
+        { at: 0, ar: 'وَ', role: '“and”, a little word', why: 'Little words have no case.', irab: 'الواو عاطفة' },
+        { at: 0, ar: 'لَهُمْ', role: 'khabar, put first (khabar muqaddam): li- “for” with the pronoun hum “them”', why: 'It is the news. It must come first, because the mubtadaʾ is indefinite.', irab: 'جار ومجرور متعلق بمحذوف خبر مقدم' },
+        { at: 1, role: 'mubtadaʾ, put later (mubtadaʾ muʾakhkhar)', case: 'nominative (rafʿ)', mark: '-un (two ḍammas, ـٌ)', why: 'It is what the sentence is about: a punishment.', irab: 'مبتدأ مؤخر مرفوع' },
+        { at: 2, role: 'adjective (naʿt) of عَذَابٌ', case: 'nominative (rafʿ), like its noun', mark: '-un', why: 'An adjective copies the ending of its noun.', irab: 'نعت لعذاب مرفوع مثله' },
+      ]}
+    />
+  </Stage>
+
+The last verse brings back the khabar that must come first, and a noun with its adjective.
+</Block>
+
 </Step>
 
-<Step id="done" label="Done" title="You have finished the lesson">
+<Step id="practice" label="Practice" title="Practice">
+<Block id="practice-1" title="Practice: find the parts">
+  <Stage label="For each word, say">
+    <ol class="lx-card-list">
+      <li><b>Role:</b> mubtadaʾ, khabar, or something else?</li>
+      <li><b>Case:</b> nominative, accusative or genitive?</li>
+      <li><b>Mark:</b> -u, -un, a hidden -u, a letter, or none?</li>
+      <li><b>Reason:</b> why does it have this case?</li>
+    </ol>
+  </Stage>
+
+Work out each answer first, on paper or in your head. Then open the answer.
+
+<Exercise n={1} q="Find the mubtadaʾ and the khabar: وَٱللَّهُ بَصِيرٌۢ بِمَا يَعْمَلُونَ (Al-Imran 3:163, end). Meaning: “And Allah sees what they do.”">
+
+ٱللَّهُ is the **mubtadaʾ** (-u). بَصِيرٌ, “seeing”, is the **khabar** (-un).
+
+بِمَا يَعْمَلُونَ, “what they do”, is a phrase that belongs to بَصِيرٌ. It is not the khabar. (Al-Jadwal: “tied to بصير”.)
+
+</Exercise>
+
+<Exercise n={2} q="This verse has two nominal sentences. Find both parts of each: وَلِلَّهِ مُلْكُ ٱلسَّمَٰوَٰتِ وَٱلْأَرْضِ وَٱللَّهُ عَلَىٰ كُلِّ شَىْءٍ قَدِيرٌ (Al-Imran 3:189). Meaning: “And to Allah belongs the kingdom of the heavens and the earth, and Allah has power over everything.”">
+
+**First sentence:** لِلَّهِ, “to Allah”, is the **khabar, put first**. مُلْكُ, “the kingdom”, is the **mubtadaʾ, put later** (-u). ٱلسَّمَٰوَٰتِ وَٱلْأَرْضِ, “of the heavens and the earth”, complete it.
+
+**Second sentence:** ٱللَّهُ is the **mubtadaʾ**. قَدِيرٌ is the **khabar**. The phrase عَلَىٰ كُلِّ شَىْءٍ belongs to قَدِيرٌ.
+
+</Exercise>
+
+<Exercise n={3} q="Give the role and case of every word: هُمْ فِيهَا خَٰلِدُونَ (Al-Baqarah 2:39, end). Meaning: “They will stay in it forever.”">
+
+- هُمْ, “they”: a pronoun, the **mubtadaʾ**. It never changes, but counts as nominative.
+- فِيهَا, “in it”: a phrase that belongs to the khabar.
+- خَٰلِدُونَ, “staying forever”: the **khabar**, nominative. Its mark is -ūna, with the letter و: a sound plural shows its case with a letter (L2.04).
+
+</Exercise>
+
+<Exercise n={4} q="What case is مَوْلَىٰ in, and how can you tell? أَنتَ مَوْلَىٰنَا (Al-Baqarah 2:286, part). Meaning: “You are our Protector.”">
+
+أَنتَ, “you”, is a pronoun and the **mubtadaʾ**. مَوْلَىٰ is the **khabar**, so it is **nominative**. You cannot see the -u, because the word ends in a long ā (ى). The ḍamma is hidden. نَا means “our”.
+
+</Exercise>
+</Block>
+
+<Block id="practice-2" title="Practice: kinds, building and matching">
+  <Stage label="The five kinds of khabar">
+    <ol class="lx-card-list">
+      <li><b>Single</b> (مُفْرَد): not a sentence</li>
+      <li><b>A phrase</b> with a little word: لِ، بِ، فِي</li>
+      <li><b>A place or time word</b>: عِنْدَ، فَوْقَ، يَوْمَ</li>
+      <li><b>A verbal sentence</b>: a verb and its doer</li>
+      <li><b>A nominal sentence</b>: a sentence inside a sentence</li>
+    </ol>
+  </Stage>
+
+<Exercise n={5} q="What kind of khabar does each one have? (a) وَٱللَّهُ عَلِيمٌ حَكِيمٌ (b) وَٱلْعَٰقِبَةُ لِلْمُتَّقِينَ (c) وَعِندَهُۥ مَفَاتِحُ ٱلْغَيْبِ (d) ٱللَّهُ يَسْتَهْزِئُ بِهِمْ (e) وَٱللَّهُ عِندَهُۥ حُسْنُ ٱلْمَـَٔابِ">
+
+- (a) **Single**: عَلِيمٌ and حَكِيمٌ, two single khabars.
+- (b) **A phrase**: لِلْمُتَّقِينَ.
+- (c) **A place word**: عِندَهُۥ, put first.
+- (d) **A verbal sentence**: يَسْتَهْزِئُ بِهِمْ.
+- (e) **A nominal sentence**: عِندَهُۥ حُسْنُ ٱلْمَـَٔابِ.
+
+</Exercise>
+
+<Exercise n={6} q="Build a nominal sentence from these two words, and say which is the mubtadaʾ and which the khabar: ٱلْعِلْمُ (knowledge) and نُورٌ (a light). This is a made-up example.">
+
+ٱلْعِلْمُ نُورٌ, “Knowledge is a light.”
+
+ٱلْعِلْمُ is the **mubtadaʾ**: definite (*al-*), ends in -u. نُورٌ is the **khabar**: indefinite, ends in -un. It is a single khabar.
+
+</Exercise>
+
+<Exercise n={7} q="Why does one khabar end in ـَةٌ and the other not? ٱلسَّمَاءُ عَالِيَةٌ (The sky is high) and ٱلْبَحْرُ عَمِيقٌ (The sea is deep). These are made-up examples.">
+
+ٱلسَّمَاءُ, “the sky”, is **feminine** in Arabic, so its khabar is feminine too: عَالِيَةٌ, with ـَةٌ.
+
+ٱلْبَحْرُ, “the sea”, is **masculine**, so its khabar عَمِيقٌ has no ـَة.
+
+In both, the mubtadaʾ is definite and ends in -u, and the khabar is indefinite and ends in -un.
+
+</Exercise>
+
+<Exercise n={8} q="Sentence or phrase? (a) ٱلْكِتَابُ جَدِيدٌ (b) ٱلْكِتَابُ ٱلْجَدِيدُ (c) عَذَابٌ أَلِيمٌ (from 2:10) (d) وَٱللَّهُ وَلِىُّ ٱلْمُؤْمِنِينَ (from 3:68)">
+
+- (a) **Sentence**: “The book is new.” Definite, then indefinite.
+- (b) **Phrase**: “the new book”. Both definite: a noun and its adjective.
+- (c) **Phrase**: “a painful punishment”. A noun and its adjective. In 2:10 the whole phrase is the mubtadaʾ.
+- (d) **Sentence**: “Allah is the protector of the believers.”
+
+</Exercise>
+</Block>
+
+<Block id="done" title="You have finished the lesson">
   <Stage label="The idea">
     <Formula
       label="mubtadaʾ plus khabar equals a nominal sentence"
       items={[
-        { kind: 'm', text: 'mubtadaʾ', small: 'the topic' },
+        { kind: 'm', text: 'mubtadaʾ', small: 'the starting point' },
         { kind: 'k', text: 'khabar', small: 'the news' },
         { kind: 's', text: 'nominal sentence', small: 'جُمْلَة اِسْمِيَّة' },
       ]}
     />
   </Stage>
 
-- A nominal sentence starts with a noun and needs no verb.
-- It has two parts: the **mubtadaʾ** (topic) and the **khabar** (news).
-- Both end in **-u** or **-un**. Add “is” in English only.
+- A nominal sentence starts with a noun and needs no verb. English adds “is”.
+- It has two parts: the **mubtadaʾ** (the starting point) and the **khabar** (the news). Both are nominative: -u, -un, a hidden -u, or a pronoun that never changes.
+- The khabar can be single, a phrase, a place or time word, a verbal sentence or a nominal sentence.
+- The khabar can come first. With an indefinite mubtadaʾ and a phrase as khabar, it must.
+- Definite + indefinite usually makes a sentence. Two definite words usually make a phrase.
+- *kāna* makes the khabar accusative (L2.11).
 
-  <Sources
+**Next:** L2.02 looks more closely at the mubtadaʾ and the khabar. L2.03 teaches the verbal sentence. Before you go on, review L1.09 (simple sentences) and L1.10 (case endings) if anything here felt new.
+
+<Sources
     items={[
-      { label: 'Quran text', name: 'Tanzil', href: 'https://tanzil.net' },
-      { label: 'Word-by-word analysis', name: 'Quranic Arabic Corpus', href: 'https://corpus.quran.com' },
-      { label: 'Grammar', name: 'Quranic Arabic Corpus, grammar documentation; al-Ajurrumiyyah, chapter on al-mubtadaʾ wa-l-khabar' },
+      { label: 'Quran text', name: 'Tanzil (Uthmani text)', href: 'https://tanzil.net' },
+      { label: 'Word types', name: 'Quranic Arabic Corpus', href: 'https://corpus.quran.com' },
+      { label: 'Word-by-word analysis (iʿrāb) of every verse', name: 'Maḥmūd Ṣāfī, al-Jadwal fī Iʿrāb al-Qurʾān wa-Ṣarfihi wa-Bayānihi' },
+      { label: 'Where scholars differ (2:10)', name: 'al-Samīn al-Ḥalabī, al-Durr al-Maṣūn' },
+      { label: 'Grammar', name: 'Ibn Ājurrūm, al-Ajurrumiyyah, chapter on the mubtadaʾ and the khabar' },
+      { label: 'English under the verses', name: 'Plain-English meanings by Quran Learn, not a translation' },
     ]}
   />
+</Block>
+
 </Step>

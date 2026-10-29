@@ -1,0 +1,33 @@
+---
+/**
+ * One section of a big step. A step holds 3 to 9 blocks; each block has a small heading, its own
+ * example (<Stage>, beside the text on a wide screen and above it on a phone) and its text, notes
+ * and checks. The layout script numbers the blocks in a step ("3 of 8") so the learner can see how
+ * much of the step is left.
+ *
+ * <Block id="hidden" title="Sometimes you cannot see the -u">
+ *   <Stage> ... </Stage>
+ *   Text ...
+ * </Block>
+ */
+import { tightHyphens, inlineHtml } from '../../lib/lesson-steps';
+
+interface Props {
+  id: string;
+  title: string;
+  /** Leave the block out of the "3 of 8" count (for an overview at the top of a step). */
+  uncounted?: boolean;
+  /** Heading level: 2 under the hero step (its title is the page h1), else 3 under the step's h2. */
+  level?: 2 | 3;
+}
+const { id, title, uncounted = false, level = 3 } = Astro.props;
+const H = level === 2 ? 'h2' : 'h3';
+---
+
+<section class="lx-block" id={`b-${id}`} data-block={uncounted ? undefined : ''} aria-labelledby={`b-${id}-h`}>
+  <H class="lx-block-h" id={`b-${id}-h`}>
+    {!uncounted && <span class="lx-block-n" aria-hidden="true"></span>}
+    <span set:html={inlineHtml(tightHyphens(title))} />
+  </H>
+  <slot />
+</section>

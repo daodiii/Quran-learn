@@ -12,6 +12,7 @@ import ArticleSchema from '../components/seo/ArticleSchema.astro';
 import { getCollection } from 'astro:content';
 import '../styles/night.css';
 import '../styles/lesson-lab.css';
+import LessonMovedNote from '../components/LessonMovedNote.astro';
 
 interface Props {
   title: string;
@@ -183,6 +184,8 @@ const fontsHref = "https://fonts.googleapis.com/css2?family=Amiri+Quran&family=A
                 <p class="lesson-description">{description}</p>
               )}
             </header>
+
+            <LessonMovedNote lessonSlug={lessonSlug} />
 
             <div class="lesson-content">
               <slot />

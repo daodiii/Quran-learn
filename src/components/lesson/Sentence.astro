@@ -2,7 +2,11 @@
 /**
  * A Quran phrase broken into word tiles, read right to left. Each word carries a type
  * (noun, verb, little word) shown by colour, shape and a text label, and a group can carry
- * a role (mubtadaʾ or khabar) shown as a labelled bar underneath.
+ * a role shown as a labelled bar underneath. The first part of a pair (mubtada, mubtadaLater, ismKana, ismInna,
+ * fail, naibFail, mudaf, manut) gets a solid bar, the second part (khabar, khabar2, khabarFirst, khabarKana,
+ * khabarInna, maful, mudafIlayh, naat, matuf, hal, majrur) a dashed one, `fiil` (the verb) a solid bar in the verb colour,
+ * and `tied`, `jar`, `jarMajrur` or `zarf` (a phrase or little word that belongs to another word) a dotted grey one. `label` and `hint` on a group override the
+ * role's default text. The English line is labelled as a plain-English meaning.
  *
  * <Sentence
  *   reference="Al-Hadid 57:3 (part)"
@@ -14,14 +18,22 @@
  *   en={['He ', { gap: 'is' }, ' the First.']}
  * />
  */
+import AyahListen from './AyahListen.astro';
+
 interface Word {
   ar: string;
   en: string;
   say?: string;
   type?: 'n' | 'v' | 'p';
 }
+type Role =
+  | 'mubtada' | 'mubtadaLater' | 'ismKana' | 'ismInna' | 'khabar' | 'khabar2' | 'khabarFirst' | 'khabarKana' | 'khabarInna'
+  | 'fiil' | 'fail' | 'naibFail' | 'maful' | 'mudaf' | 'mudafIlayh' | 'manut' | 'naat' | 'matuf' | 'hal' | 'zarf'
+  | 'jar' | 'majrur' | 'jarMajrur' | 'tied';
 interface Group {
-  role?: 'mubtada' | 'khabar';
+  role?: Role;
+  label?: string;
+  hint?: string;
   words: Word[];
 }
 type EnPart = string | { gap: string };
@@ -41,10 +53,32 @@ const TYPE = {
   v: { cls: 'verb', label: 'Verb' },
   p: { cls: 'little', label: 'Little word' },
 } as const;
-const ROLE = {
-  mubtada: { label: 'mubtadaʾ', hint: 'the starting point' },
-  khabar: { label: 'khabar', hint: 'the news' },
-} as const;
+const ROLE: Record<Role, { label: string; hint: string; fam: 'm' | 'k' | 'v' | 'x' }> = {
+  mubtada: { label: 'mubtadaʾ', hint: 'the starting point', fam: 'm' },
+  mubtadaLater: { label: 'mubtadaʾ muʾakhkhar', hint: 'the starting point, put later', fam: 'm' },
+  ismKana: { label: 'ism kāna', hint: 'the subject of kāna', fam: 'm' },
+  khabar: { label: 'khabar', hint: 'the news', fam: 'k' },
+  khabar2: { label: 'second khabar', hint: 'more news', fam: 'k' },
+  khabarFirst: { label: 'khabar muqaddam', hint: 'the news, put first', fam: 'k' },
+  khabarKana: { label: 'khabar kāna', hint: 'the news of kāna', fam: 'k' },
+  ismInna: { label: 'ism inna', hint: 'the subject of inna', fam: 'm' },
+  khabarInna: { label: 'khabar inna', hint: 'the news of inna', fam: 'k' },
+  fiil: { label: 'fiʿl', hint: 'the verb', fam: 'v' },
+  fail: { label: 'fāʿil', hint: 'the doer', fam: 'm' },
+  naibFail: { label: 'nāʾib fāʿil', hint: 'stands in for the doer', fam: 'm' },
+  maful: { label: 'mafʿūl bihi', hint: 'the object', fam: 'k' },
+  mudaf: { label: 'muḍāf', hint: 'first word of the idafah', fam: 'm' },
+  mudafIlayh: { label: 'muḍāf ilayh', hint: 'second word: “of …”', fam: 'k' },
+  manut: { label: 'manʿūt', hint: 'the noun described', fam: 'm' },
+  naat: { label: 'naʿt', hint: 'the adjective', fam: 'k' },
+  matuf: { label: 'maʿṭūf', hint: 'joined by “and”', fam: 'k' },
+  hal: { label: 'ḥāl', hint: 'the state: how?', fam: 'k' },
+  zarf: { label: 'ẓarf', hint: 'a place or time word', fam: 'x' },
+  jar: { label: 'ḥarf jarr', hint: 'a preposition', fam: 'x' },
+  jarMajrur: { label: 'jārr wa-majrūr', hint: 'preposition and its noun', fam: 'x' },
+  majrur: { label: 'ism majrūr', hint: 'the noun after it', fam: 'k' },
+  tied: { label: 'tied', hint: 'belongs to the word before', fam: 'x' },
+};
 ---
 
 <figure class:list={['lx-sentence', size === 'big' && 'lx-big']}>
@@ -65,9 +99,9 @@ const ROLE = {
           })}
         </div>
         {roles && g.role && (
-          <div class={`lx-role lx-role-${g.role}`}>
-            <b>{ROLE[g.role].label}</b>
-            <span>{ROLE[g.role].hint}</span>
+          <div class={`lx-role lx-role-${ROLE[g.role].fam}`}>
+            <b>{g.label ?? ROLE[g.role].label}</b>
+            <span>{g.hint ?? ROLE[g.role].hint}</span>
           </div>
         )}
       </div>
@@ -75,8 +109,9 @@ const ROLE = {
   </div>
   {en.length > 0 && (
     <p class="lx-trans">
+      <span class="lx-trans-tag">Meaning</span>
       {en.map((p) => (typeof p === 'string' ? p : <span class="lx-gap">{p.gap}</span>))}
     </p>
   )}
-  {reference && <figcaption>{reference}</figcaption>}
+  {reference && <figcaption>{reference} <AyahListen reference={reference} /></figcaption>}
 </figure>

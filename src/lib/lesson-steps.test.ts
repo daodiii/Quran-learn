@@ -1,6 +1,29 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { wrapArabic, tightHyphens, clampStep, stepIndexFromHash, parseResume, serializeResume, omitResume, safeInline, inlineHtml } from './lesson-steps';
+import { wrapArabic, tightHyphens, clampStep, stepIndexFromHash, parseResume, serializeResume, omitResume, safeInline, inlineHtml, groupParts, partOf } from './lesson-steps';
+
+test('groupParts groups steps by part name and carries a name forward to unnamed steps', () => {
+  assert.deepEqual(groupParts(['Meet it', undefined, 'Two parts', 'Two parts', undefined]), [
+    { name: 'Meet it', start: 0, end: 1 },
+    { name: 'Two parts', start: 2, end: 4 },
+  ]);
+  assert.deepEqual(groupParts([undefined, 'A', 'A']), [
+    { name: '', start: 0, end: 0 },
+    { name: 'A', start: 1, end: 2 },
+  ]);
+});
+
+test('groupParts returns no parts when no step names one', () => {
+  assert.deepEqual(groupParts([undefined, undefined]), []);
+  assert.deepEqual(groupParts([]), []);
+});
+
+test('partOf finds the part that holds a step', () => {
+  const parts = groupParts(['A', 'A', 'B']);
+  assert.equal(partOf(parts, 0), 0);
+  assert.equal(partOf(parts, 2), 1);
+  assert.equal(partOf(parts, 5), -1);
+});
 
 test('safeInline escapes stray markup characters but keeps the few inline tags authors use', () => {
   assert.equal(safeInline('A < B & C > D'), 'A &lt; B &amp; C &gt; D');

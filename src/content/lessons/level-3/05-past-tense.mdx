@@ -1,0 +1,869 @@
+---
+title: "The Past Tense"
+kicker: "One verb, thirteen endings"
+titleArabic: "اَلْفِعْل الْمَاضِي"
+level: 3
+order: 5
+template: steps
+description: "Learn the past tense: the verb for a finished action. See how the ending names the doer, build all 13 forms of a real verb, read the sukūn, the tāʾ of “she” and the shadda in ءَامَنَّا, meet the verbs that change shape (قَالَ, كَانَ), write the iʿrāb line, and go through four verses word by word."
+draft: false
+---
+
+import Step from '../../../components/lesson/Step.astro';
+import Stage from '../../../components/lesson/Stage.astro';
+import Sentence from '../../../components/lesson/Sentence.astro';
+import Tiles from '../../../components/lesson/Tiles.astro';
+import Formula from '../../../components/lesson/Formula.astro';
+import Conjugation from '../../../components/lesson/Conjugation.astro';
+import Note from '../../../components/lesson/Note.astro';
+import Check from '../../../components/lesson/Check.astro';
+import Start from '../../../components/lesson/Start.astro';
+import Sources from '../../../components/lesson/Sources.astro';
+import Parse from '../../../components/lesson/Parse.astro';
+import Exercise from '../../../components/lesson/Exercise.astro';
+import Block from '../../../components/lesson/Block.astro';
+
+{/* Content spec: docs/redesign/specs/L3.05-past-tense.md. Every parse follows al-Jadwal (Mahmud Safi). */}
+
+<Step hero id="start" label="One verb, many endings" title={frontmatter.title} kicker={frontmatter.kicker} titleArabic={frontmatter.titleArabic}>
+<Block id="overview" title="In this lesson" level={2} uncounted>
+  <Stage label="The idea">
+    <Formula
+      label="stem plus ending equals a past verb"
+      items={[
+        { kind: 'm', text: 'stem', small: 'the root and its vowels: كَتَبَ' },
+        { kind: 'k', text: 'ending', small: 'tells who did it' },
+        { kind: 's', text: 'past verb', small: 'فِعْل مَاضٍ' },
+      ]}
+    />
+  </Stage>
+  <Start
+    goal="Read the ending of a past verb and say who did the action, build all <b>13 forms</b> of a verb, write the iʿrāb line of a past verb, and tell the verbs that change shape (قَالَ, كَانَ) from the regular ones."
+    minutes={60}
+    before="The verbal sentence and the doer (L2.03). Subject pronouns (L3.01). Roots (L3.03) and Form I (L3.04)."
+    terms={[
+      { term: 'Past tense', ar: 'فِعْل مَاضٍ', meaning: 'The verb for an action that is finished.' },
+      { term: 'Ending', meaning: 'The letters added to the end of a verb. In the past tense they name the doer.' },
+      { term: 'Tāʾ al-taʾnīth', ar: 'تَاء التَّأْنِيث', meaning: 'The ت that ends a past verb for “she”.' },
+      { term: 'Mabnī', ar: 'مَبْنِيّ', meaning: '“Built”: a word whose last sound is fixed. A past verb is built.' },
+      { term: 'Hollow verb', ar: 'أَجْوَف', meaning: 'A verb whose middle root letter is و or ي, like قَالَ.' },
+      { term: 'Defective verb', ar: 'نَاقِص', meaning: 'A verb whose last root letter is و or ي, like رَمَىٰ.' },
+    ]}
+  />
+</Block>
+
+<Block id="see" title="Look at this verb" level={2}>
+  <Stage>
+    <Sentence
+      size="big"
+      reference="Al-Alaq 96:1 (end)"
+      groups={[
+        { words: [{ ar: 'ٱلَّذِى', en: 'the one who', say: 'alladhi' }] },
+        { words: [{ ar: 'خَلَقَ', en: 'created', say: 'khalaqa', type: 'v' }] },
+      ]}
+      en={['…the One who created.']}
+    />
+  </Stage>
+
+It is the end of the first verse of Al-ʿAlaq. Read it from right to left.
+
+The verb is خَلَقَ, “he created”. It is one Arabic word, and English needs two. The “he” is inside the verb. L2.03 called this a **hidden doer**.
+
+<Check n={1} q="How many Arabic words are there in “he created”?" options={['One', 'Two', 'Three']} answer={0} why="خَلَقَ is one word. The “he” is hidden inside it." />
+</Block>
+
+<Block id="name" title="The past verb">
+  <Stage label="From al-Ajurrumiyyah">
+    <blockquote class="lx-quote" lang="ar" dir="rtl">
+      <p>اَلْأَفْعَالُ ثَلَاثَةٌ: مَاضٍ وَمُضَارِعٌ وَأَمْرٌ، نَحْوُ ضَرَبَ وَيَضْرِبُ وَاضْرِبْ</p>
+    </blockquote>
+    <p class="lx-quote-note">Vowel marks added by Quran Learn.</p>
+  </Stage>
+
+*Al-Ajurrumiyyah* is a short grammar book by Ibn Ājurrūm (died 723 AH). In its chapter on verbs it says there are three kinds: past, present and command. Its examples are ضَرَبَ, يَضْرِبُ and اضْرِبْ: “he hit”, “he hits” and “hit!”.
+
+The past verb is called فِعْل مَاضٍ (*fiʿl māḍin*), “a verb that has passed”. It names an action that is finished. The Quran uses it to say what happened: قَالَ (he said), خَلَقَ (he created), كَانَ (he was).
+
+The same chapter describes the past verb as “open at the end” (مَفْتُوحُ الْآخِرِ): the last letter has a fatḥa, as in ضَرَبَ. The next step shows what happens to that last letter when an ending is added.
+
+<Note kind="know">The present verb is L3.06 and the command is L3.08. L3.09 shows the past verb with the doer left out (the passive).</Note>
+
+<Check n={2} q="Which of the three verbs in the book is the past verb?" options={['ضَرَبَ', 'يَضْرِبُ', 'اضْرِبْ']} answer={0} why="ضَرَبَ, “he hit”, is finished. يَضْرِبُ is the present (L3.06) and اضْرِبْ is a command (L3.08)." />
+</Block>
+
+<Block id="doer" title="The ending names the doer">
+  <Stage>
+    <Sentence
+      roles
+      reference="Al-Aʿraf 7:145 (start)"
+      groups={[
+        { role: 'fiil', label: 'fiʿl + fāʿil', hint: 'the ending -nā is the doer: “we”', words: [{ ar: 'وَكَتَبْنَا', en: 'and we wrote', say: 'wa-katabna', type: 'v' }] },
+        { role: 'jarMajrur', hint: 'li- “for” with “him”', words: [{ ar: 'لَهُۥ', en: 'for him', say: 'lahu', type: 'p' }] },
+        { role: 'jarMajrur', hint: 'fī “in” with “the tablets”', words: [{ ar: 'فِى', en: 'in', say: 'fi', type: 'p' }, { ar: 'ٱلْأَلْوَاحِ', en: 'the tablets', say: 'al-alwahi' }] },
+      ]}
+      en={['And we wrote for him on the tablets.']}
+    />
+  </Stage>
+
+L2.03 showed that a verb can carry its doer as an ending: -tu (“I”), -ū (“they”) and -nā (“we”). In this verse the verb وَكَتَبْنَا ends in **-nā**. No separate word for “we” is written.
+
+This lesson gives the whole set. The root here is ك ت ب, “writing” (L3.03). It stays the same in each form. The ending is what changes:
+
+- كَتَبَ, “he wrote”
+- كَتَبُوا, “they wrote”
+- كَتَبْتَ, “you wrote”
+
+So you can say who did the action without looking for a pronoun. The separate pronouns هُوَ, أَنْتَ and نَحْنُ are L3.01. A verse does not need them, because the ending already names the doer.
+
+<Check n={3} q="In وَكَتَبْنَا, which part names the doer?" options={['The ending -nā, “we”', 'The first letter كَ', 'The little word وَ']} answer={0} why="-nā is the doer. وَ means “and”, and the letters كَتَبْ are the root." />
+</Block>
+</Step>
+
+<Step id="forms" label="The 13 forms" title="All 13 forms, and what each ending looks like">
+<Block id="third" title="He, she, they: the third person">
+  <Stage label="A real verb">
+    <Conjugation
+      caption="كَتَبَ, “he wrote”: past tense, third person"
+      rows={[
+        { group: 'One person' },
+        { who: 'he', pr: 'هُوَ', ar: 'كَتَبَ', end: 'ـَ', say: 'kataba' },
+        { who: 'she', pr: 'هِيَ', ar: 'كَتَبَتْ', end: 'ـَتْ', say: 'katabat' },
+        { group: 'Two people' },
+        { who: 'the two (men)', pr: 'هُمَا', ar: 'كَتَبَا', end: 'ـَا', say: 'katabā' },
+        { who: 'the two (women)', pr: 'هُمَا', ar: 'كَتَبَتَا', end: 'ـَتَا', say: 'katabatā' },
+        { group: 'Many people' },
+        { who: 'they (men)', pr: 'هُمْ', ar: 'كَتَبُوا', end: 'ـُوا', say: 'katabū' },
+        { who: 'they (women)', pr: 'هُنَّ', ar: 'كَتَبْنَ', end: 'ـْنَ', say: 'katabna' },
+      ]}
+    />
+  </Stage>
+
+The verb is كَتَبَ (*kataba*), “he wrote”, root ك ت ب. It is a real Quran verb: you saw its -nā form in 7:145. The Quran does not use all 13 forms of each verb. The table shows the full pattern, and the verses in this lesson show real forms of other verbs.
+
+The **ending** column shows the last root letter with its vowel, then the letters that are added.
+
+- **He** has no added letters. It is the plain form, and this course uses it to name a verb.
+- **She** adds ـَتْ.
+- **The two** add an alif: ـَا for men, ـَتَا for women. The ت marks the feminine, as in “she”.
+- **They (men)** add ـُوا. **They (women)** add ـْنَ.
+
+The pronoun column shows the words from L3.01. The verb does not need them.
+
+<Check n={4} q="Which form means “they (women) wrote”?" options={['كَتَبُوا', 'كَتَبْنَ', 'كَتَبْنَا']} answer={1} why="-na is the ending for “they (women)”. كَتَبُوا is “they (men)” and كَتَبْنَا is “we”." />
+</Block>
+
+<Block id="second-first" title="You, I and we">
+  <Stage label="A real verb">
+    <Conjugation
+      caption="كَتَبَ, “he wrote”: past tense, you, I and we"
+      rows={[
+        { group: 'You' },
+        { who: 'you (one man)', pr: 'أَنْتَ', ar: 'كَتَبْتَ', end: 'ـْتَ', say: 'katabta' },
+        { who: 'you (one woman)', pr: 'أَنْتِ', ar: 'كَتَبْتِ', end: 'ـْتِ', say: 'katabti' },
+        { who: 'you two', pr: 'أَنْتُمَا', ar: 'كَتَبْتُمَا', end: 'ـْتُمَا', say: 'katabtumā' },
+        { who: 'you all (men)', pr: 'أَنْتُمْ', ar: 'كَتَبْتُمْ', end: 'ـْتُمْ', say: 'katabtum' },
+        { who: 'you all (women)', pr: 'أَنْتُنَّ', ar: 'كَتَبْتُنَّ', end: 'ـْتُنَّ', say: 'katabtunna' },
+        { group: 'I and we' },
+        { who: 'I', pr: 'أَنَا', ar: 'كَتَبْتُ', end: 'ـْتُ', say: 'katabtu' },
+        { who: 'we', pr: 'نَحْنُ', ar: 'كَتَبْنَا', end: 'ـْنَا', say: 'katabnā' },
+      ]}
+    />
+  </Stage>
+
+There are five “you” forms, then “I” and “we”. The form for “you two” is the same for two men, two women, or one of each, so the table has one row for it.
+
+Count them: six third-person forms, five “you” forms and two forms for “I” and “we” make **13 forms**.
+
+Six of the seven endings in this table start with the letter ت. The ت is the doer: “you” or “I”. The seventh ending is -nā, “we”, and it starts with ن.
+
+<Note kind="know">Counted in the Quranic Arabic Corpus file by its person tags (Form I past verbs, passives left out, weak verbs included), the Quran has 3,600 verbs tagged “he” and 2,129 tagged “they (men)”. It has 36 tagged “they (women)” and 2 tagged “you two”. These are Quran Learn's counts, and some tags are unreliable. The full table is still worth knowing, because the endings do not change from verb to verb.</Note>
+</Block>
+
+<Block id="sukun" title="The sukūn falls on the last root letter">
+  <Stage label="كَتَبْتُ, “I wrote”, letter by letter">
+    <Tiles
+      label="ك ت ب and the ending تُ"
+      items={[
+        { ar: 'كَ', en: 'root letter 1', type: 'x' },
+        { ar: 'تَ', en: 'root letter 2', type: 'x' },
+        { ar: 'بْ', en: 'root letter 3, with a sukūn', type: 'x' },
+        { ar: 'تُ', en: 'the ending: “I”', type: 'x' },
+      ]}
+    />
+  </Stage>
+
+Compare كَتَبَ with كَتَبْتُ. In كَتَبَ the last root letter ب has a fatḥa. In كَتَبْتُ it has a **sukūn**, ـْ.
+
+The ending تُ starts with a letter that has its own vowel. So the last root letter before it closes the syllable: كَتَبْ + تُ. The same happens before -ta, -ti, -tumā, -tum, -tunna, -nā and -na.
+
+The sukūn is on the **last** root letter, the ب. It is not on the middle letter ت. Say it slowly: *ka-ta-b-tu*. The vowels of the first two root letters (a, a) stay the same in these forms.
+
+<Note kind="warn">Look at the sukūn in the ending column of the tables. It sits on the last root letter, before the letters that are added.</Note>
+
+<Check n={5} q="In كَتَبْتُ, which letter has the sukūn?" options={['ك', 'ب', 'ت']} answer={1} why="ب is the last root letter. The ending تُ starts with its own vowel, so the ب closes the syllable with a sukūn." />
+</Block>
+
+<Block id="ta" title="-at: the tāʾ of “she”">
+  <Stage label="Made-up examples">
+    <Sentence
+      reference="Made-up example"
+      groups={[
+        { words: [{ ar: 'جَآءَ', en: 'came', say: 'jaa', type: 'v' }] },
+        { words: [{ ar: 'ٱلرَّجُلُ', en: 'the man', say: 'ar-rajulu' }] },
+      ]}
+      en={['The man came.']}
+    />
+    <Sentence
+      reference="Made-up example"
+      groups={[
+        { words: [{ ar: 'جَآءَتِ', en: 'came', say: 'jaat', type: 'v' }] },
+        { words: [{ ar: 'ٱلْمَرْأَةُ', en: 'the woman', say: 'al-maratu' }] },
+      ]}
+      en={['The woman came.']}
+    />
+  </Stage>
+
+A verb for “she” ends in ـَتْ: a fatḥa on the last root letter, then a ت with a sukūn. The grammar books call this ت **tāʾ al-taʾnīth**, “the tāʾ of feminine”. It also shows when the doer is a written feminine word: جَآءَتِ ٱلْمَرْأَةُ. L2.03 taught this match, and L1.07 introduced it.
+
+This ت is an ordinary tā. It is **not** the tāʾ marbūṭa, ة, that you saw on nouns in L1.07. The ة belongs to nouns, like رَحْمَةٌ. A verb ends in a plain ت.
+
+In جَآءَتِ the ت carries a kasra, so it can join the next word ٱلْمَرْأَةُ.
+
+<Check n={6} q="What is the ت at the end of كَتَبَتْ?" options={['A tāʾ marbūṭa, like the ة on nouns', 'An ordinary tā with a sukūn: the sign of “she”', 'The doer “I”']} answer={1} why="It is the tāʾ al-taʾnīth. The doer is “she”. The ة of L1.07 is a different letter." />
+</Block>
+
+<Block id="u-aa" title="-ā and -ū: two, and many">
+  <Stage>
+    <Sentence
+      roles
+      reference="Taha 20:121 (part)"
+      groups={[
+        { role: 'fiil', label: 'fiʿl + fāʿil', hint: 'the ending -ā is the doer: “the two”', words: [{ ar: 'فَأَكَلَا', en: 'so the two ate', say: 'fa-akala', type: 'v' }] },
+        { role: 'jarMajrur', hint: 'min “from” with “it”', words: [{ ar: 'مِنْهَا', en: 'from it', say: 'minha', type: 'p' }] },
+        { role: 'fiil', label: 'fiʿl', hint: 'feminine -at, because the doer is feminine', words: [{ ar: 'فَبَدَتْ', en: 'so it showed', say: 'fa-badat', type: 'v' }] },
+        { role: 'jarMajrur', hint: 'li- “to” with “the two”', words: [{ ar: 'لَهُمَا', en: 'to the two', say: 'lahuma', type: 'p' }] },
+        { role: 'fail', hint: 'the doer of بَدَتْ', words: [{ ar: 'سَوْءَٰتُهُمَا', en: 'their private parts', say: 'sawatuhuma' }] },
+      ]}
+      en={['So the two of them ate from it, and their private parts showed to them.']}
+    />
+  </Stage>
+
+The verse is about Adam and his wife. The verb فَأَكَلَا ends in **-ā**. It means two doers (the dual of L1.08). The doer is the ending, “the two of them”.
+
+The verb فَبَدَتْ ends in -at. Its doer is سَوْءَٰتُهُمَا, a feminine plural word, so the verb is feminine singular, as L2.03 taught.
+
+The ending for many men is **-ū**, as in كَتَبُوا. In the Quran text, a small round mark sits over the alif that follows the waw: كَفَرُوا۟ (2:6). It tells you not to say that alif. The word is read *kafarū*. This mark is not the sukūn: the sukūn sits on a letter that has no vowel.
+
+<Check n={7} q="Which ending means two doers?" options={['-ū', '-ā', '-na']} answer={1} why="-ā (and -atā for two women) is the dual. -ū is many men and -na is many women." />
+</Block>
+
+<Block id="na" title="-na and -nā">
+  <Stage>
+    <Sentence
+      roles
+      reference="Al-Baqarah 2:234 (part)"
+      groups={[
+        { words: [{ ar: 'فَإِذَا', en: 'then when', say: 'fa-idha', type: 'p' }] },
+        { role: 'fiil', label: 'fiʿl + fāʿil', hint: 'the ending -na is the doer: “they (women)”', words: [{ ar: 'بَلَغْنَ', en: 'they reached', say: 'balaghna', type: 'v' }] },
+        { role: 'maful', words: [{ ar: 'أَجَلَهُنَّ', en: 'their term', say: 'ajalahunna' }] },
+      ]}
+      en={['Then when they reach their term…']}
+    />
+    <Tiles
+      label="One alif is the difference"
+      items={[
+        { ar: 'كَتَبْنَ', en: 'they (women) wrote', type: 'v' },
+        { ar: 'كَتَبْنَا', en: 'we wrote', type: 'v' },
+      ]}
+    />
+  </Stage>
+
+In 2:234 the verse speaks about women whose husbands have died. The verb بَلَغْنَ ends in **-na**: “they (women) reached”. The doer is the ending.
+
+Compare **-nā** with the alif, “we”, and **-na** without it, “they (women)”. One alif changes the doer.
+
+The same verse has a second verb with the same ending: فِيمَا فَعَلْنَ, “in what they do”.
+
+<Check n={8} q="Which word means “we wrote”?" options={['كَتَبْنَ', 'كَتَبْنَا']} answer={1} why="-nā, with the alif, is “we”. Without the alif, -na is “they (women)”." />
+</Block>
+
+<Block id="shadda" title="The shadda in ءَامَنَّا">
+  <Stage>
+    <Sentence
+      roles
+      reference="Al-Imran 3:53 (start)"
+      groups={[
+        { words: [{ ar: 'رَبَّنَآ', en: 'our Lord', say: 'rabbana' }] },
+        { role: 'fiil', label: 'fiʿl + fāʿil', hint: '-nā: “we”', words: [{ ar: 'ءَامَنَّا', en: 'we believed', say: 'amanna', type: 'v' }] },
+        { role: 'jarMajrur', hint: 'bi- “in” with “what”', words: [{ ar: 'بِمَآ', en: 'in what', say: 'bima', type: 'p' }] },
+        { role: 'fiil', label: 'fiʿl + fāʿil', hint: '-ta: “you”', words: [{ ar: 'أَنزَلْتَ', en: 'you sent down', say: 'anzalta', type: 'v' }] },
+      ]}
+      en={['Our Lord, we believed in what You sent down.']}
+    />
+  </Stage>
+
+The verb ءَامَنَّا has a shadda on the نَ. It comes from the **root**, not from the pattern.
+
+The root is ء م ن. Its last letter is ن. The ending -nā starts with ن too. First the last root letter takes its sukūn, as in كَتَبْتُ: ءَامَنْ + نَا. Then the two nūns meet and are written as one with a shadda: ءَامَنَّا.
+
+The same happens to any verb whose last root letter is ن. The endings are the same on the other forms of the verb. ءَامَنَ is Form IV (L3.13), and أَنزَلْتَ in the same verse is Form IV with the ending -ta.
+
+<Check n={9} q="Where does the shadda in ءَامَنَّا come from?" options={['From the pattern of the verb', 'From the last root letter ن meeting the ending -nā', 'From the feminine']} answer={1} why="The root ء م ن ends in ن, and the ending -nā starts with ن. The two meet and take a shadda." />
+</Block>
+
+<Block id="groups" title="Five groups to remember">
+  <Stage label="Which letters tell you who?">
+    <Tiles
+      label="The five groups of endings"
+      items={[
+        { ar: 'ـَ ـَتْ', en: 'he, she', type: 'x' },
+        { ar: 'ـَا ـَتَا', en: 'the two', type: 'x' },
+        { ar: 'ـُوا ـْنَ', en: 'they', type: 'x' },
+        { ar: 'ـْتَ … ـْتُ', en: 'you, I', type: 'x' },
+        { ar: 'ـْنَا', en: 'we', type: 'x' },
+      ]}
+    />
+  </Stage>
+
+You do not need to learn 13 endings one by one. They fall into five groups.
+
+| Group | Endings | Who |
+|---|---|---|
+| 1 | -a, -at | he, she |
+| 2 | -ā, -atā | the two (men, women) |
+| 3 | -ū, -na | they (men), they (women) |
+| 4 | -ta, -ti, -tumā, -tum, -tunna, -tu | you (any), I: the ending starts with ت |
+| 5 | -nā | we |
+
+Look at the end of the word. A ت that starts the ending means “you” or “I”. An alif after -a or -at means “the two”. A و with an alif means “they (men)”. ـْنَا means “we”, and ـْنَ means “they (women)”.
+
+<Note kind="tip">A ت at the **end** of a past verb names the doer. A ت at the **start** of a verb is a different sign: the present tense (L3.06).</Note>
+</Block>
+</Step>
+
+<Step id="other-verbs" label="Other verbs" title="Other verbs, and verbs that change shape">
+<Block id="same" title="The same endings on other verbs">
+  <Stage label="-nā on four verbs">
+    <Tiles
+      label="The ending -nā on four different verbs"
+      items={[
+        { ar: 'كَتَبْنَا', en: 'we wrote', type: 'v' },
+        { ar: 'سَمِعْنَا', en: 'we heard', type: 'v' },
+        { ar: 'ءَامَنَّا', en: 'we believed', type: 'v' },
+        { ar: 'أَعْطَيْنَا', en: 'we gave', type: 'v' },
+      ]}
+    />
+  </Stage>
+
+The endings do not belong to كَتَبَ alone. Other past verbs take them too.
+
+A Form I verb can have a fatḥa, a kasra or a ḍamma on its middle letter (L3.04). The endings stay the same:
+
+| Middle vowel | He | I | They (men) |
+|---|---|---|---|
+| fatḥa | كَتَبَ | كَتَبْتُ | كَتَبُوا |
+| kasra | سَمِعَ | سَمِعْتُ | سَمِعُوا |
+| ḍamma | حَسُنَ | حَسُنْتُ | حَسُنُوا |
+
+The same endings fit the other forms of the verb too (L3.12 to L3.18). The stem changes, and the ending does not: ءَامَنَ gives ءَامَنَّا, and أَنزَلَ gives أَنزَلْتَ.
+
+<Note kind="know">Al-Kawthar (108:1, L2.12) has the verb أَعْطَيْنَٰكَ. It is أَعْطَى, “he gave” (Form IV, L3.13), with the ending **-nā**, “we”, and then the attached **-ka**, “you”, as its object (L3.02). Al-Jadwal reads the verb as built on a sukūn, as for any form with -nā.</Note>
+
+<Check n={10} q="Which ending do سَمِعْنَا and ءَامَنَّا share?" options={['-nā, “we”', '-ū, “they”', '-tu, “I”']} answer={0} why="Both end in -nā. The stem is different, but the ending is the same." />
+</Block>
+
+<Block id="t-verses" title="You, you all and I in verses">
+  <Stage>
+    <Sentence
+      roles
+      reference="Ash-Shuara 26:19 (start)"
+      groups={[
+        { role: 'fiil', label: 'fiʿl + fāʿil', hint: '-ta is the doer: “you”', words: [{ ar: 'وَفَعَلْتَ', en: 'and you did', say: 'wa-faalta', type: 'v' }] },
+        { words: [{ ar: 'فَعْلَتَكَ', en: 'your deed', say: 'faltaka' }] },
+      ]}
+      en={['And you did your deed.']}
+    />
+    <Sentence
+      roles
+      reference="Al-Baqarah 2:54 (part)"
+      groups={[
+        { words: [{ ar: 'إِنَّكُمْ', en: 'indeed you all', say: 'innakum', type: 'p' }] },
+        { role: 'fiil', label: 'fiʿl + fāʿil', hint: '-tum is the doer: “you all”', words: [{ ar: 'ظَلَمْتُمْ', en: 'you wronged', say: 'zalamtum', type: 'v' }] },
+        { role: 'maful', words: [{ ar: 'أَنفُسَكُم', en: 'yourselves', say: 'anfusakum' }] },
+      ]}
+      en={['Indeed you wronged yourselves.']}
+    />
+    <Sentence
+      roles
+      reference="Al-Qasas 28:16 (part)"
+      groups={[
+        { words: [{ ar: 'رَبِّ', en: 'my Lord', say: 'rabbi' }] },
+        { words: [{ ar: 'إِنِّى', en: 'indeed I', say: 'inni', type: 'p' }] },
+        { role: 'fiil', label: 'fiʿl + fāʿil', hint: '-tu is the doer: “I”', words: [{ ar: 'ظَلَمْتُ', en: 'I wronged', say: 'zalamtu', type: 'v' }] },
+        { words: [{ ar: 'نَفْسِى', en: 'myself', say: 'nafsi' }] },
+      ]}
+      en={['My Lord, I have wronged myself.']}
+    />
+  </Stage>
+
+Three real verses with the endings that start with ت.
+
+- **-ta**, “you”: Pharaoh speaks to Musa. 26:19.
+- **-tum**, “you all”: Musa speaks to his people. 2:54.
+- **-tu**, “I”: Musa speaks about himself. 28:16.
+
+The verbs in 2:54 and 28:16 are both ظَلَمَ, “he wronged”. The root and the stem stay. The ending changes the doer from “you all” to “I”.
+
+The Corpus tags two Form I past verbs as “you two”, and both are the word شِئْتُمَا (2:35 and 7:19). The “you” forms for women and for two people are few, but they follow the same pattern.
+</Block>
+
+<Block id="weak" title="Verbs that change shape">
+  <Stage label="Real verbs with the usual endings">
+    <Sentence
+      roles
+      reference="Al-Maʾidah 5:116 (part)"
+      groups={[
+        { role: 'fiil', label: 'fiʿl + fāʿil', hint: 'قَالَ with the ending -ta: “you”', words: [{ ar: 'ءَأَنتَ', en: 'did you', say: 'a-anta' }, { ar: 'قُلْتَ', en: 'say', say: 'qulta', type: 'v' }] },
+        { role: 'jarMajrur', hint: 'li- “to” with “the people”', words: [{ ar: 'لِلنَّاسِ', en: 'to the people', say: 'lin-nasi', type: 'p' }] },
+      ]}
+      en={['Did you say to the people…?']}
+    />
+    <Sentence
+      roles
+      reference="Al-Maʾidah 5:116 (part)"
+      groups={[
+        { words: [{ ar: 'إِن', en: 'if', say: 'in', type: 'p' }] },
+        { role: 'fiil', label: 'kāna + -tu', hint: 'كَانَ with the ending -tu: “I”', words: [{ ar: 'كُنتُ', en: 'I had', say: 'kuntu', type: 'v' }] },
+        { role: 'fiil', label: 'fiʿl + fāʿil + object', hint: 'قَالَ with -tu: “I”; -hu: “it”', words: [{ ar: 'قُلْتُهُۥ', en: 'said it', say: 'qultuhu', type: 'v' }] },
+      ]}
+      en={['If I had said it…']}
+    />
+    <Sentence
+      roles
+      reference="Al-Isra 17:3 (end)"
+      groups={[
+        { words: [{ ar: 'إِنَّهُۥ', en: 'indeed he', say: 'innahu', type: 'p' }] },
+        { role: 'fiil', label: 'kāna', hint: 'a past verb: “was”; its doer is a hidden “he”', words: [{ ar: 'كَانَ', en: 'was', say: 'kana', type: 'v' }] },
+        { role: 'khabarKana', words: [{ ar: 'عَبْدًا', en: 'a servant', say: 'abdan' }] },
+        { role: 'naat', words: [{ ar: 'شَكُورًا', en: 'thankful', say: 'shakuran' }] },
+      ]}
+      en={['Indeed he was a thankful servant.']}
+    />
+    <Sentence
+      roles
+      reference="Al-Anfal 8:17 (part)"
+      groups={[
+        { role: 'fiil', label: 'fiʿl + fāʿil', hint: '-ta is the doer: “you”', words: [{ ar: 'رَمَيْتَ', en: 'you threw', say: 'ramayta', type: 'v' }] },
+        { words: [{ ar: 'إِذْ', en: 'when', say: 'idh', type: 'p' }] },
+        { role: 'fiil', label: 'fiʿl + fāʿil', hint: '-ta is the doer: “you”', words: [{ ar: 'رَمَيْتَ', en: 'you threw', say: 'ramayta', type: 'v' }] },
+        { words: [{ ar: 'وَلَٰكِنَّ', en: 'but', say: 'wa-lakinna', type: 'p' }] },
+        { words: [{ ar: 'ٱللَّهَ', en: 'Allah', say: 'allaha' }] },
+        { role: 'fiil', label: 'fiʿl + hidden doer', hint: 'a past verb: “he threw”', words: [{ ar: 'رَمَىٰ', en: 'threw', say: 'rama', type: 'v' }] },
+      ]}
+      en={['…and you did not throw when you threw, but Allah threw.']}
+    />
+  </Stage>
+
+Some past verbs look different from كَتَبَ. They take the **same endings**, but the stem changes shape. Two kinds are very common:
+
+- **Hollow** verbs (أَجْوَف): the **middle** root letter is و or ي. قَالَ (root ق و ل) and كَانَ (root ك و ن) are hollow. Hollow verbs are 26.7% of the verbs in the Quran.
+- **Defective** verbs (نَاقِص): the **last** root letter is و or ي. دَعَا (root د ع و) and رَمَىٰ (root ر م ي) are defective. Defective verbs are 18.0% of the verbs in the Quran.
+
+Both percentages are Quran Learn's count from the Quranic Arabic Corpus. قَالَ and كَانَ are the 7th and 10th most common words of the Quran, by the same count.
+
+| Kind | He | I | They (men) |
+|---|---|---|---|
+| Regular | كَتَبَ | كَتَبْتُ | كَتَبُوا |
+| Hollow | قَالَ | قُلْتُ | قَالُوا |
+| Hollow | كَانَ | كُنتُ | كَانُوا |
+| Defective | دَعَا | دَعَوْتُ | دَعَوْا |
+| Defective | رَمَىٰ | رَمَيْتُ | رَمَوْا |
+
+Look at what you can see. The endings are the same, or nearly the same: -tu, -ta, -ū (in دَعَوْا it is a w sound after the a), and the hidden “he”. But the long ā of قَالَ is missing in قُلْتُ, and the ي of رَمَىٰ shows in رَمَيْتَ. You can read all of these verses with the endings you know.
+
+The verses show it: وَإِذْ قَالَ ٱللَّهُ opens 5:116, and the same verse has قُلْتَ and قُلْتُهُۥ. In 71:5 Nuh says دَعَوْتُ قَوْمِى, “I called my people”.
+
+In this lesson you **recognise** these verbs. L4.11 (weak verbs: the idea), L4.12 (hollow verbs) and L4.13 (defective verbs) teach why the stem changes and how to build the forms. L4.14 and L4.15 cover two more kinds.
+
+<Note kind="know">The word نَاقِص is also used for كَانَ and its sisters (L2.11), where it means “incomplete”: they need a khabar. Here it names a verb whose last root letter is weak.</Note>
+
+<Check n={11} q="قُلْتُ and كَتَبْتُ end in the same ending. What does it mean?" options={['“I”', '“you (one man)”', '“we”']} answer={0} why="Both end in -tu, “I”. قُلْتُ is a hollow verb, and the ending is still the same." />
+</Block>
+</Step>
+
+<Step id="irab" label="I'rab and mistakes" title="The iʿrāb line, four mistakes, and four verses word by word">
+<Block id="irab-line" title="How a past verb is written in iʿrāb">
+  <Stage label="Built on …">
+    <Tiles
+      label="Three sounds a past verb can be built on"
+      items={[
+        { ar: 'ٱلْفَتْح', en: 'fatḥa: -a, -at, -ā', type: 'x' },
+        { ar: 'ٱلضَّمّ', en: 'ḍamma: -ū', type: 'x' },
+        { ar: 'ٱلسُّكُون', en: 'sukūn: -tu, -ta, -nā, -na', type: 'x' },
+      ]}
+    />
+  </Stage>
+
+A past verb has **no case**. Its last sound is fixed. The grammar books say it is **built**, مَبْنِيّ (*mabnī*). The words in L2.04 to L2.06 that change with case are called مُعْرَب (*muʿrab*).
+
+So the iʿrāb line of a past verb names the sound it is built on: فعل ماض مبني على الفتح (or الضم, or السكون). The ending decides which one, and the line then names the ending's job.
+
+| Ending | Built on | The ending is |
+|---|---|---|
+| none (he), -at (she) | الفتح | for “he” and “she”, a hidden doer: ضمير مستتر. In -at, the ت is the sign of feminine (تاء التأنيث) |
+| -ā, -atā | الفتح | the alif is the doer: الألف فاعل |
+| -ū | الضم | the waw is the doer: الواو فاعل |
+| -ta, -ti, -tumā, -tum, -tunna, -tu | السكون | the tāʾ is the doer: التاء فاعل |
+| -nā | السكون | nā is the doer: نا فاعل |
+| -na | السكون | the nūn is the doer: النون فاعل |
+
+Al-Jadwal words these lines in the verses of this lesson: نا فاعل in 7:145, النون فاعل in 2:234, الواو فاعل in 2:6, الألف فاعل in 20:121, and التاء فاعل in 8:17.
+
+<Note kind="know">The doer endings are attached pronouns, so some books write “a pronoun in the place of the nominative” (ضمير في محل رفع فاعل). It is the same analysis in longer words.</Note>
+
+<Check n={12} q="Which sound is كَتَبُوا built on?" options={['الفتح', 'الضم', 'السكون']} answer={1} why="The waw ending -ū takes a ḍamma on the last root letter, so the verb is built on ٱلضَّمّ." />
+</Block>
+
+<Block id="mistake-sukun" title="Mistake 1: a vowel before -tu">
+  <Stage label="Which one is a word?">
+    <Tiles
+      label="كَتَبْتُ is a word. كَتَبَتُ is not."
+      items={[
+        { ar: 'كَتَبْتُ', en: 'I wrote: correct', type: 'v' },
+        { ar: 'كَتَبَتُ', en: 'not a word', type: 'x' },
+      ]}
+    />
+  </Stage>
+
+It is easy to keep the fatḥa of كَتَبَ and add تُ. That gives كَتَبَتُ. It looks like “I wrote”, but it is not a word.
+
+Before -tu, -ta, -nā and the other consonant endings, the last root letter takes a sukūn: كَتَبْتُ. The sukūn is on the ب, the last root letter, and not on the middle letter.
+
+The ending -at is different: it keeps the fatḥa, كَتَبَتْ. Read the ending, then fix the vowel.
+</Block>
+
+<Block id="mistake-lookalike" title="Mistake 2: endings that look alike">
+  <Stage label="Look at the last letters">
+    <Tiles
+      label="Three look-alikes"
+      items={[
+        { ar: 'كَتَبْنَ', en: 'they (women) wrote', type: 'v' },
+        { ar: 'كَتَبْنَا', en: 'we wrote', type: 'v' },
+        { ar: 'يَكْتُبْنَ', en: 'they (women) write: present', type: 'v' },
+      ]}
+    />
+  </Stage>
+
+Four pairs are easy to mix up.
+
+- **-na and -nā.** One alif changes “they (women)” into “we”.
+- **Past -na and present يَكْتُبْنَ.** The past verb has no prefix. The present starts with يَ (L3.06).
+- **-ā and -atā.** كَتَبَا is two men, and كَتَبَتَا is two women. The ت marks the feminine, as it does for “she”.
+- **-at and ة.** The ت at the end of كَتَبَتْ is an ordinary tā. It is not the tāʾ marbūṭa of L1.07.
+</Block>
+
+<Block id="mistake-attached" title="Mistake 3: reading the end of the verb as one thing">
+  <Stage label="Two jobs in one word">
+    <Tiles
+      label="كَتَبْتُهُ: root, doer, object"
+      items={[
+        { ar: 'كَتَبْ', en: 'root ك ت ب', type: 'x' },
+        { ar: 'تُ', en: 'the doer: “I”', type: 'x' },
+        { ar: 'هُ', en: 'the object: “it”', type: 'x' },
+      ]}
+    />
+  </Stage>
+
+A past verb can end in more than one piece. In كَتَبْتُهُ the **-tu** is the doer, “I”. The **-hu** is the object, “it” or “him”. The meaning is “I wrote it”.
+
+The doer ending comes first, and the object ending comes after it. L3.02 teaches the object endings. L2.03 taught that a pronoun on a verb can be the doer or the object.
+
+<Note kind="warn">Do not read -hu as “he”. It is the object. The doer is -tu.</Note>
+</Block>
+
+<Block id="mistake-forms" title="Mistake 4: thinking the endings belong to Form I">
+  <Stage label="One ending, two forms">
+    <Tiles
+      label="Form I and Form IV take the same -nā"
+      items={[
+        { ar: 'كَتَبْنَا', en: 'Form I: we wrote', type: 'v' },
+        { ar: 'أَنزَلْنَا', en: 'Form IV: we sent down', type: 'v' },
+      ]}
+    />
+  </Stage>
+
+The 13 endings are not special to Form I. They fit the past verbs of Forms II to X too (L3.12 to L3.18). The stem changes: كَتَبَ is Form I and أَنزَلَ is Form IV. Both take -nā.
+
+The verbs that change shape (قَالَ, كَانَ, رَمَىٰ) take the same endings as well. The stem looks different, and the endings do not.
+</Block>
+
+<Block id="parse-1" title="Word by word: Al-Aʿraf 7:145">
+  <Stage label="Word by word">
+    <Parse
+      reference="Al-Aʿraf 7:145 (start)"
+      words={[
+        { ar: 'وَكَتَبْنَا', en: 'and we wrote', type: 'v' },
+        { ar: 'لَهُۥ', en: 'for him', type: 'p' },
+        { ar: 'فِى', en: 'in', type: 'p' },
+        { ar: 'ٱلْأَلْوَاحِ', en: 'the tablets' },
+      ]}
+      cards={[
+        { at: 0, ar: 'وَ', role: '“and”, a little word that starts a new sentence', why: 'Little words have no case.', irab: 'الواو استئنافية' },
+        { at: 0, ar: 'كَتَبْنَا', role: 'a past-tense verb: “we wrote”', case: 'a verb has no case; it is built', mark: 'a sukūn on the last root letter ب', why: 'The ending -nā is the doer, “we”. It starts with a consonant, so the verb is built on a sukūn.', irab: 'فعل ماض مبني على السكون، ونا ضمير فاعل' },
+        { at: 1, role: '“for him”: li- with the pronoun hu. It belongs to the verb.', why: 'It says for whom it was written.', irab: 'جار ومجرور متعلق بكتبنا' },
+        { at: [2, 3], role: '“in the tablets”: fī and a noun. It belongs to the verb.', case: 'genitive (jarr) after fī', mark: '-i (kasra)', why: 'It says where it was written.', irab: 'جار ومجرور متعلق بكتبنا' },
+      ]}
+    />
+  </Stage>
+
+This verse has a past verb with the ending -nā. Say four things about the verb: its tense, its ending, who the doer is, and the sound it is built on.
+
+Press **Next word** and try each answer before you read it. The Arabic line on each card is how the grammar books write it. Al-Jadwal analyses this verse word by word.
+</Block>
+
+<Block id="parse-2" title="Word by word: Al-Baqarah 2:6">
+  <Stage label="Word by word">
+    <Parse
+      reference="Al-Baqarah 2:6 (start)"
+      words={[
+        { ar: 'إِنَّ', en: 'indeed', type: 'p' },
+        { ar: 'ٱلَّذِينَ', en: 'those who' },
+        { ar: 'كَفَرُوا۟', en: 'disbelieved', type: 'v' },
+      ]}
+      cards={[
+        { at: 0, role: 'a little word that begins the sentence: “indeed”', why: 'It makes the next word accusative. L2.10 teaches inna.', irab: 'حرف مشبه بالفعل للتوكيد' },
+        { at: 1, role: '“those who”: the first part of the sentence after inna', case: 'a word with a fixed ending; it counts as accusative', mark: 'none', why: 'A relative word like this has a fixed ending. It follows inna.', irab: 'اسم موصول مبني على الفتح في محل نصب اسم إن' },
+        { at: 2, role: 'a past-tense verb: “they disbelieved”', case: 'a verb has no case; it is built', mark: 'a ḍamma on the last root letter ر', why: 'The ending -ū is the doer, “they”. The alif after the waw is written but not read. A small mark over it shows this.', irab: 'فعل ماض مبني على الضم، والواو ضمير متصل في محل رفع فاعل' },
+        { at: 2, role: 'the whole sentence كَفَرُوا: it tells which people', why: 'A sentence after a word like “those who” completes it. It has no case of its own.', irab: 'جملة كفروا لا محل لها صلة الموصول' },
+      ]}
+    />
+  </Stage>
+
+The ending here is **-ū**, so the verb is built on a ḍamma, not a sukūn. The ḍamma is on the ر, the last root letter.
+
+The last card shows that a whole sentence can have a place in iʿrāb. This sentence completes the word “those who”.
+</Block>
+
+<Block id="parse-3" title="Word by word: Al-Anfal 8:17">
+  <Stage label="Word by word">
+    <Parse
+      reference="Al-Anfal 8:17 (part)"
+      words={[
+        { ar: 'وَمَا', en: 'and not', type: 'p' },
+        { ar: 'رَمَيْتَ', en: 'you threw', type: 'v' },
+        { ar: 'إِذْ', en: 'when', type: 'p' },
+        { ar: 'رَمَيْتَ', en: 'you threw', type: 'v' },
+      ]}
+      cards={[
+        { at: 0, ar: 'وَ', role: '“and”, a little word that joins this sentence to the one before', why: 'Little words have no case.', irab: 'الواو عاطفة' },
+        { at: 0, ar: 'مَا', role: '“not”, a little word that says the action did not happen', why: 'Little words have no case.', irab: 'ما نافية' },
+        { at: 1, role: 'a past-tense verb: “you threw”', case: 'a verb has no case; it is built', mark: 'a sukūn on the last root letter ي', why: 'The ending -ta is the doer, “you”. The root is ر م ي, a defective verb (L4.13).', irab: 'فعل ماض مبني على السكون، والتاء فاعل' },
+        { at: 2, role: 'a word for time that has passed: “when”', case: 'a word with a fixed ending; it counts as accusative', mark: 'none', why: 'It says when. It belongs to the verb before it.', irab: 'ظرف للزمن الماضي مبني في محل نصب متعلق برميت' },
+        { at: 3, role: 'a past-tense verb: “you threw”', case: 'a verb has no case; it is built', mark: 'a sukūn on the last root letter ي', why: 'The same verb, the same ending.', irab: 'فعل ماض مبني على السكون، والتاء فاعل' },
+        { at: 3, role: 'the sentence رَمَيْتَ: it completes إِذْ', why: 'A sentence after إِذْ is its second part. It has no case of its own, but it stands in the place of the genitive.', irab: 'وجملة رميت الثانية في محل جر مضاف إليه' },
+      ]}
+    />
+  </Stage>
+
+The verb is **defective**: its last root letter is ي. Look at the ending. It is still -ta, “you”, and it is built on a sukūn like any verb with -ta.
+
+Al-Jadwal words the second رَمَيْتَ as “like the first”. The two have the same iʿrāb.
+</Block>
+
+<Block id="parse-4" title="Word by word: Al-Aʿraf 7:189">
+  <Stage label="Word by word">
+    <Parse
+      reference="Al-Aʿraf 7:189 (part)"
+      words={[
+        { ar: 'حَمَلَتْ', en: 'she carried', type: 'v' },
+        { ar: 'حَمْلًا', en: 'a carrying' },
+        { ar: 'خَفِيفًا', en: 'light' },
+        { ar: 'فَمَرَّتْ', en: 'and she passed', type: 'v' },
+        { ar: 'بِهِۦ', en: 'with it', type: 'p' },
+      ]}
+      cards={[
+        { at: 0, role: 'a past-tense verb: “she carried”', case: 'a verb has no case; it is built', mark: 'a fatḥa on the last root letter ل', why: 'The ت at the end is the tāʾ of “she”. The doer is a hidden “she” inside the verb.', irab: 'فعل ماض مبني على الفتح، والتاء تاء التأنيث، والفاعل ضمير مستتر تقديره هي' },
+        { at: 1, role: 'mafʿūl muṭlaq: a noun made from the verb that tells how', case: 'accusative (naṣb)', mark: '-an (fatḥatayn, ـً)', why: 'It repeats the verb’s meaning: “she carried a carrying”. L4.07 teaches this.', irab: 'مفعول مطلق منصوب' },
+        { at: 2, role: 'naʿt (adjective) of حَمْلًا', case: 'accusative (naṣb), like its noun', mark: '-an (fatḥatayn)', why: 'An adjective copies the ending of its noun (L2.09).', irab: 'نعت منصوب' },
+        { at: 3, ar: 'فَ', role: '“and then”, a little word that joins the sentences', why: 'Little words have no case.', irab: 'الفاء عاطفة' },
+        { at: 3, ar: 'مَرَّتْ', role: 'a past-tense verb: “she passed”', case: 'a verb has no case; it is built', mark: 'a fatḥa on the last root letter', why: 'It has the same ending as حَمَلَتْ: -at, with a hidden “she”.', irab: 'فعل ماض مبني على الفتح مثل حملت، والتاء تاء التأنيث، والفاعل ضمير مستتر تقديره هي' },
+        { at: 4, role: '“with it”: bi- and the pronoun hu. It belongs to the verb.', why: 'It says what she passed with.', irab: 'جار ومجرور متعلق بمرت' },
+      ]}
+    />
+  </Stage>
+
+Here the ending is **-at** and the doer is hidden: “she”. The verb is built on a fatḥa, because -at keeps the fatḥa of the stem.
+
+Compare this verb with كَتَبَتْ in the table. The two work the same way.
+
+<Note kind="know">Al-Jadwal gives a second reading of حَمْلًا: an object meaning “the thing carried”. This lesson follows its first reading, the noun made from the verb.</Note>
+</Block>
+</Step>
+
+<Step id="practice" label="Practice" title="Practice">
+<Block id="practice-1" title="Practice: read the endings">
+  <Stage label="For each past verb, say">
+    <ol class="lx-card-list">
+      <li><b>Ending:</b> which of the five groups?</li>
+      <li><b>Doer:</b> who did it?</li>
+      <li><b>Built on:</b> fatḥa, ḍamma or sukūn?</li>
+      <li><b>Root:</b> which three letters stay the same?</li>
+    </ol>
+  </Stage>
+
+Work out each answer first, on paper or in your head. Then open the answer.
+
+<Exercise n={1} q="Say who did the action. The root is ن ص ر, naṣara “he helped”: (a) نَصَرَ (b) نَصَرَتْ (c) نَصَرُوا (d) نَصَرْنَ (e) نَصَرْتَ (f) نَصَرْتِ (g) نَصَرْتُمْ (h) نَصَرْنَا">
+
+- (a) he helped
+- (b) she helped
+- (c) they (men) helped
+- (d) they (women) helped
+- (e) you (one man) helped
+- (f) you (one woman) helped
+- (g) you all (men) helped
+- (h) we helped
+
+</Exercise>
+
+<Exercise n={2} q="Write the form of ذَهَبَ, “he went”, for each: (a) she (b) they (men) (c) you (one woman) (d) we (e) I (f) they (women)">
+
+- (a) ذَهَبَتْ (*dhahabat*)
+- (b) ذَهَبُوا (*dhahabū*)
+- (c) ذَهَبْتِ (*dhahabti*)
+- (d) ذَهَبْنَا (*dhahabnā*)
+- (e) ذَهَبْتُ (*dhahabtu*)
+- (f) ذَهَبْنَ (*dhahabna*)
+
+The sukūn is on the last root letter ب in (c), (d), (e) and (f).
+
+</Exercise>
+
+<Exercise n={3} q="Find the past verb in each, then say its root and who did it: (a) وَقَالُوا۟ سَمِعْنَا وَأَطَعْنَا (Al-Baqarah 2:285, part) (b) قَالُوٓا۟ ءَامَنَّا بِرَبِّ ٱلْعَٰلَمِينَ (Ash-Shuara 26:47) (c) خَلَقَ ٱلْإِنسَٰنَ مِن صَلْصَٰلٍ كَٱلْفَخَّارِ (Ar-Rahman 55:14)">
+
+- (a) **سَمِعْنَا**: root س م ع (hearing), ending -nā, “we heard”. **أَطَعْنَا**: root ط و ع (obeying), ending -nā, “we obeyed”. It is a hollow verb (Form IV), and its stem changes. **قَالُوا**: root ق و ل, ending -ū, “they said”. It is also hollow.
+- (b) **قَالُوا**: root ق و ل, ending -ū, “they said”. **ءَامَنَّا**: root ء م ن, ending -nā, “we believed”. The shadda comes from the root's last letter ن.
+- (c) **خَلَقَ**: root خ ل ق (creating), no ending, “he created”. The doer is hidden.
+
+</Exercise>
+
+<Exercise n={4} q="Look at كَذَّبَتْ قَوْمُ نُوحٍ ٱلْمُرْسَلِينَ (Ash-Shuara 26:105). Say the ending of the verb, the doer, and why the verb is feminine. The root is ك ذ ب.">
+
+The ending is **-at**: the tāʾ of “she”. The verb is built on a fatḥa. The root is ك ذ ب, “lying, denying”. The shadda on the ذ shows Form II, which L3.12 teaches. The ending works the same way.
+
+The doer is قَوْمُ نُوحٍ, “the people of Nuh”, a written word that comes after the verb. Al-Jadwal says the verb is feminine because the doer means a group or a nation, and not because of the shape of the word قَوْم.
+
+</Exercise>
+
+<Exercise n={5} q="What does each ending tell you? (a) كَتَبُوا (b) كَتَبْنَا (c) كَتَبَتَا (d) كَتَبْتُمْ (e) كَتَبْنَ">
+
+- (a) **-ū**: they (men) wrote.
+- (b) **-nā**: we wrote.
+- (c) **-atā**: the two (women) wrote.
+- (d) **-tum**: you all (men) wrote.
+- (e) **-na**: they (women) wrote.
+
+Check (b) and (e). One alif is the difference: كَتَبْنَا is “we” and كَتَبْنَ is “they (women)”.
+
+</Exercise>
+</Block>
+
+<Block id="practice-2" title="Practice: build, hunt, and write the line">
+  <Stage label="Five groups">
+    <ol class="lx-card-list">
+      <li><b>-a, -at:</b> he, she</li>
+      <li><b>-ā, -atā:</b> the two</li>
+      <li><b>-ū, -na:</b> they (men), they (women)</li>
+      <li><b>-ta ... -tu:</b> you, I</li>
+      <li><b>-nā:</b> we</li>
+    </ol>
+  </Stage>
+
+<Exercise n={6} q="Build it. The root is ن ز ل, nazala “he came down”. Write: (a) he (b) she (c) they (men) (d) I (e) we">
+
+- (a) نَزَلَ (*nazala*)
+- (b) نَزَلَتْ (*nazalat*)
+- (c) نَزَلُوا (*nazalū*)
+- (d) نَزَلْتُ (*nazaltu*): the stem closes with a sukūn, نَزَلْ + تُ.
+- (e) نَزَلْنَا (*nazalnā*): نَزَلْ + نَا.
+
+</Exercise>
+
+<Exercise n={7} q="Hunt. Open Al-Baqarah 2:1 to 2:10. Find three past verbs of Form I. For each, say the ending and who did it.">
+
+Past verbs of Form I in these ten verses include:
+
+- **رَزَقْنَٰهُمْ** (2:3): root ر ز ق, “we gave them”. The ending -nā is the doer. The -hum is the object.
+- **كَفَرُوا۟** (2:6): root ك ف ر, “they disbelieved”. The ending -ū is the doer.
+- **خَتَمَ** (2:7): root خ ت م, “he sealed”. The doer is a hidden “he”. Here it is Allah, written after the verb: خَتَمَ ٱللَّهُ.
+
+Others are كَانُوا۟ (2:10, hollow) and the Form IV verbs ءَامَنَّا (2:8) and ءَأَنذَرْتَهُمْ (2:6).
+
+</Exercise>
+
+<Exercise n={8} q="Which of these is a regular verb: قُلْتُ, كَتَبْتُ, كُنتُ, رَمَيْتُ? Say what the ending means in each.">
+
+**كَتَبْتُ** is regular: the three root letters ك ت ب all show and do not change.
+
+The others change shape. قُلْتُ and كُنتُ are hollow (the middle root letter is و). رَمَيْتُ is defective (the last root letter is ي).
+
+All four end in **-tu**, “I”. The ending is the same, even where the stem changes.
+
+</Exercise>
+
+<Exercise n={9} q="Write the iʿrāb line of the verb: (a) كَتَبَتْ (b) كَتَبُوا (c) كَتَبْنَا (d) كَتَبَا (e) كَتَبْتُمْ">
+
+- (a) فعل ماض مبني على الفتح، والتاء تاء التأنيث، والفاعل ضمير مستتر تقديره هي
+- (b) فعل ماض مبني على الضم، والواو فاعل
+- (c) فعل ماض مبني على السكون، ونا فاعل
+- (d) فعل ماض مبني على الفتح، والألف فاعل
+- (e) فعل ماض مبني على السكون، والتاء فاعل، والميم لجمع الذكور
+
+The ending decides the sound the verb is built on. The doer is the ending, except for “he” and “she”, where it is hidden.
+
+</Exercise>
+
+<Exercise n={10} q="Is فَعَلْنَ “we did” or “they (women) did”? Look at فِيمَا فَعَلْنَ (Al-Baqarah 2:234, part).">
+
+**They (women) did.** The ending is -na, with no alif. “We did” would be فَعَلْنَا. Al-Jadwal reads فَعَلْنَ like بَلَغْنَ in the same verse: a past verb built on a sukūn, with the nūn as the doer.
+
+The women are the widows of the verse, so the meaning fits.
+
+</Exercise>
+</Block>
+
+<Block id="done" title="You have finished the lesson">
+  <Stage label="The idea">
+    <Formula
+      label="stem plus ending equals a past verb"
+      items={[
+        { kind: 'm', text: 'stem', small: 'the root and its vowels' },
+        { kind: 'k', text: 'ending', small: 'tells who did it' },
+        { kind: 's', text: 'past verb', small: 'فِعْل مَاضٍ' },
+      ]}
+    />
+  </Stage>
+
+- The past verb names a finished action. The plain form, كَتَبَ, means “he wrote”.
+- The **ending** names the doer. There are **13 forms**, in five groups: he and she, the two, they, you and I (the ending starts with ت), and we.
+- Before -ta, -ti, -tum, -tu, -nā and the other consonant endings, the sukūn falls on the **last root letter**: كَتَبْتُ.
+- The ت of -at is the tāʾ of “she”, an ordinary tā. It is not the ة of nouns.
+- Hollow verbs (قَالَ, كَانَ) and defective verbs (دَعَا, رَمَىٰ) change shape but take the same endings. L4.11 to L4.13 teach the rules.
+- The iʿrāb line names the sound the verb is built on: فتح (he, she, the two), ضم (-ū), سكون (the consonant endings). The doer is the ending, or a hidden pronoun.
+
+**Next:** L3.06 teaches the present tense, which uses a prefix and an ending. L3.08 teaches the command. If the Level 2 grammar felt thin, review L2.03 (the verbal sentence) before you go on. Weak verbs are L4.11 ([weak verbs: the idea](/learn/level-4/11-weak-verbs-intro/)), L4.12 ([hollow verbs](/learn/level-4/12-hollow-verbs/)) and L4.13 ([defective verbs](/learn/level-4/13-defective-verbs/)).
+
+Earlier lessons you can link back to: [subject pronouns, L3.01](/learn/level-3/01-subject-pronouns/), [attached pronouns, L3.02](/learn/level-3/02-attached-pronouns/), [Form I, L3.04](/learn/level-3/04-verb-form-i/), [present tense, L3.06](/learn/level-3/06-present-tense/).
+
+<Sources
+    items={[
+      { label: 'Quran text', name: 'Tanzil (Uthmani text)', href: 'https://tanzil.net' },
+      { label: 'Verb tags, roots and counts', name: 'Quranic Arabic Corpus', href: 'https://corpus.quran.com' },
+      { label: 'Word-by-word analysis (iʿrāb) of the verses', name: 'Maḥmūd Ṣāfī, al-Jadwal fī Iʿrāb al-Qurʾān wa-Ṣarfihi wa-Bayānihi' },
+      { label: 'Grammar', name: 'Ibn Ājurrūm, al-Ajurrumiyyah, chapter on verbs' },
+      { label: 'Share of hollow and defective verbs', name: 'Quran Learn count from the Quranic Arabic Corpus' },
+      { label: 'English under the verses', name: 'Plain-English meanings by Quran Learn, not a translation' },
+    ]}
+  />
+</Block>
+</Step>

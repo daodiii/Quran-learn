@@ -1,523 +1,879 @@
 ---
 title: "The Definite Article (Al-)"
+kicker: "How Arabic says “the”"
+titleArabic: "الْأَلِفُ وَاللَّامُ"
 level: 1
 order: 6
-description: "Recognize the definite article and its pronunciation rules including sun and moon letters."
+template: steps
+description: "Learn the Arabic word for “the”: how ٱلْ is said before sun letters and moon letters, how the joining alif ٱ is written and skipped, what happens to ٱلْ after لِ and بِ, and how a definite noun differs from an indefinite one with tanwīn."
 draft: false
 ---
 
-import ArabicExample from '../../../components/mdx/ArabicExample.astro';
-import GrammarTable from '../../../components/mdx/GrammarTable.astro';
-import Callout from '../../../components/mdx/Callout.astro';
-import ExerciseBox from '../../../components/mdx/ExerciseBox.astro';
-import SpecimenChips from '../../../components/mdx/lab/SpecimenChips.astro';
-import MorphTransformer from '../../../components/mdx/lab/MorphTransformer.astro';
-
-## Introduction
-
-In English, we use "the" to make nouns specific — "a book" becomes "THE book." Arabic does exactly the same thing by adding أَلْ (al-) to the beginning of nouns. But here's the fascinating part: the pronunciation changes depending on which letter comes after it!
-
-<ArabicExample
-  arabic="ٱلْحَمْدُ لِلَّهِ رَبِّ ٱلْعَٰلَمِينَ ۝ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ"
-  transliteration="al-ḥamdu lillāhi rabbi l-ʿālamīna ۝ ar-raḥmāni r-raḥīmi"
-  translation="All praise belongs to Allah, Lord of all the worlds. The Most Gracious, the Most Merciful."
-  reference="Al-Fatiha 1:2-3"
-  highlight="ٱلْحَمْدُ,ٱلْعَٰلَمِينَ,ٱلرَّحْمَٰنِ,ٱلرَّحِيمِ"
-  words={[
-    { ar: "ٱلْحَمْدُ", tr: "al-ḥamdu", en: "the praise" },
-    { ar: "لِلَّهِ", tr: "lillāhi", en: "to Allah" },
-    { ar: "رَبِّ", tr: "rabbi", en: "Lord (of)" },
-    { ar: "ٱلْعَٰلَمِينَ", tr: "l-ʿālamīna", en: "the worlds" },
-    { ar: "۝", tr: "", en: "" },
-    { ar: "ٱلرَّحْمَٰنِ", tr: "ar-raḥmāni", en: "the Most Gracious" },
-    { ar: "ٱلرَّحِيمِ", tr: "r-raḥīmi", en: "the Most Merciful" }
-  ]}
-/>
-
-Notice: ٱلْحَمْدُ is pronounced "al-ḥamdu" but ٱلرَّحْمَٰنِ is pronounced "ar-raḥmāni" (not "al-raḥmāni"). Why? Let's find out!
-
-**In this lesson, you will:**
-- Recognize the definite article and its pronunciation rules (sun/moon letters)
-- Understand the difference between definite and indefinite nouns
-- Identify definite nouns in Quranic verses
-
-**Connection:** In [L1.04](/learn/level-1/04-three-word-types/), you learned that nouns (ism) can take tanween to become indefinite ("a book"). Now learn how to make them definite ("THE book") using ال.
-
-## Understanding Definite and Indefinite
-
-**Plain English first:** In English, we distinguish between:
-- **Indefinite:** "a book" (any book, not specific)
-- **Definite:** "the book" (a specific book we're talking about)
-
-Arabic does the same thing, but instead of using a separate word like "the," it attaches a prefix أَلْ (al-) directly to the noun.
-
-### The Definite Article: أَلْ (al-)
-
-The [definite article](/resources/glossary/#al) (al- / أَلْ) is a two-letter prefix that makes any noun [definite](/resources/glossary/#marifah) (maʿrifah / مَعْرِفَة).
-
-**The key rule:** When you add ال to a noun, tanween DISAPPEARS.
-
-**Examples:**
-- **كِتَابٌ** (kitābun) — a book (INDEFINITE, has tanween)
-- **ٱلْكِتَابُ** (al-kitābu) — THE book (DEFINITE, no tanween)
-
-<SpecimenChips
-  specimens={[
-    {
-      word: "كِتَابٌ",
-      tag: "Indefinite",
-      segments: [
-        { text: "كِتَاب", part: "stem", label: "Stem · kitāb", note: "the noun itself" },
-        { text: "ـٌ", part: "end", label: "Tanween damma", note: '"a/an" — indefinite marker' }
-      ],
-      verdict: 'Indefinite: kitābun — "a book". Tanween present, no al-.'
-    },
-    {
-      word: "ٱلْكِتَابُ",
-      tag: "Definite",
-      segments: [
-        { text: "ٱلْ", part: "al", label: "Prefix · al-", note: "definite article" },
-        { text: "كِتَاب", part: "stem", label: "Stem · kitāb", note: "the noun itself" },
-        { text: "ـُ", part: "end", label: "Damma", note: "case ending stays — tanween gone" }
-      ],
-      verdict: 'Definite: al-kitābu — "THE book". Moon letter ك: the lam is pronounced clearly.'
-    },
-    {
-      word: "رَجُلٌ",
-      tag: "Indefinite",
-      segments: [
-        { text: "رَجُل", part: "stem", label: "Stem · rajul", note: "the noun itself" },
-        { text: "ـٌ", part: "end", label: "Tanween damma", note: '"a/an" — indefinite marker' }
-      ],
-      verdict: 'Indefinite: rajulun — "a man". Tanween present, no al-.'
-    },
-    {
-      word: "ٱلرَّجُلُ",
-      tag: "Definite",
-      segments: [
-        { text: "ٱلرَّ", part: "al", label: "Al- + shadda", note: "lam melts into ر" },
-        { text: "جُل", part: "stem", label: "Stem · rajul", note: "the noun itself" },
-        { text: "ـُ", part: "end", label: "Damma", note: "case ending stays — tanween gone" }
-      ],
-      verdict: 'Definite: ar-rajulu — "THE man". Sun letter ر: the lam assimilates, ر doubles with shadda.'
-    }
-  ]}
-/>
-
-**Notice:**
-1. The ال is attached directly (no space)
-2. The tanween (ـٌ) is gone
-3. The case ending remains (ـُ damma for nominative)
-
-### Definite vs. Indefinite Comparison
-
-<GrammarTable>
-| Status | Arabic Term | Example | Translation | Has Tanween? | Has Al-? |
-|--------|-------------|---------|-------------|--------------|----------|
-| Indefinite | نَكِرَة (nakirah) | كِتَابٌ (kitābun) | a book | ✓ Yes | ✗ No |
-| Definite | مَعْرِفَة (maʿrifah) | ٱلْكِتَابُ (al-kitābu) | the book | ✗ No | ✓ Yes |
-| Indefinite | نَكِرَة (nakirah) | رَجُلٌ (rajulun) | a man | ✓ Yes | ✗ No |
-| Definite | مَعْرِفَة (maʿrifah) | ٱلرَّجُلُ (ar-rajulu) | the man | ✗ No | ✓ Yes |
-</GrammarTable>
-
-**Key insight:** Tanween and ال never appear together — it's one or the other!
-
-## Sun Letters and Moon Letters
-
-Here's where it gets interesting. The ال is ALWAYS written the same way, but it's pronounced differently depending on what letter follows it.
-
-Arabic letters are divided into two groups:
-- **[Sun letters](/resources/glossary/#huruf-shamsiyyah) (ḥurūf shamsiyyah / حُرُوْفٌ شَمْسِيَّة)** — 14 letters
-- **[Moon letters](/resources/glossary/#huruf-qamariyyah) (ḥurūf qamariyyah / حُرُوْفٌ قَمَرِيَّة)** — 14 letters
-
-**Why "sun" and "moon"?** The word for "sun" (ٱلشَّمْسُ / ash-shamsu) starts with a sun letter, so the lam assimilates: "ash-shamsu" not "al-shamsu." The word for "moon" (ٱلْقَمَرُ / al-qamaru) starts with a moon letter, so the lam is pronounced clearly: "al-qamaru."
-
-<MorphTransformer
-  specimens={[
-    {
-      id: "kitab",
-      base: "كِتَابٌ",
-      result: "ٱلْكِتَابُ",
-      kind: "moon",
-      log: [
-        "load specimen: كِتَابٌ (kitābun) — indefinite noun",
-        "attach prefix ال … lam + alif locked on",
-        "tanween ـٌ ejected — definite and indefinite cannot coexist",
-        'first letter ك = MOON → lam pronounced: "al-"',
-        'output: ٱلْكِتَابُ (al-kitābu) — "THE book" ✓'
-      ]
-    },
-    {
-      id: "rajul",
-      base: "رَجُلٌ",
-      result: "ٱلرَّجُلُ",
-      kind: "sun",
-      log: [
-        "load specimen: رَجُلٌ (rajulun) — indefinite noun",
-        "attach prefix ال … lam + alif locked on",
-        "tanween ـٌ ejected — definite and indefinite cannot coexist",
-        "first letter ر = SUN → lam ASSIMILATES · shadda ّ stamped on ر",
-        'output: ٱلرَّجُلُ (ar-rajulu) — "THE man" — say it: ar-, not al- ✓'
-      ]
-    }
-  ]}
-/>
-
-### Moon Letters (14 letters)
-
-With [moon letters](/resources/glossary/#huruf-qamariyyah), the lam (ل) of ال is pronounced CLEARLY.
-
-**Pronunciation:** "al-" (you hear the "l" sound)
-
-**The 14 moon letters:** ء ب ج ح خ ع غ ف ق ك م ه و ي
-
-**Memory aid:** Think "A Buddy Gently Helps Create Good Faith, Quite Kindly Making Him Wonderful, Yeah!"
-
-**Examples from the Quran:**
-
-<GrammarTable>
-| Arabic | Transliteration | Translation | Moon Letter | Reference |
-|--------|----------------|-------------|-------------|-----------|
-| ٱلْحَمْدُ | al-ḥamdu | the praise | ح (ha) | Al-Fatiha 1:2 |
-| ٱلْعَٰلَمِينَ | al-ʿālamīna | the worlds | ع (ayn) | Al-Fatiha 1:2 |
-| ٱلْكِتَٰبُ | al-kitābu | the book | ك (kaf) | Al-Baqarah 2:2 |
-| ٱلْقَمَرُ | al-qamaru | the moon | ق (qaf) | Al-Qamar 54:1 |
-</GrammarTable>
-
-### Sun Letters (14 letters)
-
-With [sun letters](/resources/glossary/#huruf-shamsiyyah), the lam (ل) ASSIMILATES into the following letter — you don't hear the "l" sound. Instead, the following letter gets shadda (doubling).
-
-**Pronunciation:** The "al-" becomes the sound of the following letter doubled
-
-**The 14 sun letters:** ت ث د ذ ر ز س ش ص ض ط ظ ل ن
-
-**Memory aid:** Think "The Truth Definitely Demands Real Zeal, So Surely Seek Deeper Truths, Learning Nicely!"
-
-**Critical for writing:** The shadda (ّ) MUST appear on the sun letter in fully vocalized text, even though the lam is still written!
-
-**Examples from the Quran:**
-
-<GrammarTable>
-| Arabic | Transliteration | Translation | Sun Letter | Reference |
-|--------|----------------|-------------|------------|-----------|
-| ٱلرَّحْمَٰنِ | ar-raḥmāni | the Most Gracious | ر (ra) | Al-Fatiha 1:3 |
-| ٱلرَّحِيمِ | ar-raḥīmi | the Most Merciful | ر (ra) | Al-Fatiha 1:3 |
-| ٱلشَّمْسُ | ash-shamsu | the sun | ش (shin) | Ash-Shams 91:1 |
-| ٱلنَّاسِ | an-nāsi | the people | ن (nun) | An-Nas 114:1 |
-</GrammarTable>
-
-**Notice:** The lam is still WRITTEN (ٱلرَّحْمَٰنِ), but it's NOT pronounced (we say "ar-raḥmāni" not "al-raḥmāni").
-
-### Complete Letter Chart
-
-<GrammarTable>
-| Letter Group | Letters | Count | Lam Pronunciation | Example | Transliteration |
-|--------------|---------|-------|-------------------|---------|-----------------|
-| Moon Letters | ء ب ج ح خ ع غ ف ق ك م ه و ي | 14 | Pronounced clearly | ٱلْحَمْدُ | al-ḥamdu |
-| Sun Letters | ت ث د ذ ر ز س ش ص ض ط ظ ل ن | 14 | Silent (assimilates) | ٱلرَّحْمَٰنِ | ar-raḥmāni |
-</GrammarTable>
-
-## Examples from the Quran
-
-Let's see both types in action in Surah Al-Fatiha, which contains multiple examples of both sun and moon letters:
-
-**Example 1: Moon letter (ح ha)**
-
-<ArabicExample
-  arabic="ٱلْحَمْدُ لِلَّهِ رَبِّ ٱلْعَٰلَمِينَ"
-  transliteration="al-ḥamdu lillāhi rabbi l-ʿālamīna"
-  translation="All praise belongs to Allah, Lord of all the worlds"
-  reference="Al-Fatiha 1:2"
-  highlight="ٱلْحَمْدُ,ٱلْعَٰلَمِينَ"
-  words={[
-    { ar: "ٱلْحَمْدُ", tr: "al-ḥamdu", en: "the praise" },
-    { ar: "لِلَّهِ", tr: "lillāhi", en: "to Allah" },
-    { ar: "رَبِّ", tr: "rabbi", en: "Lord (of)" },
-    { ar: "ٱلْعَٰلَمِينَ", tr: "l-ʿālamīna", en: "the worlds" }
-  ]}
-/>
-
-**Analysis:**
-- **ٱلْحَمْدُ** (al-ḥamdu) — Moon letter ح, so we HEAR the lam: "al-ḥamdu"
-- **ٱلْعَٰلَمِينَ** (al-ʿālamīna) — Moon letter ع, so we HEAR the lam: "al-ʿālamīna"
-
-Both words have ال pronounced clearly as "al-" because ح and ع are moon letters.
-
-**Example 2: Sun letter (ر ra)**
-
-<ArabicExample
-  arabic="ٱلرَّحْمَٰنِ ٱلرَّحِيمِ"
-  transliteration="ar-raḥmāni r-raḥīmi"
-  translation="The Most Gracious, the Most Merciful"
-  reference="Al-Fatiha 1:3"
-  highlight="ٱلرَّحْمَٰنِ,ٱلرَّحِيمِ"
-  words={[
-    { ar: "ٱلرَّحْمَٰنِ", tr: "ar-raḥmāni", en: "the Most Gracious" },
-    { ar: "ٱلرَّحِيمِ", tr: "r-raḥīmi", en: "the Most Merciful" }
-  ]}
-/>
-
-**Analysis:**
-- **ٱلرَّحْمَٰنِ** (ar-raḥmāni) — Sun letter ر with shadda (ّ), lam assimilates: "ar-raḥmāni" not "al-raḥmāni"
-- **ٱلرَّحِيمِ** (ar-raḥīmi) — Sun letter ر with shadda (ّ), lam assimilates: "ar-raḥīmi" not "al-raḥīmi"
-
-Notice the shadda (ّ) on both ر letters — that's the visual proof that the lam has assimilated!
-
-**Example 3: Contrast in same verse**
-
-<ArabicExample
-  arabic="مَٰلِكِ يَوْمِ ٱلدِّينِ"
-  transliteration="māliki yawmi d-dīni"
-  translation="Master of the Day of Judgment"
-  reference="Al-Fatiha 1:4"
-  highlight="ٱلدِّينِ"
-  words={[
-    { ar: "مَٰلِكِ", tr: "māliki", en: "Master (of)" },
-    { ar: "يَوْمِ", tr: "yawmi", en: "Day (of)" },
-    { ar: "ٱلدِّينِ", tr: "d-dīni", en: "the Judgment" }
-  ]}
-/>
-
-**Analysis:**
-- **ٱلدِّينِ** (ad-dīni) — Sun letter د with shadda (ّ), lam assimilates: "ad-dīni"
-- Without ال: يَوْمِ دِيْنٍ (yawmi dīnin) would mean "a day of judgment" (indefinite)
-- With ال: يَوْمِ ٱلدِّينِ (yawmi d-dīni) means "THE Day of Judgment" (specific, definite)
-
-The ال makes it refer to a SPECIFIC day — the Day of Resurrection.
-
-**Example 4: Multiple instances in one verse**
-
-<ArabicExample
-  arabic="ٱهْدِنَا ٱلصِّرَٰطَ ٱلْمُسْتَقِيمَ"
-  transliteration="ihdinā ṣ-ṣirāṭa l-mustaqīma"
-  translation="Guide us to the straight path"
-  reference="Al-Fatiha 1:6"
-  highlight="ٱلصِّرَٰطَ,ٱلْمُسْتَقِيمَ"
-  words={[
-    { ar: "ٱهْدِنَا", tr: "ihdinā", en: "guide us" },
-    { ar: "ٱلصِّرَٰطَ", tr: "ṣ-ṣirāṭa", en: "the path" },
-    { ar: "ٱلْمُسْتَقِيمَ", tr: "l-mustaqīma", en: "the straight" }
-  ]}
-/>
-
-**Analysis:**
-- **ٱلصِّرَٰطَ** (aṣ-ṣirāṭa) — Sun letter ص with shadda (ّ): "aṣ-ṣirāṭa"
-- **ٱلْمُسْتَقِيمَ** (al-mustaqīma) — Moon letter م: "al-mustaqīma"
-
-Same verse, both types! The lam assimilates into ص (sun) but stays clear with م (moon).
-
-**Example 5: Complete Al-Fatiha definite article count**
-
-<ArabicExample
-  arabic="بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ ۝ ٱلْحَمْدُ لِلَّهِ رَبِّ ٱلْعَٰلَمِينَ ۝ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ ۝ مَٰلِكِ يَوْمِ ٱلدِّينِ ۝ إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ ۝ ٱهْدِنَا ٱلصِّرَٰطَ ٱلْمُسْتَقِيمَ ۝ صِرَٰطَ ٱلَّذِينَ أَنْعَمْتَ عَلَيْهِمْ غَيْرِ ٱلْمَغْضُوبِ عَلَيْهِمْ وَلَا ٱلضَّآلِّينَ"
-  transliteration="bismi llāhi r-raḥmāni r-raḥīmi ۝ al-ḥamdu lillāhi rabbi l-ʿālamīna ۝ ar-raḥmāni r-raḥīmi ۝ māliki yawmi d-dīni ۝ iyyāka naʿbudu wa-iyyāka nastaʿīnu ۝ ihdinā ṣ-ṣirāṭa l-mustaqīma ۝ ṣirāṭa lladhīna anʿamta ʿalayhim ghayri l-maghḍūbi ʿalayhim wa-lā ḍ-ḍāllīna"
-  translation="In the name of Allah, the Most Gracious, the Most Merciful. All praise belongs to Allah, Lord of all the worlds. The Most Gracious, the Most Merciful. Master of the Day of Judgment. You alone we worship, and You alone we ask for help. Guide us to the straight path. The path of those You have blessed, not of those who earned anger, nor of those who went astray."
-  reference="Al-Fatiha 1:1-7"
-  words={[
-    { ar: "بِسْمِ", tr: "bismi", en: "in (the) name (of)" },
-    { ar: "ٱللَّهِ", tr: "llāhi", en: "Allah" },
-    { ar: "ٱلرَّحْمَٰنِ", tr: "r-raḥmāni", en: "the Most Gracious" },
-    { ar: "ٱلرَّحِيمِ", tr: "r-raḥīmi", en: "the Most Merciful" },
-    { ar: "۝", tr: "", en: "" },
-    { ar: "ٱلْحَمْدُ", tr: "al-ḥamdu", en: "the praise" },
-    { ar: "لِلَّهِ", tr: "lillāhi", en: "to Allah" },
-    { ar: "رَبِّ", tr: "rabbi", en: "Lord (of)" },
-    { ar: "ٱلْعَٰلَمِينَ", tr: "l-ʿālamīna", en: "the worlds" },
-    { ar: "۝", tr: "", en: "" },
-    { ar: "ٱلرَّحْمَٰنِ", tr: "ar-raḥmāni", en: "the Most Gracious" },
-    { ar: "ٱلرَّحِيمِ", tr: "r-raḥīmi", en: "the Most Merciful" },
-    { ar: "۝", tr: "", en: "" },
-    { ar: "مَٰلِكِ", tr: "māliki", en: "Master (of)" },
-    { ar: "يَوْمِ", tr: "yawmi", en: "Day (of)" },
-    { ar: "ٱلدِّينِ", tr: "d-dīni", en: "the Judgment" },
-    { ar: "۝", tr: "", en: "" },
-    { ar: "إِيَّاكَ", tr: "iyyāka", en: "You alone" },
-    { ar: "نَعْبُدُ", tr: "naʿbudu", en: "we worship" },
-    { ar: "وَإِيَّاكَ", tr: "wa-iyyāka", en: "and You alone" },
-    { ar: "نَسْتَعِينُ", tr: "nastaʿīnu", en: "we ask for help" },
-    { ar: "۝", tr: "", en: "" },
-    { ar: "ٱهْدِنَا", tr: "ihdinā", en: "guide us" },
-    { ar: "ٱلصِّرَٰطَ", tr: "ṣ-ṣirāṭa", en: "the path" },
-    { ar: "ٱلْمُسْتَقِيمَ", tr: "l-mustaqīma", en: "the straight" },
-    { ar: "۝", tr: "", en: "" },
-    { ar: "صِرَٰطَ", tr: "ṣirāṭa", en: "path (of)" },
-    { ar: "ٱلَّذِينَ", tr: "lladhīna", en: "those who" },
-    { ar: "أَنْعَمْتَ", tr: "anʿamta", en: "You blessed" },
-    { ar: "عَلَيْهِمْ", tr: "ʿalayhim", en: "upon them" },
-    { ar: "غَيْرِ", tr: "ghayri", en: "not (of)" },
-    { ar: "ٱلْمَغْضُوبِ", tr: "l-maghḍūbi", en: "those angered" },
-    { ar: "عَلَيْهِمْ", tr: "ʿalayhim", en: "upon them" },
-    { ar: "وَلَا", tr: "wa-lā", en: "and not" },
-    { ar: "ٱلضَّآلِّينَ", tr: "ḍ-ḍāllīna", en: "those astray" }
-  ]}
-/>
-
-**Definite article count in Al-Fatiha:**
-- **Sun letters (8):** ٱلرَّحْمَٰنِ (×2), ٱلرَّحِيمِ (×2), ٱلدِّينِ, ٱلصِّرَٰطَ, ٱلَّذِينَ, ٱلضَّآلِّينَ
-- **Moon letters (4):** ٱلْحَمْدُ, ٱلْعَٰلَمِينَ, ٱلْمُسْتَقِيمَ, ٱلْمَغْضُوبِ
-
-Note: ٱلْمَغْضُوبِ starts with م (mim), which is a moon letter — the lam is pronounced clearly: "al-maghḍūbi."
-
-## The Rule
-
-<Callout type="rule" title="The Definite Article (Al-)">
-
-**Adding ال to a noun makes it definite:**
-- **Indefinite:** كِتَابٌ (kitābun) — a book
-- **Definite:** ٱلْكِتَابُ (al-kitābu) — THE book
-
-**Tanween disappears when ال is added:** You can't have both!
-
-**Pronunciation depends on the following letter:**
-
-1. **Moon letters (14):** ء ب ج ح خ ع غ ف ق ك م ه و ي
-   - Lam is pronounced clearly: "al-"
-   - Example: ٱلْحَمْدُ (al-ḥamdu)
-
-2. **Sun letters (14):** ت ث د ذ ر ز س ش ص ض ط ظ ل ن
-   - Lam assimilates (silent)
-   - Following letter gets shadda (doubling)
-   - Example: ٱلرَّحْمَٰنِ (ar-raḥmāni) — NOT "al-raḥmāni"
-
-**Writing vs. pronunciation:**
-- ال is ALWAYS written the same way
-- Shadda (ّ) appears on sun letters
-- Transliteration always writes "al-" regardless of pronunciation
-
-**Related:** [Three Word Types](/learn/level-1/04-three-word-types/) — ال only appears on nouns (ism), never on verbs or particles
-
-</Callout>
-
-<Callout type="warning" title="Common Mistakes">
-
-**"I should write 'ar-Rahman' without the lam"** — No! The lam is ALWAYS written (ٱلرَّحْمَٰنِ), even though it's not pronounced. The spelling never changes.
-
-**"I should transliterate sun letters without 'al-'"** — No! In transliteration, we ALWAYS write "al-" even before sun letters. This is standard. We write "ar-raḥmān" to show pronunciation, but in more literal transliteration systems, it's still "al-raḥmān."
-
-**"Shadda is optional on sun letters"** — No! In fully vocalized text, the shadda MUST appear on the sun letter. It's the only way to know the lam has assimilated. Without shadda, readers might incorrectly pronounce the lam.
-
-**"There are more moon letters than sun letters"** — No! They're exactly equal: 14 moon, 14 sun. Perfect balance!
-
-**"ال can attach to verbs or particles"** — No! ال ONLY attaches to nouns (ism). If you see ال, you know you're looking at a noun. Verbs and particles never take ال.
-
-</Callout>
-
-## Practice
-
-<ExerciseBox question="Classify each definite article as sun or moon letter, then write the correct pronunciation: ٱلْكِتَٰبُ (al-kitābu?), ٱلشَّمْسُ (al-shamsu?), ٱلْقَمَرُ (al-qamaru?)">
-
-**Answer:**
-
-1. **ٱلْكِتَٰبُ** — MOON letter
-   - Following letter: ك (kaf)
-   - Kaf is in the moon letter list (ك)
-   - Pronunciation: "al-kitābu" (lam heard clearly)
-   - Translation: "the book"
-
-2. **ٱلشَّمْسُ** — SUN letter
-   - Following letter: ش (shin)
-   - Shin is in the sun letter list (ش)
-   - Notice the shadda (ّ) on ش!
-   - Pronunciation: "ash-shamsu" (lam assimilates)
-   - Translation: "the sun"
-
-3. **ٱلْقَمَرُ** — MOON letter
-   - Following letter: ق (qaf)
-   - Qaf is in the moon letter list (ق)
-   - Pronunciation: "al-qamaru" (lam heard clearly)
-   - Translation: "the moon"
-
-**Explanation:** This is why they're called "sun" and "moon" letters — ٱلشَّمْسُ (the sun) starts with a sun letter, so you say "ash-shamsu." ٱلْقَمَرُ (the moon) starts with a moon letter, so you say "al-qamaru."
-
-**Memory aid:** The names themselves teach you the rule!
-
-</ExerciseBox>
-
-<ExerciseBox question="Why does ٱلرَّحْمَٰنِ have a shadda (ّ) on the ر? What does this tell you about pronunciation?">
-
-**Answer:** The shadda tells you that ر (ra) is a SUN letter, and the lam of ال has ASSIMILATED into it.
-
-**What's happening:**
-1. Original: ال + رَحْمَٰنِ
-2. The ل (lam) is written but NOT pronounced
-3. The ر (ra) gets doubled because it "absorbs" the lam sound
-4. Result: "ar-raḥmāni" not "al-raḥmāni"
-
-**The shadda is critical:** It's the ONLY visual clue in Arabic script that tells you this is a sun letter. Without the shadda, a reader might incorrectly pronounce the lam.
-
-**Pronunciation guide:**
-- **Without shadda:** "al-raḥmāni" (WRONG — treating it like a moon letter)
-- **With shadda:** "ar-raḥmāni" (CORRECT — doubling the ra)
-
-**Think of it like this:** The lam "hides" inside the ra, making the ra twice as strong. The shadda is the proof that the lam is hiding there!
-
-</ExerciseBox>
-
-<ExerciseBox question="What happens to tanween when you add ال to a noun? Show the transformation: رَجُلٌ → ?">
-
-**Answer:** Tanween DISAPPEARS when ال is added.
-
-**Transformation:**
-- **Start:** رَجُلٌ (rajulun) — "a man" (indefinite, has tanween damma ـٌ)
-- **Add ال:** ٱلرَّجُلُ (ar-rajulu) — "the man" (definite, NO tanween)
-
-**What changed:**
-1. ال was added to the beginning
-2. Tanween (ـٌ) disappeared
-3. The base vowel (damma ـُ) remained
-4. ر is a sun letter, so the lam assimilated and ر got shadda (ّ)
-
-**The rule:** Tanween and ال are MUTUALLY EXCLUSIVE — you can have one or the other, never both!
-
-**Why?** Tanween marks INDEFINITE nouns ("a/an" in English). ال marks DEFINITE nouns ("the" in English). A noun can't be both indefinite and definite at the same time!
-
-**Other examples:**
-- كِتَابٌ (kitābun) → ٱلْكِتَابُ (al-kitābu) — "a book" → "the book"
-- مَسْجِدٌ (masjidun) → ٱلْمَسْجِدُ (al-masjidu) — "a mosque" → "the mosque"
-- يَوْمٌ (yawmun) → ٱلْيَوْمُ (al-yawmu) — "a day" → "the day"
-
-</ExerciseBox>
-
-<ExerciseBox question="Identify all definite nouns in this phrase from Al-Fatiha: ٱهْدِنَا ٱلصِّرَٰطَ ٱلْمُسْتَقِيمَ — Which letters are sun vs. moon?">
-
-**Answer:** There are TWO definite nouns:
-
-1. **ٱلصِّرَٰطَ** (aṣ-ṣirāṭa) — "the path"
-   - Has ال (definite article)
-   - Following letter: ص (sad) — SUN letter
-   - Shadda (ّ) on ص confirms assimilation
-   - Pronunciation: "aṣ-ṣirāṭa" (lam silent, sad doubled)
-   - Translation: "the path"
-
-2. **ٱلْمُسْتَقِيمَ** (al-mustaqīma) — "the straight"
-   - Has ال (definite article)
-   - Following letter: م (mim) — MOON letter
-   - No shadda (moon letters don't get shadda)
-   - Pronunciation: "al-mustaqīma" (lam pronounced clearly)
-   - Translation: "the straight"
-
-**Complete phrase analysis:**
-- **ٱهْدِنَا** (ihdinā) — "guide us" (VERB, no ال)
-- **ٱلصِّرَٰطَ** (aṣ-ṣirāṭa) — "the path" (NOUN, sun letter ص)
-- **ٱلْمُسْتَقِيمَ** (al-mustaqīma) — "the straight" (NOUN, moon letter م)
-
-**Notice:** Both nouns are definite (both have ال), but they follow different pronunciation rules because one starts with a sun letter and one with a moon letter.
-
-**English equivalent:** "Guide us to THE path, THE straight [one]" — both "the path" and "the straight" are definite.
-
-</ExerciseBox>
-
-## Related Lessons
-
-**Prerequisites:**
-- [Three Word Types](/learn/level-1/04-three-word-types/) — Understanding that ال only attaches to nouns
-
-**Builds on:**
-- [Reading Marks](/learn/level-1/02-reading-marks/) — Understanding shadda (doubling) and tanween
-
-**Next Steps:**
-- [Gender in Arabic](/learn/level-1/07-gender-masculine-feminine/) — Masculine and feminine nouns with ال
-- [Singular, Dual & Plural](/learn/level-1/08-singular-dual-plural/) — Number with definite and indefinite forms
-
-**Prepares for:** Level 2 lessons on possessive constructions (idafah), where definiteness plays a crucial grammatical role.
+import Step from '../../../components/lesson/Step.astro';
+import Stage from '../../../components/lesson/Stage.astro';
+import Sentence from '../../../components/lesson/Sentence.astro';
+import Tiles from '../../../components/lesson/Tiles.astro';
+import Formula from '../../../components/lesson/Formula.astro';
+import Legend from '../../../components/lesson/Legend.astro';
+import Note from '../../../components/lesson/Note.astro';
+import Check from '../../../components/lesson/Check.astro';
+import Start from '../../../components/lesson/Start.astro';
+import Sources from '../../../components/lesson/Sources.astro';
+import Parse from '../../../components/lesson/Parse.astro';
+import Exercise from '../../../components/lesson/Exercise.astro';
+import Block from '../../../components/lesson/Block.astro';
+
+{/* Content spec: docs/redesign/specs/L1.06-definite-article.md. Every parse follows al-Jadwal (Mahmud Safi). */}
+
+<Step hero id="start" label="The idea" title={frontmatter.title} kicker={frontmatter.kicker} titleArabic={frontmatter.titleArabic}>
+<Block id="overview" title="In this lesson" level={2} uncounted>
+  <Stage label="The idea">
+    <Formula
+      label="al plus a noun gives the definite noun"
+      items={[
+        { kind: 'm', text: 'ٱلْ', small: 'the' },
+        { kind: 'k', text: 'بَيْتٌ', small: 'a house' },
+        { kind: 's', text: 'ٱلْبَيْتُ', small: 'the house' },
+      ]}
+    />
+    <p class="lx-quote-note">Made-up example.</p>
+  </Stage>
+  <Start
+    goal="Say ٱلْ correctly before any letter, write it after a joining letter like لِ, and tell a definite noun from an indefinite one in a verse."
+    minutes={40}
+    before="Noun, verb and little word (L1.04). Shadda, sukūn and tanwīn (L1.02). The three case endings (L1.10)."
+    terms={[
+      { term: 'Definite article', ar: 'ٱلْ', meaning: 'The Arabic word for “the”. It is joined to the front of a noun.' },
+      { term: 'Definite', ar: 'مَعْرِفَة', meaning: 'A noun for one known thing: “the book”.' },
+      { term: 'Indefinite', ar: 'نَكِرَة', meaning: 'A noun for any one of its kind: “a book”.' },
+      { term: 'Tanwīn', ar: 'تَنْوِين', meaning: 'The extra n sound at the end of an indefinite noun: -un, -an, -in.' },
+      { term: 'Sun letter', ar: 'حَرْف شَمْسِيّ', meaning: 'A letter that swallows the lam of ٱلْ.' },
+      { term: 'Moon letter', ar: 'حَرْف قَمَرِيّ', meaning: 'A letter after which the lam of ٱلْ is heard.' },
+      { term: 'Hamzat al-waṣl', ar: 'هَمْزَة الْوَصْل', meaning: 'The “joining hamza”, written ٱ. You say it at the start of speech and skip it when the word is joined to the one before.' },
+    ]}
+  />
+</Block>
+
+<Block id="see" title="Look at two words" level={2}>
+  <Stage>
+    <Sentence
+      reference="Ash-Shams 91:1"
+      groups={[
+        { words: [{ ar: 'وَٱلشَّمْسِ', en: 'by the sun', say: 'wash-shamsi' }] },
+        { words: [{ ar: 'وَضُحَىٰهَا', en: 'and its morning light', say: 'wa-duhaha' }] },
+      ]}
+      en={['By the sun and its morning light.']}
+    />
+    <Sentence
+      reference="Ash-Shams 91:2"
+      groups={[
+        { words: [{ ar: 'وَٱلْقَمَرِ', en: 'by the moon', say: 'wal-qamari' }] },
+        { words: [{ ar: 'إِذَا', en: 'when', say: 'idha', type: 'p' }] },
+        { words: [{ ar: 'تَلَىٰهَا', en: 'it follows it', say: 'talaha', type: 'v' }] },
+      ]}
+      en={['By the moon when it follows the sun.']}
+    />
+    <Legend />
+  </Stage>
+
+These are the first two verses of Surah Ash-Shams. Read them from right to left.
+
+Each verse has a word that starts with ٱل:
+
+- ٱلشَّمْسِ means “the sun”.
+- ٱلْقَمَرِ means “the moon”.
+
+Now say them aloud: *wash-shamsi* and *wal-qamari*. In the second word you hear an **l**. In the first word you do not. The same two letters, ٱل, are said in two ways. This lesson shows why.
+
+The little word وَ at the start of each verse means “by” here, as in an oath. L2.07 teaches it.
+
+<Check n={1} q="Which of the two words has a silent lam?" options={['ٱلشَّمْسِ', 'ٱلْقَمَرِ']} answer={0} why="You say wash-shamsi, with no l. In wal-qamari you hear the l." />
+</Block>
+
+<Block id="meaning" title="ٱلْ means “the”" level={2}>
+  <Stage label="A and the">
+    <Tiles
+      label="بَيْتٌ is a house, ٱلْبَيْتُ is the house"
+      items={[
+        { ar: 'بَيْتٌ', en: 'a house' },
+        { ar: 'ٱلْبَيْتُ', en: 'the house' },
+      ]}
+    />
+    <p class="lx-quote-note">Made-up example.</p>
+  </Stage>
+
+English has two small words in front of a noun: *a* and *the*. “A house” means any house. “The house” means one house that we both know.
+
+Arabic does the same job in a different way.
+
+- There is **no word for “a”**. A noun without ٱلْ is “a …”. It usually ends in tanwīn: بَيْتٌ, “a house”.
+- **ٱلْ means “the”**. It is not a separate word. It is joined to the front of the noun, with no space: ٱلْبَيْتُ, “the house”.
+
+The grammar books call a noun with “the” **definite**, مَعْرِفَة (*maʿrifa*). A noun with “a” is **indefinite**, نَكِرَة (*nakira*).
+
+<Note kind="remember">ٱلْ goes on the front of a noun and makes it “the …”. Without it, the noun is “a …”.</Note>
+</Block>
+
+<Block id="tanwin" title="ٱلْ and tanwīn never meet" level={2}>
+  <Stage label="Add ٱلْ, lose the tanwīn">
+    <Tiles
+      label="a man, the man, a day, the day"
+      items={[
+        { ar: 'رَجُلٌ', en: 'a man' },
+        { ar: 'ٱلرَّجُلُ', en: 'the man' },
+        { ar: 'يَوْمٌ', en: 'a day' },
+        { ar: 'ٱلْيَوْمُ', en: 'the day' },
+      ]}
+    />
+    <p class="lx-quote-note">Made-up pairs.</p>
+  </Stage>
+
+In L1.02 you met **tanwīn**: the extra *n* at the end of a noun, written as a doubled vowel mark (ـٌ is *-un*). It is the mark of “a …”.
+
+When you add ٱلْ, the tanwīn goes.
+
+| Without ٱلْ | With ٱلْ | What changed |
+|---|---|---|
+| رَجُلٌ *rajulun* | ٱلرَّجُلُ *ar-rajulu* | The tanwīn is gone. The ending is now *-u*. |
+| يَوْمٌ *yawmun* | ٱلْيَوْمُ *al-yawmu* | The tanwīn is gone. The ending is now *-u*. |
+
+The case ending stays. Both words are still nominative, ending in *-u*. Only the *n* is lost. A noun cannot be “a …” and “the …” at the same time, so a word never has both ٱلْ and tanwīn.
+
+Notice that ٱلرَّجُلُ is said *ar-rajulu*, not *al-rajulu*, while ٱلْيَوْمُ is said *al-yawmu*. Step 2 explains this.
+
+<Check n={2} q="Which one means “the man”?" options={['ٱلرَّجُلُ', 'ٱلرَّجُلٌ']} answer={0} why="After ٱلْ the tanwīn is gone, so the word ends in -u, not -un." />
+</Block>
+
+<Block id="pair" title="The same idea in a verse" level={2}>
+  <Stage>
+    <Sentence
+      reference="Ash-Sharh 94:6"
+      groups={[
+        { words: [{ ar: 'إِنَّ', en: 'truly', say: 'inna', type: 'p' }] },
+        { words: [{ ar: 'مَعَ', en: 'with', say: 'maa', type: 'p' }] },
+        { words: [{ ar: 'ٱلْعُسْرِ', en: 'the hardship', say: 'al-usri' }] },
+        { words: [{ ar: 'يُسْرًا', en: 'an ease', say: 'yusran' }] },
+      ]}
+      en={['Truly, with the hardship there is an ease.']}
+    />
+  </Stage>
+
+This verse has one definite noun and one indefinite noun side by side.
+
+- ٱلْعُسْرِ starts with ٱلْ: “**the** hardship”.
+- يُسْرًا ends in tanwīn (*-an*, ـً) and has no ٱلْ: “**an** ease”.
+
+The verse before it, 94:5, says exactly the same words. That gives a small test of what ٱلْ does.
+
+<Note kind="know">Al-Jadwal passes on what the commentators say about the two verses. Arabic usually treats a repeated definite noun as the same thing, and a repeated indefinite noun as possibly a new thing. So ٱلْعُسْرِ, repeated, is the same hardship, while يُسْرًا, repeated, can be a new ease. This is the reason for the saying that one hardship does not overcome two eases. Al-Jadwal also records another view, so treat this as the commentators’ reading.</Note>
+
+<Check n={3} q="Which word in this verse is indefinite?" options={['ٱلْعُسْرِ', 'يُسْرًا']} answer={1} why="يُسْرًا has tanwīn (-an) and no ٱلْ: “an ease”." />
+</Block>
+</Step>
+
+<Step id="sun-moon" label="Sun and moon" title="Sun letters and moon letters">
+<Block id="written" title="The lam is written, but not always said">
+  <Stage label="Two words, one prefix">
+    <Formula
+      label="al plus qamar gives al-qamar"
+      items={[
+        { kind: 'm', text: 'ٱلْ', small: 'the' },
+        { kind: 'k', text: 'قَمَرٌ', small: 'a moon' },
+        { kind: 's', text: 'ٱلْقَمَرُ', small: 'al-qamaru' },
+      ]}
+    />
+    <Formula
+      label="al plus shams gives ash-shams"
+      items={[
+        { kind: 'm', text: 'ٱلْ', small: 'the' },
+        { kind: 'k', text: 'شَمْسٌ', small: 'a sun' },
+        { kind: 's', text: 'ٱلشَّمْسُ', small: 'ash-shamsu' },
+      ]}
+    />
+  </Stage>
+
+ٱلْ is two letters: an alif and a lam (ل). The lam is **written** (the one case where it looks different is a noun that starts with ل, below). But you say it only some of the time.
+
+- ٱلْقَمَرُ is said *al-qamaru*. You hear the **l**.
+- ٱلشَّمْسُ is said *ash-shamsu*. You do not hear the **l**. The ش is said twice instead, as if the lam melted into it.
+
+What decides? The **first letter of the noun**.
+
+- Fourteen letters leave the lam alone. They are the **moon letters**, حُرُوف قَمَرِيَّة (*ḥurūf qamariyya*). The name comes from ٱلْقَمَرُ, “the moon”, which starts with one of them (ق).
+- Fourteen letters swallow the lam. They are the **sun letters**, حُرُوف شَمْسِيَّة (*ḥurūf shamsiyya*). The name comes from ٱلشَّمْسُ, “the sun”, which starts with one of them (ش).
+
+There are fourteen of each, so neither group is bigger. Together they cover the whole alphabet.
+
+<Note kind="remember">The spelling of ٱلْ never changes. Only the sound changes, and the first letter of the noun decides it.</Note>
+
+<Check n={4} q="How do you say ٱلشَّمْسُ?" options={['al-shamsu', 'ash-shamsu']} answer={1} why="ش is a sun letter. The lam melts into it, so you say ash-shamsu." />
+</Block>
+
+<Block id="moon" title="The fourteen moon letters">
+  <Stage label="Moon letters">
+    <Sentence
+      reference="Al-Qamar 54:1"
+      groups={[
+        { words: [{ ar: 'ٱقْتَرَبَتِ', en: 'has come near', say: 'iqtarabati', type: 'v' }] },
+        { words: [{ ar: 'ٱلسَّاعَةُ', en: 'the Hour', say: 'as-saa-atu' }] },
+        { words: [{ ar: 'وَٱنشَقَّ', en: 'and has split', say: 'wan-shaqqa', type: 'v' }] },
+        { words: [{ ar: 'ٱلْقَمَرُ', en: 'the moon', say: 'al-qamaru' }] },
+      ]}
+      en={['The Hour has come near, and the moon has split.']}
+    />
+  </Stage>
+
+Look at ٱلْقَمَرُ in this verse. The lam has a **sukūn** (ْ), the sign for “no vowel”. That sign tells you to say the lam clearly.
+
+After a moon letter, the lam of ٱلْ is said. These are the fourteen moon letters, each with a Quran word:
+
+| Letter | Word | Say it | Meaning | Verse |
+|---|---|---|---|---|
+| ء hamza | ٱلْأَرْضِ | *al-ʾarḍi* | the earth | 2:11 |
+| ب bāʾ | ٱلْبَحْرِ | *al-baḥri* | the sea | 2:164 |
+| ج jīm | ٱلْجَنَّةَ | *al-jannata* | the Garden | 2:35 |
+| ح ḥāʾ | ٱلْحَمْدُ | *al-ḥamdu* | the praise | 1:2 |
+| خ khāʾ | ٱلْخَٰسِرِينَ | *al-khāsirīna* | the losers | 2:64 |
+| ع ʿayn | ٱلْعَزِيزُ | *al-ʿazīzu* | the Almighty | 2:129 |
+| غ ghayn | ٱلْغَيْبِ | *al-ghaybi* | the unseen | 3:44 |
+| ف fāʾ | ٱلْفُلْكِ | *al-fulki* | the ship | 7:64 |
+| ق qāf | ٱلْقَمَرُ | *al-qamaru* | the moon | 54:1 |
+| ك kāf | ٱلْكِتَٰبُ | *al-kitābu* | the Book | 2:2 |
+| م mīm | ٱلْمُؤْمِنِينَ | *al-muʾminīna* | the believers | 2:223 |
+| ه hāʾ | ٱلْهُدَىٰ | *al-hudā* | the guidance | 2:120 |
+| و wāw | ٱلْوَٰحِدُ | *al-wāḥidu* | the One | 12:39 |
+| ي yāʾ | ٱلْيَوْمَ | *al-yawma* | today | 2:249 |
+
+The hamza is a moon letter even though in ٱلْأَرْضِ it is written on top of an alif (أ). The plain alif is not on the list, because no noun starts with it after ٱلْ.
+
+<Note kind="tip">Learn the list as words, not as letters. Say ٱلْقَمَرُ, ٱلْكِتَٰبُ and ٱلْيَوْمَ aloud a few times. Your ear learns faster than a memorised list.</Note>
+
+<Check n={5} q="Which of these is a moon letter?" options={['ك', 'ن', 'ش']} answer={0} why="ك is in ٱلْكِتَٰبُ (al-kitābu). ن and ش are sun letters." />
+</Block>
+
+<Block id="sun" title="The fourteen sun letters">
+  <Stage label="Sun and moon in one verse">
+    <Sentence
+      reference="Al-Baqarah 2:3 (part)"
+      groups={[
+        { words: [{ ar: 'يُؤْمِنُونَ', en: 'they believe', say: 'yuminuna', type: 'v' }] },
+        { words: [{ ar: 'بِٱلْغَيْبِ', en: 'in the unseen', say: 'bil-ghaybi', type: 'p' }] },
+        { words: [{ ar: 'وَيُقِيمُونَ', en: 'and they keep up', say: 'wa-yuqimuna', type: 'v' }] },
+        { words: [{ ar: 'ٱلصَّلَوٰةَ', en: 'the prayer', say: 'as-salata' }] },
+      ]}
+      en={['They believe in the unseen and keep up the prayer.']}
+    />
+  </Stage>
+
+This verse has one word of each kind.
+
+- بِٱلْغَيْبِ: غ is a moon letter. The lam has a sukūn, and you say *bil-ghaybi*.
+- ٱلصَّلَوٰةَ: ص is a sun letter. The lam has **no mark**, and the ص has a **shadda** (ّ), the doubling sign. You say *aṣ-ṣalāta*, with a doubled ṣ.
+
+After a sun letter, the lam of ٱلْ is not said. These are the fourteen sun letters:
+
+| Letter | Word | Say it | Meaning | Verse |
+|---|---|---|---|---|
+| ت tāʾ | ٱلتَّوْرَىٰةَ | *at-tawrāta* | the Torah | 3:3 |
+| ث thāʾ | ٱلثَّمَرَٰتِ | *ath-thamarāti* | the fruits | 2:22 |
+| د dāl | ٱلدُّنْيَا | *ad-dunyā* | this world | 2:85 |
+| ذ dhāl | ٱلذِّكْرَ | *adh-dhikra* | the Reminder | 15:9 |
+| ر rāʾ | ٱلرَّحْمَٰنُ | *ar-raḥmānu* | the Most Gracious | 2:163 |
+| ز zāy | ٱلزَّكَوٰةَ | *az-zakāta* | the zakāh (charity) | 2:43 |
+| س sīn | ٱلسَّمَآءِ | *as-samāʾi* | the sky | 2:19 |
+| ش shīn | ٱلشَّمْسَ | *ash-shamsa* | the sun | 6:78 |
+| ص ṣād | ٱلصَّلَوٰةَ | *aṣ-ṣalāta* | the prayer | 2:3 |
+| ض ḍād | ٱلضَّآلِّينَ | *aḍ-ḍāllīna* | those who go astray | 1:7 |
+| ط ṭāʾ | ٱلطَّيْرِ | *aṭ-ṭayri* | the birds | 2:260 |
+| ظ ẓāʾ | ٱلظَّٰلِمِينَ | *aẓ-ẓālimīna* | the wrongdoers | 2:35 |
+| ل lām | ٱلَّيْلِ | *allayli* | the night | 2:164 |
+| ن nūn | ٱلنَّاسِ | *an-nāsi* | the people | 2:8 |
+
+<Check n={6} q="Which of these swallows the lam of ٱلْ?" options={['ص', 'م', 'ك']} answer={0} why="ص is a sun letter: aṣ-ṣalāta. م (al-muʾminīna) and ك (al-kitābu) are moon letters." />
+</Block>
+
+<Block id="clue" title="Reading the clue in the marks">
+  <Stage label="What the marks tell you">
+    <Tiles
+      label="ٱلْقَمَرُ and ٱلشَّمْسُ side by side"
+      items={[
+        { ar: 'ٱلْقَمَرُ', en: 'sukūn on the lam: say it' },
+        { ar: 'ٱلشَّمْسُ', en: 'shadda on ش: skip the lam' },
+      ]}
+    />
+  </Stage>
+
+In a text with all the marks, such as the Quran, the marks tell you which way to read.
+
+- **Moon letter:** the lam of ٱلْ has a sukūn. Say it.
+- **Sun letter:** the lam of ٱلْ has no mark, and the next letter has a shadda. Skip the lam and say the next letter twice.
+
+Look back at ٱلصَّلَوٰةَ and ٱلْغَيْبِ in the last block. You can now read both without being told.
+
+Books and newspapers often leave the marks out. Then the clue is gone and you must know the fourteen letters. That is why the two tables above are worth learning.
+</Block>
+
+<Block id="special" title="Two letters that need a second look">
+  <Stage>
+    <Tiles
+      label="ٱلَّيْلِ and ٱلْأَرْضِ"
+      items={[
+        { ar: 'ٱلَّيْلِ', en: 'allayli: ل is a sun letter' },
+        { ar: 'ٱلْأَرْضِ', en: 'al-ʾarḍi: hamza is a moon letter' },
+      ]}
+    />
+  </Stage>
+
+**The letter ل.** The lam is itself a sun letter. The noun لَيْل (*layl*, night) starts with a lam, so the lam of ٱلْ melts into it: *allayli*, with a doubled l. Look at the spelling. The text writes only **one** ل before the ي, and it carries a shadda. Two lams are said, and one lam with a shadda is written.
+
+**The hamza.** In ٱلْأَرْضِ the letter after ٱلْ is a hamza written on an alif. It is a moon letter, so the lam has a sukūn and you say it: *al-ʾarḍi*.
+</Block>
+
+<Block id="mistake-lam" title="Mistake 1: leaving the lam out when you write">
+  <Stage>
+    <Tiles
+      label="wrong and right"
+      items={[
+        { ar: 'ٱشَّمْسُ', en: 'wrong: the lam is missing' },
+        { ar: 'ٱلشَّمْسُ', en: 'right: the lam is written' },
+      ]}
+    />
+    <p class="lx-quote-note">The first form is made up, to show the mistake.</p>
+  </Stage>
+
+When a sun letter swallows the lam, some learners drop the lam from the spelling too. Do not. The lam is **written**. It is only left unsaid. (Before another ل the two lams are written as one ل with a shadda, as in ٱلَّيْلِ.)
+
+The spelling of ٱلْ is the same before all 28 letters. Only your mouth changes.
+</Block>
+
+<Block id="mistake-shadda" title="Mistake 2: saying the lam before a sun letter">
+  <Stage>
+    <Tiles
+      label="wrong and right"
+      items={[
+        { ar: 'ٱلْشَّمْسُ', en: 'wrong: a sukūn on the lam and a shadda together' },
+        { ar: 'ٱلشَّمْسُ', en: 'right: no mark on the lam' },
+      ]}
+    />
+    <p class="lx-quote-note">The first form is made up, to show the mistake.</p>
+  </Stage>
+
+The shadda on a sun letter is not decoration. In a text with all the marks it is always there, and it tells you the lam is swallowed. If you see a shadda on the first letter, do not say *al-*.
+
+Two more points about the same mistake.
+
+- **Transliteration.** This course writes the sound you hear: *ash-shamsu*, *ar-raḥmānu*. Some books write *al-shamsu* in English letters, but the Arabic spelling is the same either way.
+- **Marks left out.** If a text has no marks, the shadda is missing too. That does not make it optional. You must know that ش is a sun letter.
+</Block>
+</Step>
+
+<Step id="writing" label="Writing it" title="How ٱلْ joins the word before it">
+<Block id="wasla" title="The joining alif ٱ">
+  <Stage label="Starting and joining">
+    <Tiles
+      label="ٱلْقَمَرُ alone, وَٱلْقَمَرِ joined, ٱلْأَرْضِ alone, وَٱلْأَرْضِ joined"
+      items={[
+        { ar: 'ٱلْقَمَرُ', en: 'start here: al-qamaru' },
+        { ar: 'وَٱلْقَمَرِ', en: 'joined: wal-qamari' },
+        { ar: 'ٱلْأَرْضِ', en: 'start here: al-ʾarḍi' },
+        { ar: 'وَٱلْأَرْضِ', en: 'joined: wal-ʾarḍi' },
+      ]}
+    />
+  </Stage>
+
+The Quran does not write ٱلْ with a plain alif. It writes **ٱ**: an alif with a small mark on top. This alif is called **hamzat al-waṣl**, هَمْزَة الْوَصْل. *Waṣl* means “joining”.
+
+The rule:
+
+- If you **start** your speech at the word, say the alif: *al-qamaru*.
+- If the word is **joined** to a word before it, skip the alif: *wa* + *l-qamari* is said *wal-qamari*.
+
+The same happens before a sun letter. In 91:1, وَٱلشَّمْسِ is said *wash-shamsi*: the alif is skipped and the lam is swallowed.
+
+In ٱلْأَرْضِ there are two alifs, and they act differently. The ٱ is a joining alif, and it is skipped. The hamza on the second alif (أ) is a **cutting hamza**, هَمْزَة قَطْع. You always say it, as a short stop before the *a*. So you say *wal-ʾarḍi*.
+
+<Note kind="know">The joining alif ٱ also starts some verbs and nouns. In 54:1, ٱقْتَرَبَتِ begins with one, and so does ٱسْم, “name”. They follow the same rule: say it when you start there, skip it when you join.</Note>
+
+<Check n={7} q="How do you say وَٱلشَّمْسِ?" options={['wa-al-shamsi', 'wash-shamsi', 'wal-shamsi']} answer={1} why="The joining alif is skipped. ش is a sun letter, so the lam is swallowed too." />
+</Block>
+
+<Block id="preposition" title="ٱلْ after لِ, بِ and كَ">
+  <Stage label="Joining a little word">
+    <Formula
+      label="li plus Allah gives lillahi"
+      items={[
+        { kind: 'm', text: 'لِ', small: 'to, for' },
+        { kind: 'k', text: 'ٱللَّهِ', small: 'Allah' },
+        { kind: 's', text: 'لِلَّهِ', small: 'lillahi' },
+      ]}
+    />
+    <Formula
+      label="bi plus al-haqq gives bil-haqqi"
+      items={[
+        { kind: 'm', text: 'بِ', small: 'with' },
+        { kind: 'k', text: 'ٱلْحَقِّ', small: 'the truth' },
+        { kind: 's', text: 'بِٱلْحَقِّ', small: 'bil-ḥaqqi' },
+      ]}
+    />
+    <Sentence
+      reference="Al-Maidah 5:120 (start)"
+      groups={[
+        { words: [{ ar: 'لِلَّهِ', en: 'to Allah', say: 'lillahi', type: 'p' }] },
+        { words: [{ ar: 'مُلْكُ', en: 'the kingdom of', say: 'mulku' }] },
+        { words: [{ ar: 'ٱلسَّمَٰوَٰتِ', en: 'the heavens', say: 'as-samawati' }] },
+        { words: [{ ar: 'وَٱلْأَرْضِ', en: 'and the earth', say: 'wal-ardi' }] },
+      ]}
+      en={['To Allah ', { gap: 'belongs' }, ' the kingdom of the heavens and the earth.']}
+    />
+  </Stage>
+
+Some little words are one letter and join the next word: **لِ** (to, for), **بِ** (with, in, by) and **كَ** (like). L2.07 teaches them in full.
+
+When the next word starts with ٱلْ, the spelling changes a little. This matches what L2.07 says.
+
+- **لِ + ٱلْ** loses the alif of ٱلْ in writing. لِ + ٱللَّهِ becomes **لِلَّهِ**, said *lillahi*. In the same way, لِ + ٱلْمُتَّقِينَ becomes لِلْمُتَّقِينَ.
+- **بِ and كَ** keep it. You still see the ٱ in **بِٱلْحَقِّ** and in كَٱلْفَخَّارِ, but you do not say it: *bil-ḥaqqi*, *kal-fakhkhāri*.
+
+The noun after one of these little words ends in *-i*. You see it in ٱللَّهِ and ٱلْحَقِّ. L1.10 taught that ending, and L2.07 explains it.
+
+Look at 5:120. The first word, لِلَّهِ, is the little word لِ plus the name ٱللَّهِ. The alif of ٱللَّهِ is not written. The last word, وَٱلْأَرْضِ, has a joining alif after وَ, which you skip.
+
+<Check n={8} q="In لِلَّهِ, what happened to the alif of ٱللَّهِ?" options={['It is not written after لِ', 'It is written but not said', 'It is doubled']} answer={0} why="After لِ the alif of ٱلْ is dropped in writing. After بِ and كَ it is written and not said." />
+</Block>
+
+<Block id="mistake-alif" title="Mistake 3: saying the alif when the word is joined">
+  <Stage>
+    <Tiles
+      label="how to say joined words"
+      items={[
+        { ar: 'وَٱلْأَرْضِ', en: 'say wal-ʾarḍi, not wa-al-ʾarḍi' },
+        { ar: 'لِلَّهِ', en: 'say lillahi, not li-allahi' },
+        { ar: 'بِٱلْحَقِّ', en: 'say bil-ḥaqqi, not bi-al-ḥaqqi' },
+      ]}
+    />
+  </Stage>
+
+Learners often read the alif because they can see it. When the word is joined to one before it, the alif is silent. The Arabic text writes ٱ exactly to remind you of this.
+
+Say these three aloud. Each runs together as one smooth sound.
+</Block>
+
+<Block id="mistake-every" title="Mistake 4: thinking every ٱل is the article">
+  <Stage>
+    <Tiles
+      label="two words that start with ٱل"
+      items={[
+        { ar: 'ٱلَّذِينَ', en: 'those who' },
+        { ar: 'ٱللَّهِ', en: 'Allah' },
+      ]}
+    />
+  </Stage>
+
+Some words start with ٱل, but the Quranic Arabic Corpus does not split off an article from them.
+
+- ٱلَّذِينَ means “those who”. It is one word, a kind of pronoun. L3.11 teaches these.
+- ٱللَّهِ is the name of Allah. The Corpus treats it as one name.
+
+So when you count or sort ٱل words into sun and moon, count the nouns that take the article, like ٱلشَّمْسِ and ٱلْقَمَرِ. Do not count these two.
+
+Also remember what you learned in L1.04: in the Quran, ٱلْ is joined to nouns and to describing words. It is never joined to a verb.
+</Block>
+</Step>
+
+<Step id="definite" label="Definite or not" title="Definite and indefinite">
+<Block id="mixed" title="A and the in one verse">
+  <Stage>
+    <Sentence
+      reference="Al-Baqarah 2:119 (part)"
+      groups={[
+        { words: [{ ar: 'بِٱلْحَقِّ', en: 'with the truth', say: 'bil-haqqi', type: 'p' }] },
+        { words: [{ ar: 'بَشِيرًا', en: 'a bringer of good news', say: 'bashiran' }] },
+        { words: [{ ar: 'وَنَذِيرًا', en: 'and a warner', say: 'wa-nadhiran' }] },
+      ]}
+      en={['… with the truth, as a bringer of good news and a warner.']}
+    />
+  </Stage>
+
+This part of the verse has both kinds of noun.
+
+- ٱلْحَقِّ has ٱلْ: “**the** truth”. It is definite.
+- بَشِيرًا and نَذِيرًا end in tanwīn (*-an*): “**a** bringer of good news” and “**a** warner”. They are indefinite.
+
+Both words in the second pair have the same ending, *-an*, so they match. The ٱلْ on ٱلْحَقِّ is a moon-letter case: ح, so you say *bil-ḥaqqi*.
+
+<Check n={9} q="Which word is definite?" options={['ٱلْحَقِّ', 'بَشِيرًا', 'نَذِيرًا']} answer={0} why="ٱلْحَقِّ has ٱلْ. The other two end in tanwīn, so they are indefinite." />
+</Block>
+
+<Block id="five" title="The five kinds of definite noun">
+  <Stage label="From al-Ajurrumiyyah">
+    <blockquote class="lx-quote lx-quote-list" lang="ar" dir="rtl">
+      <p>الْمَعْرِفَةُ خَمْسَةُ أَشْيَاءَ:</p>
+      <p>الِاسْمُ الْمُضْمَرُ نَحْوُ أَنَا وَأَنْتَ</p>
+      <p>وَالِاسْمُ الْعَلَمُ نَحْوُ زَيْدٌ وَمَكَّةَ</p>
+      <p>وَالِاسْمُ الْمُبْهَمُ نَحْوُ هَذَا وَهَذِهِ وَهَؤُلَاءِ</p>
+      <p>وَالِاسْمُ الَّذِي فِيهِ الْأَلِفُ وَاللَّامُ نَحْوُ الرَّجُلُ وَالْغُلَامُ</p>
+      <p>وَمَا أُضِيفَ إِلَى وَاحِدٍ مِنْ هَذِهِ الْأَرْبَعَةِ</p>
+    </blockquote>
+    <p class="lx-quote-note">Vowel marks added by Quran Learn.</p>
+  </Stage>
+
+*Al-Ajurrumiyyah* is a short grammar book by Ibn Ājurrūm. In its chapter on the describing word (naʿt) it lists **five kinds of definite noun**, مَعْرِفَة:
+
+| Kind | In the book | In the Quran | Taught in |
+|---|---|---|---|
+| A pronoun | أَنَا، أَنْتَ | هُوَ | L3.01 |
+| A name | زَيْدٌ، مَكَّةَ | ٱللَّهُ | the lessons on case |
+| A pointing word | هَذَا، هَذِهِ، هَؤُلَاءِ | ذَٰلِكَ | L3.10 |
+| A noun with ٱلْ (**this lesson**) | الرَّجُلُ، الْغُلَامُ | ٱلْكِتَٰبِ | L1.06 |
+| A noun joined to one of these four | any such noun | رَسُولِهِ | L2.08 |
+
+The fourth kind is this lesson: the noun with the alif and the lam (*al-alif wal-lām*, the book’s own name for ٱلْ). The book also gives a quick test for the opposite, the indefinite noun, نَكِرَة.
+
+<blockquote class="lx-quote" lang="ar" dir="rtl">
+  <p>وَتَقْرِيبُهُ كُلُّ مَا صَلَحَ دُخُولُ الْأَلِفِ وَاللَّامِ عَلَيْهِ نَحْوُ الرَّجُلِ وَالْفَرَسِ</p>
+</blockquote>
+<p class="lx-quote-note"><i>Al-Ajurrumiyyah</i>. Vowel marks added by Quran Learn.</p>
+
+In plain English: “A simple test is this: any noun that can take ٱلْ in front of it is indefinite.” رَجُلٌ, “a man”, can take it (ٱلرَّجُلُ), so it is indefinite.
+
+A noun can be definite **without** ٱلْ. A name like ٱللَّهُ is definite already. L2.08 shows how a noun can become definite by being joined to another.
+
+<Check n={10} q="Which noun is indefinite?" options={['ٱلْكِتَٰبُ', 'رَجُلٌ', 'ٱللَّهُ']} answer={1} why="رَجُلٌ can take ٱلْ (ٱلرَّجُلُ). ٱلْكِتَٰبُ already has it, and ٱللَّهُ is a name." />
+</Block>
+
+<Block id="forms" title="Tanwīn in the three cases">
+  <Stage label="One word, six forms">
+    <Tiles
+      label="a day in three cases, then the day in three cases"
+      items={[
+        { ar: 'يَوْمٌ', en: 'nominative: -un' },
+        { ar: 'يَوْمًا', en: 'accusative: -an' },
+        { ar: 'يَوْمٍ', en: 'genitive: -in' },
+        { ar: 'ٱلْيَوْمُ', en: 'nominative: -u' },
+        { ar: 'ٱلْيَوْمَ', en: 'accusative: -a' },
+        { ar: 'ٱلْيَوْمِ', en: 'genitive: -i' },
+      ]}
+    />
+    <p class="lx-quote-note">Made-up set: one word in six forms.</p>
+  </Stage>
+
+In L1.10 you learned the three case endings: nominative (*rafʿ*, -u), accusative (*naṣb*, -a) and genitive (*jarr*, -i). An indefinite noun has these with the extra *n*, which is tanwīn.
+
+| Case | Indefinite (tanwīn) | Definite (ٱلْ) |
+|---|---|---|
+| Nominative | يَوْمٌ *-un* | ٱلْيَوْمُ *-u* |
+| Accusative | يَوْمًا *-an* | ٱلْيَوْمَ *-a* |
+| Genitive | يَوْمٍ *-in* | ٱلْيَوْمِ *-i* |
+
+Look at the verses you have seen. In 94:6, يُسْرًا is *-an* (an ease). In 103:2, which you read in L1.04, خُسْرٍ is *-in* (a loss). In 5:120, قَدِيرٌۢ is *-un* (all-powerful).
+
+<Note kind="warn">No tanwīn does not always mean definite. A name like مَكَّةَ is definite without ٱلْ and without tanwīn. And the first word of a possessive phrase loses its tanwīn too. L2.08 teaches that. Use ٱلْ as the sure sign for now.</Note>
+</Block>
+
+<Block id="kind" title="Two jobs of ٱلْ">
+  <Stage>
+    <Sentence
+      reference="Al-Maʿarij 70:19"
+      groups={[
+        { words: [{ ar: 'إِنَّ', en: 'truly', say: 'inna', type: 'p' }] },
+        { words: [{ ar: 'ٱلْإِنسَٰنَ', en: 'the human being', say: 'al-insana' }] },
+        { words: [{ ar: 'خُلِقَ', en: 'was created', say: 'khuliqa', type: 'v' }] },
+        { words: [{ ar: 'هَلُوعًا', en: 'anxious', say: 'haluan' }] },
+      ]}
+      en={['Truly, the human being was created anxious.']}
+    />
+  </Stage>
+
+ٱلْإِنسَٰنَ has ٱلْ, so it is definite. هَلُوعًا has tanwīn (*-an*), so it is indefinite.
+
+But look at the meaning. ٱلْإِنسَٰنَ does not point to one person we both know. It means **human beings as a kind**. Al-Jadwal explains this use of ٱلْ with the same word in 103:2, إِنَّ ٱلْإِنسَٰنَ لَفِى خُسْرٍ: there it covers every human being.
+
+So ٱلْ does two jobs:
+
+- It can point to **one known thing**: ٱلْحَقِّ, “the truth”, or ٱلْعُسْرِ, “the hardship” of 94:6.
+- It can cover **a whole kind**: ٱلْإِنسَٰنَ, “human beings”.
+
+<Note kind="know">Al-Jadwal gives each job a name. The first, pointing to a known thing, is *ʿahdiyya*, عَهْدِيَّة. The second, covering the whole kind, is *jinsiyya*, جِنْسِيَّة. You do not need to learn these names yet.</Note>
+
+<Check n={11} q="In ٱلْإِنسَٰنَ, what does ٱلْ do?" options={['It points to one person', 'It covers the whole kind']} answer={1} why="Al-Jadwal: ٱلْ covers all human beings here." />
+</Block>
+
+<Block id="later" title="Why definiteness matters later">
+  <Stage label="Sentence or phrase?">
+    <Tiles
+      label="a sentence and a phrase"
+      items={[
+        { ar: 'ٱلْكِتَابُ جَدِيدٌ', en: 'a sentence: The book is new' },
+        { ar: 'ٱلْكِتَابُ ٱلْجَدِيدُ', en: 'a phrase: the new book' },
+      ]}
+    />
+    <p class="lx-quote-note">Made-up examples.</p>
+  </Stage>
+
+Whether a noun has ٱلْ decides how Arabic reads two words side by side.
+
+- **Definite + indefinite** usually makes a sentence: ٱلْكِتَابُ جَدِيدٌ, “The book is new.” L2.01 teaches this.
+- **Definite + definite** usually makes a phrase: ٱلْكِتَابُ ٱلْجَدِيدُ, “the new book”. An adjective copies the ٱلْ of its noun. L2.09 teaches this.
+
+You do not need these rules yet. They are the reason to watch for ٱلْ now.
+</Block>
+
+<Block id="mistake-both" title="Mistake 5: ٱلْ and tanwīn together">
+  <Stage>
+    <Tiles
+      label="wrong and right"
+      items={[
+        { ar: 'ٱلْبَيْتٌ', en: 'wrong: ٱلْ and tanwīn' },
+        { ar: 'ٱلْبَيْتُ', en: 'right: ٱلْ, no tanwīn' },
+        { ar: 'بَيْتُ', en: 'wrong: no ٱلْ and no tanwīn' },
+        { ar: 'بَيْتٌ', en: 'right: tanwīn, indefinite' },
+      ]}
+    />
+    <p class="lx-quote-note">The first and third forms are made up, to show the mistake.</p>
+  </Stage>
+
+A noun gets **one** of two marks: ٱلْ (“the”) or tanwīn (“a”). Never both.
+
+The third form also looks wrong. A noun with no ٱلْ and no tanwīn, like بَيْتُ, does not mean “a house” or “the house” by itself. L2.08 shows when that shape is correct.
+</Block>
+</Step>
+
+<Step id="practice" label="Word by word and practice" title="Word by word, then practice">
+<Block id="parse-1" title="Word by word: Al-Maidah 5:120">
+  <Stage label="Word by word">
+    <Parse
+      reference="Al-Maidah 5:120 (start)"
+      words={[
+        { ar: 'لِلَّهِ', en: 'to Allah', type: 'p' },
+        { ar: 'مُلْكُ', en: 'the kingdom of' },
+        { ar: 'ٱلسَّمَٰوَٰتِ', en: 'the heavens' },
+        { ar: 'وَٱلْأَرْضِ', en: 'and the earth' },
+      ]}
+      cards={[
+        { at: 0, role: 'li- “to” with ٱللَّهِ: the news, put first (khabar muqaddam)', case: 'ٱللَّهِ is genitive (jarr)', mark: '-i (kasra)', why: 'ٱللَّهِ comes after the little word لِ. The alif of ٱللَّهِ is not written after لِ.', irab: 'جار ومجرور متعلق بمحذوف خبر مقدم' },
+        { at: 1, role: 'mubtadaʾ, put later (mubtadaʾ muʾakhkhar): “the kingdom of”', case: 'nominative (rafʿ)', mark: '-u (ḍamma)', why: 'It is what the sentence is about. It has no ٱلْ, but it takes its definiteness from the next word (L2.08).', irab: 'مبتدأ مؤخر مرفوع' },
+        { at: 2, role: 'second word of a possessive phrase (muḍāf ilayh): “of the heavens”', case: 'genitive (jarr)', mark: '-i (kasra)', why: 'It has ٱلْ, so it is definite. س is a sun letter: you say as-samāwāti.', irab: 'مضاف إليه مجرور' },
+        { at: 3, ar: 'وَ', role: '“and”, a little word', why: 'Little words have no case. After وَ you skip the joining alif.', irab: 'الواو عاطفة' },
+        { at: 3, ar: 'ٱلْأَرْضِ', role: 'joined by “and” to ٱلسَّمَٰوَٰتِ: “and the earth”', case: 'genitive (jarr), like the word before it', mark: '-i (kasra)', why: 'It has ٱلْ, so it is definite. The hamza is a moon letter: you say wal-ʾarḍi.', irab: 'معطوف على السموات مجرور مثله' },
+      ]}
+    />
+  </Stage>
+
+For each word, say its **role**, its **case**, the **mark** and the **reason**. This lesson adds a fifth question: **is it definite, and how do you say the ٱلْ?**
+
+Press **Next word** in the panel to go through the verse. Each card also gives the same analysis in Arabic, in the way the grammar books write it. You do not need to learn those lines yet.
+</Block>
+
+<Block id="parse-2" title="Word by word: Al-Baqarah 2:3">
+  <Stage label="Word by word">
+    <Parse
+      reference="Al-Baqarah 2:3 (part)"
+      words={[
+        { ar: 'يُؤْمِنُونَ', en: 'they believe', type: 'v' },
+        { ar: 'بِٱلْغَيْبِ', en: 'in the unseen', type: 'p' },
+        { ar: 'وَيُقِيمُونَ', en: 'and they keep up', type: 'v' },
+        { ar: 'ٱلصَّلَوٰةَ', en: 'the prayer' },
+      ]}
+      cards={[
+        { at: 0, role: 'a present-tense verb: “they believe”. The و is the doer, “they”.', mark: '-ūna: the nūn stays', why: 'A verb never takes ٱلْ. This one ends in -ūna because the doer is “they”.', irab: 'فعل مضارع مرفوع وعلامة رفعه ثبوت النون، والواو ضمير متصل في محل رفع فاعل' },
+        { at: 1, role: 'bi- “in” with ٱلْغَيْبِ “the unseen”. It belongs to the verb.', case: 'ٱلْغَيْبِ is genitive (jarr)', mark: '-i (kasra)', why: 'ٱلْ makes it definite. غ is a moon letter, so the lam has a sukūn: bil-ghaybi.', irab: 'جار ومجرور متعلق بيؤمنون' },
+        { at: 2, ar: 'وَ', role: '“and”, a little word', why: 'Little words have no case.', irab: 'الواو عاطفة' },
+        { at: 2, ar: 'يُقِيمُونَ', role: 'a present-tense verb: “they keep up”. Same shape as the first verb.', mark: '-ūna: the nūn stays', why: 'A verb never takes ٱلْ.', irab: 'فعل مضارع مرفوع وعلامة رفعه ثبوت النون، والواو فاعل' },
+        { at: 3, role: 'object (mafʿūl bihi): what they keep up', case: 'accusative (naṣb)', mark: '-a (fatḥa)', why: 'ٱلْ makes it definite. ص is a sun letter: aṣ-ṣalāta, with a doubled ṣ. L2.05 teaches the object.', irab: 'مفعول به منصوب' },
+      ]}
+    />
+  </Stage>
+
+This verse shows both kinds of ٱلْ side by side, and it shows what ٱلْ cannot join: a verb.
+
+The two verbs have no ٱلْ. The two nouns, ٱلْغَيْبِ and ٱلصَّلَوٰةَ, both have it. Their lam is said in the first and swallowed in the second.
+</Block>
+
+<Block id="parse-3" title="Word by word: Al-Baqarah 2:119">
+  <Stage label="Word by word">
+    <Parse
+      reference="Al-Baqarah 2:119 (part)"
+      words={[
+        { ar: 'بِٱلْحَقِّ', en: 'with the truth', type: 'p' },
+        { ar: 'بَشِيرًا', en: 'a bringer of good news' },
+        { ar: 'وَنَذِيرًا', en: 'and a warner' },
+      ]}
+      cards={[
+        { at: 0, role: 'bi- “with” and ٱلْحَقِّ “the truth”: a phrase that says how, tied to a word that is left out', case: 'ٱلْحَقِّ is genitive (jarr)', mark: '-i (kasra)', why: 'ٱلْحَقِّ comes after the little word بِ. ٱلْ makes it definite, and ح is a moon letter: bil-ḥaqqi. The ٱ is written but not said.', irab: 'جار ومجرور متعلق بمحذوف حال' },
+        { at: 1, role: 'a word that says in what state: “as a bringer of good news”. This is a ḥāl (L4.01).', case: 'accusative (naṣb)', mark: '-an (tanwīn fatḥa, with an alif)', why: 'The tanwīn shows it is indefinite: “a bringer of good news”.', irab: 'حال منصوبة' },
+        { at: 2, ar: 'وَ', role: '“and”, a little word', why: 'Little words have no case.', irab: 'الواو عاطفة' },
+        { at: 2, ar: 'نَذِيرًا', role: 'joined by “and” to بَشِيرًا: “and a warner”', case: 'accusative (naṣb), like the word before it', mark: '-an (tanwīn fatḥa, with an alif)', why: 'The tanwīn shows it is indefinite.', irab: 'معطوف على بشيرا منصوب مثله' },
+      ]}
+    />
+  </Stage>
+
+Here the definite and the indefinite stand next to each other in the same verse.
+
+The ḥāl is a topic for Level 4. For now you only need to see its ending: *-an* with tanwīn. That tells you it is indefinite, so there is no ٱلْ to say.
+</Block>
+
+<Block id="parse-4" title="Word by word: Yusuf 12:39">
+  <Stage label="Word by word">
+    <Parse
+      reference="Yusuf 12:39 (end)"
+      words={[
+        { ar: 'أَمِ', en: 'or', type: 'p' },
+        { ar: 'ٱللَّهُ', en: 'Allah' },
+        { ar: 'ٱلْوَٰحِدُ', en: 'the One' },
+        { ar: 'ٱلْقَهَّارُ', en: 'the All-Prevailing' },
+      ]}
+      cards={[
+        { at: 0, role: '“or”, a little word that joins the two questions', why: 'Little words have no case.', irab: 'أم حرف عطف معادل لهمزة الاستفهام' },
+        { at: 1, role: 'joined by “or” to the earlier word أَرْبَابٌ (“lords”): “or Allah”', case: 'nominative (rafʿ)', mark: '-u (ḍamma)', why: 'It copies the case of the word it is joined to. It is a name, so it is definite.', irab: 'لفظ الجلالة معطوف على أرباب مرفوع' },
+        { at: 2, role: 'a describing word (naʿt) of ٱللَّهُ: “the One”', case: 'nominative (rafʿ)', mark: '-u (ḍamma)', why: 'It has ٱلْ, so it is definite like the name it describes. و is a moon letter: al-wāḥidu.', irab: 'نعت للفظ الجلالة مرفوع' },
+        { at: 3, role: 'a second describing word: “the All-Prevailing”', case: 'nominative (rafʿ)', mark: '-u (ḍamma)', why: 'ٱلْ again. ق is a moon letter: al-qahhāru.', irab: 'نعت ثان مرفوع' },
+      ]}
+    />
+  </Stage>
+
+The verse asks: “Are many scattered lords better, or Allah, the One, the All-Prevailing?” The last two words describe Allah.
+
+Both describing words are definite, like the name they describe. L2.09 teaches this match.
+</Block>
+
+<Block id="practice-1" title="Practice: sun, moon and the marks">
+  <Stage label="For each word, say">
+    <ol class="lx-card-list">
+      <li><b>First letter:</b> sun or moon?</li>
+      <li><b>The lam:</b> said, or swallowed?</li>
+      <li><b>The marks:</b> a sukūn on the lam, or a shadda on the next letter?</li>
+      <li><b>The sound:</b> how do you say it?</li>
+    </ol>
+  </Stage>
+
+Work out each answer first, aloud or on paper. Then open the answer.
+
+<Exercise n={1} q="Sun letter or moon letter, and how do you say each? (a) ٱلنَّاسِ (Al-Baqarah 2:8) (b) ٱلْغَيْبِ (Al-Imran 3:44) (c) ٱلصَّلَوٰةَ (Al-Baqarah 2:3). Meanings: “the people”, “the unseen”, “the prayer”.">
+
+- (a) ٱلنَّاسِ: **sun letter** ن, with a shadda. Said *an-nāsi*.
+- (b) ٱلْغَيْبِ: **moon letter** غ, with a sukūn on the lam. Said *al-ghaybi*.
+- (c) ٱلصَّلَوٰةَ: **sun letter** ص, with a shadda. Said *aṣ-ṣalāta*.
+
+</Exercise>
+
+<Exercise n={2} q="Why does ٱلشَّمْسِ (Ash-Shams 91:1) have a shadda on the ش, and no sukūn on the lam? Meaning: “the sun”.">
+
+ش is a **sun letter**, so the lam of ٱلْ is swallowed. The shadda on ش is the proof: the ش is said twice, once for itself and once for the lam.
+
+The lam has no sukūn because it is not said. Compare ٱلْقَمَرِ in 91:2: ق is a moon letter, so the lam has a sukūn and you say it.
+
+After وَ you also skip the joining alif. The full sound is *wash-shamsi*.
+
+</Exercise>
+
+<Exercise n={3} q="Make each noun definite and say it. These are made-up examples: (a) بَابٌ (a door) (b) نَهَارٌ (daytime) (c) شَجَرٌ (a tree).">
+
+- (a) ٱلْبَابُ, *al-bābu*, “the door”. ب is a moon letter.
+- (b) ٱلنَّهَارُ, *an-nahāru*, “the daytime”. ن is a sun letter, so it gets a shadda.
+- (c) ٱلشَّجَرُ, *ash-shajaru*, “the tree”. ش is a sun letter, so it gets a shadda.
+
+In all three the tanwīn is gone and the ending is *-u*.
+
+</Exercise>
+
+<Exercise n={4} q="What does ٱ do in وَٱلْأَرْضِ (Al-Maidah 5:120), and what does the أ do? Meaning: “and the earth”.">
+
+The ٱ is the **joining alif**. It comes after وَ, so you skip it. The أ is a **cutting hamza**. You always say it, as a short stop before the *a*.
+
+The hamza is also a moon letter, so the lam is said. The whole word is *wal-ʾarḍi*.
+
+</Exercise>
+</Block>
+
+<Block id="practice-2" title="Practice: tanwīn, joining and mistakes">
+  <Stage label="Check your word">
+    <ol class="lx-card-list">
+      <li><b>Has ٱلْ?</b> Then it is definite and has no tanwīn.</li>
+      <li><b>Has tanwīn?</b> Then it is indefinite.</li>
+      <li><b>After لِ?</b> The alif of ٱلْ is not written.</li>
+      <li><b>After بِ or كَ?</b> The alif is written but not said.</li>
+    </ol>
+  </Stage>
+
+<Exercise n={5} q="What happens to the tanwīn when you add ٱلْ? Show the change. These are made-up pairs: (a) رَجُلٌ (b) مَسْجِدٌ (c) يَوْمٌ.">
+
+The tanwīn **disappears**. The rest of the ending stays, so *-un* becomes *-u*.
+
+- (a) رَجُلٌ, *rajulun*, becomes ٱلرَّجُلُ, *ar-rajulu*. “A man” becomes “the man”. ر is a sun letter.
+- (b) مَسْجِدٌ, *masjidun*, becomes ٱلْمَسْجِدُ, *al-masjidu*. “A mosque” becomes “the mosque”. م is a moon letter.
+- (c) يَوْمٌ, *yawmun*, becomes ٱلْيَوْمُ, *al-yawmu*. “A day” becomes “the day”. ي is a moon letter.
+
+A noun never has both ٱلْ and tanwīn.
+
+</Exercise>
+
+<Exercise n={6} q="Find the definite nouns in this part of a verse: وَلَا تُسْـَٔلُ عَنْ أَصْحَٰبِ ٱلْجَحِيمِ (Al-Baqarah 2:119, end). Meaning: “and you will not be asked about the people of the Blazing Fire.”">
+
+ٱلْجَحِيمِ is **definite**: it has ٱلْ. ج is a moon letter, so you say *al-jaḥīmi*.
+
+أَصْحَٰبِ, “people of”, has no ٱلْ and no tanwīn. It is the first word of a possessive phrase, so it takes its definiteness from ٱلْجَحِيمِ (L2.08). Do not count it as a word with ٱلْ.
+
+وَلَا تُسْـَٔلُ is a verb, so it has no ٱلْ.
+
+</Exercise>
+
+<Exercise n={7} q="Definite or indefinite? (a) ٱلسَّمَٰوَٰتِ (Al-Maidah 5:120) (b) شَىْءٍ (Al-Maidah 5:120) (c) قَدِيرٌۢ (Al-Maidah 5:120) (d) ٱلْأَرْضِ (Al-Maidah 5:120).">
+
+- (a) ٱلسَّمَٰوَٰتِ: **definite**. It has ٱلْ.
+- (b) شَىْءٍ: **indefinite**. It ends in tanwīn (*-in*).
+- (c) قَدِيرٌۢ: **indefinite**. It ends in tanwīn (*-un*). The small م above the tanwīn is a reading sign for how the tanwīn is said before ب.
+- (d) ٱلْأَرْضِ: **definite**. It has ٱلْ.
+
+</Exercise>
+
+<Exercise n={8} q="Join the little word to the noun and write the result. (a) لِ + ٱلْمُتَّقِينَ (b) بِ + ٱلْيَوْمِ (c) كَ + ٱلْفَخَّارِ. The results are in Al-Aʿraf 7:128, Al-Baqarah 2:8 and Ar-Rahman 55:14.">
+
+- (a) لِلْمُتَّقِينَ, “for the God-fearing”. After لِ the alif of ٱلْ is **not written**. Said *lil-muttaqīna*.
+- (b) بِٱلْيَوْمِ, “in the day”. After بِ the ٱ is **written** and not said. Said *bil-yawmi*.
+- (c) كَٱلْفَخَّارِ, “like pottery”. After كَ the ٱ is **written** and not said. Said *kal-fakhkhāri*.
+
+</Exercise>
+
+<Exercise n={9} q="Each form has a mistake. Say what it is and write the right form. These are made-up wrong forms: (a) ٱلْبَيْتٌ (b) ٱشَّمْسُ (c) ٱلْشَّمْسُ.">
+
+- (a) ٱلْبَيْتٌ has ٱلْ **and** tanwīn. Drop the tanwīn: ٱلْبَيْتُ.
+- (b) ٱشَّمْسُ has **no lam**. The lam is always written: ٱلشَّمْسُ.
+- (c) ٱلْشَّمْسُ gives the lam a **sukūn** and also a shadda on ش. Before a sun letter the lam has no mark: ٱلشَّمْسُ.
+
+</Exercise>
+</Block>
+
+<Block id="done" title="You have finished the lesson">
+  <Stage label="The idea">
+    <Formula
+      label="al plus a noun gives the definite noun"
+      items={[
+        { kind: 'm', text: 'ٱلْ', small: 'the' },
+        { kind: 'k', text: 'بَيْتٌ', small: 'a house' },
+        { kind: 's', text: 'ٱلْبَيْتُ', small: 'the house' },
+      ]}
+    />
+  </Stage>
+
+- **ٱلْ** means “the”. It is joined to the front of a noun and makes it definite. Without it, the noun is “a …”.
+- A noun with ٱلْ has **no tanwīn**: *-un* becomes *-u*, *-an* becomes *-a*, *-in* becomes *-i*.
+- The lam of ٱلْ is written (before another ل, as one ل with a shadda). After the **14 moon letters** you say it: *al-qamaru*. After the **14 sun letters** you swallow it and say the letter twice: *ash-shamsu*.
+- In a text with marks: a **sukūn** on the lam means “say it”. A **shadda** on the next letter means “skip it”.
+- The ٱ is the **joining alif** (hamzat al-waṣl). Say it when you start there. Skip it when the word is joined: *wal-qamari*, *wash-shamsi*.
+- After **لِ** the alif of ٱلْ is not written (**لِلَّهِ**). After **بِ** and **كَ** it is written but not said (**بِٱلْحَقِّ**).
+- Not every ٱل is the article. ٱلَّذِينَ and ٱللَّهِ are single words in the Corpus.
+- *Al-Ajurrumiyyah* lists five kinds of definite noun. The noun with ٱلْ is the fourth.
+
+**Next:** L1.07 teaches masculine and feminine. L2.07 teaches the little words like لِ and بِ. L2.08 shows how a noun becomes definite without ٱلْ. L2.09 shows an adjective copying the definiteness of its noun. Before you go on, review L1.02 (shadda, sukūn, tanwīn) if anything here felt new.
+
+<Sources
+    items={[
+      { label: 'Quran text', name: 'Tanzil (Uthmani text)', href: 'https://tanzil.net' },
+      { label: 'Word types, and which words carry the article', name: 'Quranic Arabic Corpus', href: 'https://corpus.quran.com' },
+      { label: 'Word-by-word analysis (iʿrāb) of 5:120, 2:3, 2:119 and 12:39; notes on 94:5-6 and 103:2', name: 'Maḥmūd Ṣāfī, al-Jadwal fī Iʿrāb al-Qurʾān wa-Ṣarfihi wa-Bayānihi' },
+      { label: 'The five kinds of definite noun, and the test for the indefinite', name: 'Ibn Ājurrūm, al-Ajurrumiyyah, chapter on the naʿt' },
+      { label: 'English under the verses', name: 'Plain-English meanings by Quran Learn, not a translation' },
+    ]}
+  />
+</Block>
+</Step>

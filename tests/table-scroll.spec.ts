@@ -3,7 +3,7 @@ import { test, expect } from '@playwright/test';
 test.describe('mobile table overflow', () => {
   test.use({ viewport: { width: 390, height: 844 } });
 
-  for (const path of ['/surahs/093-ad-duha/', '/learn/level-3/14-verb-form-iv/']) {
+  for (const path of ['/surahs/093-ad-duha/', '/learn/level-3/13-verb-form-iv/']) {
     test(`no page-level horizontal overflow on ${path}`, async ({ page }) => {
       await page.goto(path);
       const docWidth = await page.evaluate(() => document.documentElement.scrollWidth);
@@ -14,7 +14,7 @@ test.describe('mobile table overflow', () => {
       await page.goto(path);
       // every markdown-emitted table must sit inside .table-scroll
       const bare = await page.locator('table').evaluateAll(tables =>
-        tables.filter(t => !t.closest('.table-scroll') && !t.closest('.grammar-table-wrapper') && !t.closest('.grammar-table') && !t.closest('.table-wrapper') && !t.closest('.tbl')).length);
+        tables.filter(t => !t.closest('.table-scroll') && !t.closest('.grammar-table-wrapper') && !t.closest('.grammar-table') && !t.closest('.table-wrapper') && !t.closest('.tbl') && !t.closest('.lx-conj')).length);
       expect(bare).toBe(0);
     });
   }

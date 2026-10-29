@@ -1,464 +1,800 @@
 ---
 title: "Rhetorical Questions in the Quran"
+kicker: "The words that ask, and what al-Jadwal says each question does"
+titleArabic: "الِاسْتِفْهَام فِي الْقُرْآن"
 level: 5
 order: 13
-description: "Analyze interrogative particles and rhetorical questions in the Quran, understanding how questions create emphasis, denial, or astonishment rather than seeking answers."
+template: steps
+description: "Meet the question words of the Quran: أَ, هَلْ, مَا, مَن, كَيْفَ, أَيْنَ, أَيّ and the rest, with counts from the Corpus. See what job each one does in its sentence, how أَلَمْ joins a question to لَمْ, and which questions al-Jadwal says confirm, deny, scold, wonder or stir interest. Go through four verses word by word, learn the usual mix-ups and practise on ten exercises."
 draft: false
 ---
 
-import ArabicExample from '../../../components/mdx/ArabicExample.astro';
-import GrammarTable from '../../../components/mdx/GrammarTable.astro';
-import Callout from '../../../components/mdx/Callout.astro';
-import ExerciseBox from '../../../components/mdx/ExerciseBox.astro';
-
-## Introduction
-
-<ArabicExample
-  arabic="هَلْ جَزَاءُ ٱلْإِحْسَانِ إِلَّا ٱلْإِحْسَانُ"
-  transliteration="hal jazāʾu l-iḥsāni illā l-iḥsān"
-  translation="Is the reward of goodness anything but goodness?"
-  reference="Ar-Rahman 55:60"
-  words={[
-    { ar: "هَلْ", tr: "hal", en: "is" },
-    { ar: "جَزَاءُ", tr: "jazāʾu", en: "the reward of" },
-    { ar: "ٱلْإِحْسَانِ", tr: "al-iḥsān", en: "goodness" },
-    { ar: "إِلَّا", tr: "illā", en: "anything but" },
-    { ar: "ٱلْإِحْسَانُ", tr: "al-iḥsān", en: "goodness" }
-  ]}
-/>
-
-The Quran asks hundreds of questions — but rarely expects answers. This verse from Surah Ar-Rahman doesn't seek information; it ASSERTS a theological truth through question form. The answer is so obvious that asking the question makes the point more powerfully than stating it directly would.
-
-Rhetorical questions are among the Quran's most powerful devices. They engage the reader's mind, provoke reflection, challenge assumptions, and emphasize truths through the very act of questioning.
-
-**In this lesson, you will:**
-1. Identify interrogative particles (أَ، هَلْ، مَا، مَن، كَيْفَ، أَيّ، أَنَّى) and their grammatical effects
-2. Distinguish genuine questions from rhetorical questions
-3. Analyze three rhetorical question types: denial (inkārī / إِنْكَارِيّ), affirmation (taqrīrī / تَقْرِيرِيّ), and astonishment (taʿajjubī / تَعَجُّبِيّ)
-4. Examine how double negation (أَلَمْ) creates emphatic affirmation
-
-**Connection to previous learning:** In [L5.04-05](/learn/level-5/01-full-irab-analysis/), you analyzed complete surahs combining grammar and rhetoric. In [L4.17-18](/learn/level-4/01-hal-clauses/), you learned rhetorical devices (taqdīm / تَقْدِيمٌ, istiʿārah / اِسْتِعَارَةٌ). Now you'll study one of the most frequent Quranic devices: rhetorical questioning (istifhām / اِسْتِفْهَامٌ).
-
-<Callout type="tip">
-Not every question in the Quran is rhetorical. Some questions genuinely seek information or invite dialogue. Your job: recognize WHEN a question is rhetorical by analyzing its context, grammatical structure, and the impossibility or obviousness of its answer.
-</Callout>
-
-<Callout type="note" title="Plain-English key">
-Quick, everyday translations of the grammar terms in this lesson — glance back here whenever one trips you up:
-
-- **Rhetorical question** (istifhām / اِسْتِفْهَام) — a question asked for effect, not for information.
-- **Mubtadaʾ** (مُبْتَدَأ) — the starting word: the thing the sentence is about.
-- **Khabar** (خَبَر) — the "news": what is said about the mubtadaʾ.
-- **Jussive** (jazm / مَجْزُوم) — the present verb after "not / if"-type words, ending in a sukun (no vowel).
-</Callout>
-
-## Interrogative Particles (adawāt al-istifhām / أَدَوَاتُ ٱلِاسْتِفْهَامِ)
-
-Before analyzing rhetorical questions, you must understand the grammatical tools that CREATE questions in Arabic. These particles transform statements into interrogatives.
-
-<GrammarTable caption="Arabic Interrogative Particles">
-| Particle | Arabic | Meaning | Grammatical Effect | Typical Use | Example |
-|----------|--------|---------|-------------------|-------------|---------|
-| Hamza (أَ) | أَ | Is...? (yes/no) | Precedes verb or noun, expectation of answer | Most common question particle | أَلَمْ تَرَ |
-| هَلْ | هَلْ | Is...? (yes/no) | Precedes verb, softer/more neutral than أَ | Seeking confirmation | هَلْ أَتَىٰكَ |
-| مَا | مَا | What? | Interrogative pronoun for non-humans | Asking about things/concepts | مَا هَٰذَا |
-| مَن | مَن | Who? | Interrogative pronoun for humans | Asking about people/agents | مَن ذَا ٱلَّذِي |
-| كَيْفَ | كَيْفَ | How? | Interrogative adverb of manner | Asking about manner/method | كَيْفَ تَكْفُرُونَ |
-| أَيّ | أَيّ | Which? | Interrogative adjective (agrees with noun) | Selecting from alternatives | بِأَيِّ آلَاءٍ |
-| أَنَّى | أَنَّى | From where? How? | Interrogative adverb of place/manner | Asking about source/cause | أَنَّىٰ يَكُونُ |
-</GrammarTable>
-
-### Key Grammatical Notes
-
-**1. The hamza (أَ) distinction:**
-
-The hamza used for questions (hamzat al-istifhām / هَمْزَةُ ٱلِاسْتِفْهَامِ) is identical in form to the hamza used in other grammatical functions. Position and context determine its role:
-
-- **Interrogative hamza:** Comes at the very beginning of the sentence before verb or noun
-  - Example: أَلَمْ نَشْرَحْ (Did We not expand?) — hamza begins the verse
-- **Other hamzas:** Part of the word itself, not sentence-initial
-  - Example: إِنَّ (indeed) — hamza is part of the particle, not a question
-
-**2. هَلْ (hal) vs. أَ (hamza):**
-
-Both particles create yes/no questions, but with different nuances:
-
-- **أَ (hamza):** Often implies expectation or challenge. "Are you really...?" "Is it actually...?"
-- **هَلْ (hal):** More neutral, genuinely seeking confirmation. "Is it the case that...?"
-
-In rhetorical contexts, hamza tends to appear more frequently because it carries stronger emphasis.
-
-**3. Interrogative pronouns:**
-
-مَا (what) and مَن (who) function as pronouns — they replace nouns in the sentence structure:
-- مَا ٱلْقَارِعَةُ (What is the Striking Hour?) — مَا is the [mubtada](/resources/glossary/#mubtada), ٱلْقَارِعَةُ is the [khabar](/resources/glossary/#khabar)
-- مَن ذَا ٱلَّذِي (Who is the one who...?) — مَن is the [mubtada](/resources/glossary/#mubtada)
-
-## Rhetorical Questions: Three Types
-
-Not all questions seek answers. Rhetorical questions use interrogative form to ASSERT, EMPHASIZE, or CHALLENGE — not to inquire.
-
-Classical Arabic rhetoric (ʿilm al-balāghah / عِلْمُ ٱلْبَلَاغَةِ) identifies three main types of rhetorical questioning:
-
-### Type 1: Istifhām Inkārī (اِسْتِفْهَام إِنْكَارِيّ) — Denial/Rebuke
-
-**Function:** The question implies a NEGATIVE answer — "No, absolutely not!" It rebukes or denies the proposition.
-
-**Signal:** The question presents something impossible, absurd, or morally wrong. The expected answer is "No, of course not."
-
-**Example 1: Challenging False Security**
-
-<ArabicExample
-  arabic="أَفَأَمِنتُم أَن يَخْسِفَ بِكُمُ ٱلَّذِي فِي ٱلسَّمَاءِ ٱلْأَرْضَ فَإِذَا هِيَ تَمُورُ"
-  transliteration="afa-amintum an yakhsifa bikumu lladhī fī s-samāʾi l-arḍa fa-idhā hiya tamūr"
-  translation="Do you feel secure that He who is in the heaven will not cause the earth to swallow you when it suddenly quakes?"
-  reference="Al-Isra 17:68"
-  words={[
-    { ar: "أَفَأَمِنتُم", tr: "afa-amintum", en: "do you feel secure" },
-    { ar: "أَن", tr: "an", en: "that" },
-    { ar: "يَخْسِفَ", tr: "yakhsifa", en: "He will cause to swallow" },
-    { ar: "بِكُمُ", tr: "bikum", en: "you" },
-    { ar: "ٱلَّذِي", tr: "alladhī", en: "He who" },
-    { ar: "فِي", tr: "fī", en: "in" },
-    { ar: "ٱلسَّمَاءِ", tr: "as-samāʾ", en: "the heaven" },
-    { ar: "ٱلْأَرْضَ", tr: "al-arḍ", en: "the earth" },
-    { ar: "فَإِذَا", tr: "fa-idhā", en: "when suddenly" },
-    { ar: "هِيَ", tr: "hiya", en: "it" },
-    { ar: "تَمُورُ", tr: "tamūr", en: "quakes" }
-  ]}
-/>
-
-**Analysis:**
-- **Particle:** أَفَأَمِنتُمْ — أَ (hamza) + ف (then/so) + أَمِنتُمْ (you felt secure)
-- **Grammatical structure:** أَ + past tense verb → challenges the appropriateness of past action
-- **Rhetorical type:** Inkārī (denial)
-- **Expected answer:** "No, we should NOT feel secure."
-- **Effect:** The question rebukes false confidence. By ASKING if they feel secure, Allah emphasizes that such security is foolish given His absolute power.
-
-**Example 2: Challenging Disbelief**
-
-<ArabicExample
-  arabic="أَمْ خُلِقُوا مِنْ غَيْرِ شَيْءٍ أَمْ هُمُ ٱلْخَالِقُونَ"
-  transliteration="am khuliqū min ghayri shayʾin am humu l-khāliqūn"
-  translation="Or were they created by nothing, or were they the creators [of themselves]?"
-  reference="At-Tur 52:35"
-  words={[
-    { ar: "أَمْ", tr: "am", en: "or" },
-    { ar: "خُلِقُوا", tr: "khuliqū", en: "were they created" },
-    { ar: "مِنْ", tr: "min", en: "by" },
-    { ar: "غَيْرِ", tr: "ghayri", en: "other than" },
-    { ar: "شَيْءٍ", tr: "shayʾ", en: "anything" },
-    { ar: "أَمْ", tr: "am", en: "or" },
-    { ar: "هُمُ", tr: "hum", en: "they" },
-    { ar: "ٱلْخَالِقُونَ", tr: "al-khāliqūn", en: "the creators" }
-  ]}
-/>
-
-**Analysis:**
-- **Particle:** أَمْ (or) introduces alternative questions
-- **Rhetorical type:** Inkārī (denial) for both alternatives
-- **Expected answer:** "No, neither option is possible."
-- **Effect:** The absurdity of both alternatives proves the necessity of a Creator. The question ASSERTS monotheism by showing the impossibility of alternatives.
-
-### Type 2: Istifhām Taqrīrī (اِسْتِفْهَام تَقْرِيرِيّ) — Affirmation
-
-**Function:** The question implies a POSITIVE answer — "Yes, indeed!" It affirms and emphasizes the truth of the proposition.
-
-**Signal:** The question presents something undeniable, already known, or previously acknowledged. The expected answer is "Yes, certainly."
-
-**Example 3: Affirming Divine Favor**
-
-<ArabicExample
-  arabic="أَلَمْ نَشْرَحْ لَكَ صَدْرَكَ"
-  transliteration="alam nashraḥ laka ṣadrak"
-  translation="Did We not expand your chest for you [O Muhammad]?"
-  reference="Ash-Sharh 94:1"
-  words={[
-    { ar: "أَلَمْ", tr: "alam", en: "did not" },
-    { ar: "نَشْرَحْ", tr: "nashraḥ", en: "We expand" },
-    { ar: "لَكَ", tr: "laka", en: "for you" },
-    { ar: "صَدْرَكَ", tr: "ṣadrak", en: "your chest" }
-  ]}
-/>
-
-**Analysis:**
-- **Particle:** أَلَمْ — أَ (hamza) + لَمْ (did not) = DOUBLE NEGATION
-- **Grammatical structure:**
-  - أَ creates the question
-  - لَمْ negates the verb نَشْرَحْ (We expanded)
-  - Double negation = strong affirmation
-- **Rhetorical type:** Taqrīrī (affirmation)
-- **Expected answer:** "Yes, You certainly DID expand it."
-- **Effect:** The double-negative structure makes the affirmation MORE emphatic than a direct statement "We expanded your chest" would be.
-
-<Callout type="rule">
-**The Grammar of Double Negation:** When أَ (interrogative) combines with لَمْ (negation particle), the result is emphatic AFFIRMATION. Question + negation = strong positive. This pattern (أَلَمْ + jussive verb) appears throughout the Quran to emphasize divine actions that are undeniable.
-</Callout>
-
-**Example 4: Affirming Divine Justice**
-
-<ArabicExample
-  arabic="أَلَيْسَ ٱللَّهُ بِأَحْكَمِ ٱلْحَاكِمِينَ"
-  transliteration="alaysa llāhu bi-aḥkami l-ḥākimīn"
-  translation="Is not Allah the most just of judges?"
-  reference="At-Tin 95:8"
-  words={[
-    { ar: "أَلَيْسَ", tr: "alaysa", en: "is not" },
-    { ar: "ٱللَّهُ", tr: "Allāh", en: "Allah" },
-    { ar: "بِأَحْكَمِ", tr: "bi-aḥkam", en: "the most just" },
-    { ar: "ٱلْحَاكِمِينَ", tr: "al-ḥākimīn", en: "of judges" }
-  ]}
-/>
-
-**Analysis:**
-- **Particle:** أَلَيْسَ — أَ (hamza) + لَيْسَ (is not)
-- **Grammatical structure:** Double negation (interrogative + negative verb لَيْسَ)
-- **Rhetorical type:** Taqrīrī (affirmation)
-- **Expected answer:** "Yes, He absolutely IS the most just."
-- **Effect:** The question format invites the reader to AGREE rather than being told. Agreement feels more personal than declaration.
-
-### Type 3: Istifhām Ta'ajjubī (اِسْتِفْهَام تَعَجُّبِيّ) — Astonishment
-
-**Function:** The question expresses WONDER or AMAZEMENT — "How is this even possible?!" It highlights the remarkable nature of the situation.
-
-**Signal:** The question often uses كَيْفَ (how) or أَنَّى (from where/how) in contexts where the action is extraordinary, impossible, or morally shocking.
-
-**Example 5: Astonishment at Disbelief**
-
-<ArabicExample
-  arabic="كَيْفَ تَكْفُرُونَ بِٱللَّهِ وَكُنتُمْ أَمْوَٰتًا فَأَحْيَاكُمْ"
-  transliteration="kayfa takfurūna bi-llāhi wa-kuntum amwātan fa-aḥyākum"
-  translation="How can you disbelieve in Allah when you were lifeless and He brought you to life?"
-  reference="Al-Baqarah 2:28"
-  words={[
-    { ar: "كَيْفَ", tr: "kayfa", en: "how" },
-    { ar: "تَكْفُرُونَ", tr: "takfurūn", en: "can you disbelieve" },
-    { ar: "بِٱللَّهِ", tr: "bi-llāh", en: "in Allah" },
-    { ar: "وَكُنتُمْ", tr: "wa-kuntum", en: "when you were" },
-    { ar: "أَمْوَٰتًا", tr: "amwātan", en: "lifeless" },
-    { ar: "فَأَحْيَاكُمْ", tr: "fa-aḥyākum", en: "and He brought you to life" }
-  ]}
-/>
-
-**Analysis:**
-- **Particle:** كَيْفَ (how) — adverb of manner
-- **Grammatical structure:** كَيْفَ + present tense → questions the manner/possibility of ongoing action
-- **Rhetorical type:** Ta'ajjubī (astonishment)
-- **Expected answer:** No verbal answer — the reader should feel the absurdity
-- **Effect:** The question doesn't seek explanation; it EXPRESSES shock. "How can you possibly deny Allah when the evidence of His power is your very existence?"
-
-**Example 6: Astonishment at Resurrection Denial**
-
-<ArabicExample
-  arabic="أَنَّىٰ يُحْيِي هَٰذِهِ ٱللَّهُ بَعْدَ مَوْتِهَا"
-  transliteration="annā yuḥyī hādhihi llāhu baʿda mawtihā"
-  translation="How will Allah bring this [city] to life after its death?"
-  reference="Al-Baqarah 2:259"
-  words={[
-    { ar: "أَنَّىٰ", tr: "annā", en: "how" },
-    { ar: "يُحْيِي", tr: "yuḥyī", en: "will bring to life" },
-    { ar: "هَٰذِهِ", tr: "hādhihi", en: "this" },
-    { ar: "ٱللَّهُ", tr: "Allāh", en: "Allah" },
-    { ar: "بَعْدَ", tr: "baʿda", en: "after" },
-    { ar: "مَوْتِهَا", tr: "mawtihā", en: "its death" }
-  ]}
-/>
-
-**Analysis:**
-- **Particle:** أَنَّىٰ (from where/how) — adverb questioning source or manner
-- **Rhetorical type:** Ta'ajjubī (astonishment)
-- **Context:** A traveler sees a destroyed city and expresses wonder at the possibility of resurrection
-- **Effect:** The question conveys human amazement at divine power. The story continues with Allah demonstrating resurrection directly.
-
-<Callout type="tip">
-**Distinguishing rhetorical types:**
-- **Inkārī (denial):** "Are you really doing X?" → No, you shouldn't!
-- **Taqrīrī (affirmation):** "Didn't Allah do X?" → Yes, He certainly did!
-- **Ta'ajjubī (astonishment):** "How can X be?" → This is extraordinary!
-
-Context determines which type. Ask: What is the EXPECTED answer, and what EMOTION does the question evoke?
-</Callout>
-
-## Cross-Reference: Ayat al-Kursi Question
-
-You've already analyzed Ayat al-Kursi in [L5.03](/learn/level-5/03-ayat-al-kursi/). That verse contains a powerful rhetorical question demonstrating taqrīrī type:
-
-<ArabicExample
-  arabic="مَن ذَا ٱلَّذِي يَشْفَعُ عِندَهُ إِلَّا بِإِذْنِهِ"
-  transliteration="man dhā lladhī yashfaʿu ʿindahū illā bi-idhnih"
-  translation="Who is it that can intercede with Him except by His permission?"
-  reference="Al-Baqarah 2:255"
-  words={[
-    { ar: "مَن", tr: "man", en: "who" },
-    { ar: "ذَا", tr: "dhā", en: "is it" },
-    { ar: "ٱلَّذِي", tr: "alladhī", en: "that" },
-    { ar: "يَشْفَعُ", tr: "yashfaʿu", en: "can intercede" },
-    { ar: "عِندَهُ", tr: "ʿindahu", en: "with Him" },
-    { ar: "إِلَّا", tr: "illā", en: "except" },
-    { ar: "بِإِذْنِهِ", tr: "bi-idhnih", en: "by His permission" }
-  ]}
-/>
-
-**Analysis recap:**
-- **Particle:** مَن (who) — interrogative pronoun for persons
-- **Rhetorical type:** Inkārī-Taqrīrī hybrid
-  - Denies: "No one can intercede without permission" (inkārī)
-  - Affirms: "His permission is absolutely required" (taqrīrī)
-- **Effect:** Establishes Allah's absolute sovereignty over intercession. The question format is more powerful than the declarative "No one can intercede."
-
-This demonstrates how rhetorical questions often serve MULTIPLE functions simultaneously.
-
-## Genuine vs. Rhetorical Questions
-
-Not every interrogative in the Quran is rhetorical. Some questions genuinely seek information or invite response.
-
-**Example of a GENUINE question:**
-
-<ArabicExample
-  arabic="قَالَ مَا خَطْبُكُنَّ"
-  transliteration="qāla mā khaṭbukunna"
-  translation="He said, 'What is your business [here]?'"
-  reference="Yusuf 12:51"
-  words={[
-    { ar: "قَالَ", tr: "qāla", en: "he said" },
-    { ar: "مَا", tr: "mā", en: "what" },
-    { ar: "خَطْبُكُنَّ", tr: "khaṭbukunna", en: "is your business" }
-  ]}
-/>
-
-The king genuinely asks the women what happened. This is a REAL question seeking information, not a rhetorical device.
-
-**How to distinguish:**
-
-| Feature | Genuine Question | Rhetorical Question |
-|---------|------------------|---------------------|
-| **Answer expected** | Yes — seeks information | No — answer is obvious or impossible |
-| **Context** | Dialogue, inquiry, conversation | Emphasis, challenge, theological assertion |
-| **Emotional tone** | Neutral or curious | Emphatic, astonished, rebuking |
-| **Grammatical clues** | Direct interrogative | Often combined with particles (أَلَمْ، أَلَيْسَ، أَفَ) |
-
-## The Grammar of أَلَمْ (Double Negation)
-
-Because أَلَمْ appears so frequently in Quranic rhetorical questions, it deserves special grammatical attention.
-
-**Structure:**
-- أَ — hamzat al-istifhām (interrogative particle)
-- لَمْ — negation particle requiring [jussive mood](/resources/glossary/#jussive)
-
-**Grammatical effect on the verb:**
-
-<ArabicExample
-  arabic="أَلَمْ نَشْرَحْ"
-  transliteration="alam nashraḥ"
-  translation="Did We not expand"
-  reference="Ash-Sharh 94:1"
-  words={[
-    { ar: "أَلَمْ", tr: "alam", en: "did not" },
-    { ar: "نَشْرَحْ", tr: "nashraḥ", en: "We expand" }
-  ]}
-/>
-
-**Parsing نَشْرَحْ:**
-1. **Root:** ش-ر-ح (to expand, explain)
-2. **Form:** Form I past stem → present stem شَرَحَ → يَشْرَحُ
-3. **Effect of لَمْ:** Changes present indicative يَشْرَحُ to jussive يَشْرَحْ (removes final damma)
-4. **Mood marker:** Sukūn on final letter (حْ) indicates jussive
-5. **Meaning:** لَمْ يَشْرَحْ = "He did not expand" (negated past)
-6. **Double negation:** أَ (question) + لَمْ (negation) = emphatic affirmation: "He CERTAINLY expanded"
-
-**Other examples of أَلَمْ in the Quran:**
-
-- أَلَمْ تَرَ (Did you not see = You CERTAINLY saw) [numerous verses]
-- أَلَمْ يَجِدْكَ يَتِيمًا (Did He not find you an orphan = He CERTAINLY did) [Ad-Duha 93:6]
-- أَلَمْ نَجْعَلِ ٱلْأَرْضَ (Did We not make the earth = We CERTAINLY made it) [An-Naba 78:6]
-
-Each instance uses double negation to create emphatic affirmation more powerful than direct statement.
-
-## Practice
-
-<ExerciseBox
-  question="Exercise 1: Identify Interrogative Particles"
->
-Identify the interrogative particle in each verse and state its basic meaning:
-
-(a) أَلَمْ تَرَ كَيْفَ فَعَلَ رَبُّكَ بِأَصْحَابِ ٱلْفِيلِ [Al-Fil 105:1]
-
-(b) هَلْ جَزَاءُ ٱلْإِحْسَانِ إِلَّا ٱلْإِحْسَانُ [Ar-Rahman 55:60]
-
-(c) مَا ٱلْقَارِعَةُ [Al-Qariʿah 101:2]
-
-For each, identify: What particle creates the question? What is its literal meaning?
-
-**Answer:** (a) أَلَمْ — hamza + lam (double negation); (b) هَلْ — hal (neutral yes/no); (c) مَا — what (interrogative pronoun)
-
-</ExerciseBox>
-
-<ExerciseBox
-  question="Exercise 2: Rhetorical Classification"
->
-For each question from Exercise 1, determine:
-
-1. Is it a GENUINE question seeking information, or RHETORICAL?
-2. If rhetorical, which type: inkārī (denial), taqrīrī (affirmation), or ta'ajjubī (astonishment)?
-3. What is the expected answer or emotional effect?
-
-(a) أَلَمْ تَرَ كَيْفَ فَعَلَ رَبُّكَ بِأَصْحَابِ ٱلْفِيلِ [Al-Fil 105:1]
-
-(b) هَلْ جَزَاءُ ٱلْإِحْسَانِ إِلَّا ٱلْإِحْسَانُ [Ar-Rahman 55:60]
-
-(c) مَا ٱلْقَارِعَةُ [Al-Qariʿah 101:2]
-
-**Hint:** Consider context (what comes after), grammatical structure (double negation?), and particle choice (كَيْفَ often signals astonishment).
-
-**Answer:** (a) Rhetorical — taqrīrī affirmation (double negation); (b) Rhetorical — taqrīrī affirmation (exclusivity particle إِلَّا makes answer obvious); (c) Rhetorical — ta'ajjubī astonishment (how-question emphasizing extraordinary nature)
-
-</ExerciseBox>
-
-<ExerciseBox
-  question="Exercise 3: Grammar of Double Negation"
->
-Analyze this verse completely:
-
-أَلَمْ نَشْرَحْ لَكَ صَدْرَكَ [Ash-Sharh 94:1]
-
-**Tasks:**
-1. Parse each word with its grammatical function
-2. Identify the interrogative particle and the negation particle
-3. Explain the mood of the verb نَشْرَحْ and why it has this form
-4. Explain how أَ + لَمْ together create emphatic affirmation rather than negation
-5. Compare this rhetorical question to the declarative statement: "We expanded your chest." Which is more emphatic and why?
-
-**Answer:** أَ (interrogative hamza) + لَمْ (negation requiring jussive) + نَشْرَحْ (Form I verb from ش-ر-ح, jussive mood with sukūn). Parsing: نَشْرَحْ is fiʿl muḍāriʿ majzūm (present jussive), first-person plural (We). Double negation (question + لَمْ) creates emphatic affirmation: 'We CERTAINLY expanded your chest.' More emphatic than declarative 'نَشْرَحْنَا صَدْرَكَ' would be.
-
-</ExerciseBox>
-
-<ExerciseBox
-  question="Exercise 4: Independent Analysis"
->
-Find THREE rhetorical questions in Surah Al-Baqarah (not already analyzed in this lesson).
-
-For each rhetorical question, provide:
-1. The verse number and full Arabic text
-2. Translation
-3. Interrogative particle identification
-4. Rhetorical type classification (inkārī, taqrīrī, or ta'ajjubī)
-5. Expected answer or emotional effect
-6. Brief analysis of the grammatical structure
-7. Explanation of why this question is MORE effective than a direct statement would be
-
-**Note:** Use [Quran.com](https://quran.com) or similar resource to find the verses. Al-Baqarah contains dozens of rhetorical questions — you're analyzing three as practice.
-
-**Answer:** Answers will vary. Check: (1) Correct particle identification, (2) Accurate rhetorical type classification, (3) Analysis explains why answer is obvious/expected, (4) Connection between grammatical structure and rhetorical effect. Example verses with rhetorical questions in Al-Baqarah: 2:28 (كَيْفَ — astonishment), 2:44 (أَفَلَا — denial), 2:76 (أَوَ لَا — denial), 2:259 (أَنَّىٰ — astonishment).
-
-</ExerciseBox>
-
-## Related Lessons
-
-You've now mastered rhetorical questioning as a Quranic device. This skill integrates with your broader rhetorical analysis toolkit:
-
-- **[L4.17 Introduction to Balagha](/learn/level-4/17-intro-balagha/)** — Overview of rhetoric and why it matters
-- **[L4.18 Figures of Speech](/learn/level-4/18-figures-of-speech/)** — Metaphor, metonymy, ellipsis, and fronting
-- **[L5.03 Ayat al-Kursi Analysis](/learn/level-5/03-ayat-al-kursi/)** — Contains مَن ذَا ٱلَّذِي rhetorical question (cross-referenced above)
-- **[L5.14 Word Order & Emphasis](/learn/level-5/14-word-order-emphasis/)** — Next lesson: taqdīm wa-takhīr (word order inversion) for emphasis
-
-Together, these lessons build your ability to recognize HOW the Quran uses grammar for theological and rhetorical purposes.
+import Step from '../../../components/lesson/Step.astro';
+import Stage from '../../../components/lesson/Stage.astro';
+import Sentence from '../../../components/lesson/Sentence.astro';
+import Tiles from '../../../components/lesson/Tiles.astro';
+import Formula from '../../../components/lesson/Formula.astro';
+import Note from '../../../components/lesson/Note.astro';
+import Check from '../../../components/lesson/Check.astro';
+import Start from '../../../components/lesson/Start.astro';
+import Sources from '../../../components/lesson/Sources.astro';
+import Parse from '../../../components/lesson/Parse.astro';
+import Exercise from '../../../components/lesson/Exercise.astro';
+import Block from '../../../components/lesson/Block.astro';
+
+{/* Content spec: docs/redesign/specs/L5.13-rhetorical-questions.md. Every parse follows al-Jadwal (Mahmud Safi); al-Durr al-Masun is named where it differs. Counts are Quran Learn scripts over the Corpus file. */}
+
+<Step hero id="words" label="Question words" title={frontmatter.title} kicker={frontmatter.kicker} titleArabic={frontmatter.titleArabic}>
+<Block id="overview" title="In this lesson" level={2} uncounted>
+  <Stage label="The idea">
+    <Formula
+      label="a question word starts a question"
+      items={[
+        { kind: 'm', text: 'question word', small: 'أَدَاة اسْتِفْهَام' },
+        { kind: 'k', text: 'the rest of the sentence', small: 'a verb or a noun' },
+        { kind: 's', text: 'a question', small: 'اسْتِفْهَام' },
+      ]}
+    />
+  </Stage>
+  <Start
+    goal="Name the question words of the Quran, say what job each one does in its sentence, read أَلَمْ as a question joined to لَمْ, and say what al-Jadwal says a question does in the verses where it names something."
+    minutes={90}
+    before="لَمْ and jazm (L4.10). The question words مَن and مَا (L3.11). The ḥāl (L4.01). The question that does not ask (L4.18). Kāna and laysa (L2.11)."
+    terms={[
+      { term: 'Question', ar: 'اسْتِفْهَام', meaning: 'Asking for news. The word that starts a question is an أَدَاة اسْتِفْهَام.' },
+      { term: 'Question noun', ar: 'اسْم اسْتِفْهَام', meaning: 'A noun, or a word for manner, place or time, that asks: مَا “what?”, كَيْفَ “how?”, أَيْنَ “where?” (L3.11).' },
+      { term: 'Question of confirmation', ar: 'اسْتِفْهَام تَقْرِيرِيّ', meaning: 'A question that leads the listener to say “yes”. Al-Jadwal’s name (L4.18).' },
+      { term: 'Question of denial', ar: 'اسْتِفْهَام إِنْكَارِيّ', meaning: 'A question that blames or says “no”. Al-Jadwal’s name (L4.18).' },
+      { term: 'Question of rebuke', ar: 'اسْتِفْهَام تَوْبِيخِيّ', meaning: 'A question that scolds. Al-Jadwal’s name. New here.' },
+      { term: 'Wonder', ar: 'تَعَجُّب', meaning: 'Surprise. Al-Jadwal calls the كَيْفَ of 2:28 a question word of wonder.' },
+      { term: 'Stirring interest', ar: 'تَشْوِيق', meaning: 'Making the listener want to hear on. Al-Jadwal’s word for the هَلْ of 88:1.' },
+      { term: 'Cut-off am', ar: 'أَمْ مُنْقَطِعَة', meaning: 'An أَمْ that starts a new question, “or rather …?”. Al-Jadwal reads it as meaning بَلْ with the hamza.' },
+    ]}
+  />
+</Block>
+
+<Block id="see" title="Two questions, and one of them does not wait for an answer" level={2}>
+  <Stage>
+    <Sentence
+      roles
+      reference="Yusuf 12:51 (part)"
+      groups={[
+        { role: 'fiil', hint: 'a past verb, with a hidden “he”: the king', words: [{ ar: 'قَالَ', en: 'he said', say: 'qala', type: 'v' }] },
+        { role: 'mubtada', label: 'question noun', hint: '“what?”: it starts the sentence', words: [{ ar: 'مَا', en: 'what', say: 'ma' }] },
+        { role: 'khabar', hint: 'the news: “your business”, with -kunna, “you women”', words: [{ ar: 'خَطْبُكُنَّ', en: 'your business', say: 'khatbukunna' }] },
+      ]}
+      en={['He said: What is your business?']}
+    />
+    <Sentence
+      roles
+      reference="At-Tin 95:8"
+      groups={[
+        { role: 'fiil', label: 'laysa', hint: 'أَ makes it a question: “is … not?”', words: [{ ar: 'أَلَيْسَ', en: 'is not', say: 'alaysa', type: 'v' }] },
+        { role: 'ismKana', label: 'ism laysa', hint: 'nominative: -u', words: [{ ar: 'ٱللَّهُ', en: 'Allah', say: 'allahu' }] },
+        { role: 'khabarKana', label: 'khabar laysa', hint: 'bi- and a noun: genitive in form, accusative in place', words: [{ ar: 'بِأَحْكَمِ', en: 'the wisest of', say: 'bi-ahkami', type: 'p' }, { ar: 'ٱلْحَٰكِمِينَ', en: 'the judges', say: 'al-hakimina' }] },
+      ]}
+      en={['Is Allah not the wisest of the judges?']}
+    />
+  </Stage>
+
+Both verses are questions, and they work differently.
+
+In 12:51 the king asks the women what happened. The next words of the verse are their answer: قُلْنَ حَٰشَ لِلَّهِ مَا عَلِمْنَا عَلَيْهِ مِن سُوٓءٍ, “they said, Allah forbid, we knew no evil of him”. Al-Jadwal names no figure for this question. It gives the places of the words and nothing more.
+
+In 95:8 nobody has to give news. Al-Jadwal calls the hamza “a question of confirmation” (istifhām taqrīrī, اسْتِفْهَام تَقْرِيرِيّ). L4.18 met that name in 94:1 and 105:1.
+
+So a question can ask, and a question can do something else. Some questions have a name in al-Jadwal, as 95:8 does. Others have none. Steps 1 to 3 take the words that make a question. Step 4 reads what al-Jadwal says some of them do.
+
+<Check n={1} q="In which verse does the text give an answer to the question straight away?" options={['12:51: the women answer', '95:8: Allah answers', 'Both of them']} answer={0} why="In 12:51 the next words are the women’s answer. In 95:8 the verse ends with the question." />
+</Block>
+
+<Block id="words" title="Twelve question words on one page">
+  <Stage label="Words that ask, with Corpus counts">
+    <Tiles
+      label="The tag INTG, in the Quranic Arabic Corpus"
+      items={[
+        { ar: 'أَ', en: 'is it …? (507)', type: 'p' },
+        { ar: 'هَلْ', en: 'is it …? (93)', type: 'p' },
+        { ar: 'مَا', en: 'what? (95)', type: 'n' },
+        { ar: 'مَاذَا', en: 'what? (26)', type: 'n' },
+        { ar: 'مَن', en: 'who? (37)', type: 'n' },
+        { ar: 'كَيْفَ', en: 'how? (80)', type: 'n' },
+        { ar: 'أَيّ', en: 'which? (35)', type: 'n' },
+        { ar: 'أَنَّىٰ', en: 'how? where from? (27)', type: 'n' },
+        { ar: 'كَمْ', en: 'how many? how long? (20)', type: 'n' },
+        { ar: 'أَيْنَ', en: 'where? (12)', type: 'n' },
+        { ar: 'مَتَىٰ', en: 'when? (9)', type: 'n' },
+        { ar: 'أَيَّانَ', en: 'when? (5)', type: 'n' },
+      ]}
+    />
+  </Stage>
+
+The Corpus gives all twelve one tag, INTG, short for “interrogative”. It does not tell a noun from a little word. Al-Jadwal does. Ten of the twelve are nouns, or words for manner, place and time. Two are little words: the hamza أَ and هَلْ.
+
+| Word | It asks | What it is in the sentence | Example |
+|---|---|---|---|
+| أَ | yes or no | a little word, حَرْف (al-Jadwal on 78:6) | أَلَمْ نَجْعَلِ (78:6) |
+| هَلْ | yes or no | a little word, حَرْف (al-Jadwal on 55:60) | هَلْ أَتَىٰكَ (88:1) |
+| مَا | what | a noun, the mubtadaʾ (al-Jadwal on 12:50) | مَا بَالُ ٱلنِّسْوَةِ (12:50) |
+| مَاذَا | what | not read for this lesson | مَاذَآ أَنزَلَ رَبُّكُمْ (16:30) |
+| مَن | who | a noun, the mubtadaʾ (al-Jadwal on 2:245) | مَّن ذَا ٱلَّذِى (2:245) |
+| كَيْفَ | how | a noun, a ḥāl (al-Jadwal on 2:28) | كَيْفَ تَكْفُرُونَ (2:28) |
+| أَيّ | which | a noun, the mubtadaʾ (al-Jadwal on 6:81) | فَأَىُّ ٱلْفَرِيقَيْنِ (6:81) |
+| أَنَّىٰ | how | means كَيْفَ, a ḥāl (al-Jadwal on 2:259) | أَنَّىٰ يُحْىِۦ هَٰذِهِ ٱللَّهُ (2:259) |
+| كَمْ | how long | a time word (al-Jadwal on 2:259) | كَمْ لَبِثْتَ (2:259) |
+| أَيْنَ | where | a place word (al-Jadwal on 81:26) | فَأَيْنَ تَذْهَبُونَ (81:26) |
+| مَتَىٰ | when | a time word (al-Jadwal on 67:25) | مَتَىٰ هَٰذَا ٱلْوَعْدُ (67:25) |
+| أَيَّانَ | when | a time word (al-Jadwal on 51:12) | أَيَّانَ يَوْمُ ٱلدِّينِ (51:12) |
+
+The numbers in the tiles count tagged words.
+
+<Check n={2} q="Which two question words are little words, not nouns?" options={['أَ and هَلْ', 'مَن and مَا', 'كَيْفَ and أَيْنَ']} answer={0} why="Al-Jadwal calls the hamza and هَلْ little words (حَرْف). مَن, مَا, كَيْفَ and the rest are nouns or words for manner, place and time." />
+</Block>
+
+<Block id="count" title="How many? A count, and the tags that are wrong">
+  <Stage label="Four tags that are wrong">
+    <Tiles
+      label="Where the Corpus tag and al-Jadwal disagree"
+      items={[
+        { ar: 'مَا بَالُ ٱلنِّسْوَةِ', en: 'tagged joining noun (12:50); al-Jadwal: question noun', type: 'x' },
+        { ar: 'مَا خَطْبُكُنَّ', en: 'tagged joining noun (12:51); al-Jadwal: question noun', type: 'x' },
+        { ar: 'أَمْ خُلِقُوا۟', en: 'أَمْ tagged “and, or” (52:35), not as a question word', type: 'x' },
+        { ar: 'لَا تَجِدُوا۟', en: 'tagged a ban with jazm (17:68); al-Jadwal: “not” with naṣb', type: 'x' },
+      ]}
+    />
+  </Stage>
+
+Quran Learn counted with a script over the Corpus file. It looked at every segment tagged INTG. Those are **946 segments**, in **830 of the 6,236 verses** and in **94 of the 114 surahs**. Of the 946, the hamza prefix is 507 and هَلْ is 93. The other 346 are the question nouns and the words for place, time and manner, listed in the tiles above.
+
+A tag is not the same as a question. The tag marks a question word. It does not say whether the speaker needs an answer. This lesson counts words. It does not count questions that ask and questions that do not.
+
+The Corpus tags have errors, and four of them show above.
+
+- **مَا in 12:50 and 12:51.** The Corpus calls both a joining noun (REL). Al-Jadwal calls both a question noun. L3.11 found the same kind of error in the مَن of 13:16. So 95 is the least the count of مَا can be.
+- **أَمْ.** The Corpus tags 137 words as the joining أَمْ, “or”, in 123 verses, and does not count them as question words. Some of them start a question, as in 52:35 (block `am`).
+- **لَا تَجِدُوا۟ in 17:68.** The Corpus tags it as a ban and as jazm. Al-Jadwal reads a negative لَا and a verb in naṣb, joined to يُرْسِلَ. You will see this in step 4.
+
+A common summary says that the Quran asks hundreds of questions. The tags show 946 question words in 830 verses. That is what Quran Learn can show. It says nothing about how often an answer is expected.
+
+<Check n={3} q="What does the count of 946 tell you?" options={['How many words the Corpus tags as question words', 'How many questions expect an answer', 'How many questions are rhetorical']} answer={0} why="It counts tagged words. A tag does not say whether the speaker needs an answer, and some question words carry the wrong tag." />
+</Block>
+</Step>
+
+<Step id="nouns" label="Question nouns" title="Question nouns: mā, man, kayfa, ayna, ayy and the rest">
+<Block id="ma-man" title="مَا and مَن: “what?” and “who?”">
+  <Stage>
+    <Sentence
+      roles
+      reference="Al-Baqarah 2:245 (part)"
+      groups={[
+        { role: 'mubtada', label: 'question noun', hint: '“who?”: the mubtadaʾ', words: [{ ar: 'مَّن', en: 'who', say: 'man' }] },
+        { role: 'khabar', hint: 'a pointing word: “this one”', words: [{ ar: 'ذَا', en: 'this one', say: 'dha' }] },
+        { label: 'joining noun', hint: 'a badal of ذَا, al-Jadwal says; the clause after it finishes it', words: [{ ar: 'ٱلَّذِى', en: 'the one who', say: 'alladhi' }] },
+        { role: 'fiil', hint: 'a present verb with a hidden “he”', words: [{ ar: 'يُقْرِضُ', en: 'lends', say: 'yuqridu', type: 'v' }] },
+        { role: 'maful', hint: 'a left-out word, “servants of”, stands before it', words: [{ ar: 'ٱللَّهَ', en: 'Allah', say: 'allaha' }] },
+      ]}
+      en={['Who is this one who lends Allah …']}
+    />
+  </Stage>
+
+L3.11 taught مَن for a person and مَا for a thing. Both are nouns, and each starts its sentence as the mubtadaʾ. In 2:245 al-Jadwal reads مَن as the mubtadaʾ and the pointing word ذَا as its khabar. The joining noun ٱلَّذِى comes next. Al-Jadwal calls it a badal of ذَا, or a word that explains it. The clause يُقْرِضُ ٱللَّهَ finishes it. So مَّن ذَا ٱلَّذِى reads “who is this one, the one who …”.
+
+مَا works the same way. In 12:50 al-Jadwal reads مَا بَالُ ٱلنِّسْوَةِ with مَا as the mubtadaʾ and بَالُ as its khabar, and it reads 12:51 the same way. The pair in 101:2 is built alike: مَا ٱلْقَارِعَةُ, with مَا as the mubtadaʾ and ٱلْقَارِعَةُ as its khabar. L5.06 studies the longer question وَمَآ أَدْرَىٰكَ مَا, where the same مَا comes twice.
+
+The word مَاذَا is مَا with ذَا. The Corpus tags 26 of them, as in مَاذَآ أَنزَلَ رَبُّكُمْ (16:30). Al-Jadwal’s page for 16:30 points back to an earlier verse for it, so the lesson gives no parse of this form.
+
+The same مَن ذَا ٱلَّذِى comes in 2:255, before إِلَّا بِإِذْنِهِۦ. L5.03 read it. Al-Jadwal names no figure there. Step 4 says what al-Durr says.
+
+<Check n={4} q="In مَّن ذَا ٱلَّذِى, which word is the mubtadaʾ, according to al-Jadwal?" options={['مَّن', 'ذَا', 'ٱلَّذِى']} answer={0} why="Al-Jadwal reads مَن as the mubtadaʾ and ذَا as its khabar. ٱلَّذِى is a badal of ذَا, or a word that explains it." />
+</Block>
+
+<Block id="kayfa" title="كَيْفَ: “how?”, and how it is read">
+  <Stage label="Three small phrases">
+    <Tiles
+      label="Where al-Jadwal reads كَيْفَ as a ḥāl"
+      items={[
+        { ar: 'كَيْفَ تَكْفُرُونَ', en: 'how can you disbelieve (2:28)', type: 'x' },
+        { ar: 'وَكَيْفَ أَخَافُ', en: 'and how should I fear (6:81)', type: 'x' },
+        { ar: 'كَيْفَ خُلِقَتْ', en: 'how they were created (88:17)', type: 'x' },
+      ]}
+    />
+  </Stage>
+
+In all three phrases al-Jadwal reads كَيْفَ as a question noun in the place of a ḥāl (L4.01). A ḥāl says in what state someone is while he does the thing. Here it asks about that state: “how can you disbelieve?”, “how should I fear?”. In 6:81 and 88:17 al-Jadwal says the verb after كَيْفَ is the word that works on it.
+
+The same word is read another way in 105:1, أَلَمْ تَرَ كَيْفَ فَعَلَ رَبُّكَ. Al-Jadwal reads كَيْفَ there as a word that stands in for the absolute object ([L4.07](/learn/level-4/07-maf-ul-mutlaq/)), “what great deed He did”. So the same word can have two jobs. The verb next to it and the meaning decide.
+
+Al-Durr says كَيْفَ is a question noun that asks about states, and it is built on a fatḥa because it holds the meaning of the hamza.
+
+<Check n={5} q="In كَيْفَ تَكْفُرُونَ (2:28), what job does al-Jadwal give كَيْفَ?" options={['A ḥāl, “in what state”', 'The doer of تَكْفُرُونَ', 'The khabar of a left-out word']} answer={0} why="Al-Jadwal: a question noun in the place of a ḥāl, from the wāw of تَكْفُرُونَ." />
+</Block>
+
+<Block id="place-time" title="أَيْنَ, مَتَىٰ, أَيَّانَ, أَنَّىٰ and كَمْ">
+  <Stage>
+    <Sentence
+      roles
+      reference="At-Takwir 81:26"
+      groups={[
+        { role: 'zarf', label: 'question word for place', hint: '“where?”: tied to the verb, with a left-out “to”', words: [{ ar: 'فَأَيْنَ', en: 'so where', say: 'fa-ayna' }] },
+        { role: 'fiil', hint: 'the plain ending; the wāw is the doer', words: [{ ar: 'تَذْهَبُونَ', en: 'are you going', say: 'tadhhabuna', type: 'v' }] },
+      ]}
+      en={['So where are you going?']}
+    />
+    <Sentence
+      roles
+      reference="Al-Mulk 67:25 (part)"
+      groups={[
+        { role: 'zarf', label: 'question word for time', hint: '“when?”: tied to a left-out khabar that is put first', words: [{ ar: 'مَتَىٰ', en: 'when', say: 'mata' }] },
+        { role: 'mubtada', hint: 'a pointing word', words: [{ ar: 'هَٰذَا', en: 'this', say: 'hadha' }] },
+        { label: 'explains هَٰذَا', hint: 'the pointing word and the noun after it make one idea', words: [{ ar: 'ٱلْوَعْدُ', en: 'the promise', say: 'al-waadu' }] },
+      ]}
+      en={['When is this promise?']}
+    />
+    <Tiles
+      label="Three more phrases"
+      items={[
+        { ar: 'أَيَّانَ يَوْمُ ٱلدِّينِ', en: 'when is the day of judgement (51:12)', type: 'x' },
+        { ar: 'أَنَّىٰ يُحْىِۦ هَٰذِهِ ٱللَّهُ', en: 'how will Allah give life to this (2:259)', type: 'x' },
+        { ar: 'كَمْ لَبِثْتَ', en: 'how long did you stay (2:259)', type: 'x' },
+      ]}
+    />
+  </Stage>
+
+These words ask where, when and how long. Al-Jadwal calls a word like this a place word or a time word (ẓarf, ظَرْف, L4.04). Each one is tied to another word.
+
+- **أَيْنَ** in 81:26 is a place word tied to the verb, with a left-out “to”: “to where are you going?”.
+- **مَتَىٰ** in 67:25 is a time word tied to a left-out khabar that is put first. هَٰذَا is the mubtadaʾ.
+- **أَيَّانَ** in 51:12 is read the same way. The left-out khabar is put first, and يَوْمُ is the mubtadaʾ.
+- **كَمْ** in 2:259 is a time word tied to لَبِثْتَ.
+
+أَنَّىٰ in 2:259 is “how”. Al-Jadwal says it means كَيْفَ and is a ḥāl. A footnote says al-ʿUkbarī allowed “when”, a time word. Al-Jadwal’s page for 67:25 does not parse ٱلْوَعْدُ. The lesson shows it as one idea with هَٰذَا.
+
+أَيْنَ, مَتَىٰ and أَيَّانَ are rare. The Corpus tags them 12, 9 and 5 times.
+
+<Check n={6} q="In فَأَيْنَ تَذْهَبُونَ (81:26), what does al-Jadwal say أَيْنَ is?" options={['A place word tied to the verb', 'The doer of the verb', 'A little word with no place']} answer={0} why="Al-Jadwal: a question word for place, in the place of accusative, tied to تَذْهَبُونَ with a left-out “to”." />
+</Block>
+
+<Block id="ayy" title="أَيّ: a noun that starts an idafah">
+  <Stage>
+    <Sentence
+      roles
+      reference="Al-Anʿam 6:81 (part)"
+      groups={[
+        { role: 'mubtada', label: 'question noun', hint: '“which?”: the first part of an idafah', words: [{ ar: 'فَأَىُّ', en: 'so which', say: 'fa-ayyu' }] },
+        { role: 'mudafIlayh', hint: 'genitive, a dual: -ayni', words: [{ ar: 'ٱلْفَرِيقَيْنِ', en: 'of the two groups', say: 'al-fariqayni' }] },
+        { role: 'khabar', hint: 'the news: “more right”', words: [{ ar: 'أَحَقُّ', en: 'has more right', say: 'ahaqqu' }] },
+        { role: 'tied', hint: 'tied to أَحَقُّ', words: [{ ar: 'بِٱلْأَمْنِ', en: 'to safety', say: 'bil-amni' }] },
+      ]}
+      en={['So which of the two groups has more right to safety?']}
+    />
+  </Stage>
+
+In 6:81 al-Jadwal reads أَيّ as a question noun and the mubtadaʾ. The group ٱلْفَرِيقَيْنِ is its second part, in the genitive. أَحَقُّ is the khabar, and بِٱلْأَمْنِ is tied to it. So أَيّ starts an idafah, the pattern of L2.08.
+
+Some summaries call أَيّ an “adjective that agrees with the noun”. Al-Jadwal does not read it that way here. It reads a noun with a second part. In 77:50, فَبِأَىِّ حَدِيثٍۭ بَعْدَهُۥ يُؤْمِنُونَ, the word comes after بِ, and al-Jadwal says only that the phrase is tied to the verb يُؤْمِنُونَ. The Corpus tags أَيّ 35 times.
+
+<Check n={7} q="In فَأَىُّ ٱلْفَرِيقَيْنِ أَحَقُّ, what is ٱلْفَرِيقَيْنِ?" options={['The second part of the idafah after أَيّ', 'The khabar', 'The object']} answer={0} why="Al-Jadwal reads أَيّ as the mubtadaʾ and ٱلْفَرِيقَيْنِ as the word it is joined to, in the genitive. The khabar is أَحَقُّ." />
+</Block>
+
+<Block id="parse-kayfa" title="Word by word: Al-Baqarah 2:28 (part)">
+  <Stage label="Word by word">
+    <Parse
+      reference="Al-Baqarah 2:28 (part)"
+      words={[
+        { ar: 'كَيْفَ', en: 'how' },
+        { ar: 'تَكْفُرُونَ', en: 'you disbelieve', type: 'v' },
+        { ar: 'بِٱللَّهِ', en: 'in Allah', type: 'p' },
+        { ar: 'وَكُنتُمْ', en: 'when you were', type: 'v' },
+        { ar: 'أَمْوَٰتًا', en: 'lifeless' },
+        { ar: 'فَأَحْيَٰكُمْ', en: 'and He gave you life', type: 'v' },
+      ]}
+      cards={[
+        { at: 0, role: 'a question noun of wonder: “how?”, a ḥāl', case: 'a word with a fixed ending; it counts as accusative', mark: 'a fatḥa, built', why: 'It says in what state the doers disbelieve. Al-Jadwal calls it a question word for wonder (taʿajjub), in the place of a ḥāl from the wāw of the verb (L4.01).', irab: 'اسم استفهام للتعجب مبني في محل نصب حال' },
+        { at: 1, role: 'a present verb: “you disbelieve”', case: 'nominative (rafʿ)', mark: 'the nūn stays, the plain ending', why: 'Nothing cuts the verb or lifts it to naṣb. The wāw is the doer, “you all”.', irab: 'مضارع مرفوع وعلامة الرفع ثبوت النون، والواو فاعل' },
+        { at: 2, role: '“in Allah”: bi- and a name, tied to تَكْفُرُونَ', case: 'genitive (jarr)', mark: 'a kasra on the end of ٱللَّهِ', why: 'The verb كَفَرَ takes bi-, as in “disbelieve in”. The phrase is tied to the verb.', irab: 'جار ومجرور متعلق بتكفرون' },
+        { at: 3, ar: 'وَ', role: 'a little word: “when”, it opens a state', why: 'The wāw of a ḥāl. Al-Durr says one sign of it is that إِذْ, “when”, fits in its place.', irab: 'الواو حالية' },
+        { at: 3, ar: 'كُنتُمْ', role: 'kāna: “you were”, a verb', case: 'a verb is built', mark: 'a sukūn; the ending -tum is “you all”', why: 'The ending -tum is the ism of كَانَ (L2.11).', irab: 'فعل ماض ناقص مبني على السكون، وتم ضمير متصل في محل رفع اسم كان' },
+        { at: 4, role: 'the khabar of كَانَ: “lifeless”', case: 'accusative (naṣb)', mark: '-an (fatḥatayn)', why: 'The khabar of كَانَ is accusative (L2.11). The word is a plural of مَيِّت.', irab: 'خبر كان منصوب' },
+        { at: [3, 4], role: 'the clause “you were lifeless”: a ḥāl', case: 'in the place of accusative', mark: 'none', why: 'It gives the state of the doers. Al-Jadwal says a left-out قَدْ is understood before it, which a past verb needs to be a ḥāl.', irab: 'جملة كنتم أمواتا في محل نصب حال مع تقدير قد' },
+        { at: 5, ar: 'فَ', role: 'a little word: “and then”, it joins', why: 'It joins أَحْيَٰكُمْ to كُنتُمْ أَمْوَٰتًا.', irab: 'الفاء عاطفة' },
+        { at: 5, ar: 'أَحْيَٰكُمْ', role: 'a past verb: “He gave you life”', case: 'a verb is built', mark: 'a fatḥa that is only understood, on the weak last letter; -kum is “you all”, the object', why: 'The doer is a hidden “He”. The -kum is the object.', irab: 'فعل ماض مبني على الفتح المقدر، وكم ضمير في محل نصب مفعول به، والفاعل ضمير مستتر تقديره هو' },
+      ]}
+    />
+  </Stage>
+
+Al-Jadwal calls the كَيْفَ of this verse a question word for wonder. Al-Durr’s page lists three meanings the question may have, wonder, rebuke or denial, in a line it quotes from Abū al-Baqāʾ. It also quotes al-Zamakhsharī, who makes it a question of denial. Al-Durr says the verb is present because what is denied is staying in disbelief. So the books use more than one word for what the question does. This lesson gives al-Jadwal’s name and keeps the others beside it.
+
+The verse goes on after فَأَحْيَٰكُمْ with three more verbs joined by ثُمَّ: “then He makes you die, then He gives you life, then to Him you are returned”. They are not in this panel.
+
+<Check n={8} q="In وَكُنتُمْ أَمْوَٰتًا, what is أَمْوَٰتًا?" options={['The khabar of كَانَ, accusative', 'The doer', 'The mubtadaʾ']} answer={0} why="كَانَ takes an ism, the ending -tum, and a khabar in the accusative: أَمْوَٰتًا with -an." />
+</Block>
+</Step>
+
+<Step id="hamza" label="Hamza, hal and am" title="The little question words: the hamza, hal and am">
+<Block id="hamza-join" title="The hamza joins the first word">
+  <Stage label="Seven words with the hamza in front">
+    <Tiles
+      label="The hamza and what comes after it"
+      items={[
+        { ar: 'أَلَمْ', en: 'hamza + لَمْ (125)', type: 'p' },
+        { ar: 'أَلَيْسَ', en: 'hamza + laysa (16)', type: 'v' },
+        { ar: 'أَفَلَا', en: 'hamza + fa + لَا (45)', type: 'p' },
+        { ar: 'أَلَن', en: 'hamza + لَن (3:124)', type: 'p' },
+        { ar: 'أَفَمَا', en: 'hamza + fa + مَا (37:58)', type: 'p' },
+        { ar: 'أَوَلَمْ', en: 'hamza + wāw + لَمْ (7:184)', type: 'p' },
+        { ar: 'أَفَأَمِنتُمْ', en: 'hamza + fa + a verb (17:68)', type: 'v' },
+      ]}
+    />
+  </Stage>
+
+The hamza is one letter, written at the start of the first word of the question. Joining words, like فَ and وَ, stand after it. So you read أَفَلَا as three parts: the hamza, the فَ and the لَا. L4.10 shows the same build in أَوَلَمْ (7:184).
+
+The Corpus has **507 words** with the hamza joined in front. Quran Learn sorted them by what follows inside the same word:
+
+| What is joined to the hamza | Words |
+|---|---|
+| لَمْ, as in أَلَمْ and أَوَلَمْ | 125 |
+| لَيْسَ, as in أَلَيْسَ | 16 |
+| لَا: أَفَلَا (45), أَلَا (15) and أَوَلَا (3) | 63 |
+| another negative: لَن in 3:124 and مَا in 37:58 | 2 |
+| a verb or a noun, with no negative | 301 |
+
+The 63 words with لَا are questions like “will you not …?”, as in أَفَلَا يَنظُرُونَ (88:17) and أَلَا تُقَٰتِلُونَ (9:13). The أَلَا that opens a warning, as in 2:12, is a different word. The Corpus tags it as an opening particle and does not count it here.
+
+The hamza does not change the verb. In the next block you will see that only لَمْ does.
+
+<Check n={9} q="How do you read أَفَلَا يَنظُرُونَ?" options={['Hamza + فَ + لَا + a verb', 'One little word with four letters', 'A hamza + a noun']} answer={0} why="The hamza asks, the فَ joins, and the لَا says “not”. يَنظُرُونَ is the verb." />
+</Block>
+
+<Block id="lam" title="أَلَمْ: a question, and then لَمْ (the promise of L4.10)">
+  <Stage label="Word by word">
+    <Parse
+      reference="An-Naba 78:6"
+      words={[
+        { ar: 'أَلَمْ', en: 'did We not', type: 'p' },
+        { ar: 'نَجْعَلِ', en: 'make', type: 'v' },
+        { ar: 'ٱلْأَرْضَ', en: 'the earth' },
+        { ar: 'مِهَٰدًا', en: 'a resting place' },
+      ]}
+      cards={[
+        { at: 0, ar: 'أَ', role: 'a little word of question: “did … not?”', why: 'Al-Jadwal calls it a question of confirmation. It has no place in the sentence.', irab: 'الهمزة للاستفهام التقريري' },
+        { at: 0, ar: 'لَمْ', role: 'a word of negation: “did not”', why: 'It brings jazm to the verb after it and points to the past (L4.10).', irab: 'حرف نفي وجزم وقلب' },
+        { at: 1, role: 'a present verb: “We make”', case: 'jazm', mark: 'a kasra on the ل: the sukūn became a kasra', why: 'لَمْ brings the jazm. The next word begins with ٱ, so the sukūn is moved to a kasra to avoid two silent letters together (as in يَدْخُلِ, 49:14, L4.10). The doer is a hidden “We”.', irab: 'مضارع مجزوم بلم وحرك بالكسر لالتقاء الساكنين، والفاعل ضمير مستتر تقديره نحن' },
+        { at: 2, role: 'the first object: “the earth”', case: 'accusative (naṣb)', mark: '-a (fatḥa)', why: 'What is made. The verb جَعَلَ here takes two objects.', irab: 'مفعول به أول منصوب' },
+        { at: 3, role: 'the second object: “a resting place”', case: 'accusative (naṣb)', mark: '-an (fatḥatayn)', why: 'What the earth is made into. Al-Jadwal calls it the second object.', irab: 'مفعول به ثان منصوب' },
+      ]}
+    />
+  </Stage>
+
+L4.10 promised that this lesson would teach questions that come with لَمْ, as in أَلَمْ. Here it is. The word has two parts: the hamza that asks, and لَمْ that says “did not”. The verb after لَمْ is in jazm. The plain form of نَجْعَلِ is نَجْعَلُ.
+
+Meaning: Did We not make the earth a resting place?
+
+Al-Jadwal calls the hamza of 78:6 a question of confirmation (istifhām taqrīrī). It names the same for 94:1, 105:1 and 93:6. The short meaning, that the question leads the listener to say “yes”, is the teaching summary of L4.18.
+
+In the Corpus, 125 words have the hamza and لَمْ together, in 124 verses. In all 125, the verb after لَمْ is tagged jussive. In 53 of the 125 the next word is a form of رَأَى, “see”: أَلَمْ تَرَ and أَلَمْ تَرَوْا. A text search for أَلَمْ تَرَ finds 33 verses.
+
+Some summaries call أَلَمْ a “double negation”. It is a question and one negative. The hamza asks, and لَمْ negates the verb.
+
+<Check n={10} q="What does لَمْ do to the verb in أَلَمْ نَجْعَلِ?" options={['It puts the verb in jazm', 'It puts the verb in naṣb', 'It changes nothing']} answer={0} why="لَمْ brings jazm. The hamza in front asks the question and does not change the verb." />
+</Block>
+
+<Block id="hal" title="هَلْ: what follows it, and what al-Jadwal says it does">
+  <Stage>
+    <Sentence
+      roles
+      reference="Al-Ghashiyah 88:1"
+      groups={[
+        { label: 'هَلْ', hint: 'a little word of question; al-Jadwal says it stirs interest', words: [{ ar: 'هَلْ', en: 'has', say: 'hal', type: 'p' }] },
+        { role: 'fiil', hint: 'a past verb, with -ka as the object', words: [{ ar: 'أَتَىٰكَ', en: 'reached you', say: 'ataka', type: 'v' }] },
+        { role: 'fail', hint: 'nominative: -u; the first part of an idafah', words: [{ ar: 'حَدِيثُ', en: 'the news of', say: 'hadithu' }] },
+        { role: 'mudafIlayh', hint: 'genitive: -i', words: [{ ar: 'ٱلْغَٰشِيَةِ', en: 'the Overwhelming', say: 'al-ghashiyati' }] },
+      ]}
+      en={['Has the news of the Overwhelming reached you?']}
+    />
+    <Tiles
+      label="What follows هَلْ in the Corpus (93 tags)"
+      items={[
+        { ar: 'هَلْ أَتَىٰكَ', en: 'a verb: 59 (88:1)', type: 'x' },
+        { ar: 'هَلْ مِنْ خَٰلِقٍ', en: 'a preposition: 16 (35:3)', type: 'x' },
+        { ar: 'فَهَلْ أَنتُم مُّنتَهُونَ', en: 'a pronoun: 15 (5:91)', type: 'x' },
+        { ar: 'هَلْ جَزَآءُ', en: 'a noun: 1 (55:60)', type: 'x' },
+      ]}
+    />
+  </Stage>
+
+In 88:1 al-Jadwal calls هَلْ a little word of question that stirs interest (tashwīq). Stirring interest is its reason for the question: the listener is made to want what comes next. A footnote adds another reading: هَلْ with the sense of قَدْ, “has indeed”, telling the news.
+
+Learners are sometimes told that هَلْ comes before a verb. The Corpus shows a tendency and no rule. Of the 93 tags, a verb follows in 59 (63%). The other 34 are a preposition (16), a pronoun (15), a place word (1), a pointing word (1) and a noun (1). In 5:91, فَهَلْ أَنتُم مُّنتَهُونَ, al-Jadwal says هَلْ has the sense of a command: “will you stop?” means “stop”.
+
+Another summary says that هَلْ is more neutral than the hamza, and that the hamza has the stronger force. Quran Learn could not confirm this in an approved source, so the lesson does not repeat it. The Corpus has 507 hamzas and 93 هَلْ. A count says nothing about force.
+
+<Check n={11} q="In the Corpus, what comes right after هَلْ most often?" options={['A verb: 59 of 93', 'A noun: most of them', 'A pronoun: most of them']} answer={0} why="A verb follows in 59 of the 93 tags. The claim that هَلْ comes before a verb is only a tendency: the other 34 are a preposition, a pronoun and others." />
+</Block>
+
+<Block id="parse-hal" title="Word by word: Ar-Rahman 55:60">
+  <Stage label="Word by word">
+    <Parse
+      reference="Ar-Rahman 55:60"
+      words={[
+        { ar: 'هَلْ', en: 'is', type: 'p' },
+        { ar: 'جَزَآءُ', en: 'the reward of' },
+        { ar: 'ٱلْإِحْسَٰنِ', en: 'goodness' },
+        { ar: 'إِلَّا', en: 'except', type: 'p' },
+        { ar: 'ٱلْإِحْسَٰنُ', en: 'goodness' },
+      ]}
+      cards={[
+        { at: 0, role: 'a little word of question: “is …?”', why: 'Al-Jadwal says it is a question word with the sense of “no”. That is why إِلَّا can follow it.', irab: 'حرف استفهام فيه معنى النفي' },
+        { at: 1, role: 'the mubtadaʾ: “the reward”', case: 'nominative (rafʿ)', mark: '-u (ḍamma)', why: 'It starts the sentence. It is the first part of an idafah.', irab: 'مبتدأ مرفوع' },
+        { at: 2, role: 'the second part of the idafah: “of goodness”', case: 'genitive (jarr)', mark: 'a kasra on the ن', why: 'The word after the first part of an idafah is genitive (L2.08).', irab: 'مضاف إليه مجرور' },
+        { at: 3, role: 'a little word that limits: “only”', why: 'It limits the answer to one thing. Al-Jadwal says it is for limiting (L4.05).', irab: 'أداة حصر' },
+        { at: 4, role: 'the khabar: “goodness”', case: 'nominative (rafʿ)', mark: '-u (ḍamma)', why: 'After إِلَّا the khabar has the ending it would have without it (L4.05).', irab: 'خبر مرفوع' },
+        { at: [0, 1, 2, 3, 4], role: 'the whole sentence: a new start that explains', case: 'no place', mark: 'none', why: 'It explains what came before. Al-Jadwal says it is an explaining start.', irab: 'جملة هل جزاء الإحسان لا محل لها استئناف بياني' },
+      ]}
+    />
+  </Stage>
+
+Meaning: Is the reward of goodness anything but goodness?
+
+The sentence is a question in form. Al-Jadwal says هَلْ holds the sense of “no”, and إِلَّا limits: “not … except”. So the sentence reads “the reward of goodness is only goodness”. L4.10 gave the same “not … except” build for the word إِنْ.
+
+Al-Jadwal’s page covers verses 46 to 61 of the surah together. For this verse it gives the sentence, its place and what هَلْ holds. It does not spell out the cards for جَزَآءُ, ٱلْإِحْسَٰنِ and ٱلْإِحْسَٰنُ, so those lines are the standard forms. Al-Jadwal gives no figure name to this question.
+
+<Check n={12} q="Why can إِلَّا follow the question هَلْ جَزَآءُ ٱلْإِحْسَٰنِ?" options={['Al-Jadwal says هَلْ holds the sense of “no”', 'Because the sentence has a verb', 'Because ٱلْإِحْسَٰنِ is genitive']} answer={0} why="Al-Jadwal: a question word with the sense of negation, followed by a little word that limits." />
+</Block>
+
+<Block id="am" title="أَمْ: “or”, and the second question">
+  <Stage>
+    <Sentence
+      roles
+      reference="At-Tur 52:35"
+      groups={[
+        { label: 'أَمْ', hint: 'a cut-off أَمْ: “or rather …?”, al-Jadwal says, as in 52:30', words: [{ ar: 'أَمْ', en: 'or', say: 'am', type: 'p' }] },
+        { role: 'fiil', hint: 'a passive past verb; the wāw stands in for the doer', words: [{ ar: 'خُلِقُوا۟', en: 'were they created', say: 'khuliqu', type: 'v' }] },
+        { role: 'tied', hint: 'min “from” and غَيْرِ شَىْءٍ “other than anything”, tied to the verb', words: [{ ar: 'مِنْ', en: 'from', say: 'min', type: 'p' }, { ar: 'غَيْرِ', en: 'other than', say: 'ghayri' }, { ar: 'شَىْءٍ', en: 'anything', say: 'shayin' }] },
+        { label: 'أَمْ', hint: 'the second أَمْ, read the same way', words: [{ ar: 'أَمْ', en: 'or', say: 'am', type: 'p' }] },
+        { role: 'mubtada', words: [{ ar: 'هُمُ', en: 'they', say: 'humu' }] },
+        { role: 'khabar', hint: 'a doer word: “the makers”', words: [{ ar: 'ٱلْخَٰلِقُونَ', en: 'the creators', say: 'al-khaliquna' }] },
+      ]}
+      en={['Or were they created from nothing? Or are they the creators?']}
+    />
+  </Stage>
+
+أَمْ means “or”. It can join two parts of one question, or it can begin a new question. Al-Jadwal’s page for 52:35 says that the أَمْ here is like the one in 52:30. For 52:30 it calls the أَمْ a cut-off one, meaning بَلْ and the hamza, and a question of rebuke. A footnote there says that all the أَمْ of this surah are questions of this kind. So the lesson gives al-Jadwal’s reading: each أَمْ starts a question that rebukes.
+
+The first clause is passive. The wāw of خُلِقُوا۟ stands in for the doer, which is not named (L3.09). The phrase مِنْ غَيْرِ شَىْءٍ is tied to the verb. The second clause is a new nominal sentence: هُمُ is the mubtadaʾ and ٱلْخَٰلِقُونَ the khabar.
+
+Al-Durr gives two readings of مِنْ in “from nothing”. One reads it as a starting point: “from nothing alive”, like a stone. The other reads a cause: “with no reason”. The words do not change.
+
+The Corpus tags both أَمْ as “conjunction”. That is the tag error named in step 1.
+
+<Check n={13} q="What is ٱلْخَٰلِقُونَ in أَمْ هُمُ ٱلْخَٰلِقُونَ?" options={['The khabar of هُمُ', 'The doer of خُلِقُوا۟', 'An object']} answer={0} why="هُمُ is the mubtadaʾ and ٱلْخَٰلِقُونَ is its khabar, nominative with the ending -ūna." />
+</Block>
+</Step>
+
+<Step id="does" label="What a question does" title="What al-Jadwal says each question does">
+<Block id="names" title="Five names, and the verses they are given to">
+  <Stage label="Quoted, not parsed here">
+    <blockquote class="lx-quote lx-quote-list" lang="ar" dir="rtl">
+      <p>أَلَمْ نَشْرَحْ لَكَ صَدْرَكَ</p>
+      <p>أَلَمْ تَرَ كَيْفَ فَعَلَ رَبُّكَ بِأَصْحَٰبِ ٱلْفِيلِ</p>
+      <p>أَلَمْ يَجِدْكَ يَتِيمًا فَـَٔاوَىٰ</p>
+      <p>أَفَلَا يَنظُرُونَ إِلَى ٱلْإِبِلِ كَيْفَ خُلِقَتْ</p>
+    </blockquote>
+    <p class="lx-quote-note">Ash-Sharh 94:1, Al-Fil 105:1, Ad-Duha 93:6 and Al-Ghashiyah 88:17, as in L4.18.</p>
+  </Stage>
+
+L4.18 taught the question that does not ask. It named the question of confirmation (94:1, 105:1) and the question of denial (88:17), and L4.19 took up 93:6. This lesson goes on from there. It adds three more names from al-Jadwal (rebuke, wonder and stirring interest) and gives the verses where each name is said.
+
+| Name in al-Jadwal | Plain meaning (a teaching summary) | Verses where al-Jadwal says it | The word |
+|---|---|---|---|
+| istifhām taqrīrī, اسْتِفْهَام تَقْرِيرِيّ | leads the listener to say “yes” | 94:1, 105:1, 93:6, 95:8, 78:6 | the hamza |
+| istifhām inkārī, اسْتِفْهَام إِنْكَارِيّ | blames, or says “no” | 88:17 | the hamza with فَلَا |
+| istifhām tawbīkhī, اسْتِفْهَام تَوْبِيخِيّ | scolds | 17:68 (and the أَمْ of 52:30) | the hamza, and أَمْ |
+| wonder, تَعَجُّب | surprise | 2:28 | كَيْفَ |
+| stirring interest, تَشْوِيق | makes the listener want to hear on | 88:1 | هَلْ |
+
+Quran Learn read each of these on al-Jadwal’s page for the verse, for this lesson. The short meanings in the second column are a teaching summary written for learners. We know of no book among our approved sources that gives them in these words.
+
+Three things show in the table.
+
+- The same little word can carry different names. The hamza has three: confirm, deny and scold.
+- A question noun can carry a name too. كَيْفَ has one.
+- Al-Jadwal does not name something for every question. The next blocks come to that.
+
+<Check n={14} q="Which verse does al-Jadwal call a question of wonder?" options={['2:28, كَيْفَ تَكْفُرُونَ', '95:8, أَلَيْسَ ٱللَّهُ', '88:17, أَفَلَا يَنظُرُونَ']} answer={0} why="Al-Jadwal calls the كَيْفَ of 2:28 a question word for wonder. 95:8 is confirmation and 88:17 is denial." />
+</Block>
+
+<Block id="parse-tawbikh" title="Word by word: Al-Isra 17:68 (part)">
+  <Stage label="Word by word">
+    <Parse
+      reference="Al-Isra 17:68 (part)"
+      words={[
+        { ar: 'أَفَأَمِنتُمْ', en: 'do you then feel safe', type: 'v' },
+        { ar: 'أَن', en: 'that', type: 'p' },
+        { ar: 'يَخْسِفَ', en: 'He makes swallow', type: 'v' },
+        { ar: 'بِكُمْ', en: 'you', type: 'p' },
+        { ar: 'جَانِبَ', en: 'a side of' },
+        { ar: 'ٱلْبَرِّ', en: 'the land' },
+      ]}
+      cards={[
+        { at: 0, ar: 'أَ', role: 'a little word of question: “do you …?”', why: 'Al-Jadwal calls it a question of rebuke (tawbīkhī). Al-Durr says rebuke and scolding.', irab: 'الهمزة للاستفهام التوبيخي' },
+        { at: 0, ar: 'فَ', role: 'a little word: “then”', why: 'Al-Jadwal says it starts anew. A footnote says the books of iʿrāb read it as joining to a left-out clause: “did you escape, and then feel safe?”.', irab: 'الفاء استئنافية' },
+        { at: 0, ar: 'أَمِنتُمْ', role: 'a past verb: “you felt safe”', case: 'a verb is built', mark: 'a sukūn; the ending -tum is “you all”, the doer', why: 'The ending is the doer.', irab: 'فعل ماض مبني على السكون، وتم ضمير فاعل' },
+        { at: 1, role: 'a little word: “that”, with naṣb', why: 'It turns the verb after it into a noun phrase: “that He makes … swallow”. It gives naṣb.', irab: 'حرف مصدري ونصب' },
+        { at: 2, role: 'a present verb: “He makes swallow”', case: 'naṣb', mark: 'a fatḥa on the last letter', why: 'أَن brings the naṣb. The doer is a hidden “He”. Al-Jadwal parses the other reading, with the nūn (نَخْسِفَ, “We”). The text here is the reading with the yāʾ. Al-Durr lists both readings.', irab: 'مضارع منصوب بأن، والفاعل ضمير مستتر تقديره هو' },
+        { at: 3, role: '“you”: bi- and a pronoun, tied to a ḥāl from جَانِبَ', case: 'genitive by place', mark: 'the pronoun كُمْ has a fixed ending', why: 'Al-Jadwal ties it to a ḥāl from the side of the land. A footnote allows “because of you”, tied to the verb.', irab: 'جار ومجرور متعلق بحال من جانب البر' },
+        { at: 4, role: 'the object: “a side”', case: 'accusative (naṣb)', mark: '-a (fatḥa)', why: 'It is what the verb makes swallow. A footnote allows a place word instead.', irab: 'مفعول به منصوب' },
+        { at: 5, role: 'the second part of the idafah: “of the land”', case: 'genitive (jarr)', mark: 'a kasra on the ر, with the shadda', why: 'The word after the first part of an idafah is genitive (L2.08).', irab: 'مضاف إليه مجرور' },
+        { at: [1, 2, 3, 4, 5], role: 'the clause “that He makes … swallow …”: the object of أَمِنتُمْ', case: 'in the place of accusative', mark: 'none', why: 'In the whole verse the clause goes on with أَوْ يُرْسِلَ, “or He sends”. Al-Jadwal says the whole phrase is the object of the verb.', irab: 'والمصدر المؤول (أن نخسف ..) في محل نصب مفعول به' },
+      ]}
+    />
+  </Stage>
+
+Meaning: Do you feel safe from His making a side of the land swallow you?
+
+Al-Jadwal names the hamza of 17:68 a question of rebuke (tawbīkhī). Al-Durr says the same in other words: rebuke and scolding. The footnote of al-Jadwal gives the reading of the iʿrāb books: “did you escape from drowning, and then feel safe?”. The lesson says no more about the verse than the two books do.
+
+The verse goes on: أَوْ يُرْسِلَ عَلَيْكُمْ حَاصِبًا ثُمَّ لَا تَجِدُوا۟ لَكُمْ وَكِيلًا. In the last clause the Corpus tags لَا as a ban and the verb as jazm. Al-Jadwal reads a negative لَا, with the verb in naṣb because it is joined to يُرْسِلَ. The lost nūn is the mark of that naṣb.
+
+<Note kind="know">A different verse, 67:16, asks about feeling safe too, and it begins with another form of the hamza: ءَأَمِنتُم مَّن فِى ٱلسَّمَآءِ. Its words are close to those of 17:68, so take care not to mix them. This lesson has not parsed 67:16.</Note>
+
+<Check n={15} q="What does al-Jadwal call the hamza of أَفَأَمِنتُمْ in 17:68?" options={['A question of rebuke', 'A question of confirmation', 'A question that stirs interest']} answer={0} why="Al-Jadwal: istifhām tawbīkhī, a question of rebuke. Al-Durr says rebuke and scolding." />
+</Block>
+
+<Block id="means-no" title="Questions that mean “no” or “stop”">
+  <Stage label="Two readings from al-Jadwal">
+    <Tiles
+      label="A question in form, another meaning"
+      items={[
+        { ar: 'هَلْ', en: '55:60: the sense of “no”', type: 'p' },
+        { ar: 'فَهَلْ أَنتُم مُّنتَهُونَ', en: '5:91: the sense of a command', type: 'x' },
+      ]}
+    />
+  </Stage>
+
+Three verses show a question in form with another meaning, and the book says so in words each time.
+
+- **55:60.** Al-Jadwal says هَلْ holds the sense of “no”. إِلَّا follows it, and the sentence means “only”.
+- **5:91.** Al-Jadwal says هَلْ holds the sense of a command: “will you stop?” means “stop”.
+- **2:255.** L5.03 read the question مَن ذَا ٱلَّذِى يَشْفَعُ عِندَهُۥٓ إِلَّا بِإِذْنِهِۦ. Al-Jadwal names no figure for it. Al-Durr says مَن is a question in form and means “no”, and that this is why إِلَّا comes after it: nobody can intercede with Him, except with His leave.
+
+After a question that holds the sense of “no”, إِلَّا works as it does after “not” (L4.05, L4.10). This link is a teaching summary of Quran Learn. It rests on al-Jadwal for 55:60 and on al-Durr for 2:255.
+
+<Check n={16} q="Why does إِلَّا come after مَن ذَا ٱلَّذِى يَشْفَعُ in 2:255, according to al-Durr?" options={['The question means “no”', 'Because مَن is a joining noun', 'Because the verb is passive']} answer={0} why="Al-Durr: مَن is a question in form and its meaning is “no”. That is why إِلَّا enters after it." />
+</Block>
+
+<Block id="no-name" title="Questions with no name, and how to read one">
+  <Stage label="Four questions to ask of a question">
+    <ol class="lx-card-list">
+      <li><b>Which word asks?</b> A hamza, هَلْ, or a question noun.</li>
+      <li><b>What job does it do?</b> Mubtadaʾ, ḥāl, a place or time word, or none.</li>
+      <li><b>Does al-Jadwal name something?</b> Confirm, deny, scold, wonder or stir interest.</li>
+      <li><b>What follows in the text?</b> An answer, another question, or a statement.</li>
+    </ol>
+  </Stage>
+
+Many of the questions in this lesson have no name in al-Jadwal: 12:51, 101:2, 2:245, 55:60 and 52:35 (apart from the footnote of 52:30). For these al-Jadwal gives the places of the words. This lesson keeps to that and does not add a name.
+
+The fourth question is about what the verse itself shows. In 12:51 the women answer at once. In 2:28 no answer follows. The verse goes on with what Allah did: gave life, takes it, gives it again. In 17:68 another question follows in the next verse, 17:69, which begins with أَمْ. What follows a question is a fact about the text, and anyone can check it.
+
+The order of the four questions is Quran Learn’s teaching summary. It is not a method from a classical book. L5.01 teaches the method for one verse. This lesson asks what a question word does inside it.
+
+<Note kind="warn">Do not say that the Quran asks questions in order to teach. None of the pages this lesson read says that. They name what some questions do in the verse, and the lesson stays with those names.</Note>
+
+<Check n={17} q="Which of these has no name in al-Jadwal?" options={['12:51, مَا خَطْبُكُنَّ', '78:6, أَلَمْ نَجْعَلِ', '17:68, أَفَأَمِنتُمْ']} answer={0} why="Al-Jadwal gives the places of the words in 12:51 and names no figure. It names 78:6 (confirmation) and 17:68 (rebuke)." />
+</Block>
+</Step>
+
+<Step id="practice" label="Mistakes and practice" title="Mistakes, practice and summary">
+<Block id="m1" title="Mistake 1: every question is a rhetorical question">
+  <Stage label="One that asks, one that does not wait">
+    <Tiles
+      label="Two questions"
+      items={[
+        { ar: 'مَا خَطْبُكُنَّ', en: 'asks; the women answer (12:51)', type: 'x' },
+        { ar: 'أَلَيْسَ ٱللَّهُ', en: 'a question of confirmation (95:8)', type: 'x' },
+      ]}
+    />
+  </Stage>
+
+The title says “rhetorical”. In this lesson that is a teaching word. A question gets it only where al-Jadwal names a figure for the verse. In 12:51 the question is answered at once, and al-Jadwal names no figure.
+
+Do not sort a question into a type from how it looks. Read what al-Jadwal says about the verse, and check what follows in the text.
+</Block>
+
+<Block id="m2" title="Mistake 2: claims about a word that the verses do not show">
+  <Stage label="Three claims">
+    <Tiles
+      label="What the verses show"
+      items={[
+        { ar: 'هَلْ', en: 'before a verb in 59 of 93, not always', type: 'p' },
+        { ar: 'أَلَمْ', en: 'a question and a negative, not a double negative', type: 'p' },
+        { ar: 'أَيّ', en: 'a noun with a second part, not an adjective', type: 'n' },
+      ]}
+    />
+  </Stage>
+
+Three claims in some summaries do not hold up.
+
+- **“هَلْ comes before a verb.”** In 59 of 93 tags it does. In 34 it does not.
+- **“أَلَمْ is a double negation.”** The hamza is a question, and لَمْ is the only negative.
+- **“أَيّ is an adjective that agrees with a noun.”** Al-Jadwal reads it as a question noun and the first part of an idafah.
+
+A fourth claim, that the hamza has more force than هَلْ, could not be confirmed in an approved source, so the lesson leaves it out.
+</Block>
+
+<Block id="m3" title="Mistake 3: giving the verb the wrong ending after أَلَمْ">
+  <Stage label="Made-up forms">
+    <Tiles
+      label="The form after أَلَمْ"
+      items={[
+        { ar: 'أَلَمْ يَجِدْ', en: 'right: jazm, a sukūn', type: 'v' },
+        { ar: 'أَلَمْ يَجِدُ', en: 'wrong: the plain -u', type: 'x' },
+        { ar: 'أَلَمْ يَجِدَ', en: 'wrong: naṣb', type: 'x' },
+      ]}
+    />
+  </Stage>
+
+These three are teaching forms of يَجِدُ, “he finds”, and not verses. The verb after أَلَمْ is in jazm, as it is after لَمْ alone. The hamza adds the question and does not change the ending. In the Corpus all 125 verbs after أَلَمْ and its likes are tagged jussive.
+</Block>
+
+<Block id="m4" title="Mistake 4: trusting a Corpus tag on a question word">
+  <Stage label="Three tags that need a second look">
+    <Tiles
+      label="One tag, more than one job"
+      items={[
+        { ar: 'مَا خَطْبُكُنَّ', en: 'tagged joining; it asks (12:51)', type: 'x' },
+        { ar: 'مَا ضَلَّ', en: 'a negative, “did not” (53:2)', type: 'x' },
+        { ar: 'مَا فِى ٱلسَّمَٰوَٰتِ', en: 'a joining noun, “what” (4:126)', type: 'x' },
+      ]}
+    />
+  </Stage>
+
+مَا asks, or negates, or joins a clause. L4.10 and L3.11 teach the three. In 12:51 the Corpus tag says joining, and the sentence says it asks. Put the question in English: “what is your business?” makes sense, so it is a question word. This is the same test L4.10 gave for the negative مَا.
+
+The Corpus tags help to find candidates. They do not decide. Check the sentence, and check al-Jadwal.
+</Block>
+
+<Block id="practice-1" title="Practice: the words, and what they do">
+  <Stage label="For each question, say">
+    <ol class="lx-card-list">
+      <li><b>The word:</b> which one asks?</li>
+      <li><b>What it is:</b> a little word, or a noun?</li>
+      <li><b>The job:</b> what does it do in the sentence?</li>
+      <li><b>The name:</b> does al-Jadwal give one?</li>
+    </ol>
+  </Stage>
+
+Work out each answer first, then open the answer.
+
+<Exercise n={1} q="Name the question word or words in each phrase, and say if each is a little word or a noun. (a) أَلَمْ تَرَ كَيْفَ فَعَلَ رَبُّكَ بِأَصْحَٰبِ ٱلْفِيلِ (Al-Fil 105:1) (b) هَلْ جَزَآءُ ٱلْإِحْسَٰنِ إِلَّا ٱلْإِحْسَٰنُ (Ar-Rahman 55:60) (c) مَا ٱلْقَارِعَةُ (Al-Qariʿah 101:2)">
+
+- (a) **Two.** أَ is a little word of question, and it is joined to لَمْ. كَيْفَ is a noun.
+- (b) **هَلْ**, a little word of question.
+- (c) **مَا**, a question noun. Al-Jadwal reads it as the mubtadaʾ, with ٱلْقَارِعَةُ as its khabar.
+
+</Exercise>
+
+<Exercise n={2} q="Say what al-Jadwal says each question does. (a) أَلَمْ تَرَ كَيْفَ فَعَلَ رَبُّكَ بِأَصْحَٰبِ ٱلْفِيلِ (Al-Fil 105:1) (b) هَلْ جَزَآءُ ٱلْإِحْسَٰنِ إِلَّا ٱلْإِحْسَٰنُ (Ar-Rahman 55:60) (c) مَا ٱلْقَارِعَةُ (Al-Qariʿah 101:2)">
+
+- (a) **A question of confirmation** (istifhām taqrīrī). The listener is led to say “yes, I saw”.
+- (b) **No figure name.** Al-Jadwal says هَلْ holds the sense of “no”, which lets إِلَّا follow, so the sentence means “only”. Some summaries call it a question of confirmation. Al-Jadwal does not.
+- (c) **No figure name.** Al-Jadwal reads مَا as a question noun and gives the places of the words. Some summaries call it a question of wonder. Al-Jadwal does not.
+
+</Exercise>
+
+<Exercise n={3} q="Take apart this verse. Name the hamza, the negative, the mood and the plain form of the verb, its root, and what each other word is. أَلَمْ نَشْرَحْ لَكَ صَدْرَكَ (Ash-Sharh 94:1)">
+
+- **أَ** is the little word of question. Al-Jadwal calls it a question of confirmation. **لَمْ** is the word of negation. It brings jazm.
+- **نَشْرَحْ** is a present verb. The plain form is نَشْرَحُ, and it has a sukūn on the last letter because of لَمْ. The root is ش ر ح, and the doer is a hidden “We”. The meaning is the past: “did We not open up”.
+- **لَكَ** is li- and “you”, tied to the verb. **صَدْرَكَ** is the object, accusative with -a, and the -ka is “your”.
+- The verb is a Form I present verb, first person plural. Its root is ش ر ح.
+
+</Exercise>
+
+<Exercise n={4} q="Each verse has a question. Say what asks, and what kind of word it is. (a) أَفَلَا تَعْقِلُونَ (Al-Baqarah 2:44, end) (b) أَتُحَدِّثُونَهُم بِمَا فَتَحَ ٱللَّهُ عَلَيْكُمْ (Al-Baqarah 2:76, part) Then look up al-Jadwal’s page for each verse and see if it names a figure. This lesson did not read these two pages.">
+
+- (a) The hamza, joined to فَلَا: a hamza, a فَ and a لَا, then the verb تَعْقِلُونَ. The next verse, 2:77, begins with a related build: أَوَلَا, a hamza, a وَ and a لَا.
+- (b) The hamza, joined to a present verb: أَتُحَدِّثُونَهُم, “will you tell them?”.
+- Check al-Jadwal yourself before you give either one a name.
+
+</Exercise>
+
+<Exercise n={5} q="Sort these question words into a little word, a noun, a time word, a place word and a word for manner. كَيْفَ, هَلْ, مَن, أَيْنَ, أَ, مَتَىٰ">
+
+- **Little words:** هَلْ and أَ.
+- **Noun:** مَن, the mubtadaʾ in 2:245.
+- **Word for manner:** كَيْفَ, a ḥāl in 2:28.
+- **Place word:** أَيْنَ (81:26).
+- **Time word:** مَتَىٰ (67:25).
+
+</Exercise>
+</Block>
+
+<Block id="practice-2" title="Practice: the hamza, لَمْ, and the books">
+  <Stage label="Three ways to read a hamza">
+    <ol class="lx-card-list">
+      <li><b>With لَمْ:</b> أَلَمْ, a question and jazm.</li>
+      <li><b>With laysa:</b> أَلَيْسَ, a question and the khabar.</li>
+      <li><b>With فَلَا:</b> أَفَلَا, a question and a negative.</li>
+    </ol>
+  </Stage>
+
+<Exercise n={6} q="Make each verb ready to follow أَلَمْ. These are teaching forms, not verses. (a) يَجِدُ (b) تَرَى (c) يَكُونُ (d) يَعْلَمُونَ">
+
+- (a) **أَلَمْ يَجِدْ**: a sukūn on the last letter.
+- (b) **أَلَمْ تَرَ**: the weak last letter ى is gone, as in 105:1 (L4.10).
+- (c) **أَلَمْ يَكُنْ**: the long ū of the hollow verb is gone (L4.12).
+- (d) **أَلَمْ يَعْلَمُوا**: the nūn is gone.
+
+</Exercise>
+
+<Exercise n={7} q="Take each word apart into its pieces. (a) أَفَأَمِنتُمْ (Al-Isra 17:68) (b) أَلَيْسَ ٱللَّهُ (At-Tin 95:8, part) (c) أَوَلَمْ يَتَفَكَّرُوا۟ (Al-Aʿraf 7:184, part)">
+
+- (a) **Hamza + فَ + أَمِنتُمْ**: a question, a joining word, and a past verb with -tum, “you all”.
+- (b) **Hamza + لَيْسَ**: a question and the verb laysa. ٱللَّهُ is its ism.
+- (c) **Hamza + وَ + لَمْ**, then the verb يَتَفَكَّرُوا۟, in jazm: the nūn of يَتَفَكَّرُونَ is gone.
+
+</Exercise>
+
+<Exercise n={8} q="For each, say the question word, what it is, and what it is tied to. (a) فَأَيْنَ تَذْهَبُونَ (At-Takwir 81:26) (b) مَتَىٰ هَٰذَا ٱلْوَعْدُ (Al-Mulk 67:25, part)">
+
+- (a) **أَيْنَ**: a question word for place. Al-Jadwal ties it to the verb, with a left-out “to”.
+- (b) **مَتَىٰ**: a question word for time. Al-Jadwal ties it to a left-out khabar that is put first. هَٰذَا is the mubtadaʾ.
+
+</Exercise>
+
+<Exercise n={9} q="Who says it: al-Jadwal, al-Durr, or Quran Learn’s own look at the text? (a) The hamza of 78:6 is a question of confirmation. (b) In 12:51 the women answer straight away. (c) مَن in 2:255 is a question in form and means “no”. (d) The كَيْفَ of 2:28 is a question word of wonder. (e) The numbers of tags: 946 and 830.">
+
+- (a) **Al-Jadwal.**
+- (b) **Quran Learn’s look at the text.** It can be checked in the verse.
+- (c) **Al-Durr al-Maṣūn.**
+- (d) **Al-Jadwal.** Al-Durr’s page for 2:28 lists wonder, rebuke or denial, and quotes al-Zamakhsharī for denial.
+- (e) **Quran Learn’s count over the Corpus.** The tags have errors.
+
+</Exercise>
+
+<Exercise n={10} q="The Corpus tags the مَا of 12:51 as a joining noun. If you count only the question tags, is 95 too big or too small? Say why, and say what else the count leaves out.">
+
+- **Too small.** At least the مَا of 12:50 and 12:51 are question nouns in al-Jadwal, and the Corpus does not count them.
+- The count also leaves out the 137 أَمْ that the Corpus tags as “or”. Some of them begin a question.
+- And it counts words, not questions. The count says nothing about whether an answer is expected.
+
+</Exercise>
+</Block>
+
+<Block id="done" title="You have finished the lesson">
+  <Stage label="The idea">
+    <Formula
+      label="a question word starts a question"
+      items={[
+        { kind: 'm', text: 'question word', small: 'a hamza, هَلْ or a noun' },
+        { kind: 'k', text: 'its job in the sentence', small: 'mubtadaʾ, ḥāl, place, time' },
+        { kind: 's', text: 'a question', small: 'اسْتِفْهَام' },
+      ]}
+    />
+  </Stage>
+
+- **The words:** twelve question words are tagged in the Corpus. Two are little words (أَ and هَلْ). Ten are nouns, or words for manner, place and time.
+- **Jobs:** مَا, مَن and أَيّ are mubtadaʾ in the verses read. كَيْفَ and أَنَّىٰ are a ḥāl. أَيْنَ, مَتَىٰ, أَيَّانَ and كَمْ are place and time words.
+- **أَلَمْ:** a question and لَمْ. The verb after it is in jazm. This keeps the promise of L4.10.
+- **Names in al-Jadwal:** confirmation (94:1, 105:1, 93:6, 95:8, 78:6), denial (88:17), rebuke (17:68), wonder (2:28) and stirring interest (88:1). Some questions have none (12:51, 101:2, 55:60). Two books say a question can hold the sense of “no” (55:60, 2:255).
+- **Counts:** 946 tagged question words in 830 of the 6,236 verses. They are counts of tags, and some tags are wrong.
+
+**Next:** [L5.14](/learn/level-5/14-word-order-emphasis/) looks at word order and weight.
+
+Earlier lessons you can link back to: [the words of negation, L4.10](/learn/level-4/10-negation-particles/), [the question that does not ask, L4.18](/learn/level-4/18-figures-of-speech/), [the figures of speech, L4.17](/learn/level-4/17-intro-balagha/), [Ad-Duha, L4.19](/learn/level-4/19-checkpoint-ad-duha/), [joining nouns and question words, L3.11](/learn/level-3/11-relative-pronouns/), [the ḥāl, L4.01](/learn/level-4/01-hal-clauses/), [kāna and laysa, L2.11](/learn/level-2/11-kaana-sisters/), [exception, L4.05](/learn/level-4/05-exception-particles/). Level 5 lessons that met questions: [Ayat al-Kursi, L5.03](/learn/level-5/03-ayat-al-kursi/), [Juz ʿAmma patterns, L5.06](/learn/level-5/06-juz-amma-patterns/) and [dialogue patterns, L5.11](/learn/level-5/11-dialogue-patterns/). The method for reading one verse is in [L5.01](/learn/level-5/01-full-irab-analysis/).
+
+<Sources
+    items={[
+      { label: 'Quran text', name: 'Tanzil (Uthmani text)', href: 'https://tanzil.net' },
+      { label: 'Tags and counts of the question words', name: 'Quranic Arabic Corpus', href: 'https://corpus.quran.com' },
+      { label: 'Word-by-word analysis (iʿrāb) and the names of the questions', name: 'Maḥmūd Ṣāfī, al-Jadwal fī Iʿrāb al-Qurʾān wa-Ṣarfihi wa-Bayānihi' },
+      { label: 'Where the books differ (2:28, 2:255, 17:68, 52:35)', name: 'al-Samīn al-Ḥalabī, al-Durr al-Maṣūn' },
+      { label: 'The counts', name: 'Quran Learn count from the Quranic Arabic Corpus; some tags are wrong' },
+      { label: 'English under the verses', name: 'Plain-English meanings by Quran Learn, not a translation' },
+    ]}
+  />
+</Block>
+</Step>

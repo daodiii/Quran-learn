@@ -13,10 +13,32 @@ import '../styles/fonts.css';
 import '../styles/home.css';
 import { readFileSync } from 'node:fs';
 import { testimonials } from '../data/testimonials';
-import { LESSON_STEPS, DECODER, DUA, LOOKUP_KEYS, ROOT_KEYS, ROOTS, lookupResult, decoderReadout, rootStats, barHeight, surahLine, readerText, readerCard, type ReaderSurah } from '../lib/home-tools';
+import { LESSON_STEPS, DECODER, DUA, LOOKUP_KEYS, ROOT_KEYS, ROOTS, lookupResult, decoderReadout, rootStats, barHeight, surahLine, readerText, readerCard, verbCells, verbDetail, verbDefaultForm, type VerbRoot, type ReaderSurah } from '../lib/home-tools';
 
 const lessons = (await getCollection('lessons')).sort((a, b) => a.data.level - b.data.level || a.data.order - b.data.order);
 const surahs = (await getCollection('surahs')).sort((a, b) => a.data.surahNumber - b.data.surahNumber);
+// The resources hub (/resources/): every guide in the collection, plus the two live tools.
+const guides = (await getCollection('resources')).sort((a, b) => (a.data.order ?? 99) - (b.data.order ?? 99));
+const verbData = JSON.parse(readFileSync('public/data/verb-forms.json', 'utf8'));
+const verbRoots: number = verbData.meta.roots;
+// The verb generator on the bench shows three real roots; the page embeds them so the client can switch.
+const benchVerbs = ['نزل', 'علم', 'كتب'].map((r) => verbData.roots.find((x: VerbRoot) => x.root === r)).filter(Boolean) as VerbRoot[];
+const NUM = ['Zero', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten', 'Eleven', 'Twelve', 'Thirteen', 'Fourteen', 'Fifteen', 'Sixteen', 'Seventeen', 'Eighteen', 'Nineteen', 'Twenty'];
+const toolCount = guides.length + 2;
+// Four guides are shown as sheets; the rest form a reading path, in a suggested order (short titles and lines are ours).
+const SHEET_IDS = ['case-endings-chart', 'pronoun-charts', 'verb-forms-master-reference', '200-most-used-words'];
+const PATH: [string, string, string][] = [
+  ['quran-arabic-vs-msa', 'Quranic vs Modern Standard Arabic', 'Decide which Arabic to study first, from your goal.'],
+  ['learning-roadmap', 'Learning Roadmap', 'The phases from beginner to Quranic analysis.'],
+  ['arabic-in-7-principles', 'Arabic in 7 Principles', 'The always-open reference card.'],
+  ['glossary', 'Grammar Glossary', 'Every term, in Arabic and plain English.'],
+  ['root-system', 'Root System Guide', 'How words grow from three letters.'],
+  ['verb-conjugation-tables', 'Conjugation Tables', 'All ten forms, every person and tense.'],
+];
+for (const id of [...SHEET_IDS, ...PATH.map((x) => x[0])]) if (!guides.some((g) => g.id === id)) throw new Error(`home library: resource "${id}" is missing from the collection`);
+// A guide added to the collection later appears at the end of the path with its own title and description.
+const extraGuides = guides.filter((g) => ![...SHEET_IDS, ...PATH.map((x) => x[0])].includes(g.id));
+const railGuides: [string, string, string][] = [...PATH, ...extraGuides.map((g) => [g.id, g.data.title, g.data.description ?? ''] as [string, string, string])];
 const firstOf = (level: number) => lessons.find((l) => l.data.level === level)!;
 
 // Each level's card shows a small sample of what it teaches (spec), and the surah its checkpoint reads (cp).
@@ -210,23 +232,6 @@ const step = LESSON_STEPS[1];
 </section>
 
 <div class="wrap">
-  <!-- Learner quotes, kept close to the top so a first-time visitor sees the page is worth their time.
-       The quotes (and the Arabic word beside each) live in src/data/testimonials.ts. -->
-  <section class="sec voices-sec" aria-labelledby="voices-h">
-    <div class="sec-head"><div><p class="eyebrow">From learners</p><h2 id="voices-h">It finally makes sense.</h2></div><p>Students, self-learners and teachers, on what changed when they started reading the Quran word by word.</p></div>
-    <div class="stack">
-      {testimonials.map((t, i) => (
-        <figure class={`sc k${(i % 3) + 1}`} style={`--i:${i}`}>
-          <div class="sc-t">
-            <blockquote><p>{t.text}</p></blockquote>
-            <figcaption class="who"><span class="mono" aria-hidden="true">{t.name.charAt(0)}</span><span><b>{t.name}</b>{t.role && <small>{t.role}</small>}</span></figcaption>
-          </div>
-          {t.word && <div class="sc-w" aria-hidden="true"><span class="ar" lang="ar">{t.word.ar}</span><small>{t.word.en}</small></div>}
-        </figure>
-      ))}
-    </div>
-  </section>
-
   <!-- The course map: one card per level, with a small sample of what it teaches.
        The bar under each card has a segment per lesson; src/scripts/home.ts fills them from saved progress. -->
   <section class="sec" aria-labelledby="levels-h">
@@ -270,6 +275,129 @@ const step = LESSON_STEPS[1];
           </div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- The library (/resources/): four of the charts as sheets, the two live tools running, and the other guides as a reading path.
+       Every guide in the resources collection is reachable from here; one that is added later lands at the end of the path. -->
+  <section class="sec lib" aria-labelledby="lib-h">
+    <div class="sec-head"><div><p class="eyebrow">The library</p><h2 id="lib-h">{NUM[toolCount] ?? toolCount} free tools to keep open while you read.</h2></div><p>The charts you reach for most, set out like the printed cheat sheets they replace. Read them here, open the full version when you need it.</p></div>
+    <div class="desk">
+      <ul class="sheets" tabindex="0" aria-label="Four reference charts">
+      <li><a class="sheet" href="/resources/case-endings-chart/" aria-label="Case Endings Chart: open the full version">
+        <div class="sh-head"><small>CHART</small><h3>Case Endings Chart</h3></div>
+        <div class="sh-body" aria-hidden="true">
+          <table class="tb"><thead><tr><th>Case</th><th>Ending</th><th>Example</th></tr></thead><tbody>
+            <tr><td><b>Doer</b><br><em>rafʿ</em></td><td>-un</td><td><span class="ar" lang="ar" dir="rtl">كِتَابٌ</span></td></tr>
+            <tr><td><b>Receiver</b><br><em>naṣb</em></td><td>-an</td><td><span class="ar" lang="ar" dir="rtl">كِتَابًا</span></td></tr>
+            <tr><td><b>“Of” word</b><br><em>jarr</em></td><td>-in</td><td><span class="ar" lang="ar" dir="rtl">كِتَابٍ</span></td></tr>
+            <tr><td><b>Two, doer</b><br><em>dual</em></td><td>-āni</td><td><span class="ar" lang="ar" dir="rtl">كِتَابَانِ</span></td></tr>
+            <tr><td><b>Two, other</b><br><em>dual</em></td><td>-ayni</td><td><span class="ar" lang="ar" dir="rtl">كِتَابَيْنِ</span></td></tr>
+          </tbody></table>
+          <p>Also: sound plurals, broken plurals and the five nouns.</p>
+        </div>
+        <div class="sh-foot"><span>Open the full chart</span><span aria-hidden="true">→</span></div>
+      </a></li>
+      <li><a class="sheet" href="/resources/pronoun-charts/" aria-label="Pronoun Reference Charts: open the full version">
+        <div class="sh-head"><small>CHART</small><h3>Pronoun Reference Charts</h3></div>
+        <div class="sh-body" aria-hidden="true">
+          <table class="tb"><thead><tr><th>Who</th><th>Arabic</th><th>Says</th></tr></thead><tbody>
+            <tr><td><b>I</b></td><td><span class="ar" lang="ar" dir="rtl">أَنَا</span></td><td><em>anaa</em></td></tr>
+            <tr><td><b>we</b></td><td><span class="ar" lang="ar" dir="rtl">نَحْنُ</span></td><td><em>nahnu</em></td></tr>
+            <tr><td><b>you (m)</b></td><td><span class="ar" lang="ar" dir="rtl">أَنْتَ</span></td><td><em>anta</em></td></tr>
+            <tr><td><b>he</b></td><td><span class="ar" lang="ar" dir="rtl">هُوَ</span></td><td><em>huwa</em></td></tr>
+            <tr><td><b>she</b></td><td><span class="ar" lang="ar" dir="rtl">هِيَ</span></td><td><em>hiya</em></td></tr>
+            <tr><td><b>they (m)</b></td><td><span class="ar" lang="ar" dir="rtl">هُمْ</span></td><td><em>hum</em></td></tr>
+          </tbody></table>
+          <p>Also: attached pronouns, “this/that” and “who/which”.</p>
+        </div>
+        <div class="sh-foot"><span>Open the full chart</span><span aria-hidden="true">→</span></div>
+      </a></li>
+      <li><a class="sheet" href="/resources/verb-forms-master-reference/" aria-label="Verb Forms Master Reference: open the full version">
+        <div class="sh-head"><small>CHEAT SHEET</small><h3>Verb Forms Master Reference</h3></div>
+        <div class="sh-body" aria-hidden="true">
+          <table class="tb"><thead><tr><th>Form</th><th>Pattern</th><th>Adds</th></tr></thead><tbody>
+            <tr><td><b>I</b></td><td><span class="ar" lang="ar" dir="rtl">فَعَلَ</span></td><td><em>basic action</em></td></tr>
+            <tr><td><b>II</b></td><td><span class="ar" lang="ar" dir="rtl">فَعَّلَ</span></td><td><em>intensify, cause</em></td></tr>
+            <tr><td><b>III</b></td><td><span class="ar" lang="ar" dir="rtl">فَاعَلَ</span></td><td><em>do with or toward someone</em></td></tr>
+            <tr><td><b>IV</b></td><td><span class="ar" lang="ar" dir="rtl">أَفْعَلَ</span></td><td><em>cause something</em></td></tr>
+            <tr><td><b>V</b></td><td><span class="ar" lang="ar" dir="rtl">تَفَعَّلَ</span></td><td><em>reflexive of II</em></td></tr>
+            <tr><td><b>X</b></td><td><span class="ar" lang="ar" dir="rtl">اِسْتَفْعَلَ</span></td><td><em>seek, request</em></td></tr>
+          </tbody></table>
+          <p>All ten forms, with Quranic examples and the root-family tree.</p>
+        </div>
+        <div class="sh-foot"><span>Open the full sheet</span><span aria-hidden="true">→</span></div>
+      </a></li>
+      <li><a class="sheet" href="/resources/200-most-used-words/" aria-label="200 Most Common Quranic Words: open the full version">
+        <div class="sh-head"><small>WORD LIST</small><h3>200 Most Common Quranic Words</h3></div>
+        <div class="sh-body" aria-hidden="true">
+          <div class="grid" lang="ar" dir="rtl">
+            <div><span class="ar">وَ</span><small lang="en">and</small></div><div><span class="ar">فِي</span><small lang="en">in</small></div><div><span class="ar">مِنْ</span><small lang="en">from</small></div>
+            <div><span class="ar">مَا</span><small lang="en">what, not</small></div><div><span class="ar">لَا</span><small lang="en">no, not</small></div><div><span class="ar">إِنَّ</span><small lang="en">indeed</small></div>
+            <div><span class="ar">عَلَىٰ</span><small lang="en">on</small></div><div><span class="ar">إِلَىٰ</span><small lang="en">to</small></div><div><span class="ar">بِ</span><small lang="en">with, by</small></div>
+            <div><span class="ar">هُوَ</span><small lang="en">he, it</small></div><div><span class="ar">هُمْ</span><small lang="en">they</small></div><div><span class="ar">كَانَ</span><small lang="en">was, is</small></div>
+          </div>
+          <p>Particles, verbs and nouns: 200 words, about half of all Quranic text.</p>
+        </div>
+        <div class="sh-foot"><span>Open the full list</span><span aria-hidden="true">→</span></div>
+      </a></li>
+      </ul>
+    </div>
+
+    <div class="bench" id="bench">
+      <div class="bench-top"><h3>Two tools you can use right now.</h3><p>No account, nothing to install. Type a word, or pick a root, and read the answer in the Quran's own words.</p></div>
+      <div class="wins">
+        <section class="w" aria-labelledby="w1-h">
+          <div class="w-bar"><i aria-hidden="true"><b></b><b></b><b></b></i><span class="u" aria-hidden="true">quranic-grammar.com/resources/word-lookup</span><a href="/resources/word-lookup/" aria-label="Open the word lookup">Open →</a></div>
+          <div class="w-body" id="w-bench">
+            <h4 id="w1-h">Word lookup</h4>
+            <form class="lk-form js-only" role="search" action="/resources/word-lookup/">
+              <label class="vh" for="lb-q">Search the Quran by an English word</label>
+              <div class="lk-bar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+              <input id="lb-q" type="search" autocomplete="off" spellcheck="false" placeholder="Type an English word" enterkeyhint="search"></div>
+              <p class="lk-hint">Press Enter to search every word of the Quran.</p>
+            </form>
+            <div class="lk-chips js-only" role="group" aria-label="Try a word">{LOOKUP_KEYS.map((k) => <button class="chip" type="button" aria-pressed={k === 'mercy' ? 'true' : 'false'}>{k}</button>)}</div>
+            <div class="lk-out" aria-live="polite" set:html={lookupResult('mercy')} />
+          </div>
+        </section>
+        <section class="w" aria-labelledby="w2-h">
+          <div class="w-bar"><i aria-hidden="true"><b></b><b></b><b></b></i><span class="u" aria-hidden="true">quranic-grammar.com/resources/verb-forms</span><a href="/resources/verb-forms/" aria-label="Open the verb form generator">Open →</a></div>
+          <div class="w-body" id="w-verbs">
+            <h4 id="w2-h">Verb form generator</h4>
+            <p class="w-sub">{verbRoots} verbal roots, each moving through the ten forms. Every verb shown is in the Quran; greyed forms are not.</p>
+            <div class="chipset js-only" role="group" aria-label="Pick a root">{benchVerbs.map((r, i) => <button type="button" data-i={i} aria-pressed={i === 0 ? 'true' : 'false'} aria-label={`Root ${r.translit}`}><span class="ar" lang="ar" dir="rtl">{r.root.split('').join(' ')}</span></button>)}</div>
+            <div class="cells" role="group" aria-label="The ten verb forms" set:html={verbCells(benchVerbs[0], verbDefaultForm(benchVerbs[0]))} />
+            <p class="det" aria-live="polite" set:html={verbDetail(benchVerbs[0], verbDefaultForm(benchVerbs[0]))} />
+          </div>
+        </section>
+      </div>
+
+      <div class="path">
+        <h4>{PATH.length + extraGuides.length} guides, <span>in an order that helps most.</span></h4>
+        <ol class="rail">
+          {railGuides.map(([id, title, line], i) => (
+            <li><a href={`/resources/${id}/`}>{i === 0 && <span class="go">START HERE</span>}<b>{title}</b><span class="d">{line}</span></a></li>
+          ))}
+        </ol>
+      </div>
+      <div class="bench-foot"><a class="btn primary" href="/resources/">Open all resources</a></div>
+    </div>
+  </section>
+
+  <!-- Learner quotes, after the reader so a visitor has seen the product first. Each card takes one of three tints.
+       The quotes live in src/data/testimonials.ts. -->
+  <section class="sec" aria-labelledby="voices-h">
+    <div class="sec-head"><div><p class="eyebrow">From learners</p><h2 id="voices-h">It finally makes sense.</h2></div><p>Students, self-learners and teachers, on what changed when they started reading the Quran word by word.</p></div>
+    <div class="stack">
+      {testimonials.map((t, i) => (
+        <figure class={`sc k${(i % 3) + 1}`} style={`--i:${i}`}>
+          <div class="sc-t">
+            <blockquote><p>{t.text}</p></blockquote>
+            <figcaption class="who"><span class="mono" aria-hidden="true">{t.name.charAt(0)}</span><span><b>{t.name}</b>{t.role && <small>{t.role}</small>}</span></figcaption>
+          </div>
+        </figure>
+      ))}
     </div>
   </section>
 
@@ -356,6 +484,7 @@ const step = LESSON_STEPS[1];
 </footer>
 <CookieBanner tone="light" />
 <script type="application/json" id="rd-data" is:inline set:html={JSON.stringify(reader).replace(/<\//g, '<\\/')}></script>
+<script type="application/json" id="vf-data" is:inline set:html={JSON.stringify(benchVerbs).replace(/<\//g, '<\\/')}></script>
 <script type="application/json" id="course-order" is:inline set:html={JSON.stringify(courseOrder).replace(/<\//g, '<\\/')}></script>
 <script>
   import '../scripts/home';

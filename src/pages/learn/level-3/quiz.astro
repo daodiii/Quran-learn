@@ -14,65 +14,75 @@ const nextLesson = nextLevelLessons.length > 0 ? `/learn/${nextLevelLessons[0].i
 const questions = [
   {
     id: 1,
-    question: "How many verb forms (awzan) are there in Arabic?",
-    options: ["5 forms", "8 forms", "10 forms", "15 forms"],
+    question: "How many numbered verb forms does the Quran use?",
+    options: [
+      "5 forms",
+      "8 forms",
+      "10 forms",
+      "15 forms",
+    ],
     correctAnswer: 2,
-    explanation: "There are 10 main verb forms (Form I through Form X) in Arabic, each with distinct meanings."
+    explanation: "The Quran uses ten forms, numbered I to X (L3.03). The root stays the same in all ten; only the shape around it changes. Form I is the bare verb."
   },
   {
     id: 2,
-    question: "What is Form I verb typically used for?",
+    question: "What is a Form I verb?",
     options: [
-      "Causative meaning",
-      "Basic/simple action",
-      "Reflexive meaning",
-      "Reciprocal meaning"
+      "A verb with a causative meaning",
+      "The bare verb: three root letters and vowels, nothing added",
+      "A verb with a reflexive meaning",
+      "A verb with a reciprocal meaning",
     ],
     correctAnswer: 1,
-    explanation: "Form I (فَعَلَ) represents the basic, simple action without added meanings."
+    explanation: "Form I (فَعَلَ) is the bare verb. It gives the plain meaning of the root (L3.04)."
   },
   {
     id: 3,
-    question: "What meaning does Form II typically add?",
+    question: "In 96:5, عَلِمَ means 'he knew' and عَلَّمَ means 'he taught'. What did the doubled ل add?",
     options: [
-      "Intensive or causative",
-      "Reflexive",
-      "Passive",
-      "Reciprocal"
+      "A second person who makes someone else know",
+      "A passive meaning",
+      "A negative meaning",
+      "The idea of doing it to oneself",
     ],
     correctAnswer: 0,
-    explanation: "Form II (فَعَّلَ) typically indicates intensification or causation of the basic action."
+    explanation: "Form I عَلِمَ has one person, the one who knows. Form II عَلَّمَ adds a teacher, who makes someone know, so the verb now takes two objects (L3.12). This is one use of the doubling, not a rule for all Form II verbs."
   },
   {
     id: 4,
-    question: "What does the particle إنَّ (inna) do to a nominal sentence?",
+    question: "In ٱلَّذِى خَلَقَنِى فَهُوَ يَهْدِينِ (Ash-Shuʿara 26:78), why does 'me' on the verb appear as ـنِى and not just ـِى?",
     options: [
-      "Makes the Mubtada Marfu'",
-      "Makes the Mubtada Mansub",
-      "Makes the Khabar Majrur",
-      "Has no effect"
+      "The extra nūn is the protecting nūn (nūn al-wiqāya): it takes the kasra the yāʾ needs, so the verb keeps its fatha",
+      "The nūn marks the plural",
+      "The nūn is a root letter of خَلَقَ",
+      "The nūn makes the verb passive",
     ],
-    correctAnswer: 1,
-    explanation: "إنَّ (inna) and its sisters cause the Mubtada to become Mansub (called Ism Inna)."
+    correctAnswer: 0,
+    explanation: "On a verb, 'me' is ـنِى: the nūn protects the fatha of the verb. On a noun it is ـِى, as in كِتَابِى (L3.02)."
   },
   {
     id: 5,
-    question: "How many 'sisters of inna' are there?",
-    options: ["3 particles", "5 particles", "6 particles", "8 particles"],
-    correctAnswer: 2,
-    explanation: "There are 6 particles: إنَّ، أنَّ، كأنَّ، لكنَّ، ليتَ، لعلَّ"
+    question: "Made-up example: a present verb ends in a sukūn after لَمْ, as in لَمْ يَجْعَلْ. What is this ending called, and what does the verb mean?",
+    options: [
+      "Jazm: 'he did not put'",
+      "Naṣb: 'he will not put'",
+      "Rafʿ: 'he puts'",
+      "Jazm: 'he will not put'",
+    ],
+    correctAnswer: 0,
+    explanation: "لَمْ puts the present form in jazm and gives it a past meaning: لَمْ يَجْعَلْ, 'he did not put' (L3.07). لَنْ brings naṣb, the -a ending."
   },
   {
     id: 6,
-    question: "What does the particle كانَ (kaana) do to a nominal sentence?",
+    question: "Which word is the doer word (active participle) from the root ك ت ب?",
     options: [
-      "Makes both Mubtada and Khabar Marfu'",
-      "Makes Mubtada Marfu' and Khabar Mansub",
-      "Makes both Mansub",
-      "Has no effect"
+      "كَاتِبٌ",
+      "مَكْتُوبٌ",
+      "كَتَبَ",
+      "يَكْتُبُ",
     ],
-    correctAnswer: 1,
-    explanation: "كانَ (kaana) keeps the Mubtada (Ism Kaana) Marfu' but makes the Khabar (Khabar Kaana) Mansub."
+    correctAnswer: 0,
+    explanation: "كَاتِبٌ has the pattern فَاعِل, which names the one who does the action. مَكْتُوبٌ, pattern مَفْعُول, is the done-to word (L3.19)."
   },
   {
     id: 7,
@@ -83,22 +93,27 @@ const questions = [
   },
   {
     id: 8,
-    question: "In passive voice, what happens to the Fa'il (subject)?",
+    question: "In passive voice, what happens to the fāʿil (the doer)?",
     options: [
       "It remains unchanged",
-      "It becomes Mansub",
-      "It is omitted",
-      "It becomes Majrur"
+      "It becomes accusative",
+      "It is not named",
+      "It becomes genitive",
     ],
     correctAnswer: 2,
-    explanation: "In passive voice, the Fa'il (agent/doer) is omitted, and the object becomes the Naib Fa'il (deputy subject)."
+    explanation: "A passive verb does not name its doer. The word that was the object takes the doer's place; the grammar books call it the nāʾib fāʿil, the stand-in for the doer (L3.09)."
   },
   {
     id: 9,
-    question: "What is the pattern for Form III verb?",
-    options: ["فَعَلَ", "فَعَّلَ", "فَاعَلَ", "أَفْعَلَ"],
+    question: "What is the pattern for a Form III verb?",
+    options: [
+      "فَعَلَ",
+      "فَعَّلَ",
+      "فَاعَلَ",
+      "أَفْعَلَ",
+    ],
     correctAnswer: 2,
-    explanation: "Form III follows the pattern فَاعَلَ (faa'ala) and often indicates attempting or directing action toward someone."
+    explanation: "Form III is فَاعَلَ, with a long ā after the first root letter (L3.17). In many verses the action has someone on the other side (with, against or towards), but not always. Read the verse."
   },
   {
     id: 10,
@@ -111,11 +126,59 @@ const questions = [
     ],
     correctAnswer: 1,
     explanation: "Passive past tense: change فَعَلَ to فُعِلَ (first vowel Damma, second Kasra)."
+  },
+  {
+    id: 11,
+    question: "Which pronoun means 'we'?",
+    options: [
+      "أَنَا",
+      "نَحْنُ",
+      "هُوَ",
+      "أَنْتَ",
+    ],
+    correctAnswer: 1,
+    explanation: "نَحْنُ is the separate pronoun for 'we'. أَنَا is 'I', هُوَ is 'he' and أَنْتَ is 'you' (one man) (L3.01)."
+  },
+  {
+    id: 12,
+    question: "Which prefix on a present verb means 'we'?",
+    options: [
+      "أَ",
+      "نَ",
+      "تَ",
+      "يَ",
+    ],
+    correctAnswer: 1,
+    explanation: "The prefix نَـ marks 'we': نَعْبُدُ, 'we worship' (L3.06)."
+  },
+  {
+    id: 13,
+    question: "ذَٰلِكَ means 'that' (far, one male). Which word means 'this' (near, one male)?",
+    options: [
+      "هَٰذَا",
+      "تِلْكَ",
+      "ذَٰلِكَ",
+      "هَٰذِهِ",
+    ],
+    correctAnswer: 0,
+    explanation: "هَٰذَا is 'this' for one male. Near words start with هَـ and far words end in ـكَ (L3.10)."
+  },
+  {
+    id: 14,
+    question: "Which joining noun is used for a group of men?",
+    options: [
+      "ٱلَّذِى",
+      "ٱلَّتِى",
+      "ٱلَّذِينَ",
+      "مَا",
+    ],
+    correctAnswer: 2,
+    explanation: "ٱلَّذِينَ is the form for a group of men (L3.11). ٱلَّذِى is for one man and ٱلَّتِى for one woman."
   }
 ];
 ---
 
-<BaseLayout title="Level 3 Quiz - Intermediate" description="Test your Intermediate knowledge: Arabic root system, verb forms I-X, past/present/imperative tenses, pronouns, active and passive participles, verbal nouns.">
+<BaseLayout title="Level 3 Quiz - Intermediate" description="Test your Intermediate knowledge: pronouns, the verb forms, the present tense, jazm, the passive, this and that, who and which, and doer words.">
   <Container maxWidth="lg">
     <QuizComponent
       title="Level 3 Quiz: Intermediate Grammar"

@@ -1,453 +1,813 @@
 ---
 title: "The Maf'ul Mutlaq (Absolute Object)"
+kicker: "The verb says it again"
+titleArabic: "اَلْمَفْعُول ٱلْمُطْلَق"
 level: 4
 order: 7
-description: "Understand the maf'ul mutlaq as a masdar used to emphasize or specify the verb's action, and recognize this accusative function in Quranic text."
+template: steps
+description: "Learn the mafʿūl muṭlaq, the verb’s own verbal noun in naṣb. See its three jobs (stress, kind, number), the stand-ins (كُلّ, a number, another form of the verbal noun) and the verbal noun that replaces its verb. Tell it from the object and the ḥāl, and go through four verses word by word."
 draft: false
 ---
 
-import ArabicExample from '../../../components/mdx/ArabicExample.astro';
-import GrammarTable from '../../../components/mdx/GrammarTable.astro';
-import Callout from '../../../components/mdx/Callout.astro';
-import ExerciseBox from '../../../components/mdx/ExerciseBox.astro';
-
-## Introduction
-
-The direct object (مَفْعُولٌ بِهِ) receives the action of a verb: "I wrote THE LETTER." But Arabic has another type of accusative noun called the **maf'ul mutlaq** (absolute object) that REPEATS the verb's meaning using its masdar. This creates emphasis or specifies the manner/type of the action.
-
-<ArabicExample
-  arabic="إِذَا زُلْزِلَتِ ٱلْأَرْضُ زِلْزَالَهَا"
-  transliteration="idhā zulzilati l-arḍu zilzālahā"
-  translation="When the earth is shaken with its [final] earthquake"
-  reference="Al-Zilzal 99:1"
-  highlight="زِلْزَالَهَا"
-  words={[
-    { ar: "إِذَا", tr: "idhā", en: "when" },
-    { ar: "زُلْزِلَتِ", tr: "zulzilati", en: "is shaken" },
-    { ar: "ٱلْأَرْضُ", tr: "l-arḍu", en: "the earth" },
-    { ar: "زِلْزَالَهَا", tr: "zilzālahā", en: "its earthquake" }
-  ]}
-/>
-
-The word **زِلْزَالَهَا** (zilzālahā) "its earthquake" is the masdar from the verb **زُلْزِلَتِ** (zulzilat) "it was shaken." It doesn't receive the action (like a direct object would) — instead, it EMPHASIZES and SPECIFIES the shaking: "shaken with its PROPER shaking" or "shaken with its ULTIMATE earthquake."
-
-**In this lesson, you will:**
-- Understand the maf'ul mutlaq as a masdar repeating the verb's root meaning
-- Recognize three functions: emphasis, type specification, and number specification
-- Distinguish the absolute object from the direct object
-- Identify the same-root requirement (verb and masdar share the same root)
-- Recognize maf'ul mutlaq in accusative case
-- Analyze absolute objects in Surah Al-Zilzal
-
-**Connection to previous learning:** In [L2.05 Accusative Case](/learn/level-2/05-accusative-case/), you learned that accusative marks objects and circumstances. In [L3.20 Verbal Nouns (Masdar)](/learn/level-3/20-verbal-nouns/), you learned how verbs generate abstract action nouns. Now you'll see how the masdar appears IN SENTENCES as an accusative absolute object to emphasize or specify the action.
-
-**Forward connection:** This lesson begins a series on specialized accusative functions. Next, you'll learn [L4.08 Maf'ul li-Ajlih](/learn/level-4/08-maf-ul-li-ajlih/) (object of cause) and [L4.09 Maf'ul Ma'ah](/learn/level-4/09-maf-ul-ma-ah/) (object of accompaniment), completing your understanding of the five major accusative types beyond the direct object.
-
-<Callout type="note" title="Plain-English key">
-Quick, everyday translations of the grammar terms in this lesson — glance back here whenever one trips you up:
-
-- **Absolute object** (mafʿūl muṭlaq / مَفْعُول مُطْلَق) — repeating the verb's own noun to stress it ("he helped *a real helping*").
-- **Mafʿūl bihi** (مَفْعُول بِهِ) — the object: the thing the action is done to.
-</Callout>
-
-## Understanding the Absolute Object
-
-**Plain English first:** Think of the absolute object as "action reinforcement." Instead of just saying "I hit," Arabic can say "I hit A HITTING" to emphasize the action. Instead of "The earth shook," Arabic says "The earth shook AN EARTHQUAKE" to make the shaking more vivid and emphatic.
-
-**Analogy for clarity:**
-
-Imagine a movie scene where someone runs:
-- **Simple verb:** "He ran" → Basic action
-- **With direct object:** "He ran THE RACE" → Action applied to something
-- **With absolute object:** "He ran A RUNNING" → Action emphasized/intensified
-
-The absolute object doesn't add a NEW element to the sentence (like a direct object does). Instead, it DOUBLES DOWN on the verb itself, making the action more powerful, more specific, or more vivid.
-
-### Arabic Terminology
-
-**Maf'ul Mutlaq** — [mafʿūl muṭlaq](/resources/glossary/#mafool-mutlaq) (mafʿūl muṭlaq / مَفْعُولٌ مُطْلَقٌ)
-
-Literally "the absolute object" or "the unrestricted object." The word **مُطْلَقٌ** (muṭlaq) means "absolute, unrestricted, released." It's called "absolute" because it's not restricted to being a separate entity from the verb — it shares the verb's very essence (same root).
-
-**Grammatical status:**
-- **Case:** Always accusative (مَنْصُوبٌ)
-- **Function:** Emphasis, specification, or number indication
-- **Form:** Masdar from the SAME ROOT as the verb
-
-### Core Requirement: Same Root
-
-**The fundamental rule:** The maf'ul mutlaq MUST be the masdar of the verb (or from the same root as the verb).
-
-**Correct examples:**
-
-<GrammarTable>
-| Verb | Root | Maf'ul Mutlaq (Masdar) | Translation |
-|------|------|----------------------|-------------|
-| ضَرَبَ (ḍaraba) "struck" | ض-ر-ب | ضَرْبًا (ḍarban) | struck a striking |
-| كَتَبَ (kataba) "wrote" | ك-ت-ب | كِتَابَةً (kitābatan) | wrote a writing |
-| فَرِحَ (fariḥa) "rejoiced" | ف-ر-ح | فَرَحًا (faraḥan) | rejoiced with joy |
-| نَصَرَ (naṣara) "helped" | ن-ص-ر | نَصْرًا (naṣran) | helped with help |
-</GrammarTable>
-
-**Why same root matters:** The absolute object isn't adding new information — it's INTENSIFYING or SPECIFYING what the verb already says. Since the verb and masdar share the same root, the absolute object literally ECHOES the verb's meaning.
-
-## Three Functions of Maf'ul Mutlaq
-
-The absolute object serves three main purposes:
-
-### Function 1: Emphasis (التَّوْكِيدُ)
-
-**Purpose:** To make the action stronger, more vivid, more emphatic.
-
-**Pattern:** Verb + bare masdar (no adjective)
-
-**Example from Al-Zilzal:**
-
-<ArabicExample
-  arabic="إِذَا زُلْزِلَتِ ٱلْأَرْضُ زِلْزَالَهَا"
-  transliteration="idhā zulzilati l-arḍu zilzālahā"
-  translation="When the earth is shaken with its [final] earthquake"
-  reference="Al-Zilzal 99:1"
-  highlight="زِلْزَالَهَا"
-  words={[
-    { ar: "إِذَا", tr: "idhā", en: "when" },
-    { ar: "زُلْزِلَتِ", tr: "zulzilati", en: "is shaken" },
-    { ar: "ٱلْأَرْضُ", tr: "l-arḍu", en: "the earth" },
-    { ar: "زِلْزَالَهَا", tr: "zilzālahā", en: "its earthquake" }
-  ]}
-/>
-
-**Morphological analysis:**
-- **Verb:** زُلْزِلَتِ (zulzilat) — "it was shaken" (passive, Form I quadriliteral from ز-ل-ز-ل)
-- **Maf'ul mutlaq:** زِلْزَالَهَا (zilzālahā) — "its earthquake/shaking" (masdar + possessive pronoun)
-- **Root:** ز-ل-ز-ل (z-l-z-l) — "shaking" (same root as verb)
-- **Case:** Accusative (implied ـًا before pronoun attachment)
-- **Function:** EMPHASIS — not just any shaking, but THE ULTIMATE, COMPLETE shaking
-
-**Translation effect:** The English "with its earthquake" doesn't fully capture the emphasis. Better translations might be:
-- "shaken with its UTTER shaking"
-- "shaken with its COMPLETE convulsion"
-- "shaken to its very core"
-
-**Plain English:** The earth won't just shake — it will shake A SHAKING, with maximum intensity.
-
-### Function 2: Type Specification (بَيَانُ ٱلنَّوْعِ)
-
-**Purpose:** To describe WHAT KIND of action occurred.
-
-**Pattern:** Verb + masdar + adjective/descriptor
-
-**Example:**
-
-<ArabicExample
-  arabic="فَلَا تَمِيلُوا كُلَّ ٱلْمَيْلِ"
-  transliteration="fa-lā tamīlū kulla l-mayli"
-  translation="So do not incline [completely] toward them with all inclination"
-  reference="An-Nisa 4:129"
-  highlight="كُلَّ ٱلْمَيْلِ"
-  words={[
-    { ar: "فَلَا", tr: "fa-lā", en: "so do not" },
-    { ar: "تَمِيلُوا", tr: "tamīlū", en: "incline" },
-    { ar: "كُلَّ", tr: "kulla", en: "all" },
-    { ar: "ٱلْمَيْلِ", tr: "l-mayli", en: "the inclination" }
-  ]}
-/>
-
-**Morphological analysis:**
-- **Verb:** تَمِيلُوا (tamīlū) — "you incline" (present jussive, Form I from root م-ي-ل)
-- **Maf'ul mutlaq:** ٱلْمَيْلِ (al-mayli) — "the inclination" (masdar, genitive after كُلَّ)
-- **Specification:** كُلَّ (kulla) — "all, complete" (describes the TYPE/DEGREE of inclination)
-- **Case:** كُلَّ is accusative (maf'ul mutlaq), ٱلْمَيْلِ is genitive (mudaf ilayhi)
-- **Function:** TYPE — not just any inclination, but COMPLETE, TOTAL inclination
-
-**Translation effect:** "Don't incline with THAT KIND of inclination" = Don't incline completely/totally.
-
-**Plain English:** Instead of just saying "don't incline," it specifies the DEGREE: don't incline with TOTAL inclination. The masdar is modified to show WHAT KIND of action is forbidden.
-
-### Function 3: Number Specification (بَيَانُ ٱلْعَدَدِ)
-
-**Purpose:** To state HOW MANY TIMES the action occurred.
-
-**Pattern:** Verb + number + masdar (or masdar + number)
-
-**Example:**
-
-<ArabicExample
-  arabic="فَٱجْلِدُوهُمْ ثَمَٰنِينَ جَلْدَةً"
-  transliteration="fa-jlidūhum thamānīna jaldatan"
-  translation="Then lash them with eighty lashes"
-  reference="An-Nur 24:4"
-  highlight="ثَمَٰنِينَ جَلْدَةً"
-  words={[
-    { ar: "فَٱجْلِدُوهُمْ", tr: "fa-jlidūhum", en: "then lash them" },
-    { ar: "ثَمَٰنِينَ", tr: "thamānīna", en: "eighty" },
-    { ar: "جَلْدَةً", tr: "jaldatan", en: "lashes" }
-  ]}
-/>
-
-**Morphological analysis:**
-- **Verb:** ٱجْلِدُوهُمْ (ijlidūhum) — "lash them" (imperative, Form I from ج-ل-د)
-- **Number:** ثَمَٰنِينَ (thamānīna) — "eighty" (accusative)
-- **Maf'ul mutlaq:** جَلْدَةً (jaldatan) — "a lash/lashing" (masdar, accusative with tanwin)
-- **Root:** ج-ل-د (j-l-d) — "lashing" (same root as verb)
-- **Case:** Both accusative
-- **Function:** NUMBER — specifies exactly HOW MANY times to perform the action
-
-**Translation effect:** "Lash them eighty lashings" — the number makes the penalty precise and unambiguous.
-
-**Plain English:** The masdar appears with a number to quantify the action: once, twice, eighty times, etc.
-
-## Maf'ul Mutlaq vs. Direct Object
-
-**Critical distinction:** Don't confuse the absolute object with the direct object!
-
-<GrammarTable>
-| Feature | Direct Object (مَفْعُولٌ بِهِ) | Absolute Object (مَفْعُولٌ مُطْلَقٌ) |
-|---------|------------------------------|-----------------------------------|
-| **Meaning** | RECEIVES the action | REPEATS/EMPHASIZES the action |
-| **Root** | DIFFERENT root from verb | SAME root as verb (its masdar) |
-| **Function** | Adds new element | Intensifies existing element |
-| **Case** | Accusative | Accusative |
-| **Example** | كَتَبَ رِسَالَةً "wrote a letter" | كَتَبَ كِتَابَةً "wrote (intensely)" |
-</GrammarTable>
-
-**Side-by-side comparison:**
-
-**Direct object:**
-<ArabicExample
-  arabic="كَتَبَ ٱلطَّالِبُ رِسَالَةً"
-  transliteration="kataba ṭ-ṭālibu risālatan"
-  translation="The student wrote a letter"
-  reference="(constructed example)"
-  highlight="رِسَالَةً"
-  words={[
-    { ar: "كَتَبَ", tr: "kataba", en: "wrote" },
-    { ar: "ٱلطَّالِبُ", tr: "ṭ-ṭālibu", en: "the student" },
-    { ar: "رِسَالَةً", tr: "risālatan", en: "a letter" }
-  ]}
-/>
-
-- **رِسَالَةً** (risālatan) "a letter" — different root (ر-س-ل), RECEIVES the action of writing
-- **Function:** Direct object (what was written)
-
-**Absolute object:**
-<ArabicExample
-  arabic="كَتَبَ ٱلطَّالِبُ كِتَابَةً"
-  transliteration="kataba ṭ-ṭālibu kitābatan"
-  translation="The student wrote intensively / did writing"
-  reference="(constructed example)"
-  highlight="كِتَابَةً"
-  words={[
-    { ar: "كَتَبَ", tr: "kataba", en: "wrote" },
-    { ar: "ٱلطَّالِبُ", tr: "ṭ-ṭālibu", en: "the student" },
-    { ar: "كِتَابَةً", tr: "kitābatan", en: "a writing" }
-  ]}
-/>
-
-- **كِتَابَةً** (kitābatan) "writing" — same root (ك-ت-ب), REPEATS the action
-- **Function:** Absolute object (emphasizes the writing action)
-
-**Can both appear together?** YES!
-
-<ArabicExample
-  arabic="كَتَبَ ٱلطَّالِبُ رِسَالَةً كِتَابَةً جَمِيلَةً"
-  transliteration="kataba ṭ-ṭālibu risālatan kitābatan jamīlatan"
-  translation="The student wrote a letter beautifully (with beautiful writing)"
-  reference="(constructed example)"
-  highlight="رِسَالَةً كِتَابَةً جَمِيلَةً"
-  words={[
-    { ar: "كَتَبَ", tr: "kataba", en: "wrote" },
-    { ar: "ٱلطَّالِبُ", tr: "ṭ-ṭālibu", en: "the student" },
-    { ar: "رِسَالَةً", tr: "risālatan", en: "a letter" },
-    { ar: "كِتَابَةً", tr: "kitābatan", en: "a writing" },
-    { ar: "جَمِيلَةً", tr: "jamīlatan", en: "beautiful" }
-  ]}
-/>
-
-- **رِسَالَةً** (risālatan) — direct object (what was written) — "a letter"
-- **كِتَابَةً جَمِيلَةً** (kitābatan jamīlatan) — absolute object with type specification (how the writing was done) — "a beautiful writing"
-
-<Callout type="tip" title="Two accusatives in one sentence">
-Arabic allows multiple accusative nouns in a single sentence serving different functions. The direct object says WHAT receives the action. The absolute object says HOW/HOW MUCH the action occurred. Both are accusative, but they serve completely different grammatical roles.
-</Callout>
-
-## Examples from Surah Al-Zilzal
-
-Surah Al-Zilzal (The Earthquake) powerfully uses the maf'ul mutlaq for eschatological emphasis:
-
-### Example 1: The Earth's Ultimate Shaking
-
-<ArabicExample
-  arabic="إِذَا زُلْزِلَتِ ٱلْأَرْضُ زِلْزَالَهَا"
-  transliteration="idhā zulzilati l-arḍu zilzālahā"
-  translation="When the earth is shaken with its [final] earthquake"
-  reference="Al-Zilzal 99:1"
-  highlight="زُلْزِلَتِ ٱلْأَرْضُ زِلْزَالَهَا"
-  words={[
-    { ar: "إِذَا", tr: "idhā", en: "when" },
-    { ar: "زُلْزِلَتِ", tr: "zulzilati", en: "is shaken" },
-    { ar: "ٱلْأَرْضُ", tr: "l-arḍu", en: "the earth" },
-    { ar: "زِلْزَالَهَا", tr: "zilzālahā", en: "its earthquake" }
-  ]}
-/>
-
-**Full grammatical analysis:**
-
-**إِذَا** (idhā) — "when" (conditional particle)
-
-**زُلْزِلَتِ** (zulzilat) — "it was shaken"
-- Root: ز-ل-ز-ل (z-l-z-l) quadriliteral "shaking"
-- Form: Passive (the earth is BEING shaken by Allah)
-- Tense: Past (but with idhā indicates future Day of Judgment)
-
-**ٱلْأَرْضُ** (al-arḍu) — "the earth"
-- Function: Subject of passive verb (نَائِبُ ٱلْفَاعِلِ)
-- Case: Nominative (ـُ)
-
-**زِلْزَالَهَا** (zilzālahā) — "its earthquake/shaking"
-- Root: ز-ل-ز-ل (same as verb — CRITICAL!)
-- Form: Masdar pattern فِعْلَالٌ (quadriliteral masdar)
-- Function: Maf'ul mutlaq (absolute object) — EMPHASIS function
-- Case: Accusative (implied before pronoun)
-- Pronoun: ـهَا (hā) possessive "its"
-
-**Why possessive pronoun?** The pronoun **ـهَا** (hā) "its" refers back to the earth, suggesting THIS PARTICULAR shaking is the earth's DESTINED, FINAL shaking — the ultimate earthquake reserved for the Day of Judgment.
-
-**Rhetorical power:** This structure creates intense emphasis. The earth won't just shake — it will shake THE SHAKING, the complete, utter, final convulsion that defines the end of the world.
-
-### Example 2: The Earth's Burdens
-
-<ArabicExample
-  arabic="وَأَخْرَجَتِ ٱلْأَرْضُ أَثْقَالَهَا"
-  transliteration="wa-akhrajati l-arḍu athqālahā"
-  translation="And the earth discharges its burdens"
-  reference="Al-Zilzal 99:2"
-  highlight="أَثْقَالَهَا"
-  words={[
-    { ar: "وَأَخْرَجَتِ", tr: "wa-akhrajati", en: "and discharges" },
-    { ar: "ٱلْأَرْضُ", tr: "l-arḍu", en: "the earth" },
-    { ar: "أَثْقَالَهَا", tr: "athqālahā", en: "its burdens" }
-  ]}
-/>
-
-**Note:** **أَثْقَالَهَا** (athqālahā) "its burdens" is NOT a maf'ul mutlaq here — it's a direct object (different root from the verb أَخْرَجَتِ). This shows the contrast: direct objects have different roots, absolute objects share the verb's root.
-
-### Recognition Pattern in Al-Zilzal
-
-Al-Zilzal uses parallel structure with possessive pronouns:
-- Verse 1: **زِلْزَالَهَا** (zilzālahā) — "its (earth's) shaking" (maf'ul mutlaq)
-- Verse 2: **أَثْقَالَهَا** (athqālahā) — "its (earth's) burdens" (direct object)
-
-The symmetry creates powerful rhythm, but grammatically they're different: the first emphasizes the ACTION (shaking), the second introduces a NEW ELEMENT (burdens).
-
-## Exercises
-
-<ExerciseBox question="Exercise 1: Identify the Maf'ul Mutlaq">
-
-Identify the absolute object in each sentence and state its function (emphasis, type, or number).
-
-**1. إِذَا زُلْزِلَتِ ٱلْأَرْضُ زِلْزَالَهَا (idhā zulzilati l-arḍu zilzālahā) — Al-Zilzal 99:1**
-
-Maf'ul mutlaq: زِلْزَالَهَا (zilzālahā). Root: ز-ل-ز-ل (same as verb زُلْزِلَتِ). Function: EMPHASIS — the earth will shake with its ULTIMATE, COMPLETE earthquake. Case: Accusative (implied before pronoun attachment).
-
-**2. فَٱجْلِدُوهُمْ ثَمَٰنِينَ جَلْدَةً (fa-jlidūhum thamānīna jaldatan) — An-Nur 24:4**
-
-Maf'ul mutlaq: جَلْدَةً (jaldatan). Root: ج-ل-د (same as verb ٱجْلِدُوهُمْ). Function: NUMBER — specifies the action occurs eighty times. Case: Accusative with tanwin (ـًا).
-
-**3. فَلَا تَمِيلُوا كُلَّ ٱلْمَيْلِ (fa-lā tamīlū kulla l-mayli) — An-Nisa 4:129**
-
-Maf'ul mutlaq: كُلَّ ٱلْمَيْلِ (kulla l-mayli). Root: م-ي-ل (same as verb tamīlū). Function: TYPE — specifies COMPLETE/TOTAL inclination. Case: كُلَّ is accusative, ٱلْمَيْلِ is genitive (mudaf ilayhi).
-
-**4. وَكَلَّمَ ٱللَّهُ مُوسَىٰ تَكْلِيمًا (wa-kallama llāhu mūsā taklīman) — An-Nisa 4:164**
-
-Maf'ul mutlaq: تَكْلِيمًا (taklīman). Root: ك-ل-م (same as verb كَلَّمَ). Function: EMPHASIS — Allah spoke to Moses with DIRECT, REAL speech (emphasizes the reality of divine speech). Case: Accusative with tanwin (ـًا).
-
-</ExerciseBox>
-
-<ExerciseBox question="Exercise 2: Maf'ul Mutlaq vs. Direct Object">
-
-Determine whether the accusative noun is a maf'ul mutlaq (same root) or direct object (different root).
-
-**1. كَتَبَ ٱلطَّالِبُ رِسَالَةً (kataba ṭ-ṭālibu risālatan) — 'The student wrote a letter'**
-
-DIRECT OBJECT. رِسَالَةً (risālatan) 'a letter' has root ر-س-ل, different from verb كَتَبَ (root ك-ت-ب). It receives the action (what was written), not repeating the verb's meaning.
-
-**2. كَتَبَ ٱلطَّالِبُ كِتَابَةً (kataba ṭ-ṭālibu kitābatan) — 'The student wrote (intensely)'**
-
-MAF'UL MUTLAQ. كِتَابَةً (kitābatan) 'writing' is the masdar from the same root ك-ت-ب as the verb. Function: EMPHASIS. It doesn't introduce a new element — it intensifies the writing action itself.
-
-**3. وَأَخْرَجَتِ ٱلْأَرْضُ أَثْقَالَهَا (wa-akhrajati l-arḍu athqālahā) — 'The earth discharged its burdens'**
-
-DIRECT OBJECT. أَثْقَالَهَا (athqālahā) 'its burdens' has root ث-ق-ل, different from verb أَخْرَجَتِ (root خ-ر-ج). It receives the action (what was discharged).
-
-</ExerciseBox>
-
-<ExerciseBox question="Exercise 3: Determine Maf'ul Mutlaq Function">
-
-Identify whether the absolute object serves emphasis, type specification, or number specification.
-
-**1. ضَرَبَ ٱلْمُعَلِّمُ ٱلطَّالِبَ ضَرْبًا (ḍaraba l-muʿallimu ṭ-ṭāliba ḍarban) — 'The teacher struck the student (emphatically)'**
-
-Function: EMPHASIS. ضَرْبًا (ḍarban) is the bare masdar without adjective or number, emphasizing the striking action occurred forcefully or completely. Root: ض-ر-ب (same as verb).
-
-**2. ضَرَبَ ٱلْمُعَلِّمُ ٱلطَّالِبَ ضَرْبًا شَدِيدًا (ḍaraba l-muʿallimu ṭ-ṭāliba ḍarban shadīdan) — 'The teacher struck the student severely'**
-
-Function: TYPE. ضَرْبًا شَدِيدًا (ḍarban shadīdan) 'a severe striking' has an adjective شَدِيدًا (shadīdan) specifying WHAT KIND of striking — severe, intense. Root: ض-ر-ب.
-
-**3. ضَرَبَ ٱلْمُعَلِّمُ ٱلطَّالِبَ ضَرْبَتَيْنِ (ḍaraba l-muʿallimu ṭ-ṭāliba ḍarbatayni) — 'The teacher struck the student twice'**
-
-Function: NUMBER. ضَرْبَتَيْنِ (ḍarbatayni) is the dual form 'two strikes' specifying exactly HOW MANY TIMES the action occurred. Root: ض-ر-ب.
-
-</ExerciseBox>
-
-<ExerciseBox question="Exercise 4: Root Analysis">
-
-Verify the same-root requirement by identifying the verb root and masdar root.
-
-**1. Verb: زُلْزِلَتِ (zulzilat) 'was shaken'. Maf'ul mutlaq: زِلْزَالَهَا (zilzālahā) 'its earthquake'**
-
-Verb root: ز-ل-ز-ل (z-l-z-l) quadriliteral 'shaking'. Masdar root: ز-ل-ز-ل (z-l-z-l) — SAME ROOT. ✓ Valid maf'ul mutlaq. Pattern: Quadriliteral masdar فِعْلَالٌ (zilzāl).
-
-**2. Verb: كَلَّمَ (kallama) 'spoke' (Form II). Maf'ul mutlaq: تَكْلِيمًا (taklīman) 'speaking'**
-
-Verb root: ك-ل-م (k-l-m) 'speaking'. Masdar root: ك-ل-م (k-l-m) — SAME ROOT. ✓ Valid maf'ul mutlaq. Pattern: Form II masdar تَفْعِيلٌ (tafʿīl).
-
-**3. Verb: نَصَرَ (naṣara) 'helped'. Proposed maf'ul: عَوْنًا (ʿawnan) 'help/aid'**
-
-Verb root: ن-ص-ر (n-ṣ-r) 'helping'. Proposed masdar root: ع-و-ن (ʿ-w-n) 'help' — DIFFERENT ROOTS. ✗ NOT a valid maf'ul mutlaq (would be a direct object or synonym, but not the absolute object pattern).
-
-</ExerciseBox>
-
-## Summary
-
-**Maf'ul mutlaq (absolute object) key points:**
-
-1. **Definition:** The masdar of a verb placed in the accusative case to emphasize, specify type, or indicate number of the action
-2. **Same-root requirement:** MUST share the verb's root (it's the verb's masdar)
-3. **Three functions:**
-   - **Emphasis (تَوْكِيدٌ):** Bare masdar intensifies the action
-   - **Type specification (بَيَانُ ٱلنَّوْع):** Masdar + adjective describes HOW the action occurred
-   - **Number specification (بَيَانُ ٱلْعَدَد):** Masdar + number states HOW MANY TIMES
-4. **Case:** Always accusative (مَنْصُوبٌ) with fatha or tanwin
-5. **Distinction from direct object:** Direct object has DIFFERENT root and RECEIVES action; maf'ul mutlaq has SAME root and REPEATS action
-6. **Can coexist:** A sentence can have both a direct object and an absolute object
-
-**Recognition checklist:**
-1. Find an accusative masdar in the sentence
-2. Check if it shares the verb's root
-3. If same root → maf'ul mutlaq
-4. If different root → direct object or other accusative function
-5. Determine function: bare masdar (emphasis), masdar + adjective (type), masdar + number (quantity)
-
-**Six examples from this lesson:**
-
-| Verb | Root | Maf'ul Mutlaq | Function | Reference |
-|------|------|--------------|----------|-----------|
-| زُلْزِلَتِ (shaken) | ز-ل-ز-ل | زِلْزَالَهَا (its earthquake) | Emphasis | Al-Zilzal 99:1 |
-| ٱجْلِدُوهُمْ (lash them) | ج-ل-د | ثَمَٰنِينَ جَلْدَةً (eighty lashes) | Number | An-Nur 24:4 |
-| تَمِيلُوا (incline) | م-ي-ل | كُلَّ ٱلْمَيْلِ (all inclination) | Type | An-Nisa 4:129 |
-| كَلَّمَ (spoke) | ك-ل-م | تَكْلِيمًا (speaking) | Emphasis | An-Nisa 4:164 |
-| ضَرَبَ (struck) | ض-ر-ب | ضَرْبًا (striking) | Emphasis | (example) |
-| كَتَبَ (wrote) | ك-ت-ب | كِتَابَةً (writing) | Emphasis | (example) |
-
-**Next steps:** In [L4.08 Maf'ul li-Ajlih](/learn/level-4/08-maf-ul-li-ajlih/), you'll learn about the "object of cause" — an accusative masdar that expresses the REASON or PURPOSE for the action (not emphasizing the action itself, but explaining WHY it happened). This continues your study of specialized accusative functions beyond the direct object.
+import Step from '../../../components/lesson/Step.astro';
+import Stage from '../../../components/lesson/Stage.astro';
+import Sentence from '../../../components/lesson/Sentence.astro';
+import Tiles from '../../../components/lesson/Tiles.astro';
+import Formula from '../../../components/lesson/Formula.astro';
+import Note from '../../../components/lesson/Note.astro';
+import Check from '../../../components/lesson/Check.astro';
+import Start from '../../../components/lesson/Start.astro';
+import Sources from '../../../components/lesson/Sources.astro';
+import Parse from '../../../components/lesson/Parse.astro';
+import Exercise from '../../../components/lesson/Exercise.astro';
+import Block from '../../../components/lesson/Block.astro';
+
+{/* Content spec: docs/redesign/specs/L4.07-maf-ul-mutlaq.md. Every parse follows al-Jadwal (Mahmud Safi); where al-Durr al-Masun adds another reading the lesson says so. */}
+
+<Step hero id="start" label="The action again" title={frontmatter.title} kicker={frontmatter.kicker} titleArabic={frontmatter.titleArabic}>
+<Block id="overview" title="In this lesson" level={2} uncounted>
+  <Stage label="The idea">
+    <Formula
+      label="a verb plus its own verbal noun equals a stronger or clearer action"
+      items={[
+        { kind: 'm', text: 'the verb', small: 'كَلَّمَ: spoke' },
+        { kind: 'k', text: 'its verbal noun in naṣb', small: 'تَكْلِيمًا: a speaking' },
+        { kind: 's', text: 'a stronger or clearer action', small: 'مَفْعُول مُطْلَق' },
+      ]}
+    />
+  </Stage>
+  <Start
+    goal="Spot a <b>mafʿūl muṭlaq</b> and say its job (stress, kind or number), tell it from the object and from the ḥāl, read the <b>stand-ins</b> (كُلّ, a number, another form of the verbal noun), meet a verbal noun that replaces its verb, and go through four verses word by word."
+    minutes={60}
+    before="The accusative case and the object (L2.05). The idafah, “X of Y” (L2.08). The verbal noun (L3.20): this lesson uses it in every step."
+    terms={[
+      { term: 'Mafʿūl muṭlaq', ar: 'مَفْعُول مُطْلَق', meaning: 'Absolute object: a verbal noun in naṣb that repeats the verb to stress it, say its kind, or say how many times.' },
+      { term: 'Maṣdar', ar: 'مَصْدَر', meaning: 'Verbal noun: the noun that names the action (L3.20).' },
+      { term: 'Mafʿūl bihi', ar: 'مَفْعُول بِهِ', meaning: 'Object: the thing the action is done to (L2.05).' },
+      { term: 'Manṣūb', ar: 'مَنْصُوب', meaning: 'In naṣb (accusative): the ending is -a, -an, -ayni or -īna (L2.05).' },
+      { term: 'Tawkīd', ar: 'تَوْكِيد', meaning: 'Stress: saying the action again so that it is certain.' },
+      { term: 'Bayān al-nawʿ', ar: 'بَيَان ٱلنَّوْع', meaning: 'Saying the kind: what sort of action it was.' },
+      { term: 'Bayān al-ʿadad', ar: 'بَيَان ٱلْعَدَد', meaning: 'Saying the number: how many times it happened.' },
+      { term: 'Nāʾib ʿan al-maṣdar', ar: 'نَائِب عَنِ ٱلْمَصْدَر', meaning: 'A stand-in for the verbal noun: a word that does its job when the verb’s own verbal noun is not there.' },
+    ]}
+  />
+</Block>
+
+<Block id="see" title="Look at this verse" level={2}>
+  <Stage>
+    <Sentence
+      size="big"
+      roles
+      reference="An-Nisa 4:164 (end)"
+      groups={[
+        { role: 'fiil', words: [{ ar: 'وَكَلَّمَ', en: 'and spoke', say: 'wa-kallama', type: 'v' }] },
+        { role: 'fail', words: [{ ar: 'ٱللَّهُ', en: 'Allah', say: 'allahu' }] },
+        { role: 'maful', label: 'mafʿūl bihi', hint: 'spoke to whom?', words: [{ ar: 'مُوسَىٰ', en: 'Musa', say: 'musa' }] },
+        { role: 'maful', label: 'mafʿūl muṭlaq', hint: 'spoke how?', words: [{ ar: 'تَكْلِيمًا', en: 'really', say: 'takliman' }] },
+      ]}
+      en={['And Allah really spoke to Musa.']}
+    />
+  </Stage>
+
+Read the line from right to left. كَلَّمَ is “spoke to”. ٱللَّهُ is the doer. مُوسَىٰ is the one who was spoken to, the object.
+
+The last word, تَكْلِيمًا, is a noun made from the same root as the verb: ك ل م. Word for word the verse says “spoke a speaking”. English has this habit too: “she smiled a big smile”, “he slept a deep sleep”. English usually turns the noun into a word like “really”.
+
+Arabic names this word a **mafʿūl muṭlaq** (مَفْعُول مُطْلَق). L2.05 showed this verse and said Level 4 would teach it.
+
+*Al-Durr al-Maṣūn* calls تَكْلِيمًا a verbal noun that stresses the verb and rules out a figurative reading. Without it, “spoke to Musa” could mean something looser, like sending him a message. With it, the speaking was real speaking.
+
+<Check n={1} q="What does تَكْلِيمًا do in this verse?" options={['It repeats the verb to make it strong', 'It is the one who was spoken to', 'It is the doer']} answer={0} why="تَكْلِيمًا comes from the root of كَلَّمَ and repeats its meaning. The one spoken to is مُوسَىٰ." />
+</Block>
+
+<Block id="name" title="What the grammar book says">
+  <Stage label="From al-Ajurrumiyyah">
+    <blockquote class="lx-quote" lang="ar" dir="rtl">
+      <p>اَلْمَصْدَرُ هُوَ الِاسْمُ الْمَنْصُوبُ الَّذِي يَجِيءُ ثَالِثًا فِي تَصْرِيفِ الْفِعْلِ</p>
+    </blockquote>
+    <p class="lx-quote-note">Vowel marks added by Quran Learn.</p>
+  </Stage>
+
+*Al-Ajurrumiyyah* has a chapter called **the maṣdar**. It says that the maṣdar is the **accusative noun** that comes **third** in the verb’s conjugation. Its example is the verb ضَرَبَ يَضْرِبُ: past (ضَرَبَ), present (يَضْرِبُ), then the verbal noun (ضَرْبًا). This is the verbal noun of L3.20, here in naṣb.
+
+Later books, and al-Jadwal, call this job **mafʿūl muṭlaq**. Two terms help.
+
+- **Mafʿūl bihi** (مَفْعُول بِهِ) is the thing the verb acts on. The names of the other objects each carry a tie: bihi (“to it”), fīhi (“in it”), li-ajlihi (“for its sake”) and maʿahu (“with it”).
+- **Muṭlaq** means “free”. This object has no tie in its name. Teachers explain the name this way. The lesson did not check that explanation in a book.
+
+<Check n={2} q="In the book’s words, where does the maṣdar come in the verb’s conjugation?" options={['Third, after the past and the present', 'First, before the past', 'It is not part of the conjugation']} answer={0} why="The book lists ضَرَبَ يَضْرِبُ ضَرْبًا: past, present, verbal noun." />
+</Block>
+
+<Block id="same-root" title="One root, two words">
+  <Stage label="Teaching forms">
+    <Tiles
+      label="Four verbs and their verbal nouns in naṣb"
+      items={[
+        { ar: 'ضَرْبًا', en: 'a striking, from ضَرَبَ' },
+        { ar: 'كِتَابَةً', en: 'a writing, from كَتَبَ' },
+        { ar: 'فَرَحًا', en: 'a rejoicing, from فَرِحَ' },
+        { ar: 'نَصْرًا', en: 'a helping, from نَصَرَ' },
+      ]}
+    />
+  </Stage>
+
+The usual mafʿūl muṭlaq is the verb’s own verbal noun, in naṣb. Verb and noun share the root.
+
+| Verb | Verbal noun in naṣb | Meaning | In the Quran text? |
+|---|---|---|---|
+| ضَرَبَ | ضَرْبًا | struck, a striking | yes (2:273, 37:93) |
+| كَتَبَ | كِتَابَةً | wrote, a writing | no |
+| فَرِحَ | فَرَحًا | rejoiced, a rejoicing | no |
+| نَصَرَ | نَصْرًا | helped, a helping | yes (7:192, 25:19, 48:3) |
+
+These four are teaching forms. A search of the Tanzil text in the Corpus file finds ضَرْبًا and نَصْرًا, and does not find كِتَابَةً or فَرَحًا. The pattern is real all the same. Each verb has a verbal noun, and L3.20 shows how to find it.
+
+The root is the usual sign, not the whole test. Step 3 shows a mafʿūl muṭlaq that is not the verb’s own verbal noun, and step 4 shows a same-root word that is an object.
+
+<Check n={3} q="Which pair is a verb with its own verbal noun?" options={['ضَرَبَ and ضَرْبًا', 'ضَرَبَ and رِسَالَةً', 'نَصَرَ and كِتَابًا']} answer={0} why="ضَرْبًا is the verbal noun of ضَرَبَ: same root ض ر ب." />
+</Block>
+
+<Block id="marks" title="What a mafʿūl muṭlaq looks like and what it says">
+  <Stage label="Two questions, two objects">
+    <Tiles
+      label="Ask the question"
+      items={[
+        { ar: 'مَفْعُول بِهِ', en: 'to whom? to what?', type: 'x' },
+        { ar: 'مَفْعُول مُطْلَق', en: 'how? what kind? how many times?', type: 'x' },
+      ]}
+    />
+  </Stage>
+
+A mafʿūl muṭlaq has three signs.
+
+- **It is in naṣb.** The ending is -an (تَكْلِيمًا), -a (before a pronoun or in an idafah), -ayni (a dual) or -īna. Step 4 shows each.
+- **It usually has the root of the verb.** Step 3 shows the stand-ins that do not.
+- **It does not name the one acted on.** It says how the action happened.
+
+Teachers sort the “how” into three jobs, and step 2 takes them one by one. **Stress** (تَوْكِيد): the verb is said again, so it is certain. **Kind** (بَيَان ٱلنَّوْع): what sort of action it was. **Number** (بَيَان ٱلْعَدَد): how many times. Al-Jadwal uses the words “its kind” and “its number” in its notes, and al-Durr al-Maṣūn uses “stress”.
+
+<Check n={4} q="Which question does a mafʿūl muṭlaq answer?" options={['How? what kind? how many times?', 'To whom?', 'Where?']} answer={0} why="It says how the action happened. “To whom?” is the object, and “where?” is a place word." />
+</Block>
+</Step>
+
+<Step id="jobs" label="Three jobs" title="Three jobs: stress, kind and number">
+<Block id="emphasis" title="Stress: the bare verbal noun">
+  <Stage>
+    <Sentence
+      roles
+      reference="At-Tur 52:9"
+      groups={[
+        { role: 'zarf', hint: 'when?', words: [{ ar: 'يَوْمَ', en: 'on the day when', say: 'yawma' }] },
+        { role: 'fiil', words: [{ ar: 'تَمُورُ', en: 'heaves', say: 'tamuru', type: 'v' }] },
+        { role: 'fail', words: [{ ar: 'ٱلسَّمَآءُ', en: 'the sky', say: 'as-samau' }] },
+        { role: 'maful', label: 'mafʿūl muṭlaq', hint: 'heaves how?', words: [{ ar: 'مَوْرًا', en: 'a heaving', say: 'mawran' }] },
+      ]}
+      en={['On the day the sky really sways.']}
+    />
+    <Sentence
+      roles
+      reference="At-Tur 52:10"
+      groups={[
+        { role: 'fiil', words: [{ ar: 'وَتَسِيرُ', en: 'and move along', say: 'wa-tasiru', type: 'v' }] },
+        { role: 'fail', words: [{ ar: 'ٱلْجِبَالُ', en: 'the mountains', say: 'al-jibalu' }] },
+        { role: 'maful', label: 'mafʿūl muṭlaq', hint: 'move how?', words: [{ ar: 'سَيْرًا', en: 'a moving', say: 'sayran' }] },
+      ]}
+      en={['And the mountains really move along.']}
+    />
+  </Stage>
+
+Two verses, the same pattern: a verb, its doer, and the verb’s own verbal noun with **nothing added**. تَمُورُ with مَوْرًا, تَسِيرُ with سَيْرًا. Al-Jadwal reads both as مَفْعُول مُطْلَق.
+
+A bare verbal noun does one job: it **stresses** the verb. The action is certain. English adds “really” or “truly”.
+
+*Al-Durr al-Maṣūn* says the two verbal nouns here are used to rule out a figurative reading: the sky and the mountains do move, in fact.
+
+A verbal noun can also be said twice, as in 89:21: دُكَّتِ ٱلْأَرْضُ دَكًّا دَكًّا, “the earth is crushed, crushed”. Exercise 1 looks at it.
+
+<Check n={5} q="What does a bare mafʿūl muṭlaq do?" options={['It stresses the verb', 'It names a place', 'It says who did the action']} answer={0} why="With nothing added, it repeats the verb to make the action certain." />
+</Block>
+
+<Block id="kind" title="Kind: a verbal noun with an adjective">
+  <Stage>
+    <Sentence
+      roles
+      reference="Al-Ahzab 33:11 (part)"
+      groups={[
+        { role: 'fiil', label: 'fiʿl + nāʾib fāʿil', hint: 'passive; -ū: “they”', words: [{ ar: 'وَزُلْزِلُوا۟', en: 'and they were shaken', say: 'wa-zulzilu', type: 'v' }] },
+        { role: 'maful', label: 'mafʿūl muṭlaq', hint: 'shaken how?', words: [{ ar: 'زِلْزَالًا', en: 'a shaking', say: 'zilzalan' }] },
+        { role: 'naat', hint: 'what kind of shaking?', words: [{ ar: 'شَدِيدًا', en: 'severe', say: 'shadidan' }] },
+      ]}
+      en={['And they were shaken with a severe shaking.']}
+    />
+    <Tiles
+      label="More verses with the same shape (parts)"
+      items={[
+        { ar: 'ٱذْكُرُوا۟ ٱللَّهَ ذِكْرًا كَثِيرًا', en: 'remember Allah with much remembering (33:41)' },
+        { ar: 'وَأَنۢبَتَهَا نَبَاتًا حَسَنًا', en: 'and made her grow a good growth (3:37)' },
+      ]}
+    />
+  </Stage>
+
+The verse says that the believers were tested and shaken. زِلْزَالًا is the verbal noun of the verb زُلْزِلُوا۟ (root ز ل ز ل). Then an adjective follows: شَدِيدًا, “severe”.
+
+Now the verbal noun does a second job. It does not only say “shaken”. It says **what kind** of shaking. The adjective is a naʿt (L2.09) and agrees with it in naṣb: -an and -an. Al-Jadwal reads زِلْزَالًا as مَفْعُول مُطْلَق.
+
+The two jobs differ in what follows the noun. A bare noun stresses. A noun with an adjective names the kind. 33:41 and 3:37 in the tiles show the same shape.
+
+<Check n={6} q="In زِلْزَالًا شَدِيدًا, what is شَدِيدًا?" options={['An adjective of the mafʿūl muṭlaq, also in naṣb', 'The doer', 'A second verb']} answer={0} why="شَدِيدًا describes the verbal noun and says what kind of shaking it was. It follows its noun in naṣb." />
+</Block>
+
+<Block id="idafa" title="Kind: the verbal noun with an owner">
+  <Stage>
+    <Sentence
+      size="big"
+      roles
+      reference="Az-Zalzalah 99:1"
+      groups={[
+        { words: [{ ar: 'إِذَا', en: 'when', say: 'idha', type: 'p' }] },
+        { role: 'fiil', label: 'fiʿl, passive', hint: 'no doer is named', words: [{ ar: 'زُلْزِلَتِ', en: 'is shaken', say: 'zulzilati', type: 'v' }] },
+        { role: 'naibFail', hint: 'what is shaken?', words: [{ ar: 'ٱلْأَرْضُ', en: 'the earth', say: 'al-ardu' }] },
+        { role: 'maful', label: 'mafʿūl muṭlaq + its owner', hint: 'the tanwīn is gone: -hā ends the word', words: [{ ar: 'زِلْزَالَهَا', en: 'its shaking', say: 'zilzalaha' }] },
+      ]}
+      en={['When the earth is shaken with its own shaking.']}
+    />
+  </Stage>
+
+This is the verse that opens Surat az-Zalzalah. The verbal noun زِلْزَال has a pronoun attached: -hā, “its”. It is the same root as the verb زُلْزِلَتِ.
+
+Look at the ending. The word before -hā ends in a **visible** fatḥa: زِلْزَالَ. There is no tanwīn, because a word that is the first part of an idafah loses its tanwīn (L2.08), and a pronoun makes the same kind of pair.
+
+Al-Jadwal reads زِلْزَالَهَا as مَفْعُول مُطْلَق. *Al-Durr al-Maṣūn* adds that the verbal noun is attached to its doer, and that the meaning is “the shaking that fits the earth”: the one that its size and greatness call for. So the owner tells you the kind.
+
+- **Made-up example:** أَكْرِمِ ٱلتَّقِيَّ إِكْرَامَهُ, “honour the pious man the honour that is his”. Al-Durr quotes this pattern from al-Zamakhshari.
+
+<Check n={7} q="Why has زِلْزَالَهَا no tanwīn?" options={['The pronoun -hā is attached, as in an idafah', 'It is the doer', 'It is in the genitive']} answer={0} why="A word followed by a pronoun or a second noun in an idafah loses its tanwīn. The ending -a is still a visible fatḥa." />
+</Block>
+
+<Block id="number" title="Number: how many times?">
+  <Stage>
+    <Sentence
+      roles
+      reference="Al-Haqqah 69:14 (end)"
+      groups={[
+        { role: 'fiil', label: 'fiʿl, passive, dual', hint: '“the two”: the earth and the mountains', words: [{ ar: 'فَدُكَّتَا', en: 'and the two are crushed', say: 'fa-dukkata', type: 'v' }] },
+        { role: 'maful', label: 'mafʿūl muṭlaq', hint: 'crushed how many times?', words: [{ ar: 'دَكَّةً', en: 'a crushing', say: 'dakkatan' }] },
+        { role: 'naat', hint: 'how many?', words: [{ ar: 'وَٰحِدَةً', en: 'one', say: 'wahidatan' }] },
+      ]}
+      en={['…and the two are crushed in one crushing.']}
+    />
+    <Sentence
+      roles
+      reference="At-Tawbah 9:101 (end)"
+      groups={[
+        { role: 'fiil', label: 'fiʿl + object', hint: '-hum: “them”', words: [{ ar: 'سَنُعَذِّبُهُم', en: 'we will punish them', say: 'sa-nuadhdhibuhum', type: 'v' }] },
+        { role: 'maful', label: 'mafʿūl muṭlaq', hint: 'how many times?', words: [{ ar: 'مَّرَّتَيْنِ', en: 'twice', say: 'marratayni' }] },
+      ]}
+      en={['We will punish them twice.']}
+    />
+  </Stage>
+
+The third job counts. In 69:14 the noun دَكَّةً means “one crushing”: one time, not the action in general. وَٰحِدَةً, “one”, repeats the count and follows it as an adjective. Al-Jadwal reads دَكَّةً as مَفْعُول مُطْلَق.
+
+In 9:101 the noun is مَرَّتَيْنِ, “two times”. It is a **dual**, and the dual in naṣb ends in -ayni (L2.05). Al-Jadwal reads it as a mafʿūl muṭlaq that stands in for the verbal noun and gives its number.
+
+<Note kind="know">A noun for “one time” often ends in -a, as in دَكَّةً. This is a teaching summary. Quran Learn did not check it in an approved source.</Note>
+
+<Check n={8} q="Which question does مَرَّتَيْنِ answer in 9:101?" options={['How many times?', 'How?', 'Why?']} answer={0} why="مَرَّتَيْنِ means “twice”. It counts the punishing." />
+</Block>
+</Step>
+
+<Step id="standins" label="Stand-ins" title="When the word is not the verb’s own verbal noun">
+<Block id="two-types" title="What the grammar book allows">
+  <Stage label="From al-Ajurrumiyyah (vowel marks added)">
+    <Tiles
+      label="Two kinds of verbal noun in the book"
+      items={[
+        { ar: 'قَتَلْتُهُ قَتْلًا', en: 'same wording as the verb: “I killed him a killing”', type: 'x' },
+        { ar: 'جَلَسْتُ قُعُودًا', en: 'same meaning only: “I sat a sitting”', type: 'x' },
+        { ar: 'قُمْتُ وُقُوفًا', en: 'same meaning only: “I stood a standing”', type: 'x' },
+      ]}
+    />
+  </Stage>
+
+The same chapter of *al-Ajurrumiyyah* divides the maṣdar in two. The **lafẓī** kind has the same wording as the verb: قَتَلْتُهُ قَتْلًا. The **maʿnawī** kind has the same meaning but not the same wording: جَلَسْتُ قُعُودًا and قُمْتُ وُقُوفًا. The verb جَلَسَ has the root ج ل س, and قُعُود has ق ع د.
+
+So the word in this job does not have to be the verb’s own verbal noun, and it does not always have the same root. Al-Jadwal calls such a word a **nāʾib ʿan al-maṣdar**, a stand-in for the verbal noun. The next four blocks show stand-ins in the Quran.
+
+<Check n={9} q="جَلَسْتُ قُعُودًا: which kind of maṣdar is قُعُودًا, in the book’s two kinds?" options={['The same meaning but not the same wording (maʿnawī)', 'The same wording as the verb (lafẓī)', 'It is not a maṣdar']} answer={0} why="جَلَسَ and قُعُود have different roots but the same meaning. The book calls this the maʿnawī kind." />
+</Block>
+
+<Block id="other-form" title="The same root, another form">
+  <Stage>
+    <Sentence
+      roles
+      reference="Nuh 71:17"
+      groups={[
+        { hint: 'the one who does it', words: [{ ar: 'وَٱللَّهُ', en: 'and Allah', say: 'wallahu' }] },
+        { role: 'fiil', label: 'fiʿl + object', hint: 'Form IV; -kum: “you all”', words: [{ ar: 'أَنۢبَتَكُم', en: 'made you grow', say: 'anbatakum', type: 'v' }] },
+        { role: 'jarMajrur', hint: 'min “from” with “the earth”', words: [{ ar: 'مِّنَ', en: 'from', say: 'mina', type: 'p' }, { ar: 'ٱلْأَرْضِ', en: 'the earth', say: 'al-ardi' }] },
+        { role: 'maful', label: 'mafʿūl muṭlaq (stand-in)', hint: 'grew how?', words: [{ ar: 'نَبَاتًا', en: 'a growth', say: 'nabatan' }] },
+      ]}
+      en={['And Allah made you grow from the earth.']}
+    />
+  </Stage>
+
+The verb أَنۢبَتَ is Form IV, root ن ب ت. The regular verbal noun of Form IV is إِنْبَات (L3.20). The verse uses نَبَاتًا instead. It has the same root, but it is another noun. “He made you grow a growth.” The Corpus tags it as a plain noun, while it tags تَكْلِيمًا in 4:164 as a verbal noun.
+
+Al-Jadwal reads نَبَاتًا as a mafʿūl muṭlaq that stands in for the verbal noun, because it meets the verb in its root. In this verse the object is the -kum in أَنۢبَتَكُم, and the mafʿūl muṭlaq is نَبَاتًا. Both are in the same sentence, as in 4:164.
+
+3:37 has the same pair with an adjective: وَأَنۢبَتَهَا نَبَاتًا حَسَنًا, “and made her grow a good growth”.
+
+<Note kind="know">*Al-Durr al-Maṣūn* gives two readings of نَبَاتًا in 71:17. It is a *ism maṣdar*, a noun that stands for the verbal noun (the extra letters of إِنْبَات are dropped). Or it belongs to an understood verb, نَبَتُّمْ, “you grew”. Both readings keep the noun in naṣb with the same meaning.<br />
+The same book says about 73:8, وَتَبَتَّلْ إِلَيْهِ تَبْتِيلًا, that تَبْتِيلًا is not the regular verbal noun of Form V (that is تَبَتُّل). It follows the meaning “cut yourself off”, and it suits the end of the verse. Al-Jadwal calls it a stand-in as well.</Note>
+
+<Check n={10} q="Why is نَبَاتًا called a stand-in?" options={['It has the root of the verb but is not the verb’s regular verbal noun', 'It is the doer', 'It has no root']} answer={0} why="The regular verbal noun of أَنۢبَتَ is إِنْبَات. نَبَات shares the root and does the same job." />
+</Block>
+
+<Block id="kull" title="A stand-in that is not a verbal noun: كُلّ">
+  <Stage>
+    <Sentence
+      roles
+      reference="An-Nisa 4:129 (part)"
+      groups={[
+        { role: 'fiil', label: 'fiʿl + fāʿil', hint: 'lā: “do not”; -ū: “you all”', words: [{ ar: 'فَلَا', en: 'so do not', say: 'fa-la', type: 'p' }, { ar: 'تَمِيلُوا۟', en: 'you lean', say: 'tamilu', type: 'v' }] },
+        { role: 'maful', label: 'stand-in', hint: 'lean how much?', words: [{ ar: 'كُلَّ', en: 'all', say: 'kulla' }] },
+        { role: 'mudafIlayh', label: 'muḍāf ilayh', hint: 'the verbal noun, in the genitive', words: [{ ar: 'ٱلْمَيْلِ', en: 'the leaning', say: 'al-mayli' }] },
+      ]}
+      en={['So do not lean all the way.']}
+    />
+  </Stage>
+
+The verse is about being fair between wives. The verb تَمِيلُوا۟ means “you lean”, and the verbal noun is ٱلْمَيْل, “the leaning”.
+
+Look at the cases. كُلَّ is in naṣb. ٱلْمَيْلِ is in the **genitive**, the second word of an idafah. So the word in naṣb is not the verbal noun. It is كُلّ.
+
+Al-Jadwal says كُلّ is a mafʿūl muṭlaq that stands in for the verbal noun, **because it is attached to the verbal noun**. *Al-Durr al-Maṣūn* says the same: كُلّ takes its job from the word it is attached to. After a verbal noun it acts as a verbal noun. The idea is “lean the whole lean”, so the job is to say how much. Al-Jadwal adds that after a time word, كُلّ acts as a time word.
+
+<Check n={11} q="In كُلَّ ٱلْمَيْلِ, which word is in naṣb?" options={['كُلَّ', 'ٱلْمَيْلِ', 'Both']} answer={0} why="كُلَّ is the stand-in, in naṣb. ٱلْمَيْلِ is the second word of the idafah, in the genitive." />
+</Block>
+
+<Block id="eighty" title="A stand-in that counts: a number">
+  <Stage>
+    <Sentence
+      roles
+      reference="An-Nur 24:4 (part)"
+      groups={[
+        { role: 'fiil', label: 'fiʿl + fāʿil + object', hint: 'imperative; -hum: “them”', words: [{ ar: 'فَٱجْلِدُوهُمْ', en: 'then whip them', say: 'fa-jliduhum', type: 'v' }] },
+        { role: 'maful', label: 'stand-in', hint: 'whipped how many times?', words: [{ ar: 'ثَمَٰنِينَ', en: 'eighty', say: 'thamanina' }] },
+        { role: 'maful', label: 'tamyīz', hint: 'eighty of what?', words: [{ ar: 'جَلْدَةً', en: 'lashes', say: 'jaldatan' }] },
+      ]}
+      en={['Then whip them eighty lashes.']}
+    />
+  </Stage>
+
+A number answers “how many times?”, so it can stand in for the verbal noun too. In this verse the number is ثَمَٰنِينَ, “eighty”. It is in naṣb with -īna, like the tens in L4.02.
+
+Then comes جَلْدَةً, “a lash”. It has the root of the verb ٱجْلِدُوهُمْ, but it does not do the mafʿūl muṭlaq job. It says what is counted: eighty of what? Al-Jadwal reads ثَمَٰنِينَ as the stand-in, “its number”, and جَلْدَةً as a **tamyīz**. L4.02 teaches the tamyīz.
+
+<Note kind="warn">Do not call جَلْدَةً the mafʿūl muṭlaq just because it has the root of the verb. In this verse al-Jadwal gives that job to the number, and جَلْدَةً counts.</Note>
+
+<Check n={12} q="In ثَمَٰنِينَ جَلْدَةً, what does ثَمَٰنِينَ stand in for?" options={['The verbal noun: it says how many times', 'The doer', 'The thing counted']} answer={0} why="ثَمَٰنِينَ answers how many times. جَلْدَةً names the thing counted: it is the tamyīz." />
+</Block>
+
+<Block id="left-out" title="When the verb is left out">
+  <Stage>
+    <Sentence
+      roles
+      reference="Muhammad 47:4 (part)"
+      groups={[
+        { role: 'maful', label: 'mafʿūl muṭlaq, the verb is left out', hint: 'it takes the place of the command “strike!”', words: [{ ar: 'فَضَرْبَ', en: 'then the striking of', say: 'fa-ḍarba' }] },
+        { role: 'mudafIlayh', hint: 'the second word of the idafah', words: [{ ar: 'ٱلرِّقَابِ', en: 'the necks', say: 'ar-riqabi' }] },
+      ]}
+      en={['Then strike the necks.']}
+    />
+    <Sentence
+      roles
+      reference="Yusuf 12:23 (part)"
+      groups={[
+        { role: 'fiil', label: 'fiʿl + fāʿil', hint: 'the hidden “he”', words: [{ ar: 'قَالَ', en: 'he said', say: 'qala', type: 'v' }] },
+        { role: 'maful', label: 'mafʿūl muṭlaq, the verb is left out', hint: 'it takes the place of “I seek …”', words: [{ ar: 'مَعَاذَ', en: 'protection of', say: 'maadha' }] },
+        { role: 'mudafIlayh', hint: 'the second word of the idafah', words: [{ ar: 'ٱللَّهِ', en: 'Allah', say: 'allahi' }] },
+      ]}
+      en={['He said: I seek Allah’s protection.']}
+    />
+  </Stage>
+
+Sometimes the verb is not said at all. The verbal noun stands where the verb would be, and it is still in naṣb.
+
+- **47:4.** The left-out verb is a command, ٱضْرِبُوا, “strike”. Al-Jadwal says the verbal noun takes the place of its verb in the command: فَضَرْبَ ٱلرِّقَابِ means “then strike the necks”.
+- **12:23.** The left-out verb is أَعُوذُ, “I seek protection”. Al-Jadwal reads مَعَاذَ as a mafʿūl muṭlaq of that left-out verb. The same pattern is in 2:285, غُفْرَانَكَ رَبَّنَا, “your forgiveness, our Lord”: Exercise 5 looks at it.
+
+The second word in each pair is the muḍāf ilayh, in the genitive (L2.08).
+
+<Note kind="know">The same verse 47:4 has more of these. *Al-Durr al-Maṣūn* reads مَنًّۢا and فِدَآءً in فَإِمَّا مَنًّۢا بَعْدُ وَإِمَّا فِدَآءً, “either a favour or a ransom”, as verbal nouns of left-out verbs too: “either you do a favour, or you take a ransom”. It also records a second reading, as objects of a left-out verb.</Note>
+
+<Check n={13} q="What does مَعَاذَ replace in قَالَ مَعَاذَ ٱللَّهِ?" options={['A left-out verb: “I seek protection”', 'A doer', 'A preposition']} answer={0} why="Al-Jadwal reads مَعَاذَ as a mafʿūl muṭlaq of a verb that is not said: أَعُوذُ." />
+</Block>
+</Step>
+
+<Step id="careful" label="Look-alikes and parsing" title="Telling it apart, and four verses word by word">
+<Block id="m-root" title="Mistake 1: the same root means a mafʿūl muṭlaq">
+  <Stage>
+    <Sentence
+      roles
+      reference="Al-Baqarah 2:79 (part)"
+      groups={[
+        { role: 'fiil', label: 'fiʿl + fāʿil', hint: '-ūna: “they”', words: [{ ar: 'يَكْتُبُونَ', en: 'they write', say: 'yaktubuna', type: 'v' }] },
+        { role: 'maful', label: 'mafʿūl bihi', hint: 'write what?', words: [{ ar: 'ٱلْكِتَٰبَ', en: 'the book', say: 'al-kitaba' }] },
+        { role: 'tied', hint: 'belongs to the verb', words: [{ ar: 'بِأَيْدِيهِمْ', en: 'with their hands', say: 'bi-aydihim' }] },
+      ]}
+      en={['…those who write the book with their own hands…']}
+    />
+    <Sentence
+      roles
+      reference="Az-Zalzalah 99:2"
+      groups={[
+        { role: 'fiil', words: [{ ar: 'وَأَخْرَجَتِ', en: 'and brings out', say: 'wa-akhrajati', type: 'v' }] },
+        { role: 'fail', words: [{ ar: 'ٱلْأَرْضُ', en: 'the earth', say: 'al-ardu' }] },
+        { role: 'maful', label: 'mafʿūl bihi', hint: 'brings out what?', words: [{ ar: 'أَثْقَالَهَا', en: 'its burdens', say: 'athqalaha' }] },
+      ]}
+      en={['And the earth brings out its burdens.']}
+    />
+  </Stage>
+
+يَكْتُبُونَ and ٱلْكِتَٰبَ share the root ك ت ب. Still ٱلْكِتَٰبَ is **the thing written**, an object. Al-Jadwal reads it as a mafʿūl bihi. So the same root is the usual sign of a mafʿūl muṭlaq, and it does not prove it.
+
+The proof is the question. “Write what?” fits the object. “Write how?” or “how many times?” fits the mafʿūl muṭlaq.
+
+99:1 and 99:2 look alike: a verb, the earth, and a word with -hā. In 99:1 the question “shaken how?” gives the mafʿūl muṭlaq. In 99:2 the question “brings out what?” gives the object, أَثْقَالَهَا. Its root, ث ق ل, is different from the verb’s root, خ ر ج.
+
+A sentence can have both. 4:164 has مُوسَىٰ and تَكْلِيمًا. 71:17 has -kum and نَبَاتًا.
+
+- **Made-up example:** كَتَبَ ٱلطَّالِبُ رِسَالَةً كِتَابَةً جَمِيلَةً, “the student wrote a letter in beautiful writing”. رِسَالَةً is the object. كِتَابَةً جَمِيلَةً is the mafʿūl muṭlaq with its adjective.
+
+<Check n={14} q="In وَأَخْرَجَتِ ٱلْأَرْضُ أَثْقَالَهَا, what is أَثْقَالَهَا?" options={['An object: it answers “brings out what?”', 'A mafʿūl muṭlaq', 'A ḥāl']} answer={0} why="أَثْقَالَهَا is what the earth brings out. It has a different root from the verb." />
+</Block>
+
+<Block id="m-hal" title="Mistake 2: every verbal noun after a verb is a mafʿūl muṭlaq">
+  <Stage>
+    <Sentence
+      roles
+      reference="Al-Araf 7:55 (part)"
+      groups={[
+        { role: 'fiil', label: 'fiʿl + fāʿil', hint: 'imperative; -ū: “you all”', words: [{ ar: 'ٱدْعُوا۟', en: 'call on', say: 'udu', type: 'v' }] },
+        { role: 'maful', label: 'mafʿūl bihi', hint: 'call on whom?', words: [{ ar: 'رَبَّكُمْ', en: 'your Lord', say: 'rabbakum' }] },
+        { role: 'hal', label: 'ḥāl (see the note)', hint: 'call how?', words: [{ ar: 'تَضَرُّعًا', en: 'humbly', say: 'tadarruan' }, { ar: 'وَخُفْيَةً', en: 'and secretly', say: 'wa-khufyatan' }] },
+      ]}
+      en={['Call on your Lord humbly and in secret.']}
+    />
+  </Stage>
+
+تَضَرُّعًا is a verbal noun after a verb, in naṣb, and it says how. It still is not a mafʿūl muṭlaq in the usual reading. The verb is دَعَا. The noun comes from ض ر ع, “humility”.
+
+Al-Jadwal reads تَضَرُّعًا and خُفْيَةً as verbal nouns standing in the place of a **ḥāl** (L4.01): “humbly and secretly”, the state of the callers. A quick test: put an adjective in its place. “Call on your Lord, humble and secret” still makes sense, so it is a ḥāl.
+
+<Note kind="know">Scholars give another reading. Al-Jadwal says the word can also be a stand-in mafʿūl muṭlaq, because it names the kind: “a call of humility”, and it can be a mafʿūl li-ajlih too. *Al-Durr al-Maṣūn* gives the ḥāl first and allows the mafʿūl muṭlaq reading in the same words (“a call of humility and secrecy”). This lesson follows the ḥāl.</Note>
+
+A verbal noun that says **why** is a mafʿūl li-ajlih, taught in [L4.08](/learn/level-4/08-maf-ul-li-ajlih/). A word that says **together with** is a mafʿūl maʿahu, taught in [L4.09](/learn/level-4/09-maf-ul-ma-ah/).
+
+<Check n={15} q="Which test helps you tell a ḥāl from a mafʿūl muṭlaq in ٱدْعُوا۟ رَبَّكُمْ تَضَرُّعًا؟" options={['An adjective like “humble” can take its place, so it is a ḥāl', 'It ends in -an, so it is a ḥāl', 'It follows a verb, so it is a ḥāl']} answer={0} why="The ending -an and the position after a verb belong to both. The adjective test shows a state." />
+</Block>
+
+<Block id="m-case" title="Mistake 3: it always ends in -an">
+  <Stage label="Four endings, one job">
+    <Tiles
+      label="Marks of naṣb, and one word that is not in naṣb"
+      items={[
+        { ar: 'تَكْلِيمًا', en: '-an: tanwīn fatḥa' },
+        { ar: 'زِلْزَالَهَا', en: '-a: a visible fatḥa before a pronoun' },
+        { ar: 'مَرَّتَيْنِ', en: '-ayni: the dual in naṣb' },
+        { ar: 'ٱلْمَيْلِ', en: 'genitive: not the stand-in (after كُلَّ)', type: 'x' },
+      ]}
+    />
+  </Stage>
+
+The mafʿūl muṭlaq is always in naṣb, but naṣb has more than one mark.
+
+- **-an** on a single word: تَكْلِيمًا, مَوْرًا, زِلْزَالًا.
+- **-a** when a pronoun or a second noun follows: زِلْزَالَهَا. The tanwīn is gone, and the fatḥa is visible.
+- **-ayni** on a dual: مَرَّتَيْنِ.
+- **-īna** on the tens: ثَمَٰنِينَ.
+
+When a verbal noun is in the genitive, like ٱلْمَيْلِ in كُلَّ ٱلْمَيْلِ, it is not the mafʿūl muṭlaq. The word before it is.
+
+<Check n={16} q="Which ending can a mafʿūl muṭlaq NOT have?" options={['The genitive -i', '-an', '-ayni']} answer={0} why="A mafʿūl muṭlaq is always in naṣb. A genitive verbal noun is the second word of an idafah." />
+</Block>
+
+<Block id="m-english" title="Mistake 4: reading the English adverb as the grammar">
+  <Stage label="English turns the noun into an adverb">
+    <Tiles
+      label="Arabic noun, English adverb"
+      items={[
+        { ar: 'تَكْلِيمًا', en: '“really” (4:164)' },
+        { ar: 'زِلْزَالًا شَدِيدًا', en: '“severely” (33:11)' },
+        { ar: 'مَرَّتَيْنِ', en: '“twice” (9:101)' },
+      ]}
+    />
+  </Stage>
+
+English often gives “really”, “severely” or “twice”, and these are adverbs. In Arabic each of these words is a **noun** in naṣb. When you parse, say what the noun is: a mafʿūl muṭlaq, with its job.
+
+Do not read more into a bare verbal noun than it says. تَكْلِيمًا in 4:164 says that the speaking was real. It does not say that the speaking was loud or hard. When a verse wants to say how severe, it adds an adjective, as 33:11 does with شَدِيدًا.
+
+<Check n={17} q="What does a bare mafʿūl muṭlaq add to the verb?" options={['Certainty: it stresses the verb', 'A new object', 'A time']} answer={0} why="A bare verbal noun stresses the action. Words like “severely” come from an adjective." />
+</Block>
+
+<Block id="earlier" title="Verses you met in earlier lessons">
+  <Stage label="Seven earlier verses (parts)">
+    <Tiles
+      label="Each one has a mafʿūl muṭlaq"
+      items={[
+        { ar: 'وَرَتِّلِ ٱلْقُرْءَانَ تَرْتِيلًا', en: 'stress: “read it, a slow reading” (73:4)' },
+        { ar: 'وَٱسْتَكْبَرُوا۟ ٱسْتِكْبَارًا', en: 'stress: “they were proud a pride” (71:7)' },
+        { ar: 'وَيُسَلِّمُوا۟ تَسْلِيمًا', en: 'stress: “they submit a submitting” (4:65)' },
+        { ar: 'وَجَٰهِدْهُم بِهِۦ جِهَادًا كَبِيرًا', en: 'kind: “a great striving” (25:52)' },
+        { ar: 'حَمَلَتْ حَمْلًا خَفِيفًا', en: 'kind: “a light carrying” (7:189)' },
+        { ar: 'وَلَا تَبَرَّجْنَ تَبَرُّجَ ٱلْجَٰهِلِيَّةِ', en: 'kind: “do not show off as in the time of ignorance” (33:33)' },
+        { ar: 'أَدْخِلْنِى مُدْخَلَ صِدْقٍ', en: 'kind: “let me enter an entering of truth” (17:80)' },
+      ]}
+    />
+  </Stage>
+
+Earlier lessons showed these verses and said that L4.07 teaches the word in naṣb.
+
+- **73:4, 71:7, 4:65.** A bare verbal noun: stress. Each is the regular verbal noun of a longer verb (L3.12, L3.16, L3.20).
+- **25:52.** An adjective follows the noun: the kind. The verb is Form III (L3.17).
+- **7:189.** The same shape as 25:52. Al-Jadwal reads حَمْلًا as a mafʿūl muṭlaq and خَفِيفًا as its adjective. A footnote allows another reading: the thing carried, an object (L3.05).
+- **33:33.** The verbal noun is the first word of an idafah, as in 99:1 (L3.15, L3.20).
+- **17:80.** مُدْخَل is a verbal noun with mīm, and it does the same job (L3.21).
+
+L3.22 promised 4:119. You go through it next, with 4:164, 99:1 and 24:4, word by word.
+
+<Check n={18} q="In حَمَلَتْ حَمْلًا خَفِيفًا, which job does the mafʿūl muṭlaq do?" options={['Kind: an adjective follows it', 'Stress: it is bare', 'Number: it counts']} answer={0} why="خَفِيفًا, “light”, follows حَمْلًا and says what kind of carrying it was." />
+</Block>
+
+<Block id="parse-1" title="Word by word: An-Nisa 4:164">
+  <Stage label="Word by word">
+    <Parse
+      reference="An-Nisa 4:164 (end)"
+      words={[
+        { ar: 'وَكَلَّمَ', en: 'and spoke', type: 'v' },
+        { ar: 'ٱللَّهُ', en: 'Allah' },
+        { ar: 'مُوسَىٰ', en: 'Musa' },
+        { ar: 'تَكْلِيمًا', en: 'really' },
+      ]}
+      cards={[
+        { at: 0, ar: 'وَ', role: '“and”: a little word that starts a new sentence', why: 'Little words have no case. It does not join this sentence to the one before.', irab: 'الواو استئنافية' },
+        { at: 0, ar: 'كَلَّمَ', role: 'a past-tense verb, Form II: “he spoke to”', case: 'a verb has no case; it is built', mark: 'a fatḥa on the last letter', why: 'The doer is the next word, so there is no hidden “he”. L3.12 teaches Form II.', irab: 'فعل ماض مبني على الفتح' },
+        { at: 1, role: 'fāʿil: the doer, “Allah”', case: 'nominative (rafʿ)', mark: '-u (ḍamma)', why: 'It comes after its verb (L2.03).', irab: 'لفظ الجلالة فاعل مرفوع وعلامة رفعه الضمة' },
+        { at: 2, role: 'mafʿūl bihi: the one spoken to, “Musa”', case: 'accusative (naṣb)', mark: 'a hidden fatḥa on the long ā', why: 'A long ā cannot carry a vowel, so the fatḥa is understood, not seen (L2.05).', irab: 'مفعول به منصوب وعلامة نصبه الفتحة المقدرة على الألف' },
+        { at: 3, role: 'mafʿūl muṭlaq: it repeats the verb to stress it', case: 'accusative (naṣb)', mark: '-an (tanwīn fatḥa)', why: 'Same root as كَلَّمَ. Al-Jadwal’s word-form note: it is the regular verbal noun of Form II, on the pattern تَفْعِيل.', irab: 'مفعول مطلق منصوب وعلامة نصبه الفتحة' },
+      ]}
+    />
+  </Stage>
+
+Say three things about تَكْلِيمًا: its root, its case and its job. Press **Next word** and try each answer before you read it. The object and the mafʿūl muṭlaq are side by side, with different questions: “to whom?” and “how?”.
+</Block>
+
+<Block id="parse-2" title="Word by word: Az-Zalzalah 99:1">
+  <Stage label="Word by word">
+    <Parse
+      reference="Az-Zalzalah 99:1"
+      words={[
+        { ar: 'إِذَا', en: 'when', type: 'p' },
+        { ar: 'زُلْزِلَتِ', en: 'is shaken', type: 'v' },
+        { ar: 'ٱلْأَرْضُ', en: 'the earth' },
+        { ar: 'زِلْزَالَهَا', en: 'its shaking' },
+      ]}
+      cards={[
+        { at: 0, role: 'a time word with the meaning “if”: “when”', why: 'Al-Jadwal: it is a word of time and condition, in the place of naṣb, tied to the answer of the condition in verse 4.', irab: 'ظرف للشرط في محل نصب متعلق بالجواب' },
+        { at: 1, role: 'a past-tense verb in the passive: “was shaken”', case: 'a verb has no case; it is built', mark: 'a fatḥa on the last letter', why: 'The tāʾ shows that the one shaken is feminine. Its kasra is added because the next word starts with ٱلْـ, and two silent letters cannot meet.', irab: 'فعل ماض مبني للمجهول مبني على الفتح' },
+        { at: 2, role: 'nāʾib fāʿil: the one the shaking happens to, “the earth”', case: 'nominative (rafʿ)', mark: '-u (ḍamma)', why: 'The verb is passive, so no doer is named. The earth takes the doer’s place (L3.09).', irab: 'نائب فاعل مرفوع وعلامة رفعه الضمة' },
+        { at: 3, role: 'mafʿūl muṭlaq: “its shaking”, with its owner', case: 'accusative (naṣb)', mark: '-a (a visible fatḥa)', why: 'Same root as the verb. The tanwīn is gone because the pronoun ـهَا is attached. The pronoun is the second part of the pair, in the genitive.', irab: 'مفعول مطلق منصوب وعلامة نصبه الفتحة وهو مضاف والهاء ضمير متصل في محل جر مضاف إليه' },
+      ]}
+    />
+  </Stage>
+
+The same root appears twice. The mafʿūl muṭlaq has a pronoun attached, so the ending is a plain visible fatḥa.
+</Block>
+
+<Block id="parse-3" title="Word by word: An-Nisa 4:119">
+  <Stage label="Word by word">
+    <Parse
+      reference="An-Nisa 4:119 (end)"
+      words={[
+        { ar: 'فَقَدْ', en: 'then indeed', type: 'p' },
+        { ar: 'خَسِرَ', en: 'he has lost', type: 'v' },
+        { ar: 'خُسْرَانًا', en: 'a loss' },
+        { ar: 'مُّبِينًا', en: 'clear' },
+      ]}
+      cards={[
+        { at: 0, ar: 'فَ', role: 'a little word that ties the answer to the condition before it', why: 'Earlier in the same verse: “whoever takes Shaytan as a friend”. This is the answer. Little words have no case.', irab: 'الفاء رابطة لجواب الشرط' },
+        { at: 0, ar: 'قَدْ', role: 'a little word that makes the verb certain: “indeed”', why: 'Little words have no case.', irab: 'حرف تحقيق' },
+        { at: 1, role: 'a past-tense verb: “he lost”', case: 'a verb has no case; it is built', mark: 'a fatḥa on the last letter', why: 'The doer is a hidden “he”: the one who takes Shaytan as a friend.', irab: 'فعل ماض مبني على الفتح، والفاعل ضمير مستتر تقديره هو' },
+        { at: 2, role: 'mafʿūl muṭlaq: “a loss”', case: 'accusative (naṣb)', mark: '-an (tanwīn fatḥa)', why: 'Same root خ س ر as the verb. It is another verbal noun of خَسِرَ, on the pattern فُعْلَان (L3.22).', irab: 'مفعول مطلق منصوب وعلامة نصبه الفتحة' },
+        { at: 3, role: 'naʿt: the adjective of the mafʿūl muṭlaq, “clear”', case: 'accusative (naṣb)', mark: '-an (tanwīn fatḥa)', why: 'It follows its noun and agrees with it in case and number. It says the kind of loss.', irab: 'نعت منصوب وعلامة نصبه الفتحة' },
+      ]}
+    />
+  </Stage>
+
+L3.22 promised this verse. L3.20 says that a Form I verb can have more than one verbal noun, and that you learn them by hearing. خُسْرَان is one of them for خَسِرَ. The adjective shows the job: kind.
+</Block>
+
+<Block id="parse-4" title="Word by word: An-Nur 24:4">
+  <Stage label="Word by word">
+    <Parse
+      reference="An-Nur 24:4 (part)"
+      words={[
+        { ar: 'فَٱجْلِدُوهُمْ', en: 'then whip them', type: 'v' },
+        { ar: 'ثَمَٰنِينَ', en: 'eighty' },
+        { ar: 'جَلْدَةً', en: 'lashes' },
+      ]}
+      cards={[
+        { at: 0, ar: 'فَ', role: 'a little word added to the news', why: 'Al-Jadwal calls this فَ “extra”. It stands before the command, and al-Jadwal reads that command as the news of “those who” at the start of the verse.', irab: 'الفاء زائدة' },
+        { at: 0, ar: 'ٱجْلِدُوهُمْ', role: 'a command, Form I: “whip them”. The wāw is the doer, and -hum is the object.', case: 'a verb has no case; it is built', mark: 'the nūn is dropped', why: 'A command to “you all” loses the final nūn (L3.08). The wāw is the doer. The ـهُمْ is the object.', irab: 'فعل أمر مبني على حذف النون، والواو فاعل، والهاء مفعول به' },
+        { at: 1, role: 'a stand-in for the mafʿūl muṭlaq: “eighty”', case: 'accusative (naṣb)', mark: '-īna', why: 'The number answers how many times. Al-Jadwal: it is the stand-in, and it gives the number of the verbal noun.', irab: 'مفعول مطلق نائب عن المصدر منصوب وعلامة نصبه الياء' },
+        { at: 2, role: 'tamyīz: it says what is counted, “a lash”', case: 'accusative (naṣb)', mark: '-an (tanwīn fatḥa)', why: 'Eighty of what? It is singular, indefinite and in naṣb, as after the tens (L4.02).', irab: 'تمييز منصوب وعلامة نصبه الفتحة' },
+      ]}
+    />
+  </Stage>
+
+The number and the counted noun are both in naṣb but do different jobs. The stand-in says how many times. The tamyīz says what is counted.
+</Block>
+</Step>
+
+<Step id="practice" label="Practice" title="Practice">
+<Block id="practice-1" title="Practice: find it and say its job">
+  <Stage label="For each word, ask">
+    <ol class="lx-card-list">
+      <li><b>Is it in naṣb?</b> A mafʿūl muṭlaq always is.</li>
+      <li><b>Which question does it answer?</b> To whom (object), or how, what kind, how many times?</li>
+      <li><b>Is it the verb’s own verbal noun?</b> Or a stand-in: another form, كُلّ, a number?</li>
+      <li><b>Is the verb said?</b> Or left out?</li>
+    </ol>
+  </Stage>
+
+Work out each answer first, on paper or in your head. Then open the answer.
+
+<Exercise n={1} q="Find the mafʿūl muṭlaq and say its job (stress, kind or number): (a) وَتَسِيرُ ٱلْجِبَالُ سَيْرًا (At-Tur 52:10) (b) ٱذْكُرُوا۟ ٱللَّهَ ذِكْرًا كَثِيرًا (Al-Ahzab 33:41) (c) فَدُكَّتَا دَكَّةً وَٰحِدَةً (Al-Haqqah 69:14) (d) كَلَّآ إِذَا دُكَّتِ ٱلْأَرْضُ دَكًّا دَكًّا (Al-Fajr 89:21)">
+
+- (a) **سَيْرًا**: stress. It is bare and comes from the root of تَسِيرُ.
+- (b) **ذِكْرًا**: kind. The adjective كَثِيرًا, “much”, follows it. “Remember Allah with much remembering.”
+- (c) **دَكَّةً**: number. It means one crushing, and وَٰحِدَةً, “one”, repeats the count.
+- (d) **دَكًّا** (the first): stress. Al-Jadwal says the second دَكًّا repeats the first, to stress it further: “crushed, crushed”.
+
+</Exercise>
+
+<Exercise n={2} q="Object or mafʿūl muṭlaq? (a) كَتَبَ ٱلطَّالِبُ رِسَالَةً (made up) (b) كَتَبَ ٱلطَّالِبُ كِتَابَةً (made up) (c) يَكْتُبُونَ ٱلْكِتَٰبَ (Al-Baqarah 2:79, part) (d) وَأَخْرَجَتِ ٱلْأَرْضُ أَثْقَالَهَا (Az-Zalzalah 99:2)">
+
+- (a) **object.** رِسَالَةً is what was written. Its root, ر س ل, is different from the verb’s.
+- (b) **mafʿūl muṭlaq.** كِتَابَةً has the root of the verb and says how: “the student wrote a writing”.
+- (c) **object.** ٱلْكِتَٰبَ has the root ك ت ب, but it is the thing written. Al-Jadwal: mafʿūl bihi.
+- (d) **object.** أَثْقَالَهَا is what the earth brings out. Its root is different.
+
+Only (b) is a mafʿūl muṭlaq. The same root appears in (b) and (c), so the root is not enough.
+
+</Exercise>
+
+<Exercise n={3} q="Which job: stress, kind or number? (a) ضَرَبَ ٱلْمُعَلِّمُ ٱلطَّالِبَ ضَرْبًا (b) ضَرَبَ ٱلْمُعَلِّمُ ٱلطَّالِبَ ضَرْبًا شَدِيدًا (c) ضَرَبَ ٱلْمُعَلِّمُ ٱلطَّالِبَ ضَرْبَتَيْنِ (all made up)">
+
+- (a) **stress.** ضَرْبًا is bare. It makes the striking certain.
+- (b) **kind.** The adjective شَدِيدًا, “severe”, says what kind of striking.
+- (c) **number.** ضَرْبَتَيْنِ is a dual, “two strikes”. It says how many times. The dual ends in -ayni in naṣb.
+
+In all three the root is ض ر ب, the same as the verb.
+
+</Exercise>
+
+<Exercise n={4} q="Check the root. In each pair, say whether the noun has the verb’s root and which kind of verbal noun it is. (a) زُلْزِلَتِ and زِلْزَالَهَا (b) كَلَّمَ and تَكْلِيمًا (c) نَصَرَ and عَوْنًا (made up) (d) أَنۢبَتَ and نَبَاتًا">
+
+- (a) Same root ز ل ز ل. The verbal noun of the verb.
+- (b) Same root ك ل م. The regular Form II verbal noun on تَفْعِيل.
+- (c) Different roots: ن ص ر and ع و ن. The meaning is the same, so this is the book’s second kind, the maʿnawī, like جَلَسْتُ قُعُودًا. A stand-in, and not an error.
+- (d) Same root ن ب ت, but the regular verbal noun of Form IV is إِنْبَات. نَبَات is a stand-in.
+
+</Exercise>
+
+<Exercise n={5} q="Which verb is left out? (a) فَضَرْبَ ٱلرِّقَابِ (Muhammad 47:4) (b) قَالَ مَعَاذَ ٱللَّهِ (Yusuf 12:23) (c) غُفْرَانَكَ رَبَّنَا (Al-Baqarah 2:285)">
+
+- (a) **ٱضْرِبُوا**, “strike”. The verbal noun takes the place of the command.
+- (b) **أَعُوذُ**, “I seek protection”.
+- (c) A verb like “we ask”, “give us”. Al-Jadwal reads غُفْرَانَكَ as a mafʿūl muṭlaq of a left-out verb, and رَبَّنَا is “our Lord”, a call.
+
+The word before the genitive noun in (a) and (b) is the first word of an idafah.
+
+</Exercise>
+
+<Exercise n={6} q="Name the stand-in and the other word. (a) فَلَا تَمِيلُوا۟ كُلَّ ٱلْمَيْلِ (An-Nisa 4:129, part) (b) فَٱجْلِدُوهُمْ ثَمَٰنِينَ جَلْدَةً (An-Nur 24:4, part)">
+
+- (a) **كُلَّ** is the stand-in, in naṣb, because it is attached to a verbal noun. **ٱلْمَيْلِ** is the muḍāf ilayh, in the genitive.
+- (b) **ثَمَٰنِينَ** is the stand-in: it says how many times. **جَلْدَةً** is the tamyīz: it says what is counted.
+
+</Exercise>
+</Block>
+
+<Block id="practice-2" title="Practice: build it, tell it from a ḥāl, write the line">
+  <Stage label="Three jobs, three questions">
+    <ol class="lx-card-list">
+      <li><b>Stress:</b> the bare verbal noun.</li>
+      <li><b>Kind:</b> the verbal noun with an adjective or an owner.</li>
+      <li><b>Number:</b> a noun for one time, a dual, or a number.</li>
+    </ol>
+  </Stage>
+
+<Exercise n={7} q="Add a mafʿūl muṭlaq to each verb (made up): (a) ذَكَرَ ٱلرَّجُلُ ٱللَّهَ, for stress (b) صَبَرَ ٱلرَّجُلُ, for kind, with the adjective جَمِيلًا (c) قَرَأْتُ ٱلسُّورَةَ, for number: twice">
+
+- (a) **ذَكَرَ ٱلرَّجُلُ ٱللَّهَ ذِكْرًا**: the bare verbal noun of ذَكَرَ.
+- (b) **صَبَرَ ٱلرَّجُلُ صَبْرًا جَمِيلًا**: the verbal noun, then its adjective in naṣb.
+- (c) **قَرَأْتُ ٱلسُّورَةَ مَرَّتَيْنِ**: the dual in naṣb. مَرَّتَيْنِ is a stand-in that gives the number.
+
+These are made-up sentences built on the patterns of the lesson.
+
+</Exercise>
+
+<Exercise n={8} q="ḥāl or mafʿūl muṭlaq? (a) ٱدْعُوا۟ رَبَّكُمْ تَضَرُّعًا (Al-Araf 7:55, part) (b) وَكَلَّمَ ٱللَّهُ مُوسَىٰ تَكْلِيمًا (An-Nisa 4:164, end)">
+
+- (a) **ḥāl** in the usual reading: “humbly”. Al-Jadwal and al-Durr al-Maṣūn both give it first, and both allow a mafʿūl muṭlaq reading (“a call of humility”). The noun does not come from the verb’s root.
+- (b) **mafʿūl muṭlaq.** Same root as كَلَّمَ, and it stresses the verb.
+
+</Exercise>
+
+<Exercise n={9} q="Same root, not the usual form. For each noun give the verb’s form, its regular verbal noun and the word the verse uses. (a) وَٱللَّهُ أَنۢبَتَكُم مِّنَ ٱلْأَرْضِ نَبَاتًا (Nuh 71:17) (b) فَإِنِّىٓ أُعَذِّبُهُۥ عَذَابًا (Al-Maidah 5:115, part)">
+
+- (a) Form IV. The regular verbal noun is إِنْبَات. The verse uses نَبَات, a stand-in.
+- (b) Form II (shadda on the second letter). The regular verbal noun is تَعْذِيب. The verse uses عَذَاب. Al-Jadwal calls it a stand-in mafʿūl muṭlaq.
+
+L3.20 teaches the regular patterns.
+
+</Exercise>
+
+<Exercise n={10} q="Write the line of iʿrāb: (a) تَكْلِيمًا (An-Nisa 4:164) (b) زِلْزَالَهَا (Az-Zalzalah 99:1) (c) مَّرَّتَيْنِ (At-Tawbah 9:101) (d) كُلَّ (An-Nisa 4:129)">
+
+- (a) مفعول مطلق منصوب وعلامة نصبه الفتحة
+- (b) مفعول مطلق منصوب وعلامة نصبه الفتحة وهو مضاف والهاء ضمير متصل في محل جر مضاف إليه
+- (c) مفعول مطلق نائب عن المصدر منصوب وعلامة نصبه الياء
+- (d) مفعول مطلق نائب عن المصدر منصوب وعلامة نصبه الفتحة
+
+Al-Jadwal words (a) and (b) as مفعول مطلق منصوب and (c) and (d) as مفعول مطلق نائب عن المصدر. The marks are the standard ones for each ending.
+
+</Exercise>
+
+<Exercise n={11} q="Say the job of the mafʿūl muṭlaq in three verses from earlier lessons: (a) وَرَتِّلِ ٱلْقُرْءَانَ تَرْتِيلًا (Al-Muzzammil 73:4) (b) وَجَٰهِدْهُم بِهِۦ جِهَادًا كَبِيرًا (Al-Furqan 25:52) (c) حَمَلَتْ حَمْلًا خَفِيفًا (Al-Araf 7:189)">
+
+- (a) **تَرْتِيلًا**: stress. It is bare, the regular verbal noun of Form II رَتَّلَ.
+- (b) **جِهَادًا**: kind. The adjective كَبِيرًا, “great”, follows it.
+- (c) **حَمْلًا**: kind. The adjective خَفِيفًا, “light”, follows it. A footnote in al-Jadwal allows another reading: the thing carried, an object.
+
+</Exercise>
+</Block>
+
+<Block id="done" title="You have finished the lesson">
+  <Stage label="The idea">
+    <Formula
+      label="a verb plus its own verbal noun equals a stronger or clearer action"
+      items={[
+        { kind: 'm', text: 'the verb', small: 'said, or left out' },
+        { kind: 'k', text: 'its verbal noun in naṣb', small: 'or a stand-in' },
+        { kind: 's', text: 'a stronger or clearer action', small: 'مَفْعُول مُطْلَق' },
+      ]}
+    />
+  </Stage>
+
+- A **mafʿūl muṭlaq** is the verb’s own verbal noun in naṣb. It says how the action happened, and it does not name the one acted on.
+- It has **three jobs**: stress (bare), kind (with an adjective or an owner), number (one time, a dual or a number).
+- **Stand-ins** do the job when the verb’s own verbal noun is not there: another form of the verbal noun (نَبَات, عَذَاب, خُسْرَان), كُلّ before a verbal noun, a number. *Al-Ajurrumiyyah* allows a verbal noun with the same meaning but another root.
+- The verb can be **left out**: فَضَرْبَ ٱلرِّقَابِ, مَعَاذَ ٱللَّهِ.
+- The same root does not prove a mafʿūl muṭlaq: ٱلْكِتَٰبَ in 2:79 is an object. A ḥāl can be a verbal noun too: تَضَرُّعًا in 7:55.
+- It always is in naṣb, with -an, -a, -ayni or -īna. After كُلَّ the verbal noun is genitive.
+
+**Recognition checklist.**
+
+1. Find a noun in naṣb after the verb, or a stand-in such as كُلّ or a number.
+2. Ask the question: to whom or what (object), or how, what kind, how many times?
+3. Check the root. The same root is the usual sign.
+4. Name the job: stress, kind or number.
+
+| Job | Verb | Mafʿūl muṭlaq | Verse |
+|---|---|---|---|
+| Stress | كَلَّمَ | تَكْلِيمًا | 4:164 |
+| Stress | تَمُورُ | مَوْرًا | 52:9 |
+| Kind | زُلْزِلُوا۟ | زِلْزَالًا شَدِيدًا | 33:11 |
+| Kind | زُلْزِلَتِ | زِلْزَالَهَا | 99:1 |
+| Number | دُكَّتَا | دَكَّةً وَٰحِدَةً | 69:14 |
+| Number | سَنُعَذِّبُهُم | مَّرَّتَيْنِ | 9:101 |
+| Stand-in | أَنۢبَتَكُم | نَبَاتًا | 71:17 |
+| Stand-in | تَمِيلُوا۟ | كُلَّ ٱلْمَيْلِ | 4:129 |
+| Stand-in | ٱجْلِدُوهُمْ | ثَمَٰنِينَ | 24:4 |
+
+**Next:** L4.08 teaches the mafʿūl li-ajlih: a noun in naṣb that says **why** the action happened. L4.09 teaches the mafʿūl maʿahu: a word in naṣb that says **together with whom**. Both look like the mafʿūl muṭlaq in the ending, and the question tells them apart. If a point felt shaky, go back to [L2.05](/learn/level-2/05-accusative-case/) for naṣb and [L3.20](/learn/level-3/20-verbal-nouns/) for the verbal noun.
+
+Earlier lessons you can link back to: [the accusative case, L2.05](/learn/level-2/05-accusative-case/), [the idafah, L2.08](/learn/level-2/08-possessive-idafah/), [verbal nouns, L3.20](/learn/level-3/20-verbal-nouns/), [the ḥāl, L4.01](/learn/level-4/01-hal-clauses/), [the tamyīz, L4.02](/learn/level-4/02-tamyiz/), [the object of purpose, L4.08](/learn/level-4/08-maf-ul-li-ajlih/) and [the object of accompaniment, L4.09](/learn/level-4/09-maf-ul-ma-ah/).
+
+<Sources
+    items={[
+      { label: 'Quran text', name: 'Tanzil (Uthmani text)', href: 'https://tanzil.net' },
+      { label: 'Verse tags', name: 'Quranic Arabic Corpus', href: 'https://corpus.quran.com' },
+      { label: 'Word-by-word analysis (iʿrāb) of the verses', name: 'Maḥmūd Ṣāfī, al-Jadwal fī Iʿrāb al-Qurʾān wa-Ṣarfihi wa-Bayānihi' },
+      { label: 'Where scholars read a word two ways (7:55, 71:17, 73:8), and the stress job (4:164, 52:9)', name: 'al-Samīn al-Ḥalabī, al-Durr al-Maṣūn' },
+      { label: 'The chapter on the maṣdar, with its two kinds', name: 'Ibn Ājurrūm, al-Ajurrumiyyah' },
+      { label: 'English under the verses', name: 'Plain-English meanings by Quran Learn, not a translation' },
+    ]}
+  />
+</Block>
+</Step>

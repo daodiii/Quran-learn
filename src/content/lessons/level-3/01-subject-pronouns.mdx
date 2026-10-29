@@ -1,0 +1,918 @@
+---
+title: "Subject Pronouns"
+kicker: "The twelve words for I, you, he"
+titleArabic: "الضَّمَائِر الْمُنْفَصِلَة"
+level: 3
+order: 1
+template: steps
+description: "Learn the twelve detached subject pronouns: I and we, five words for you, five for he, she and they. See how a pronoun starts a nominal sentence, why it shows no case ending, when it is written beside a verb, and go through four verses word by word."
+draft: false
+---
+
+import Step from '../../../components/lesson/Step.astro';
+import Stage from '../../../components/lesson/Stage.astro';
+import Sentence from '../../../components/lesson/Sentence.astro';
+import Tiles from '../../../components/lesson/Tiles.astro';
+import Formula from '../../../components/lesson/Formula.astro';
+import Note from '../../../components/lesson/Note.astro';
+import Check from '../../../components/lesson/Check.astro';
+import Start from '../../../components/lesson/Start.astro';
+import Sources from '../../../components/lesson/Sources.astro';
+import Parse from '../../../components/lesson/Parse.astro';
+import Exercise from '../../../components/lesson/Exercise.astro';
+import Block from '../../../components/lesson/Block.astro';
+import Conjugation from '../../../components/lesson/Conjugation.astro';
+
+{/* Content spec: docs/redesign/specs/L3.01-subject-pronouns.md. Every parse follows al-Jadwal (Mahmud Safi). */}
+
+<Step hero id="start" label="The twelve pronouns" title={frontmatter.title} kicker={frontmatter.kicker} titleArabic={frontmatter.titleArabic}>
+<Block id="overview" title="In this lesson" level={2} uncounted>
+  <Stage label="The idea">
+    <Formula
+      label="person plus number and gender equals one of twelve pronouns"
+      items={[
+        { kind: 'm', text: 'person', small: 'I, you, he' },
+        { kind: 'k', text: 'number and gender', small: 'one, two, many; man or woman' },
+        { kind: 's', text: 'one of twelve words', small: 'ضَمَائِر' },
+      ]}
+    />
+  </Stage>
+  <Start
+    goal="Know the twelve detached pronouns and what each one means. Say what a written pronoun does in a verse: it starts a nominal sentence, repeats a doer, or sets one person against another."
+    minutes={45}
+    before="The nominal sentence (L2.01, L2.02). The verbal sentence and the hidden doer (L2.03). Pronouns after prepositions (L2.07)."
+    terms={[
+      { term: 'Pronoun', ar: 'ضَمِير', meaning: 'A word that stands for someone already known: I, you, he.' },
+      { term: 'Detached pronoun', ar: 'ضَمِير مُنْفَصِل', meaning: 'A pronoun that is a word of its own.' },
+      { term: 'Attached pronoun', ar: 'ضَمِير مُتَّصِل', meaning: 'A pronoun joined to another word (L2.03, L2.07, L3.02).' },
+      { term: 'Hidden pronoun', ar: 'ضَمِير مُسْتَتِر', meaning: 'A doer understood inside a verb (L2.03).' },
+      { term: 'Built', ar: 'مَبْنِيّ', meaning: 'A word with one fixed shape. It shows no case ending.' },
+      { term: 'Tawkīd', ar: 'تَوْكِيد', meaning: 'Saying a word again to stress it.' },
+    ]}
+  />
+</Block>
+
+<Block id="see" title="Look at this sentence" level={2}>
+  <Stage>
+    <Sentence
+      size="big"
+      roles
+      reference="Al-Baqarah 2:187 (part)"
+      groups={[
+        { role: 'mubtada', words: [{ ar: 'هُنَّ', en: 'they (women)', say: 'hunna' }] },
+        { role: 'khabar', words: [{ ar: 'لِبَاسٌ', en: 'a garment', say: 'libasun' }] },
+        { role: 'tied', hint: 'belongs to لِبَاسٌ', words: [{ ar: 'لَّكُمْ', en: 'for you all', say: 'lakum', type: 'p' }] },
+      ]}
+      en={['They ', { gap: 'are' }, ' a garment for you.']}
+    />
+  </Stage>
+
+The verse speaks to men about their wives. The sentence starts with **هُنَّ**, “they”, for women. It is one word, and it points back to نِسَآئِكُمْ, “your women”, a few words earlier in the verse.
+
+A word like this is a **pronoun**, ضَمِير (*ḍamīr*). It stands for someone the listener already knows, so the speaker does not need to say the name again.
+
+<Check n={1} q="Who does هُنَّ point to in this verse?" options={['Your women (نِسَآئِكُمْ), earlier in the verse', 'A garment', 'You all']} answer={0} why="A pronoun stands for someone already named or known. Here it is the women named just before." />
+</Block>
+
+<Block id="kinds" title="A pronoun shows up in three ways" level={2}>
+  <Stage label="Three ways to say “they”, “you”, “he”">
+    <Tiles
+      label="هُنَّ, then لَّكُمْ, then خَلَقَ"
+      items={[
+        { ar: 'هُنَّ', en: 'detached: a word of its own' },
+        { ar: 'لَّكُمْ', en: 'attached: كُمْ is joined to لِ' },
+        { ar: 'خَلَقَ', en: 'hidden: the “he” is inside the verb' },
+      ]}
+    />
+  </Stage>
+
+You have already met all three ways.
+
+- **Detached**, ضَمِير مُنْفَصِل (*ḍamīr munfaṣil*): a pronoun that is a word of its own. This lesson teaches it.
+- **Attached**, ضَمِير مُتَّصِل (*ḍamīr muttaṣil*): a short pronoun joined to the end of another word. You met it after prepositions (L2.07) and as the doer ending of a verb (L2.03). [L3.02](/learn/level-3/02-attached-pronouns/) teaches it in full.
+- **Hidden**, ضَمِير مُسْتَتِر (*ḍamīr mustatir*): a doer understood inside a verb, with nothing written for it (L2.03).
+
+<Note kind="know">Detached pronouns come in two sets. The twelve in this lesson stand where a nominative word would stand. A second set, the words that start with إِيَّا, stands in the place of an object. Step 3 gives a first look at it.</Note>
+</Block>
+
+<Block id="noun" title="A pronoun is a noun, and it is definite" level={2}>
+  <Stage label="Definite nouns">
+    <Tiles
+      label="a pronoun, a name and a word with ٱلْ are all definite"
+      items={[
+        { ar: 'هُوَ', en: 'he' },
+        { ar: 'ٱللَّهُ', en: 'Allah' },
+        { ar: 'ٱلْكِتَابُ', en: 'the book' },
+      ]}
+    />
+  </Stage>
+
+Two points from earlier lessons now have a full answer.
+
+- **A pronoun counts as a noun.** L1.09 sorted sentences by their first word. A sentence that starts with a pronoun starts with a noun, so it is a nominal sentence.
+- **A pronoun is definite.** In L1.06, *al-Ajurrumiyyah* lists five kinds of definite noun, and the pronoun comes first. A pronoun already points to one person, so it takes no ٱلْ.
+
+A definite word is what a mubtadaʾ usually is (L2.02). That is one reason a pronoun starts a nominal sentence so easily.
+
+<Check n={2} q="A sentence starts with هُوَ. What kind of sentence is it?" options={['Nominal, because a pronoun counts as a noun', 'Verbal, because it has a doer', 'Neither']} answer={0} why="The first word decides (L1.09). A pronoun is a noun, so the sentence is nominal." />
+</Block>
+
+<Block id="twelve" title="The twelve pronouns" level={2}>
+  <Stage label="The twelve detached pronouns">
+    <Conjugation
+      caption="The twelve detached pronouns, in the order of al-Ajurrumiyyah"
+      formLabel="Pronoun"
+      rows={[
+        { group: 'The speaker: I and we' },
+        { who: 'I', ar: 'أَنَا', say: 'anā' },
+        { who: 'we', ar: 'نَحْنُ', say: 'naḥnu' },
+        { group: 'The one spoken to: you' },
+        { who: 'you (one man)', ar: 'أَنْتَ', say: 'anta' },
+        { who: 'you (one woman)', ar: 'أَنْتِ', say: 'anti' },
+        { who: 'you two', ar: 'أَنْتُمَا', say: 'antumā' },
+        { who: 'you all (men, or men and women)', ar: 'أَنْتُمْ', say: 'antum' },
+        { who: 'you all (women)', ar: 'أَنْتُنَّ', say: 'antunna' },
+        { group: 'The one spoken about: he, she, they' },
+        { who: 'he', ar: 'هُوَ', say: 'huwa' },
+        { who: 'she', ar: 'هِيَ', say: 'hiya' },
+        { who: 'they two', ar: 'هُمَا', say: 'humā' },
+        { who: 'they all (men, or men and women)', ar: 'هُمْ', say: 'hum' },
+        { who: 'they all (women)', ar: 'هُنَّ', say: 'hunna' },
+      ]}
+    />
+  </Stage>
+
+Ask three questions about any pronoun.
+
+1. **Who?** The speaker (I, we), the one spoken to (you), or the one spoken about (he, she, they).
+2. **How many?** One, two, or more than two. Arabic has its own form for two (L1.08).
+3. **Man or woman?** Arabic asks this for “you” and “they”, not for “I” and “we”.
+
+English has seven pronouns: I, you, he, she, it, we, they. Arabic has twelve. English “you” is one word. Arabic has five.
+
+Arabic has no word for “it”. هُوَ is “he”, or “it” for a masculine noun. هِيَ is “she”, or “it” for a feminine noun (L1.07).
+
+<Check n={3} q="Which pronoun means “you two”?" options={['أَنْتُمْ', 'أَنْتُمَا', 'هُمَا']} answer={1} why="أَنْتُمَا is “you two”. أَنْتُمْ is “you all” (men). هُمَا is “they two”." />
+
+<Check n={4} q="Which pronoun means “they” for a group of women?" options={['هُنَّ', 'هُمْ', 'هِيَ']} answer={0} why="هُنَّ is “they” for women. هُمْ is for men, or for men and women together. هِيَ is “she”." />
+</Block>
+
+<Block id="patterns" title="Patterns that help you remember" level={2}>
+  <Stage label="The same endings, twice">
+    <Tiles
+      label="they: two, many men, many women"
+      items={[
+        { ar: 'هُمَا', en: 'they two · -mā' },
+        { ar: 'هُمْ', en: 'they (men) · -m' },
+        { ar: 'هُنَّ', en: 'they (women) · -nna' },
+      ]}
+    />
+    <Tiles
+      label="you: two, many men, many women"
+      items={[
+        { ar: 'أَنْتُمَا', en: 'you two · -mā' },
+        { ar: 'أَنْتُمْ', en: 'you all (men) · -m' },
+        { ar: 'أَنْتُنَّ', en: 'you all (women) · -nna' },
+      ]}
+    />
+  </Stage>
+
+- **-mā** is two people. **-m** is many men, or men and women together. **-nna** is many women. The “you” row and the “they” row use the same three endings.
+- **One man or one woman.** For “you”, the last vowel is what changes: أَنْتَ (-a) and أَنْتِ (-i). For “he” and “she”, more changes: هُوَ and هِيَ.
+- **I and we** do not change for a man or a woman who is speaking.
+- **A mixed group** takes the masculine form. L2.02 showed this with the believing men and women in 9:71.
+
+<Check n={5} q="Which ending marks many women?" options={['-mā', '-m', '-nna']} answer={2} why="-nna is many women: أَنْتُنَّ and هُنَّ. -mā is two. -m is many men, or a mixed group." />
+</Block>
+
+<Block id="first-book" title="How the first grammar book says it" level={2}>
+  <Stage label="From al-Ajurrumiyyah">
+    <blockquote class="lx-quote" lang="ar" dir="rtl">
+      <p>وَالْمُضْمَرُ اثْنَا عَشَرَ وَهِيَ: أَنَا وَنَحْنُ وَأَنْتَ وَأَنْتِ وَأَنْتُمَا وَأَنْتُمْ وَأَنْتُنَّ وَهُوَ وَهِيَ وَهُمَا وَهُمْ وَهُنَّ</p>
+      <p>نَحْوُ قَوْلِكَ: أَنَا قَائِمٌ وَنَحْنُ قَائِمُونَ</p>
+    </blockquote>
+    <p class="lx-quote-note">Vowel marks added by Quran Learn.</p>
+  </Stage>
+
+*Al-Ajurrumiyyah* lists the twelve in its chapter on the mubtadaʾ and the khabar. It says the mubtadaʾ is of two kinds, a written noun and a pronoun, and then names the pronouns. Its word for a pronoun is **مُضْمَر** (*muḍmar*), “put away, hidden”. Today's books say ضَمِير.
+
+The twelve in the book are the twelve in your table, in the same order. The first وَهِيَ in the quote means “and they are”. The second one is “she”.
+
+The book's own example is **أَنَا قَائِمٌ**, “I am standing”, and **نَحْنُ قَائِمُونَ**, “we are standing”. Each one is a nominal sentence. The pronoun is the mubtadaʾ and the khabar ends in -un or -ūna.
+</Block>
+
+<Block id="common" title="How often you meet each one" level={2}>
+  <Stage label="The four you meet most">
+    <Tiles
+      label="written as a word of their own in the Quran"
+      items={[
+        { ar: 'هُوَ', en: 'he · 481 times' },
+        { ar: 'هُمْ', en: 'they (men) · 442' },
+        { ar: 'أَنْتُمْ', en: 'you all (men) · 135' },
+        { ar: 'نَحْنُ', en: 'we · 86' },
+      ]}
+    />
+  </Stage>
+
+| Pronoun | Meaning | Times |
+|---|---|---|
+| هُوَ | he | 481 |
+| هُمْ | they (men) | 442 |
+| أَنْتُمْ | you all (men) | 135 |
+| نَحْنُ | we | 86 |
+| أَنْتَ | you (one man) | 81 |
+| أَنَا | I | 68 |
+| هِيَ | she | 63 |
+| هُنَّ | they (women) | 7 |
+| هُمَا | they two | 2 |
+| أَنْتُمَا | you two | 1 |
+| أَنْتِ | you (one woman) | 0 |
+| أَنْتُنَّ | you all (women) | 0 |
+
+This is Quran Learn's count from the Quranic Arabic Corpus file. It counts words whose only stem is a pronoun, so 1,366 in all. A pronoun joined after لِ or بِ (لَهُمْ, بِهِمْ) is not counted, and neither is a pronoun joined to a verb or a noun. Those are attached. The word هِيَهْ in 101:10 is left out. Nobody has checked the Corpus tags by hand.
+
+هُوَ and هُمْ together are 923 of the 1,366. The Quran text has no أَنْتِ and no أَنْتُنَّ. A woman is addressed in other ways, such as the attached -ki in لَكِ (3:37), or by the ending of a verb.
+
+<Note kind="know">The Tanzil text spells هُمْ as هُمُ and أَنْتُمْ as أَنْتُمُ in some places, with an extra ḍamma on the mīm: 82 times for هُمُ and 5 times for أَنْتُمُ in the same count. You will see it before a word that begins with ٱلْ, as in هُمُ ٱلْمُفْلِحُونَ (2:5). The ḍamma is a joining vowel, and it is the same pronoun.</Note>
+</Block>
+
+</Step>
+
+<Step id="job" label="What it does" title="What a written pronoun does">
+<Block id="starts" title="A pronoun can start a sentence">
+  <Stage>
+    <Sentence
+      roles
+      reference="Al-Anʿam 6:18 (part)"
+      groups={[
+        { role: 'mubtada', words: [{ ar: 'وَهُوَ', en: 'and he', say: 'wa-huwa' }] },
+        { role: 'khabar', words: [{ ar: 'ٱلْقَاهِرُ', en: 'the one with full power', say: 'al-qahiru' }] },
+        { role: 'tied', hint: 'belongs to ٱلْقَاهِرُ', words: [{ ar: 'فَوْقَ', en: 'above', say: 'fawqa' }, { ar: 'عِبَادِهِۦ', en: 'his servants', say: 'ibadihi' }] },
+      ]}
+      en={['And He ', { gap: 'is' }, ' the One with full power over His servants.']}
+    />
+    <Sentence
+      roles
+      reference="Al-Aʿraf 7:12 (part)"
+      groups={[
+        { role: 'mubtada', words: [{ ar: 'أَنَا۠', en: 'I', say: 'ana' }] },
+        { role: 'khabar', words: [{ ar: 'خَيْرٌ', en: 'better', say: 'khayrun' }] },
+        { role: 'tied', hint: 'belongs to خَيْرٌ', words: [{ ar: 'مِّنْهُ', en: 'than him', say: 'minhu', type: 'p' }] },
+      ]}
+      en={['I ', { gap: 'am' }, ' better than him.']}
+    />
+  </Stage>
+
+Both sentences start with a pronoun: هُوَ, “he”, and أَنَا۠, “I”. A pronoun counts as a noun, so each sentence is nominal. The pronoun is the **mubtadaʾ**, and the khabar follows it. Both khabars end in -u or -un: ٱلْقَاهِرُ, خَيْرٌ.
+
+In 7:12 the speaker is Iblis, who is answering Allah's question.
+
+This is the plainest job of a written pronoun. A nominal sentence has no verb to carry the doer. The pronoun is the starting point of the sentence, so it has to be written.
+
+<Note kind="know">You may remember قُلْ هُوَ ٱللَّهُ أَحَدٌ (112:1) from L1.11. The books read هُوَ there in more than one way, so this lesson uses other verses as models.</Note>
+
+<Check n={6} q="In أَنَا۠ خَيْرٌ مِّنْهُ, which word is the mubtadaʾ?" options={['أَنَا۠', 'خَيْرٌ', 'مِّنْهُ']} answer={0} why="The sentence starts with the pronoun أَنَا۠. خَيْرٌ is the khabar, and مِّنْهُ belongs to it." />
+</Block>
+
+<Block id="built" title="A pronoun has no ending to show its case">
+  <Stage label="How the grammar books say it">
+    <Tiles
+      label="the books’ words for أَنَا۠ in 7:12"
+      items={[
+        { ar: 'ضَمِير', en: 'pronoun' },
+        { ar: 'مُنْفَصِل', en: 'detached' },
+        { ar: 'مَبْنِيّ', en: 'built: one fixed shape' },
+        { ar: 'فِي مَحَلّ رَفْع', en: 'in the place of the nominative' },
+        { ar: 'مُبْتَدَأ', en: 'mubtadaʾ' },
+      ]}
+    />
+  </Stage>
+
+A noun like ٱللَّهُ changes its ending with its job: -u, -a or -i (L1.10). A pronoun does not. أَنَا۠ looks the same whatever its job.
+
+That is why the books, al-Jadwal among them, call a pronoun **مَبْنِيّ** (*mabnī*), “built”: its shape is fixed. They still give it a job. A mubtadaʾ is nominative, so a pronoun that is a mubtadaʾ stands **in the place of** the nominative, فِي مَحَلّ رَفْع (*fī maḥall rafʿ*).
+
+The line in the stage reads, one word at a time: “a detached pronoun, built, in the place of the nominative, a mubtadaʾ.”
+
+Many books call the twelve **ضَمَائِر الرَّفْع**, “pronouns of the nominative”. The name fits, because each one takes the place of a nominative word.
+
+<Note kind="warn">Do not add an ending to a pronoun that is not there. Say that it is nominative in place, and name its job.</Note>
+
+<Check n={7} q="Which ending does أَنَا۠ show?" options={['-u', '-a', 'None: it has one fixed shape']} answer={2} why="A pronoun is built: one shape, whatever its job. Its case comes from its place in the sentence." />
+</Block>
+
+<Block id="verb-khabar" title="A pronoun and a verb together">
+  <Stage>
+    <Sentence
+      roles
+      reference="Yusuf 12:26 (start)"
+      groups={[
+        { words: [{ ar: 'قَالَ', en: 'he said', say: 'qala', type: 'v' }] },
+        { role: 'mubtada', words: [{ ar: 'هِىَ', en: 'she', say: 'hiya' }] },
+        { role: 'khabar', hint: 'a verb with its doer', words: [{ ar: 'رَٰوَدَتْنِى', en: 'she tried to tempt me', say: 'rawadatni', type: 'v' }] },
+        { role: 'tied', hint: 'belongs to the verb', words: [{ ar: 'عَن', en: 'from', type: 'p' }, { ar: 'نَّفْسِى', en: 'myself', say: 'nafsi' }] },
+      ]}
+      en={['He said: She ', { gap: 'is' }, ' the one who tried to tempt me.']}
+    />
+    <Sentence
+      roles
+      reference="Al-Baqarah 2:4 (end)"
+      groups={[
+        { role: 'tied', hint: 'belongs to the verb', words: [{ ar: 'وَبِٱلْءَاخِرَةِ', en: 'and of the Hereafter', say: 'wa-bil-akhirati', type: 'p' }] },
+        { role: 'mubtada', words: [{ ar: 'هُمْ', en: 'they', say: 'hum' }] },
+        { role: 'khabar', hint: 'a verb with its doer', words: [{ ar: 'يُوقِنُونَ', en: 'are sure', say: 'yuqinuna', type: 'v' }] },
+      ]}
+      en={['And of the Hereafter they are sure.']}
+    />
+  </Stage>
+
+Both verses start the main sentence with a written pronoun, and the khabar is a verbal sentence. That is one of the five kinds of khabar in L2.01.
+
+In 12:26 the speaker is Yusuf, and هِىَ is the woman. She is not named in the verse, but the listeners know who she is. The verb رَٰوَدَتْنِى has a hidden “she” as its doer (L2.03). That hidden “she” points back to the written هِىَ. So the verse names her twice: once as the starting point, and once inside the verb. The ending -nī is “me”, the object. [L3.02](/learn/level-3/02-attached-pronouns/) teaches it.
+
+In 2:4 the written هُمْ is the mubtadaʾ. The doer of يُوقِنُونَ is the ending و, an attached “they”.
+
+<Check n={8} q="In هِىَ رَٰوَدَتْنِى, where is the doer of the verb?" options={['The written هِىَ', 'A hidden “she” inside the verb', 'The ending -nī']} answer={1} why="Al-Jadwal: the doer is a hidden “she”. The written هِىَ is the mubtadaʾ, and -nī is “me”, the object." />
+</Block>
+
+<Block id="dual" title="Two people: the dual pronouns">
+  <Stage>
+    <Sentence
+      roles
+      reference="At-Tawbah 9:40 (part)"
+      groups={[
+        { role: 'zarf', words: [{ ar: 'إِذْ', en: 'when', say: 'idh' }] },
+        { role: 'mubtada', words: [{ ar: 'هُمَا', en: 'the two of them', say: 'huma' }] },
+        { role: 'khabar', words: [{ ar: 'فِى', en: 'in', say: 'fi', type: 'p' }, { ar: 'ٱلْغَارِ', en: 'the cave', say: 'al-ghari' }] },
+      ]}
+      en={['When the two of them ', { gap: 'were' }, ' in the cave.']}
+    />
+    <Sentence
+      roles
+      reference="Al-Qasas 28:35 (end)"
+      groups={[
+        { role: 'mubtada', words: [{ ar: 'أَنتُمَا', en: 'you two', say: 'antuma' }] },
+        { role: 'matuf', hint: 'joined to أَنتُمَا by “and”', words: [{ ar: 'وَمَنِ', en: 'and whoever', say: 'wa-mani' }] },
+        { role: 'tied', hint: 'completes “whoever”', words: [{ ar: 'ٱتَّبَعَكُمَا', en: 'follows you two', say: 'ittabaakuma', type: 'v' }] },
+        { role: 'khabar', words: [{ ar: 'ٱلْغَٰلِبُونَ', en: 'the winners', say: 'al-ghalibuna' }] },
+      ]}
+      en={['You two and whoever follows you two ', { gap: 'are' }, ' the winners.']}
+    />
+  </Stage>
+
+Arabic has a form for exactly two people (L1.08), and the dual pronouns have one shape for men and women. In 9:40 **هُمَا** means the two men in the cave. In 28:35 **أَنتُمَا** means the two people Allah is speaking to.
+
+In both verses the dual pronoun is the mubtadaʾ. In 9:40 the khabar is the phrase فِى ٱلْغَارِ. In 28:35 the khabar is ٱلْغَٰلِبُونَ, and ٱلْغَٰلِبُونَ shows its nominative with the letter و (L2.04). The word مَن, “whoever”, is joined to أَنتُمَا by “and”, so it is joined to the mubtadaʾ.
+
+The dual pronouns are rare. Quran Learn found هُمَا twice and أَنتُمَا once as words of their own.
+
+<Check n={9} q="How many people does هُمَا stand for?" options={['One', 'Two', 'Many']} answer={1} why="هُمَا is “they two”, the dual. For many people the Arabic uses هُمْ or هُنَّ." />
+</Block>
+
+<Block id="plural" title="Men and women: the plural pronouns">
+  <Stage>
+    <Sentence
+      roles
+      reference="Al-Baqarah 2:187 (part)"
+      groups={[
+        { role: 'mubtada', words: [{ ar: 'هُنَّ', en: 'they (women)', say: 'hunna' }] },
+        { role: 'khabar', words: [{ ar: 'لِبَاسٌ', en: 'a garment', say: 'libasun' }] },
+        { role: 'tied', hint: 'belongs to لِبَاسٌ', words: [{ ar: 'لَّكُمْ', en: 'for you all', type: 'p' }] },
+        { role: 'mubtada', words: [{ ar: 'وَأَنتُمْ', en: 'and you all (men)', say: 'wa-antum' }] },
+        { role: 'khabar', words: [{ ar: 'لِبَاسٌ', en: 'a garment', say: 'libasun' }] },
+        { role: 'tied', hint: 'belongs to لِبَاسٌ', words: [{ ar: 'لَّهُنَّ', en: 'for them (women)', say: 'lahunna', type: 'p' }] },
+      ]}
+      en={['They ', { gap: 'are' }, ' a garment for you, and you ', { gap: 'are' }, ' a garment for them.']}
+    />
+  </Stage>
+
+For many people the pronouns tell men from women. This verse has two nominal sentences side by side. The first has **هُنَّ**, “they” for women. The second has **أَنتُمْ**, “you all” for men. Each one is a mubtadaʾ, and each has the same khabar, لِبَاسٌ, “a garment”. The Arabic needs no “and” between the two pronouns, but it has one in front of the second sentence.
+
+The pronoun for a mixed group is the masculine one (L2.02).
+
+<Note kind="warn">The last word, لَّهُنَّ, also ends in هُنَّ. That هُنَّ is **attached**: it is joined to لِ. The هُنَّ that starts the verse part is **detached**. The two look the same. Check whether the pronoun is a word of its own.</Note>
+
+<Check n={10} q="Which pronoun would the Arabic use for a group of men and women together?" options={['The masculine plural, like أَنتُمْ', 'The feminine plural, like أَنْتُنَّ', 'The dual']} answer={0} why="A mixed group takes the masculine plural (L2.02)." />
+</Block>
+
+</Step>
+
+<Step id="written" label="Written or left out" title="When the pronoun is written, and when it is left out">
+<Block id="inside" title="A verb can carry its own pronoun">
+  <Stage label="Four verbs from Level 2">
+    <Tiles
+      label="the pronoun is inside each verb"
+      items={[
+        { ar: 'نَذَرْتُ', en: 'I vowed · -tu' },
+        { ar: 'ءَامَنَّا', en: 'we believed · -nā' },
+        { ar: 'عَلِمْتُم', en: 'you all knew · -tum' },
+        { ar: 'خَلَقَ', en: 'he created · hidden he' },
+      ]}
+    />
+  </Stage>
+
+L2.03 showed that a verb can carry its doer: an ending you can see, or a hidden one. These endings are pronouns too. They say the same thing as the words in your table.
+
+| Pronoun | On a verb it looks like | Example | Taught in |
+|---|---|---|---|
+| أَنَا, “I” | -tu | نَذَرْتُ (3:35) | [L3.05](/learn/level-3/05-past-tense/) |
+| نَحْنُ, “we” | -nā | ءَامَنَّا (3:52) | [L3.05](/learn/level-3/05-past-tense/) |
+| أَنْتُمْ, “you all” | -tum | عَلِمْتُم (12:73) | [L3.05](/learn/level-3/05-past-tense/) |
+| هُوَ, “he” | hidden | خَلَقَ (16:3) | [L3.05](/learn/level-3/05-past-tense/) |
+
+The table is a first look. The past tense is L3.05. The present tense is [L3.06](/learn/level-3/06-present-tense/), and the command is [L3.08](/learn/level-3/08-imperative/). Those lessons give all the endings, with the whole set of verb forms.
+
+<Check n={11} q="Which pronoun is hidden inside خَلَقَ?" options={['he', 'I', 'we']} answer={0} why="خَلَقَ means “he created”. The “he” is a hidden doer (L2.03)." />
+</Block>
+
+<Block id="when" title="When is a pronoun written?">
+  <Stage label="Three reasons">
+    <ol class="lx-card-list">
+      <li><b>It starts a nominal sentence.</b> هُوَ ٱلْقَاهِرُ, أَنَا۠ خَيْرٌ.</li>
+      <li><b>It stresses or repeats a doer.</b> ٱسْكُنْ أَنتَ, إِنَّنِىٓ أَنَا ٱللَّهُ.</li>
+      <li><b>It names the speaker after inna.</b> إِنَّا نَحْنُ.</li>
+    </ol>
+  </Stage>
+
+A verb already says who does the action. So a written pronoun beside a verb is a choice, and it adds something: weight, a contrast, or a repeat.
+
+A nominal sentence is different. There the pronoun is the mubtadaʾ itself, so the sentence needs it. It is not a stress.
+
+The next blocks show the second and third reasons in verses.
+</Block>
+
+<Block id="emphasis" title="Repeating a pronoun to stress it">
+  <Stage>
+    <Sentence
+      roles
+      reference="Al-Baqarah 2:35 (part)"
+      groups={[
+        { role: 'fiil', label: 'fiʿl + fāʿil', hint: 'the doer is a hidden “you”', words: [{ ar: 'ٱسْكُنْ', en: 'live', say: 'uskun', type: 'v' }] },
+        { role: 'tied', label: 'tawkīd', hint: 'repeats the hidden doer', words: [{ ar: 'أَنتَ', en: 'you', say: 'anta' }] },
+        { role: 'matuf', hint: 'joined to the doer by “and”', words: [{ ar: 'وَزَوْجُكَ', en: 'and your wife', say: 'wa-zawjuka' }] },
+        { role: 'maful', words: [{ ar: 'ٱلْجَنَّةَ', en: 'the garden', say: 'al-jannata' }] },
+      ]}
+      en={['Live in the garden, you and your wife.']}
+    />
+    <Sentence
+      roles
+      reference="Ta-Ha 20:14 (start)"
+      groups={[
+        { role: 'ismInna', hint: 'the “nī” is the ism', words: [{ ar: 'إِنَّنِىٓ', en: 'indeed I', say: 'innani', type: 'p' }] },
+        { role: 'tied', label: 'tawkīd', hint: 'repeats the “nī”', words: [{ ar: 'أَنَا', en: 'I', say: 'ana' }] },
+        { role: 'khabarInna', words: [{ ar: 'ٱللَّهُ', en: 'Allah', say: 'allahu' }] },
+      ]}
+      en={['Indeed, I ', { gap: 'am' }, ' Allah.']}
+    />
+  </Stage>
+
+In ٱسْكُنْ the doer is a hidden “you” (L2.03). Then the verse writes **أَنتَ**, “you”. It repeats the hidden doer. The grammar books call repeating a word to stress it **tawkīd**, تَوْكِيد. Al-Jadwal names أَنتَ this way. Then وَزَوْجُكَ, “and your wife”, is joined to the doer by “and”. So the verse tells both of them to live in the garden.
+
+In 20:14 the pronoun -nī, “me”, is joined to إِنَّ. Then **أَنَا** repeats it as a word of its own. Al-Jadwal says this أَنَا is “borrowed”: a pronoun from the nominative set, used in the place of the accusative to repeat the -nī. So it is not a mubtadaʾ here.
+
+<Note kind="know">Al-Jadwal adds a note on 2:35 about why a noun may be joined to a hidden doer. It is a point for a later level.</Note>
+</Block>
+
+<Block id="contrast" title="Two pronouns set against each other">
+  <Stage>
+    <Sentence
+      reference="Al-Kafirun 109:3"
+      groups={[
+        { words: [{ ar: 'وَلَآ', en: 'and not', say: 'wa-la', type: 'p' }] },
+        { words: [{ ar: 'أَنتُمْ', en: 'you all', say: 'antum' }] },
+        { words: [{ ar: 'عَٰبِدُونَ', en: 'worshippers', say: 'abiduna' }] },
+        { words: [{ ar: 'مَآ', en: 'what', say: 'ma' }, { ar: 'أَعْبُدُ', en: 'I worship', say: 'abudu', type: 'v' }] },
+      ]}
+      en={['And you are not worshippers of what I worship.']}
+    />
+    <Sentence
+      reference="Al-Kafirun 109:4"
+      groups={[
+        { words: [{ ar: 'وَلَآ', en: 'and not', say: 'wa-la', type: 'p' }] },
+        { words: [{ ar: 'أَنَا۠', en: 'I', say: 'ana' }] },
+        { words: [{ ar: 'عَابِدٌ', en: 'a worshipper', say: 'abidun' }] },
+        { words: [{ ar: 'مَّا', en: 'what', say: 'ma' }, { ar: 'عَبَدتُّمْ', en: 'you worshipped', say: 'abadtum', type: 'v' }] },
+      ]}
+      en={['And I am not a worshipper of what you worshipped.']}
+    />
+  </Stage>
+
+When two written pronouns stand side by side, the verse sets one person against the other. Here it sets “you” against “I”. Each verse also has a verb with a pronoun inside it: أَعْبُدُ has a hidden “I”, and عَبَدتُّمْ ends in the attached -tum, “you all”. The written pronouns are what carry the contrast.
+
+[L3.06](/learn/level-3/06-present-tense/) teaches the present-tense verb أَعْبُدُ, and [L3.05](/learn/level-3/05-past-tense/) teaches the past-tense verb عَبَدتُّمْ.
+</Block>
+
+<Block id="after-inna" title="A pronoun after inna">
+  <Stage>
+    <Sentence
+      roles
+      reference="Al-Hijr 15:9 (start)"
+      groups={[
+        { role: 'ismInna', hint: 'the “nā” is the ism', words: [{ ar: 'إِنَّا', en: 'indeed we', say: 'inna', type: 'p' }] },
+        { role: 'mubtada', words: [{ ar: 'نَحْنُ', en: 'we', say: 'nahnu' }] },
+        { role: 'khabar', hint: 'a verb with its doer and its object', words: [{ ar: 'نَزَّلْنَا', en: 'sent down', say: 'nazzalna', type: 'v' }, { ar: 'ٱلذِّكْرَ', en: 'the Reminder', say: 'adh-dhikra' }] },
+      ]}
+      en={['Indeed, We are the ones who sent down the Reminder.']}
+    />
+  </Stage>
+
+After إِنَّ, the subject (the ism of inna, L2.10) is a pronoun joined to it: the -nā of إِنَّا. Then the verse writes the detached pronoun **نَحْنُ**. Al-Jadwal reads it as the mubtadaʾ of a new sentence, نَحْنُ نَزَّلْنَا ٱلذِّكْرَ. Its khabar is the verbal sentence نَزَّلْنَا ٱلذِّكْرَ, and the whole sentence is the khabar of إِنَّ. So the written pronoun names the one who sent down the Reminder.
+
+<Note kind="know">**Two readings.** Al-Jadwal gives the mubtadaʾ reading first, and allows a second: نَحْنُ repeats the -nā of إِنَّا for emphasis. Al-Durr al-Maṣūn gives the same two readings. It adds that نَحْنُ is not a *separating pronoun* (ḍamīr al-faṣl), because it does not stand between two nouns. This lesson does not teach that kind.</Note>
+
+<Note kind="know">The speaker in this verse is Allah, and the pronoun is “we”. A plural pronoun does not always mean several speakers. Arabic can use “we” for one speaker. Quran Learn does not go into the reasons here.</Note>
+
+<Check n={12} q="In إِنَّا نَحْنُ نَزَّلْنَا, which “we” is a word of its own?" options={['The -nā of إِنَّا', 'نَحْنُ', 'The -nā of نَزَّلْنَا']} answer={1} why="نَحْنُ is the detached pronoun. The other two are attached: -nā joined to إِنَّ, and -nā as the doer of the verb." />
+</Block>
+
+<Block id="iyyaka" title="A first look at the other set: إِيَّا">
+  <Stage>
+    <Sentence
+      roles
+      reference="Al-Fatiha 1:5 (start)"
+      groups={[
+        { role: 'maful', label: 'mafʿūl bihi, put first', hint: 'the object: “you”', words: [{ ar: 'إِيَّاكَ', en: 'you', say: 'iyyaka' }] },
+        { role: 'fiil', label: 'fiʿl + fāʿil', hint: 'the doer is a hidden “we”', words: [{ ar: 'نَعْبُدُ', en: 'we worship', say: 'nabudu', type: 'v' }] },
+      ]}
+      en={['It is You that we worship.']}
+    />
+    <Tiles
+      label="made-up teaching forms: the set that starts with إِيَّا"
+      items={[
+        { ar: 'إِيَّاكَ', en: 'you (one man)' },
+        { ar: 'إِيَّاكُمْ', en: 'you all' },
+        { ar: 'إِيَّاهُ', en: 'him' },
+        { ar: 'إِيَّاهُمْ', en: 'them' },
+        { ar: 'إِيَّانَا', en: 'us' },
+      ]}
+    />
+  </Stage>
+
+إِيَّاكَ is a detached pronoun too, but it is not one of the twelve. Al-Jadwal says it is a detached pronoun in the place of the accusative: the object, put first. The ending -ka tells you it means “you”. The doer of نَعْبُدُ is a hidden “we”.
+
+So this is a second set of detached pronouns, for the object. It comes in forms for “me”, “us”, “you” and “him”, “them”. Quran Learn found 24 words of this set in the Quran text, in six forms.
+
+This lesson just previews it. The attached pronouns that join a verb are the next lesson, [L3.02](/learn/level-3/02-attached-pronouns/).
+</Block>
+
+</Step>
+
+<Step id="mistakes" label="Mistakes, word by word" title="Six mistakes, and four verses word by word">
+<Block id="mistake-stress" title="Mistake 1: adding a pronoun by habit, or hearing stress in each pronoun">
+  <Stage label="Made-up example">
+    <Tiles
+      label="the plain verb, and the verb with a written pronoun"
+      items={[
+        { ar: 'خَلَقَ', en: 'he created' },
+        { ar: 'هُوَ خَلَقَ', en: 'HE created · stress on “he”' },
+      ]}
+    />
+  </Stage>
+
+Learners make two errors here, in opposite directions.
+
+- **Adding a pronoun to a verb that does not need one.** A verb already says who. A written pronoun beside it adds stress (2:35, 109:3). Add one when you mean the stress.
+- **Reading stress into each pronoun.** In a nominal sentence the pronoun is the mubtadaʾ. هُوَ ٱلْقَاهِرُ (6:18) is “He is the One with full power”, not “HE is…”.
+
+<Check n={13} q="Does the written هُوَ in وَهُوَ ٱلْقَاهِرُ stress “he”?" options={['Not by itself: it is the mubtadaʾ of a nominal sentence', 'Yes, a written pronoun is a stress']} answer={0} why="Without a verb, the pronoun is the starting point of the sentence. Stress needs a reason, like a contrast." />
+</Block>
+
+<Block id="mistake-look" title="Mistake 2: mixing up look-alike pronouns">
+  <Stage label="Three pairs">
+    <Tiles
+      label="the pairs that look alike"
+      items={[
+        { ar: 'أَنْتَ', en: 'you (one man) · -a' },
+        { ar: 'أَنْتِ', en: 'you (one woman) · -i' },
+        { ar: 'هُوَ', en: 'he' },
+        { ar: 'هِيَ', en: 'she' },
+        { ar: 'هُمْ', en: 'they (men) · -m' },
+        { ar: 'هُنَّ', en: 'they (women) · -nna' },
+      ]}
+    />
+  </Stage>
+
+- أَنْتَ and أَنْتِ differ in the last vowel: fatḥa for a man, kasra for a woman. The Quran text has no أَنْتِ, but you will meet it in other Arabic.
+- هُوَ and هِيَ differ in the first vowel and the last letter: ḍamma and waw, kasra and yāʾ.
+- هُمْ and هُنَّ differ in the ending: -m for men, -nna for women.
+
+<Check n={14} q="What is the difference between أَنْتَ and أَنْتِ?" options={['The last vowel: -a for a man, -i for a woman', 'The first letter', 'One is dual']} answer={0} why="Both are “you” for one person. The last vowel shows a man or a woman." />
+</Block>
+
+<Block id="mistake-dual" title="Mistake 3: using the many-people form for two">
+  <Stage>
+    <Sentence
+      reference="At-Tawbah 9:40 (part)"
+      groups={[
+        { words: [{ ar: 'إِذْ', en: 'when', say: 'idh' }] },
+        { words: [{ ar: 'هُمَا', en: 'the two of them', say: 'huma' }] },
+        { words: [{ ar: 'فِى', en: 'in', type: 'p' }, { ar: 'ٱلْغَارِ', en: 'the cave' }] },
+      ]}
+      en={['When the two of them were in the cave.']}
+    />
+  </Stage>
+
+For exactly two people, use **هُمَا** or **أَنْتُمَا**. هُمْ and أَنْتُمْ are for more than two. Do not call two people هُمْ.
+
+The other side of this mistake is a mixed group. A group of men and women is not “women”: it takes the masculine plural, as L2.02 showed.
+</Block>
+
+<Block id="mistake-attached" title="Mistake 4: calling an attached pronoun detached">
+  <Stage label="Same letters, different job">
+    <Tiles
+      label="هُنَّ, then لَّهُنَّ, then إِنَّا"
+      items={[
+        { ar: 'هُنَّ', en: 'detached: a word of its own' },
+        { ar: 'لَّهُنَّ', en: 'attached: joined to li-' },
+        { ar: 'إِنَّا', en: 'attached: the -nā of inna' },
+      ]}
+    />
+  </Stage>
+
+A pronoun can look the same in two forms. In لَّهُنَّ the هُنَّ is joined to لِ, so it is attached. The هُنَّ that starts a sentence is a word of its own.
+
+A learner may think a pronoun has to be written after particles such as إِنَّ. What follows إِنَّ is a pronoun joined to it, as in إِنَّا. It is an attached pronoun, and [L3.02](/learn/level-3/02-attached-pronouns/) teaches it. A detached pronoun may follow, as نَحْنُ does in 15:9, but then it is a separate word.
+</Block>
+
+<Block id="mistake-ending" title="Mistake 5: looking for a case ending on a pronoun">
+  <Stage label="Seen and not seen">
+    <Tiles
+      label="a noun shows its case, a pronoun does not"
+      items={[
+        { ar: 'ٱلْقَاهِرُ', en: 'the khabar · -u shows' },
+        { ar: 'هُوَ', en: 'the mubtadaʾ · no mark' },
+      ]}
+    />
+  </Stage>
+
+In وَهُوَ ٱلْقَاهِرُ both words are nominative. ٱلْقَاهِرُ shows it with -u. هُوَ shows nothing, because a pronoun has one fixed shape (L1.10).
+
+Do not hunt for an ending, and do not invent one. Say what the books say: “built, in the place of the nominative”.
+</Block>
+
+<Block id="mistake-we" title="Mistake 6: counting speakers by the shape of the pronoun">
+  <Stage label="One word, one meaning">
+    <Tiles
+      label="نَحْنُ is plural in shape"
+      items={[
+        { ar: 'نَحْنُ', en: 'we · plural in shape' },
+      ]}
+    />
+  </Stage>
+
+نَحْنُ looks plural, so a learner may take it to mean several speakers. In 15:9 the speaker is Allah. Read the verse to see who is speaking.
+
+Classical books and commentaries explain this use of “we”. Quran Learn does not go into it in this lesson.
+</Block>
+
+<Block id="parse-1" title="Word by word: Al-Baqarah 2:187">
+  <Stage label="Word by word">
+    <Parse
+      reference="Al-Baqarah 2:187 (part)"
+      words={[
+        { ar: 'هُنَّ', en: 'they (women)' },
+        { ar: 'لِبَاسٌ', en: 'a garment' },
+        { ar: 'لَّكُمْ', en: 'for you all', type: 'p' },
+        { ar: 'وَأَنتُمْ', en: 'and you all' },
+        { ar: 'لِبَاسٌ', en: 'a garment' },
+        { ar: 'لَّهُنَّ', en: 'for them (women)', type: 'p' },
+      ]}
+      cards={[
+        { at: 0, role: 'mubtadaʾ: the detached pronoun “they” for women. It points back to نِسَآئِكُمْ, “your women”.', case: 'nominative in place: a pronoun shows no case ending', mark: 'none', why: 'It starts the sentence and it is a pronoun.', irab: 'ضمير منفصل في محل رفع مبتدأ' },
+        { at: 1, role: 'khabar', case: 'nominative (rafʿ)', mark: '-un (two ḍammas)', why: 'It is the news about هُنَّ.', irab: 'خبر مرفوع وعلامة رفعه الضمة الظاهرة' },
+        { at: 2, ar: 'لَّكُمْ', role: 'a phrase: li- “for” with “you all”. It describes لِبَاسٌ: “a garment for you”.', why: 'Al-Jadwal: tied to a left-out adjective of لِبَاسٌ.', irab: 'جار ومجرور متعلق بمحذوف نعت لـ«لباس»' },
+        { at: 2, ar: 'كُمْ', role: 'an attached pronoun, “you all”', case: 'genitive in place, after li-', mark: 'none: a pronoun shows no case ending', why: 'It is joined to the preposition (L2.07).', irab: 'ضمير في محل جر باللام' },
+        { at: 3, ar: 'وَ', role: '“and”, a little word that joins the second sentence to the first', why: 'Little words have no case.', irab: 'الواو عاطفة' },
+        { at: 3, ar: 'أَنتُمْ', role: 'mubtadaʾ of the second sentence: the detached pronoun “you all”, for men', case: 'nominative in place', mark: 'none', why: 'Al-Jadwal reads this sentence like the first.', irab: 'ضمير منفصل في محل رفع مبتدأ' },
+        { at: 4, role: 'khabar of the second sentence', case: 'nominative (rafʿ)', mark: '-un', why: 'It is the news about أَنتُمْ.', irab: 'خبر مرفوع وعلامة رفعه الضمة الظاهرة' },
+        { at: 5, ar: 'لَّهُنَّ', role: 'a phrase: li- “for” with “them”. It describes لِبَاسٌ.', why: 'Like the first phrase.', irab: 'جار ومجرور متعلق بمحذوف نعت لـ«لباس»' },
+        { at: 5, ar: 'هُنَّ', role: 'an attached pronoun, “them” for women', case: 'genitive in place, after li-', mark: 'none', why: 'The same letters as the first word, but this one is joined to li-. It is attached, not detached.', irab: 'ضمير في محل جر باللام' },
+      ]}
+    />
+  </Stage>
+
+Go through the verse part one word at a time. Say the role, the case, the mark and the reason before you open each card.
+
+Watch the two هُنَّ. The first is a word of its own. The last is joined to لِ. Their jobs are different even though the letters are the same.
+</Block>
+
+<Block id="parse-2" title="Word by word: Al-Hijr 15:9">
+  <Stage label="Word by word">
+    <Parse
+      reference="Al-Hijr 15:9 (start)"
+      words={[
+        { ar: 'إِنَّا', en: 'indeed we', type: 'p' },
+        { ar: 'نَحْنُ', en: 'we' },
+        { ar: 'نَزَّلْنَا', en: 'sent down', type: 'v' },
+        { ar: 'ٱلذِّكْرَ', en: 'the Reminder' },
+      ]}
+      cards={[
+        { at: 0, ar: 'إِنَّ', role: '“indeed”, a little word. It makes the next word accusative (L2.10).', why: 'Little words have no case.', irab: 'حرف توكيد ونصب' },
+        { at: 0, ar: 'نَا', role: 'ism inna: the attached pronoun “we”', case: 'accusative in place, as the ism of inna', mark: 'none: a pronoun shows no case ending', why: 'It is joined to إِنَّ.', irab: 'ضمير في محل نصب اسم إن' },
+        { at: 1, role: 'mubtadaʾ: the detached pronoun “we”', case: 'nominative in place', mark: 'none', why: 'It starts a new sentence. It says “we” a second time.', irab: 'ضمير منفصل مبني في محل رفع مبتدأ' },
+        { at: 2, role: 'a past-tense verb, “we sent down”. The ending -nā is the doer, an attached pronoun.', case: 'a verb has no case', mark: 'a fixed ending: sukūn before نَا', why: 'The doubled letter shows a Form II verb; L3.12 teaches it.', irab: 'فعل ماض مبني على السكون، و«نا» ضمير فاعل' },
+        { at: 3, role: 'mafʿūl bihi: the object, “the Reminder”', case: 'accusative (naṣb)', mark: '-a (fatḥa)', why: 'It is what was sent down.', irab: 'مفعول به منصوب وعلامة نصبه الفتحة الظاهرة' },
+        { at: [2, 3], role: 'the khabar of نَحْنُ: a whole verbal sentence', case: 'it stands in the place of the nominative', why: 'It is the news about نَحْنُ.', irab: 'وجملة «نزلنا الذكر» في محل رفع خبر المبتدأ نحن' },
+        { at: [1, 2, 3], role: 'the khabar of إِنَّ: a whole sentence', case: 'it stands in the place of the nominative', why: 'The whole sentence نَحْنُ نَزَّلْنَا ٱلذِّكْرَ is the news of إِنَّ.', irab: 'وجملة «نحن نزلنا الذكر» في محل رفع خبر إن' },
+      ]}
+    />
+  </Stage>
+
+This verse has three “we”: the -nā of إِنَّا, the written نَحْنُ, and the -nā of the verb. Only the second is a word of its own.
+
+The last two cards show a sentence inside a sentence: نَزَّلْنَا ٱلذِّكْرَ is the khabar of نَحْنُ, and the whole of نَحْنُ نَزَّلْنَا ٱلذِّكْرَ is the khabar of إِنَّ.
+</Block>
+
+<Block id="parse-3" title="Word by word: Al-Baqarah 2:35">
+  <Stage label="Word by word">
+    <Parse
+      reference="Al-Baqarah 2:35 (part)"
+      words={[
+        { ar: 'ٱسْكُنْ', en: 'live', type: 'v' },
+        { ar: 'أَنتَ', en: 'you' },
+        { ar: 'وَزَوْجُكَ', en: 'and your wife' },
+        { ar: 'ٱلْجَنَّةَ', en: 'the garden' },
+      ]}
+      cards={[
+        { at: 0, role: 'a command: “live!”. Its doer is a hidden “you”.', case: 'a verb has no case', mark: 'a fixed ending: sukūn', why: 'A command has a fixed ending (L2.03). L3.08 teaches commands.', irab: 'فعل أمر مبني على السكون، والفاعل ضمير مستتر تقديره أنت' },
+        { at: 1, role: 'tawkīd: it repeats the hidden doer, “you”', case: 'in the place of the nominative, like the doer it repeats', mark: 'none', why: 'The doer is already inside ٱسْكُنْ. Writing أَنتَ says it again.', irab: 'ضمير منفصل في محل رفع توكيد للفاعل المستتر' },
+        { at: 2, ar: 'وَ', role: '“and”, a little word', why: 'Little words have no case.', irab: 'الواو عاطفة' },
+        { at: 2, ar: 'زَوْجُ', role: 'joined to the hidden doer: “and your wife”. The first word of an idafah.', case: 'nominative (rafʿ), like the doer it is joined to', mark: '-u (ḍamma)', why: 'The wife is told to live there too. She follows the doer in case.', irab: 'معطوف على الضمير المستتر مرفوع وعلامة رفعه الضمة الظاهرة' },
+        { at: 2, ar: 'كَ', role: 'the second word of the idafah: “your”', case: 'genitive in place', mark: 'none: a pronoun shows no case ending', why: 'It is joined to زَوْجُ.', irab: 'ضمير متصل في محل جر مضاف إليه' },
+        { at: 3, role: 'mafʿūl bihi: the object, “the garden”', case: 'accusative (naṣb)', mark: '-a (fatḥa)', why: 'It is where they are told to live. Al-Jadwal calls it the object of the verb.', irab: 'مفعول به منصوب وعلامة نصبه الفتحة الظاهرة' },
+      ]}
+    />
+  </Stage>
+
+This verse shows the second reason from step 3: a written pronoun that repeats a doer. أَنتَ adds no new person. It repeats the hidden “you” inside ٱسْكُنْ, and then وَزَوْجُكَ is joined to that doer.
+</Block>
+
+<Block id="parse-4" title="Word by word: Al-Aʿraf 7:12">
+  <Stage label="Word by word">
+    <Parse
+      reference="Al-Aʿraf 7:12 (part)"
+      words={[
+        { ar: 'أَنَا۠', en: 'I' },
+        { ar: 'خَيْرٌ', en: 'better' },
+        { ar: 'مِّنْهُ', en: 'than him', type: 'p' },
+      ]}
+      cards={[
+        { at: 0, role: 'mubtadaʾ: the detached pronoun “I”', case: 'nominative in place', mark: 'none. The small sign ۠ on the alif says it is not said when you read on (L1.02).', why: 'It starts the sentence.', irab: 'ضمير منفصل مبني في محل رفع مبتدأ' },
+        { at: 1, role: 'khabar: “better”', case: 'nominative (rafʿ)', mark: '-un (two ḍammas)', why: 'It is the news about أَنَا۠. The speaker is Iblis.', irab: 'خبر مرفوع وعلامة رفعه الضمة الظاهرة' },
+        { at: 2, ar: 'مِّنْ', role: 'a phrase: min “than” with “him”. It belongs to خَيْرٌ: “better than him”.', why: 'Al-Jadwal: tied to خَيْرٌ.', irab: 'جار ومجرور متعلق بـ«خير»' },
+        { at: 2, ar: 'هُ', role: 'an attached pronoun, “him”', case: 'genitive in place, after min', mark: 'none: a pronoun shows no case ending', why: 'It is joined to the preposition (L2.07). It means the one Iblis was told to bow to.', irab: 'ضمير متصل في محل جر بمن' },
+      ]}
+    />
+  </Stage>
+
+The last verse is the shortest. It has a pronoun as mubtadaʾ, a khabar, and a phrase tied to the khabar. The attached هُ in مِّنْهُ is the opposite of the detached أَنَا۠.
+</Block>
+
+</Step>
+
+<Step id="practice" label="Practice" title="Practice">
+<Block id="practice-1" title="Practice: the twelve and what they do">
+  <Stage label="For each pronoun, say">
+    <ol class="lx-card-list">
+      <li><b>Person:</b> I or we, you, or he, she and they?</li>
+      <li><b>Number and gender:</b> one, two or many; man or woman?</li>
+      <li><b>Written, attached or hidden?</b></li>
+      <li><b>Job:</b> mubtadaʾ, or a repeat of a doer?</li>
+    </ol>
+  </Stage>
+
+Work out each answer first, on paper or in your head. Then open the answer.
+
+<Exercise n={1} q="Match each pronoun to its meaning. (a) أَنَا (b) هُوَ (c) نَحْنُ (d) هُمْ (e) أَنْتَ (f) هِيَ (g) أَنْتُمْ (h) هُنَّ. Meanings: she, I, they (women), he, you (one man), we, you all (men), they (men). This is from the table of the lesson.">
+
+- (a) أَنَا is **I**.
+- (b) هُوَ is **he**.
+- (c) نَحْنُ is **we**.
+- (d) هُمْ is **they (men)**, or men and women together.
+- (e) أَنْتَ is **you (one man)**.
+- (f) هِيَ is **she**.
+- (g) أَنْتُمْ is **you all (men)**, or men and women together.
+- (h) هُنَّ is **they (women)**.
+
+</Exercise>
+
+<Exercise n={2} q="Is the pronoun written, attached or hidden? (a) وَبِٱلْءَاخِرَةِ هُمْ يُوقِنُونَ (Al-Baqarah 2:4, end): both “they”. (b) نَذَرْتُ (Al-Imran 3:35, part): the “I”. (c) خَلَقَ ٱلسَّمَٰوَٰتِ وَٱلْأَرْضَ (An-Nahl 16:3, start): the “he”. (d) وَأَنتُمْ لِبَاسٌ لَّهُنَّ (Al-Baqarah 2:187, part): the هُنَّ at the end.">
+
+- (a) There are two “they”. **هُمْ** is **written** (detached): it is the mubtadaʾ. The ending **و** in يُوقِنُونَ is **attached**: it is the doer.
+- (b) **Attached.** The ending -tu is “I”, the doer.
+- (c) **Hidden.** The doer is a “he” inside the verb.
+- (d) **Attached.** This هُنَّ is joined to لِ: “for them”. The written هُنَّ is at the start of the verse part.
+
+</Exercise>
+
+<Exercise n={3} q="Find each “we”, and say which is written and which is attached: قَالَ ٱلْحَوَارِيُّونَ نَحْنُ أَنصَارُ ٱللَّهِ ءَامَنَّا بِٱللَّهِ (Al-Imran 3:52, part). Meaning: “The disciples said: We are the helpers of Allah. We believed in Allah.”">
+
+There are two “we”.
+
+- **نَحْنُ** is **written**. It is the mubtadaʾ of the first sentence. Its khabar is **أَنصَارُ**, nominative (-u). ٱللَّهِ is the second word of an idafah, genitive.
+- The ending **-nā** in ءَامَنَّا is **attached**. It is the doer of the verb.
+
+</Exercise>
+
+<Exercise n={4} q="Which pronouns are written in these two verses, and what is the verse doing with them? وَلَآ أَنتُمْ عَٰبِدُونَ مَآ أَعْبُدُ (Al-Kafirun 109:3) and وَلَآ أَنَا۠ عَابِدٌ مَّا عَبَدتُّمْ (Al-Kafirun 109:4). Meaning: “And you are not worshippers of what I worship. And I am not a worshipper of what you worshipped.”">
+
+The written pronouns are **أَنتُمْ**, “you all”, in 109:3 and **أَنَا۠**, “I”, in 109:4.
+
+The verses set “you” against “I”. The pronouns carry the contrast. There are also pronouns inside the verbs: أَعْبُدُ has a hidden “I”, and عَبَدتُّمْ ends in the attached -tum, “you all”.
+
+</Exercise>
+</Block>
+
+<Block id="practice-2" title="Practice: reading verses and choosing pronouns">
+  <Stage label="The twelve pronouns">
+    <ol class="lx-card-list">
+      <li><b>I, we:</b> أَنَا، نَحْنُ</li>
+      <li><b>You:</b> أَنْتَ، أَنْتِ، أَنْتُمَا، أَنْتُمْ، أَنْتُنَّ</li>
+      <li><b>He, she, they:</b> هُوَ، هِيَ، هُمَا، هُمْ، هُنَّ</li>
+    </ol>
+  </Stage>
+
+<Exercise n={5} q="Find the mubtadaʾ and the khabar. (a) قَالَتْ هُوَ مِنْ عِندِ ٱللَّهِ (Al-Imran 3:37, part). Meaning: “She said: It is from Allah.” (b) قَالَ هِىَ عَصَاىَ (Ta-Ha 20:18, start). Meaning: “He said: It is my staff.”">
+
+- (a) **هُوَ**, “it”, is the **mubtadaʾ**. The khabar is the phrase **مِنْ عِندِ ٱللَّهِ**, “from Allah”.
+- (b) **هِىَ**, “it”, is the **mubtadaʾ**. A staff, عَصًا, is a feminine noun, so the pronoun is feminine. The khabar is **عَصَا**. It is nominative, but you cannot see the -u: the word ends in a long ā, so the ḍamma is hidden. The ending **-ya** is “my”, the second word of an idafah.
+
+</Exercise>
+
+<Exercise n={6} q="Fill in the pronoun. (a) ___ عَالِمَةٌ (she is a scholar) (b) ___ مُسْلِمُونَ (we are Muslims) (c) ___ طَالِبَانِ (you two are students) (d) ___ ٱلْخَالِقُ (he is the Creator) (e) ___ صَادِقٌ (you, one man, are truthful). These are made-up examples.">
+
+- (a) **هِيَ** عَالِمَةٌ. The khabar is feminine, so the pronoun is “she”.
+- (b) **نَحْنُ** مُسْلِمُونَ.
+- (c) **أَنْتُمَا** طَالِبَانِ. The khabar ends in -āni, the dual (L2.04).
+- (d) **هُوَ** ٱلْخَالِقُ.
+- (e) **أَنْتَ** صَادِقٌ. For a woman it would be أَنْتِ.
+
+In all five sentences the pronoun is the mubtadaʾ. Nothing else needs to be written.
+
+</Exercise>
+
+<Exercise n={7} q="(a) Who does هُمَا stand for in إِذْ هُمَا فِى ٱلْغَارِ (At-Tawbah 9:40, part), and how many are they? (b) Find the mubtadaʾ and the khabar in أَنتُمَا وَمَنِ ٱتَّبَعَكُمَا ٱلْغَٰلِبُونَ (Al-Qasas 28:35, end). Meaning: “You two and whoever follows you two are the winners.”">
+
+- (a) **Two** people, the two men in the cave. هُمَا is the mubtadaʾ and the phrase فِى ٱلْغَارِ is the khabar.
+- (b) **أَنتُمَا**, “you two”, is the mubtadaʾ. **وَمَنِ**, “and whoever”, is joined to it. The khabar is **ٱلْغَٰلِبُونَ**, nominative with the letter و.
+
+</Exercise>
+
+<Exercise n={8} q="Find the mubtadaʾ and the khabar, and say why the mīm has a ḍamma: وَأَنتُمُ ٱلْأَعْلَوْنَ (Al-Imran 3:139, part). Meaning: “And you are the highest.”">
+
+**أَنتُمُ** is the mubtadaʾ, a pronoun. **ٱلْأَعْلَوْنَ** is the khabar, nominative with the letter و (L2.04).
+
+The ḍamma on the mīm is the joining vowel you saw in step 1. It is placed before a word that starts with ٱلْ. It is still أَنْتُمْ.
+
+Al-Jadwal reads the whole sentence as a **ḥāl** (a state: “while you are the highest”). L4.01 teaches the ḥāl.
+
+</Exercise>
+
+<Exercise n={9} q="Nominal or verbal? (a) هُمْ يُوقِنُونَ (Al-Baqarah 2:4, end) (b) يُوقِنُونَ (c) أَنَا۠ خَيْرٌ مِّنْهُ (Al-Aʿraf 7:12, part) (d) خَلَقَ (e) هِىَ رَٰوَدَتْنِى (Yusuf 12:26, start)">
+
+The first word decides (L1.09).
+
+- (a) **Nominal.** It starts with the pronoun هُمْ. The khabar is the verbal sentence يُوقِنُونَ.
+- (b) **Verbal.** It starts with a verb. The “they” is an attached doer.
+- (c) **Nominal.** The pronoun is the mubtadaʾ and خَيْرٌ is the khabar.
+- (d) **Verbal.** It starts with a verb. The doer is a hidden “he”.
+- (e) **Nominal.** It starts with هِىَ. The khabar is the verbal sentence رَٰوَدَتْنِى, with a hidden “she” as its doer.
+
+</Exercise>
+</Block>
+
+<Block id="done" title="You have finished the lesson">
+  <Stage label="The idea">
+    <Formula
+      label="person plus number and gender equals one of twelve pronouns"
+      items={[
+        { kind: 'm', text: 'person', small: 'I, you, he' },
+        { kind: 'k', text: 'number and gender', small: 'one, two, many; man or woman' },
+        { kind: 's', text: 'one of twelve words', small: 'ضَمَائِر' },
+      ]}
+    />
+  </Stage>
+
+- A **pronoun** stands for someone already known. It can be **detached** (a word of its own), **attached** (joined) or **hidden** (inside a verb).
+- The twelve detached pronouns: **I, we**; **you** in five forms; **he, she, they** in five forms. The dual has one form for men and women. A mixed group takes the masculine plural.
+- A pronoun counts as a noun and is definite. A sentence that starts with it is nominal.
+- A pronoun has one fixed shape. It is **built** and shows no ending. A pronoun that is a mubtadaʾ stands **in the place of** the nominative.
+- A written pronoun starts a nominal sentence. Beside a verb it repeats or stresses a doer, or sets one person against another.
+- After إِنَّ the pronoun that is joined to it is attached. A detached pronoun may follow it as a separate word.
+- إِيَّاكَ belongs to a second set of detached pronouns, for the object.
+
+**Next:** [L3.02](/learn/level-3/02-attached-pronouns/) teaches the attached pronouns. [L3.03](/learn/level-3/03-root-system/) starts the verbs with the root system. Verb endings come in [L3.05](/learn/level-3/05-past-tense/), and demonstratives and relatives, the other pronouns, in [L3.10](/learn/level-3/10-demonstrative-pronouns/) and [L3.11](/learn/level-3/11-relative-pronouns/). Before you go on, review L2.01 and L2.03 if the hidden doer felt new.
+
+<Sources
+    items={[
+      { label: 'Quran text', name: 'Tanzil (Uthmani text)', href: 'https://tanzil.net' },
+      { label: 'Word types, and the counts of pronouns in step 1', name: 'Quranic Arabic Corpus', href: 'https://corpus.quran.com' },
+      { label: 'Word-by-word analysis (iʿrāb) of each verse', name: 'Maḥmūd Ṣāfī, al-Jadwal fī Iʿrāb al-Qurʾān wa-Ṣarfihi wa-Bayānihi' },
+      { label: 'Where scholars differ (15:9)', name: 'al-Samīn al-Ḥalabī, al-Durr al-Maṣūn' },
+      { label: 'The twelve pronouns', name: 'Ibn Ājurrūm, al-Ajurrumiyyah, chapter on the mubtadaʾ and the khabar' },
+      { label: 'English under the verses', name: 'Plain-English meanings by Quran Learn, not a translation' },
+    ]}
+  />
+</Block>
+
+</Step>

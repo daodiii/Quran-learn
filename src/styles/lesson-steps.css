@@ -16,6 +16,21 @@
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
+/* The Hafs font draws Tanzil's small high rounded zero (U+06DF, as in كَفَرُوا۟) as a dotted circle.
+   This copy of the font leaves U+06DF out, so the browser draws that letter and mark with Amiri Quran. */
+@font-face {
+  font-family: 'Lx Hafs';
+  src: url('/fonts/UthmanicHafs.woff2') format('woff2');
+  font-display: swap;
+  unicode-range: U+0600-06DE, U+06E0-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC;
+}
+@font-face {
+  font-family: 'Lx Amiri Quran';
+  src: url('/fonts/amiri-quran-400.woff2') format('woff2');
+  font-display: swap;
+  unicode-range: U+0600-06FF, U+0750-077F, U+08A0-08FF, U+FB50-FDFF, U+FE70-FEFF;
+}
+
 .lx {
   --lx-bg: oklch(98.6% 0.006 215);
   --lx-surface: oklch(99.7% 0.003 215);
@@ -42,7 +57,7 @@
   --lx-rem: oklch(50% 0.15 305); /* white label on it: 6.2:1 */
   --lx-rem-ink: oklch(99% 0.01 305);
   --lx-r: 14px;
-  --lx-font: 'Geist', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --lx-font: 'Geist', 'Lx Hafs', 'Lx Amiri Quran', system-ui, -apple-system, 'Segoe UI', sans-serif;
 
   background: var(--lx-bg);
   color: var(--lx-text);
@@ -106,7 +121,7 @@ html:has([data-lx]) {
 .lx .ar,
 .lx .ar-inline,
 .lx .lx-ar {
-  font-family: var(--font-arabic, 'KFGQPC Hafs Uthmani', 'Amiri', 'Traditional Arabic', serif);
+  font-family: 'Lx Hafs', 'Lx Amiri Quran', 'Amiri', serif;
   letter-spacing: 0;
   font-weight: 400;
 }
@@ -137,6 +152,11 @@ html:has([data-lx]) {
 .lx-js .lx-bar {
   display: grid;
 }
+.lx-seg,
+.lx-part-btn {
+  min-width: 0; /* the site-wide 44px button minimum would push the bar off a phone screen; ::before gives the tap area */
+  min-height: 0;
+}
 .lx-seg {
   height: 3px;
   border: 0;
@@ -158,6 +178,59 @@ html:has([data-lx]) {
   background: var(--lx-accent-2);
   height: 5px;
   margin-top: -1px;
+}
+/* A lesson with parts: one segment per part; the current part opens into its steps. */
+.lx-js .lx-bar.lx-bar-parts {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem;
+}
+.lx-part {
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+}
+.lx-part.on {
+  flex-grow: 4;
+}
+.lx-part-btn {
+  flex: 1;
+  height: 3px;
+  border: 0;
+  padding: 0;
+  border-radius: 2px;
+  background: var(--lx-line);
+  cursor: pointer;
+  position: relative;
+}
+.lx-part-btn::before {
+  content: '';
+  position: absolute;
+  inset: -14px 0;
+}
+.lx-part.done .lx-part-btn {
+  background: var(--lx-accent);
+}
+.lx-part-steps {
+  display: none;
+  flex: 1;
+  gap: 0.2rem;
+}
+.lx-part.on .lx-part-btn {
+  display: none;
+}
+.lx-part.on .lx-part-steps {
+  display: flex;
+}
+.lx-part-steps .lx-seg {
+  flex: 1;
+}
+.lx-partname {
+  flex-basis: 100%;
+  margin: 0.45rem 0 0;
+  font-size: 0.85rem;
+  color: var(--lx-muted);
 }
 
 .lx-wrap {
@@ -193,24 +266,28 @@ html:has([data-lx]) {
   top: 5.5rem;
   align-self: start;
 }
+/* One counter, read as one phrase: a big "1" with "of 35" beside it, same colour. */
 .lx-count {
   display: none;
   align-items: baseline;
-  gap: 0.6rem;
-  margin: 0 0 0.8rem;
-  font-size: 0.9rem;
-  color: var(--lx-muted);
+  gap: 0.4rem;
+  margin: 0 0 0.9rem;
+  color: var(--lx-accent-2-text);
   max-width: none;
+  line-height: 1;
 }
 .lx-js .lx-count {
   display: flex;
 }
 .lx-num {
-  font-size: 2.6rem;
-  color: var(--lx-accent-2);
+  font-size: 3.6rem;
+  font-weight: 500;
   letter-spacing: -0.04em;
-  line-height: 1;
   font-variant-numeric: tabular-nums;
+}
+.lx-of {
+  font-size: 1.6rem;
+  font-weight: 500;
 }
 .lx-title {
   margin: 0;
@@ -262,6 +339,49 @@ html:has([data-lx]) {
   text-decoration-thickness: 2px;
   text-underline-offset: 3px;
   text-decoration-color: var(--lx-accent-2);
+}
+
+/* ---- big steps made of blocks: each block has its own example beside its text ---- */
+.lx-step:has(> .lx-block) {
+  grid-template-columns: minmax(0, 1fr);
+}
+.lx-block {
+  display: grid;
+  grid-template-columns: minmax(0, 34rem) minmax(0, 1fr);
+  column-gap: 3.5rem;
+  align-content: start;
+  padding: 1.8rem 0 1.4rem;
+  border-top: 1px solid var(--lx-line);
+}
+.lx-block > * {
+  grid-column: 1;
+}
+.lx-block > .lx-stage {
+  grid-column: 2;
+  grid-row: 1 / span 30;
+  position: sticky;
+  top: 5.5rem;
+  align-self: start;
+  min-height: 0;
+}
+.lx-block-h {
+  margin: 0 0 0.9rem;
+  font-size: 1.55rem;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  text-wrap: balance;
+}
+.lx-block-n {
+  display: none;
+  margin-bottom: 0.3rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0;
+  color: var(--lx-accent-2-text);
+}
+.lx-js .lx-block-n {
+  display: block;
 }
 
 /* ---- stage (the persistent example panel) ---- */
@@ -326,6 +446,10 @@ html:has([data-lx]) {
 }
 .lx-little {
   --t: var(--lx-little);
+}
+/* A letter, vowel or mark: no word type, so a neutral grey. */
+.lx-plain {
+  --t: var(--lx-muted);
 }
 .lx-w {
   direction: ltr;
@@ -401,26 +525,49 @@ html:has([data-lx]) {
   display: block;
   color: var(--lx-muted);
 }
-.lx-role-mubtada {
+/* Role families: m = first part of a pair (solid), k = second part (dashed), v = the verb (solid, verb colour),
+   x = tied phrase or little word (dotted grey). */
+.lx-role-m {
   --rc: var(--lx-accent);
 }
-.lx-role-mubtada b {
+.lx-role-m b {
   background: var(--lx-accent);
   color: var(--lx-on-accent);
 }
-.lx-role-khabar {
+.lx-role-k {
   --rc: var(--lx-accent-2);
   border-top-style: dashed;
 }
-.lx-role-khabar b {
+.lx-role-k b {
   color: var(--lx-accent-2-text);
   border: 2px solid var(--lx-accent-2);
+}
+.lx-role-v {
+  --rc: var(--lx-verb);
+}
+.lx-role-v b {
+  background: var(--lx-verb);
+  color: var(--lx-on-accent);
+}
+.lx-role-x {
+  --rc: var(--lx-line-2);
+  border-top-style: dotted;
+}
+.lx-role-x b {
+  color: var(--lx-muted);
+  border: 1.5px dotted var(--lx-line-2);
 }
 .lx-trans {
   margin: 1em 0 0.2em;
   text-align: center;
   font-size: 1.2rem;
   max-width: none;
+}
+.lx-trans-tag {
+  display: block;
+  font-size: 0.78rem;
+  color: var(--lx-muted);
+  margin-bottom: 0.1rem;
 }
 .lx-gap {
   border-bottom: 2px dashed var(--lx-accent-2);
@@ -695,6 +842,252 @@ html:has([data-lx]) {
   color: var(--lx-muted);
 }
 
+/* ---- quotes from the grammar books, and tables in a step ---- */
+.lx-quote {
+  margin: 0.5rem 0;
+  padding: 1.2rem 1.3rem;
+  background: var(--lx-surface);
+  border: 1px solid var(--lx-line);
+  border-inline-start: 4px solid var(--lx-accent);
+  border-radius: 16px;
+  text-align: right;
+}
+/* Grammar-book Arabic is not Quran text: set it in Amiri, which also draws the Arabic comma
+   (the Quran font draws ، as a decorative mark). */
+.lx-quote p {
+  margin: 0;
+  font-family: 'Amiri', var(--font-arabic, serif);
+  font-size: 1.7rem;
+  line-height: 2;
+  letter-spacing: 0;
+}
+.lx .lx-quote .ar {
+  font-family: inherit;
+  font-size: 1em;
+  margin: 0;
+}
+.lx-quote-list p {
+  font-size: 1.5rem;
+}
+.lx-quote-note {
+  font-size: 0.85rem;
+  color: var(--lx-muted);
+  margin: 0.2rem 0 0;
+}
+.lx-step .table-scroll {
+  max-width: 62ch;
+  overflow-x: auto;
+  margin: 0 0 1em;
+}
+.lx .lx-step table {
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 0; /* the site-wide max-content minimum made it scroll on a phone */
+  font-size: 0.95rem;
+}
+.lx-step th,
+.lx-step td {
+  text-align: start;
+  padding: 0.45rem 0.6rem;
+  border-bottom: 1px solid var(--lx-line);
+  vertical-align: top;
+}
+.lx-step th {
+  font-weight: 500;
+  color: var(--lx-muted);
+}
+
+.lx .lx-card-list {
+  margin: 0.5rem 0;
+  padding: 1.2rem 1.3rem 1.2rem 2.6rem;
+  background: var(--lx-surface);
+  border: 1px solid var(--lx-line);
+  border-radius: 16px;
+  list-style: decimal;
+  font-size: 1.05rem;
+}
+.lx-card-list li {
+  margin: 0.35rem 0;
+}
+
+/* ---- conjugation table (Conjugation.astro) ---- */
+.lx-conj {
+  margin: 0.5rem 0;
+  padding: 0.9rem 1rem 1rem;
+  background: var(--lx-surface);
+  border: 1px solid var(--lx-line);
+  border-radius: 16px;
+}
+.lx-conj caption {
+  caption-side: top;
+  text-align: start;
+  padding: 0 0 0.6rem;
+  font-weight: 500;
+  color: var(--lx-text);
+}
+.lx-conj th,
+.lx-conj td {
+  vertical-align: middle;
+}
+.lx-conj tbody th {
+  font-weight: 500;
+  color: var(--lx-text);
+}
+.lx-conj .lx-ar {
+  font-size: 1.6rem;
+  line-height: 1.7;
+  direction: rtl;
+  unicode-bidi: isolate;
+}
+.lx-conj-verb {
+  color: var(--lx-verb);
+}
+.lx-conj-end {
+  color: var(--lx-accent);
+}
+.lx-conj-say {
+  font-style: italic;
+  color: var(--lx-muted);
+}
+.lx-conj-group th {
+  padding-top: 0.8rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--lx-muted);
+}
+.lx-conj-hi > * {
+  background: color-mix(in oklab, var(--lx-verb) 8%, var(--lx-surface));
+}
+
+/* ---- parse panel (word by word) ---- */
+.lx-parse-words {
+  flex-wrap: wrap;
+}
+.lx-pw {
+  transition: background-color 0.2s, border-color 0.2s;
+}
+.lx-pw.lit {
+  outline: 3px solid var(--t);
+  outline-offset: 2px;
+  border-width: 2px;
+  border-color: var(--t);
+  background: color-mix(in oklab, var(--t) 14%, var(--lx-surface));
+}
+.lx-pcards {
+  display: grid;
+  gap: 0.6rem;
+  margin-top: 0.6rem;
+}
+.lx-pcard {
+  padding: 0.8rem 1rem 0.9rem;
+  background: var(--lx-surface);
+  border: 1px solid var(--lx-line);
+  border-radius: var(--lx-r);
+}
+.lx-pcard[hidden] {
+  display: none;
+}
+.lx-pcard-ar {
+  margin: 0 0 0.2rem;
+  font-family: 'Lx Hafs', 'Lx Amiri Quran', 'Amiri', serif;
+  font-size: 1.9rem;
+  line-height: 1.7;
+  text-align: center;
+}
+.lx-pcard dl {
+  display: grid;
+  gap: 0.3rem;
+  margin: 0;
+}
+.lx-pcard dl div {
+  display: grid;
+  grid-template-columns: 4rem 1fr;
+  gap: 0.6rem;
+}
+.lx-pcard dt {
+  font-weight: 500;
+  color: var(--lx-muted);
+  font-size: 0.92rem;
+}
+.lx-pcard dd {
+  margin: 0;
+}
+.lx-pcard-irab {
+  margin: 0.6rem 0 0;
+  padding-top: 0.5rem;
+  border-top: 1px dashed var(--lx-line);
+  display: grid;
+  gap: 0.1rem;
+}
+.lx-pcard-irab > span:first-child {
+  font-size: 0.8rem;
+  color: var(--lx-muted);
+}
+.lx .lx-pcard-irab .lx-ar {
+  font-family: 'Amiri', var(--font-arabic, serif);
+  font-size: 1.3rem;
+  line-height: 1.8;
+  text-align: right;
+}
+.lx-parse-ctl {
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.6rem;
+  margin-top: 0.7rem;
+}
+.lx-parse-js .lx-parse-ctl {
+  display: flex;
+}
+.lx-parse-ctl .lx-btn {
+  min-width: 5.5rem;
+}
+
+/* ---- worked exercises ---- */
+.lx-ex {
+  padding: 1em 0;
+  border-top: 1px solid var(--lx-line);
+  max-width: 62ch;
+}
+.lx-ex .lx-q {
+  margin-bottom: 0.5em;
+}
+.lx-ex-ans summary {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0.3em 1em;
+  border: 1.5px solid var(--lx-accent);
+  border-radius: 12px;
+  color: var(--lx-accent);
+  font-weight: 500;
+  cursor: pointer;
+  list-style: none;
+}
+.lx-ex-ans summary::-webkit-details-marker {
+  display: none;
+}
+.lx-ex-ans[open] summary {
+  background: var(--lx-accent);
+  color: var(--lx-on-accent);
+}
+.lx-ex-body {
+  margin-top: 0.7rem;
+  padding: 0.8rem 1rem;
+  background: color-mix(in oklab, var(--lx-good) 7%, var(--lx-surface));
+  border: 1px solid color-mix(in oklab, var(--lx-good) 30%, var(--lx-surface));
+  border-radius: 12px;
+}
+.lx-ex-body p,
+.lx-ex-body ul {
+  margin: 0 0 0.5em;
+}
+.lx-ex-body > :last-child {
+  margin-bottom: 0;
+}
+
 /* ---- end of lesson ---- */
 .lx-keys li {
   font-size: 1.1rem;
@@ -800,6 +1193,20 @@ html:has([data-lx]) {
     margin: 0 0 1.4rem;
     padding: 1rem;
   }
+  .lx-block {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .lx-block > .lx-block-h {
+    order: -2;
+  }
+  .lx-block > .lx-stage {
+    grid-column: 1;
+    grid-row: auto;
+    order: -1;
+    position: static;
+    margin: 0 0 1.2rem;
+    padding: 1rem;
+  }
   .lx-title {
     font-size: 2.2rem;
   }
@@ -852,10 +1259,70 @@ html:has([data-lx]) {
   .lx-f {
     padding: 0.5rem 0.8rem;
   }
+  .lx-conj {
+    padding: 0.7rem 0.5rem 0.8rem;
+  }
+  .lx-conj .lx-ar {
+    font-size: 1.35rem;
+  }
+  /* Long derived-form sounds (istaghfartumā) may wrap so the table fits 390 px. */
+  .lx-conj-say {
+    overflow-wrap: anywhere;
+  }
+  /* Tables with five or six columns (letter charts, word lists) fit a phone without scrolling. */
+  .lx .lx-step table {
+    font-size: 0.85rem;
+  }
+  .lx-step th,
+  .lx-step td {
+    padding: 0.35rem 0.3rem;
+  }
 }
 @media (prefers-reduced-motion: reduce) {
   .lx * {
     transition: none !important;
     animation: none !important;
   }
+}
+
+/* ---- listen button on a verse caption ---- */
+.lx .ayah-play {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-inline-start: 0.5rem;
+  padding: 0.2rem 0.75rem;
+  border: 1px solid var(--lx-line-2);
+  border-radius: 999px;
+  background: var(--lx-surface);
+  color: var(--lx-accent);
+  font: inherit;
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+  vertical-align: middle;
+}
+.lx .ayah-play:hover {
+  border-color: var(--lx-accent);
+}
+.lx .ayah-play:focus-visible {
+  outline: 3px solid var(--lx-focus);
+  outline-offset: 2px;
+}
+.lx .ayah-play.playing {
+  background: var(--lx-accent);
+  color: var(--lx-on-accent);
+  border-color: var(--lx-accent);
+}
+.lx .ayah-play.unavailable {
+  opacity: 0.5;
+  cursor: default;
+}
+.lx-vocab-link {
+  margin: 1rem 0 0;
+  text-align: center;
+  font-size: 0.9rem;
+}
+.lx-vocab-link a {
+  color: var(--lx-accent);
 }

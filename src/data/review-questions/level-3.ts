@@ -1,21 +1,21 @@
 // Level-3 cumulative review: sources exclusively level-2 lessons (the
 // level-2 review already drills level-1 material).
-// All Arabic strings copied verbatim from the cited lesson MDX files.
+// Verse quotes follow the Tanzil text (checked 2026-10-29); explanations follow the rewritten lessons.
 import type { ReviewQuestion } from './index.ts';
 
 export const LEVEL_3_REVIEW: ReviewQuestion[] = [
   {
     id: 1,
-    question: 'In قُلْ هُوَ ٱللَّهُ أَحَدٌ (Al-Ikhlas 112:1), the phrase ٱللَّهُ أَحَدٌ is a nominal sentence. Which part is the mubtadaʾ (subject) and which is the khabar (predicate)?',
+    question: 'In قُلْ هُوَ ٱللَّهُ أَحَدٌ (Al-Ikhlas 112:1), the phrase ٱللَّهُ أَحَدٌ is a nominal sentence. Which part is the mubtadaʾ (the starting point) and which is the khabar (the news)?',
     options: [
       'ٱللَّهُ is the mubtadaʾ; أَحَدٌ is the khabar',
       'ٱللَّهُ is the khabar; أَحَدٌ is the mubtadaʾ',
-      'هُوَ is the mubtadaʾ; ٱللَّهُ is the khabar',
+      'قُلْ is the mubtadaʾ; هُوَ is the khabar',
       'أَحَدٌ is the mubtadaʾ; ٱللَّهُ is the khabar',
     ],
     correctAnswer: 0,
-    explanation: 'In a nominal sentence the mubtadaʾ (subject) is the topic being spoken about; here ٱللَّهُ is the topic and أَحَدٌ ("One") is the khabar (predicate) that tells us something about it. (Lesson: The Nominal Sentence.)',
-    source: 'level-2/01-nominal-sentence',
+    explanation: 'In a nominal sentence the mubtadaʾ is the starting point and the khabar tells us something about it. Here ٱللَّهُ is the mubtadaʾ and أَحَدٌ ("One") is the khabar. This is al-Jadwal\'s main reading; the books read هُوَ in more than one way. (Lesson: Checkpoint: Reading Surah Al-Ikhlas.)',
+    source: 'level-1/11-checkpoint-al-ikhlas',
   },
   {
     id: 2,
@@ -27,7 +27,7 @@ export const LEVEL_3_REVIEW: ReviewQuestion[] = [
       'It is the khabar of إِنَّ and predicates take accusative',
     ],
     correctAnswer: 1,
-    explanation: 'إِنَّ and her sisters are particles that take a nominal sentence and shift the subject (ism inna) from nominative to accusative; ٱلْإِنسَٰنَ is the ism inna and therefore carries fatha. (Lesson: Inna and Her Sisters.)',
+    explanation: 'إِنَّ and her sisters are particles that take a nominal sentence and shift the subject (ism inna) from nominative to accusative; ٱلْإِنسَٰنَ is the ism inna and therefore carries fatha. (Lesson: Six Words in Front of the Sentence.)',
     source: 'level-2/10-inna-sisters',
   },
   {
@@ -40,7 +40,7 @@ export const LEVEL_3_REVIEW: ReviewQuestion[] = [
       'Nominative, because definite nouns are always in nominative',
     ],
     correctAnswer: 2,
-    explanation: 'The second noun in an idafah construction (muḍāf ilayh) is always placed in the genitive case; ٱلنَّاسِ carries kasra throughout all three idafah phrases here. (Lesson: The Possessive Construction.)',
+    explanation: 'The second noun in an idafah construction (muḍāf ilayh) is always placed in the genitive case; ٱلنَّاسِ carries kasra throughout all three idafah phrases here. (Lesson: The Possessive Construction (Idafah).)',
     source: 'level-2/08-possessive-idafah',
   },
   {
@@ -58,15 +58,15 @@ export const LEVEL_3_REVIEW: ReviewQuestion[] = [
   },
   {
     id: 5,
-    question: 'In كَانَ ٱللَّهُ عَلَىٰ كُلِّ شَىْءٍۢ شَهِيدًا (Al-Ahzab 33:9), what case is شَهِيدًا and why?',
+    question: 'In وَكَانَ ٱللَّهُ عَلَىٰ كُلِّ شَىْءٍ مُّقِيتًا (An-Nisa 4:85, end), what case is مُّقِيتًا and why?',
     options: [
       'Nominative — it is the mubtadaʾ of a nominal sentence',
       'Genitive — it follows the preposition عَلَىٰ',
-      'Accusative — it is the khabar of كَانَ; kana-sisters make their predicate accusative',
-      'Accusative — it is the ism of كَانَ and kana puts its subject in accusative',
+      'Accusative — it is the khabar of كَانَ; the sisters of kāna make their khabar accusative',
+      'Accusative — it is the ism of كَانَ and kāna puts its ism in the accusative',
     ],
     correctAnswer: 2,
-    explanation: 'Kana and her sisters take a subject (ism kāna, nominative) and a predicate (khabar kāna, accusative); شَهِيدًا is the khabar carrying fatha to mark the accusative case. (Lesson: Kaana and Her Sisters.)',
+    explanation: 'Kāna keeps its ism in the nominative (ٱللَّهُ, -u) and puts its khabar in the accusative. مُّقِيتًا ends in -an, so it is the khabar of kāna. (Lesson: Verbs That Change the News.)',
     source: 'level-2/11-kaana-sisters',
   },
   {
@@ -79,20 +79,20 @@ export const LEVEL_3_REVIEW: ReviewQuestion[] = [
       'The adjective matches the noun in gender, number, case, and definiteness',
     ],
     correctAnswer: 3,
-    explanation: 'Arabic adjectives must agree with their noun in all four categories: gender, number, case, and definiteness; ٱلْمُسْتَقِيمَ is masculine singular accusative definite, matching ٱلصِّرَٰطَ in every category. (Lesson: Adjective Agreement.)',
+    explanation: 'Arabic adjectives must agree with their noun in all four categories: gender, number, case, and definiteness; ٱلْمُسْتَقِيمَ is masculine singular accusative definite, matching ٱلصِّرَٰطَ in every category. (Lesson: Adjectives and the Nouns They Describe.)',
     source: 'level-2/09-adjective-agreement',
   },
   {
     id: 7,
-    question: 'In وَأَنْزَلْنَا مِنَ ٱلسَّمَاءِ مَاءً (Al-Mu\'minun 23:18), what causes ٱلسَّمَاءِ to take kasra here?',
+    question: 'In وَأَنزَلْنَا مِنَ ٱلسَّمَآءِ مَآءًۢ (Al-Mu\'minun 23:18), what causes ٱلسَّمَآءِ to take kasra here?',
     options: [
-      'It is the mafʿūl bihi of أَنْزَلْنَا',
+      'It is the mafʿūl bihi of أَنزَلْنَا',
       'It is the second noun in an idafah construction',
       'It is the predicate of a nominal sentence',
-      'It follows the preposition مِنَ which places nouns in the genitive case',
+      'It follows the preposition مِنَ, which puts the noun after it in the genitive',
     ],
     correctAnswer: 3,
-    explanation: 'Prepositions (ḥurūf al-jarr) such as مِنَ ("from") always govern the genitive case on the following noun; ٱلسَّمَاءِ takes kasra because it follows مِنَ. (Lesson: Prepositions and Genitive.)',
+    explanation: 'A preposition (ḥarf jarr) such as مِنَ puts the noun after it in the genitive, so ٱلسَّمَآءِ takes kasra. (Lesson: Prepositions and the Noun After Them.)',
     source: 'level-2/07-prepositions-genitive',
   },
   {
@@ -105,12 +105,12 @@ export const LEVEL_3_REVIEW: ReviewQuestion[] = [
       'Nominative — definite nouns always take nominative',
     ],
     correctAnswer: 2,
-    explanation: 'ٱلْإِنسَٰنَ carries fatha and serves as the mafʿūl bihi (direct object) of the verb خَلَقَ; the accusative case marks the receiver of a transitive verb\'s action. (Lesson: The Accusative Case.)',
+    explanation: 'ٱلْإِنسَٰنَ carries fatha and serves as the mafʿūl bihi (direct object) of the verb خَلَقَ; the accusative case marks the receiver of a transitive verb\'s action. (Lesson: The Receiver Case.)',
     source: 'level-2/05-accusative-case',
   },
   {
     id: 9,
-    question: 'In لَعَلَّكُمْ تُفْلِحُونَ (Al-Baqarah 2:189), which particle from the inna-sisters family is لَعَلَّ and what meaning does it add?',
+    question: 'In لَعَلَّكُمْ تُفْلِحُونَ (Al-Baqarah 2:189), which word of the inna family is لَعَلَّ and what meaning does it add?',
     options: [
       'It is equivalent to إِنَّ and adds emphasis',
       'It means "perhaps / may" and expresses hope or expectation',
@@ -118,20 +118,20 @@ export const LEVEL_3_REVIEW: ReviewQuestion[] = [
       'It means "but / however" and introduces contrast',
     ],
     correctAnswer: 1,
-    explanation: 'لَعَلَّ is one of the six sisters of إِنَّ; it conveys hope or expectation meaning "perhaps" or "so that you may," and like all inna-sisters it takes an accusative ism and nominative khabar. (Lesson: Inna and Her Sisters.)',
+    explanation: 'لَعَلَّ is one of the six words of the inna family (inna and her five sisters). It expresses hope or expectation, "perhaps" or "so that you may". Like the others it takes an accusative ism and a nominative khabar. (Lesson: Six Words in Front of the Sentence.)',
     source: 'level-2/10-inna-sisters',
   },
   {
     id: 10,
-    question: 'In مَٰلِكِ يَوْمِ ٱلدِّينِ (Al-Fatiha 1:4), this is a chain of two idafah constructions. What case does يَوْمِ take and what two roles make this the expected case?',
+    question: 'In مَٰلِكِ يَوْمِ ٱلدِّينِ (Al-Fatiha 1:4), يَوْمِ is the second word of one idafah and the first word of another. What case does it take, and why?',
     options: [
-      'Nominative (damma) — it is the muḍāf and the first noun in an idafah',
-      'Accusative (fatha) — it is the second noun and object of مَٰلِكِ',
-      'Genitive (kasra) — it is simultaneously the muḍāf ilayh of مَٰلِكِ and the muḍāf of ٱلدِّينِ; both roles pull it into genitive',
-      'Genitive (kasra) — it follows an implied preposition dropped from the verse',
+      'Nominative (damma) — it is the muḍāf, the first word of an idafah',
+      'Accusative (fatha) — it is the object of مَٰلِكِ',
+      'Genitive (kasra) — it is the second word (muḍāf ilayh) of مَٰلِكِ; being the first word of the next link gives it no extra case',
+      'Genitive (kasra) — it follows a preposition dropped from the verse',
     ],
     correctAnswer: 2,
-    explanation: 'يَوْمِ is genitive for two reasons: it is the muḍāf ilayh (second term) of مَٰلِكِ, which always triggers genitive, and simultaneously the muḍāf (first term) of ٱلدِّينِ — middle links in an idafah chain are always genitive. (Lesson: The Possessive Construction.)',
+    explanation: 'يَوْمِ is genitive for one reason: it is the second word of the idafah مَٰلِكِ يَوْمِ. In a chain the middle word is also the first word of the next link, which only means it has no ٱلْ or tanwīn; it adds no case of its own. (Lesson: The Possessive Construction (Idafah).)',
     source: 'level-2/08-possessive-idafah',
   },
 ];

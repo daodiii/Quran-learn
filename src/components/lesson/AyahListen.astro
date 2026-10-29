@@ -1,0 +1,27 @@
+---
+/**
+ * A "Listen" button that plays the recitation of the first verse a reference cites
+ * ("Al-Hadid 57:3 (part)", "93:1-3"). Renders nothing when the reference has no verse number.
+ * The click is handled by src/scripts/ayah-audio.ts.
+ */
+import { parseAyahRef, ayahAudioUrl } from '../../lib/ayah-ref';
+
+interface Props {
+  reference?: string;
+}
+
+const { reference } = Astro.props;
+const ayah = reference ? parseAyahRef(reference) : null;
+---
+
+{ayah && (
+  <button
+    class="ayah-play"
+    type="button"
+    data-audio-src={ayahAudioUrl(ayah)}
+    aria-label={`Play recitation of verse ${ayah.surah}:${ayah.ayah}`}
+  >
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z" /></svg>
+    <span class="ayah-play-label">Listen</span>
+  </button>
+)}

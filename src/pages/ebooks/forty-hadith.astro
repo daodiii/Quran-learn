@@ -1,0 +1,114 @@
+---
+import { getCollection, getEntry, render } from 'astro:content';
+import EbookPrint from '../../layouts/EbookPrint.astro';
+import CoverPage from '../../components/ebook/CoverPage.astro';
+import TitlePage from '../../components/ebook/TitlePage.astro';
+import BackCover from '../../components/ebook/BackCover.astro';
+import '../../styles/hadith-book.css';
+import { parseHadithBody, splitArabicRuns, type Section } from '../../lib/hadith-ebook';
+
+const entry = await getEntry('ebooks', 'forty-hadith');
+if (!entry) throw new Error('Ebook content not found: forty-hadith');
+const { Content } = await render(entry);
+const { title, subtitle, brand, volume, description } = entry.data;
+
+const chapters = (await getCollection('hadith'))
+  .sort((a, b) => a.data.number - b.data.number)
+  .map((h) => ({ id: `h${h.data.number}`, data: h.data, doc: parseHadithBody(h.body ?? '') }));
+
+if (chapters.length !== 42) throw new Error(`forty-hadith: expected 42 hadith, found ${chapters.length}`);
+
+/** Whether a part repeats its own Arabic and translation, or is already shown as the whole. */
+const showsOwnText = (doc: (typeof chapters)[number]['doc'], part: Section) =>
+  doc.hasSeparateWhole || part !== doc.whole;
+---
+<EbookPrint title={title} description={description}>
+  <div data-unit="cover">
+    <CoverPage title={title} subtitle={subtitle} brand={brand} volume={volume} />
+  </div>
+  <div data-unit="title">
+    <TitlePage title={title} subtitle={subtitle} brand={brand} volume={volume} />
+  </div>
+
+  <section class="hb-flow hb-prose hb-newpage" data-unit="about">
+    <Content />
+  </section>
+
+  <section class="hb-flow hb-newpage" data-unit="contents">
+    <h2 class="hb-toc-title">Contents</h2>
+    <ol class="hb-toc">
+      {chapters.map((c) => (
+        <li>
+          <a href={`#${c.id}`}>
+            <span class="toc-num">{c.data.number}</span>
+            <span class="toc-label">{c.data.title}</span>
+            <span class="toc-dots"></span>
+            <span class="toc-page" data-toc-page-for={c.id}>—</span>
+          </a>
+        </li>
+      ))}
+    </ol>
+  </section>
+
+  {chapters.map((c) => (
+    <section class="hb-flow hb-chapter" id={c.id} data-unit={c.id} data-toc-anchor={c.id}>
+      <div class="hb-kicker">Hadith {c.data.number} · Narrated by {c.data.narrator}</div>
+      <h2 class="hb-title">{c.data.title}</h2>
+      <p class="hb-title-ar" lang="ar" dir="rtl">{c.data.titleArabic}</p>
+      <p class="hb-source">
+        Recorded by {c.data.recordedBy}{c.data.ibnRajabAddition ? ' · Added by Ibn Rajab' : ''}
+      </p>
+      {c.doc.intro && <p class="hb-intro">{c.doc.intro}</p>}
+
+      <div class="hb-whole">
+        <p class="hb-arabic" lang="ar" dir="rtl">{c.doc.whole.arabic}</p>
+        <p class="hb-translit">{c.doc.whole.transliteration}</p>
+        <p class="hb-translation">{c.doc.whole.translation}</p>
+      </div>
+
+      {c.doc.parts.map((part) => (
+        <div class="hb-part">
+          {showsOwnText(c.doc, part) ? (
+            <div class="hb-part-head">
+              {c.doc.parts.length > 1 && <div class="hb-part-title">{part.heading}</div>}
+              <p class="hb-arabic hb-part-arabic" lang="ar" dir="rtl">{part.arabic}</p>
+              <p class="hb-part-translation">{part.translation}</p>
+            </div>
+          ) : (
+            <h3 class="hb-sub">Word by word</h3>
+          )}
+          {showsOwnText(c.doc, part) && <h3 class="hb-sub">Word by word</h3>}
+          {part.rows.map((row) => (
+            <div class="hb-row">
+              <div class="w-ar" lang="ar" dir="rtl">{row.ar}</div>
+              <div class="w-mid">
+                <span class="w-tr">{row.tr}</span>
+                <span class="w-en">{row.en}</span>
+              </div>
+              <div class="w-why">
+                {splitArabicRuns(row.why).map((seg) =>
+                  seg.arabic ? <span class="ar-in" lang="ar" dir="rtl">{seg.text}</span> : seg.text
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+      ))}
+    </section>
+  ))}
+
+  <div data-unit="back">
+    <BackCover brand={brand} />
+  </div>
+
+  <!-- Render helper: ?only=<unit> keeps one unit, so the render script can count its pages. -->
+  <script is:inline>
+    (function () {
+      var only = new URLSearchParams(location.search).get('only');
+      if (!only) return;
+      document.querySelectorAll('[data-unit]').forEach(function (el) {
+        if (el.getAttribute('data-unit') !== only) el.remove();
+      });
+    })();
+  </script>
+</EbookPrint>

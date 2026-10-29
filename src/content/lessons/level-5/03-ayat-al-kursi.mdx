@@ -1,1041 +1,949 @@
 ---
 title: "Analyzing Ayat al-Kursi"
+kicker: "Level 5: one long verse"
+titleArabic: "آيَةُ ٱلْكُرْسِيِّ"
 level: 5
 order: 3
-description: "Complete i'rab analysis of Ayat al-Kursi (Al-Baqarah 2:255), demonstrating how complex grammar structures layer within a single foundational verse."
+template: steps
+description: "Take apart Al-Baqarah 2:255, one long verse, in its ten parts: the five pieces of news about Allah and the six sentences that follow. Each word is parsed with al-Jadwal and links back to the lesson that taught the point."
 draft: false
 ---
 
-import ArabicExample from '../../../components/mdx/ArabicExample.astro';
-import GrammarTable from '../../../components/mdx/GrammarTable.astro';
-import Callout from '../../../components/mdx/Callout.astro';
-import ExerciseBox from '../../../components/mdx/ExerciseBox.astro';
-
-## Introduction
-
-Ayat al-Kursi (The Throne Verse) is the most powerful verse in the Quran. The Prophet Muhammad ﷺ said: "Whoever recites Ayat al-Kursi after every prescribed prayer, nothing prevents him from entering Paradise except death." Every Muslim household knows this verse by heart.
-
-<ArabicExample
-  arabic="ٱللَّهُ لَآ إِلَٰهَ إِلَّا هُوَ ٱلْحَيُّ ٱلْقَيُّومُ"
-  transliteration="allāhu lā ilāha illā huwa l-ḥayyu l-qayyūm"
-  translation="Allah — there is no deity except Him, the Ever-Living, the Sustainer"
-  reference="Al-Baqarah 2:255"
-  highlight="لَآ إِلَٰهَ إِلَّا هُوَ"
-  words={[
-    { ar: "ٱللَّهُ", tr: "allāhu", en: "Allah" },
-    { ar: "لَآ", tr: "lā", en: "there is no" },
-    { ar: "إِلَٰهَ", tr: "ilāha", en: "deity" },
-    { ar: "إِلَّا", tr: "illā", en: "except" },
-    { ar: "هُوَ", tr: "huwa", en: "Him" },
-    { ar: "ٱلْحَيُّ", tr: "l-ḥayyu", en: "the Ever-Living" },
-    { ar: "ٱلْقَيُّومُ", tr: "l-qayyūm", en: "the Sustainer" }
-  ]}
-/>
-
-But do you understand its grammatical architecture? Ayat al-Kursi is a masterclass in how COMPLEX GRAMMAR structures layer within a SINGLE VERSE. You'll now analyze how negation, exception, rhetorical questions, possession, and multiple clauses work together to create theological depth.
-
-**In this lesson, you will:**
-- Apply the [5-step i'rab method](/learn/level-5/01-full-irab-analysis/) to a single long, complex verse
-- Analyze how multiple grammatical structures (negation + exception, nominal sentences, relative clauses, rhetorical questions) layer together
-- Recognize the verse's progression: identity → attributes → ownership → knowledge → power
-- See how grammar serves theology in establishing Allah's absolute uniqueness and sovereignty
-
-**Connection to previous learning:** In [L5.02](/learn/level-5/02-surah-al-fatiha/), you analyzed a complete SURAH (7 verses, 29 words) to see how verses connect. Now you'll analyze a single VERSE (10 clauses, 50 words) to see how clauses layer within one unified statement. Think of L5.02 as analyzing a chapter; L5.03 is analyzing a densely packed paragraph.
-
-<Callout type="tip" title="Study Strategy">
-
-Ayat al-Kursi is pedagogically perfect for clause-by-clause analysis because:
-- It's DENSE — 10 distinct grammatical clauses in one verse (maximum complexity)
-- It's FAMILIAR — you already know it by heart (focus on grammar, not decoding)
-- It's COMPREHENSIVE — contains nominal sentences, negation + exception, rhetorical questions, relative clauses, conditionals
-- It's UNIFIED — all clauses work together to establish one theological argument (Allah's absolute sovereignty)
-
-Master this analysis, and you'll be able to handle ANY complex Quranic verse.
-
-</Callout>
-
-<Callout type="note" title="Plain-English key">
-Quick, everyday translations of the grammar terms in this lesson — glance back here whenever one trips you up:
-
-- **Nominal sentence** (jumla ismiyya / جُمْلَة اِسْمِيَّة) — a "noun sentence": starts with a noun, needs no verb.
-- **Verbal sentence** (jumla fiʿliyya / جُمْلَة فِعْلِيَّة) — a "verb sentence": starts with the verb.
-- **Mubtadaʾ** (مُبْتَدَأ) — the starting word: the thing the sentence is about.
-- **Khabar** (خَبَر) — the "news": what is said about the mubtadaʾ.
-- **Fāʿil** (فَاعِل) — the doer: the one performing the verb.
-- **Rhetorical question** (istifhām / اِسْتِفْهَام) — a question asked for effect, not for information.
-</Callout>
-
-## Verse Overview: Structure and Progression
-
-Before diving into clause-by-clause analysis, understand the verse's overall architecture.
-
-### The Complete Verse
-
-<ArabicExample
-  arabic="ٱللَّهُ لَآ إِلَٰهَ إِلَّا هُوَ ٱلْحَيُّ ٱلْقَيُّومُ ۚ لَا تَأْخُذُهُۥ سِنَةٌۭ وَلَا نَوْمٌۭ ۚ لَّهُۥ مَا فِى ٱلسَّمَٰوَٰتِ وَمَا فِى ٱلْأَرْضِ ۗ مَن ذَا ٱلَّذِى يَشْفَعُ عِندَهُۥٓ إِلَّا بِإِذْنِهِۦ ۚ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ ۖ وَلَا يُحِيطُونَ بِشَىْءٍۢ مِّنْ عِلْمِهِۦٓ إِلَّا بِمَا شَآءَ ۚ وَسِعَ كُرْسِيُّهُ ٱلسَّمَٰوَٰتِ وَٱلْأَرْضَ ۖ وَلَا يَـُٔودُهُۥ حِفْظُهُمَا ۚ وَهُوَ ٱلْعَلِىُّ ٱلْعَظِيمُ"
-  transliteration="allāhu lā ilāha illā huwa l-ḥayyu l-qayyūm; lā taʾkhudhuhu sinatun wa-lā nawm; lahu mā fī s-samāwāti wa-mā fī l-arḍ; man dhā lladhī yashfaʿu ʿindahu illā bi-idhnih; yaʿlamu mā bayna aydīhim wa-mā khalfahum; wa-lā yuḥīṭūna bi-shayʾin min ʿilmihi illā bi-mā shāʾ; wasiʿa kursiyyuhu s-samāwāti wa-l-arḍ; wa-lā yaʾūduhu ḥifẓuhumā; wa-huwa l-ʿaliyyu l-ʿaẓīm"
-  translation="Allah — there is no deity except Him, the Ever-Living, the Sustainer. Neither drowsiness overtakes Him nor sleep. To Him belongs whatever is in the heavens and whatever is on the earth. Who is it that can intercede with Him except by His permission? He knows what is before them and what is behind them, and they encompass not a thing of His knowledge except for what He wills. His Kursi extends over the heavens and the earth, and their preservation tires Him not. And He is the Most High, the Most Great."
-  reference="Al-Baqarah 2:255"
-  words={[
-    { ar: "ٱللَّهُ", tr: "allāhu", en: "Allah" },
-    { ar: "لَآ", tr: "lā", en: "there is no" },
-    { ar: "إِلَٰهَ", tr: "ilāha", en: "deity" },
-    { ar: "إِلَّا", tr: "illā", en: "except" },
-    { ar: "هُوَ", tr: "huwa", en: "Him" },
-    { ar: "ٱلْحَيُّ", tr: "l-ḥayyu", en: "the Ever-Living" },
-    { ar: "ٱلْقَيُّومُ", tr: "l-qayyūm", en: "the Sustainer" },
-    { ar: "لَا", tr: "lā", en: "neither" },
-    { ar: "تَأْخُذُهُۥ", tr: "taʾkhudhuhu", en: "overtakes Him" },
-    { ar: "سِنَةٌۭ", tr: "sinatun", en: "drowsiness" },
-    { ar: "وَلَا", tr: "wa-lā", en: "nor" },
-    { ar: "نَوْمٌۭ", tr: "nawm", en: "sleep" },
-    { ar: "لَّهُۥ", tr: "lahu", en: "To Him belongs" },
-    { ar: "مَا", tr: "mā", en: "whatever" },
-    { ar: "فِى", tr: "fī", en: "is in" },
-    { ar: "ٱلسَّمَٰوَٰتِ", tr: "s-samāwāti", en: "the heavens" },
-    { ar: "وَمَا", tr: "wa-mā", en: "and whatever" },
-    { ar: "فِى", tr: "fī", en: "is in" },
-    { ar: "ٱلْأَرْضِ", tr: "l-arḍ", en: "the earth" },
-    { ar: "مَن", tr: "man", en: "Who" },
-    { ar: "ذَا", tr: "dhā", en: "is it" },
-    { ar: "ٱلَّذِى", tr: "lladhī", en: "that" },
-    { ar: "يَشْفَعُ", tr: "yashfaʿu", en: "can intercede" },
-    { ar: "عِندَهُۥٓ", tr: "ʿindahu", en: "with Him" },
-    { ar: "إِلَّا", tr: "illā", en: "except" },
-    { ar: "بِإِذْنِهِۦ", tr: "bi-idhnih", en: "by His permission" },
-    { ar: "يَعْلَمُ", tr: "yaʿlamu", en: "He knows" },
-    { ar: "مَا", tr: "mā", en: "what" },
-    { ar: "بَيْنَ", tr: "bayna", en: "is before" },
-    { ar: "أَيْدِيهِمْ", tr: "aydīhim", en: "them" },
-    { ar: "وَمَا", tr: "wa-mā", en: "and what" },
-    { ar: "خَلْفَهُمْ", tr: "khalfahum", en: "is behind them" },
-    { ar: "وَلَا", tr: "wa-lā", en: "and not" },
-    { ar: "يُحِيطُونَ", tr: "yuḥīṭūna", en: "they encompass" },
-    { ar: "بِشَىْءٍۢ", tr: "bi-shayʾin", en: "a thing" },
-    { ar: "مِّنْ", tr: "min", en: "of" },
-    { ar: "عِلْمِهِۦٓ", tr: "ʿilmihi", en: "His knowledge" },
-    { ar: "إِلَّا", tr: "illā", en: "except" },
-    { ar: "بِمَا", tr: "bi-mā", en: "for what" },
-    { ar: "شَآءَ", tr: "shāʾ", en: "He wills" },
-    { ar: "وَسِعَ", tr: "wasiʿa", en: "extends over" },
-    { ar: "كُرْسِيُّهُ", tr: "kursiyyuhu", en: "His Kursi" },
-    { ar: "ٱلسَّمَٰوَٰتِ", tr: "s-samāwāti", en: "the heavens" },
-    { ar: "وَٱلْأَرْضَ", tr: "wa-l-arḍ", en: "and the earth" },
-    { ar: "وَلَا", tr: "wa-lā", en: "and not" },
-    { ar: "يَـُٔودُهُۥ", tr: "yaʾūduhu", en: "tires Him" },
-    { ar: "حِفْظُهُمَا", tr: "ḥifẓuhumā", en: "their preservation" },
-    { ar: "وَهُوَ", tr: "wa-huwa", en: "And He is" },
-    { ar: "ٱلْعَلِىُّ", tr: "l-ʿaliyyu", en: "the Most High" },
-    { ar: "ٱلْعَظِيمُ", tr: "l-ʿaẓīm", en: "the Most Great" }
-  ]}
-/>
-
-### Thematic Structure
-
-The verse progresses through FIVE theological dimensions of Allah's sovereignty:
-
-**1. Identity & Existence (Clauses 1-3):** Who Allah is
-**2. Attributes of Perfection (Clause 4):** What Allah is free from (deficiency)
-**3. Universal Ownership (Clause 5):** What belongs to Allah
-**4. Authority & Knowledge (Clauses 6-7):** Allah's exclusive authority and comprehensive knowledge
-**5. Power & Majesty (Clauses 8-10):** Allah's effortless power and supreme attributes
-
-### Grammatical Structure Overview
-
-<GrammarTable>
-| # | Arabic Opening | Clause Type | Key Feature | Theological Function |
-|---|----------------|-------------|-------------|----------------------|
-| 1 | ٱللَّهُ | Nominal (mubtada) | Divine name as subject | Establishes WHO we're discussing |
-| 2 | لَآ إِلَٰهَ إِلَّا هُوَ | Nominal with negation + exception | Genus-negating lā + istithnā' | Tawhid: No deity except Him |
-| 3 | ٱلْحَيُّ ٱلْقَيُّومُ | Nominal (continuation) | Two divine names | Essential attributes (Life, Self-Sustenance) |
-| 4 | لَا تَأْخُذُهُۥ سِنَةٌۭ وَلَا نَوْمٌۭ | Verbal (negated) | Negation + gradation | Freedom from human limitations |
-| 5 | لَّهُۥ مَا فِى ٱلسَّمَٰوَٰتِ... | Nominal (fronted predicate) | Taqdim + relative pronoun | Universal ownership |
-| 6 | مَن ذَا ٱلَّذِى يَشْفَعُ... | Rhetorical question | Interrogative + exception | No intercession without permission |
-| 7 | يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ... | Verbal | Present tense + comprehensive scope | Complete knowledge |
-| 8 | وَلَا يُحِيطُونَ بِشَىْءٍۢ... | Verbal (negated) | Negation + exception | Human knowledge limited |
-| 9 | وَسِعَ كُرْسِيُّهُ... | Verbal (past with present meaning) | Metaphysical scope | His Kursi encompasses creation |
-| 10 | وَلَا يَـُٔودُهُۥ حِفْظُهُمَا | Verbal (negated) | Negation of difficulty | Effortless preservation |
-| 11 | وَهُوَ ٱلْعَلِىُّ ٱلْعَظِيمُ | Nominal | Closing divine attributes | Supreme majesty |
-</GrammarTable>
-
-**Notice the pattern:** The verse moves from WHO Allah is (identity) → WHAT He is free from (perfection) → WHAT He owns (sovereignty) → WHAT He knows (omniscience) → WHAT He can do (omnipotence). Grammar serves this theological architecture.
-
-## Clause-by-Clause Analysis
-
-We'll apply the [5-step systematic method](/learn/level-5/01-full-irab-analysis/) to each major clause.
-
-### Clause 1: The Subject — Allah
-
-<ArabicExample
-  arabic="ٱللَّهُ"
-  transliteration="allāhu"
-  translation="Allah"
-  reference="Al-Baqarah 2:255 (opening)"
-  words={[
-    { ar: "ٱللَّهُ", tr: "allāhu", en: "Allah" }
-  ]}
-/>
-
-**Grammatical Analysis:**
-
-**ٱللَّهُ** (allāhu):
-- **Nahw:** Mubtada (subject of a massive nominal sentence — the entire verse predicates about Allah)
-- **Case:** Nominative (marfu', damma)
-- **Sarf:** Divine proper noun, definite by nature, masculine
-- **Balagha:** Placed at the BEGINNING → this entire verse is ABOUT Allah (topic fronting)
-
-**Why this matters:** ٱللَّهُ is the SUBJECT of the entire verse. Everything that follows is either khabar (predicate information about Allah) or further elaboration. Understanding this prevents confusion — it's all ONE massive nominal sentence about Allah.
-
-### Clause 2: Negation + Exception — The Tawhid Statement
-
-<ArabicExample
-  arabic="لَآ إِلَٰهَ إِلَّا هُوَ"
-  transliteration="lā ilāha illā huwa"
-  translation="There is no deity except Him"
-  reference="Al-Baqarah 2:255"
-  highlight="لَآ إِلَٰهَ إِلَّا"
-  words={[
-    { ar: "لَآ", tr: "lā", en: "there is no" },
-    { ar: "إِلَٰهَ", tr: "ilāha", en: "deity" },
-    { ar: "إِلَّا", tr: "illā", en: "except" },
-    { ar: "هُوَ", tr: "huwa", en: "Him" }
-  ]}
-/>
-
-**Step 1: Segmentation**
-- لَآ — genus-negating particle (lā nāfiyah li-l-jins / لَا ٱلنَّافِيَةُ لِلْجِنْسِ)
-- إِلَٰهَ — the negated noun (ism lā)
-- إِلَّا — exception particle
-- هُوَ — the excepted element (mustathna)
-
-**Step 2: Sentence Type**
-Nominal sentence with TOTAL NEGATION + EXCEPTION. This structure categorically negates the existence of ANY deity, THEN makes one exception (Allah).
-
-**Step 3: Word Analysis**
-
-**لَآ** (lā):
-- **Nahw:** Genus-negating particle — negates an entire category (ALL deities)
-- **Grammatical effect:** Makes the following noun accusative (mansub) and removes tanwin
-- **Balagha:** This specific لَا is stronger than ordinary negation — it negates the GENRE/TYPE, not just one instance
-
-**إِلَٰهَ** (ilāha):
-- **Nahw:** Ism lā (noun following genus-negating lā), accusative case (mansub), built on fatha (no tanwin)
-- **Sarf:** Root أ-ل-ه (ʾ-l-h) "deity, god, object of worship" | Pattern فِعَالٌ (fiʿāl) | Made indefinite by lā structure
-- **Balagha:** Indefinite + negated = UNIVERSAL negation (no deity of ANY kind exists)
-
-**إِلَّا** (illā):
-- **Nahw:** Exception particle (اِسْتِثْنَاءٌ)
-- **Function:** Introduces the ONLY exception to the total negation
-- **Balagha:** Creates absolute restriction — ONLY one exception
-
-**هُوَ** (huwa):
-- **Nahw:** Mustathna (excepted element), nominative case (damma) because it's a COMPLETE EXCEPTION (after total negation)
-- **Sarf:** Third person masculine singular detached pronoun (refers back to ٱللَّهُ)
-- **Balagha:** Uses pronoun (not repeating ٱللَّهُ) — assumes you know who "He" is (already established as subject)
-
-**Step 4: Relationships**
-- **Negation + Exception structure:** لَآ (negates) + إِلَٰهَ (entire genus) + إِلَّا (except) + هُوَ (Allah alone)
-- **Pronominal reference:** هُوَ refers back to ٱللَّهُ (clause 1)
-
-**Step 5: Rhetorical Analysis**
-- **Genus negation:** Using لَا ٱلنَّافِيَةُ لِلْجِنْسِ creates ABSOLUTE negation — not "there are few deities" but "there is NO deity"
-- **Exception structure:** The only grammatically valid exception (complete exception after total negation) → ONLY Allah exists as deity
-- **Tawhid encoded:** This grammatical structure IS the linguistic formulation of Islamic monotheism (tawhid)
-
-<Callout type="rule" title="Genus-Negating Lā (لَا ٱلنَّافِيَةُ لِلْجِنْسِ)">
-
-This specific type of لَا is different from ordinary negation. Compare:
-
-- **Ordinary negation:** لَا رَجُلٌ فِي ٱلْبَيْتِ (there is no man in the house) — one man absent
-- **Genus negation:** لَا رَجُلَ فِي ٱلْبَيْتِ (there is no man in the house) — entire category absent
-
-Notice: Genus-negating لَا removes tanwin (رَجُلَ not رَجُلٌ) and makes the noun accusative.
-
-In لَآ إِلَٰهَ, this structure negates THE ENTIRE CATEGORY of deities. Then إِلَّا creates the sole exception.
-
-For more on exception structures, see [L4.04 Exception Structures](/learn/level-4/05-exception-particles/).
-
-</Callout>
-
-### Clause 3: Two Essential Divine Names
-
-<ArabicExample
-  arabic="ٱلْحَيُّ ٱلْقَيُّومُ"
-  transliteration="al-ḥayyu l-qayyūm"
-  translation="The Ever-Living, the Sustainer"
-  reference="Al-Baqarah 2:255"
-  words={[
-    { ar: "ٱلْحَيُّ", tr: "al-ḥayyu", en: "The Ever-Living" },
-    { ar: "ٱلْقَيُّومُ", tr: "l-qayyūm", en: "the Sustainer" }
-  ]}
-/>
-
-**Grammatical Analysis:**
-
-**ٱلْحَيُّ** (al-ḥayyu):
-- **Nahw:** Khabar (predicate) for ٱللَّهُ OR na't (adjective) — scholars debate; both grammatically valid
-- **Case:** Nominative (marfu', damma)
-- **Sarf:** Root ح-ي-ي (ḥ-y-y) "live, be alive" | Pattern فَعِلٌ → فَيِّ → ٱلْحَيُّ (intensive) | Definite with ال
-- **Balagha:** Al-Ḥayy = absolute, perfect, eternal life (not contingent or temporal like created life)
-
-**ٱلْقَيُّومُ** (al-qayyūm):
-- **Nahw:** Second khabar or na't, nominative (damma)
-- **Sarf:** Root ق-و-م (q-w-m) "stand, maintain, sustain" | Pattern فَيْعُولٌ (fayyūl) intensive/hyperbolic form (mubalagha) | Definite with ال
-- **Balagha:** Al-Qayyūm = the Self-Sustaining who sustains all else; needs nothing, provides everything
-
-**Relationship Between the Two:**
-- **Al-Ḥayy (Living):** Allah's life is inherent, necessary, eternal
-- **Al-Qayyūm (Sustainer):** Allah sustains His own existence AND all creation's existence
-
-Classical scholars: These two names encompass ALL divine attributes of perfection.
-
-### Clause 4: Negation of Deficiency
-
-<ArabicExample
-  arabic="لَا تَأْخُذُهُۥ سِنَةٌۭ وَلَا نَوْمٌۭ"
-  transliteration="lā taʾkhudhuhu sinatun wa-lā nawm"
-  translation="Neither drowsiness overtakes Him nor sleep"
-  reference="Al-Baqarah 2:255"
-  words={[
-    { ar: "لَا", tr: "lā", en: "Neither" },
-    { ar: "تَأْخُذُهُۥ", tr: "taʾkhudhuhu", en: "overtakes Him" },
-    { ar: "سِنَةٌۭ", tr: "sinatun", en: "drowsiness" },
-    { ar: "وَلَا", tr: "wa-lā", en: "nor" },
-    { ar: "نَوْمٌۭ", tr: "nawm", en: "sleep" }
-  ]}
-/>
-
-**Step 1: Segmentation**
-- لَا — negation particle
-- تَأْخُذُهُۥ — verb + attached pronoun
-- سِنَةٌۭ — subject
-- وَلَا — conjunction + negation
-- نَوْمٌۭ — subject
-
-**Step 2: Sentence Type**
-Verbal sentence (jumlah fi'liyyah) with NEGATION. Standard word order: Verb + Object + Subject.
-
-**Step 3: Word Analysis**
-
-**لَا** (lā):
-- **Nahw:** Negation particle for present tense verbs (lā nāfiyah / لَا ٱلنَّافِيَةُ)
-- **Effect:** Negates the verb تَأْخُذُ (does not overtake)
-
-**تَأْخُذُهُۥ** (taʾkhudhuhu):
-- **Nahw:** Fi'l mudari' (present tense verb), third person feminine singular (تَ prefix, ـُ ending)
-- **Sarf:** Root أ-خ-ذ (ʾ-kh-dh) "take, seize, overtake" | Form I present pattern
-- **Pronoun:** هُ attached pronoun (him = Allah) functioning as maf'ul bihi (object)
-- **Balagha:** "Overtake/seize" implies unwanted, involuntary occurrence
-
-**سِنَةٌۭ** (sinatun):
-- **Nahw:** Fa'il (subject of تَأْخُذُ), nominative case (marfu', tanwin damma)
-- **Sarf:** Root و-س-ن (w-s-n) "drowsiness, light sleep" | Basic noun pattern
-- **Balagha:** سِنَةٌ = LIGHT drowsiness (not deep sleep) — negating even the slightest hint of fatigue
-
-**وَلَا** (wa-lā):
-- **Nahw:** Conjunction وَ + negation particle لَا
-- **Function:** Joins two parallel negative statements
-
-**نَوْمٌۭ** (nawmun):
-- **Nahw:** Fa'il (subject), nominative (tanwin damma), verb understood from previous clause (وَلَا [يَأْخُذُهُ] نَوْمٌۭ)
-- **Sarf:** Root ن-و-م (n-w-m) "sleep" | Basic masdar
-- **Balagha:** نَوْمٌ = DEEP sleep — negating the greater state after negating the lesser
-
-**Step 4: Relationships**
-- **Gradation (tadarruj / تَدَرُّجٌ):** سِنَةٌ (lighter) → نَوْمٌ (heavier) — negating from lesser to greater (a fortiori)
-- **Parallel negation:** لَا تَأْخُذُهُۥ سِنَةٌۭ || وَلَا [تَأْخُذُهُ] نَوْمٌۭ
-
-**Step 5: Rhetorical Analysis**
-- **Why negate drowsiness AND sleep?** Gradation: If even light drowsiness doesn't overtake Him, certainly deep sleep doesn't. Rhetoric emphasizes COMPLETE freedom from fatigue.
-- **Contrast with humans:** Humans MUST sleep (biological necessity). Allah has NO such limitation — freedom from creaturely deficiency.
-- **Connection to Al-Qayyūm:** The Self-Sustaining needs no rest because He has no deficiency or depletion.
-
-<Callout type="note" title="Rhetorical Device: Gradation (Tadarruj)">
-
-The verse negates DROWSINESS before SLEEP. This is gradation (tadarruj / تَدَرُّجٌ) — moving from lesser to greater for emphasis.
-
-If Allah doesn't experience even LIGHT drowsiness, then obviously He doesn't experience DEEP sleep. By negating the lesser, the Quran implies the greater is also negated — but states it explicitly for emphasis.
-
-This pattern appears frequently in Quranic rhetoric. For more, see [L4.18 Figures of Speech](/learn/level-4/18-figures-of-speech/).
-
-</Callout>
-
-### Clause 5: Universal Ownership
-
-<ArabicExample
-  arabic="لَّهُۥ مَا فِى ٱلسَّمَٰوَٰتِ وَمَا فِى ٱلْأَرْضِ"
-  transliteration="lahu mā fī s-samāwāti wa-mā fī l-arḍ"
-  translation="To Him belongs whatever is in the heavens and whatever is on the earth"
-  reference="Al-Baqarah 2:255"
-  words={[
-    { ar: "لَّهُۥ", tr: "lahu", en: "To Him belongs" },
-    { ar: "مَا", tr: "mā", en: "whatever" },
-    { ar: "فِى", tr: "fī", en: "is in" },
-    { ar: "ٱلسَّمَٰوَٰتِ", tr: "s-samāwāti", en: "the heavens" },
-    { ar: "وَمَا", tr: "wa-mā", en: "and whatever" },
-    { ar: "فِى", tr: "fī", en: "is on" },
-    { ar: "ٱلْأَرْضِ", tr: "l-arḍ", en: "the earth" }
-  ]}
-/>
-
-**Step 1: Segmentation**
-- لَّهُۥ — prepositional phrase (fronted predicate)
-- مَا — relative pronoun (mubtada)
-- فِى ٱلسَّمَٰوَٰتِ — ṣilah (relative clause content)
-- وَمَا فِى ٱلْأَرْضِ — parallel structure
-
-**Step 2: Sentence Type**
-Nominal sentence with FRONTED PREDICATE (taqdim). Standard order would be: مَا فِى ٱلسَّمَٰوَٰتِ لَهُۥ (what's in heavens belongs to Him). Quranic order: لَّهُۥ مَا فِى ٱلسَّمَٰوَٰتِ (to Him belongs what's in heavens).
-
-**Step 3: Word Analysis**
-
-**لَّهُۥ** (lahu):
-- **Nahw:** Khabar muqaddam (fronted predicate), prepositional phrase (jarr wa-majrur)
-- **Components:** Lam (for/to) + هُ pronoun (him = Allah)
-- **Balagha:** FRONTING → emphasis on ALLAH'S ownership before stating what He owns
-
-**مَا** (mā):
-- **Nahw:** Mubtada mu'akhkhar (delayed subject), relative pronoun meaning "whatever/what"
-- **Function:** Introduces relative clause specifying WHAT belongs to Allah
-- **Balagha:** مَا (generality) → includes EVERYTHING without exception
-
-**فِى ٱلسَّمَٰوَٰتِ** (fī s-samāwāti):
-- **Nahw:** Ṣilah (content of relative clause), prepositional phrase
-- **Components:** فِي (in) + ٱلسَّمَٰوَٰتِ (the heavens, genitive plural)
-- **Sarf:** Root س-م-و (s-m-w) "heaven, sky" | Broken plural سَمَاوَاتٍ | Definite with ال
-- **Balagha:** Plural "heavens" → multiple celestial realms
-
-**وَمَا فِى ٱلْأَرْضِ** (wa-mā fī l-arḍ):
-- Parallel structure: conjunction + relative pronoun + prepositional phrase
-- **ٱلْأَرْضِ:** Root أ-ر-ض (ʾ-r-ḍ) "earth, land" | Feminine singular | Genitive (jarr)
-- **Balagha:** Heavens AND earth → complete duality (all creation from top to bottom)
-
-**Step 4: Relationships**
-- **Taqdim (fronting):** لَّهُۥ placed BEFORE مَا → emphasis on Allah's exclusive ownership
-- **Comprehensive scope:** مَا فِى ٱلسَّمَٰوَٰتِ (all in heavens) + مَا فِى ٱلْأَرْضِ (all on earth) = totality of creation
-- **Parallel structure:** Perfect grammatical symmetry reinforces completeness
-
-**Step 5: Rhetorical Analysis**
-- **Taqdim creates exclusivity:** TO HIM belongs... (not shared ownership)
-- **مَا conveys universality:** WHATEVER/EVERYTHING in heavens and earth (no exceptions)
-- **Heavens + earth pairing:** Classical Arabic idiom for "everything in existence"
-- **Connection to previous clause:** He doesn't sleep (clause 4) BECAUSE He owns and sustains everything (clause 5) — no rest needed
-
-### Clause 6: Rhetorical Question — No Intercession Without Permission
-
-<ArabicExample
-  arabic="مَن ذَا ٱلَّذِى يَشْفَعُ عِندَهُۥٓ إِلَّا بِإِذْنِهِۦ"
-  transliteration="man dhā lladhī yashfaʿu ʿindahu illā bi-idhnih"
-  translation="Who is it that can intercede with Him except by His permission?"
-  reference="Al-Baqarah 2:255"
-  words={[
-    { ar: "مَن", tr: "man", en: "Who" },
-    { ar: "ذَا", tr: "dhā", en: "is it" },
-    { ar: "ٱلَّذِى", tr: "lladhī", en: "that" },
-    { ar: "يَشْفَعُ", tr: "yashfaʿu", en: "can intercede" },
-    { ar: "عِندَهُۥٓ", tr: "ʿindahu", en: "with Him" },
-    { ar: "إِلَّا", tr: "illā", en: "except" },
-    { ar: "بِإِذْنِهِۦ", tr: "bi-idhnih", en: "by His permission" }
-  ]}
-/>
-
-**Step 1: Segmentation**
-- مَن ذَا — compound interrogative (who is this?)
-- ٱلَّذِى — relative pronoun
-- يَشْفَعُ — verb (ṣilah content)
-- عِندَهُۥٓ — prepositional phrase (location)
-- إِلَّا بِإِذْنِهِۦ — exception + prepositional phrase
-
-**Step 2: Sentence Type**
-RHETORICAL QUESTION (istifhām inkārī / اِسْتِفْهَامٌ إِنْكَارِيٌّ) — question expecting the answer "NO ONE" for emphasis.
-
-**Step 3: Word Analysis**
-
-**مَن ذَا** (man dhā):
-- **Nahw:** Interrogative compound: مَن (who) + ذَا (demonstrative "this/that") = "who is it?"
-- **Function:** Mubtada (subject of question)
-- **Balagha:** Rhetorical question — not seeking information, but emphasizing negation
-
-**ٱلَّذِى** (alladhī):
-- **Nahw:** Relative pronoun, khabar for مَن ذَا
-- **Function:** Introduces ṣilah defining the hypothetical intercessor
-
-**يَشْفَعُ** (yashfaʿu):
-- **Nahw:** Fi'l mudari' (present tense verb), third person masculine singular
-- **Sarf:** Root ش-ف-ع (sh-f-ʿ) "intercede, mediate" | Form I present | Marfu' (damma)
-- **Balagha:** "Intercede" → mediate between parties, advocate on behalf of someone
-
-**عِندَهُۥٓ** (ʿindahu):
-- **Nahw:** Ẓarf makān (adverb of place) مُتَعَلِّقٌ بِيَشْفَعُ, genitive (هُ pronoun after عِندَ)
-- **Meaning:** "With Him, in His presence, before Him"
-- **Balagha:** Emphasizes intercession must occur IN ALLAH'S PRESENCE (His court, His authority)
-
-**إِلَّا بِإِذْنِهِۦ** (illā bi-idhnihi):
-- **Nahw:** Exception structure (اِسْتِثْنَاءٌ)
-- **إِلَّا:** Exception particle
-- **بِإِذْنِهِۦ:** بِ (with/by) + إِذْن (permission) + هِ pronoun (His)
-- **Sarf:** Root أ-ذ-ن (ʾ-dh-n) "permit, authorize" | Masdar (verbal noun)
-- **Balagha:** ONLY exception — intercession possible ONLY if Allah permits
-
-**Step 4: Relationships**
-- **Rhetorical question structure:** مَن ذَا ٱلَّذِى... (Who is it that...) expects answer "NO ONE (without permission)"
-- **Relative clause:** ٱلَّذِى يَشْفَعُ عِندَهُۥٓ (the one who intercedes with Him) — hypothetical scenario
-- **Exception restricts:** إِلَّا بِإِذْنِهِۦ (except by His permission) — makes intercession conditional on Allah's will
-
-**Step 5: Rhetorical Analysis**
-- **Rhetorical question (istifhām inkārī):** Form is question, function is emphatic negation — "NO ONE can intercede without permission"
-- **Authority emphasis:** Intercession happens عِندَهُۥٓ (in His presence) by His permission → absolute authority
-- **Contrast with polytheism:** Negates pagan belief in independent intermediaries who intercede without God's permission
-- **Theological precision:** Doesn't deny intercession entirely (prophets may intercede), but restricts it to Allah's permission
-
-<Callout type="rule" title="Rhetorical Questions in the Quran">
-
-Rhetorical questions (istifhām inkārī / اِسْتِفْهَامٌ إِنْكَارِيٌّ) are questions asked NOT to get information, but to EMPHASIZE a point through denial.
-
-**Examples:**
-- **مَن ذَا ٱلَّذِى يَشْفَعُ...** (Who can intercede...?) → Answer: NO ONE (without permission) → Emphasizes Allah's exclusive authority
-- **هَلْ تَعْلَمُ لَهُۥ سَمِيًّۭا** (Do you know any similar to Him?) [Maryam 19:65] → Answer: NO → Emphasizes Allah's uniqueness
-
-The question FORM creates engagement; the IMPLIED ANSWER delivers the theological point powerfully.
-
-For more on rhetorical questions, see [L5.13 Rhetorical Questions in the Quran](/learn/level-5/13-rhetorical-questions/).
-
-</Callout>
-
-### Clause 7: Comprehensive Knowledge
-
-<ArabicExample
-  arabic="يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ"
-  transliteration="yaʿlamu mā bayna aydīhim wa-mā khalfahum"
-  translation="He knows what is before them and what is behind them"
-  reference="Al-Baqarah 2:255"
-  words={[
-    { ar: "يَعْلَمُ", tr: "yaʿlamu", en: "He knows" },
-    { ar: "مَا", tr: "mā", en: "what" },
-    { ar: "بَيْنَ", tr: "bayna", en: "is before" },
-    { ar: "أَيْدِيهِمْ", tr: "aydīhim", en: "them" },
-    { ar: "وَمَا", tr: "wa-mā", en: "and what" },
-    { ar: "خَلْفَهُمْ", tr: "khalfahum", en: "is behind them" }
-  ]}
-/>
-
-**Step 1: Segmentation**
-- يَعْلَمُ — verb (knows)
-- مَا — relative pronoun (what/whatever)
-- بَيْنَ أَيْدِيهِمْ — ẓarf makān (spatial metaphor)
-- وَمَا خَلْفَهُمْ — parallel structure
-
-**Step 2: Sentence Type**
-Verbal sentence with SPATIAL METAPHORS for temporal/comprehensive knowledge.
-
-**Step 3: Word Analysis**
-
-**يَعْلَمُ** (yaʿlamu):
-- **Nahw:** Fi'l mudari', third person masculine singular, marfu' (damma)
-- **Sarf:** Root ع-ل-م (ʿ-l-m) "know, have knowledge" | Form I present
-- **Balagha:** Present tense → ongoing, continuous knowledge (not past knowledge that might be forgotten)
-
-**مَا** (mā):
-- **Nahw:** Relative pronoun, maf'ul bihi (object of يَعْلَمُ)
-- **Function:** "Whatever" — introduces what Allah knows
-
-**بَيْنَ أَيْدِيهِمْ** (bayna aydīhim):
-- **Nahw:** Ẓarf makān (adverb of place) functioning as ṣilah for مَا
-- **Components:** بَيْنَ (between) + أَيْدِي (hands, plural of يَد) + هِمْ (their)
-- **Literal:** "Between their hands" = in front of them
-- **Metaphor:** What is BEFORE them (future events, visible matters, this world)
-
-**وَمَا خَلْفَهُمْ** (wa-mā khalfahum):
-- **Parallel structure:** وَ + مَا + behind them
-- **خَلْفَ:** Preposition meaning "behind, after"
-- **Metaphor:** What is BEHIND them (past events, hidden matters, the hereafter)
-
-**Step 4: Relationships**
-- **Complete knowledge:** بَيْنَ أَيْدِيهِمْ (before) + خَلْفَهُمْ (behind) = comprehensive scope (past, present, future; visible and hidden)
-- **Pronoun reference:** هِمْ refers to creation (humanity, jinn, angels — all created beings)
-
-**Step 5: Rhetorical Analysis**
-- **Spatial metaphor for temporal knowledge:** "Before/behind" idiomatically means past/future in Arabic
-- **Comprehensive coverage:** Nothing escapes Allah's knowledge (everything in time and space)
-- **Contrast with creatures:** They know only fragments; Allah knows everything
-- **Connection to intercession:** This clause explains WHY intercession requires His permission — He knows everything, so He knows who deserves intercession
-
-<Callout type="tip" title="Spatial Metaphors in Arabic">
-
-Arabic frequently uses SPATIAL language for TEMPORAL concepts:
-
-- **بَيْنَ أَيْدِيهِمْ** (between their hands) = before them = future or visible matters
-- **خَلْفَهُمْ** (behind them) = past or hidden matters
-- **أَمَامَ** (in front) = future
-- **وَرَاءَ** (behind) = past
-
-This is a universal linguistic phenomenon (English: "ahead of us" = future; "behind us" = past).
-
-In Quranic context, "before and behind" often means COMPREHENSIVE knowledge — Allah knows past, present, future, visible, hidden, all without exception.
-
-</Callout>
-
-### Clause 8: Limited Human Knowledge
-
-<ArabicExample
-  arabic="وَلَا يُحِيطُونَ بِشَىْءٍۢ مِّنْ عِلْمِهِۦٓ إِلَّا بِمَا شَآءَ"
-  transliteration="wa-lā yuḥīṭūna bi-shayʾin min ʿilmihi illā bi-mā shāʾ"
-  translation="And they encompass not a thing of His knowledge except for what He wills"
-  reference="Al-Baqarah 2:255"
-  words={[
-    { ar: "وَلَا", tr: "wa-lā", en: "And not" },
-    { ar: "يُحِيطُونَ", tr: "yuḥīṭūna", en: "they encompass" },
-    { ar: "بِشَىْءٍۢ", tr: "bi-shayʾin", en: "a thing" },
-    { ar: "مِّنْ", tr: "min", en: "of" },
-    { ar: "عِلْمِهِۦٓ", tr: "ʿilmihi", en: "His knowledge" },
-    { ar: "إِلَّا", tr: "illā", en: "except" },
-    { ar: "بِمَا", tr: "bi-mā", en: "for what" },
-    { ar: "شَآءَ", tr: "shāʾ", en: "He wills" }
-  ]}
-/>
-
-**Step 1: Segmentation**
-- وَلَا — conjunction + negation
-- يُحِيطُونَ — verb (encompass)
-- بِشَىْءٍۢ مِّنْ عِلْمِهِۦٓ — prepositional phrases (object)
-- إِلَّا بِمَا شَآءَ — exception + relative clause
-
-**Step 2: Sentence Type**
-Verbal sentence with NEGATION + EXCEPTION. Contrasts human limitation with divine omniscience.
-
-**Step 3: Word Analysis**
-
-**وَلَا** (wa-lā):
-- Conjunction + negation particle
-
-**يُحِيطُونَ** (yuḥīṭūna):
-- **Nahw:** Fi'l mudari', third person masculine plural (ـُونَ ending), marfu'
-- **Sarf:** Root ح-و-ط (ḥ-w-ṭ) "surround, encompass, comprehend" | Form IV (أَحَاطَ) present tense
-- **Balagha:** "Encompass" → comprehensive grasp, complete knowledge
-
-**بِشَىْءٍۢ** (bi-shayʾin):
-- **Nahw:** Jarr wa-majrur مُتَعَلِّقٌ بِ يُحِيطُونَ, genitive (tanwin kasra)
-- **Sarf:** Root ش-ي-ء (sh-y-ʾ) "thing" | Indefinite
-- **Balagha:** "Not a thing" → not even the smallest fragment
-
-**مِّنْ عِلْمِهِۦٓ** (min ʿilmihi):
-- **Nahw:** Prepositional phrase, صِفَة (description) for شَىْء
-- **مِنْ:** Partitive preposition (of/from)
-- **عِلْمِهِۦٓ:** عِلْم (knowledge) + هِ pronoun (His = Allah's knowledge)
-- **Balagha:** "Of His knowledge" → even a fraction of divine knowledge is beyond human grasp
-
-**إِلَّا بِمَا شَآءَ** (illā bi-mā shāʾ):
-- **إِلَّا:** Exception particle
-- **بِمَا:** بِ (by/with) + مَا (what/whatever) — relative pronoun
-- **شَآءَ:** Fi'l madi, third person masculine singular, Root ش-ي-ء (sh-y-ʾ) "will, want" | Form I past
-- **Meaning:** "Except what He willed" → Allah chooses what knowledge to share
-
-**Step 4: Relationships**
-- **Negation + exception:** They don't encompass ANY of His knowledge, EXCEPT what He reveals
-- **Contrast with Clause 7:** Allah knows EVERYTHING (bayna aydīhim wa-khalfahum); humans know ONLY what He permits
-
-**Step 5: Rhetorical Analysis**
-- **Human limitation emphasized:** Cannot grasp even "a thing" (شَىْءٍۢ) — the smallest possible amount
-- **Divine sovereignty over knowledge:** Even limited human knowledge exists ONLY by Allah's will
-- **Connection to prophethood:** Humans know ONLY through revelation — prophets receive knowledge شَآءَ (what He willed to reveal)
-- **Theological precision:** Negates independent human access to divine knowledge (refutes claims of self-derived gnosis)
-
-### Clause 9: The Kursi (Throne/Footstool)
-
-<ArabicExample
-  arabic="وَسِعَ كُرْسِيُّهُ ٱلسَّمَٰوَٰتِ وَٱلْأَرْضَ"
-  transliteration="wasiʿa kursiyyuhu s-samāwāti wa-l-arḍ"
-  translation="His Kursi extends over the heavens and the earth"
-  reference="Al-Baqarah 2:255"
-  words={[
-    { ar: "وَسِعَ", tr: "wasiʿa", en: "extends over" },
-    { ar: "كُرْسِيُّهُ", tr: "kursiyyuhu", en: "His Kursi" },
-    { ar: "ٱلسَّمَٰوَٰتِ", tr: "s-samāwāti", en: "the heavens" },
-    { ar: "وَٱلْأَرْضَ", tr: "wa-l-arḍ", en: "and the earth" }
-  ]}
-/>
-
-**Step 1: Segmentation**
-- وَسِعَ — verb (encompassed, extended)
-- كُرْسِيُّهُ — subject (His Kursi)
-- ٱلسَّمَٰوَٰتِ وَٱلْأَرْضَ — direct object
-
-**Step 2: Sentence Type**
-Verbal sentence with PAST TENSE form but PRESENT MEANING (timeless truth).
-
-**Step 3: Word Analysis**
-
-**وَسِعَ** (wasiʿa):
-- **Nahw:** Fi'l madi (past tense verb), third person masculine singular
-- **Sarf:** Root و-س-ع (w-s-ʿ) "encompass, extend, be spacious" | Form I past
-- **Balagha:** Past form for TIMELESS STATE (like "كَانَ" structures) → eternal encompassing
-
-**كُرْسِيُّهُ** (kursiyyuhu):
-- **Nahw:** Fa'il (subject), nominative (damma), with attached pronoun هُ (His)
-- **Sarf:** Root ك-ر-س (k-r-s) | Pattern فُعْلِيٌّ (kursi + doubled yā' = kursiyy) | Definite through pronoun
-- **Meaning:** "Kursi" — scholars debate: (1) actual footstool/throne, or (2) metaphor for Allah's knowledge/authority
-- **Balagha:** Whatever its precise nature, it encompasses ALL creation
-
-**ٱلسَّمَٰوَٰتِ وَٱلْأَرْضَ** (as-samāwāti wa-l-arḍa):
-- **Nahw:** Maf'ul bihi (direct object), accusative case
-- **Components:** Heavens (accusative plural) + conjunction + earth (accusative singular)
-- **Balagha:** Totality of creation (everything from top to bottom)
-
-**Step 4: Relationships**
-- **Verb + Subject + Object:** وَسِعَ (encompassed) + كُرْسِيُّهُ (His Kursi) + ٱلسَّمَٰوَٰتِ وَٱلْأَرْضَ (heavens and earth)
-- **Metaphysical scope:** His Kursi is GREATER than all creation
-
-**Step 5: Rhetorical Analysis**
-- **Grandeur emphasis:** Even His Kursi (which scholars say is smaller than His Throne/ʿArsh) encompasses ALL creation
-- **Past tense for eternal truth:** وَسِعَ (past form) conveys permanent, established state
-- **Connection to previous clauses:** He owns all (clause 5), knows all (clause 7), and His Kursi encompasses all (clause 9) — comprehensive sovereignty
-
-<Callout type="note" title="What is the Kursi?">
-
-Classical scholars debate the meaning of Kursi:
-
-**1. Literal interpretation:** An actual footstool or throne in the heavens, part of Allah's creation, subordinate to the ʿArsh (Throne mentioned elsewhere in Quran)
-
-**2. Metaphorical interpretation:** Refers to Allah's knowledge or authority that encompasses all creation
-
-**3. Middle position:** Both — a real entity AND symbolic of Allah's encompassing knowledge
-
-**Grammatically:** كُرْسِيُّهُ functions as a SUBJECT that "encompasses" heavens and earth — whether literal or metaphorical, the theological point is Allah's VASTNESS and creation's SMALLNESS by comparison.
-
-**What we know for certain:** The Kursi's vastness demonstrates Allah's majesty. As Ibn ʿAbbas said: "The Kursi is the place of the two Feet, and the ʿArsh cannot be measured."
-
-</Callout>
-
-### Clause 10: Effortless Preservation
-
-<ArabicExample
-  arabic="وَلَا يَـُٔودُهُۥ حِفْظُهُمَا"
-  transliteration="wa-lā yaʾūduhu ḥifẓuhumā"
-  translation="And their preservation tires Him not"
-  reference="Al-Baqarah 2:255"
-  words={[
-    { ar: "وَلَا", tr: "wa-lā", en: "And not" },
-    { ar: "يَـُٔودُهُۥ", tr: "yaʾūduhu", en: "tires Him" },
-    { ar: "حِفْظُهُمَا", tr: "ḥifẓuhumā", en: "their preservation" }
-  ]}
-/>
-
-**Step 1: Segmentation**
-- وَلَا — conjunction + negation
-- يَـُٔودُهُۥ — verb + attached pronoun
-- حِفْظُهُمَا — subject
-
-**Step 2: Sentence Type**
-Verbal sentence with NEGATION, emphasizing Allah's effortless power.
-
-**Step 3: Word Analysis**
-
-**وَلَا** (wa-lā):
-- Conjunction + negation particle
-
-**يَـُٔودُهُۥ** (yaʾūduhu):
-- **Nahw:** Fi'l mudari', third person masculine singular, marfu' (damma before pronoun)
-- **Sarf:** Root أ-و-د (ʾ-w-d) "burden, tire, weigh down" | Form I present
-- **Pronoun:** هُ attached pronoun (Him = Allah) functioning as maf'ul bihi
-- **Balagha:** Negating effort/difficulty → effortless power
-
-**حِفْظُهُمَا** (ḥifẓuhumā):
-- **Nahw:** Fa'il (subject), nominative case (damma)
-- **Components:** حِفْظُ (preservation) + هُمَا dual pronoun (the two = heavens and earth)
-- **Sarf:** Root ح-ف-ظ (ḥ-f-ẓ) "preserve, protect, maintain" | Masdar (verbal noun)
-- **Balagha:** "Preservation of the two" → maintaining existence of heavens and earth
-
-**Step 4: Relationships**
-- **Negated verb:** لَا يَـُٔودُ (does not tire/burden)
-- **Subject:** حِفْظُهُمَا (preservation of heavens and earth)
-- **Connection to clause 4:** He doesn't sleep (clause 4) because preserving creation doesn't tire Him (clause 10)
-
-**Step 5: Rhetorical Analysis**
-- **Contrast with human limitation:** Humans tire from small tasks; Allah preserves ALL creation without fatigue
-- **Closure to perfection attributes:** Clause 4 negated sleep; clause 10 negates fatigue from preservation → complete freedom from weakness
-- **Theological capstone:** He owns all (clause 5), knows all (clause 7), encompasses all (clause 9), and preserves all EFFORTLESSLY (clause 10)
-
-### Clause 11: Closing Attributes — Supreme Majesty
-
-<ArabicExample
-  arabic="وَهُوَ ٱلْعَلِىُّ ٱلْعَظِيمُ"
-  transliteration="wa-huwa l-ʿaliyyu l-ʿaẓīm"
-  translation="And He is the Most High, the Most Great"
-  reference="Al-Baqarah 2:255"
-  words={[
-    { ar: "وَهُوَ", tr: "wa-huwa", en: "And He is" },
-    { ar: "ٱلْعَلِىُّ", tr: "l-ʿaliyyu", en: "the Most High" },
-    { ar: "ٱلْعَظِيمُ", tr: "l-ʿaẓīm", en: "the Most Great" }
-  ]}
-/>
-
-**Grammatical Analysis:**
-
-**وَهُوَ** (wa-huwa):
-- Conjunction + detached pronoun (He), mubtada of closing nominal sentence
-
-**ٱلْعَلِىُّ** (al-ʿaliyyu):
-- **Nahw:** Khabar (predicate), nominative (damma)
-- **Sarf:** Root ع-ل-و (ʿ-l-w) "be high, elevated, exalted" | Pattern فَعِيلٌ (faʿīl) intensive | Definite with ال
-- **Balagha:** Al-ʿAliyy = Most High in status, rank, essence (not spatial height)
-
-**ٱلْعَظِيمُ** (al-ʿaẓīm):
-- **Nahw:** Second khabar, nominative (damma)
-- **Sarf:** Root ع-ظ-م (ʿ-ẓ-m) "be great, magnificent, vast" | Pattern فَعِيلٌ intensive | Definite with ال
-- **Balagha:** Al-ʿAẓīm = Most Great in majesty, power, incomprehensibility
-
-**Rhetorical Function:** These two names CONCLUDE the verse by summarizing its theological message:
-- **Al-ʿAliyy (Most High):** He is above all creation (transcendence)
-- **Al-ʿAẓīm (Most Great):** He is greater than all description (majesty)
-
-Perfect bookends: The verse began with "ٱللَّهُ" and ends with "ٱلْعَلِىُّ ٱلْعَظِيمُ" — divine name to divine attributes, complete theological statement.
-
-## Verse-Level Synthesis
-
-Now that you've analyzed each clause, see how Ayat al-Kursi forms a UNIFIED theological and grammatical masterpiece.
-
-### The Five-Stage Progression
-
-<GrammarTable>
-| Stage | Clauses | Theme | Grammatical Structures | Theological Dimension |
-|-------|---------|-------|----------------------|----------------------|
-| **1. Identity** | 1-3 | Who Allah is | Nominal sentences, negation + exception, divine names | Tawhid: No deity but Him |
-| **2. Perfection** | 4 | Freedom from deficiency | Verbal negation, gradation | Transcendence: No sleep/drowsiness |
-| **3. Ownership** | 5 | Universal possession | Fronted predicate, relative pronouns | Sovereignty: Owns all creation |
-| **4. Authority** | 6-8 | Knowledge & permission | Rhetorical question, comprehensive scope, negation + exception | Omniscience: Knows all, shares selectively |
-| **5. Power** | 9-11 | Encompassing majesty | Metaphysical scope, negation of effort, closing attributes | Omnipotence: Effortless preservation |
-</GrammarTable>
-
-**Pattern:** Each stage BUILDS on the previous:
-1. **Identity** → WHO is being discussed (Allah, the One)
-2. **Perfection** → WHAT He is free from (creaturely deficiency)
-3. **Ownership** → WHAT belongs to Him (all creation)
-4. **Authority** → WHAT He controls (intercession, knowledge)
-5. **Power** → HOW He maintains it all (effortlessly)
-
-Grammar serves this architecture perfectly.
-
-### Key Grammatical Devices Across the Verse
-
-**1. Negation (نَفْي) — Used 6 Times:**
-- لَآ إِلَٰهَ (no deity)
-- لَا تَأْخُذُهُۥ سِنَةٌۭ (no drowsiness)
-- وَلَا نَوْمٌۭ (nor sleep)
-- وَلَا يُحِيطُونَ (they don't encompass)
-- وَلَا يَـُٔودُهُۥ (doesn't tire Him)
-
-Negation emphasizes Allah's transcendence — what He is NOT (limited by sleep, ignorance, effort).
-
-**2. Exception (اِسْتِثْنَاء) — Used 3 Times:**
-- إِلَّا هُوَ (except Him)
-- إِلَّا بِإِذْنِهِۦ (except by His permission)
-- إِلَّا بِمَا شَآءَ (except what He willed)
-
-Exception creates EXCLUSIVITY — ONLY Allah, ONLY by His will.
-
-**3. Fronting (تَقْدِيم) — Used Strategically:**
-- لَّهُۥ مَا فِى... (TO HIM belongs...) — ownership fronted for emphasis
-
-**4. Rhetorical Question:**
-- مَن ذَا ٱلَّذِى يَشْفَعُ (Who can intercede?) — emphasizes through questioning
-
-**5. Comprehensive Pairing:**
-- ٱلسَّمَٰوَٰتِ وَٱلْأَرْضَ (heavens and earth) — used 3 times to indicate totality
-
-### Thematic Coherence Through Grammar
-
-**Theme: Absolute Tawhid (Monotheism)**
-
-Every clause reinforces Allah's UNIQUENESS and ONENESS:
-- **Clause 2:** لَآ إِلَٰهَ إِلَّا هُوَ (negation + exception = exclusive divinity)
-- **Clause 5:** لَّهُۥ (TO HIM alone belongs...) — fronted for exclusivity
-- **Clause 6:** No intercession EXCEPT by His permission
-- **Clause 8:** No knowledge EXCEPT what He wills
-
-Grammar ENCODES tawhid in multiple ways — not just stated once, but woven throughout.
-
-**Theme: Divine Transcendence**
-
-Allah is utterly different from creation:
-- **Clause 4:** No drowsiness/sleep (humans need rest; He doesn't)
-- **Clause 7:** He knows all; humans know fragments
-- **Clause 10:** Preservation doesn't tire Him (humans tire from small tasks)
-
-Negation is the grammatical tool for expressing transcendence.
-
-**Theme: Comprehensive Sovereignty**
-
-Allah's authority is ABSOLUTE and TOTAL:
-- **Clause 5:** Owns EVERYTHING in heavens and earth
-- **Clause 7:** Knows EVERYTHING before and behind them
-- **Clause 9:** His Kursi encompasses ALL creation
-- **Clause 10:** Preserves EVERYTHING effortlessly
-
-Repeated use of مَا (whatever) and "heavens and earth" pairing emphasizes completeness.
-
-<Callout type="rule" title="Why Ayat al-Kursi is the Greatest Verse">
-
-The Prophet Muhammad ﷺ called this the GREATEST verse in the Quran. Why?
-
-**1. Theological Comprehensiveness:** Covers ALL major attributes of Allah (existence, uniqueness, life, knowledge, power, transcendence, ownership, authority)
-
-**2. Grammatical Perfection:** Uses negation, exception, fronting, rhetorical questions, relative clauses, and parallel structures — maximum rhetorical efficiency
-
-**3. Density:** 50 words, 10 clauses, 6 negations, 3 exceptions, multiple divine attributes — more theology per word than almost any other verse
-
-**4. Protection:** Tradition holds that reciting it provides spiritual protection — perhaps because understanding these truths about Allah PROTECTS one's faith from doubt and polytheism
-
-**5. Accessibility:** Despite complexity, it's MEMORIZABLE and RECITABLE — millions recite it daily without necessarily understanding every grammatical detail, yet benefit from its blessing
-
-Grammar analysis reveals WHY this verse has such power: form perfectly serves function.
-
-</Callout>
-
-## Practice Exercises
-
-<ExerciseBox question="Exercise 1: Identify Negation Types">
-
-**Task:** Ayat al-Kursi uses negation 6 times. For each negation, identify WHAT is negated and WHY (rhetorical purpose).
-
-1. لَآ إِلَٰهَ — Negates: ____________ | Purpose: ____________
-2. لَا تَأْخُذُهُۥ سِنَةٌۭ — Negates: ____________ | Purpose: ____________
-3. وَلَا نَوْمٌۭ — Negates: ____________ | Purpose: ____________
-4. وَلَا يُحِيطُونَ — Negates: ____________ | Purpose: ____________
-5. وَلَا يَـُٔودُهُۥ — Negates: ____________ | Purpose: ____________1. **لَآ إِلَٰهَ** — Negates: existence of any deity | Purpose: Establishes tawhid (monotheism) through total negation of all deities except Allah
-2. **لَا تَأْخُذُهُۥ سِنَةٌۭ** — Negates: drowsiness overtaking Allah | Purpose: Establishes Allah's freedom from human limitations (lighter form of sleep)
-3. **وَلَا نَوْمٌۭ** — Negates: sleep overtaking Allah | Purpose: Emphasizes freedom from limitation through gradation (if not drowsiness, certainly not deep sleep)
-4. **وَلَا يُحِيطُونَ** — Negates: humans encompassing Allah's knowledge | Purpose: Establishes human limitation and Allah's exclusive omniscience
-5. **وَلَا يَـُٔودُهُۥ** — Negates: preservation tiring Allah | Purpose: Establishes Allah's effortless power (maintaining all creation requires no effort)
-
-**Pattern:** Negations alternate between establishing what Allah IS NOT (transcendence) and what creation CANNOT DO (human limitation).
-</ExerciseBox>
-
-<ExerciseBox question="Exercise 2: Analyze the Exception Structures">
-
-**Task:** The verse uses إِلَّا (exception) three times to create exclusivity. Complete this analysis:
-
-| Exception Phrase | What's Negated | What's Excepted | Theological Meaning |
-|------------------|----------------|-----------------|---------------------|
-| لَآ إِلَٰهَ إِلَّا هُوَ | All deities | Allah alone | _________________ |
-| إِلَّا بِإِذْنِهِۦ | ____________ | ____________ | _________________ |
-| إِلَّا بِمَا شَآءَ | ____________ | ____________ | _________________ |
-
-**Reflection:** How does the grammatical structure of negation + exception (لَآ... إِلَّا) serve the theological message of tawhid?| Exception Phrase | What's Negated | What's Excepted | Theological Meaning |
-|------------------|----------------|-----------------|---------------------|
-| لَآ إِلَٰهَ إِلَّا هُوَ | All deities | Allah alone | Absolute tawhid: Only ONE deity exists |
-| إِلَّا بِإِذْنِهِۦ | All intercession | Intercession by His permission | No authority acts independently; all authority from Allah |
-| إِلَّا بِمَا شَآءَ | All knowledge of humans | Knowledge He wills to share | No independent access to divine knowledge; revelation is exclusive source |
-
-**Reflection Answer:**
-
-The grammatical structure of negation + exception (لَآ... إِلَّا) is PERFECT for expressing tawhid because:
-
-1. **Total negation first:** لَآ categorically denies the entire category (all deities, all intercession, all knowledge access)
-2. **Singular exception:** إِلَّا creates ONE exception — not "a few exceptions" but ONE ONLY
-3. **Grammatical restriction:** The exception structure grammatically FORCES exclusivity — you cannot add more exceptions without violating the grammar
-4. **Mirrors theology:** Just as grammar allows ONLY ONE exception after total negation, theology allows ONLY ONE God after negating all false deities
-
-This structure appears throughout the Quran for tawhid statements because FORM MATCHES FUNCTION — the grammar itself encodes Islamic monotheism.
-</ExerciseBox>
-
-<ExerciseBox question="Exercise 3: Map the Five-Stage Progression">
-
-**Task:** Ayat al-Kursi progresses through five theological stages. For each stage, identify which clause(s) and what the grammatical structure teaches you.
-
-**Stage 1 — Identity (Who Allah is):**
-- Clauses: ______
-- Key grammatical structure: ______
-- What you learn: ______
-
-**Stage 2 — Perfection (Freedom from deficiency):**
-- Clauses: ______
-- Key grammatical structure: ______
-- What you learn: ______
-
-**Stage 3 — Ownership (Universal possession):**
-- Clauses: ______
-- Key grammatical structure: ______
-- What you learn: ______
-
-**Stage 4 — Authority (Knowledge & permission):**
-- Clauses: ______
-- Key grammatical structure: ______
-- What you learn: ______
-
-**Stage 5 — Power (Effortless majesty):**
-- Clauses: ______
-- Key grammatical structure: ______
-- What you learn: ______**Stage 1 — Identity (Who Allah is):**
-- **Clauses:** 1-3 (ٱللَّهُ، لَآ إِلَٰهَ إِلَّا هُوَ، ٱلْحَيُّ ٱلْقَيُّومُ)
-- **Key grammatical structure:** Nominal sentences + negation + exception + divine names
-- **What you learn:** Allah is the ONLY deity, Ever-Living, Self-Sustaining (exclusive existence, eternal life, independent self-sufficiency)
-
-**Stage 2 — Perfection (Freedom from deficiency):**
-- **Clauses:** 4 (لَا تَأْخُذُهُۥ سِنَةٌۭ وَلَا نَوْمٌۭ)
-- **Key grammatical structure:** Verbal negation + gradation (lighter → heavier)
-- **What you learn:** Allah is free from ALL human limitations (neither light drowsiness nor deep sleep — complete transcendence)
-
-**Stage 3 — Ownership (Universal possession):**
-- **Clauses:** 5 (لَّهُۥ مَا فِى ٱلسَّمَٰوَٰتِ وَمَا فِى ٱلْأَرْضِ)
-- **Key grammatical structure:** Fronted predicate (taqdim) + relative pronoun مَا (whatever) + heavens/earth pairing
-- **What you learn:** EVERYTHING in existence belongs exclusively to Allah (universal sovereignty)
-
-**Stage 4 — Authority (Knowledge & permission):**
-- **Clauses:** 6-8 (rhetorical question, comprehensive knowledge, limited human knowledge)
-- **Key grammatical structure:** Rhetorical question + spatial metaphors (before/behind) + negation + exception
-- **What you learn:** No one intercedes without His permission; He knows EVERYTHING; humans know ONLY what He permits (exclusive authority and omniscience)
-
-**Stage 5 — Power (Effortless majesty):**
-- **Clauses:** 9-11 (Kursi encompasses, preservation doesn't tire, closing attributes)
-- **Key grammatical structure:** Past tense for eternal truth + negation of effort + superlative attributes
-- **What you learn:** His Kursi encompasses all creation; preserving everything requires ZERO effort; He is Most High and Most Great (effortless omnipotence)
-
-**Pattern:** Each stage BUILDS logically on the previous. You can't understand His power (stage 5) without first understanding His ownership (stage 3) and authority (stage 4). The verse is architecturally perfect.
-</ExerciseBox>
-
-<ExerciseBox question="Exercise 4: Compare Al-Fatiha and Ayat al-Kursi">
-
-**Task:** You've now analyzed two foundational texts: Al-Fatiha (L5.02) and Ayat al-Kursi (L5.03). Compare them grammatically and theologically:
-
-1. **Al-Fatiha has 7 verses; Ayat al-Kursi is 1 verse. Which is more grammatically complex? Why?**
-
-2. **Both use nominal sentences and negation. How do they use these structures DIFFERENTLY?**
-
-3. **Al-Fatiha shifts from third person to second person (iltifat). Does Ayat al-Kursi do this? If not, why not?**
-
-4. **Write one paragraph explaining how grammar serves theology differently in each text.**1. **Which is more grammatically complex?**
-
-**Answer:** Ayat al-Kursi is more grammatically complex within a single verse. Al-Fatiha spreads 7 grammatical units across 7 verses (average ~4 words per verse). Ayat al-Kursi packs 11 clauses into 1 verse (50 words). It contains genus-negating لَآ, multiple exception structures, rhetorical questions, relative clauses, spatial metaphors, and dual negations — all layered within one grammatical unit. Al-Fatiha is a complete surah with thematic progression across verses; Ayat al-Kursi is a densely compressed theological statement.
-
-2. **How do they use nominal sentences and negation differently?**
-
-- **Al-Fatiha:** Nominal sentences (V1-4) establish WHO Allah is as timeless truth. Negation is minimal (only in V7: غَيْرِ). Focus is on positive attributes and relationships.
-- **Ayat al-Kursi:** Nominal sentences (clauses 1-3, 11) bookend the verse. Negation is DOMINANT (6 instances) — focuses on what Allah is NOT and what humans CANNOT DO. Emphasis on transcendence through negation.
-
-**Pattern:** Al-Fatiha = positive attributes + relationship. Ayat al-Kursi = transcendence through negation + exclusivity.
-
-3. **Does Ayat al-Kursi use iltifat (person shift)?**
-
-**Answer:** NO. Ayat al-Kursi maintains THIRD PERSON throughout (Allah, He, His). It's an objective description of Allah's attributes. Al-Fatiha shifts from third person (V1-4) to second person (V5-7) to create direct relationship and supplication. Ayat al-Kursi doesn't shift because its purpose is different — it's a DECLARATION of Allah's majesty, not a prayer TO Allah. The grammar mirrors the function: Al-Fatiha is conversational (we address Allah); Ayat al-Kursi is declarative (we learn about Allah).
-
-4. **Paragraph comparing how grammar serves theology:**
-
-Al-Fatiha and Ayat al-Kursi both encode theological truths through grammar, but serve different functions. Al-Fatiha uses grammatical PROGRESSION (nominal → verbal, third person → second person, indicative → imperative) to move the reciter through stages: knowledge of Allah (V1-4), acknowledgment of relationship (V5), and request for guidance (V6-7). Its grammar is DYNAMIC, mirroring the progression from learning ABOUT Allah to speaking TO Allah. Ayat al-Kursi, by contrast, uses grammatical LAYERING (negation + exception, fronting, rhetorical questions) within a SINGLE VERSE to pack maximum theological content into minimal space. It maintains third person throughout because its function is DECLARATION, not conversation. Al-Fatiha's grammar creates RELATIONSHIP; Ayat al-Kursi's grammar creates AWE. Both are grammatically perfect for their respective purposes — one teaches you to PRAY, the other teaches you to REVERE.
-</ExerciseBox>
-
-## Related Lessons
-
-**Prerequisites:**
-- [L5.01 Full I'rab Analysis Method](/learn/level-5/01-full-irab-analysis/) — The 5-step systematic method applied throughout this lesson
-- [L5.02 Analyzing Surah Al-Fatiha](/learn/level-5/02-surah-al-fatiha/) — Complete surah analysis (multi-verse structure)
-- [L4.04 Exception Structures](/learn/level-4/05-exception-particles/) — Understanding إِلَّا and istithnā'
-- [L4.10 Negation Particles](/learn/level-4/10-negation-particles/) — Understanding لَا and other negation forms
-
-**Next Steps:**
-- [L5.04 Analyzing Surah Al-Ikhlas](/learn/level-5/04-surah-al-ikhlas/) — Another complete surah analysis focusing on tawhid
-- [L5.05 Analyzing Surah Al-Falaq & An-Nas](/learn/level-5/05-surah-al-falaq-an-nas/) — Paired surahs with refuge-seeking themes
-
-**Related Topics:**
-- [L4.17 Introduction to Balagha](/learn/level-4/17-intro-balagha/) — Rhetorical concepts like taqdim, hadhf
-- [L4.18 Figures of Speech](/learn/level-4/18-figures-of-speech/) — Detailed study of rhetorical devices
-- [L2.01 Nominal Sentence](/learn/level-2/01-nominal-sentence/) — Foundation for understanding nominal structures throughout the verse
+import Step from '../../../components/lesson/Step.astro';
+import Stage from '../../../components/lesson/Stage.astro';
+import Sentence from '../../../components/lesson/Sentence.astro';
+import Tiles from '../../../components/lesson/Tiles.astro';
+import Formula from '../../../components/lesson/Formula.astro';
+import Legend from '../../../components/lesson/Legend.astro';
+import Note from '../../../components/lesson/Note.astro';
+import Check from '../../../components/lesson/Check.astro';
+import Start from '../../../components/lesson/Start.astro';
+import Sources from '../../../components/lesson/Sources.astro';
+import Parse from '../../../components/lesson/Parse.astro';
+import Exercise from '../../../components/lesson/Exercise.astro';
+import Block from '../../../components/lesson/Block.astro';
+
+{/* Content spec: docs/redesign/specs/L5.03-ayat-al-kursi.md. Places and word analysis follow al-Jadwal (Mahmud Safi) on 2:255; other readings and word meanings come from al-Durr al-Masun (al-Samin al-Halabi); roots, forms and counts come from the Corpus tags. */}
+
+<Step hero id="start" label="The verse" title={frontmatter.title} kicker={frontmatter.kicker} titleArabic={frontmatter.titleArabic}>
+<Block id="overview" title="In this lesson" level={2} uncounted>
+  <Stage label="The idea">
+    <Formula
+      label="one subject plus five pieces of news plus six sentences equals the whole verse"
+      items={[
+        { kind: 'm', text: 'ٱللَّهُ', small: 'the subject' },
+        { kind: 'k', text: 'five pieces of news', small: 'parts 1 to 4' },
+        { kind: 's', text: 'the whole verse', small: 'six more sentences, parts 5 to 10' },
+      ]}
+    />
+  </Stage>
+  <Start
+    goal="Take Al-Baqarah 2:255 apart, part by part. For each word say its <b>role</b> and <b>case</b>. For each verb say its <b>root, kind and form</b>. For each little word say what it does to the words after it. Then name the <b>lesson</b> that taught the point."
+    minutes={120}
+    before="Levels 1 to 3, and the lessons of Level 4. L2.01, L2.02, L4.05, L4.10 and L3.11 matter most."
+    terms={[
+      { term: 'Khabar muqaddam', ar: 'خَبَر مُقَدَّم', meaning: 'A khabar put before its mubtadaʾ (L2.01).' },
+      { term: 'The lā that denies a kind', ar: 'لَا ٱلنَّافِيَة لِلْجِنْس', meaning: 'A لَا that says “no … at all” (L4.05).' },
+      { term: 'Badal', ar: 'بَدَل', meaning: 'A substitute: a word that takes the place of another and copies its case (L4.05).' },
+      { term: 'Ṣila', ar: 'صِلَة', meaning: 'The clause or phrase that finishes a joining noun, such as مَا (L3.11).' },
+      { term: 'New start', ar: 'اِسْتِئْنَاف', meaning: 'Al-Jadwal’s name for a sentence that begins afresh and is not part of an earlier one.' },
+      { term: 'Restriction', ar: 'حَصْر', meaning: 'A إِلَّا that means “only”, in a sentence with no group named (L4.05).' },
+      { term: 'Ījāz', ar: 'إِيجَاز', meaning: 'Brevity: saying much in few words (named in L4.18). Al-Jadwal names it for this verse.' },
+      { term: 'Faṣl', ar: 'فَصْل', meaning: 'Leaving out the joining word between two sentences. New here.' },
+    ]}
+  />
+</Block>
+
+<Block id="see" title="Read the whole verse first" level={2}>
+  <Stage>
+    <Sentence
+      reference="Al-Baqarah 2:255 (part)"
+      groups={[
+        { words: [{ ar: 'ٱللَّهُ', en: 'Allah', say: 'allahu' }] },
+        { words: [{ ar: 'لَآ', en: 'no', say: 'la', type: 'p' }, { ar: 'إِلَٰهَ', en: 'god', say: 'ilaha' }] },
+        { words: [{ ar: 'إِلَّا', en: 'except', say: 'illa', type: 'p' }, { ar: 'هُوَ', en: 'Him', say: 'huwa' }] },
+      ]}
+      en={['Allah: there is no god ', { gap: 'existing' }, ' except Him.']}
+    />
+    <Sentence
+      reference="Al-Baqarah 2:255 (part)"
+      groups={[
+        { words: [{ ar: 'ٱلْحَىُّ', en: 'the Ever-Living', say: 'al-hayyu' }] },
+        { words: [{ ar: 'ٱلْقَيُّومُ', en: 'the One who runs everything', say: 'al-qayyumu' }] },
+      ]}
+      en={[{ gap: 'He is' }, ' the Ever-Living, the One who runs everything.']}
+    />
+    <Sentence
+      reference="Al-Baqarah 2:255 (part)"
+      groups={[
+        { words: [{ ar: 'لَا', en: 'not', say: 'la', type: 'p' }, { ar: 'تَأْخُذُهُۥ', en: 'takes Him', say: 'takhudhuhu', type: 'v' }] },
+        { words: [{ ar: 'سِنَةٌ', en: 'drowsiness', say: 'sinatun' }] },
+        { words: [{ ar: 'وَلَا', en: 'and not', say: 'wa-la', type: 'p' }, { ar: 'نَوْمٌ', en: 'sleep', say: 'nawmun' }] },
+      ]}
+      en={['Drowsiness does not take Him, and neither does sleep.']}
+    />
+    <Sentence
+      reference="Al-Baqarah 2:255 (part)"
+      groups={[
+        { words: [{ ar: 'لَّهُۥ', en: 'to Him', say: 'lahu', type: 'p' }] },
+        { words: [{ ar: 'مَا', en: 'what', say: 'ma' }, { ar: 'فِى', en: 'in', say: 'fi', type: 'p' }, { ar: 'ٱلسَّمَٰوَٰتِ', en: 'the heavens', say: 'as-samawati' }] },
+        { words: [{ ar: 'وَمَا', en: 'and what', say: 'wa-ma' }, { ar: 'فِى', en: 'in', say: 'fi', type: 'p' }, { ar: 'ٱلْأَرْضِ', en: 'the earth', say: 'al-ardi' }] },
+      ]}
+      en={['To Him ', { gap: 'belongs' }, ' what is in the heavens and what is in the earth.']}
+    />
+    <Sentence
+      reference="Al-Baqarah 2:255 (part)"
+      groups={[
+        { words: [{ ar: 'مَن', en: 'who', say: 'man' }, { ar: 'ذَا', en: 'this', say: 'dha' }, { ar: 'ٱلَّذِى', en: 'the one who', say: 'alladhi' }] },
+        { words: [{ ar: 'يَشْفَعُ', en: 'intercedes', say: 'yashfau', type: 'v' }, { ar: 'عِندَهُۥٓ', en: 'with Him', say: 'indahu' }] },
+        { words: [{ ar: 'إِلَّا', en: 'except', say: 'illa', type: 'p' }, { ar: 'بِإِذْنِهِۦ', en: 'with His leave', say: 'bi-idhnihi' }] },
+      ]}
+      en={['Who is it that can intercede with Him, except with His leave?']}
+    />
+    <Sentence
+      reference="Al-Baqarah 2:255 (part)"
+      groups={[
+        { words: [{ ar: 'يَعْلَمُ', en: 'He knows', say: 'yalamu', type: 'v' }] },
+        { words: [{ ar: 'مَا', en: 'what', say: 'ma' }, { ar: 'بَيْنَ', en: 'between', say: 'bayna' }, { ar: 'أَيْدِيهِمْ', en: 'their hands', say: 'aydihim' }] },
+        { words: [{ ar: 'وَمَا', en: 'and what', say: 'wa-ma' }, { ar: 'خَلْفَهُمْ', en: 'behind them', say: 'khalfahum' }] },
+      ]}
+      en={['He knows what is in front of them and what is behind them.']}
+    />
+    <Sentence
+      reference="Al-Baqarah 2:255 (part)"
+      groups={[
+        { words: [{ ar: 'وَلَا', en: 'and not', say: 'wa-la', type: 'p' }, { ar: 'يُحِيطُونَ', en: 'they encompass', say: 'yuhituna', type: 'v' }] },
+        { words: [{ ar: 'بِشَىْءٍ', en: 'anything', say: 'bi-shayin' }, { ar: 'مِّنْ', en: 'of', say: 'min', type: 'p' }, { ar: 'عِلْمِهِۦٓ', en: 'His knowledge', say: 'ilmihi' }] },
+        { words: [{ ar: 'إِلَّا', en: 'except', say: 'illa', type: 'p' }, { ar: 'بِمَا', en: 'with what', say: 'bi-ma' }, { ar: 'شَآءَ', en: 'He willed', say: 'shaa', type: 'v' }] },
+      ]}
+      en={['And they do not encompass anything of His knowledge, except what He wills.']}
+    />
+    <Sentence
+      reference="Al-Baqarah 2:255 (part)"
+      groups={[
+        { words: [{ ar: 'وَسِعَ', en: 'was wide enough for', say: 'wasia', type: 'v' }] },
+        { words: [{ ar: 'كُرْسِيُّهُ', en: 'His Kursi', say: 'kursiyyuhu' }] },
+        { words: [{ ar: 'ٱلسَّمَٰوَٰتِ', en: 'the heavens', say: 'as-samawati' }, { ar: 'وَٱلْأَرْضَ', en: 'and the earth', say: 'wal-arda' }] },
+      ]}
+      en={['His Kursi is wide enough for the heavens and the earth.']}
+    />
+    <Sentence
+      reference="Al-Baqarah 2:255 (part)"
+      groups={[
+        { words: [{ ar: 'وَلَا', en: 'and not', say: 'wa-la', type: 'p' }, { ar: 'يَـُٔودُهُۥ', en: 'weighs on Him', say: 'yauduhu', type: 'v' }] },
+        { words: [{ ar: 'حِفْظُهُمَا', en: 'keeping the two', say: 'hifzuhuma' }] },
+      ]}
+      en={['And keeping the two of them does not weigh on Him.']}
+    />
+    <Sentence
+      reference="Al-Baqarah 2:255 (part)"
+      groups={[
+        { words: [{ ar: 'وَهُوَ', en: 'and He', say: 'wa-huwa' }] },
+        { words: [{ ar: 'ٱلْعَلِىُّ', en: 'the High', say: 'al-aliyyu' }, { ar: 'ٱلْعَظِيمُ', en: 'the Great', say: 'al-azimu' }] },
+      ]}
+      en={['And He ', { gap: 'is' }, ' the High, the Great.']}
+    />
+    <Legend />
+  </Stage>
+
+Read each part from right to left. The English under each part is our own plain meaning, not a translation. A marked word is one that English needs and the Arabic leaves out.
+
+The verse has **50 written words**, as the Quranic Arabic Corpus counts them. This lesson cuts it into ten parts, at the places where al-Jadwal’s sentences begin and end. The parts have 5, 2, 5, 7, 7, 6, 8, 4, 3 and 3 words.
+
+<Note kind="know">People call this verse Ayat al-Kursi, “the verse of the Kursi”, after the word كُرْسِيُّهُ in part 8. This lesson teaches the grammar of the verse. It does not say anything about the reward of reciting it or about its rank among the verses, because we have not checked those points against a source.</Note>
+
+<Check n={1} q="How many written words does 2:255 have, as the Corpus counts them?" options={['Fifty', 'Forty', 'Thirty']} answer={0} why="The Corpus counts 50 words. The ten parts have 5, 2, 5, 7, 7, 6, 8, 4, 3 and 3." />
+</Block>
+
+<Block id="shape" title="Five pieces of news, then six sentences" level={2}>
+  <Stage label="How al-Jadwal reads the verse">
+    <Tiles
+      label="three jobs for the ten parts"
+      items={[
+        { ar: 'خَبَر', en: 'news about ٱللَّهُ: parts 1 to 4' },
+        { ar: 'اِسْتِئْنَاف', en: 'a new start: parts 5 to 8', type: 'x' },
+        { ar: 'مَعْطُوف', en: 'joined: parts 9 and 10', type: 'x' },
+      ]}
+    />
+  </Stage>
+
+Al-Jadwal does not read the verse as one long sentence. It reads the first four parts as one nominal sentence. The mubtadaʾ is ٱللَّهُ, and the khabar comes in **five pieces**. Then the verse starts again, six times.
+
+| Part | The words | Job, as al-Jadwal reads it |
+|---|---|---|
+| 1 | ٱللَّهُ لَآ إِلَٰهَ إِلَّا هُوَ | ٱللَّهُ is the mubtadaʾ. The sentence لَآ إِلَٰهَ إِلَّا هُوَ is news 1. |
+| 2 | ٱلْحَىُّ ٱلْقَيُّومُ | News 2 and news 3. |
+| 3 | لَا تَأْخُذُهُۥ سِنَةٌ وَلَا نَوْمٌ | News 4. |
+| 4 | لَّهُۥ مَا فِى ٱلسَّمَٰوَٰتِ وَمَا فِى ٱلْأَرْضِ | News 5. |
+| 5 | مَن ذَا ٱلَّذِى يَشْفَعُ عِندَهُۥٓ إِلَّا بِإِذْنِهِۦ | A new start. |
+| 6 | يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ | A new start. |
+| 7 | وَلَا يُحِيطُونَ بِشَىْءٍ مِّنْ عِلْمِهِۦٓ إِلَّا بِمَا شَآءَ | A new start. |
+| 8 | وَسِعَ كُرْسِيُّهُ ٱلسَّمَٰوَٰتِ وَٱلْأَرْضَ | A new start. |
+| 9 | وَلَا يَـُٔودُهُۥ حِفْظُهُمَا | Joined to the new start before it. |
+| 10 | وَهُوَ ٱلْعَلِىُّ ٱلْعَظِيمُ | Joined to a new start. |
+
+Where al-Jadwal allows a second reading, the lesson says so. For parts 6, 7 and 9 it allows another place, and the notes say which.
+
+<Check n={2} q="According to al-Jadwal, which part is a new start and not news about ٱللَّهُ?" options={['Part 3: لَا تَأْخُذُهُۥ سِنَةٌ وَلَا نَوْمٌ', 'Part 5: مَن ذَا ٱلَّذِى يَشْفَعُ…', 'Part 2: ٱلْحَىُّ ٱلْقَيُّومُ']} answer={1} why="Parts 1 to 4 hold the five pieces of news. Part 5 begins a new sentence." />
+</Block>
+
+<Block id="toolbox" title="What the earlier levels give you, and where it shows up" level={2}>
+  <Stage label="Your toolbox">
+    <Tiles
+      label="the tools used in the verse"
+      items={[
+        { ar: 'خَبَر', en: 'five khabars: L2.01' },
+        { ar: 'لَا', en: 'the lā of a kind: L4.05', type: 'p' },
+        { ar: 'صِلَة', en: 'joining nouns: L3.11' },
+        { ar: 'فِعْل مُعْتَلّ', en: 'weak verbs: L4.11 to L4.15', type: 'v' },
+      ]}
+    />
+  </Stage>
+
+| Lesson | What it taught | Where it shows in 2:255 |
+|---|---|---|
+| [L1.08](/learn/level-1/08-singular-dual-plural/) | The dual and the plural | The dual ending in حِفْظُهُمَا (part 9), the plural ٱلسَّمَٰوَٰتِ. |
+| [L2.01](/learn/level-2/01-nominal-sentence/) | Mubtadaʾ and khabar, many khabars, a sentence as khabar, a khabar put first | Parts 1 to 4 (five khabars), part 4 (khabar first), part 10. |
+| [L2.02](/learn/level-2/02-subject-predicate/) | The link word of a sentence khabar | The هُوَ of part 1 and the -hu of parts 3 and 4. |
+| [L2.03](/learn/level-2/03-verbal-sentence/), [L2.05](/learn/level-2/05-accusative-case/) | The doer and the object | Parts 3, 6, 8 and 9. |
+| [L2.06](/learn/level-2/06-genitive-case/), [L2.07](/learn/level-2/07-prepositions-genitive/), [L2.08](/learn/level-2/08-possessive-idafah/) | The genitive, prepositions, the idafah | Parts 4, 5, 6, 7 and 8. |
+| [L3.01](/learn/level-3/01-subject-pronouns/), [L3.02](/learn/level-3/02-attached-pronouns/) | Separate and attached pronouns | هُوَ, and the -hu, -hi, -him, -hum and -humā endings. |
+| [L3.03](/learn/level-3/03-root-system/) | Roots, describing words, intensive forms | ٱلْحَىُّ, ٱلْقَيُّومُ, ٱلْعَلِىُّ. |
+| [L3.10](/learn/level-3/10-demonstrative-pronouns/), [L3.11](/learn/level-3/11-relative-pronouns/) | Pointing words, joining nouns and their ṣila | ذَا in part 5, مَا four times, ٱلَّذِى and بِمَا. |
+| [L3.13](/learn/level-3/13-verb-form-iv/), [L3.20](/learn/level-3/20-verbal-nouns/) | Form IV, verbal nouns | يُحِيطُونَ; سِنَةٌ, نَوْمٌ and حِفْظُ. |
+| [L4.01](/learn/level-4/01-hal-clauses/), [L4.04](/learn/level-4/04-conditional-particles/) | The ḥāl, مَن as a question | The left-out ḥāl of part 5; مَن ذَا. |
+| [L4.05](/learn/level-4/05-exception-particles/), [L4.10](/learn/level-4/10-negation-particles/) | Exception and restriction, the words for “not” | Three إِلَّا and five negative words. |
+| [L4.11](/learn/level-4/11-weak-verbs-intro/) to [L4.15](/learn/level-4/15-hamzated-verbs/) | Weak verbs | Five of the seven verbs. |
+| [L4.17](/learn/level-4/17-intro-balagha/), [L4.18](/learn/level-4/18-figures-of-speech/) | Balagha and the figures | The two figures al-Jadwal names for this verse (last step). |
+
+This verse has no condition and answer (L4.03, L4.04), no oath (L4.06), no tamyīz (L4.02), no passive verb and no number. A ḥāl (L4.01) appears only in al-Jadwal’s second readings.
+
+For the method of taking a verse apart, see [L5.01](/learn/level-5/01-full-irab-analysis/). This lesson uses it on one verse that has ten parts.
+</Block>
+
+</Step>
+
+<Step id="news" label="Parts 1 to 4" title="Parts 1 to 4: Allah and five pieces of news">
+<Block id="c1" title="Part 1: no god except Him">
+  <Stage label="Word by word">
+    <Parse
+      reference="Al-Baqarah 2:255 (part)"
+      words={[
+        { ar: 'ٱللَّهُ', en: 'Allah' },
+        { ar: 'لَآ', en: 'no', type: 'p' },
+        { ar: 'إِلَٰهَ', en: 'god' },
+        { ar: 'إِلَّا', en: 'except', type: 'p' },
+        { ar: 'هُوَ', en: 'Him' },
+      ]}
+      cards={[
+        { at: 0, ar: 'ٱللَّهُ', role: 'mubtadaʾ: what the sentence is about', case: 'nominative (rafʿ)', mark: '-u (ḍamma)', why: 'It starts the nominal sentence (L2.01). Its news comes in five pieces, and the first is the sentence that follows.', irab: 'لفظ الجلالة مبتدأ مرفوع وعلامة رفعه الضمة الظاهرة' },
+        { at: 1, ar: 'لَآ', role: 'the lā that denies a whole kind: “no … at all”', why: 'It goes with a noun that has a fatḥa and no tanwīn (L4.05, L4.10). A little word has no case.', irab: 'لا نافية للجنس' },
+        { at: 2, ar: 'إِلَٰهَ', role: 'ism lā: the kind that is denied, “any god”. Root أ ل ه.', case: 'a word with a fixed ending; it counts as accusative', mark: 'a fatḥa with no tanwīn: it is built', why: 'Al-Jadwal: built on a fatḥa, in the place of the accusative (L4.05). The fatḥa is part of the word and is not a case ending.', irab: 'اسم لا مبني على الفتح في محل نصب' },
+        { at: 2, ar: 'مَوْجُودٌ', role: 'the missing khabar of lā: “existing”. It is not written.', why: 'Al-Jadwal supplies it here, as L4.05 showed for 47:19 and 20:8.', irab: 'وخبر لا محذوف تقديره موجود' },
+        { at: 3, ar: 'إِلَّا', role: '“except”: the word of exception', why: 'A little word has no case. The sentence is complete and negative: the kind (any god) is named, so what follows is a substitute (L4.05).', irab: 'أداة استثناء' },
+        { at: 4, ar: 'هُوَ', role: 'a substitute (badal) for the hidden pronoun in the missing khabar: “Him”', case: 'in the place of nominative (rafʿ)', mark: 'none: هُوَ never changes', why: 'A pronoun inside a khabar is nominative, so its substitute is nominative too (L4.05). Al-Jadwal adds a footnote: a substitute for لَا with its noun, also nominative.', irab: 'ضمير منفصل مبني في محل رفع بدل من الضمير المستكن في الخبر' },
+        { at: [1, 2, 3, 4], role: 'the sentence لَآ إِلَٰهَ إِلَّا هُوَ: the first piece of news about ٱللَّهُ', case: 'in the place of nominative', why: 'A whole sentence can be a khabar (L2.01). The pronoun هُوَ points back to ٱللَّهُ and ties the two together (L2.02).', irab: 'جملة «لا إله إلا هو» في محل رفع خبر المبتدأ (الله)' },
+        { at: [0, 1, 2, 3, 4], role: 'the whole of part 1: a new start', case: 'no place', why: 'Al-Jadwal: no place, a new start. Four more pieces of news will be added to it.', irab: 'جملة «الله لا إله إلا هو» لا محل لها استئنافية' },
+      ]}
+    />
+  </Stage>
+
+Part 1 holds the subject and its first piece of news. **ٱللَّهُ** is the mubtadaʾ. The rest, لَآ إِلَٰهَ إِلَّا هُوَ, is a whole sentence that serves as its khabar. L1.01 explained how the word ٱللَّهُ is written.
+
+L4.05 took apart the same words in 47:19, so the reading is not new here.
+
+- **لَآ** denies a whole kind.
+- **إِلَٰهَ** names the kind, “any god”. Its fatḥa has no tanwīn, and the books say the word counts as accusative.
+- The sentence needs a khabar for لَا. Al-Jadwal supplies **مَوْجُود**, “existing”, though it is not written.
+- **إِلَّا** sets one thing apart from the kind.
+- **هُوَ** is that thing. It is a substitute for the hidden pronoun inside the left-out khabar, so it stands in the place of the nominative.
+
+<Note kind="know">Al-Jadwal gives a second reading in a footnote: هُوَ replaces the place of لَا together with its noun, and that place is nominative as well. Both readings agree on the case. L4.05 said the same of 47:19, and the same words open 3:2.</Note>
+
+<Check n={3} q="What is إِلَٰهَ in لَآ إِلَٰهَ إِلَّا هُوَ?" options={['The khabar', 'The word set apart', 'The noun of lā, built on a fatḥa']} answer={2} why="إِلَٰهَ names the kind that is denied. Al-Jadwal: ism lā, built on a fatḥa, in the place of the accusative." />
+<Check n={4} q="Why is هُوَ nominative in place?" options={['It takes the place of the hidden pronoun in the left-out khabar', 'إِلَّا makes it nominative', 'It is the doer of a verb']} answer={0} why="A substitute copies the case of the word it replaces, and a pronoun inside a khabar is nominative (L4.05)." />
+</Block>
+
+<Block id="c2" title="Part 2: the second and third pieces of news">
+  <Stage label="Word by word">
+    <Parse
+      reference="Al-Baqarah 2:255 (part)"
+      words={[
+        { ar: 'ٱلْحَىُّ', en: 'the Ever-Living' },
+        { ar: 'ٱلْقَيُّومُ', en: 'the One who runs everything' },
+      ]}
+      cards={[
+        { at: 0, ar: 'ٱلْحَىُّ', role: 'second khabar of ٱللَّهُ: “the Ever-Living”. Root ح ي ي.', case: 'nominative (rafʿ)', mark: '-u (ḍamma)', why: 'One mubtadaʾ can have many khabars (L2.01). Al-Jadwal counts this one as the second. It is a describing word (ṣifa mushabbaha) for a lasting quality (L3.03).', irab: 'خبر ثان مرفوع وعلامة رفعه الضمة الظاهرة' },
+        { at: 1, ar: 'ٱلْقَيُّومُ', role: 'third khabar of ٱللَّهُ: “the One who runs everything”. Root ق و م. An intensive form.', case: 'nominative (rafʿ)', mark: '-u (ḍamma)', why: 'Al-Jadwal: an intensive form on the pattern فَيْعُول (L3.03). It comes from قَامَ بِٱلْأَمْرِ, “to take charge of a matter”.', irab: 'خبر ثالث مرفوع وعلامة رفعه الضمة الظاهرة' },
+      ]}
+    />
+  </Stage>
+
+Part 2 follows part 1 with no joining word. In al-Jadwal’s reading it carries on the nominal sentence: ٱلْحَىُّ is the second piece of news and ٱلْقَيُّومُ is the third. Both are single words and both are nominative with -u. ٱللَّهُ now has three khabars (L2.01 showed two).
+
+The Quran text writes ٱلْحَىُّ with a yāʾ that has no dots. L1.01 explained that final ى is the usual Quran spelling. The Corpus tags ٱلْحَىُّ as a noun and ٱلْقَيُّومُ as an adjective. A khabar can be either.
+
+<Note kind="know">The books read ٱلْحَىُّ in more than one way. Al-Jadwal’s footnote allows an adjective (naʿt) of ٱللَّهُ, a khabar of a left-out هُوَ, a mubtadaʾ whose khabar is the next sentence, or a substitute for هُوَ. Al-Durr al-Maṣūn lists seven readings and prefers the adjective, because it records a way of reciting with ٱلْحَىَّ ٱلْقَيُّومَ in the accusative. All readings keep the word nominative. This lesson follows the first reading of al-Jadwal.</Note>
+
+<Check n={5} q="How many pieces of news about ٱللَّهُ come before the first new sentence?" options={['Three', 'Two', 'Five']} answer={2} why="Part 1 gives one, part 2 gives two, part 3 gives one and part 4 gives one. The new sentences begin at part 5." />
+<Check n={6} q="The books read ٱلْحَىُّ in several ways. What do all the readings agree on?" options={['That it is a khabar', 'That it is nominative', 'That it is an adjective']} answer={1} why="Whether it is a khabar, an adjective or a substitute, the word stays nominative, with -u." />
+</Block>
+
+<Block id="c3" title="Part 3: drowsiness and sleep">
+  <Stage label="Word by word">
+    <Parse
+      reference="Al-Baqarah 2:255 (part)"
+      words={[
+        { ar: 'لَا', en: 'not', type: 'p' },
+        { ar: 'تَأْخُذُهُۥ', en: 'takes Him', type: 'v' },
+        { ar: 'سِنَةٌ', en: 'drowsiness' },
+        { ar: 'وَلَا', en: 'and not', type: 'p' },
+        { ar: 'نَوْمٌ', en: 'sleep' },
+      ]}
+      cards={[
+        { at: 0, ar: 'لَا', role: 'a negative: “not”', why: 'Al-Jadwal: a plain negative before a present verb. It changes nothing (L4.10).', irab: 'نافية' },
+        { at: 1, ar: 'تَأْخُذُ', role: 'a present verb, root أ خ ذ: “takes”. Third person, feminine singular, active.', case: 'raised (rafʿ): the plain ending', mark: '-u (ḍamma)', why: 'The first root letter is a hamza: a hamzated verb that keeps its hamza in the present (L4.15). The prefix تَـ is “she”, and the Corpus tags it 3FS: it matches سِنَةٌ, a feminine word. لَا did not cut it short (L4.10).', irab: 'مضارع مرفوع وعلامة رفعه الضمة الظاهرة' },
+        { at: 1, ar: 'هُ', role: 'the object (mafʿūl bihi): “Him”. A pronoun joined to the verb.', case: 'in the place of accusative (naṣb)', mark: 'none: a pronoun shows no case ending', why: 'It is who the taking is done to (L2.05, L3.02). It points back to ٱللَّهُ.', irab: 'ضمير مفعول به' },
+        { at: 2, ar: 'سِنَةٌ', role: 'the doer (fāʿil): “drowsiness”. Root و س ن.', case: 'nominative (rafʿ)', mark: '-un (ḍamma with tanwīn)', why: 'The doer comes after its verb (L2.03). It is a verbal noun of وَسَنَ that lost its first letter و, as عِدَة did (L4.14, L3.20).', irab: 'فاعل مرفوع وعلامة رفعه الضمة الظاهرة' },
+        { at: 3, ar: 'وَ', role: '“and”: it joins', why: 'A joining wāw.', irab: 'الواو عاطفة' },
+        { at: 3, ar: 'لَا', role: 'an extra لَا: it strengthens the “not”', why: 'Al-Jadwal calls it extra, for strengthening the negative. L4.10 showed the same kind in 2:38.', irab: 'لا زائدة لتأكيد النفي' },
+        { at: 4, ar: 'نَوْمٌ', role: 'joined to سِنَةٌ (maʿṭūf): “sleep”. Root ن و م.', case: 'nominative (rafʿ)', mark: '-un (ḍamma with tanwīn)', why: 'A word joined by “and” copies the case of the word before it (L2.06). Al-Jadwal supplies no second verb: نَوْمٌ is joined to the doer.', irab: 'معطوف على سنة مرفوع مثله' },
+        { at: [0, 1, 2, 3, 4], role: 'the sentence لَا تَأْخُذُهُۥ سِنَةٌ وَلَا نَوْمٌ: the fourth piece of news about ٱللَّهُ', case: 'in the place of nominative', why: 'A verbal sentence can be a khabar (L2.01). The -hu in the verb is the link back to ٱللَّهُ (L2.02). Al-Jadwal adds a second reading: a ḥāl from the pronoun in ٱلْقَيُّومُ (L4.01).', irab: 'جملة «لا تأخذه سنة» في محل رفع خبر رابع للمبتدأ (الله)' },
+      ]}
+    />
+  </Stage>
+
+Part 3 is a verbal sentence, and it is the fourth piece of news. **تَأْخُذُهُۥ** is the verb: the doer is **سِنَةٌ** and the object is the -hu. The verb comes first, as a verb does (L2.03).
+
+**وَلَا نَوْمٌ** repeats the “not”. Al-Jadwal calls the second لَا extra, one that strengthens the negative, and joins نَوْمٌ to the doer.
+
+<Note kind="know">Al-Durr al-Maṣūn explains the repeated لَا like this. A made-up pair shows the idea. مَا قَامَ زَيْدٌ وَعَمْرٌو could mean that the two did not stand together, and that one of them did. مَا قَامَ زَيْدٌ وَلَا عَمْرٌو says that neither stood. In the verse, the repeated لَا denies each of the two on its own.</Note>
+
+Al-Durr glosses سِنَة as drowsiness, the slackness that comes before sleep, and نَوْم as sleep. It says the sentence means that Allah is never unaware of anything, small or large. This lesson goes no further than that. Al-Jadwal names no figure of speech here, so the lesson does not name one for the order “drowsiness, then sleep”.
+
+<Check n={7} q="What is the تَـ at the start of تَأْخُذُ?" options={['The word “you”', 'The “she” of the verb: it matches سِنَةٌ', 'The object']} answer={1} why="The Corpus tags the verb 3FS, third person feminine. سِنَةٌ, the doer, is feminine." />
+<Check n={8} q="What does al-Jadwal call the second لَا in وَلَا نَوْمٌ?" options={['The lā that denies a kind', 'A ban', 'An extra لَا that strengthens the “not”']} answer={2} why="The first لَا is a plain negative. The second is extra, for strengthening the negative, as in 2:38 (L4.10)." />
+</Block>
+
+<Block id="c4" title="Part 4: what is in the heavens and in the earth">
+  <Stage label="Word by word">
+    <Parse
+      reference="Al-Baqarah 2:255 (part)"
+      words={[
+        { ar: 'لَّهُۥ', en: 'to Him', type: 'p' },
+        { ar: 'مَا', en: 'what' },
+        { ar: 'فِى', en: 'in', type: 'p' },
+        { ar: 'ٱلسَّمَٰوَٰتِ', en: 'the heavens' },
+        { ar: 'وَمَا', en: 'and what' },
+        { ar: 'فِى', en: 'in', type: 'p' },
+        { ar: 'ٱلْأَرْضِ', en: 'the earth' },
+      ]}
+      cards={[
+        { at: 0, ar: 'لَّ', role: 'a preposition: li- “to”. In meaning it is for ownership.', why: 'It makes the pronoun after it genitive (L2.07). Al-Durr al-Maṣūn: the lām is for ownership.', irab: 'اللام حرف جر' },
+        { at: 0, ar: 'هُ', role: 'the noun after the preposition (ism majrūr): “Him”', case: 'in the place of genitive (jarr)', mark: 'none: a pronoun shows no case ending', why: 'The preposition pulls it. It points back to ٱللَّهُ (L3.02).', irab: 'ضمير في محل جر باللام' },
+        { at: 0, ar: 'لَّهُۥ', role: 'the khabar, put first (khabar muqaddam)', why: 'Al-Jadwal: the phrase is tied to a left-out word that is the khabar, and it comes before the mubtadaʾ (L2.01).', irab: 'جار ومجرور متعلق بمحذوف خبر مقدم' },
+        { at: 1, ar: 'مَا', role: 'mubtadaʾ, put later: “what”. A joining noun (L3.11).', case: 'in the place of nominative (rafʿ)', mark: 'none: it never changes', why: 'The sentence is about “what is in the heavens”. It comes after its khabar. Al-Durr al-Maṣūn: مَا takes in everything.', irab: 'اسم موصول مبني في محل رفع مبتدأ مؤخر' },
+        { at: 2, ar: 'فِى', role: 'a preposition: “in”', why: 'It makes the noun after it genitive (L2.07).', irab: 'حرف جر' },
+        { at: 3, ar: 'ٱلسَّمَٰوَٰتِ', role: 'the noun after the preposition (ism majrūr): “the heavens”. A sound feminine plural. Root س م و.', case: 'genitive (jarr)', mark: '-i (kasra)', why: 'The preposition فِى pulls it (L2.07). The kasra is the usual ending of the genitive (L2.06).', irab: 'اسم مجرور وعلامة جره الكسرة الظاهرة' },
+        { at: [2, 3], ar: 'فِى ٱلسَّمَٰوَٰتِ', role: 'the ṣila of مَا: it finishes the joining noun', why: 'Al-Jadwal: the phrase is tied to a left-out word, and it is the ṣila of مَا (L3.11): “what is in the heavens”.', irab: 'جار ومجرور متعلق بمحذوف صلة ما' },
+        { at: 4, ar: 'وَ', role: '“and”: it joins', why: 'A joining wāw.', irab: 'الواو عاطفة' },
+        { at: 4, ar: 'مَا', role: 'a joining noun again, joined to the first مَا', case: 'in the place of nominative (rafʿ)', mark: 'none: it never changes', why: 'Al-Jadwal: like the first مَا, and joined to it. It copies its place (L2.06).', irab: 'اسم موصول مثل الأول ومعطوف عليه' },
+        { at: [5, 6], ar: 'فِى ٱلْأَرْضِ', role: 'the ṣila of the second مَا. ٱلْأَرْضِ is the noun after فِى. Root أ ر ض.', case: 'genitive (jarr)', mark: '-i (kasra)', why: 'The same as فِى ٱلسَّمَٰوَٰتِ. Al-Jadwal: “like” it.', irab: 'جار ومجرور مثل في السموات' },
+        { at: [0, 1, 2, 3, 4, 5, 6], role: 'the sentence لَّهُۥ مَا فِى ٱلسَّمَٰوَٰتِ …: the fifth piece of news about ٱللَّهُ', case: 'in the place of nominative', why: 'A nominal sentence can be a khabar (L2.01). The -hu in لَّهُۥ is the link back to ٱللَّهُ (L2.02).', irab: 'جملة «له ما في السموات» في محل رفع خبر خامس للمبتدأ (الله)' },
+      ]}
+    />
+  </Stage>
+
+Part 4 is a nominal sentence whose khabar comes first (L2.01). The khabar is the phrase **لَّهُۥ**, “to Him”. The mubtadaʾ is **مَا**, a joining noun, and its ṣila is the phrase after it: “what is in the heavens”. The second half repeats the pattern: **وَمَا فِى ٱلْأَرْضِ**.
+
+This is the fifth and last piece of news about ٱللَّهُ. Part 5 starts a new sentence.
+
+<Note kind="know">Al-Durr al-Maṣūn says the lām of لَّهُۥ is for ownership and that مَا takes in everything. It also gives the reason the verse names what is inside the heavens and the earth: the aim is to say that nothing else should be worshipped, because all that people worship is owned. That reason is al-Durr’s, and al-Jadwal gives none.</Note>
+
+<Check n={9} q="In لَّهُۥ مَا فِى ٱلسَّمَٰوَٰتِ, which word is the mubtadaʾ?" options={['مَا', 'لَّهُۥ', 'ٱلسَّمَٰوَٰتِ']} answer={0} why="مَا is the mubtadaʾ, put later. لَّهُۥ is the khabar, put first." />
+<Check n={10} q="Which phrase is the ṣila of the first مَا?" options={['لَّهُۥ', 'فِى ٱلسَّمَٰوَٰتِ', 'وَمَا فِى ٱلْأَرْضِ']} answer={1} why="The ṣila finishes the joining noun: “what is in the heavens”." />
+</Block>
+
+</Step>
+
+<Step id="sentences" label="Parts 5 to 10" title="Parts 5 to 10: six sentences">
+<Block id="c5" title="Part 5: a question about intercession">
+  <Stage label="Word by word">
+    <Parse
+      reference="Al-Baqarah 2:255 (part)"
+      words={[
+        { ar: 'مَن', en: 'who' },
+        { ar: 'ذَا', en: 'this' },
+        { ar: 'ٱلَّذِى', en: 'the one who' },
+        { ar: 'يَشْفَعُ', en: 'intercedes', type: 'v' },
+        { ar: 'عِندَهُۥٓ', en: 'with Him' },
+        { ar: 'إِلَّا', en: 'except', type: 'p' },
+        { ar: 'بِإِذْنِهِۦ', en: 'with His leave' },
+      ]}
+      cards={[
+        { at: 0, ar: 'مَن', role: 'the question word: “who”. The mubtadaʾ.', case: 'in the place of nominative (rafʿ)', mark: 'none: it never changes', why: 'L4.04 showed مَن as a question word and not as a condition. The sentence asks about “who”.', irab: 'اسم استفهام مبني في محل رفع مبتدأ' },
+        { at: 1, ar: 'ذَا', role: 'a pointing word: “this”. The khabar.', case: 'in the place of nominative (rafʿ)', mark: 'none: it never changes', why: 'Al-Jadwal: the khabar of مَن (L3.10). Read together: “Who (is) this?”', irab: 'اسم إشارة مبني في محل رفع خبر' },
+        { at: 2, ar: 'ٱلَّذِى', role: 'a joining noun: “the one who”. A substitute (badal) for ذَا, or an adjective (naʿt).', case: 'in the place of nominative (rafʿ)', mark: 'none: it never changes', why: 'Al-Jadwal gives both readings. The joining noun with its ṣila says who the “this” is (L3.11).', irab: 'اسم موصول مبني في محل رفع بدل من اسم الإشارة أو نعت' },
+        { at: 3, ar: 'يَشْفَعُ', role: 'a present verb, root ش ف ع: “intercedes”. Third person, masculine singular, active.', case: 'raised (rafʿ): the plain ending', mark: '-u (ḍamma)', why: 'A sound verb (L4.11). Nothing before it cuts it short. The doer is a hidden “he”.', irab: 'مضارع مرفوع، والفاعل ضمير مستتر تقديره هو' },
+        { at: 3, ar: 'يَشْفَعُ', role: 'the clause يَشْفَعُ: the ṣila of ٱلَّذِى', case: 'no place', why: 'Al-Jadwal: no place, the ṣila of the joining noun (L3.11). The hidden “he” is the returning pronoun.', irab: 'جملة «يشفع» لا محل لها صلة الموصول' },
+        { at: 4, ar: 'عِندَ', role: 'a place word (ẓarf): “with, at”. Tied to يَشْفَعُ.', case: 'accusative (naṣb)', mark: '-a (fatḥa)', why: 'Place words are accusative (L2.01). Al-Jadwal ties it to the verb; a footnote allows a ḥāl from the doer.', irab: 'ظرف مكان منصوب متعلق بيشفع' },
+        { at: 4, ar: 'هُ', role: 'the second word of the idafah: “Him”', case: 'in the place of genitive (jarr)', mark: 'none: a pronoun shows no case ending', why: 'The second word of an idafah is genitive (L2.08).', irab: 'ضمير متصل في محل جر مضاف إليه' },
+        { at: 5, ar: 'إِلَّا', role: '“only”: a word of restriction', why: 'No group is named, so the sentence is incomplete (L4.05). Al-Jadwal calls this إِلَّا a word of restriction (ḥaṣr).', irab: 'أداة حصر' },
+        { at: 6, ar: 'بِإِذْنِ', role: 'bi- “with”, and the noun after it (ism majrūr): “leave”. The first word of an idafah. Root أ ذ ن.', case: 'genitive (jarr)', mark: '-i (kasra)', why: 'The preposition pulls it (L2.07).', irab: 'اسم مجرور بالباء وعلامة جره الكسرة الظاهرة وهو مضاف' },
+        { at: 6, ar: 'هِ', role: 'the second word of the idafah: “His”', case: 'in the place of genitive (jarr)', mark: 'none: a pronoun shows no case ending', why: 'The second word of an idafah is genitive (L2.08).', irab: 'ضمير متصل في محل جر مضاف إليه' },
+        { at: 6, ar: 'بِإِذْنِهِۦ', role: 'the phrase بِإِذْنِهِۦ: tied to a left-out ḥāl', why: 'Al-Jadwal: the sense is “none intercedes except while given His leave”. A ḥāl says how (L4.01). A footnote also allows it to be tied to يَشْفَعُ.', irab: 'جار ومجرور متعلق بمحذوف حال' },
+        { at: [0, 1, 2, 3, 4, 5, 6], role: 'the whole of part 5: a new start', case: 'no place', why: 'Al-Jadwal: no place, a new start. It is not news about ٱللَّهُ.', irab: 'جملة «من ذا الذي يشفع» لا محل لها استئنافية' },
+      ]}
+    />
+  </Stage>
+
+Part 5 begins afresh. **مَن ذَا ٱلَّذِى** reads “who is this one, the one who …”. The verb **يَشْفَعُ** finishes the joining noun, and **عِندَهُۥٓ** is a place word that belongs to the verb.
+
+After the verb comes **إِلَّا بِإِذْنِهِۦ**, “except with His leave”. L4.05 taught that the sentence is incomplete when no group is named. Then إِلَّا means “only”, and the word after it has the job it would have without it. Here the job is a ḥāl, and al-Jadwal ties the phrase to a left-out one.
+
+<Note kind="know">The form of the sentence is a question. Al-Durr al-Maṣūn says that the meaning is denial, and that this is why إِلَّا can follow it: nobody can intercede with Him except with His leave. L4.18 teaches the question that does not ask. Al-Jadwal names no figure for this sentence. L5.13 comes back to questions.</Note>
+
+<Note kind="know">Al-Jadwal’s footnote gives the reading of Abū Ḥayyān: مَن ذَا is one word, the mubtadaʾ, and ٱلَّذِى is its khabar. The words do not change.</Note>
+
+<Check n={11} q="What is ذَا in مَن ذَا?" options={['The khabar of مَن', 'The doer of the verb', 'Part of the verb']} answer={0} why="Al-Jadwal: مَن is the mubtadaʾ and ذَا, a pointing word, is its khabar." />
+<Check n={12} q="The sentence has the form of a question. What does al-Durr al-Maṣūn say it means?" options={['A request', 'A condition', 'A denial: nobody can']} answer={2} why="Al-Durr says the word is a question in form and means denial, and that is why إِلَّا comes after it." />
+</Block>
+
+<Block id="c6" title="Part 6: what is in front of them and behind them">
+  <Stage label="Word by word">
+    <Parse
+      reference="Al-Baqarah 2:255 (part)"
+      words={[
+        { ar: 'يَعْلَمُ', en: 'He knows', type: 'v' },
+        { ar: 'مَا', en: 'what' },
+        { ar: 'بَيْنَ', en: 'between' },
+        { ar: 'أَيْدِيهِمْ', en: 'their hands' },
+        { ar: 'وَمَا', en: 'and what' },
+        { ar: 'خَلْفَهُمْ', en: 'behind them' },
+      ]}
+      cards={[
+        { at: 0, ar: 'يَعْلَمُ', role: 'a present verb, root ع ل م: “knows”. Third person, masculine singular, active.', case: 'raised (rafʿ): the plain ending', mark: '-u (ḍamma)', why: 'A sound verb (L4.11). The doer is a hidden “He” (L2.03).', irab: 'مضارع مرفوع، والفاعل ضمير مستتر تقديره هو' },
+        { at: 1, ar: 'مَا', role: 'a joining noun: “what”. The object (mafʿūl bihi).', case: 'in the place of accusative (naṣb)', mark: 'none: it never changes', why: 'It is what is known (L2.05, L3.11). Its ṣila follows.', irab: 'اسم موصول مبني في محل نصب مفعول به' },
+        { at: 2, ar: 'بَيْنَ', role: 'a place word (ẓarf): “between”. The first word of an idafah. Tied to a left-out word, and the phrase is the ṣila of مَا.', case: 'accusative (naṣb)', mark: '-a (fatḥa)', why: 'Place words are accusative (L2.01). Al-Jadwal: tied to a left-out word, the ṣila of مَا (L3.11).', irab: 'ظرف مكان منصوب متعلق بمحذوف صلة ما' },
+        { at: 3, ar: 'أَيْدِي', role: 'the second word of the idafah: “hands”, the plural of يَد. It is also the first word of a second idafah.', case: 'genitive (jarr)', mark: 'a kasra you cannot see: the word ends in a yāʾ', why: 'Al-Jadwal: a genitive with a hidden kasra, and the first word of an idafah.', irab: 'مضاف إليه مجرور وعلامة الجر الكسرة المقدرة وهو مضاف' },
+        { at: 3, ar: 'هِمْ', role: 'the second word of the idafah: “their”', case: 'in the place of genitive (jarr)', mark: 'none: a pronoun shows no case ending', why: 'It points to the “them” of the verse (see the note).', irab: 'ضمير مضاف إليه' },
+        { at: 4, ar: 'وَ', role: '“and”: it joins', why: 'A joining wāw.', irab: 'الواو عاطفة' },
+        { at: 4, ar: 'مَا', role: 'a joining noun again, joined to the first مَا', case: 'in the place of accusative (naṣb)', mark: 'none: it never changes', why: 'Al-Jadwal: like the one before, and joined to it (L2.06).', irab: 'اسم موصول مثل السابق ومعطوف عليه' },
+        { at: 5, ar: 'خَلْفَ', role: 'a place word: “behind”. The first word of an idafah. Tied to a left-out word, the ṣila of the second مَا.', case: 'accusative (naṣb)', mark: '-a (fatḥa)', why: 'The same as بَيْنَ. It is a place word, not a preposition.', irab: 'ظرف مكان منصوب متعلق بمحذوف صلة ما' },
+        { at: 5, ar: 'هُمْ', role: 'the second word of the idafah: “them”', case: 'in the place of genitive (jarr)', mark: 'none: a pronoun shows no case ending', why: 'The second word of an idafah is genitive (L2.08).', irab: 'ضمير مضاف إليه' },
+        { at: [0, 1, 2, 3, 4, 5], role: 'the whole of part 6: a new start', case: 'no place', why: 'Al-Jadwal: no place, a new start. A footnote allows another reading: another khabar of ٱللَّهُ.', irab: 'جملة «يعلم ما بين أيديهم» لا محل لها استئنافية' },
+      ]}
+    />
+  </Stage>
+
+Part 6 is a plain verbal sentence. The verb has a hidden “He” as its doer, and the object is the joining noun **مَا**, with its ṣila. The ṣila is a place word, **بَيْنَ**, with the idafah **أَيْدِيهِمْ**. The second half repeats it with **خَلْفَهُمْ**.
+
+Literally, بَيْنَ أَيْدِيهِمْ is “between their hands”, and English says “in front of them”. Which things and which times the two phrases cover is a question for the books of tafsir. Al-Jadwal gives no gloss, and this lesson does not decide.
+
+<Note kind="know">The books differ on who “them” is. Al-Durr al-Maṣūn lists four views. First: all that the مَا of part 4 covers, in the form used for those who have reason. Second: those who have reason among them. Third: those meant by مَن ذَا in part 5, the angels and the prophets. Fourth: the angels only. The grammar is the same in all four, and this lesson does not choose.</Note>
+
+<Check n={13} q="What is بَيْنَ in part 6?" options={['A preposition', 'A place word, accusative with -a', 'A verb']} answer={1} why="Al-Jadwal calls it a place word (ẓarf makān), accusative, tied to a left-out word. It is the ṣila of مَا." />
+</Block>
+
+<Block id="c7" title="Part 7: not a thing of His knowledge">
+  <Stage label="Word by word">
+    <Parse
+      reference="Al-Baqarah 2:255 (part)"
+      words={[
+        { ar: 'وَلَا', en: 'and not', type: 'p' },
+        { ar: 'يُحِيطُونَ', en: 'they encompass', type: 'v' },
+        { ar: 'بِشَىْءٍ', en: 'anything' },
+        { ar: 'مِّنْ', en: 'of', type: 'p' },
+        { ar: 'عِلْمِهِۦٓ', en: 'His knowledge' },
+        { ar: 'إِلَّا', en: 'except', type: 'p' },
+        { ar: 'بِمَا', en: 'with what' },
+        { ar: 'شَآءَ', en: 'He willed', type: 'v' },
+      ]}
+      cards={[
+        { at: 0, ar: 'وَ', role: '“and”: a little word that begins a new sentence', why: 'Al-Jadwal: a new start, or a wāw of ḥāl. This lesson follows the first.', irab: 'الواو استئنافية أو حالية' },
+        { at: 0, ar: 'لَا', role: 'a negative: “not”', why: 'A plain negative before a present verb. It changes nothing (L4.10).', irab: 'نافية' },
+        { at: 1, ar: 'يُحِيطُونَ', role: 'a present verb, Form IV, root ح و ط: “they encompass”. Third person, masculine plural, active.', case: 'raised (rafʿ): the plain ending', mark: 'the nūn at the end (ـُونَ)', why: 'The Corpus tags it (IV): the past is أَحَاطَ (L3.13). The root has a و in the middle, a hollow verb, and the ī shows in the present (L4.12). The nūn is kept because nothing cuts the verb short (L3.07).', irab: 'مضارع مرفوع وعلامة رفعه ثبوت النون' },
+        { at: 1, ar: 'ـُونَ', role: 'the doer (fāʿil): the wāw, “they”', case: 'in the place of nominative (rafʿ)', mark: 'none: an ending that is a pronoun', why: 'Al-Jadwal: the wāw is the doer (L2.03). It points to the same “them” as أَيْدِيهِمْ.', irab: 'والواو فاعل' },
+        { at: 2, ar: 'بِشَىْءٍ', role: 'bi- “with”, and the noun after it: “anything”. Root ش ي أ.', case: 'genitive (jarr)', mark: '-in (kasra with tanwīn)', why: 'The preposition pulls it (L2.07). Al-Jadwal: the phrase is tied to يُحِيطُونَ.', irab: 'جار ومجرور متعلق بيحيطون' },
+        { at: [3, 4], ar: 'مِّنْ عِلْمِهِۦٓ', role: 'a phrase: “of His knowledge”. It describes شَىْء. عِلْمِ is the noun after مِّنْ, and the first word of an idafah.', case: 'genitive (jarr)', mark: '-i (kasra)', why: 'مِنْ pulls the noun, and the -hi is the second word of the idafah (L2.07, L2.08). Al-Jadwal: tied to a left-out adjective of شَىْء: “anything that is of His knowledge”.', irab: 'جار ومجرور متعلق بمحذوف نعت لشيء، والهاء مضاف إليه' },
+        { at: 5, ar: 'إِلَّا', role: '“except”: the word of exception', why: 'Al-Jadwal: an exception tool here. The group, بِشَىْءٍ, is named, and a substitute follows (L4.05).', irab: 'أداة استثناء' },
+        { at: 6, ar: 'بِمَا', role: 'bi- and مَا: a substitute (badal) for بِشَىْءٍ. مَا is a joining noun, “what”.', case: 'in the place of genitive (jarr)', mark: 'none: مَا never changes', why: 'A substitute copies the word it replaces, and بِشَىْءٍ is genitive (L4.05). Al-Jadwal ties it to what بِشَىْءٍ is tied to. A footnote allows another reading: tied to a left-out exception.', irab: 'الباء حرف جر، ما اسم موصول مبني في محل جر بدل' },
+        { at: 7, ar: 'شَآءَ', role: 'a past verb, root ش ي أ: “He willed”. Third person, masculine singular, active.', case: 'a verb has no case; it is built', mark: 'a fatḥa on the last letter', why: 'The long ā stands for the middle ي, and the last root letter is a hamza: hollow and hamzated (L4.12, L4.15). The doer is a hidden “He”.', irab: 'فعل ماض مبني على الفتح، والفاعل ضمير مستتر تقديره هو' },
+        { at: 7, ar: 'شَآءَ', role: 'the clause شَآءَ: the ṣila of مَا', case: 'no place', why: 'Al-Jadwal: no place, the ṣila of the joining noun (L3.11). The object of شَآءَ is left out; see the note.', irab: 'جملة «شاء» لا محل لها صلة الموصول' },
+        { at: [0, 1, 2, 3, 4, 5, 6, 7], role: 'the whole of part 7: a new start', case: 'no place', why: 'Al-Jadwal: no place, a new start. It allows a second reading: a ḥāl from the pronoun in أَيْدِيهِمْ, in the place of accusative.', irab: 'جملة «لا يحيطون» لا محل لها استئنافية' },
+      ]}
+    />
+  </Stage>
+
+Part 7 turns to “them”. **يُحِيطُونَ** is a hollow verb of Form IV with the doer -ūna. **بِشَىْءٍ** is the thing they cannot encompass, and **مِّنْ عِلْمِهِۦٓ** says which thing: one that belongs to His knowledge.
+
+Then comes the second **إِلَّا**. In part 5 it meant “only”. Here a group is named, بِشَىْءٍ, and the sentence is negative, so what follows is a substitute for it: **بِمَا شَآءَ**, “with what He willed”. L4.05 taught this case.
+
+<Note kind="know">English wants an object for شَآءَ: “what He wills (that they know)”. Al-Jadwal’s footnote says it is better to supply the object “that they encompass it”, because the words before it point that way. Al-Durr al-Maṣūn supplies the same.</Note>
+
+<Note kind="know">Al-Durr al-Maṣūn says that عِلْم here means “what is known”. His knowledge, as a quality of His, is not divided into pieces, and this is why “of His knowledge” and the exception both make sense.</Note>
+
+<Check n={14} q="Why is يُحِيطُونَ called a hollow verb?" options={['Its root ح و ط has a و in the middle', 'It ends in a weak letter', 'It begins with a hamza']} answer={0} why="Hollow means the weak letter is the middle one (L4.12). The root is ح و ط." />
+<Check n={15} q="What is بِمَا in إِلَّا بِمَا شَآءَ?" options={['A substitute for بِشَىْءٍ', 'The khabar', 'A ban']} answer={0} why="The sentence is complete and negative, so what follows إِلَّا is a substitute (L4.05)." />
+</Block>
+
+<Block id="c8" title="Part 8: the Kursi">
+  <Stage label="Word by word">
+    <Parse
+      reference="Al-Baqarah 2:255 (part)"
+      words={[
+        { ar: 'وَسِعَ', en: 'was wide enough for', type: 'v' },
+        { ar: 'كُرْسِيُّهُ', en: 'His Kursi' },
+        { ar: 'ٱلسَّمَٰوَٰتِ', en: 'the heavens' },
+        { ar: 'وَٱلْأَرْضَ', en: 'and the earth' },
+      ]}
+      cards={[
+        { at: 0, ar: 'وَسِعَ', role: 'a past verb, root و س ع: “was wide enough for”. Third person, masculine singular, active.', case: 'a verb has no case; it is built', mark: 'a fatḥa that shows', why: 'The first root letter is و: an assimilated verb, and the past keeps the و (L4.14). This و is a root letter, not “and”.', irab: 'فعل ماض مبني على الفتح' },
+        { at: 1, ar: 'كُرْسِيُّ', role: 'the doer (fāʿil): “Kursi”. The first word of an idafah. Root ك ر س.', case: 'nominative (rafʿ)', mark: '-u (ḍamma)', why: 'The doer comes after its verb (L2.03). Al-Jadwal: a plain noun, not made from a verb, on the pattern فُعْلِيل.', irab: 'فاعل مرفوع وعلامة رفعه الضمة الظاهرة وهو مضاف' },
+        { at: 1, ar: 'هُ', role: 'the second word of the idafah: “His”', case: 'in the place of genitive (jarr)', mark: 'none: a pronoun shows no case ending', why: 'The second word of an idafah is genitive (L2.08).', irab: 'ضمير مضاف إليه' },
+        { at: 2, ar: 'ٱلسَّمَٰوَٰتِ', role: 'the object (mafʿūl bihi): “the heavens”. A sound feminine plural.', case: 'accusative (naṣb)', mark: '-i (kasra), not a fatḥa', why: 'It is what the Kursi has room for (L2.05). A sound feminine plural takes a kasra in the accusative (L2.05). The same ending was genitive in part 4.', irab: 'مفعول به منصوب وعلامة نصبه الكسرة' },
+        { at: 3, ar: 'وَ', role: '“and”: it joins', why: 'A joining wāw.', irab: 'الواو عاطفة' },
+        { at: 3, ar: 'ٱلْأَرْضَ', role: 'joined to ٱلسَّمَٰوَٰتِ (maʿṭūf): “the earth”', case: 'accusative (naṣb)', mark: '-a (fatḥa)', why: 'A word joined by “and” copies the case of the word before it (L2.06).', irab: 'معطوف على السموات بالواو منصوب مثله' },
+        { at: [0, 1, 2, 3], role: 'the whole of part 8: a new start', case: 'no place', why: 'Al-Jadwal: no place, a new start.', irab: 'جملة «وسع كرسيه» لا محل لها استئنافية' },
+      ]}
+    />
+  </Stage>
+
+Part 8 is a verbal sentence: the verb, its doer, its object. **وَسِعَ** has a و that looks like “and” and is not. It is the first root letter. The past of an assimilated verb keeps it (L4.14), and the same verb gave the verbal noun سَعَة in 2:247.
+
+**ٱلسَّمَٰوَٰتِ** ends in a kasra here and in part 4. In part 4 it is genitive and here it is accusative. Mistake 3 puts the two side by side.
+
+<Note kind="know">What is the Kursi? Al-Jadwal calls the word a plain noun, one not made from a verb, and reports that some trace it to the layering of one thing on another. Al-Durr al-Maṣūn traces it to كِرْس, “a gathering”, as in كُرَّاسَة, a booklet of gathered pages. It adds that the Arabs use the word for a king, for knowledge and for a secret. Which meaning the verse has is a question for tafsir, and this lesson does not decide. The grammar is the same either way: the Kursi is the doer.</Note>
+
+<Check n={16} q="ٱلسَّمَٰوَٰتِ ends in a kasra in part 4 and in part 8. What differs?" options={['The root', 'The case: genitive in part 4, accusative in part 8', 'Nothing']} answer={1} why="In part 4 the preposition فِى pulls it. In part 8 it is the object, and a sound feminine plural takes a kasra in the accusative." />
+<Check n={17} q="What is the و at the start of وَسِعَ?" options={['“And”', 'The oath letter', 'The first root letter']} answer={2} why="The root is و س ع. The verb is assimilated and keeps the و in the past (L4.14)." />
+</Block>
+
+<Block id="c9" title="Part 9: keeping them does not weigh on Him">
+  <Stage label="Word by word">
+    <Parse
+      reference="Al-Baqarah 2:255 (part)"
+      words={[
+        { ar: 'وَلَا', en: 'and not', type: 'p' },
+        { ar: 'يَـُٔودُهُۥ', en: 'weighs on Him', type: 'v' },
+        { ar: 'حِفْظُهُمَا', en: 'keeping the two' },
+      ]}
+      cards={[
+        { at: 0, ar: 'وَ', role: '“and”: it joins', why: 'Al-Jadwal: a joining wāw, or a wāw of ḥāl. This lesson follows the first.', irab: 'الواو عاطفة أو حالية' },
+        { at: 0, ar: 'لَا', role: 'a negative: “not”', why: 'A plain negative before a present verb (L4.10).', irab: 'نافية' },
+        { at: 1, ar: 'يَـُٔودُ', role: 'a present verb, root أ و د: “weighs on”. Third person, masculine singular, active.', case: 'raised (rafʿ): the plain ending', mark: '-u (ḍamma)', why: 'The first root letter is a hamza and the middle one is و: hamzated and hollow (L4.15, L4.12). Nothing before it cuts it short.', irab: 'مضارع مرفوع' },
+        { at: 1, ar: 'هُ', role: 'the object (mafʿūl bihi): “Him”', case: 'in the place of accusative (naṣb)', mark: 'none: a pronoun shows no case ending', why: 'It is who the weight falls on (L2.05, L3.02).', irab: 'ضمير مفعول به' },
+        { at: 2, ar: 'حِفْظُ', role: 'the doer (fāʿil): “keeping”. A verbal noun of حَفِظَ, root ح ف ظ. The first word of an idafah.', case: 'nominative (rafʿ)', mark: '-u (ḍamma)', why: 'Al-Jadwal: a verbal noun (L3.20). Al-Durr al-Maṣūn: it is added to its object, so the sense is “that He keep the two”.', irab: 'فاعل مرفوع وعلامة رفعه الضمة الظاهرة وهو مضاف' },
+        { at: 2, ar: 'هُمَا', role: 'the second word of the idafah: “the two of them”. A dual pronoun.', case: 'in the place of genitive (jarr)', mark: 'none: a pronoun shows no case ending', why: 'The ending -humā is dual (L1.08, L3.02). It points back to the heavens and the earth of part 8.', irab: 'ضمير متصل مبني في محل جر مضاف إليه' },
+        { at: [0, 1, 2], role: 'the whole of part 9: joined to the new start before it', case: 'no place', why: 'Al-Jadwal: no place, joined to the last new start (part 8). It allows a second reading: a ḥāl, in the place of accusative.', irab: 'جملة «لا يؤوده حفظهما» لا محل لها معطوفة على الاستئنافية الأخيرة' },
+      ]}
+    />
+  </Stage>
+
+Part 9 has a verb, an object and a doer. **يَـُٔودُ** has a hamza and a و in its root, so two kinds of weak verb meet in it. **حِفْظُ** is a verbal noun used as the doer: “keeping weighs on …”. The ending **-humā** is the dual, “the two of them”, and it points back to part 8.
+
+<Check n={18} q="Which root letter of أ و د is the hamza?" options={['The middle one', 'The last one', 'The first one']} answer={2} why="The root is أ و د: hamza, then و, then د. So the verb is hamzated first and hollow in the middle." />
+</Block>
+
+<Block id="c10" title="Part 10: the High, the Great">
+  <Stage label="Word by word">
+    <Parse
+      reference="Al-Baqarah 2:255 (part)"
+      words={[
+        { ar: 'وَهُوَ', en: 'and He' },
+        { ar: 'ٱلْعَلِىُّ', en: 'the High' },
+        { ar: 'ٱلْعَظِيمُ', en: 'the Great' },
+      ]}
+      cards={[
+        { at: 0, ar: 'وَ', role: '“and”: it joins', why: 'Al-Jadwal: a joining wāw. The Corpus tags it as a wāw of resumption.', irab: 'الواو عاطفة' },
+        { at: 0, ar: 'هُوَ', role: 'mubtadaʾ: “He”', case: 'in the place of nominative (rafʿ)', mark: 'none: هُوَ never changes', why: 'A separate pronoun can be the mubtadaʾ (L2.01, L3.01).', irab: 'ضمير منفصل في محل رفع مبتدأ' },
+        { at: 1, ar: 'ٱلْعَلِىُّ', role: 'khabar: “the High”. Root ع ل و.', case: 'nominative (rafʿ)', mark: '-u (ḍamma)', why: 'Al-Jadwal: a describing word (ṣifa mushabbaha) from عَلَا, “to be high”, on the pattern فَعِيل (L3.03). The و and the ي of its starting form met and became a doubled ي.', irab: 'خبر مرفوع وعلامة رفعه الضمة الظاهرة' },
+        { at: 2, ar: 'ٱلْعَظِيمُ', role: 'second khabar: “the Great”. Root ع ظ م.', case: 'nominative (rafʿ)', mark: '-u (ḍamma)', why: 'One mubtadaʾ with two khabars (L2.01), as in part 2.', irab: 'خبر ثان مرفوع وعلامة رفعه الضمة الظاهرة' },
+        { at: [0, 1, 2], role: 'the whole of part 10: joined to a new start', case: 'no place', why: 'Al-Jadwal: no place, joined to a new-start sentence. It does not say which.', irab: 'جملة «هو العلي» لا محل لها معطوفة على الاستئنافية' },
+      ]}
+    />
+  </Stage>
+
+The verse ends as it began, with a nominal sentence. The mubtadaʾ is the pronoun **هُوَ** and the khabars are the two names **ٱلْعَلِىُّ** and **ٱلْعَظِيمُ**. Both are nominative with -u. Again the Corpus tags the first as a noun and the second as an adjective, and al-Jadwal reads both as khabars.
+
+<Check n={19} q="How many khabars does وَهُوَ ٱلْعَلِىُّ ٱلْعَظِيمُ have?" options={['One', 'Two', 'Three']} answer={1} why="ٱلْعَلِىُّ is the khabar and ٱلْعَظِيمُ is the second khabar. Both are nominative." />
+</Block>
+
+</Step>
+
+<Step id="finish" label="The whole verse and practice" title="The whole verse, mistakes and practice">
+<Block id="exceptions" title="Three إِلَّا in one verse">
+  <Stage label="Three words, three jobs">
+    <Tiles
+      label="the three إِلَّا of the verse"
+      items={[
+        { ar: 'إِلَّا هُوَ', en: 'part 1: exception', type: 'p' },
+        { ar: 'إِلَّا بِإِذْنِهِۦ', en: 'part 5: restriction', type: 'p' },
+        { ar: 'إِلَّا بِمَا', en: 'part 7: exception', type: 'p' },
+      ]}
+    />
+  </Stage>
+
+| Part | After إِلَّا | Al-Jadwal calls it | The sentence | The word after it |
+|---|---|---|---|---|
+| 1 | هُوَ | a word of exception | Complete and negative: the kind إِلَٰهَ is named. | A substitute for the pronoun in the left-out khabar. |
+| 5 | بِإِذْنِهِۦ | a word of restriction | Incomplete: no group is named. | A phrase with the job of a left-out ḥāl. |
+| 7 | بِمَا | a word of exception | Complete and negative: the group بِشَىْءٍ is named. | A substitute for بِشَىْءٍ. |
+
+The three words look the same and do two jobs. A complete negative sentence names a group and sets one thing apart: parts 1 and 7. An incomplete sentence names no group, and إِلَّا means “only”: part 5. L4.05 taught both.
+
+<Note kind="know">The Corpus tags the first and second إِلَّا as exception and the third as restriction. Al-Jadwal calls the second a word of restriction and the third a word of exception. This lesson follows al-Jadwal.</Note>
+
+<Check n={20} q="Which إِلَّا does al-Jadwal call a word of restriction?" options={['The one in إِلَّا هُوَ', 'The one in إِلَّا بِإِذْنِهِۦ', 'The one in إِلَّا بِمَا شَآءَ']} answer={1} why="In part 5 no group is named, so the sentence is incomplete and إِلَّا means “only”." />
+</Block>
+
+<Block id="verbs" title="The seven verbs">
+  <Stage label="Seven verbs, one person">
+    <Tiles
+      label="the verbs of the verse"
+      items={[
+        { ar: 'تَأْخُذُ', en: 'part 3: she', type: 'v' },
+        { ar: 'يَشْفَعُ', en: 'part 5: he', type: 'v' },
+        { ar: 'يَعْلَمُ', en: 'part 6: He', type: 'v' },
+        { ar: 'يُحِيطُونَ', en: 'part 7: they', type: 'v' },
+        { ar: 'شَآءَ', en: 'part 7: He', type: 'v' },
+        { ar: 'وَسِعَ', en: 'part 8: it', type: 'v' },
+        { ar: 'يَـُٔودُ', en: 'part 9: it', type: 'v' },
+      ]}
+    />
+  </Stage>
+
+The verse has **seven verbs**, as the Corpus counts them: five in the present and two in the past (شَآءَ and وَسِعَ). All seven are third person. No verb in the verse says “I”, “we” or “you”.
+
+Five of the seven are weak verbs, and L4.11 to L4.15 gave you their rules.
+
+| Verb | Part | Root | Form | Kind | Taught in |
+|---|---|---|---|---|---|
+| تَأْخُذُ | 3 | أ خ ذ | I | hamzated, first letter | [L4.15](/learn/level-4/15-hamzated-verbs/) |
+| يَشْفَعُ | 5 | ش ف ع | I | sound | [L4.11](/learn/level-4/11-weak-verbs-intro/) |
+| يَعْلَمُ | 6 | ع ل م | I | sound | [L4.11](/learn/level-4/11-weak-verbs-intro/) |
+| يُحِيطُونَ | 7 | ح و ط | IV | hollow | [L4.12](/learn/level-4/12-hollow-verbs/), [L3.13](/learn/level-3/13-verb-form-iv/) |
+| شَآءَ | 7 | ش ي أ | I | hollow and hamzated | [L4.12](/learn/level-4/12-hollow-verbs/), [L4.15](/learn/level-4/15-hamzated-verbs/) |
+| وَسِعَ | 8 | و س ع | I | assimilated | [L4.14](/learn/level-4/14-assimilated-verbs/) |
+| يَـُٔودُ | 9 | أ و د | I | hamzated and hollow | [L4.15](/learn/level-4/15-hamzated-verbs/), [L4.12](/learn/level-4/12-hollow-verbs/) |
+
+<Check n={21} q="How many of the seven verbs are in the past?" options={['Five', 'Seven', 'Two']} answer={2} why="Only شَآءَ and وَسِعَ are past verbs. The other five are present." />
+</Block>
+
+<Block id="style" title="What al-Jadwal says about the style">
+  <Stage label="Two names">
+    <Tiles
+      label="the two figures al-Jadwal names for the verse"
+      items={[
+        { ar: 'إِيجَاز', en: 'brevity', type: 'x' },
+        { ar: 'فَصْل', en: 'leaving out the joining word', type: 'x' },
+      ]}
+    />
+  </Stage>
+
+Al-Jadwal prints a paragraph on the style of this verse (balagha). It names these points.
+
+- **Ījāz**, brevity. Al-Jadwal says the verse describes the one true King, whom nobody can dispute, with a brevity that cannot be copied. L4.18 met ījāz as al-Jadwal’s reason for leaving out an object.
+- **Faṣl**, leaving out the joining word between sentences. It belongs to the first branch of balagha, the choices inside a sentence (L4.17). Al-Jadwal says it shows that each of the King’s qualities stands on its own.
+- A second kind of brevity, brevity of brevity (**ījāz al-ījāz**). Al-Jadwal says the verse has 17 places where the name of Allah is meant, written in some and hidden in others. Quran Learn has not checked this number against a book. Exercise 10 tries one count.
+
+You can see faṣl in the verse. Of the ten parts, seven begin with no joining word: parts 1 to 6 and part 8. Three begin with وَ: parts 7, 9 and 10. This count is ours, from the Corpus. Al-Durr al-Maṣūn quotes al-Zamakhsharī: each sentence explains the one before it, and an explanation needs no joining word. Al-Durr adds that three sentences do have one: وَلَا يُحِيطُونَ, وَلَا يَـُٔودُهُۥ and وَهُوَ ٱلْعَلِىُّ ٱلْعَظِيمُ.
+
+These are the only figures al-Jadwal names here. It names no gradation, no figure for the fronting in part 4, and none for the question in part 5. This lesson therefore teaches none of those. This project has no approved source for L4.17 and L4.18, so take the names as names, and check them against the books.
+
+<Check n={22} q="What does al-Jadwal call leaving out the joining word between sentences?" options={['Ījāz', 'Faṣl', 'Ḥadhf']} answer={1} why="Faṣl is leaving out the joining word. Ījāz is brevity, and ḥadhf is leaving a word out of a sentence." />
+</Block>
+
+<Block id="m1" title="Mistake 1: reading the verse as one long sentence">
+  <Stage>
+    <Tiles
+      label="two kinds of part"
+      items={[
+        { ar: 'خَبَر', en: 'parts 1 to 4: news about ٱللَّهُ' },
+        { ar: 'اِسْتِئْنَاف', en: 'parts 5 to 10: new sentences', type: 'x' },
+      ]}
+    />
+  </Stage>
+
+A common reading takes ٱللَّهُ as the mubtadaʾ of the whole verse, with everything after it as news. Al-Jadwal does not read it so. Only parts 1 to 4 are news about ٱللَّهُ. Part 5 begins a new sentence with its own mubtadaʾ, مَن, and each later part has its own words. Of the six new sentences, two begin with a mubtadaʾ (مَن and هُوَ) and four begin with a verb.
+
+Al-Jadwal does allow a second place for part 6, as another khabar. It is a footnote and not the main reading.
+</Block>
+
+<Block id="m2" title="Mistake 2: reading every لَا as the same لَا">
+  <Stage>
+    <Tiles
+      label="the five negative words, by kind"
+      items={[
+        { ar: 'لَآ إِلَٰهَ', en: 'denies a kind', type: 'p' },
+        { ar: 'لَا تَأْخُذُهُۥ', en: 'plain', type: 'p' },
+        { ar: 'وَلَا نَوْمٌ', en: 'extra', type: 'p' },
+        { ar: 'وَلَا يُحِيطُونَ', en: 'plain', type: 'p' },
+        { ar: 'وَلَا يَـُٔودُهُۥ', en: 'plain', type: 'p' },
+      ]}
+    />
+  </Stage>
+
+The verse has five negative words, and they are not all the same. **لَآ** in part 1 denies a whole kind. Its noun, إِلَٰهَ, has a fatḥa and no tanwīn. The other four are plain negatives, except the one before نَوْمٌ, which is extra. A plain negative before a present verb changes nothing (L4.10).
+
+When you meet a لَا, look at the word after it. A noun with a fatḥa and no tanwīn marks the kind. A noun with -un is a plain negative. A present verb with its plain ending is a plain negative too.
+</Block>
+
+<Block id="m3" title="Mistake 3: the same kasra means the same case">
+  <Stage>
+    <Tiles
+      label="ٱلسَّمَٰوَٰتِ in two parts"
+      items={[
+        { ar: 'فِى ٱلسَّمَٰوَٰتِ', en: 'part 4: genitive', type: 'n' },
+        { ar: 'ٱلسَّمَٰوَٰتِ', en: 'part 8: accusative', type: 'n' },
+      ]}
+    />
+  </Stage>
+
+ٱلسَّمَٰوَٰتِ ends in a kasra in both places. In part 4 the preposition فِى pulls it into the genitive, and the kasra is the normal genitive mark. In part 8 the word is the object. A sound feminine plural takes a kasra in the accusative (L2.05), so the kasra is the accusative mark.
+
+The Corpus tags the first as genitive and the second as accusative. To tell them apart, ask what the word does in its sentence.
+</Block>
+
+<Block id="m4" title="Mistake 4: the تَـ of تَأْخُذُ is not “you”">
+  <Stage>
+    <Tiles
+      label="تَأْخُذُ in the verse and in a made-up sentence"
+      items={[
+        { ar: 'تَأْخُذُهُۥ سِنَةٌ', en: 'she takes Him: drowsiness (2:255)', type: 'v' },
+        { ar: 'تَأْخُذُ ٱلْكِتَٰبَ', en: 'you take the book (made-up)', type: 'v' },
+      ]}
+    />
+  </Stage>
+
+A present verb with the prefix تَـ can mean “she” or “you” (L3.06). Which one it means depends on the doer. In part 3 the doer is the noun سِنَةٌ, which is feminine, so the prefix is “she”. The Corpus tags it 3FS. In the made-up sentence there is no noun doer, so the تَـ would be “you”.
+
+The verb in the verse is not a command to the reader, and no verb in the verse is in the second person.
+</Block>
+
+<Block id="m5" title="Mistake 5: naming a figure no source names, or saying what grammar proves">
+  <Stage>
+    <ol class="lx-card-list">
+      <li><b>Say what the words do:</b> “The khabar is put before the mubtadaʾ.”</li>
+      <li><b>Say what a source says:</b> “Al-Jadwal names faṣl in this verse.”</li>
+    </ol>
+  </Stage>
+
+Some write that the order “drowsiness, then sleep” is a gradation, or that the grammar of the verse proves a point of belief. Those sentences sound like balagha, but no source we can name says them about this verse.
+
+Al-Jadwal names two figures here, ījāz and faṣl, and one count. Where it names nothing, this lesson shows the grammar and stops. The grammar tells you what each word does. What the verse teaches about Allah is stated by the words of the verse, and books of tafsir explain it.
+</Block>
+
+<Block id="practice-1" title="Practice: word by word">
+  <Stage label="For each word, say">
+    <ol class="lx-card-list">
+      <li><b>Kind:</b> verb, noun, joining noun or little word?</li>
+      <li><b>Root and form:</b> for a verb, which root and which form?</li>
+      <li><b>Job:</b> which role, which case and which mark?</li>
+      <li><b>Lesson:</b> which lesson taught the point?</li>
+    </ol>
+  </Stage>
+
+Work out each answer first, on paper or in your head. Then open the answer.
+
+<Exercise n={1} q="List the five negative words of the verse. For each give the part, the kind (the lā of a kind, a plain negative or an extra one) and what is denied.">
+
+There are **five** negative words. The Corpus tags five words as negatives, and one of them is the lā of a kind.
+
+| Words | Part | Kind | What is denied |
+|---|---|---|---|
+| لَآ إِلَٰهَ | 1 | the lā that denies a kind | any god at all |
+| لَا تَأْخُذُهُۥ | 3 | plain negative | drowsiness taking Him |
+| وَلَا نَوْمٌ | 3 | extra, strengthens the one before | sleep taking Him |
+| وَلَا يُحِيطُونَ | 7 | plain negative | their encompassing anything of His knowledge |
+| وَلَا يَـُٔودُهُۥ | 9 | plain negative | keeping the two weighing on Him |
+
+مَن in part 5 is a question word and is not a negative.
+
+</Exercise>
+
+<Exercise n={2} q="The verse has three إِلَّا. For each give the part, the tool as al-Jadwal names it, whether the sentence is complete or incomplete, and the job of what follows.">
+
+| Part | Tool | Sentence | What follows |
+|---|---|---|---|
+| 1 | exception | Complete, negative: إِلَٰهَ is the named group. | هُوَ: a substitute for the hidden pronoun in the left-out khabar. |
+| 5 | restriction | Incomplete: no group is named. | بِإِذْنِهِۦ: a phrase tied to a left-out ḥāl. |
+| 7 | exception | Complete, negative: بِشَىْءٍ is the named group. | بِمَا: a substitute for بِشَىْءٍ, genitive in place. |
+
+The Corpus tags these as exception, exception and restriction, which differs from al-Jadwal on the second and third.
+
+</Exercise>
+
+<Exercise n={3} q="For each of the ten parts say whether al-Jadwal reads it as news about ٱللَّهُ, a new start, or a sentence joined to an earlier one. Give its place.">
+
+| Part | Reading | Place |
+|---|---|---|
+| 1 | The whole part is a new start. Its second half, لَآ إِلَٰهَ إِلَّا هُوَ, is news 1. | No place for the whole; the second half is in the place of nominative. |
+| 2 | News 2 and news 3. | Single words, nominative. |
+| 3 | News 4. | In the place of nominative. |
+| 4 | News 5. | In the place of nominative. |
+| 5 | A new start. | No place. |
+| 6 | A new start. | No place. |
+| 7 | A new start. | No place. |
+| 8 | A new start. | No place. |
+| 9 | Joined to the last new start. | No place. |
+| 10 | Joined to a new start. | No place. |
+
+For parts 6, 7 and 9, al-Jadwal allows a second place in a footnote or in a second reading: another khabar for part 6, and a ḥāl for parts 7 and 9.
+
+</Exercise>
+
+<Exercise n={4} q="Give the person and number of each of the seven verbs. What does this say about who speaks in the verse and who is spoken to? Then look at إِيَّاكَ نَعْبُدُ (Al-Fatihah 1:5, part) and say what differs.">
+
+| Verb | Person and number |
+|---|---|
+| تَأْخُذُ | third, feminine singular |
+| يَشْفَعُ | third, masculine singular |
+| يَعْلَمُ | third, masculine singular |
+| يُحِيطُونَ | third, masculine plural |
+| شَآءَ | third, masculine singular |
+| وَسِعَ | third, masculine singular |
+| يَـُٔودُ | third, masculine singular |
+
+All seven verbs are third person. No verb speaks as “I” or “we”, and none speaks to “you”. The pronouns are third person too: -hu, -hi and هُوَ point to Allah, and -him, -hum and the ending -ūna point to “them”.
+
+In إِيَّاكَ نَعْبُدُ the verb نَعْبُدُ is first person plural, “we worship”, and إِيَّاكَ is “You”. The speakers address Allah. L5.02 reads Surah Al-Fatihah as a whole.
+
+</Exercise>
+
+<Exercise n={5} q="Give the case and the mark of each noun, or say why no mark shows: (a) ٱللَّهُ (b) إِلَٰهَ (c) سِنَةٌ (d) ٱلسَّمَٰوَٰتِ in part 4 (e) إِذْنِ (f) أَيْدِي (g) شَىْءٍ (h) كُرْسِيُّ (i) ٱلسَّمَٰوَٰتِ in part 8 (j) ٱلْأَرْضَ (k) حِفْظُ (l) ٱلْعَلِىُّ">
+
+| Noun | Case | Mark and reason |
+|---|---|---|
+| ٱللَّهُ | Nominative | -u: the mubtadaʾ |
+| إِلَٰهَ | Accusative in place | A fatḥa with no tanwīn: ism lā, built |
+| سِنَةٌ | Nominative | -un: the doer of تَأْخُذُ |
+| ٱلسَّمَٰوَٰتِ (part 4) | Genitive | -i, after فِى |
+| إِذْنِ | Genitive | -i, after بِ |
+| أَيْدِي | Genitive | A hidden kasra on the yāʾ: the second word of an idafah |
+| شَىْءٍ | Genitive | -in, after بِ |
+| كُرْسِيُّ | Nominative | -u: the doer of وَسِعَ |
+| ٱلسَّمَٰوَٰتِ (part 8) | Accusative | -i: a sound feminine plural, the object of وَسِعَ |
+| ٱلْأَرْضَ | Accusative | -a: joined to ٱلسَّمَٰوَٰتِ |
+| حِفْظُ | Nominative | -u: the doer of يَـُٔودُ |
+| ٱلْعَلِىُّ | Nominative | -u: the khabar of هُوَ |
+
+Three nouns hide or change their ending: إِلَٰهَ is built, أَيْدِي has a hidden kasra, and ٱلسَّمَٰوَٰتِ shows a kasra in two cases.
+
+</Exercise>
+</Block>
+
+<Block id="practice-2" title="Practice: verbs, left-out words, other verses and counts">
+  <Stage label="The same tools on more material">
+    <Tiles
+      label="verbs, gaps, other verses and counts"
+      items={[
+        { ar: 'فِعْل', en: 'the seven verbs', type: 'v' },
+        { ar: 'مَحْذُوف', en: 'what is left out', type: 'x' },
+        { ar: 'آيَة', en: 'the same words elsewhere', type: 'x' },
+        { ar: 'عَدَد', en: 'counting', type: 'x' },
+      ]}
+    />
+  </Stage>
+
+<Exercise n={6} q="For each verb give the root, the form, the tense and the kind: (a) تَأْخُذُ (b) يُحِيطُونَ (c) شَآءَ (d) وَسِعَ (e) يَـُٔودُ (f) يَشْفَعُ (g) يَعْلَمُ">
+
+| Verb | Root | Form | Tense | Kind |
+|---|---|---|---|---|
+| تَأْخُذُ | أ خ ذ | I | present | hamzated, first letter (L4.15) |
+| يُحِيطُونَ | ح و ط | IV | present | hollow (L4.12). The Corpus tag is (IV). |
+| شَآءَ | ش ي أ | I | past | hollow and hamzated (L4.12, L4.15) |
+| وَسِعَ | و س ع | I | past | assimilated (L4.14) |
+| يَـُٔودُ | أ و د | I | present | hamzated and hollow (L4.15, L4.12) |
+| يَشْفَعُ | ش ف ع | I | present | sound (L4.11) |
+| يَعْلَمُ | ع ل م | I | present | sound (L4.11) |
+
+Two of the seven verbs are sound, and five are weak.
+
+</Exercise>
+
+<Exercise n={7} q="What is left out in each place, and what is the sense? (a) لَآ إِلَٰهَ (Al-Baqarah 2:255, part) (b) إِلَّا بِإِذْنِهِۦ (Al-Baqarah 2:255, part) (c) بِمَا شَآءَ (Al-Baqarah 2:255, part) And which word links news 4 (part 3) and news 5 (part 4) back to ٱللَّهُ?">
+
+- (a) The khabar of لَا, which al-Jadwal supplies as **مَوْجُود**, “existing”: “there is no god existing except Him”. The whole sentence is the khabar of ٱللَّهُ, so nothing is left out after ٱللَّهُ (as L4.18 said).
+- (b) A ḥāl, to which the phrase is tied. The sense is “none intercedes except while given His leave”.
+- (c) The object of شَآءَ. Al-Jadwal’s footnote prefers “that they encompass it”, because the earlier words point that way.
+- The link in part 3 is the -hu in تَأْخُذُهُۥ. The link in part 4 is the -hu in لَّهُۥ. Both point back to ٱللَّهُ (L2.02).
+
+</Exercise>
+
+<Exercise n={8} q="Use the same tools on two other verses. (a) ٱللَّهُ لَآ إِلَٰهَ إِلَّا هُوَ ٱلْحَىُّ ٱلْقَيُّومُ (Al-Imran 3:2): how much of 2:255 is this, and how does al-Jadwal parse it? (b) يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ وَلَا يَشْفَعُونَ إِلَّا لِمَنِ ٱرْتَضَىٰ (Al-Anbiya 21:28, part): what is the same as 2:255, and what differs?">
+
+**(a)** It is parts 1 and 2 of 2:255, word for word. Al-Jadwal’s page for 3:2 gives the same parse: ٱللَّهُ is the mubtadaʾ, the sentence لَا إِلَٰهَ إِلَّا هُوَ is news 1, ٱلْحَىُّ is the second khabar and ٱلْقَيُّومُ the third. A footnote there sends the reader to 2:255. In 3:2 the verse stops after these three pieces of news.
+
+**(b)** The first clause is the same as part 6, word for word. The words after it differ. The verb is plural, يَشْفَعُونَ, and the restriction is إِلَّا لِمَنِ ٱرْتَضَىٰ, which al-Jadwal ties to the verb. In 2:255 the phrase after إِلَّا is tied to a left-out ḥāl. Al-Jadwal also reads the clause يَعْلَمُ … in 21:28 as giving a reason for the sentence before it, and not as a new start. The same words can have a different place in a different verse.
+
+</Exercise>
+
+<Exercise n={9} q="Sort the wāws. For each word that begins with وَ, say whether it is “and”, a new start, or a root letter. Compare the Corpus with al-Jadwal. The words are: وَلَا (part 3), وَمَا (part 4), وَمَا (part 6), وَلَا (part 7), وَٱلْأَرْضَ (part 8), وَسِعَ (part 8), وَلَا (part 9), وَهُوَ (part 10).">
+
+| Word | Corpus | Al-Jadwal |
+|---|---|---|
+| وَلَا (part 3) | joining | “and” |
+| وَمَا (part 4) | joining | “and” |
+| وَمَا (part 6) | joining | “and” |
+| وَلَا (part 7) | joining | a new start, or a wāw of ḥāl |
+| وَٱلْأَرْضَ (part 8) | joining | “and” |
+| وَسِعَ (part 8) | the و is a root letter | the و is a root letter (L4.14) |
+| وَلَا (part 9) | resumption | “and”, or a wāw of ḥāl |
+| وَهُوَ (part 10) | resumption | “and” |
+
+The Corpus and al-Jadwal agree on the wāws of parts 3, 4, 6 and 8 and on وَسِعَ. They differ on the wāws of parts 7, 9 and 10. This lesson follows al-Jadwal.
+
+</Exercise>
+
+<Exercise n={10} q="Al-Jadwal says the name of Allah is meant in 17 places in the verse, written in some and hidden in others. Find the words that point to Allah.">
+
+Al-Jadwal gives the number and not the list. This is one way to reach 17. It is Quran Learn’s count, and we have not checked it against a book.
+
+- The name **ٱللَّهُ** (1).
+- The hidden pronoun in the left-out khabar of لَا (1).
+- **هُوَ** in part 1 and **هُوَ** in part 10 (2).
+- The hidden pronoun in each of the four khabars ٱلْحَىُّ, ٱلْقَيُّومُ, ٱلْعَلِىُّ and ٱلْعَظِيمُ (4).
+- The hidden doer of يَعْلَمُ and of شَآءَ (2).
+- The ending -hu or -hi in تَأْخُذُهُۥ, لَّهُۥ, عِندَهُۥٓ, بِإِذْنِهِۦ, عِلْمِهِۦٓ, كُرْسِيُّهُ and يَـُٔودُهُۥ (7).
+
+That makes 1 + 1 + 2 + 4 + 2 + 7 = 17.
+
+</Exercise>
+</Block>
+
+<Block id="done" title="You have finished the lesson">
+  <Stage label="The idea">
+    <Formula
+      label="one subject plus five pieces of news plus six sentences equals the whole verse"
+      items={[
+        { kind: 'm', text: 'ٱللَّهُ', small: 'the subject' },
+        { kind: 'k', text: 'five pieces of news', small: 'parts 1 to 4' },
+        { kind: 's', text: 'the whole verse', small: 'six more sentences, parts 5 to 10' },
+      ]}
+    />
+  </Stage>
+
+- Al-Baqarah 2:255 has **50 written words**, 7 verbs, 5 negative words and 3 إِلَّا. The lesson cuts it into ten parts, following al-Jadwal’s sentences.
+- **Parts 1 to 4** are one nominal sentence with five khabars. The first is the sentence لَآ إِلَٰهَ إِلَّا هُوَ, with the lā of a kind, a left-out khabar and a substitute هُوَ (L4.05).
+- **Parts 5 to 10** are six sentences. Part 5 is a question in form, with an incomplete exception. Part 7 is a complete exception. Part 8 has an assimilated verb. Part 9 has a hamzated and hollow verb. Part 10 is a nominal sentence with two khabars.
+- Al-Jadwal names two figures of speech for the verse, brevity (ījāz) and leaving out the joining word (faṣl). This lesson names no other.
+- Where the books differ, you met the readings of ٱلْحَىُّ, ٱلَّذِى, the “them” of part 6 and the object of شَآءَ.
+
+**Next:** [L5.04](/learn/level-5/04-surah-al-ikhlas/) takes the same tools to Surah Al-Ikhlas. If a point felt shaky, go back to the lesson named in the table at the start. The method behind this lesson is in [L5.01](/learn/level-5/01-full-irab-analysis/).
+
+Lessons you can link back to: [the nominal sentence, L2.01](/learn/level-2/01-nominal-sentence/), [exception, L4.05](/learn/level-4/05-exception-particles/), [negation, L4.10](/learn/level-4/10-negation-particles/), [joining nouns, L3.11](/learn/level-3/11-relative-pronouns/), [hollow verbs, L4.12](/learn/level-4/12-hollow-verbs/), [assimilated verbs, L4.14](/learn/level-4/14-assimilated-verbs/), [hamzated verbs, L4.15](/learn/level-4/15-hamzated-verbs/), [the figures of speech, L4.18](/learn/level-4/18-figures-of-speech/).
+
+<Sources
+    items={[
+      { label: 'Quran text', name: 'Tanzil (Uthmani text)', href: 'https://tanzil.net' },
+      { label: 'Roots, forms, tags and counts', name: 'Quranic Arabic Corpus', href: 'https://corpus.quran.com' },
+      { label: 'Sentence places, word analysis (iʿrāb), word shapes (ṣarf) and style notes', name: 'Maḥmūd Ṣāfī, al-Jadwal fī Iʿrāb al-Qurʾān wa-Ṣarfihi wa-Bayānihi' },
+      { label: 'Other readings, word meanings and the quotation of al-Zamakhsharī', name: 'al-Samīn al-Ḥalabī, al-Durr al-Maṣūn' },
+      { label: 'Counts of words, verbs, negatives and joining words', name: 'Quran Learn count from the Quranic Arabic Corpus' },
+      { label: 'English under the verses', name: 'Plain-English meanings by Quran Learn, not a translation' },
+    ]}
+  />
+</Block>
+
+</Step>

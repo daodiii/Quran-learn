@@ -1,0 +1,94 @@
+---
+/**
+ * Word-by-word parsing (iʿrāb) of one verse, for the Stage panel. The verse shows as word tiles;
+ * one card at a time names a word's role, case, the mark that shows it and the reason, with the
+ * same parse in the words of the Arabic grammar books. Back and Next move through the cards and
+ * light the word each card is about. Without JavaScript every card is listed under the verse.
+ *
+ * <Parse
+ *   reference="Al-Imran 3:68 (end)"
+ *   words={[{ ar: 'وَٱللَّهُ', en: 'and Allah' }, { ar: 'وَلِىُّ', en: 'protector of' }]}
+ *   cards={[
+ *     { at: 0, ar: 'ٱللَّهُ', role: 'mubtadaʾ', case: 'nominative', mark: '-u', why: 'It starts the sentence.',
+ *       irab: 'لفظ الجلالة مبتدأ مرفوع وعلامة رفعه الضمة الظاهرة' },
+ *   ]}
+ * />
+ */
+import { inlineHtml } from '../../lib/lesson-steps';
+
+interface Word {
+  ar: string;
+  en: string;
+  type?: 'n' | 'v' | 'p';
+}
+interface Card {
+  at: number | number[]; // which word tiles the card is about
+  ar?: string; // the part shown big; defaults to the words it is about
+  role: string;
+  case?: string;
+  mark?: string;
+  why: string;
+  irab?: string; // the parse as the Arabic grammar books word it
+}
+import AyahListen from './AyahListen.astro';
+
+interface Props {
+  words: Word[];
+  cards: Card[];
+  reference?: string;
+  label?: string;
+}
+
+const { words, cards, reference, label = 'Word by word' } = Astro.props;
+const CLS = { n: 'noun', v: 'verb', p: 'little' } as const;
+const TAG = { n: 'Noun', v: 'Verb', p: 'Little word' } as const;
+const atList = (c: Card) => (Array.isArray(c.at) ? c.at : [c.at]);
+for (const c of cards) {
+  for (const i of atList(c)) {
+    if (!Number.isInteger(i) || i < 0 || i >= words.length) {
+      throw new Error(`<Parse> card "${c.role}" points at word ${i}, but there are ${words.length} words (${reference ?? ''})`);
+    }
+  }
+}
+---
+
+<div class="lx-parse" role="group" aria-label={label}>
+  <figure class="lx-sentence lx-parse-verse">
+    <div class="lx-chips lx-parse-words" dir="rtl">
+      {words.map((w) => (
+        <div class={`lx-w lx-pw lx-${CLS[w.type ?? 'n']}`}>
+          <span class="lx-ar" lang="ar">{w.ar}</span>
+          <span class="lx-en">{w.en}</span>
+          <span class="lx-tag"><i class="lx-shape"></i>{TAG[w.type ?? 'n']}</span>
+        </div>
+      ))}
+    </div>
+    {reference && <figcaption>{reference} <AyahListen reference={reference} /></figcaption>}
+  </figure>
+
+  <div class="lx-pcards" aria-live="polite">
+    {cards.map((c) => (
+      <div class="lx-pcard" data-at={atList(c).join(',')}>
+        <p class="lx-pcard-ar" lang="ar" dir="rtl">{c.ar ?? atList(c).map((i) => words[i].ar).join(' ')}</p>
+        <dl>
+          <div><dt>Role</dt><dd set:html={inlineHtml(c.role)} /></div>
+          {c.case && <div><dt>Case</dt><dd set:html={inlineHtml(c.case)} /></div>}
+          {c.mark && <div><dt>Mark</dt><dd set:html={inlineHtml(c.mark)} /></div>}
+          <div><dt>Why</dt><dd set:html={inlineHtml(c.why)} /></div>
+        </dl>
+        {c.irab && (
+          <p class="lx-pcard-irab">
+            <span>In the grammar books</span>
+            <span class="lx-ar" lang="ar" dir="rtl">{c.irab}</span>
+          </p>
+        )}
+      </div>
+    ))}
+  </div>
+
+  <div class="lx-parse-ctl">
+    <button type="button" class="lx-btn" data-lx-pprev>Back</button>
+    <span class="lx-dock-count" data-lx-ppos></span>
+    <button type="button" class="lx-btn lx-btn-primary" data-lx-pnext>Next word</button>
+  </div>
+</div>

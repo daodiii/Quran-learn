@@ -1,561 +1,1341 @@
 ---
 title: "Defective Verbs (al-Naqis)"
+kicker: "Verbs whose last root letter is و or ي"
+titleArabic: "اَلْفِعْل النَّاقِص"
 level: 4
 order: 13
-description: "Master defective verb conjugation patterns through final-letter transformation rules, recognize defective-waw and defective-ya subtypes, and apply systematic analysis to Quranic examples."
+template: steps
+description: "Learn the verbs whose last root letter is و or ي. See the three kinds of past verb, build all 13 past forms, read the present, the jussive and the command, meet the passive, the doer word and the place noun, see the same changes in the other verb forms, and go through four verses word by word."
 draft: false
 ---
 
-import ArabicExample from '../../../components/mdx/ArabicExample.astro';
-import GrammarTable from '../../../components/mdx/GrammarTable.astro';
-import VerbConjugation from '../../../components/mdx/VerbConjugation.astro';
-import Callout from '../../../components/mdx/Callout.astro';
-import ExerciseBox from '../../../components/mdx/ExerciseBox.astro';
-
-## Introduction
-
-After mastering hollow verbs (middle-weak position), you're ready for the second most common weak verb category: defective verbs (al-naqis). These are verbs with a weak letter (و or ي) in the FINAL position that transforms based on case and mood markers.
-
-<ArabicExample
-  arabic="ٱهْدِنَا ٱلصِّرَٰطَ ٱلْمُسْتَقِيمَ"
-  transliteration="ihdinā ṣ-ṣirāṭa l-mustaqīma"
-  translation="Guide us to the straight path"
-  reference="Al-Fatiha 1:6"
-  highlight="ٱهْدِنَا"
-  words={[
-    { ar: "ٱهْدِنَا", tr: "ihdinā", en: "Guide us" },
-    { ar: "ٱلصِّرَٰطَ", tr: "ṣ-ṣirāṭa", en: "the path" },
-    { ar: "ٱلْمُسْتَقِيمَ", tr: "l-mustaqīma", en: "the straight" }
-  ]}
-/>
-
-The word **ٱهْدِنَا** (ihdinā) "guide us" is the imperative form of the defective verb **هَدَىٰ** (hadā) from root ه-د-ي (h-d-y). Notice that the final ي interacts with the attached pronoun نَا. This is the defective verb pattern: the final weak letter CHANGES based on what follows — sometimes it becomes alif (هَدَىٰ hadā), sometimes it becomes ي vowel marker (يَهْدِي yahdī), sometimes it transforms completely.
-
-**In this lesson, you will:**
-- Understand the final-letter transformation PRINCIPLE (not memorizing conjugations)
-- Compare sound vs defective verb conjugation side by side
-- Master defective-waw (final و) and defective-ya (final ي) subtypes
-- Recognize how case/mood markers interact with final weak letters
-- Apply defective verb analysis to Al-Fatiha examples
-
-**Connection to previous learning:** In [L4.12 Hollow Verbs](/learn/level-4/12-hollow-verbs/), you learned how middle weak letters contract or drop. Defective verbs use SIMILAR logic, but the weak letter is in the FINAL position, so it interacts with case endings (nominative/accusative/genitive) and mood markers (indicative/subjunctive/jussive) that you learned in [L2.04](/learn/level-2/04-nominative-case/) through [L2.06](/learn/level-2/06-genitive-case/).
-
-**Forward connection:** After defective verbs, [L4.14 Assimilated Verbs](/learn/level-4/14-assimilated-verbs/) will be straightforward — initial-weak position is the SIMPLEST category. Then [L4.15 Hamzated Verbs](/learn/level-4/15-hamzated-verbs/) completes the weak verb system.
-
-**Key insight:** Defective verbs are extremely common in the Quran — هَدَىٰ (hadā) "guide", دَعَا (daʿā) "call/supplicate", مَشَىٰ (mashā) "walk", رَمَىٰ (ramā) "throw", بَقِيَ (baqiya) "remain". Understanding their final-letter transformations unlocks hundreds of Quranic verbs.
-
-<Callout type="note" title="Plain-English key">
-Quick, everyday translations of the grammar terms in this lesson — glance back here whenever one trips you up:
-
-- **Weak verb** (fiʿl muʿtall / مُعْتَلّ) — a verb with a weak letter (و / ي / ا) in its root, which shifts or drops.
-- **Defective verb** (nāqiṣ / نَاقِص) — a verb whose *last* root letter is weak (like daʿā).
-</Callout>
-
-## Understanding Defective Verbs
-
-**Plain English first:** Imagine a chameleon's tail that changes color based on its surroundings. When the environment is bright (certain vowels), the tail becomes one color; when dark (other vowels), it transforms. Defective verbs work the same way: the final weak letter changes form based on the grammatical "environment" — the case/mood markers that follow it.
-
-### What Makes a Verb "Defective"?
-
-**[Defective verb](/resources/glossary/#fil-naqis)** (fiʿl nāqiṣ / فِعْلٌ نَاقِصٌ) — verb with weak letter (و or ي) in the FINAL position (3rd radical)
-
-**Examples:**
-- **د-ع-و** (d-ʿ-w) "calling/supplicating" → final و
-- **ه-د-ي** (h-d-y) "guiding" → final ي
-- **ر-م-ي** (r-m-y) "throwing" → final ي
-- **م-ش-ي** (m-sh-y) "walking" → final ي
-
-**Why "defective"?** The Arabic term نَاقِصٌ (nāqiṣ) literally means "deficient" or "incomplete." The verb appears to be "missing" its final letter in some forms — the weak letter transforms or seems to disappear, making the verb look "incomplete."
-
-### Sound vs Defective: The Core Difference
-
-Let's compare a sound verb with a defective verb to see the pattern:
-
-<GrammarTable>
-| Form | Sound: ك-ت-ب (writing) | Defective: ه-د-ي (guiding) | Difference |
-|------|----------------------|------------------------|------------|
-| **Root** | ك-ت-ب (k-t-b) | ه-د-ي (h-d-y) | Final letter is ي (weak) |
-| **Past 3MS** | كَتَبَ (kataba) | هَدَىٰ (hadā) | ي → ى (alif maqsura) |
-| **Present 3MS** | يَكْتُبُ (yaktubu) | يَهْدِي (yahdī) | ي appears as long vowel |
-| **Jussive 3MS** | لَمْ يَكْتُبْ (lam yaktub) | لَمْ يَهْدِ (lam yahdi) | ي shortened |
-| **Pattern** | All three radicals visible | Final letter transforms | Weak letter changes form |
-</GrammarTable>
-
-**Key observation:** The sound verb ك-ت-ب keeps all three root letters visible and stable in every form. The defective verb ه-د-ي's final ي transforms:
-- In past tense: ي becomes ى alif maqsura (hadā)
-- In present tense indicative: ي becomes long vowel ī (yahdī)
-- In jussive mood: ي shortens to kasra (yahdi)
-
-This isn't random — there are systematic transformation rules!
-
-## The Three Transformation Principles
-
-**PRINCIPLE #1: Past Tense Alif Transformation**
-
-When conjugating defective verbs in past tense 3rd person, the final weak letter (و or ي) transforms into alif (ا) or alif maqsura (ى).
-
-**Rule:** Final و or ي → ا or ى in past tense 3rd person
-
-Examples:
-- د-ع-و → دَعَا (daʿā) "he called"
-- ه-د-ي → هَدَىٰ (hadā) "he guided"
-- ر-م-ي → رَمَىٰ (ramā) "he threw"
-- م-ش-ي → مَشَىٰ (mashā) "he walked"
-
-**Why alif vs alif maqsura?** Both are pronounced identically (long ā), but orthography differs:
-- Defective-waw typically: دَعَا (daʿā) with regular alif (ا)
-- Defective-ya typically: هَدَىٰ (hadā) with alif maqsura (ى)
-
-**Why this transformation?** In Form I past tense (فَعَلَ pattern), the final weak letter in 3rd person receives fatha and becomes a long ā sound, written as alif.
-
-<Callout type="note" title="Compare with Sound Verb">
-
-Sound verb: كَتَبَ (ka-ta-ba) — final root letter ب clearly visible
-Defective verb: هَدَىٰ (ha-dā) — final root letter ي transformed to ى
-
-The defective verb's final letter is "hidden" in the alif form.
-
-</Callout>
-
-**PRINCIPLE #2: Present Tense Long Vowel**
-
-In present tense indicative mood, the final weak letter appears as a long vowel (ū or ī) depending on the verb's vowel pattern.
-
-**Rule:** Final weak letter becomes long vowel matching the verb's middle vowel pattern
-
-Examples:
-- د-ع-و → يَدْعُو (yadʿū) "he calls" — ū ending
-- ه-د-ي → يَهْدِي (yahdī) "he guides" — ī ending
-- ر-م-ي → يَرْمِي (yarmī) "he throws" — ī ending
-- م-ش-ي → يَمْشِي (yamshī) "he walks" — ī ending
-
-**Pattern note:** The long vowel quality (ū vs ī) matches the middle vowel:
-- Middle damma (يَفْعُ) → final ū (يَدْعُو)
-- Middle kasra (يَفْعِ) → final ī (يَهْدِي)
-
-**PRINCIPLE #3: Mood Marker Interaction**
-
-In subjunctive and jussive moods, the final weak letter SHORTENS or DELETES to accommodate mood markers.
-
-**Subjunctive (manṣūb):** Final weak letter shortens to fatha, shown as alif
-
-Examples:
-- يَهْدِيَ (yahdiya) "that he guide" — final ي → ـِيَ
-- يَدْعُوَ (yadʿuwa) "that he call" — final و → ـُوَ
-
-**Jussive (majzūm):** Final weak letter DELETES, leaving short vowel
-
-Examples:
-- لَمْ يَهْدِ (lam yahdi) "he did not guide" — final ي deleted
-- لَمْ يَدْعُ (lam yadʿu) "he did not call" — final و deleted
-
-<Callout type="rule" title="Three Principles Summary">
-
-1. **Past tense 3rd person:** Final weak → alif/alif maqsura (دَعَا daʿā, هَدَىٰ hadā)
-2. **Present indicative:** Final weak → long vowel (يَدْعُو yadʿū, يَهْدِي yahdī)
-3. **Subjunctive/jussive:** Final weak → shortens or deletes (يَهْدِيَ yahdiya, لَمْ يَهْدِ lam yahdi)
-
-These three principles apply to ALL defective verbs!
-
-</Callout>
-
-## Defective-Waw vs Defective-Ya Subtypes
-
-Defective verbs divide into two subtypes based on which weak letter is in the final position:
-
-### Defective-Waw (Final و)
-
-**Final radical is و** — less common than defective-ya
-
-Common roots:
-- **د-ع-و** (d-ʿ-w) "calling/supplicating"
-- **غ-ز-و** (gh-z-w) "raiding/conquering"
-- **ن-ج-و** (n-j-w) "saving/rescuing"
-- **س-م-و** (s-m-w) "rising/being high"
-
-**Pattern:**
-- Past: دَعَا (daʿā) — final و → ا (regular alif)
-- Present: يَدْعُو (yadʿū) — final و → long ū
-- Jussive: لَمْ يَدْعُ (lam yadʿu) — final و deleted
-
-### Defective-Ya (Final ي)
-
-**Most common defective subtype** — final radical is ي
-
-Common roots:
-- **ه-د-ي** (h-d-y) "guiding"
-- **ر-م-ي** (r-m-y) "throwing"
-- **م-ش-ي** (m-sh-y) "walking"
-- **ب-ق-ي** (b-q-y) "remaining"
-- **ل-ق-ي** (l-q-y) "meeting"
-- **ن-س-ي** (n-s-y) "forgetting"
-- **ب-ك-ي** (b-k-y) "weeping"
-
-**Pattern:**
-- Past: هَدَىٰ (hadā) — final ي → ى (alif maqsura)
-- Present: يَهْدِي (yahdī) — final ي → long ī
-- Jussive: لَمْ يَهْدِ (lam yahdi) — final ي deleted
-
-**Key difference:** In present tense, defective-waw verbs typically have ū ending (يَدْعُو), while defective-ya verbs have ī ending (يَهْدِي). This reflects the original weak letter's quality.
-
-## Common Defective Roots with Transliteration
-
-Here's a reference table of the most frequent defective verbs in Quranic Arabic:
-
-<GrammarTable>
-| Root | Type | Past (3MS) | Trans. | Present (3MS) | Trans. | Jussive (3MS) | Trans. | Meaning |
-|------|------|-----------|--------|---------------|--------|---------------|--------|---------|
-| د-ع-و | waw | دَعَا | daʿā | يَدْعُو | yadʿū | لَمْ يَدْعُ | lam yadʿu | call/supplicate |
-| ه-د-ي | ya | هَدَىٰ | hadā | يَهْدِي | yahdī | لَمْ يَهْدِ | lam yahdi | guide |
-| ر-م-ي | ya | رَمَىٰ | ramā | يَرْمِي | yarmī | لَمْ يَرْمِ | lam yarmi | throw |
-| م-ش-ي | ya | مَشَىٰ | mashā | يَمْشِي | yamshī | لَمْ يَمْشِ | lam yamshi | walk |
-| ب-ق-ي | ya | بَقِيَ | baqiya | يَبْقَىٰ | yabqā | لَمْ يَبْقَ | lam yabqa | remain |
-| ل-ق-ي | ya | لَقِيَ | laqiya | يَلْقَىٰ | yalqā | لَمْ يَلْقَ | lam yalqa | meet |
-| ن-س-ي | ya | نَسِيَ | nasiya | يَنْسَىٰ | yansā | لَمْ يَنْسَ | lam yansa | forget |
-| غ-ز-و | waw | غَزَا | ghazā | يَغْزُو | yaghzū | لَمْ يَغْزُ | lam yaghzu | raid/conquer |
-</GrammarTable>
-
-**Pronunciation note:** The transliteration shows final vowel changes clearly:
-- Past: long ā in all 3rd person forms (دَعَا daʿā, هَدَىٰ hadā, رَمَىٰ ramā)
-- Present defective-waw: long ū (يَدْعُو yadʿū, يَغْزُو yaghzū)
-- Present defective-ya: long ī (يَهْدِي yahdī, يَرْمِي yarmī)
-- Jussive: short vowel, weak letter deleted (لَمْ يَدْعُ lam yadʿu, لَمْ يَهْدِ lam yahdi)
-
-## Side-by-Side Conjugation: Sound vs Defective
-
-Let's conjugate two verbs completely to see the transformation patterns:
-
-<VerbConjugation
-  question="Past Tense Comparison: كَتَبَ (sound) vs هَدَىٰ (defective)"
-  soundRoot="ك-ت-ب"
-  hollowRoot="ه-د-ي"
->
-
-**Sound Verb: كَتَبَ (kataba) "he wrote"**
-
-| Person | Arabic | Transliteration | Pattern |
-|--------|--------|----------------|---------|
-| 3MS (he) | كَتَبَ | kataba | Root fully visible |
-| 3FS (she) | كَتَبَتْ | katabat | Root + ت |
-| 3MD (they two) | كَتَبَا | katabā | Root + ا |
-| 3FD (they two) | كَتَبَتَا | katabatā | Root + تَا |
-| 3MP (they) | كَتَبُوْا | katabū | Root + وا |
-| 3FP (they) | كَتَبْنَ | katabna | Root + نَ |
-| 2MS (you) | كَتَبْتَ | katabta | Root + تَ |
-| 2FS (you) | كَتَبْتِ | katabti | Root + تِ |
-| 2MD/FD (you two) | كَتَبْتُمَاْ | katabtumā | Root + تُمَاْ |
-| 2MP (you) | كَتَبْتُمْ | katabtum | Root + تُمْ |
-| 2FP (you) | كَتَبْتُنَّ | katabtunna | Root + تُنَّ |
-| 1S (I) | كَتَبْتُ | katabtu | Root + تُ |
-| 1P (we) | كَتَبْنَا | katabnā | Root + نَا |
-
-**Defective Verb: هَدَىٰ (hadā) "he guided"**
-
-| Person | Arabic | Transliteration | Pattern |
-|--------|--------|----------------|---------|
-| 3MS (he) | هَدَىٰ | hadā | Final ي → ى |
-| 3FS (she) | هَدَتْ | hadat | Final ي becomes ت (sukūn) |
-| 3MD (they two) | هَدَيَا | hadayā | Final ي visible before alif |
-| 3FD (they two) | هَدَتَا | hadatā | Final ي becomes ت |
-| 3MP (they) | هَدَوْا | hadaw | Final ي → و (before waw plural) |
-| 3FP (they) | هَدَيْنَ | hadayna | Final ي visible before نَ |
-| 2MS (you) | هَدَيْتَ | hadayta | Final ي visible before suffix |
-| 2FS (you) | هَدَيْتِ | hadayti | Final ي visible |
-| 2MD/FD (you two) | هَدَيْتُمَا | hadaytumā | Final ي visible |
-| 2MP (you) | هَدَيْتُمْ | hadaytum | Final ي visible |
-| 2FP (you) | هَدَيْتُنَّ | hadaytunna | Final ي visible |
-| 1S (I) | هَدَيْتُ | hadaytu | Final ي visible |
-| 1P (we) | هَدَيْنَا | hadaynā | Final ي visible |
-
-</VerbConjugation>
-
-**Critical observation:** The defective verb's final ي transformation depends on what follows:
-- **3rd person masculine singular:** ي → ى alif maqsura (هَدَى)
-- **Before vowel suffix (2MS, 1S, etc.):** ي remains visible (هَدَيْتَ, هَدَيْتُ)
-- **Before consonant suffix (3FS, 3FD):** ي drops, consonant attaches (هَدَتْ, هَدَتَا)
-- **Before waw plural:** ي → و (هَدَوْا)
-
-## Present Tense Defective Verb Conjugation
-
-Let's see the present tense pattern and mood transformations:
-
-<VerbConjugation
-  question="Present Tense Moods: يَهْدِي (defective-ya)"
-  root="ه-د-ي"
->
-
-**Indicative Mood (marfūʿ) — Default**
-
-| Person | Arabic | Transliteration | Note |
-|--------|--------|----------------|------|
-| 3MS (he) | يَهْدِي | yahdī | Final ي as long vowel |
-| 3FS (she) | تَهْدِي | tahdī | Same pattern |
-| 3MD (they two) | يَهْدِيَانِ | yahdiyāni | Final ي + ان |
-| 3FD (they two) | تَهْدِيَانِ | tahdiyāni | Final ي + ان |
-| 3MP (they) | يَهْدُونَ | yahdūna | Final و in plural |
-| 3FP (they) | يَهْدِينَ | yahdīna | Final ي + نَ |
-
-**Subjunctive Mood (manṣūb) — After أَنْ, لِ**
-
-| Person | Arabic | Transliteration | Note |
-|--------|--------|----------------|------|
-| 3MS (he) | يَهْدِيَ | yahdiya | Final ي → ـِيَ (fatha) |
-| 3FS (she) | تَهْدِيَ | tahdiya | Same pattern |
-
-**Jussive Mood (majzūm) — After لَمْ, لَا**
-
-| Person | Arabic | Transliteration | Note |
-|--------|--------|----------------|------|
-| 3MS (he) | لَمْ يَهْدِ | lam yahdi | Final ي DELETED |
-| 3FS (she) | لَمْ تَهْدِ | lam tahdi | Final ي DELETED |
-
-</VerbConjugation>
-
-**Mood comparison for same person (3MS):**
-- **Indicative:** يَهْدِي (yahdī) — long ī, damma ending (invisible in final position)
-- **Subjunctive:** يَهْدِيَ (yahdiya) — fatha visible on final ي
-- **Jussive:** لَمْ يَهْدِ (lam yahdi) — final ي DELETED, short kasra remains
-
-This shows how mood markers directly affect the final weak letter!
-
-## Examples from Al-Fatiha
-
-Let's analyze defective verbs from Surah Al-Fatiha (Chapter 1), designated for this lesson:
-
-### Example 1: ٱهْدِنَا (ihdinā) — Imperative
-
-<ArabicExample
-  arabic="ٱهْدِنَا ٱلصِّرَٰطَ ٱلْمُسْتَقِيمَ"
-  transliteration="ihdinā ṣ-ṣirāṭa l-mustaqīma"
-  translation="Guide us to the straight path"
-  reference="Al-Fatiha 1:6"
-  highlight="ٱهْدِنَا"
-  words={[
-    { ar: "ٱهْدِنَا", tr: "ihdinā", en: "Guide us" },
-    { ar: "ٱلصِّرَٰطَ", tr: "ṣ-ṣirāṭa", en: "the path" },
-    { ar: "ٱلْمُسْتَقِيمَ", tr: "l-mustaqīma", en: "the straight" }
-  ]}
-/>
-
-**Morphological analysis:**
-
-- **ٱهْدِنَا** (ihdinā)
-  - Root: ه-د-ي (h-d-y) "guiding"
-  - Verb form: Form I defective-ya
-  - Tense/mood: Imperative, 1st person plural object
-  - Pattern: ٱِفْعِ + نَا (imperative + us)
-  - Final ي: Interacts with pronoun suffix نَا
-  - Translation: "Guide us!" — central supplication of Al-Fatiha
-
-**Transformation analysis:** The imperative of هَدَى is ٱِهْدِ (ihdi). When the 1st person plural object pronoun نَا attaches, it becomes ٱِهْدِنَا (ihdinā). The final ي of the root merges into the vowel structure before the pronoun.
-
-This is the MOST IMPORTANT supplication in the Quran — recited in every rakʿah of every prayer.
-
-### Example 2: دَعَا (daʿā) — Defective-Waw Verb
-
-<ArabicExample
-  arabic="وَإِذَا سَأَلَكَ عِبَادِى عَنِّى فَإِنِّى قَرِيبٌ ۖ أُجِيبُ دَعْوَةَ ٱلدَّاعِ إِذَا دَعَانِ"
-  transliteration="wa-idhā saʾalaka ʿibādī ʿannī fa-innī qarībun ujību daʿwata d-dāʿi idhā daʿāni"
-  translation="And when My servants ask you concerning Me — indeed I am near. I respond to the invocation of the supplicant when he calls upon Me"
-  reference="Al-Baqarah 2:186"
-  highlight="دَعَانِ,ٱلدَّاعِ"
-  words={[
-    { ar: "أُجِيبُ", tr: "ujību", en: "I respond to" },
-    { ar: "دَعْوَةَ", tr: "daʿwata", en: "the invocation of" },
-    { ar: "ٱلدَّاعِ", tr: "ad-dāʿi", en: "the supplicant" },
-    { ar: "إِذَا", tr: "idhā", en: "when" },
-    { ar: "دَعَانِ", tr: "daʿāni", en: "he calls upon Me" }
-  ]}
-/>
-
-**Morphological analysis:**
-
-- **دَعَانِ** (daʿāni)
-  - Root: د-ع-و (d-ʿ-w) "calling, supplicating"
-  - Verb form: Form I **defective-waw**
-  - Tense: Past tense, 3rd person masculine singular + 1st person object ن + protective ي
-  - Pattern: The final و becomes ا in past tense (دَعَا not *دَعَوَ)
-  - Translation: "he called upon Me"
-
-- **ٱلدَّاعِ** (ad-dāʿi) — Active participle from same root
-  - Pattern: فَاعِل → دَاعٍ (the final و drops in the indefinite form)
-
-**Contrast with defective-ya (هَدَى):**
-- **Defective-waw:** دَعَا (daʿā) — final و → ا in past, but يَدْعُو (yadʿū) in present shows the original و
-- **Defective-ya:** هَدَى (hadā) — final ي → ى in past, and يَهْدِي (yahdī) in present shows the original ي
-
-### Example 3: رَمَى (ramā) — Another Defective-Ya Verb
-
-<ArabicExample
-  arabic="وَمَا رَمَيْتَ إِذْ رَمَيْتَ وَلَٰكِنَّ ٱللَّهَ رَمَىٰ"
-  transliteration="wa-mā ramayta idh ramayta wa-lākinna llāha ramā"
-  translation="And you did not throw when you threw, but it was Allah who threw"
-  reference="Al-Anfal 8:17"
-  highlight="رَمَيْتَ,رَمَىٰ"
-  words={[
-    { ar: "وَمَا", tr: "wa-mā", en: "and not" },
-    { ar: "رَمَيْتَ", tr: "ramayta", en: "you threw" },
-    { ar: "إِذْ", tr: "idh", en: "when" },
-    { ar: "رَمَيْتَ", tr: "ramayta", en: "you threw" },
-    { ar: "وَلَٰكِنَّ", tr: "wa-lākinna", en: "but rather" },
-    { ar: "ٱللَّهَ", tr: "allāha", en: "Allah" },
-    { ar: "رَمَىٰ", tr: "ramā", en: "threw" }
-  ]}
-/>
-
-**Morphological analysis:**
-
-- **رَمَىٰ** (ramā) — Root: ر-م-ي (r-m-y) "throwing" — defective-ya
-  - Past 3MS: رَمَىٰ — final ي becomes alif maqṣūrah (ى)
-  - Past 2MS: رَمَيْتَ — final ي reappears before consonant suffix
-
-- **رَمَيْتَ** (ramayta) — 2nd person masculine singular
-  - The ي surfaces before the suffix تَ (which starts with a consonant)
-  - Compare: هَدَيْتَ from هَدَى — same pattern
-
-**Key defective verb rule demonstrated:** When a consonant suffix attaches (like تَ, نَا, تُمْ), the final weak letter REAPPEARS. When no suffix or a vowel suffix attaches, the weak letter transforms into alif.
-
-<Callout type="note" title="Al-Fatiha's Theological Core">
-
-The imperative ٱِهْدِنَا (ihdinā) "guide us" is central to Islamic theology:
-- Humans NEED Allah's guidance (cannot self-guide)
-- Guidance is ACTIVE (verb, not static noun)
-- Guidance is CONTINUOUS (present tense usage throughout Quran)
-- The straight path is defined by those Allah has guided
-
-Understanding the defective verb هَدَى unlocks this theological richness.
-
-</Callout>
-
-## Exercises
-
-<ExerciseBox
-  question="Exercise 1: Identify Defective Verbs"
->
-
-For each root, determine if it's a defective verb. If yes, state whether it's defective-waw or defective-ya.
-
-
-1. **ق-ت-ل** (q-t-l) "killing"
-2. **د-ع-و** (d-ʿ-w) "calling"
-3. **ه-د-ي** (h-d-y) "guiding"
-4. **ن-ص-ر** (n-ṣ-r) "helping"
-5. **ر-م-ي** (r-m-y) "throwing"
-6. **ك-ت-ب** (k-t-b) "writing"
-7. **م-ش-ي** (m-sh-y) "walking"
-8. **ع-م-ل** (ʿ-m-l) "doing/working"
-
-**Expected answers:**
-1. Not defective (sound verb)
-2. Defective-waw (final و)
-3. Defective-ya (final ي)
-4. Not defective (sound verb)
-5. Defective-ya (final ي)
-6. Not defective (sound verb)
-7. Defective-ya (final ي)
-8. Not defective (sound verb)
-
-</ExerciseBox>
-
-<ExerciseBox
-  question="Exercise 2: Apply Transformation Principles"
->
-
-Using the three transformation principles, predict the conjugation for each defective verb.
-
-
-Given root **د-ع-و** (d-ʿ-w) "calling" (defective-waw):
-
-1. What is the past tense 3MS form? (Apply Principle #1)
-2. What is the present tense indicative 3MS form? (Apply Principle #2)
-3. What is the jussive 3MS form after لَمْ? (Apply Principle #3)
-
-**Work through the logic:**
-- Principle #1: Past 3rd person final weak → alif
-- Principle #2: Present indicative final و → long ū
-- Principle #3: Jussive final weak → deletes
-
-**Expected answers:**
-1. دَعَا (daʿā) — final و → ا
-2. يَدْعُو (yadʿū) — final و → long ū
-3. لَمْ يَدْعُ (lam yadʿu) — final و deleted
-
-</ExerciseBox>
-
-<ExerciseBox
-  question="Exercise 3: Conjugation Practice"
->
-
-Conjugate the defective verb ر-م-ي (r-m-y) 'throwing' in the following forms.
-
-
-1. Past tense 3MS (he threw)
-2. Past tense 1S (I threw)
-3. Present tense indicative 3MS (he throws)
-4. Present tense subjunctive 3MS (that he throw)
-5. Jussive 3MS with لَمْ (he did not throw)
-
-**Hint:** Apply the three principles:
-- Past 3MS: Final ي → ى alif maqsura
-- Past 1S: Final ي visible before suffix تُ
-- Present indicative: Final ي → long ī
-- Subjunctive: Final ي → fatha marker
-- Jussive: Final ي deletes
-
-**Expected answers:**
-1. رَمَى (ramā)
-2. رَمَيْتُ (ramaytu)
-3. يَرْمِي (yarmī)
-4. يَرْمِيَ (yarmiya)
-5. لَمْ يَرْمِ (lam yarmi)
-
-</ExerciseBox>
-
-<ExerciseBox
-  question="Exercise 4: Al-Fatiha Root Analysis"
->
-
-Analyze the root ه-د-ي (h-d-y) in Al-Fatiha. Identify how the imperative ٱِهْدِنَا demonstrates defective verb characteristics.
-
-
-Read Al-Fatiha 1:6: ٱهْدِنَا ٱلصِّرَٰطَ ٱلْمُسْتَقِيمَ
-
-**Questions:**
-1. What is the root of ٱِهْدِنَا?
-2. What is the base imperative form (before adding "us" pronoun)?
-3. How does the final ي interact with the pronoun نَا?
-4. What does this verb command us to ask Allah for?
-
-**Expected answers:**
-1. Root: ه-د-ي (h-d-y) "guiding"
-2. Base imperative: ٱِهْدِ (ihdi) "guide!"
-3. Final ي merges into vowel structure: ٱِهْدِ + نَا → ٱِهْدِنَا
-4. We ask Allah to guide us to the straight path — the central supplication of Islam
-
-</ExerciseBox>
-
-## Summary
-
-You've now mastered defective verbs — the second major weak verb category:
-
-**Key concepts:**
-1. **Defective verbs:** Final weak letter (و or ي) that transforms based on case/mood
-2. **Three principles:** Past alif transformation, present long vowel, mood marker interaction
-3. **Two subtypes:** Defective-waw (final و → ū) and defective-ya (final ي → ī)
-4. **Mood sensitivity:** Final weak letter changes form in subjunctive/jussive moods
-
-**Common defective verbs to remember:**
-- دَعَا (daʿā) / يَدْعُو (yadʿū) — call/supplicate
-- هَدَى (hadā) / يَهْدِي (yahdī) — guide
-- رَمَى (ramā) / يَرْمِي (yarmī) — throw
-- مَشَى (mashā) / يَمْشِي (yamshī) — walk
-- بَقِيَ (baqiya) / يَبْقَى (yabqā) — remain
-
-**Critical insight:** Defective verbs interact with Arabic's case and mood system. The final weak letter RESPONDS to grammatical markers (nominative/accusative/genitive, indicative/subjunctive/jussive), making these verbs more complex than hollow verbs.
-
-**Next steps:**
-- [L4.14 Assimilated Verbs](/learn/level-4/14-assimilated-verbs/) — Master initial-weak position (simplest category!)
-- [L4.15 Hamzated Verbs](/learn/level-4/15-hamzated-verbs/) — Handle hamza spelling rules
-- [L5.01 Advanced Morphology](/learn/level-5/16-sarf-synthesis/) — Combine weak verb knowledge with complex patterns
-
-**Remember:** Defective verbs follow PATTERNS based on grammatical context. Trust the three principles, understand mood markers, and you'll handle hundreds of defective verbs with confidence!
+import Step from '../../../components/lesson/Step.astro';
+import Stage from '../../../components/lesson/Stage.astro';
+import Sentence from '../../../components/lesson/Sentence.astro';
+import Tiles from '../../../components/lesson/Tiles.astro';
+import Formula from '../../../components/lesson/Formula.astro';
+import Conjugation from '../../../components/lesson/Conjugation.astro';
+import Note from '../../../components/lesson/Note.astro';
+import Check from '../../../components/lesson/Check.astro';
+import Start from '../../../components/lesson/Start.astro';
+import Sources from '../../../components/lesson/Sources.astro';
+import Parse from '../../../components/lesson/Parse.astro';
+import Exercise from '../../../components/lesson/Exercise.astro';
+import Block from '../../../components/lesson/Block.astro';
+
+{/* Content spec: docs/redesign/specs/L4.13-defective-verbs.md. Every parse follows al-Jadwal (Mahmud Safi). The rules of word shape are teaching summaries: see the spec. */}
+
+<Step hero id="start" label="The last letter" title={frontmatter.title} kicker={frontmatter.kicker} titleArabic={frontmatter.titleArabic}>
+<Block id="overview" title="In this lesson" level={2} uncounted>
+  <Stage label="The idea">
+    <Formula
+      label="what you see at the end depends on what follows"
+      items={[
+        { kind: 'm', text: 'root with a weak last letter', small: 'د ع و, ر م ي' },
+        { kind: 'k', text: 'what follows', small: 'an ending, or a mood' },
+        { kind: 's', text: 'what you see', small: 'an alif, the letter, or nothing' },
+      ]}
+    />
+  </Stage>
+  <Start
+    goal="Spot a verb whose last root letter is weak, tell its three past patterns apart, build the <b>13 past forms</b>, and read the present, the jussive, the command, the passive and the doer word of the same verbs."
+    minutes={90}
+    before="The past tense (L3.05), the present tense (L3.06), jazm (L3.07), the command (L3.08) and the passive (L3.09). Roots and Form I (L3.03, L3.04). The first look at weak verbs (L4.11)."
+    terms={[
+      { term: 'Defective verb', ar: 'نَاقِص', meaning: 'A verb whose last root letter is و or ي, like دَعَا. The name means “lacking”: the last letter is often missing.' },
+      { term: 'Weak letter', ar: 'حَرْف عِلَّة', meaning: 'و, ي and the long ā. They change shape or drop.' },
+      { term: 'Alif maqṣūra', ar: 'أَلِف مَقْصُورَة', meaning: 'An alif written like a ى, as at the end of رَمَىٰ. It sounds ā.' },
+      { term: 'Hidden vowel', ar: 'مُقَدَّر', meaning: 'A vowel the grammar counts but the word cannot show.' },
+      { term: 'Manqūṣ noun', ar: 'اسْم مَنْقُوص', meaning: 'A noun that ends in ي after a kasra, like ٱلدَّاعِي. The yāʾ drops before a tanwīn.' },
+      { term: 'Command of a plea', ar: 'أَمْر دُعَائِيّ', meaning: 'A command said to someone higher, as a request. ٱهْدِنَا is one.' },
+    ]}
+  />
+</Block>
+
+<Block id="see" title="Look at this verse" level={2}>
+  <Stage>
+    <Sentence
+      size="big"
+      roles
+      reference="Az-Zumar 39:8 (part)"
+      groups={[
+        { role: 'fiil', label: 'fiʿl + hidden fāʿil', hint: 'a past verb: “he called”', words: [{ ar: 'دَعَا', en: 'he called', say: 'daʿa', type: 'v' }] },
+        { words: [{ ar: 'رَبَّهُۥ', en: 'his Lord', say: 'rabbahu' }] },
+      ]}
+      en={['He called his Lord.']}
+    />
+    <Sentence
+      roles
+      reference="Az-Zumar 39:8 (part)"
+      groups={[
+        { role: 'fiil', label: 'fiʿl + hidden fāʿil', hint: 'a past verb: “he forgot”', words: [{ ar: 'نَسِىَ', en: 'he forgot', say: 'nasiya', type: 'v' }] },
+        { words: [{ ar: 'مَا', en: 'what', say: 'ma' }] },
+        { role: 'fiil', label: 'kāna', hint: 'a past verb: “he used to”', words: [{ ar: 'كَانَ', en: 'he used to', say: 'kana', type: 'v' }] },
+        { role: 'tied', hint: 'a present verb with its phrase: “call on Him for”', words: [{ ar: 'يَدْعُوٓا۟', en: 'call', say: 'yadu', type: 'v' }, { ar: 'إِلَيْهِ', en: 'on Him', say: 'ilayhi', type: 'p' }] },
+      ]}
+      en={['He forgot what he used to call on Him for.']}
+    />
+  </Stage>
+
+The verse is about a person who calls on his Lord when harm touches him, and forgets Him when relief comes. It has three verbs, and each ends in a different way.
+
+- **دَعَا** ends in an alif: “he called”.
+- **نَسِىَ** ends in a ي with a fatḥa: “he forgot”.
+- **يَدْعُوٓا۟** ends in a و: “he calls”, in the present.
+
+دَعَا and يَدْعُوٓا۟ come from the same root, د ع و. Look for the و. In يَدْعُوٓا۟ it shows. In دَعَا it has turned into an alif. The root of نَسِىَ is ن س ي.
+
+The small round mark over the alif after the و of يَدْعُوٓا۟ tells you not to say that alif. L3.05 showed it after the wāw of “they”. Here it follows a verb for one person (Mistake 3 comes back to this).
+
+<Check n={1} q="Which of the three verbs has the same root as دَعَا?" options={['نَسِىَ', 'يَدْعُوٓا۟', 'كَانَ']} answer={1} why="Both come from د ع و. The و is hidden in دَعَا and visible in يَدْعُوٓا۟." />
+</Block>
+
+<Block id="name" title="What a defective verb is">
+  <Stage label="Three roots">
+    <Tiles
+      label="Verbs whose last root letter is weak"
+      items={[
+        { ar: 'دَعَا', en: 'root د ع و: the last letter is و', type: 'v' },
+        { ar: 'رَمَىٰ', en: 'root ر م ي: the last letter is ي', type: 'v' },
+        { ar: 'نَسِىَ', en: 'root ن س ي: the last letter is ي', type: 'v' },
+      ]}
+    />
+  </Stage>
+
+A **defective verb** (فِعْل نَاقِص, *fiʿl nāqiṣ*) has a weak letter, و or ي, as its **last** root letter. Count the root of دَعَا: د, ع, و. The third letter is a و.
+
+The word نَاقِص means “lacking”. In many forms the last letter seems to be missing, as in دَعَا, which shows only two letters of the root.
+
+L3.03 and L3.05 named the other weak kinds. In a **hollow** verb the middle letter is weak (قَالَ, L4.12). In an **assimilated** verb the first letter is weak (وَعَدَ, L4.14). A verb can have more than one weak letter, like و ق ي, whose first and last letters are both weak.
+
+The weak last letter can do three things. This lesson shows when each happens.
+
+- It can **stay**: يَدْعُو, with the و.
+- It can turn into an **alif**: دَعَا.
+- It can **drop**: لَمْ يَدْعُ, without the و.
+
+<Check n={2} q="Which root has a weak LAST letter?" options={['ق و ل', 'د ع و', 'و ع د']} answer={1} why="د ع و ends in و. ق و ل has its weak letter in the middle (hollow), and و ع د has it at the start (assimilated)." />
+</Block>
+
+<Block id="compare" title="A sound verb and a defective verb side by side">
+  <Stage label="كَتَبَ and هَدَىٰ">
+    <Tiles
+      label="Sound against defective"
+      items={[
+        { ar: 'كَتَبَ', en: 'sound: all three letters show', type: 'v' },
+        { ar: 'هَدَىٰ', en: 'defective: two letters and an alif', type: 'v' },
+        { ar: 'لَمْ يَكْتُبْ', en: 'sound: a sukūn', type: 'v' },
+        { ar: 'لَمْ يَهْدِ', en: 'defective: the last letter is gone', type: 'v' },
+      ]}
+    />
+  </Stage>
+
+A sound verb keeps all three root letters in every form. A defective verb does not. The table puts كَتَبَ (root ك ت ب, “he wrote”) beside هَدَىٰ (root ه د ي, “he guided”).
+
+| Form | Sound: كَتَبَ | Defective: هَدَىٰ | What is different |
+|---|---|---|---|
+| past, he | كَتَبَ | هَدَىٰ | the last root letter shows as an alif |
+| past, I | كَتَبْتُ | هَدَيْتُ | the same: the last letter takes a sukūn |
+| past, they (men) | كَتَبُوا | هَدَوْا | the alif has dropped, and a fatḥa stays before the و |
+| present, he | يَكْتُبُ | يَهْدِي | a ḍamma that shows, and one that is hidden |
+| jazm | لَمْ يَكْتُبْ | لَمْ يَهْدِ | a sukūn, and a dropped letter |
+| command | ٱكْتُبْ | ٱهْدِ | a sukūn, and a dropped letter |
+
+The sound verb needs no new rule. The defective verb has three things to learn: the alif in the past, the long vowel in the present, and the drop in jazm and the command. The last three are the same drop.
+
+<Check n={3} q="In which form do كَتَبَ and هَدَىٰ look most alike?" options={['I: كَتَبْتُ and هَدَيْتُ', 'He: كَتَبَ and هَدَىٰ', 'Jazm: لَمْ يَكْتُبْ and لَمْ يَهْدِ']} answer={0} why="Before تُ both verbs show their last root letter with a sukūn. In the other two forms the defective verb looks different." />
+</Block>
+
+<Block id="book" title="What the book says">
+  <Stage label="From al-Ajurrumiyyah">
+    <blockquote class="lx-quote" lang="ar" dir="rtl">
+      <p>وَأَمَّا الْحَذْفُ فَيَكُونُ عَلَامَةً لِلْجَزْمِ فِي الْفِعْلِ الْمُضَارِعِ الْمُعْتَلِّ الْآخِرِ وَفِي الْأَفْعَالِ الْخَمْسَةِ الَّتِي رَفْعُهَا بِثَبَاتِ النُّونِ</p>
+    </blockquote>
+    <p class="lx-quote-note"><i>Al-Ajurrumiyyah</i>, chapter on the signs of iʿrāb. Vowel marks added by Quran Learn.</p>
+  </Stage>
+
+L3.07 showed this line. It says that jazm shows by **dropping a letter** in two kinds of present verb. One is the five verbs, which lose their nūn. The other is the present verb that is **الْمُعْتَلُّ الْآخِرِ**, “weak at the end”.
+
+That is the verb of this lesson. The book names it by its weak end. Al-Jadwal uses the shorter name نَاقِص, for example on 3:151.
+
+The book gives only the one rule: the weak letter drops in jazm. The rest of this lesson is a teaching summary made from the Quran text and al-Jadwal. No approved book states the other rules in this form, and the lesson says so where it matters.
+
+<Check n={4} q="What happens to the weak last letter of a present verb in jazm?" options={['It drops', 'It takes a sukūn', 'It turns into a nūn']} answer={0} why="The book says jazm shows by dropping the last weak letter. A sound last letter takes a sukūn instead." />
+</Block>
+
+<Block id="count" title="How common these verbs are">
+  <Stage label="The eleven Form I verbs with most words">
+    <Tiles
+      label="Defective verbs, with their number of verb words in the Corpus"
+      items={[
+        { ar: 'رَأَىٰ', en: 'he saw: 271', type: 'v' },
+        { ar: 'أَتَىٰ', en: 'he came: 264', type: 'v' },
+        { ar: 'دَعَا', en: 'he called: 170', type: 'v' },
+        { ar: 'هَدَىٰ', en: 'he guided: 144', type: 'v' },
+        { ar: 'جَزَىٰ', en: 'he repaid: 73', type: 'v' },
+        { ar: 'تَلَا', en: 'he recited: 61', type: 'v' },
+        { ar: 'قَضَىٰ', en: 'he decided: 59', type: 'v' },
+        { ar: 'جَرَىٰ', en: 'it flowed: 57', type: 'v' },
+        { ar: 'خَشِيَ', en: 'he feared: 40', type: 'v' },
+        { ar: 'رَضِيَ', en: 'he was pleased: 38', type: 'v' },
+        { ar: 'نَسِيَ', en: 'he forgot: 35', type: 'v' },
+      ]}
+    />
+  </Stage>
+
+In the Corpus file, **3,481** of the 19,356 verb words (18.0%) come from a root with a weak last letter. That is the same 18.0% that L3.05 gave.
+
+The last letter is ي much more often than و. There are 2,705 words and 78 roots with a last ي, and 776 words and 62 roots with a last و.
+
+The tiles show the eleven Form I verbs with the most words. The number counts every form of the verb: past, present and command. رَأَىٰ and أَتَىٰ also have a hamza (L4.15), and so does ءَاتَىٰ (“he gave”, Form IV, 271 words).
+
+<Note kind="know">Quran Learn counted the verb words in the Corpus file whose root has و or ي as its third letter, and the verbs by the Corpus lemma. A verb with a weak middle and last letter, like ح ي ي, is also in the hollow count. Some Corpus tags are wrong, so read these numbers as close, not exact.</Note>
+
+<Check n={5} q="Which last letter is more common in defective verbs?" options={['و', 'ي']} answer={1} why="The Corpus has 2,705 words with a last ي and 776 with a last و." />
+</Block>
+
+<Block id="find" title="Finding the hidden letter">
+  <Stage label="Al-Anfal 8:17">
+    <Tiles
+      label="The same verb, two shapes"
+      items={[
+        { ar: 'رَمَىٰ', en: 'he threw: two root letters and an alif', type: 'v' },
+        { ar: 'رَمَيْتَ', en: 'you threw: all three root letters', type: 'v' },
+      ]}
+    />
+  </Stage>
+
+L3.05 showed both words in Al-Anfal 8:17. The root is ر م ي. In رَمَىٰ you see ر and م, then an alif. In رَمَيْتَ the ي has come back.
+
+A defective verb hides its last root letter in some forms and shows it in others. To find the letter, change the verb to “I” and look before the تُ: دَعَا gives دَعَوْتُ, and رَمَىٰ gives رَمَيْتُ.
+
+This test works for verbs that end in an alif. Step 2 shows one pattern where it does not.
+
+<Check n={6} q="Which form shows the last root letter of دَعَا?" options={['دَعَوْتُ', 'دَعَتْ', 'دَعَا']} answer={0} why="دَعَوْتُ shows the و before تُ. دَعَتْ and دَعَا hide it." />
+</Block>
+</Step>
+
+<Step id="past" label="The past" title="The past tense: three patterns and 13 forms">
+<Block id="three" title="Three patterns for “he”">
+  <Stage label="Three past verbs">
+    <Tiles
+      label="The three patterns of the past verb"
+      items={[
+        { ar: 'دَعَا', en: '1: an alif from و (root د ع و)', type: 'v' },
+        { ar: 'رَمَىٰ', en: '2: an alif written ىٰ, from ي (root ر م ي)', type: 'v' },
+        { ar: 'نَسِىَ', en: '3: no alif; the ي stays (root ن س ي)', type: 'v' },
+      ]}
+    />
+  </Stage>
+
+The past verb for “he” has three patterns.
+
+1. **An alif from و.** دَعَا, from د ع و.
+2. **An alif from ي.** رَمَىٰ, from ر م ي. It is written with ىٰ, the alif maqṣūra, an alif that looks like a ي with no dots. It sounds the same as the alif of دَعَا.
+3. **The -iya pattern.** نَسِيَ, from ن س ي. There is no alif. The ي shows, with a fatḥa.
+
+Why does the weak letter turn into an alif in the first two? Al-Jadwal gives the reason for the present verbs يَخْشَىٰ (20:3) and لِتَشْقَىٰ (20:2): the weak letter has a vowel, and it comes after a fatḥa, so it turns into an alif. The same happens in دَعَا and رَمَىٰ. The letter before the last one has a fatḥa.
+
+In نَسِيَ the letter before the last one, the س, has a **kasra**. So the ي does not turn into an alif. This part of the reason is a teaching summary. No approved book words it like this.
+
+The patterns follow the doors of L3.04. دَعَا يَدْعُو is door 1 (al-Jadwal calls it the door of نَصَرَ, on 2:186). رَمَىٰ يَرْمِي is door 2. نَسِيَ يَنْسَىٰ is door 4, with a kasra in the past and a fatḥa in the present.
+
+<Note kind="tip">The Quran text in this course (Tanzil) writes the last ي of the -iya pattern without dots: نَسِىَ, رَضِىَ. The tables below write it with the dots, as in the usual spelling: نَسِيَ.</Note>
+
+<Check n={7} q="Which verb has the -iya pattern?" options={['دَعَا', 'رَمَىٰ', 'خَشِيَ']} answer={2} why="خَشِيَ has a kasra on its middle letter and a ي with a fatḥa at the end. دَعَا and رَمَىٰ end in an alif." />
+</Block>
+
+<Block id="forms-w" title="All 13 forms of دَعَا">
+  <Stage label="A verb with a last و">
+    <Conjugation
+      caption="دَعَا, “he called”: past tense, root د ع و"
+      endLabel="After the middle letter"
+      rows={[
+        { group: 'He and she' },
+        { who: 'he', pr: 'هُوَ', ar: 'دَعَا', end: 'ـَا', say: 'daʿā', hi: true },
+        { who: 'she', pr: 'هِيَ', ar: 'دَعَتْ', end: 'ـَتْ', say: 'daʿat', hi: true },
+        { group: 'Two people' },
+        { who: 'the two (men)', pr: 'هُمَا', ar: 'دَعَوَا', end: 'ـَوَا', say: 'daʿawā' },
+        { who: 'the two (women)', pr: 'هُمَا', ar: 'دَعَتَا', end: 'ـَتَا', say: 'daʿatā' },
+        { group: 'Many people' },
+        { who: 'they (men)', pr: 'هُمْ', ar: 'دَعَوْا', end: 'ـَوْا', say: 'daʿaw', hi: true },
+        { who: 'they (women)', pr: 'هُنَّ', ar: 'دَعَوْنَ', end: 'ـَوْنَ', say: 'daʿawna' },
+        { group: 'You' },
+        { who: 'you (one man)', pr: 'أَنْتَ', ar: 'دَعَوْتَ', end: 'ـَوْتَ', say: 'daʿawta' },
+        { who: 'you (one woman)', pr: 'أَنْتِ', ar: 'دَعَوْتِ', end: 'ـَوْتِ', say: 'daʿawti' },
+        { who: 'you two', pr: 'أَنْتُمَا', ar: 'دَعَوْتُمَا', end: 'ـَوْتُمَا', say: 'daʿawtumā' },
+        { who: 'you all (men)', pr: 'أَنْتُمْ', ar: 'دَعَوْتُمْ', end: 'ـَوْتُمْ', say: 'daʿawtum' },
+        { who: 'you all (women)', pr: 'أَنْتُنَّ', ar: 'دَعَوْتُنَّ', end: 'ـَوْتُنَّ', say: 'daʿawtunna' },
+        { group: 'I and we' },
+        { who: 'I', pr: 'أَنَا', ar: 'دَعَوْتُ', end: 'ـَوْتُ', say: 'daʿawtu', hi: true },
+        { who: 'we', pr: 'نَحْنُ', ar: 'دَعَوْنَا', end: 'ـَوْنَا', say: 'daʿawnā' },
+      ]}
+    />
+  </Stage>
+
+The endings are the 13 endings of L3.05. The stem is what changes. The **After the middle letter** column starts with the vowel of the ع, the second root letter, and shows everything after it.
+
+Look at the rows in three groups.
+
+- **He** keeps the alif.
+- **She**, the two women and they (men) have no alif: دَعَتْ, دَعَتَا, دَعَوْا. The fatḥa on the ع stays.
+- **The two men** and every form with a consonant ending show the و: دَعَوَا, and from دَعَوْنَ to دَعَوْنَا.
+
+The next two blocks explain the groups.
+
+These forms are in the Quran text: دَعَا (39:8), دَعَوَا (7:189, written دَّعَوَا), دَعَوْا۟ (25:13), دَعَوْتُ (71:5) and, with an attached pronoun, أَدَعَوْتُمُوهُمْ (7:193), “did you call them?”. The other forms are teaching forms. They follow the endings of L3.05.
+
+<Check n={8} q="Which form of دَعَا has no alif and no و?" options={['دَعَتْ', 'دَعَوَا', 'دَعَوْتُ']} answer={0} why="In دَعَتْ the alif has dropped before the ت. دَعَوَا and دَعَوْتُ both show the و." />
+</Block>
+
+<Block id="forms-y" title="All 13 forms of رَمَىٰ">
+  <Stage label="A verb with a last ي">
+    <Conjugation
+      caption="رَمَىٰ, “he threw”: past tense, root ر م ي"
+      endLabel="After the middle letter"
+      rows={[
+        { group: 'He and she' },
+        { who: 'he', pr: 'هُوَ', ar: 'رَمَىٰ', end: 'ـَىٰ', say: 'ramā', hi: true },
+        { who: 'she', pr: 'هِيَ', ar: 'رَمَتْ', end: 'ـَتْ', say: 'ramat', hi: true },
+        { group: 'Two people' },
+        { who: 'the two (men)', pr: 'هُمَا', ar: 'رَمَيَا', end: 'ـَيَا', say: 'ramayā' },
+        { who: 'the two (women)', pr: 'هُمَا', ar: 'رَمَتَا', end: 'ـَتَا', say: 'ramatā' },
+        { group: 'Many people' },
+        { who: 'they (men)', pr: 'هُمْ', ar: 'رَمَوْا', end: 'ـَوْا', say: 'ramaw', hi: true },
+        { who: 'they (women)', pr: 'هُنَّ', ar: 'رَمَيْنَ', end: 'ـَيْنَ', say: 'ramayna' },
+        { group: 'You' },
+        { who: 'you (one man)', pr: 'أَنْتَ', ar: 'رَمَيْتَ', end: 'ـَيْتَ', say: 'ramayta' },
+        { who: 'you (one woman)', pr: 'أَنْتِ', ar: 'رَمَيْتِ', end: 'ـَيْتِ', say: 'ramayti' },
+        { who: 'you two', pr: 'أَنْتُمَا', ar: 'رَمَيْتُمَا', end: 'ـَيْتُمَا', say: 'ramaytumā' },
+        { who: 'you all (men)', pr: 'أَنْتُمْ', ar: 'رَمَيْتُمْ', end: 'ـَيْتُمْ', say: 'ramaytum' },
+        { who: 'you all (women)', pr: 'أَنْتُنَّ', ar: 'رَمَيْتُنَّ', end: 'ـَيْتُنَّ', say: 'ramaytunna' },
+        { group: 'I and we' },
+        { who: 'I', pr: 'أَنَا', ar: 'رَمَيْتُ', end: 'ـَيْتُ', say: 'ramaytu', hi: true },
+        { who: 'we', pr: 'نَحْنُ', ar: 'رَمَيْنَا', end: 'ـَيْنَا', say: 'ramaynā' },
+      ]}
+    />
+  </Stage>
+
+This table is the same as the last one, with ي in place of و. The he-form is written with ىٰ, and the three groups are the same.
+
+- **He** keeps the alif, written ىٰ: رَمَىٰ.
+- **She**, the two women and they (men) have no alif: رَمَتْ, رَمَتَا, رَمَوْا. Look at رَمَوْا: it has a و, and the root has none. The و is the doer, “they”.
+- **The two men** and every form with a consonant ending show the ي: رَمَيَا, رَمَيْتُ.
+
+In the Quran text رَمَىٰ and رَمَيْتَ (8:17) are the only Form I past forms of this root. Other verbs with a last ي show the other forms: فَأَتَتْ (19:27), أَتَيَآ (18:77), أَتَوا۟ (3:188), وَجَرَيْنَ (10:22), عَصَيْتُ (6:15) and هَدَيْنَا (6:84). The verb مَشَىٰ, “he walked”, is in the Quran text only as مَّشَوْا۟ (2:20), apart from its present and its command.
+
+<Check n={9} q="Which form means “they (men) threw”?" options={['رَمَوْا', 'رَمَيْنَ', 'رَمَتَا']} answer={0} why="رَمَوْا ends in the doer wāw. رَمَيْنَ is “they (women)” and رَمَتَا is “the two women”." />
+</Block>
+
+<Block id="drop" title="When the alif drops">
+  <Stage>
+    <Sentence
+      roles
+      reference="Maryam 19:27 (part)"
+      groups={[
+        { role: 'fiil', label: 'fiʿl + hidden fāʿil', hint: 'the alif of أَتَىٰ has dropped before the ت: “she came”', words: [{ ar: 'فَأَتَتْ', en: 'so she came', say: 'fa-atat', type: 'v' }] },
+        { role: 'jarMajrur', hint: 'bi- “with” the pronoun “him”', words: [{ ar: 'بِهِۦ', en: 'with him', say: 'bihi', type: 'p' }] },
+        { role: 'maful', hint: 'the people she came to', words: [{ ar: 'قَوْمَهَا', en: 'her people', say: 'qawmaha' }] },
+      ]}
+      en={['So she came to her people with him.']}
+    />
+    <Sentence
+      roles
+      reference="Al-Furqan 25:13 (part)"
+      groups={[
+        { role: 'fiil', label: 'fiʿl + fāʿil', hint: 'the wāw is the doer: “they”; the alif of دَعَا has dropped', words: [{ ar: 'دَعَوْا۟', en: 'they called', say: 'daaw', type: 'v' }] },
+        { role: 'zarf', hint: 'where: “there”', words: [{ ar: 'هُنَالِكَ', en: 'there', say: 'hunalika' }] },
+        { role: 'maful', hint: 'what they call for', words: [{ ar: 'ثُبُورًا', en: 'destruction', say: 'thubura' }] },
+      ]}
+      en={['They call there for destruction.']}
+    />
+  </Stage>
+
+In the she-form, the form for two women and the they-form, the stem loses its alif. أَتَىٰ + تْ gives أَتَتْ. دَعَا + وا gives دَعَوْا. The fatḥa before the lost alif stays, so you can still hear where it was.
+
+For -at and -ū al-Jadwal gives one reason: the alif would meet a silent letter, and two silent letters cannot stand together. On 25:13 he calls دَعَوْا۟ a verb built on a ḍamma that cannot be seen, on the dropped alif, and the wāw is the doer. On 20:121 he says the same of the she-form بَدَتْ.
+
+The feminine dual دَعَتَا is built on the she-form: دَعَتْ + ا. This is a teaching summary, not a line of al-Jadwal.
+
+Before a word that starts with ٱ the wāw of “they” takes a ḍamma in the Quran text, as in دَعَوُا۟ ٱللَّهَ (10:22) and ٱشْتَرَوُا۟ ٱلضَّلَٰلَةَ (2:16). It is the same wāw. The alif after it is written and not read.
+
+<Check n={10} q="What happened to the alif of أَتَىٰ in فَأَتَتْ?" options={['It dropped before the ت', 'It stayed', 'It turned into a و']} answer={0} why="The alif would meet the silent ت, so it drops. The fatḥa on the letter before it stays." />
+</Block>
+
+<Block id="show" title="When the weak letter comes back">
+  <Stage>
+    <Sentence
+      roles
+      reference="Al-Kahf 18:77 (part)"
+      groups={[
+        { words: [{ ar: 'إِذَآ', en: 'when', say: 'idha', type: 'p' }] },
+        { role: 'fiil', label: 'fiʿl + fāʿil', hint: 'the alif is the doer: “the two of them”; the ي shows before it', words: [{ ar: 'أَتَيَآ', en: 'the two came to', say: 'atayaa', type: 'v' }] },
+        { role: 'maful', hint: 'the place they came to', words: [{ ar: 'أَهْلَ', en: 'the people of', say: 'ahla' }, { ar: 'قَرْيَةٍ', en: 'a town', say: 'qaryatin' }] },
+      ]}
+      en={['When the two came to the people of a town…']}
+    />
+    <Sentence
+      roles
+      reference="Nuh 71:5 (part)"
+      groups={[
+        { role: 'fiil', label: 'fiʿl + fāʿil', hint: '-tu is the doer: “I”; the و shows before it', words: [{ ar: 'دَعَوْتُ', en: 'I called', say: 'daawtu', type: 'v' }] },
+        { role: 'maful', hint: 'the object', words: [{ ar: 'قَوْمِى', en: 'my people', say: 'qawmi' }] },
+        { role: 'zarf', hint: 'when', words: [{ ar: 'لَيْلًا', en: 'by night', say: 'laylan' }, { ar: 'وَنَهَارًا', en: 'and by day', say: 'wa-naharan' }] },
+      ]}
+      en={['I called my people by night and by day.']}
+    />
+    <Sentence
+      roles
+      reference="Yunus 10:22 (part)"
+      groups={[
+        { role: 'fiil', label: 'fiʿl + fāʿil', hint: 'the nūn is the doer: “they”, the ships; the ي shows before it', words: [{ ar: 'وَجَرَيْنَ', en: 'and they ran', say: 'wa-jarayna', type: 'v' }] },
+        { role: 'jarMajrur', hint: 'bi- “with” “them”', words: [{ ar: 'بِهِم', en: 'with them', say: 'bihim', type: 'p' }] },
+        { role: 'jarMajrur', hint: 'bi- “with” a wind', words: [{ ar: 'بِرِيحٍ', en: 'with a wind', say: 'birihin', type: 'p' }, { ar: 'طَيِّبَةٍ', en: 'good', say: 'tayyibatin' }] },
+      ]}
+      en={['…and they sailed with them in a good wind.']}
+    />
+  </Stage>
+
+The weak letter comes back in two places.
+
+- **The alif of -ā** (the two men): the letter returns with a fatḥa before it. دَعَوَا, رَمَيَا, أَتَيَآ in 18:77.
+- **A consonant ending** (-ta, -tu, -nā, -na and the rest): the letter returns with a sukūn. دَعَوْتُ, رَمَيْتُ, وَجَرَيْنَ.
+
+L3.05 taught that the last root letter takes a sukūn before these endings. In a defective verb the last root letter is the weak letter. The alif of the stem cannot carry a sukūn, so the root letter comes back and takes it. Say it slowly: *da-ʿaw-tu*. This is a teaching summary.
+
+In 10:22 the doer -na is the feminine plural. It speaks of the ships, which Arabic treats as feminine. Al-Jadwal calls the nūn “the nūn of women”.
+
+<Check n={11} q="Where is the sukūn in رَمَيْتُ?" options={['On the م', 'On the ي', 'On the تُ']} answer={1} why="The ي is the last root letter. It comes back and takes the sukūn before the ending تُ." />
+</Block>
+
+<Block id="iya" title="The -iya pattern: نَسِيَ">
+  <Stage label="A verb with a kasra before the last letter">
+    <Conjugation
+      caption="نَسِيَ, “he forgot”: past tense, root ن س ي"
+      endLabel="After the middle letter"
+      rows={[
+        { group: 'He and she' },
+        { who: 'he', pr: 'هُوَ', ar: 'نَسِيَ', end: 'ـِيَ', say: 'nasiya', hi: true },
+        { who: 'she', pr: 'هِيَ', ar: 'نَسِيَتْ', end: 'ـِيَتْ', say: 'nasiyat' },
+        { group: 'Two people' },
+        { who: 'the two (men)', pr: 'هُمَا', ar: 'نَسِيَا', end: 'ـِيَا', say: 'nasiyā' },
+        { who: 'the two (women)', pr: 'هُمَا', ar: 'نَسِيَتَا', end: 'ـِيَتَا', say: 'nasiyatā' },
+        { group: 'Many people' },
+        { who: 'they (men)', pr: 'هُمْ', ar: 'نَسُوا', end: 'ـُوا', say: 'nasū', hi: true },
+        { who: 'they (women)', pr: 'هُنَّ', ar: 'نَسِينَ', end: 'ـِينَ', say: 'nasīna' },
+        { group: 'You' },
+        { who: 'you (one man)', pr: 'أَنْتَ', ar: 'نَسِيتَ', end: 'ـِيتَ', say: 'nasīta' },
+        { who: 'you (one woman)', pr: 'أَنْتِ', ar: 'نَسِيتِ', end: 'ـِيتِ', say: 'nasīti' },
+        { who: 'you two', pr: 'أَنْتُمَا', ar: 'نَسِيتُمَا', end: 'ـِيتُمَا', say: 'nasītumā' },
+        { who: 'you all (men)', pr: 'أَنْتُمْ', ar: 'نَسِيتُمْ', end: 'ـِيتُمْ', say: 'nasītum' },
+        { who: 'you all (women)', pr: 'أَنْتُنَّ', ar: 'نَسِيتُنَّ', end: 'ـِيتُنَّ', say: 'nasītunna' },
+        { group: 'I and we' },
+        { who: 'I', pr: 'أَنَا', ar: 'نَسِيتُ', end: 'ـِيتُ', say: 'nasītu', hi: true },
+        { who: 'we', pr: 'نَحْنُ', ar: 'نَسِينَا', end: 'ـِينَا', say: 'nasīnā' },
+      ]}
+    />
+    <Sentence
+      roles
+      reference="As-Sajdah 32:14 (part)"
+      groups={[
+        { role: 'tied', hint: 'bi- “because of” what you forgot', words: [{ ar: 'بِمَا', en: 'because', say: 'bima', type: 'p' }, { ar: 'نَسِيتُمْ', en: 'you forgot', say: 'nasitum', type: 'v' }] },
+        { role: 'maful', hint: 'what they forgot', words: [{ ar: 'لِقَآءَ', en: 'the meeting of', say: 'liqaa' }, { ar: 'يَوْمِكُمْ', en: 'your day', say: 'yawmikum' }, { ar: 'هَٰذَآ', en: 'this', say: 'hadha' }] },
+        { words: [{ ar: 'إِنَّا', en: 'indeed we', say: 'inna', type: 'p' }] },
+        { role: 'fiil', label: 'fiʿl + fāʿil + object', hint: '-nā is the doer: “we”; -kum is the object: “you”', words: [{ ar: 'نَسِينَٰكُمْ', en: 'we forgot you', say: 'nasinakum', type: 'v' }] },
+      ]}
+      en={['…because you forgot the meeting of this day of yours. We forget you.']}
+    />
+  </Stage>
+
+The -iya pattern keeps its ي in almost every form. Three things to see.
+
+- **He, she and the two:** the ي keeps its fatḥa: نَسِيَ, نَسِيَتْ, نَسِيَا, نَسِيَتَا. There was never an alif.
+- **They (men):** the ي drops, and the kasra before it becomes a ḍamma to fit the wāw: نَسُوا. This is a teaching summary. It is the same change that al-Jadwal explains for the present يَمْشُونَ (Step 3).
+- **Consonant endings:** the ي takes a sukūn and is read as a long ī: نَسِيتُ, نَسِينَا, and the women’s form نَسِينَ.
+
+In 32:14 you see two forms: نَسِيتُمْ (“you all forgot”) and نَسِينَٰكُمْ, which is نَسِينَا (“we forgot”) with the object كُمْ.
+
+These forms are in the Quran text: نَسِىَ (39:8), نَسِيَا (18:61), نَسُوا۟ (59:19), نَسِيتَ (18:24), نَسِيتُ (18:63), نَّسِينَآ (2:286) and فَعَمِيَتْ (28:66, from the same pattern, root ع م ي, “she”). Al-Jadwal reads لَقِينَا in 18:62 as a past verb built on a sukūn with نَا as the doer.
+
+<Note kind="know">The -iya pattern hides the root. رَضِيَ (“he was pleased”, 9:100) is written with a ي, but its root is ر ض و. Al-Jadwal says on مَرْضِيَّة (89:28) that the original is مرضوي. So the test of “find the hidden letter” (Step 1) works for verbs that end in an alif, and it fails for the -iya pattern.</Note>
+
+<Check n={12} q="What happened to the ي of نَسِيَ in نَسُوا?" options={['It dropped, and the kasra became a ḍamma', 'It turned into an alif', 'It stayed']} answer={0} why="The ي drops before the wāw of “they”, and the kasra before it turns into a ḍamma to match the wāw." />
+</Block>
+
+<Block id="spell" title="Alif or ىٰ? Do not trust the spelling">
+  <Stage label="Usual spelling, and four exceptions">
+    <Tiles
+      label="The spelling does not always show the root"
+      items={[
+        { ar: 'دَعَا', en: 'root و, written with an alif', type: 'v' },
+        { ar: 'رَمَىٰ', en: 'root ي, written ىٰ', type: 'v' },
+        { ar: 'سَجَىٰ', en: 'root و, written ىٰ (93:2)', type: 'v' },
+        { ar: 'رَءَا', en: 'root ي, written with an alif (6:76)', type: 'v' },
+      ]}
+    />
+  </Stage>
+
+The usual spelling of a three-letter verb is an alif when the root letter is و (دَعَا, عَفَا, بَدَا) and ىٰ when it is ي (رَمَىٰ, هَدَىٰ). The Quran text has exceptions.
+
+Quran Learn counted the Form I past “he” verbs with a three-letter stem in the Corpus (the -iya pattern left out).
+
+- **Root with و:** 29 words are written with an alif (7 verbs), and 5 words with ىٰ (5 verbs): تَلَىٰ (91:2), طَحَىٰ (91:6), دَحَىٰ (79:30), سَجَىٰ (93:2) and زَكَىٰ (24:21).
+- **Root with ي:** 171 words are written with ىٰ, and 20 with an alif: رَءَا (18 words, for example 6:76), طَغَا (69:11) and عَصَا (14:36).
+
+So do not use the spelling to find the root. Use the “I” form, دَعَوْتُ or رَمَيْتُ, or the present (Step 3).
+
+In the longer verbs, Forms II to X, the spelling is more regular. The Corpus tags 282 past “he” words as Forms II to X. 267 of them end in ىٰ, and 10 end in a plain alif: أَحْيَا (nine words, root ح ي ي) and تَوَلَّا (22:4). The other 5 are written with a small alif only, as in أَوْصَٰنِى (19:31).
+
+<Check n={13} q="What is the root of سَجَىٰ in 93:2?" options={['س ج ي', 'س ج و', 'س ج ج']} answer={1} why="The Corpus gives the root as س ج و. The word is written with ىٰ, but the last root letter is و." />
+</Block>
+</Step>
+
+<Step id="present" label="Present and command" title="The present, the jussive and the command">
+<Block id="present-three" title="Three presents: -ū, -ī and -ā">
+  <Stage>
+    <Sentence
+      roles
+      reference="Al-Jumuah 62:2 (part)"
+      groups={[
+        { role: 'fiil', label: 'fiʿl + hidden fāʿil', hint: 'a present verb: “he recites”. The و is the last root letter', words: [{ ar: 'يَتْلُوا۟', en: 'he recites', say: 'yatlu', type: 'v' }] },
+        { role: 'jarMajrur', hint: 'ʿalā “on” “them”', words: [{ ar: 'عَلَيْهِمْ', en: 'to them', say: 'alayhim', type: 'p' }] },
+        { role: 'maful', hint: 'the object', words: [{ ar: 'ءَايَٰتِهِۦ', en: 'His verses', say: 'ayatihi' }] },
+        { role: 'fiil', label: 'fiʿl + hidden fāʿil + object', hint: 'Form II, from ز ك و: “he purifies”; -hum is the object', words: [{ ar: 'وَيُزَكِّيهِمْ', en: 'and he purifies them', say: 'wa-yuzakkihim', type: 'v' }] },
+      ]}
+      en={['He recites His verses to them and purifies them.']}
+    />
+    <Sentence
+      roles
+      reference="Al-Baqarah 2:25 (part)"
+      groups={[
+        { role: 'manut', hint: 'the gardens', words: [{ ar: 'جَنَّٰتٍ', en: 'gardens', say: 'jannatin' }] },
+        { role: 'fiil', label: 'fiʿl + fāʿil', hint: 'a present verb: “flows”. The ي is the last root letter', words: [{ ar: 'تَجْرِى', en: 'flow', say: 'tajri', type: 'v' }] },
+        { role: 'jarMajrur', hint: 'min “from” “under it”', words: [{ ar: 'مِن', en: 'from', say: 'min', type: 'p' }, { ar: 'تَحْتِهَا', en: 'under them', say: 'tahtiha' }] },
+        { role: 'fail', hint: 'the doer', words: [{ ar: 'ٱلْأَنْهَٰرُ', en: 'the rivers', say: 'al-anharu' }] },
+      ]}
+      en={['Gardens under which the rivers flow.']}
+    />
+    <Sentence
+      roles
+      reference="Ta-Ha 20:3"
+      groups={[
+        { words: [{ ar: 'إِلَّا', en: 'but only', say: 'illa', type: 'p' }] },
+        { words: [{ ar: 'تَذْكِرَةً', en: 'a reminder', say: 'tadhkiratan' }] },
+        { role: 'tied', hint: 'li- “for” the one who fears', words: [{ ar: 'لِّمَن', en: 'for whoever', say: 'liman', type: 'p' }, { ar: 'يَخْشَىٰ', en: 'fears', say: 'yakhsha', type: 'v' }] },
+      ]}
+      en={['…but only as a reminder for whoever fears.']}
+    />
+  </Stage>
+
+Three verbs, three endings: **يَتْلُو** (-ū), **تَجْرِي** (-ī) and **يَخْشَىٰ** (-ā). In each one the last root letter is a long vowel, and no short vowel shows on it.
+
+In the plain present (rafʿ) the books say a ḍamma is there, but **hidden**. Al-Jadwal says it of تَجْرِى in 2:25: a ḍamma hidden on the yāʾ. L3.06 introduced the idea with يَدْعُو. An alif cannot carry a vowel at all. Al-Jadwal says of يَتَوَلَّىٰ in 3:23 that its ḍamma is hidden on the alif.
+
+Which ending does a verb take? Look at the vowel before the last letter.
+
+- **ḍamma:** the ending is **ـُو**. Every one of these in the Corpus has a root with و.
+- **kasra:** the ending is **ـِي**. Every one of these has a root with ي.
+- **fatḥa:** the ending is **ـَىٰ**. Roots with و and with ي both have it.
+
+The Corpus count is for the Form I present verbs that stand alone in the indicative (he, she, you (one), I, we): 67 words end in ـُو, all from a root with و. 236 end in ـِي, all from a root with ي. 22 end in ـَىٰ from a root with و, and 110 from a root with ي. This is a count by Quran Learn, and some tags are wrong.
+
+So the present helps you find the root: يَدْعُو shows a و, and يَرْمِي shows a ي. Some verbs have a fatḥa in the present because of a throat letter in the root (door 3 of L3.04): سَعَىٰ يَسْعَىٰ and نَهَىٰ يَنْهَىٰ. They also end in ـَىٰ.
+
+<Check n={14} q="The present of a verb is يَهْدِي. Which letter does the root end in?" options={['و', 'ي']} answer={1} why="An ending in ـِي always comes from a root with ي in the Corpus. A root with و gives ـُو." />
+</Block>
+
+<Block id="present-forms" title="The present in every person">
+  <Stage label="A verb with a last و">
+    <Conjugation
+      caption="يَدْعُو, “he calls”: present tense of دَعَا (root د ع و)"
+      endLabel="Prefix and ending"
+      rows={[
+        { group: 'One person' },
+        { who: 'he', pr: 'هُوَ', ar: 'يَدْعُو', end: 'يَـ + ـُو', say: 'yadʿū', hi: true },
+        { who: 'she', pr: 'هِيَ', ar: 'تَدْعُو', end: 'تَـ + ـُو', say: 'tadʿū' },
+        { who: 'you (one man)', pr: 'أَنْتَ', ar: 'تَدْعُو', end: 'تَـ + ـُو', say: 'tadʿū' },
+        { who: 'you (one woman)', pr: 'أَنْتِ', ar: 'تَدْعِينَ', end: 'تَـ + ـِينَ', say: 'tadʿīna', hi: true },
+        { who: 'I', pr: 'أَنَا', ar: 'أَدْعُو', end: 'أَ + ـُو', say: 'adʿū' },
+        { group: 'Two people' },
+        { who: 'they two (men)', pr: 'هُمَا', ar: 'يَدْعُوَانِ', end: 'يَـ + ـُوَانِ', say: 'yadʿuwāni' },
+        { who: 'they two (women)', pr: 'هُمَا', ar: 'تَدْعُوَانِ', end: 'تَـ + ـُوَانِ', say: 'tadʿuwāni' },
+        { who: 'you two', pr: 'أَنْتُمَا', ar: 'تَدْعُوَانِ', end: 'تَـ + ـُوَانِ', say: 'tadʿuwāni' },
+        { group: 'Many people' },
+        { who: 'they (men)', pr: 'هُمْ', ar: 'يَدْعُونَ', end: 'يَـ + ـُونَ', say: 'yadʿūna', hi: true },
+        { who: 'they (women)', pr: 'هُنَّ', ar: 'يَدْعُونَ', end: 'يَـ + ـُوْنَ', say: 'yadʿūna', hi: true },
+        { who: 'you all (men)', pr: 'أَنْتُمْ', ar: 'تَدْعُونَ', end: 'تَـ + ـُونَ', say: 'tadʿūna' },
+        { who: 'you all (women)', pr: 'أَنْتُنَّ', ar: 'تَدْعُونَ', end: 'تَـ + ـُوْنَ', say: 'tadʿūna' },
+        { who: 'we', pr: 'نَحْنُ', ar: 'نَدْعُو', end: 'نَـ + ـُو', say: 'nadʿū' },
+      ]}
+    />
+  </Stage>
+
+This is the present of the verb of door 1. The prefixes and the endings are those of L3.06. What changes is the end of the stem.
+
+- **One person:** the long ū, with the hidden ḍamma.
+- **The two:** the و comes back with a fatḥa before the alif: يَدْعُوَانِ.
+- **They (men):** the root و and the doer wāw meet and are written as one و: يَدْعُونَ. Al-Jadwal gives the pattern of this kind of word as يَفْعُونَ (on 3:23): the third root letter is gone.
+- **They (women):** the root و has a sukūn, and the women’s -na follows: يَدْعُوْنَ. It is written the same as the men’s form.
+- **You (one woman):** تَدْعِينَ, with a kasra.
+
+The table compares three verbs in the forms that change.
+
+| Who | و, ḍamma: يَدْعُو | ي, kasra: يَرْمِي | ي, fatḥa: يَخْشَىٰ |
+|---|---|---|---|
+| he | يَدْعُو | يَرْمِي | يَخْشَىٰ |
+| the two (men) | يَدْعُوَانِ | يَرْمِيَانِ | يَخْشَيَانِ |
+| they (men) | يَدْعُونَ | يَرْمُونَ | يَخْشَوْنَ |
+| they (women) | يَدْعُونَ | يَرْمِينَ | يَخْشَيْنَ |
+| you (one woman) | تَدْعِينَ | تَرْمِينَ | تَخْشَيْنَ |
+
+These forms are in the Quran text: يَدْعُونَ (2:221), يَرْمُونَ (24:4), يَخْشَوْنَ (21:49), يَبْغِيَانِ (55:20, “the two seek”), يَأْتِينَ (60:12, “they (women) bring”) and تَرَيِنَّ (19:26, “you (one woman) see”). The rest are teaching forms.
+
+<Check n={15} q="Two forms of يَدْعُو are written the same. Which?" options={['they (men) and they (women)', 'he and she', 'I and we']} answer={0} why="يَدْعُونَ is both “they (men)” and “they (women)”. In the women’s form the و is the root letter, and the nūn is the women’s ending." />
+</Block>
+
+<Block id="nasb" title="Naṣb: the letter stays, with a fatḥa">
+  <Stage>
+    <Sentence
+      roles
+      reference="Al-Maidah 5:48 (part)"
+      groups={[
+        { role: 'fiil', label: 'lām + fiʿl + object', hint: 'naṣb: the و shows a fatḥa, يَبْلُوَ. -kum is the object', words: [{ ar: 'لِّيَبْلُوَكُمْ', en: 'to test you', say: 'liyabluwakum', type: 'v' }] },
+        { role: 'tied', hint: 'in what He gave you', words: [{ ar: 'فِى', en: 'in', say: 'fi', type: 'p' }, { ar: 'مَآ', en: 'what', say: 'ma' }, { ar: 'ءَاتَىٰكُمْ', en: 'He gave you', say: 'atakum', type: 'v' }] },
+      ]}
+      en={['…to test you in what He gave you.']}
+    />
+    <Sentence
+      roles
+      reference="Ibrahim 14:32 (part)"
+      groups={[
+        { role: 'fiil', label: 'lām + fiʿl', hint: 'naṣb: the ي shows a fatḥa, تَجْرِيَ', words: [{ ar: 'لِتَجْرِىَ', en: 'so that it sails', say: 'litajriya', type: 'v' }] },
+        { role: 'jarMajrur', hint: 'fī “in” the sea', words: [{ ar: 'فِى', en: 'in', say: 'fi', type: 'p' }, { ar: 'ٱلْبَحْرِ', en: 'the sea', say: 'al-bahri' }] },
+        { role: 'jarMajrur', hint: 'bi- “by” His command', words: [{ ar: 'بِأَمْرِهِۦ', en: 'by His command', say: 'biamrihi', type: 'p' }] },
+      ]}
+      en={['…so that the ships sail on the sea by His command.']}
+    />
+    <Sentence
+      roles
+      reference="Ta-Ha 20:2"
+      groups={[
+        { words: [{ ar: 'مَآ', en: 'not', say: 'ma', type: 'p' }] },
+        { role: 'fiil', label: 'fiʿl + fāʿil', hint: '-nā: “we”', words: [{ ar: 'أَنزَلْنَا', en: 'We sent down', say: 'anzalna', type: 'v' }] },
+        { role: 'jarMajrur', hint: 'ʿalā “on” “you”', words: [{ ar: 'عَلَيْكَ', en: 'on you', say: 'alayka', type: 'p' }] },
+        { role: 'maful', hint: 'what was sent down', words: [{ ar: 'ٱلْقُرْءَانَ', en: 'the Quran', say: 'al-quran' }] },
+        { role: 'fiil', label: 'lām + fiʿl', hint: 'naṣb: the fatḥa is hidden on the alif', words: [{ ar: 'لِتَشْقَىٰٓ', en: 'so that you suffer', say: 'litashqa', type: 'v' }] },
+      ]}
+      en={['We did not send down the Quran to you so that you suffer.']}
+    />
+  </Stage>
+
+After لِ and the other words of naṣb (L3.07), the present ends in a fatḥa. A **sound** verb shows it: يَكْتُبَ.
+
+A weak last letter does three different things.
+
+| Mood | و root | ي root, kasra | ي root, fatḥa | What you see |
+|---|---|---|---|---|
+| Plain (rafʿ) | يَدْعُو | يَرْمِي | يَخْشَىٰ | a long vowel; the short vowel is hidden |
+| Naṣb | يَدْعُوَ | يَرْمِيَ | يَخْشَىٰ | a visible fatḥa on و and ي; hidden on the alif |
+| Jazm | يَدْعُ | يَرْمِ | يَخْشَ | the weak letter is gone |
+
+This is the table of L3.07 with the verbs of this lesson. The three verses show naṣb on a و (5:48), on a ي (14:32) and on an alif (20:2). Al-Jadwal says of لِتَشْقَىٰ in 20:2 that the fatḥa of naṣb is hidden on the alif. He also says why the alif is there: the original is تَشْقَي, and the yāʾ has a vowel after a fatḥa, so it turned into an alif.
+
+In naṣb the و and the ي do not turn into an alif. They stay, and they show their fatḥa. Only a verb that already ends in an alif hides it.
+
+<Check n={16} q="Where do you see the naṣb fatḥa of لِتَشْقَىٰٓ?" options={['On the ق', 'Nowhere: it is hidden on the alif', 'On the ت']} answer={1} why="The word ends in an alif, and an alif cannot carry a vowel. Al-Jadwal calls the fatḥa hidden on the alif." />
+</Block>
+
+<Block id="jazm" title="Jazm and the command: the letter drops">
+  <Stage>
+    <Sentence
+      roles
+      reference="Al-Qasas 28:88 (part)"
+      groups={[
+        { words: [{ ar: 'وَلَا', en: 'and do not', say: 'wa-la', type: 'p' }] },
+        { role: 'fiil', label: 'fiʿl + hidden fāʿil', hint: 'jazm: the و is gone, تَدْعُو becomes تَدْعُ', words: [{ ar: 'تَدْعُ', en: 'call', say: 'tadu', type: 'v' }] },
+        { role: 'zarf', hint: 'with whom', words: [{ ar: 'مَعَ', en: 'with', say: 'maa', type: 'p' }, { ar: 'ٱللَّهِ', en: 'Allah', say: 'allahi' }] },
+        { role: 'maful', hint: 'the object', words: [{ ar: 'إِلَٰهًا', en: 'a god', say: 'ilahan' }, { ar: 'ءَاخَرَ', en: 'other', say: 'akhara' }] },
+      ]}
+      en={['And do not call on another god with Allah.']}
+    />
+    <Sentence
+      roles
+      reference="As-Sajdah 32:26 (part)"
+      groups={[
+        { words: [{ ar: 'أَوَلَمْ', en: 'did it not', say: 'a-wa-lam', type: 'p' }] },
+        { role: 'fiil', label: 'fiʿl', hint: 'jazm: the ي is gone, يَهْدِي becomes يَهْدِ', words: [{ ar: 'يَهْدِ', en: 'guide', say: 'yahdi', type: 'v' }] },
+        { role: 'jarMajrur', hint: 'li- “for” “them”', words: [{ ar: 'لَهُمْ', en: 'them', say: 'lahum', type: 'p' }] },
+      ]}
+      en={['Did it not guide them…?']}
+    />
+    <Sentence
+      roles
+      reference="At-Tawbah 9:18 (part)"
+      groups={[
+        { words: [{ ar: 'وَلَمْ', en: 'and did not', say: 'wa-lam', type: 'p' }] },
+        { role: 'fiil', label: 'fiʿl + hidden fāʿil', hint: 'jazm: the alif is gone, the fatḥa stays', words: [{ ar: 'يَخْشَ', en: 'fear', say: 'yakhsha', type: 'v' }] },
+        { words: [{ ar: 'إِلَّا', en: 'except', say: 'illa', type: 'p' }] },
+        { role: 'maful', hint: 'the object', words: [{ ar: 'ٱللَّهَ', en: 'Allah', say: 'allaha' }] },
+      ]}
+      en={['…and fears none except Allah.']}
+    />
+  </Stage>
+
+After لَمْ and the لَا of a ban the present is in jazm (L3.07). A sound last letter takes a sukūn. A weak last letter **drops**, and the short vowel before it stays.
+
+- يَدْعُو gives لَمْ يَدْعُ, with the ḍamma.
+- يَهْدِي gives لَمْ يَهْدِ, with the kasra.
+- يَخْشَىٰ gives لَمْ يَخْشَ, with the fatḥa.
+
+The vowel that stays is a clue to the root, as in the plain present. A ḍamma points to و, and a kasra to ي. Other verses show the same drop: وَلَا تَمْشِ (17:37, from L3.07), وَلَا تَنسَ (28:77), ثُمَّ يَرْمِ (4:112) and يَخْلُ (12:9). Al-Jadwal says of يَرْمِ in 4:112 that its sign of jazm is the dropping of the weak letter, and of يَخْشَ in 9:18 the same. For لَمْ تَرَ (3:23, and the same words in 105:1) he says the same of the verb تَرَىٰ.
+
+<Check n={17} q="What is the jazm form of يَرْمِي?" options={['يَرْمِ', 'يَرْمِي', 'يَرْمَ']} answer={0} why="The ي drops and the kasra stays. يَرْمَ has a fatḥa, the vowel of a different verb." />
+</Block>
+
+<Block id="plural" title="They (men): the weak letter meets the wāw">
+  <Stage>
+    <Sentence
+      roles
+      reference="As-Sajdah 32:26 (part)"
+      groups={[
+        { role: 'fiil', label: 'fiʿl + fāʿil', hint: 'the wāw is the doer: “they”. The ي of يَمْشِي is gone', words: [{ ar: 'يَمْشُونَ', en: 'they walk', say: 'yamshuna', type: 'v' }] },
+        { role: 'jarMajrur', hint: 'fī “in” their homes', words: [{ ar: 'فِى', en: 'in', say: 'fi', type: 'p' }, { ar: 'مَسَٰكِنِهِمْ', en: 'their homes', say: 'masakinihim' }] },
+      ]}
+      en={['…they walk in their homes.']}
+    />
+    <Tiles
+      label="They (men), from the three kinds of verb"
+      items={[
+        { ar: 'يَدْعُونَ', en: 'root و: one و (2:221)', type: 'v' },
+        { ar: 'يَرْمُونَ', en: 'root ي, kasra: ḍamma (24:4)', type: 'v' },
+        { ar: 'يَخْشَوْنَ', en: 'root ي, fatḥa: the alif drops (21:49)', type: 'v' },
+      ]}
+    />
+  </Stage>
+
+With the wāw of “they” the three kinds of verb change in three ways.
+
+- **Root with و:** the root و and the doer wāw meet and are written as one: يَدْعُونَ.
+- **Root with ي and a kasra:** the ي drops, and the kasra becomes a ḍamma: يَرْمِي gives يَرْمُونَ, and يَمْشِي gives يَمْشُونَ.
+- **A verb with a fatḥa:** the alif drops, and the fatḥa stays: يَخْشَوْنَ.
+
+Al-Jadwal explains يَمْشُونَ on 7:195. The original is يمشيون. The ḍamma was heavy on the second yāʾ, so it moved to the شِين and the yāʾ lost its vowel. Then two silent letters, the yāʾ and the wāw, met, so the yāʾ dropped. The pattern is **يَفْعُونَ**. On 3:23 he says the same for the passive يُدْعَوْنَ, with the alif that drops before the silent wāw: pattern يُفْعَوْنَ.
+
+L4.01 used this on يَبْكُونَ (12:16): root ب ك ي, pattern يَفْعُونَ.
+
+<Check n={18} q="What is the root of يَمْشُونَ?" options={['م ش و', 'م ش ي', 'م ش ن']} answer={1} why="The root is م ش ي. The ي dropped before the wāw. The present of the same verb, يَمْشِي, shows it." />
+</Block>
+
+<Block id="women" title="They (women), and the five verbs without their nūn">
+  <Stage>
+    <Sentence
+      roles
+      reference="Al-Baqarah 2:237 (part)"
+      groups={[
+        { words: [{ ar: 'إِلَّآ', en: 'except', say: 'illa', type: 'p' }, { ar: 'أَن', en: 'that', say: 'an', type: 'p' }] },
+        { role: 'fiil', label: 'fiʿl + fāʿil', hint: 'the nūn is the doer: “they (women)”. Built on a sukūn', words: [{ ar: 'يَعْفُونَ', en: 'they (women) forgive', say: 'yafuna', type: 'v' }] },
+        { words: [{ ar: 'أَوْ', en: 'or', say: 'aw', type: 'p' }] },
+        { role: 'fiil', label: 'fiʿl', hint: 'naṣb: the و shows a fatḥa. “he forgives”', words: [{ ar: 'يَعْفُوَا۟', en: 'he forgives', say: 'yafuwa', type: 'v' }] },
+        { role: 'fail', hint: 'the doer of يَعْفُوَا۟: “the one who”', words: [{ ar: 'ٱلَّذِى', en: 'the one who', say: 'alladhi' }] },
+        { role: 'tied', hint: 'the sentence that completes ٱلَّذِى: “in whose hand is the knot of marriage”', words: [{ ar: 'بِيَدِهِۦ', en: 'in his hand', say: 'biyadihi', type: 'p' }, { ar: 'عُقْدَةُ', en: 'the knot of', say: 'uqdatu' }, { ar: 'ٱلنِّكَاحِ', en: 'marriage', say: 'an-nikahi' }] },
+      ]}
+      en={['…unless they (the women) forgive, or the one in whose hand is the marriage tie forgives.']}
+    />
+  </Stage>
+
+**They (women).** يَعْفُونَ in this verse is not “they (men)”. The verse speaks of wives who may forgive part of their due. The و is the root letter, and the nūn is the women’s -na. Al-Jadwal reads the verb as built on a sukūn, in the place of naṣb after أَن. It is written the same as يَعْفُونَ for men: the sentence tells you which.
+
+**He forgives.** يَعْفُوَا۟ comes after أَوْ and is in naṣb. The و has a visible fatḥa. The alif after it is written and not read.
+
+**The five verbs** lose their nūn in naṣb and in jazm (L3.07). In the same verse, تَعْفُوٓا۟ (“you all forgive”, at the end of 2:237, L3.20) is تَعْفُونَ without its nūn. The root و and the doer wāw meet, and one is lost. The pattern is **تَفْعُوا۟**. And in وَلَا تَنسَوُا۟ (“and do not forget”) the verb is in jazm after لَا. The last root letter has dropped, and the fatḥa stays. Al-Jadwal says its sign of jazm is the dropped nūn, and the wāw is the doer. Another example is تَخْشَوُا۟ (5:44).
+
+<Check n={19} q="Is يَعْفُونَ in 2:237 “they (men)” or “they (women)”?" options={['They (men)', 'They (women)']} answer={1} why="The verse is about wives. The و is the root letter, and the nūn is the women’s ending. Al-Jadwal calls the verb built on a sukūn." />
+</Block>
+
+<Block id="command" title="The command">
+  <Stage>
+    <Sentence
+      roles
+      reference="Ghafir 40:60 (part)"
+      groups={[
+        { role: 'fiil', label: 'fiʿl + fāʿil + object', hint: 'a command to many: the wāw is the doer. -nī is the object: “me”', words: [{ ar: 'ٱدْعُونِىٓ', en: 'call on me', say: 'udunii', type: 'v' }] },
+        { role: 'fiil', label: 'fiʿl', hint: 'jazm: the answer to the request', words: [{ ar: 'أَسْتَجِبْ', en: 'I will answer', say: 'astajib', type: 'v' }] },
+        { role: 'jarMajrur', hint: 'li- “for” “you all”', words: [{ ar: 'لَكُمْ', en: 'you', say: 'lakum', type: 'p' }] },
+      ]}
+      en={['Call on Me, and I will answer you.']}
+    />
+    <Sentence
+      roles
+      reference="Al-Mulk 67:15 (part)"
+      groups={[
+        { role: 'fiil', label: 'fiʿl + fāʿil', hint: 'a command to many: the ي of يَمْشِي has dropped', words: [{ ar: 'فَٱمْشُوا۟', en: 'so walk', say: 'fa-mshu', type: 'v' }] },
+        { role: 'jarMajrur', hint: 'fī “in” its sides', words: [{ ar: 'فِى', en: 'in', say: 'fi', type: 'p' }, { ar: 'مَنَاكِبِهَا', en: 'its sides', say: 'manakibiha' }] },
+      ]}
+      en={['So walk in its paths.']}
+    />
+    <Sentence
+      roles
+      reference="Luqman 31:17 (part)"
+      groups={[
+        { role: 'fiil', label: 'fiʿl + hidden fāʿil', hint: 'a command to one: from تَنْهَىٰ, the alif has dropped', words: [{ ar: 'وَٱنْهَ', en: 'and forbid', say: 'wa-nha', type: 'v' }] },
+        { role: 'jarMajrur', hint: 'ʿan “from” the wrong', words: [{ ar: 'عَنِ', en: 'from', say: 'ani', type: 'p' }, { ar: 'ٱلْمُنكَرِ', en: 'the wrong', say: 'al-munkari' }] },
+      ]}
+      en={['And forbid what is wrong.']}
+    />
+  </Stage>
+
+L3.08 made the command from the present: take off the prefix, drop the weak letter as in jazm, and add the helper ٱ. تَدْعُو gives تَدْعُ and then **ٱدْعُ**. The books word it: a command built on dropping the weak letter (مَبْنِيّ عَلَى حَذْف حَرْف الْعِلَّة). Al-Jadwal words ٱهْدِنَا (1:6) in these words.
+
+The helper vowel follows the present: a ḍamma for ٱدْعُ, and a kasra for ٱرْمِ and ٱخْشَ. With an ending the weak letter or the ending shows again.
+
+| Who | دَعَا | رَمَىٰ | خَشِيَ |
+|---|---|---|---|
+| one man | ٱدْعُ | ٱرْمِ | ٱخْشَ |
+| one woman | ٱدْعِي | ٱرْمِي | ٱخْشَيْ |
+| the two | ٱدْعُوَا | ٱرْمِيَا | ٱخْشَيَا |
+| many men | ٱدْعُوا۟ | ٱرْمُوا۟ | ٱخْشَوْا۟ |
+| many women | ٱدْعُونَ | ٱرْمِينَ | ٱخْشَيْنَ |
+
+These commands are in the Quran text: ٱدْعُ (2:61), ٱدْعُوا۟ (2:23), ٱدْعُونِىٓ (40:60), ٱمْشُوا۟ (67:15), ٱخْشَوْنِ (5:3, “fear Me”), ٱنْهَ (31:17), ٱبْتَغِ (28:77), ٱقْضِ (20:72) and ٱهْدِنَا (1:6). The rest are teaching forms.
+
+<Check n={20} q="What is the command, to one man, from تَدْعُو?" options={['ٱدْعُ', 'ٱدْعُو', 'ٱدْعِ']} answer={0} why="The weak letter drops, as in jazm, and the helper ٱ takes a ḍamma. ٱدْعُو keeps the و, and that is wrong for one man." />
+</Block>
+
+<Block id="common" title="Eleven verbs side by side">
+  <Stage label="The three present endings">
+    <Tiles
+      label="Which present ending shows which root letter"
+      items={[
+        { ar: 'يَدْعُو', en: 'ـُو: the root has و', type: 'v' },
+        { ar: 'يَرْمِي', en: 'ـِي: the root has ي', type: 'v' },
+        { ar: 'يَخْشَىٰ', en: 'ـَىٰ: the root has و or ي', type: 'v' },
+      ]}
+    />
+  </Stage>
+
+A table of the Form I verbs you will meet most. It gives the past, the present and the jazm form of “he”, so you can see the pattern in each.
+
+| Root | Past | Present | Jazm | Meaning |
+|---|---|---|---|---|
+| د ع و | دَعَا | يَدْعُو | لَمْ يَدْعُ | he called |
+| ت ل و | تَلَا | يَتْلُو | لَمْ يَتْلُ | he recited |
+| ع ف و | عَفَا | يَعْفُو | لَمْ يَعْفُ | he forgave |
+| ه د ي | هَدَىٰ | يَهْدِي | لَمْ يَهْدِ | he guided |
+| ر م ي | رَمَىٰ | يَرْمِي | لَمْ يَرْمِ | he threw |
+| م ش ي | مَشَىٰ | يَمْشِي | لَمْ يَمْشِ | he walked |
+| ق ض ي | قَضَىٰ | يَقْضِي | لَمْ يَقْضِ | he decided |
+| ن س ي | نَسِيَ | يَنْسَىٰ | لَمْ يَنْسَ | he forgot |
+| خ ش ي | خَشِيَ | يَخْشَىٰ | لَمْ يَخْشَ | he feared |
+| ب ق ي | بَقِيَ | يَبْقَىٰ | لَمْ يَبْقَ | he stayed |
+| ل ق ي | لَقِيَ | يَلْقَىٰ | لَمْ يَلْقَ | he met |
+
+Look at the first two columns of each row and at the vowel before the last letter. A ḍamma goes with a root with و (دَعَا, تَلَا, عَفَا). A kasra goes with a root with ي (هَدَىٰ, رَمَىٰ, مَشَىٰ, قَضَىٰ). A fatḥa goes with the -iya pattern (نَسِيَ, خَشِيَ, بَقِيَ, لَقِيَ), and with some verbs of door 3, like سَعَىٰ.
+
+Most of these verbs are in the Quran text in these forms: دَعَا (39:8), يَتْلُوا۟ (62:2), وَيَعْفُ (42:34), يَهْدِىٓ (10:35), تَقْضِى (20:72), يَمْشِى (24:45) and يَرْمِ (4:112). The jazm column is a teaching form for most rows. The verbs غَزَا (“he raided”) and سَمَا (“he rose”) are not in the Quran text as verbs, so they are not in the table.
+
+<Check n={21} q="Which root does يَتْلُو come from?" options={['ت ل و', 'ت ل ي', 'ت ل ل']} answer={0} why="A present that ends in ـُو always comes from a root with و in the Corpus." />
+</Block>
+</Step>
+
+<Step id="more" label="More shapes" title="The passive, the doer word, other forms, mistakes, and four verses word by word">
+<Block id="passive" title="The passive">
+  <Stage>
+    <Sentence
+      roles
+      reference="Ghafir 40:12 (part)"
+      groups={[
+        { words: [{ ar: 'إِذَا', en: 'when', say: 'idha', type: 'p' }] },
+        { role: 'fiil', label: 'fiʿl majhūl', hint: 'a passive past verb: “was called”', words: [{ ar: 'دُعِىَ', en: 'was called', say: 'duiya', type: 'v' }] },
+        { role: 'naibFail', hint: 'stands in for the doer', words: [{ ar: 'ٱللَّهُ', en: 'Allah', say: 'allahu' }] },
+        { words: [{ ar: 'وَحْدَهُۥ', en: 'alone', say: 'wahdahu' }] },
+      ]}
+      en={['When Allah alone was called on…']}
+    />
+    <Sentence
+      roles
+      reference="An-Nur 24:48 (part)"
+      groups={[
+        { words: [{ ar: 'وَإِذَا', en: 'and when', say: 'wa-idha', type: 'p' }] },
+        { role: 'fiil', label: 'fiʿl majhūl + nāʾib fāʿil', hint: 'a passive past verb. The wāw stands in for the doer: “they were called”', words: [{ ar: 'دُعُوٓا۟', en: 'they were called', say: 'duu', type: 'v' }] },
+        { role: 'jarMajrur', hint: 'ilā “to” Allah', words: [{ ar: 'إِلَى', en: 'to', say: 'ila', type: 'p' }, { ar: 'ٱللَّهِ', en: 'Allah', say: 'allahi' }] },
+        { role: 'jarMajrur', hint: 'and His Messenger', words: [{ ar: 'وَرَسُولِهِۦ', en: 'and His Messenger', say: 'wa-rasulihi' }] },
+      ]}
+      en={['And when they are called to Allah and His Messenger…']}
+    />
+    <Sentence
+      roles
+      reference="Al-Imran 3:23 (part)"
+      groups={[
+        { role: 'fiil', label: 'fiʿl majhūl + nāʾib fāʿil', hint: 'a passive present verb. The wāw stands in for the doer: “they are called”', words: [{ ar: 'يُدْعَوْنَ', en: 'they are called', say: 'yudawna', type: 'v' }] },
+        { role: 'jarMajrur', hint: 'ilā “to” the Book', words: [{ ar: 'إِلَىٰ', en: 'to', say: 'ila', type: 'p' }, { ar: 'كِتَٰبِ', en: 'the Book of', say: 'kitabi' }, { ar: 'ٱللَّهِ', en: 'Allah', say: 'allahi' }] },
+      ]}
+      en={['They are called to the Book of Allah…']}
+    />
+  </Stage>
+
+L3.09 made the passive. A defective verb follows it, with two special shapes.
+
+- **Past passive:** the last letter shows as **ي**, whether the root has و or ي: دُعِيَ, رُمِيَ, هُدِيَ. The و of دَعَا turns into ي after the kasra. With “they” the ي drops: دُعُوٓا۟ (24:48).
+- **Present passive:** the last letter is always an **alif**: يُدْعَىٰ, يُرْمَىٰ, يُهْدَىٰ (10:35). With “they” the alif drops and the fatḥa stays: يُدْعَوْنَ (3:23).
+
+| Tense and person | Active | Passive |
+|---|---|---|
+| past, he | دَعَا | دُعِيَ |
+| past, they | دَعَوْا | دُعُوا |
+| present, he | يَدْعُو | يُدْعَىٰ |
+| present, they | يَدْعُونَ | يُدْعَوْنَ |
+
+L3.09 gave يُوحَىٰٓ (18:110), يُفْتَرَىٰ (12:111) and يُجْزَىٰ (6:160). Al-Jadwal says of يُجْزَىٰ that the yāʾ turned into an alif because the verb is passive. The same is true of every defective verb in the present passive. On 3:23 he gives the pattern of يُدْعَوْنَ as يُفْعَوْنَ.
+
+In the Corpus 274 of the 3,481 defective verb words are passive: 138 past and 136 present.
+
+<Check n={22} q="Which word is a present passive?" options={['يُدْعَىٰ', 'يَدْعُو', 'دُعِيَ']} answer={0} why="The present passive of a defective verb ends in an alif and has a ḍamma on the first letter. دُعِيَ is a past passive." />
+</Block>
+
+<Block id="doer" title="The doer word">
+  <Stage label="Doer words from defective verbs">
+    <Tiles
+      label="The ي drops or shows"
+      items={[
+        { ar: 'قَاضٍ', en: 'a decider: tanwīn, no ي (20:72)', type: 'n' },
+        { ar: 'بَاقٍ', en: 'lasting: tanwīn, no ي (16:96)', type: 'n' },
+        { ar: 'ٱلدَّاعِ', en: 'the caller: spelled without ي (2:186)', type: 'n' },
+        { ar: 'دَاعِيًا', en: 'one who calls: accusative, ي shows (33:46)', type: 'n' },
+        { ar: 'رَاضِيَةً', en: 'pleased (feminine): ي shows (89:28)', type: 'n' },
+        { ar: 'مَّرْضِيَّةً', en: 'approved (done-to word): doubled ي (89:28)', type: 'n' },
+      ]}
+    />
+  </Stage>
+
+The doer word of Form I is on the pattern **فَاعِل** (L3.19). From دَعَا it would be دَاعِوٌ. A و at the end after a kasra turns into ي, as al-Jadwal says on 2:186 (the original is الداعو). That gives دَاعِيٌ. What happens next depends on the case.
+
+- **With a tanwīn** (nominative or genitive): the ي drops: دَاعٍ, قَاضٍ, بَاقٍ. Al-Jadwal says the yāʾ and the tanwīn are two silent sounds that meet, so the yāʾ drops. The word is called **manqūṣ** (اسْم مَنْقُوص). Its ḍamma is hidden on the dropped yāʾ (16:96).
+- **With ٱلْ:** the ي shows: ٱلدَّاعِي. The Quran text leaves it out of ٱلدَّاعِ in 2:186. Al-Jadwal says it drops in connected reading in some readings, so it was left out of the writing.
+- **Accusative, feminine:** the ي shows: دَاعِيًا (33:46), رَاضِيَةً (89:28).
+
+The done-to word has a doubled weak letter. In مَرْضِيَّة (89:28) al-Jadwal says the original is مرضوي: the و turned into ي and joined the other ي.
+
+<Check n={23} q="Why does قَاضٍ lose its ي?" options={['The ي would meet the tanwīn: two silent sounds', 'It is a command', 'It is a plural']} answer={0} why="Al-Jadwal says the yāʾ and the tanwīn are both silent, and the yāʾ drops. That makes قَاضٍ a manqūṣ noun." />
+</Block>
+
+<Block id="place" title="The place noun">
+  <Stage label="From defective verbs">
+    <Tiles
+      label="Nouns of place on مَفْعَل"
+      items={[
+        { ar: 'ٱلْمَأْوَىٰ', en: 'the place of shelter (79:39)', type: 'n' },
+        { ar: 'مَثْوَى', en: 'the dwelling (3:151)', type: 'n' },
+        { ar: 'مَرْعَىٰ', en: 'pasture (79:31)', type: 'n' },
+        { ar: 'مَرْمًى', en: 'a place or time of throwing: a teaching form', type: 'n' },
+        { ar: 'مَسْعًى', en: 'a place or time of running: a teaching form', type: 'n' },
+      ]}
+    />
+  </Stage>
+
+L3.21 taught the nouns of place and time. They are on **مَفْعِل** or **مَفْعَل**. A verb with a weak last letter gives **مَفْعَل**, with the weak letter as an alif, so the word ends in ـًى or ـَىٰ. This is a teaching summary of what al-Jadwal says below.
+
+Al-Jadwal says on 3:151 that مَأْوَىٰ and مَثْوَىٰ are nouns of place on مَفْعَل, with a fatḥa on the mīm and on the ʿayn, “because it is defective”. The originals are مأوي and مثوي. On 79:31 he says of مَرْعَىٰ that the yāʾ moved after a fatḥa and turned into an alif.
+
+L3.21 named مَرْمًى (from رَمَىٰ) and مَسْعًى (from سَعَىٰ) as examples. They are teaching forms. Neither is in the Quran text. The tanwīn on a word like مَرْمًى is written on the alif maqṣūra.
+
+<Check n={24} q="What is the pattern of ٱلْمَأْوَىٰ?" options={['مَفْعَل', 'مَفْعِل', 'مُفْعِل']} answer={0} why="Al-Jadwal gives مَأْوَىٰ on مَفْعَل, with a fatḥa on the mīm and the ʿayn, because the verb is defective." />
+</Block>
+
+<Block id="forms" title="The same changes in the other forms">
+  <Stage label="Real words, Forms II to X">
+    <Tiles
+      label="Defective verbs in other forms"
+      items={[
+        { ar: 'يُزَكِّيهِمْ', en: 'Form II: he purifies them (62:2)', type: 'v' },
+        { ar: 'نَادَىٰ', en: 'Form III: he called out (19:3)', type: 'v' },
+        { ar: 'أَعْطَيْنَٰكَ', en: 'Form IV: we gave you (108:1)', type: 'v' },
+        { ar: 'وَءَاتَوُا۟', en: 'Form IV: and they gave (2:277)', type: 'v' },
+        { ar: 'فَتَلَقَّىٰٓ', en: 'Form V: so he received (2:37)', type: 'v' },
+        { ar: 'وَتَوَاصَوْا۟', en: 'Form VI: and they urged (103:3)', type: 'v' },
+        { ar: 'ٱشْتَرَوُا۟', en: 'Form VIII: they bought (2:16)', type: 'v' },
+        { ar: 'يَسْتَخْفُونَ', en: 'Form X: they hide (4:108)', type: 'v' },
+      ]}
+    />
+  </Stage>
+
+The other forms of the verb (L3.12 to L3.18) change at the end in the same ways. Their stems are longer, but the last root letter does what you have seen.
+
+| Form | Example | What happens at the end |
+|---|---|---|
+| II | يُزَكِّيهِمْ (62:2), وَفَّىٰٓ (53:37), سَمَّىٰكُمُ (22:78) | the past ends in ىٰ and keeps the shadda; the present shows ي; the command drops it (صَلِّ) |
+| III | نَادَىٰ (19:3), root ن د و | ىٰ in the past |
+| IV | أَعْطَىٰ, with -nā أَعْطَيْنَا (108:1); present يُعْطِيكَ (93:5) | the alif becomes ay before a consonant ending; the present shows ي |
+| IV | ءَاتَوُا۟ (2:277) | the alif drops before the wāw: pattern أَفْعَوْا |
+| V | تَلَقَّىٰ (2:37), تَوَلَّىٰ, تَوَفَّىٰ | the original is تَلَقَّيَ; the ي became an alif |
+| VI | تَوَاصَوْا۟ (103:3), root و ص ي | the alif drops before the wāw: pattern تَفَاعَوْا |
+| VIII | ٱشْتَرَوُا۟ (2:16), from ٱشْتَرَىٰ | the alif drops before the wāw: pattern افتعوا |
+| VIII, X | ٱتَّقَىٰ (92:5), ٱسْتَسْقَىٰ (2:60), ٱسْتَغْنَىٰ (92:8) | ىٰ in the past |
+| X | يَسْتَخْفُونَ (4:108) | the ي drops before the wāw: pattern يَسْتَفْعُونَ |
+
+The patterns are the ones al-Jadwal gives on those verses, and L3.13 to L3.16 and L3.22 quoted them. L3.16 also named يَسْتَحْىِۦٓ (2:26), whose last letter stays in the present.
+
+In Forms II to X the past “he” ends in ىٰ almost without exception (Step 2: 267 words against 10). For a verb like تَوَاصَوْا۟ from و ص ي, the first و stays in Form VI, and the last ي drops before the wāw of “they”. L4.14 teaches the verbs with a weak first letter.
+
+<Note kind="know">By the Corpus form tags, the defective verb words are in these forms: IV 784, VIII 448, II 178, V 128, III 61, X 30, VI 16 and VII 6. The other 1,830 carry no tag. They are mostly Form I, but the Corpus leaves some Form V and VI words untagged, for example تَعَٰلَىٰ. So read the Form I figure as rough.</Note>
+
+<Check n={25} q="What happens to the alif of ءَاتَىٰ before the wāw of “they”?" options={['It drops, and the fatḥa stays', 'It stays', 'It turns into ي']} answer={0} why="ءَاتَىٰ + وا gives ءَاتَوْا. The alif would meet the silent wāw, so it drops. The fatḥa stays." />
+</Block>
+
+<Block id="mistake-1" title="Mistake 1: a letter or a vowel that is not there">
+  <Stage label="Two wrong forms">
+    <Tiles
+      label="The weak letter drops in jazm, and the ḍamma is hidden in the plain present"
+      items={[
+        { ar: 'لَمْ يَدْعُ', en: 'correct: the و is gone', type: 'v' },
+        { ar: 'لَمْ يَدْعُو', en: 'wrong: the و must drop', type: 'x' },
+        { ar: 'يَدْعُو', en: 'correct: the ḍamma is hidden', type: 'v' },
+        { ar: 'يَدْعُوُ', en: 'wrong: no ḍamma shows', type: 'x' },
+      ]}
+    />
+  </Stage>
+
+It is easy to keep the weak letter in jazm: لَمْ يَدْعُو, لَمْ يَرْمِي. Both are wrong. After لَمْ the weak letter drops (Step 3): لَمْ يَدْعُ, لَمْ يَرْمِ.
+
+The opposite mistake is to add a visible ḍamma to the plain present: يَدْعُوُ, يَرْمِيُ. The weak letter is a long vowel and cannot carry the ḍamma. The grammar counts it as hidden.
+
+And a naṣb fatḥa is not hidden on و and ي: يَدْعُوَ, يَرْمِيَ. It shows. Only on an alif is it hidden.
+
+<Check n={26} q="Which is the correct jazm form?" options={['لَمْ يَرْمِي', 'لَمْ يَرْمِ', 'لَمْ يَرْمُ']} answer={1} why="The ي drops and the kasra stays. لَمْ يَرْمِي keeps the ي, and لَمْ يَرْمُ has the wrong vowel." />
+</Block>
+
+<Block id="mistake-2" title="Mistake 2: counting the letters you see">
+  <Stage label="The root is not what you see">
+    <Tiles
+      label="Two forms that hide the last root letter"
+      items={[
+        { ar: 'رَمَتْ', en: 'root ر م ي, not ر م ت', type: 'v' },
+        { ar: 'رَمَوْا', en: 'root ر م ي, not ر م و', type: 'v' },
+        { ar: 'نَسُوا', en: 'root ن س ي, not ن س و', type: 'v' },
+      ]}
+    />
+  </Stage>
+
+In رَمَتْ the last letter you see is ت. It is the ending of “she”, and the root is ر م ي. In رَمَوْا the و is the doer, “they”. In نَسُوا the same. The weak root letter is not there.
+
+To find the root:
+
+1. Change the verb to “I”: رَمَيْتُ, دَعَوْتُ (Step 1).
+2. Look at the present: يَرْمِي shows a ي, and يَدْعُو shows a و (Step 3).
+3. Check the Corpus root. Do not trust the spelling of the alif (Step 2).
+
+The -iya pattern is the one case where the “I” form can mislead: رَضِيتُ shows a ي, and the root is ر ض و.
+
+<Check n={27} q="What is the root of رَمَوْا?" options={['ر م و', 'ر م ي', 'ر م ت']} answer={1} why="The و in رَمَوْا is the doer, “they”. The root is ر م ي, and رَمَيْتُ shows it." />
+</Block>
+
+<Block id="mistake-3" title="Mistake 3: forms that look the same">
+  <Stage label="Four look-alikes">
+    <Tiles
+      label="One word, more than one meaning"
+      items={[
+        { ar: 'يَدْعُونَ', en: 'they (men) call, or they (women) call', type: 'v' },
+        { ar: 'يَدْعُوٓا۟', en: 'he calls (39:8)', type: 'v' },
+        { ar: 'دَعَا', en: 'he called', type: 'v' },
+        { ar: 'دَعَوَا', en: 'the two called', type: 'v' },
+        { ar: 'دَعَوْا', en: 'they called', type: 'v' },
+      ]}
+    />
+  </Stage>
+
+- **يَدْعُونَ** is both “they (men)” and “they (women)”. The root و and the doer wāw meet in the men’s form. In the women’s form the و is the root and the nūn is the doer. The sentence tells you which (2:237).
+- **A silent alif after و** at the end of a present verb does not always mean “they”. In 39:8, يَدْعُوٓا۟ is “he calls”. The Corpus has 50 words of this kind that are tagged as one person: 28 for “he”, 6 for “she”, 2 for “you (one)”, 7 for “I” and 7 for “we”. Ask whether the doer is one person or many.
+- **دَعَا, دَعَوَا, دَعَوْا** differ by one mark. Only the alif: “he”. A و with a fatḥa and an alif: “the two”. A و with a sukūn: “they”.
+
+<Check n={28} q="In 39:8 the verb يَدْعُوٓا۟ ends in a و with a silent alif. How many people does it speak of?" options={['One', 'Many']} answer={0} why="It is the present of a verb for one person: “he used to call”. A silent alif after the و does not always mean “they”." />
+</Block>
+
+<Block id="parse-1" title="Word by word: Al-Baqarah 2:186">
+  <Stage label="Word by word">
+    <Parse
+      reference="Al-Baqarah 2:186 (part)"
+      words={[
+        { ar: 'أُجِيبُ', en: 'I answer', type: 'v' },
+        { ar: 'دَعْوَةَ', en: 'the call of' },
+        { ar: 'ٱلدَّاعِ', en: 'the caller' },
+        { ar: 'إِذَا', en: 'when', type: 'p' },
+        { ar: 'دَعَانِ', en: 'he calls Me', type: 'v' },
+      ]}
+      cards={[
+        { at: 0, role: 'a present-tense verb: “I answer”. The doer is a hidden “I”: Allah speaks.', case: 'rafʿ (plain present)', mark: 'a ḍamma on the last letter', why: 'Nothing puts it in naṣb or jazm. The root is ج و ب, a hollow verb (L4.12).', irab: 'مضارع مرفوع، والفاعل ضمير مستتر تقديره أنا' },
+        { at: 1, role: 'mafʿūl bihi: the object. A noun made from the verb دَعَا.', case: 'accusative (naṣb)', mark: '-a (fatḥa)', why: 'Al-Jadwal: it is the noun of one act of calling, on the pattern فَعْلَة, from دَعَا يَدْعُو of the door of نَصَرَ.', irab: 'مفعول به منصوب' },
+        { at: 2, role: 'muḍāf ilayh: “of the caller”. A doer word from دَعَا.', case: 'genitive (jarr)', mark: 'a kasra hidden on the dropped yāʾ', why: 'The doer word was الداعو. A و at the end after a kasra turns into ي. The ي is left out of the Quran text, because it drops in connected reading in some readings (al-Jadwal).', irab: 'مضاف إليه مجرور وعلامة الجر الكسرة المقدرة على الياء المحذوفة للتخفيف' },
+        { at: 3, role: 'a time word with the meaning of a condition: “when”', case: 'none: it is built', mark: 'none', why: 'It looks to the future. L4.04 teaches إِذَا.', irab: 'ظرف لما يستقبل من الزمان متضمن معنى الشرط مبني في محل نصب' },
+        { at: 4, ar: 'دَعَا', role: 'a past-tense verb: “he called”. It speaks of the caller.', case: 'none: a verb has no case; it is built', mark: 'a fatḥa hidden on the alif', why: 'The last root letter و turned into an alif. An alif cannot carry a vowel, so the fatḥa is hidden.', irab: 'فعل ماض مبني على الفتح المقدر على الألف' },
+        { at: 4, ar: 'نِ', role: 'two small pieces: the ن protects the verb, and the ي “me” is the object, left out of the writing', case: 'the object is in the place of naṣb', why: 'The ن is the protecting nūn. It stands between the verb and the pronoun “me”. The doer is a hidden “he”.', irab: 'والنون للوقاية والياء المحذوفة للتخفيف مفعول به، والفاعل ضمير مستتر تقديره هو' },
+      ]}
+    />
+  </Stage>
+
+The same root د ع و gives three words here: a noun of the act (دَعْوَةَ), a doer word (ٱلدَّاعِ) and a past verb (دَعَانِ). Press **Next word** and say, for each, what happened to the و.
+
+<Note kind="know">The Corpus file tags دَعَانِ here as a command for two people. Al-Jadwal reads a past verb, “he calls Me”, with the ن of protection and the ي of the object left out. This lesson follows al-Jadwal.</Note>
+</Block>
+
+<Block id="parse-2" title="Word by word: Al-Fatihah 1:6">
+  <Stage label="Word by word">
+    <Parse
+      reference="Al-Fatihah 1:6"
+      words={[
+        { ar: 'ٱهْدِنَا', en: 'guide us', type: 'v' },
+        { ar: 'ٱلصِّرَٰطَ', en: 'the path' },
+        { ar: 'ٱلْمُسْتَقِيمَ', en: 'the straight' },
+      ]}
+      cards={[
+        { at: 0, ar: 'ٱهْدِ', role: 'a command: “guide!”. A command of a plea, said to Allah. The doer is a hidden “you”.', case: 'none: a verb has no case; it is built', mark: 'on dropping the weak letter ي', why: 'The present is تَهْدِي. The command drops the تَ and the weak letter, and adds the helper ٱ. Al-Jadwal calls it a command of supplication. He gives the pattern as ٱفْعِنَا, and the present before the command as تَهْدِينَا.', irab: 'فعل أمر دعائي مبني على حذف حرف العلة' },
+        { at: 0, ar: 'نَا', role: 'the object: “us”', case: 'accusative, by place', mark: 'none: it is built', why: 'نَا is an attached pronoun (L3.02). It does not touch the ي. The ي was already gone before نَا was added.', irab: 'نا ضمير متصل مبني في محل نصب مفعول به، والفاعل ضمير مستتر وجوبا تقديره أنت' },
+        { at: 1, role: 'the second object: “the path”', case: 'accusative (naṣb)', mark: '-a (fatḥa)', why: 'Al-Jadwal says هَدَىٰ can take its second object straight, or after لِ or إِلَىٰ. So “guide us the path” and “guide us to the path” are one idea.', irab: 'مفعول به ثان منصوب وعلامة النصب الفتحة' },
+        { at: 2, role: 'naʿt: an adjective of ٱلصِّرَٰطَ. A doer word from ٱسْتَقَامَ (Form X, a hollow verb: L4.12).', case: 'accusative (naṣb), like its noun', mark: '-a (fatḥa)', why: 'An adjective copies the case of its noun (L2.09).', irab: 'نعت للصراط منصوب مثله وعلامة النصب الفتحة' },
+      ]}
+    />
+  </Stage>
+
+The weak letter dropped in the command, so ٱهْدِنَا looks like a verb with two root letters, ه and د. The root ه د ي shows in هَدَىٰ, يَهْدِي and هَدَيْنَا (6:84). The ي does not merge with نَا. It was gone before نَا was added.
+</Block>
+
+<Block id="parse-3" title="Word by word: Ta-Ha 20:72">
+  <Stage label="Word by word">
+    <Parse
+      reference="Ta-Ha 20:72 (part)"
+      words={[
+        { ar: 'فَٱقْضِ', en: 'so decide', type: 'v' },
+        { ar: 'مَآ', en: 'what' },
+        { ar: 'أَنتَ', en: 'you' },
+        { ar: 'قَاضٍ', en: 'a decider' },
+      ]}
+      cards={[
+        { at: 0, ar: 'فَ', role: '“so”, a little word that ties the command to an unspoken “if”', why: 'Al-Jadwal reads: “if you want to punish us, then decide”. Little words have no case.', irab: 'الفاء رابطة لجواب شرط مقدر' },
+        { at: 0, ar: 'ٱقْضِ', role: 'a command: “decide!”. The doer is a hidden “you”.', case: 'none: a verb has no case; it is built', mark: 'on dropping the weak letter ي', why: 'The present is تَقْضِي. The command drops the weak letter and adds the helper ٱ. Al-Jadwal gives only the sentence, as an answer in the place of jazm. The wording on this card is the usual line for a command.', irab: 'فعل أمر مبني على حذف حرف العلة، والفاعل ضمير مستتر تقديره أنت' },
+        { at: 1, role: 'the object of ٱقْضِ: a joining noun, “what”', case: 'accusative, by place', mark: 'none: it is built', why: 'Al-Jadwal: it is the object. The clause أَنتَ قَاضٍ completes it (L3.11).', irab: 'اسم موصول مبني في محل نصب مفعول به' },
+        { at: 2, role: 'mubtadaʾ: “you”', case: 'nominative, by place', mark: 'none: a pronoun never changes', why: 'It is what the clause is about.', irab: 'ضمير منفصل مبني في محل رفع مبتدأ' },
+        { at: 3, role: 'khabar: “a decider”. A doer word from قَضَىٰ.', case: 'nominative (rafʿ)', mark: 'a ḍamma hidden on the dropped yāʾ', why: 'Al-Jadwal calls it a manqūṣ noun: the ي dropped before the tanwīn. Its pattern is فَاعٍ.', irab: 'خبر أنت مرفوع وعلامة الرفع الضمة المقدرة على الياء المحذوفة فهو اسم منقوص' },
+        { at: [2, 3], role: 'the sentence أَنتَ قَاضٍ: it completes مَآ', why: 'A sentence after a joining word is its second part. It has no case of its own.', irab: 'وجملة أنت قاض لا محل لها صلة الموصول' },
+      ]}
+    />
+  </Stage>
+
+The same root ق ض ي is in the rest of the verse: إِنَّمَا تَقْضِى هَٰذِهِ ٱلْحَيَوٰةَ ٱلدُّنْيَآ. The present تَقْضِى has the hidden ḍamma. So one verse has the command (ٱقْضِ), the doer word (قَاضٍ) and the present (تَقْضِى) of the same verb.
+</Block>
+
+<Block id="parse-4" title="Word by word: At-Tawbah 9:100">
+  <Stage label="Word by word">
+    <Parse
+      reference="At-Tawbah 9:100 (part)"
+      words={[
+        { ar: 'رَّضِىَ', en: 'was pleased', type: 'v' },
+        { ar: 'ٱللَّهُ', en: 'Allah' },
+        { ar: 'عَنْهُمْ', en: 'with them', type: 'p' },
+        { ar: 'وَرَضُوا۟', en: 'and they were pleased', type: 'v' },
+        { ar: 'عَنْهُ', en: 'with Him', type: 'p' },
+      ]}
+      cards={[
+        { at: 0, role: 'a past-tense verb: “was pleased”', case: 'none: a verb has no case; it is built', mark: 'a fatḥa that shows, on the ي', why: 'It is the -iya pattern. The ي has a fatḥa after a kasra, so it does not turn into an alif. The root is ر ض و.', irab: 'فعل ماض مبني على الفتح' },
+        { at: 1, role: 'fāʿil: the doer, “Allah”', case: 'nominative (rafʿ)', mark: '-u (ḍamma)', why: 'The doer of a verb is nominative (L2.03).', irab: 'لفظ الجلالة فاعل مرفوع' },
+        { at: 2, role: 'a phrase that belongs to the verb: “with them”', why: 'It says with whom He was pleased.', irab: 'جار ومجرور متعلق برضي' },
+        { at: 3, ar: 'وَ', role: '“and”, a little word that joins two sentences', why: 'Little words have no case.', irab: 'الواو عاطفة' },
+        { at: 3, ar: 'رَضُوا۟', role: 'a past-tense verb: “they were pleased”. The wāw is the doer.', case: 'none: a verb has no case; it is built', mark: 'a ḍamma on the last root letter that shows', why: 'The ي of رَضِيَ dropped before the wāw, and the kasra became a ḍamma, as in نَسُوا. Al-Jadwal words it like ٱتَّبَعُوا: built on a ḍamma, and the wāw is the doer.', irab: 'فعل ماض مبني على الضم، والواو فاعل' },
+        { at: 4, role: 'a phrase that belongs to the second verb: “with Him”', why: 'It says with whom they were pleased.', irab: 'جار ومجرور متعلق برضوا' },
+      ]}
+    />
+  </Stage>
+
+The two verbs are one root, ر ض و, in two forms: “he” (رَضِيَ) and “they” (رَضُوا). In the same verse al-Jadwal says the present تَجْرِى has a ḍamma hidden on the yāʾ, as in 2:25.
+</Block>
+</Step>
+
+<Step id="practice" label="Practice" title="Practice">
+<Block id="practice-1" title="Practice: the patterns and the past">
+  <Stage label="For each verb, say">
+    <ol class="lx-card-list">
+      <li><b>Pattern:</b> alif from و, alif from ي, or -iya?</li>
+      <li><b>Root:</b> which three letters?</li>
+      <li><b>Form:</b> he, she, they, I…</li>
+      <li><b>Hidden:</b> what is not there?</li>
+    </ol>
+  </Stage>
+
+Work out each answer first, on paper or in your head. Then open the answer.
+
+<Exercise n={1} q="Is the verb defective? If it is, say which letter is the weak one. (a) ق ت ل (b) د ع و (c) ه د ي (d) ن ص ر (e) ر م ي (f) ك ت ب (g) م ش ي (h) ع م ل (i) ق و ل (j) و ق ي">
+
+- (a) **No.** A sound root.
+- (b) **Yes:** the last letter is **و**.
+- (c) **Yes:** the last letter is **ي**.
+- (d) **No.** A sound root.
+- (e) **Yes:** the last letter is **ي**.
+- (f) **No.** A sound root.
+- (g) **Yes:** the last letter is **ي**.
+- (h) **No.** A sound root.
+- (i) **No.** The weak letter is in the middle: a hollow verb (L4.12).
+- (j) **Yes:** the last letter is **ي**. The first letter و is also weak (L4.14). The command is قِ, as in وَقِنَا (2:201).
+
+</Exercise>
+
+<Exercise n={2} q="Say the pattern (alif from و, alif from ي, or -iya) and the root: (a) نَسِىَ (b) هَدَىٰ (c) دَعَا (d) خَشِىَ (e) سَعَىٰ">
+
+- (a) **-iya**, root ن س ي.
+- (b) **Alif from ي**, written ىٰ. Root ه د ي.
+- (c) **Alif from و.** Root د ع و.
+- (d) **-iya**, root خ ش ي.
+- (e) **Alif from ي**, written ىٰ. Root س ع ي. Check it with the “I” form: سَعَيْتُ.
+
+</Exercise>
+
+<Exercise n={3} q="Write the past of هَدَىٰ, “he guided”, root ه د ي, for: (a) she (b) they (men) (c) I (d) we (e) the two (men)">
+
+- (a) هَدَتْ (*hadat*). The alif drops before the ت.
+- (b) هَدَوْا (*hadaw*). The alif drops, and the wāw is the doer.
+- (c) هَدَيْتُ (*hadaytu*). The ي returns with a sukūn.
+- (d) هَدَيْنَا (*hadaynā*). The ي returns with a sukūn. It is in 6:84.
+- (e) هَدَيَا (*hadayā*). The ي returns with a fatḥa before the alif.
+
+In هَدَوْا the و is not the ي changed. The alif has dropped, and the و is the doer.
+
+</Exercise>
+
+<Exercise n={4} q="Write the past of خَشِيَ, “he feared”, root خ ش ي, for: (a) she (b) they (men) (c) I (d) you all (men)">
+
+- (a) خَشِيَتْ (*khashiyat*). The ي keeps its fatḥa.
+- (b) خَشُوا (*khashū*). The ي drops, and the kasra becomes a ḍamma.
+- (c) خَشِيتُ (*khashītu*). The ي has a sukūn and reads as a long ī. It is in 20:94.
+- (d) خَشِيتُمْ (*khashītum*).
+
+</Exercise>
+
+<Exercise n={5} q="Take the root د ع و. Write: (a) the past “he” (b) the present “he” (c) the jazm “he” after لَمْ (d) the command to one man (e) the command to many men">
+
+- (a) دَعَا (*daʿā*). The و turns into an alif.
+- (b) يَدْعُو (*yadʿū*). The long ū, with a hidden ḍamma.
+- (c) لَمْ يَدْعُ (*lam yadʿu*). The و drops, and the ḍamma stays.
+- (d) ٱدْعُ (*udʿu*). The same drop, and the helper ٱ.
+- (e) ٱدْعُوا۟ (*udʿū*). The root و and the doer wāw are one, and the alif after it is written and not read.
+
+</Exercise>
+
+<Exercise n={6} q="Take the root ر م ي. Write: (a) the past “he” (b) the past “I” (c) the present “he” (d) the naṣb “he” (e) the jazm “he” after لَمْ (f) the present “they (men)”">
+
+- (a) رَمَىٰ (*ramā*).
+- (b) رَمَيْتُ (*ramaytu*). The ي returns with a sukūn.
+- (c) يَرْمِي (*yarmī*). The long ī, with a hidden ḍamma.
+- (d) يَرْمِيَ (*yarmiya*). The ي shows a fatḥa.
+- (e) لَمْ يَرْمِ (*lam yarmi*). The ي drops, and the kasra stays.
+- (f) يَرْمُونَ (*yarmūna*), as in 24:4. The ي drops, and the kasra becomes a ḍamma.
+
+</Exercise>
+</Block>
+
+<Block id="practice-2" title="Practice: verses, command, passive and the iʿrāb line">
+  <Stage label="Three things to look at">
+    <ol class="lx-card-list">
+      <li><b>Last letter:</b> alif, ي, و or nothing?</li>
+      <li><b>Mood:</b> plain, naṣb, jazm or command?</li>
+      <li><b>Voice:</b> active or passive?</li>
+    </ol>
+  </Stage>
+
+<Exercise n={7} q="Go through ٱهْدِنَا ٱلصِّرَٰطَ ٱلْمُسْتَقِيمَ (Al-Fatihah 1:6). (a) What is the root of ٱهْدِنَا? (b) What is the command before نَا is added? (c) What happened to the ي? (d) What does نَا mean? (e) What does the verb ask for?">
+
+- (a) ه د ي, “guiding”.
+- (b) ٱهْدِ (*ihdi*), “guide!”.
+- (c) It dropped in the command, as in jazm. It did not merge with نَا.
+- (d) “Us”, the object.
+- (e) A guide to the straight path. Al-Jadwal calls it a command of supplication, said to Allah. هَدَىٰ takes its second object, ٱلصِّرَٰطَ, straight.
+
+</Exercise>
+
+<Exercise n={8} q="Find the defective verb in فَمِنْهُم مَّن يَمْشِى عَلَىٰ بَطْنِهِۦ (An-Nur 24:45, part). Say the root, the tense, and why no ḍamma shows.">
+
+The verb is **يَمْشِى**, root م ش ي, a present verb for “he”. It is in the plain present (rafʿ). The last letter is the long ī, and the ḍamma is hidden on it. The ي is the last root letter, and the kasra before it points to a root with ي.
+
+In the same verse the verb comes two more times: *yamshi ʿalā rijlayn* and *yamshi ʿalā arbaʿ*.
+
+</Exercise>
+
+<Exercise n={9} q="Why has the weak letter dropped? (a) وَلَا تَنسَ نَصِيبَكَ مِنَ ٱلدُّنْيَا (Al-Qasas 28:77, part) (b) ثُمَّ يَرْمِ بِهِۦ بَرِيٓـًٔا (An-Nisa 4:112, part) (c) يَخْلُ لَكُمْ وَجْهُ أَبِيكُمْ (Yusuf 12:9, part)">
+
+- (a) **تَنسَ**: root ن س ي. The verb is in jazm after لَا of the ban. The ىٰ (alif) dropped, and the fatḥa stays.
+- (b) **يَرْمِ**: root ر م ي. The verb is in jazm, joined to يَكْسِبْ after مَن. Al-Jadwal says its sign of jazm is the dropped weak letter, and its pattern is يَفْعِ. The kasra stays.
+- (c) **يَخْلُ**: root خ ل و. Al-Jadwal says it is in jazm as the answer to a request: “throw him in a land, and your father’s face will be free for you”. The و dropped, and the ḍamma stays.
+
+</Exercise>
+
+<Exercise n={10} q="Make the command from the present. (a) تَدْعُو (b) تَهْدِي (c) تَنْهَىٰ (d) تَمْشُونَ (e) تَرْمِينَ, to one woman">
+
+- (a) **ٱدْعُ.** The و drops, and the helper has a ḍamma.
+- (b) **ٱهْدِ.** The ي drops, and the helper has a kasra.
+- (c) **ٱنْهَ.** The alif drops, and the fatḥa stays. It is in 31:17.
+- (d) **ٱمْشُوا.** The nūn drops. It is in 67:15.
+- (e) **ٱرْمِي.** The nūn drops, and the ي is the ending for one woman.
+
+</Exercise>
+
+<Exercise n={11} q="Is يَعْفُونَ “they (men)” or “they (women)”? Read إِلَّآ أَن يَعْفُونَ أَوْ يَعْفُوَا۟ ٱلَّذِى (Al-Baqarah 2:237, part). Then say what يَعْفُوَا۟ is.">
+
+**They (women).** The verse is about wives. The و is the root letter, and the nūn is the women’s -na. Al-Jadwal calls it a present verb built on a sukūn, in the place of naṣb after أَن.
+
+**يَعْفُوَا۟** is “he forgives”, in naṣb after أَوْ, with a visible fatḥa on the و. Al-Jadwal says it is joined to the place of يَعْفُونَ.
+
+</Exercise>
+
+<Exercise n={12} q="Name each word: (a) دُعِىَ ٱللَّهُ وَحْدَهُۥ (Ghafir 40:12, part) (b) يُدْعَوْنَ إِلَىٰ كِتَٰبِ ٱللَّهِ (Al-Imran 3:23, part) (c) ٱلدَّاعِ (Al-Baqarah 2:186, part) (d) قَاضٍ (Ta-Ha 20:72, part)">
+
+- (a) **دُعِىَ**: a past passive, “he was called”. The و of دَعَا turned into ي after the kasra.
+- (b) **يُدْعَوْنَ**: a present passive, “they are called”. The alif dropped before the wāw, and the fatḥa stays. Al-Jadwal gives the pattern يُفْعَوْنَ.
+- (c) **ٱلدَّاعِ**: a doer word, genitive. The و turned into ي after the kasra, and the ي is left out of the writing.
+- (d) **قَاضٍ**: a doer word, khabar, nominative. The ي dropped before the tanwīn. A manqūṣ noun.
+
+</Exercise>
+
+<Exercise n={13} q="Write the iʿrāb line of the verb. (a) يَخْشَىٰ in لِّمَن يَخْشَىٰ (Ta-Ha 20:3) (b) يَخْشَ in وَلَمْ يَخْشَ إِلَّا ٱللَّهَ (At-Tawbah 9:18, part) (c) تَجْرِى in جَنَّٰتٍ تَجْرِى مِن تَحْتِهَا ٱلْأَنْهَٰرُ (Al-Baqarah 2:25, part) (d) ٱهْدِنَا">
+
+- (a) فعل مضارع مرفوع وعلامة رفعه الضمة المقدرة على الألف
+- (b) فعل مضارع مجزوم وعلامة جزمه حذف حرف العلة، والفاعل ضمير مستتر تقديره هو
+- (c) فعل مضارع مرفوع وعلامة رفعه الضمة المقدرة على الياء
+- (d) فعل أمر دعائي مبني على حذف حرف العلة
+
+The weak letter decides the sign. A hidden ḍamma on the alif or the yāʾ for the plain present. A dropped weak letter for jazm and the command. Al-Jadwal words (b), (c) and (d) in these lines. Line (a) is the same formula as al-Jadwal’s line for يَتَوَلَّىٰ in 3:23.
+
+</Exercise>
+</Block>
+
+<Block id="done" title="You have finished the lesson">
+  <Stage label="The idea">
+    <Formula
+      label="what you see at the end depends on what follows"
+      items={[
+        { kind: 'm', text: 'root with a weak last letter', small: 'د ع و, ر م ي' },
+        { kind: 'k', text: 'what follows', small: 'an ending, or a mood' },
+        { kind: 's', text: 'what you see', small: 'an alif, the letter, or nothing' },
+      ]}
+    />
+  </Stage>
+
+- A **defective verb** (نَاقِص) has a weak letter, و or ي, as its last root letter. It is 3,481 of the 19,356 verb words in the Corpus (18.0%). The weak letter can stay, turn into an alif, or drop.
+- The past “he” has three patterns: an **alif from و** (دَعَا), an **alif from ي** written ىٰ (رَمَىٰ), and the **-iya pattern** (نَسِيَ). The spelling does not always show the root. Use the “I” form: دَعَوْتُ, رَمَيْتُ.
+- In the 13 past forms, **he** keeps the alif. **She**, the two women and they (men) lose it: دَعَتْ, دَعَتَا, دَعَوْا. **The two men** and every consonant ending show the letter, with a fatḥa before the alif and a sukūn before the other endings: دَعَوَا, دَعَوْتُ. In the -iya pattern the ي stays and **they (men)** is نَسُوا.
+- The present ends in **ـُو**, **ـِي** or **ـَىٰ**, with a hidden ḍamma. The women’s يَدْعُونَ is written like the men’s.
+- **Naṣb:** the و and the ي show a fatḥa, and it is hidden only on an alif. **Jazm and the command:** the weak letter drops: لَمْ يَدْعُ, ٱدْعُ.
+- **Passive:** دُعِيَ, يُدْعَىٰ. **Doer word:** دَاعٍ, a manqūṣ noun. **Place noun:** مَفْعَل, as in مَأْوَىٰ. The other verb forms change in the same ways.
+- The rules of word shape in this lesson are teaching summaries made from the Quran text and al-Jadwal. No approved book states them in this form.
+
+**Next:** L4.14 teaches verbs that begin with a weak letter, and L4.15 teaches verbs with a hamza. L5.16 pulls the word shapes together. If a form in this lesson felt new, go back to the table for that tense: [L3.05](/learn/level-3/05-past-tense/), [L3.06](/learn/level-3/06-present-tense/), [L3.07](/learn/level-3/07-subjunctive-jussive/) or [L3.08](/learn/level-3/08-imperative/).
+
+Earlier lessons you can link back to: [weak verbs, the first look, L4.11](/learn/level-4/11-weak-verbs-intro/), [hollow verbs, L4.12](/learn/level-4/12-hollow-verbs/), [the passive, L3.09](/learn/level-3/09-passive-voice/), [doer words, L3.19](/learn/level-3/19-active-passive-participles/), [nouns of place and time, L3.21](/learn/level-3/21-nouns-place-time/). Later: [assimilated verbs, L4.14](/learn/level-4/14-assimilated-verbs/), [hamzated verbs, L4.15](/learn/level-4/15-hamzated-verbs/), [synthesis of word shape, L5.16](/learn/level-5/16-sarf-synthesis/).
+
+<Sources
+    items={[
+      { label: 'Quran text', name: 'Tanzil (Uthmani text)', href: 'https://tanzil.net' },
+      { label: 'Verb tags, roots, forms and counts', name: 'Quranic Arabic Corpus', href: 'https://corpus.quran.com' },
+      { label: 'Word-by-word analysis (iʿrāb and ṣarf) of the verses', name: 'Maḥmūd Ṣāfī, al-Jadwal fī Iʿrāb al-Qurʾān wa-Ṣarfihi wa-Bayānihi' },
+      { label: 'The sign of jazm on a verb weak at the end', name: 'Ibn Ājurrūm, al-Ajurrumiyyah, chapter on the signs of iʿrāb' },
+      { label: 'Counts of verb words, patterns and spellings', name: 'Quran Learn count from the Quranic Arabic Corpus' },
+      { label: 'Rules of word shape (teaching summaries)', name: 'Quran Learn, from the verses and al-Jadwal' },
+      { label: 'English under the verses', name: 'Plain-English meanings by Quran Learn, not a translation' },
+    ]}
+  />
+</Block>
+</Step>

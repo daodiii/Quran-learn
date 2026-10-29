@@ -33,6 +33,33 @@ export function tightHyphens(text: string): string {
   return text.replace(/(^|\s)-(?=[A-Za-z])/g, '$1‑');
 }
 
+export interface Part {
+  name: string;
+  start: number; // index of the part's first step
+  end: number; // index of the part's last step
+}
+
+/**
+ * Group steps into parts from each step's part name (data-step-part). A step without a name stays in
+ * the part before it; steps before the first named step form an unnamed part. Returns [] when no step
+ * names a part, so the progress bar keeps one segment per step.
+ */
+export function groupParts(names: (string | undefined)[]): Part[] {
+  if (!names.some((n) => n)) return [];
+  const parts: Part[] = [];
+  names.forEach((n, i) => {
+    const last = parts[parts.length - 1];
+    if (!last || (n && n !== last.name)) parts.push({ name: n ?? '', start: i, end: i });
+    else last.end = i;
+  });
+  return parts;
+}
+
+/** Index of the part that holds a step, or -1. */
+export function partOf(parts: Part[], step: number): number {
+  return parts.findIndex((p) => step >= p.start && step <= p.end);
+}
+
 /** Keep a step index inside 0..count-1. */
 export function clampStep(index: number, count: number): number {
   if (count <= 0) return 0;

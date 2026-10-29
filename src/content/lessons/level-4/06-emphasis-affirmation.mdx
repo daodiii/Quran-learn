@@ -1,752 +1,897 @@
 ---
 title: "Emphasis & Affirmation (Tawkid)"
+kicker: "The little words, the oath and the following words that make a sentence stronger"
+titleArabic: "التَّوْكِيد"
 level: 4
 order: 6
-description: "Master Arabic emphasis structures including inna, qad, la-qad, nun at-tawkid, and nominal emphasis with nafs/ayn."
+template: steps
+description: "See how the Quran strengthens a sentence: the little words إِنَّ, قَدْ, لَقَدْ and the lām, the oath, the nūn of emphasis, repeating a word, and the following words كُلّ, أَجْمَع, نَفْس and عَيْن. Count them in the Corpus, avoid the usual mix-ups, and go through four verses word by word."
 draft: false
 ---
 
-import ArabicExample from '../../../components/mdx/ArabicExample.astro';
-import GrammarTable from '../../../components/mdx/GrammarTable.astro';
-import Callout from '../../../components/mdx/Callout.astro';
-import ExerciseBox from '../../../components/mdx/ExerciseBox.astro';
-
-## Introduction
-
-The Quran speaks with absolute conviction. Its oaths, declarations, and assertions carry layers of linguistic emphasis that reinforce theological certainty. Consider Surah Al-Asr, which opens with multiple emphasis structures:
-
-<ArabicExample
-  arabic="وَٱلْعَصْرِ ۝ إِنَّ ٱلْإِنسَٰنَ لَفِى خُسْرٍ"
-  transliteration="wal-ʿaṣri · inna l-insāna la-fī khusrin"
-  translation="By time! Indeed, mankind is in loss"
-  reference="Al-ʿAsr 103:1-2"
-  highlight="إِنَّ"
-  words={[
-    { ar: "وَٱلْعَصْرِ", tr: "wal-ʿaṣri", en: "by time" },
-    { ar: "إِنَّ", tr: "inna", en: "indeed" },
-    { ar: "ٱلْإِنسَٰنَ", tr: "l-insāna", en: "mankind" },
-    { ar: "لَفِى", tr: "la-fī", en: "is certainly in" },
-    { ar: "خُسْرٍ", tr: "khusrin", en: "loss" }
-  ]}
-/>
-
-In just two verses, Arabic employs FOUR emphasis techniques:
-1. **Oath particle** (وَ) — "By time!"
-2. **إِنَّ particle** — "Indeed"
-3. **لَـ prefix** (la-) — emphatic lam
-4. **Nominal sentence structure** — assertion through simple "X is Y"
-
-Understanding emphasis (tawkid) reveals how Arabic amplifies meaning without changing core content — a critical skill for appreciating Quranic rhetoric.
-
-**In this lesson, you will:**
-- Learn particle emphasis: إِنَّ (inna), قَدْ (qad), لَـ (la-), لَقَدْ (la-qad), نُونُ ٱلتَّوْكِيدِ (nun at-tawkid)
-- Master nominal emphasis: نَفْسٌ (nafs), عَيْنٌ (ayn), كُلٌّ (kull)
-- Understand repetition as emphasis device
-- Analyze إِنَّ + لَـ stacking from Al-Asr
-- Recognize emphasis structures in Quranic oaths and declarations
-
-**Connection to previous learning:** In [L2.10 Inna and Her Sisters](/learn/level-2/10-inna-sisters/), you learned إِنَّ modifies nominal sentence case. Now you'll see إِنَّ's PRIMARY function: creating emphasis. In [L2.09 Adjective Agreement](/learn/level-2/09-adjective-agreement/), you learned adjectives follow nouns. Now you'll see how نَفْسٌ and عَيْنٌ work as emphatic adjectives.
-
-**Forward connection:** This lesson prepares you for [L4.17 Introduction to Balagha (Rhetoric)](/learn/level-4/17-intro-balagha/), where emphasis is one of three major rhetorical categories in Arabic linguistic analysis.
-
-<Callout type="note" title="Plain-English key">
-Quick, everyday translations of the grammar terms in this lesson — glance back here whenever one trips you up:
-
-- **Emphasis** (tawkīd / تَوْكِيد) — words or particles that strengthen a statement ("indeed", "surely").
-</Callout>
-
-## Understanding Emphasis (Tawkid)
-
-**Plain English first:** Emphasis in Arabic means strengthening a statement to remove doubt or highlight importance. English uses italics, repetition, or words like "indeed," "certainly," "truly." Arabic has grammatical particles and structures specifically designed for emphasis.
-
-**Analogy for clarity:**
-
-Think of emphasis like volume control on speech:
-- **Normal statement** = Standard volume: "He came"
-- **Emphasized statement** = Turned up: "He CERTAINLY came" or "He himself came"
-- **Multiple emphasis** = Maximum volume: "Indeed, he HIMSELF certainly came!"
-
-Arabic lets you "stack" emphasis structures to create extremely forceful assertions, common in oaths and theological declarations.
-
-### Arabic Terminology
-
-**Emphasis** — [tawkid](/resources/glossary/#tawkid) (tawkīd / تَوْكِيدٌ)
-
-Literally "strengthening" from root و-ك-د meaning "to affirm, strengthen, emphasize." In grammar, tawkid has several categories:
-1. **Particle emphasis** (حُرُوفُ التَّوْكِيدِ / ḥurūf at-tawkīd) — using particles like إِنَّ, قَدْ, لَـ, and نون التوكيد
-2. **Nominal/semantic emphasis** (تَوْكِيدٌ مَعْنَوِيٌّ / tawkīd maʿnawī) — using nouns like نَفْسٌ, عَيْنٌ, كُلٌّ
-3. **Repetition emphasis** (تَوْكِيدٌ لَفْظِيٌّ / tawkīd lafẓī) — repeating the same word for emphasis (e.g., كَلَّا...كَلَّا)
-
-**Affirmation particle** — (حَرْفُ تَوْكِيدٍ / ḥarf tawkīd)
-
-A particle whose primary function is to emphasize or affirm the statement.
-
-### Two Types of Emphasis
-
-<GrammarTable>
-| Type | Arabic Term | Method | Example |
-|------|-------------|--------|---------|
-| **Particle emphasis** | حُرُوفُ التَّوْكِيدِ (ḥurūf at-tawkīd) | Using particles (إِنَّ, قَدْ, لَـ, نون التوكيد, etc.) | إِنَّ ٱللَّهَ غَفُورٌ (Indeed, Allah is Forgiving) |
-| **Nominal/semantic emphasis** | تَوْكِيدٌ مَعْنَوِيٌّ (tawkīd maʿnawī) | Using nouns (نَفْسٌ, عَيْنٌ, كُلٌّ, etc.) | جَاءَ ٱلنَّبِيُّ نَفْسُهُۥ (The Prophet himself came) |
-| **Repetition emphasis** | تَوْكِيدٌ لَفْظِيٌّ (tawkīd lafẓī) | Repeating the same word/phrase | كَلَّا...ثُمَّ كَلَّا (No!...Then no!) |
-</GrammarTable>
-
-**Terminology note:** The traditional Arabic grammar terms distinguish three types:
-- **تَوْكِيدٌ لَفْظِيٌّ** (tawkīd lafẓī) = emphasis through **repetition** of the same word (لَفْظِيّ = "verbal/word-based," meaning repeating the exact wording)
-- **تَوْكِيدٌ مَعْنَوِيٌّ** (tawkīd maʿnawī) = emphasis through **meaning-words** like نَفْسٌ and عَيْنٌ (مَعْنَوِيّ = "semantic/meaning-based")
-- **حُرُوفُ التَّوْكِيدِ** (ḥurūf at-tawkīd) = emphasis through **particles** like إِنَّ, قَدْ, لَـ, and نون التوكيد
-
-## Particle Emphasis
-
-Arabic has several particles whose primary or secondary function is to emphasize statements.
-
-### Particle 1: إِنَّ (inna) — "Indeed, verily"
-
-<GrammarTable>
-| Feature | Description |
-|---------|-------------|
-| **Translation** | indeed, verily, truly |
-| **Function** | Emphasizes nominal sentences |
-| **Grammatical effect** | Subject → accusative, Predicate → nominative |
-| **Usage context** | Assertions requiring certainty (theology, oaths, statements of fact) |
-| **Quranic frequency** | Extremely high (one of most common particles) |
-</GrammarTable>
-
-**Example:**
-
-<ArabicExample
-  arabic="إِنَّ ٱللَّهَ غَفُورٌ رَّحِيمٌ"
-  transliteration="inna llāha ghafūrun raḥīmun"
-  translation="Indeed, Allah is Forgiving and Merciful"
-  reference="Al-Baqarah 2:173"
-  highlight="إِنَّ"
-  words={[
-    { ar: "إِنَّ", tr: "inna", en: "indeed" },
-    { ar: "ٱللَّهَ", tr: "llāha", en: "Allah" },
-    { ar: "غَفُورٌ", tr: "ghafūrun", en: "is Forgiving" },
-    { ar: "رَّحِيمٌ", tr: "raḥīmun", en: "and Merciful" }
-  ]}
-/>
-
-**Grammatical analysis:**
-- **إِنَّ:** Emphasis particle
-- **ٱللَّهَ:** Name of إِنَّ (subject in accusative ـَ)
-- **غَفُورٌ رَّحِيمٌ:** Predicate of إِنَّ (nominative ـٌ)
-- **Emphasis level:** Medium-strong — removes doubt about Allah's attributes
-
-**Without إِنَّ:** ٱللَّهُ غَفُورٌ رَّحِيمٌ (Allah is Forgiving and Merciful) — simple nominal sentence
-
-**With إِنَّ:** إِنَّ ٱللَّهَ غَفُورٌ رَّحِيمٌ (Indeed, Allah is Forgiving and Merciful) — emphasized assertion
-
-<Callout type="tip" title="Why إِنَّ changes case">
-Classical grammarians debated why إِنَّ puts the subject in accusative. One explanation: إِنَّ makes the statement so forceful it's like the speaker is "seizing" the subject (similar to how verbs take objects in accusative). The unusual case marking signals "this is not a normal statement — it's an emphatic assertion."
-</Callout>
-
-### Particle 2: قَدْ (qad) — Emphasis + Certainty
-
-<GrammarTable>
-| Feature | Description |
-|---------|-------------|
-| **Translation** | certainly, indeed, already, sometimes |
-| **Function** | Emphasizes verbs (both past and present) |
-| **With past tense** | Emphasis + certainty: "certainly did" |
-| **With present tense** | Emphasis + possibility/expectation: "may/might" |
-| **Grammatical effect** | No case change (particle before verb) |
-</GrammarTable>
-
-**Example 1: قَدْ + Past Tense (certainty)**
-
-<ArabicExample
-  arabic="قَدْ أَفْلَحَ ٱلْمُؤْمِنُونَ"
-  transliteration="qad aflaḥa l-muʾminūna"
-  translation="Certainly the believers have succeeded"
-  reference="Al-Mu'minun 23:1"
-  highlight="قَدْ"
-  words={[
-    { ar: "قَدْ", tr: "qad", en: "certainly" },
-    { ar: "أَفْلَحَ", tr: "aflaḥa", en: "have succeeded" },
-    { ar: "ٱلْمُؤْمِنُونَ", tr: "l-muʾminūna", en: "the believers" }
-  ]}
-/>
-
-**Grammatical analysis:**
-- **قَدْ:** Emphasis particle (certainty with past tense)
-- **أَفْلَحَ:** Past tense verb "succeeded"
-- **ٱلْمُؤْمِنُونَ:** Subject (nominative)
-- **Emphasis level:** Strong — asserts absolute certainty of believers' success
-
-**Meaning nuance:** قَدْ with past tense often indicates "has already happened with certainty" — not merely "happened," but "definitely, certainly happened."
-
-**Example 2: قَدْ + Present Tense (possibility)**
-
-<ArabicExample
-  arabic="قَدْ يَعْلَمُ ٱللَّهُ ٱلْمُعَوِّقِينَ"
-  transliteration="qad yaʿlamu llāhu l-muʿawwiqīna"
-  translation="Allah certainly knows those who hinder"
-  reference="Al-Ahzab 33:18"
-  highlight="قَدْ"
-  words={[
-    { ar: "قَدْ", tr: "qad", en: "certainly" },
-    { ar: "يَعْلَمُ", tr: "yaʿlamu", en: "knows" },
-    { ar: "ٱللَّهُ", tr: "llāhu", en: "Allah" },
-    { ar: "ٱلْمُعَوِّقِينَ", tr: "l-muʿawwiqīna", en: "those who hinder" }
-  ]}
-/>
-
-**Grammatical analysis:**
-- **قَدْ:** Emphasis particle (with present tense, can indicate certainty or expectation)
-- **يَعْلَمُ:** Present tense verb "knows"
-- **Emphasis level:** Medium — affirms Allah's knowledge
-
-**Meaning nuance:** With present tense, قَدْ can mean "certainly does" OR "may/might." Context determines which. In verses about Allah's knowledge, it's emphatic certainty.
-
-### Particle 3: لَـ (la-) — Emphatic Lam
-
-<GrammarTable>
-| Feature | Description |
-|---------|-------------|
-| **Translation** | indeed, certainly (emphasis marker) |
-| **Function** | Emphasizes present/future verbs and predicates |
-| **Form** | Prefix attached to verbs or predicates |
-| **Grammatical effect** | No case change on verb, but signals emphasis |
-| **Common pairing** | Often combines with إِنَّ to create double emphasis |
-</GrammarTable>
-
-**Example 1: لَـ with predicate**
-
-<ArabicExample
-  arabic="إِنَّ ٱلْإِنسَٰنَ لَفِى خُسْرٍ"
-  transliteration="inna l-insāna la-fī khusrin"
-  translation="Indeed, mankind is certainly in loss"
-  reference="Al-ʿAsr 103:2"
-  highlight="لَفِى"
-  words={[
-    { ar: "إِنَّ", tr: "inna", en: "indeed" },
-    { ar: "ٱلْإِنسَٰنَ", tr: "l-insāna", en: "mankind" },
-    { ar: "لَفِى", tr: "la-fī", en: "is certainly in" },
-    { ar: "خُسْرٍ", tr: "khusrin", en: "loss" }
-  ]}
-/>
-
-**Grammatical analysis:**
-- **إِنَّ:** First layer of emphasis (particle)
-- **ٱلْإِنسَٰنَ:** Name of إِنَّ (accusative)
-- **لَـ:** Second layer of emphasis (emphatic lam prefix on predicate)
-- **فِى خُسْرٍ:** Predicate (semi-sentence: prepositional phrase)
-- **Emphasis level:** VERY STRONG — double emphasis (إِنَّ + لَـ)
-
-**Meaning nuance:** The combination إِنَّ...لَـ creates one of the strongest emphasis structures in Arabic. It's like saying "INDEED...CERTAINLY" — removing all doubt.
-
-**Example 2: لَـ with verb**
-
-<ArabicExample
-  arabic="لَنَصْبِرُ عَلَىٰ مَآ ءَاذَيْتُمُونَا"
-  transliteration="la-naṣbiru ʿalā mā ādhaytumonā"
-  translation="We will certainly be patient over whatever you have harmed us"
-  reference="Ibrahim 14:12"
-  highlight="لَنَصْبِرُ"
-  words={[
-    { ar: "لَنَصْبِرُ", tr: "la-naṣbiru", en: "we will certainly be patient" },
-    { ar: "عَلَىٰ", tr: "ʿalā", en: "over" },
-    { ar: "مَآ", tr: "mā", en: "whatever" },
-    { ar: "ءَاذَيْتُمُونَا", tr: "ādhaytumonā", en: "you have harmed us" }
-  ]}
-/>
-
-**Grammatical analysis:**
-- **لَـ:** Emphatic lam (prefix on present tense verb)
-- **نَصْبِرُ:** Present tense "we are patient" (indicative mood)
-- **Emphasis level:** Strong — emphatic assertion of future action
-
-### Particle 4: لَقَدْ (la-qad) — Intensified Oath Emphasis
-
-<GrammarTable>
-| Feature | Description |
-|---------|-------------|
-| **Translation** | certainly, verily, indeed |
-| **Function** | Strongest particle emphasis (لَـ + قَدْ combined) |
-| **Usage** | Often introduces oath responses or very strong assertions |
-| **With past tense** | "Certainly did" (absolute certainty) |
-| **Quranic context** | Prophetic declarations, divine oaths |
-</GrammarTable>
-
-**Example:**
-
-<ArabicExample
-  arabic="لَقَدْ خَلَقْنَا ٱلْإِنسَٰنَ فِىٓ أَحْسَنِ تَقْوِيمٍۢ"
-  transliteration="la-qad khalaqnā l-insāna fī aḥsani taqwīmin"
-  translation="We have certainly created man in the best of stature"
-  reference="At-Tin 95:4"
-  highlight="لَقَدْ"
-  words={[
-    { ar: "لَقَدْ", tr: "la-qad", en: "certainly" },
-    { ar: "خَلَقْنَا", tr: "khalaqnā", en: "We created" },
-    { ar: "ٱلْإِنسَٰنَ", tr: "l-insāna", en: "man" },
-    { ar: "فِىٓ", tr: "fī", en: "in" },
-    { ar: "أَحْسَنِ", tr: "aḥsani", en: "the best of" },
-    { ar: "تَقْوِيمٍۢ", tr: "taqwīmin", en: "stature" }
-  ]}
-/>
-
-**Grammatical analysis:**
-- **لَقَدْ:** Maximum particle emphasis (لَـ + قَدْ stacked)
-- **خَلَقْنَا:** Past tense verb "We created"
-- **Emphasis level:** MAXIMUM — absolute certainty, often used in divine oaths
-
-**Usage pattern:** لَقَدْ frequently appears after oath formulas (like وَٱلتِّينِ وَٱلزَّيْتُونِ in Surah At-Tin) to introduce the oath's assertion with maximum emphasis.
-
-### Particle 5: نُونُ ٱلتَّوْكِيدِ (Nun at-Tawkid) — Energetic Nun
-
-<GrammarTable>
-| Feature | Description |
-|---------|-------------|
-| **Translation** | (emphasis through nun suffix on verbs) |
-| **Function** | Verb emphasis through added ـنَّ or ـَنْ suffix |
-| **Two types** | Heavy (ـنَّ nūn mushaddadah) and Light (ـَنْ nūn khafīfah) |
-| **Usage** | Oaths, commands, strong assertions about future |
-| **Grammatical effect** | Changes verb to subjunctive (built form) with nun suffix |
-</GrammarTable>
-
-**Example: Light nun (نون التوكيد الخفيفة / nūn at-tawkīd al-khafīfah)**
-
-<ArabicExample
-  arabic="لَنَسْفَعًۢا بِٱلنَّاصِيَةِ"
-  transliteration="la-nasfaʿan bi-n-nāṣiyati"
-  translation="We will surely seize by the forelock"
-  reference="Al-Alaq 96:15"
-  highlight="لَنَسْفَعًۢا"
-  words={[
-    { ar: "لَنَسْفَعًۢا", tr: "la-nasfaʿan", en: "We will surely seize" },
-    { ar: "بِٱلنَّاصِيَةِ", tr: "bi-n-nāṣiyati", en: "by the forelock" }
-  ]}
-/>
-
-**Grammatical analysis:**
-- **لَـ:** Emphatic lam (introduces oath response)
-- **نَسْفَعَ:** Present tense verb "we seize"
-- **ـًا (alif):** This is the **light nun of emphasis** (نون التوكيد الخفيفة / ـَنْ). In pause (waqf), the light nun is written as alif (ا) with tanwin, which is why the Quranic script shows لَنَسْفَعًۢا rather than لَنَسْفَعَنْ. This is distinct from the **heavy nun** (نون التوكيد الثقيلة / ـنَّ), which has a shadda and is not converted to alif in pause.
-- **Emphasis level:** VERY STRONG — oath + emphatic nun
-
-**Two types of nun at-tawkid:**
-1. **Heavy nun** (نون التوكيد الثقيلة / ـنَّ) — has shadda (doubled nun), e.g., لَيُسْجَنَنَّ (la-yusjananna, "he will surely be imprisoned," Yusuf 12:32)
-2. **Light nun** (نون التوكيد الخفيفة / ـَنْ) — a single nun without shadda, written as alif (ا) in pause position, as in لَنَسْفَعًۢا here
-
-**Meaning nuance:** Both types of nun at-tawkid create a sense of inevitability and absolute determination. They are often used in threats, promises, or divine decrees. The light and heavy forms carry similar emphasis, though the heavy nun is considered slightly stronger.
-
-<Callout type="rule" title="Nun at-tawkid changes verb mood">
-When nun at-tawkid is added to a verb, the verb enters a special "built" (mabnī) state, no longer taking normal mood endings. The nun itself becomes the final marker. This grammatical "locking" of the verb mirrors the semantic emphasis — the action is fixed, certain, inevitable.
-</Callout>
-
-### Particle Emphasis Summary Table
-
-<GrammarTable>
-| Particle | Translation | Usage | Emphasis Strength | Common Context |
-|----------|-------------|-------|-------------------|----------------|
-| **إِنَّ** | indeed, verily | Nominal sentences | Medium-Strong | Theological assertions, statements of fact |
-| **قَدْ** (+ past) | certainly, already | Past tense verbs | Strong | Certainty about past events |
-| **قَدْ** (+ present) | may, might, certainly | Present tense verbs | Medium | Possibility or certainty (context-dependent) |
-| **لَـ** | indeed, certainly | Verbs & predicates | Medium-Strong | Often stacks with إِنَّ for double emphasis |
-| **لَقَدْ** | certainly, verily | Past tense verbs | MAXIMUM | Oath responses, strong divine assertions |
-| **نُونُ ٱلتَّوْكِيدِ** | (verb emphasis) | Future/command verbs | Very Strong | Oaths, promises, threats, commands |
-</GrammarTable>
-
-## Nominal Emphasis
-
-While particle emphasis uses grammatical tools (hurūf), nominal emphasis uses NOUNS that follow the emphasized element to reinforce its identity or totality.
-
-### Nominal Emphatic 1: نَفْسٌ (nafs) — "Self, very one"
-
-<GrammarTable>
-| Feature | Description |
-|---------|-------------|
-| **Translation** | self, himself, herself, itself, the very one |
-| **Function** | Emphasizes the identity of a person/thing mentioned |
-| **Grammatical form** | Noun agreeing with emphasized word in gender, number, case, definiteness |
-| **Attached pronoun** | MUST have attached pronoun matching the emphasized noun |
-</GrammarTable>
-
-**Example:**
-
-<ArabicExample
-  arabic="وَيُحَذِّرُكُمُ ٱللَّهُ نَفْسَهُۥ"
-  transliteration="wa-yuḥadhdhirukumu llāhu nafsahu"
-  translation="And Allah warns you of Himself"
-  reference="Al-ʿImran 3:28"
-  highlight="نَفْسَهُۥ"
-  words={[
-    { ar: "وَيُحَذِّرُكُمُ", tr: "wa-yuḥadhdhirukumu", en: "and warns you" },
-    { ar: "ٱللَّهُ", tr: "llāhu", en: "Allah" },
-    { ar: "نَفْسَهُۥ", tr: "nafsahu", en: "of Himself" }
-  ]}
-/>
-
-**Grammatical analysis:**
-- **ٱللَّهُ:** Subject (nominative)
-- **نَفْسَهُۥ:** Emphatic noun (accusative, matching implied object position)
-- **ـهُۥ:** Attached pronoun referring back to ٱللَّهُ
-- **Meaning:** "Allah warns you of Allah Himself" — emphasizes that the warning comes from Allah directly, not through intermediaries
-
-**Agreement rules for نَفْسٌ:**
-1. **Gender:** Matches emphasized noun (نَفْسُهُۥ for masculine, نَفْسُهَا for feminine)
-2. **Number:** نَفْسٌ (singular), نَفْسَانِ/نَفْسَيْنِ (dual), أَنْفُسٌ/أَنْفُسِهِمْ (plural)
-3. **Case:** Matches emphasized noun (nominative, accusative, or genitive)
-4. **Definiteness:** Always has attached pronoun, making it definite
-
-### Nominal Emphatic 2: عَيْنٌ (ayn) — "Same, very one, identical"
-
-<GrammarTable>
-| Feature | Description |
-|---------|-------------|
-| **Translation** | same, the very one, exact, identical |
-| **Function** | Similar to نَفْسٌ but emphasizes SAMENESS/EXACTNESS |
-| **Grammatical form** | Noun agreeing with emphasized word in gender, number, case, definiteness |
-| **Usage difference** | Slightly stronger emphasis on identity than نَفْسٌ |
-</GrammarTable>
-
-**Example:**
-
-<ArabicExample
-  arabic="جَاءَ ٱلْمَلِكُ عَيْنُهُۥ"
-  transliteration="jāʾa l-maliku ʿaynuhu"
-  translation="The king himself came (the very king, in person)"
-  highlight="عَيْنُهُۥ"
-  words={[
-    { ar: "جَاءَ", tr: "jāʾa", en: "came" },
-    { ar: "ٱلْمَلِكُ", tr: "l-maliku", en: "the king" },
-    { ar: "عَيْنُهُۥ", tr: "ʿaynuhu", en: "himself" }
-  ]}
-/>
-
-**Grammatical analysis:**
-- **ٱلْمَلِكُ:** Subject (nominative)
-- **عَيْنُهُۥ:** Emphatic noun (nominative, matching ٱلْمَلِكُ)
-- **ـهُۥ:** Attached pronoun referring back to ٱلْمَلِكُ
-- **Emphasis nuance:** Stresses the EXACT SAME king came — not a representative, not a messenger, but the king IN PERSON
-
-**نَفْسٌ vs. عَيْنٌ:**
-- **نَفْسٌ:** "Himself" — emphasizes personal identity
-- **عَيْنٌ:** "The very same, in person" — emphasizes exactness/sameness
-
-In practice, they're often interchangeable, with عَيْنٌ carrying slightly stronger emphasis.
-
-### Nominal Emphatic 3: كُلٌّ (kull) — "All, entire"
-
-<GrammarTable>
-| Feature | Description |
-|---------|-------------|
-| **Translation** | all, the whole, every part of |
-| **Function** | Emphasizes TOTALITY — all parts of the emphasized noun |
-| **Grammatical form** | Noun agreeing in case, with attached pronoun |
-| **Usage** | Emphasizes that the statement applies to the ENTIRE entity, not just part |
-</GrammarTable>
-
-**Example:**
-
-<ArabicExample
-  arabic="وَٱللَّهُ بِكُلِّ شَىْءٍۢ عَلِيمٌ"
-  transliteration="wa-llāhu bi-kulli shayʾin ʿalīmun"
-  translation="And Allah, of all things, is Knowing"
-  reference="Al-Baqarah 2:231"
-  highlight="كُلِّ"
-  words={[
-    { ar: "وَٱللَّهُ", tr: "wa-llāhu", en: "and Allah" },
-    { ar: "بِكُلِّ", tr: "bi-kulli", en: "of all" },
-    { ar: "شَىْءٍۢ", tr: "shayʾin", en: "things" },
-    { ar: "عَلِيمٌ", tr: "ʿalīmun", en: "is Knowing" }
-  ]}
-/>
-
-**Grammatical analysis:**
-- **كُلِّ:** Emphatic noun (genitive, in idafah construction)
-- **شَىْءٍۢ:** Emphasized noun (genitive after كُلِّ)
-- **Meaning:** "Allah knows ALL things" — not just some things, but EVERY thing
-
-**Example with attached pronoun:**
-
-<ArabicExample
-  arabic="فَسَجَدَ ٱلْمَلَٰٓئِكَةُ كُلُّهُمْ أَجْمَعُونَ"
-  transliteration="fa-sajada l-malāʾikatu kulluhum ajmaʿūna"
-  translation="So the angels prostrated — all of them entirely"
-  reference="Al-Hijr 15:30"
-  highlight="كُلُّهُمْ"
-  words={[
-    { ar: "فَسَجَدَ", tr: "fa-sajada", en: "so prostrated" },
-    { ar: "ٱلْمَلَٰٓئِكَةُ", tr: "l-malāʾikatu", en: "the angels" },
-    { ar: "كُلُّهُمْ", tr: "kulluhum", en: "all of them" },
-    { ar: "أَجْمَعُونَ", tr: "ajmaʿūna", en: "entirely" }
-  ]}
-/>
-
-**Grammatical analysis:**
-- **ٱلْمَلَٰٓئِكَةُ:** Subject (nominative) "the angels"
-- **كُلُّهُمْ:** Emphatic noun (nominative, matching subject) "all of them"
-- **أَجْمَعُونَ:** Additional emphasis (see next section)
-- **Meaning:** ALL angels prostrated — EVERY SINGLE ONE, with no exception
-
-### Additional Nominal Emphatics: أَجْمَعُ (ajmaʿ), جَمِيعٌ (jamīʿ)
-
-These function like كُلٌّ, emphasizing totality:
-
-**أَجْمَعُ (ajmaʿu) / أَجْمَعُونَ (ajmaʿūna):**
-- "All together, collectively, entirely"
-- Often follows كُلٌّ for maximum emphasis (as in example above)
-- Plural forms: أَجْمَعُونَ (masculine), جُمَعُ (feminine)
-
-**جَمِيعٌ (jamīʿun):**
-- "All, altogether, collectively"
-- Can be used alone or with كُلٌّ
-- Example: وَٱلْأَمْرُ يَوْمَئِذٍۢ لِّلَّهِ جَمِيعًا "And all command that Day is for Allah" (Infitar 82:19)
-
-## Repetition as Emphasis
-
-Arabic uses repetition of words, phrases, or entire sentences as a powerful emphasis device.
-
-### Word Repetition
-
-Repeating a word immediately emphasizes it:
-
-<ArabicExample
-  arabic="كَلَّا سَوْفَ تَعْلَمُونَ ۝ ثُمَّ كَلَّا سَوْفَ تَعْلَمُونَ"
-  transliteration="kallā sawfa taʿlamūna · thumma kallā sawfa taʿlamūna"
-  translation="No! You are going to know. Then no! You are going to know."
-  reference="At-Takathur 102:3-4"
-  highlight="كَلَّا"
-  words={[
-    { ar: "كَلَّا", tr: "kallā", en: "no!" },
-    { ar: "سَوْفَ", tr: "sawfa", en: "you are going to" },
-    { ar: "تَعْلَمُونَ", tr: "taʿlamūna", en: "know" },
-    { ar: "ثُمَّ", tr: "thumma", en: "then" },
-    { ar: "كَلَّا", tr: "kallā", en: "no!" },
-    { ar: "سَوْفَ", tr: "sawfa", en: "you are going to" },
-    { ar: "تَعْلَمُونَ", tr: "taʿlamūna", en: "know" }
-  ]}
-/>
-
-**Emphasis technique:** The phrase is repeated EXACTLY, creating an escalating sense of warning and certainty.
-
-### Phrase Repetition (Refrain)
-
-Surah Ar-Rahman uses refrain repetition 31 times:
-
-<ArabicExample
-  arabic="فَبِأَىِّ ءَالَآءِ رَبِّكُمَا تُكَذِّبَانِ"
-  transliteration="fa-bi-ayyi ālāʾi rabbikumā tukadhhibān"
-  translation="So which of the favors of your Lord would you deny?"
-  reference="Ar-Rahman 55:13 (and 30 more times)"
-  highlight="فَبِأَىِّ"
-  words={[
-    { ar: "فَبِأَىِّ", tr: "fa-bi-ayyi", en: "so which of" },
-    { ar: "ءَالَآءِ", tr: "ālāʾi", en: "the favors of" },
-    { ar: "رَبِّكُمَا", tr: "rabbikumā", en: "your Lord" },
-    { ar: "تُكَذِّبَانِ", tr: "tukadhhibān", en: "would you deny" }
-  ]}
-/>
-
-**Emphasis technique:** The repeated rhetorical question after each favor creates cumulative emphasis on Allah's countless blessings.
-
-### Root Repetition (Cognate Accusative)
-
-Using the masdar (verbal noun) from the same root as the verb creates emphasis:
-
-<ArabicExample
-  arabic="وَكَلَّمَ ٱللَّهُ مُوسَىٰ تَكْلِيمًۭا"
-  transliteration="wa-kallama llāhu mūsā taklīman"
-  translation="And Allah spoke to Moses with [direct] speech"
-  reference="An-Nisa 4:164"
-  highlight="تَكْلِيمًۭا"
-  words={[
-    { ar: "وَكَلَّمَ", tr: "wa-kallama", en: "and spoke" },
-    { ar: "ٱللَّهُ", tr: "llāhu", en: "Allah" },
-    { ar: "مُوسَىٰ", tr: "mūsā", en: "to Moses" },
-    { ar: "تَكْلِيمًۭا", tr: "taklīman", en: "with direct speech" }
-  ]}
-/>
-
-**Grammatical analysis:**
-- **كَلَّمَ:** Verb "spoke" (Form II from root ك-ل-م)
-- **تَكْلِيمًۭا:** Masdar (verbal noun) "speaking" from same root
-- **Emphasis nuance:** Adding the masdar emphasizes the MANNER or CERTAINTY of the action — "Allah TRULY spoke, DIRECTLY spoke" (not through intermediary)
-
-This is called مَفْعُولٌ مُطْلَقٌ (mafʿūl muṭlaq / absolute object), which you'll learn more about in L4.08.
-
-## Emphasis Stacking: إِنَّ + لَـ in Al-Asr
-
-Let's analyze how Surah Al-Asr combines multiple emphasis structures in just two verses:
-
-<ArabicExample
-  arabic="وَٱلْعَصْرِ ۝ إِنَّ ٱلْإِنسَٰنَ لَفِى خُسْرٍ"
-  transliteration="wal-ʿaṣri · inna l-insāna la-fī khusrin"
-  translation="By time! Indeed, mankind is certainly in loss"
-  reference="Al-ʿAsr 103:1-2"
-  words={[
-    { ar: "وَٱلْعَصْرِ", tr: "wal-ʿaṣri", en: "by time" },
-    { ar: "إِنَّ", tr: "inna", en: "indeed" },
-    { ar: "ٱلْإِنسَٰنَ", tr: "l-insāna", en: "mankind" },
-    { ar: "لَفِى", tr: "la-fī", en: "is certainly in" },
-    { ar: "خُسْرٍ", tr: "khusrin", en: "loss" }
-  ]}
-/>
-
-**Emphasis structure breakdown:**
-
-**Verse 1: وَٱلْعَصْرِ**
-- **وَ:** Oath particle (wāw al-qasam) — introduces a divine oath
-- **ٱلْعَصْرِ:** "Time" (genitive after oath waw)
-- **Emphasis level:** STRONG — oaths are inherently emphatic (swearing by something sacred)
-
-**Verse 2: إِنَّ ٱلْإِنسَٰنَ لَفِى خُسْرٍ**
-- **إِنَّ:** First emphasis layer (particle of affirmation)
-- **ٱلْإِنسَٰنَ:** Name of إِنَّ (accusative) "mankind"
-- **لَـ:** Second emphasis layer (emphatic lam)
-- **فِى خُسْرٍ:** Predicate (semi-sentence) "in loss"
-
-**Total emphasis count:**
-1. Oath formula (وَٱلْعَصْرِ) — STRONG emphasis
-2. إِنَّ particle — MEDIUM-STRONG emphasis
-3. لَـ prefix — MEDIUM-STRONG emphasis
-
-**Combined effect:** MAXIMUM emphasis — "I swear by time: INDEED mankind is CERTAINLY in loss."
-
-**Theological significance:** The stacking of three emphasis structures on such a concise statement (8 words in Arabic) highlights the absolute certainty and critical importance of this truth. Allah doesn't merely state mankind's condition — He SWEARS by time and doubles down with إِنَّ + لَـ to remove all doubt.
-
-<Callout type="tip" title="Why so much emphasis in the Quran?">
-Classical scholars note that Quranic emphasis structures often serve three purposes:
-1. **Remove doubt** — The audience (polytheists, skeptics) might doubt resurrection, judgment, divine attributes
-2. **Highlight importance** — Some truths are so critical they require maximum linguistic weight
-3. **Rhetorical beauty** — Emphasis creates rhythmic power and memorability, part of the Quran's *iʿjāz* (inimitable eloquence)
-
-The more controversial or important the statement, the more emphasis particles tend to appear.
-</Callout>
-
-## The Rule
-
-**Emphasis (tawkid) categories:**
-
-**1. Particle emphasis (حُرُوفُ التَّوْكِيدِ / ḥurūf at-tawkīd):**
-- **إِنَّ:** "Indeed" — emphasizes nominal sentences (changes subject to accusative)
-- **قَدْ + past:** "Certainly did" — emphasizes past tense verbs with certainty
-- **قَدْ + present:** "Certainly does / may" — emphasizes present tense (certainty or possibility)
-- **لَـ:** "Indeed, certainly" — emphasizes predicates or verbs (often stacks with إِنَّ)
-- **لَقَدْ:** "Certainly, verily" — MAXIMUM particle emphasis (لَـ + قَدْ combined)
-- **نُونُ ٱلتَّوْكِيدِ:** Heavy (ـنَّ) or light (ـَنْ) nun suffix on verbs for strong emphasis
-
-**2. Nominal emphasis (تَوْكِيدٌ مَعْنَوِيٌّ):**
-- **نَفْسٌ (nafs):** "Self, himself" — emphasizes personal identity
-- **عَيْنٌ (ayn):** "Same, the very one" — emphasizes exactness/sameness
-- **كُلٌّ (kull):** "All, entire" — emphasizes totality
-- **أَجْمَعُ (ajmaʿ), جَمِيعٌ (jamīʿ):** "All together, collectively" — emphasizes totality
-
-Nominal emphasis nouns MUST:
-- Agree with emphasized word in gender, number, case, definiteness
-- Have attached pronoun referring to the emphasized noun (except كُلٌّ in idafah)
-
-**3. Repetition emphasis (تَوْكِيدٌ لَفْظِيٌّ / tawkīd lafẓī):**
-- **Word repetition:** Immediate repetition of same word (كَلَّا...كَلَّا)
-- **Phrase repetition:** Refrain repeated throughout surah (Ar-Rahman's rhetorical question)
-- **Root repetition:** Using masdar with its verb (كَلَّمَ...تَكْلِيمًۭا)
-
-**Emphasis stacking:**
-Multiple emphasis structures can combine for cumulative effect:
-- Oath + إِنَّ + لَـ (as in Al-Asr) = MAXIMUM emphasis
-- كُلُّهُمْ أَجْمَعُونَ (kull + ajmaʿ) = double nominal emphasis for totality
-
-**Recognition strategy:**
-1. Look for إِنَّ, قَدْ, لَـ, لَقَدْ particles
-2. Check for nun at-tawkid suffix (ـنَّ / ـَنْ) on verbs
-3. Identify نَفْسٌ, عَيْنٌ, كُلٌّ with attached pronouns following nouns
-4. Notice word/phrase repetition patterns
-5. Count emphasis layers — more layers = stronger assertion
-
-## Practice
-
-<ExerciseBox question="Exercise 1: Identify Emphasis Particles">
-
-Identify the emphasis particle(s) in each phrase and determine what is being emphasized.
-
-**1. إِنَّ ٱللَّهَ عَلِيمٌ حَكِيمٌ (Indeed, Allah is Knowing and Wise)**
-
-Emphasis particle: إِنَّ (inna). Emphasized element: The entire nominal sentence 'Allah is Knowing and Wise.' Effect: إِنَّ puts ٱللَّهَ in accusative and affirms the statement with certainty. Translation emphasizes: 'INDEED Allah is Knowing and Wise.'
-
-**2. قَدْ أَفْلَحَ مَن تَزَكَّىٰ (He has certainly succeeded who purifies himself) [Al-Aʿla 87:14]**
-
-Emphasis particle: قَدْ (qad) with past tense. Emphasized element: The verb أَفْلَحَ 'succeeded.' Effect: قَدْ adds certainty to past action — 'has CERTAINLY succeeded.' This is emphatic affirmation of success for those who purify themselves.
-
-**3. إِنَّ ٱلْإِنسَٰنَ لَفِى خُسْرٍ (Indeed, mankind is certainly in loss) [Al-ʿAsr 103:2]**
-
-TWO emphasis particles: (1) إِنَّ and (2) لَـ (la- prefix). Emphasized element: The predicate فِى خُسْرٍ 'in loss.' Effect: Double emphasis — إِنَّ makes the statement emphatic, then لَـ further emphasizes the predicate. Translation: 'INDEED mankind is CERTAINLY in loss.' Maximum emphasis through stacking.
-
-**4. لَقَدْ خَلَقْنَا ٱلْإِنسَٰنَ فِىٓ أَحْسَنِ تَقْوِيمٍۢ (We have certainly created man...) [At-Tin 95:4]**
-
-Emphasis particle: لَقَدْ (la-qad) — maximum particle emphasis. Emphasized element: The verb خَلَقْنَا 'We created.' Effect: لَقَدْ combines لَـ + قَدْ for strongest possible particle emphasis on past action. Often follows oath formulas. Translation: 'We have CERTAINLY created...' — absolute certainty about Allah's creation.
-
-</ExerciseBox>
-
-<ExerciseBox question="Exercise 2: Identify Nominal Emphasis">
-
-Identify the nominal emphasis structure and explain its function.
-
-**1. جَاءَ ٱلنَّبِيُّ نَفْسُهُۥ (The Prophet himself came)**
-
-Nominal emphatic: نَفْسُهُۥ (nafsuhu) 'himself.' Emphasized element: ٱلنَّبِيُّ 'the Prophet.' Agreement: نَفْسُ is nominative (ـُ) matching ٱلنَّبِيُّ (subject), masculine singular, with pronoun ـهُۥ referring back to Prophet. Meaning: Emphasizes the Prophet's PERSONAL presence — HE HIMSELF came, not a messenger or representative.
-
-**2. فَسَجَدَ ٱلْمَلَٰٓئِكَةُ كُلُّهُمْ أَجْمَعُونَ (So the angels prostrated — all of them entirely) [Al-Hijr 15:30]**
-
-TWO nominal emphatics: (1) كُلُّهُمْ (kulluhum) 'all of them' and (2) أَجْمَعُونَ (ajmaʿūna) 'entirely/collectively.' Emphasized element: ٱلْمَلَٰٓئِكَةُ 'the angels.' Effect: Double emphasis on TOTALITY — ALL angels prostrated, EVERY SINGLE ONE, with ZERO exceptions. This is maximum nominal emphasis stacking.
-
-**3. وَيُحَذِّرُكُمُ ٱللَّهُ نَفْسَهُۥ (And Allah warns you of Himself) [Al-ʿImran 3:28]**
-
-Nominal emphatic: نَفْسَهُۥ (nafsahu) 'Himself.' Emphasized element: ٱللَّهُ (as object of warning). Agreement: نَفْسَ is accusative (ـَ) matching the function of ٱللَّهَ (object of the warning), masculine singular, pronoun ـهُۥ. Meaning: Allah warns you of ALLAH HIMSELF — the warning is direct from Allah, about Allah, with ultimate gravity.
-
-**4. وَٱللَّهُ بِكُلِّ شَىْءٍۢ عَلِيمٌ (And Allah, of all things, is Knowing) [Al-Baqarah 2:231]**
-
-Nominal emphatic: كُلِّ (kulli) 'all, every.' Emphasized element: شَىْءٍۢ 'thing' (in idafah after كُلِّ). Effect: Emphasizes TOTALITY of Allah's knowledge — not just some things, but ALL things, EVERY thing. كُلِّ is genitive (ـِ) because it's the object of preposition بِ. Translation: 'Allah is Knowing of ALL things' — total, comprehensive knowledge.
-
-</ExerciseBox>
-
-<ExerciseBox question="Exercise 3: Analyze Emphasis Stacking">
-
-For each verse, count the layers of emphasis and explain the cumulative effect.
-
-**1. وَٱلْعَصْرِ ۝ إِنَّ ٱلْإِنسَٰنَ لَفِى خُسْرٍ (By time! Indeed, mankind is certainly in loss) [Al-ʿAsr 103:1-2]**
-
-THREE layers of emphasis: (1) Oath formula وَٱلْعَصْرِ — swearing by time (strong emphasis), (2) إِنَّ — particle of affirmation (medium-strong), (3) لَـ — emphatic lam on predicate (medium-strong). Cumulative effect: MAXIMUM emphasis. Allah swears an oath, then uses TWO additional particles to emphasize mankind's state of loss. This triple emphasis signals extreme importance and removes all doubt about this theological truth.
-
-**2. لَقَدْ كَفَرَ ٱلَّذِينَ قَالُوٓا۟ إِنَّ ٱللَّهَ هُوَ ٱلْمَسِيحُ (Those have certainly disbelieved who say, 'Indeed, Allah is the Messiah') [Al-Maʾidah 5:17]**
-
-TWO emphasis structures (in NESTED positions): (1) لَقَدْ emphasizing the outer statement 'those have certainly disbelieved' — maximum particle emphasis. (2) إِنَّ within the quoted speech 'Indeed, Allah is the Messiah' — the speakers use emphatic affirmation for their FALSE claim. Effect: The verse uses strong emphasis (لَقَدْ) to assert their disbelief, while showing they ALSO used emphasis (إِنَّ) in their erroneous statement. Ironic layering: emphatic falsehood met with emphatic condemnation.
-
-**3. فَسَجَدَ ٱلْمَلَٰٓئِكَةُ كُلُّهُمْ أَجْمَعُونَ (So the angels prostrated — all of them entirely) [Al-Hijr 15:30]**
-
-TWO layers of NOMINAL emphasis: (1) كُلُّهُمْ 'all of them' — emphasizes totality, (2) أَجْمَعُونَ 'entirely, collectively' — reinforces totality even further. Cumulative effect: Absolute, comprehensive, universal compliance. Not a single angel refused. Both emphatics pile on the same message: EVERY angel, ALTOGETHER, with ZERO exceptions. This double nominal emphasis highlights the unanimity of angelic obedience.
-
-**4. كَلَّا سَوْفَ تَعْلَمُونَ ۝ ثُمَّ كَلَّا سَوْفَ تَعْلَمُونَ (No! You are going to know. Then no! You are going to know.) [At-Takathur 102:3-4]**
-
-REPETITION emphasis: The entire phrase is repeated EXACTLY, with only ثُمَّ 'then' added. Effect: Creates escalating intensity and warning. The first statement warns 'you will know.' The second repeats it (كَلَّا again), suggesting 'and then you'll REALLY know (when it's too late).' The repetition doesn't add new information — it adds URGENCY and inevitability. Like a warning siren repeating: the threat is imminent and unavoidable.
-
-</ExerciseBox>
-
-<ExerciseBox question="Exercise 4: Emphasis in Context">
-
-Read each verse and identify ALL emphasis structures present.
-
-**1. إِنَّآ أَعْطَيْنَٰكَ ٱلْكَوْثَرَ [Al-Kawthar 108:1]**
-
-Translation: 'Indeed, We have granted you al-Kawthar.' ONE emphasis particle: إِنَّ (inna). Emphasized element: The entire nominal sentence (with past tense verb as predicate). Effect: إِنَّ affirms with certainty Allah's gift of al-Kawthar to the Prophet. The أَعْطَيْنَٰكَ 'We have given you' is already emphatic through first-person plural pronoun نَا (royal 'We'), but إِنَّ adds another layer: 'INDEED We have granted...' — removing doubt about this divine favor.
-
-**2. قَدْ يَعْلَمُ ٱللَّهُ ٱلْمُعَوِّقِينَ مِنكُمْ (Already does Allah know the obstructers among you) [Al-Ahzab 33:18]**
-
-ONE emphasis particle: قَدْ with present tense. Emphasized element: The verb يَعْلَمُ 'knows.' Effect: قَدْ with present tense creates emphatic certainty — 'Allah CERTAINLY knows,' or 'already knows.' Context (Allah's knowledge) makes this emphatic certainty, not possibility. The verse warns hypocrites: Allah ALREADY knows who obstructs the believers — their hidden actions are not hidden from Him.
-
-**3. وَكَلَّمَ ٱللَّهُ مُوسَىٰ تَكْلِيمًۭا [An-Nisa 4:164]**
-
-Translation: 'And Allah spoke to Moses with direct speech.' COGNATE ACCUSATIVE (root repetition) emphasis: The verb كَلَّمَ 'spoke' (Form II from root ك-ل-م) is followed by its masdar تَكْلِيمًۭا 'speaking' from the same root. Effect: Emphasizes the MANNER and CERTAINTY of Allah's speech to Moses. This refutes those who claim Allah didn't speak directly. The masdar تَكْلِيمًۭا (absolute object / mafʿūl muṭlaq) reinforces: Allah TRULY spoke, DIRECTLY spoke, with ACTUAL speech — not metaphorically or through intermediary.
-
-**4. فَبِأَىِّ ءَالَآءِ رَبِّكُمَا تُكَذِّبَانِ (So which of the favors of your Lord would you deny?) [Ar-Rahman 55:13]**
-
-REPETITION emphasis (phrase refrain): This exact verse appears 31 TIMES throughout Surah Ar-Rahman. Effect: Each repetition after a favor/blessing creates cumulative emphasis on Allah's countless gifts. The rhetorical question isn't expecting an answer — it's ASSERTING the undeniability of Allah's favors through relentless repetition. By the 31st time, the refrain has become an overwhelming testament to divine generosity and human inability to deny it.
-
-</ExerciseBox>
-
----
-
-**Next lesson:** [L4.07 Specification (Tamyiz)](/learn/level-4/02-tamyiz/) — Learn how Arabic clarifies vague quantities and states through the tamyiz construction.
+import Step from '../../../components/lesson/Step.astro';
+import Stage from '../../../components/lesson/Stage.astro';
+import Sentence from '../../../components/lesson/Sentence.astro';
+import Tiles from '../../../components/lesson/Tiles.astro';
+import Formula from '../../../components/lesson/Formula.astro';
+import Note from '../../../components/lesson/Note.astro';
+import Check from '../../../components/lesson/Check.astro';
+import Start from '../../../components/lesson/Start.astro';
+import Sources from '../../../components/lesson/Sources.astro';
+import Parse from '../../../components/lesson/Parse.astro';
+import Exercise from '../../../components/lesson/Exercise.astro';
+import Block from '../../../components/lesson/Block.astro';
+
+{/* Content spec: docs/redesign/specs/L4.06-emphasis-affirmation.md. Every parse follows al-Jadwal (Mahmud Safi). */}
+
+<Step hero id="start" label="Five ways" title={frontmatter.title} kicker={frontmatter.kicker} titleArabic={frontmatter.titleArabic}>
+<Block id="overview" title="In this lesson" level={2} uncounted>
+  <Stage label="The idea">
+    <Formula
+      label="a strengthener makes a plain sentence stronger"
+      items={[
+        { kind: 'm', text: 'a plain sentence', small: 'جُمْلَة' },
+        { kind: 'k', text: 'a strengthener', small: 'تَوْكِيد' },
+        { kind: 's', text: 'a stronger sentence', small: 'same facts, more certain' },
+      ]}
+    />
+  </Stage>
+  <Start
+    goal="Name the ways the Quran strengthens a sentence, find the word that does it, say what it does to the words around it, and avoid the usual mix-ups."
+    minutes={90}
+    before="Inna and her sisters (L2.10). Following words (L2.06). Attached pronouns (L3.02). Past and present verbs (L3.05, L3.06). Jazm (L3.07)."
+    terms={[
+      { term: 'Emphasis', ar: 'تَوْكِيد', meaning: 'Making a statement stronger. In this lesson “emphasis” means every way of doing it.' },
+      { term: 'Tawkid', ar: 'تَوْكِيد', meaning: 'In the narrow sense: a following word, like كُلّ, that strengthens the word before it.' },
+      { term: 'Word of emphasis', ar: 'حَرْف تَوْكِيد', meaning: 'A little word that strengthens a sentence: إِنَّ, قَدْ, لَ.' },
+      { term: 'Emphasised word', ar: 'مُؤَكَّد', meaning: 'The word that a following tawkid word strengthens.' },
+      { term: 'Oath', ar: 'قَسَم', meaning: '“By Allah …”. The sentence after it is strengthened.' },
+      { term: 'Answer of the oath', ar: 'جَوَاب الْقَسَم', meaning: 'The strengthened sentence that follows the oath.' },
+      { term: 'Nūn of emphasis', ar: 'نُون التَّوْكِيد', meaning: 'An extra nūn at the end of a present verb. It comes in a heavy form (ـَنَّ) and a light form (ـَنْ).' },
+      { term: 'Following word', ar: 'تَابِع', meaning: 'A word that copies the case of the word before it (L2.06).' },
+    ]}
+  />
+</Block>
+
+<Block id="see" title="Look at this verse" level={2}>
+  <Stage>
+    <Sentence
+      size="big"
+      roles
+      reference="Ta-Ha 20:56"
+      groups={[
+        { label: 'two words of emphasis', hint: 'wa + la + qad: “and certainly”', words: [{ ar: 'وَلَقَدْ', en: 'and certainly', say: 'wa-laqad', type: 'p' }] },
+        { role: 'fiil', hint: 'a past verb with “We” as the doer', words: [{ ar: 'أَرَيْنَٰهُ', en: 'We showed him', say: 'araynahu', type: 'v' }] },
+        { role: 'maful', hint: 'what was shown: “Our signs”', words: [{ ar: 'ءَايَٰتِنَا', en: 'Our signs', say: 'ayatina' }] },
+        { role: 'naat', label: 'tawkid', hint: 'strengthens “signs”: every one', words: [{ ar: 'كُلَّهَا', en: 'all of them', say: 'kullaha' }] },
+        { role: 'fiil', label: 'two more verbs', hint: 'he denied and he refused', words: [{ ar: 'فَكَذَّبَ', en: 'but he denied', say: 'fa-kadhdhaba', type: 'v' }, { ar: 'وَأَبَىٰ', en: 'and refused', say: 'wa-aba', type: 'v' }] },
+      ]}
+      en={['And We certainly showed him all Our signs, but he denied and refused.']}
+    />
+  </Stage>
+
+This verse is strengthened in two ways. The sentence says only “We showed him signs”. The rest makes it firm.
+
+At the start stands **وَلَقَدْ**: وَ, then لَ, then قَدْ. Al-Jadwal reads the لَ as the lām of an oath that is not spoken (لَام الْقَسَم), and قَدْ as a word of certainty (حَرْف تَحْقِيق). In English both come out as “certainly”.
+
+The second way is **كُلَّهَا**, “all of them”. It comes right after ءَايَٰتِنَا and copies its accusative ending. Al-Jadwal calls it tawkid of ءَايَٰتِنَا. Take it away and the sentence is still whole. With it, no sign is left out.
+
+<Check n={1} q="Which word in the verse strengthens ءَايَٰتِنَا?" options={['وَلَقَدْ', 'كُلَّهَا', 'فَكَذَّبَ']} answer={1} why="كُلَّهَا comes after ءَايَٰتِنَا and copies its case. وَلَقَدْ strengthens the whole sentence from the front." />
+</Block>
+
+<Block id="map" title="The map: five ways to strengthen">
+  <Stage label="Five ways">
+    <ol class="lx-card-list">
+      <li><b>Little words:</b> إِنَّ, قَدْ, لَ, سَوْفَ. Step 2.</li>
+      <li><b>The oath:</b> “By …”, then a strengthened answer. Step 3.</li>
+      <li><b>The nūn of emphasis:</b> an extra nūn on a present verb. Step 3.</li>
+      <li><b>Repeating:</b> say the same word again. Step 4.</li>
+      <li><b>Words of meaning:</b> كُلّ, أَجْمَع, نَفْس, عَيْن after a noun. Step 4.</li>
+    </ol>
+  </Stage>
+
+Arabic has no italics or capital letters. It strengthens with words. Here is where each way is taught, and what it looks like.
+
+| Way | Arabic | What it is | Example |
+|---|---|---|---|
+| Little words | حُرُوف التَّوْكِيد | A small word in front of the sentence or the word | إِنَّ رَبِّى لَسَمِيعُ (14:39) |
+| The oath | قَسَم | “By …”, then an answer that carries emphasis | وَتَٱللَّهِ لَأَكِيدَنَّ (21:57) |
+| The nūn of emphasis | نُون التَّوْكِيد | An extra nūn at the end of a present verb | لَنَسْفَعًۢا (96:15) |
+| Repeating | تَوْكِيد لَفْظِيّ | The same word or sentence said again | كَلَّا … ثُمَّ كَلَّا (102:3 and 102:4) |
+| Words of meaning | تَوْكِيد مَعْنَوِيّ | A following word: كُلّ, أَجْمَع, نَفْس, عَيْن | كُلُّهُمْ أَجْمَعُونَ (15:30) |
+
+The first three go **in front of** or **onto** a word or a sentence. The last two are tawkid in the narrow sense: a **following word** (تَابِع). It stands after the word it strengthens and copies its case, like the adjective and the “and” word in L2.06. *Al-Ajurrumiyyah* names four following words: the adjective, the “and” word, tawkid and the replacement word.
+
+<Note kind="know">The books use the word tawkid in two ways. Narrowly, it is the following word (the last two rows). Al-Jadwal also calls inna “a word of tawkid” (حَرْف تَوْكِيد), and speaks of “the lām of tawkid” and “the nūn of tawkid”. This lesson says “emphasis” for the whole map and “tawkid” for the following word. The Corpus file has no tag for the following word, so we could not count it there. The counts below are for little words, the nūn and repeated words.</Note>
+
+<Check n={2} q="Which of these is tawkid in the narrow sense, a following word?" options={['إِنَّ', 'كُلَّهَا', 'قَدْ']} answer={1} why="كُلَّهَا follows ءَايَٰتِنَا and copies its case. إِنَّ and قَدْ are little words in front." />
+</Block>
+</Step>
+
+<Step id="words" label="Little words" title="Little words that strengthen a sentence">
+<Block id="inna" title="إِنَّ: indeed">
+  <Stage>
+    <Sentence
+      roles
+      reference="Al-Hujurat 49:12 (end)"
+      groups={[
+        { label: 'inna', hint: 'a little word: “indeed”', words: [{ ar: 'إِنَّ', en: 'indeed', say: 'inna', type: 'p' }] },
+        { role: 'ismInna', words: [{ ar: 'ٱللَّهَ', en: 'Allah', say: 'allaha' }] },
+        { role: 'khabarInna', hint: 'two words of news', words: [{ ar: 'تَوَّابٌ', en: 'accepts repentance', say: 'tawwabun' }, { ar: 'رَّحِيمٌ', en: 'merciful', say: 'rahimun' }] },
+      ]}
+      en={['Indeed, Allah accepts repentance and is merciful.']}
+    />
+    <Sentence
+      roles
+      reference="Ibrahim 14:39 (end)"
+      groups={[
+        { label: 'inna', hint: 'a little word: “indeed”', words: [{ ar: 'إِنَّ', en: 'indeed', say: 'inna', type: 'p' }] },
+        { role: 'ismInna', words: [{ ar: 'رَبِّى', en: 'my Lord', say: 'rabbi' }] },
+        { role: 'khabarInna', label: 'la- + khabar', hint: 'the لَ strengthens the khabar again', words: [{ ar: 'لَسَمِيعُ', en: 'hears', say: 'lasamiu' }, { ar: 'ٱلدُّعَآءِ', en: 'prayer', say: 'ad-duai' }] },
+      ]}
+      en={['Indeed, my Lord hears prayer.']}
+    />
+  </Stage>
+
+The plain sentence is ٱللَّهُ تَوَّابٌ رَّحِيمٌ (a made-up example, “Allah accepts repentance and is merciful”). Put إِنَّ in front and the first word moves to the accusative: إِنَّ ٱللَّهَ. The khabar keeps its ḍamma. L2.10 teaches how inna works, with the lām of emphasis on the khabar.
+
+Here inna is only the first strengthener. The second verse has a لَ on the khabar as well: لَسَمِيعُ. Al-Jadwal calls it the lām “that slid away” (اللَّام الْمُزَحْلَقَة), moved from the front of the sentence to the khabar. It is a second strengthener on the same statement, and it changes no ending.
+
+In the Corpus, 1,682 words are tagged as inna. We counted the words with the lemma inna, and we did not count her sisters.
+
+<Check n={3} q="In إِنَّ رَبِّى لَسَمِيعُ ٱلدُّعَآءِ, which two words strengthen the sentence?" options={['إِنَّ and the لَ in لَسَمِيعُ', 'رَبِّى and ٱلدُّعَآءِ', 'only سَمِيعُ']} answer={0} why="إِنَّ strengthens from the front. The لَ on the khabar strengthens it a second time." />
+</Block>
+
+<Block id="lam" title="لَ in other places">
+  <Stage label="Where a strengthening لَ can sit">
+    <Tiles
+      label="The strengthening la-"
+      items={[
+        { ar: 'لَسَمِيعُ', en: 'on the khabar of inna (14:39)', type: 'n' },
+        { ar: 'لَأَنتُمْ', en: 'on the mubtadaʾ (59:13)', type: 'n' },
+        { ar: 'لَقَدْ', en: 'in front of qad (95:4)', type: 'p' },
+        { ar: 'فَلَسَوْفَ', en: 'in front of sawfa (26:49)', type: 'p' },
+        { ar: 'لَنَسْفَعًۢا', en: 'on a verb, with the nūn (96:15)', type: 'v' },
+      ]}
+    />
+  </Stage>
+
+The little لَ is the most common strengthener. Three places are new here. On a **noun that starts a sentence**, as in لَأَنتُمْ أَشَدُّ رَهْبَةً (59:13). Al-Jadwal calls it “the beginning lām” (لَام الِابْتِدَاء). In front of **قَدْ**, which is the next block. In front of **سَوْفَ**: فَلَسَوْفَ تَعْلَمُونَ (26:49). Al-Jadwal reads this لَ as the lām of an oath that is not spoken. The Corpus has four such words: 19:66, 26:49, 92:21 and 93:5.
+
+On a **verb**, the لَ comes with an oath and the nūn of emphasis. That is Step 3.
+
+<Note kind="know">The Corpus tags 1,001 words that begin with a prefixed لَ as emphasis. We counted them by what the لَ is attached to: nouns 283, قَدْ 183, present verbs 226 (176 of them also end in the nūn of emphasis), past verbs 135, the condition word إِن 63 (as in لَئِن), prepositions 63, pronouns 26, joining nouns 13, سَوْفَ 4, names 3, place words 2. The tag is wider than the grammar books. Some of the 135 past verbs carry the لَ that ties the answer to لَوْ (see Mistake 3), which al-Jadwal does not call emphasis. So read the 1,001 as “words that begin with this لَ”, and not as 1,001 strengthened sentences.</Note>
+
+<Check n={4} q="In فَلَسَوْفَ تَعْلَمُونَ (26:49), what does the لَ do?" options={['It strengthens the promise', 'It means “to”', 'It is part of the root']} answer={0} why="The لَ before سَوْفَ strengthens the promise: “you will certainly know”. It is not the preposition li-." />
+</Block>
+
+<Block id="qad" title="قَدْ: certainly">
+  <Stage>
+    <Sentence
+      roles
+      reference="Al-Aʿla 87:14"
+      groups={[
+        { label: 'qad', hint: 'a word of certainty', words: [{ ar: 'قَدْ', en: 'certainly', say: 'qad', type: 'p' }] },
+        { role: 'fiil', hint: 'a past verb: “has succeeded”', words: [{ ar: 'أَفْلَحَ', en: 'has succeeded', say: 'aflaha', type: 'v' }] },
+        { role: 'fail', hint: 'مَن: “the one who”, with its clause', words: [{ ar: 'مَن', en: 'the one who', say: 'man' }, { ar: 'تَزَكَّىٰ', en: 'purifies himself', say: 'tazakka', type: 'v' }] },
+      ]}
+      en={['The one who purifies himself has certainly succeeded.']}
+    />
+    <Sentence
+      roles
+      reference="Al-Ahzab 33:18 (start)"
+      groups={[
+        { label: 'qad', hint: 'a word of certainty', words: [{ ar: 'قَدْ', en: 'certainly', say: 'qad', type: 'p' }] },
+        { role: 'fiil', hint: 'a present verb: “knows”', words: [{ ar: 'يَعْلَمُ', en: 'knows', say: 'yalamu', type: 'v' }] },
+        { role: 'fail', words: [{ ar: 'ٱللَّهُ', en: 'Allah', say: 'allahu' }] },
+        { role: 'maful', hint: 'the people who hold others back', words: [{ ar: 'ٱلْمُعَوِّقِينَ', en: 'those who hold others back', say: 'al-muawwiqina' }] },
+      ]}
+      en={['Allah certainly knows those who hold others back.']}
+    />
+  </Stage>
+
+**قَدْ** goes in front of a verb. Al-Jadwal calls it a word of certainty (حَرْف تَحْقِيق) in both verses. It changes no ending. In English it often comes out as “certainly” or just as a strong “has”.
+
+In the Corpus, قَدْ is tagged as a word of certainty 406 times, and the word right after it is a verb every time. It is a **past** verb 398 times (217 after قَدْ alone and 181 after لَقَدْ). It is a **present** verb 8 times: 2:144 (نَرَىٰ), 6:33, 15:97 and 16:103 (نَعْلَمُ), 24:63 and 24:64 (يَعْلَمُ), 33:18 (يَعْلَمُ) and 61:5 (تَعْلَمُونَ). All eight verbs mean “see” or “know”.
+
+You may read that قَدْ with a present verb can mean “maybe”. None of these eight needs it. For 33:18, al-Jadwal says the knowledge of Allah is sure at all times, so قَدْ here is certainty.
+
+<Check n={5} q="In قَدْ يَعْلَمُ ٱللَّهُ ٱلْمُعَوِّقِينَ, what does قَدْ add?" options={['“maybe”', '“certainly”']} answer={1} why="Al-Jadwal reads قَدْ as a word of certainty here, because Allah’s knowledge is sure." />
+</Block>
+
+<Block id="laqad" title="لَقَدْ: certainly, in one word">
+  <Stage>
+    <Sentence
+      roles
+      reference="At-Tin 95:4"
+      groups={[
+        { label: 'la + qad', hint: 'the lām of an oath, then a word of certainty', words: [{ ar: 'لَقَدْ', en: 'certainly', say: 'laqad', type: 'p' }] },
+        { role: 'fiil', hint: 'a past verb: the “We” is the doer', words: [{ ar: 'خَلَقْنَا', en: 'We created', say: 'khalaqna', type: 'v' }] },
+        { role: 'maful', words: [{ ar: 'ٱلْإِنسَٰنَ', en: 'the human', say: 'al-insana' }] },
+        { role: 'hal', hint: 'how: “in the best shape”', words: [{ ar: 'فِىٓ', en: 'in', say: 'fi', type: 'p' }, { ar: 'أَحْسَنِ', en: 'the best of', say: 'ahsani' }, { ar: 'تَقْوِيمٍ', en: 'shape', say: 'taqwimin' }] },
+      ]}
+      en={['We certainly created the human in the best shape.']}
+    />
+  </Stage>
+
+**لَقَدْ** is two little words written as one: the strengthening لَ and قَدْ. Al-Jadwal reads the لَ as the lām of an oath (لَام الْقَسَم). Here the oath is spoken in the three verses before: وَٱلتِّينِ وَٱلزَّيْتُونِ, وَطُورِ سِينِينَ and وَهَٰذَا ٱلْبَلَدِ ٱلْأَمِينِ. Al-Jadwal calls the sentence of verse 4 the answer of the oath (جَوَاب الْقَسَم). Where no oath is spoken, as in 20:56, al-Jadwal says the oath is understood.
+
+In the Corpus, قَدْ comes with this لَ 183 times out of 406, and the word after it is a past verb 181 times and a present verb twice (15:97 and 16:103).
+
+<Note kind="know">The Corpus tags the لَ of لَقَدْ simply as a word of emphasis. Al-Jadwal reads it as the lām of an oath, spoken or understood. The two readings describe the same word, and both treat the sentence as strengthened. This lesson follows al-Jadwal’s name for it.</Note>
+
+<Check n={6} q="What is لَقَدْ made of?" options={['لَ + قَدْ', 'the preposition li- + a noun', 'one word with no parts']} answer={0} why="It is the strengthening لَ followed by قَدْ, written together." />
+</Block>
+
+<Block id="parse-1" title="Word by word: Ibrahim 14:39">
+  <Stage label="Word by word">
+    <Parse
+      reference="Ibrahim 14:39 (end)"
+      words={[
+        { ar: 'إِنَّ', en: 'indeed', type: 'p' },
+        { ar: 'رَبِّى', en: 'my Lord' },
+        { ar: 'لَسَمِيعُ', en: 'hears' },
+        { ar: 'ٱلدُّعَآءِ', en: 'prayer' },
+      ]}
+      cards={[
+        { at: 0, role: 'inna, a little word: “indeed”', why: 'Little words have no case. It puts the next noun in the accusative (L2.10).', irab: 'حرف توكيد ونصب' },
+        { at: 1, ar: 'رَبِّ', role: 'the ism of inna: “Lord”', case: 'accusative (naṣb)', mark: 'a fatḥa you cannot see: the ي of “my” takes the vowel before it', why: 'The letter before the ي of “my” must carry a kasra, so the fatḥa does not show.', irab: 'اسم إن منصوب وعلامة نصبه الفتحة المقدرة على ما قبل ياء المتكلم' },
+        { at: 1, ar: 'ى', role: 'the attached pronoun: “my”', why: 'It belongs to the noun before it, as in “my Lord”.', irab: 'ضمير متصل في محل جر مضاف إليه' },
+        { at: 2, ar: 'لَ', role: 'a little word that strengthens the khabar', why: 'It slid from the front of the sentence to the khabar (L2.10). It changes no ending.', irab: 'اللام المزحلقة للتوكيد' },
+        { at: 2, ar: 'سَمِيعُ', role: 'the khabar of inna: “hears”, and the first word of an idafah', case: 'nominative (rafʿ)', mark: '-u (ḍamma)', why: 'The khabar of inna keeps its ḍamma.', irab: 'خبر إن مرفوع' },
+        { at: 3, role: 'the second word of the idafah: “of prayer”', case: 'genitive (jarr)', mark: '-i (kasra)', why: 'The word after the first part of an idafah is genitive (L2.08).', irab: 'مضاف إليه مجرور' },
+      ]}
+    />
+  </Stage>
+
+Two strengtheners stand on one statement. إِنَّ is a word in front. لَ sits on the khabar. Neither one changes the meaning of the sentence. Each one makes it firmer.
+</Block>
+</Step>
+
+<Step id="verb" label="Oath and nūn" title="Strengthening a verb: the oath and the nūn">
+<Block id="oath" title="The oath and its answer">
+  <Stage>
+    <Sentence
+      roles
+      reference="Al-Anbiya 21:57"
+      groups={[
+        { label: 'the oath', hint: 'wa + tāʾ of oath + “Allah”, in the genitive', words: [{ ar: 'وَتَٱللَّهِ', en: 'and by Allah', say: 'wa-tallahi' }] },
+        { role: 'fiil', label: 'the answer', hint: 'لَ + a present verb + نَّ', words: [{ ar: 'لَأَكِيدَنَّ', en: 'I will surely plot', say: 'la-akidanna', type: 'v' }] },
+        { role: 'maful', hint: 'against what: “your idols”', words: [{ ar: 'أَصْنَٰمَكُم', en: 'your idols', say: 'asnamakum' }] },
+        { role: 'zarf', hint: 'when: after you turn away', words: [{ ar: 'بَعْدَ', en: 'after', say: 'bada', type: 'p' }, { ar: 'أَن', en: 'that', say: 'an', type: 'p' }, { ar: 'تُوَلُّوا۟', en: 'you turn', say: 'tuwallu', type: 'v' }, { ar: 'مُدْبِرِينَ', en: 'going away', say: 'mudbirina' }] },
+      ]}
+      en={['By Allah, I will surely plot against your idols after you turn and go away.']}
+    />
+    <Tiles
+      label="The three oath letters"
+      items={[
+        { ar: 'وَٱلتِّينِ', en: 'wāw: “by the fig” (95:1)', type: 'n' },
+        { ar: 'بِعِزَّتِكَ', en: 'bāʾ: “by Your might” (38:82)', type: 'n' },
+        { ar: 'تَٱللَّهِ', en: 'tāʾ: “by Allah” (12:91)', type: 'n' },
+      ]}
+    />
+  </Stage>
+
+An oath has two parts. The first names what you swear by. It is a **letter** and a noun in the genitive: وَ (wāw), بِ (bāʾ) or تَ (tāʾ). In these verses tāʾ goes with the name of Allah. In 38:82 al-Jadwal says the oath phrase belongs to a verb left out, “I swear”.
+
+The second part is the **answer** (جَوَاب الْقَسَم). It is the sentence that is sworn to, and it carries its own strengthener. In this lesson the answers use لَقَدْ (95:4), لَ with a verb and the nūn (21:57) and the same with the light nūn in the next block. The Corpus has no tag for the oath, so we could not count oaths.
+
+Surah Ad-Duha (L4.19) opens with oath wāws. Later it uses the لَ on a noun and لَسَوْفَ, both from Step 2.
+
+<Check n={7} q="In وَتَٱللَّهِ لَأَكِيدَنَّ أَصْنَٰمَكُم, which part is the answer of the oath?" options={['وَتَٱللَّهِ', 'لَأَكِيدَنَّ أَصْنَٰمَكُم', 'بَعْدَ أَن تُوَلُّوا۟']} answer={1} why="وَتَٱللَّهِ is the oath. The sentence that follows it, with لَ and the nūn, is what is sworn." />
+</Block>
+
+<Block id="nun" title="The nūn of emphasis">
+  <Stage>
+    <Sentence
+      roles
+      reference="Al-Alaq 96:15"
+      groups={[
+        { label: 'a word that stops them', hint: 'a rebuke: “No!”', words: [{ ar: 'كَلَّا', en: 'No!', say: 'kalla', type: 'p' }] },
+        { label: 'if', hint: 'لَ prepares the oath, then إِنْ: “if”', words: [{ ar: 'لَئِن', en: 'if', say: 'la-in', type: 'p' }] },
+        { words: [{ ar: 'لَّمْ', en: 'not', say: 'lam', type: 'p' }] },
+        { role: 'fiil', label: 'the condition', hint: 'jazm: the ي of يَنتَهِي is gone', words: [{ ar: 'يَنتَهِ', en: 'he stops', say: 'yantahi', type: 'v' }] },
+        { role: 'fiil', label: 'the answer', hint: 'لَ + a present verb + the light nūn', words: [{ ar: 'لَنَسْفَعًۢا', en: 'We will surely seize', say: 'lanasfaan', type: 'v' }] },
+        { role: 'jarMajrur', hint: 'by the forelock', words: [{ ar: 'بِٱلنَّاصِيَةِ', en: 'by the forelock', say: 'bi-n-nasiyati', type: 'p' }] },
+      ]}
+      en={['No! If he does not stop, We will surely seize him by the forelock.']}
+    />
+  </Stage>
+
+The verb **لَنَسْفَعًۢا** has three parts. The لَ is the lām of an oath (al-Jadwal: لَام الْقَسَم). The verb is نَسْفَعُ, “We seize”. At the end sits the **nūn of emphasis** (نُون التَّوْكِيد), here in its **light** form (ـَنْ). Al-Jadwal says so. The Quran script spells the light nūn like a tanwin on an alif (ـًا), and it is still a nūn.
+
+The nūn goes on a **present verb**, and it strengthens the action: it will happen. Without the nūn the verb would be لَنَسْفَعُ.
+
+In the Corpus, 243 words end in this nūn, and every one is tagged as a present verb. 176 of them also have the لَ in front, as an answer of an oath. The other 67 have no لَ. The word before them is لَا 46 times, إِمَّا 9 times, إِن 6 times, أَوْ 4 times, مَا once and هَلْ once.
+
+<Check n={8} q="Which word in 96:15 has the nūn of emphasis?" options={['يَنتَهِ', 'لَنَسْفَعًۢا', 'بِٱلنَّاصِيَةِ']} answer={1} why="لَنَسْفَعًۢا ends in the light nūn. يَنتَهِ is the condition verb, in jazm." />
+</Block>
+
+<Block id="nun-two" title="Heavy and light, and after a ban">
+  <Stage>
+    <Sentence
+      roles
+      reference="Yusuf 12:32 (end)"
+      groups={[
+        { role: 'fiil', label: 'heavy nūn', hint: 'لَ + a passive verb + نَّ: “he will be put in prison”', words: [{ ar: 'لَيُسْجَنَنَّ', en: 'he will surely be jailed', say: 'layusjananna', type: 'v' }] },
+        { role: 'fiil', label: 'light nūn', hint: 'لَ + kāna + ـَنْ: “he will be”', words: [{ ar: 'وَلَيَكُونًا', en: 'and he will surely be', say: 'wa-layakunan', type: 'v' }] },
+        { role: 'jarMajrur', hint: 'among the humbled', words: [{ ar: 'مِّنَ', en: 'among', say: 'mina', type: 'p' }, { ar: 'ٱلصَّٰغِرِينَ', en: 'the humbled', say: 'as-saghirina' }] },
+      ]}
+      en={['He will surely be put in prison, and he will surely be among the humbled.']}
+    />
+    <Sentence
+      roles
+      reference="Al ʿImran 3:169 (start)"
+      groups={[
+        { label: 'a ban', hint: 'وَ + لَا: “and do not”', words: [{ ar: 'وَلَا', en: 'and do not', say: 'wa-la', type: 'p' }] },
+        { role: 'fiil', label: 'with the heavy nūn', hint: 'the nūn strengthens the ban', words: [{ ar: 'تَحْسَبَنَّ', en: 'think', say: 'tahsabanna', type: 'v' }] },
+        { role: 'maful', label: 'first object', words: [{ ar: 'ٱلَّذِينَ', en: 'those who', say: 'alladhina' }, { ar: 'قُتِلُوا۟', en: 'were killed', say: 'qutilu', type: 'v' }, { ar: 'فِى', en: 'in', say: 'fi', type: 'p' }, { ar: 'سَبِيلِ', en: 'the way of', say: 'sabili' }, { ar: 'ٱللَّهِ', en: 'Allah', say: 'allahi' }] },
+        { role: 'maful', label: 'second object', words: [{ ar: 'أَمْوَٰتًۢا', en: 'dead', say: 'amwatan' }] },
+      ]}
+      en={['Do not think that those who were killed in the way of Allah are dead.']}
+    />
+  </Stage>
+
+The nūn comes in two forms. The **heavy** nūn is ـَنَّ, a nūn with a shadda: لَيُسْجَنَنَّ. The **light** nūn is ـَنْ, a nūn with a sukūn, spelled like a tanwin on an alif in the script: وَلَيَكُونًا. Both do the same job.
+
+In the Corpus, 241 of the 243 words with this nūn are written with the heavy form. Only two have the light form: وَلَيَكُونًا in 12:32 and لَنَسْفَعًۢا in 96:15. We counted by the spelling.
+
+The nūn is not only for oaths. After لَا of a **ban**, as in وَلَا تَحْسَبَنَّ (3:169), it makes the ban firmer: “do not think at all”. The count above found لَا before the nūn 46 times. We read the first seven in the text (2:132, 2:147, 3:102, 3:169, 3:178, 3:180 and 3:188), and all seven are bans.
+
+<Check n={9} q="In لَيُسْجَنَنَّ and وَلَيَكُونًا, which one has the light nūn?" options={['لَيُسْجَنَنَّ', 'وَلَيَكُونًا']} answer={1} why="لَيُسْجَنَنَّ ends in ـَنَّ, with a shadda: heavy. وَلَيَكُونًا ends in a single nūn spelled like a tanwin: light." />
+</Block>
+
+<Block id="nun-mood" title="What the nūn does to the verb">
+  <Stage label="Four forms of one verb (teaching forms)">
+    <Tiles
+      label="The verb نَصْبِرُ"
+      items={[
+        { ar: 'نَصْبِرُ', en: 'plain: -u', type: 'v' },
+        { ar: 'لَنْ نَصْبِرَ', en: 'after لَنْ: -a (naṣb)', type: 'v' },
+        { ar: 'لَمْ نَصْبِرْ', en: 'after لَمْ: sukūn (jazm)', type: 'v' },
+        { ar: 'لَنَصْبِرَنَّ', en: 'with the nūn: -a, built', type: 'v' },
+      ]}
+    />
+  </Stage>
+
+These four are teaching forms. The last one is the form of 14:12, which you meet word by word below.
+
+A present verb ends in -u, or in -a after a word of naṣb, or in a sukūn after a word of jazm (L3.07). When the nūn of emphasis comes right after the verb, the verb ends in a **fatḥa** and does not change again. The books call it built on the fatḥa (مَبْنِيّ عَلَى الْفَتْح). Al-Jadwal says so for نَصْبِرَنَّ in 14:12 and for نَسْفَعَنْ in 96:15. For تَحْسَبَنَّ in 3:169 it says the verb is built on the fatḥa **in the place of jazm**, because of the لَا of the ban.
+
+So the nūn does **not** make the verb subjunctive. The mood is whatever the sentence has: plain in the oath answer, jazm after the ban. The fatḥa you see is the sign of the “built” verb. The nūn of emphasis is also a different nūn from the nūn of the five verbs (تَكْتُبُونَ) and from the -na of the women’s plural (تَكْتُبْنَ). Mistake 4 sorts them.
+
+The plural forms and “you (f)” change the ending again before the nūn. This lesson keeps to “he”, “we”, “I” and “you (m)”.
+
+<Check n={10} q="What ending does the verb have in لَنَصْبِرَنَّ?" options={['A ḍamma', 'A fatḥa: the verb is built', 'A sukūn']} answer={1} why="The nūn right after the verb makes it a built verb with a fatḥa, as al-Jadwal says for 14:12." />
+</Block>
+
+<Block id="parse-2" title="Word by word: Ibrahim 14:12">
+  <Stage label="Word by word">
+    <Parse
+      reference="Ibrahim 14:12 (part)"
+      words={[
+        { ar: 'وَلَنَصْبِرَنَّ', en: 'and we will surely be patient', type: 'v' },
+        { ar: 'عَلَىٰ', en: 'over', type: 'p' },
+        { ar: 'مَآ', en: 'what', type: 'p' },
+        { ar: 'ءَاذَيْتُمُونَا', en: 'you harmed us', type: 'v' },
+      ]}
+      cards={[
+        { at: 0, ar: 'وَ', role: 'a little word that starts a new sentence', why: 'The speakers say something new: they will stay patient.', irab: 'استئنافية' },
+        { at: 0, ar: 'لَ', role: 'the lām of an oath that is understood', why: 'There is no “by Allah” in the verse. Al-Jadwal says it is understood.', irab: 'لام القسم لقسم مقدر' },
+        { at: 0, ar: 'نَصْبِرَ', role: 'a present verb: “we are patient”', case: 'built, in the place of the plain -u', mark: 'a fatḥa on the ر', why: 'The nūn right after it makes the verb built. The doer is a hidden “we”.', irab: 'مضارع مبني على الفتح في محل رفع، والفاعل ضمير مستتر تقديره نحن' },
+        { at: 0, ar: 'نَّ', role: 'the nūn of emphasis, heavy', why: 'It makes the promise firm: “we will surely”.', irab: 'نون التوكيد' },
+        { at: 1, role: 'a little word: “over”', why: 'Little words have no case. It gives the second part its place: patience over something.', irab: 'حرف جر' },
+        { at: 2, role: 'a little word that makes a noun from the verb: “what”', why: 'مَا and the verb together mean “your harming us”. Al-Jadwal gives a second reading, a joining noun with its clause.', irab: 'حرف مصدري' },
+        { at: 3, role: 'a past verb: “you harmed”, with “us” as the object', case: 'built', mark: 'a sukūn on the ت', why: 'The -tum is the doer, “you all”. The و after it only lengthens the vowel of the م. The -nā is the object, “us”.', irab: 'فعل ماض مبني على السكون، وتم ضمير فاعل، والواو زائدة، ونا ضمير مفعول به' },
+      ]}
+    />
+  </Stage>
+
+The verb has an oath لَ in front and the nūn at the end, and no spoken oath. Al-Jadwal says the oath is understood, so the whole clause is the answer of an oath that nobody says aloud.
+</Block>
+</Step>
+
+<Step id="follow" label="Following words" title="Words that follow the word they strengthen">
+<Block id="repeat" title="Saying it twice">
+  <Stage>
+    <Sentence
+      roles
+      reference="At-Takathur 102:3"
+      groups={[
+        { label: 'a word that stops them', hint: '“No!”', words: [{ ar: 'كَلَّا', en: 'No!', say: 'kalla', type: 'p' }] },
+        { label: 'a word for the future', hint: 'سَوْفَ: “soon”', words: [{ ar: 'سَوْفَ', en: 'soon', say: 'sawfa', type: 'p' }] },
+        { role: 'fiil', words: [{ ar: 'تَعْلَمُونَ', en: 'you will know', say: 'talamuna', type: 'v' }] },
+      ]}
+      en={['No! You will soon know.']}
+    />
+    <Sentence
+      roles
+      reference="At-Takathur 102:4"
+      groups={[
+        { label: 'then', hint: 'ثُمَّ: the second time is stronger', words: [{ ar: 'ثُمَّ', en: 'then', say: 'thumma', type: 'p' }] },
+        { label: 'a word that stops them', hint: 'the same word again', words: [{ ar: 'كَلَّا', en: 'No!', say: 'kalla', type: 'p' }] },
+        { label: 'a word for the future', words: [{ ar: 'سَوْفَ', en: 'soon', say: 'sawfa', type: 'p' }] },
+        { role: 'fiil', words: [{ ar: 'تَعْلَمُونَ', en: 'you will know', say: 'talamuna', type: 'v' }] },
+      ]}
+      en={['Then, no! You will soon know.']}
+    />
+    <Sentence
+      roles
+      reference="Ar-Rahman 55:13"
+      groups={[
+        { role: 'tied', hint: 'tied to the verb: which of the favours', words: [{ ar: 'فَبِأَىِّ', en: 'so which of', say: 'fa-bi-ayyi' }, { ar: 'ءَالَآءِ', en: 'the favours of', say: 'alai' }, { ar: 'رَبِّكُمَا', en: 'your Lord', say: 'rabbikuma' }] },
+        { role: 'fiil', hint: 'two doers: “you two”', words: [{ ar: 'تُكَذِّبَانِ', en: 'do you two deny', say: 'tukadhdhibani', type: 'v' }] },
+      ]}
+      en={['So which of the favours of your Lord do you two deny?']}
+    />
+  </Stage>
+
+The simplest strengthener is to say it again. The books call it **tawkid lafẓī** (تَوْكِيد لَفْظِيّ), tawkid by the same words. In 102:3 and 102:4 the whole sentence is said twice, and the second time starts with ثُمَّ. Al-Jadwal says in its note on the style that the repeat strengthens the rebuke, and that ثُمَّ shows the second is the stronger.
+
+In the Corpus, كَلَّا is tagged 33 times, as a word of rebuke.
+
+A whole sentence can come back again and again. The question of 55:13 stands 31 times in Surah Ar-Rahman. We counted it by searching the text: all 31 are in surah 55, from verse 13 to verse 77, and the words are the same each time.
+
+<Check n={11} q="What is it called when a word or sentence is said again to strengthen it?" options={['تَوْكِيد لَفْظِيّ', 'تَوْكِيد مَعْنَوِيّ', 'جَوَاب الْقَسَم']} answer={0} why="Tawkid lafẓī is tawkid by the same words. Tawkid maʿnawī uses a word of meaning, like كُلّ." />
+</Block>
+
+<Block id="words" title="Words of meaning: the book’s list">
+  <Stage label="From al-Ajurrumiyyah">
+    <blockquote class="lx-quote" lang="ar" dir="rtl">
+      <p>التَّوْكِيدُ تَابِعٌ لِلْمُؤَكَّدِ فِي رَفْعِهِ وَنَصْبِهِ وَخَفْضِهِ …</p>
+    </blockquote>
+    <p class="lx-quote-note"><i>Al-Ajurrumiyyah</i>, chapter on tawkid. From the Wikisource text; the line is cut short here. Vowel marks added by Quran Learn.</p>
+  </Stage>
+
+The book says tawkid is a following word. It copies the case of the word it strengthens: nominative, accusative or genitive. Then the book lists the words. They are **نَفْس** (self), **عَيْن** (the very one), **كُلّ** (all) and **أَجْمَع** (all together). It adds three words that go after أَجْمَع: أَكْتَعُ, أَبْتَعُ and أَبْصَعُ. None of the three is in the Corpus text.
+
+| Word | Meaning | After it | Strengthens |
+|---|---|---|---|
+| نَفْس | self | a pronoun that matches the word | the person or thing itself |
+| عَيْن | the very one | a pronoun that matches the word | the person or thing itself |
+| كُلّ | all | a pronoun that matches the word | the whole of it |
+| أَجْمَع | all together | no pronoun | the whole, after كُلّ |
+
+The pronoun after نَفْس, عَيْن and كُلّ matches the strengthened word in gender and number. This is the usual way the examples are given. Quran Learn has not checked the rule in an approved source. The Corpus has 17 words where كُلّ has a pronoun attached.
+
+A test helps you spot real tawkid. **Take the word away.** The sentence must stay whole and keep its meaning. If it falls apart, the word is a doer, an object or something else.
+
+<Check n={12} q="In the made-up sentence جَاءَ ٱلْقَوْمُ كُلُّهُمْ, which word does كُلُّهُمْ strengthen?" options={['جَاءَ', 'ٱلْقَوْمُ', 'كُلُّهُمْ']} answer={1} why="كُلُّهُمْ follows ٱلْقَوْمُ and copies its ḍamma. The -hum points back to “the people”." />
+</Block>
+
+<Block id="nafs" title="نَفْس and عَيْن">
+  <Stage label="Made-up examples">
+    <Sentence
+      reference="Made-up example"
+      roles
+      groups={[
+        { role: 'fiil', words: [{ ar: 'جَاءَ', en: 'came', say: 'jaa', type: 'v' }] },
+        { role: 'fail', words: [{ ar: 'ٱلْمَلِكُ', en: 'the king', say: 'al-maliku' }] },
+        { role: 'naat', label: 'tawkid', hint: 'copies the doer: nominative', words: [{ ar: 'نَفْسُهُ', en: 'himself', say: 'nafsuhu' }] },
+      ]}
+      en={['The king himself came.']}
+    />
+    <Sentence
+      reference="Made-up example"
+      roles
+      groups={[
+        { role: 'fiil', words: [{ ar: 'رَأَيْتُ', en: 'I saw', say: 'raaytu', type: 'v' }] },
+        { role: 'maful', words: [{ ar: 'ٱلْمَلِكَ', en: 'the king', say: 'al-malika' }] },
+        { role: 'naat', label: 'tawkid', hint: 'copies the object: accusative', words: [{ ar: 'نَفْسَهُ', en: 'himself', say: 'nafsahu' }] },
+      ]}
+      en={['I saw the king himself.']}
+    />
+    <Sentence
+      reference="Made-up example"
+      roles
+      groups={[
+        { role: 'fiil', words: [{ ar: 'مَرَرْتُ', en: 'I passed', say: 'marartu', type: 'v' }] },
+        { role: 'jarMajrur', words: [{ ar: 'بِٱلْمَلِكِ', en: 'by the king', say: 'bil-maliki', type: 'p' }] },
+        { role: 'naat', label: 'tawkid', hint: 'copies the genitive', words: [{ ar: 'نَفْسِهِ', en: 'himself', say: 'nafsihi' }] },
+      ]}
+      en={['I passed the king himself.']}
+    />
+  </Stage>
+
+نَفْس and عَيْن say “himself”, “in person”. They work the same way: جَاءَ ٱلْمَلِكُ عَيْنُهُ (made-up) says “the king himself came”. The ending copies the case of ٱلْمَلِكُ: -u, -a, -i. The pronoun -hu points back to the king. With a feminine word the pronoun changes: رَأَيْتُ ٱلْمَرْأَةَ نَفْسَهَا (made-up).
+
+These sentences are made up. We did not find a verse for نَفْس or عَيْن as tawkid that we could confirm in al-Jadwal, so none is shown here. The Quran is full of the word نَفْس, but it does other jobs: it is a doer, an object, or “soul”. Mistake 1 shows two such verses.
+
+<Check n={13} q="In رَأَيْتُ ٱلْمَلِكَ نَفْسَهُ (made-up), why does نَفْسَهُ end in a fatḥa?" options={['It copies the case of ٱلْمَلِكَ, the object', 'It is the doer', 'The verb makes it so by itself']} answer={0} why="A tawkid word copies the case of the word it strengthens. ٱلْمَلِكَ is accusative, so نَفْسَهُ is too." />
+</Block>
+
+<Block id="kull" title="كُلّ: all of it">
+  <Stage>
+    <Sentence
+      roles
+      reference="Al-Anfal 8:39 (part)"
+      groups={[
+        { role: 'fiil', hint: 'a complete verb: “exist, be”', words: [{ ar: 'وَيَكُونَ', en: 'and will be', say: 'wa-yakuna', type: 'v' }] },
+        { role: 'fail', hint: 'the doer of the verb: the religion', words: [{ ar: 'ٱلدِّينُ', en: 'the religion', say: 'ad-dinu' }] },
+        { role: 'naat', label: 'tawkid', hint: 'copies the nominative: all of it', words: [{ ar: 'كُلُّهُۥ', en: 'all of it', say: 'kulluhu' }] },
+        { role: 'tied', hint: 'tied to the religion, as a state: “for Allah”', words: [{ ar: 'لِلَّهِ', en: 'for Allah', say: 'lillahi', type: 'p' }] },
+      ]}
+      en={['And the whole religion will be for Allah.']}
+    />
+    <Sentence
+      roles
+      reference="At-Tawbah 9:33 (part)"
+      groups={[
+        { role: 'jar', words: [{ ar: 'عَلَى', en: 'over', say: 'ala', type: 'p' }] },
+        { role: 'majrur', words: [{ ar: 'ٱلدِّينِ', en: 'the religion', say: 'ad-dini' }] },
+        { role: 'naat', label: 'tawkid', hint: 'copies the genitive: all of it', words: [{ ar: 'كُلِّهِۦ', en: 'all of it', say: 'kullihi' }] },
+      ]}
+      en={['…over the whole religion.']}
+    />
+  </Stage>
+
+In both verses **كُلّ** comes after the noun and has a pronoun that points back to it: كُلُّهُۥ and كُلِّهِۦ. Al-Jadwal reads كُلُّهُۥ in 8:39 as tawkid of ٱلدِّينُ, “nominative like it”. In 9:33 the word copies the genitive of ٱلدِّينِ. And in 20:56, the first verse of this lesson, كُلَّهَا copies the accusative of ءَايَٰتِنَا. So you have seen all three cases.
+
+The Corpus has 17 words where كُلّ has a pronoun attached. Quran Learn read five of the verses in al-Jadwal (3:154, 8:39, 10:99, 15:30, 20:56): in each, al-Jadwal says tawkid. In a sixth, 19:95, كُلُّهُمْ is a mubtadaʾ (the start of a new sentence). So a pronoun on كُلّ does not prove tawkid. The word must come after the word it strengthens.
+
+<Check n={14} q="In 9:33 the word كُلِّهِۦ ends in a kasra. Why?" options={['It copies the genitive of ٱلدِّينِ', 'It is the doer', 'A preposition is in front of it']} answer={0} why="كُلِّهِۦ is tawkid of ٱلدِّينِ. ٱلدِّينِ is genitive after عَلَى, so the tawkid is genitive too." />
+</Block>
+
+<Block id="ajma" title="أَجْمَع and جَمِيع">
+  <Stage>
+    <Sentence
+      roles
+      reference="Al-Hijr 15:30"
+      groups={[
+        { role: 'fiil', hint: 'a past verb: “bowed”', words: [{ ar: 'فَسَجَدَ', en: 'so bowed', say: 'fa-sajada', type: 'v' }] },
+        { role: 'fail', words: [{ ar: 'ٱلْمَلَٰٓئِكَةُ', en: 'the angels', say: 'al-malaikatu' }] },
+        { role: 'naat', label: 'tawkid', hint: 'first strengthener: all of them', words: [{ ar: 'كُلُّهُمْ', en: 'all of them', say: 'kulluhum' }] },
+        { role: 'naat', label: 'second tawkid', hint: 'second strengthener: all together', words: [{ ar: 'أَجْمَعُونَ', en: 'all together', say: 'ajmaun' }] },
+      ]}
+      en={['So the angels bowed, all of them together.']}
+    />
+    <Sentence
+      roles
+      reference="Yunus 10:99 (part)"
+      groups={[
+        { role: 'fail', hint: 'مَن: “whoever”, the doer of the verb before', words: [{ ar: 'مَن', en: 'whoever', say: 'man' }, { ar: 'فِى', en: 'is in', say: 'fi', type: 'p' }, { ar: 'ٱلْأَرْضِ', en: 'the earth', say: 'al-ardi' }] },
+        { role: 'naat', label: 'tawkid', hint: 'copies مَن: nominative', words: [{ ar: 'كُلُّهُمْ', en: 'all of them', say: 'kulluhum' }] },
+        { role: 'hal', label: 'a state that strengthens', hint: 'accusative: “altogether”', words: [{ ar: 'جَمِيعًا', en: 'altogether', say: 'jamian' }] },
+      ]}
+      en={['…whoever is on the earth, all of them, altogether.']}
+    />
+  </Stage>
+
+**أَجْمَع** goes after كُلّ for a stronger “all”. It has no pronoun. In 15:30 al-Jadwal calls كُلُّهُمْ the tawkid and أَجْمَعُونَ a second tawkid, “nominative, and the wāw is the sign”. The Corpus has 26 words from this word.
+
+**جَمِيع** is not on the list in *al-Ajurrumiyyah*. In 10:99 al-Jadwal reads جَمِيعًا as a **state that strengthens** (حَال مُؤَكِّدَة), not as tawkid. The Corpus has 53 words from this word. We did not check which of them are tawkid.
+
+<Note kind="know">Scholars read أَجْمَعُونَ in two ways. The common reading is a second tawkid, and this lesson follows it. *Al-Durr al-Maṣūn* on 15:30 says it adds no meaning of “at the same time”, and that some scholars hold it does. It quotes Abū al-Baqāʾ, who says that with that meaning it would be a state and not tawkid. Al-Jadwal gives two readings for أَجْمَعِينَ in 38:82 (tawkid, or a state in a footnote), and reads أَجْمَعِينَ in 26:49 as a state. So the word is not always tawkid.</Note>
+
+<Check n={15} q="In كُلُّهُمْ أَجْمَعُونَ (15:30), what is أَجْمَعُونَ?" options={['A second tawkid', 'The doer of the verb', 'The object']} answer={0} why="Al-Jadwal calls أَجْمَعُونَ a second tawkid. It copies the ḍamma of the angels and has no pronoun." />
+</Block>
+
+<Block id="root" title="The same root again">
+  <Stage label="The verb and a noun from its own root">
+    <Tiles
+      label="An-Nisa 4:164 (end)"
+      items={[
+        { ar: 'وَكَلَّمَ', en: 'and spoke', type: 'v' },
+        { ar: 'ٱللَّهُ', en: 'Allah', type: 'n' },
+        { ar: 'مُوسَىٰ', en: 'to Musa', type: 'n' },
+        { ar: 'تَكْلِيمًا', en: 'with real speech', type: 'n' },
+      ]}
+    />
+  </Stage>
+
+A verb can be followed by a noun of its own root: كَلَّمَ … تَكْلِيمًا. Al-Jadwal calls the noun an **absolute object** (مَفْعُول مُطْلَق). One of its jobs is to strengthen the verb: “He really spoke”. L4.07 teaches the absolute object in full. This lesson only shows you that it is one more way to strengthen.
+
+<Check n={16} q="Which word in 4:164 is the noun from the same root as the verb?" options={['مُوسَىٰ', 'تَكْلِيمًا', 'ٱللَّهُ']} answer={1} why="كَلَّمَ and تَكْلِيمًا share the root ك ل م. The second one strengthens the first." />
+</Block>
+
+<Block id="parse-3" title="Word by word: Sad 38:82">
+  <Stage label="Word by word">
+    <Parse
+      reference="Sad 38:82"
+      words={[
+        { ar: 'فَبِعِزَّتِكَ', en: 'so by Your might', type: 'p' },
+        { ar: 'لَأُغْوِيَنَّهُمْ', en: 'I will surely lead them astray', type: 'v' },
+        { ar: 'أَجْمَعِينَ', en: 'all of them' },
+      ]}
+      cards={[
+        { at: 0, ar: 'فَ', role: 'a little word: “so”', why: 'Al-Jadwal says it ties the sentence to the delay that was granted: because You gave me time.', irab: 'الفاء لتعلق ترتيب الجملة على الإنظار' },
+        { at: 0, ar: 'بِ', role: 'the bāʾ of the oath: “by”', why: 'It starts the oath. The oath is tied to a verb left out: “I swear”.', irab: 'باء القسم، والجار والمجرور متعلق بفعل محذوف تقديره أقسم' },
+        { at: 0, ar: 'عِزَّتِ', role: 'what is sworn by: “might”', case: 'genitive (jarr)', mark: '-i (kasra)', why: 'The noun after the bāʾ of the oath is genitive.', irab: 'اسم مجرور' },
+        { at: 0, ar: 'كَ', role: 'the attached pronoun: “Your”', why: 'It belongs to “might”: Your might.', irab: 'ضمير متصل في محل جر مضاف إليه' },
+        { at: 1, ar: 'لَ', role: 'the lām of the oath', why: 'It starts the answer of the oath.', irab: 'لام القسم' },
+        { at: 1, ar: 'أُغْوِيَ', role: 'a present verb: “I lead astray”', case: 'built, in the place of the plain -u', mark: 'a fatḥa on the ي', why: 'The nūn right after it makes it built. The doer is a hidden “I”.', irab: 'مضارع مبني على الفتح في محل رفع، والفاعل ضمير مستتر تقديره أنا' },
+        { at: 1, ar: 'نَّ', role: 'the nūn of emphasis, heavy', why: 'It makes the threat firm.', irab: 'نون التوكيد' },
+        { at: 1, ar: 'هُمْ', role: 'the attached pronoun: “them”, the object', why: 'It tells who is led astray.', irab: 'ضمير متصل في محل نصب مفعول به' },
+        { at: 2, role: 'a word that strengthens “them”: “all of them”', case: 'accusative (naṣb)', mark: '-īna (yā)', why: 'It copies the case of the pronoun -hum, which is the object. A sound masculine plural shows the accusative with a yā. Al-Jadwal also allows a state (ḥāl) here.', irab: 'توكيد للضمير المفعول منصوب وعلامة النصب الياء' },
+      ]}
+    />
+  </Stage>
+
+This one sentence has four strengtheners: the bāʾ of the oath, the لَ, the nūn and أَجْمَعِينَ. Every one is a way from this lesson. Counting them shows you where to look. It does not measure how strong the sentence is.
+</Block>
+
+<Block id="parse-4" title="Word by word: Al-Hijr 15:30">
+  <Stage label="Word by word">
+    <Parse
+      reference="Al-Hijr 15:30"
+      words={[
+        { ar: 'فَسَجَدَ', en: 'so bowed', type: 'v' },
+        { ar: 'ٱلْمَلَٰٓئِكَةُ', en: 'the angels' },
+        { ar: 'كُلُّهُمْ', en: 'all of them' },
+        { ar: 'أَجْمَعُونَ', en: 'all together' },
+      ]}
+      cards={[
+        { at: 0, ar: 'فَ', role: 'a little word that starts the sentence', why: 'It begins a new sentence after the order to bow.', irab: 'استئنافية' },
+        { at: 0, ar: 'سَجَدَ', role: 'a past verb: “bowed”', case: 'built', mark: 'a fatḥa on the last root letter', why: 'Past verbs are built (L3.05). Its doer is the next word.', irab: 'فعل ماض مبني على الفتح' },
+        { at: 1, role: 'the doer: “the angels”', case: 'nominative (rafʿ)', mark: '-u (ḍamma)', why: 'The doer comes after its verb.', irab: 'فاعل مرفوع' },
+        { at: 2, ar: 'كُلُّ', role: 'tawkid: “all”, strengthening the angels', case: 'nominative (rafʿ)', mark: '-u (ḍamma)', why: 'It copies the case of ٱلْمَلَٰٓئِكَةُ.', irab: 'توكيد معنوي للملائكة مرفوع مثله' },
+        { at: 2, ar: 'هُمْ', role: 'the attached pronoun: “of them”', why: 'It points back to the angels.', irab: 'ضمير متصل مضاف إليه' },
+        { at: 3, role: 'a second tawkid: “all together”', case: 'nominative (rafʿ)', mark: 'the wāw of a sound masculine plural', why: 'It copies the case again. It has no pronoun.', irab: 'توكيد معنوي ثان مرفوع وعلامة الرفع الواو' },
+      ]}
+    />
+  </Stage>
+
+Take away كُلُّهُمْ أَجْمَعُونَ and you have فَسَجَدَ ٱلْمَلَٰٓئِكَةُ: “the angels bowed”. With the two words, none is left out. The test from the book’s list fits: both words can be removed, and the sentence is still whole.
+</Block>
+</Step>
+
+<Step id="practice" label="Mistakes and practice" title="Mistakes and practice">
+<Block id="mistake-nafs" title="Mistake 1: نَفْس is not always tawkid">
+  <Stage>
+    <Sentence
+      roles
+      reference="Al ʿImran 3:28 (end)"
+      groups={[
+        { role: 'fiil', hint: 'يُحَذِّرُكُمُ: “warns you”', words: [{ ar: 'وَيُحَذِّرُكُمُ', en: 'and warns you', say: 'wa-yuhadhdhirukumu', type: 'v' }] },
+        { role: 'fail', words: [{ ar: 'ٱللَّهُ', en: 'Allah', say: 'allahu' }] },
+        { role: 'maful', label: 'second object', hint: 'warns you of what? of Himself', words: [{ ar: 'نَفْسَهُۥ', en: 'of Himself', say: 'nafsahu' }] },
+      ]}
+      en={['And Allah warns you of Himself.']}
+    />
+    <Sentence
+      roles
+      reference="Al-Maʾidah 5:30 (part)"
+      groups={[
+        { role: 'fiil', hint: 'a past verb for “she”: it made it easy', words: [{ ar: 'فَطَوَّعَتْ', en: 'so made it easy', say: 'fa-tawwaat', type: 'v' }] },
+        { role: 'tied', hint: 'for him', words: [{ ar: 'لَهُۥ', en: 'for him', say: 'lahu', type: 'p' }] },
+        { role: 'fail', label: 'the doer', hint: 'his own self did it', words: [{ ar: 'نَفْسُهُۥ', en: 'his own self', say: 'nafsuhu' }] },
+        { role: 'maful', words: [{ ar: 'قَتْلَ', en: 'the killing of', say: 'qatla' }, { ar: 'أَخِيهِ', en: 'his brother', say: 'akhihi' }] },
+      ]}
+      en={['So his own self made the killing of his brother easy for him.']}
+    />
+  </Stage>
+
+Both verses have نَفْسَهُۥ or نَفْسُهُۥ with a pronoun, and neither one is tawkid. In 3:28 al-Jadwal calls نَفْس an **object** of يُحَذِّرُ: the verb has two, كُمْ and نَفْسَهُۥ. In 5:30 it calls نَفْس the **doer** of طَوَّعَتْ.
+
+Use the test. In 3:28 take the word away: “Allah warns you”. The sentence no longer says of what. In 5:30 take it away: “so made it easy for him the killing of his brother”. Nobody does it. Tawkid is the word you can remove while the sentence stays whole.
+
+<Check n={17} q="In 5:30, what is نَفْسُهُۥ?" options={['Tawkid of the brother', 'The doer of فَطَوَّعَتْ', 'The object of فَطَوَّعَتْ']} answer={1} why="Al-Jadwal calls نَفْس the doer. It ends in a ḍamma because a doer is nominative." />
+</Block>
+
+<Block id="mistake-kull" title="Mistake 2: كُلّ in front of a noun is not tawkid">
+  <Stage>
+    <Sentence
+      roles
+      reference="Al-Baqarah 2:231 (end)"
+      groups={[
+        { label: 'anna', hint: 'a sister of inna: “that”', words: [{ ar: 'أَنَّ', en: 'that', say: 'anna', type: 'p' }] },
+        { role: 'ismInna', words: [{ ar: 'ٱللَّهَ', en: 'Allah', say: 'allaha' }] },
+        { role: 'jarMajrur', label: 'kull + a noun', hint: 'كُلّ is the first word of an idafah', words: [{ ar: 'بِكُلِّ', en: 'of every', say: 'bi-kulli', type: 'p' }, { ar: 'شَىْءٍ', en: 'thing', say: 'shayin' }] },
+        { role: 'khabarInna', words: [{ ar: 'عَلِيمٌ', en: 'knowing', say: 'alimun' }] },
+      ]}
+      en={['…that Allah knows every thing.']}
+    />
+  </Stage>
+
+The word كُلّ is here too, but it comes **before** its noun, with no pronoun: بِكُلِّ شَىْءٍ. It is the first word of an idafah, and شَىْءٍ is its second word, genitive. Al-Jadwal says “شَىْء is the muḍāf ilayh”. Nothing is strengthened. The kasra of كُلِّ comes from بِ.
+
+Tawkid كُلّ stands **after** its noun and has a pronoun that points back: كُلُّهُمْ, كُلَّهَا, كُلِّهِۦ.
+
+<Check n={18} q="In بِكُلِّ شَىْءٍ, is كُلِّ a tawkid word?" options={['Yes', 'No: it is the first word of an idafah']} answer={1} why="It stands before its noun and has no pronoun. Al-Jadwal calls شَىْء its muḍāf ilayh." />
+</Block>
+
+<Block id="mistake-lam" title="Mistake 3: not every لَ strengthens">
+  <Stage>
+    <Sentence
+      roles
+      reference="Yunus 10:99 (part)"
+      groups={[
+        { label: 'law', hint: 'لَوْ: “if”, a condition word that leaves the verbs alone (L4.04)', words: [{ ar: 'وَلَوْ', en: 'and if', say: 'wa-law', type: 'p' }] },
+        { role: 'fiil', label: 'condition', words: [{ ar: 'شَآءَ', en: 'wanted', say: 'shaa', type: 'v' }] },
+        { role: 'fail', words: [{ ar: 'رَبُّكَ', en: 'your Lord', say: 'rabbuka' }] },
+        { label: 'la-', hint: 'ties the answer to لَوْ', words: [{ ar: 'لَءَامَنَ', en: 'would have believed', say: 'la-amana', type: 'v' }] },
+      ]}
+      en={['And if your Lord had wanted, would have believed…']}
+    />
+  </Stage>
+
+The verb لَءَامَنَ starts with a لَ, and the Corpus tags it as emphasis. Al-Jadwal does not call it that. It says the لَ **ties the answer to** لَوْ (رَابِطَة لِجَوَاب لَوْ). Its job is to join. L4.04 taught this. The meaning is not “certainly believed”.
+
+So when you see a لَ, ask what comes before it. Is it **in front of** a noun, a verb, قَدْ or سَوْفَ, and is there an oath or a nūn? Or is it the answer to لَوْ? A third لَ is the preposition **li-**, “for” (لِلَّهِ), which has a kasra, not a fatḥa. L2.10 compared them.
+
+<Check n={19} q="What does the لَ in لَءَامَنَ do, according to al-Jadwal?" options={['It strengthens like an oath', 'It ties the answer to لَوْ']} answer={1} why="Al-Jadwal calls it the lām that links the answer of لَوْ. It does not add the meaning “certainly”." />
+</Block>
+
+<Block id="mistake-nun" title="Mistake 4: three kinds of nūn">
+  <Stage label="Teaching forms, not verses">
+    <Tiles
+      label="Three endings that look alike"
+      items={[
+        { ar: 'تَكْتُبْنَ', en: 'you (women) write: the -na of the doers', type: 'v' },
+        { ar: 'تَكْتُبُونَ', en: 'you all write: the nūn of the five verbs', type: 'v' },
+        { ar: 'لَتَكْتُبَنَّ', en: 'you will surely write: the nūn of emphasis', type: 'v' },
+      ]}
+    />
+  </Stage>
+
+The three forms end in a nūn, and each nūn is a different thing. In **تَكْتُبْنَ**, -na is the ending for “they (f)” or “you (f)”: it is the doer. L3.05 and L3.07 taught it. In **تَكْتُبُونَ** the nūn belongs to the five verbs. It drops after a word of naṣb or jazm. In **لَتَكْتُبَنَّ** the nūn is the nūn of emphasis. The verb ends in a fatḥa and the nūn has a shadda.
+
+Two checks tell them apart. The nūn of emphasis comes with a **لَ** in front (176 times out of 243 in the Corpus) or after لَا of a ban. And it always strengthens: you can say “surely” in English. Do not say that the nūn makes the verb subjunctive. It does not (see the block “What the nūn does to the verb”).
+
+<Check n={20} q="In لَتَكْتُبَنَّ, which nūn is it?" options={['The doer’s -na', 'The nūn of the five verbs', 'The nūn of emphasis']} answer={2} why="It is the nūn of emphasis: it stands after a fatḥa, with a shadda, and the verb has the لَ of an oath in front." />
+</Block>
+
+<Block id="find" title="How to find the strengthener">
+  <Stage label="Look in this order">
+    <ol class="lx-card-list">
+      <li><b>Start of the sentence:</b> إِنَّ, قَدْ, لَقَدْ, لَ, سَوْفَ.</li>
+      <li><b>An oath:</b> وَ, بِ or تَ and a genitive noun, then the answer.</li>
+      <li><b>End of a verb:</b> the nūn of emphasis, with a fatḥa before it.</li>
+      <li><b>After a noun:</b> كُلّ, أَجْمَع, نَفْس or عَيْن. Remove it: does the sentence stay whole?</li>
+      <li><b>The same words again:</b> repeating.</li>
+    </ol>
+  </Stage>
+
+Use this order on every verse. The little words and the oath come first because they stand in front. The following words come last because you have to check them against the noun before.
+
+<Note kind="know">Teachers often say “the more strengtheners, the stronger the sentence”. This is a teaching summary, and Quran Learn has found no approved source for it. Treat it as a way to notice the words. L4.17 looks at how the Quran chooses between plain and strengthened speech.</Note>
+</Block>
+
+<Block id="practice-1" title="Practice: name the strengthener">
+  <Stage label="For each sentence, say">
+    <ol class="lx-card-list">
+      <li><b>The word:</b> which one strengthens?</li>
+      <li><b>The way:</b> a little word, the oath, the nūn, repeating or a following word?</li>
+      <li><b>What it changes:</b> an ending, or nothing?</li>
+    </ol>
+  </Stage>
+
+Work out each answer first, on paper or in your head. Then open the answer.
+
+<Exercise n={1} q="Name every strengthener in each. (a) قَدْ أَفْلَحَ ٱلْمُؤْمِنُونَ (Al-Muʾminun 23:1) (b) إِنَّ رَبَّكَ لَبِٱلْمِرْصَادِ (Al-Fajr 89:14) (c) وَلَقَدْ نَعْلَمُ أَنَّكَ يَضِيقُ صَدْرُكَ (Al-Hijr 15:97, part) (d) قَدْ نَعْلَمُ إِنَّهُۥ لَيَحْزُنُكَ (Al-Anam 6:33, part)">
+
+- (a) **قَدْ**, in front of the past verb أَفْلَحَ: “have certainly succeeded”.
+- (b) **إِنَّ** and a **لَ** on the khabar. The khabar is the phrase بِٱلْمِرْصَادِ. The first word becomes accusative: رَبَّكَ.
+- (c) **لَقَدْ**: the لَ and قَدْ, in front of a present verb. This is one of the two cases in the Corpus where لَقَدْ comes before a present verb.
+- (d) Three: **قَدْ**, **إِنَّ** and a **لَ** on the verb يَحْزُنُكَ. The verse piles three strengtheners on one statement: “We certainly know that it truly grieves you”.
+
+</Exercise>
+
+<Exercise n={2} q="The Corpus has eight words where قَدْ stands before a present verb: 2:144 قَدْ نَرَىٰ; 6:33, 15:97 and 16:103 نَعْلَمُ; 24:63, 24:64 and 33:18 يَعْلَمُ; 61:5 تَعْلَمُونَ. What do the eight verbs have in common, and what does that say about the meaning “maybe”?">
+
+All eight verbs mean “see” or “know”. In each the speaker or Allah is sure: “We see”, “We know”, “He knows”, “you know”. So the reading “certainly” fits each one, and none needs “maybe”.
+
+Eight is a small number. This does not prove that قَدْ with a present verb never means “maybe” anywhere in Arabic. It says the Quran, as the Corpus tags it, gives no case where “maybe” is needed.
+
+</Exercise>
+
+<Exercise n={3} q="Find the oath, the letter of the oath and the answer. (a) تَٱللَّهِ لَقَدْ ءَاثَرَكَ ٱللَّهُ عَلَيْنَا (Yusuf 12:91, part) (b) وَٱلتِّينِ وَٱلزَّيْتُونِ (At-Tin 95:1) and then لَقَدْ خَلَقْنَا ٱلْإِنسَٰنَ (At-Tin 95:4, part) (c) فَبِعِزَّتِكَ لَأُغْوِيَنَّهُمْ أَجْمَعِينَ (Sad 38:82)">
+
+- (a) Oath: **تَٱللَّهِ**, with **tāʾ**. Answer: لَقَدْ ءَاثَرَكَ ٱللَّهُ عَلَيْنَا, strengthened with لَقَدْ.
+- (b) Oath: **وَٱلتِّينِ** with **wāw**, and three oath phrases in a row (95:1 to 95:3). Answer: verse 4, strengthened with لَقَدْ.
+- (c) Oath: **بِعِزَّتِكَ** with **bāʾ**. Answer: لَأُغْوِيَنَّهُمْ with لَ and the heavy nūn, and أَجْمَعِينَ after the object.
+
+</Exercise>
+
+<Exercise n={4} q="For each verb say the nūn (heavy or light), the ending before it, and the word in front. (a) لَيُسْجَنَنَّ (Yusuf 12:32, part) (b) لَنَسْفَعًۢا (Al-Alaq 96:15, part) (c) وَلَا تَحْسَبَنَّ ٱللَّهَ غَٰفِلًا (Ibrahim 14:42, part) (d) لَأُقَطِّعَنَّ أَيْدِيَكُمْ (Ash-Shuara 26:49, part)">
+
+- (a) **Heavy**. A fatḥa on the nūn that is a root letter, then the nūn of emphasis. In front: لَ of an oath. “He will surely be put in prison.”
+- (b) **Light**, spelled like a tanwin on an alif. A fatḥa on the ع. In front: لَ. “We will surely seize.”
+- (c) **Heavy**. A fatḥa on the ب. In front: لَا of a ban. “Do not think at all.” 3:169 has the same pattern, and al-Jadwal says there the verb stands in the place of jazm.
+- (d) **Heavy**. A fatḥa on the ع. In front: لَ. “I will surely cut off your hands.”
+
+</Exercise>
+
+<Exercise n={5} q="Tawkid or not? Take the word away and see. (a) وَيُحَذِّرُكُمُ ٱللَّهُ نَفْسَهُۥ (Al ʿImran 3:28, part) (b) فَطَوَّعَتْ لَهُۥ نَفْسُهُۥ قَتْلَ أَخِيهِ (Al-Maʾidah 5:30, part) (c) أَنَّ ٱللَّهَ بِكُلِّ شَىْءٍ عَلِيمٌ (Al-Baqarah 2:231, part) (d) كُلُّهُمْ جَمِيعًا (Yunus 10:99, part) (e) فَسَجَدَ ٱلْمَلَٰٓئِكَةُ كُلُّهُمْ أَجْمَعُونَ (Al-Hijr 15:30)">
+
+- (a) **Not tawkid.** نَفْسَهُۥ is the second object of يُحَذِّرُ. Without it the sentence does not say what we are warned of.
+- (b) **Not tawkid.** نَفْسُهُۥ is the doer of طَوَّعَتْ. Without it there is no doer.
+- (c) **Not tawkid.** كُلِّ is the first word of an idafah, with شَىْءٍ.
+- (d) **كُلُّهُمْ** is tawkid. **جَمِيعًا** is, in al-Jadwal, a state that strengthens, so it is not tawkid in the narrow sense.
+- (e) **Both tawkid**: كُلُّهُمْ, then a second tawkid أَجْمَعُونَ. Take both away and the sentence is whole.
+
+</Exercise>
+</Block>
+
+<Block id="practice-2" title="Practice: repeating, fixing and building">
+  <Stage label="Three things to check">
+    <ol class="lx-card-list">
+      <li><b>Case:</b> a tawkid word copies the case of the word before it.</li>
+      <li><b>Pronoun:</b> it points back, and matches in gender and number.</li>
+      <li><b>The test:</b> you can take it away and the sentence stays whole.</li>
+    </ol>
+  </Stage>
+
+<Exercise n={6} q="What is said twice, and what is new the second time? (a) كَلَّا سَوْفَ تَعْلَمُونَ (At-Takathur 102:3) (b) ثُمَّ كَلَّا سَوْفَ تَعْلَمُونَ (At-Takathur 102:4) Which kind of tawkid is it? Then say what the question of 55:13 does 31 times.">
+
+The whole sentence كَلَّا سَوْفَ تَعْلَمُونَ is said twice. The second time begins with **ثُمَّ**, and al-Jadwal says this shows the second is stronger. It is **tawkid lafẓī**, tawkid by the same words.
+
+The question of 55:13 is the same kind. It is a whole sentence repeated 31 times in one surah, each time after something new.
+
+</Exercise>
+
+<Exercise n={7} q="Mend each made-up sentence. All four are wrong. (a) جَاءَ ٱلْمَلِكُ نَفْسَهُ (b) رَأَيْتُ ٱلْقَوْمَ كُلُّهُمْ (c) مَرَرْتُ بِٱلْقَوْمِ كُلُّهُمْ (d) جَاءَ ٱلْمَلِكُ نَفْسُ">
+
+All four are made-up, and each breaks the rule of the case or the pronoun.
+
+- (a) **جَاءَ ٱلْمَلِكُ نَفْسُهُ**. ٱلْمَلِكُ is the doer, nominative, so the tawkid is nominative: -u.
+- (b) **رَأَيْتُ ٱلْقَوْمَ كُلَّهُمْ**. ٱلْقَوْمَ is the object, accusative, so كُلَّهُمْ has a fatḥa.
+- (c) **مَرَرْتُ بِٱلْقَوْمِ كُلِّهِمْ**. ٱلْقَوْمِ is genitive after بِ, so كُلِّهِمْ is genitive. The pronoun also changes to -him after the kasra.
+- (d) **جَاءَ ٱلْمَلِكُ نَفْسُهُ**. نَفْس needs its pronoun pointing back to the king.
+
+</Exercise>
+
+<Exercise n={8} q="Make each plain sentence stronger. All four are made-up. (a) ٱلْمُؤْمِنُونَ فِى جَنَّةٍ, with إِنَّ and لَ (b) نَصَرَ ٱللَّهُ ٱلْمُؤْمِنِينَ, with لَقَدْ (c) نَصْبِرُ, as an oath answer with the nūn (d) جَاءَ ٱلْقَوْمُ, with كُلّ">
+
+- (a) **إِنَّ ٱلْمُؤْمِنِينَ لَفِى جَنَّةٍ**. After إِنَّ the first word moves to the accusative: -īna. The لَ goes on the khabar, here the phrase فِى جَنَّةٍ.
+- (b) **لَقَدْ نَصَرَ ٱللَّهُ ٱلْمُؤْمِنِينَ**. No ending changes.
+- (c) **لَنَصْبِرَنَّ**. A fatḥa on the ر, then the heavy nūn. Compare 14:12.
+- (d) **جَاءَ ٱلْقَوْمُ كُلُّهُمْ**. Nominative, with a pronoun that points back to the people.
+
+</Exercise>
+
+<Exercise n={9} q="List the strengtheners and name the way of each. (a) وَلَقَدْ أَرَيْنَٰهُ ءَايَٰتِنَا كُلَّهَا (Ta-Ha 20:56, part) (b) كَلَّا لَئِن لَّمْ يَنتَهِ لَنَسْفَعًۢا (Al-Alaq 96:15, part)">
+
+- (a) Three words. **لَ** (an oath that is understood) and **قَدْ**, both little words, in front. **كُلَّهَا**, a following word: tawkid of ءَايَٰتِنَا, accusative.
+- (b) Three. The **لَ** in لَئِن prepares an oath. The **لَ** in لَنَسْفَعًۢا starts the answer. The **light nūn** ends the verb. كَلَّا is a word of rebuke and is not part of the count.
+
+Counting shows you where to look. It does not measure how strong a verse is.
+
+</Exercise>
+
+<Exercise n={10} q="Check the book’s list. Which of these are in the list of tawkid words in al-Ajurrumiyyah: نَفْس, جَمِيع, كُلّ, عَيْن, أَجْمَع? Where does جَمِيع belong in 10:99?">
+
+In the book: **نَفْس, عَيْن, كُلّ, أَجْمَع**, and the three words that go after أَجْمَع (أَكْتَعُ, أَبْتَعُ, أَبْصَعُ). **جَمِيع** is not in the list.
+
+In 10:99, كُلُّهُمْ is the tawkid. Al-Jadwal reads جَمِيعًا as a **state that strengthens** (حَال مُؤَكِّدَة).
+
+</Exercise>
+</Block>
+
+<Block id="done" title="You have finished the lesson">
+  <Stage label="The idea">
+    <Formula
+      label="a strengthener makes a plain sentence stronger"
+      items={[
+        { kind: 'm', text: 'a plain sentence', small: 'جُمْلَة' },
+        { kind: 'k', text: 'a strengthener', small: 'five ways' },
+        { kind: 's', text: 'a stronger sentence', small: 'same facts, more certain' },
+      ]}
+    />
+  </Stage>
+
+- There are **five ways** to strengthen: little words, the oath, the nūn of emphasis, repeating, and words of meaning.
+- **Little words:** إِنَّ (L2.10), قَدْ, لَقَدْ and the لَ. قَدْ stands before a verb: 398 of 406 before a past verb, 8 before a present verb, all of seeing or knowing.
+- **The oath** is a letter (وَ, بِ or تَ) and a genitive noun. The **answer** is strengthened by لَقَدْ, or by لَ with a verb and the nūn.
+- **The nūn of emphasis** is heavy (241 in the Corpus) or light (2). The verb before it ends in a fatḥa and is built. The nūn does not make a verb subjunctive.
+- **Repeating** is tawkid lafẓī: كَلَّا twice in 102:3 and 102:4, and 31 times the question of 55:13.
+- **Words of meaning** (تَوْكِيد مَعْنَوِيّ) follow the noun and copy its case: كُلّ, أَجْمَع, نَفْس, عَيْن. Take the word away: the sentence must stay whole. نَفْس can be a doer or an object, and كُلّ in front of a noun is the first word of an idafah.
+- Not every لَ strengthens: the لَ of the answer to لَوْ only ties it.
+
+**Next:** L4.07 teaches the absolute object, one more way to strengthen a verb. L4.10 puts the words of negation side by side. L4.17 looks at emphasis as one of the arts of speech. Surah Ad-Duha (L4.19) uses the oath wāw, the لَ on a noun and لَسَوْفَ.
+
+Earlier lessons you can link back to: [inna and her sisters, L2.10](/learn/level-2/10-inna-sisters/), [following words, L2.06](/learn/level-2/06-genitive-case/), [attached pronouns, L3.02](/learn/level-3/02-attached-pronouns/), [the past tense, L3.05](/learn/level-3/05-past-tense/), [the present tense, L3.06](/learn/level-3/06-present-tense/), [the jussive, L3.07](/learn/level-3/07-subjunctive-jussive/), [Al-ʿAsr, L3.22](/learn/level-3/22-checkpoint-al-asr/), [condition words, L4.04](/learn/level-4/04-conditional-particles/). Later: [the absolute object, L4.07](/learn/level-4/07-maf-ul-mutlaq/), [negation, L4.10](/learn/level-4/10-negation-particles/), [figures of speech, L4.17](/learn/level-4/17-intro-balagha/), [Surah Ad-Duha, L4.19](/learn/level-4/19-checkpoint-ad-duha/).
+
+<Sources
+    items={[
+      { label: 'Quran text', name: 'Tanzil (Uthmani text)', href: 'https://tanzil.net' },
+      { label: 'Tags and counts of the little words and the nūn', name: 'Quranic Arabic Corpus', href: 'https://corpus.quran.com' },
+      { label: 'Word-by-word analysis (iʿrāb) of the verses', name: 'Maḥmūd Ṣāfī, al-Jadwal fī Iʿrāb al-Qurʾān wa-Ṣarfihi wa-Bayānihi' },
+      { label: 'The reading of أَجْمَعُونَ in 15:30', name: 'al-Samīn al-Ḥalabī, al-Durr al-Maṣūn' },
+      { label: 'Tawkid as a following word, and its list', name: 'Ibn Ājurrūm, al-Ajurrumiyyah, chapter on tawkid (Wikisource text)' },
+      { label: 'How the counts were made', name: 'Quran Learn count from the Quranic Arabic Corpus; some tags are wider than the grammar books' },
+      { label: 'English under the verses', name: 'Plain-English meanings by Quran Learn, not a translation' },
+    ]}
+  />
+</Block>
+</Step>

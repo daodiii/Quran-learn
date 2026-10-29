@@ -8,6 +8,7 @@
  */
 import { getCollection } from 'astro:content';
 import CookieBanner from '../../components/CookieBanner.astro';
+import LessonMovedNote from '../../components/LessonMovedNote.astro';
 import '../../styles/fonts.css';
 import '../../styles/learn.css';
 import { CURRICULUM_MAP, clusterForLesson } from '../../data/curriculum-map';
@@ -175,6 +176,7 @@ const ICON = {
 
   <main id="main-content">
     <section class="top" aria-labelledby="learn-h">
+      <LessonMovedNote />
       <h1 class="h1" id="learn-h">{LEARN_PAGE.h1}</h1>
       <p class="dek">{total} lessons in {levels.length} levels. Begin at Level 1, or type a topic such as “cases” to find it. Nothing is locked.</p>
       <p class="refs refs-main"><span>Reference tools</span>{LEARN_PAGE.tools.map((t) => <a href={t.href}>{t.label}</a>)}</p>

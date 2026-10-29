@@ -1,830 +1,1015 @@
 ---
 title: "Oath Formulas in the Quran"
+kicker: "The letter, the noun it governs and the answer, read across ten surahs"
+titleArabic: "الْقَسَمُ فِي الْقُرْآنِ"
 level: 5
 order: 8
-description: "Learn to identify and analyze Quranic oath structures (qasam): oath particles, genitive oath objects, and oath responses across multiple surahs."
+template: steps
+description: "Read the oath in the Quran across ten surahs: the three oath letters, the noun in the genitive and the answer. Tell the oath wāw from a joining wāw, see answers that are spoken, delayed or left out, and take four verses word by word."
 draft: false
 ---
 
-import ArabicExample from '../../../components/mdx/ArabicExample.astro';
-import GrammarTable from '../../../components/mdx/GrammarTable.astro';
-import Callout from '../../../components/mdx/Callout.astro';
-import ExerciseBox from '../../../components/mdx/ExerciseBox.astro';
-
-## Introduction
-
-<ArabicExample
-  arabic="وَٱلشَّمْسِ وَضُحَىٰهَا ﴿١﴾ وَٱلْقَمَرِ إِذَا تَلَىٰهَا ﴿٢﴾ وَٱلنَّهَارِ إِذَا جَلَّىٰهَا ﴿٣﴾"
-  transliteration="wa-sh-shamsi wa-ḍuḥāhā · wa-l-qamari idhā talāhā · wa-n-nahāri idhā jallāhā"
-  translation="By the sun and its brightness. And by the moon when it follows it. And by the day when it displays it."
-  reference="Ash-Shams 91:1-3"
-  highlight="وَٱلشَّمْسِ"
-  words={[
-    { ar: "وَٱلشَّمْسِ", tr: "wa-sh-shamsi", en: "by the sun" },
-    { ar: "وَضُحَىٰهَا", tr: "wa-ḍuḥāhā", en: "and its brightness" },
-    { ar: "وَٱلْقَمَرِ", tr: "wa-l-qamari", en: "and by the moon" },
-    { ar: "إِذَا", tr: "idhā", en: "when" },
-    { ar: "تَلَىٰهَا", tr: "talāhā", en: "it follows it" },
-    { ar: "وَٱلنَّهَارِ", tr: "wa-n-nahāri", en: "and by the day" },
-    { ar: "إِذَا", tr: "idhā", en: "when" },
-    { ar: "جَلَّىٰهَا", tr: "jallāhā", en: "it displays it" }
-  ]}
-/>
-
-Approximately 30 surahs in the Quran begin with oaths (qasam / قَسَمٌ) — solemn declarations where Allah swears by His creation to emphasize profound truths. These aren't casual speech patterns. They're grammatical formulas with precise structures.
-
-The oath formula has three components:
-1. **Oath particle** (ḥarf al-qasam / حَرْفُ ٱلْقَسَمِ) — وَ, بِ, or تَ
-2. **Oath object** (muqsam bihi / مُقْسَمٌ بِهِ) — what is sworn by (always genitive)
-3. **Oath response** (jawāb al-qasam / جَوَابُ ٱلْقَسَمِ) — the truth being affirmed
-
-**In this lesson, you will:**
-1. Identify the three oath particles and distinguish oath وَ from conjunction وَ
-2. Recognize oath objects in genitive case and understand their grammatical function
-3. Locate oath responses and identify their grammatical markers (inna, laqad, la-, mā)
-4. Analyze complete oath sequences across multiple surahs
-5. Apply oath pattern recognition to Ash-Shams, Al-Layl, Ad-Duha, At-Tin, and Al-'Adiyat
-
-**Connection to previous learning:** In [L5.06 Conditional Patterns](/learn/level-4/03-conditional-sentences/), you analyzed two-part structures (condition + result). In [L5.07 Negation Patterns](/learn/level-4/10-negation-particles/), you studied grammatical markers of emphasis. Oath formulas combine these skills: recognizing multi-verse grammatical sequences and understanding how particles create rhetorical emphasis.
-
-<Callout type="tip" title="Why Oaths Matter">
-Oaths appear in approximately one-third of Quran surahs. Recognizing oath formulas allows you to:
-- Distinguish grammatical structures from content
-- Understand the relationship between oath objects and responses
-- Appreciate rhetorical emphasis through oath sequences
-- Navigate long oath series (10+ verses in Ash-Shams) without losing track of structure
-</Callout>
-
-<Callout type="note" title="Plain-English key">
-Quick, everyday translations of the grammar terms in this lesson — glance back here whenever one trips you up:
-
-- **Oath** (qasam / قَسَم) — a "by…" swearing structure ("*By* the dawn…").
-- **Rhetorical question** (istifhām / اِسْتِفْهَام) — a question asked for effect, not for information.
-- **Parallelism** — repeating the same structure across phrases for rhythm and emphasis.
-</Callout>
-
-## The Three Oath Particles
-
-Allah swears by His creation using three particles. Each particle causes the following noun to take genitive case.
-
-<GrammarTable>
-| Particle | Name | Genitive Effect | Frequency | Example |
-|----------|------|-----------------|-----------|---------|
-| وَ | wāw al-qasam | Followed by genitive noun | Most common | وَٱلشَّمْسِ (by the sun) |
-| بِ | bāʾ al-qasam | Followed by genitive noun | Less common | بِٱلسَّمَآءِ (by the sky) |
-| تَ | tāʾ al-qasam | Followed by genitive noun | Rare | تَٱللَّهِ (by Allah) |
-</GrammarTable>
-
-### Wāw al-Qasam (وَ) — Most Common
-
-**وَ** is the primary oath particle in the Quran. It appears in all major oath sequences.
-
-<ArabicExample
-  arabic="وَٱللَّيْلِ إِذَا يَغْشَىٰ ﴿١﴾"
-  transliteration="wa-l-layli idhā yaghshā"
-  translation="By the night when it covers"
-  reference="Al-Layl 92:1"
-  words={[
-    { ar: "وَٱللَّيْلِ", tr: "wa-l-layli", en: "by the night" },
-    { ar: "إِذَا", tr: "idhā", en: "when" },
-    { ar: "يَغْشَىٰ", tr: "yaghshā", en: "it covers" }
-  ]}
-/>
-
-**Grammar breakdown:**
-- **وَ** = oath particle (wāw al-qasam)
-- **ٱللَّيْلِ** = oath object, genitive (jarr) with kasra ending
-- **إِذَا يَغْشَىٰ** = adverbial clause modifying the oath object
-
-The genitive case on ٱللَّيْلِ is the MARKER that وَ is an oath particle, not a simple conjunction.
-
-### Bāʾ al-Qasam (بِ) — Less Common
-
-**بِ** appears less frequently but functions identically to وَ.
-
-<ArabicExample
-  arabic="بِٱلسَّمَآءِ ذَاتِ ٱلْبُرُوجِ ﴿١﴾"
-  transliteration="bi-s-samāʾi dhāti l-burūji"
-  translation="By the sky containing great stars"
-  reference="Al-Buruj 85:1"
-  words={[
-    { ar: "بِٱلسَّمَآءِ", tr: "bi-s-samāʾi", en: "by the sky" },
-    { ar: "ذَاتِ", tr: "dhāti", en: "containing" },
-    { ar: "ٱلْبُرُوجِ", tr: "l-burūji", en: "great stars" }
-  ]}
-/>
-
-**Grammar breakdown:**
-- **بِ** = oath particle (bāʾ al-qasam)
-- **ٱلسَّمَآءِ** = oath object, genitive (jarr) with kasra
-- **ذَاتِ ٱلْبُرُوجِ** = adjective describing ٱلسَّمَآءِ, also genitive
-
-### Tāʾ al-Qasam (تَ) — Rare
-
-**تَ** appears rarely and is typically used only with the name Allah.
-
-<ArabicExample
-  arabic="تَٱللَّهِ لَقَدْ أَرْسَلْنَآ إِلَىٰٓ أُمَمٍۢ مِّن قَبْلِكَ"
-  transliteration="ta-llāhi laqad arsalnā ilā umamin min qablika"
-  translation="By Allah, We certainly sent [messengers] to nations before you"
-  reference="An-Nahl 16:63"
-  words={[
-    { ar: "تَٱللَّهِ", tr: "ta-llāhi", en: "by Allah" },
-    { ar: "لَقَدْ", tr: "laqad", en: "certainly" },
-    { ar: "أَرْسَلْنَآ", tr: "arsalnā", en: "We sent" },
-    { ar: "إِلَىٰٓ", tr: "ilā", en: "to" },
-    { ar: "أُمَمٍۢ", tr: "umamin", en: "nations" },
-    { ar: "مِّن", tr: "min", en: "from" },
-    { ar: "قَبْلِكَ", tr: "qablika", en: "before you" }
-  ]}
-/>
-
-**Grammar breakdown:**
-- **تَ** = oath particle (tāʾ al-qasam)
-- **ٱللَّهِ** = oath object (Allah's name), genitive with kasra
-- **لَقَدْ أَرْسَلْنَآ** = oath response with emphasis particle لَقَدْ
-
-<Callout type="rule" title="All Three Particles Cause Genitive">
-Whether وَ, بِ, or تَ, the oath particle ALWAYS puts the following noun in genitive case (jarr). This is non-negotiable grammatical behavior.
-
-Test: If you see وَ + noun with kasra ending, check if it's an oath particle (oath context) or regular conjunction (listing context).
-</Callout>
-
-## Distinguishing Oath Wāw from Conjunction Wāw
-
-The particle وَ has MULTIPLE grammatical functions:
-1. **Conjunction wāw** (wāw al-ʿaṭf / وَاوُ ٱلْعَطْفِ) — "and" for coordination
-2. **Oath wāw** (wāw al-qasam / وَاوُ ٱلْقَسَمِ) — "by" for oaths
-3. **Circumstantial wāw** (wāw al-ḥāl / وَاوُ ٱلْحَالِ) — introduces circumstantial clauses
-
-How do you know which function وَ has? Apply these grammatical tests:
-
-### Test 1: Case Marking
-
-**Oath وَ** requires the following noun to be genitive.
-**Conjunction وَ** does NOT change the case of the following noun.
-
-<GrammarTable>
-| Type | Structure | Case of Following Noun | Example |
-|------|-----------|------------------------|---------|
-| Oath | وَ + noun (genitive) | Genitive (kasra) | وَٱلشَّمْسِ (by the sun) |
-| Conjunction | وَ + noun | Matches previous noun's case | وَٱلْأَرْضُ (and the earth) nominative |
-</GrammarTable>
-
-**Example comparison:**
-
-<ArabicExample
-  arabic="وَٱلسَّمَآءُ وَٱلطَّارِقِ ﴿١﴾"
-  transliteration="wa-s-samāʾu wa-ṭ-ṭāriqi"
-  translation="By the sky and the night comer"
-  reference="At-Tariq 86:1"
-  words={[
-    { ar: "وَٱلسَّمَآءُ", tr: "wa-s-samāʾu", en: "by the sky" },
-    { ar: "وَٱلطَّارِقِ", tr: "wa-ṭ-ṭāriqi", en: "and the night comer" }
-  ]}
-/>
-
-**Analysis:**
-- First **وَٱلسَّمَآءُ** — nominative (damma) — This is NOT an oath; it's part of a nominal sentence
-- Wait, let me reconsider the vocalization...
-
-Actually, the verse is:
-
-<ArabicExample
-  arabic="وَٱلسَّمَآءِ وَٱلطَّارِقِ ﴿١﴾"
-  transliteration="wa-s-samāʾi wa-ṭ-ṭāriqi"
-  translation="By the sky and the night comer"
-  reference="At-Tariq 86:1"
-  words={[
-    { ar: "وَٱلسَّمَآءِ", tr: "wa-s-samāʾi", en: "by the sky" },
-    { ar: "وَٱلطَّارِقِ", tr: "wa-ṭ-ṭāriqi", en: "and the night comer" }
-  ]}
-/>
-
-**Analysis:**
-- First **وَٱلسَّمَآءِ** — genitive (kasra) — oath particle
-- Second **وَٱلطَّارِقِ** — genitive (kasra) — oath particle (second oath object)
-
-Both are oath particles because both nouns are genitive.
-
-### Test 2: Context (Oath vs Listing)
-
-**Oath context:** Beginning of surah, followed by solemn affirmation
-**Listing context:** Middle of verse, connecting similar items
-
-Compare:
-
-**Oath context:**
-<ArabicExample
-  arabic="وَٱلضُّحَىٰ ﴿١﴾ وَٱللَّيْلِ إِذَا سَجَىٰ ﴿٢﴾"
-  transliteration="wa-ḍ-ḍuḥā · wa-l-layli idhā sajā"
-  translation="By the morning brightness. And by the night when it covers with darkness."
-  reference="Ad-Duha 93:1-2"
-  words={[
-    { ar: "وَٱلضُّحَىٰ", tr: "wa-ḍ-ḍuḥā", en: "by the morning brightness" },
-    { ar: "وَٱللَّيْلِ", tr: "wa-l-layli", en: "and by the night" },
-    { ar: "إِذَا", tr: "idhā", en: "when" },
-    { ar: "سَجَىٰ", tr: "sajā", en: "it covers with darkness" }
-  ]}
-/>
-
-Both وَ particles are oath particles (both followed by genitive nouns at surah opening).
-
-**Listing context:**
-<ArabicExample
-  arabic="إِنَّ ٱلصَّفَا وَٱلْمَرْوَةَ مِن شَعَآئِرِ ٱللَّهِ"
-  transliteration="inna ṣ-ṣafā wa-l-marwata min shaʿāʾiri llāhi"
-  translation="Indeed, Safa and Marwah are among the symbols of Allah"
-  reference="Al-Baqarah 2:158"
-  words={[
-    { ar: "إِنَّ", tr: "inna", en: "indeed" },
-    { ar: "ٱلصَّفَا", tr: "ṣ-ṣafā", en: "Safa" },
-    { ar: "وَٱلْمَرْوَةَ", tr: "wa-l-marwata", en: "and Marwah" },
-    { ar: "مِن", tr: "min", en: "among" },
-    { ar: "شَعَآئِرِ", tr: "shaʿāʾiri", en: "the symbols of" },
-    { ar: "ٱللَّهِ", tr: "llāhi", en: "Allah" }
-  ]}
-/>
-
-Here **وَ** connects ٱلصَّفَا and ٱلْمَرْوَةَ as coordinated nouns in a list. Both are accusative (مَنْصُوبٌ) because they're the subject of إِنَّ, NOT genitive.
-
-### Test 3: Oath Response Presence
-
-If there's an oath particle, there MUST be an oath response somewhere in the passage. Look for markers:
-- **إِنَّ** (inna) with emphasized affirmation
-- **لَقَدْ** (laqad) "certainly"
-- **لَ** (la-) prefixed to verb "surely"
-- **مَا** (mā) in oath-specific negative constructions
-
-If you find these markers after وَ + genitive noun, you've confirmed an oath structure.
-
-<Callout type="tip" title="Three-Test Method for Oath Wāw">
-When you see وَ, apply these three tests in order:
-
-1. **Case test:** Is the following noun genitive? If yes, likely oath.
-2. **Context test:** Is this at surah opening or listing context? Opening → oath.
-3. **Response test:** Is there an emphatic response later? If yes, confirms oath.
-
-All three tests should align. If they conflict, recheck your vocalization or grammatical analysis.
-</Callout>
-
-## The Oath Object (Muqsam Bihi)
-
-The **oath object** (muqsam bihi / مُقْسَمٌ بِهِ) is the thing sworn by. It is ALWAYS in genitive case because it follows an oath particle (وَ, بِ, or تَ).
-
-### Grammatical Function
-
-The oath object is technically the object of a preposition (jarr wa-majrūr):
-- Oath particle = preposition (حَرْفُ جَرٍّ)
-- Oath object = noun in genitive (مَجْرُورٌ)
-
-The full prepositional phrase functions as an adverbial modifier expressing the oath.
-
-**Example:**
-<ArabicExample
-  arabic="وَٱلْفَجْرِ ﴿١﴾"
-  transliteration="wa-l-fajri"
-  translation="By the dawn"
-  reference="Al-Fajr 89:1"
-  words={[
-    { ar: "وَٱلْفَجْرِ", tr: "wa-l-fajri", en: "by the dawn" }
-  ]}
-/>
-
-**Grammatical breakdown:**
-- **وَ** = oath particle (preposition)
-- **ٱلْفَجْرِ** = oath object (genitive noun), shows kasra ending
-
-### Multiple Oath Objects in Sequence
-
-Many surahs contain multiple oath objects in succession. Each oath object takes genitive case, and each is introduced by the oath particle وَ.
-
-<ArabicExample
-  arabic="وَٱلتِّينِ وَٱلزَّيْتُونِ ﴿١﴾ وَطُورِ سِينِينَ ﴿٢﴾ وَهَٰذَا ٱلْبَلَدِ ٱلْأَمِينِ ﴿٣﴾"
-  transliteration="wa-t-tīni wa-z-zaytūni · wa-ṭūri sīnīna · wa-hādhā l-baladi l-amīni"
-  translation="By the fig and the olive. And by Mount Sinai. And by this secure city."
-  reference="At-Tin 95:1-3"
-  words={[
-    { ar: "وَٱلتِّينِ", tr: "wa-t-tīni", en: "by the fig" },
-    { ar: "وَٱلزَّيْتُونِ", tr: "wa-z-zaytūni", en: "and the olive" },
-    { ar: "وَطُورِ", tr: "wa-ṭūri", en: "and by Mount" },
-    { ar: "سِينِينَ", tr: "sīnīna", en: "Sinai" },
-    { ar: "وَهَٰذَا", tr: "wa-hādhā", en: "and by this" },
-    { ar: "ٱلْبَلَدِ", tr: "l-baladi", en: "city" },
-    { ar: "ٱلْأَمِينِ", tr: "l-amīni", en: "the secure" }
-  ]}
-/>
-
-**Analysis:**
-- V1: **وَٱلتِّينِ** (genitive) + **وَٱلزَّيْتُونِ** (genitive) — two oath objects
-- V2: **وَطُورِ** (genitive in iḍāfah with سِينِينَ) — third oath object
-- V3: **وَهَٰذَا ٱلْبَلَدِ** (ٱلْبَلَدِ is genitive after demonstrative) — fourth oath object
-
-Four oath objects before the oath response arrives in V4.
-
-### Oath Objects with Modifiers
-
-Oath objects can have adjectives, iḍāfah constructions, or adverbial clauses attached. All modifiers follow standard grammatical rules.
-
-<ArabicExample
-  arabic="وَٱلسَّمَآءِ ذَاتِ ٱلْحُبُكِ ﴿٧﴾"
-  transliteration="wa-s-samāʾi dhāti l-ḥubuki"
-  translation="By the sky containing pathways"
-  reference="Adh-Dhariyat 51:7"
-  words={[
-    { ar: "وَٱلسَّمَآءِ", tr: "wa-s-samāʾi", en: "by the sky" },
-    { ar: "ذَاتِ", tr: "dhāti", en: "containing" },
-    { ar: "ٱلْحُبُكِ", tr: "l-ḥubuki", en: "pathways" }
-  ]}
-/>
-
-**Analysis:**
-- **وَٱلسَّمَآءِ** = oath object (genitive)
-- **ذَاتِ ٱلْحُبُكِ** = adjective describing ٱلسَّمَآءِ (also genitive to match)
-
-<Callout type="rule" title="Genitive Agreement in Oath Constructions">
-When an oath object has adjectives or descriptive phrases, those modifiers must also be genitive to match the oath object's case. This is standard adjective-agreement and iḍāfah grammar, not a special oath rule.
-</Callout>
-
-## The Oath Response (Jawāb al-Qasam)
-
-The **oath response** (jawāb al-qasam / جَوَابُ ٱلْقَسَمِ) is the statement being sworn to — the truth Allah is emphasizing through the oath.
-
-The oath response is NOT immediately after the oath particle. Instead, it appears AFTER all oath objects are listed.
-
-### Oath Response Markers
-
-The Quran uses four primary markers to introduce oath responses:
-
-<GrammarTable>
-| Marker | Name | Grammatical Function | Example |
-|--------|------|---------------------|---------|
-| إِنَّ | inna | Emphasis particle (followed by nominal sentence) | إِنَّ ٱلْإِنسَٰنَ لَفِى خُسْرٍ |
-| لَقَدْ | laqad | Emphatic "certainly" (prefixed to past verb) | لَقَدْ خَلَقْنَا ٱلْإِنسَٰنَ |
-| لَ | la- | Emphatic prefix (prefixed to present verb) | لَتُبْعَثُنَّ |
-| مَا | mā (oath negation) | Negative oath response | مَا وَدَّعَكَ رَبُّكَ |
-</GrammarTable>
-
-These markers signal: "Here is the truth being affirmed by the preceding oath(s)."
-
-### Type 1: إِنَّ (Inna) Response
-
-**إِنَّ** (inna) introduces a nominal sentence emphasizing the oath response.
-
-<ArabicExample
-  arabic="وَٱلْعَصْرِ ﴿١﴾ إِنَّ ٱلْإِنسَٰنَ لَفِى خُسْرٍ ﴿٢﴾"
-  transliteration="wa-l-ʿaṣri · inna l-insāna la-fī khusrin"
-  translation="By time. Indeed, mankind is in loss."
-  reference="Al-Asr 103:1-2"
-  words={[
-    { ar: "وَٱلْعَصْرِ", tr: "wa-l-ʿaṣri", en: "by time" },
-    { ar: "إِنَّ", tr: "inna", en: "indeed" },
-    { ar: "ٱلْإِنسَٰنَ", tr: "l-insāna", en: "mankind" },
-    { ar: "لَفِى", tr: "la-fī", en: "surely is in" },
-    { ar: "خُسْرٍ", tr: "khusrin", en: "loss" }
-  ]}
-/>
-
-**Structure:**
-- V1: Oath — **وَٱلْعَصْرِ** (by time)
-- V2: Response — **إِنَّ ٱلْإِنسَٰنَ لَفِى خُسْرٍ** (indeed mankind is in loss)
-
-Note the additional **لَ** prefix in **لَفِى** — double emphasis (إِنَّ + لَ).
-
-### Type 2: لَقَدْ (Laqad) Response
-
-**لَقَدْ** (laqad) means "certainly" and prefixes past tense verbs for emphasis.
-
-<ArabicExample
-  arabic="لَقَدْ خَلَقْنَا ٱلْإِنسَٰنَ فِىٓ أَحْسَنِ تَقْوِيمٍۢ ﴿٤﴾"
-  transliteration="laqad khalaqnā l-insāna fī aḥsani taqwīmin"
-  translation="We have certainly created man in the best of stature"
-  reference="At-Tin 95:4"
-  words={[
-    { ar: "لَقَدْ", tr: "laqad", en: "certainly" },
-    { ar: "خَلَقْنَا", tr: "khalaqnā", en: "We created" },
-    { ar: "ٱلْإِنسَٰنَ", tr: "l-insāna", en: "man" },
-    { ar: "فِىٓ", tr: "fī", en: "in" },
-    { ar: "أَحْسَنِ", tr: "aḥsani", en: "the best of" },
-    { ar: "تَقْوِيمٍۢ", tr: "taqwīmin", en: "stature" }
-  ]}
-/>
-
-This is the oath response after three verses of oath objects (At-Tin 95:1-3 shown earlier).
-
-### Type 3: لَ Prefix Response
-
-**لَ** (la-) prefixes present or future verbs for emphatic affirmation.
-
-<ArabicExample
-  arabic="وَٱلْعَٰدِيَٰتِ ضَبْحًۭا ﴿١﴾ فَٱلْمُورِيَٰتِ قَدْحًۭا ﴿٢﴾ فَٱلْمُغِيرَٰتِ صُبْحًۭا ﴿٣﴾ فَأَثَرْنَ بِهِۦ نَقْعًۭا ﴿٤﴾ فَوَسَطْنَ بِهِۦ جَمْعًا ﴿٥﴾ إِنَّ ٱلْإِنسَٰنَ لِرَبِّهِۦ لَكَنُودٌۭ ﴿٦﴾"
-  transliteration="wa-l-ʿādiyāti ḍabḥan · fa-l-mūriyāti qadḥan · fa-l-mughīrāti ṣubḥan · fa-atharna bihi naqʿan · fa-wasaṭna bihi jamʿan · inna l-insāna li-rabbihi la-kanūdun"
-  translation="By the racers, panting. And the producers of sparks [when] striking. And the chargers at dawn. Stirring up thereby [clouds of] dust. Arriving thereby in the center collectively. Indeed mankind, to his Lord, is ungrateful."
-  reference="Al-'Adiyat 100:1-6"
-  words={[
-    { ar: "وَٱلْعَٰدِيَٰتِ", tr: "wa-l-ʿādiyāti", en: "by the racers" },
-    { ar: "ضَبْحًۭا", tr: "ḍabḥan", en: "panting" },
-    { ar: "فَٱلْمُورِيَٰتِ", tr: "fa-l-mūriyāti", en: "and the spark-producers" },
-    { ar: "قَدْحًۭا", tr: "qadḥan", en: "striking" },
-    { ar: "فَٱلْمُغِيرَٰتِ", tr: "fa-l-mughīrāti", en: "and the chargers" },
-    { ar: "صُبْحًۭا", tr: "ṣubḥan", en: "at dawn" },
-    { ar: "فَأَثَرْنَ", tr: "fa-atharna", en: "stirring up" },
-    { ar: "بِهِۦ", tr: "bihi", en: "thereby" },
-    { ar: "نَقْعًۭا", tr: "naqʿan", en: "dust" },
-    { ar: "فَوَسَطْنَ", tr: "fa-wasaṭna", en: "arriving" },
-    { ar: "بِهِۦ", tr: "bihi", en: "thereby" },
-    { ar: "جَمْعًا", tr: "jamʿan", en: "collectively" },
-    { ar: "إِنَّ", tr: "inna", en: "indeed" },
-    { ar: "ٱلْإِنسَٰنَ", tr: "l-insāna", en: "mankind" },
-    { ar: "لِرَبِّهِۦ", tr: "li-rabbihi", en: "to his Lord" },
-    { ar: "لَكَنُودٌۭ", tr: "la-kanūdun", en: "is surely ungrateful" }
-  ]}
-/>
-
-**Structure:**
-- V1-5: Five oath objects
-- V6: Response — **إِنَّ ٱلْإِنسَٰنَ لِرَبِّهِۦ لَكَنُودٌۭ** with إِنَّ + لَ double emphasis
-
-### Type 4: مَا (Mā) Negative Response
-
-**مَا** in oath responses creates emphatic negation: "absolutely NOT."
-
-<ArabicExample
-  arabic="وَٱلضُّحَىٰ ﴿١﴾ وَٱللَّيْلِ إِذَا سَجَىٰ ﴿٢﴾ مَا وَدَّعَكَ رَبُّكَ وَمَا قَلَىٰ ﴿٣﴾"
-  transliteration="wa-ḍ-ḍuḥā · wa-l-layli idhā sajā · mā waddaʿaka rabbuka wa-mā qalā"
-  translation="By the morning brightness. And by the night when it covers with darkness. Your Lord has not taken leave of you, nor has He detested [you]."
-  reference="Ad-Duha 93:1-3"
-  words={[
-    { ar: "وَٱلضُّحَىٰ", tr: "wa-ḍ-ḍuḥā", en: "by the morning brightness" },
-    { ar: "وَٱللَّيْلِ", tr: "wa-l-layli", en: "and by the night" },
-    { ar: "إِذَا", tr: "idhā", en: "when" },
-    { ar: "سَجَىٰ", tr: "sajā", en: "it covers with darkness" },
-    { ar: "مَا", tr: "mā", en: "not" },
-    { ar: "وَدَّعَكَ", tr: "waddaʿaka", en: "has taken leave of you" },
-    { ar: "رَبُّكَ", tr: "rabbuka", en: "your Lord" },
-    { ar: "وَمَا", tr: "wa-mā", en: "nor" },
-    { ar: "قَلَىٰ", tr: "qalā", en: "has He detested" }
-  ]}
-/>
-
-**Structure:**
-- V1-2: Two oath objects
-- V3: Negative oath response — **مَا وَدَّعَكَ** (has NOT abandoned you)
-
-<Callout type="tip" title="Why Oath Responses Need Markers">
-Classical grammarians debated: could an oath response appear WITHOUT a marker (إِنَّ, لَقَدْ, لَ, مَا)?
-
-The consensus: oath responses CAN theoretically appear unmarked, but the Quran overwhelmingly prefers marked responses to make the grammatical boundary crystal clear. When you see these markers after oath objects, you know: "The oath series has ended. Here is the truth being sworn to."
-</Callout>
-
-## Complete Analysis: Ash-Shams (91:1-15)
-
-Surah Ash-Shams contains the Quran's longest consecutive oath sequence: **10 oath objects** followed by a single oath response. This provides an excellent case study for oath formula analysis.
-
-### The Oath Sequence (V1-10)
-
-<ArabicExample
-  arabic="وَٱلشَّمْسِ وَضُحَىٰهَا ﴿١﴾ وَٱلْقَمَرِ إِذَا تَلَىٰهَا ﴿٢﴾ وَٱلنَّهَارِ إِذَا جَلَّىٰهَا ﴿٣﴾ وَٱللَّيْلِ إِذَا يَغْشَىٰهَا ﴿٤﴾ وَٱلسَّمَآءِ وَمَا بَنَىٰهَا ﴿٥﴾ وَٱلْأَرْضِ وَمَا طَحَىٰهَا ﴿٦﴾ وَنَفْسٍۢ وَمَا سَوَّىٰهَا ﴿٧﴾ فَأَلْهَمَهَا فُجُورَهَا وَتَقْوَىٰهَا ﴿٨﴾"
-  transliteration="wa-sh-shamsi wa-ḍuḥāhā · wa-l-qamari idhā talāhā · wa-n-nahāri idhā jallāhā · wa-l-layli idhā yaghshāhā · wa-s-samāʾi wa-mā banāhā · wa-l-arḍi wa-mā ṭaḥāhā · wa-nafsin wa-mā sawwāhā · fa-alhamahā fujūrahā wa-taqwāhā"
-  translation="By the sun and its brightness. And by the moon when it follows it. And by the day when it displays it. And by the night when it covers it. And by the sky and He who constructed it. And by the earth and He who spread it. And by the soul and He who proportioned it. And inspired it [with discernment of] its wickedness and its righteousness."
-  reference="Ash-Shams 91:1-8"
-  words={[
-    { ar: "وَٱلشَّمْسِ", tr: "wa-sh-shamsi", en: "by the sun" },
-    { ar: "وَضُحَىٰهَا", tr: "wa-ḍuḥāhā", en: "and its brightness" },
-    { ar: "وَٱلْقَمَرِ", tr: "wa-l-qamari", en: "and by the moon" },
-    { ar: "إِذَا", tr: "idhā", en: "when" },
-    { ar: "تَلَىٰهَا", tr: "talāhā", en: "it follows it" },
-    { ar: "وَٱلنَّهَارِ", tr: "wa-n-nahāri", en: "and by the day" },
-    { ar: "إِذَا", tr: "idhā", en: "when" },
-    { ar: "جَلَّىٰهَا", tr: "jallāhā", en: "it displays it" },
-    { ar: "وَٱللَّيْلِ", tr: "wa-l-layli", en: "and by the night" },
-    { ar: "إِذَا", tr: "idhā", en: "when" },
-    { ar: "يَغْشَىٰهَا", tr: "yaghshāhā", en: "it covers it" },
-    { ar: "وَٱلسَّمَآءِ", tr: "wa-s-samāʾi", en: "and by the sky" },
-    { ar: "وَمَا", tr: "wa-mā", en: "and He who" },
-    { ar: "بَنَىٰهَا", tr: "banāhā", en: "constructed it" },
-    { ar: "وَٱلْأَرْضِ", tr: "wa-l-arḍi", en: "and by the earth" },
-    { ar: "وَمَا", tr: "wa-mā", en: "and He who" },
-    { ar: "طَحَىٰهَا", tr: "ṭaḥāhā", en: "spread it" },
-    { ar: "وَنَفْسٍۢ", tr: "wa-nafsin", en: "and by the soul" },
-    { ar: "وَمَا", tr: "wa-mā", en: "and He who" },
-    { ar: "سَوَّىٰهَا", tr: "sawwāhā", en: "proportioned it" },
-    { ar: "فَأَلْهَمَهَا", tr: "fa-alhamahā", en: "and inspired it" },
-    { ar: "فُجُورَهَا", tr: "fujūrahā", en: "its wickedness" },
-    { ar: "وَتَقْوَىٰهَا", tr: "wa-taqwāhā", en: "and its righteousness" }
-  ]}
-/>
-
-**Oath object count:**
-
-<GrammarTable>
-| Verse | Oath Object | Genitive Marker | Modifier |
-|-------|-------------|-----------------|----------|
-| 1 | ٱلشَّمْسِ | kasra | وَضُحَىٰهَا (and its brightness) |
-| 2 | ٱلْقَمَرِ | kasra | إِذَا تَلَىٰهَا (when it follows) |
-| 3 | ٱلنَّهَارِ | kasra | إِذَا جَلَّىٰهَا (when it displays) |
-| 4 | ٱللَّيْلِ | kasra | إِذَا يَغْشَىٰهَا (when it covers) |
-| 5 | ٱلسَّمَآءِ | kasra | وَمَا بَنَىٰهَا (and He who built it) |
-| 6 | ٱلْأَرْضِ | kasra | وَمَا طَحَىٰهَا (and He who spread it) |
-| 7 | نَفْسٍۢ | kasra (tanwīn) | وَمَا سَوَّىٰهَا (and He who proportioned it) |
-</GrammarTable>
-
-**Note on verse 7-8:** Some scholars count V7-8 as 3 oath objects:
-1. **وَنَفْسٍۢ** (by the soul)
-2. **وَمَا سَوَّىٰهَا** (and He who proportioned it)
-3. **فَأَلْهَمَهَا فُجُورَهَا وَتَقْوَىٰهَا** (and inspired it with wickedness and righteousness)
-
-Others count V8 as transitional to the oath response. Either way, at least 7 clear oath objects appear.
-
-### The Oath Response (V9-10)
-
-<ArabicExample
-  arabic="قَدْ أَفْلَحَ مَن زَكَّىٰهَا ﴿٩﴾ وَقَدْ خَابَ مَن دَسَّىٰهَا ﴿١٠﴾"
-  transliteration="qad aflaḥa man zakkāhā · wa-qad khāba man dassāhā"
-  translation="He has succeeded who purifies it. And he has failed who instills it [with corruption]."
-  reference="Ash-Shams 91:9-10"
-  words={[
-    { ar: "قَدْ", tr: "qad", en: "indeed" },
-    { ar: "أَفْلَحَ", tr: "aflaḥa", en: "has succeeded" },
-    { ar: "مَن", tr: "man", en: "he who" },
-    { ar: "زَكَّىٰهَا", tr: "zakkāhā", en: "purifies it" },
-    { ar: "وَقَدْ", tr: "wa-qad", en: "and indeed" },
-    { ar: "خَابَ", tr: "khāba", en: "has failed" },
-    { ar: "مَن", tr: "man", en: "he who" },
-    { ar: "دَسَّىٰهَا", tr: "dassāhā", en: "corrupts it" }
-  ]}
-/>
-
-**Markers:**
-- **قَدْ** (qad) — emphatic particle (not as strong as لَقَدْ, but still emphatic)
-- Past tense verbs **أَفْلَحَ** (succeeded) and **خَابَ** (failed)
-
-This is the truth being sworn to: success and failure depend on purification vs corruption of the soul.
-
-### Theological Connection
-
-Why does Allah swear by sun, moon, day, night, sky, earth, and soul? The oath objects form a cosmic hierarchy:
-1. **Celestial bodies** (sun, moon) — most visible creation
-2. **Time divisions** (day, night) — created by celestial motion
-3. **Spatial creation** (sky, earth) — framework of existence
-4. **Human soul** — the pinnacle of creation
-
-The oath response concerns the soul's moral state. The oath sequence builds from cosmic creation DOWN to the individual soul, showing: just as Allah created and ordered the cosmos, He created and ordered moral law within the human soul.
-
-The grammar reflects the theology: 7-10 oath objects create WEIGHT and EMPHASIS before declaring the central truth about human accountability.
-
-<Callout type="tip" title="Long Oath Sequences Create Rhetorical Suspense">
-When oath objects accumulate over multiple verses, the reader/listener experiences rising anticipation: "What is the truth being sworn to?" The delayed response (V9-10 after V1-8) creates rhetorical tension, making the final revelation more impactful.
-
-This is balagha (rhetoric) working through grammar: the delayed jawāb al-qasam is a literary device called "تَأْخِيرُ ٱلْجَوَابِ" (ta'khīr al-jawāb) — postponement of the response for emphasis.
-</Callout>
-
-## Cross-Surah Comparison: Ash-Shams, Al-Layl, Ad-Duha
-
-Three consecutive surahs (Ash-Shams 91, Al-Layl 92, Ad-Duha 93) all begin with oath sequences. Comparing their structures reveals patterns.
-
-<GrammarTable data-label="Cross-Surah Oath Patterns">
-| Feature | Ash-Shams 91 | Al-Layl 92 | Ad-Duha 93 |
-|---------|--------------|------------|------------|
-| Oath objects | 7-10 (long sequence) | 3 (short sequence) | 2 (minimal sequence) |
-| Oath particles | All وَ | All وَ | All وَ |
-| Oath response marker | قَدْ (qad) | إِنَّ (inna) | مَا (mā - negative) |
-| Response location | V9-10 | V4 | V3 |
-| Theological theme | Soul purification | Righteous vs wicked deeds | Divine reassurance |
-</GrammarTable>
-
-### Al-Layl (92:1-4) — Short Oath Sequence
-
-<ArabicExample
-  arabic="وَٱللَّيْلِ إِذَا يَغْشَىٰ ﴿١﴾ وَٱلنَّهَارِ إِذَا تَجَلَّىٰ ﴿٢﴾ وَمَا خَلَقَ ٱلذَّكَرَ وَٱلْأُنثَىٰٓ ﴿٣﴾ إِنَّ سَعْيَكُمْ لَشَتَّىٰ ﴿٤﴾"
-  transliteration="wa-l-layli idhā yaghshā · wa-n-nahāri idhā tajallā · wa-mā khalaqa dh-dhakara wa-l-unthā · inna saʿyakum la-shattā"
-  translation="By the night when it covers. And by the day when it appears. And by He who created the male and female. Indeed, your efforts are diverse."
-  reference="Al-Layl 92:1-4"
-  words={[
-    { ar: "وَٱللَّيْلِ", tr: "wa-l-layli", en: "by the night" },
-    { ar: "إِذَا", tr: "idhā", en: "when" },
-    { ar: "يَغْشَىٰ", tr: "yaghshā", en: "it covers" },
-    { ar: "وَٱلنَّهَارِ", tr: "wa-n-nahāri", en: "and by the day" },
-    { ar: "إِذَا", tr: "idhā", en: "when" },
-    { ar: "تَجَلَّىٰ", tr: "tajallā", en: "it appears" },
-    { ar: "وَمَا", tr: "wa-mā", en: "and by He who" },
-    { ar: "خَلَقَ", tr: "khalaqa", en: "created" },
-    { ar: "ٱلذَّكَرَ", tr: "dh-dhakara", en: "the male" },
-    { ar: "وَٱلْأُنثَىٰٓ", tr: "wa-l-unthā", en: "and the female" },
-    { ar: "إِنَّ", tr: "inna", en: "indeed" },
-    { ar: "سَعْيَكُمْ", tr: "saʿyakum", en: "your efforts" },
-    { ar: "لَشَتَّىٰ", tr: "la-shattā", en: "are surely diverse" }
-  ]}
-/>
-
-**Structure:**
-- V1-3: Three oath objects (night, day, Creator of male/female)
-- V4: Oath response with **إِنَّ** marker
-
-**Pattern:** Shorter oath sequence (3 objects vs Ash-Shams' 7-10) creates quicker resolution. The theological message arrives sooner.
-
-### Ad-Duha (93:1-3) — Minimal Oath Sequence
-
-<ArabicExample
-  arabic="وَٱلضُّحَىٰ ﴿١﴾ وَٱللَّيْلِ إِذَا سَجَىٰ ﴿٢﴾ مَا وَدَّعَكَ رَبُّكَ وَمَا قَلَىٰ ﴿٣﴾"
-  transliteration="wa-ḍ-ḍuḥā · wa-l-layli idhā sajā · mā waddaʿaka rabbuka wa-mā qalā"
-  translation="By the morning brightness. And by the night when it covers with darkness. Your Lord has not taken leave of you, nor has He detested [you]."
-  reference="Ad-Duha 93:1-3"
-  words={[
-    { ar: "وَٱلضُّحَىٰ", tr: "wa-ḍ-ḍuḥā", en: "by the morning brightness" },
-    { ar: "وَٱللَّيْلِ", tr: "wa-l-layli", en: "and by the night" },
-    { ar: "إِذَا", tr: "idhā", en: "when" },
-    { ar: "سَجَىٰ", tr: "sajā", en: "it covers with darkness" },
-    { ar: "مَا", tr: "mā", en: "not" },
-    { ar: "وَدَّعَكَ", tr: "waddaʿaka", en: "has taken leave of you" },
-    { ar: "رَبُّكَ", tr: "rabbuka", en: "your Lord" },
-    { ar: "وَمَا", tr: "wa-mā", en: "nor" },
-    { ar: "قَلَىٰ", tr: "qalā", en: "has He detested" }
-  ]}
-/>
-
-**Structure:**
-- V1-2: Two oath objects (morning, night)
-- V3: Negative oath response with **مَا**
-
-**Pattern:** Minimal oath sequence (just 2 objects) creates IMMEDIATE reassurance. The Prophet (peace be upon him) needed quick comfort during a pause in revelation, so the response arrives in V3.
-
-### Rhetorical Insight from Comparison
-
-The LENGTH of the oath sequence correlates with the GRAVITY of the message:
-- **Long sequence** (Ash-Shams: 7-10 objects) → weighty theological truth about human accountability
-- **Medium sequence** (Al-Layl: 3 objects) → important principle about diverse human efforts
-- **Short sequence** (Ad-Duha: 2 objects) → personal reassurance (comforting but not universal doctrine)
-
-Grammar creates rhetoric: more oath objects = more emphasis = weightier truth being affirmed.
-
-## Additional Oath Examples
-
-### At-Tin (95:1-4) — Geographic Oath Objects
-
-<ArabicExample
-  arabic="وَٱلتِّينِ وَٱلزَّيْتُونِ ﴿١﴾ وَطُورِ سِينِينَ ﴿٢﴾ وَهَٰذَا ٱلْبَلَدِ ٱلْأَمِينِ ﴿٣﴾ لَقَدْ خَلَقْنَا ٱلْإِنسَٰنَ فِىٓ أَحْسَنِ تَقْوِيمٍۢ ﴿٤﴾"
-  transliteration="wa-t-tīni wa-z-zaytūni · wa-ṭūri sīnīna · wa-hādhā l-baladi l-amīni · laqad khalaqnā l-insāna fī aḥsani taqwīmin"
-  translation="By the fig and the olive. And by Mount Sinai. And by this secure city. We have certainly created man in the best of stature."
-  reference="At-Tin 95:1-4"
-  words={[
-    { ar: "وَٱلتِّينِ", tr: "wa-t-tīni", en: "by the fig" },
-    { ar: "وَٱلزَّيْتُونِ", tr: "wa-z-zaytūni", en: "and the olive" },
-    { ar: "وَطُورِ", tr: "wa-ṭūri", en: "and by Mount" },
-    { ar: "سِينِينَ", tr: "sīnīna", en: "Sinai" },
-    { ar: "وَهَٰذَا", tr: "wa-hādhā", en: "and by this" },
-    { ar: "ٱلْبَلَدِ", tr: "l-baladi", en: "city" },
-    { ar: "ٱلْأَمِينِ", tr: "l-amīni", en: "the secure" },
-    { ar: "لَقَدْ", tr: "laqad", en: "certainly" },
-    { ar: "خَلَقْنَا", tr: "khalaqnā", en: "We created" },
-    { ar: "ٱلْإِنسَٰنَ", tr: "l-insāna", en: "man" },
-    { ar: "فِىٓ", tr: "fī", en: "in" },
-    { ar: "أَحْسَنِ", tr: "aḥsani", en: "the best of" },
-    { ar: "تَقْوِيمٍۢ", tr: "taqwīmin", en: "stature" }
-  ]}
-/>
-
-**Oath objects:**
-1. **ٱلتِّينِ** (the fig) — genitive
-2. **ٱلزَّيْتُونِ** (the olive) — genitive
-3. **طُورِ سِينِينَ** (Mount Sinai) — genitive (طُورِ in iḍāfah)
-4. **هَٰذَا ٱلْبَلَدِ** (this city) — ٱلْبَلَدِ genitive after demonstrative
-
-**Oath response:** V4 with **لَقَدْ** marker
-
-**Theological significance:** The oath objects reference sacred locations (lands of fig/olive = Levant, Mount Sinai = revelation to Moses, secure city = Makkah). Geographic diversity in oath objects → universal scope of the message about human creation.
-
-### Al-'Adiyat (100:1-6) — Participial Oath Objects
-
-<ArabicExample
-  arabic="وَٱلْعَٰدِيَٰتِ ضَبْحًۭا ﴿١﴾ فَٱلْمُورِيَٰتِ قَدْحًۭا ﴿٢﴾ فَٱلْمُغِيرَٰتِ صُبْحًۭا ﴿٣﴾ فَأَثَرْنَ بِهِۦ نَقْعًۭا ﴿٤﴾ فَوَسَطْنَ بِهِۦ جَمْعًا ﴿٥﴾ إِنَّ ٱلْإِنسَٰنَ لِرَبِّهِۦ لَكَنُودٌۭ ﴿٦﴾"
-  transliteration="wa-l-ʿādiyāti ḍabḥan · fa-l-mūriyāti qadḥan · fa-l-mughīrāti ṣubḥan · fa-atharna bihi naqʿan · fa-wasaṭna bihi jamʿan · inna l-insāna li-rabbihi la-kanūdun"
-  translation="By the racers, panting. And the producers of sparks [when] striking. And the chargers at dawn. Stirring up thereby [clouds of] dust. Arriving thereby in the center collectively. Indeed mankind, to his Lord, is ungrateful."
-  reference="Al-'Adiyat 100:1-6"
-  words={[
-    { ar: "وَٱلْعَٰدِيَٰتِ", tr: "wa-l-ʿādiyāti", en: "by the racers" },
-    { ar: "ضَبْحًۭا", tr: "ḍabḥan", en: "panting" },
-    { ar: "فَٱلْمُورِيَٰتِ", tr: "fa-l-mūriyāti", en: "and the spark-producers" },
-    { ar: "قَدْحًۭا", tr: "qadḥan", en: "striking" },
-    { ar: "فَٱلْمُغِيرَٰتِ", tr: "fa-l-mughīrāti", en: "and the chargers" },
-    { ar: "صُبْحًۭا", tr: "ṣubḥan", en: "at dawn" },
-    { ar: "فَأَثَرْنَ", tr: "fa-atharna", en: "stirring up" },
-    { ar: "بِهِۦ", tr: "bihi", en: "thereby" },
-    { ar: "نَقْعًۭا", tr: "naqʿan", en: "dust" },
-    { ar: "فَوَسَطْنَ", tr: "fa-wasaṭna", en: "arriving" },
-    { ar: "بِهِۦ", tr: "bihi", en: "thereby" },
-    { ar: "جَمْعًا", tr: "jamʿan", en: "collectively" },
-    { ar: "إِنَّ", tr: "inna", en: "indeed" },
-    { ar: "ٱلْإِنسَٰنَ", tr: "l-insāna", en: "mankind" },
-    { ar: "لِرَبِّهِۦ", tr: "li-rabbihi", en: "to his Lord" },
-    { ar: "لَكَنُودٌۭ", tr: "la-kanūdun", en: "is surely ungrateful" }
-  ]}
-/>
-
-**Oath objects:**
-1. **ٱلْعَٰدِيَٰتِ** (the racers) — active participle, genitive plural
-2. **ٱلْمُورِيَٰتِ** (the spark-producers) — active participle, genitive plural
-3. **ٱلْمُغِيرَٰتِ** (the chargers) — active participle, genitive plural
-
-**Note on particles:** After V1, the particle **فَ** (fa-) appears instead of **وَ**. The فَ shows sequence/consequence rather than simple addition, indicating these actions follow each other.
-
-**Oath response:** V6 with **إِنَّ** + **لَ** (double emphasis)
-
-**Grammar note:** All oath objects are active participles (فَاعِلَات pattern), showing ONGOING action. The participle choice emphasizes the dynamic nature of the scene (horses racing, sparking hooves, charging at dawn).
-
-<Callout type="rule" title="Oath Objects Can Be Any Noun Form">
-Oath objects can be:
-- Simple nouns (ٱلشَّمْسِ, ٱلْقَمَرِ)
-- Participles (ٱلْعَٰدِيَٰتِ, ٱلْمُورِيَٰتِ)
-- Demonstratives + nouns (هَٰذَا ٱلْبَلَدِ)
-- Iḍāfah constructions (طُورِ سِينِينَ)
-
-The only grammatical requirement: genitive case after the oath particle.
-</Callout>
-
-## Summary: Complete Oath Formula Pattern
-
-A complete Quranic oath formula has this structure:
-
-1. **Oath particle** (حَرْفُ ٱلْقَسَمِ)
-   - وَ (most common), بِ (less common), or تَ (rare)
-   - Functions as preposition causing genitive
-
-2. **Oath object(s)** (مُقْسَمٌ بِهِ)
-   - One or more nouns in genitive case
-   - Can have modifiers (adjectives, iḍāfah, adverbial clauses)
-   - Multiple objects create extended oath sequences
-
-3. **Oath response** (جَوَابُ ٱلْقَسَمِ)
-   - The truth being affirmed
-   - Marked by إِنَّ, لَقَدْ, لَ, or مَا
-   - Can be delayed multiple verses for rhetorical effect
-
-**Recognition strategy:**
-1. See وَ + genitive noun at surah opening → likely oath
-2. Count consecutive genitive nouns with وَ → oath objects
-3. Look for إِنَّ, لَقَدْ, لَ, or مَا marker → oath response
-4. Verify: oath response makes a solemn affirmation
-
-<ExerciseBox question="Identify the oath particle, oath objects, and oath response in this passage: وَٱلْفَجْرِ ﴿١﴾ وَلَيَالٍ عَشْرٍۢ ﴿٢﴾ وَٱلشَّفْعِ وَٱلْوَتْرِ ﴿٣﴾ وَٱللَّيْلِ إِذَا يَسْرِ ﴿٤﴾ هَلْ فِى ذَٰلِكَ قَسَمٌۭ لِّذِى حِجْرٍ ﴿٥﴾">
-
-**Hint:** Look for genitive markers on nouns. The oath response asks a rhetorical question in V5.
-
-**Answer:** Oath particles: وَ (repeated in V1-4). Oath objects: (1) ٱلْفَجْرِ (the dawn), (2) لَيَالٍ عَشْرٍۢ (ten nights), (3) ٱلشَّفْعِ (the even), (4) ٱلْوَتْرِ (the odd), (5) ٱللَّيْلِ (the night). All show genitive case (kasra or kasra tanwīn). Oath response: V5 - هَلْ فِى ذَٰلِكَ قَسَمٌۭ (Is there [not] in [all] that an oath...?) — rhetorical question affirming the oath's power.
-
-</ExerciseBox>
-
-<ExerciseBox question="In Ash-Shams 91:1-4, identify which وَ is the oath particle and which (if any) is a conjunction. وَٱلشَّمْسِ وَضُحَىٰهَا ﴿١﴾ وَٱلْقَمَرِ إِذَا تَلَىٰهَا ﴿٢﴾ وَٱلنَّهَارِ إِذَا جَلَّىٰهَا ﴿٣﴾ وَٱللَّيْلِ إِذَا يَغْشَىٰهَا ﴿٤﴾">
-
-**Hint:** Apply the case test: oath وَ requires genitive, conjunction وَ does not change case.
-
-**Answer:** V1: First وَٱلشَّمْسِ — oath particle (ٱلشَّمْسِ is genitive). Second وَضُحَىٰهَا — conjunction connecting ضُحَىٰهَا to ٱلشَّمْسِ (coordinate structure 'the sun and its brightness'). V2-4: Each وَ before ٱلْقَمَرِ, ٱلنَّهَارِ, ٱللَّيْلِ is an oath particle (all three nouns genitive). Total: 4 oath particles + 1 conjunction.
-
-</ExerciseBox>
-
-<ExerciseBox question="What is the oath response in At-Tin 95:1-6? وَٱلتِّينِ وَٱلزَّيْتُونِ ﴿١﴾ وَطُورِ سِينِينَ ﴿٢﴾ وَهَٰذَا ٱلْبَلَدِ ٱلْأَمِينِ ﴿٣﴾ لَقَدْ خَلَقْنَا ٱلْإِنسَٰنَ فِىٓ أَحْسَنِ تَقْوِيمٍۢ ﴿٤﴾ ثُمَّ رَدَدْنَٰهُ أَسْفَلَ سَٰفِلِينَ ﴿٥﴾ إِلَّا ٱلَّذِينَ ءَامَنُوا۟ وَعَمِلُوا۟ ٱلصَّٰلِحَٰتِ فَلَهُمْ أَجْرٌ غَيْرُ مَمْنُونٍۢ ﴿٦﴾">
-
-**Hint:** Look for the emphatic marker after the oath objects. Does the oath response include V5-6 or only V4?
-
-**Answer:** The oath response begins in V4 with the marker لَقَدْ: 'لَقَدْ خَلَقْنَا ٱلْإِنسَٰنَ فِىٓ أَحْسَنِ تَقْوِيمٍۢ' (We have certainly created man in the best of stature). However, V5-6 continue the same thought (man's fall and exception), so the full oath response is V4-6. The grammatical marker (لَقَدْ) appears only in V4, but the semantic response extends through the entire subsequent passage.
-
-</ExerciseBox>
-
-<ExerciseBox question="Explain why the وَ in 'وَضُحَىٰهَا' (Ash-Shams 91:1) is NOT an oath particle, even though it appears in an oath surah.">
-
-**Hint:** Apply the three tests: case marking, context, and response presence.
-
-**Answer:** Test 1 (Case): ضُحَىٰهَا is genitive (kasra on ضُحَىٰ), but this is because it follows the genitive ٱلشَّمْسِ in a coordinate structure, NOT because وَ is an oath particle. Test 2 (Context): This وَ connects two words within a single oath object ('the sun AND its brightness'), not introducing a separate oath object. Test 3 (Response): The oath response (V9-10) does not treat 'its brightness' as a separate oath object. Conclusion: This وَ is conjunction وَ (wāw al-ʿaṭf) coordinating 'sun' and 'brightness' as parts of one composite oath object. The oath particle is the FIRST وَ before ٱلشَّمْسِ.
-
-</ExerciseBox>
-
-## Conclusion
-
-Oath formulas (qasam) are grammatical structures with three components:
-1. Oath particle (وَ, بِ, تَ) causing genitive
-2. Oath object(s) in genitive case
-3. Oath response with emphatic markers (إِنَّ, لَقَدْ, لَ, مَا)
-
-**Key recognition skills:**
-- Distinguish oath وَ from conjunction وَ using case + context + response tests
-- Count consecutive genitive nouns to determine oath sequence length
-- Locate oath responses by finding emphatic particles after oath objects
-- Analyze how oath sequence length correlates with message gravity
-
-**Cross-surah patterns:**
-- Long sequences (Ash-Shams: 7-10 objects) → weighty theological truths
-- Medium sequences (Al-Layl: 3 objects) → important principles
-- Short sequences (Ad-Duha: 2 objects) → immediate reassurance
-
-**Grammatical precision creates rhetorical impact:** The delayed oath response (ta'khīr al-jawāb) builds suspense. The genitive case requirement enforces structural clarity. The emphatic markers signal boundaries between oath and response.
-
-**Next steps:** You've now completed the pattern recognition trio:
-- [L5.06 Conditional Patterns](/learn/level-4/03-conditional-sentences/) — two-part structures
-- [L5.07 Negation Patterns](/learn/level-4/10-negation-particles/) — emphatic particles
-- L5.08 Oath Formulas — multi-verse grammatical sequences
-
-In future lessons, you'll apply these pattern recognition skills to complete surah analyses, combining oath structures with other grammatical and rhetorical devices for comprehensive understanding.
-
-<Callout type="tip">
-You can now navigate Quranic oath sequences systematically. When you encounter وَ at a surah opening, you know to: (1) check for genitive case, (2) count oath objects, (3) locate the oath response, (4) analyze the theological connection between objects and response. This skill unlocks approximately 30 surahs containing oath formulas.
-</Callout>
+import Step from '../../../components/lesson/Step.astro';
+import Stage from '../../../components/lesson/Stage.astro';
+import Sentence from '../../../components/lesson/Sentence.astro';
+import Tiles from '../../../components/lesson/Tiles.astro';
+import Formula from '../../../components/lesson/Formula.astro';
+import Note from '../../../components/lesson/Note.astro';
+import Check from '../../../components/lesson/Check.astro';
+import Start from '../../../components/lesson/Start.astro';
+import Sources from '../../../components/lesson/Sources.astro';
+import Parse from '../../../components/lesson/Parse.astro';
+import Exercise from '../../../components/lesson/Exercise.astro';
+import Block from '../../../components/lesson/Block.astro';
+
+{/* Content spec: docs/redesign/specs/L5.08-oath-formulas.md. Every parse follows al-Jadwal (Mahmud Safi) on the page of the verse; single-word lines that al-Jadwal does not give follow the standard parse and the Corpus tags (see the spec). */}
+
+<Step hero id="start" label="The oath" title={frontmatter.title} kicker={frontmatter.kicker} titleArabic={frontmatter.titleArabic}>
+<Block id="overview" title="In this lesson" level={2} uncounted>
+  <Stage label="The idea">
+    <Formula
+      label="an oath letter, a noun in the genitive and an answer make an oath"
+      items={[
+        { kind: 'm', text: 'an oath letter', small: 'حَرْف قَسَم' },
+        { kind: 'k', text: 'a noun in the genitive', small: 'مُقْسَم بِهِ' },
+        { kind: 's', text: 'the answer', small: 'جَوَاب الْقَسَم' },
+      ]}
+    />
+  </Stage>
+  <Start
+    goal="Find the <b>oath letter</b>, the <b>sworn-by noun</b> and the <b>answer</b> in an oath of the Quran. Say which wāw is the oath wāw and which wāw only joins. Say how the answer starts, or that none is spoken."
+    minutes={100}
+    before="The oath letters (L2.07). Following words (L2.06). Inna and the lām on its khabar (L2.10). The oath and its answer (L4.06). Surah Ad-Duha (L4.19), where an oath is taken apart once."
+    terms={[
+      { term: 'Oath', ar: 'قَسَم', meaning: '“By …”: a solemn statement that swears by something (L4.06).' },
+      { term: 'Oath letter', ar: 'حَرْف قَسَم', meaning: 'A letter that means “by”: wāw, bāʾ or tāʾ (L2.07).' },
+      { term: 'Sworn-by noun', ar: 'مُقْسَم بِهِ', meaning: 'The noun after the oath letter: the thing you swear by.' },
+      { term: 'Answer of the oath', ar: 'جَوَاب الْقَسَم', meaning: 'The sentence that is sworn to (L4.06).' },
+      { term: 'Joining wāw', ar: 'وَاو الْعَطْف', meaning: 'The wāw that means “and” and copies a case (L2.06).' },
+      { term: 'Left-out verb', ar: 'أُقْسِمُ', meaning: '“I swear”: al-Jadwal ties every oath phrase to it, though it is not written (L2.07, L4.19).' },
+      { term: 'Time word', ar: 'ظَرْف', meaning: 'A word for time, such as إِذَا, “when” (L4.04, L4.19).' },
+      { term: 'Absolute object', ar: 'مَفْعُول مُطْلَق', meaning: 'A noun from the same root as the verb, such as ضَبْحًا after “pant” (L4.07).' },
+    ]}
+  />
+</Block>
+
+<Block id="see" title="Read one whole oath: Al-Layl 92:1 to 92:4" level={2}>
+  <Stage>
+    <Sentence
+      roles
+      reference="Al-Layl 92:1"
+      groups={[
+        { role: 'jarMajrur', label: 'oath letter + noun', hint: 'by the night: tied to a left-out “I swear”', words: [{ ar: 'وَٱلَّيْلِ', en: 'by the night', say: 'wal-layli', type: 'p' }] },
+        { role: 'zarf', hint: 'a time word: “when”', words: [{ ar: 'إِذَا', en: 'when', say: 'idha', type: 'p' }] },
+        { role: 'fiil', hint: 'a present verb: “it covers”', words: [{ ar: 'يَغْشَىٰ', en: 'it covers', say: 'yaghsha', type: 'v' }] },
+      ]}
+      en={['By the night when it covers.']}
+    />
+    <Sentence
+      roles
+      reference="Al-Layl 92:2"
+      groups={[
+        { role: 'matuf', label: '“and” + noun', hint: 'joined to ٱلَّيْلِ', words: [{ ar: 'وَٱلنَّهَارِ', en: 'and the day', say: 'wan-nahari' }] },
+        { role: 'zarf', hint: 'a time word: “when”', words: [{ ar: 'إِذَا', en: 'when', say: 'idha', type: 'p' }] },
+        { role: 'fiil', hint: 'a past verb: “it appears”', words: [{ ar: 'تَجَلَّىٰ', en: 'it appears', say: 'tajalla', type: 'v' }] },
+      ]}
+      en={['And the day when it appears.']}
+    />
+    <Sentence
+      roles
+      reference="Al-Layl 92:3"
+      groups={[
+        { role: 'matuf', label: '“and” + mā', hint: 'a clause joined to the nouns before it', words: [{ ar: 'وَمَا', en: 'and the', say: 'wa-ma', type: 'p' }] },
+        { role: 'fiil', hint: 'a past verb: “created”', words: [{ ar: 'خَلَقَ', en: 'creating', say: 'khalaqa', type: 'v' }] },
+        { role: 'maful', hint: 'what was created', words: [{ ar: 'ٱلذَّكَرَ', en: 'the male', say: 'adh-dhakara' }, { ar: 'وَٱلْأُنثَىٰٓ', en: 'and the female', say: 'wal-untha' }] },
+      ]}
+      en={['And the creating of the male and the female.']}
+    />
+    <Sentence
+      roles
+      reference="Al-Layl 92:4"
+      groups={[
+        { label: 'inna', hint: 'a little word: “surely”', words: [{ ar: 'إِنَّ', en: 'surely', say: 'inna', type: 'p' }] },
+        { role: 'ismInna', hint: '“your striving”', words: [{ ar: 'سَعْيَكُمْ', en: 'your striving', say: 'sayakum' }] },
+        { role: 'khabarInna', label: 'la + khabar', hint: 'the lām strengthens the khabar', words: [{ ar: 'لَشَتَّىٰ', en: 'is of many kinds', say: 'la-shatta' }] },
+      ]}
+      en={['Surely your striving is of many kinds.']}
+    />
+  </Stage>
+
+Read each verse from right to left. The English under each verse is our own plain meaning, not a translation.
+
+Verse 1 starts with **وَ**, the oath letter. The noun after it, ٱلَّيْلِ, is genitive. Al-Jadwal ties the phrase to a verb that is not written: أُقْسِمُ, “I swear”. Verses 2 and 3 name two more things to swear by. Verse 4 is a different kind of sentence: it starts with إِنَّ and has a لَ on its khabar. Al-Jadwal calls it the answer of the oath.
+
+So three verses swear and one verse says what is sworn. The rest of the lesson takes these parts one at a time and meets them in other surahs.
+
+<Check n={1} q="Which verse of Al-Layl holds the answer of the oath?" options={['Verse 4', 'Verse 1', 'Verse 3']} answer={0} why="Verses 1 to 3 name what is sworn by. Verse 4, with إِنَّ and لَ, is what is sworn. Al-Jadwal: no place, the answer of the oath." />
+</Block>
+
+<Block id="map" title="The three parts" level={2}>
+  <Stage label="Letter, noun, answer">
+    <Tiles
+      label="the three parts of the oath in Al-Layl"
+      items={[
+        { ar: 'وَ', en: 'the oath letter', type: 'p' },
+        { ar: 'ٱلَّيْلِ', en: 'the sworn-by noun, genitive', type: 'n' },
+        { ar: 'إِنَّ سَعْيَكُمْ لَشَتَّىٰ', en: 'the answer' },
+      ]}
+    />
+  </Stage>
+
+| Part | Arabic | In 92:1 to 92:4 | What it does | Taught in |
+|---|---|---|---|---|
+| Oath letter | حَرْف قَسَم | وَ in وَٱلَّيْلِ | Means “by”. It has no case of its own and makes the next noun genitive | [L2.07](/learn/level-2/07-prepositions-genitive/) |
+| Sworn-by noun | مُقْسَم بِهِ | ٱلَّيْلِ, then ٱلنَّهَارِ and the clause of مَا | Is genitive: after the letter, or because it is joined to a genitive noun | [L2.06](/learn/level-2/06-genitive-case/), [L2.07](/learn/level-2/07-prepositions-genitive/) |
+| Answer | جَوَاب الْقَسَم | Verse 4 | What is sworn. It has no place in a bigger sentence and carries its own strengthener | [L4.06](/learn/level-4/06-emphasis-affirmation/) |
+
+*Al-Ajurrumiyyah* lists the oath letters in its chapter on the genitive: **وَ**, **بِ** and **تَ**. [L2.07](/learn/level-2/07-prepositions-genitive/) quotes the lines. L4.06 taught the oath and its answer, and L4.19 took the oath of Ad-Duha apart. This lesson goes through more oaths than those two, and each step looks at one part.
+
+<Check n={2} q="Which part of the oath is in the genitive?" options={['The sworn-by noun', 'The answer', 'The oath letter']} answer={0} why="The letter has no case. The noun after it is genitive. The answer is a whole sentence." />
+</Block>
+
+<Block id="count" title="How many oaths are there?" level={2}>
+  <Stage label="Counted in the Corpus">
+    <Tiles
+      label="oath letters tagged in the Corpus"
+      items={[
+        { ar: 'وَ', en: '28 tagged as a preposition', type: 'p' },
+        { ar: 'تَ', en: '9 tagged, all with ٱللَّهِ', type: 'p' },
+        { ar: 'بِ', en: 'no tag of its own', type: 'p' },
+      ]}
+    />
+  </Stage>
+
+The Corpus has no tag named “oath”. It does tag a wāw as a **preposition**, and not as “and”, in 28 words. We read all 28 verses: each is an oath wāw. It also tags the tāʾ of oath in 9 words. A bāʾ of oath looks like any other bāʾ, so it has no tag of its own.
+
+| Letter | Words tagged | Where |
+|---|---|---|
+| وَ | 28 | 19 at the start of a surah (verse 1 or 2). 9 inside a surah: 4:65, 6:23, 6:30, 15:92, 19:68, 51:23, 64:7, 74:32, 86:11 |
+| تَ | 9 | 12:73, 12:85, 12:91, 12:95, 16:56, 16:63, 21:57, 26:97, 37:56 |
+| بِ | none | We read it in 26:44 and 38:82 |
+
+A tag is a guide, and here it is not complete. The Corpus tags the wāw of 10:53, 34:3, 51:1, 51:7 and 52:1 as “and”, and al-Jadwal reads each one as an oath wāw. So there are at least 33 oath wāws (28 and 5). At least 21 of the 114 surahs open with an oath wāw: 19 tagged, and 51 and 52. That is about one surah in five. Oaths also come inside surahs, as the table shows.
+
+<Note kind="know">L4.06 says the Corpus has no tag for the oath. That is right for a tag named “oath”. The tag “preposition” on a wāw is the nearest thing, and the counts above are ours: we made them by script and by reading each verse.</Note>
+
+<Check n={3} q="How many of the nine tāʾ words in the Corpus are followed by ٱللَّهِ?" options={['All nine', 'Five', 'None']} answer={0} why="12:73, 12:85, 12:91, 12:95, 16:56, 16:63, 21:57, 26:97 and 37:56 all have تَ before ٱللَّهِ." />
+</Block>
+</Step>
+
+<Step id="letters" label="The letters" title="The three oath letters: wāw, bāʾ and tāʾ">
+<Block id="waw" title="وَ: the common letter">
+  <Stage label="Oath wāw">
+    <Sentence
+      roles
+      reference="Al-Fajr 89:1"
+      groups={[
+        { role: 'jarMajrur', label: 'oath letter + noun', hint: 'by the dawn: tied to a left-out “I swear”', words: [{ ar: 'وَٱلْفَجْرِ', en: 'by the dawn', say: 'wal-fajri', type: 'p' }] },
+      ]}
+      en={['By the dawn.']}
+    />
+  </Stage>
+
+**وَٱلْفَجْرِ** is one written word with two pieces. **وَ** is the oath letter and means “by”. **ٱلْفَجْرِ** is the noun after it, in the genitive, with a kasra that shows (-i). Al-Jadwal says the phrase belongs to a verb that is not written, أُقْسِمُ, “I swear”, and calls “I swear by the dawn” an opening sentence with no place.
+
+The Corpus tags this wāw as a preposition. The wāw is the common oath letter: 28 tagged words against 9 for the tāʾ.
+
+L2.07 gave a two-part check for an oath wāw: the next noun is genitive, and something is sworn by. The next block adds a third part, because a wāw that means “and” can also be followed by a genitive noun.
+
+<Check n={4} q="What is the job of وَ in وَٱلْفَجْرِ?" options={['The oath letter: “by”', 'The joining wāw: “and”', 'Part of the root']} answer={0} why="Nothing stands before it to join, a genitive noun follows, and something is sworn by." />
+</Block>
+
+<Block id="waw-and" title="Oath wāw or joining wāw?">
+  <Stage label="Two wāws, one verse">
+    <Sentence
+      roles
+      reference="At-Tin 95:1"
+      groups={[
+        { role: 'jarMajrur', label: 'oath letter + noun', hint: 'by the fig: tied to a left-out “I swear”', words: [{ ar: 'وَٱلتِّينِ', en: 'by the fig', say: 'wat-tini', type: 'p' }] },
+        { role: 'matuf', label: '“and” + noun', hint: 'joined to ٱلتِّينِ: genitive like it', words: [{ ar: 'وَٱلزَّيْتُونِ', en: 'and the olive', say: 'waz-zaytuni' }] },
+      ]}
+      en={['By the fig and the olive.']}
+    />
+    <Sentence
+      roles
+      reference="Al-Baqarah 2:158 (start)"
+      groups={[
+        { label: 'inna', hint: 'a little word: “surely”', words: [{ ar: 'إِنَّ', en: 'surely', say: 'inna', type: 'p' }] },
+        { role: 'ismInna', words: [{ ar: 'ٱلصَّفَا', en: 'Safa', say: 'as-safa' }] },
+        { role: 'matuf', label: '“and” + noun', hint: 'joined to ٱلصَّفَا: accusative like it', words: [{ ar: 'وَٱلْمَرْوَةَ', en: 'and Marwa', say: 'wal-marwata' }] },
+        { role: 'khabarInna', hint: 'tied to a left-out “are”: among the signs of Allah', words: [{ ar: 'مِن', en: 'among', say: 'min', type: 'p' }, { ar: 'شَعَآئِرِ', en: 'the signs of', say: 'shaairi' }, { ar: 'ٱللَّهِ', en: 'Allah', say: 'allahi' }] },
+      ]}
+      en={['Surely Safa and Marwa ', { gap: 'are' }, ' among the signs of Allah.']}
+    />
+    <Tiles
+      label="three wāws"
+      items={[
+        { ar: 'وَ', en: 'oath: “by”', type: 'p' },
+        { ar: 'وَ', en: 'joining: “and”', type: 'p' },
+        { ar: 'وَ', en: 'ḥāl: “while” (L4.01)', type: 'p' },
+      ]}
+    />
+  </Stage>
+
+In 95:1 both wāws are followed by a genitive noun, so the case does not tell them apart. ٱلزَّيْتُونِ is genitive because it is joined to ٱلتِّينِ, and a joined word copies the case of the word before it (L2.06). In 2:158 the same thing happens in the accusative: al-Jadwal says ٱلْمَرْوَةَ is joined to ٱلصَّفَا and follows it in the accusative. The case follows the word it joins. The wāw does not set it.
+
+So ask what stands before the wāw. In 95:1 **nothing** stands before the first wāw, so it has nothing to join and a noun is sworn by: it is the oath wāw. The second wāw joins one noun to another. The Corpus tags them the same way: the first wāw is a preposition, the second is “and”. Al-Jadwal ties the first phrase to “I swear”. On its page for 95:1 it says one later word outright is joined: هَٰذَا in 95:3 (the next block). For the other words it gives no line, and the Corpus tags their wāws “and”.
+
+A third wāw, the wāw of ḥāl, means “while” and starts a sentence that gives a state (L4.01). It is not followed by a sworn-by noun.
+
+<Note kind="know">The three questions above (is something sworn by, does anything stand before it to join, is the noun genitive) are a teaching summary. Quran Learn found no approved source that lists them as a test. They come from the verses read in this lesson.</Note>
+
+<Check n={5} q="In وَٱلتِّينِ وَٱلزَّيْتُونِ, why is ٱلزَّيْتُونِ genitive?" options={['It is joined to ٱلتِّينِ and copies its case', 'It has its own oath wāw', 'A verb makes it genitive']} answer={0} why="A word joined with “and” copies the case of the word before it (L2.06). The second wāw only joins." />
+
+<Check n={6} q="In إِنَّ ٱلصَّفَا وَٱلْمَرْوَةَ, why is ٱلْمَرْوَةَ accusative?" options={['It copies ٱلصَّفَا, the ism of inna', 'An oath wāw pulls it', 'It is the khabar']} answer={0} why="Al-Jadwal: ٱلْمَرْوَةَ is joined to ٱلصَّفَا, so it takes the accusative of the word it joins." />
+</Block>
+
+<Block id="chain" title="A chain: one oath letter, then “and”">
+  <Stage label="Three nouns in the genitive">
+    <Sentence
+      roles
+      reference="At-Tin 95:2"
+      groups={[
+        { role: 'matuf', label: '“and” + first word of an idafah', hint: 'joined to ٱلتِّينِ', words: [{ ar: 'وَطُورِ', en: 'and Mount', say: 'wa-turi' }] },
+        { role: 'mudafIlayh', hint: 'a name: of Sinai', words: [{ ar: 'سِينِينَ', en: 'Sinai', say: 'sinina' }] },
+      ]}
+      en={['And Mount Sinai.']}
+    />
+    <Sentence
+      roles
+      reference="At-Tin 95:3"
+      groups={[
+        { role: 'matuf', label: '“and” + “this”', hint: 'joined to ٱلتِّينِ: in the place of the genitive', words: [{ ar: 'وَهَٰذَا', en: 'and this', say: 'wa-hadha' }] },
+        { role: 'naat', label: 'badal', hint: 'says what “this” points at', words: [{ ar: 'ٱلْبَلَدِ', en: 'the city', say: 'al-baladi' }] },
+        { role: 'naat', hint: 'describes ٱلْبَلَدِ', words: [{ ar: 'ٱلْأَمِينِ', en: 'the safe', say: 'al-amini' }] },
+      ]}
+      en={['And this safe city.']}
+    />
+  </Stage>
+
+After the first noun, a chain of oaths goes on with “and”. Al-Jadwal reads 95:3 like this: هَٰذَا is joined to ٱلتِّينِ, and takes its place in the genitive. A word like هَٰذَا is built, so its case is “by place” (L3.10). ٱلْبَلَدِ is a badal of هَٰذَا, or a clarifier (ʿaṭf bayān), and it is genitive. ٱلْأَمِينِ describes ٱلْبَلَدِ. The Corpus tags the four wāws of 95:1 to 95:3 in one pattern: the first is a preposition, the other three are “and”.
+
+In 95:2, طُورِ is the first word of an idafah and سِينِينَ is the second (L2.08). Al-Jadwal calls سِينِينَ the name of a mountain in Egypt. On ٱلتِّينِ and ٱلزَّيْتُونِ it gives two readings: the names of mountains, or the known fruits as class nouns. This lesson does not choose between them.
+
+Other chains look the same. On 52:1 al-Jadwal says the first wāw is the oath wāw and the wāws after it are joining wāws (it counts five places on its page, four of them in the oath). On 51:1 and 100:1 the words after the first noun begin with فَ, and al-Jadwal calls that فَ a joining letter too.
+
+<Check n={7} q="What does al-Jadwal say هَٰذَا is in وَهَٰذَا ٱلْبَلَدِ ٱلْأَمِينِ?" options={['A word joined to ٱلتِّينِ, in the place of the genitive', 'The doer of a verb', 'A new oath letter']} answer={0} why="هَٰذَا is joined to ٱلتِّينِ. The words after it say what it points at." />
+</Block>
+
+<Block id="ba" title="بِ: the bāʾ of oath">
+  <Stage label="Word by word">
+    <Parse
+      reference="Ash-Shuara 26:44 (end)"
+      words={[
+        { ar: 'بِعِزَّةِ', en: 'by the might of', type: 'p' },
+        { ar: 'فِرْعَوْنَ', en: 'Pharaoh' },
+        { ar: 'إِنَّا', en: 'surely we', type: 'p' },
+        { ar: 'لَنَحْنُ', en: 'we ourselves' },
+        { ar: 'ٱلْغَٰلِبُونَ', en: 'the winners' },
+      ]}
+      cards={[
+        { at: 0, ar: 'بِ', role: 'the bāʾ of oath: “by”', why: 'The speakers swear. Al-Jadwal ties the phrase to a left-out verb, نُقْسِمُ, “we swear”.', irab: 'الباء حرف جر' },
+        { at: 0, ar: 'عِزَّةِ', role: 'the sworn-by noun: “the might”. The first word of an idafah. Root ع ز ز.', case: 'genitive (jarr)', mark: '-i (kasra)', why: 'The bāʾ pulls it (L2.07). It is also the first word of an idafah (L2.08).', irab: 'اسم مجرور وعلامة جره الكسرة الظاهرة وهو مضاف' },
+        { at: 1, ar: 'فِرْعَوْنَ', role: 'the second word of the idafah: “of Pharaoh”', case: 'genitive (jarr)', mark: '-a (fatḥa): the name takes no tanwīn, so its genitive ends in -a (L2.06)', why: 'The Corpus tags it accusative. It is the second word of an idafah, so it is genitive. Al-Jadwal does not parse this word on its page.', irab: 'مضاف إليه مجرور وعلامة جره الفتحة نيابة عن الكسرة لأنه ممنوع من الصرف' },
+        { at: [0, 1], role: 'the oath phrase بِعِزَّةِ فِرْعَوْنَ: tied to the left-out “we swear”', why: 'Al-Jadwal: tied to the left-out verb نُقْسِمُ.', irab: 'جار ومجرور متعلق بفعل محذوف تقديره نقسم' },
+        { at: [0, 1], role: 'the sentence “we swear by the might of Pharaoh”', case: 'in the place of the accusative (naṣb)', why: 'It is what they said (maqūl al-qawl), after “and they said”.', irab: 'جملة «نقسم بعزة فرعون» في محل نصب مقول القول' },
+        { at: 2, ar: 'إِنَّ', role: 'inna: “surely”', why: 'A little word with no case. It puts the next noun in the accusative (L2.10).', irab: 'حرف مشبه بالفعل للتوكيد' },
+        { at: 2, ar: 'نَا', role: 'the ism of inna: “we”. A pronoun joined to inna.', case: 'accusative (naṣb), by place', mark: 'none: a pronoun shows no case ending', why: 'The word after inna is accusative (L2.10).', irab: 'ضمير متصل في محل نصب اسم إن' },
+        { at: 3, ar: 'لَ', role: 'the lām: “surely”', why: 'Al-Jadwal: a lām that strengthens. It changes no ending.', irab: 'اللام للتوكيد' },
+        { at: 3, ar: 'نَحْنُ', role: 'mubtadaʾ: “we”. A separate pronoun.', case: 'nominative (rafʿ), by place', mark: 'none: a pronoun shows no case ending', why: 'Al-Jadwal: the sentence نَحْنُ ٱلْغَٰلِبُونَ is the khabar of inna, so نَحْنُ starts it (L2.01).', irab: 'ضمير منفصل مبني في محل رفع مبتدأ' },
+        { at: 4, role: 'khabar: “the winners”. A doer word (ism fāʿil) of the root غ ل ب.', case: 'nominative (rafʿ)', mark: 'the wāw of a sound masculine plural', why: 'It is the news about نَحْنُ (L2.01, L3.19).', irab: 'خبر مرفوع وعلامة رفعه الواو لأنه جمع مذكر سالم' },
+        { at: [2, 3, 4], role: 'the sentence إِنَّا لَنَحْنُ ٱلْغَٰلِبُونَ: the answer of the oath', case: 'no place', why: 'Al-Jadwal: no place, the answer of the oath that is understood.', irab: 'جملة «إنا لنحن الغالبون» لا محل لها جواب القسم المقدر' },
+      ]}
+    />
+  </Stage>
+
+A bāʾ of oath looks like the ordinary bāʾ, “with, in”. You tell them apart by the sense: somebody swears by something, and a sentence follows that is sworn to. In 26:44 the speakers swear by the might of Pharaoh and then say what they swear: “we are the winners”. The oath has the bāʾ, the noun in the genitive and the answer, as in Al-Layl.
+
+L4.06 has a second bāʾ oath in 38:82, فَبِعِزَّتِكَ لَأُغْوِيَنَّهُمْ أَجْمَعِينَ. There the answer is a verb with a لَ in front and the nūn of emphasis at the end.
+
+<Check n={8} q="What does al-Jadwal tie بِعِزَّةِ فِرْعَوْنَ to?" options={['A left-out verb: “we swear”', 'إِنَّا', 'ٱلْغَٰلِبُونَ']} answer={0} why="The oath phrase belongs to a verb that is not written. Al-Jadwal gives نُقْسِمُ." />
+</Block>
+
+<Block id="ta" title="تَ: the tāʾ of oath">
+  <Stage label="Word by word">
+    <Parse
+      reference="An-Nahl 16:63 (start)"
+      words={[
+        { ar: 'تَٱللَّهِ', en: 'by Allah', type: 'p' },
+        { ar: 'لَقَدْ', en: 'certainly', type: 'p' },
+        { ar: 'أَرْسَلْنَآ', en: 'We sent', type: 'v' },
+        { ar: 'إِلَىٰٓ', en: 'to', type: 'p' },
+        { ar: 'أُمَمٍ', en: 'nations' },
+      ]}
+      cards={[
+        { at: 0, ar: 'تَ', role: 'the tāʾ of oath: “by”', why: 'A little word with no case. It is joined to the name of Allah, as in all nine words the Corpus tags.', irab: 'التاء حرف جر وقسم' },
+        { at: 0, ar: 'ٱللَّهِ', role: 'the sworn-by noun: the name “Allah”', case: 'genitive (jarr)', mark: '-i (kasra)', why: 'The oath letter pulls it (L2.07).', irab: 'لفظ الجلالة مجرور وعلامة جره الكسرة الظاهرة' },
+        { at: 0, role: 'the phrase تَٱللَّهِ: tied to a left-out verb, “I swear”', why: 'Al-Jadwal: tied to the left-out verb أُقْسِمُ.', irab: 'جار ومجرور متعلق بفعل محذوف تقديره أقسم' },
+        { at: 0, role: 'the sentence “I swear by Allah”: a new start', case: 'no place', why: 'Al-Jadwal: no place, a new start (istinafiyya).', irab: 'جملة «أقسم بالله» لا محل لها استئنافية' },
+        { at: 1, ar: 'لَ', role: 'the lām of the oath: “surely”', why: 'Al-Jadwal: the lām of the oath. It starts the answer (L2.07, L4.06). It changes no ending.', irab: 'اللام لام القسم' },
+        { at: 1, ar: 'قَدْ', role: 'a word of certainty: “indeed”', why: 'Al-Jadwal: a word of certainty (L4.06). It changes no ending.', irab: 'حرف تحقيق' },
+        { at: 2, ar: 'أَرْسَلْنَآ', role: 'a past verb, Form IV, root ر س ل: “We sent”. First person plural, active.', case: 'none: a verb has no case', mark: 'built on a sukūn on the ل', why: 'The ending نَا is the doer, “We” (L3.05). The Corpus tags the verb Form IV (L3.13).', irab: 'فعل ماض مبني على السكون ونا ضمير متصل في محل رفع فاعل' },
+        { at: [3, 4], ar: 'إِلَىٰٓ أُمَمٍ', role: 'a phrase tied to أَرْسَلْنَا: “to nations”. أُمَمٍ is the noun after إِلَىٰ.', case: 'genitive (jarr)', mark: '-in (kasra with tanwīn)', why: 'إِلَىٰ pulls it (L2.07). Al-Jadwal: tied to أَرْسَلْنَا.', irab: 'جار ومجرور متعلق بـ أرسلنا' },
+        { at: [1, 2, 3, 4], role: 'the sentence لَقَدْ أَرْسَلْنَا …: the answer of the oath', case: 'no place', why: 'Al-Jadwal: no place, the answer of the oath.', irab: 'جملة «أرسلنا» لا محل لها جواب القسم' },
+      ]}
+    />
+  </Stage>
+
+The Corpus tags the tāʾ of oath in nine words, and in all nine the next word is ٱللَّهِ: 12:73, 12:85, 12:91, 12:95, 16:56, 16:63, 21:57, 26:97 and 37:56. So here the rule that tāʾ goes only with the name of Allah holds for every word the Corpus tags. In 21:57 a wāw comes before the tāʾ (وَتَٱللَّهِ), and the Corpus tags that wāw as “and”.
+
+The answer in 16:63 does not stop at the first sentence. Al-Jadwal joins the next three sentences to it, each to the one before: فَزَيَّنَ لَهُمُ ٱلشَّيْطَٰنُ أَعْمَٰلَهُمْ, فَهُوَ وَلِيُّهُمُ ٱلْيَوْمَ and وَلَهُمْ عَذَابٌ أَلِيمٌ. The answer of an oath can have joined sentences after it.
+
+<Check n={9} q="What does al-Jadwal call the لَ in لَقَدْ أَرْسَلْنَا in 16:63?" options={['The lām of the oath', 'A preposition: “for”', 'Part of the root']} answer={0} why="The لَ that starts the answer is the lām of the oath. The preposition li- has a kasra and goes with a noun." />
+</Block>
+
+<Block id="noletter" title="Other ways to swear">
+  <Stage label="No letter, and an oath inside speech">
+    <Sentence
+      roles
+      reference="Al-Hijr 15:72"
+      groups={[
+        { role: 'mubtada', label: 'la + noun', hint: 'a noun in the nominative: the khabar “my oath” is left out', words: [{ ar: 'لَعَمْرُكَ', en: 'by your life', say: 'la-amruka' }] },
+        { role: 'ismInna', label: 'inna + ism', hint: '“surely they”', words: [{ ar: 'إِنَّهُمْ', en: 'surely they', say: 'innahum' }] },
+        { role: 'khabarInna', label: 'la + a phrase', hint: 'tied to the khabar: in their daze', words: [{ ar: 'لَفِى', en: 'surely in', say: 'la-fi', type: 'p' }, { ar: 'سَكْرَتِهِمْ', en: 'their daze', say: 'sakratihim' }] },
+        { role: 'hal', hint: 'a state: “wandering blindly”', words: [{ ar: 'يَعْمَهُونَ', en: 'wandering blindly', say: 'yamahuna', type: 'v' }] },
+      ]}
+      en={['By your life, they are surely in their daze, wandering blindly.']}
+    />
+    <Sentence
+      roles
+      reference="At-Taghabun 64:7 (part)"
+      groups={[
+        { role: 'fiil', hint: 'a command: “say”', words: [{ ar: 'قُلْ', en: 'say', say: 'qul', type: 'v' }] },
+        { label: 'answer particle', hint: '“yes indeed”: it answers a denial', words: [{ ar: 'بَلَىٰ', en: 'yes indeed', say: 'bala', type: 'p' }] },
+        { role: 'jarMajrur', label: 'oath letter + noun', hint: 'by my Lord: tied to a left-out “I swear”', words: [{ ar: 'وَرَبِّى', en: 'by my Lord', say: 'wa-rabbi', type: 'p' }] },
+        { role: 'fiil', label: 'answer: la + verb + nūn', hint: 'a passive verb with the nūn of emphasis', words: [{ ar: 'لَتُبْعَثُنَّ', en: 'you will surely be raised', say: 'latubathunna', type: 'v' }] },
+      ]}
+      en={['Say: yes indeed, by my Lord, you will surely be raised.']}
+    />
+  </Stage>
+
+Two more forms of the oath show that the letters are not the whole story.
+
+**لَعَمْرُكَ** has no oath letter. Al-Jadwal reads the لَ as the beginning lām, عَمْرُكَ as a mubtadaʾ in the nominative, and says its khabar is always left out: “my oath”. Nothing here makes the noun genitive. So “the sworn-by noun is genitive” holds after the three letters, and it does not hold for every oath formula. The answer is the إِنَّ sentence after it.
+
+**وَرَبِّى** in 64:7 is an oath wāw in the middle of a verse. The Corpus tags it as a preposition. Al-Jadwal reads بَلَىٰ as a word that answers a denial, the wāw as the oath wāw, and the phrase as tied to the left-out “I swear”. The answer is لَتُبْعَثُنَّ: a لَ, a present verb and the nūn of emphasis (L4.06). Oaths are not only at the start of surahs: nine of the 28 tagged wāws are inside a surah.
+
+<Note kind="know">Al-Jadwal’s note on 21:57 adds that when the oath letter is dropped, the sworn-by noun is accusative. Its example, ٱللَّهَ لَأَفْعَلَنَّ, is a made-up sentence and not a verse.</Note>
+
+<Check n={10} q="Why is the sworn-by word in لَعَمْرُكَ not genitive?" options={['It is a mubtadaʾ with a left-out khabar, and no letter pulls it', 'It follows an oath bāʾ', 'It is the answer']} answer={0} why="Al-Jadwal: عَمْرُكَ is a mubtadaʾ and its khabar “my oath” is left out. There is no oath letter." />
+</Block>
+</Step>
+
+<Step id="sworn" label="Sworn by" title="What is sworn by: nouns, describers and clauses">
+<Block id="time" title="A time word after the noun">
+  <Stage label="The same reading in two surahs">
+    <Sentence
+      roles
+      reference="Ash-Shams 91:3"
+      groups={[
+        { role: 'matuf', label: '“and” + noun', hint: 'joined to the nouns before it', words: [{ ar: 'وَٱلنَّهَارِ', en: 'and the day', say: 'wan-nahari' }] },
+        { role: 'zarf', hint: 'a time word: “when”', words: [{ ar: 'إِذَا', en: 'when', say: 'idha', type: 'p' }] },
+        { role: 'fiil', hint: 'a past verb with “it” as its object', words: [{ ar: 'جَلَّىٰهَا', en: 'it shows it', say: 'jallaha', type: 'v' }] },
+      ]}
+      en={['And the day when it shows it.']}
+    />
+    <Sentence
+      roles
+      reference="Al-Fajr 89:4"
+      groups={[
+        { role: 'matuf', label: '“and” + noun', hint: 'joined to the nouns before it', words: [{ ar: 'وَٱلَّيْلِ', en: 'and the night', say: 'wal-layli' }] },
+        { role: 'zarf', hint: 'a time word: “when”', words: [{ ar: 'إِذَا', en: 'when', say: 'idha', type: 'p' }] },
+        { role: 'fiil', hint: 'a present verb: “it journeys”', words: [{ ar: 'يَسْرِ', en: 'it journeys on', say: 'yasri', type: 'v' }] },
+      ]}
+      en={['And the night when it journeys on.']}
+    />
+  </Stage>
+
+A sworn-by noun often has a time word after it: إِذَا, “when”. Al-Jadwal reads it the same way on its pages for 89:1, 91:1, 92:1 and 93:1: a time word with the sense of a condition taken away, tied to the left-out “I swear”, and in the place of the accusative. The clause after it (جَلَّىٰهَا, يَسْرِ) is what إِذَا is added to, so it is in the place of the genitive. L4.19 gives the reasons, for 93:2.
+
+Nothing is made conditional and no verb is cut short. يَسْرِ in 89:4 is a plain present verb, and it ends in a kasra on the ر. A raised present verb should end in a ḍamma. Al-Jadwal says the yāʾ at the end of the verb was dropped to suit the endings of the verses, and the ḍamma that belonged to that yāʾ is understood.
+
+<Check n={11} q="What does al-Jadwal call إِذَا in these oaths?" options={['A time word with the sense of a condition taken away', 'A word that cuts the verb short', 'A word of exception']} answer={0} why="Nothing is made conditional. The oath is “by the night, at the time it journeys on”." />
+</Block>
+
+<Block id="describer" title="A noun with a describer">
+  <Stage label="Describer and idafah">
+    <Sentence
+      roles
+      reference="Al-Buruj 85:1"
+      groups={[
+        { role: 'jarMajrur', label: 'oath letter + noun', hint: 'by the sky: tied to a left-out “I swear”', words: [{ ar: 'وَٱلسَّمَآءِ', en: 'by the sky', say: 'was-samai', type: 'p' }] },
+        { role: 'naat', label: 'describer + idafah', hint: 'describes ٱلسَّمَآءِ: genitive', words: [{ ar: 'ذَاتِ', en: 'that has', say: 'dhati' }, { ar: 'ٱلْبُرُوجِ', en: 'the towers', say: 'al-buruji' }] },
+      ]}
+      en={['By the sky that has the towers.']}
+    />
+  </Stage>
+
+The sworn-by noun can carry a describer. In 85:1, ذَاتِ is the describer (naʿt) of ٱلسَّمَآءِ, so it copies its case: genitive, with a kasra (L2.09). It is also the first word of an idafah, and ٱلْبُرُوجِ is the second (L2.08). 51:7 has the same shape, وَٱلسَّمَآءِ ذَاتِ ٱلْحُبُكِ, and al-Jadwal calls ذَاتِ a describer of ٱلسَّمَآءِ, genitive.
+
+Al-Jadwal reads the wāw of 85:1 as the oath wāw, and the wāw of 51:7 as an oath wāw again: a second oath in the same surah (the block “After the answer”). The English “towers” is our plain meaning of ٱلْبُرُوجِ. We do not choose between the several meanings the books give.
+
+<Check n={12} q="Why is ذَاتِ genitive in وَٱلسَّمَآءِ ذَاتِ ٱلْبُرُوجِ?" options={['It describes ٱلسَّمَآءِ and copies its case', 'An oath letter pulls it', 'It is the first word of the answer']} answer={0} why="A describer copies the case of the word it describes (L2.09). ٱلسَّمَآءِ is genitive, so ذَاتِ is genitive." />
+</Block>
+
+<Block id="wa-ma" title="وَمَا: a clause that is sworn by">
+  <Stage label="Word by word">
+    <Sentence
+      roles
+      reference="Ash-Shams 91:5"
+      groups={[
+        { role: 'jarMajrur', label: 'oath letter + noun', hint: 'joined to the nouns before it', words: [{ ar: 'وَٱلسَّمَآءِ', en: 'and the sky', say: 'was-samai' }] },
+        { role: 'matuf', label: '“and” + mā + verb', hint: 'a clause joined to ٱلسَّمَآءِ: “its building”', words: [{ ar: 'وَمَا', en: 'and the', say: 'wa-ma', type: 'p' }, { ar: 'بَنَىٰهَا', en: 'building of it', say: 'banaha', type: 'v' }] },
+      ]}
+      en={['And the sky and its building.']}
+    />
+    <Parse
+      reference="Al-Layl 92:3"
+      words={[
+        { ar: 'وَمَا', en: 'and the', type: 'p' },
+        { ar: 'خَلَقَ', en: 'creating', type: 'v' },
+        { ar: 'ٱلذَّكَرَ', en: 'the male' },
+        { ar: 'وَٱلْأُنثَىٰٓ', en: 'and the female' },
+      ]}
+      cards={[
+        { at: 0, ar: 'وَ', role: 'a joining wāw: “and”', why: 'It joins the clause to ٱلنَّهَارِ before it. The oath wāw stands in verse 1 only.', irab: 'الواو عاطفة' },
+        { at: 0, ar: 'مَا', role: 'a word that turns the verb into a noun: “the creating of”', why: 'Al-Jadwal: a maṣdar particle, and the clause after it is its ṣila (L3.11). Its footnote gives a second reading, a joining noun, “the One who”. The Corpus tags it that second way.', irab: 'حرف مصدري' },
+        { at: 1, ar: 'خَلَقَ', role: 'a past verb, root خ ل ق: “created”. Third person, masculine singular, active.', case: 'none: a verb has no case', mark: 'built on a fatḥa that shows', why: 'Past verbs are built (L3.05). Al-Jadwal: the doer is a hidden “He”, meaning Allah.', irab: 'فعل ماض مبني على الفتح والفاعل ضمير مستتر تقديره هو' },
+        { at: 2, ar: 'ٱلذَّكَرَ', role: 'the object (mafʿūl bihi): “the male”. Root ذ ك ر.', case: 'accusative (naṣb)', mark: '-a (fatḥa)', why: 'It is what the verb created (L2.05).', irab: 'مفعول به منصوب وعلامة نصبه الفتحة الظاهرة' },
+        { at: 3, ar: 'وَ', role: 'a joining wāw: “and”', why: 'It joins ٱلْأُنثَىٰٓ to ٱلذَّكَرَ.', irab: 'الواو عاطفة' },
+        { at: 3, ar: 'ٱلْأُنثَىٰٓ', role: 'joined to ٱلذَّكَرَ (maʿṭūf): “the female”. Root أ ن ث.', case: 'accusative (naṣb)', mark: 'a fatḥa you cannot see: the alif hides it', why: 'A joined word copies the case of the word it joins (L2.06). The word ends in an alif maqṣūra, so the vowel cannot show (L4.13).', irab: 'معطوف على الذكر منصوب وعلامة نصبه الفتحة المقدرة على الألف للتعذر' },
+        { at: [1, 2, 3], role: 'the sentence خَلَقَ ٱلذَّكَرَ وَٱلْأُنثَىٰٓ: the clause of مَا', case: 'no place', why: 'Al-Jadwal: no place, the ṣila of the particle مَا.', irab: 'جملة «خلق ...» لا محل لها صلة الموصول الحرفي (ما)' },
+        { at: [0, 1, 2, 3], role: 'the clause مَا خَلَقَ …: the sworn-by item, joined to ٱلَّيْلِ', case: 'in the place of the genitive (jarr)', why: 'Al-Jadwal: the noun made from the clause is joined to the sworn-by ٱلَّيْلِ, so it takes the place of its genitive.', irab: 'المصدر المؤول (ما خلق ...) في محل جر معطوف على الليل' },
+      ]}
+    />
+  </Stage>
+
+In 92:3 and in 91:5 to 91:7 the sworn-by item is a clause: وَمَا and a verb. Al-Jadwal reads مَا as a particle that turns the clause into a noun. So مَا خَلَقَ ٱلذَّكَرَ وَٱلْأُنثَىٰٓ means “the creating of the male and the female”. It is joined to ٱلَّيْلِ and takes its place in the genitive.
+
+Al-Jadwal gives a second reading in a footnote, and the Corpus tags مَا that way: a joining noun for one who knows, “the One who created”. The clause after مَا is the same in both readings. Only the label of مَا and the English change.
+
+Verse 91:8, فَأَلْهَمَهَا فُجُورَهَا وَتَقْوَىٰهَا, is not one more sworn-by item. Al-Jadwal joins it to the clause سَوَّىٰهَا of verse 7.
+
+<Check n={13} q="What does al-Jadwal call مَا in 92:3 first?" options={['A particle that makes a noun from the verb (maṣdar)', 'A negative', 'A question word']} answer={0} why="The first reading is the maṣdar particle. The second, in a footnote, is a joining noun." />
+
+<Check n={14} q="Who is the doer of خَلَقَ in 92:3, according to al-Jadwal?" options={['A hidden “He”, meaning Allah', 'ٱلذَّكَرَ', 'ٱلْأُنثَىٰٓ']} answer={0} why="ٱلذَّكَرَ and ٱلْأُنثَىٰٓ are accusative: they are the objects. Al-Jadwal gives the doer as a hidden “He”." />
+</Block>
+
+<Block id="doers" title="Doer words as sworn-by nouns">
+  <Stage label="Oaths by doers">
+    <Sentence
+      roles
+      reference="Al-Adiyat 100:1"
+      groups={[
+        { role: 'jarMajrur', label: 'oath letter + doer word', hint: 'by those that run: a feminine plural doer word', words: [{ ar: 'وَٱلْعَٰدِيَٰتِ', en: 'by those that run', say: 'wal-adiyati', type: 'p' }] },
+        { role: 'maful', label: 'absolute object', hint: 'of a left-out verb: “panting”', words: [{ ar: 'ضَبْحًا', en: 'panting', say: 'dabhan' }] },
+      ]}
+      en={['By those that run, panting.']}
+    />
+    <Sentence
+      roles
+      reference="Al-Adiyat 100:2"
+      groups={[
+        { role: 'matuf', label: 'fa + doer word', hint: 'a joining فَ, then a doer word', words: [{ ar: 'فَٱلْمُورِيَٰتِ', en: 'then those that strike out', say: 'fal-muriyati' }] },
+        { role: 'maful', label: 'absolute object', hint: 'of a left-out verb: “striking”', words: [{ ar: 'قَدْحًا', en: 'sparks, striking', say: 'qadhan' }] },
+      ]}
+      en={['Then those that strike out sparks, striking.']}
+    />
+    <Sentence
+      roles
+      reference="Al-Adiyat 100:3"
+      groups={[
+        { role: 'matuf', label: 'fa + doer word', hint: 'a joining فَ, then a doer word', words: [{ ar: 'فَٱلْمُغِيرَٰتِ', en: 'then those that charge', say: 'fal-mughirati' }] },
+        { role: 'zarf', hint: 'a time word tied to the doer word: “at dawn”', words: [{ ar: 'صُبْحًا', en: 'at dawn', say: 'subhan' }] },
+      ]}
+      en={['Then those that charge at dawn.']}
+    />
+    <Sentence
+      roles
+      reference="Adh-Dhariyat 51:1"
+      groups={[
+        { role: 'jarMajrur', label: 'oath letter + doer word', hint: 'by those that scatter', words: [{ ar: 'وَٱلذَّٰرِيَٰتِ', en: 'by those that scatter', say: 'wadh-dhariyati', type: 'p' }] },
+        { role: 'maful', label: 'absolute object', hint: 'of a left-out verb: “scattering”', words: [{ ar: 'ذَرْوًا', en: 'scattering', say: 'dharwan' }] },
+      ]}
+      en={['By those that scatter, scattering.']}
+    />
+  </Stage>
+
+Some oaths swear by doer words (ism fāʿil, L3.19) in the feminine plural. Each ends in -āt, with a kasra for the genitive. The first has the oath wāw. The next words begin with فَ, and al-Jadwal calls that فَ a joining letter in all three places of 51:2 to 51:4 and all four of 100:2 to 100:5.
+
+ضَبْحًا and قَدْحًا are, for al-Jadwal, absolute objects of left-out verbs, with a footnote that allows a noun standing in for a ḥāl (L4.07, L4.01). In 100:3, صُبْحًا is a time word tied to ٱلْمُغِيرَٰتِ.
+
+Verses 100:4 and 100:5, فَأَثَرْنَ بِهِۦ نَقْعًا and فَوَسَطْنَ بِهِۦ جَمْعًا, have verbs. Al-Jadwal joins the first to the doer words before it, and the second to the first, because a doer word with ٱلْ works like a clause: “those that charged, then raised dust, then went into the middle”. So the five verses hold **three** sworn-by doer words and two joined verb clauses, and not five sworn-by nouns.
+
+<Note kind="know">The Corpus tags the wāw of 51:1 as “and”. Al-Jadwal reads it as the oath wāw: it ties وَٱلذَّٰرِيَٰتِ to the left-out “I swear”. Where the two differ, this lesson follows al-Jadwal.</Note>
+
+<Check n={15} q="What does al-Jadwal say the فَ in فَٱلْمُورِيَٰتِ does?" options={['It joins', 'It is the oath letter', 'It gives a reason']} answer={0} why="The فَ is a joining letter. Only the first wāw of 100:1 is the oath letter." />
+</Block>
+
+<Block id="length" title="How long is a chain?">
+  <Stage label="The nouns of Ash-Shams 91:1 to 91:7">
+    <Tiles
+      label="the seven nouns of Ash-Shams 91:1 to 91:7"
+      items={[
+        { ar: 'ٱلشَّمْسِ', en: 'the sun', type: 'n' },
+        { ar: 'ٱلْقَمَرِ', en: 'the moon', type: 'n' },
+        { ar: 'ٱلنَّهَارِ', en: 'the day', type: 'n' },
+        { ar: 'ٱلَّيْلِ', en: 'the night', type: 'n' },
+        { ar: 'ٱلسَّمَآءِ', en: 'the sky', type: 'n' },
+        { ar: 'ٱلْأَرْضِ', en: 'the earth', type: 'n' },
+        { ar: 'نَفْسٍ', en: 'a soul', type: 'n' },
+      ]}
+    />
+  </Stage>
+
+Ash-Shams 91:1 to 91:7 is the longest oath section in this lesson: seven verses. Verse 1 also has ضُحَىٰهَا, “its brightness”, joined to ٱلشَّمْسِ. Verses 5, 6 and 7 each add a clause with مَا. So by our count there are seven nouns, one more noun and three clauses: **eleven** sworn-by items in all, with one oath letter. The table sets it beside the others.
+
+| Oath section | Verses of the oath | Sworn-by items (our count) | The answer |
+|---|---|---|---|
+| 103:1 | 1 | 1 | 103:2 |
+| 93:1 to 93:2 | 2 | 2 | 93:3 |
+| 92:1 to 92:3 | 3 | 3 | 92:4 |
+| 95:1 to 95:3 | 3 | 4 | 95:4 |
+| 86:1 to 86:3 | 3 (two of them interrupt) | 2 | 86:4 |
+| 51:1 to 51:4 | 4 | 4 | 51:5 |
+| 89:1 to 89:4 | 4 | 5 | none spoken |
+| 85:1 to 85:3 | 3 | 4 | none spoken |
+| 100:1 to 100:5 | 5 | 3 doer words and 2 joined clauses | 100:6 |
+| 91:1 to 91:7 | 7 | 11 | none spoken |
+| 52:1 to 52:6 | 6 | 5 | 52:7 |
+
+We read these oath sections in al-Jadwal (52:1 to 52:6 only for comparison). We did not read every oath in the Quran, so we cannot say that Ash-Shams is the longest of all. Nor do the pages we read say that a longer oath means a weightier answer, so this lesson makes no such claim. It only counts.
+
+<Check n={16} q="How many verses does the oath of Ash-Shams take, 91:1 to 91:7?" options={['Seven', 'Ten', 'Two']} answer={0} why="Seven verses. Verse 8 is joined to the clause of verse 7, and the answer is left out." />
+</Block>
+</Step>
+
+<Step id="answer" label="The answer" title="The answer of the oath">
+<Block id="answer-parse" title="The most common answer: إِنَّ and a lām">
+  <Stage label="Word by word">
+    <Parse
+      reference="Al-Layl 92:4"
+      words={[
+        { ar: 'إِنَّ', en: 'surely', type: 'p' },
+        { ar: 'سَعْيَكُمْ', en: 'your striving' },
+        { ar: 'لَشَتَّىٰ', en: 'is of many kinds' },
+      ]}
+      cards={[
+        { at: 0, ar: 'إِنَّ', role: 'inna: “surely”', why: 'A little word with no case. It puts the next noun in the accusative (L2.10).', irab: 'حرف مشبه بالفعل للتوكيد' },
+        { at: 1, ar: 'سَعْيَ', role: 'the ism of inna: “striving”. The first word of an idafah. Root س ع ي.', case: 'accusative (naṣb)', mark: '-a (fatḥa)', why: 'The word after inna is accusative (L2.10). It is also the first word of an idafah with كُمْ (L2.08).', irab: 'اسم إن منصوب وعلامة نصبه الفتحة الظاهرة وهو مضاف' },
+        { at: 1, ar: 'كُمْ', role: 'the second word of the idafah: “your”', case: 'genitive (jarr), by place', mark: 'none: a pronoun shows no case ending', why: 'The second word of an idafah is genitive (L2.08).', irab: 'ضمير متصل في محل جر مضاف إليه' },
+        { at: 2, ar: 'لَ', role: 'the lām of the oath: “surely”', why: 'Al-Jadwal: the lām of the oath, standing in for the “slid” lām (L2.10, L3.22). It changes no ending.', irab: 'اللام لام القسم عوض من المزحلقة' },
+        { at: 2, ar: 'شَتَّىٰ', role: 'the khabar of inna: “of many kinds”. Root ش ت ت.', case: 'nominative (rafʿ)', mark: 'a ḍamma you cannot see: the alif hides it', why: 'The khabar of inna stays nominative (L2.10). The word ends in an alif maqṣūra, so the vowel cannot show.', irab: 'خبر إن مرفوع وعلامة رفعه الضمة المقدرة على الألف للتعذر' },
+        { at: [0, 1, 2], role: 'the whole verse: the answer of the oath', case: 'no place', why: 'Al-Jadwal: no place, the answer of the oath.', irab: 'جملة «إن سعيكم لشتى» لا محل لها جواب القسم' },
+      ]}
+    />
+  </Stage>
+
+The answer is an inna sentence with a لَ on its khabar. In 103:2, 92:4, 100:6, 51:5 and 52:7 al-Jadwal calls this لَ the lām of the oath, and in four of them it adds that the lām stands in for the “slid” lām: the lām that moved from the front of inna to the khabar (L2.10). On 100:6 it gives both names, “the slid lām or the lām of the oath”. The two names point at the same letter, as L3.22 said for 103:2.
+
+The answer has no place in a bigger sentence. It says what is sworn, and the verses before it are only the oath.
+
+<Check n={17} q="What does al-Jadwal say about the لَ in لَشَتَّىٰ?" options={['It is the lām of the oath, standing in for the slid lām', 'It is the preposition li-', 'It is part of the root']} answer={0} why="It strengthens the khabar. Al-Jadwal gives the lām of the oath, and the note: it replaces the lām that slid." />
+</Block>
+
+<Block id="answers" title="Other shapes of answer">
+  <Stage label="Four more answers">
+    <Sentence
+      roles
+      reference="At-Tin 95:4"
+      groups={[
+        { label: 'la + qad', hint: 'the lām of the oath and “indeed”', words: [{ ar: 'لَقَدْ', en: 'certainly', say: 'laqad', type: 'p' }] },
+        { role: 'fiil', hint: 'a past verb: “We created”', words: [{ ar: 'خَلَقْنَا', en: 'We created', say: 'khalaqna', type: 'v' }] },
+        { role: 'maful', words: [{ ar: 'ٱلْإِنسَٰنَ', en: 'the human', say: 'al-insana' }] },
+        { role: 'hal', hint: 'a state of the human: “in the best shape”', words: [{ ar: 'فِىٓ', en: 'in', say: 'fi', type: 'p' }, { ar: 'أَحْسَنِ', en: 'the best of', say: 'ahsani' }, { ar: 'تَقْوِيمٍ', en: 'shape', say: 'taqwimin' }] },
+      ]}
+      en={['We certainly created the human in the best shape.']}
+    />
+    <Sentence
+      roles
+      reference="Al-Adiyat 100:6"
+      groups={[
+        { label: 'inna', hint: 'a little word: “surely”', words: [{ ar: 'إِنَّ', en: 'surely', say: 'inna', type: 'p' }] },
+        { role: 'ismInna', words: [{ ar: 'ٱلْإِنسَٰنَ', en: 'the human', say: 'al-insana' }] },
+        { role: 'tied', hint: 'tied to the khabar: to his Lord', words: [{ ar: 'لِرَبِّهِۦ', en: 'to his Lord', say: 'li-rabbihi', type: 'p' }] },
+        { role: 'khabarInna', label: 'la + khabar', words: [{ ar: 'لَكَنُودٌ', en: 'is ungrateful', say: 'lakanudun' }] },
+      ]}
+      en={['Surely the human is ungrateful to his Lord.']}
+    />
+    <Sentence
+      roles
+      reference="Ad-Duha 93:3"
+      groups={[
+        { label: 'mā', hint: 'a negative: “not”', words: [{ ar: 'مَا', en: 'not', say: 'ma', type: 'p' }] },
+        { role: 'fiil', hint: 'a past verb: “has taken leave of you”', words: [{ ar: 'وَدَّعَكَ', en: 'has taken leave of you', say: 'waddaaka', type: 'v' }] },
+        { role: 'fail', words: [{ ar: 'رَبُّكَ', en: 'your Lord', say: 'rabbuka' }] },
+        { label: 'wa + mā', hint: '“and not”: joins a second clause', words: [{ ar: 'وَمَا', en: 'and not', say: 'wa-ma', type: 'p' }] },
+        { role: 'fiil', words: [{ ar: 'قَلَىٰ', en: 'has hated', say: 'qala', type: 'v' }] },
+      ]}
+      en={['Your Lord has not taken leave of you, and has not hated ', { gap: 'you' }, '.']}
+    />
+    <Sentence
+      roles
+      reference="At-Tariq 86:4"
+      groups={[
+        { label: 'in', hint: 'a negative: “not”, and no relative of inna', words: [{ ar: 'إِن', en: 'not', say: 'in', type: 'p' }] },
+        { role: 'mubtada', hint: '“every soul”', words: [{ ar: 'كُلُّ', en: 'every', say: 'kullu' }, { ar: 'نَفْسٍ', en: 'soul', say: 'nafsin' }] },
+        { label: 'lammā', hint: 'a word of restriction: “only”, the same as إِلَّا', words: [{ ar: 'لَّمَّا', en: 'only', say: 'lamma', type: 'p' }] },
+        { role: 'khabar', label: 'khabar: a sentence', hint: 'khabar first, mubtadaʾ later: “over it a guard”', words: [{ ar: 'عَلَيْهَا', en: 'over it', say: 'alayha', type: 'p' }, { ar: 'حَافِظٌ', en: 'a guard', say: 'hafizun' }] },
+      ]}
+      en={['There is no soul that does not have a guard over it.']}
+    />
+  </Stage>
+
+The answers of the ten oath sections of this lesson start in these ways. We counted them from al-Jadwal’s pages.
+
+| How the answer starts | Oath sections | Count |
+|---|---|---|
+| إِنَّ and a لَ on the khabar | 103:1 (answer 103:2), 92:1 (92:4), 51:1 (51:5), 100:1 (100:6) | 4 |
+| لَقَدْ | 95:1 (95:4) | 1 |
+| مَا, a negative | 93:1 (93:3) | 1 |
+| إِنْ, a negative, with لَمَّا | 86:1 (86:4) | 1 |
+| No answer spoken | 91:1, 85:1, 89:1 | 3 |
+
+Two more shapes are outside the ten. In 64:7 the answer is a لَ, a verb and the nūn of emphasis, as in 21:57 and 38:82 of L4.06. In 4:65 the answer is a plain negative with لَا: لَا يُؤْمِنُونَ.
+
+86:4 needs care. Its first word, إِن, looks like إِنَّ and is not. Al-Jadwal calls it a negative, and لَمَّا a word of restriction with the sense of إِلَّا: “not … except”. The Corpus tags إِن as a negative too.
+
+A short list of “four answer markers” (inna, laqad, la- on a verb, mā) is easy to remember, but it leaves out the 86:4 shape and the three oaths with no spoken answer. The table counts these ten sections only. It is a teaching summary, and not a rule for the whole Quran.
+
+<Check n={18} q="Which answer starts with a word that looks like إِنَّ but is a negative?" options={['86:4', '92:4', '95:4']} answer={0} why="In 86:4, إِن is a negative and لَمَّا means “only”. 92:4 has إِنَّ with a لَ, and 95:4 has لَقَدْ." />
+</Block>
+
+<Block id="between" title="Between the oath and the answer">
+  <Stage label="An answer that waits">
+    <Sentence
+      roles
+      reference="At-Tariq 86:1"
+      groups={[
+        { role: 'jarMajrur', label: 'oath letter + noun', hint: 'by the sky: tied to a left-out “I swear”', words: [{ ar: 'وَٱلسَّمَآءِ', en: 'by the sky', say: 'was-samai', type: 'p' }] },
+        { role: 'matuf', label: '“and” + doer word', hint: 'a second sworn-by: joined to ٱلسَّمَآءِ', words: [{ ar: 'وَٱلطَّارِقِ', en: 'and the one that comes by night', say: 'wat-tariqi' }] },
+      ]}
+      en={['By the sky and the one that comes by night.']}
+    />
+    <blockquote class="lx-quote" lang="ar" dir="rtl">
+      <p>وَمَآ أَدْرَىٰكَ مَا ٱلطَّارِقُ ﴿٢﴾ ٱلنَّجْمُ ٱلثَّاقِبُ ﴿٣﴾</p>
+    </blockquote>
+    <p class="lx-quote-note">At-Tariq 86:2 and 86:3, copied from the Tanzil text. Two sentences that stand between the oath and its answer.</p>
+  </Stage>
+
+The answer does not have to follow the oath at once. In 86:1 al-Jadwal reads the second noun as joined to the first. Then two sentences come between the oath and its answer in 86:4. The wāw of وَمَآ أَدْرَىٰكَ is called an interrupting wāw (iʿtirāḍiyya), and the sentence has no place. 86:3 is an explaining new start (istinafiyya bayāniyya). L5.06 looks at the shape وَمَآ أَدْرَىٰكَ مَا in its own right.
+
+The number of oath verses before the answer differs from surah to surah: one in 103, two in 93, three in 92, 95 and 86 (in 86, two of the three interrupt), four in 51, five in 100 and six in 52. The table in the block “How long is a chain?” has the numbers.
+
+<Check n={19} q="In At-Tariq, where does al-Jadwal put the answer of the oath?" options={['In verse 4, after two verses that interrupt', 'In verse 2', 'In verse 1']} answer={0} why="86:2 and 86:3 stand between. Al-Jadwal: 86:4, إِن كُلُّ نَفْسٍ لَّمَّا عَلَيْهَا حَافِظٌ, is the answer." />
+</Block>
+
+<Block id="joined" title="After the answer: joined sentences and a second oath">
+  <Stage label="Adh-Dhariyat 51:5 to 51:8">
+    <Sentence
+      roles
+      reference="Adh-Dhariyat 51:5"
+      groups={[
+        { label: 'inna + mā', hint: 'the Corpus: inna with a mā that blocks it. Al-Jadwal: mā is the ism of inna', words: [{ ar: 'إِنَّمَا', en: 'surely what', say: 'innama', type: 'p' }] },
+        { role: 'tied', label: 'the clause of mā', hint: '“you are promised”', words: [{ ar: 'تُوعَدُونَ', en: 'you are promised', say: 'tuadduna', type: 'v' }] },
+        { role: 'khabarInna', label: 'la + khabar', words: [{ ar: 'لَصَادِقٌ', en: 'is true', say: 'la-sadiqun' }] },
+      ]}
+      en={['Surely what you are promised is true.']}
+    />
+    <Sentence
+      roles
+      reference="Adh-Dhariyat 51:6"
+      groups={[
+        { label: 'wa + inna', hint: 'a joining wāw, then inna', words: [{ ar: 'وَإِنَّ', en: 'and surely', say: 'wa-inna', type: 'p' }] },
+        { role: 'ismInna', hint: '“the recompense”', words: [{ ar: 'ٱلدِّينَ', en: 'the recompense', say: 'ad-dina' }] },
+        { role: 'khabarInna', label: 'la + khabar', words: [{ ar: 'لَوَٰقِعٌ', en: 'will come to pass', say: 'la-waqiun' }] },
+      ]}
+      en={['And surely the recompense will come to pass.']}
+    />
+    <Sentence
+      roles
+      reference="Adh-Dhariyat 51:7"
+      groups={[
+        { role: 'jarMajrur', label: 'a new oath', hint: 'oath letter + noun, like 51:1', words: [{ ar: 'وَٱلسَّمَآءِ', en: 'by the sky', say: 'was-samai', type: 'p' }] },
+        { role: 'naat', label: 'describer + idafah', words: [{ ar: 'ذَاتِ', en: 'that has', say: 'dhati' }, { ar: 'ٱلْحُبُكِ', en: 'the paths', say: 'al-hubuki' }] },
+      ]}
+      en={['By the sky that has the paths.']}
+    />
+    <Sentence
+      roles
+      reference="Adh-Dhariyat 51:8"
+      groups={[
+        { label: 'inna', hint: '“surely you”', words: [{ ar: 'إِنَّكُمْ', en: 'surely you', say: 'innakum', type: 'p' }] },
+        { role: 'khabarInna', label: 'la + a phrase', hint: 'tied to a left-out “are”', words: [{ ar: 'لَفِى', en: 'surely in', say: 'la-fi', type: 'p' }, { ar: 'قَوْلٍ', en: 'speech', say: 'qawlin' }] },
+        { role: 'naat', hint: 'describes قَوْلٍ', words: [{ ar: 'مُّخْتَلِفٍ', en: 'that disagrees', say: 'mukhtalifin' }] },
+      ]}
+      en={['Surely you ', { gap: 'are' }, ' in speech that disagrees.']}
+    />
+  </Stage>
+
+After the oath of 51:1 to 51:4, the answer is 51:5. Al-Jadwal puts the lām of the oath on لَصَادِقٌ, as a stand-in for the slid lām. Verse 6 starts with a joining wāw and إِنَّ: al-Jadwal says the sentence is joined to the answer, so it belongs to it. The same happens in 100:7 and 100:8, where two more inna sentences are joined to the answer of 100:6.
+
+On 51:5 the Corpus and al-Jadwal differ. The Corpus reads إِنَّمَا as inna with a mā that blocks it. Al-Jadwal reads مَا as a relative noun, the ism of inna, with the clause تُوعَدُونَ as its ṣila. The English is the same.
+
+Verse 7 begins a second oath. Al-Jadwal says وَٱلسَّمَآءِ is “like” وَٱلذَّٰرِيَٰتِ, which means an oath wāw again, and calls the sentence a new start. Verse 8 is its answer. The Corpus tags the wāw of 51:7 as “and”. So one surah can hold two oaths, each with its own answer.
+
+<Check n={20} q="How does al-Jadwal read وَإِنَّ ٱلدِّينَ لَوَٰقِعٌ in 51:6?" options={['Joined to the answer', 'A new oath', 'The oath letter']} answer={0} why="The wāw joins the sentence to the answer of 51:5. The new oath starts in 51:7." />
+</Block>
+
+<Block id="omitted" title="When no answer is spoken">
+  <Stage label="Three oaths with no spoken answer">
+    <Tiles
+      label="oath sections where al-Jadwal says the answer is left out"
+      items={[
+        { ar: 'وَٱلشَّمْسِ', en: '91:1 to 91:8', type: 'p' },
+        { ar: 'وَٱلسَّمَآءِ ذَاتِ ٱلْبُرُوجِ', en: '85:1 to 85:3', type: 'p' },
+        { ar: 'وَٱلْفَجْرِ', en: '89:1 to 89:4', type: 'p' },
+      ]}
+    />
+  </Stage>
+
+An oath does not always have a spoken answer. Al-Jadwal says the answer is left out in three of the ten sections:
+
+| Oath | What al-Jadwal says | A second view in its notes |
+|---|---|---|
+| 91:1 to 91:8 | The answer is left out. It suggests “you will surely be raised” | Another suggestion, from al-Kashshāf: “Allah will surely destroy the unbelievers of Makkah”. Or 91:9 is the answer, with the لَ dropped because the speech is long |
+| 85:1 to 85:3 | The answer is left out. It suggests “the recompense is surely true” | 85:4, قُتِلَ أَصْحَٰبُ ٱلْأُخْدُودِ, can be the answer, with لَ and قَدْ understood |
+| 89:1 to 89:4 | The answer is left out. It suggests “We will surely repay every person for what they did” | Some scholars of i‘rab make 89:14, إِنَّ رَبَّكَ لَبِٱلْمِرْصَادِ, the answer |
+
+In the note on 85:1, al-Jadwal records a rule: when the answer is a past verb, it should come with لَ and قَدْ, as in 12:91, تَٱللَّهِ لَقَدْ ءَاثَرَكَ ٱللَّهُ عَلَيْنَا. So a past verb with neither would be an answer with those two left out. That is why 85:4 and 91:9 are given as possible answers.
+
+So an oath does not always have an answer you can point to in the text. In these three, the answer is understood and not written.
+
+<Note kind="know">We give the suggested answers as the English meaning of al-Jadwal’s Arabic. The page does not choose between them in every case, and neither does this lesson.</Note>
+
+<Check n={21} q="According to al-Jadwal, where is the answer of the oath of 91:1 to 91:8?" options={['Left out, with suggestions', 'In verse 8', 'In verse 1']} answer={0} why="Al-Jadwal says it is left out and suggests an answer. It also allows 91:9 as the answer, with the lām dropped." />
+</Block>
+
+<Block id="style" title="What the books say about the style">
+  <Stage label="Notes from al-Jadwal">
+    <Tiles
+      label="two words of 100:7 and 100:8 that differ in one letter"
+      items={[
+        { ar: 'لَشَهِيدٌ', en: 'a witness (100:7)', type: 'n' },
+        { ar: 'لَشَدِيدٌ', en: 'strong (100:8)', type: 'n' },
+      ]}
+    />
+  </Stage>
+
+Al-Jadwal names three figures on its page for 100:1. L4.17 and L4.18 teach figures of this kind, and this block uses their names where they have one.
+
+- **100:2.** فَٱلْمُورِيَٰتِ قَدْحًا is a metaphor of the open kind (istiʿāra taṣrīḥiyya, L4.18). Al-Jadwal says the horses are said to strike out the fire of war and light it, so war is compared to a burning fire.
+- **100:4.** Al-Jadwal names a difference between the joined word and the word it is joined to. The verb فَأَثَرْنَ is joined to nouns, to the doer words. In the sense, it is joined to the verb that the doer word stands for.
+- **100:7 and 100:8.** The words شَهِيدٌ and شَدِيدٌ differ in one letter in the middle, ه and د. Al-Jadwal calls this jinās lāḥiq, a kind of jinās (L4.18 teaches two other kinds).
+
+Two more notes are about sound and harmony. On 89:4, al-Jadwal says the yāʾ of يَسْرِ was dropped to match the endings of the verses. On 92:1, a note on harmony (tanāsuq wa-insijām) says that the night and the day at the start of the surah fit the two kinds of people it speaks of later: those who give and those who hold back. That is al-Jadwal’s reading, and this lesson does not weigh it.
+
+The pages we read do not say why the Quran swears, and this lesson does not say either. It reads how an oath is built.
+
+<Check n={22} q="What does al-Jadwal name فَٱلْمُورِيَٰتِ قَدْحًا?" options={['A metaphor of the open kind', 'A pair of opposites', 'A question']} answer={0} why="The horses are said to strike out fire, and war is compared to the fire. Al-Jadwal calls it istiʿāra taṣrīḥiyya." />
+</Block>
+</Step>
+
+<Step id="practice" label="Mistakes and practice" title="Mistakes and practice">
+<Block id="m1" title="Mistake 1: every wāw at the start of a verse is an oath wāw">
+  <Stage label="One oath wāw, then joining wāws">
+    <Tiles
+      label="the first two verses of Ash-Shams"
+      items={[
+        { ar: 'وَٱلشَّمْسِ', en: '91:1: the oath wāw', type: 'p' },
+        { ar: 'وَٱلْقَمَرِ', en: '91:2: a joining wāw', type: 'n' },
+      ]}
+    />
+  </Stage>
+
+In a chain of oaths, **only the first** wāw is the oath letter. In Ash-Shams the wāw of 91:1 is tagged as a preposition in the Corpus, and the wāws of 91:2, 91:3, 91:4, 91:5, 91:6 and 91:7 are tagged “and”. The nouns after them are genitive because they are joined (L2.06). The same is true in 89:1 to 89:4 and 95:1 to 95:3.
+
+The case of the noun cannot tell you. A joined noun after a genitive noun is genitive too. Ask what stands before the wāw.
+
+<Check n={23} q="In وَٱلشَّمْسِ … وَٱلْقَمَرِ, which wāw is the oath letter?" options={['The first', 'The second', 'Both']} answer={0} why="Nothing stands before the first wāw. The second joins ٱلْقَمَرِ to ٱلشَّمْسِ, and it is genitive because it is joined." />
+</Block>
+
+<Block id="m2" title="Mistake 2: the next verse is the answer">
+  <Stage label="A question after an oath">
+    <Tiles
+      label="the end of the oath of Al-Fajr, and what follows"
+      items={[
+        { ar: 'وَٱلَّيْلِ إِذَا يَسْرِ', en: '89:4: the last oath', type: 'p' },
+        { ar: 'هَلْ فِى ذَٰلِكَ قَسَمٌ لِّذِى حِجْرٍ', en: '89:5: a question, not the answer' },
+      ]}
+    />
+  </Stage>
+
+The verse after an oath is not always its answer. In 89:5 a question follows the oath. Al-Jadwal calls هَلْ a question word for confirming and for making the listener agree, and calls the sentence a new start with no place. The answer of 89:1 to 89:4 is left out, as the block “When no answer is spoken” showed.
+
+Look for the answer by its shape: إِنَّ with a لَ, لَقَدْ, مَا, a verb with لَ and the nūn, or إِن with لَمَّا. If none is there, the answer may be left out.
+
+<Check n={24} q="What does al-Jadwal call the sentence هَلْ فِى ذَٰلِكَ قَسَمٌ in 89:5?" options={['A new start with no place', 'The answer of the oath', 'The oath letter']} answer={0} why="It is a question that asks you to agree, and a new sentence. It is not the answer." />
+</Block>
+
+<Block id="m3" title="Mistake 3: every لَ is the same لَ">
+  <Stage label="Two lāms in one verse">
+    <Tiles
+      label="Al-Adiyat 100:6"
+      items={[
+        { ar: 'لِرَبِّهِۦ', en: 'li-: a preposition, kasra, “to”', type: 'p' },
+        { ar: 'لَكَنُودٌ', en: 'la-: the oath lām, fatḥa, “surely”', type: 'p' },
+      ]}
+    />
+  </Stage>
+
+100:6 has two lāms. The first, in لِرَبِّهِۦ, is the preposition **li-**: it has a kasra, and a noun follows it (L2.07). The Corpus tags it as a preposition. The second, in لَكَنُودٌ, is the lām that strengthens the khabar: it has a fatḥa and a noun follows it. The Corpus tags it as emphasis. Al-Jadwal calls it the slid lām or the lām of the oath.
+
+The lām of لَقَدْ is a third place for the same lām: it starts an answer and changes no ending (L4.06).
+
+<Check n={25} q="Which لَ is the lām of the oath in إِنَّ ٱلْإِنسَٰنَ لِرَبِّهِۦ لَكَنُودٌ?" options={['The one in لَكَنُودٌ', 'The one in لِرَبِّهِۦ', 'Both']} answer={0} why="لِرَبِّهِۦ has a kasra: the preposition li-. لَكَنُودٌ has a fatḥa: the lām that strengthens the khabar." />
+</Block>
+
+<Block id="m4" title="Mistake 4: one English for مَا in an oath">
+  <Stage label="Two readings of the same words">
+    <Tiles
+      label="Al-Layl 92:3, two readings"
+      items={[
+        { ar: 'وَمَا خَلَقَ', en: 'a particle: “the creating of”', type: 'p' },
+        { ar: 'وَمَا خَلَقَ', en: 'a joining noun: “the One who created”', type: 'p' },
+      ]}
+    />
+  </Stage>
+
+In 92:3 and 91:5 to 91:7, مَا has two readings in al-Jadwal and the Corpus: a particle that makes a noun from the verb, or a joining noun for one who knows. Do not teach only one as if the other did not exist. The Arabic after مَا is the same, and the clause is joined to the earlier noun and takes its place in the genitive either way.
+
+The English “He who made” is one reading. “The making of” is the other. Say which one you are giving.
+
+<Check n={26} q="What stays the same when you change the reading of مَا in 92:3?" options={['The clause خَلَقَ ٱلذَّكَرَ وَٱلْأُنثَىٰٓ and its place, joined to ٱلَّيْلِ', 'The word مَا is a negative', 'The clause has a different doer']} answer={0} why="Only the label of مَا and the English change. The clause and its place in the genitive stay." />
+</Block>
+
+<Block id="m5" title="Mistake 5: every bāʾ before a noun is an oath bāʾ">
+  <Stage label="A plain bāʾ, on the same page of al-Jadwal as 26:44">
+    <Sentence
+      roles
+      reference="Ash-Shuara 26:47"
+      groups={[
+        { role: 'fiil', hint: 'a past verb: “they said”', words: [{ ar: 'قَالُوٓا۟', en: 'they said', say: 'qalu', type: 'v' }] },
+        { role: 'fiil', hint: 'a past verb: “we believed”', words: [{ ar: 'ءَامَنَّا', en: 'we believed', say: 'amanna', type: 'v' }] },
+        { role: 'jarMajrur', hint: 'tied to ءَامَنَّا: “in the Lord of the worlds”', words: [{ ar: 'بِرَبِّ', en: 'in the Lord of', say: 'bi-rabbi', type: 'p' }, { ar: 'ٱلْعَٰلَمِينَ', en: 'the worlds', say: 'al-alamina' }] },
+      ]}
+      en={['They said, “We believed in the Lord of the worlds.”']}
+    />
+  </Stage>
+
+In 26:47 the bāʾ of بِرَبِّ is a plain preposition. Al-Jadwal ties it to ءَامَنَّا, “we believed”. Nobody swears here, and no answer follows. In 26:44 the bāʾ is an oath letter, tied to the left-out “we swear”, and the answer follows.
+
+So the letter alone is not enough. Ask: is something sworn by, and is there an answer, spoken or left out?
+
+<Check n={27} q="What does al-Jadwal tie بِرَبِّ ٱلْعَٰلَمِينَ in 26:47 to?" options={['ءَامَنَّا', 'A left-out “we swear”', 'قَالُوٓا۟']} answer={0} why="It is the plain bāʾ that goes with “believe”. Nothing is sworn." />
+</Block>
+
+<Block id="practice-1" title="Practice: letters, wāws and answers">
+  <Stage label="For each oath, say">
+    <ol class="lx-card-list">
+      <li><b>The letter:</b> wāw, bāʾ or tāʾ, or none?</li>
+      <li><b>The sworn-by items:</b> how many, and which wāw joins?</li>
+      <li><b>The answer:</b> where, how does it start, or is it left out?</li>
+    </ol>
+  </Stage>
+
+Work out each answer first, on paper or in your head. Then open the answer.
+
+<Exercise n={1} q="Look at the oath of Al-Fajr. وَٱلْفَجْرِ (Al-Fajr 89:1) وَلَيَالٍ عَشْرٍ (Al-Fajr 89:2) وَٱلشَّفْعِ وَٱلْوَتْرِ (Al-Fajr 89:3) وَٱلَّيْلِ إِذَا يَسْرِ (Al-Fajr 89:4). Name the oath letter and the sworn-by items, and say where the answer is. Then say what the next verse is: هَلْ فِى ذَٰلِكَ قَسَمٌ لِّذِى حِجْرٍ (Al-Fajr 89:5).">
+
+- **The oath letter.** Only the wāw of 89:1. The Corpus tags it as a preposition. The wāws of 89:2, 89:3 (twice) and 89:4 are tagged “and”, and the nouns after them are genitive because they are joined.
+- **The sworn-by items.** Five: ٱلْفَجْرِ, لَيَالٍ عَشْرٍ (a noun with a describer), ٱلشَّفْعِ, ٱلْوَتْرِ and ٱلَّيْلِ with إِذَا يَسْرِ.
+- **The answer.** Al-Jadwal says it is left out, and suggests “We will surely repay every person for what they did”. A footnote says some scholars of i‘rab make 89:14 the answer.
+- **89:5.** A question with هَلْ, a new start with no place. It is not the answer.
+
+</Exercise>
+
+<Exercise n={2} q="Which wāw is the oath wāw? وَٱلشَّمْسِ وَضُحَىٰهَا (Ash-Shams 91:1) وَٱلْقَمَرِ إِذَا تَلَىٰهَا (Ash-Shams 91:2) وَٱلنَّهَارِ إِذَا جَلَّىٰهَا (Ash-Shams 91:3) وَٱلَّيْلِ إِذَا يَغْشَىٰهَا (Ash-Shams 91:4). Count the oath wāws and the joining wāws.">
+
+There is **one** oath wāw: the first, in وَٱلشَّمْسِ. There are **four** joining wāws: in وَضُحَىٰهَا, وَٱلْقَمَرِ, وَٱلنَّهَارِ and وَٱلَّيْلِ. The Corpus tags the first as a preposition and the other four as “and”. Each joined noun is genitive because it copies the word it joins (L2.06).
+
+</Exercise>
+
+<Exercise n={3} q="Find the answer, and say what the verses after it do. وَٱلتِّينِ وَٱلزَّيْتُونِ (At-Tin 95:1) وَطُورِ سِينِينَ (At-Tin 95:2) وَهَٰذَا ٱلْبَلَدِ ٱلْأَمِينِ (At-Tin 95:3) لَقَدْ خَلَقْنَا ٱلْإِنسَٰنَ فِىٓ أَحْسَنِ تَقْوِيمٍ (At-Tin 95:4) ثُمَّ رَدَدْنَٰهُ أَسْفَلَ سَٰفِلِينَ (At-Tin 95:5) إِلَّا ٱلَّذِينَ ءَامَنُوا۟ وَعَمِلُوا۟ ٱلصَّٰلِحَٰتِ (At-Tin 95:6, part).">
+
+- **95:4** is the answer. It starts with لَقَدْ: the lām of the oath and قَدْ. Al-Jadwal: no place, the answer of the oath.
+- **95:5** starts with ثُمَّ, a joining word. Al-Jadwal says the sentence is joined to the answer, and has no place.
+- **95:6** starts with إِلَّا, which marks an exception (L4.05). Al-Jadwal reads ٱلَّذِينَ as the excepted word, and the sentence after it as an explaining new start.
+
+So the grammar names one verse as the answer, one joined to it and one that makes an exception. It does not call the three of them “the answer”.
+
+</Exercise>
+
+<Exercise n={4} q="Why is the wāw of وَضُحَىٰهَا (Ash-Shams 91:1, part) not an oath wāw?">
+
+It joins ضُحَىٰهَا to ٱلشَّمْسِ, which is already sworn by. The Corpus tags it “and”, and the oath wāw is the first wāw of the verse. ضُحَىٰهَا is genitive because it copies the case of ٱلشَّمْسِ (L2.06). The kasra does not show, because the word ends in an alif maqṣūra. The ـهَا is the second word of an idafah: “its brightness”.
+
+</Exercise>
+
+<Exercise n={5} q="Name the oath letter and the sworn-by noun in each, or say that there is none. (a) وَٱلْعَصْرِ (Al-Asr 103:1) (b) تَٱللَّهِ لَقَدْ ءَاثَرَكَ ٱللَّهُ عَلَيْنَا (Yusuf 12:91, part) (c) فَبِعِزَّتِكَ لَأُغْوِيَنَّهُمْ (Sad 38:82, part) (d) وَتَٱللَّهِ لَأَكِيدَنَّ أَصْنَٰمَكُم (Al-Anbiya 21:57, part) (e) لَعَمْرُكَ (Al-Hijr 15:72, part)">
+
+- (a) The letter is **وَ**, the noun is ٱلْعَصْرِ (genitive).
+- (b) The letter is **تَ**, the noun is ٱللَّهِ (genitive).
+- (c) The letter is **بِ**, the noun is عِزَّتِكَ (genitive). The فَ before it is a separate little word.
+- (d) The letter is **تَ**, the noun is ٱللَّهِ. The wāw before it is not the oath letter. Al-Jadwal calls it a joining wāw, and the Corpus tags it “and”.
+- (e) There is no letter. عَمْرُكَ is a mubtadaʾ in the nominative, and its khabar “my oath” is left out.
+
+</Exercise>
+</Block>
+
+<Block id="practice-2" title="Practice: answers, a verse apart, and made-up oaths">
+  <Stage label="Three checks">
+    <ol class="lx-card-list">
+      <li><b>Shape:</b> inna and lām, laqad, mā, in and lammā, a verb with lām and nūn.</li>
+      <li><b>Place:</b> spoken, delayed by other verses, or left out.</li>
+      <li><b>Source:</b> say al-Jadwal’s reading when you give one.</li>
+    </ol>
+  </Stage>
+
+<Exercise n={6} q="Find the answer and say how it starts. (a) وَٱلْعَصْرِ (Al-Asr 103:1) and إِنَّ ٱلْإِنسَٰنَ لَفِى خُسْرٍ (Al-Asr 103:2) (b) وَٱلطُّورِ (At-Tur 52:1) and إِنَّ عَذَابَ رَبِّكَ لَوَٰقِعٌ (At-Tur 52:7) (c) إِن كُلُّ نَفْسٍ لَّمَّا عَلَيْهَا حَافِظٌ (At-Tariq 86:4)">
+
+| Oath | The answer starts with | What to notice |
+|---|---|---|
+| (a) | إِنَّ and a لَ on the khabar (لَفِى خُسْرٍ) | Al-Jadwal: the lām of the oath, standing in for the slid lām (L3.22) |
+| (b) | إِنَّ and a لَ on the khabar (لَوَٰقِعٌ) | The answer comes after six verses of oath |
+| (c) | إِن, a negative, and لَمَّا, “only” | It looks like inna and is not. The oath is in 86:1, and two verses stand between |
+
+</Exercise>
+
+<Exercise n={7} q="Take فَٱلْمُورِيَٰتِ قَدْحًا (Al-Adiyat 100:2) apart. For each word give the kind, the job, the case and the mark.">
+
+| Piece | Kind | Job | Case and mark |
+|---|---|---|---|
+| فَ | little word | Joins, as al-Jadwal says for the four فَ of 100:2 to 100:5 (the Corpus tags it “and”) | none |
+| ٱلْمُورِيَٰتِ | doer word, feminine plural, Form IV, root و ر ي | Joined to ٱلْعَٰدِيَٰتِ: a sworn-by item | genitive, -i (kasra), as a sound feminine plural ends in the genitive |
+| قَدْحًا | noun, verbal noun | Absolute object of a left-out verb (L4.07) | accusative, -an (fatḥa with tanwīn) |
+
+The فَ is not an oath letter. Only the first wāw of 100:1 is.
+
+</Exercise>
+
+<Exercise n={8} q="Is it an oath? Say yes or no, and name the letter if yes. (a) إِنَّ ٱلصَّفَا وَٱلْمَرْوَةَ مِن شَعَآئِرِ ٱللَّهِ (Al-Baqarah 2:158, part) (b) فَلَا وَرَبِّكَ لَا يُؤْمِنُونَ (An-Nisa 4:65, part) (c) قَالُوٓا۟ ءَامَنَّا بِرَبِّ ٱلْعَٰلَمِينَ (Ash-Shuara 26:47) (d) قُلْ بَلَىٰ وَرَبِّى لَتَأْتِيَنَّكُمْ (Saba 34:3, part)">
+
+- (a) **No.** The wāw joins ٱلْمَرْوَةَ to ٱلصَّفَا. Nothing is sworn by.
+- (b) **Yes.** The oath letter is the wāw of وَرَبِّكَ, tagged as a preposition in the Corpus. The answer is لَا يُؤْمِنُونَ, a negative. Al-Jadwal says the first لَا is an extra one that strengthens the negative in the answer of an oath.
+- (c) **No.** The bāʾ goes with ءَامَنَّا, “we believed”. Nothing is sworn by.
+- (d) **Yes.** The oath letter is the wāw of وَرَبِّى. The Corpus tags it “and”. Al-Jadwal reads it as the oath wāw, with the answer لَتَأْتِيَنَّكُمْ (a لَ and the nūn of emphasis).
+
+</Exercise>
+
+<Exercise n={9} q="Make an oath. Both sentences are made-up. Start from ٱلْمُؤْمِنُونَ فِى جَنَّةٍ and from نَصَرَ ٱللَّهُ ٱلْمُؤْمِنِينَ. (a) Swear by ٱلْعَصْرِ and answer with إِنَّ and a لَ on the khabar. (b) Swear by ٱللَّهِ with the tāʾ and answer with لَقَدْ.">
+
+Both are made-up examples.
+
+- (a) وَٱلْعَصْرِ إِنَّ ٱلْمُؤْمِنِينَ لَفِى جَنَّةٍ. After إِنَّ the first word moves to the accusative, -īna. The لَ goes on the khabar, the phrase فِى جَنَّةٍ.
+- (b) تَٱللَّهِ لَقَدْ نَصَرَ ٱللَّهُ ٱلْمُؤْمِنِينَ. The tāʾ goes before the name in the genitive. لَقَدْ starts the answer, and no ending changes.
+
+</Exercise>
+
+<Exercise n={10} q="Al-Jadwal gives two readings of مَا in وَمَا خَلَقَ ٱلذَّكَرَ وَٱلْأُنثَىٰٓ (Al-Layl 92:3). Write the English for each reading. Then say what stays the same in the Arabic.">
+
+- **First reading** (a maṣdar particle): “And the creating of the male and the female.”
+- **Second reading** (a joining noun): “And the One who created the male and the female.”
+
+The Arabic stays the same. The clause خَلَقَ ٱلذَّكَرَ وَٱلْأُنثَىٰٓ has the past verb خَلَقَ with a hidden “He” as its doer, and two accusative objects. In both readings the clause is joined to ٱلَّيْلِ and takes the place of its genitive.
+
+</Exercise>
+</Block>
+
+<Block id="done" title="You have finished the lesson">
+  <Stage label="The idea">
+    <Formula
+      label="an oath letter, a noun in the genitive and an answer make an oath"
+      items={[
+        { kind: 'm', text: 'an oath letter', small: 'وَ, بِ or تَ' },
+        { kind: 'k', text: 'a noun in the genitive', small: 'or a clause with مَا' },
+        { kind: 's', text: 'the answer', small: 'spoken or left out' },
+      ]}
+    />
+  </Stage>
+
+- An oath has **three parts**: an oath letter, a sworn-by noun and an answer. The sworn-by noun is genitive after the letter. The phrase is tied to a left-out “I swear” (al-Jadwal).
+- The Corpus tags **28** oath wāws and **9** tāʾ words, all with ٱللَّهِ, and no bāʾ. It misses at least five oath wāws, so the real counts are higher. At least 21 of the 114 surahs open with an oath wāw.
+- In a chain, only the **first** wāw is the oath letter. The later ones join, and their nouns are genitive because they are joined. فَ joins in the same way.
+- A sworn-by item can be a noun, a noun with a describer, an idafah, a doer word or a clause with مَا. مَا has two readings in al-Jadwal.
+- The answer in this lesson starts with **إِنَّ and a لَ** (4 of 10 sections), **لَقَدْ** (1), **مَا** (1), **إِن with لَمَّا** (1), or it is **left out** (3). The answer can wait several verses, and sentences can be joined to it.
+- A surah can hold more than one oath (51:1 to 51:5 and 51:7 to 51:8).
+- The pages we read do not say why the Quran swears. This lesson reads how an oath is built.
+
+**Next:** the next lesson in the level is [L5.09](/learn/level-5/09-prophet-ibrahim-narrative/), on the narrative of Ibrahim. The method for reading one verse is in [L5.01](/learn/level-5/01-full-irab-analysis/). [L5.06](/learn/level-5/06-juz-amma-patterns/) studies the pattern وَمَآ أَدْرَىٰكَ مَا, which came up in the block “Between the oath and the answer”.
+
+Lessons you can link back to: [the oath letters, L2.07](/learn/level-2/07-prepositions-genitive/), [following words and joined words, L2.06](/learn/level-2/06-genitive-case/), [inna and her sisters, L2.10](/learn/level-2/10-inna-sisters/), [the idafah, L2.08](/learn/level-2/08-possessive-idafah/), [describers, L2.09](/learn/level-2/09-adjective-agreement/), [doer words, L3.19](/learn/level-3/19-active-passive-participles/), [“this” and badal, L3.10](/learn/level-3/10-demonstrative-pronouns/), [Al-ʿAsr, L3.22](/learn/level-3/22-checkpoint-al-asr/), [the ḥāl, L4.01](/learn/level-4/01-hal-clauses/), [the exception, L4.05](/learn/level-4/05-exception-particles/), [emphasis and the oath, L4.06](/learn/level-4/06-emphasis-affirmation/), [the absolute object, L4.07](/learn/level-4/07-maf-ul-mutlaq/), [figures of speech, L4.18](/learn/level-4/18-figures-of-speech/), [Surah Ad-Duha, L4.19](/learn/level-4/19-checkpoint-ad-duha/).
+
+<Sources
+    items={[
+      { label: 'Quran text', name: 'Tanzil (Uthmani text)', href: 'https://tanzil.net' },
+      { label: 'Tags and counts of the oath wāw and tāʾ', name: 'Quranic Arabic Corpus', href: 'https://corpus.quran.com' },
+      { label: 'Sentence places, word analysis (iʿrāb), the answers and the style notes', name: 'Maḥmūd Ṣāfī, al-Jadwal fī Iʿrāb al-Qurʾān wa-Ṣarfihi wa-Bayānihi' },
+      { label: 'The three oath letters', name: 'Ibn Ājurrūm, al-Ajurrumiyyah, chapter on the genitive (as quoted in L2.07)' },
+      { label: 'Counts of oath wāws, surahs, answers and chain lengths', name: 'Quran Learn count from the Quranic Arabic Corpus and from al-Jadwal’s pages; some Corpus tags are incomplete' },
+      { label: 'English under the verses', name: 'Plain-English meanings by Quran Learn, not a translation' },
+    ]}
+  />
+</Block>
+
+</Step>

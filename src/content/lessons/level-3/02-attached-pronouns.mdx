@@ -1,0 +1,885 @@
+---
+title: "Attached Pronouns"
+kicker: "Pronouns joined to a word"
+titleArabic: "ضَمَائِر مُتَّصِلَة"
+level: 3
+order: 2
+template: steps
+description: "Learn the twelve pronoun endings that join a noun, a preposition or a verb: my book, with them, he saw you. See how one set of endings does three jobs, why the verb takes -nī and the noun takes -ī, how to tell a doer ending from an object ending, and go through four verses word by word."
+draft: false
+---
+
+import Step from '../../../components/lesson/Step.astro';
+import Stage from '../../../components/lesson/Stage.astro';
+import Sentence from '../../../components/lesson/Sentence.astro';
+import Tiles from '../../../components/lesson/Tiles.astro';
+import Formula from '../../../components/lesson/Formula.astro';
+import Conjugation from '../../../components/lesson/Conjugation.astro';
+import Note from '../../../components/lesson/Note.astro';
+import Check from '../../../components/lesson/Check.astro';
+import Start from '../../../components/lesson/Start.astro';
+import Sources from '../../../components/lesson/Sources.astro';
+import Parse from '../../../components/lesson/Parse.astro';
+import Exercise from '../../../components/lesson/Exercise.astro';
+import Block from '../../../components/lesson/Block.astro';
+
+{/* Content spec: docs/redesign/specs/L3.02-attached-pronouns.md. Every parse follows al-Jadwal (Mahmud Safi). */}
+
+<Step hero id="start" label="One set of endings" title={frontmatter.title} kicker={frontmatter.kicker} titleArabic={frontmatter.titleArabic}>
+<Block id="overview" title="In this lesson" level={2} uncounted>
+  <Stage label="The idea">
+    <Formula
+      label="a word plus a pronoun ending equals one written word"
+      items={[
+        { kind: 'm', text: 'كِتَابُ', small: 'a word' },
+        { kind: 'k', text: 'هُ', small: 'a joined pronoun' },
+        { kind: 's', text: 'كِتَابُهُ', small: 'his book' },
+      ]}
+    />
+  </Stage>
+  <Start
+    goal="Read the twelve joined pronouns, say what job each one does on a noun, on a preposition and on a verb, tell a doer ending from an object ending, and go through four verses word by word."
+    minutes={45}
+    before="The verbal sentence: verb, doer, object (L2.03). Prepositions (L2.07). The idafah (L2.08). The separate pronouns (L3.01)."
+    terms={[
+      { term: 'Attached pronoun', ar: 'ضَمِير مُتَّصِل', meaning: 'A pronoun joined to the end of another word, such as -hu “his, him”.' },
+      { term: 'Separate pronoun', ar: 'ضَمِير مُنْفَصِل', meaning: 'A pronoun that stands alone, such as huwa “he” (L3.01).' },
+      { term: 'Muḍāf ilayh', ar: 'مُضَاف إِلَيْه', meaning: 'The second word of an idafah. Its case is genitive (L2.08).' },
+      { term: 'Mafʿūl bihi', ar: 'مَفْعُول بِه', meaning: 'The object: who or what the verb is done to (L2.03).' },
+      { term: 'In the place of', ar: 'فِي مَحَلّ', meaning: 'A word that shows no ending still has a case. The books say it is “in the place of” that case.' },
+      { term: 'Protecting nūn', ar: 'نُون الْوِقَايَة', meaning: 'The extra nūn that joins a verb to the pronoun -ī: -nī.' },
+    ]}
+  />
+</Block>
+
+<Block id="see" title="One ending, three jobs" level={2}>
+  <Stage>
+    <Sentence
+      size="big"
+      reference="Al-Aʿraf 7:23 (part)"
+      groups={[
+        { words: [{ ar: 'رَبَّنَا', en: 'our Lord', say: 'rabbana' }] },
+        { words: [{ ar: 'ظَلَمْنَآ', en: 'we wronged', say: 'zalamna', type: 'v' }] },
+        { words: [{ ar: 'أَنفُسَنَا', en: 'ourselves', say: 'anfusana' }] },
+      ]}
+      en={['Our Lord, we have wronged ourselves.']}
+    />
+  </Stage>
+
+This is part of a prayer in the Quran. Look at the end of each word. All three end in the same letters: **نَا** (*-nā*).
+
+- In رَبَّنَا, -nā means “our”.
+- In ظَلَمْنَا, -nā means “we”.
+- In أَنفُسَنَا, -nā means “our” again: “our selves”.
+
+Arabic has no small word for “our” or “we” here. A short ending does that work. These endings are the **attached pronouns**. This lesson teaches all of them.
+
+<Check n={1} q="How many of the three words in this phrase end in -nā?" options={['One', 'Two', 'All three']} answer={2} why="رَبَّنَا, ظَلَمْنَا and أَنفُسَنَا all end in -nā. It is one ending, and it does different jobs." />
+</Block>
+
+<Block id="what" title="A pronoun joined to a word" level={2}>
+  <Stage label="Two kinds of pronoun">
+    <Tiles
+      label="a separate pronoun and a joined pronoun"
+      items={[
+        { ar: 'هُوَ', en: 'he: stands alone' },
+        { ar: 'كِتَابُهُ', en: 'his book: -hu is joined' },
+      ]}
+    />
+  </Stage>
+
+You know the separate pronouns from L3.01: هُوَ, أَنَا, نَحْنُ. Each one is a word on its own.
+
+An **attached pronoun**, ضَمِير مُتَّصِل (*ḍamīr muttaṣil*), cannot stand alone. It is joined to the end of another word and is written as part of it. *Muttaṣil* means “joined”. The separate pronoun is *munfaṣil*, “apart”.
+
+- English says “his book”, two words.
+- Arabic says كِتَابُهُ, one written word.
+
+The joined pronoun is still a noun, a word that stands for a person or thing. It has a job in the sentence, as you will see.
+
+<Check n={2} q="Which of these is an attached pronoun?" options={['أَنَا', 'ـكَ in كِتَابُكَ', 'هُوَ']} answer={1} why="ـكَ is joined to كِتَاب. أَنَا and هُوَ stand alone." />
+</Block>
+
+<Block id="chart" title="The twelve endings" level={2}>
+  <Stage label="One word, twelve pronouns">
+    <Conjugation
+      caption="كِتَاب, “a book”, with the twelve joined pronouns (made-up forms)"
+      formLabel="Word"
+      endLabel="Joined ending"
+      rows={[
+        { group: 'I and we' },
+        { who: 'my', pr: 'أَنَا', ar: 'كِتَابِي', end: 'ـِي', say: 'kitābī' },
+        { who: 'our', pr: 'نَحْنُ', ar: 'كِتَابُنَا', end: 'ـنَا', say: 'kitābunā' },
+        { group: 'You' },
+        { who: 'your (one man)', pr: 'أَنْتَ', ar: 'كِتَابُكَ', end: 'ـكَ', say: 'kitābuka' },
+        { who: 'your (one woman)', pr: 'أَنْتِ', ar: 'كِتَابُكِ', end: 'ـكِ', say: 'kitābuki' },
+        { who: 'your (two)', pr: 'أَنْتُمَا', ar: 'كِتَابُكُمَا', end: 'ـكُمَا', say: 'kitābukumā' },
+        { who: 'your (men)', pr: 'أَنْتُمْ', ar: 'كِتَابُكُمْ', end: 'ـكُمْ', say: 'kitābukum' },
+        { who: 'your (women)', pr: 'أَنْتُنَّ', ar: 'كِتَابُكُنَّ', end: 'ـكُنَّ', say: 'kitābukunna' },
+        { group: 'He, she and they' },
+        { who: 'his', pr: 'هُوَ', ar: 'كِتَابُهُ', end: 'ـهُ', say: 'kitābuhu' },
+        { who: 'her', pr: 'هِيَ', ar: 'كِتَابُهَا', end: 'ـهَا', say: 'kitābuhā' },
+        { who: 'their (two)', pr: 'هُمَا', ar: 'كِتَابُهُمَا', end: 'ـهُمَا', say: 'kitābuhumā' },
+        { who: 'their (men)', pr: 'هُمْ', ar: 'كِتَابُهُمْ', end: 'ـهُمْ', say: 'kitābuhum' },
+        { who: 'their (women)', pr: 'هُنَّ', ar: 'كِتَابُهُنَّ', end: 'ـهُنَّ', say: 'kitābuhunna' },
+      ]}
+    />
+  </Stage>
+
+There are **twelve** endings. They match the twelve separate pronouns, one for one. The Pronoun column shows the separate pronoun with the same meaning.
+
+A group of men, or men and women together, takes the “men” form. The “women” form is for a group of women.
+
+<Note kind="tip">Learn the two families first (the next block). Then the twelve endings are two groups of five and two odd ones.</Note>
+</Block>
+
+<Block id="first-book" title="How the first grammar book says it" level={2}>
+  <Stage label="From al-Ajurrumiyyah">
+    <blockquote class="lx-quote" lang="ar" dir="rtl">
+      <p>والمُضْمَرُ قِسْمَانِ مُتَّصِلٌ ومُنْفَصِلٌ</p>
+      <p>فالمُتَّصِلُ إِثنا عَشَرَ وَهيَ ضَرَبَنِي وَضَرَبَنا وَضَرَبَكَ وَضَرَبَكِ وَضَرَبَكُما وَضَرَبَكُمْ وَضَرَبَكُنَّ وَضَرَبَهُ وَضَرَبَهَا وَضَرَبَهُمَا وَضَرَبَهُمْ وضَرَبَهُنَّ</p>
+    </blockquote>
+    <p class="lx-quote-note">Arabic text as on Wikisource.</p>
+  </Stage>
+
+*Al-Ajurrumiyyah* is the short grammar book you met in L2.01. It puts the pronouns in its chapter on the object (*mafʿūl bihi*). It says:
+
+- A pronoun is of two kinds: joined and separate.
+- The joined pronouns are **twelve**. The book shows them on the verb ضَرَبَ, “he hit”: ضَرَبَنِي, “he hit me”, ضَرَبَنَا, “he hit us”, and so on.
+
+The book lists a set of separate object pronouns too, beginning with إِيَّايَ and إِيَّاكَ. [L3.01](/learn/level-3/01-subject-pronouns/) gives a first look at them.
+
+<Note kind="know">The book shows the joined pronouns on a verb because it is writing about the object. The same twelve endings also join nouns and prepositions. The next step shows all three.</Note>
+</Block>
+
+<Block id="families" title="Two families and two odd ones" level={2}>
+  <Stage label="The pattern in the endings">
+    <Tiles
+      label="the k family and the h family"
+      items={[
+        { ar: 'ـكَ', en: 'you (man)' },
+        { ar: 'ـكِ', en: 'you (woman)' },
+        { ar: 'ـكُمْ', en: 'you (men)' },
+        { ar: 'ـهُ', en: 'him' },
+        { ar: 'ـهَا', en: 'her' },
+        { ar: 'ـهُمْ', en: 'them' },
+      ]}
+    />
+  </Stage>
+
+Ten of the twelve endings fall into two families.
+
+- The **k family** means “you”: ـكَ, ـكِ, ـكُمَا, ـكُمْ, ـكُنَّ.
+- The **h family** means “he, she, they”: ـهُ, ـهَا, ـهُمَا, ـهُمْ, ـهُنَّ.
+
+Two stand apart: **ـِي** (“my, me”) and **ـنَا** (“our, us”). Each has the same form for men and women.
+
+The last letters tell you who is meant. In the k family, -ka is one man, -ki is one woman, -kumā is two, -kum is men, and -kunna is women. In the h family, -hu is “him”, -hā is “her”, -humā is two, -hum is men, and -hunna is women.
+
+<Check n={3} q="Which ending means “your”, said to one woman?" options={['ـكَ', 'ـكِ', 'ـهَا']} answer={1} why="The k family is “you”. The kasra (-i) is for one woman: -ki." />
+</Block>
+
+</Step>
+
+<Step id="places" label="Three places" title="One set of endings, three places">
+<Block id="table" title="The same endings on three kinds of word">
+  <Stage label="A noun, a preposition, a verb">
+
+| Who | Ending | On a noun: كِتَاب | On a preposition: بِ | On a verb: ضَرَبَ |
+|---|---|---|---|---|
+| me, my | ـِي (verb: ـنِي) | كِتَابِي | بِي | ضَرَبَنِي |
+| us, our | ـنَا | كِتَابُنَا | بِنَا | ضَرَبَنَا |
+| you (one man) | ـكَ | كِتَابُكَ | بِكَ | ضَرَبَكَ |
+| you (one woman) | ـكِ | كِتَابُكِ | بِكِ | ضَرَبَكِ |
+| you (two) | ـكُمَا | كِتَابُكُمَا | بِكُمَا | ضَرَبَكُمَا |
+| you (men) | ـكُمْ | كِتَابُكُمْ | بِكُمْ | ضَرَبَكُمْ |
+| you (women) | ـكُنَّ | كِتَابُكُنَّ | بِكُنَّ | ضَرَبَكُنَّ |
+| him, his | ـهُ | كِتَابُهُ | بِهِ | ضَرَبَهُ |
+| her | ـهَا | كِتَابُهَا | بِهَا | ضَرَبَهَا |
+| them (two) | ـهُمَا | كِتَابُهُمَا | بِهِمَا | ضَرَبَهُمَا |
+| them (men) | ـهُمْ | كِتَابُهُمْ | بِهِمْ | ضَرَبَهُمْ |
+| them (women) | ـهُنَّ | كِتَابُهُنَّ | بِهِنَّ | ضَرَبَهُنَّ |
+
+  </Stage>
+
+Read down any column and the same twelve endings come back. The word they join changes, and so does the meaning:
+
+- On a noun (كِتَاب, “book”), the ending means “my, your, his …”: *kitābuhu*, “his book”.
+- On a preposition (بِ, “with”), the ending means “me, you, him …”: *bihi*, “with him”.
+- On a verb (ضَرَبَ, “he hit”), the ending means “me, you, him …”: *ḍarabahu*, “he hit him”.
+
+The ending itself is one set. The word in front of it decides how English says it. The forms in the table are teaching forms. The verb list is the one in al-Ajurrumiyyah, and ضَرَبَ is a real Form I verb.
+
+<Note kind="know">The first person has two shapes: ـِي on a noun and a preposition, ـنِي on a verb. The block called “ī or nī” later in this lesson explains it.</Note>
+</Block>
+
+<Block id="cases" title="What job the pronoun does">
+  <Stage label="Joined to … the pronoun is …">
+
+| Joined to | Job of the pronoun | Case, in place | Seen in |
+|---|---|---|---|
+| a noun | muḍāf ilayh: “our Lord” | genitive (jarr) | رَبَّنَا |
+| a preposition | the noun after it (majrūr) | genitive (jarr) | لَنَا |
+| a verb | the object (mafʿūl bihi) | accusative (naṣb) | هَدَيْتَنَا |
+| a past verb | the doer (fāʿil), some endings | nominative (rafʿ) | ظَلَمْنَا |
+
+  </Stage>
+
+A joined pronoun does not show a case ending. But it still has a case, because it has a job. The grammar books say it is **in the place of** that case, *fī maḥall*, as you saw for هُوَ in L2.01 and for the pronoun after a preposition in L2.07.
+
+- On a **noun**, it is the second word of an idafah, so it counts as **genitive** (L2.08).
+- On a **preposition**, it is the noun after the preposition, so it counts as **genitive** (L2.07).
+- On a **verb**, it is the object, so it counts as **accusative** (L2.03, L2.05).
+- Some endings on a **past verb** are the doer, so they count as **nominative**. Step 3 takes this up.
+
+The same letters, -nā, are in the table four times and have two different cases. Look at the word in front of the ending to know which job it does.
+
+<Check n={4} q="In لَنَا, “for us”, what case does the pronoun -nā have, in place?" options={['Nominative', 'Accusative', 'Genitive']} answer={2} why="It is the noun after the preposition لِ, so it counts as genitive (L2.07)." />
+</Block>
+
+<Block id="noun" title="On a noun: “your God”">
+  <Stage>
+    <Sentence
+      roles
+      reference="Al-Baqarah 2:163 (start)"
+      groups={[
+        { role: 'mubtada', hint: 'إِلَٰهُ + كُمْ', words: [{ ar: 'وَإِلَٰهُكُمْ', en: 'and your God', say: 'wa-ilahukum' }] },
+        { role: 'khabar', words: [{ ar: 'إِلَٰهٌ', en: 'a God', say: 'ilahun' }] },
+        { role: 'naat', words: [{ ar: 'وَٰحِدٌ', en: 'one', say: 'wahidun' }] },
+      ]}
+      en={['And your God ', { gap: 'is' }, ' one God.']}
+    />
+  </Stage>
+
+When the pronoun joins a noun, the two make an **idafah** (L2.08). The noun is the first word. The pronoun is the second word, the *muḍāf ilayh*. In وَإِلَٰهُكُمْ:
+
+- إِلَٰهُ is the first word. It is the mubtadaʾ, so it keeps its own case: nominative, -u.
+- كُمْ, “your”, is the muḍāf ilayh. It is genitive in place, as the second word of an idafah is.
+
+Al-Jadwal reads the verse this way: the noun is the mubtadaʾ, and the pronoun is “in the place of” the genitive.
+
+Two rules from L2.08 still hold. The first word has **no tanwīn** and **no al-**: it is إِلَٰهُكُمْ, not إِلَٰهٌ كُمْ. The pronoun also makes the whole phrase definite, so the khabar إِلَٰهٌ stays indefinite.
+
+<Check n={5} q="In وَإِلَٰهُكُمْ, which part is the muḍāf ilayh?" options={['إِلَٰهُ', 'كُمْ']} answer={1} why="The pronoun -kum is the second word of the idafah. It is genitive in place." />
+</Block>
+
+<Block id="noun-changes" title="What happens to the noun">
+  <Stage label="Four small changes (made-up forms and real words)">
+    <Tiles
+      label="a noun before a joined pronoun"
+      items={[
+        { ar: 'كِتَابٌ', en: 'a book' },
+        { ar: 'كِتَابُهُ', en: 'his book' },
+        { ar: 'رَحْمَةٌ', en: 'a mercy' },
+        { ar: 'رَحْمَتِكَ', en: 'your mercy' },
+        { ar: 'أَبٌ', en: 'a father' },
+        { ar: 'أَبُوهُ', en: 'his father' },
+      ]}
+    />
+  </Stage>
+
+The noun changes a little in front of a joined pronoun.
+
+1. **The tanwīn goes.** كِتَابٌ becomes كِتَابُهُ. The first word of an idafah has no tanwīn (L2.08).
+2. **The round ة becomes ت.** رَحْمَةٌ becomes رَحْمَتِكَ, “your mercy”, as in فِى رَحْمَتِكَ (7:151, end). The ة is written ت when something is joined after it.
+3. **The noun keeps its own case.** The pronoun shows nothing, so the case shows on the noun: كِتَابُهُ (nominative), كِتَابَهُ (accusative), كِتَابِهِ (genitive).
+4. **The five nouns keep their long vowel** (L2.06): أَبُوهُ (nominative), أَبَاهُ (accusative), أَبِيهِ (genitive). A dual or a sound plural noun loses its final nūn before the pronoun, as in any idafah (L2.08).
+
+One pronoun hides the noun's ending: **ـِي**, “my”. It needs a kasra on the letter before it, so the case of the noun is understood but not seen (L2.08). In رَبِّي you cannot tell the case from the noun.
+</Block>
+
+<Block id="prep" title="On a preposition: “upon them”">
+  <Stage>
+    <Sentence
+      roles
+      reference="Al-Fatiha 1:7 (part)"
+      groups={[
+        { role: 'fiil', label: 'fiʿl + fāʿil', hint: '-ta is the doer: “you”', words: [{ ar: 'أَنْعَمْتَ', en: 'you gave favour', say: 'anamta', type: 'v' }] },
+        { role: 'jarMajrur', hint: 'belongs to أَنْعَمْتَ', words: [{ ar: 'عَلَيْهِمْ', en: 'to them', say: 'alayhim', type: 'p' }] },
+      ]}
+      en={['You gave favour to them.']}
+    />
+  </Stage>
+
+You met this in L2.07. A pronoun can be the noun after a preposition, and then it joins the preposition into one word: عَلَىٰ + هِمْ becomes عَلَيْهِمْ.
+
+| Preposition | + him | + them (men) | + me |
+|---|---|---|---|
+| لِ, “for” | لَهُ (*lahu*) | لَهُمْ (*lahum*) | لِي (*lī*) |
+| مِنْ, “from” | مِنْهُ (*minhu*) | مِنْهُمْ (*minhum*) | مِنِّي (*minnī*) |
+| عَنْ, “about, away from” | عَنْهُ (*ʿanhu*) | عَنْهُمْ (*ʿanhum*) | عَنِّي (*ʿannī*) |
+| عَلَىٰ, “on” | عَلَيْهِ (*ʿalayhi*) | عَلَيْهِمْ (*ʿalayhim*) | عَلَيَّ (*ʿalayya*) |
+| إِلَىٰ, “to” | إِلَيْهِ (*ilayhi*) | إِلَيْهِمْ (*ilayhim*) | إِلَيَّ (*ilayya*) |
+| بِ, “with, by” | بِهِ (*bihi*) | بِهِمْ (*bihim*) | بِي (*bī*) |
+
+English says “upon them”, two words. Arabic says عَلَيْهِمْ, one. The pronoun is the noun after the preposition. It is genitive in place.
+
+<Note kind="know">Al-Jadwal reads the pronoun in عَلَيْهِمْ as the **hā**, in the place of genitive after عَلَىٰ. It reads the **mīm** as a letter that shows a group of men. This lesson treats -hum as one ending, as the grammar books list it, and the hā is the pronoun inside it.</Note>
+</Block>
+
+<Block id="hum-him" title="hum or him?">
+  <Stage label="Look at the vowel before the hā">
+    <Tiles
+      label="the pronoun them after different sounds"
+      items={[
+        { ar: 'لَهُمْ', en: 'for them', type: 'p' },
+        { ar: 'مِنْهُمْ', en: 'from them', type: 'p' },
+        { ar: 'بِهِمْ', en: 'with them', type: 'p' },
+        { ar: 'فِيهِمْ', en: 'among them', type: 'p' },
+        { ar: 'رَبِّهِمْ', en: 'their Lord' },
+        { ar: 'رَبُّهُمْ', en: 'their Lord (nominative)' },
+      ]}
+    />
+  </Stage>
+
+L2.07 taught this spelling rule for the pronoun after a preposition. It is the same on a noun and on a verb.
+
+The pronouns هُ, هُمْ, هُمَا, هُنَّ become **هِ, هِمْ, هِمَا, هِنَّ** when the sound before them is a **kasra** or a **ي with sukūn**.
+
+- بِهِمْ, فِيهِمْ, عَلَيْهِمْ: a kasra or a yāʾ with sukūn comes before. So *him*.
+- رَبِّهِمْ: a kasra comes before. So *him*. In رَبُّهُمْ it is a ḍamma, so *hum*.
+- لَهُمْ, مِنْهُمْ: a fatḥa or a sukūn comes before. So *hum*.
+
+The endings هَا, كُمْ and نَا do not change.
+
+<Check n={6} q="Which is the right spelling of “with them”?" options={['بِهُمْ', 'بِهِمْ']} answer={1} why="The letter before the hā has a kasra, so the hā takes a kasra: bihim." />
+</Block>
+
+<Block id="verb" title="On a verb: the object">
+  <Stage>
+    <Sentence
+      roles
+      reference="Al-Aʿraf 7:23 (part)"
+      groups={[
+        { role: 'jarMajrur', hint: 'belongs to تَغْفِرْ, in the part before', words: [{ ar: 'لَنَا', en: 'for us', say: 'lana', type: 'p' }] },
+        { role: 'fiil', label: 'fiʿl + fāʿil + object', hint: '-nā is the object: “us”', words: [{ ar: 'وَتَرْحَمْنَا', en: 'and have mercy on us', say: 'wa-tarhamna', type: 'v' }] },
+      ]}
+      en={['… for us, and have mercy on us.']}
+    />
+  </Stage>
+
+On a verb, the pronoun is the **object**. In وَتَرْحَمْنَا, the verb is تَرْحَمْ, “you have mercy”, and the ending -nā is who receives the mercy: “us”. You learned the object in L2.03. It is the *mafʿūl bihi*, and it is accusative.
+
+Al-Jadwal says this about تَرْحَمْنَا: **nā** is a pronoun, the object. The pronoun shows no ending, but it counts as accusative, in place.
+
+Compare the endings on the three kinds of word. On a noun, -nā is genitive. On a preposition, it is genitive. On a verb, it is accusative. The letters are the same each time.
+
+<Note kind="know">The doer of تَرْحَمْ is a hidden “you”. It is the one asked for mercy. The pronoun ending is the object.</Note>
+</Block>
+
+</Step>
+
+<Step id="doer" label="Me, inna, doer" title="Me, inna, and the doer">
+<Block id="me" title="ī or nī">
+  <Stage label="“Me” on three kinds of word">
+    <Tiles
+      label="the pronoun me on a noun, a preposition and a verb"
+      items={[
+        { ar: 'رَبِّي', en: 'my Lord (noun: -ī)' },
+        { ar: 'لِي', en: 'for me (preposition: -ī)' },
+        { ar: 'مِنِّي', en: 'from me (preposition: -nī)' },
+        { ar: 'خَلَقَنِي', en: 'he created me (verb: -nī)', type: 'v' },
+      ]}
+    />
+  </Stage>
+
+The pronoun “me, my” has two shapes.
+
+- On a **noun**, it is **ـِي**: كِتَابِي, “my book”.
+- On a **verb**, it is **ـنِي**: خَلَقَنِي, “he created me”. The extra nūn is the **protecting nūn**, نُون الْوِقَايَة (*nūn al-wiqāya*). Al-Jadwal names it in this verse: “the nūn is for protection”. The yāʾ needs a kasra before it. The nūn takes that kasra, so the verb keeps its own fatḥa.
+- On a **preposition**, it depends. لِ and بِ keep the plain ـِي: لِي, بِي. مِنْ and عَنْ take the nūn: مِنِّي, عَنِّي. إِلَىٰ and عَلَىٰ turn their ى into يَّ: إِلَيَّ, عَلَيَّ.
+
+The shape ـنِي is not “for verbs and prepositions”. It is for verbs, and for مِنْ and عَنْ. For the other prepositions, use ـِي.
+
+<Check n={7} q="How do you say “he created me”?" options={['خَلَقَنِي', 'خَلَقِي', 'خَلَقُنِي']} answer={0} why="On a verb, “me” is ـنِي. The nūn protects the fatḥa of the verb." />
+</Block>
+
+<Block id="inna" title="A fourth place: after inna">
+  <Stage>
+    <Sentence
+      roles
+      reference="Al-Imran 3:9 (part)"
+      groups={[
+        { role: 'ismInna', hint: 'inna + -ka: the pronoun is its ism', words: [{ ar: 'إِنَّكَ', en: 'indeed you', say: 'innaka', type: 'p' }] },
+        { role: 'khabarInna', words: [{ ar: 'جَامِعُ', en: 'gatherer of', say: 'jamiu' }, { ar: 'ٱلنَّاسِ', en: 'the people', say: 'an-nasi' }] },
+      ]}
+      en={['Indeed, you ', { gap: 'are' }, ' the gatherer of the people.']}
+    />
+  </Stage>
+
+The joined pronoun also comes after إِنَّ (*inna*, “indeed”). L2.10 taught that inna makes its first word accusative. When that first word is a pronoun, it joins inna: إِنَّ + كَ gives إِنَّكَ.
+
+The pronoun is the **ism of inna**. It counts as **accusative**, in place. The khabar جَامِعُ stays nominative, and ٱلنَّاسِ is genitive, the second word of an idafah. Al-Jadwal says the same about the same word in the verse before, 3:8: “the kāf is a pronoun in the place of the accusative, the ism of inna”.
+
+So the set has a fourth place. You will see it often: إِنَّنِي, إِنَّهُ, إِنَّا (inna with -nā), إِنَّكَ.
+
+<Check n={8} q="In إِنَّكَ, what is the pronoun -ka?" options={['The ism of inna', 'The doer', 'The khabar of inna']} answer={0} why="After inna, a joined pronoun is its ism, accusative in place (L2.10)." />
+</Block>
+
+<Block id="doer-object" title="Doer or object? The same letters">
+  <Stage label="A vowel decides">
+    <Tiles
+      label="ظَلَمْنَا and ظَلَمَنَا"
+      items={[
+        { ar: 'ظَلَمْنَا', en: 'we wronged', type: 'v' },
+        { ar: 'ظَلَمَنَا', en: 'he wronged us', type: 'v' },
+      ]}
+    />
+  </Stage>
+
+The ending -nā is on both words. The letter in front of it is different.
+
+- **ظَلَمْنَا**: the letter before -nā has a **sukūn**. The verb is complete with the ending: “we wronged”. Here -nā is the **doer**. This is the word in 7:23.
+- **ظَلَمَنَا**: the letter before -nā has a **fatḥa**. The verb is complete without it: ظَلَمَ, “he wronged”. So -nā is the **object**: “he wronged us”.
+
+This works for the past tense. The past tense has its own doer endings, such as -tu (“I”), -ta, -ti and -nā (“we”), and -ū (“they”). L3.05 teaches them. The doer ending comes **first**, then the object.
+
+On a **present-tense** verb the doer is shown at the front (يَـ, تَـ, نَـ) or by an ending like -ūna. L3.06 teaches this. For now, notice that the word تَرْحَمْنَا in 7:23 starts with تَـ, so the -nā at its end is the object.
+
+<Check n={9} q="In ظَلَمَنَا (with a fatḥa before nā), what is -nā?" options={['The doer, “we”', 'The object, “us”']} answer={1} why="The verb is already complete as ظَلَمَ, “he wronged”. So -nā is who was wronged." />
+</Block>
+
+<Block id="order" title="Doer first, then object">
+  <Stage label="One verb, six doers, the object -hu">
+    <Conjugation
+      caption="ضَرَبَ, “he hit”, with a doer and the object -hu (made-up forms)"
+      formLabel="Word"
+      endLabel="Doer ending + object"
+      rows={[
+        { who: 'he hit him', pr: 'هُوَ', ar: 'ضَرَبَهُ', end: 'ـَ + ـهُ', say: 'ḍarabahu' },
+        { who: 'she hit him', pr: 'هِيَ', ar: 'ضَرَبَتْهُ', end: 'ـَتْ + ـهُ', say: 'ḍarabat-hu' },
+        { who: 'you (one man) hit him', pr: 'أَنْتَ', ar: 'ضَرَبْتَهُ', end: 'ـْتَ + ـهُ', say: 'ḍarabtahu' },
+        { who: 'you (one woman) hit him', pr: 'أَنْتِ', ar: 'ضَرَبْتِهِ', end: 'ـْتِ + ـهُ', say: 'ḍarabtihi' },
+        { who: 'I hit him', pr: 'أَنَا', ar: 'ضَرَبْتُهُ', end: 'ـْتُ + ـهُ', say: 'ḍarabtuhu' },
+        { who: 'we hit him', pr: 'نَحْنُ', ar: 'ضَرَبْنَاهُ', end: 'ـْنَا + ـهُ', say: 'ḍarabnāhu', hi: true },
+        { who: 'they (men) hit him', pr: 'هُمْ', ar: 'ضَرَبُوهُ', end: 'ـُوا + ـهُ', say: 'ḍarabūhu' },
+      ]}
+    />
+  </Stage>
+
+A verb can carry **two** joined pronouns. The first is the doer, the second is the object.
+
+- ضَرَبْنَاهُ: ضَرَبَ + **-nā** (we, the doer) + **-hu** (him, the object). “We hit him.”
+- Al-Jadwal reads the Quran's رَزَقْنَٰهُمْ the same way: **-nā** is the doer, in the place of the nominative, and **-hum** is the object, in the place of the accusative. You will see it word by word below.
+
+So one written word can hold a verb, a doer and an object. In English that takes three words.
+
+The Pronoun column shows the separate pronoun for the doer, because the object -hu is joined.
+
+<Note kind="tip">When you meet a long verb, take the endings off from the back. The last ending is the object. The one before it is the doer.</Note>
+
+<Check n={10} q="In ضَرَبْتُهُ, which ending is the object?" options={['ـْتُ', 'ـهُ']} answer={1} why="The doer ending comes first (-tu, “I”). The object comes last (-hu, “him”)." />
+</Block>
+
+</Step>
+
+<Step id="word-by-word" label="Mistakes, word by word" title="Five mistakes, and four verses word by word">
+<Block id="mistake-order" title="Mistake 1: mixing up the doer and the object">
+  <Stage label="One word, three pieces">
+    <Tiles
+      label="كَتَبْتُهُ: verb, doer, object"
+      items={[
+        { ar: 'كَتَبْ', en: 'wrote', type: 'v' },
+        { ar: 'تُ', en: 'I: the doer' },
+        { ar: 'هُ', en: 'it: the object' },
+      ]}
+    />
+  </Stage>
+
+كَتَبْتُهُ is “I wrote it”. It has **two** joined pronouns. The first, -tu, is the doer. The second, -hu, is the object.
+
+It is not “he wrote me” and it is not “it wrote”. Read the endings from the back: the last is the object. Do not take all the endings on a verb for objects. Some endings are doers.
+</Block>
+
+<Block id="mistake-noun" title="Mistake 2: leaving al- or tanwīn on the noun">
+  <Stage label="Wrong and right">
+    <Tiles
+      label="two ways to write “his book”"
+      items={[
+        { ar: 'ٱلْكِتَابُهُ', en: 'wrong: al- and a pronoun', type: 'x' },
+        { ar: 'كِتَابٌهُ', en: 'wrong: tanwīn and a pronoun', type: 'x' },
+        { ar: 'كِتَابُهُ', en: 'right: his book' },
+      ]}
+    />
+  </Stage>
+
+The first word of an idafah has no al- and no tanwīn (L2.08). A noun with a joined pronoun is the first word of an idafah. So it takes neither.
+
+- **كِتَابُهُ** is right: “his book”.
+- **كِتَابٌ** + ـِي is **كِتَابِي**, “my book”. The tanwīn goes and a kasra comes before the yāʾ. It is not كِتَابُنِي.
+
+<Check n={11} q="Which is the correct way to write “her book”?" options={['ٱلْكِتَابُهَا', 'كِتَابٌهَا', 'كِتَابُهَا']} answer={2} why="No al- and no tanwīn on the first word: kitābuhā." />
+</Block>
+
+<Block id="mistake-me" title="Mistake 3: the wrong shape of “me”">
+  <Stage label="Noun, verb, preposition">
+    <Tiles
+      label="the shapes of me"
+      items={[
+        { ar: 'كِتَابِي', en: 'my book', type: 'n' },
+        { ar: 'رَءَانِي', en: 'he saw me', type: 'v' },
+        { ar: 'بِي', en: 'with me', type: 'p' },
+        { ar: 'عَنِّي', en: 'from me', type: 'p' },
+      ]}
+    />
+  </Stage>
+
+A noun takes ـِي: كِتَابِي. A verb takes ـنِي: رَءَانِي. A preposition takes ـِي (بِي, لِي) or, for مِنْ and عَنْ, the doubled nūn (مِنِّي, عَنِّي).
+
+Saying كِتَابِنِي for “my book” is wrong, and so is رَءَايِ for “he saw me”.
+</Block>
+
+<Block id="mistake-separate" title="Mistake 4: a separate pronoun for “my” or “him”">
+  <Stage label="Say it joined">
+    <Tiles
+      label="separate and joined pronouns"
+      items={[
+        { ar: 'كِتَابُ أَنَا', en: 'wrong', type: 'x' },
+        { ar: 'كِتَابِي', en: 'my book' },
+        { ar: 'يُحِبُّ هِيَ', en: 'wrong', type: 'x' },
+        { ar: 'يُحِبُّهَا', en: 'he loves her', type: 'v' },
+      ]}
+    />
+  </Stage>
+
+A separate pronoun stands on its own, for example as the mubtadaʾ: هُوَ ٱللَّهُ, “he is Allah”. It does not say “my” or “her”. For those, use the joined ending: كِتَابِي, يُحِبُّهَا.
+
+<Check n={12} q="How do you say “her book”?" options={['كِتَابُ هِيَ', 'كِتَابُهَا']} answer={1} why="Possession needs the joined ending -hā, not the separate pronoun هِيَ." />
+</Block>
+
+<Block id="mistake-split" title="Mistake 5: cutting عَلَيْهِمْ into “on” and “they”">
+  <Stage label="One word">
+    <Tiles
+      label="عَلَيْهِمْ is one written word"
+      items={[
+        { ar: 'عَلَيْهِمْ', en: 'on them', type: 'p' },
+      ]}
+    />
+  </Stage>
+
+عَلَيْهِمْ is **one** written word. It is the preposition عَلَىٰ with the pronoun -him, and the pronoun means “them”, not “they”. “They” is the separate pronoun هُمْ, which can be a mubtadaʾ.
+
+The joined ending is genitive in place, the noun after the preposition. A separate هُمْ cannot stand there.
+</Block>
+
+<Block id="parse-1" title="Word by word: Al-Aʿraf 7:23">
+  <Stage label="Word by word">
+    <Parse
+      reference="Al-Aʿraf 7:23 (part)"
+      words={[
+        { ar: 'رَبَّنَا', en: 'our Lord' },
+        { ar: 'ظَلَمْنَآ', en: 'we wronged', type: 'v' },
+        { ar: 'أَنفُسَنَا', en: 'ourselves' },
+      ]}
+      cards={[
+        { at: 0, ar: 'رَبَّ', role: 'the word being called: “Our Lord!” The little word for “O” is left out. It is the first word of an idafah.', case: 'accusative (naṣb)', mark: '-a (fatḥa)', why: 'A word you call out is accusative. Al-Jadwal says the little word for “O” is left out before it.', irab: 'منادى مضاف منصوب وعلامة نصبه الفتحة' },
+        { at: 0, ar: 'نَا', role: 'the second word of the idafah (muḍāf ilayh): “our”', case: 'genitive (jarr), by place', mark: 'none: a joined pronoun shows no ending', why: 'It is joined to a noun. It is the second word of an idafah (L2.08).', irab: 'ضمير متصل مبني في محل جر مضاف إليه' },
+        { at: 1, ar: 'ظَلَمْ', role: 'a past-tense verb: “wronged”', mark: 'a fixed sukūn on the last letter', why: 'A past verb has a fixed ending. Here it is a sukūn, because the doer -nā joins it (L3.05).', irab: 'فعل ماض مبني على السكون لاتصاله بضمير الرفع' },
+        { at: 1, ar: 'نَا', role: 'the doer (fāʿil): “we”', case: 'nominative (rafʿ), by place', mark: 'none: a joined pronoun shows no ending', why: 'It is the doer of the verb. It is joined to a verb, and this time it is the doer, not the object.', irab: 'ضمير متصل مبني في محل رفع فاعل' },
+        { at: 2, ar: 'أَنفُسَ', role: 'the object (mafʿūl bihi): “selves”. It is also the first word of an idafah.', case: 'accusative (naṣb)', mark: '-a (fatḥa)', why: 'It is what the verb is done to. The “selves” are wronged.', irab: 'مفعول به منصوب وعلامة نصبه الفتحة، وهو مضاف' },
+        { at: 2, ar: 'نَا', role: 'the second word of the idafah (muḍāf ilayh): “our”', case: 'genitive (jarr), by place', mark: 'none', why: 'It is joined to a noun, the second word of an idafah.', irab: 'ضمير متصل مبني في محل جر مضاف إليه' },
+      ]}
+    />
+  </Stage>
+
+This verse has -nā three times, in three jobs. Say each one: “our” (idafah), “we” (doer), “our” (idafah again).
+
+The middle one is the surprise. It is joined to a verb, but it is the doer, not the object. In a verb with a sukūn before -nā (ظَلَمْنَا), the ending is the doer.
+</Block>
+
+<Block id="parse-2" title="Word by word: Al-Imran 3:8">
+  <Stage label="Word by word">
+    <Parse
+      reference="Al-Imran 3:8 (part)"
+      words={[
+        { ar: 'هَدَيْتَنَا', en: 'you guided us', type: 'v' },
+        { ar: 'وَهَبْ', en: 'and give', type: 'v' },
+        { ar: 'لَنَا', en: 'to us', type: 'p' },
+      ]}
+      cards={[
+        { at: 0, ar: 'هَدَيْ', role: 'a past-tense verb: “guided”', mark: 'a fixed sukūn on the last letter', why: 'The doer ending -ta joins it, so the verb ends in a sukūn (L3.05).', irab: 'فعل ماض مبني على السكون لاتصاله بضمير الرفع' },
+        { at: 0, ar: 'تَ', role: 'the doer (fāʿil): “you” (one man)', case: 'nominative (rafʿ), by place', mark: 'none: a joined pronoun shows no ending', why: 'It comes first after the verb. It is the one who guided.', irab: 'ضمير متصل مبني في محل رفع فاعل' },
+        { at: 0, ar: 'نَا', role: 'the object (mafʿūl bihi): “us”', case: 'accusative (naṣb), by place', mark: 'none: a joined pronoun shows no ending', why: 'It comes last. It is the ones who were guided.', irab: 'ضمير متصل مبني في محل نصب مفعول به' },
+        { at: 1, ar: 'وَ', role: '“and”, a little word that joins this sentence to the one before', why: 'Little words have no case.', irab: 'الواو عاطفة' },
+        { at: 1, ar: 'هَبْ', role: 'a command, “give!”. Its doer is a hidden “you”.', mark: 'a fixed sukūn on the last letter', why: 'A command has a fixed ending. L3.08 teaches commands.', irab: 'فعل أمر دعائي والفاعل ضمير مستتر تقديره أنت' },
+        { at: 2, ar: 'لَ', role: 'a preposition: “for”', why: 'A little word. The noun after it is genitive.', irab: 'اللام حرف جر' },
+        { at: 2, ar: 'نَا', role: 'the noun after the preposition (majrūr): “us”', case: 'genitive (jarr), by place', mark: 'none: a joined pronoun shows no ending', why: 'It comes straight after a preposition (L2.07). The phrase belongs to هَبْ: “give to us”.', irab: 'ضمير متصل مبني في محل جر باللام، والجار والمجرور متعلق بهب' },
+      ]}
+    />
+  </Stage>
+
+The first word is the showpiece. It has a verb and **two** joined pronouns: -ta, the doer, then -nā, the object. “You guided us.”
+
+The last word shows the same -nā in a third job. After a preposition it is genitive in place.
+</Block>
+
+<Block id="parse-3" title="Word by word: Al-Baqarah 2:3">
+  <Stage label="Word by word">
+    <Parse
+      reference="Al-Baqarah 2:3 (end)"
+      words={[
+        { ar: 'وَمِمَّا', en: 'and from what', type: 'p' },
+        { ar: 'رَزَقْنَٰهُمْ', en: 'we provided them', type: 'v' },
+        { ar: 'يُنفِقُونَ', en: 'they spend', type: 'v' },
+      ]}
+      cards={[
+        { at: 0, ar: 'وَ', role: '“and”, a little word', why: 'Little words have no case.', irab: 'الواو عاطفة' },
+        { at: 0, ar: 'مِمَّا', role: 'min “from” with مَا “what”. The word مَا is the noun after the preposition.', case: 'genitive (jarr), by place', why: 'The word مَا does not change its ending. It belongs to يُنفِقُونَ. L3.11 teaches “what” and “who”.', irab: 'من حرف جر، وما اسم موصول مبني في محل جر بمن متعلق بينفقون' },
+        { at: 1, ar: 'رَزَقْ', role: 'a past-tense verb: “provided”', mark: 'a fixed sukūn on the last letter', why: 'The doer ending -nā joins it, so the verb ends in a sukūn (L3.05).', irab: 'فعل ماض مبني على السكون لاتصاله بضمير الرفع' },
+        { at: 1, ar: 'نَا', role: 'the doer (fāʿil): “we”', case: 'nominative (rafʿ), by place', mark: 'none: a joined pronoun shows no ending', why: 'It comes first. It is the one who provided.', irab: 'ضمير متصل مبني في محل رفع فاعل' },
+        { at: 1, ar: 'هُمْ', role: 'the object (mafʿūl bihi): “them”', case: 'accusative (naṣb), by place', mark: 'none: a joined pronoun shows no ending', why: 'It comes last. It is the ones who were provided for.', irab: 'ضمير متصل مبني في محل نصب مفعول به' },
+        { at: 2, ar: 'يُنفِقُونَ', role: 'a present-tense verb: “they spend”. The ending -ūna holds the doer, “they”.', case: 'nominative (rafʿ)', mark: 'the nūn stays: -ūna', why: 'No word before it changes it, so it keeps the nūn. L3.06 teaches the present tense.', irab: 'فعل مضارع مرفوع وعلامة رفعه ثبوت النون، والواو ضمير متصل في محل رفع فاعل' },
+      ]}
+    />
+  </Stage>
+
+The middle word is the same pattern as ضَرَبْنَاهُ: verb, then **-nā** (doer), then **-hum** (object). The word is رَزَقَ, “he provided”, with -nā and -hum joined.
+
+The last word has a doer too: the ending -ūna. That is a doer ending on a present-tense verb, not an object.
+</Block>
+
+<Block id="parse-4" title="Word by word: Ash-Shuʿara 26:78">
+  <Stage label="Word by word">
+    <Parse
+      reference="Ash-Shuʿara 26:78"
+      words={[
+        { ar: 'ٱلَّذِى', en: 'who' },
+        { ar: 'خَلَقَنِى', en: 'he created me', type: 'v' },
+        { ar: 'فَهُوَ', en: 'and so he' },
+        { ar: 'يَهْدِينِ', en: 'guides me', type: 'v' },
+      ]}
+      cards={[
+        { at: 0, ar: 'ٱلَّذِى', role: '“who”, a word that joins a describing sentence to “Lord of the worlds” in the verse before', case: 'accusative (naṣb), by place', mark: 'none: it does not change its ending', why: 'Al-Jadwal reads it as describing رَبَّ ٱلْعَٰلَمِينَ in 26:77. L3.11 teaches “who”.', irab: 'اسم موصول مبني في محل نصب نعت لرب العالمين' },
+        { at: 1, ar: 'خَلَقَ', role: 'a past-tense verb: “created”. Its doer is a hidden “he”.', mark: 'a fixed fatḥa', why: 'The doer is hidden (L2.03), so no ending joins before the object.', irab: 'فعل ماض مبني على الفتح' },
+        { at: 1, ar: 'نِ', role: 'the protecting nūn', why: 'Al-Jadwal says the nūn is “for protection”. It keeps the fatḥa of the verb and carries the kasra for the yāʾ.', irab: 'النون للوقاية' },
+        { at: 1, ar: 'ي', role: 'the object (mafʿūl bihi): “me”', case: 'accusative (naṣb), by place', mark: 'none: a joined pronoun shows no ending', why: 'It is joined to a verb, so it is the object.', irab: 'ضمير متصل مبني في محل نصب مفعول به' },
+        { at: 2, ar: 'فَ', role: '“and so”, a little word that joins this sentence to the one before', why: 'Little words have no case.', irab: 'الفاء عاطفة' },
+        { at: 2, ar: 'هُوَ', role: 'mubtadaʾ: “he”', case: 'nominative (rafʿ), by place', mark: 'none: a separate pronoun does not change', why: 'It starts a nominal sentence (L2.01). It is a separate pronoun, not a joined one.', irab: 'ضمير منفصل مبني في محل رفع مبتدأ' },
+        { at: 3, ar: 'يَهْدِي', role: 'a present-tense verb: “he guides”. Its doer is a hidden “he”.', why: 'The hidden doer is the same “he” as the mubtadaʾ. L3.06 teaches the present tense.', irab: 'فعل مضارع والفاعل ضمير مستتر تقديره هو' },
+        { at: 3, ar: 'نِ', role: 'the protecting nūn again', why: 'The same nūn as in خَلَقَنِى, and the same job.', irab: 'النون للوقاية' },
+        { at: 3, role: 'the yāʾ “me” is left out of the written word', why: 'Al-Jadwal says it is dropped to match the endings of the other verses in this surah. The kasra on the nūn is what is left.', irab: 'وحذفت الياء من الفعل للفاصلة' },
+        { at: [2, 3], role: 'the khabar of هُوَ: the whole verbal sentence', case: 'a sentence has no ending; it stands in the place of the nominative', why: 'It is the news about “he”. A sentence can be a khabar (L2.01).', irab: 'وجملة «يهدين» في محل رفع خبر المبتدأ هو' },
+      ]}
+    />
+  </Stage>
+
+This verse has the protecting nūn twice. In خَلَقَنِى it is joined to a past verb. In يَهْدِينِ it is joined to a present verb, and the yāʾ of “me” is dropped. Al-Jadwal says it is dropped to match the endings of the verses around it. The nūn does the same job in both.
+
+Notice also the pair: **هُوَ**, a separate pronoun, is the mubtadaʾ. **ـنِي** is a joined pronoun, the object. They do two different jobs.
+
+<Note kind="know">Al-Jadwal's notes give other readings of ٱلَّذِى (a mubtadaʾ, or the khabar of a mubtadaʾ left out). This lesson follows its main reading. L3.11 teaches “who”.</Note>
+</Block>
+
+</Step>
+
+<Step id="practice" label="Practice" title="Practice">
+<Block id="practice-1" title="Practice: read the endings">
+  <Stage label="For each joined pronoun, say">
+    <ol class="lx-card-list">
+      <li><b>Person:</b> I, we, you or he, she, they?</li>
+      <li><b>Joined to:</b> a noun, a preposition, a verb or inna?</li>
+      <li><b>Job:</b> muḍāf ilayh, noun after a preposition, object, ism of inna or doer?</li>
+      <li><b>Case, in place:</b> nominative, accusative or genitive?</li>
+    </ol>
+  </Stage>
+
+Work out each answer first, on paper or in your head. Then open the answer.
+
+<Exercise n={1} q="What does each ending mean? (a) كِتَابُهُ (b) كِتَابِي (c) كِتَابُنَا (d) كِتَابُكَ (e) كِتَابُهُمْ (f) كِتَابُهَا. These are made-up forms.">
+
+- (a) كِتَابُهُ, “his book”: -hu is “his”.
+- (b) كِتَابِي, “my book”: -ī is “my”, on a noun.
+- (c) كِتَابُنَا, “our book”: -nā is “our”.
+- (d) كِتَابُكَ, “your book”, said to one man: -ka.
+- (e) كِتَابُهُمْ, “their book”: -hum, for men.
+- (f) كِتَابُهَا, “her book”: -hā.
+
+In each one the pronoun is the muḍāf ilayh, genitive in place.
+
+</Exercise>
+
+<Exercise n={2} q="Join the ending -hum (“their, them”) to each word. (a) كِتَاب, book (b) رَءَا, he saw (c) مِنْ, from (d) بَيْت, house (e) عَلَىٰ, on. These are made-up forms.">
+
+- (a) كِتَابُهُمْ, “their book”: the pronoun is the muḍāf ilayh, genitive.
+- (b) رَءَاهُمْ, “he saw them”: the pronoun is the object, accusative.
+- (c) مِنْهُمْ, “from them”: the noun after the preposition, genitive.
+- (d) بَيْتُهُمْ, “their house”: the muḍāf ilayh, genitive.
+- (e) عَلَيْهِمْ, “on them”: عَلَىٰ turns its ى into يْ, and the hā takes a kasra after it. The noun after the preposition, genitive.
+
+</Exercise>
+
+<Exercise n={3} q="Find the joined pronouns and say their jobs: رَبَّنَآ إِنَّكَ جَامِعُ ٱلنَّاسِ (Al-Imran 3:9, start). Meaning: “Our Lord, indeed you gather the people.”">
+
+There are two.
+
+- **-nā** in رَبَّنَآ: joined to a noun. It is the muḍāf ilayh, “our”, genitive in place.
+- **-ka** in إِنَّكَ: joined to inna. It is the ism of inna, “you”, accusative in place.
+
+The word جَامِعُ has no joined pronoun. It is the khabar of inna.
+
+</Exercise>
+
+<Exercise n={4} q="In هُوَ يُحِبُّهَا, “he loves her”, which pronoun is separate and which is joined? What job does each do? This is a made-up example.">
+
+- **هُوَ** is the **separate** pronoun. It is the **mubtadaʾ**. The sentence is a nominal sentence, and the khabar is the verbal sentence يُحِبُّهَا (L2.01).
+- **ـهَا** is the **joined** pronoun. It is joined to the verb يُحِبُّ, so it is the **object**, accusative in place.
+- The doer of يُحِبُّ is a hidden “he”, the same person as هُوَ.
+
+You can also say يُحِبُّهَا alone, “he loves her”. The doer is hidden, and the object is joined.
+
+</Exercise>
+
+<Exercise n={5} q="Split each word into the preposition and the pronoun. Say who the pronoun is. لَهُمْ فِيهَا فَٰكِهَةٌ (Ya-Sin 36:57, start). Meaning: “They have fruit in it.”">
+
+- **لَهُمْ**: لَ (“for”) + هُمْ (“them”). The pronoun is genitive in place. The phrase is the khabar, put first: “for them”.
+- **فِيهَا**: فِي (“in”) + هَا (“it”, feminine singular). The pronoun means the garden, ٱلْجَنَّة, from 36:55, which is feminine.
+- **فَٰكِهَةٌ**, “fruit”, is the mubtadaʾ, put later (L2.01).
+
+</Exercise>
+</Block>
+
+<Block id="practice-2" title="Practice: doer or object, ī or nī, hum or him">
+  <Stage label="Three questions">
+    <ol class="lx-card-list">
+      <li><b>Doer or object?</b> Look at the letter before the ending.</li>
+      <li><b>ī or nī?</b> Noun: ī. Verb: nī.</li>
+      <li><b>hum or him?</b> A kasra or yāʾ sākin before it: him.</li>
+    </ol>
+  </Stage>
+
+<Exercise n={6} q="Doer or object? Say what -nā is in each. (a) ظَلَمْنَا (b) ظَلَمَنَا (c) تَرْحَمْنَا (d) رَزَقْنَا. These are teaching forms.">
+
+- (a) ظَلَمْنَا: a sukūn before -nā. The doer: “we wronged”.
+- (b) ظَلَمَنَا: a fatḥa before -nā. The object: “he wronged us”.
+- (c) تَرْحَمْنَا: the verb starts with تَـ, a present-tense prefix for “you”, so -nā is the object: “you have mercy on us”.
+- (d) رَزَقْنَا: a sukūn before -nā. The doer: “we provided”.
+
+</Exercise>
+
+<Exercise n={7} q="Choose ـِي or ـنِي. (a) “my Lord” رَبّ__ (b) “he created me” خَلَقَ__ (c) “for me” لِ__ (d) “he saw me” رَءَا__">
+
+- (a) رَبِّي: a noun takes ـِي.
+- (b) خَلَقَنِي: a verb takes ـنِي.
+- (c) لِي: this preposition keeps ـِي.
+- (d) رَءَانِي: a verb takes ـنِي.
+
+</Exercise>
+
+<Exercise n={8} q="Say each in Arabic, with the vowels. (a) “for you” (one man) (b) “from him” (c) “with them” (men) (d) “I wrote it”. These are made-up forms.">
+
+- (a) **لَكَ**: لِ becomes لَ before a joined pronoun, except for “me” (L2.07).
+- (b) **مِنْهُ**: the sukūn on نْ comes before the hā, so -hu.
+- (c) **بِهِمْ**: a kasra comes before the hā, so -him.
+- (d) **كَتَبْتُهُ**: the verb, then the doer -tu, then the object -hu.
+
+</Exercise>
+
+<Exercise n={9} q="Pick hum or him. (a) لَ__ (b) بِ__ (c) عَلَيْ__ (d) رَبِّ__ (e) رَبُّ__ (f) مِنْ__">
+
+- (a) لَهُمْ: a fatḥa before.
+- (b) بِهِمْ: a kasra before.
+- (c) عَلَيْهِمْ: a yāʾ with sukūn before.
+- (d) رَبِّهِمْ: a kasra before.
+- (e) رَبُّهُمْ: a ḍamma before.
+- (f) مِنْهُمْ: a sukūn on the nūn before.
+
+</Exercise>
+</Block>
+
+<Block id="practice-3" title="Practice: verses from Levels 1 and 2">
+  <Stage label="You met these endings earlier">
+    <ol class="lx-card-list">
+      <li><b>2:24:</b> وَقُودُهَا, “its fuel”</li>
+      <li><b>91:1:</b> ضُحَىٰهَا, “its morning”</li>
+      <li><b>112:4:</b> لَهُ, “to him”</li>
+      <li><b>108:1:</b> إِنَّا and أَعْطَيْنَاكَ</li>
+    </ol>
+  </Stage>
+
+Earlier lessons pointed ahead to this one. Now you can say what these endings are.
+
+<Exercise n={10} q="Find the joined pronoun and its job: ٱلنَّارَ ٱلَّتِى وَقُودُهَا ٱلنَّاسُ (Al-Baqarah 2:24, part). Meaning: “The fire whose fuel is people.”">
+
+**-hā** is joined to the noun وَقُودُ, “fuel”. It is the muḍāf ilayh, “its”, genitive in place. It means the fire, ٱلنَّار, which is feminine.
+
+Al-Jadwal reads وَقُودُهَا as the mubtadaʾ, with -hā as its muḍāf ilayh. ٱلنَّاسُ is the khabar.
+
+</Exercise>
+
+<Exercise n={11} q="What is the ending on the last word? وَٱلشَّمْسِ وَضُحَىٰهَا (Ash-Shams 91:1). Meaning: “By the sun and its morning light.”">
+
+**-hā** is joined to the noun ضُحَىٰ, “morning light”. It is the muḍāf ilayh, “its”: the morning light of the sun. It is genitive in place. Because ضُحَىٰ ends in a long ā (ى), you cannot see its own ending, as you learned in L2.01.
+
+</Exercise>
+
+<Exercise n={12} q="What job does -hu have, and what does it mean? وَلَمْ يَكُن لَّهُۥ كُفُوًا أَحَدٌۢ (Al-Ikhlas 112:4). Meaning: “And no one is equal to him.”">
+
+**-hu** is joined to the preposition لِ: لَهُۥ, “to him”. It is the noun after the preposition, genitive in place. It refers to Allah.
+
+Al-Jadwal says the phrase لَهُ belongs to كُفُوًا, “equal”: “no one is equal to Him”.
+
+</Exercise>
+
+<Exercise n={13} q="Name the joined pronouns in إِنَّآ أَعْطَيْنَٰكَ ٱلْكَوْثَرَ (Al-Kawthar 108:1). Meaning: “We have given you Al-Kawthar.”">
+
+There are three. Two of them are **-nā** with different jobs, and one is **-ka**.
+
+- **-nā** in إِنَّآ: joined to inna. It is the ism of inna, “we”, accusative in place.
+- **-nā** in أَعْطَيْنَٰكَ: joined to the verb, first. It is the doer, “we”, nominative in place.
+- **-ka** in أَعْطَيْنَٰكَ: joined to the verb, last. It is the first object, “you”, accusative in place.
+
+The verb أَعْطَى takes two objects (L2.03). ٱلْكَوْثَرَ is the second one.
+
+</Exercise>
+
+<Exercise n={14} q="What does -kumā mean, and whom does it speak to? فَبِأَىِّ ءَالَآءِ رَبِّكُمَا تُكَذِّبَانِ (Ar-Rahman 55:13). Meaning: “So which of your Lord's gifts do you two deny?”">
+
+**-kumā** is the dual “you two”. It is joined to the noun رَبِّ, so it is the muḍāf ilayh: “your (two) Lord”. It is genitive in place.
+
+The verb تُكَذِّبَانِ ends in -āni, a dual ending for the doer: “you two”. The pronoun and the verb agree.
+
+</Exercise>
+
+<Exercise n={15} q="What are the joined pronouns? قَالَ رَبِّ ٱغْفِرْ لِى (Al-Aʿraf 7:151, start). Meaning: “He said: My Lord, forgive me.”">
+
+- **رَبِّ**: the word for “my Lord” with the yāʾ of “my” left out. The kasra on the bāʾ is what is left of it. Al-Jadwal says the yāʾ is dropped for lightness. The word is being called, so it is accusative.
+- **لِى**: لِ (“for”) + ـِي (“me”). It is the noun after the preposition, genitive in place. There is no nūn, because a preposition like لِ keeps the plain ـِي.
+
+</Exercise>
+</Block>
+
+<Block id="done" title="You have finished the lesson">
+  <Stage label="The idea">
+    <Formula
+      label="a word plus a pronoun ending equals one written word"
+      items={[
+        { kind: 'm', text: 'كِتَابُ', small: 'a word' },
+        { kind: 'k', text: 'هُ', small: 'a joined pronoun' },
+        { kind: 's', text: 'كِتَابُهُ', small: 'his book' },
+      ]}
+    />
+  </Stage>
+
+- An **attached pronoun** is joined to the end of another word. There are twelve: ـِي, ـنَا, ـكَ, ـكِ, ـكُمَا, ـكُمْ, ـكُنَّ, ـهُ, ـهَا, ـهُمَا, ـهُمْ, ـهُنَّ.
+- The **k family** means “you”. The **h family** means “he, she, they”.
+- The same endings join **nouns** (my book), **prepositions** (with him) and **verbs** (he hit him).
+- On a noun the pronoun is the **muḍāf ilayh**, and the noun loses its al- and tanwīn. On a preposition it is the noun after it. Both are genitive in place.
+- On a verb the pronoun is the **object**, accusative in place. After inna it is the **ism of inna**, accusative in place.
+- Some endings on a past verb are the **doer**, nominative in place. With two endings, the doer comes first and the object last: ضَرَبْنَاهُ.
+- “Me” is ـِي on a noun and ـنِي on a verb, with the protecting nūn.
+- The pronouns هُ, هُمْ, هُمَا, هُنَّ become هِ, هِمْ, هِمَا, هِنَّ after a kasra or a yāʾ with sukūn.
+
+**Next:** L3.03 teaches the root system, the three letters behind a Quranic word. L3.05 gives the past-tense doer endings you met here (-tu, -ta, -nā, -ū). L3.06 gives the present tense.
+
+<Sources
+    items={[
+      { label: 'Quran text', name: 'Tanzil (Uthmani text)', href: 'https://tanzil.net' },
+      { label: 'Word types and pronoun tags', name: 'Quranic Arabic Corpus', href: 'https://corpus.quran.com' },
+      { label: 'Word-by-word analysis (iʿrāb) of the verses', name: 'Maḥmūd Ṣāfī, al-Jadwal fī Iʿrāb al-Qurʾān wa-Ṣarfihi wa-Bayānihi' },
+      { label: 'Grammar: the twelve joined pronouns', name: 'Ibn Ājurrūm, al-Ajurrumiyyah, chapter on the object (mafʿūl bihi)' },
+      { label: 'English under the verses', name: 'Plain-English meanings by Quran Learn, not a translation' },
+    ]}
+  />
+</Block>
+
+</Step>
