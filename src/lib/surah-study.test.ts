@@ -81,15 +81,26 @@ test('080 keeps its surah-level synthesis out of the last verse', () => {
   assert.ok(!t.verses[41].layers.some((l) => /Surah-Level/.test(l.body)));
 });
 
-test('detailHTML shows the plain line and the root when they exist, and only the parse when not', async () => {
+test('detailHTML shows the plain line, root, case and word form when they exist, and only the parse when not', async () => {
   const { detailHTML } = await import('./surah-study.ts');
-  const full = detailHTML({ ar: 'قُلْ', tr: 'qul', en: 'Say', root: 'ق و ل', irab: 'Command verb', t: 'verb', role: 'Command', say: 'A command.' });
+  const full = detailHTML({ ar: 'قُلْ', tr: 'qul', en: 'Say', root: 'ق و ل', irab: 'Command verb', morph: 'Verb - Form I, imperative', cs: 'verb', lens: 'verb', t: 'verb', role: 'Command', say: 'A command.' });
   assert.match(full, /Verb <em>fiʿl<\/em>/);
   assert.match(full, /class="role">Command</);
+  assert.match(full, /class="case">Verb · fiʿl</);
   assert.match(full, /qul: Say\. A command\./);
   assert.match(full, /Root <span class="ar"/);
+  assert.match(full, /Word form: Verb - Form I, imperative/);
   assert.match(full, /For the grammar book: Command verb/);
-  const bare = detailHTML({ ar: 'لَمْ', tr: 'lam', en: 'Not', root: '-', irab: 'Negative particle', t: 'little' });
-  assert.ok(!bare.includes('class="role"') && !bare.includes('Root') && bare.includes('Grammar: Negative particle'));
-  assert.ok(!detailHTML({ ar: 'x', tr: '<b>', en: '&', root: '', irab: '"', t: 'noun' }).includes('<b>'));
+  const bare = detailHTML({ ar: 'لَمْ', tr: 'lam', en: 'Not', root: '-', irab: 'Negative particle', morph: 'Particle - negation', cs: 'none', lens: '', t: 'little' });
+  assert.ok(!bare.includes('class="role"') && !bare.includes('Root') && !bare.includes('class="case"') && bare.includes('Grammar: Negative particle'));
+  assert.ok(!detailHTML({ ar: 'x', tr: '<b>', en: '&', root: '', irab: '"', morph: '<i>', cs: 'none', lens: '', t: 'noun' }).includes('<b>'));
+});
+
+test('every verse of all 38 files names its key grammar word, and the lens list covers what the decoder uses', async () => {
+  const { LENSES } = await import('./surah-study.ts');
+  assert.deepEqual(LENSES.map((l) => l.key), ['particle', 'gen', 'acc', 'nom', 'verb']);
+  for (const f of files) {
+    const t = parseSurahBody(readFileSync(join(DIR, f), 'utf8'));
+    t.verses.forEach((v) => assert.ok(v.highlight.length >= 1, `${f} verse ${v.n}: no highlight`));
+  }
 });

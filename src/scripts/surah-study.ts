@@ -5,13 +5,13 @@
 import { detailHTML, withArabic, type StudyWord } from '../lib/surah-study';
 import { isLessonComplete, markLessonComplete } from '../lib/progress';
 
-const data = JSON.parse(document.getElementById('study-data')!.textContent!) as {
+export const data = JSON.parse(document.getElementById('study-data')!.textContent!) as {
   words: Record<string, StudyWord[]>;
   quiz: Record<string, { answer: number; why: string }>;
 };
 
 // ---- the word box: tap a word, or walk the words with the arrow keys (Arabic runs right to left) ----
-function showWord(section: HTMLElement, i: number) {
+export function showWord(section: HTMLElement, i: number) {
   const words = data.words[section.dataset.verse!];
   const w = words[i];
   if (!w) return;

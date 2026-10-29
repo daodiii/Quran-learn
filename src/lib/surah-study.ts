@@ -34,7 +34,13 @@ export function wordSize(count: number): { size: number; min: number } {
 
 export interface Callout { kind: string; title: string; body: string }
 export interface Layer { key: 'nahw' | 'sarf' | 'balagha'; label: string; body: string }
-export interface VerseText { n: number; layers: Layer[]; callouts: Callout[] }
+export interface VerseText {
+  n: number;
+  layers: Layer[];
+  callouts: Callout[];
+  /** The Arabic word(s) the file marks as the verse's key grammar point (the ArabicExample "highlight"). */
+  highlight: string[];
+}
 export interface Exercise { q: string; a: string }
 export interface StudyText {
   overview: { label: string; text: string }[];
@@ -107,7 +113,13 @@ export function parseSurahBody(raw: string): StudyText {
     }
     const callouts = [...chunk.matchAll(/<Callout type="(\w+)" title="([^"]*)">\n([\s\S]*?)\n<\/Callout>/g)].map((m) => ({ kind: m[1], title: m[2], body: m[3].trim() }));
     const synth = /^#### Nahw-Sarf-Balagha Synthesis[^\n]*\n/m.exec(chunk);
-    verses.push({ n: +chunks[i], callouts, layers: synth ? parseLayers(chunk.slice(synth.index + synth[0].length)) : [] });
+    const hl = /<ArabicExample[\s\S]*?highlight="([^"]*)"/.exec(chunk);
+    verses.push({
+      n: +chunks[i],
+      callouts,
+      layers: synth ? parseLayers(chunk.slice(synth.index + synth[0].length)) : [],
+      highlight: hl ? hl[1].split(',').map((w) => w.trim()).filter(Boolean) : [],
+    });
   }
 
   const exercises = [...section(body, 'Practice Exercises').matchAll(/<ExerciseBox question="([^"]*)">\n([\s\S]*?)<\/ExerciseBox>/g)].map((m) => ({ q: m[1], a: m[2].trim() }));
@@ -143,7 +155,7 @@ export function md(src: string): string {
   const closeTable = () => {
     if (!rows.length) return;
     const [head, ...rest] = rows;
-    out.push(`<div class="tbl"><table><thead><tr>${head.map((c) => `<th>${inline(c)}</th>`).join('')}</tr></thead><tbody>${rest.map((r) => `<tr>${r.map((c) => `<td>${inline(c)}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`);
+    out.push(`<div class="tbl" tabindex="0" role="region" aria-label="Table, scrolls sideways on a small screen"><table><thead><tr>${head.map((c) => `<th>${inline(c)}</th>`).join('')}</tr></thead><tbody>${rest.map((r) => `<tr>${r.map((c) => `<td>${inline(c)}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`);
     rows = [];
   };
   const lines = src.split('\n');
@@ -183,17 +195,40 @@ export interface StudyWord {
   root: string;
   /** The grammar book's parse, in the book's terms. */
   irab: string;
+  /** The word's form: part of speech, form, person, number (the old page's "Morphology · ṣarf"). */
+  morph: string;
   t: WordType;
+  /** Case or kind, from the decoder data: gen, acc, nom, mabni, verb or none. */
+  cs: string;
+  /** Which lens this word belongs to: particle, verb, gen, acc or nom (one at most). */
+  lens: string;
   /** Plain-English role label and one or two sentences; absent for surahs without a teaching layer yet. */
   role?: string;
   say?: string;
+  /** The verse's key grammar word, as the surah file marks it. */
+  key?: boolean;
 }
 
-/** Inner HTML of the word box: type, role, meaning, plain sentence, root and the book's parse. */
+/** The lenses: pick one and every word of that kind is marked across the surah. */
+export const LENSES = [
+  { key: 'particle', label: 'Little words', ar: 'حرف', def: 'Little words (ḥarf) such as in, from, and, not. They do not take a case ending.' },
+  { key: 'gen', label: 'Genitive', ar: 'مجرور', def: 'Genitive (majrūr): the word after a preposition, or the second word of a possession. It usually ends in a kasra.' },
+  { key: 'acc', label: 'Accusative', ar: 'منصوب', def: 'Accusative (manṣūb): often the object of a verb, or a word that adds detail. It usually ends in a fatḥa.' },
+  { key: 'nom', label: 'Nominative', ar: 'مرفوع', def: 'Nominative (marfūʿ): the subject, or what is said about it. It usually ends in a ḍamma.' },
+  { key: 'verb', label: 'Verbs', ar: 'فعل', def: 'Verbs (fiʿl): the actions. A verb has a tense and a mood, not a case.' },
+] as const;
+
+const CASE_NAME: Record<string, string> = {
+  gen: 'Genitive · majrūr', acc: 'Accusative · manṣūb', nom: 'Nominative · marfūʿ', mabni: 'Indeclinable · mabnī', verb: 'Verb · fiʿl',
+};
+
+/** Inner HTML of the word box: type, role, case, meaning, plain sentence, root, form and the book's parse. */
 export function detailHTML(w: StudyWord): string {
   const t = WORD_TYPES[w.t];
   const root = w.root && w.root !== '-' ? `<span>Root <span class="ar" lang="ar" dir="rtl">${esc(w.root)}</span></span>` : '';
-  return `<div class="top2"><span class="ty ${w.t}">${t.label} <em>${t.term}</em></span>${w.role ? `<span class="role">${esc(w.role)}</span>` : ''}</div>`
+  const kase = CASE_NAME[w.cs] ? `<span class="case">${CASE_NAME[w.cs]}</span>` : '';
+  return `<div class="top2"><span class="ty ${w.t}">${t.label} <em>${t.term}</em></span>${w.role ? `<span class="role">${esc(w.role)}</span>` : ''}${kase}</div>`
     + `<p class="say">${esc(w.tr)}: ${esc(w.en)}.${w.say ? ' ' + withArabic(w.say) : ''}</p>`
-    + `<p class="book">${root}<span>${w.role ? 'For the grammar book' : 'Grammar'}: ${withArabic(w.irab)}</span></p>`;
+    + `<p class="book">${root}<span>Word form: ${esc(w.morph)}</span></p>`
+    + `<p class="book"><span>${w.role ? 'For the grammar book' : 'Grammar'}: ${withArabic(w.irab)}</span></p>`;
 }

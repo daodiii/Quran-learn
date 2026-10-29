@@ -81,7 +81,7 @@ test('a long surah: 40 verses, a rail with 40 verse links, and the whole page re
 
 test('surah 80 keeps its explanation for the whole surah', async ({ page }) => {
   await page.goto('/surahs/080-abasa/');
-  await expect(page.locator('#whole')).toBeVisible();
+  await expect(page.locator('#across')).toBeVisible();
 });
 
 test.describe('phone', () => {

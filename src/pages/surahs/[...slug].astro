@@ -12,6 +12,7 @@ import { SURAH_OPENINGS } from '../../data/surah-openings';
 import { READING_TRACK } from '../../data/reading-track';
 import { SURAH_STUDY } from '../../data/surah-study';
 import { parseSurahBody, plainNote, wordType } from '../../lib/surah-study';
+import { ayahAudioUrl } from '../../lib/ayah-ref';
 
 export async function getStaticPaths() {
   const surahs = (await getCollection('surahs')).sort((a, b) => a.data.surahNumber - b.data.surahNumber);
@@ -47,7 +48,11 @@ const verses = dec.map((v, i) => {
   if (s?.quiz && !(s.quiz.word >= 0 && s.quiz.word < v.words.length && s.quiz.answer >= 0 && s.quiz.answer < s.quiz.options.length)) fail(`verse ${v.ayah}: the question points outside its words or answers`);
   return {
     n: v.ayah, ar: v.arabic, tr: v.transliteration, en: v.translation,
-    words: v.words.map((w, k) => ({ ar: w.ar, tr: w.tr, en: w.en, root: w.root, irab: w.irab, t: wordType(w.morph), role: s?.words[k].role, say: s?.words[k].say })),
+    audio: ayahAudioUrl({ surah: d.surahNumber, ayah: v.ayah }),
+    words: v.words.map((w, k) => ({
+      ar: w.ar, tr: w.tr, en: w.en, root: w.root, irab: w.irab, morph: w.morph, cs: w.cs, lens: w.lens[0] ?? '',
+      t: wordType(w.morph), key: t.highlight.includes(w.ar), role: s?.words[k].role, say: s?.words[k].say,
+    })),
     layers: [...t.layers],
     callouts: t.callouts,
     quiz: s?.quiz,
@@ -64,6 +69,7 @@ const model: SurahModel = {
   level: track.afterLevel,
   note: plainNote(track.note),
   theme: text.overview.find((o) => /^theme$/i.test(o.label))?.text ?? '',
+  focus: text.overview.find((o) => /^grammar focus$/i.test(o.label))?.text ?? '',
   words: verses.reduce((n, v) => n + v.words.length, 0),
   verses,
   glance: text.glance,

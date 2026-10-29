@@ -15,10 +15,13 @@ import ArticleSchema from '../components/seo/ArticleSchema.astro';
 import CookieBanner from '../components/CookieBanner.astro';
 import '../styles/fonts.css';
 import '../styles/surah-study.css';
-import { WORD_TYPES, wordSize, md, inline, withArabic, detailHTML, type Callout, type Layer, type Exercise, type StudyWord } from '../lib/surah-study';
+import '../styles/surah-study-tools.css';
+import { WORD_TYPES, LENSES, wordSize, md, inline, withArabic, detailHTML, type Callout, type Layer, type Exercise, type StudyWord } from '../lib/surah-study';
 
 export interface StudyVerse {
   n: number;
+  /** Recitation of this verse (everyayah.com, Alafasy), fetched only when played. */
+  audio: string;
   ar: string;
   tr: string;
   en: string;
@@ -37,8 +40,9 @@ export interface SurahModel {
   level: number;
   /** The reading track's "what to notice" line. */
   note: string;
-  /** The overview's "Theme" line, if the file has one. */
+  /** The overview's "Theme" and "Grammar Focus" lines, if the file has them. */
   theme: string;
+  focus: string;
   words: number;
   verses: StudyVerse[];
   glance: { table: string; notes: Callout[] };
@@ -60,9 +64,14 @@ const ogImageURL = new URL('/images/og-default.jpg', Astro.site);
 const crumbs = [{ label: 'Home', href: '/' }, { label: 'Surahs', href: '/surahs/' }, { label: `Surah ${m.name}` }];
 
 const many = m.verses.length > 8;
+// Lenses the surah actually uses, with how many words each marks.
+const lensCount = (k: string) => m.verses.reduce((n, v) => n + v.words.filter((w) => w.lens === k).length, 0);
+const lenses = LENSES.map((l) => ({ ...l, count: lensCount(l.key) })).filter((l) => l.count > 0);
+
 const stations = [
+  { id: 'reader', label: 'Whole surah', n: '≡', verse: false, first: true },
   ...m.verses.map((v) => ({ id: `v${v.n}`, label: `Verse ${v.n}`, n: String(v.n), verse: true })),
-  ...(m.surahLayers.length ? [{ id: 'whole', label: 'The whole surah', n: '∑', verse: false }] : []),
+  ...(m.surahLayers.length ? [{ id: 'across', label: 'Across the surah', n: '∑', verse: false }] : []),
   { id: 'practice', label: 'Practice', n: '✎', verse: false },
   { id: 'words', label: 'Words to keep', n: 'W', verse: false },
   { id: 'sources', label: 'Sources', n: 'i', verse: false },
@@ -70,7 +79,7 @@ const stations = [
 
 // What the browser script needs: one entry per verse, in word order.
 const clientData = {
-  words: Object.fromEntries(m.verses.map((v) => [v.n, v.words.map((w) => ({ ar: w.ar, tr: w.tr, en: w.en, root: w.root, irab: w.irab, t: w.t, role: w.role, say: w.say }))])),
+  words: Object.fromEntries(m.verses.map((v) => [v.n, v.words.map((w) => ({ ar: w.ar, tr: w.tr, en: w.en, root: w.root, irab: w.irab, morph: w.morph, cs: w.cs, lens: w.lens, t: w.t, role: w.role, say: w.say }))])),
   quiz: Object.fromEntries(m.verses.filter((v) => v.quiz).map((v) => [v.n, { answer: v.quiz!.answer, why: v.quiz!.why }])),
 };
 const json = JSON.stringify(clientData).replace(/</g, '\\u003c');
@@ -152,7 +161,8 @@ const ICON = {
       <p class="tags"><span class="tag">Surah {m.number}</span><span class="tag">{m.place}</span><span class="tag">{m.verses.length} verses, {m.words} words</span><span class="tag lv">Read after Level {m.level}</span></p>
       <h1 class="h1"><span class="vh">Surah </span>{m.name}</h1>
       <p class="dek"><b>What to notice.</b> <Fragment set:html={withArabic(m.note)} /></p>
-      {m.theme && <p class="theme"><Fragment set:html={inline(m.theme)} /></p>}
+      {m.theme && <p class="theme"><b>Theme.</b> <Fragment set:html={inline(m.theme)} /></p>}
+      {m.focus && <p class="theme"><b>Grammar focus.</b> <Fragment set:html={inline(m.focus)} /></p>}
     </div>
     <span class="ar nm" lang="ar" dir="rtl">{m.nameArabic}</span>
   </header>
@@ -160,23 +170,56 @@ const ICON = {
   <div class={`body${many ? ' many' : ''}`}>
     <nav class="nav" id="nav" aria-label="On this page">
       <p class="h">On this page</p>
+      {stations.filter((s) => s.first).map((s) => <a href={`#${s.id}`} data-id={s.id} aria-current="true"><span class="n" aria-hidden="true">{s.n}</span>{s.label}</a>)}
       {many ? (
-        <div class="many">{stations.filter((s) => s.verse).map((s, i) => <a href={`#${s.id}`} data-id={s.id} aria-current={i === 0 ? 'true' : undefined} aria-label={s.label}>{s.n}</a>)}</div>
-      ) : stations.filter((s) => s.verse).map((s, i) => <a href={`#${s.id}`} data-id={s.id} aria-current={i === 0 ? 'true' : undefined}><span class="n" aria-hidden="true">{s.n}</span>{s.label}</a>)}
-      {stations.filter((s) => !s.verse).map((s) => <a href={`#${s.id}`} data-id={s.id}><span class="n" aria-hidden="true">{s.n}</span>{s.label}</a>)}
-      <ul class="key" aria-label="Word types">{Object.entries(WORD_TYPES).map(([k, t]) => <li class={k} style={`--c:var(--${k})`}><b>{t.label}</b></li>)}</ul>
+        <div class="many">{stations.filter((s) => s.verse).map((s) => <a href={`#${s.id}`} data-id={s.id} aria-label={s.label}>{s.n}</a>)}</div>
+      ) : stations.filter((s) => s.verse).map((s) => <a href={`#${s.id}`} data-id={s.id}><span class="n" aria-hidden="true">{s.n}</span>{s.label}</a>)}
+      {stations.filter((s) => !s.verse && !s.first).map((s) => <a href={`#${s.id}`} data-id={s.id}><span class="n" aria-hidden="true">{s.n}</span>{s.label}</a>)}
+      <ul class="key" aria-label="Word types">
+        {Object.entries(WORD_TYPES).map(([k, t]) => <li class={k} style={`--c:var(--${k})`}><b>{t.label}</b></li>)}
+        <li class="kw"><b>Key word</b></li>
+      </ul>
+      <div class="prog js-only"><span id="prog-text">Reading position 0%</span><i aria-hidden="true"><s id="prog-fill"></s></i></div>
     </nav>
 
-    <div class="col">
+    <div class="col" id="col">
+      <section class="sec first" id="reader" aria-labelledby="h-reader">
+        <h2 id="h-reader">The whole surah</h2>
+        <p class="lead js-only">Read it as one text. Pick a lens to mark every word of one kind, or tap a word to see what it is.</p>
+        <div class="lens js-only" role="group" aria-label="Lens: mark one kind of word across the whole surah">
+          <button class="chip" type="button" data-pick="all" aria-pressed="true">All words</button>
+          {lenses.map((l) => <button class="chip" type="button" data-pick={l.key} aria-pressed="false">{l.label} <span class="k ar" lang="ar" aria-hidden="true">{l.ar}</span> <span class="ct">{l.count}</span></button>)}
+        </div>
+        <p class="lens-def js-only" id="lens-def" aria-live="polite" data-defs={JSON.stringify(Object.fromEntries(lenses.map((l) => [l.key, `${l.def} ${l.count} ${l.count === 1 ? 'word' : 'words'} in this surah.`])))}></p>
+        <div class="tools js-only">
+          <button class="chip" type="button" id="hide-mean" aria-pressed="false">Hide meanings</button>
+          <button class="chip" type="button" id="play-all" aria-pressed="false">Listen to the whole surah</button>
+        </div>
+        <div class="reader" id="reader-text" lang="ar" dir="rtl" tabindex="0" role="group" aria-label={`Surah ${m.name}, all ${m.verses.length} verses`}>
+          {m.verses.map((v) => (
+            <>
+              {v.words.map((w, i) => <button class={`rw ${w.t}`} type="button" tabindex="-1" data-v={v.n} data-i={i} data-lens={w.lens} aria-pressed="false" aria-label={`Verse ${v.n}: ${w.tr}, ${w.en}`}><bdi class="q">{w.ar}</bdi></button>)}
+              <a class="vno" href={`#v${v.n}`} aria-label={`Go to verse ${v.n}`}>{v.n}</a>{' '}
+            </>
+          ))}
+        </div>
+        <div class="detail js-only" id="reader-detail" aria-live="polite"><p class="say">Tap a word above to see its breakdown here.</p></div>
+      </section>
+
       {m.verses.map((v) => {
         const size = wordSize(v.words.length);
         return (
           <section class="vs" id={`v${v.n}`} aria-labelledby={`h${v.n}`} data-verse={v.n}>
-            <h2 id={`h${v.n}`}>Verse {v.n} <small>of {m.verses.length}</small></h2>
+            <div class="vh-row">
+              <h2 id={`h${v.n}`}>Verse {v.n} <small>of {m.verses.length}</small></h2>
+              <button class="ayah-play js-only" type="button" data-audio-src={v.audio} aria-label={`Play recitation of verse ${v.n}`}>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg><span class="ayah-play-label">Listen</span>
+              </button>
+            </div>
             <div class="sheet"><div class="in">
               <div class="verse" role="group" aria-label={`Words of verse ${v.n}`} style={`--wfs:${size.size}rem;--wmin:${size.min}px`}>
                 {v.words.map((w, i) => (
-                  <button class={`w ${w.t}`} type="button" data-i={i} aria-pressed={i === 0 ? 'true' : 'false'} aria-label={`${w.tr}, ${w.en}, ${WORD_TYPES[w.t].label.toLowerCase()}`}>
+                  <button class={`w ${w.t}${w.key ? ' key' : ''}`} type="button" data-i={i} data-lens={w.lens} aria-pressed={i === 0 ? 'true' : 'false'} aria-label={`${w.tr}, ${w.en}, ${WORD_TYPES[w.t].label.toLowerCase()}${w.key ? ', key grammar word of this verse' : ''}`}>
                     <span class="q wa" lang="ar" dir="rtl">{w.ar}</span><span class="wg">{w.en}</span><span class="wl">{WORD_TYPES[w.t].label}</span>
                   </button>
                 ))}
@@ -184,6 +227,13 @@ const ICON = {
               <p class="tl">{v.tr}</p><p class="trn">{v.en}</p>
               <div class={`detail ${v.words[0].t}`} aria-live="polite" data-detail set:html={detailHTML(v.words[0])} />
             </div></div>
+            <details class="ex wt">
+              <summary><span>Every word of verse {v.n} in a table</span></summary>
+              <div class="ans"><div class="tbl" tabindex="0" role="region" aria-label="Every word of this verse, scrolls sideways on a small screen"><table class="vocab">
+                <thead><tr><th>#</th><th>Word</th><th>Say it</th><th>Root</th><th>Word form</th><th>Grammar</th><th>Meaning</th></tr></thead>
+                <tbody>{v.words.map((w, i) => <tr><td>{i + 1}</td><td class="q" lang="ar" dir="rtl">{w.ar}</td><td>{w.tr}</td><td class="ar" lang="ar" dir="rtl">{w.root === '-' ? '' : w.root}</td><td>{w.morph}</td><td set:html={withArabic(w.irab)} /><td>{w.en}</td></tr>)}</tbody>
+              </table></div></div>
+            </details>
             {(v.layers.length > 0 || v.callouts.length > 0 || v.quiz) && (
               <div class="why">
                 <h3>Why it is written this way</h3>
@@ -218,8 +268,8 @@ const ICON = {
       })}
 
       {m.surahLayers.length > 0 && (
-        <section class="sec" id="whole" aria-labelledby="h-whole">
-          <h2 id="h-whole">The whole surah</h2>
+        <section class="sec" id="across" aria-labelledby="h-across">
+          <h2 id="h-across">Across the surah</h2>
           <div class="prose">{m.surahLayers.map((l) => <><h3>{l.label}</h3><Fragment set:html={md(l.body)} /></>)}</div>
         </section>
       )}
@@ -234,10 +284,10 @@ const ICON = {
 
       <section class="sec" id="words" aria-labelledby="h-words">
         <h2 id="h-words">Words to keep</h2>
-        <div class="tbl">
+        <div class="tbl" tabindex="0" role="region" aria-label="Table, scrolls sideways on a small screen">
           <table class="vocab">
-            <thead><tr><th>Word</th><th>Root</th><th>Meaning</th></tr></thead>
-            <tbody>{m.vocab.map((r) => <tr><td class="q" lang="ar" dir="rtl">{r[0]}</td><td class="ar" lang="ar" dir="rtl">{r[1] === '-' ? '' : r[1]}</td><td>{r[3]}</td></tr>)}</tbody>
+            <thead><tr><th>Word</th><th>Root</th><th>Pattern</th><th>Meaning</th><th>How often</th></tr></thead>
+            <tbody>{m.vocab.map((r) => <tr><td class="q" lang="ar" dir="rtl">{r[0]}</td><td class="ar" lang="ar" dir="rtl">{r[1] === '-' ? '' : r[1]}</td><td set:html={r[2] === '-' ? '' : withArabic(r[2])} /><td>{r[3]}</td><td>{r[4] ?? ''}</td></tr>)}</tbody>
           </table>
         </div>
         <h3>Grammar in this surah</h3>
@@ -279,7 +329,7 @@ const ICON = {
 <CookieBanner tone="light" />
 <script id="study-data" type="application/json" is:inline set:html={json} />
 <script>
-  import '../scripts/surah-study';
+  import '../scripts/surah-study-tools';
 </script>
 </body>
 </html>
