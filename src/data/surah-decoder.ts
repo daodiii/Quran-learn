@@ -710,7 +710,7 @@ const data: SurahDecoderData = {
         {
           "ar": "الْجِبَالَ",
           "tr": "al-jibaala",
-          "root": "ج-б-ل",
+          "root": "ج-ب-ل",
           "morph": "Noun - feminine/masculine plural, definite",
           "irab": "First object (maf'ul bihi awwal) - accusative, parallel to al-ardha",
           "en": "the mountains",
@@ -1895,7 +1895,7 @@ const data: SurahDecoderData = {
         {
           "ar": "جَزَاءً",
           "tr": "jazaa'an",
-          "root": "ج-з-ي",
+          "root": "ج-ز-ي",
           "morph": "Noun - masculine singular, indefinite, masdar",
           "irab": "Specification (tamyiiz) or maf'ul mutlaq - accusative",
           "en": "a recompense/reward",
@@ -4968,7 +4968,7 @@ const data: SurahDecoderData = {
         {
           "ar": "ٱلْإِنسَـٰنُ",
           "tr": "al-insaanu",
-          "root": "أ н س",
+          "root": "أ ن س",
           "morph": "Noun - masculine singular, definite, nominative",
           "irab": "Subject (fa'il) - nominative (marfu')",
           "en": "The human/man",
@@ -10960,7 +10960,7 @@ const data: SurahDecoderData = {
     {
       "ayah": 17,
       "ref": "Al-Infitar 82:17",
-      "arabic": "وَمَا أَدْرَاكَ مَا يَوْمُ الدِّينِ",
+      "arabic": "وَمَا أَدْرَىٰكَ مَا يَوْمُ الدِّينِ",
       "transliteration": "wa-ma adraka ma yawmu al-diin",
       "translation": "And what can make you know what the Day of Recompense is?",
       "words": [
@@ -10987,9 +10987,9 @@ const data: SurahDecoderData = {
           "lens": []
         },
         {
-          "ar": "أَدْرَاكَ",
+          "ar": "أَدْرَىٰكَ",
           "tr": "adraka",
-          "root": "د ر ك",
+          "root": "د ر ي",
           "morph": "Verb - Form IV, past tense, 3rd person, masculine, singular + pronoun",
           "irab": "Past tense verb with object pronoun",
           "en": "made you know",
@@ -11037,7 +11037,7 @@ const data: SurahDecoderData = {
     {
       "ayah": 18,
       "ref": "Al-Infitar 82:18",
-      "arabic": "ثُمَّ مَا أَدْرَاكَ مَا يَوْمُ الدِّينِ",
+      "arabic": "ثُمَّ مَا أَدْرَىٰكَ مَا يَوْمُ الدِّينِ",
       "transliteration": "thumma ma adraka ma yawmu al-diin",
       "translation": "Then, what can make you know what the Day of Recompense is?",
       "words": [
@@ -11064,9 +11064,9 @@ const data: SurahDecoderData = {
           "lens": []
         },
         {
-          "ar": "أَدْرَاكَ",
+          "ar": "أَدْرَىٰكَ",
           "tr": "adraka",
-          "root": "د ر ك",
+          "root": "د ر ي",
           "morph": "Verb - Form IV, past tense, 3rd person, masculine, singular + pronoun",
           "irab": "Past tense verb with object pronoun",
           "en": "made you know",
@@ -11704,7 +11704,7 @@ const data: SurahDecoderData = {
     {
       "ayah": 8,
       "ref": "Al-Mutaffifin 83:8",
-      "arabic": "وَمَا أَدْرَاكَ مَا سِجِّينٌ",
+      "arabic": "وَمَا أَدْرَىٰكَ مَا سِجِّينٌ",
       "transliteration": "wa-mā adrāka mā sijjīn",
       "translation": "And what can make you know what sijjin is?",
       "words": [
@@ -11721,9 +11721,9 @@ const data: SurahDecoderData = {
           ]
         },
         {
-          "ar": "أَدْرَاكَ",
+          "ar": "أَدْرَىٰكَ",
           "tr": "adraka",
-          "root": "د ر ك",
+          "root": "د ر ي",
           "morph": "Verb - Form IV, past tense, 3rd person, masculine, singular + pronoun",
           "irab": "Past verb; ka = direct object pronoun (maf'ul bihi) - accusative",
           "en": "Made you know/informed you",
@@ -12493,7 +12493,7 @@ const data: SurahDecoderData = {
     {
       "ayah": 19,
       "ref": "Al-Mutaffifin 83:19",
-      "arabic": "وَمَا أَدْرَاكَ مَا عِلِّيُّونَ",
+      "arabic": "وَمَا أَدْرَىٰكَ مَا عِلِّيُّونَ",
       "transliteration": "wa-mā adrāka mā ʿilliyyūn",
       "translation": "And what can make you know what 'illiyyin is?",
       "words": [
@@ -12508,9 +12508,9 @@ const data: SurahDecoderData = {
           "lens": []
         },
         {
-          "ar": "أَدْرَاكَ",
+          "ar": "أَدْرَىٰكَ",
           "tr": "adraka",
-          "root": "د ر ك",
+          "root": "د ر ي",
           "morph": "Verb - Form IV, past tense, 3rd person, masculine, singular + pronoun",
           "irab": "Past verb; ka = direct object - accusative",
           "en": "Made you know",
@@ -17255,7 +17255,7 @@ const data: SurahDecoderData = {
     {
       "ayah": 2,
       "ref": "At-Tariq 86:2",
-      "arabic": "وَمَا أَدْرَاكَ مَا الطَّارِقُ",
+      "arabic": "وَمَا أَدْرَىٰكَ مَا الطَّارِقُ",
       "transliteration": "wa-ma adraka ma al-taariqu",
       "translation": "And what can make you know what the night-comer is?",
       "words": [
@@ -17282,9 +17282,9 @@ const data: SurahDecoderData = {
           "lens": []
         },
         {
-          "ar": "أَدْرَاكَ",
+          "ar": "أَدْرَىٰكَ",
           "tr": "adraka",
-          "root": "د ر ك",
+          "root": "د ر ي",
           "morph": "Verb - Form IV, past tense, 3rd person, masculine, singular + pronoun",
           "irab": "Past tense verb with object pronoun",
           "en": "made you know",
@@ -24091,7 +24091,7 @@ const data: SurahDecoderData = {
     {
       "ayah": 12,
       "ref": "Al-Balad 90:12",
-      "arabic": "وَمَا أَدْرَاكَ مَا الْعَقَبَةُ",
+      "arabic": "وَمَا أَدْرَىٰكَ مَا الْعَقَبَةُ",
       "transliteration": "wa-ma adraka ma al-'aqabatu",
       "translation": "And what can make you know what is the difficult pass?",
       "words": [
@@ -24120,9 +24120,9 @@ const data: SurahDecoderData = {
           ]
         },
         {
-          "ar": "أَدْرَاكَ",
+          "ar": "أَدْرَىٰكَ",
           "tr": "adraka",
-          "root": "د-ر-ك",
+          "root": "د-ر-ي",
           "morph": "Verb - Form IV, past, 3rd person masculine singular + pronoun",
           "irab": "Verb in past (mabni), كَ 2nd person pronoun is object",
           "en": "it made you know",
@@ -30379,7 +30379,7 @@ const data: SurahDecoderData = {
     {
       "ayah": 2,
       "ref": "Al-Qadr 97:2",
-      "arabic": "وَمَا أَدْرَاكَ مَا لَيْلَةُ الْقَدْرِ",
+      "arabic": "وَمَا أَدْرَىٰكَ مَا لَيْلَةُ الْقَدْرِ",
       "transliteration": "wa-mā adrāka mā laylatu l-qadr",
       "translation": "And what can make you know what is the Night of Decree?",
       "words": [
@@ -30408,7 +30408,7 @@ const data: SurahDecoderData = {
           ]
         },
         {
-          "ar": "أَدْرَاكَ",
+          "ar": "أَدْرَىٰكَ",
           "tr": "adrāka",
           "root": "د ر ي",
           "morph": "Verb - Form IV, past, 3rd person masculine singular + pronoun",
@@ -35026,7 +35026,7 @@ const data: SurahDecoderData = {
     {
       "ayah": 5,
       "ref": "Al-Humazah 104:5",
-      "arabic": "وَمَا أَدْرَاكَ مَا الْحُطَمَةُ",
+      "arabic": "وَمَا أَدْرَىٰكَ مَا الْحُطَمَةُ",
       "transliteration": "wa-mā adrāka mā l-ḥuṭamah",
       "translation": "And what can make you know what is the Crusher?",
       "words": [
@@ -35055,9 +35055,9 @@ const data: SurahDecoderData = {
           ]
         },
         {
-          "ar": "أَدْرَاكَ",
+          "ar": "أَدْرَىٰكَ",
           "tr": "adrāka",
-          "root": "د ر ك",
+          "root": "د ر ي",
           "morph": "Verb - Form IV, past tense, 3rd person, masculine, singular + attached pronoun",
           "irab": "Khabar (predicate) - verb indicative, attached ـكَ accusative",
           "en": "made you know",
@@ -36452,7 +36452,7 @@ const data: SurahDecoderData = {
         {
           "ar": "الْكَوْثَرَ",
           "tr": "al-kawthar",
-          "root": "ك و ث ر",
+          "root": "ك ث ر",
           "morph": "Noun - masculine, singular, definite",
           "irab": "Direct object (maf'ul bihi) - accusative (mansub) with fatha",
           "en": "al-Kawthar, abundance",
@@ -37569,7 +37569,7 @@ const data: SurahDecoderData = {
           "tr": "huwa",
           "root": "-",
           "morph": "Pronoun - detached, 3rd person masculine singular",
-          "irab": "Subject (mubtada') or pronoun of separation (ḍamīr al-faṣl) - nominative (marfū')",
+          "irab": "Subject (mubtada'), or the pronoun of the matter (ḍamīr al-sha'n) if the clause after it is its predicate - mabni, nominative position",
           "en": "He",
           "cs": "nom",
           "lens": [
@@ -37581,7 +37581,7 @@ const data: SurahDecoderData = {
           "tr": "Allāhu",
           "root": "-",
           "morph": "Proper noun - definite",
-          "irab": "Subject (mubtada') or predicate (khabar) - nominative (marfū')",
+          "irab": "Second subject (mubtada' thānin), its predicate is أَحَدٌ - nominative (marfū')",
           "en": "Allah",
           "cs": "nom",
           "lens": [
@@ -37593,7 +37593,7 @@ const data: SurahDecoderData = {
           "tr": "aḥadun",
           "root": "-",
           "morph": "Noun/adjective - masculine singular, indefinite",
-          "irab": "Predicate (khabar) - nominative (marfū')",
+          "irab": "Predicate (khabar) of اللَّهُ - nominative (marfū')",
           "en": "One, unique",
           "cs": "nom",
           "lens": [
@@ -37658,7 +37658,7 @@ const data: SurahDecoderData = {
           "ar": "يَلِدْ",
           "tr": "yalid",
           "root": "و ل د",
-          "morph": "Verb - Form I, present tense, 3rd person masculine singular",
+          "morph": "Verb - Form I, present tense, 3rd person masculine singular (first root letter و dropped)",
           "irab": "Present tense verb in jussive mood (fi'l muḍāri' majzūm) due to لَمْ",
           "en": "He begets",
           "cs": "verb",
@@ -37716,7 +37716,7 @@ const data: SurahDecoderData = {
           "tr": "yakun",
           "root": "ك و ن",
           "morph": "Verb - Form I, present tense, 3rd person masculine singular (defective verb)",
-          "irab": "Defective verb in jussive mood (kāna majzūm) - mabni",
+          "irab": "Verb كَانَ in the jussive (fi'l muḍāri' majzūm) after لَمْ, marked by sukun; its subject is أَحَدٌ",
           "en": "There is, there was",
           "cs": "verb",
           "lens": [
@@ -37728,17 +37728,19 @@ const data: SurahDecoderData = {
           "tr": "lahu",
           "root": "-",
           "morph": "Preposition + attached pronoun 3rd person masculine singular",
-          "irab": "Preposition + pronoun acting as predicate (khabar kāna muqaddam) - mabni",
+          "irab": "Prepositional phrase (jār wa-majrūr) that belongs to كُفُوًا and is placed before it - mabni",
           "en": "For Him, to Him",
-          "cs": "mabni",
-          "lens": []
+          "cs": "gen",
+          "lens": [
+            "gen"
+          ]
         },
         {
           "ar": "كُفُوًا",
           "tr": "kufuwan",
-          "root": "ك ف و",
+          "root": "ك ف أ",
           "morph": "Noun/adjective - masculine singular, indefinite",
-          "irab": "Circumstantial description (ḥāl) - accusative (manṣūb)",
+          "irab": "Predicate of يَكُن (khabar kāna) - accusative (manṣūb)",
           "en": "Equivalent, equal, comparable",
           "cs": "acc",
           "lens": [
