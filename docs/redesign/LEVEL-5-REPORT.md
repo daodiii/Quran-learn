@@ -98,6 +98,10 @@ Counts come from the lesson files (grep for the components; cards are the `at:` 
 - `Sentence` has no role for a call (a `يَا` phrase) or for a cut-off exception. The lessons use `tied` and `maful` with a label.
 - Many tables of Arabic fit a phone only with four columns or fewer. Two lessons were caught by `qa.mjs`; the others were kept narrow by the writers.
 
+## Level 5 quiz and review questions (2026-10-29)
+
+After the lessons were done I read the Level 5 quiz page and the Level 5 cumulative review against the new lessons and fixed what disagreed. Review: question 8 (it called ٱلرَّحْمَٰنِ and ٱلرَّحِيمِ active participles; the lessons call them adjectives), question 6 (wrong lesson cited), the unsourced wording in questions 1 and 2, and three Arabic quotes that were not Tanzil spellings (47:7, 12:16, 2:253). Quiz: the vocative question (never taught in Levels 1 to 4, and its answer was wrong) became a question on the hamza of 78:6; the explanations of the questions on 1:3, 1:3's pattern, 1:5 and قَدْ now follow the lessons; four questions from L5.08, L5.10, L5.14 and L5.17 were added, so the quiz has 14 questions. The Arabic in the changed questions was compared with Tanzil by eye against `verse.py` output, not by script. The quizzes and reviews of Levels 2 to 4, and the mastery gate, are untouched.
+
 ## Screenshots
 
 In `docs/redesign/screens/l5-rollout/`: for each lesson, `NN-desktop.png` (the second step at 1280 px) and `NN-phone.png` (the first word-by-word panel at 390 px). The cookie banner was declined for the shots (`localStorage['qg-cookie-consent']='declined'`), by `scripts/lesson-qa/shots.mjs`.

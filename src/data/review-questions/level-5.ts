@@ -1,5 +1,5 @@
 // Level-5 cumulative review: sources from levels 1–4 (weighted toward 3–4).
-// All Arabic strings copied verbatim from the cited lesson MDX files.
+// Verse quotes follow the Tanzil text (checked 2026-10-29); explanations follow the rewritten lessons.
 import type { ReviewQuestion } from './index.ts';
 
 export const LEVEL_5_REVIEW: ReviewQuestion[] = [
@@ -8,33 +8,33 @@ export const LEVEL_5_REVIEW: ReviewQuestion[] = [
     question: 'In إِذَا زُلْزِلَتِ ٱلْأَرْضُ زِلْزَالَهَا (Al-Zilzal 99:1), زِلْزَالَهَا is a mafʿūl muṭlaq (absolute object). What makes it a mafʿūl muṭlaq rather than a regular direct object?',
     options: [
       'It follows a preposition, which is the mark of an absolute object',
-      'It is from the same root as the verb زُلْزِلَتِ and intensifies the verbal action rather than naming a separate entity',
+      'It is the verbal noun of the same root as the verb زُلْزِلَتِ and names the action itself, not a separate thing acted on',
       'It is in the nominative case, which is unique to absolute objects',
       'It contains an attached pronoun, which distinguishes absolute objects',
     ],
     correctAnswer: 1,
-    explanation: 'A mafʿūl muṭlaq must be the masdar from the same root as its verb; زِلْزَالَهَا comes from root ز-ل-ز-ل, the same as زُلْزِلَتِ, and emphasises the earthquake\'s overwhelming nature rather than naming a distinct object. (Lesson: The Mafʿūl Muṭlaq.)',
+    explanation: 'A mafʿūl muṭlaq is the verbal noun (maṣdar) of the verb\'s own root, in the accusative. زِلْزَالَهَا comes from ز-ل-ز-ل, the root of زُلْزِلَتِ, and names the shaking itself. Al-Jadwal calls it a mafʿūl muṭlaq. (Lesson: The Mafʿūl Muṭlaq.)',
     source: 'level-4/07-maf-ul-mutlaq',
   },
   {
     id: 2,
-    question: 'In إِن تَنْصُرُوا۟ ٱللَّهَ يَنصُرْكُمْ (Muhammad 47:7), both تَنْصُرُوا۟ and يَنصُرْكُمْ are in the jussive mood. What triggers the jussive in both clauses?',
+    question: 'In إِن تَنصُرُوا۟ ٱللَّهَ يَنصُرْكُمْ (Muhammad 47:7), both تَنصُرُوا۟ and يَنصُرْكُمْ are in the jussive mood. What triggers the jussive in both clauses?',
     options: [
       'The word ٱللَّهَ in accusative case causes both verbs to shift to jussive',
-      'The conditional particle إِن requires both the condition verb and the result verb to take jussive mood',
+      'The condition word إِن puts the condition verb in jazm, and the answer verb is in jazm as well',
       'The future meaning of the sentence automatically puts verbs in jussive',
-      'The waw suffix on تَنْصُرُوا۟ is the jussive marker',
+      'The waw suffix on تَنصُرُوا۟ is the jussive marker',
     ],
     correctAnswer: 1,
-    explanation: 'When the conditional particle إِن ("if") introduces a sentence, both the condition clause and the result clause verbs must take jussive mood (majzūm); this is the defining feature of إِن-conditionals. (Lesson: Conditional Sentences.)',
+    explanation: 'إِن is one of the condition words that cut the verb short (L4.04): the condition verb and the answer verb are both in jazm. تَنصُرُوا۟ shows it by losing its nūn, and يَنصُرْكُمْ by its sukūn. (Lesson: Conditional Sentences.)',
     source: 'level-4/03-conditional-sentences',
   },
   {
     id: 3,
-    question: 'In وَجَاءُوا أَبَاهُمْ عِشَآءً يَبْكُونَ (Yusuf 12:16), the verb يَبْكُونَ describes the state of the subject while performing the main action. What grammatical element does يَبْكُونَ function as here?',
+    question: 'In وَجَآءُوٓ أَبَاهُمْ عِشَآءً يَبْكُونَ (Yusuf 12:16), the verb يَبْكُونَ describes the state of the subject while performing the main action. What grammatical element does يَبْكُونَ function as here?',
     options: [
       'A khabar (predicate) of a nominal sentence embedded after وَجَاءُوا',
-      'A mafʿūl bihi (direct object) of جَاءُوا',
+      'A mafʿūl bihi (direct object) of جَآءُوٓ',
       'A ḥāl (circumstantial clause) describing the condition of the subject at the time of the main verb',
       'A conditional clause introduced by the waw of conjunction',
     ],
@@ -78,12 +78,12 @@ export const LEVEL_5_REVIEW: ReviewQuestion[] = [
       'ل-و-د',
     ],
     correctAnswer: 1,
-    explanation: 'يَلِدْ is a present tense verb from root و-ل-د ("to give birth, to beget"); the initial و drops in the Form I present tense, and after لَمْ the verb stands in jussive as يَلِدْ. (Lesson: Introduction to Case Endings, which walks this verse of Al-Ikhlas.)',
-    source: 'level-1/10-case-endings',
+    explanation: 'يَلِدْ is a present tense verb from root و-ل-د ("to give birth, to beget"). The first root letter و falls between the prefix and the kasra in the present, and after لَمْ the verb stands in jazm. The passive يُولَدْ keeps the و. (Lesson: Assimilated Verbs, L4.14.)',
+    source: 'level-4/14-assimilated-verbs',
   },
   {
     id: 7,
-    question: 'In تِلْكَ ٱلرُّسُلُ فَضَّلْنَا بَعْضَهُمْ عَلَىٰ بَعْضٍۢ (Al-Baqarah 2:253), تِلْكَ is a demonstrative pronoun. What gender and distance does تِلْكَ signal?',
+    question: 'In تِلْكَ ٱلرُّسُلُ فَضَّلْنَا بَعْضَهُمْ عَلَىٰ بَعْضٍ (Al-Baqarah 2:253), تِلْكَ is a demonstrative pronoun. What gender and distance does تِلْكَ signal?',
     options: [
       'Masculine singular near ("this")',
       'Plural far ("those — rational beings")',
@@ -96,15 +96,15 @@ export const LEVEL_5_REVIEW: ReviewQuestion[] = [
   },
   {
     id: 8,
-    question: 'In ٱلْحَمْدُ لِلَّهِ رَبِّ ٱلْعَٰلَمِينَ ۝ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ (Al-Fatiha 1:2-3), ٱلرَّحْمَٰنِ and ٱلرَّحِيمِ are both active participles from root ر-ح-م. Which pattern is ٱلرَّحِيمِ following?',
+    question: 'In ٱلْحَمْدُ لِلَّهِ رَبِّ ٱلْعَٰلَمِينَ ۝ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ (Al-Fatiha 1:2-3), what are ٱلرَّحْمَٰنِ and ٱلرَّحِيمِ, both from root ر-ح-م?',
     options: [
-      'فَاعِلٌ (fāʿilun) — the standard Form I active participle',
-      'فَعِيلٌ (faʿīlun) — an intensive active participle pattern',
-      'مُفَعِّلٌ (mufaʿʿilun) — the Form II active participle',
-      'مَفْعُولٌ (mafʿūlun) — the passive participle pattern',
+      'Two active participles on the pattern فَاعِلٌ',
+      'Two adjectives (naʿt) of ٱللَّهِ, on the patterns فَعْلَان and فَعِيل: they are not participles',
+      'Two passive participles on the pattern مَفْعُولٌ',
+      'Two Form II doer words on the pattern مُفَعِّلٌ',
     ],
     correctAnswer: 1,
-    explanation: 'ٱلرَّحِيمِ follows the فَعِيلٌ (faʿīl) intensive participle pattern, one of several Arabic patterns that intensify the basic active participle فَاعِل; it means "the Ever-Merciful" rather than simply "one who shows mercy." (Lesson: Active and Passive Participles.)',
+    explanation: 'Al-Jadwal reads both as describing words (naʿt) of ٱللَّهِ, on the patterns فَعْلَان and فَعِيل. A doer word has the pattern فَاعِل, and neither has it. The Corpus tags both as adjectives. (Lessons: Active and Passive Participles, L3.19, and Surah Al-Fatiha, L5.02.)',
     source: 'level-3/19-active-passive-participles',
   },
   {
