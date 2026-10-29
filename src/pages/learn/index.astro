@@ -1,115 +1,122 @@
 ---
-import '../../styles/night.css';
-import CookieBanner from '../../components/CookieBanner.astro';
-import LessonRow from '../../components/LessonRow.astro';
-import ReadingTrack from '../../components/ReadingTrack.astro';
-import ResumeBand from '../../components/ResumeBand.astro';
+/**
+ * /learn: every lesson, in the order it is taught. Light only, standalone (no BaseLayout), like home.
+ * The whole list is plain HTML, so it reads and links without JavaScript; src/scripts/learn.ts adds
+ * saved progress, the filter, the level rail and the phone fold.
+ * Lessons come from the collection, grouped by src/data/curriculum-map.ts; the words around them are in
+ * src/data/learn-copy.ts. Counts are never typed in here.
+ */
 import { getCollection } from 'astro:content';
+import CookieBanner from '../../components/CookieBanner.astro';
+import '../../styles/fonts.css';
+import '../../styles/learn.css';
 import { CURRICULUM_MAP, clusterForLesson } from '../../data/curriculum-map';
+import { READING_TRACK } from '../../data/reading-track';
+import { LEVEL_COPY, LEARN_PAGE } from '../../data/learn-copy';
+import { normalize } from '../../lib/learn';
 
-const allLessons = await getCollection('lessons');
+const lessons = await getCollection('lessons');
+const surahs = await getCollection('surahs');
 
-const levelNames: Record<1|2|3|4|5, { title: string; titleAr: string; desc: string }> = {
-  1: { title: 'Foundation', titleAr: 'الأساسيات', desc: 'Build your foundation in Arabic: alphabet, vowels, basic word structures, and sentence types.' },
-  2: { title: 'Core Grammar', titleAr: 'القواعد الأساسية', desc: 'Master the essential grammar: I\'rab cases (Marfu\', Mansub, Majrur), Idafah, and sentence analysis.' },
-  3: { title: 'Intermediate', titleAr: 'القواعد المتوسطة', desc: 'Verb forms I through X, full conjugations, Inna & Kaana sisters, and passive voice.' },
-  4: { title: 'Advanced', titleAr: 'القواعد المتقدمة', desc: 'Complex grammatical constructions: conditionals, exceptions, Maf\'ul types, and rhetorical structures.' },
-  5: { title: 'Applied Study', titleAr: 'التطبيق القرآني', desc: 'Apply everything to the Quran: pattern recognition, vocabulary, and full verse analysis.' },
-};
-
-const levels: (1 | 2 | 3 | 4 | 5)[] = [1, 2, 3, 4, 5];
-
-// Small decorative constellations for the mobile level cards — each a distinct
-// star path, last point is the level's checkpoint (drawn gold). viewBox 60×60.
-const GLYPHS: Record<1|2|3|4|5, [number, number][]> = {
-  1: [[8,46],[19,33],[29,39],[41,23],[51,30]],
-  2: [[8,22],[19,36],[30,19],[42,36],[52,21]],
-  3: [[11,35],[16,20],[30,13],[45,20],[50,35],[38,45],[22,45]],
-  4: [[8,45],[21,22],[31,41],[43,18],[52,38]],
-  5: [[12,41],[24,45],[35,32],[30,17],[45,22],[51,37]],
-};
-
-// Group + sort once. Two-way drift guard, both directions throw at build:
-// every lesson must belong to a cluster, and every cluster order must
-// resolve to a real lesson file.
-const byLevel = new Map<number, typeof allLessons>();
-for (const l of allLessons) {
-  const list = byLevel.get(l.data.level) ?? [];
-  list.push(l);
-  byLevel.set(l.data.level, list);
-  clusterForLesson(l.data.level, l.data.order);
-}
-for (const list of byLevel.values()) list.sort((a, b) => a.data.order - b.data.order);
+// Drift guard, both directions, fails the build: every lesson file belongs to a topic group, and every
+// number a group lists is a real lesson file.
+for (const l of lessons) clusterForLesson(l.data.level, l.data.order);
+const byKey = new Map(lessons.map((l) => [`${l.data.level}:${l.data.order}`, l]));
 for (const { level, clusters } of CURRICULUM_MAP) {
-  for (const cluster of clusters) {
-    for (const order of cluster.lessons) {
-      if (!byLevel.get(level)?.some(l => l.data.order === order)) {
-        throw new Error(`curriculum-map: level ${level} lesson ${order} (cluster "${cluster.title}") has no matching file in src/content/lessons/`);
-      }
-    }
+  for (const c of clusters) for (const order of c.lessons) {
+    if (!byKey.has(`${level}:${order}`)) throw new Error(`learn: level ${level} lesson ${order} (group "${c.title}") has no file in src/content/lessons/`);
   }
 }
 
-const manifest = [...byLevel.entries()].sort((a, b) => a[0] - b[0])
-  .flatMap(([, list]) => list.map(l => ({ id: l.id, title: l.data.title, level: l.data.level, order: l.data.order })));
-const totals = Object.fromEntries([...byLevel.entries()].map(([lv, list]) => [lv, list.length])) as Record<number, number>;
-
-const totalLessons = allLessons.length;
-if (totalLessons !== 81) throw new Error(`learn: expected 81 lessons, found ${totalLessons} — update the page copy (dek, finale, foot) with the new count`);
-const firstLesson = manifest[0];
-if (!firstLesson) throw new Error('learn: manifest is empty — no lessons found');
-const boot = {
-  manifest,
-  totals,
-  names: Object.fromEntries(([1,2,3,4,5] as const).map(l => [l, { en: levelNames[l].title, ar: levelNames[l].titleAr }])),
+const surahName = (slug: string) => {
+  const s = surahs.find((x) => x.id === slug);
+  if (!s) throw new Error(`learn: reading-track slug "${slug}" is not a surah`);
+  return s.data.name;
 };
-const title = 'Grammar Lessons | Quranic Grammar';
-const description = "Browse all 81 Quranic Arabic grammar lessons across 5 levels. From the Arabic alphabet and vowels to verb forms I-X, I'rab case endings, and applied Quranic analysis.";
+
+const levels = CURRICULUM_MAP.map(({ level, clusters }) => {
+  const copy = LEVEL_COPY[level];
+  const groups = clusters.map((c) => ({
+    title: c.title,
+    note: c.note ?? '',
+    essential: !!c.essential,
+    checkpoint: !!c.checkpoint,
+    lessons: c.lessons.map((order) => {
+      const l = byKey.get(`${level}:${order}`)!;
+      return {
+        id: l.id, order, title: l.data.title, description: l.data.description ?? '',
+        // What the filter matches, folded the same way as the visitor's query (see src/lib/learn.ts).
+        search: normalize([l.data.title, l.data.description ?? '', c.title, `level ${level}`].join(' ')),
+      };
+    }),
+  }));
+  const reading = READING_TRACK.filter((e) => e.afterLevel === level).map((e) => ({ href: `/surahs/${e.slug}/`, name: surahName(e.slug) }));
+  return { level, ...copy, groups, count: groups.reduce((n, g) => n + g.lessons.length, 0), reading };
+});
+
+const total = levels.reduce((n, l) => n + l.count, 0);
+const firstId = levels[0].groups[0].lessons[0].id;
+
+const title = LEARN_PAGE.title;
+const description = `Browse all ${total} Quranic Arabic grammar lessons across ${levels.length} levels, in the order they are taught. From the alphabet and vowels to verb forms, case endings and reading whole passages.`;
 const canonicalURL = new URL('/learn/', Astro.site);
 const ogImageURL = new URL('/images/og-default.jpg', Astro.site);
 
 const courseSchema = {
-  "@context": "https://schema.org",
-  "@type": "Course",
-  "@id": "https://www.quranic-grammar.com/learn/#course",
-  "name": "Quranic Arabic Grammar",
-  "description": "A structured course for learning Quranic Arabic grammar from beginner to advanced, covering 81 lessons across 5 levels.",
-  "url": "https://www.quranic-grammar.com/learn/",
-  "provider": {
-    "@type": "Organization",
-    "name": "Quranic Grammar",
-    "url": "https://www.quranic-grammar.com/",
-  },
-  "numberOfCredits": 0,
-  "isAccessibleForFree": true,
-  "inLanguage": "en",
-  "hasCourseInstance": levels.map(level => ({
-    "@type": "CourseInstance",
-    "name": `Level ${level}: ${levelNames[level].title}`,
-    "description": levelNames[level].desc,
-    "courseMode": "online",
-  })),
+  '@context': 'https://schema.org',
+  '@type': 'Course',
+  '@id': 'https://www.quranic-grammar.com/learn/#course',
+  name: 'Quranic Arabic Grammar',
+  description: `A structured course for learning Quranic Arabic grammar from beginner to advanced, ${total} lessons across ${levels.length} levels.`,
+  url: 'https://www.quranic-grammar.com/learn/',
+  provider: { '@type': 'Organization', name: 'Quranic Grammar', url: 'https://www.quranic-grammar.com/' },
+  numberOfCredits: 0,
+  isAccessibleForFree: true,
+  inLanguage: 'en',
+  hasCourseInstance: levels.map((l) => ({ '@type': 'CourseInstance', name: `Level ${l.level}: ${l.title}`, description: l.blurb, courseMode: 'online' })),
+};
+
+const ICON = {
+  search: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>',
+  x: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>',
+  chev: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>',
+  arrow: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>',
+  check: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7"/></svg>',
 };
 ---
-
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
-  <!-- Google Analytics (GA4) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1MSBYYQT5Z" is:inline></script>
+  <!-- Google Analytics (GA4) and Ahrefs, queued now and loaded later (see below). -->
   <script is:inline>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-1MSBYYQT5Z');
+    // Load them on the first tap, key press or scroll, or 5 seconds after the page loads, whichever comes
+    // first: on a phone the analytics script alone blocked the main thread for about 500 ms.
+    (function () {
+      var started = false, timer;
+      var events = ['pointerdown', 'keydown', 'scroll', 'touchstart'];
+      function start() {
+        if (started) return;
+        started = true;
+        clearTimeout(timer);
+        events.forEach(function (t) { removeEventListener(t, start, true); });
+        var g = document.createElement('script'); g.async = true; g.src = 'https://www.googletagmanager.com/gtag/js?id=G-1MSBYYQT5Z'; document.head.appendChild(g);
+        var a = document.createElement('script'); a.async = true; a.src = 'https://analytics.ahrefs.com/analytics.js'; a.setAttribute('data-key', 'sW/uZfxMauSpqoKnSL6i6g'); document.head.appendChild(a);
+      }
+      events.forEach(function (t) { addEventListener(t, start, { capture: true, passive: true }); });
+      addEventListener('load', function () { timer = setTimeout(start, 5000); });
+    })();
   </script>
+  <script is:inline>document.documentElement.classList.add('js')</script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="description" content={description} />
-  <meta name="theme-color" content="#05070e" />
+  <meta name="theme-color" content="#fbfcfd" />
   <title>{title}</title>
   <link rel="canonical" href={canonicalURL.href} />
-  <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content={canonicalURL.href} />
   <meta property="og:title" content={title} />
@@ -117,647 +124,126 @@ const courseSchema = {
   <meta property="og:image" content={ogImageURL.href} />
   <meta property="og:site_name" content="Quranic Grammar" />
   <meta property="og:locale" content="en_US" />
-  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content={title} />
   <meta name="twitter:description" content={description} />
   <meta name="twitter:image" content={ogImageURL.href} />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="alternate" type="application/rss+xml" title="Quranic Grammar RSS" href="/rss.xml" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Amiri+Quran&family=Amiri:ital,wght@0,400;0,700;1,400&family=Marcellus&family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
-  <!-- Keep the stored theme in sync for the rest of the site (this page is always night) -->
-  <script is:inline>
-    (function() {
-      const theme = localStorage.getItem('theme') ||
-        (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-      document.documentElement.setAttribute('data-theme', theme);
-    })();
-  </script>
-  <script src="https://analytics.ahrefs.com/analytics.js" data-key="sW/uZfxMauSpqoKnSL6i6g" async is:inline></script>
+  <link rel="preload" href="/fonts/geist-500.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/geist-400.woff2" as="font" type="font/woff2" crossorigin />
   <script type="application/ld+json" is:inline set:html={JSON.stringify(courseSchema).replace(/<\//g, '<\\/')} />
-  <style is:global>
-/* ============================================================
-   THE SKY TOUR · learn section page
-   body, canvas, driver, cards, intro, finale, rail + catalog
-   :root / reset / a / nav / btn / footer are from night.css
-   ============================================================ */
-
-body{background:var(--bg-0);color:var(--ink);font-family:var(--font-body);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-
-#driver{position:relative}
-#view{position:sticky;top:0;height:100svh;overflow:hidden;background:radial-gradient(1200px 760px at 60% -12%,#0d1430 0%,transparent 60%),linear-gradient(180deg,#05070e,#070b16)}
-#skycv{position:absolute;inset:0;display:block}
-#dawn{position:absolute;inset:0;opacity:0;pointer-events:none;background:radial-gradient(1300px 800px at 50% 116%,rgba(244,180,92,.42) 0%,rgba(200,110,50,.16) 40%,transparent 70%)}
-
-/* cards */
-.card{position:absolute;left:var(--pad-x);bottom:clamp(24px,6vh,64px);z-index:6;max-width:min(480px,86vw);opacity:0;transform:translateY(18px);pointer-events:none;transition:none}
-.card .rn{font-family:var(--font-mono);font-size:10px;letter-spacing:.4em;color:var(--gold);text-transform:uppercase}
-.card h2{font-family:var(--font-display);font-weight:400;font-size:clamp(30px,3.8vw,52px);line-height:1.1;margin-top:8px;display:flex;gap:16px;align-items:baseline;flex-wrap:wrap}
-.card h2 [lang="ar"]{font-size:.62em;color:var(--gold)}
-.card p{color:var(--ink-dim);font-weight:300;font-size:clamp(14px,1.3vw,16.5px);line-height:1.75;margin-top:10px;text-shadow:0 2px 24px rgba(5,7,14,.9)}
-.card .chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
-.card .chips span{font-family:var(--font-mono);font-size:9px;letter-spacing:.18em;color:var(--ink-dim);text-transform:uppercase;border:1px solid var(--hairline);border-radius:999px;padding:5px 12px}
-.card .ct{font-family:var(--font-mono);font-size:10px;letter-spacing:.26em;color:var(--gold-bright);text-transform:uppercase;margin-top:14px}
-
-/* intro + finale */
-#intro{position:absolute;inset:0;display:grid;place-items:center;text-align:center;z-index:6;pointer-events:none}
-#intro h1{font-family:var(--font-display);font-weight:400;font-size:clamp(42px,6vw,84px);line-height:1.08;max-width:15ch}
-#intro h1 em{font-style:normal;color:var(--gold-bright)}
-#intro .dek{color:var(--ink-dim);font-weight:300;font-size:clamp(15px,1.4vw,18px);max-width:50ch;margin:18px auto 0;line-height:1.8}
-#intro .cue{margin-top:32px;display:flex;flex-direction:column;align-items:center;gap:10px;font-family:var(--font-mono);font-size:10px;letter-spacing:.4em;color:var(--ink-faint);text-transform:uppercase}
-#intro .cue .line{width:1px;height:44px;background:linear-gradient(180deg,transparent,var(--gold));position:relative;overflow:hidden}
-#intro .cue .line::after{content:'';position:absolute;left:0;top:-40%;width:100%;height:40%;background:var(--gold-bright);animation:cuedrop 2.2s var(--ease-io) infinite}
-@keyframes cuedrop{0%{top:-40%}70%,100%{top:110%}}
-@media (prefers-reduced-motion:reduce){#intro .cue .line::after{animation:none}}
-#finale{position:absolute;inset:0;display:grid;place-items:center;text-align:center;z-index:6;opacity:0;pointer-events:none}
-#finale h2{font-family:var(--font-display);font-weight:400;font-size:clamp(34px,4.8vw,64px);line-height:1.14;max-width:20ch}
-#finale h2 em{font-style:normal;color:var(--gold-bright)}
-#finale .ctas{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:38px}
-#finale.live{pointer-events:auto}
-
-/* progress rail */
-#rail{position:absolute;right:clamp(14px,2.4vw,34px);top:50%;transform:translateY(-50%);z-index:7;display:flex;flex-direction:column;gap:16px}
-#rail span{width:8px;height:8px;border-radius:50%;border:1px solid rgba(228,209,164,.4);transition:background .5s,border-color .5s,box-shadow .5s;position:relative}
-#rail span.hot{background:var(--gold-bright);border-color:var(--gold-bright);box-shadow:0 0 12px var(--gold-glow)}
-#rail span i{position:absolute;right:18px;top:50%;transform:translateY(-50%);font-style:normal;font-family:var(--font-mono);font-size:8.5px;letter-spacing:.26em;color:var(--ink-faint);text-transform:uppercase;white-space:nowrap;opacity:0;transition:opacity .4s}
-#rail span.hot i{opacity:1;color:var(--gold-bright)}
-@media (max-width:900px){#rail{display:none}}
-
-/* flat fallback (reduced motion / small screens) — paired with html:not(.js) mirrors */
-.flat #driver, html:not(.js) #driver{height:auto!important}
-.flat #view, html:not(.js) #view{position:static;height:56svh}
-.flat .card,.flat #intro,.flat #finale,
-html:not(.js) .card, html:not(.js) #intro, html:not(.js) #finale{position:static;opacity:1!important;transform:none!important;pointer-events:auto;max-width:720px;margin:40px auto;padding:0 var(--pad-x)}
-.flat #intro, html:not(.js) #intro{display:block;text-align:left;padding-top:30px}
-.flat #rail, html:not(.js) #rail{display:none}
-
-/* Token shim so LessonRow / ReadingTrack / ResumeBand render on midnight
-   without importing the themed global.css. Values map site tokens → night tokens. */
-:root{
-  --text-primary:var(--ink);--text-secondary:var(--ink-dim);--text-tertiary:var(--ink-faint);
-  --text-inverse:#221503;
-  --bg-secondary:rgba(228,209,164,.05);--border-primary:var(--hairline);
-  --accent-gold:var(--gold);--accent-gold-light:rgba(227,179,92,.1);--accent-primary:var(--gold-bright);
-  --radius-md:10px;--radius-lg:14px;--radius-full:999px;
-  --space-md:16px;--space-lg:24px;--space-xl:36px;
-  --font-display:'Marcellus',serif;--font-arabic:'Amiri',serif;
-  --level-1-bg:rgba(227,179,92,.14);--level-1-text:var(--gold-bright);
-  --level-2-bg:rgba(227,179,92,.14);--level-2-text:var(--gold-bright);
-  --level-3-bg:rgba(227,179,92,.14);--level-3-text:var(--gold-bright);
-  --level-4-bg:rgba(227,179,92,.14);--level-4-text:var(--gold-bright);
-  --level-5-bg:rgba(227,179,92,.14);--level-5-text:var(--gold-bright);
-}
-
-/* Catalog section */
-.catalog{position:relative;z-index:8;background:linear-gradient(180deg,#05070e,#070a13);border-top:1px solid var(--hairline-soft)}
-.catalog-inner{max-width:880px;margin:0 auto;padding:clamp(60px,9vh,110px) var(--pad-x) 30px}
-.catalog-title{font-family:var(--font-display);font-weight:400;font-size:clamp(28px,3.4vw,44px);line-height:1.15}
-.catalog-sub{color:var(--ink-dim);font-weight:300;margin-top:8px}
-.catalog .level-section{margin-top:clamp(44px,7vh,72px);scroll-margin-top:90px}
-.catalog .level-header{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;border-bottom:1px solid var(--hairline);padding-bottom:10px}
-.catalog .level-title{font-family:var(--font-display);font-weight:400;font-size:clamp(21px,2.4vw,28px);display:flex;align-items:baseline;gap:14px}
-.catalog .level-number{font-family:var(--font-mono);font-size:11px;letter-spacing:.3em;color:var(--gold);text-transform:uppercase}
-.catalog .level-arabic{font-family:var(--font-ar);font-size:20px;color:var(--gold)}
-.catalog .level-desc{color:var(--ink-dim);font-weight:300;max-width:60ch;margin-top:10px}
-.catalog .level-links{display:flex;gap:12px;font-family:var(--font-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint);margin-top:6px}
-.catalog .level-links a{color:var(--gold-bright)}
-.catalog .level-links a:hover{text-decoration:underline}
-.catalog .cluster{margin-top:26px}
-.catalog .cluster-title{font-family:var(--font-mono);font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--ink-dim);font-weight:400;margin-bottom:6px}
-.catalog .cluster-note{font-size:13px;color:var(--ink-faint);margin-bottom:6px}
-.catalog .cluster-rows{display:flex;flex-direction:column}
-.catalog-jump{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
-.catalog-jump a{display:inline-flex;align-items:baseline;gap:8px;border:1px solid var(--hairline);border-radius:999px;padding:8px 16px;font-family:var(--font-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-dim);transition:border-color .35s,color .35s}
-.catalog-jump a:hover{border-color:rgba(227,179,92,.5);color:var(--ink)}
-.catalog-jump b{font-weight:500;color:var(--gold-bright)}
-.catalog-jump [data-jump-count]{color:var(--ink-faint)}
-
-/* ============================================================
-   Clickable-star tooltip (desktop) — floats the lesson title
-   under the cursor when hovering a star in the constellation.
-   ============================================================ */
-#startip{position:fixed;z-index:20;pointer-events:none;opacity:0;transform:translateY(4px);transition:opacity .18s var(--ease-out),transform .18s var(--ease-out);padding:8px 13px;border:1px solid var(--hairline);border-radius:11px;background:rgba(8,11,20,.9);backdrop-filter:blur(10px);box-shadow:0 12px 40px rgba(3,5,12,.6);max-width:250px}
-#startip.on{opacity:1;transform:none}
-#startip .tl{font-family:var(--font-mono);font-size:8.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--gold-bright)}
-#startip .tt{font-family:var(--font-display);font-size:14.5px;color:var(--ink);margin-top:3px;line-height:1.25}
-
-/* ============================================================
-   MOBILE — the constellation flythrough can't read at 375px, so
-   below 760px the sky becomes a calm fixed backdrop and the five
-   levels are presented as tappable cards, each with its own
-   little constellation. Desktop is untouched.
-   ============================================================ */
-.m-levels{display:none}
-@media (max-width:760px){
-  #driver{height:auto!important}
-  /* Beat the .flat / html:not(.js) rules (same specificity, later source order)
-     so #view becomes a fixed starfield backdrop instead of a 56svh in-flow block. */
-  .flat #view, html:not(.js) #view{position:fixed;inset:0;height:100svh;z-index:0}
-  #skycv{position:absolute;inset:0}
-  #intro,#finale,#rail,#dawn,.card{display:none!important}
-  .m-levels{display:block}
-  .catalog{position:relative;z-index:2}
-}
-.m-levels{position:relative;z-index:2;padding:calc(72px + env(safe-area-inset-top) + 5vh) var(--pad-x) 8vh}
-.m-intro h1{font-family:var(--font-display);font-weight:400;font-size:clamp(34px,10.5vw,48px);line-height:1.05}
-.m-intro h1 em{font-style:normal;color:var(--gold-bright)}
-.m-intro p{color:var(--ink-dim);font-weight:300;font-size:15px;line-height:1.7;margin-top:15px;max-width:33ch;text-shadow:0 2px 24px rgba(5,7,14,.9)}
-.m-cards{list-style:none;display:flex;flex-direction:column;gap:12px;margin-top:32px}
-.m-card{position:relative;display:grid;grid-template-columns:54px 1fr auto;align-items:center;gap:15px;padding:16px 17px 19px;border:1px solid var(--hairline);border-radius:16px;background:linear-gradient(158deg,rgba(228,209,164,.06),rgba(228,209,164,.012));overflow:hidden;touch-action:manipulation;-webkit-tap-highlight-color:transparent;opacity:0;transform:translateY(15px);animation:m-rise .7s var(--ease-out) forwards;animation-delay:calc(var(--i)*80ms + 180ms)}
-.m-card:active{transform:scale(.985)}
-@keyframes m-rise{to{opacity:1;transform:none}}
-@media (prefers-reduced-motion:reduce){.m-card{animation:none;opacity:1;transform:none}}
-.m-glyph{width:54px;height:54px;overflow:visible}
-.m-glyph .l{stroke:rgba(227,179,92,.38);stroke-width:1;fill:none;stroke-linejoin:round;stroke-linecap:round}
-.m-glyph .s{fill:#cdd6ef}
-.m-glyph .cp{fill:var(--gold-bright);filter:drop-shadow(0 0 4px var(--gold-glow))}
-.m-body{min-width:0}
-.m-rn{font-family:var(--font-mono);font-size:9.5px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold)}
-.m-title{font-family:var(--font-display);font-weight:400;font-size:21px;line-height:1.15;margin-top:3px;display:flex;align-items:baseline;gap:9px;flex-wrap:wrap}
-.m-title .ar{font-size:.78em;color:var(--gold)}
-.m-meta{font-family:var(--font-mono);font-size:10px;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-faint);margin-top:8px}
-.m-meta [data-mct].done{color:var(--gold-bright)}
-.m-go{font-family:var(--font-display);font-size:21px;color:var(--ink-faint);transition:color .3s var(--ease-out),transform .3s var(--ease-out)}
-.m-card:active .m-go{color:var(--gold-bright);transform:translateX(3px)}
-.m-bar{position:absolute;left:0;right:0;bottom:0;height:2px;background:rgba(228,209,164,.08)}
-.m-bar i{display:block;height:100%;width:100%;transform:scaleX(var(--p,0));transform-origin:left;background:linear-gradient(90deg,var(--gold),var(--gold-bright));box-shadow:0 0 10px var(--gold-glow);transition:transform .9s var(--ease-out)}
-.m-cta{margin-top:28px}
-.m-cta .btn{width:100%;justify-content:center}
-  </style>
 </head>
 <body>
-
-<a href="#main-content" class="skip-link">Skip to main content</a>
-
-<div id="veil" aria-hidden="true">
-  <svg viewBox="0 0 40 40" fill="none"><path d="M20 2l3.4 10.2L34 8.8l-6.8 8.6L38 20l-10.8 2.6L34 31.2l-10.6-3.4L20 38l-3.4-10.2L6 31.2l6.8-8.6L2 20l10.8-2.6L6 8.8l10.6 3.4z" fill="#e3b35c"/></svg>
-</div>
-
-<header class="nav">
+<a href="#main-content" class="skip">Skip to main content</a>
+<header class="site">
   <a class="brand" href="/" aria-label="Quranic Grammar, home">
-    <svg viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M20 2l3.4 10.2L34 8.8l-6.8 8.6L38 20l-10.8 2.6L34 31.2l-10.6-3.4L20 38l-3.4-10.2L6 31.2l6.8-8.6L2 20l10.8-2.6L6 8.8l10.6 3.4z" fill="#e3b35c"/></svg>
-    Quranic Grammar
+    <svg viewBox="0 0 32 32" aria-hidden="true"><rect x="1" y="1" width="30" height="30" rx="9" fill="oklch(18% 0.03 240)"/><path d="M9 19h14" stroke="#fff" stroke-width="2" stroke-linecap="round"/><circle cx="16" cy="12" r="2.6" fill="oklch(79% 0.14 72)"/><circle cx="16" cy="24.5" r="1.6" fill="#fff"/></svg>
+    <span>Quranic Grammar</span>
   </a>
-  <nav class="nav-links" aria-label="Primary">
-    <a class="active" href="/learn/" aria-current="page">LEARN</a><a href="/surahs/">SURAHS</a><a href="/resources/">RESOURCES</a><a href="/about/">ABOUT</a>
-  </nav>
+  <nav aria-label="Primary"><a href="/learn/" aria-current="page">Learn</a><a href="/surahs/">Surahs</a><a href="/resources/">Resources</a><a href="/about/">About</a></nav>
+  <details class="menu">
+    <summary aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></summary>
+    <div class="menu-panel"><a href="/learn/" aria-current="page">Learn</a><a href="/surahs/">Surahs</a><a href="/resources/">Resources</a><a href="/about/">About and feedback</a></div>
+  </details>
 </header>
 
-<main id="main-content">
-
-<div id="driver">
-  <div id="view">
-    <canvas id="skycv" aria-hidden="true"></canvas>
-    <div id="dawn" aria-hidden="true"></div>
-
-    <div id="intro">
-      <div>
-        <h1>Five levels, <em>one mission</em>.</h1>
-        <p class="dek">Understand every word of the Quran you recite. Eighty-one lessons run from the alphabet to full verse analysis<span data-dek-progress></span>.</p>
-        <div class="cue" aria-hidden="true"><span>Scroll to begin</span><span class="line"></span></div>
-      </div>
-    </div>
-
-    <div class="card" data-stop="1">
-      <span class="rn">Level 1 · {totals[1]} lessons</span>
-      <h2>Foundation <span lang="ar" dir="rtl">الأساسيات</span></h2>
-      <p>Read Arabic script with confidence: the alphabet, every vowel mark, and the three kinds of word. It ends with you reading Surah Al-Ikhlas in the original.</p>
-      <div class="chips"><span>Reading essentials</span><span>Word basics</span><span>Sentences &amp; cases</span><span>Checkpoint: Al-Ikhlas</span></div>
-      <div class="ct" data-ct>Not started</div>
-    </div>
-
-    <div class="card" data-stop="2">
-      <span class="rn">Level 2 · {totals[2]} lessons</span>
-      <h2>Core Grammar <span lang="ar" dir="rtl">القواعد الأساسية</span></h2>
-      <p>How every Arabic sentence works: the three cases, possession, description, and the particles that transform meaning. It ends with Surah Al-Kawthar.</p>
-      <div class="chips"><span>Sentence types</span><span>The three cases</span><span>Possession &amp; description</span><span>Checkpoint: Al-Kawthar</span></div>
-      <div class="ct" data-ct>Not started</div>
-    </div>
-
-    <div class="card" data-stop="3">
-      <span class="rn">Level 3 · {totals[3]} lessons</span>
-      <h2>Intermediate <span lang="ar" dir="rtl">القواعد المتوسطة</span></h2>
-      <p>The verb system in full: all ten forms, the five moods, and every pronoun the Quran uses. At the end, you parse each word of Surah Al-ʿAsr yourself.</p>
-      <div class="chips"><span>Roots &amp; Form I</span><span>Conjugation &amp; moods</span><span>Pronouns</span><span>Forms II–X</span><span>Checkpoint: Al-ʿAsr</span></div>
-      <div class="ct" data-ct>Not started</div>
-    </div>
-
-    <div class="card" data-stop="4">
-      <span class="rn">Level 4 · {totals[4]} lessons</span>
-      <h2>Advanced <span lang="ar" dir="rtl">القواعد المتقدمة</span></h2>
-      <p>The constructions that make the Quran precise: conditionals, exception, emphasis, the mafʿul family, and the weak verbs that bend the rules. It ends with a full analysis of Ad-Duha.</p>
-      <div class="chips"><span>Conditionals</span><span>The mafʿul family</span><span>Weak verbs</span><span>Rhetoric</span><span>Checkpoint: Ad-Duha</span></div>
-      <div class="ct" data-ct>Not started</div>
-    </div>
-
-    <div class="card" data-stop="5">
-      <span class="rn">Level 5 · {totals[5]} lessons</span>
-      <h2>Applied Study <span lang="ar" dir="rtl">التطبيق القرآني</span></h2>
-      <p>Everything turned on the Book itself: complete analyses of Al-Fatiha and Ayat al-Kursi, Quranic patterns, narrative and rhetoric — until you can parse a passage you have never studied.</p>
-      <div class="chips"><span>The method</span><span>Applied analyses</span><span>Narrative &amp; dialogue</span><span>Capstone: cold read</span></div>
-      <div class="ct" data-ct>Not started — the capstone waits</div>
-    </div>
-
-    <div id="finale">
-      <div>
-        <h2>The last lesson is a page <em>you have never seen</em>.</h2>
-        <div class="ctas">
-          <a class="btn btn-solid" data-resume-cta href={`/learn/${firstLesson.id}/`}>Start 1.1 — {firstLesson.title}</a>
-          <a class="btn btn-ghost" href="#curriculum">Browse all 81 lessons</a>
-        </div>
-      </div>
-    </div>
-
-    <div id="rail" aria-hidden="true">
-      <span data-s="0"><i>Start</i></span>
-      <span data-s="1"><i>Foundation</i></span>
-      <span data-s="2"><i>Core Grammar</i></span>
-      <span data-s="3"><i>Intermediate</i></span>
-      <span data-s="4"><i>Advanced</i></span>
-      <span data-s="5"><i>Applied Study</i></span>
-      <span data-s="6"><i>Begin</i></span>
-    </div>
-  </div>
-</div>
-
-<div id="startip" aria-hidden="true"><div class="tl"></div><div class="tt"></div></div>
-
-<section class="m-levels" aria-label="The five levels">
-  <div class="m-intro">
-    <h1>Five levels, <em>one mission</em>.</h1>
-    <p>Understand every word of the Quran you recite — eighty-one lessons from the alphabet to full verse analysis.</p>
-  </div>
-  <ol class="m-cards">
-    {levels.map(level => (
-      <li>
-        <a class="m-card" href={`#level-${level}`} style={`--i:${level - 1}`} data-mlevel={level}>
-          <svg class="m-glyph" viewBox="0 0 60 60" fill="none" aria-hidden="true">
-            <polyline class="l" points={GLYPHS[level].map(p => p.join(',')).join(' ')} />
-            {GLYPHS[level].map((p, idx) => (
-              <circle class={idx === GLYPHS[level].length - 1 ? 'cp' : 's'} cx={p[0]} cy={p[1]} r={idx === GLYPHS[level].length - 1 ? 2.7 : 1.5} />
-            ))}
-          </svg>
-          <span class="m-body">
-            <span class="m-rn">Level {level}</span>
-            <span class="m-title">{levelNames[level].title} <span class="ar" lang="ar" dir="rtl" translate="no">{levelNames[level].titleAr}</span></span>
-            <span class="m-meta"><span>{totals[level]} lessons</span> · <span data-mct>Not started</span></span>
-          </span>
-          <span class="m-go" aria-hidden="true">&rarr;</span>
-          <span class="m-bar"><i data-mbar></i></span>
-        </a>
-      </li>
-    ))}
-  </ol>
-  <div class="m-cta"><a class="btn btn-solid" data-resume-cta-m href={`/learn/${firstLesson.id}/`}>Start 1.1 — {firstLesson.title}</a></div>
-</section>
-
-<section id="curriculum" class="catalog" aria-label="All 81 lessons">
-  <div class="catalog-inner">
-    <h2 class="catalog-title">The full curriculum</h2>
-    <p class="catalog-sub">Every lesson, in order. Pick up exactly where you are.</p>
-    <nav class="catalog-jump" aria-label="Jump to level">
-      {levels.map(level => (
-        <a href={`#level-${level}`} data-jump-level={level}>
-          <b>Level {level}</b> {levelNames[level].title}
-          <span data-jump-count>{totals[level]} lessons</span>
-        </a>
-      ))}
+<div class="wrap shell">
+  <aside class="rail" aria-label="Find a lesson">
+    <form class="find js-only" role="search" id="find">
+      <label class="vh" for="q">Filter lessons</label>
+      <Fragment set:html={ICON.search} />
+      <input id="q" type="search" autocomplete="off" placeholder="Filter lessons" aria-controls="list" />
+      <button type="button" class="clear" aria-label="Clear filter"><Fragment set:html={ICON.x} /></button>
+    </form>
+    <p class="rail-h" id="lvs-h">Levels</p>
+    <nav aria-labelledby="lvs-h">
+      <ol class="lvs">
+        {levels.map((l) => (
+          <li>
+            <a class="lv" href={`#level-${l.level}`} data-level={l.level}>
+              <span class="ln">{l.level}</span>
+              <span class="lt">{l.title}</span>
+              <small><span class="lcount" data-total={l.count}>{l.count} lessons</span><i><s></s></i></small>
+            </a>
+          </li>
+        ))}
+      </ol>
     </nav>
-    <ResumeBand manifest={manifest} totals={totals} />
-    {CURRICULUM_MAP.map(({ level, clusters }) => (
-      <section id={`level-${level}`} class="level-section" data-level={level}>
-        <div class="level-header">
-          <h2 class="level-title"><span class="level-number">Level {level}</span>{levelNames[level as 1|2|3|4|5].title}</h2>
-          <span class="level-arabic" dir="rtl" lang="ar">{levelNames[level as 1|2|3|4|5].titleAr}</span>
-        </div>
-        <p class="level-desc">{levelNames[level as 1|2|3|4|5].desc}</p>
-        <p class="level-links">
-          <a href={`/learn/level-${level}/vocabulary/`}>Vocabulary</a>
-          <span aria-hidden="true">·</span>
-          <a href={`/learn/level-${level}/quiz/`}>Quiz</a>
-          {level >= 2 && (<><span aria-hidden="true">·</span><a href={`/learn/level-${level}/review/`}>Review</a></>)}
-        </p>
-        {clusters.map(cluster => (
-          <div class="cluster">
-            {!cluster.checkpoint && <h3 class="cluster-title">{cluster.title}</h3>}
-            {cluster.note && <p class="cluster-note">{cluster.note}</p>}
-            <div class="cluster-rows">
-              {cluster.lessons.map(order => {
-                const lesson = byLevel.get(level)!.find(l => l.data.order === order)!;
-                return <LessonRow id={lesson.id} title={lesson.data.title}
-                  description={lesson.data.description} level={level as 1|2|3|4|5} order={order}
-                  checkpoint={cluster.checkpoint} essential={cluster.essential} />;
-              })}
+    <p class="refs"><span>Reference tools</span>{LEARN_PAGE.tools.map((t) => <a href={t.href}>{t.label}</a>)}</p>
+  </aside>
+
+  <main id="main-content">
+    <section class="top" aria-labelledby="learn-h">
+      <h1 class="h1" id="learn-h">{LEARN_PAGE.h1}</h1>
+      <p class="dek">{total} lessons in {levels.length} levels. Begin at Level 1, or type a topic such as “cases” to find it. Nothing is locked.</p>
+      <p class="refs refs-main"><span>Reference tools</span>{LEARN_PAGE.tools.map((t) => <a href={t.href}>{t.label}</a>)}</p>
+      <div class="resume" id="resume" hidden>
+        <div><small>Continue where you left off</small><b id="resume-title"></b></div>
+        <a class="btn" id="resume-link" href="#"><span class="btxt">Continue</span><Fragment set:html={ICON.arrow} /></a>
+      </div>
+    </section>
+    <p class="count" id="count" aria-live="polite" data-total={total} data-levels={levels.length}>{total} lessons in {levels.length} levels</p>
+
+    <div id="list">
+      {levels.map((l) => (
+        <section class="lvl" id={`level-${l.level}`} data-level={l.level} aria-labelledby={`level-${l.level}-h`}>
+          <div class="lvl-head">
+            <span class="num" aria-hidden="true">{l.level}</span>
+            <h2 id={`level-${l.level}-h`}><span class="vh">Level {l.level}: </span>{l.title}</h2>
+            <span class="ar" lang="ar" dir="rtl">{l.titleAr}</span>
+            <div class="prog"><i><s></s></i><span class="ptxt"></span></div>
+            <button class="fold" type="button" aria-expanded="true" aria-controls={`level-${l.level}-body`}><Fragment set:html={ICON.chev} /><span class="vh">Show or hide Level {l.level}</span></button>
+            <p class="assume">{l.needs}</p>
+          </div>
+          <div class="lvl-body" id={`level-${l.level}-body`}>
+            {l.groups.map((g) => (
+              <div class="grp">
+                <div class="grp-h"><h3>{g.title}</h3><span>{g.note || `${g.lessons.length} ${g.lessons.length === 1 ? 'lesson' : 'lessons'}`}</span></div>
+                <div class="rows">
+                  {g.lessons.map((x) => (
+                    <a class="row" href={`/learn/${x.id}/`} data-id={x.id} data-level={l.level} data-q={x.search}>
+                      <span class="n">{x.order}</span>
+                      <span class="t"><b>{x.title}</b>{x.description && <span class="d">{x.description}</span>}</span>
+                      <span class="tags">
+                        {x.id === firstId && <span class="tag next" data-start>Start here</span>}
+                        {g.essential && <span class="tag ess">Essential</span>}
+                        {g.checkpoint && <span class="tag chk">Checkpoint</span>}
+                      </span>
+                      <span class="tick" aria-hidden="true"><Fragment set:html={ICON.check} /></span>
+                    </a>
+                  ))}
+                </div>
+              </div>
+            ))}
+            <div class="more">
+              <a href={`/learn/level-${l.level}/quiz/`}>Quiz<span class="vh"> for Level {l.level}</span><Fragment set:html={ICON.arrow} /></a>
+              {l.level >= 2 && <a href={`/learn/level-${l.level}/review/`}>Review<span class="vh"> for Level {l.level}</span><Fragment set:html={ICON.arrow} /></a>}
+              <a href={`/learn/level-${l.level}/vocabulary/`}>Vocabulary<span class="vh"> for Level {l.level}</span><Fragment set:html={ICON.arrow} /></a>
+              {l.reading.length > 0 && (
+                <span class="read">Read now: {l.reading.slice(0, 3).map((r, i) => <>{i > 0 && ', '}<a href={r.href}>{r.name}</a></>)}{l.reading.length > 3 && <>, and <a href="/surahs/">{l.reading.length - 3} more</a></>}</span>
+              )}
             </div>
           </div>
-        ))}
-        <ReadingTrack level={level} />
-      </section>
-    ))}
-  </div>
-</section>
+        </section>
+      ))}
+      <div class="empty" id="empty" hidden>
+        <b>No lesson matches that.</b>
+        <p>Try one word, such as “verb”, “case” or “sentence”. For anything else, <a href="/search/">search the whole site</a>.</p>
+      </div>
+    </div>
+  </main>
+</div>
 
-</main>
-
-<footer>
-  <div class="foot-meta">
-    <span>QURANIC GRAMMAR · GRAMMAR CURRICULUM</span>
-    <span>5 LEVELS · 81 LESSONS · 5 CHECKPOINTS</span>
-    <span>FREE · NO SIGN-UP</span>
-    <span>Nettsiden er laget av <a href="https://www.idweb.no" target="_blank" rel="noopener noreferrer">IDweb</a></span>
+<footer class="foot">
+  <div class="in">
+    <nav aria-label="Footer"><a href="/learn/">Learn</a><a href="/surahs/">Surahs</a><a href="/resources/">Resources</a><a href="/about/">About and feedback</a><a href="/rss.xml">RSS</a></nav>
+    <p>Word data from the <a href="https://corpus.quran.com/">Quranic Arabic Corpus</a> (Kais Dukes, GPL). Quran text after <a href="https://tanzil.net/">Tanzil</a>. English meanings on this site are our own plain-English wording, not a translation.</p>
   </div>
 </footer>
-
-<CookieBanner />
-
-<script type="application/json" id="learn-boot" is:inline set:html={JSON.stringify(boot).replace(/<\//g, '<\\/')}></script>
-
+<CookieBanner tone="light" />
 <script>
-// @ts-nocheck
-import { getCompletedLessons } from '../../lib/progress';
-import { initCapacitor } from '../../scripts/capacitor-init';
-initCapacitor();
-
-(function(){
-'use strict';
-var bootEl=document.getElementById('learn-boot'),BOOT;
-try{BOOT=JSON.parse(bootEl.textContent);}catch(e){console.warn('learn: boot payload unreadable — static catalog layout stays visible',e);return;}
-document.documentElement.classList.add('js');
-var RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
-var SMALL=matchMedia('(max-width: 760px)').matches;
-var FLAT=RM||SMALL;
-if(FLAT)document.documentElement.classList.add('flat');
-var veil=document.getElementById('veil');
-addEventListener('load',function(){setTimeout(function(){veil.classList.add('gone');},RM?0:380);});
-setTimeout(function(){veil.classList.add('gone');},2600);
-/* nav gains a blurred backdrop once content scrolls beneath it */
-var navEl=document.querySelector('.nav');
-addEventListener('scroll',function(){if(navEl)navEl.classList.toggle('scrolled',scrollY>16);},{passive:true});
-
-/* ---------- lesson stars (same 5 constellations) ---------- */
-var COUNTS=BOOT.totals;
-var NAMES={},AR={};
-Object.keys(BOOT.names).forEach(function(l){NAMES[l]=BOOT.names[l].en;AR[l]=BOOT.names[l].ar;});
-var byLevel={1:[],2:[],3:[],4:[],5:[]};
-BOOT.manifest.forEach(function(m){byLevel[m.level].push(m);});
-var completed=new Set(getCompletedLessons());
-var resume=null;
-for(var ri=0;ri<BOOT.manifest.length;ri++){if(!completed.has(BOOT.manifest[ri].id)){resume=BOOT.manifest[ri];break;}}
-
-function seedRand(i){var x=Math.sin(i*127.1+311.7)*43758.5453;return x-Math.floor(x);}
-var SHAPES={
-  1:[[340,1010],[300,850],[340,700],[440,610],[560,600],[650,680],[680,830],[670,1000]],
-  2:[[820,470],[940,380],[1070,360],[1200,390],[1300,480],[1210,610],[1070,650],[930,610],[960,510],[1150,510]],
-  3:(function(){var a=[],cx=1560,cy=760,R=240;for(var k=0;k<14;k++){var t=k/14*Math.PI*2-Math.PI/2;a.push([cx+Math.cos(t)*R,cy+Math.sin(t)*R]);}a.push([cx,cy-56]);a.push([cx+66,cy+38]);a.push([cx-76,cy+28]);return a;})(),
-  4:[[2010,300],[2130,360],[2230,450],[2290,560],[2230,520],[2110,470],[1980,450],[1850,470],[1740,540],[1690,650],[1810,600],[1950,570]],
-  5:[[2320,1160],[2250,1050],[2260,930],[2350,850],[2460,870],[2520,980],[2490,1100],[2400,1170],[2380,780],[2390,680],[2350,600]]
-};
-var STARS=[];
-[1,2,3,4,5].forEach(function(lv){
-  var n=COUNTS[lv],A=SHAPES[lv],segs=[],tot=0;
-  for(var i=0;i<A.length-1;i++){var d=Math.hypot(A[i+1][0]-A[i][0],A[i+1][1]-A[i][1]);segs.push(d);tot+=d;}
-  for(var i2=0;i2<n;i2++){
-    var f=n===1?0:i2/(n-1),target=f*tot,acc=0,x=A[0][0],y=A[0][1];
-    for(var s=0;s<segs.length;s++){
-      if(acc+segs[s]>=target){var lf=(target-acc)/segs[s];x=A[s][0]+(A[s+1][0]-A[s][0])*lf;y=A[s][1]+(A[s+1][1]-A[s][1])*lf;break;}
-      acc+=segs[s];
-    }
-    var gi=lv*100+i2;
-    x+=(seedRand(gi)-.5)*44;y+=(seedRand(gi+57)-.5)*44;
-    var lesson=byLevel[lv][i2];
-    var state=lesson&&completed.has(lesson.id)?1:0;
-    if(resume&&lesson&&lesson.id===resume.id)state=2;
-    STARS.push({lv:lv,x:x,y:y,tw:seedRand(gi+9)*6.28,cp:i2===n-1,state:state,
-      id:lesson&&lesson.id,ttl:lesson&&lesson.title,order:lesson&&lesson.order,sx:null,sy:null});
-  }
-});
-var CENTERS={};
-[1,2,3,4,5].forEach(function(lv){var s=STARS.filter(function(st){return st.lv===lv;}),mx=0,my=0;s.forEach(function(st){mx+=st.x;my+=st.y;});CENTERS[lv]={x:mx/s.length,y:my/s.length};});
-var BGS=[];for(var i=0;i<260;i++)BGS.push({x:seedRand(i+1000)*2600,y:seedRand(i+2000)*1500,r:seedRand(i+3000)*1+.3,tw:seedRand(i+4000)*6.28});
-
-/* ---------- canvas ---------- */
-var view=document.getElementById('view'),cv=document.getElementById('skycv'),ctx=cv.getContext('2d');
-var W=0,H=0,dpr=Math.min(devicePixelRatio||1,2);
-function size(){var r=view.getBoundingClientRect();W=r.width;H=r.height;cv.width=W*dpr;cv.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);computeKeys();}
-var KEYS=[];
-function fitAll(){return Math.min(W/2600,H/1500)*.94;}
-function zoomFor(lv){
-  var s=STARS.filter(function(st){return st.lv===lv;});
-  var minx=1e9,maxx=-1e9,miny=1e9,maxy=-1e9;
-  s.forEach(function(st){minx=Math.min(minx,st.x);maxx=Math.max(maxx,st.x);miny=Math.min(miny,st.y);maxy=Math.max(maxy,st.y);});
-  return Math.min(W/(maxx-minx+420),H/(maxy-miny+420));
-}
-function computeKeys(){
-  KEYS=[{x:1300,y:790,z:fitAll()}];
-  [1,2,3,4,5].forEach(function(lv){KEYS.push({x:CENTERS[lv].x,y:CENTERS[lv].y,z:zoomFor(lv)});});
-  KEYS.push({x:1300,y:820,z:fitAll()*1.06});
-}
-size();addEventListener('resize',size);
-var cam={x:1300,y:790,z:.5};
-var mx2=.5,my2=.5;
-addEventListener('pointermove',function(e){mx2=e.clientX/innerWidth;my2=e.clientY/innerHeight;});
-function w2s(x,y){return [(x-cam.x)*cam.z+W/2+(mx2-.5)*10,(y-cam.y)*cam.z+H/2+(my2-.5)*7];}
-function smooth(t){return t*t*(3-2*t);}
-
-/* ---------- scroll driver ---------- */
-var driver=document.getElementById('driver');
-var SEGVH=1.35, SEGS=6;
-function sizeDriver(){if(!FLAT)driver.style.height=Math.round(innerHeight*(SEGS*SEGVH+1))+'px';}
-sizeDriver();addEventListener('resize',sizeDriver);
-var u=0;
-function drive(){
-  if(FLAT){u=0;return;}
-  var total=driver.offsetHeight-innerHeight;
-  var p=Math.max(0,Math.min(1,-driver.getBoundingClientRect().top/total));
-  u=p*SEGS;
-}
-addEventListener('scroll',drive,{passive:true});
-
-/* ---------- overlays ---------- */
-var intro=document.getElementById('intro'),finale=document.getElementById('finale'),dawn=document.getElementById('dawn');
-var cards={};[].slice.call(document.querySelectorAll('.card')).forEach(function(c){cards[+c.dataset.stop]=c;});
-var railDots=[].slice.call(document.querySelectorAll('#rail span'));
-if(!FLAT)finale.setAttribute('inert','');
-
-/* ---------- progress → cards + finale + dek ---------- */
-var lineProg={1:0,2:0,3:0,4:0,5:0};
-var doneTotal=0;
-[1,2,3,4,5].forEach(function(lv){
-  var list=byLevel[lv],done=0;
-  list.forEach(function(m){if(completed.has(m.id))done++;});
-  doneTotal+=done;
-  var ct=document.querySelector('.card[data-stop="'+lv+'"] .ct');
-  if(!ct)return;
-  if(done===list.length&&list.length){ct.textContent='Complete — checkpoint passed';}
-  else if(done===0){ct.textContent=lv===5?'Not started — the capstone waits':'Not started';}
-  else if(resume&&resume.level===lv){ct.textContent=done+' of '+list.length+' — you are here, at '+resume.title;}
-  else{ct.textContent=done+' of '+list.length;}
-  var jc=document.querySelector('.catalog-jump [data-jump-level="'+lv+'"] [data-jump-count]');
-  if(jc&&done>0)jc.textContent=done+' of '+list.length;
-  /* mobile level card: concise progress + fill bar */
-  var mct=document.querySelector('.m-card[data-mlevel="'+lv+'"] [data-mct]');
-  if(mct){
-    if(done===list.length&&list.length){mct.textContent='Complete';mct.classList.add('done');}
-    else if(done===0){mct.textContent='Not started';}
-    else{mct.textContent=done+' of '+list.length;mct.classList.add('done');}
-  }
-  var mbar=document.querySelector('.m-card[data-mlevel="'+lv+'"] [data-mbar]');
-  if(mbar)mbar.style.setProperty('--p',list.length?(done/list.length).toFixed(3):'0');
-});
-document.querySelectorAll('[data-resume-cta],[data-resume-cta-m]').forEach(function(cta){
-  if(!resume){cta.textContent='All '+BOOT.manifest.length+' complete — browse the catalog';cta.setAttribute('href','#curriculum');}
-  else if(doneTotal>0){cta.textContent='Resume '+resume.level+'.'+resume.order+' — '+resume.title;cta.setAttribute('href','/learn/'+resume.id+'/');}
-  /* fresh visitor keeps the server-rendered "Start 1.1 …" label + href */
-});
-var dekMore=document.querySelector('[data-dek-progress]');
-if(dekMore&&doneTotal>0)dekMore.textContent=' — and '+doneTotal+' of them are already behind you';
-/* catalog completed ticks (same contract as the old page) */
-document.querySelectorAll('[data-lesson-row]').forEach(function(row){
-  if(completed.has(row.getAttribute('data-lesson-id')))row.classList.add('completed');
-});
-
-/* ---------- clickable stars (desktop) ---------- */
-var hoverStar=null;
-if(!SMALL){
-  try{window.__learnStars=STARS;}catch(e){}  /* test/debug hook: live star hit data */
-  var tip=document.getElementById('startip');
-  var pick=function(e){
-    var r=cv.getBoundingClientRect(),px=e.clientX-r.left,py=e.clientY-r.top,best=null,bd=1e9;
-    for(var i=0;i<STARS.length;i++){
-      var s=STARS[i];if(s.sx==null||!s.id)continue;
-      var d=Math.hypot(s.sx-px,s.sy-py);
-      var hr=Math.max(14,(s.cp?5.2:2.9)*Math.max(.7,Math.min(1.5,cam.z*1.4))+12);
-      if(d<hr&&d<bd){bd=d;best=s;}
-    }
-    return best;
-  };
-  cv.addEventListener('pointermove',function(e){
-    if(e.pointerType==='touch')return;
-    var s=pick(e);hoverStar=s;
-    if(s){
-      cv.style.cursor='pointer';
-      tip.querySelector('.tl').textContent='Level '+s.lv+' · Lesson '+s.order;
-      tip.querySelector('.tt').textContent=s.ttl||'';
-      tip.style.left=Math.min(innerWidth-260,e.clientX+16)+'px';
-      tip.style.top=Math.min(innerHeight-70,e.clientY+16)+'px';
-      tip.classList.add('on');
-    }else{cv.style.cursor='';tip.classList.remove('on');}
-  },{passive:true});
-  cv.addEventListener('pointerleave',function(){hoverStar=null;cv.style.cursor='';tip.classList.remove('on');});
-  cv.addEventListener('click',function(e){var s=pick(e);if(s&&s.id)location.href='/learn/'+s.id+'/';});
-}
-
-/* ---------- render ---------- */
-var t0=performance.now(),run=true;
-document.addEventListener('visibilitychange',function(){run=!document.hidden;});
-(function frame(t){
-  requestAnimationFrame(frame);
-  if(!run)return;
-  var dt=Math.min(.05,(t-t0)/1000);t0=t;
-  /* camera from keyframes */
-  var seg=Math.min(SEGS-1,Math.floor(u)),f=u-seg;
-  var travel=smooth(Math.min(1,f/.5));
-  var a=KEYS[seg],b=KEYS[seg+1]||KEYS[seg];
-  var tx=a.x+(b.x-a.x)*travel,ty=a.y+(b.y-a.y)*travel,tz=a.z+(b.z-a.z)*travel;
-  var k=FLAT?1:1-Math.pow(.004,dt);
-  cam.x+=(tx-cam.x)*k;cam.y+=(ty-cam.y)*k;cam.z+=(tz-cam.z)*k;
-  if(FLAT){cam.x=1300;cam.y=790;cam.z=fitAll();}
-  /* line progress per constellation */
-  [1,2,3,4,5].forEach(function(lv){
-    var on=FLAT||u>lv-0.55;
-    var tgt=on?1:0.12;
-    lineProg[lv]+=(tgt-lineProg[lv])*(FLAT?1:1-Math.pow(.2,dt));
-  });
-  /* overlays */
-  if(!FLAT){
-    var iv=Math.max(0,1-u*2.4);
-    intro.style.opacity=iv;intro.style.transform='translateY('+(u*-40)+'px)';
-    for(var s2=1;s2<=5;s2++){
-      var vis=Math.max(0,1-Math.abs(u-(s2+.32))*2.1);
-      var c2=cards[s2];
-      c2.style.opacity=vis;
-      c2.style.transform='translateY('+((1-vis)*22)+'px)';
-      /* cards stay pointer-events:none (CSS) so stars behind them remain clickable —
-         they hold only descriptive text, nothing interactive. */
-    }
-    var fv=Math.max(0,Math.min(1,(u-5.45)*2.2));
-    finale.style.opacity=fv;finale.classList.toggle('live',fv>.6);finale.toggleAttribute('inert',fv<=.6);
-    dawn.style.opacity=(Math.max(0,(u-5.1)/.9)*.95).toFixed(3);
-    var act=Math.round(u);
-    railDots.forEach(function(d,i2){d.classList.toggle('hot',i2===Math.max(0,Math.min(6,act)));});
-  }
-  /* draw */
-  ctx.clearRect(0,0,W,H);
-  var dawnF=FLAT?0:Math.max(0,(u-5.1)/.9);
-  var n1=w2s(760,520);
-  var g1=ctx.createRadialGradient(n1[0],n1[1],10,n1[0],n1[1],W*.4);
-  g1.addColorStop(0,'rgba(24,32,74,.4)');g1.addColorStop(1,'rgba(24,32,74,0)');
-  ctx.fillStyle=g1;ctx.fillRect(0,0,W,H);
-  for(var i3=0;i3<BGS.length;i3++){
-    var b2=BGS[i3],p2=w2s(b2.x,b2.y);
-    if(p2[0]<-20||p2[0]>W+20||p2[1]<-20||p2[1]>H+20)continue;
-    ctx.globalAlpha=(RM?.5:.28+.34*Math.sin(t*.0007+b2.tw))*.6*(1-dawnF*.8);
-    ctx.fillStyle='#c9d4ee';ctx.beginPath();ctx.arc(p2[0],p2[1],b2.r*Math.max(.6,cam.z),0,7);ctx.fill();
-  }
-  ctx.globalAlpha=1;
-  if(!SMALL){
-  [1,2,3,4,5].forEach(function(lv){
-    var s3=STARS.filter(function(st){return st.lv===lv;});
-    var pr=lineProg[lv];
-    if(pr<=.01)return;
-    ctx.strokeStyle='rgba(227,179,92,'+(0.08+0.3*pr)+')';
-    ctx.lineWidth=1;
-    var total2=s3.length-1,show=total2*pr;
-    ctx.beginPath();
-    for(var i4=0;i4<Math.floor(show);i4++){
-      var a3=w2s(s3[i4].x,s3[i4].y),b4=w2s(s3[i4+1].x,s3[i4+1].y);
-      ctx.moveTo(a3[0],a3[1]);ctx.lineTo(b4[0],b4[1]);
-    }
-    ctx.stroke();
-  });
-  for(var j=0;j<STARS.length;j++){
-    var st=STARS[j],p3=w2s(st.x,st.y);
-    var onScreen=!(p3[0]<-40||p3[0]>W+40||p3[1]<-40||p3[1]>H+40);
-    st.sx=onScreen?p3[0]:null;st.sy=onScreen?p3[1]:null;
-    if(!onScreen)continue;
-    var tw=RM?1:.8+.2*Math.sin(t*.0016+st.tw);
-    var hovd=st===hoverStar;
-    var base=(st.cp?5.2:2.9)*Math.max(.7,Math.min(1.5,cam.z*1.4))*tw*(hovd?1.7:1);
-    if(st.state>0||hovd){
-      var glow=ctx.createRadialGradient(p3[0],p3[1],0,p3[0],p3[1],base*5);
-      glow.addColorStop(0,'rgba(244,214,143,'+(hovd?.78:.5)+')');glow.addColorStop(1,'rgba(244,214,143,0)');
-      ctx.fillStyle=glow;ctx.beginPath();ctx.arc(p3[0],p3[1],base*5,0,7);ctx.fill();
-      ctx.fillStyle='#f4d68f';
-    }else ctx.fillStyle='rgba(190,204,238,.55)';
-    ctx.beginPath();ctx.arc(p3[0],p3[1],base,0,7);ctx.fill();
-    if(hovd){ctx.strokeStyle='rgba(244,214,143,.9)';ctx.lineWidth=1.4;ctx.beginPath();ctx.arc(p3[0],p3[1],base+7,0,7);ctx.stroke();}
-    if(st.state===2&&!RM){
-      var pr3=(t*.001)%1.6/1.6;
-      ctx.strokeStyle='rgba(244,214,143,'+(1-pr3)*.9+')';ctx.lineWidth=1.4;
-      ctx.beginPath();ctx.arc(p3[0],p3[1],base+pr3*22,0,7);ctx.stroke();
-    }
-  }
-  /* labels */
-  ctx.textAlign='center';
-  [1,2,3,4,5].forEach(function(lv){
-    var c3=CENTERS[lv],pc=w2s(c3.x,c3.y);
-    var vis=FLAT?1:Math.max(.15,Math.min(1,1.4-Math.abs(u-lv)));
-    var off=lv===3?300:220;
-    ctx.globalAlpha=.85*vis;
-    ctx.fillStyle='#f4edda';ctx.font='400 '+Math.max(14,19*cam.z*2)+'px Marcellus, serif';
-    ctx.fillText(NAMES[lv],pc[0],pc[1]-off*cam.z);
-    ctx.globalAlpha=.45*vis;
-    ctx.fillStyle='#e3b35c';ctx.font='400 '+Math.max(11,14*cam.z*2)+'px Amiri, serif';
-    ctx.fillText(AR[lv],pc[0],pc[1]-off*cam.z+Math.max(15,19*cam.z*2));
-  });
-  }
-  ctx.globalAlpha=1;
-})(0);
-drive();
-})();
+  import '../../scripts/learn';
 </script>
-
 </body>
 </html>
