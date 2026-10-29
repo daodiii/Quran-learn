@@ -17219,7 +17219,7 @@ const data: SurahDecoderData = {
           "tr": "wa",
           "root": "-",
           "morph": "Particle - oath",
-          "irab": "Oath particle (wa al-qasam)",
+          "irab": "Oath particle (wa al-qasam): it belongs to an unspoken verb, \"I swear\"",
           "en": "By",
           "cs": "mabni",
           "lens": [
@@ -17242,8 +17242,8 @@ const data: SurahDecoderData = {
           "ar": "وَ",
           "tr": "wa",
           "root": "-",
-          "morph": "Particle - oath",
-          "irab": "Oath particle (wa al-qasam)",
+          "morph": "Particle - conjunction",
+          "irab": "Coordinating conjunction: it joins al-taariqi to al-samaa'i",
           "en": "And by",
           "cs": "mabni",
           "lens": [
@@ -17255,7 +17255,7 @@ const data: SurahDecoderData = {
           "tr": "al-taariqi",
           "root": "ط ر ق",
           "morph": "Noun - active participle, masculine, singular, definite",
-          "irab": "Object of oath - genitive (majrur)",
+          "irab": "Genitive (majrur), joined to al-samaa'i",
           "en": "the night-comer",
           "cs": "gen",
           "lens": [
@@ -17275,8 +17275,8 @@ const data: SurahDecoderData = {
           "ar": "وَ",
           "tr": "wa",
           "root": "-",
-          "morph": "Particle - conjunction",
-          "irab": "Coordinating conjunction",
+          "morph": "Particle - parenthetical",
+          "irab": "Parenthetical wa (i'tiradiyya): it breaks in between the oath and its answer",
           "en": "and",
           "cs": "mabni",
           "lens": [
@@ -17288,7 +17288,7 @@ const data: SurahDecoderData = {
           "tr": "ma",
           "root": "-",
           "morph": "Pronoun - interrogative",
-          "irab": "Interrogative pronoun (ism istifham)",
+          "irab": "Question word (ism istifham) and subject (mubtada'). The clause adraka is its predicate",
           "en": "what",
           "cs": "mabni",
           "lens": []
@@ -17298,7 +17298,7 @@ const data: SurahDecoderData = {
           "tr": "adraka",
           "root": "د ر ي",
           "morph": "Verb - Form IV, past tense, 3rd person, masculine, singular + pronoun",
-          "irab": "Past tense verb with object pronoun",
+          "irab": "Past tense verb. The ending -ka is its first object. The clause ma al-taariqu stands in the place of its second object",
           "en": "made you know",
           "cs": "verb",
           "lens": [
@@ -17310,7 +17310,7 @@ const data: SurahDecoderData = {
           "tr": "ma",
           "root": "-",
           "morph": "Pronoun - interrogative",
-          "irab": "Interrogative pronoun (ism istifham)",
+          "irab": "Question word (ism istifham) and subject (mubtada') of the short sentence ma al-taariqu",
           "en": "what",
           "cs": "mabni",
           "lens": []
@@ -17320,7 +17320,7 @@ const data: SurahDecoderData = {
           "tr": "al-taariqu",
           "root": "ط ر ق",
           "morph": "Noun - active participle, masculine, singular, definite",
-          "irab": "Subject (mubtada') - nominative (marfu')",
+          "irab": "Predicate (khabar) of the second ma - nominative (marfu')",
           "en": "the night-comer",
           "cs": "nom",
           "lens": [
@@ -17341,7 +17341,7 @@ const data: SurahDecoderData = {
           "tr": "al-najmu",
           "root": "ن ج م",
           "morph": "Noun - masculine, singular, definite",
-          "irab": "Predicate (khabar) or badal explaining al-tariq - nominative (marfu')",
+          "irab": "Predicate (khabar) of a left-out \"it\" (huwa) - nominative (marfu')",
           "en": "the star",
           "cs": "nom",
           "lens": [
@@ -17373,8 +17373,8 @@ const data: SurahDecoderData = {
           "ar": "إِن",
           "tr": "in",
           "root": "-",
-          "morph": "Particle - negative conditional",
-          "irab": "Negative conditional particle (harf nafy)",
+          "morph": "Particle - negative",
+          "irab": "Negative particle (harf nafy), not the conditional in",
           "en": "not",
           "cs": "mabni",
           "lens": [
@@ -17409,8 +17409,8 @@ const data: SurahDecoderData = {
           "ar": "لَمَّا",
           "tr": "lamma",
           "root": "-",
-          "morph": "Particle - exception/emphasis",
-          "irab": "Exceptive particle (harf istithnaa') meaning \"but/except\"",
+          "morph": "Particle - restriction",
+          "irab": "Restriction particle (harf hasr) with the meaning of \"except\" (illa)",
           "en": "but/except",
           "cs": "mabni",
           "lens": [
@@ -17422,7 +17422,7 @@ const data: SurahDecoderData = {
           "tr": "'alayha",
           "root": "-",
           "morph": "Preposition + pronoun",
-          "irab": "Prepositional phrase functioning as predicate",
+          "irab": "Prepositional phrase tied to a predicate that comes first (khabar muqaddam)",
           "en": "over it",
           "cs": "mabni",
           "lens": []
@@ -17432,7 +17432,7 @@ const data: SurahDecoderData = {
           "tr": "haafizun",
           "root": "ح ف ظ",
           "morph": "Noun - active participle, masculine, singular, indefinite",
-          "irab": "Predicate (khabar) - nominative (marfu')",
+          "irab": "Delayed subject (mubtada' mu'akhkhar) - nominative (marfu')",
           "en": "a guardian",
           "cs": "nom",
           "lens": [
@@ -17452,8 +17452,8 @@ const data: SurahDecoderData = {
           "ar": "فَ",
           "tr": "fa",
           "root": "-",
-          "morph": "Particle - result/command",
-          "irab": "Result/imperative particle",
+          "morph": "Particle - resumptive",
+          "irab": "Resumptive fa (isti'naf): it starts a new sentence",
           "en": "so",
           "cs": "mabni",
           "lens": [
@@ -17500,18 +17500,20 @@ const data: SurahDecoderData = {
           "ar": "مِمَّ",
           "tr": "mimma",
           "root": "-",
-          "morph": "Preposition + pronoun",
-          "irab": "Compound: min + ma (from what)",
+          "morph": "Preposition + question word",
+          "irab": "min + the question word ma (the alif of ma drops after a preposition). It belongs to khuliqa",
           "en": "from what",
           "cs": "mabni",
-          "lens": []
+          "lens": [
+            "particle"
+          ]
         },
         {
           "ar": "خُلِقَ",
           "tr": "khuliqa",
           "root": "خ ل ق",
           "morph": "Verb - Form I, passive, past tense, 3rd person, masculine, singular",
-          "irab": "Passive verb",
+          "irab": "Passive verb. Its clause fills the place of the object of the verb \"look\": the question word holds that verb back",
           "en": "he was created",
           "cs": "verb",
           "lens": [
@@ -17532,7 +17534,7 @@ const data: SurahDecoderData = {
           "tr": "khuliqa",
           "root": "خ ل ق",
           "morph": "Verb - Form I, passive, past tense, 3rd person, masculine, singular",
-          "irab": "Passive verb",
+          "irab": "Passive verb: a new sentence that explains the first khuliqa",
           "en": "he was created",
           "cs": "verb",
           "lens": [
@@ -17544,7 +17546,7 @@ const data: SurahDecoderData = {
           "tr": "min",
           "root": "-",
           "morph": "Particle - preposition",
-          "irab": "Preposition indicating source",
+          "irab": "Preposition indicating source. It belongs to this second khuliqa",
           "en": "from",
           "cs": "mabni",
           "lens": [
@@ -17568,7 +17570,7 @@ const data: SurahDecoderData = {
           "tr": "daafiqin",
           "root": "د ف ق",
           "morph": "Noun - active participle, masculine, singular, indefinite",
-          "irab": "Adjective (na't) - genitive (majrur)",
+          "irab": "Adjective (na't) of maa'in - genitive (majrur). al-Jadwal: the active form has a passive sense, \"poured out\"",
           "en": "ejected/gushing",
           "cs": "gen",
           "lens": [
@@ -17589,7 +17591,7 @@ const data: SurahDecoderData = {
           "tr": "yakhruju",
           "root": "خ ر ج",
           "morph": "Verb - Form I, present tense, 3rd person, masculine, singular",
-          "irab": "Present verb describing ma' - indicative (marfu')",
+          "irab": "Present verb - indicative (marfu'). Its clause describes ma' (a na't; al-Jadwal also allows a hal)",
           "en": "it emerges",
           "cs": "verb",
           "lens": [
@@ -17601,7 +17603,7 @@ const data: SurahDecoderData = {
           "tr": "min",
           "root": "-",
           "morph": "Particle - preposition",
-          "irab": "Preposition",
+          "irab": "Preposition. It belongs to yakhruju",
           "en": "from",
           "cs": "mabni",
           "lens": [
@@ -17613,7 +17615,7 @@ const data: SurahDecoderData = {
           "tr": "bayni",
           "root": "-",
           "morph": "Noun - locative, construct state",
-          "irab": "Object of preposition - genitive (majrur)",
+          "irab": "Genitive (majrur) after min. It owns al-sulbi",
           "en": "between",
           "cs": "gen",
           "lens": [
@@ -17625,7 +17627,7 @@ const data: SurahDecoderData = {
           "tr": "al-sulbi",
           "root": "ص ل ب",
           "morph": "Noun - masculine, singular, definite",
-          "irab": "First part of dual idafa - genitive (majrur)",
+          "irab": "Second part of a possession (owned by bayni) - genitive (majrur)",
           "en": "the backbone",
           "cs": "gen",
           "lens": [
@@ -17649,7 +17651,7 @@ const data: SurahDecoderData = {
           "tr": "al-taraa'ibi",
           "root": "ت ر ب",
           "morph": "Noun - feminine, plural, definite",
-          "irab": "Second part of dual idafa - genitive (majrur)",
+          "irab": "Joined to al-sulbi with wa - genitive (majrur)",
           "en": "the ribs",
           "cs": "gen",
           "lens": [
@@ -17680,7 +17682,7 @@ const data: SurahDecoderData = {
           "tr": "'ala",
           "root": "-",
           "morph": "Particle - preposition",
-          "irab": "Preposition",
+          "irab": "Preposition. It belongs to qaadirun",
           "en": "upon/over",
           "cs": "mabni",
           "lens": [
@@ -17692,7 +17694,7 @@ const data: SurahDecoderData = {
           "tr": "raj'ihi",
           "root": "ر ج ع",
           "morph": "Noun - masculine, singular, definite + pronoun",
-          "irab": "Object of preposition - genitive (majrur) + possessive",
+          "irab": "Genitive (majrur) after 'ala. The -hi names the one who is returned: al-Jadwal says the fluid or the human",
           "en": "his return",
           "cs": "gen",
           "lens": [
@@ -17737,7 +17739,7 @@ const data: SurahDecoderData = {
           "tr": "yawma",
           "root": "ي و م",
           "morph": "Noun - masculine, singular, indefinite",
-          "irab": "Adverbial accusative of time (zarf zaman)",
+          "irab": "Adverb of time (zarf zaman) - accusative (mansub). It belongs to raj'ihi in verse 8 and owns the clause after it",
           "en": "on the Day",
           "cs": "acc",
           "lens": [
@@ -17749,7 +17751,7 @@ const data: SurahDecoderData = {
           "tr": "tubla",
           "root": "ب ل و",
           "morph": "Verb - Form I, passive, present tense, 3rd person, feminine, singular",
-          "irab": "Passive verb - indicative (marfu')",
+          "irab": "Passive verb - indicative (marfu'). Its clause is the genitive \"owned\" part after yawma",
           "en": "are tested/revealed",
           "cs": "verb",
           "lens": [
@@ -17781,8 +17783,8 @@ const data: SurahDecoderData = {
           "ar": "فَ",
           "tr": "fa",
           "root": "-",
-          "morph": "Particle - result",
-          "irab": "Result conjunction",
+          "morph": "Particle - connecting",
+          "irab": "Connecting fa (fa al-rabita): it links the answer of an unspoken \"if\"",
           "en": "so/then",
           "cs": "mabni",
           "lens": [
@@ -17806,7 +17808,7 @@ const data: SurahDecoderData = {
           "tr": "lahu",
           "root": "-",
           "morph": "Preposition + pronoun",
-          "irab": "Prepositional phrase",
+          "irab": "Prepositional phrase tied to a predicate that comes first (khabar muqaddam)",
           "en": "for him",
           "cs": "mabni",
           "lens": []
@@ -17828,7 +17830,7 @@ const data: SurahDecoderData = {
           "tr": "quwwatin",
           "root": "ق و ي",
           "morph": "Noun - feminine, singular, indefinite",
-          "irab": "Subject (mubtada') - genitive after min za'ida",
+          "irab": "Delayed subject (mubtada') - genitive in form because of min, nominative in position",
           "en": "strength",
           "cs": "gen",
           "lens": [
@@ -17851,8 +17853,8 @@ const data: SurahDecoderData = {
           "ar": "لَا",
           "tr": "laa",
           "root": "-",
-          "morph": "Particle - negation",
-          "irab": "Negation particle (harf nafy)",
+          "morph": "Particle - extra",
+          "irab": "Extra la (la za'ida) that stresses the negation",
           "en": "not",
           "cs": "mabni",
           "lens": [
@@ -17864,7 +17866,7 @@ const data: SurahDecoderData = {
           "tr": "naasirim",
           "root": "ن ص ر",
           "morph": "Noun - active participle, masculine, singular, indefinite",
-          "irab": "Coordinated subject - genitive (majrur)",
+          "irab": "Joined (ma'tuf) to quwwatin - genitive in form, nominative in position",
           "en": "helper",
           "cs": "gen",
           "lens": [
@@ -17941,8 +17943,8 @@ const data: SurahDecoderData = {
           "ar": "وَ",
           "tr": "wa",
           "root": "-",
-          "morph": "Particle - oath",
-          "irab": "Oath particle (wa al-qasam)",
+          "morph": "Particle - conjunction",
+          "irab": "Coordinating conjunction: al-Jadwal joins al-ardi to al-samaa'i",
           "en": "And by",
           "cs": "mabni",
           "lens": [
@@ -17954,7 +17956,7 @@ const data: SurahDecoderData = {
           "tr": "al-ardi",
           "root": "أ ر ض",
           "morph": "Noun - feminine, singular, definite",
-          "irab": "Object of oath - genitive (majrur)",
+          "irab": "Joined (ma'tuf) to al-samaa'i of verse 11 - genitive (majrur)",
           "en": "the earth",
           "cs": "gen",
           "lens": [
@@ -18008,8 +18010,8 @@ const data: SurahDecoderData = {
           "ar": "لَ",
           "tr": "la",
           "root": "-",
-          "morph": "Particle - emphasis",
-          "irab": "Emphasis particle (lam al-tawkid)",
+          "morph": "Particle - oath lam",
+          "irab": "Lam of the oath (al-Jadwal). It stands in the place of the lam that slides onto the predicate after inna",
           "en": "surely",
           "cs": "mabni",
           "lens": [
@@ -18054,7 +18056,7 @@ const data: SurahDecoderData = {
           "tr": "wa",
           "root": "-",
           "morph": "Particle - conjunction",
-          "irab": "Coordinating conjunction",
+          "irab": "Coordinating conjunction: it joins this clause to the jawab al-qasam of verse 13",
           "en": "and",
           "cs": "mabni",
           "lens": [
@@ -18066,7 +18068,7 @@ const data: SurahDecoderData = {
           "tr": "ma",
           "root": "-",
           "morph": "Particle - negation",
-          "irab": "Negation particle (harf nafy)",
+          "irab": "Negation particle that works like laysa (ma nafiya 'amila 'amal laysa)",
           "en": "not",
           "cs": "mabni",
           "lens": [
@@ -18078,7 +18080,7 @@ const data: SurahDecoderData = {
           "tr": "huwa",
           "root": "-",
           "morph": "Pronoun - detached, 3rd person, masculine, singular",
-          "irab": "Subject (mubtada') - nominative (marfu')",
+          "irab": "Noun (ism) of ma - nominative in position; the pronoun does not change",
           "en": "it",
           "cs": "nom",
           "lens": [
@@ -18102,7 +18104,7 @@ const data: SurahDecoderData = {
           "tr": "al-hazli",
           "root": "ه ز ل",
           "morph": "Noun - masculine, singular, definite",
-          "irab": "Predicate (khabar) - genitive (majrur) after ba'",
+          "irab": "Predicate (khabar) of ma - genitive in form because of ba', accusative in position",
           "en": "the jest/play",
           "cs": "gen",
           "lens": [
@@ -18133,7 +18135,7 @@ const data: SurahDecoderData = {
           "tr": "yakiiduuna",
           "root": "ك ي د",
           "morph": "Verb - Form I, present tense, 3rd person, masculine, plural",
-          "irab": "Present verb - indicative (marfu')",
+          "irab": "Present verb - indicative (marfu'). Its clause is the khabar of inna",
           "en": "they plot",
           "cs": "verb",
           "lens": [
@@ -18145,7 +18147,7 @@ const data: SurahDecoderData = {
           "tr": "kaydan",
           "root": "ك ي د",
           "morph": "Noun - verbal noun (masdar), masculine, singular, indefinite",
-          "irab": "Absolute object (maf'ul mutlaq) - accusative (mansub)",
+          "irab": "Absolute object (maf'ul mutlaq) - accusative (mansub). al-Jadwal also allows a plain object: plots against the Prophet",
           "en": "a plot",
           "cs": "acc",
           "lens": [
@@ -18165,8 +18167,8 @@ const data: SurahDecoderData = {
           "ar": "وَ",
           "tr": "wa",
           "root": "-",
-          "morph": "Particle - conjunction",
-          "irab": "Coordinating conjunction",
+          "morph": "Particle - circumstantial",
+          "irab": "Circumstantial wa (wa al-hal) in al-Jadwal: the clause tells the state, \"while I plot\"",
           "en": "and",
           "cs": "mabni",
           "lens": [
@@ -18178,7 +18180,7 @@ const data: SurahDecoderData = {
           "tr": "akiidu",
           "root": "ك ي د",
           "morph": "Verb - Form I, present tense, 1st person, singular",
-          "irab": "Present verb - indicative (marfu')",
+          "irab": "Present verb - indicative (marfu'). Its clause is a hal (al-Jadwal)",
           "en": "I plot",
           "cs": "verb",
           "lens": [
@@ -18190,7 +18192,7 @@ const data: SurahDecoderData = {
           "tr": "kaydan",
           "root": "ك ي د",
           "morph": "Noun - verbal noun (masdar), masculine, singular, indefinite",
-          "irab": "Absolute object (maf'ul mutlaq) - accusative (mansub)",
+          "irab": "Absolute object (maf'ul mutlaq) - accusative (mansub). If the first kaydan is a plain object, al-Jadwal reads this one as \"I turn back the plot\"",
           "en": "a plot",
           "cs": "acc",
           "lens": [
@@ -18210,8 +18212,8 @@ const data: SurahDecoderData = {
           "ar": "فَ",
           "tr": "fa",
           "root": "-",
-          "morph": "Particle - result",
-          "irab": "Result conjunction",
+          "morph": "Particle - connecting",
+          "irab": "Connecting fa (fa al-rabita): it links the answer of an unspoken \"if\"",
           "en": "so",
           "cs": "mabni",
           "lens": [
@@ -18223,7 +18225,7 @@ const data: SurahDecoderData = {
           "tr": "mahhili",
           "root": "م ه ل",
           "morph": "Verb - Form II, imperative, 2nd person, masculine, singular",
-          "irab": "Imperative verb - majzum (understood)",
+          "irab": "Imperative verb, fixed on sukun (the kasra comes before al-)",
           "en": "grant respite to",
           "cs": "verb",
           "lens": [
@@ -18247,7 +18249,7 @@ const data: SurahDecoderData = {
           "tr": "amhilhum",
           "root": "م ه ل",
           "morph": "Verb - Form IV, imperative, 2nd person, masculine, singular + pronoun",
-          "irab": "Imperative verb with object pronoun",
+          "irab": "Imperative verb fixed on sukun, with object pronoun -hum. Its clause restates the first one",
           "en": "grant them respite",
           "cs": "verb",
           "lens": [
@@ -18258,8 +18260,8 @@ const data: SurahDecoderData = {
           "ar": "رُوَيْدًا",
           "tr": "ruwaydan",
           "root": "ر و د",
-          "morph": "Noun - diminutive adverb",
-          "irab": "Adverbial accusative (maf'ul mutlaq)",
+          "morph": "Noun - diminutive verbal noun",
+          "irab": "Absolute object (maf'ul mutlaq) standing in for the verbal noun - accusative (mansub)",
           "en": "a little while",
           "cs": "acc",
           "lens": [
@@ -18282,7 +18284,7 @@ const data: SurahDecoderData = {
           "tr": "sabbih",
           "root": "س ب ح",
           "morph": "Verb - Form II, imperative, 2nd person, masculine, singular",
-          "irab": "Imperative verb - majzum (understood)",
+          "irab": "Imperative verb (fi'l amr) - mabni on sukun; it has a kasra here because the next word starts with a joining alif",
           "en": "glorify",
           "cs": "verb",
           "lens": [
@@ -18318,7 +18320,7 @@ const data: SurahDecoderData = {
           "tr": "al-a'laa",
           "root": "ع ل و",
           "morph": "Noun - elative/superlative, masculine, singular, definite",
-          "irab": "Adjective (na't) - genitive (majrur)",
+          "irab": "Adjective (na't) of rabbika - genitive (majrur) with an unseen kasra",
           "en": "the Most High",
           "cs": "gen",
           "lens": [
@@ -18339,10 +18341,12 @@ const data: SurahDecoderData = {
           "tr": "alladhi",
           "root": "-",
           "morph": "Pronoun - relative",
-          "irab": "Relative pronoun (ism mawsul) referring to al-a'la",
+          "irab": "Relative pronoun (ism mawsul) - genitive position, a second adjective (na't) of rabbika",
           "en": "Who",
-          "cs": "mabni",
-          "lens": []
+          "cs": "gen",
+          "lens": [
+            "gen"
+          ]
         },
         {
           "ar": "خَلَقَ",
@@ -18406,10 +18410,12 @@ const data: SurahDecoderData = {
           "tr": "alladhi",
           "root": "-",
           "morph": "Pronoun - relative",
-          "irab": "Relative pronoun (ism mawsul)",
+          "irab": "Relative pronoun (ism mawsul) - joined to the first alladhi, genitive position",
           "en": "Who",
-          "cs": "mabni",
-          "lens": []
+          "cs": "gen",
+          "lens": [
+            "gen"
+          ]
         },
         {
           "ar": "قَدَّرَ",
@@ -18473,10 +18479,12 @@ const data: SurahDecoderData = {
           "tr": "alladhi",
           "root": "-",
           "morph": "Pronoun - relative",
-          "irab": "Relative pronoun (ism mawsul)",
+          "irab": "Relative pronoun (ism mawsul) - joined to the first alladhi, genitive position",
           "en": "Who",
-          "cs": "mabni",
-          "lens": []
+          "cs": "gen",
+          "lens": [
+            "gen"
+          ]
         },
         {
           "ar": "أَخْرَجَ",
@@ -18538,7 +18546,7 @@ const data: SurahDecoderData = {
         {
           "ar": "غُثَاءً",
           "tr": "ghuthaa'an",
-          "root": "غ ث ث",
+          "root": "غ ث و",
           "morph": "Noun - masculine, singular, indefinite",
           "irab": "Second object (maf'ul bihi thani) - accusative (mansub)",
           "en": "debris/stubble",
@@ -18552,7 +18560,7 @@ const data: SurahDecoderData = {
           "tr": "ahwa",
           "root": "ح و ي",
           "morph": "Noun - adjective, masculine, singular, indefinite",
-          "irab": "Adjective (na't) - accusative (mansub)",
+          "irab": "Adjective (na't) of ghuthaa'an - accusative (mansub) with an unseen fatha; al-Jadwal also allows a hal from al-mar'a",
           "en": "dark/blackish",
           "cs": "acc",
           "lens": [
@@ -18596,8 +18604,8 @@ const data: SurahDecoderData = {
           "ar": "فَ",
           "tr": "fa",
           "root": "-",
-          "morph": "Particle - result",
-          "irab": "Result conjunction",
+          "morph": "Particle - conjunction",
+          "irab": "Coordinating conjunction ('atf): joins the clause la tansa to sa-nuqri'uka",
           "en": "so",
           "cs": "mabni",
           "lens": [
@@ -18609,7 +18617,7 @@ const data: SurahDecoderData = {
           "tr": "laa",
           "root": "-",
           "morph": "Particle - negation",
-          "irab": "Negation particle (harf nafy)",
+          "irab": "Negation particle (harf nafy); al-Jadwal also notes that some read it as a prohibition",
           "en": "not",
           "cs": "mabni",
           "lens": [
@@ -18621,7 +18629,7 @@ const data: SurahDecoderData = {
           "tr": "tansa",
           "root": "ن س ي",
           "morph": "Verb - Form I, present tense, 2nd person, masculine, singular",
-          "irab": "Present verb - indicative (marfu')",
+          "irab": "Present verb - indicative (marfu') with an unseen damma; its object is left out: what you recite",
           "en": "you will forget",
           "cs": "verb",
           "lens": [
@@ -18654,10 +18662,12 @@ const data: SurahDecoderData = {
           "tr": "ma",
           "root": "-",
           "morph": "Pronoun - relative",
-          "irab": "Relative pronoun (ism mawsul)",
+          "irab": "Relative pronoun (ism mawsul) - accusative position, the thing excepted (mustathna)",
           "en": "what",
-          "cs": "mabni",
-          "lens": []
+          "cs": "acc",
+          "lens": [
+            "acc"
+          ]
         },
         {
           "ar": "شَاءَ",
@@ -18688,17 +18698,19 @@ const data: SurahDecoderData = {
           "tr": "innahu",
           "root": "-",
           "morph": "Particle + pronoun",
-          "irab": "Emphasis particle with attached pronoun",
+          "irab": "Particle inna with its subject pronoun -hu (accusative position); al-Jadwal reads this sentence as giving a reason",
           "en": "indeed He",
-          "cs": "mabni",
-          "lens": []
+          "cs": "acc",
+          "lens": [
+            "acc"
+          ]
         },
         {
           "ar": "يَعْلَمُ",
           "tr": "ya'lamu",
           "root": "ع ل م",
           "morph": "Verb - Form I, present tense, 3rd person, masculine, singular",
-          "irab": "Present verb - indicative (marfu')",
+          "irab": "Present verb - indicative (marfu'); the whole clause is the khabar of inna",
           "en": "He knows",
           "cs": "verb",
           "lens": [
@@ -18734,10 +18746,12 @@ const data: SurahDecoderData = {
           "tr": "ma",
           "root": "-",
           "morph": "Pronoun - relative",
-          "irab": "Relative pronoun (ism mawsul)",
+          "irab": "Relative pronoun (ism mawsul) - accusative position, joined by wa to al-jahra",
           "en": "what",
-          "cs": "mabni",
-          "lens": []
+          "cs": "acc",
+          "lens": [
+            "acc"
+          ]
         },
         {
           "ar": "يَخْفَىٰ",
@@ -18789,7 +18803,7 @@ const data: SurahDecoderData = {
           "tr": "li",
           "root": "-",
           "morph": "Particle - preposition",
-          "irab": "Preposition",
+          "irab": "Preposition; the phrase is tied to nuyassiruka",
           "en": "toward",
           "cs": "mabni",
           "lens": [
@@ -18821,8 +18835,8 @@ const data: SurahDecoderData = {
           "ar": "فَ",
           "tr": "fa",
           "root": "-",
-          "morph": "Particle - result",
-          "irab": "Result conjunction",
+          "morph": "Particle - connective",
+          "irab": "Fa that ties the command to an unspoken condition (fa rabita): dhakkir is its answer",
           "en": "so",
           "cs": "mabni",
           "lens": [
@@ -18834,7 +18848,7 @@ const data: SurahDecoderData = {
           "tr": "dhakkir",
           "root": "ذ ك ر",
           "morph": "Verb - Form II, imperative, 2nd person, masculine, singular",
-          "irab": "Imperative verb - majzum (understood)",
+          "irab": "Imperative verb (fi'l amr) - mabni on sukun; al-Jadwal: the clause is the answer to an unspoken condition, so it stands in the jussive position",
           "en": "remind",
           "cs": "verb",
           "lens": [
@@ -18858,7 +18872,7 @@ const data: SurahDecoderData = {
           "tr": "nafa'ati",
           "root": "ن ف ع",
           "morph": "Verb - Form I, past tense, 3rd person, feminine, singular",
-          "irab": "Past verb in conditional clause",
+          "irab": "Past verb, mabni; the verb of the condition (fi'l al-shart), in the jussive position. Its ta has a kasra to avoid two sukuns",
           "en": "it benefited",
           "cs": "verb",
           "lens": [
@@ -18914,11 +18928,13 @@ const data: SurahDecoderData = {
           "ar": "مَن",
           "tr": "man",
           "root": "-",
-          "morph": "Pronoun - relative/conditional",
-          "irab": "Relative pronoun (ism mawsul)",
+          "morph": "Pronoun - relative",
+          "irab": "Relative pronoun (ism mawsul) - subject (fa'il) of yadhdhakkaru, nominative position",
           "en": "whoever/he who",
-          "cs": "mabni",
-          "lens": []
+          "cs": "nom",
+          "lens": [
+            "nom"
+          ]
         },
         {
           "ar": "يَخْشَىٰ",
@@ -18946,7 +18962,7 @@ const data: SurahDecoderData = {
           "tr": "wa",
           "root": "-",
           "morph": "Particle - conjunction",
-          "irab": "Coordinating conjunction",
+          "irab": "Coordinating conjunction: joins this clause to sa-yadhdhakkaru",
           "en": "and/but",
           "cs": "mabni",
           "lens": [
@@ -18991,10 +19007,12 @@ const data: SurahDecoderData = {
           "tr": "alladhi",
           "root": "-",
           "morph": "Pronoun - relative",
-          "irab": "Relative pronoun (ism mawsul) describing al-ashqa",
+          "irab": "Relative pronoun (ism mawsul) - nominative position, an adjective (na't) of al-ashqa",
           "en": "who",
-          "cs": "mabni",
-          "lens": []
+          "cs": "nom",
+          "lens": [
+            "nom"
+          ]
         },
         {
           "ar": "يَصْلَى",
@@ -19046,7 +19064,7 @@ const data: SurahDecoderData = {
           "tr": "thumma",
           "root": "-",
           "morph": "Particle - conjunction",
-          "irab": "Sequential conjunction",
+          "irab": "Conjunction ('atf): joins the clause la yamutu to the clause yasla",
           "en": "then",
           "cs": "mabni",
           "lens": [
@@ -19137,7 +19155,7 @@ const data: SurahDecoderData = {
           "tr": "qad",
           "root": "-",
           "morph": "Particle - emphasis",
-          "irab": "Emphasis particle for past/perfective",
+          "irab": "Particle of certainty (harf tahqiq), used with a past verb",
           "en": "certainly",
           "cs": "mabni",
           "lens": [
@@ -19161,10 +19179,12 @@ const data: SurahDecoderData = {
           "tr": "man",
           "root": "-",
           "morph": "Pronoun - relative",
-          "irab": "Relative pronoun (ism mawsul)",
+          "irab": "Relative pronoun (ism mawsul) - subject (fa'il) of aflaha, nominative position",
           "en": "whoever/he who",
-          "cs": "mabni",
-          "lens": []
+          "cs": "nom",
+          "lens": [
+            "nom"
+          ]
         },
         {
           "ar": "تَزَكَّىٰ",
@@ -19192,7 +19212,7 @@ const data: SurahDecoderData = {
           "tr": "wa",
           "root": "-",
           "morph": "Particle - conjunction",
-          "irab": "Coordinating conjunction",
+          "irab": "Coordinating conjunction: joins dhakara to the clause tazakka (the relative clause of man)",
           "en": "and",
           "cs": "mabni",
           "lens": [
@@ -19240,7 +19260,7 @@ const data: SurahDecoderData = {
           "tr": "fa",
           "root": "-",
           "morph": "Particle - conjunction",
-          "irab": "Sequential conjunction",
+          "irab": "Conjunction ('atf): joins salla to dhakara",
           "en": "and so",
           "cs": "mabni",
           "lens": [
@@ -19272,8 +19292,8 @@ const data: SurahDecoderData = {
           "ar": "بَلْ",
           "tr": "bal",
           "root": "-",
-          "morph": "Particle - adversative",
-          "irab": "Adversative conjunction",
+          "morph": "Particle - turning away (idrab)",
+          "irab": "Particle of turning to a new topic (harf idrab); it does not join two words here",
           "en": "But rather",
           "cs": "mabni",
           "lens": [
@@ -19285,7 +19305,7 @@ const data: SurahDecoderData = {
           "tr": "tu'thiruuna",
           "root": "أ ث ر",
           "morph": "Verb - Form IV, present tense, 2nd person, masculine, plural",
-          "irab": "Present verb - indicative (marfu')",
+          "irab": "Present verb - indicative (marfu'); it starts a new sentence",
           "en": "you prefer",
           "cs": "verb",
           "lens": [
@@ -19330,7 +19350,7 @@ const data: SurahDecoderData = {
           "tr": "wa",
           "root": "-",
           "morph": "Particle - conjunction",
-          "irab": "Coordinating conjunction (circumstantial)",
+          "irab": "The wa of the hal (wa al-haliyya): the clause that follows describes the state of those who prefer the worldly life",
           "en": "while",
           "cs": "mabni",
           "lens": [
@@ -19354,7 +19374,7 @@ const data: SurahDecoderData = {
           "tr": "khayrun",
           "root": "خ ي ر",
           "morph": "Noun - elative/comparative, indefinite",
-          "irab": "First predicate (khabar) - nominative (marfu')",
+          "irab": "Predicate (khabar) - nominative (marfu')",
           "en": "better",
           "cs": "nom",
           "lens": [
@@ -19378,7 +19398,7 @@ const data: SurahDecoderData = {
           "tr": "abqa",
           "root": "ب ق ي",
           "morph": "Noun - elative/comparative, indefinite",
-          "irab": "Second predicate (khabar) - nominative (marfu')",
+          "irab": "Joined by wa to khayrun, so also a predicate (khabar) - nominative (marfu') with an unseen damma",
           "en": "more lasting",
           "cs": "nom",
           "lens": [
@@ -19411,7 +19431,7 @@ const data: SurahDecoderData = {
           "tr": "hadha",
           "root": "-",
           "morph": "Demonstrative - masculine, singular, near",
-          "irab": "Subject of inna (ism inna) - accusative (mansub)",
+          "irab": "Subject of inna (ism inna) - mabni, in the accusative position",
           "en": "this",
           "cs": "acc",
           "lens": [
@@ -19423,7 +19443,7 @@ const data: SurahDecoderData = {
           "tr": "la",
           "root": "-",
           "morph": "Particle - emphasis",
-          "irab": "Emphasis particle (lam al-tawkid)",
+          "irab": "Emphasis lam on the predicate (al-Jadwal: lam al-muzahlaqa, the \"moved\" lam)",
           "en": "surely",
           "cs": "mabni",
           "lens": [
@@ -19435,7 +19455,7 @@ const data: SurahDecoderData = {
           "tr": "fi",
           "root": "-",
           "morph": "Particle - preposition",
-          "irab": "Preposition",
+          "irab": "Preposition; al-Jadwal ties the phrase to the khabar of inna",
           "en": "in",
           "cs": "mabni",
           "lens": [
@@ -19458,8 +19478,8 @@ const data: SurahDecoderData = {
           "ar": "الْأُولَىٰ",
           "tr": "al-uula",
           "root": "أ و ل",
-          "morph": "Noun - elative/superlative feminine plural, definite",
-          "irab": "Adjective (na't) - genitive (majrur)",
+          "morph": "Noun - elative, feminine singular (agreeing with a plural of things), definite",
+          "irab": "Adjective (na't) of al-suhuf - genitive (majrur) with an unseen kasra",
           "en": "the first/former",
           "cs": "gen",
           "lens": [
@@ -19480,7 +19500,7 @@ const data: SurahDecoderData = {
           "tr": "suhufi",
           "root": "ص ح ف",
           "morph": "Noun - feminine, plural, construct state",
-          "irab": "Badal (appositive) explaining al-suhuf al-ula - genitive (majrur)",
+          "irab": "Badal (substitute) for al-suhuf in verse 18 - genitive (majrur); first part of an idafa",
           "en": "the scriptures",
           "cs": "gen",
           "lens": [
@@ -19492,7 +19512,7 @@ const data: SurahDecoderData = {
           "tr": "Ibraahiima",
           "root": "-",
           "morph": "Proper noun - prophet's name, foreign",
-          "irab": "Second part of idafa - genitive (majrur) in meaning",
+          "irab": "Second part of idafa (mudaf ilayhi) - genitive (majrur), shown by a fatha because it is a diptote (foreign name)",
           "en": "Abraham",
           "cs": "gen",
           "lens": [
@@ -19516,7 +19536,7 @@ const data: SurahDecoderData = {
           "tr": "Muusa",
           "root": "-",
           "morph": "Proper noun - prophet's name, foreign",
-          "irab": "Coordinated second part of idafa - genitive (majrur) in meaning",
+          "irab": "Joined by wa to Ibrahim, so also genitive (majrur); the alif maqsura hides the case",
           "en": "Moses",
           "cs": "gen",
           "lens": [
@@ -21033,7 +21053,7 @@ const data: SurahDecoderData = {
           "tr": "wa-l-fajri",
           "root": "ف-ج-ر",
           "morph": "Noun - masculine, singular, definite",
-          "irab": "Oath particle wa + noun in genitive (majrur) after oath particle",
+          "irab": "Oath particle wa (harf qasam) + noun in genitive (majrur) after it; the phrase is tied to an unspoken verb, \"I swear\"",
           "en": "and the dawn",
           "cs": "gen",
           "lens": [
@@ -21053,8 +21073,8 @@ const data: SurahDecoderData = {
           "ar": "وَ",
           "tr": "wa",
           "root": "-",
-          "morph": "Particle - oath",
-          "irab": "Not declinable (mabni), oath particle",
+          "morph": "Particle - conjunction",
+          "irab": "Not declinable (mabni), joining wa: it joins لَيَالٍ to الْفَجْرِ (al-Darwish parses it this way)",
           "en": "and",
           "cs": "mabni",
           "lens": [
@@ -21066,7 +21086,7 @@ const data: SurahDecoderData = {
           "tr": "layaalin",
           "root": "ل-ي-ل",
           "morph": "Noun - feminine, plural, indefinite",
-          "irab": "Genitive (majrur) after oath particle, with tanwin kasratayn",
+          "irab": "Genitive (majrur) because it is joined to الْفَجْرِ, with tanwin kasratayn (the ya' has dropped)",
           "en": "nights",
           "cs": "gen",
           "lens": [
@@ -21077,7 +21097,7 @@ const data: SurahDecoderData = {
           "ar": "عَشْرٍ",
           "tr": "'ashrin",
           "root": "ع-ش-ر",
-          "morph": "Noun - feminine, plural, indefinite (numerical adjective)",
+          "morph": "Numeral - ten, feminine form (no ة), indefinite",
           "irab": "Adjective (na't) of لَيَالٍ, genitive (majrur), with tanwin kasratayn",
           "en": "ten",
           "cs": "gen",
@@ -21098,8 +21118,8 @@ const data: SurahDecoderData = {
           "ar": "وَ",
           "tr": "wa",
           "root": "-",
-          "morph": "Particle - oath",
-          "irab": "Not declinable (mabni), oath particle",
+          "morph": "Particle - conjunction",
+          "irab": "Not declinable (mabni), joining wa: it joins الشَّفْعِ to الْفَجْرِ (al-Darwish parses it this way)",
           "en": "and",
           "cs": "mabni",
           "lens": [
@@ -21111,7 +21131,7 @@ const data: SurahDecoderData = {
           "tr": "ash-shaf'i",
           "root": "ش-ف-ع",
           "morph": "Noun - masculine, singular, definite",
-          "irab": "Genitive (majrur) after oath particle",
+          "irab": "Genitive (majrur) because it is joined to الْفَجْرِ",
           "en": "the even",
           "cs": "gen",
           "lens": [
@@ -21122,8 +21142,8 @@ const data: SurahDecoderData = {
           "ar": "وَ",
           "tr": "wa",
           "root": "-",
-          "morph": "Particle - oath",
-          "irab": "Not declinable (mabni), oath particle",
+          "morph": "Particle - conjunction",
+          "irab": "Not declinable (mabni), joining wa: it joins الْوَتْرِ to الشَّفْعِ",
           "en": "and",
           "cs": "mabni",
           "lens": [
@@ -21135,7 +21155,7 @@ const data: SurahDecoderData = {
           "tr": "al-watri",
           "root": "و-ت-ر",
           "morph": "Noun - masculine, singular, definite",
-          "irab": "Genitive (majrur) after oath particle",
+          "irab": "Genitive (majrur) because it is joined to what comes before",
           "en": "the odd",
           "cs": "gen",
           "lens": [
@@ -21155,8 +21175,8 @@ const data: SurahDecoderData = {
           "ar": "وَ",
           "tr": "wa",
           "root": "-",
-          "morph": "Particle - oath",
-          "irab": "Not declinable (mabni), oath particle",
+          "morph": "Particle - conjunction",
+          "irab": "Not declinable (mabni), joining wa: it joins الَّيْلِ to what comes before (al-Darwish parses it this way)",
           "en": "and",
           "cs": "mabni",
           "lens": [
@@ -21168,7 +21188,7 @@ const data: SurahDecoderData = {
           "tr": "al-layli",
           "root": "ل-ي-ل",
           "morph": "Noun - masculine, singular, definite",
-          "irab": "Genitive (majrur) after oath particle",
+          "irab": "Genitive (majrur) because it is joined to الْفَجْرِ",
           "en": "the night",
           "cs": "gen",
           "lens": [
@@ -21180,7 +21200,7 @@ const data: SurahDecoderData = {
           "tr": "idha",
           "root": "-",
           "morph": "Particle - conditional/temporal",
-          "irab": "Not declinable (mabni), introduces temporal clause",
+          "irab": "Not declinable (mabni), a time word (adverb) in the accusative position, with no condition in it here (al-Jadwal); tied to the unspoken verb \"I swear\"; the clause after it is its muḍāf ilayhi",
           "en": "when",
           "cs": "mabni",
           "lens": [
@@ -21192,7 +21212,7 @@ const data: SurahDecoderData = {
           "tr": "yasri",
           "root": "س-ر-ي",
           "morph": "Verb - Form I, present, 3rd person masculine singular",
-          "irab": "Verb in indicative (marfu'), subject is اللَّيْل",
+          "irab": "Verb in indicative (marfu'), the ḍamma is unwritten on the dropped ya'; the subject is a hidden \"it\" (the night). The clause is in the genitive position (muḍāf ilayhi of إِذَا)",
           "en": "it passes/flows",
           "cs": "verb",
           "lens": [
@@ -21213,7 +21233,7 @@ const data: SurahDecoderData = {
           "tr": "hal",
           "root": "-",
           "morph": "Particle - interrogative",
-          "irab": "Not declinable (mabni), introduces rhetorical question",
+          "irab": "Not declinable (mabni), question particle for confirmation and affirmation (al-Jadwal); the sentence is a new sentence (isti'naf)",
           "en": "is there?",
           "cs": "mabni",
           "lens": [
@@ -21237,7 +21257,7 @@ const data: SurahDecoderData = {
           "tr": "dhalika",
           "root": "-",
           "morph": "Demonstrative - far, masculine, singular",
-          "irab": "Not declinable (mabni) in place of genitive after فِي",
+          "irab": "Not declinable (mabni) in place of genitive after فِي; the phrase فِي ذَٰلِكَ is tied to a fronted predicate (khabar)",
           "en": "that",
           "cs": "gen",
           "lens": [
@@ -21249,7 +21269,7 @@ const data: SurahDecoderData = {
           "tr": "qasamun",
           "root": "ق-س-م",
           "morph": "Noun - masculine, singular, indefinite",
-          "irab": "Subject (mubtada') - nominative (marfu'), with tanwin dammatayn",
+          "irab": "Subject (mubtada'), delayed - nominative (marfu'), with tanwin dammatayn",
           "en": "an oath",
           "cs": "nom",
           "lens": [
@@ -21261,7 +21281,7 @@ const data: SurahDecoderData = {
           "tr": "li-",
           "root": "-",
           "morph": "Particle - preposition",
-          "irab": "Not declinable (mabni), governs genitive",
+          "irab": "Not declinable (mabni), governs genitive; the phrase is tied to an adjective of قَسَمٌ",
           "en": "for",
           "cs": "mabni",
           "lens": [
@@ -21273,7 +21293,7 @@ const data: SurahDecoderData = {
           "tr": "dhi",
           "root": "-",
           "morph": "Noun - masculine, singular (special noun of the five)",
-          "irab": "Genitive (majrur) after لِ, invariable form",
+          "irab": "Genitive (majrur) after لِ, shown by the ya'; first part of an idafa",
           "en": "possessor of",
           "cs": "gen",
           "lens": [
@@ -21285,7 +21305,7 @@ const data: SurahDecoderData = {
           "tr": "hijrin",
           "root": "ح-ج-ر",
           "morph": "Noun - masculine, singular, indefinite",
-          "irab": "Genitive (majrur) in idafa construction, with tanwin kasratayn",
+          "irab": "Genitive (majrur), second part of the idafa, with tanwin kasratayn",
           "en": "intellect/perception",
           "cs": "gen",
           "lens": [
@@ -21306,7 +21326,7 @@ const data: SurahDecoderData = {
           "tr": "alam",
           "root": "-",
           "morph": "Particle - interrogative + negation",
-          "irab": "Not declinable (mabni), أَ (interrogative) + لَمْ (negation/jussive)",
+          "irab": "Not declinable (mabni), أَ (interrogative) + لَمْ (negation/jussive); a question for confirmation",
           "en": "did not?",
           "cs": "mabni",
           "lens": [
@@ -21318,7 +21338,7 @@ const data: SurahDecoderData = {
           "tr": "tara",
           "root": "ر-أ-ي",
           "morph": "Verb - Form I, present, 2nd person masculine singular",
-          "irab": "Jussive (majzum) after لَمْ, shortened from تَرَى",
+          "irab": "Jussive (majzum) after لَمْ, shortened from تَرَى; the seeing is with the heart, which means knowing",
           "en": "you see",
           "cs": "verb",
           "lens": [
@@ -21329,12 +21349,12 @@ const data: SurahDecoderData = {
           "ar": "كَيْفَ",
           "tr": "kayfa",
           "root": "-",
-          "morph": "Particle - interrogative",
-          "irab": "Not declinable (mabni), introduces indirect question",
+          "morph": "Noun - interrogative (question word)",
+          "irab": "Not declinable (mabni), in the accusative position: a ḥāl whose governing word is فَعَلَ (al-Jadwal; it also allows a maf'ul mutlaq)",
           "en": "how",
-          "cs": "mabni",
+          "cs": "acc",
           "lens": [
-            "particle"
+            "acc"
           ]
         },
         {
@@ -21342,7 +21362,7 @@ const data: SurahDecoderData = {
           "tr": "fa'ala",
           "root": "ف-ع-ل",
           "morph": "Verb - Form I, past, 3rd person masculine singular",
-          "irab": "Verb in past (mabni), introduces subordinate clause",
+          "irab": "Verb in past (mabni); the whole clause fills the place of the two objects of تَرَ, which كَيْفَ holds back from acting on it (ta'liq)",
           "en": "he did",
           "cs": "verb",
           "lens": [
@@ -21366,7 +21386,7 @@ const data: SurahDecoderData = {
           "tr": "bi-",
           "root": "-",
           "morph": "Particle - preposition",
-          "irab": "Not declinable (mabni), governs genitive",
+          "irab": "Not declinable (mabni), governs genitive; the phrase is tied to فَعَلَ",
           "en": "with/to",
           "cs": "mabni",
           "lens": [
@@ -21377,8 +21397,8 @@ const data: SurahDecoderData = {
           "ar": "عَادٍ",
           "tr": "'aadin",
           "root": "ع-و-د",
-          "morph": "Proper noun - masculine, singular, indefinite (foreign name)",
-          "irab": "Genitive (majrur) after بِ, with tanwin kasratayn (diptote)",
+          "morph": "Proper noun - masculine, singular, indefinite (tribe name)",
+          "irab": "Genitive (majrur) after بِ, with tanwin kasratayn (it takes full tanwin)",
           "en": "'Aad",
           "cs": "gen",
           "lens": [
@@ -21398,8 +21418,8 @@ const data: SurahDecoderData = {
           "ar": "إِرَمَ",
           "tr": "irama",
           "root": "-",
-          "morph": "Proper noun - feminine, singular (place/tribe name)",
-          "irab": "Apposition (badal) to عَادٍ - genitive (majrur), diptote (no tanwin)",
+          "morph": "Proper noun - feminine, singular (tribe name)",
+          "irab": "Explanatory apposition ('atf bayan) to عَادٍ, or a badal (al-Jadwal allows both) - genitive (majrur), diptote (no tanwin)",
           "en": "Iram",
           "cs": "gen",
           "lens": [
@@ -21411,7 +21431,7 @@ const data: SurahDecoderData = {
           "tr": "dhati",
           "root": "-",
           "morph": "Noun - feminine, singular (special possessive noun)",
-          "irab": "Adjective (na't) of إِرَمَ - genitive (majrur)",
+          "irab": "Adjective (na't) of إِرَمَ - genitive (majrur), first part of an idafa",
           "en": "possessor of",
           "cs": "gen",
           "lens": [
@@ -21422,8 +21442,8 @@ const data: SurahDecoderData = {
           "ar": "الْعِمَادِ",
           "tr": "al-'imadi",
           "root": "ع-م-د",
-          "morph": "Noun - masculine, singular/plural, definite",
-          "irab": "Genitive (majrur) in idafa construction after ذَاتِ",
+          "morph": "Noun - collective (masculine or feminine), definite",
+          "irab": "Genitive (majrur), second part of the idafa after ذَاتِ",
           "en": "the pillars/columns",
           "cs": "gen",
           "lens": [
@@ -21444,10 +21464,12 @@ const data: SurahDecoderData = {
           "tr": "allati",
           "root": "-",
           "morph": "Relative pronoun - feminine, singular",
-          "irab": "Not declinable (mabni), refers to إِرَمَ",
+          "irab": "Not declinable (mabni), in the genitive position: an adjective (na't) of إِرَمَ (al-Jadwal's first reading)",
           "en": "which/who",
-          "cs": "mabni",
-          "lens": []
+          "cs": "gen",
+          "lens": [
+            "gen"
+          ]
         },
         {
           "ar": "لَمْ",
@@ -21466,7 +21488,7 @@ const data: SurahDecoderData = {
           "tr": "yukhlaq",
           "root": "خ-ل-ق",
           "morph": "Verb - Form I, present passive, 3rd person masculine singular",
-          "irab": "Jussive (majzum) after لَمْ, passive voice",
+          "irab": "Jussive (majzum) after لَمْ, passive voice; the clause is the relative clause (sila) of الَّتِي",
           "en": "it was created",
           "cs": "verb",
           "lens": [
@@ -21490,7 +21512,7 @@ const data: SurahDecoderData = {
           "tr": "fi",
           "root": "-",
           "morph": "Particle - preposition",
-          "irab": "Not declinable (mabni), governs genitive",
+          "irab": "Not declinable (mabni), governs genitive; the phrase is tied to يُخْلَقْ",
           "en": "in",
           "cs": "mabni",
           "lens": [
@@ -21523,7 +21545,7 @@ const data: SurahDecoderData = {
           "tr": "wa",
           "root": "-",
           "morph": "Particle - conjunction",
-          "irab": "Not declinable (mabni), coordinates with previous",
+          "irab": "Not declinable (mabni), joining wa: it joins ثَمُودَ to عَادٍ",
           "en": "and",
           "cs": "mabni",
           "lens": [
@@ -21535,11 +21557,11 @@ const data: SurahDecoderData = {
           "tr": "thamuda",
           "root": "-",
           "morph": "Proper noun - feminine, singular (tribal name)",
-          "irab": "Object (ma'tuf) parallel to عَادٍ - accusative (mansub), diptote",
+          "irab": "Joined (ma'tuf) to عَادٍ - genitive (majrur), diptote (shown by fatha; it is a name and feminine)",
           "en": "Thamud",
-          "cs": "acc",
+          "cs": "gen",
           "lens": [
-            "acc"
+            "gen"
           ]
         },
         {
@@ -21547,17 +21569,19 @@ const data: SurahDecoderData = {
           "tr": "alladhina",
           "root": "-",
           "morph": "Relative pronoun - masculine, plural",
-          "irab": "Not declinable (mabni), refers to ثَمُودَ",
+          "irab": "Not declinable (mabni), in the genitive position: an adjective (na't) of ثَمُودَ; it is plural because ثَمُودَ means a people",
           "en": "who/those who",
-          "cs": "mabni",
-          "lens": []
+          "cs": "gen",
+          "lens": [
+            "gen"
+          ]
         },
         {
           "ar": "جَابُوا",
           "tr": "jabu",
           "root": "ج-و-ب",
           "morph": "Verb - Form I, past, 3rd person masculine plural",
-          "irab": "Verb in past (mabni), وا pronoun is subject",
+          "irab": "Verb in past (mabni), وا pronoun is subject; the clause is the relative clause (sila) of الَّذِينَ",
           "en": "they hollowed out",
           "cs": "verb",
           "lens": [
@@ -21581,7 +21605,7 @@ const data: SurahDecoderData = {
           "tr": "bi-",
           "root": "-",
           "morph": "Particle - preposition",
-          "irab": "Not declinable (mabni), governs genitive",
+          "irab": "Not declinable (mabni), governs genitive; the phrase is tied to جَابُوا",
           "en": "in/at",
           "cs": "mabni",
           "lens": [
@@ -21593,7 +21617,7 @@ const data: SurahDecoderData = {
           "tr": "al-wadi",
           "root": "و-د-ي",
           "morph": "Noun - masculine, singular, definite",
-          "irab": "Genitive (majrur) after بِ",
+          "irab": "Genitive (majrur) after بِ; the kasra is understood on a ya' that is dropped in writing for the rhyme",
           "en": "the valley",
           "cs": "gen",
           "lens": [
@@ -21614,7 +21638,7 @@ const data: SurahDecoderData = {
           "tr": "wa",
           "root": "-",
           "morph": "Particle - conjunction",
-          "irab": "Not declinable (mabni), coordinates",
+          "irab": "Not declinable (mabni), joining wa: it joins فِرْعَوْنَ to عَادٍ",
           "en": "and",
           "cs": "mabni",
           "lens": [
@@ -21626,11 +21650,11 @@ const data: SurahDecoderData = {
           "tr": "fir'awna",
           "root": "-",
           "morph": "Proper noun - masculine, singular (foreign name)",
-          "irab": "Object (ma'tuf) parallel to عَادٍ - accusative (mansub), diptote",
+          "irab": "Joined (ma'tuf) to عَادٍ - genitive (majrur), diptote (shown by fatha), parsed like ثَمُودَ",
           "en": "Pharaoh",
-          "cs": "acc",
+          "cs": "gen",
           "lens": [
-            "acc"
+            "gen"
           ]
         },
         {
@@ -21638,11 +21662,11 @@ const data: SurahDecoderData = {
           "tr": "dhi",
           "root": "-",
           "morph": "Noun - masculine, singular (one of the five nouns)",
-          "irab": "Adjective (na't) of فِرْعَوْنَ - accusative (mansub)",
+          "irab": "Adjective (na't) of فِرْعَوْنَ - genitive (majrur), shown by the ya'; first part of an idafa",
           "en": "possessor of",
-          "cs": "acc",
+          "cs": "gen",
           "lens": [
-            "acc"
+            "gen"
           ]
         },
         {
@@ -21650,7 +21674,7 @@ const data: SurahDecoderData = {
           "tr": "al-awtadi",
           "root": "و-ت-د",
           "morph": "Noun - masculine, plural, definite",
-          "irab": "Genitive (majrur) in idafa construction",
+          "irab": "Genitive (majrur), second part of the idafa",
           "en": "the stakes/pegs",
           "cs": "gen",
           "lens": [
@@ -21671,17 +21695,19 @@ const data: SurahDecoderData = {
           "tr": "alladhina",
           "root": "-",
           "morph": "Relative pronoun - masculine, plural",
-          "irab": "Not declinable (mabni), refers back to all three groups",
+          "irab": "Not declinable (mabni), in the genitive position: an adjective (na't) of فِرْعَوْنَ with an unspoken \"people of\" (al-Jadwal's first reading)",
           "en": "who/those who",
-          "cs": "mabni",
-          "lens": []
+          "cs": "gen",
+          "lens": [
+            "gen"
+          ]
         },
         {
           "ar": "طَغَوْا",
           "tr": "taghaw",
           "root": "ط-غ-ي",
           "morph": "Verb - Form I, past, 3rd person masculine plural",
-          "irab": "Verb in past (mabni), وا pronoun is subject",
+          "irab": "Verb in past (mabni), وا pronoun is subject; the clause is the relative clause (sila) of الَّذِينَ",
           "en": "they transgressed",
           "cs": "verb",
           "lens": [
@@ -21693,7 +21719,7 @@ const data: SurahDecoderData = {
           "tr": "fi",
           "root": "-",
           "morph": "Particle - preposition",
-          "irab": "Not declinable (mabni), governs genitive",
+          "irab": "Not declinable (mabni), governs genitive; the phrase is tied to طَغَوْا",
           "en": "in",
           "cs": "mabni",
           "lens": [
@@ -21725,8 +21751,8 @@ const data: SurahDecoderData = {
           "ar": "فَ",
           "tr": "fa-",
           "root": "-",
-          "morph": "Particle - conjunction (consequence)",
-          "irab": "Not declinable (mabni), shows result",
+          "morph": "Particle - conjunction",
+          "irab": "Not declinable (mabni), joining fa (fa' al-'atf): it joins this clause to the clause طَغَوْا",
           "en": "so/and",
           "cs": "mabni",
           "lens": [
@@ -21738,7 +21764,7 @@ const data: SurahDecoderData = {
           "tr": "aktharu",
           "root": "ك-ث-ر",
           "morph": "Verb - Form IV, past, 3rd person masculine plural",
-          "irab": "Verb in past (mabni), وا pronoun is subject",
+          "irab": "Verb in past (mabni), وا pronoun is subject; the clause is joined to the clause طَغَوْا",
           "en": "they increased/multiplied",
           "cs": "verb",
           "lens": [
@@ -21750,7 +21776,7 @@ const data: SurahDecoderData = {
           "tr": "fiha",
           "root": "-",
           "morph": "Preposition + attached pronoun",
-          "irab": "فِي governs genitive, هَا pronoun refers to الْبِلَادِ",
+          "irab": "فِي governs genitive, هَا pronoun refers to الْبِلَادِ; the phrase is tied to أَكْثَرُوا (al-Jadwal also allows a ḥāl of the doers)",
           "en": "in it",
           "cs": "gen",
           "lens": [
@@ -21782,8 +21808,8 @@ const data: SurahDecoderData = {
           "ar": "فَ",
           "tr": "fa-",
           "root": "-",
-          "morph": "Particle - conjunction (consequence)",
-          "irab": "Not declinable (mabni), shows result",
+          "morph": "Particle - conjunction",
+          "irab": "Not declinable (mabni), joining fa (fa' al-'atf): it joins this clause to the clause أَكْثَرُوا",
           "en": "so",
           "cs": "mabni",
           "lens": [
@@ -21795,7 +21821,7 @@ const data: SurahDecoderData = {
           "tr": "sabba",
           "root": "ص-ب-ب",
           "morph": "Verb - Form I, past, 3rd person masculine singular",
-          "irab": "Verb in past (mabni)",
+          "irab": "Verb in past (mabni); the clause is joined to the clause أَكْثَرُوا",
           "en": "he poured",
           "cs": "verb",
           "lens": [
@@ -21807,7 +21833,7 @@ const data: SurahDecoderData = {
           "tr": "'alayhim",
           "root": "-",
           "morph": "Preposition + attached pronoun",
-          "irab": "عَلَى governs genitive, هِمْ 3rd person plural pronoun",
+          "irab": "عَلَى governs genitive, هِمْ 3rd person plural pronoun; the phrase is tied to صَبَّ",
           "en": "upon them",
           "cs": "gen",
           "lens": [
@@ -21831,7 +21857,7 @@ const data: SurahDecoderData = {
           "tr": "sawta",
           "root": "س-و-ط",
           "morph": "Noun - masculine, singular, indefinite",
-          "irab": "Direct object (maf'ul bihi) - accusative (mansub)",
+          "irab": "Direct object (maf'ul bihi) - accusative (mansub), first part of an idafa",
           "en": "scourge/whip",
           "cs": "acc",
           "lens": [
@@ -21843,7 +21869,7 @@ const data: SurahDecoderData = {
           "tr": "'adhabin",
           "root": "ع-ذ-ب",
           "morph": "Noun - masculine, singular, indefinite",
-          "irab": "Genitive (majrur) in idafa construction, with tanwin kasratayn",
+          "irab": "Genitive (majrur), second part of the idafa, with tanwin kasratayn",
           "en": "punishment",
           "cs": "gen",
           "lens": [
@@ -21888,7 +21914,7 @@ const data: SurahDecoderData = {
           "tr": "la-",
           "root": "-",
           "morph": "Particle - emphasis",
-          "irab": "Not declinable (mabni), strengthens predicate",
+          "irab": "Not declinable (mabni), the lam of emphasis, placed on the predicate",
           "en": "surely",
           "cs": "mabni",
           "lens": [
@@ -21912,7 +21938,7 @@ const data: SurahDecoderData = {
           "tr": "al-mirsadi",
           "root": "ر-ص-د",
           "morph": "Noun - masculine, singular, definite (place noun)",
-          "irab": "Predicate of إِنَّ (khabar inna) - genitive (majrur) after بِ, in place of nominative",
+          "irab": "Genitive (majrur) after بِ; the phrase بِالْمِرْصَادِ is the predicate (khabar) of إِنَّ",
           "en": "the watch-place/observation",
           "cs": "gen",
           "lens": [
@@ -21932,8 +21958,8 @@ const data: SurahDecoderData = {
           "ar": "فَ",
           "tr": "fa-",
           "root": "-",
-          "morph": "Particle - conjunction",
-          "irab": "Not declinable (mabni), transitions to new topic",
+          "morph": "Particle - resumptive (isti'naf)",
+          "irab": "Not declinable (mabni), resumptive fa: it opens a new sentence",
           "en": "and/so",
           "cs": "mabni",
           "lens": [
@@ -21944,8 +21970,8 @@ const data: SurahDecoderData = {
           "ar": "أَمَّا",
           "tr": "amma",
           "root": "-",
-          "morph": "Particle - conditional",
-          "irab": "Not declinable (mabni), introduces conditional clause",
+          "morph": "Particle - condition and breaking down",
+          "irab": "Not declinable (mabni), it sorts the cases of the human (al-Jadwal: shart wa-tafsil)",
           "en": "as for",
           "cs": "mabni",
           "lens": [
@@ -21957,7 +21983,7 @@ const data: SurahDecoderData = {
           "tr": "al-insanu",
           "root": "أ-ن-س",
           "morph": "Noun - masculine, singular, definite",
-          "irab": "Subject (mubtada') - nominative (marfu')",
+          "irab": "Subject (mubtada') - nominative (marfu'); its predicate is the clause يَقُولُ",
           "en": "the human",
           "cs": "nom",
           "lens": [
@@ -21969,7 +21995,7 @@ const data: SurahDecoderData = {
           "tr": "idha",
           "root": "-",
           "morph": "Particle - conditional/temporal",
-          "irab": "Not declinable (mabni), introduces when-clause",
+          "irab": "Not declinable (mabni), a conditional time word; its answer is left out because the answer of أَمَّا shows it; the clause after it is its muḍāf ilayhi",
           "en": "when",
           "cs": "mabni",
           "lens": [
@@ -21981,7 +22007,7 @@ const data: SurahDecoderData = {
           "tr": "ma",
           "root": "-",
           "morph": "Particle - extra/emphasis",
-          "irab": "Not declinable (mabni), adds emphasis to إِذَا",
+          "irab": "Not declinable (mabni), an extra particle (za'ida) with no job; it only adds emphasis to إِذَا",
           "en": "what (emphasis)",
           "cs": "mabni",
           "lens": [
@@ -21993,7 +22019,7 @@ const data: SurahDecoderData = {
           "tr": "ibtalahu",
           "root": "ب-ل-و",
           "morph": "Verb - Form VIII, past, 3rd person masculine singular + pronoun",
-          "irab": "Verb in past (mabni), هُ 3rd person pronoun is object",
+          "irab": "Verb in past (mabni), هُ 3rd person pronoun is object; the clause is the muḍāf ilayhi of إِذَا, so it is in the genitive position",
           "en": "he tested him",
           "cs": "verb",
           "lens": [
@@ -22017,7 +22043,7 @@ const data: SurahDecoderData = {
           "tr": "fa-",
           "root": "-",
           "morph": "Particle - conjunction",
-          "irab": "Not declinable (mabni), shows result",
+          "irab": "Not declinable (mabni), joining fa (fa' al-'atf): it joins أَكْرَمَهُ to ابْتَلَاهُ",
           "en": "so",
           "cs": "mabni",
           "lens": [
@@ -22029,7 +22055,7 @@ const data: SurahDecoderData = {
           "tr": "akramahu",
           "root": "ك-ر-م",
           "morph": "Verb - Form IV, past, 3rd person masculine singular + pronoun",
-          "irab": "Verb in past (mabni), هُ 3rd person pronoun is object",
+          "irab": "Verb in past (mabni), هُ 3rd person pronoun is object; the clause is joined to ابْتَلَاهُ رَبُّهُ, so it is also in the genitive position",
           "en": "he honored him",
           "cs": "verb",
           "lens": [
@@ -22041,7 +22067,7 @@ const data: SurahDecoderData = {
           "tr": "wa",
           "root": "-",
           "morph": "Particle - conjunction",
-          "irab": "Not declinable (mabni), coordinates",
+          "irab": "Not declinable (mabni), joining wa: it joins نَعَّمَهُ to the same clause",
           "en": "and",
           "cs": "mabni",
           "lens": [
@@ -22053,7 +22079,7 @@ const data: SurahDecoderData = {
           "tr": "na''amahu",
           "root": "ن-ع-م",
           "morph": "Verb - Form II, past, 3rd person masculine singular + pronoun",
-          "irab": "Verb in past (mabni), هُ 3rd person pronoun is object",
+          "irab": "Verb in past (mabni), هُ 3rd person pronoun is object; the clause is joined to ابْتَلَاهُ رَبُّهُ, so it is also in the genitive position",
           "en": "he favored him",
           "cs": "verb",
           "lens": [
@@ -22064,8 +22090,8 @@ const data: SurahDecoderData = {
           "ar": "فَ",
           "tr": "fa-",
           "root": "-",
-          "morph": "Particle - conjunction",
-          "irab": "Not declinable (mabni), introduces result",
+          "morph": "Particle - linking fa (fa' al-rabita)",
+          "irab": "Not declinable (mabni), it ties the answer of أَمَّا to أَمَّا",
           "en": "then",
           "cs": "mabni",
           "lens": [
@@ -22077,7 +22103,7 @@ const data: SurahDecoderData = {
           "tr": "yaqulu",
           "root": "ق-و-ل",
           "morph": "Verb - Form I, present, 3rd person masculine singular",
-          "irab": "Verb in indicative (marfu'), subject is الْإِنسَانُ",
+          "irab": "Verb in indicative (marfu'), the subject is a hidden \"he\" (the human); the clause is the predicate (khabar) of الْإِنسَانُ",
           "en": "he says",
           "cs": "verb",
           "lens": [
@@ -22089,7 +22115,7 @@ const data: SurahDecoderData = {
           "tr": "rabbi",
           "root": "ر-ب-ب",
           "morph": "Noun - masculine, singular, definite + attached pronoun",
-          "irab": "Subject of nominal sentence - nominative (marfu'), يَ 1st person pronoun in genitive",
+          "irab": "Subject of nominal sentence - nominative (marfu'), ي 1st person pronoun in genitive; the sentence رَبِّي أَكْرَمَنِ is what he says (object of the saying)",
           "en": "my Lord",
           "cs": "nom",
           "lens": [
@@ -22101,7 +22127,7 @@ const data: SurahDecoderData = {
           "tr": "akramani",
           "root": "ك-ر-م",
           "morph": "Verb - Form IV, past, 3rd person masculine singular + pronoun",
-          "irab": "Predicate (khabar) - verb in past (mabni), نِ 1st person pronoun is object, originally أَكْرَمَنِي",
+          "irab": "Predicate (khabar) of رَبِّي - verb in past (mabni); نِ is the protecting nun (nun al-wiqaya) before the ي of \"me\", and the ي is dropped for the rhyme; originally أَكْرَمَنِي",
           "en": "he honored me",
           "cs": "verb",
           "lens": [
@@ -22122,7 +22148,7 @@ const data: SurahDecoderData = {
           "tr": "wa",
           "root": "-",
           "morph": "Particle - conjunction",
-          "irab": "Not declinable (mabni), contrasts with previous",
+          "irab": "Not declinable (mabni), joining wa: it joins this أَمَّا sentence to the one in verse 15",
           "en": "but/and",
           "cs": "mabni",
           "lens": [
@@ -22133,8 +22159,8 @@ const data: SurahDecoderData = {
           "ar": "أَمَّا",
           "tr": "amma",
           "root": "-",
-          "morph": "Particle - conditional",
-          "irab": "Not declinable (mabni), introduces conditional clause",
+          "morph": "Particle - condition and breaking down",
+          "irab": "Not declinable (mabni), it sorts the cases of the human (al-Jadwal: shart wa-tafsil)",
           "en": "as for",
           "cs": "mabni",
           "lens": [
@@ -22146,7 +22172,7 @@ const data: SurahDecoderData = {
           "tr": "idha",
           "root": "-",
           "morph": "Particle - conditional/temporal",
-          "irab": "Not declinable (mabni), introduces when-clause",
+          "irab": "Not declinable (mabni), a conditional time word; its answer is left out because the answer of أَمَّا shows it; the clause after it is its muḍāf ilayhi",
           "en": "when",
           "cs": "mabni",
           "lens": [
@@ -22158,7 +22184,7 @@ const data: SurahDecoderData = {
           "tr": "ma",
           "root": "-",
           "morph": "Particle - extra/emphasis",
-          "irab": "Not declinable (mabni), adds emphasis",
+          "irab": "Not declinable (mabni), an extra particle (za'ida) with no job; it only adds emphasis to إِذَا",
           "en": "what (emphasis)",
           "cs": "mabni",
           "lens": [
@@ -22170,7 +22196,7 @@ const data: SurahDecoderData = {
           "tr": "ibtalahu",
           "root": "ب-ل-و",
           "morph": "Verb - Form VIII, past, 3rd person masculine singular + pronoun",
-          "irab": "Verb in past (mabni), هُ 3rd person pronoun is object",
+          "irab": "Verb in past (mabni), هُ 3rd person pronoun is object; the clause is the muḍāf ilayhi of إِذَا, so it is in the genitive position",
           "en": "he tested him",
           "cs": "verb",
           "lens": [
@@ -22182,7 +22208,7 @@ const data: SurahDecoderData = {
           "tr": "fa-",
           "root": "-",
           "morph": "Particle - conjunction",
-          "irab": "Not declinable (mabni), shows result",
+          "irab": "Not declinable (mabni), joining fa (fa' al-'atf): it joins قَدَرَ to ابْتَلَاهُ",
           "en": "so",
           "cs": "mabni",
           "lens": [
@@ -22194,7 +22220,7 @@ const data: SurahDecoderData = {
           "tr": "qadara",
           "root": "ق-د-ر",
           "morph": "Verb - Form I, past, 3rd person masculine singular",
-          "irab": "Verb in past (mabni)",
+          "irab": "Verb in past (mabni); the clause is joined to ابْتَلَاهُ, so it is also in the genitive position",
           "en": "he restricted",
           "cs": "verb",
           "lens": [
@@ -22206,7 +22232,7 @@ const data: SurahDecoderData = {
           "tr": "'alayhi",
           "root": "-",
           "morph": "Preposition + attached pronoun",
-          "irab": "عَلَى governs genitive, هِ 3rd person pronoun",
+          "irab": "عَلَى governs genitive, هِ 3rd person pronoun; the phrase is tied to قَدَرَ",
           "en": "upon him",
           "cs": "gen",
           "lens": [
@@ -22229,8 +22255,8 @@ const data: SurahDecoderData = {
           "ar": "فَ",
           "tr": "fa-",
           "root": "-",
-          "morph": "Particle - conjunction",
-          "irab": "Not declinable (mabni), introduces result",
+          "morph": "Particle - linking fa (fa' al-rabita)",
+          "irab": "Not declinable (mabni), it ties the answer of أَمَّا to أَمَّا",
           "en": "then",
           "cs": "mabni",
           "lens": [
@@ -22242,7 +22268,7 @@ const data: SurahDecoderData = {
           "tr": "yaqulu",
           "root": "ق-و-ل",
           "morph": "Verb - Form I, present, 3rd person masculine singular",
-          "irab": "Verb in indicative (marfu')",
+          "irab": "Verb in indicative (marfu'); the clause is the predicate of an unspoken \"he\" (the human)",
           "en": "he says",
           "cs": "verb",
           "lens": [
@@ -22254,7 +22280,7 @@ const data: SurahDecoderData = {
           "tr": "rabbi",
           "root": "ر-ب-ب",
           "morph": "Noun - masculine, singular, definite + attached pronoun",
-          "irab": "Subject of nominal sentence - nominative (marfu'), يَ 1st person pronoun in genitive",
+          "irab": "Subject of nominal sentence - nominative (marfu'), ي 1st person pronoun in genitive; the sentence رَبِّي أَهَانَنِ is what he says (object of the saying)",
           "en": "my Lord",
           "cs": "nom",
           "lens": [
@@ -22266,7 +22292,7 @@ const data: SurahDecoderData = {
           "tr": "ahānani",
           "root": "ه-و-ن",
           "morph": "Verb - Form IV, past, 3rd person masculine singular + pronoun",
-          "irab": "Predicate (khabar) - verb in past (mabni), نِ 1st person pronoun is object, from أَهَانَنِي",
+          "irab": "Predicate (khabar) of رَبِّي - verb in past (mabni); نِ is the protecting nun (nun al-wiqaya) before the ي of \"me\", and the ي is dropped for the rhyme; originally أَهَانَنِي",
           "en": "he humiliated me",
           "cs": "verb",
           "lens": [
@@ -22286,8 +22312,8 @@ const data: SurahDecoderData = {
           "ar": "كَلَّا",
           "tr": "kalla",
           "root": "-",
-          "morph": "Particle - negation/rebuke",
-          "irab": "Not declinable (mabni), refutes previous claim",
+          "morph": "Particle - rebuke",
+          "irab": "Not declinable (mabni), a particle of rebuke and scolding for the idea just before it (al-Jadwal: harf rad' wa-zajr)",
           "en": "No! Not at all!",
           "cs": "mabni",
           "lens": [
@@ -22298,8 +22324,8 @@ const data: SurahDecoderData = {
           "ar": "بَل",
           "tr": "bal",
           "root": "-",
-          "morph": "Particle - correction",
-          "irab": "Not declinable (mabni), corrects/contrasts",
+          "morph": "Particle - moving on (idrab)",
+          "irab": "Not declinable (mabni), a particle that moves on to a new point (idrab intiqali)",
           "en": "rather",
           "cs": "mabni",
           "lens": [
@@ -22311,7 +22337,7 @@ const data: SurahDecoderData = {
           "tr": "la",
           "root": "-",
           "morph": "Particle - negation",
-          "irab": "Not declinable (mabni), negates present verb",
+          "irab": "Not declinable (mabni), negative particle; it negates the present verb",
           "en": "not",
           "cs": "mabni",
           "lens": [
@@ -22320,10 +22346,10 @@ const data: SurahDecoderData = {
         },
         {
           "ar": "تُكْرِمُونَ",
-          "tr": "tukriumuna",
+          "tr": "tukrimuna",
           "root": "ك-ر-م",
           "morph": "Verb - Form IV, present, 2nd person masculine plural",
-          "irab": "Verb in indicative (marfu'), نَ is subject pronoun and ن for plural",
+          "irab": "Verb in indicative (marfu'): the ن is the sign of the indicative and the و is the subject pronoun (you, plural); the clause is a new sentence (isti'naf)",
           "en": "you honor",
           "cs": "verb",
           "lens": [
@@ -22356,7 +22382,7 @@ const data: SurahDecoderData = {
           "tr": "wa",
           "root": "-",
           "morph": "Particle - conjunction",
-          "irab": "Not declinable (mabni), coordinates",
+          "irab": "Not declinable (mabni), joining wa: it joins this sentence to لَا تُكْرِمُونَ",
           "en": "and",
           "cs": "mabni",
           "lens": [
@@ -22368,7 +22394,7 @@ const data: SurahDecoderData = {
           "tr": "la",
           "root": "-",
           "morph": "Particle - negation",
-          "irab": "Not declinable (mabni), negates present verb",
+          "irab": "Not declinable (mabni), negative particle; it negates the present verb",
           "en": "not",
           "cs": "mabni",
           "lens": [
@@ -22377,10 +22403,10 @@ const data: SurahDecoderData = {
         },
         {
           "ar": "تَحَاضُّونَ",
-          "tr": "tahadduna",
+          "tr": "taḥāḍḍūna",
           "root": "ح-ض-ض",
           "morph": "Verb - Form VI, present, 2nd person masculine plural",
-          "irab": "Verb in indicative (marfu'), نَ is subject pronoun and ن for plural",
+          "irab": "Verb in indicative (marfu'): the ن is the sign of the indicative and the و is the subject pronoun; one ت has dropped (the original is تَتَحَاضُّونَ)",
           "en": "you mutually encourage",
           "cs": "verb",
           "lens": [
@@ -22392,7 +22418,7 @@ const data: SurahDecoderData = {
           "tr": "'ala",
           "root": "-",
           "morph": "Particle - preposition",
-          "irab": "Not declinable (mabni), governs genitive",
+          "irab": "Not declinable (mabni), governs genitive; the phrase is tied to تَحَاضُّونَ",
           "en": "upon/to",
           "cs": "mabni",
           "lens": [
@@ -22403,8 +22429,8 @@ const data: SurahDecoderData = {
           "ar": "طَعَامِ",
           "tr": "ta'ami",
           "root": "ط-ع-م",
-          "morph": "Noun - masculine, singular, indefinite",
-          "irab": "Genitive (majrur) after عَلَىٰ in idafa construction",
+          "morph": "Noun - masculine, singular (first part of an idafa)",
+          "irab": "Genitive (majrur) after عَلَىٰ, first part of an idafa",
           "en": "feeding",
           "cs": "gen",
           "lens": [
@@ -22416,7 +22442,7 @@ const data: SurahDecoderData = {
           "tr": "al-miskini",
           "root": "س-ك-ن",
           "morph": "Noun - masculine, singular, definite",
-          "irab": "Genitive (majrur) in idafa construction",
+          "irab": "Genitive (majrur), second part of the idafa",
           "en": "the poor",
           "cs": "gen",
           "lens": [
@@ -22437,7 +22463,7 @@ const data: SurahDecoderData = {
           "tr": "wa",
           "root": "-",
           "morph": "Particle - conjunction",
-          "irab": "Not declinable (mabni), coordinates",
+          "irab": "Not declinable (mabni), joining wa: it joins this sentence to لَا تُكْرِمُونَ",
           "en": "and",
           "cs": "mabni",
           "lens": [
@@ -22449,7 +22475,7 @@ const data: SurahDecoderData = {
           "tr": "ta'kuluna",
           "root": "أ-ك-ل",
           "morph": "Verb - Form I, present, 2nd person masculine plural",
-          "irab": "Verb in indicative (marfu'), نَ is subject pronoun and ن for plural",
+          "irab": "Verb in indicative (marfu'): the ن is the sign of the indicative and the و is the subject pronoun; the clause has no place in the grammar",
           "en": "you eat/consume",
           "cs": "verb",
           "lens": [
@@ -22484,8 +22510,8 @@ const data: SurahDecoderData = {
           "ar": "لَّمًّا",
           "tr": "lamman",
           "root": "ل-م-م",
-          "morph": "Noun - masculine, singular, indefinite (active participle/adjective)",
-          "irab": "Adjective (na't) of أَكْلًا - accusative (mansub), with tanwin",
+          "morph": "Noun - masculine, singular, indefinite (verbal noun used like an adjective)",
+          "irab": "Adjective (na't) of أَكْلًا - accusative (mansub), with tanwin; a verbal noun (lamm, \"gathering\") used like an adjective to stress the idea",
           "en": "devouring/greedy",
           "cs": "acc",
           "lens": [
@@ -22506,7 +22532,7 @@ const data: SurahDecoderData = {
           "tr": "wa",
           "root": "-",
           "morph": "Particle - conjunction",
-          "irab": "Not declinable (mabni), coordinates",
+          "irab": "Not declinable (mabni), joining wa: it joins this sentence to لَا تُكْرِمُونَ",
           "en": "and",
           "cs": "mabni",
           "lens": [
@@ -22518,7 +22544,7 @@ const data: SurahDecoderData = {
           "tr": "tuhibbuna",
           "root": "ح-ب-ب",
           "morph": "Verb - Form IV, present, 2nd person masculine plural",
-          "irab": "Verb in indicative (marfu'), نَ is subject pronoun and ن for plural",
+          "irab": "Verb in indicative (marfu'): the ن is the sign of the indicative and the و is the subject pronoun; the clause has no place in the grammar",
           "en": "you love",
           "cs": "verb",
           "lens": [
@@ -22541,8 +22567,8 @@ const data: SurahDecoderData = {
           "ar": "حُبًّا",
           "tr": "hubban",
           "root": "ح-ب-ب",
-          "morph": "Noun - masculine, singular, indefinite (verbal noun)",
-          "irab": "Absolute object (maf'ul mutlaq) - accusative (mansub), with tanwin",
+          "morph": "Noun - masculine, singular, indefinite (noun of the act, ism masdar)",
+          "irab": "Absolute object (maf'ul mutlaq) standing in for the verbal noun of the verb - accusative (mansub), with tanwin",
           "en": "love/loving",
           "cs": "acc",
           "lens": [
@@ -22553,7 +22579,7 @@ const data: SurahDecoderData = {
           "ar": "جَمًّا",
           "tr": "jamman",
           "root": "ج-م-م",
-          "morph": "Adjective - masculine, singular, indefinite",
+          "morph": "Noun - masculine, singular, indefinite (an adjective-like word)",
           "irab": "Adjective (na't) of حُبًّا - accusative (mansub), with tanwin",
           "en": "great/immense",
           "cs": "acc",
@@ -22574,8 +22600,8 @@ const data: SurahDecoderData = {
           "ar": "كَلَّا",
           "tr": "kalla",
           "root": "-",
-          "morph": "Particle - negation/warning",
-          "irab": "Not declinable (mabni), refutes false security",
+          "morph": "Particle - rebuke",
+          "irab": "Not declinable (mabni), rebuke: al-Jadwal says it scolds the disbelievers for gathering wealth and holding it back",
           "en": "No! Not at all!",
           "cs": "mabni",
           "lens": [
@@ -22587,7 +22613,7 @@ const data: SurahDecoderData = {
           "tr": "idha",
           "root": "-",
           "morph": "Particle - conditional/temporal",
-          "irab": "Not declinable (mabni), introduces when-clause",
+          "irab": "Not declinable (mabni), a time word in the accusative position; conditional, but it does not make the verb jussive; tied to its answer يَتَذَكَّرُ (verse 23); the clause after it is its muḍāf ilayhi",
           "en": "when",
           "cs": "mabni",
           "lens": [
@@ -22599,7 +22625,7 @@ const data: SurahDecoderData = {
           "tr": "dukkat",
           "root": "د-ك-ك",
           "morph": "Verb - Form I, past passive, 3rd person feminine singular",
-          "irab": "Verb in past passive (mabni), تِ indicates feminine subject",
+          "irab": "Verb in past passive (mabni), تِ indicates feminine subject; the clause is the muḍāf ilayhi of إِذَا, so it is in the genitive position",
           "en": "it was pounded",
           "cs": "verb",
           "lens": [
@@ -22635,7 +22661,7 @@ const data: SurahDecoderData = {
           "tr": "dakkan",
           "root": "د-ك-ك",
           "morph": "Noun - masculine, singular, indefinite (verbal noun)",
-          "irab": "Absolute object (maf'ul mutlaq) - accusative (mansub), repetition for emphasis, with tanwin",
+          "irab": "Confirmation (tawkid) of the first دَكًّا, also accusative (mansub), with tanwin",
           "en": "pounding",
           "cs": "acc",
           "lens": [
@@ -22656,7 +22682,7 @@ const data: SurahDecoderData = {
           "tr": "wa",
           "root": "-",
           "morph": "Particle - conjunction",
-          "irab": "Not declinable (mabni), coordinates",
+          "irab": "Not declinable (mabni), joining wa: it joins the clause جَاءَ رَبُّكَ to دُكَّتِ (al-Jadwal), so it is also a muḍāf ilayhi of إِذَا",
           "en": "and",
           "cs": "mabni",
           "lens": [
@@ -22668,7 +22694,7 @@ const data: SurahDecoderData = {
           "tr": "ja'a",
           "root": "ج-ي-ء",
           "morph": "Verb - Form I, past, 3rd person masculine singular",
-          "irab": "Verb in past (mabni)",
+          "irab": "Verb in past (mabni); al-Jadwal reads \"your Lord came\" as \"your Lord's command came\" (an unspoken first word)",
           "en": "he came",
           "cs": "verb",
           "lens": [
@@ -22692,7 +22718,7 @@ const data: SurahDecoderData = {
           "tr": "wa",
           "root": "-",
           "morph": "Particle - conjunction",
-          "irab": "Not declinable (mabni), coordinates",
+          "irab": "Not declinable (mabni), joining wa: it joins الْمَلَكُ to رَبُّكَ",
           "en": "and",
           "cs": "mabni",
           "lens": [
@@ -22704,7 +22730,7 @@ const data: SurahDecoderData = {
           "tr": "al-malaku",
           "root": "م-ل-ك",
           "morph": "Noun - masculine, singular/collective, definite",
-          "irab": "Subject (ma'tuf) - nominative (marfu'), coordinated with رَبُّكَ",
+          "irab": "Joined (ma'tuf) to رَبُّكَ, so it is also a subject - nominative (marfu')",
           "en": "the angels",
           "cs": "nom",
           "lens": [
@@ -22715,8 +22741,8 @@ const data: SurahDecoderData = {
           "ar": "صَفًّا",
           "tr": "saffan",
           "root": "ص-ف-ف",
-          "morph": "Noun - masculine, singular, indefinite (verbal noun used as hal)",
-          "irab": "Circumstantial expression (hal) - accusative (mansub), with tanwin",
+          "morph": "Noun - masculine, singular, indefinite (verbal noun)",
+          "irab": "Absolute object (maf'ul mutlaq) - accusative (mansub), with tanwin (al-Jadwal reads it like دَكًّا in verse 21)",
           "en": "rank/row",
           "cs": "acc",
           "lens": [
@@ -22727,8 +22753,8 @@ const data: SurahDecoderData = {
           "ar": "صَفًّا",
           "tr": "saffan",
           "root": "ص-ف-ف",
-          "morph": "Noun - masculine, singular, indefinite",
-          "irab": "Circumstantial expression (hal) - accusative (mansub), repetition for emphasis, with tanwin",
+          "morph": "Noun - masculine, singular, indefinite (verbal noun)",
+          "irab": "Confirmation (tawkid) of the first صَفًّا, also accusative (mansub), with tanwin",
           "en": "rank/row",
           "cs": "acc",
           "lens": [
@@ -22749,7 +22775,7 @@ const data: SurahDecoderData = {
           "tr": "wa",
           "root": "-",
           "morph": "Particle - conjunction",
-          "irab": "Not declinable (mabni), coordinates",
+          "irab": "Not declinable (mabni), joining wa: it joins the clause جِيءَ بِجَهَنَّمَ to دُكَّتِ (al-Jadwal), so it is also a muḍāf ilayhi of إِذَا",
           "en": "and",
           "cs": "mabni",
           "lens": [
@@ -22761,7 +22787,7 @@ const data: SurahDecoderData = {
           "tr": "ji'a",
           "root": "ج-ي-ء",
           "morph": "Verb - Form I, past passive, 3rd person masculine singular",
-          "irab": "Verb in past passive (mabni)",
+          "irab": "Verb in past passive (mabni); the phrase بِجَهَنَّمَ takes the place of the subject",
           "en": "it was brought",
           "cs": "verb",
           "lens": [
@@ -22773,7 +22799,7 @@ const data: SurahDecoderData = {
           "tr": "yawma'idhin",
           "root": "-",
           "morph": "Noun - masculine, singular + demonstrative adverb",
-          "irab": "Adverbial of time (zarf zaman) - accusative (mansub), إِذٍ with tanwin kasratayn",
+          "irab": "Adverbial of time (zarf zaman) - accusative (mansub) or built (mabni); al-Jadwal reads it as a badal of إِذَا in verse 21; إِذٍ has tanwin kasratayn",
           "en": "that Day",
           "cs": "acc",
           "lens": [
@@ -22785,7 +22811,7 @@ const data: SurahDecoderData = {
           "tr": "bi-",
           "root": "-",
           "morph": "Particle - preposition",
-          "irab": "Not declinable (mabni), governs genitive",
+          "irab": "Not declinable (mabni), governs genitive; the phrase بِجَهَنَّمَ is the deputy subject (na'ib fa'il) of جِيءَ",
           "en": "with",
           "cs": "mabni",
           "lens": [
@@ -22809,19 +22835,17 @@ const data: SurahDecoderData = {
           "tr": "yawma'idhin",
           "root": "-",
           "morph": "Noun - masculine, singular + demonstrative adverb",
-          "irab": "Adverbial of time (zarf zaman) - accusative (mansub), repetition for emphasis",
+          "irab": "Confirmation (tawkid) of the first يَوْمَئِذٍ (al-Jadwal)",
           "en": "that Day",
-          "cs": "acc",
-          "lens": [
-            "acc"
-          ]
+          "cs": "none",
+          "lens": []
         },
         {
           "ar": "يَتَذَكَّرُ",
           "tr": "yatadhakkaru",
           "root": "ذ-ك-ر",
           "morph": "Verb - Form V, present, 3rd person masculine singular",
-          "irab": "Verb in indicative (marfu')",
+          "irab": "Verb in indicative (marfu'); the clause is the answer to إِذَا (a conditional that does not make the verb jussive) and has no place in the grammar",
           "en": "he will remember",
           "cs": "verb",
           "lens": [
@@ -22844,8 +22868,8 @@ const data: SurahDecoderData = {
           "ar": "وَ",
           "tr": "wa",
           "root": "-",
-          "morph": "Particle - conjunction",
-          "irab": "Not declinable (mabni), coordinates",
+          "morph": "Particle - circumstantial (ḥāl)",
+          "irab": "Not declinable (mabni), a ḥāl wa: the clause after it describes his state (al-Jadwal also allows a parenthetical wa)",
           "en": "and",
           "cs": "mabni",
           "lens": [
@@ -22856,12 +22880,12 @@ const data: SurahDecoderData = {
           "ar": "أَنَّىٰ",
           "tr": "anna",
           "root": "-",
-          "morph": "Particle - interrogative",
-          "irab": "Not declinable (mabni), rhetorical question",
+          "morph": "Noun - interrogative (question word)",
+          "irab": "Not declinable (mabni), an adverb of place in the accusative position, tied to the fronted predicate (khabar)",
           "en": "how/from where",
-          "cs": "mabni",
+          "cs": "acc",
           "lens": [
-            "particle"
+            "acc"
           ]
         },
         {
@@ -22869,7 +22893,7 @@ const data: SurahDecoderData = {
           "tr": "lahu",
           "root": "-",
           "morph": "Preposition + attached pronoun",
-          "irab": "لَ governs genitive, هُ 3rd person pronoun",
+          "irab": "لَ governs genitive, هُ 3rd person pronoun; the phrase is also tied to the fronted predicate",
           "en": "for him",
           "cs": "gen",
           "lens": [
@@ -22881,7 +22905,7 @@ const data: SurahDecoderData = {
           "tr": "adh-dhikra",
           "root": "ذ-ك-ر",
           "morph": "Noun - feminine, singular, definite",
-          "irab": "Subject (mubtada') - nominative (marfu'), alif maqsura ending",
+          "irab": "Subject (mubtada'), delayed - nominative (marfu'), alif maqsura ending",
           "en": "the remembrance",
           "cs": "nom",
           "lens": [
@@ -22902,7 +22926,7 @@ const data: SurahDecoderData = {
           "tr": "yaqulu",
           "root": "ق-و-ل",
           "morph": "Verb - Form I, present, 3rd person masculine singular",
-          "irab": "Verb in indicative (marfu'), subject is الْإِنسَانُ",
+          "irab": "Verb in indicative (marfu'), subject is الْإِنسَانُ; the clause explains what comes before (isti'naf bayani) and has no place in the grammar",
           "en": "he will say",
           "cs": "verb",
           "lens": [
@@ -22913,8 +22937,8 @@ const data: SurahDecoderData = {
           "ar": "يَا",
           "tr": "ya",
           "root": "-",
-          "morph": "Particle - vocative/exclamation",
-          "irab": "Not declinable (mabni), expresses regret",
+          "morph": "Particle - alerting",
+          "irab": "Not declinable (mabni), an alerting particle (tanbih): it draws attention and does not call anyone",
           "en": "O!/Oh!",
           "cs": "mabni",
           "lens": [
@@ -22926,7 +22950,7 @@ const data: SurahDecoderData = {
           "tr": "laytani",
           "root": "-",
           "morph": "Particle + attached pronoun",
-          "irab": "لَيْتَ is one of inna's sisters (wish/regret), نِي 1st person pronoun is ism layta (accusative)",
+          "irab": "لَيْتَ is one of inna's sisters (wish/regret); نِ is the protecting nun and ي is ism layta (accusative position)",
           "en": "I wish I",
           "cs": "acc",
           "lens": [
@@ -22938,7 +22962,7 @@ const data: SurahDecoderData = {
           "tr": "qaddamtu",
           "root": "ق-د-م",
           "morph": "Verb - Form II, past, 1st person singular",
-          "irab": "Verb in past (mabni), تُ is subject pronoun, predicate (khabar) of لَيْتَ",
+          "irab": "Verb in past (mabni), تُ is subject pronoun; the clause is the predicate (khabar) of لَيْتَ, in the nominative position",
           "en": "I had sent ahead",
           "cs": "verb",
           "lens": [
@@ -22950,7 +22974,7 @@ const data: SurahDecoderData = {
           "tr": "li-",
           "root": "-",
           "morph": "Particle - preposition",
-          "irab": "Not declinable (mabni), governs genitive",
+          "irab": "Not declinable (mabni), governs genitive; the phrase is tied to قَدَّمْتُ",
           "en": "for",
           "cs": "mabni",
           "lens": [
@@ -22982,8 +23006,8 @@ const data: SurahDecoderData = {
           "ar": "فَ",
           "tr": "fa-",
           "root": "-",
-          "morph": "Particle - conjunction",
-          "irab": "Not declinable (mabni), shows result",
+          "morph": "Particle - resumptive (isti'naf)",
+          "irab": "Not declinable (mabni), resumptive fa: it opens a new sentence",
           "en": "so/then",
           "cs": "mabni",
           "lens": [
@@ -22995,7 +23019,7 @@ const data: SurahDecoderData = {
           "tr": "yawma'idhin",
           "root": "-",
           "morph": "Noun - masculine, singular + demonstrative adverb",
-          "irab": "Adverbial of time (zarf zaman) - accusative (mansub)",
+          "irab": "Adverbial of time (zarf zaman) - accusative (mansub); tied to the negated verb يُعَذِّبُ",
           "en": "that Day",
           "cs": "acc",
           "lens": [
@@ -23019,7 +23043,7 @@ const data: SurahDecoderData = {
           "tr": "yu'adhdhibu",
           "root": "ع-ذ-ب",
           "morph": "Verb - Form II, present, 3rd person masculine singular",
-          "irab": "Verb in indicative (marfu')",
+          "irab": "Verb in indicative (marfu'); the sentence has no place in the grammar",
           "en": "he punishes",
           "cs": "verb",
           "lens": [
@@ -23030,8 +23054,8 @@ const data: SurahDecoderData = {
           "ar": "عَذَابَهُ",
           "tr": "'adhabahu",
           "root": "ع-ذ-ب",
-          "morph": "Noun - masculine, singular, indefinite + attached pronoun",
-          "irab": "Absolute object (maf'ul mutlaq) - accusative (mansub), هُ 3rd person pronoun in genitive",
+          "morph": "Noun - masculine, singular + attached pronoun (noun of the act, ism masdar)",
+          "irab": "Absolute object (maf'ul mutlaq) standing in for the verbal noun - accusative (mansub), هُ 3rd person pronoun in genitive, referring to God",
           "en": "His punishment",
           "cs": "acc",
           "lens": [
@@ -23042,7 +23066,7 @@ const data: SurahDecoderData = {
           "ar": "أَحَدٌ",
           "tr": "ahadun",
           "root": "-",
-          "morph": "Pronoun - masculine, singular, indefinite",
+          "morph": "Noun - masculine, singular, indefinite (\"anyone\")",
           "irab": "Subject (fa'il) - nominative (marfu'), with tanwin dammatayn",
           "en": "anyone",
           "cs": "nom",
@@ -23064,7 +23088,7 @@ const data: SurahDecoderData = {
           "tr": "wa",
           "root": "-",
           "morph": "Particle - conjunction",
-          "irab": "Not declinable (mabni), coordinates",
+          "irab": "Not declinable (mabni), joining wa: it joins this sentence to the sentence in verse 25",
           "en": "and",
           "cs": "mabni",
           "lens": [
@@ -23088,7 +23112,7 @@ const data: SurahDecoderData = {
           "tr": "yuthiqu",
           "root": "و-ث-ق",
           "morph": "Verb - Form IV, present, 3rd person masculine singular",
-          "irab": "Verb in indicative (marfu')",
+          "irab": "Verb in indicative (marfu'); the sentence has no place in the grammar",
           "en": "he binds",
           "cs": "verb",
           "lens": [
@@ -23099,8 +23123,8 @@ const data: SurahDecoderData = {
           "ar": "وَثَاقَهُ",
           "tr": "wathaqahu",
           "root": "و-ث-ق",
-          "morph": "Noun - masculine, singular, indefinite + attached pronoun",
-          "irab": "Absolute object (maf'ul mutlaq) - accusative (mansub), هُ 3rd person pronoun in genitive",
+          "morph": "Noun - masculine, singular + attached pronoun (noun of the act, ism masdar)",
+          "irab": "Absolute object (maf'ul mutlaq) like عَذَابَهُ - accusative (mansub), هُ 3rd person pronoun in genitive",
           "en": "His binding",
           "cs": "acc",
           "lens": [
@@ -23111,7 +23135,7 @@ const data: SurahDecoderData = {
           "ar": "أَحَدٌ",
           "tr": "ahadun",
           "root": "-",
-          "morph": "Pronoun - masculine, singular, indefinite",
+          "morph": "Noun - masculine, singular, indefinite (\"anyone\")",
           "irab": "Subject (fa'il) - nominative (marfu'), with tanwin dammatayn",
           "en": "anyone",
           "cs": "nom",
@@ -23133,7 +23157,7 @@ const data: SurahDecoderData = {
           "tr": "ya",
           "root": "-",
           "morph": "Particle - vocative",
-          "irab": "Not declinable (mabni), calls attention",
+          "irab": "Not declinable (mabni), calls the one addressed",
           "en": "O",
           "cs": "mabni",
           "lens": [
@@ -23144,12 +23168,12 @@ const data: SurahDecoderData = {
           "ar": "أَيَّتُهَا",
           "tr": "ayyatuha",
           "root": "-",
-          "morph": "Vocative particle + demonstrative pronoun",
-          "irab": "أَيَّتُ is feminine vocative particle in nominative, هَا for attention",
+          "morph": "Vocative noun + attention particle",
+          "irab": "Called noun (munada): a specific but unnamed noun (nakira maqsuda), built on damma (mabni) in the accusative position; هَا is an attention particle (tanbih)",
           "en": "O you (feminine)",
-          "cs": "nom",
+          "cs": "acc",
           "lens": [
-            "nom"
+            "acc"
           ]
         },
         {
@@ -23157,7 +23181,7 @@ const data: SurahDecoderData = {
           "tr": "an-nafsu",
           "root": "ن-ف-س",
           "morph": "Noun - feminine, singular, definite",
-          "irab": "Apposition (badal) to أَيَّتُ - nominative (marfu')",
+          "irab": "Badal of أَيَّتُ (al-Jadwal also allows an explaining apposition, 'atf bayan) - nominative (marfu') because it follows the damma of أَيَّتُ",
           "en": "the soul",
           "cs": "nom",
           "lens": [
@@ -23168,7 +23192,7 @@ const data: SurahDecoderData = {
           "ar": "الْمُطْمَئِنَّةُ",
           "tr": "al-mutma'innatu",
           "root": "ط-م-ن",
-          "morph": "Noun - feminine, singular, definite (active participle Form VIII)",
+          "morph": "Noun - feminine, singular, definite (active participle of اطْمَأَنَّ)",
           "irab": "Adjective (na't) of النَّفْسُ - nominative (marfu')",
           "en": "the tranquil/reassured",
           "cs": "nom",
@@ -23190,7 +23214,7 @@ const data: SurahDecoderData = {
           "tr": "irji'i",
           "root": "ر-ج-ع",
           "morph": "Verb - Form I, imperative, 2nd person feminine singular",
-          "irab": "Imperative verb (mabni on sukun), ي for feminine",
+          "irab": "Imperative verb, built (mabni) on the loss of the ن of the present form; ي is the subject pronoun (you, feminine); the clause is the answer to the call and has no place in the grammar",
           "en": "return!",
           "cs": "verb",
           "lens": [
@@ -23202,7 +23226,7 @@ const data: SurahDecoderData = {
           "tr": "ila",
           "root": "-",
           "morph": "Particle - preposition",
-          "irab": "Not declinable (mabni), governs genitive",
+          "irab": "Not declinable (mabni), governs genitive; the phrase is tied to ارْجِعِي",
           "en": "to",
           "cs": "mabni",
           "lens": [
@@ -23226,7 +23250,7 @@ const data: SurahDecoderData = {
           "tr": "radiyatan",
           "root": "ر-ض-ي",
           "morph": "Noun - feminine, singular, indefinite (active participle)",
-          "irab": "Circumstantial expression (hal) - accusative (mansub), with tanwin",
+          "irab": "Circumstantial expression (hal) from the doer of ارْجِعِي - accusative (mansub), with tanwin",
           "en": "pleased/satisfied",
           "cs": "acc",
           "lens": [
@@ -23238,7 +23262,7 @@ const data: SurahDecoderData = {
           "tr": "mardiyyatan",
           "root": "ر-ض-ي",
           "morph": "Noun - feminine, singular, indefinite (passive participle)",
-          "irab": "Circumstantial expression (hal) - accusative (mansub), with tanwin",
+          "irab": "A second hal from the same doer - accusative (mansub), with tanwin",
           "en": "pleasing/approved",
           "cs": "acc",
           "lens": [
@@ -23259,7 +23283,7 @@ const data: SurahDecoderData = {
           "tr": "fa-",
           "root": "-",
           "morph": "Particle - conjunction",
-          "irab": "Not declinable (mabni), shows sequence",
+          "irab": "Not declinable (mabni), joining fa (fa' al-'atf): it joins this command to ارْجِعِي",
           "en": "so/and",
           "cs": "mabni",
           "lens": [
@@ -23271,7 +23295,7 @@ const data: SurahDecoderData = {
           "tr": "udkhuli",
           "root": "د-خ-ل",
           "morph": "Verb - Form I, imperative, 2nd person feminine singular",
-          "irab": "Imperative verb (mabni on sukun), ي for feminine",
+          "irab": "Imperative verb, built (mabni) on the loss of the ن of the present form; ي is the subject pronoun; the clause is joined to the answer to the call",
           "en": "enter!",
           "cs": "verb",
           "lens": [
@@ -23283,7 +23307,7 @@ const data: SurahDecoderData = {
           "tr": "fi",
           "root": "-",
           "morph": "Particle - preposition",
-          "irab": "Not declinable (mabni), governs genitive",
+          "irab": "Not declinable (mabni), governs genitive; the phrase is tied to ادْخُلِي, with an unspoken \"company of\" before عِبَادِي (al-Jadwal)",
           "en": "in/among",
           "cs": "mabni",
           "lens": [
@@ -23316,7 +23340,7 @@ const data: SurahDecoderData = {
           "tr": "wa",
           "root": "-",
           "morph": "Particle - conjunction",
-          "irab": "Not declinable (mabni), coordinates",
+          "irab": "Not declinable (mabni), joining wa: it joins this command to the commands before it",
           "en": "and",
           "cs": "mabni",
           "lens": [
@@ -23328,7 +23352,7 @@ const data: SurahDecoderData = {
           "tr": "udkhuli",
           "root": "د-خ-ل",
           "morph": "Verb - Form I, imperative, 2nd person feminine singular",
-          "irab": "Imperative verb (mabni on sukun), ي for feminine",
+          "irab": "Imperative verb, built (mabni) on the loss of the ن of the present form; ي is the subject pronoun; the clause is joined to the answer to the call",
           "en": "enter!",
           "cs": "verb",
           "lens": [
@@ -23362,8 +23386,8 @@ const data: SurahDecoderData = {
           "ar": "لَا",
           "tr": "la",
           "root": "-",
-          "morph": "Particle - negation/extra",
-          "irab": "Not declinable (mabni), emphatic particle",
+          "morph": "Particle - extra (zaa'ida)",
+          "irab": "Not declinable (mabni), an extra particle that stresses the oath (al-Jadwal also notes that some read it as a real \"no\")",
           "en": "not (emphatic)",
           "cs": "mabni",
           "lens": [
@@ -23431,8 +23455,8 @@ const data: SurahDecoderData = {
           "ar": "وَ",
           "tr": "wa",
           "root": "-",
-          "morph": "Particle - conjunction",
-          "irab": "Not declinable (mabni), coordinates",
+          "morph": "Particle - parenthetical (i'tiradiyya)",
+          "irab": "Not declinable (mabni), parenthetical wa: it opens a remark that breaks into the oath",
           "en": "and",
           "cs": "mabni",
           "lens": [
@@ -23466,7 +23490,7 @@ const data: SurahDecoderData = {
           "tr": "bi-",
           "root": "-",
           "morph": "Particle - preposition",
-          "irab": "Not declinable (mabni), governs genitive",
+          "irab": "Not declinable (mabni), governs genitive; the phrase belongs to حِلٌّ",
           "en": "in/by",
           "cs": "mabni",
           "lens": [
@@ -23510,9 +23534,9 @@ const data: SurahDecoderData = {
           "ar": "وَ",
           "tr": "wa",
           "root": "-",
-          "morph": "Particle - oath",
-          "irab": "Not declinable (mabni), oath particle",
-          "en": "and [by]",
+          "morph": "Particle - conjunction",
+          "irab": "Not declinable (mabni), joins وَالِدٍ to the first هَٰذَا (verse 1)",
+          "en": "and",
           "cs": "mabni",
           "lens": [
             "particle"
@@ -23523,7 +23547,7 @@ const data: SurahDecoderData = {
           "tr": "walidin",
           "root": "و-ل-د",
           "morph": "Noun - masculine, singular, indefinite (active participle)",
-          "irab": "Genitive (majrur) after oath وَ, with tanwin kasratayn",
+          "irab": "Genitive (majrur), joined by وَ to the first هَٰذَا (verse 1), with tanwin kasratayn",
           "en": "a father/begetter",
           "cs": "gen",
           "lens": [
@@ -23534,9 +23558,9 @@ const data: SurahDecoderData = {
           "ar": "وَ",
           "tr": "wa",
           "root": "-",
-          "morph": "Particle - oath",
-          "irab": "Not declinable (mabni), oath particle",
-          "en": "and [by]",
+          "morph": "Particle - conjunction",
+          "irab": "Not declinable (mabni), joins مَا to وَالِدٍ",
+          "en": "and",
           "cs": "mabni",
           "lens": [
             "particle"
@@ -23546,8 +23570,8 @@ const data: SurahDecoderData = {
           "ar": "مَا",
           "tr": "ma",
           "root": "-",
-          "morph": "Relative pronoun - indefinite",
-          "irab": "Not declinable (mabni) in place of genitive",
+          "morph": "Relative pronoun (ism mawsul)",
+          "irab": "Not declinable (mabni), in the place of the genitive: it is joined to وَالِدٍ",
           "en": "what/that which",
           "cs": "gen",
           "lens": [
@@ -23559,7 +23583,7 @@ const data: SurahDecoderData = {
           "tr": "walada",
           "root": "و-ل-د",
           "morph": "Verb - Form I, past, 3rd person masculine singular",
-          "irab": "Verb in past (mabni), subject hidden (هُوَ)",
+          "irab": "Verb in past (mabni), subject hidden (هُوَ); the clause is the sila of مَا",
           "en": "he begot",
           "cs": "verb",
           "lens": [
@@ -23628,7 +23652,7 @@ const data: SurahDecoderData = {
           "tr": "fi",
           "root": "-",
           "morph": "Particle - preposition",
-          "irab": "Not declinable (mabni), governs genitive",
+          "irab": "Not declinable (mabni), governs genitive; the phrase فِي كَبَدٍ is tied to an unspoken hal",
           "en": "in",
           "cs": "mabni",
           "lens": [
@@ -23661,7 +23685,7 @@ const data: SurahDecoderData = {
           "tr": "a-",
           "root": "-",
           "morph": "Particle - interrogative",
-          "irab": "Not declinable (mabni), introduces rhetorical question",
+          "irab": "Not declinable (mabni), introduces a question of warning (al-Jadwal: istifham tahdidi)",
           "en": "does?",
           "cs": "mabni",
           "lens": [
@@ -23684,8 +23708,8 @@ const data: SurahDecoderData = {
           "ar": "أَن",
           "tr": "an",
           "root": "-",
-          "morph": "Particle - that (masdariyya)",
-          "irab": "Not declinable (mabni), introduces subordinate clause",
+          "morph": "Particle - lightened أَنْ (from أَنَّ)",
+          "irab": "Not declinable (mabni), the lightened form of أَنَّ; its noun is a hidden pronoun and the clause after it is its predicate",
           "en": "that",
           "cs": "mabni",
           "lens": [
@@ -23709,7 +23733,7 @@ const data: SurahDecoderData = {
           "tr": "yaqdira",
           "root": "ق-د-ر",
           "morph": "Verb - Form I, present, 3rd person masculine singular",
-          "irab": "Verb in subjunctive (mansub) after لَّن",
+          "irab": "Verb in subjunctive (mansub) after لَّن; the clause لَّن يَقْدِرَ عَلَيْهِ أَحَدٌ is the predicate of أَنْ",
           "en": "he has power",
           "cs": "verb",
           "lens": [
@@ -23721,7 +23745,7 @@ const data: SurahDecoderData = {
           "tr": "'alayhi",
           "root": "-",
           "morph": "Preposition + attached pronoun",
-          "irab": "عَلَى governs genitive, هِ 3rd person pronoun",
+          "irab": "عَلَى governs genitive, هِ 3rd person pronoun; the phrase belongs to يَقْدِرَ",
           "en": "over him",
           "cs": "gen",
           "lens": [
@@ -23732,7 +23756,7 @@ const data: SurahDecoderData = {
           "ar": "أَحَدٌ",
           "tr": "ahadun",
           "root": "-",
-          "morph": "Pronoun - masculine, singular, indefinite",
+          "morph": "Noun - masculine, singular, indefinite (anyone)",
           "irab": "Subject (fa'il) - nominative (marfu'), with tanwin dammatayn",
           "en": "anyone",
           "cs": "nom",
@@ -23789,7 +23813,7 @@ const data: SurahDecoderData = {
           "ar": "لُّبَدًا",
           "tr": "lubadan",
           "root": "ل-ب-د",
-          "morph": "Noun/Adjective - masculine, singular/plural, indefinite",
+          "morph": "Noun - plural of لُبْدَة (a heap), used as an adjective",
           "irab": "Adjective (na't) of مَالًا - accusative (mansub), with tanwin fathatayn",
           "en": "heaped up/abundant",
           "cs": "acc",
@@ -23834,8 +23858,8 @@ const data: SurahDecoderData = {
           "ar": "أَن",
           "tr": "an",
           "root": "-",
-          "morph": "Particle - that",
-          "irab": "Not declinable (mabni), introduces subordinate clause",
+          "morph": "Particle - lightened أَنْ (from أَنَّ)",
+          "irab": "Not declinable (mabni), the lightened form of أَنَّ; its noun is a hidden pronoun and the clause after it is its predicate",
           "en": "that",
           "cs": "mabni",
           "lens": [
@@ -23870,7 +23894,7 @@ const data: SurahDecoderData = {
           "ar": "أَحَدٌ",
           "tr": "ahadun",
           "root": "-",
-          "morph": "Pronoun - masculine, singular, indefinite",
+          "morph": "Noun - masculine, singular, indefinite (anyone)",
           "irab": "Subject (fa'il) - nominative (marfu'), with tanwin dammatayn",
           "en": "anyone",
           "cs": "nom",
@@ -23892,7 +23916,7 @@ const data: SurahDecoderData = {
           "tr": "a-",
           "root": "-",
           "morph": "Particle - interrogative",
-          "irab": "Not declinable (mabni), introduces rhetorical question",
+          "irab": "Not declinable (mabni), introduces a question of reproach (al-Jadwal: istifham taqri'i)",
           "en": "have not?",
           "cs": "mabni",
           "lens": [
@@ -23928,7 +23952,7 @@ const data: SurahDecoderData = {
           "tr": "lahu",
           "root": "-",
           "morph": "Preposition + attached pronoun",
-          "irab": "لَ governs genitive/dative, هُ 3rd person pronoun",
+          "irab": "لَ governs genitive/dative, هُ 3rd person pronoun; al-Jadwal ties the phrase to an unspoken second object",
           "en": "for him",
           "cs": "gen",
           "lens": [
@@ -23940,7 +23964,7 @@ const data: SurahDecoderData = {
           "tr": "'aynayni",
           "root": "ع-ي-ن",
           "morph": "Noun - feminine, dual, indefinite",
-          "irab": "Direct object (maf'ul bihi) - accusative (mansub), dual ي ending with tanwin",
+          "irab": "First object (maf'ul bihi) - accusative (mansub), dual ending ـَيْنِ (the نِ takes the place of tanwin)",
           "en": "two eyes",
           "cs": "acc",
           "lens": [
@@ -23997,7 +24021,7 @@ const data: SurahDecoderData = {
           "tr": "shafatayni",
           "root": "ش-ف-ه",
           "morph": "Noun - feminine, dual, indefinite",
-          "irab": "Object (ma'tuf) - accusative (mansub), dual ي ending with tanwin",
+          "irab": "Object (ma'tuf) - accusative (mansub), dual ending ـَيْنِ (the نِ takes the place of tanwin)",
           "en": "two lips",
           "cs": "acc",
           "lens": [
@@ -24063,7 +24087,7 @@ const data: SurahDecoderData = {
           "tr": "fa-",
           "root": "-",
           "morph": "Particle - conjunction",
-          "irab": "Not declinable (mabni), shows result/contrast",
+          "irab": "Not declinable (mabni), joins this clause to هَدَيْنَاهُ (verse 10)",
           "en": "but/so",
           "cs": "mabni",
           "lens": [
@@ -24075,7 +24099,7 @@ const data: SurahDecoderData = {
           "tr": "la",
           "root": "-",
           "morph": "Particle - negation",
-          "irab": "Not declinable (mabni), negates past verb",
+          "irab": "Not declinable (mabni), negates the past verb; it is not repeated here (see below)",
           "en": "not",
           "cs": "mabni",
           "lens": [
@@ -24119,8 +24143,8 @@ const data: SurahDecoderData = {
           "ar": "وَ",
           "tr": "wa",
           "root": "-",
-          "morph": "Particle - conjunction",
-          "irab": "Not declinable (mabni), coordinates",
+          "morph": "Particle - parenthetical (i'tiradiyya)",
+          "irab": "Not declinable (mabni), parenthetical wa: it opens a remark that breaks in",
           "en": "and",
           "cs": "mabni",
           "lens": [
@@ -24131,12 +24155,12 @@ const data: SurahDecoderData = {
           "ar": "مَا",
           "tr": "ma",
           "root": "-",
-          "morph": "Particle - interrogative",
-          "irab": "Not declinable (mabni), introduces rhetorical question",
+          "morph": "Interrogative noun (ism istifham)",
+          "irab": "Not declinable (mabni), in the place of nominative: subject (mubtada'); its predicate is the clause أَدْرَىٰكَ",
           "en": "what?",
-          "cs": "mabni",
+          "cs": "nom",
           "lens": [
-            "particle"
+            "nom"
           ]
         },
         {
@@ -24144,7 +24168,7 @@ const data: SurahDecoderData = {
           "tr": "adraka",
           "root": "د-ر-ي",
           "morph": "Verb - Form IV, past, 3rd person masculine singular + pronoun",
-          "irab": "Verb in past (mabni), كَ 2nd person pronoun is object",
+          "irab": "Verb in past (mabni), كَ 2nd person pronoun is the first object; the clause is the predicate of the first مَا",
           "en": "it made you know",
           "cs": "verb",
           "lens": [
@@ -24155,12 +24179,12 @@ const data: SurahDecoderData = {
           "ar": "مَا",
           "tr": "ma",
           "root": "-",
-          "morph": "Particle - interrogative",
-          "irab": "Not declinable (mabni), introduces question",
+          "morph": "Interrogative noun (ism istifham)",
+          "irab": "Not declinable (mabni), in the place of nominative: subject (mubtada'); its predicate is الْعَقَبَةُ",
           "en": "what?",
-          "cs": "mabni",
+          "cs": "nom",
           "lens": [
-            "particle"
+            "nom"
           ]
         },
         {
@@ -24168,7 +24192,7 @@ const data: SurahDecoderData = {
           "tr": "al-'aqabatu",
           "root": "ع-ق-ب",
           "morph": "Noun - feminine, singular, definite",
-          "irab": "Subject (mubtada') - nominative (marfu')",
+          "irab": "Predicate (khabar) of the second مَا - nominative (marfu'); al-Jadwal reads an unspoken first word before it (\"the climbing of\")",
           "en": "the steep pass",
           "cs": "nom",
           "lens": [
@@ -24189,7 +24213,7 @@ const data: SurahDecoderData = {
           "tr": "fakku",
           "root": "ف-ك-ك",
           "morph": "Noun - masculine, singular, indefinite (verbal noun)",
-          "irab": "Predicate (khabar) - nominative (marfu') without tanwin (improper annexation)",
+          "irab": "Predicate (khabar) of an unspoken subject (هِيَ) - nominative (marfu'); no tanwin because it is the first part of a possession",
           "en": "freeing/releasing",
           "cs": "nom",
           "lens": [
@@ -24234,7 +24258,7 @@ const data: SurahDecoderData = {
           "tr": "it'amun",
           "root": "ط-ع-م",
           "morph": "Noun - masculine, singular, indefinite (verbal noun Form IV)",
-          "irab": "Predicate (khabar) - nominative (marfu'), with tanwin dammatayn",
+          "irab": "Joined (ma'tuf) to فَكُّ by أَوْ - nominative (marfu'), with tanwin dammatayn; al-Jadwal also allows: predicate of a second unspoken subject",
           "en": "feeding",
           "cs": "nom",
           "lens": [
@@ -24246,7 +24270,7 @@ const data: SurahDecoderData = {
           "tr": "fi",
           "root": "-",
           "morph": "Particle - preposition",
-          "irab": "Not declinable (mabni), governs genitive",
+          "irab": "Not declinable (mabni), governs genitive; the phrase فِي يَوْمٍ is tied to إِطْعَامٌ",
           "en": "in/on",
           "cs": "mabni",
           "lens": [
@@ -24279,9 +24303,9 @@ const data: SurahDecoderData = {
         },
         {
           "ar": "مَسْغَبَةٍ",
-          "tr": "masghatabtin",
+          "tr": "masghabatin",
           "root": "س-غ-ب",
-          "morph": "Noun - feminine, singular, indefinite (place/time noun)",
+          "morph": "Noun - feminine, singular, indefinite (verbal noun with mim)",
           "irab": "Genitive (majrur) in idafa construction, with tanwin kasratayn",
           "en": "severe hunger/famine",
           "cs": "gen",
@@ -24303,7 +24327,7 @@ const data: SurahDecoderData = {
           "tr": "yatiman",
           "root": "ي-ت-م",
           "morph": "Noun - masculine, singular, indefinite",
-          "irab": "Direct object (maf'ul bihi) of إِطْعَامٌ - accusative (mansub), with tanwin",
+          "irab": "Direct object (maf'ul bihi) of إِطْعَامٌ - accusative (mansub), with tanwin; a verbal noun can work like its verb",
           "en": "an orphan",
           "cs": "acc",
           "lens": [
@@ -24326,7 +24350,7 @@ const data: SurahDecoderData = {
           "ar": "مَقْرَبَةٍ",
           "tr": "maqrabatin",
           "root": "ق-ر-ب",
-          "morph": "Noun - feminine, singular, indefinite (place/abstract noun)",
+          "morph": "Noun - feminine, singular, indefinite (verbal noun with mim)",
           "irab": "Genitive (majrur) in idafa construction, with tanwin kasratayn",
           "en": "closeness/relationship",
           "cs": "gen",
@@ -24383,7 +24407,7 @@ const data: SurahDecoderData = {
           "ar": "مَتْرَبَةٍ",
           "tr": "matrabatin",
           "root": "ت-ر-ب",
-          "morph": "Noun - feminine, singular, indefinite",
+          "morph": "Noun - feminine, singular, indefinite (verbal noun with mim)",
           "irab": "Genitive (majrur) in idafa construction, with tanwin kasratayn",
           "en": "dust/extreme poverty",
           "cs": "gen",
@@ -24405,7 +24429,7 @@ const data: SurahDecoderData = {
           "tr": "thumma",
           "root": "-",
           "morph": "Particle - conjunction",
-          "irab": "Not declinable (mabni), shows sequence/addition",
+          "irab": "Not declinable (mabni), joins this clause to لَا اقْتَحَمَ (verse 11)",
           "en": "then/moreover",
           "cs": "mabni",
           "lens": [
@@ -24429,7 +24453,7 @@ const data: SurahDecoderData = {
           "tr": "mina",
           "root": "-",
           "morph": "Particle - preposition",
-          "irab": "Not declinable (mabni), governs genitive",
+          "irab": "Not declinable (mabni), governs genitive; the phrase is tied to the predicate of كَانَ",
           "en": "from/among",
           "cs": "mabni",
           "lens": [
@@ -24453,7 +24477,7 @@ const data: SurahDecoderData = {
           "tr": "amanu",
           "root": "أ-م-ن",
           "morph": "Verb - Form IV, past, 3rd person masculine plural",
-          "irab": "Verb in past (mabni), وا pronoun is subject",
+          "irab": "Verb in past (mabni), وا pronoun is subject; the clause is the sila of الَّذِينَ",
           "en": "they believed",
           "cs": "verb",
           "lens": [
@@ -24465,7 +24489,7 @@ const data: SurahDecoderData = {
           "tr": "wa",
           "root": "-",
           "morph": "Particle - conjunction",
-          "irab": "Not declinable (mabni), coordinates",
+          "irab": "Not declinable (mabni), joins the next clause to آمَنُوا",
           "en": "and",
           "cs": "mabni",
           "lens": [
@@ -24477,7 +24501,7 @@ const data: SurahDecoderData = {
           "tr": "tawasau",
           "root": "و-ص-ي",
           "morph": "Verb - Form VI, past, 3rd person masculine plural",
-          "irab": "Verb in past (mabni), وا pronoun is subject",
+          "irab": "Verb in past (mabni), وا pronoun is subject; the clause is joined to آمَنُوا",
           "en": "they mutually enjoined",
           "cs": "verb",
           "lens": [
@@ -24489,7 +24513,7 @@ const data: SurahDecoderData = {
           "tr": "bi-",
           "root": "-",
           "morph": "Particle - preposition",
-          "irab": "Not declinable (mabni), governs genitive",
+          "irab": "Not declinable (mabni), governs genitive; the phrase belongs to the first تَوَاصَوْا",
           "en": "with/to",
           "cs": "mabni",
           "lens": [
@@ -24513,7 +24537,7 @@ const data: SurahDecoderData = {
           "tr": "wa",
           "root": "-",
           "morph": "Particle - conjunction",
-          "irab": "Not declinable (mabni), coordinates",
+          "irab": "Not declinable (mabni), joins the second تَوَاصَوْا to the first",
           "en": "and",
           "cs": "mabni",
           "lens": [
@@ -24525,7 +24549,7 @@ const data: SurahDecoderData = {
           "tr": "tawasau",
           "root": "و-ص-ي",
           "morph": "Verb - Form VI, past, 3rd person masculine plural",
-          "irab": "Verb in past (mabni), وا pronoun is subject",
+          "irab": "Verb in past (mabni), وا pronoun is subject; the clause is joined to the first تَوَاصَوْا",
           "en": "they mutually enjoined",
           "cs": "verb",
           "lens": [
@@ -24537,7 +24561,7 @@ const data: SurahDecoderData = {
           "tr": "bi-",
           "root": "-",
           "morph": "Particle - preposition",
-          "irab": "Not declinable (mabni), governs genitive",
+          "irab": "Not declinable (mabni), governs genitive; the phrase belongs to the second تَوَاصَوْا",
           "en": "with/to",
           "cs": "mabni",
           "lens": [
@@ -24613,7 +24637,7 @@ const data: SurahDecoderData = {
           "tr": "wa",
           "root": "-",
           "morph": "Particle - conjunction",
-          "irab": "Not declinable (mabni), coordinates/contrasts",
+          "irab": "Not declinable (mabni), joining wa ('atf): it joins this sentence to the one in verse 18",
           "en": "and/but",
           "cs": "mabni",
           "lens": [
@@ -24625,7 +24649,7 @@ const data: SurahDecoderData = {
           "tr": "alladhina",
           "root": "-",
           "morph": "Relative pronoun - masculine, plural",
-          "irab": "Not declinable (mabni), subject of nominal sentence",
+          "irab": "Not declinable (mabni), subject (mubtada'); the sentence هُمْ أَصْحَابُ الْمَشْأَمَةِ is its predicate",
           "en": "those who",
           "cs": "mabni",
           "lens": []
@@ -24635,7 +24659,7 @@ const data: SurahDecoderData = {
           "tr": "kafaru",
           "root": "ك-ف-ر",
           "morph": "Verb - Form I, past, 3rd person masculine plural",
-          "irab": "Verb in past (mabni), وا pronoun is subject",
+          "irab": "Verb in past (mabni), وا pronoun is subject; the clause is the sila of الَّذِينَ",
           "en": "they disbelieved",
           "cs": "verb",
           "lens": [
@@ -24659,7 +24683,7 @@ const data: SurahDecoderData = {
           "tr": "ayatina",
           "root": "أ-ي-ي",
           "morph": "Noun - feminine, plural, definite + attached pronoun",
-          "irab": "Genitive (majrur) after بِ, نَا pronoun in genitive",
+          "irab": "Genitive (majrur) after بِ, نَا pronoun in genitive; the phrase belongs to كَفَرُوا",
           "en": "Our signs",
           "cs": "gen",
           "lens": [
@@ -24671,7 +24695,7 @@ const data: SurahDecoderData = {
           "tr": "hum",
           "root": "-",
           "morph": "Pronoun - detached, 3rd person masculine plural",
-          "irab": "Not declinable (mabni), pronoun of separation (damir al-fasl)",
+          "irab": "Not declinable (mabni), subject (mubtada') of its own sentence; أَصْحَابُ is its predicate",
           "en": "they",
           "cs": "mabni",
           "lens": []
@@ -24681,7 +24705,7 @@ const data: SurahDecoderData = {
           "tr": "ashabu",
           "root": "ص-ح-ب",
           "morph": "Noun - masculine, plural, definite (in idafa)",
-          "irab": "Predicate (khabar) - nominative (marfu')",
+          "irab": "Predicate (khabar) of هُمْ - nominative (marfu')",
           "en": "companions/people",
           "cs": "nom",
           "lens": [
@@ -24714,7 +24738,7 @@ const data: SurahDecoderData = {
           "tr": "'alayhim",
           "root": "-",
           "morph": "Preposition + attached pronoun",
-          "irab": "عَلَى governs genitive, هِمْ 3rd person plural pronoun",
+          "irab": "عَلَى governs genitive, هِمْ 3rd person plural pronoun; the phrase is the predicate placed first (khabar muqaddam)",
           "en": "over/upon them",
           "cs": "gen",
           "lens": [
@@ -24761,7 +24785,7 @@ const data: SurahDecoderData = {
           "tr": "wa",
           "root": "-",
           "morph": "Particle - oath",
-          "irab": "Not declinable (mabni), oath particle",
+          "irab": "Not declinable (mabni), oath particle; the phrase is tied to an unspoken verb, أُقْسِمُ (“I swear”)",
           "en": "by",
           "cs": "mabni",
           "lens": [
@@ -24785,7 +24809,7 @@ const data: SurahDecoderData = {
           "tr": "wa",
           "root": "-",
           "morph": "Particle - conjunction",
-          "irab": "Not declinable (mabni), coordinates",
+          "irab": "Not declinable (mabni), coordinates ضُحَاهَا with الشَّمْسِ",
           "en": "and",
           "cs": "mabni",
           "lens": [
@@ -24797,7 +24821,7 @@ const data: SurahDecoderData = {
           "tr": "duhaha",
           "root": "ض-ح-و",
           "morph": "Noun - feminine, singular, indefinite + attached pronoun",
-          "irab": "Genitive (majrur) in idafa, هَا 3rd person pronoun in genitive",
+          "irab": "Genitive (majrur) because it is coordinated with الشَّمْسِ; it owns the pronoun هَا (idafa), 3rd person feminine, pointing back to the sun",
           "en": "its brightness/morning light",
           "cs": "gen",
           "lens": [
@@ -24817,8 +24841,8 @@ const data: SurahDecoderData = {
           "ar": "وَ",
           "tr": "wa",
           "root": "-",
-          "morph": "Particle - oath",
-          "irab": "Not declinable (mabni), oath particle",
+          "morph": "Particle - conjunction",
+          "irab": "Not declinable (mabni), coordinates the noun with the oath nouns before it; the oath carries on",
           "en": "and [by]",
           "cs": "mabni",
           "lens": [
@@ -24830,7 +24854,7 @@ const data: SurahDecoderData = {
           "tr": "al-qamari",
           "root": "ق-م-ر",
           "morph": "Noun - masculine, singular, definite",
-          "irab": "Genitive (majrur) after oath particle وَ",
+          "irab": "Genitive (majrur) because it is coordinated with the oath nouns before it",
           "en": "the moon",
           "cs": "gen",
           "lens": [
@@ -24841,12 +24865,12 @@ const data: SurahDecoderData = {
           "ar": "إِذَا",
           "tr": "idha",
           "root": "-",
-          "morph": "Particle - conditional/temporal",
-          "irab": "Not declinable (mabni), introduces when-clause",
+          "morph": "Time word (zarf), no condition in it",
+          "irab": "Not declinable (mabni). al-Jadwal: accusative in position, tied to the unspoken verb أُقْسِمُ; it does not make the verb jussive; the clause after it is its mudaf ilayhi",
           "en": "when",
-          "cs": "mabni",
+          "cs": "acc",
           "lens": [
-            "particle"
+            "acc"
           ]
         },
         {
@@ -24854,7 +24878,7 @@ const data: SurahDecoderData = {
           "tr": "talaha",
           "root": "ت-ل-و",
           "morph": "Verb - Form I, past, 3rd person masculine singular + pronoun",
-          "irab": "Verb in past (mabni), هَا 3rd person pronoun is object",
+          "irab": "Verb in past (mabni); the clause is the mudaf ilayhi of إِذَا, so it has a genitive position; the subject “he” is hidden; هَا 3rd person pronoun is object",
           "en": "it followed it",
           "cs": "verb",
           "lens": [
@@ -24874,8 +24898,8 @@ const data: SurahDecoderData = {
           "ar": "وَ",
           "tr": "wa",
           "root": "-",
-          "morph": "Particle - oath",
-          "irab": "Not declinable (mabni), oath particle",
+          "morph": "Particle - conjunction",
+          "irab": "Not declinable (mabni), coordinates the noun with the oath nouns before it; the oath carries on",
           "en": "and [by]",
           "cs": "mabni",
           "lens": [
@@ -24887,7 +24911,7 @@ const data: SurahDecoderData = {
           "tr": "an-nahari",
           "root": "ن-ه-ر",
           "morph": "Noun - masculine, singular, definite",
-          "irab": "Genitive (majrur) after oath particle وَ",
+          "irab": "Genitive (majrur) because it is coordinated with the oath nouns before it",
           "en": "the day",
           "cs": "gen",
           "lens": [
@@ -24898,12 +24922,12 @@ const data: SurahDecoderData = {
           "ar": "إِذَا",
           "tr": "idha",
           "root": "-",
-          "morph": "Particle - conditional/temporal",
-          "irab": "Not declinable (mabni), introduces when-clause",
+          "morph": "Time word (zarf), no condition in it",
+          "irab": "Not declinable (mabni). al-Jadwal: accusative in position, tied to the unspoken verb أُقْسِمُ; it does not make the verb jussive; the clause after it is its mudaf ilayhi",
           "en": "when",
-          "cs": "mabni",
+          "cs": "acc",
           "lens": [
-            "particle"
+            "acc"
           ]
         },
         {
@@ -24911,7 +24935,7 @@ const data: SurahDecoderData = {
           "tr": "jallaha",
           "root": "ج-ل-و",
           "morph": "Verb - Form II, past, 3rd person masculine singular + pronoun",
-          "irab": "Verb in past (mabni), هَا 3rd person pronoun is object",
+          "irab": "Verb in past (mabni); the clause is the mudaf ilayhi of إِذَا, so it has a genitive position; the subject “he” is hidden; هَا 3rd person pronoun is object",
           "en": "it displayed/revealed it",
           "cs": "verb",
           "lens": [
@@ -24931,8 +24955,8 @@ const data: SurahDecoderData = {
           "ar": "وَ",
           "tr": "wa",
           "root": "-",
-          "morph": "Particle - oath",
-          "irab": "Not declinable (mabni), oath particle",
+          "morph": "Particle - conjunction",
+          "irab": "Not declinable (mabni), coordinates the noun with the oath nouns before it; the oath carries on",
           "en": "and [by]",
           "cs": "mabni",
           "lens": [
@@ -24944,7 +24968,7 @@ const data: SurahDecoderData = {
           "tr": "al-layli",
           "root": "ل-ي-ل",
           "morph": "Noun - masculine, singular, definite",
-          "irab": "Genitive (majrur) after oath particle وَ",
+          "irab": "Genitive (majrur) because it is coordinated with the oath nouns before it",
           "en": "the night",
           "cs": "gen",
           "lens": [
@@ -24955,12 +24979,12 @@ const data: SurahDecoderData = {
           "ar": "إِذَا",
           "tr": "idha",
           "root": "-",
-          "morph": "Particle - conditional/temporal",
-          "irab": "Not declinable (mabni), introduces when-clause",
+          "morph": "Time word (zarf), no condition in it",
+          "irab": "Not declinable (mabni). al-Jadwal: accusative in position, tied to the unspoken verb أُقْسِمُ; it does not make the verb jussive; the clause after it is its mudaf ilayhi",
           "en": "when",
-          "cs": "mabni",
+          "cs": "acc",
           "lens": [
-            "particle"
+            "acc"
           ]
         },
         {
@@ -24968,7 +24992,7 @@ const data: SurahDecoderData = {
           "tr": "yaghshaha",
           "root": "غ-ش-ي",
           "morph": "Verb - Form I, present, 3rd person masculine singular + pronoun",
-          "irab": "Verb in indicative (marfu'), هَا 3rd person pronoun is object",
+          "irab": "Verb in indicative (marfu'); the clause is the mudaf ilayhi of إِذَا, so it has a genitive position; the subject “it” is hidden; هَا 3rd person pronoun is object",
           "en": "it covers it",
           "cs": "verb",
           "lens": [
@@ -24982,14 +25006,14 @@ const data: SurahDecoderData = {
       "ref": "Ash-Shams 91:5",
       "arabic": "وَالسَّمَاءِ وَمَا بَنَاهَا",
       "transliteration": "wa-s-sama'i wa-ma banaha",
-      "translation": "And [by] the sky and He who constructed it",
+      "translation": "And [by] the sky and its building (or: and He who built it)",
       "words": [
         {
           "ar": "وَ",
           "tr": "wa",
           "root": "-",
-          "morph": "Particle - oath",
-          "irab": "Not declinable (mabni), oath particle",
+          "morph": "Particle - conjunction",
+          "irab": "Not declinable (mabni), coordinates the noun with the oath nouns before it; the oath carries on",
           "en": "and [by]",
           "cs": "mabni",
           "lens": [
@@ -25001,7 +25025,7 @@ const data: SurahDecoderData = {
           "tr": "as-sama'i",
           "root": "س-م-و",
           "morph": "Noun - feminine, singular, definite",
-          "irab": "Genitive (majrur) after oath particle وَ",
+          "irab": "Genitive (majrur) because it is coordinated with the oath nouns before it",
           "en": "the sky/heaven",
           "cs": "gen",
           "lens": [
@@ -25012,8 +25036,8 @@ const data: SurahDecoderData = {
           "ar": "وَ",
           "tr": "wa",
           "root": "-",
-          "morph": "Particle - oath",
-          "irab": "Not declinable (mabni), oath particle",
+          "morph": "Particle - conjunction",
+          "irab": "Not declinable (mabni), coordinates the مَا phrase with السَّمَاءِ",
           "en": "and [by]",
           "cs": "mabni",
           "lens": [
@@ -25024,9 +25048,9 @@ const data: SurahDecoderData = {
           "ar": "مَا",
           "tr": "ma",
           "root": "-",
-          "morph": "Relative pronoun/particle (masdariyya or mawsuliyya)",
-          "irab": "Not declinable (mabni) in place of genitive",
-          "en": "He who/what",
+          "morph": "Particle - masdar (al-Jadwal also allows a relative noun)",
+          "irab": "Not declinable (mabni). al-Jadwal: a masdar particle; with its clause it makes a verbal noun in the genitive position, coordinated with السَّمَاءِ. As a relative noun it would take the same position",
+          "en": "the building of / He who",
           "cs": "gen",
           "lens": [
             "gen"
@@ -25037,7 +25061,7 @@ const data: SurahDecoderData = {
           "tr": "banaha",
           "root": "ب-ن-ي",
           "morph": "Verb - Form I, past, 3rd person masculine singular + pronoun",
-          "irab": "Verb in past (mabni), هَا 3rd person pronoun is object",
+          "irab": "Verb in past (mabni); the clause is the sila (completing clause) of مَا and has no place of its own; the subject “He” (Allah) is hidden; هَا 3rd person pronoun is object (the sky)",
           "en": "He constructed it",
           "cs": "verb",
           "lens": [
@@ -25051,14 +25075,14 @@ const data: SurahDecoderData = {
       "ref": "Ash-Shams 91:6",
       "arabic": "وَالْأَرْضِ وَمَا طَحَاهَا",
       "transliteration": "wa-l-ardi wa-ma tahaha",
-      "translation": "And [by] the earth and He who spread it",
+      "translation": "And [by] the earth and its spreading (or: and He who spread it)",
       "words": [
         {
           "ar": "وَ",
           "tr": "wa",
           "root": "-",
-          "morph": "Particle - oath",
-          "irab": "Not declinable (mabni), oath particle",
+          "morph": "Particle - conjunction",
+          "irab": "Not declinable (mabni), coordinates the noun with the oath nouns before it; the oath carries on",
           "en": "and [by]",
           "cs": "mabni",
           "lens": [
@@ -25070,7 +25094,7 @@ const data: SurahDecoderData = {
           "tr": "al-ardi",
           "root": "أ-ر-ض",
           "morph": "Noun - feminine, singular, definite",
-          "irab": "Genitive (majrur) after oath particle وَ",
+          "irab": "Genitive (majrur) because it is coordinated with the oath nouns before it",
           "en": "the earth",
           "cs": "gen",
           "lens": [
@@ -25081,8 +25105,8 @@ const data: SurahDecoderData = {
           "ar": "وَ",
           "tr": "wa",
           "root": "-",
-          "morph": "Particle - oath",
-          "irab": "Not declinable (mabni), oath particle",
+          "morph": "Particle - conjunction",
+          "irab": "Not declinable (mabni), coordinates the مَا phrase with الْأَرْضِ",
           "en": "and [by]",
           "cs": "mabni",
           "lens": [
@@ -25093,9 +25117,9 @@ const data: SurahDecoderData = {
           "ar": "مَا",
           "tr": "ma",
           "root": "-",
-          "morph": "Relative pronoun/particle (masdariyya or mawsuliyya)",
-          "irab": "Not declinable (mabni) in place of genitive",
-          "en": "He who/what",
+          "morph": "Particle - masdar (al-Jadwal also allows a relative noun)",
+          "irab": "Not declinable (mabni). al-Jadwal: a masdar particle; with its clause it makes a verbal noun in the genitive position, coordinated with الْأَرْضِ. As a relative noun it would take the same position",
+          "en": "the spreading of / He who",
           "cs": "gen",
           "lens": [
             "gen"
@@ -25106,7 +25130,7 @@ const data: SurahDecoderData = {
           "tr": "tahaha",
           "root": "ط-ح-و",
           "morph": "Verb - Form I, past, 3rd person masculine singular + pronoun",
-          "irab": "Verb in past (mabni), هَا 3rd person pronoun is object",
+          "irab": "Verb in past (mabni); the clause is the sila (completing clause) of مَا and has no place of its own; the subject “He” (Allah) is hidden; هَا 3rd person pronoun is object (the earth)",
           "en": "He spread it",
           "cs": "verb",
           "lens": [
@@ -25120,14 +25144,14 @@ const data: SurahDecoderData = {
       "ref": "Ash-Shams 91:7",
       "arabic": "وَنَفْسٍ وَمَا سَوَّاهَا",
       "transliteration": "wa-nafsin wa-ma sawwaha",
-      "translation": "And [by] the soul and He who proportioned it",
+      "translation": "And [by] the soul and its proportioning (or: and He who proportioned it)",
       "words": [
         {
           "ar": "وَ",
           "tr": "wa",
           "root": "-",
-          "morph": "Particle - oath",
-          "irab": "Not declinable (mabni), oath particle",
+          "morph": "Particle - conjunction",
+          "irab": "Not declinable (mabni), coordinates the noun with the oath nouns before it; the oath carries on",
           "en": "and [by]",
           "cs": "mabni",
           "lens": [
@@ -25139,7 +25163,7 @@ const data: SurahDecoderData = {
           "tr": "nafsin",
           "root": "ن-ف-س",
           "morph": "Noun - feminine, singular, indefinite",
-          "irab": "Genitive (majrur) after oath particle وَ, with tanwin kasratayn",
+          "irab": "Genitive (majrur) because it is coordinated with the oath nouns before it, with tanwin kasratayn",
           "en": "a soul",
           "cs": "gen",
           "lens": [
@@ -25150,8 +25174,8 @@ const data: SurahDecoderData = {
           "ar": "وَ",
           "tr": "wa",
           "root": "-",
-          "morph": "Particle - oath",
-          "irab": "Not declinable (mabni), oath particle",
+          "morph": "Particle - conjunction",
+          "irab": "Not declinable (mabni), coordinates the مَا phrase with نَفْسٍ",
           "en": "and [by]",
           "cs": "mabni",
           "lens": [
@@ -25162,9 +25186,9 @@ const data: SurahDecoderData = {
           "ar": "مَا",
           "tr": "ma",
           "root": "-",
-          "morph": "Relative pronoun/particle (masdariyya or mawsuliyya)",
-          "irab": "Not declinable (mabni) in place of genitive",
-          "en": "He who/what",
+          "morph": "Particle - masdar (al-Jadwal also allows a relative noun)",
+          "irab": "Not declinable (mabni). al-Jadwal: a masdar particle; with its clause it makes a verbal noun in the genitive position, coordinated with نَفْسٍ. As a relative noun it would take the same position",
+          "en": "the proportioning of / He who",
           "cs": "gen",
           "lens": [
             "gen"
@@ -25175,7 +25199,7 @@ const data: SurahDecoderData = {
           "tr": "sawwaha",
           "root": "س-و-ي",
           "morph": "Verb - Form II, past, 3rd person masculine singular + pronoun",
-          "irab": "Verb in past (mabni), هَا 3rd person pronoun is object",
+          "irab": "Verb in past (mabni); the clause is the sila (completing clause) of مَا and has no place of its own; the subject “He” (Allah) is hidden; هَا 3rd person pronoun is object (the soul)",
           "en": "He proportioned/perfected it",
           "cs": "verb",
           "lens": [
@@ -25196,7 +25220,7 @@ const data: SurahDecoderData = {
           "tr": "fa-",
           "root": "-",
           "morph": "Particle - conjunction",
-          "irab": "Not declinable (mabni), shows sequence",
+          "irab": "Not declinable (mabni), a conjunction: al-Jadwal joins this clause to the clause سَوَّاهَا in verse 7",
           "en": "and/so",
           "cs": "mabni",
           "lens": [
@@ -25208,7 +25232,7 @@ const data: SurahDecoderData = {
           "tr": "alhamaha",
           "root": "ل-ه-م",
           "morph": "Verb - Form IV, past, 3rd person masculine singular + pronoun",
-          "irab": "Verb in past (mabni), هَا 3rd person pronoun is first object",
+          "irab": "Verb in past (mabni); the subject “He” (Allah) is hidden; هَا 3rd person pronoun is first object",
           "en": "He inspired it",
           "cs": "verb",
           "lens": [
@@ -25277,7 +25301,7 @@ const data: SurahDecoderData = {
           "tr": "aflaha",
           "root": "ف-ل-ح",
           "morph": "Verb - Form IV, past, 3rd person masculine singular",
-          "irab": "Verb in past (mabni), answer to oath (jawab al-qasam)",
+          "irab": "Verb in past (mabni). al-Jadwal: the whole sentence explains the oath and has no place in the grammar (it also allows that it is the answer to the oath)",
           "en": "he succeeded",
           "cs": "verb",
           "lens": [
@@ -25289,17 +25313,19 @@ const data: SurahDecoderData = {
           "tr": "man",
           "root": "-",
           "morph": "Relative pronoun - indefinite",
-          "irab": "Not declinable (mabni), subject of أَفْلَحَ",
+          "irab": "Not declinable (mabni). al-Jadwal gives it the position of an object (accusative); other books (al-Daas) call it the subject of أَفْلَحَ. The clause after it completes it",
           "en": "who/whoever",
-          "cs": "mabni",
-          "lens": []
+          "cs": "acc",
+          "lens": [
+            "acc"
+          ]
         },
         {
           "ar": "زَكَّاهَا",
           "tr": "zakkaha",
           "root": "ز-ك-و",
           "morph": "Verb - Form II, past, 3rd person masculine singular + pronoun",
-          "irab": "Verb in past (mabni), هَا 3rd person pronoun is object",
+          "irab": "Verb in past (mabni); the clause is the sila of مَن and has no place of its own; the subject is hidden; هَا 3rd person pronoun is object (the soul)",
           "en": "he purified it",
           "cs": "verb",
           "lens": [
@@ -25320,7 +25346,7 @@ const data: SurahDecoderData = {
           "tr": "wa",
           "root": "-",
           "morph": "Particle - conjunction",
-          "irab": "Not declinable (mabni), coordinates",
+          "irab": "Not declinable (mabni), al-Jadwal joins this sentence to the explaining sentence of verse 9",
           "en": "and",
           "cs": "mabni",
           "lens": [
@@ -25356,17 +25382,19 @@ const data: SurahDecoderData = {
           "tr": "man",
           "root": "-",
           "morph": "Relative pronoun - indefinite",
-          "irab": "Not declinable (mabni), subject of خَابَ",
+          "irab": "Not declinable (mabni). al-Jadwal gives it the position of an object (accusative), as in verse 9. The clause after it completes it",
           "en": "who/whoever",
-          "cs": "mabni",
-          "lens": []
+          "cs": "acc",
+          "lens": [
+            "acc"
+          ]
         },
         {
           "ar": "دَسَّاهَا",
           "tr": "dassaha",
           "root": "د-س-س",
           "morph": "Verb - Form II, past, 3rd person masculine singular + pronoun",
-          "irab": "Verb in past (mabni), هَا 3rd person pronoun is object",
+          "irab": "Verb in past (mabni); the clause is the sila of مَن and has no place of its own; the subject is hidden; هَا 3rd person pronoun is object (the soul)",
           "en": "he corrupted/buried it",
           "cs": "verb",
           "lens": [
@@ -25387,7 +25415,7 @@ const data: SurahDecoderData = {
           "tr": "kadhdhabat",
           "root": "ك-ذ-ب",
           "morph": "Verb - Form II, past, 3rd person feminine singular",
-          "irab": "Verb in past (mabni), تْ indicates feminine subject",
+          "irab": "Verb in past (mabni), تْ indicates feminine subject; al-Jadwal calls the sentence a fresh start with no place in the grammar",
           "en": "she/they denied",
           "cs": "verb",
           "lens": [
@@ -25411,7 +25439,7 @@ const data: SurahDecoderData = {
           "tr": "bi-",
           "root": "-",
           "morph": "Particle - preposition",
-          "irab": "Not declinable (mabni), governs genitive",
+          "irab": "Not declinable (mabni), governs genitive; al-Jadwal: the ba of cause (it also allows the ba of means)",
           "en": "by/because of",
           "cs": "mabni",
           "lens": [
@@ -25423,7 +25451,7 @@ const data: SurahDecoderData = {
           "tr": "taghwaha",
           "root": "ط-غ-ي",
           "morph": "Noun - feminine, singular, indefinite + attached pronoun",
-          "irab": "Genitive (majrur) after بِ, هَا 3rd person pronoun in genitive",
+          "irab": "Genitive (majrur) after بِ; the phrase is tied to كَذَّبَتْ; هَا 3rd person pronoun in genitive, pointing to Thamud",
           "en": "its transgression",
           "cs": "gen",
           "lens": [
@@ -25443,12 +25471,12 @@ const data: SurahDecoderData = {
           "ar": "إِذِ",
           "tr": "idh",
           "root": "-",
-          "morph": "Particle - temporal",
-          "irab": "Not declinable (mabni), when/at the time",
+          "morph": "Time word (zarf)",
+          "irab": "Not declinable (mabni). al-Jadwal: accusative in position, tied to كَذَّبَتْ in verse 11; the clause after it is its mudaf ilayhi",
           "en": "when",
-          "cs": "mabni",
+          "cs": "acc",
           "lens": [
-            "particle"
+            "acc"
           ]
         },
         {
@@ -25456,7 +25484,7 @@ const data: SurahDecoderData = {
           "tr": "inba'atha",
           "root": "ب-ع-ث",
           "morph": "Verb - Form VII, past, 3rd person masculine singular",
-          "irab": "Verb in past (mabni)",
+          "irab": "Verb in past (mabni); the clause is the mudaf ilayhi of إِذِ",
           "en": "he rose up/was sent forth",
           "cs": "verb",
           "lens": [
@@ -25482,14 +25510,14 @@ const data: SurahDecoderData = {
       "ref": "Ash-Shams 91:13",
       "arabic": "فَقَالَ لَهُمْ رَسُولُ اللَّهِ نَاقَةَ اللَّهِ وَسُقْيَاهَا",
       "transliteration": "fa-qala lahum rasulu llahi naqata llahi wa-suqyaha",
-      "translation": "And the messenger of Allah said to them, '[This is] the she-camel of Allah, so [leave her to eat and] to drink'",
+      "translation": "And the messenger of Allah said to them, 'Leave alone the she-camel of Allah and her drinking'",
       "words": [
         {
           "ar": "فَ",
           "tr": "fa-",
           "root": "-",
           "morph": "Particle - conjunction",
-          "irab": "Not declinable (mabni), shows sequence",
+          "irab": "Not declinable (mabni), a conjunction: al-Jadwal joins this clause to كَذَّبَتْ ثَمُودُ",
           "en": "and/so",
           "cs": "mabni",
           "lens": [
@@ -25513,7 +25541,7 @@ const data: SurahDecoderData = {
           "tr": "lahum",
           "root": "-",
           "morph": "Preposition + attached pronoun",
-          "irab": "لَ governs genitive/dative, هُمْ 3rd person plural pronoun",
+          "irab": "لَ governs genitive/dative, هُمْ 3rd person plural pronoun; the phrase is tied to قَالَ",
           "en": "to them",
           "cs": "gen",
           "lens": [
@@ -25549,7 +25577,7 @@ const data: SurahDecoderData = {
           "tr": "naqata",
           "root": "ن-و-ق",
           "morph": "Noun - feminine, singular, indefinite",
-          "irab": "Warning/object (maf'ul bihi or muhdhar 'anhu) - accusative (mansub)",
+          "irab": "Object of an unspoken verb (al-Jadwal: “leave”), used as a warning (tahdhir) - accusative (mansub)",
           "en": "she-camel",
           "cs": "acc",
           "lens": [
@@ -25585,7 +25613,7 @@ const data: SurahDecoderData = {
           "tr": "suqyaha",
           "root": "س-ق-ي",
           "morph": "Noun - feminine, singular, indefinite + attached pronoun",
-          "irab": "Object (ma'tuf) - accusative (mansub), هَا 3rd person pronoun in genitive",
+          "irab": "Coordinated (ma'tuf) with نَاقَةَ, so also accusative (mansub), هَا 3rd person pronoun in genitive",
           "en": "her drink/drinking",
           "cs": "acc",
           "lens": [
@@ -25606,7 +25634,7 @@ const data: SurahDecoderData = {
           "tr": "fa-",
           "root": "-",
           "morph": "Particle - conjunction",
-          "irab": "Not declinable (mabni), shows sequence",
+          "irab": "Not declinable (mabni), a conjunction: al-Jadwal joins this clause to the one before it",
           "en": "so/then",
           "cs": "mabni",
           "lens": [
@@ -25618,7 +25646,7 @@ const data: SurahDecoderData = {
           "tr": "kadhdhabuhu",
           "root": "ك-ذ-ب",
           "morph": "Verb - Form II, past, 3rd person masculine plural + pronoun",
-          "irab": "Verb in past (mabni), وا (hidden before هُ) is subject, هُ is object",
+          "irab": "Verb in past (mabni), the attached ـوا ending (waw al-jama'a) is the subject, هُ is the object",
           "en": "they denied him",
           "cs": "verb",
           "lens": [
@@ -25630,7 +25658,7 @@ const data: SurahDecoderData = {
           "tr": "fa-",
           "root": "-",
           "morph": "Particle - conjunction",
-          "irab": "Not declinable (mabni), shows sequence",
+          "irab": "Not declinable (mabni), a conjunction: al-Jadwal joins this clause to the one before it",
           "en": "so/then",
           "cs": "mabni",
           "lens": [
@@ -25642,7 +25670,7 @@ const data: SurahDecoderData = {
           "tr": "'aqaruha",
           "root": "ع-ق-ر",
           "morph": "Verb - Form I, past, 3rd person masculine plural + pronoun",
-          "irab": "Verb in past (mabni), وا (hidden before هَا) is subject, هَا is object",
+          "irab": "Verb in past (mabni), the attached ـوا ending (waw al-jama'a) is the subject, هَا is the object",
           "en": "they hamstrung her",
           "cs": "verb",
           "lens": [
@@ -25654,7 +25682,7 @@ const data: SurahDecoderData = {
           "tr": "fa-",
           "root": "-",
           "morph": "Particle - conjunction",
-          "irab": "Not declinable (mabni), shows sequence",
+          "irab": "Not declinable (mabni), a conjunction: al-Jadwal joins this clause to the one before it",
           "en": "so/then",
           "cs": "mabni",
           "lens": [
@@ -25666,7 +25694,7 @@ const data: SurahDecoderData = {
           "tr": "damdama",
           "root": "د-م-د-م",
           "morph": "Verb - Form I, past, 3rd person masculine singular (quadriliteral)",
-          "irab": "Verb in past (mabni)",
+          "irab": "Verb in past (mabni); al-Jadwal: the sense is “pressed down over them”",
           "en": "he brought destruction",
           "cs": "verb",
           "lens": [
@@ -25678,7 +25706,7 @@ const data: SurahDecoderData = {
           "tr": "'alayhim",
           "root": "-",
           "morph": "Preposition + attached pronoun",
-          "irab": "عَلَى governs genitive, هِمْ 3rd person plural pronoun",
+          "irab": "عَلَى governs genitive, هِمْ 3rd person plural pronoun; the phrase is tied to دَمْدَمَ",
           "en": "upon them",
           "cs": "gen",
           "lens": [
@@ -25702,7 +25730,7 @@ const data: SurahDecoderData = {
           "tr": "bi-",
           "root": "-",
           "morph": "Particle - preposition",
-          "irab": "Not declinable (mabni), governs genitive",
+          "irab": "Not declinable (mabni), governs genitive; the ba of cause (sababiyya)",
           "en": "because of",
           "cs": "mabni",
           "lens": [
@@ -25714,7 +25742,7 @@ const data: SurahDecoderData = {
           "tr": "dhanbihim",
           "root": "ذ-ن-ب",
           "morph": "Noun - masculine, singular, indefinite + attached pronoun",
-          "irab": "Genitive (majrur) after بِ, هِمْ 3rd person plural pronoun in genitive",
+          "irab": "Genitive (majrur) after بِ; the phrase is tied to دَمْدَمَ; هِمْ 3rd person plural pronoun in genitive",
           "en": "their sin",
           "cs": "gen",
           "lens": [
@@ -25726,7 +25754,7 @@ const data: SurahDecoderData = {
           "tr": "fa-",
           "root": "-",
           "morph": "Particle - conjunction",
-          "irab": "Not declinable (mabni), shows sequence",
+          "irab": "Not declinable (mabni), a conjunction: al-Jadwal joins this clause to the one before it",
           "en": "so/then",
           "cs": "mabni",
           "lens": [
@@ -25738,7 +25766,7 @@ const data: SurahDecoderData = {
           "tr": "sawwaha",
           "root": "س-و-ي",
           "morph": "Verb - Form II, past, 3rd person masculine singular + pronoun",
-          "irab": "Verb in past (mabni), هَا 3rd person pronoun is object",
+          "irab": "Verb in past (mabni); the subject “He” (Allah) is hidden; هَا 3rd person pronoun is object",
           "en": "He leveled it",
           "cs": "verb",
           "lens": [
@@ -25758,9 +25786,9 @@ const data: SurahDecoderData = {
           "ar": "وَ",
           "tr": "wa",
           "root": "-",
-          "morph": "Particle - conjunction",
-          "irab": "Not declinable (mabni), coordinates",
-          "en": "and",
+          "morph": "Particle - circumstantial (hal) or resumptive",
+          "irab": "Not declinable (mabni). al-Jadwal: a wa of the state (hal); it also allows a resumptive wa that starts a new sentence",
+          "en": "and/while",
           "cs": "mabni",
           "lens": [
             "particle"
@@ -25783,7 +25811,7 @@ const data: SurahDecoderData = {
           "tr": "yakhafu",
           "root": "خ-و-ف",
           "morph": "Verb - Form I, present, 3rd person masculine singular",
-          "irab": "Verb in indicative (marfu')",
+          "irab": "Verb in indicative (marfu'); the subject “He” is hidden and points to the doer of سَوَّاهَا (Allah); the clause is a hal (accusative in position) from that doer",
           "en": "He fears",
           "cs": "verb",
           "lens": [
@@ -25809,7 +25837,7 @@ const data: SurahDecoderData = {
     {
       "ayah": 1,
       "ref": "Al-Layl 92:1",
-      "arabic": "وَالَّيْلِ إِذَا يَغْشَىٰ",
+      "arabic": "وَاللَّيْلِ إِذَا يَغْشَىٰ",
       "transliteration": "wa-l-layli idha yaghsha",
       "translation": "By the night when it covers",
       "words": [
@@ -25818,7 +25846,7 @@ const data: SurahDecoderData = {
           "tr": "wa",
           "root": "-",
           "morph": "Particle - oath",
-          "irab": "Not declinable (mabni), oath particle",
+          "irab": "Not declinable (mabni), oath particle. The oath is tied to an unspoken \"I swear\"",
           "en": "by",
           "cs": "mabni",
           "lens": [
@@ -25841,12 +25869,12 @@ const data: SurahDecoderData = {
           "ar": "إِذَا",
           "tr": "idha",
           "root": "-",
-          "morph": "Particle - conditional/temporal",
-          "irab": "Not declinable (mabni), introduces when-clause",
+          "morph": "Adverb (zarf) - time",
+          "irab": "Not declinable (mabni), accusative in place. It means only \"when\", with no condition. It is tied to the unspoken \"I swear\"; the next clause is its mudaf ilayhi",
           "en": "when",
-          "cs": "mabni",
+          "cs": "acc",
           "lens": [
-            "particle"
+            "acc"
           ]
         },
         {
@@ -25854,7 +25882,7 @@ const data: SurahDecoderData = {
           "tr": "yaghsha",
           "root": "غ-ش-ي",
           "morph": "Verb - Form I, present, 3rd person masculine singular",
-          "irab": "Verb in indicative (marfu')",
+          "irab": "Verb in indicative (marfu'), ending hidden. The subject \"it\" is hidden. The clause is the mudaf ilayhi of إِذَا, so it is genitive in place",
           "en": "it covers",
           "cs": "verb",
           "lens": [
@@ -25874,8 +25902,8 @@ const data: SurahDecoderData = {
           "ar": "وَ",
           "tr": "wa",
           "root": "-",
-          "morph": "Particle - oath",
-          "irab": "Not declinable (mabni), oath particle",
+          "morph": "Particle - conjunction",
+          "irab": "Not declinable (mabni), joins this thing sworn by to the first one",
           "en": "and [by]",
           "cs": "mabni",
           "lens": [
@@ -25887,7 +25915,7 @@ const data: SurahDecoderData = {
           "tr": "an-nahari",
           "root": "ن-ه-ر",
           "morph": "Noun - masculine, singular, definite",
-          "irab": "Genitive (majrur) after oath particle وَ",
+          "irab": "Genitive (majrur), joined to اللَّيْلِ: it is also sworn by",
           "en": "the day",
           "cs": "gen",
           "lens": [
@@ -25898,12 +25926,12 @@ const data: SurahDecoderData = {
           "ar": "إِذَا",
           "tr": "idha",
           "root": "-",
-          "morph": "Particle - conditional/temporal",
-          "irab": "Not declinable (mabni), introduces when-clause",
+          "morph": "Adverb (zarf) - time",
+          "irab": "Not declinable (mabni), accusative in place. It means only \"when\", with no condition. It is tied to the unspoken \"I swear\"; the next clause is its mudaf ilayhi",
           "en": "when",
-          "cs": "mabni",
+          "cs": "acc",
           "lens": [
-            "particle"
+            "acc"
           ]
         },
         {
@@ -25911,7 +25939,7 @@ const data: SurahDecoderData = {
           "tr": "tajalla",
           "root": "ج-ل-و",
           "morph": "Verb - Form V, past, 3rd person masculine singular",
-          "irab": "Verb in past (mabni)",
+          "irab": "Verb in past (mabni). The clause is the mudaf ilayhi of إِذَا, so it is genitive in place",
           "en": "it appeared/became manifest",
           "cs": "verb",
           "lens": [
@@ -25925,14 +25953,14 @@ const data: SurahDecoderData = {
       "ref": "Al-Layl 92:3",
       "arabic": "وَمَا خَلَقَ الذَّكَرَ وَالْأُنثَىٰ",
       "transliteration": "wa-ma khalaqa adh-dhakara wa-l-untha",
-      "translation": "And [by] He who created the male and the female",
+      "translation": "And [by] the creating of the male and the female",
       "words": [
         {
           "ar": "وَ",
           "tr": "wa",
           "root": "-",
-          "morph": "Particle - oath",
-          "irab": "Not declinable (mabni), oath particle",
+          "morph": "Particle - conjunction",
+          "irab": "Not declinable (mabni), joins this thing sworn by to the first one",
           "en": "and [by]",
           "cs": "mabni",
           "lens": [
@@ -25943,12 +25971,12 @@ const data: SurahDecoderData = {
           "ar": "مَا",
           "tr": "ma",
           "root": "-",
-          "morph": "Relative pronoun/particle (mawsuliyya)",
-          "irab": "Not declinable (mabni) in place of genitive",
-          "en": "He who/what",
-          "cs": "gen",
+          "morph": "Particle - masdar (masdariyya)",
+          "irab": "Not declinable (mabni). With its clause it makes a verbal noun, \"the creating of\", in a genitive position, joined to اللَّيْلِ. al-Jadwal also allows a relative \"He who\" (Allah)",
+          "en": "the creating (of)",
+          "cs": "mabni",
           "lens": [
-            "gen"
+            "particle"
           ]
         },
         {
@@ -25956,7 +25984,7 @@ const data: SurahDecoderData = {
           "tr": "khalaqa",
           "root": "خ-ل-ق",
           "morph": "Verb - Form I, past, 3rd person masculine singular",
-          "irab": "Verb in past (mabni)",
+          "irab": "Verb in past (mabni). The subject is hidden: \"He\", meaning Allah. The clause is the sila of مَا and has no place of its own",
           "en": "He created",
           "cs": "verb",
           "lens": [
@@ -26024,7 +26052,7 @@ const data: SurahDecoderData = {
           "ar": "سَعْيَكُمْ",
           "tr": "sa'yakum",
           "root": "س-ع-ي",
-          "morph": "Noun - masculine, singular, indefinite + attached pronoun",
+          "morph": "Noun (verbal noun) - masculine, singular + attached pronoun",
           "irab": "Subject of إِنَّ (ism inna) - accusative (mansub), كُمْ 2nd person plural pronoun in genitive",
           "en": "your effort/striving",
           "cs": "acc",
@@ -26036,8 +26064,8 @@ const data: SurahDecoderData = {
           "ar": "لَ",
           "tr": "la-",
           "root": "-",
-          "morph": "Particle - emphasis",
-          "irab": "Not declinable (mabni), strengthens predicate",
+          "morph": "Particle - lam of the oath",
+          "irab": "Not declinable (mabni). al-Jadwal calls it the lam of the oath, which takes the place of the usual \"moved\" emphasis lam (muzahlaqa). It sits on the predicate",
           "en": "surely",
           "cs": "mabni",
           "lens": [
@@ -26048,8 +26076,8 @@ const data: SurahDecoderData = {
           "ar": "شَتَّىٰ",
           "tr": "shatta",
           "root": "ش-ت-ت",
-          "morph": "Adjective - feminine, plural (pattern of diversity)",
-          "irab": "Predicate of إِنَّ (khabar inna) - nominative (marfu'), indeclinable",
+          "morph": "Adjective - plural (pattern فَعْلَى)",
+          "irab": "Predicate of إِنَّ (khabar inna) - nominative (marfu') in place; the alif maqsura hides the ending",
           "en": "diverse/various",
           "cs": "nom",
           "lens": [
@@ -26069,8 +26097,8 @@ const data: SurahDecoderData = {
           "ar": "فَ",
           "tr": "fa-",
           "root": "-",
-          "morph": "Particle - conjunction",
-          "irab": "Not declinable (mabni), introduces result",
+          "morph": "Particle - resumptive (isti'nafiyya)",
+          "irab": "Not declinable (mabni), starts a new sentence",
           "en": "so/and",
           "cs": "mabni",
           "lens": [
@@ -26081,8 +26109,8 @@ const data: SurahDecoderData = {
           "ar": "أَمَّا",
           "tr": "amma",
           "root": "-",
-          "morph": "Particle - conditional",
-          "irab": "Not declinable (mabni), introduces conditional clause",
+          "morph": "Particle - condition and detail",
+          "irab": "Not declinable (mabni). al-Jadwal calls it a particle of condition and detail; its answer takes a linking فَ",
           "en": "as for",
           "cs": "mabni",
           "lens": [
@@ -26093,18 +26121,20 @@ const data: SurahDecoderData = {
           "ar": "مَنْ",
           "tr": "man",
           "root": "-",
-          "morph": "Relative pronoun - indefinite",
-          "irab": "Not declinable (mabni), subject of nominal sentence",
+          "morph": "Relative pronoun (ism mawsul)",
+          "irab": "Not declinable (mabni), nominative in place: the subject (mubtada'). Its predicate is the clause in verse 7",
           "en": "who/whoever",
-          "cs": "mabni",
-          "lens": []
+          "cs": "nom",
+          "lens": [
+            "nom"
+          ]
         },
         {
           "ar": "أَعْطَىٰ",
           "tr": "a'ta",
           "root": "ع-ط-و",
           "morph": "Verb - Form IV, past, 3rd person masculine singular",
-          "irab": "Verb in past (mabni)",
+          "irab": "Verb in past (mabni). This clause is the sila of مَنْ",
           "en": "he gave",
           "cs": "verb",
           "lens": [
@@ -26128,7 +26158,7 @@ const data: SurahDecoderData = {
           "tr": "ittaqa",
           "root": "و-ق-ي",
           "morph": "Verb - Form VIII, past, 3rd person masculine singular",
-          "irab": "Verb in past (mabni)",
+          "irab": "Verb in past (mabni). Joined to the sila by وَ, so it is part of the sila too",
           "en": "he feared/was pious",
           "cs": "verb",
           "lens": [
@@ -26161,7 +26191,7 @@ const data: SurahDecoderData = {
           "tr": "saddaqa",
           "root": "ص-د-ق",
           "morph": "Verb - Form II, past, 3rd person masculine singular",
-          "irab": "Verb in past (mabni)",
+          "irab": "Verb in past (mabni). Joined to the sila of مَنْ, so it is part of the sila too",
           "en": "he believed/confirmed",
           "cs": "verb",
           "lens": [
@@ -26173,7 +26203,7 @@ const data: SurahDecoderData = {
           "tr": "bi-",
           "root": "-",
           "morph": "Particle - preposition",
-          "irab": "Not declinable (mabni), governs genitive",
+          "irab": "Not declinable (mabni), governs genitive. The phrase belongs to صَدَّقَ",
           "en": "in",
           "cs": "mabni",
           "lens": [
@@ -26205,8 +26235,8 @@ const data: SurahDecoderData = {
           "ar": "فَ",
           "tr": "fa-",
           "root": "-",
-          "morph": "Particle - conjunction",
-          "irab": "Not declinable (mabni), introduces result (jawab amma)",
+          "morph": "Particle - linking fa of the answer (rabita)",
+          "irab": "Not declinable (mabni), links the answer to أَمَّا",
           "en": "then/so",
           "cs": "mabni",
           "lens": [
@@ -26230,7 +26260,7 @@ const data: SurahDecoderData = {
           "tr": "nuyassiruhu",
           "root": "ي-س-ر",
           "morph": "Verb - Form II, present, 1st person plural + pronoun",
-          "irab": "Future verb in indicative (marfu'), نُ 1st person plural prefix, هُ 3rd person pronoun is object",
+          "irab": "Future verb in indicative (marfu'), نُ 1st person plural prefix, هُ 3rd person pronoun is object. The clause is the predicate (khabar) of مَنْ",
           "en": "We will ease him",
           "cs": "verb",
           "lens": [
@@ -26242,7 +26272,7 @@ const data: SurahDecoderData = {
           "tr": "li-",
           "root": "-",
           "morph": "Particle - preposition",
-          "irab": "Not declinable (mabni), governs genitive",
+          "irab": "Not declinable (mabni), governs genitive. The phrase belongs to نُيَسِّرُ",
           "en": "to/for",
           "cs": "mabni",
           "lens": [
@@ -26275,7 +26305,7 @@ const data: SurahDecoderData = {
           "tr": "wa",
           "root": "-",
           "morph": "Particle - conjunction",
-          "irab": "Not declinable (mabni), contrasts with previous",
+          "irab": "Not declinable (mabni), joins this أَمَّا-sentence to the one before",
           "en": "and/but",
           "cs": "mabni",
           "lens": [
@@ -26286,8 +26316,8 @@ const data: SurahDecoderData = {
           "ar": "أَمَّا",
           "tr": "amma",
           "root": "-",
-          "morph": "Particle - conditional",
-          "irab": "Not declinable (mabni), introduces conditional clause",
+          "morph": "Particle - condition and detail",
+          "irab": "Not declinable (mabni), a particle of condition and detail; its answer comes in verse 10",
           "en": "as for",
           "cs": "mabni",
           "lens": [
@@ -26298,18 +26328,20 @@ const data: SurahDecoderData = {
           "ar": "مَن",
           "tr": "man",
           "root": "-",
-          "morph": "Relative pronoun - indefinite",
-          "irab": "Not declinable (mabni), subject of nominal sentence",
+          "morph": "Relative pronoun (ism mawsul)",
+          "irab": "Not declinable (mabni), nominative in place: the subject (mubtada'). Its predicate is the clause in verse 10",
           "en": "who/whoever",
-          "cs": "mabni",
-          "lens": []
+          "cs": "nom",
+          "lens": [
+            "nom"
+          ]
         },
         {
           "ar": "بَخِلَ",
           "tr": "bakhila",
           "root": "ب-خ-ل",
           "morph": "Verb - Form I, past, 3rd person masculine singular",
-          "irab": "Verb in past (mabni)",
+          "irab": "Verb in past (mabni). This clause is the sila of مَن",
           "en": "he was miserly/withheld",
           "cs": "verb",
           "lens": [
@@ -26333,7 +26365,7 @@ const data: SurahDecoderData = {
           "tr": "istaghna",
           "root": "غ-ن-ي",
           "morph": "Verb - Form X, past, 3rd person masculine singular",
-          "irab": "Verb in past (mabni)",
+          "irab": "Verb in past (mabni). Joined to the sila by وَ, so it is part of the sila too",
           "en": "he considered himself self-sufficient",
           "cs": "verb",
           "lens": [
@@ -26378,7 +26410,7 @@ const data: SurahDecoderData = {
           "tr": "bi-",
           "root": "-",
           "morph": "Particle - preposition",
-          "irab": "Not declinable (mabni), governs genitive",
+          "irab": "Not declinable (mabni), governs genitive. The phrase belongs to كَذَّبَ",
           "en": "in",
           "cs": "mabni",
           "lens": [
@@ -26410,8 +26442,8 @@ const data: SurahDecoderData = {
           "ar": "فَ",
           "tr": "fa-",
           "root": "-",
-          "morph": "Particle - conjunction",
-          "irab": "Not declinable (mabni), introduces result (jawab amma)",
+          "morph": "Particle - linking fa of the answer (rabita)",
+          "irab": "Not declinable (mabni), links the answer to أَمَّا",
           "en": "then/so",
           "cs": "mabni",
           "lens": [
@@ -26435,7 +26467,7 @@ const data: SurahDecoderData = {
           "tr": "nuyassiruhu",
           "root": "ي-س-ر",
           "morph": "Verb - Form II, present, 1st person plural + pronoun",
-          "irab": "Future verb in indicative (marfu'), نُ 1st person plural prefix, هُ 3rd person pronoun is object",
+          "irab": "Future verb in indicative (marfu'), نُ 1st person plural prefix, هُ 3rd person pronoun is object. The clause is the predicate (khabar) of مَن",
           "en": "We will ease him",
           "cs": "verb",
           "lens": [
@@ -26447,7 +26479,7 @@ const data: SurahDecoderData = {
           "tr": "li-",
           "root": "-",
           "morph": "Particle - preposition",
-          "irab": "Not declinable (mabni), governs genitive",
+          "irab": "Not declinable (mabni), governs genitive. The phrase belongs to نُيَسِّرُ",
           "en": "to/for",
           "cs": "mabni",
           "lens": [
@@ -26458,8 +26490,8 @@ const data: SurahDecoderData = {
           "ar": "الْعُسْرَىٰ",
           "tr": "al-'usra",
           "root": "ع-س-ر",
-          "morph": "Noun/Adjective - feminine, singular, definite (superlative)",
-          "irab": "Genitive (majrur) after لِ",
+          "morph": "Noun - feminine, singular, definite (al-Jadwal: a noun meaning narrowness and hardship; it also allows the feminine superlative of الْأَعْسَر)",
+          "irab": "Genitive (majrur) after لِ; the alif maqsura hides the ending",
           "en": "the hardship/difficulty",
           "cs": "gen",
           "lens": [
@@ -26473,14 +26505,14 @@ const data: SurahDecoderData = {
       "ref": "Al-Layl 92:11",
       "arabic": "وَمَا يُغْنِي عَنْهُ مَالُهُ إِذَا تَرَدَّىٰ",
       "transliteration": "wa-ma yughni 'anhu maluhu idha taradda",
-      "translation": "And what will his wealth avail him when he falls?",
+      "translation": "And his wealth will not avail him when he falls",
       "words": [
         {
           "ar": "وَ",
           "tr": "wa",
           "root": "-",
           "morph": "Particle - conjunction",
-          "irab": "Not declinable (mabni), coordinates",
+          "irab": "Not declinable (mabni), joins this sentence to the one in verse 10",
           "en": "and",
           "cs": "mabni",
           "lens": [
@@ -26491,9 +26523,9 @@ const data: SurahDecoderData = {
           "ar": "مَا",
           "tr": "ma",
           "root": "-",
-          "morph": "Particle - negation/interrogative",
-          "irab": "Not declinable (mabni), negates verb",
-          "en": "not/what",
+          "morph": "Particle - negation",
+          "irab": "Not declinable (mabni), negates the verb. al-Jadwal also allows a question word, \"what?\", as the subject with the clause as its predicate",
+          "en": "not",
           "cs": "mabni",
           "lens": [
             "particle"
@@ -26504,7 +26536,7 @@ const data: SurahDecoderData = {
           "tr": "yughni",
           "root": "غ-ن-ي",
           "morph": "Verb - Form IV, present, 3rd person masculine singular",
-          "irab": "Verb in indicative (marfu')",
+          "irab": "Verb in indicative (marfu'). The clause is joined to the one in verse 10, so it is nominative in place",
           "en": "it avails/benefits",
           "cs": "verb",
           "lens": [
@@ -26516,7 +26548,7 @@ const data: SurahDecoderData = {
           "tr": "'anhu",
           "root": "-",
           "morph": "Preposition + attached pronoun",
-          "irab": "عَنْ governs genitive, هُ 3rd person pronoun",
+          "irab": "عَنْ governs genitive, هُ 3rd person pronoun. The phrase belongs to يُغْنِي",
           "en": "from him/for him",
           "cs": "gen",
           "lens": [
@@ -26527,7 +26559,7 @@ const data: SurahDecoderData = {
           "ar": "مَالُهُ",
           "tr": "maluhu",
           "root": "م-و-ل",
-          "morph": "Noun - masculine, singular, indefinite + attached pronoun",
+          "morph": "Noun - masculine, singular + attached pronoun",
           "irab": "Subject (fa'il) - nominative (marfu'), هُ 3rd person pronoun in genitive",
           "en": "his wealth",
           "cs": "nom",
@@ -26539,12 +26571,12 @@ const data: SurahDecoderData = {
           "ar": "إِذَا",
           "tr": "idha",
           "root": "-",
-          "morph": "Particle - conditional/temporal",
-          "irab": "Not declinable (mabni), introduces when-clause",
+          "morph": "Adverb (zarf) - time",
+          "irab": "Not declinable (mabni), accusative in place. It holds the meaning of a condition; al-Jadwal says it is tied to an answer that is left out (\"his wealth does not avail him\"). The next clause is its mudaf ilayhi",
           "en": "when",
-          "cs": "mabni",
+          "cs": "acc",
           "lens": [
-            "particle"
+            "acc"
           ]
         },
         {
@@ -26552,7 +26584,7 @@ const data: SurahDecoderData = {
           "tr": "taradda",
           "root": "ر-د-ي",
           "morph": "Verb - Form V, past, 3rd person masculine singular",
-          "irab": "Verb in past (mabni)",
+          "irab": "Verb in past (mabni). The clause is the mudaf ilayhi of إِذَا, so it is genitive in place",
           "en": "he fell/perished",
           "cs": "verb",
           "lens": [
@@ -26585,7 +26617,7 @@ const data: SurahDecoderData = {
           "tr": "'alayna",
           "root": "-",
           "morph": "Preposition + attached pronoun",
-          "irab": "عَلَى governs genitive, نَا 1st person plural pronoun",
+          "irab": "عَلَى governs genitive, نَا 1st person plural pronoun. The phrase is tied to the predicate of إِنَّ, which is left unsaid, and it comes first",
           "en": "upon Us",
           "cs": "gen",
           "lens": [
@@ -26597,7 +26629,7 @@ const data: SurahDecoderData = {
           "tr": "la-",
           "root": "-",
           "morph": "Particle - emphasis",
-          "irab": "Not declinable (mabni), strengthens predicate",
+          "irab": "Not declinable (mabni), the lam of emphasis; it sits on the delayed ism of إِنَّ",
           "en": "surely",
           "cs": "mabni",
           "lens": [
@@ -26609,7 +26641,7 @@ const data: SurahDecoderData = {
           "tr": "al-huda",
           "root": "ه-د-ي",
           "morph": "Noun - masculine, singular, definite",
-          "irab": "Predicate of إِنَّ (khabar inna) - nominative (marfu') but لَ makes it accusative",
+          "irab": "Subject of إِنَّ (ism inna), delayed - accusative (mansub); the alif maqsura hides the ending",
           "en": "the guidance",
           "cs": "acc",
           "lens": [
@@ -26630,7 +26662,7 @@ const data: SurahDecoderData = {
           "tr": "wa",
           "root": "-",
           "morph": "Particle - conjunction",
-          "irab": "Not declinable (mabni), coordinates",
+          "irab": "Not declinable (mabni), joins this sentence to the one in verse 12",
           "en": "and",
           "cs": "mabni",
           "lens": [
@@ -26654,7 +26686,7 @@ const data: SurahDecoderData = {
           "tr": "lana",
           "root": "-",
           "morph": "Preposition + attached pronoun",
-          "irab": "لَ governs genitive/dative, نَا 1st person plural pronoun",
+          "irab": "لَ governs genitive, نَا 1st person plural pronoun. The phrase is tied to the predicate of إِنَّ, which is left unsaid, and it comes first",
           "en": "for Us/to Us",
           "cs": "gen",
           "lens": [
@@ -26666,7 +26698,7 @@ const data: SurahDecoderData = {
           "tr": "la-",
           "root": "-",
           "morph": "Particle - emphasis",
-          "irab": "Not declinable (mabni), strengthens predicate",
+          "irab": "Not declinable (mabni), the lam of emphasis; it sits on the delayed ism of إِنَّ",
           "en": "surely",
           "cs": "mabni",
           "lens": [
@@ -26678,7 +26710,7 @@ const data: SurahDecoderData = {
           "tr": "al-akhirata",
           "root": "أ-خ-ر",
           "morph": "Noun - feminine, singular, definite",
-          "irab": "Predicate of إِنَّ (khabar inna) - accusative (mansub) after لَ",
+          "irab": "Subject of إِنَّ (ism inna), delayed - accusative (mansub)",
           "en": "the Hereafter",
           "cs": "acc",
           "lens": [
@@ -26700,9 +26732,9 @@ const data: SurahDecoderData = {
         {
           "ar": "الْأُولَىٰ",
           "tr": "al-ula",
-          "root": "-",
+          "root": "أ-و-ل",
           "morph": "Noun/Adjective - feminine, singular, definite (superlative)",
-          "irab": "Object (ma'tuf) coordinated with الْآخِرَةَ - accusative (mansub)",
+          "irab": "Joined (ma'tuf) to الْآخِرَةَ by وَ, so accusative (mansub); the alif maqsura hides the ending",
           "en": "the first [life]",
           "cs": "acc",
           "lens": [
@@ -26723,8 +26755,8 @@ const data: SurahDecoderData = {
           "tr": "fa-",
           "root": "-",
           "morph": "Particle - conjunction",
-          "irab": "Not declinable (mabni), shows result",
-          "en": "so/therefore",
+          "irab": "Not declinable (mabni), joins this sentence to the earlier ones in verses 12-13",
+          "en": "so",
           "cs": "mabni",
           "lens": [
             "particle"
@@ -26759,7 +26791,7 @@ const data: SurahDecoderData = {
           "tr": "talazza",
           "root": "ل-ظ-ي",
           "morph": "Verb - Form V, present, 3rd person feminine singular",
-          "irab": "Verb in indicative (marfu'), describes نَارًا",
+          "irab": "Verb in indicative (marfu'). One of the two ت letters was dropped (the original is تَتَلَظَّىٰ). The clause is an adjective (na't) of نَارًا, so it is accusative in place",
           "en": "it blazes/flames",
           "cs": "verb",
           "lens": [
@@ -26803,8 +26835,8 @@ const data: SurahDecoderData = {
           "ar": "إِلَّا",
           "tr": "illa",
           "root": "-",
-          "morph": "Particle - exception",
-          "irab": "Not declinable (mabni), introduces exception",
+          "morph": "Particle - restriction",
+          "irab": "Not declinable (mabni). al-Jadwal says it limits the action to one doer: \"only\"",
           "en": "except",
           "cs": "mabni",
           "lens": [
@@ -26816,7 +26848,7 @@ const data: SurahDecoderData = {
           "tr": "al-ashqa",
           "root": "ش-ق-ي",
           "morph": "Noun/Adjective - masculine, singular, definite (superlative)",
-          "irab": "Subject (fa'il) - nominative (marfu') after exception",
+          "irab": "Subject (fa'il) - nominative (marfu'); after a negation and إِلَّا the noun takes the case its job needs",
           "en": "the most wretched",
           "cs": "nom",
           "lens": [
@@ -26837,17 +26869,19 @@ const data: SurahDecoderData = {
           "tr": "alladhi",
           "root": "-",
           "morph": "Relative pronoun - masculine, singular",
-          "irab": "Not declinable (mabni), describes الْأَشْقَى",
+          "irab": "Not declinable (mabni). An adjective (na't) of الْأَشْقَى, so nominative in place. al-Jadwal also allows a predicate of an unspoken \"he is\", or an object of an unspoken \"I mean\"",
           "en": "who/the one who",
-          "cs": "mabni",
-          "lens": []
+          "cs": "nom",
+          "lens": [
+            "nom"
+          ]
         },
         {
           "ar": "كَذَّبَ",
           "tr": "kadhdhaba",
           "root": "ك-ذ-ب",
           "morph": "Verb - Form II, past, 3rd person masculine singular",
-          "irab": "Verb in past (mabni)",
+          "irab": "Verb in past (mabni). The clause is the sila of الَّذِي",
           "en": "he denied",
           "cs": "verb",
           "lens": [
@@ -26859,7 +26893,7 @@ const data: SurahDecoderData = {
           "tr": "wa",
           "root": "-",
           "morph": "Particle - conjunction",
-          "irab": "Not declinable (mabni), coordinates",
+          "irab": "Not declinable (mabni), joins the second verb to the sila",
           "en": "and",
           "cs": "mabni",
           "lens": [
@@ -26892,7 +26926,7 @@ const data: SurahDecoderData = {
           "tr": "wa",
           "root": "-",
           "morph": "Particle - conjunction",
-          "irab": "Not declinable (mabni), contrasts",
+          "irab": "Not declinable (mabni), joins this clause to \"none will burn in it except...\" in verse 15",
           "en": "and/but",
           "cs": "mabni",
           "lens": [
@@ -26942,24 +26976,26 @@ const data: SurahDecoderData = {
       "ref": "Al-Layl 92:18",
       "arabic": "الَّذِي يُؤْتِي مَالَهُ يَتَزَكَّىٰ",
       "transliteration": "alladhi yu'ti malahu yatazakka",
-      "translation": "Who gives his wealth to purify himself",
+      "translation": "Who gives his wealth, purifying himself",
       "words": [
         {
           "ar": "الَّذِي",
           "tr": "alladhi",
           "root": "-",
           "morph": "Relative pronoun - masculine, singular",
-          "irab": "Not declinable (mabni), describes الْأَتْقَى",
+          "irab": "Not declinable (mabni). An adjective (na't) of الْأَتْقَى, so nominative in place",
           "en": "who/the one who",
-          "cs": "mabni",
-          "lens": []
+          "cs": "nom",
+          "lens": [
+            "nom"
+          ]
         },
         {
           "ar": "يُؤْتِي",
           "tr": "yu'ti",
           "root": "أ-ت-ي",
           "morph": "Verb - Form IV, present, 3rd person masculine singular",
-          "irab": "Verb in indicative (marfu')",
+          "irab": "Verb in indicative (marfu'). The clause is the sila of الَّذِي",
           "en": "he gives",
           "cs": "verb",
           "lens": [
@@ -26970,8 +27006,8 @@ const data: SurahDecoderData = {
           "ar": "مَالَهُ",
           "tr": "malahu",
           "root": "م-و-ل",
-          "morph": "Noun - masculine, singular, indefinite + attached pronoun",
-          "irab": "Direct object (maf'ul bihi) - accusative (mansub), هُ 3rd person pronoun in genitive",
+          "morph": "Noun - masculine, singular + attached pronoun",
+          "irab": "Object (maf'ul bihi) - accusative (mansub), هُ 3rd person pronoun in genitive. يُؤْتِي takes two objects; this is one, and the other (the one who receives) is not said",
           "en": "his wealth",
           "cs": "acc",
           "lens": [
@@ -26983,7 +27019,7 @@ const data: SurahDecoderData = {
           "tr": "yatazakka",
           "root": "ز-ك-و",
           "morph": "Verb - Form V, present, 3rd person masculine singular",
-          "irab": "Verb in indicative (marfu'), indicates purpose",
+          "irab": "Verb in indicative (marfu'). The clause is a hal (state) of the doer of يُؤْتِي: \"while purifying himself\". al-Jadwal also allows a badal of the clause يُؤْتِي",
           "en": "he purifies himself",
           "cs": "verb",
           "lens": [
@@ -26997,14 +27033,14 @@ const data: SurahDecoderData = {
       "ref": "Al-Layl 92:19",
       "arabic": "وَمَا لِأَحَدٍ عِندَهُ مِن نِّعْمَةٍ تُجْزَىٰ",
       "transliteration": "wa-ma li-ahadin 'indahu min ni'matin tujza",
-      "translation": "And not [giving] for anyone who has [done him] a favor to be rewarded",
+      "translation": "And no one has a favor with him that is to be repaid",
       "words": [
         {
           "ar": "وَ",
           "tr": "wa",
           "root": "-",
-          "morph": "Particle - conjunction",
-          "irab": "Not declinable (mabni), coordinates",
+          "morph": "Particle - resumptive",
+          "irab": "Not declinable (mabni), starts a new sentence (al-Jadwal also allows a hal wa)",
           "en": "and",
           "cs": "mabni",
           "lens": [
@@ -27028,7 +27064,7 @@ const data: SurahDecoderData = {
           "tr": "li-",
           "root": "-",
           "morph": "Particle - preposition",
-          "irab": "Not declinable (mabni), governs genitive",
+          "irab": "Not declinable (mabni), governs genitive. The phrase لِأَحَدٍ is tied to the predicate, which comes first and is left unsaid",
           "en": "for",
           "cs": "mabni",
           "lens": [
@@ -27039,7 +27075,7 @@ const data: SurahDecoderData = {
           "ar": "أَحَدٍ",
           "tr": "ahadin",
           "root": "-",
-          "morph": "Pronoun - masculine, singular, indefinite",
+          "morph": "Noun - masculine, singular, indefinite",
           "irab": "Genitive (majrur) after لِ, with tanwin kasratayn",
           "en": "anyone",
           "cs": "gen",
@@ -27052,7 +27088,7 @@ const data: SurahDecoderData = {
           "tr": "'indahu",
           "root": "-",
           "morph": "Adverb of place + attached pronoun",
-          "irab": "Adverbial (zarf makan), هُ 3rd person pronoun in genitive",
+          "irab": "Adverb of place (zarf), accusative; هُ is genitive. It is tied to an unspoken hal of نِّعْمَةٍ (\"a favor with him\"). al-Jadwal also allows it to belong to تُجْزَىٰ",
           "en": "with him/in his presence",
           "cs": "gen",
           "lens": [
@@ -27063,8 +27099,8 @@ const data: SurahDecoderData = {
           "ar": "مِن",
           "tr": "min",
           "root": "-",
-          "morph": "Particle - preposition",
-          "irab": "Not declinable (mabni), governs genitive",
+          "morph": "Particle - extra preposition",
+          "irab": "Not declinable (mabni). It adds only stress (\"not any favor at all\"), but it still puts نِّعْمَةٍ in the genitive in form",
           "en": "from/of",
           "cs": "mabni",
           "lens": [
@@ -27076,7 +27112,7 @@ const data: SurahDecoderData = {
           "tr": "ni'matin",
           "root": "ن-ع-م",
           "morph": "Noun - feminine, singular, indefinite",
-          "irab": "Genitive (majrur) after مِن, with tanwin kasratayn",
+          "irab": "Genitive in form (after مِن), nominative in place: the delayed subject (mubtada' mu'akhkhar)",
           "en": "a favor/blessing",
           "cs": "gen",
           "lens": [
@@ -27088,7 +27124,7 @@ const data: SurahDecoderData = {
           "tr": "tujza",
           "root": "ج-ز-ي",
           "morph": "Verb - Form I, present passive, 3rd person feminine singular",
-          "irab": "Passive verb in subjunctive (mansub), describes نِّعْمَةٍ",
+          "irab": "Passive verb in indicative (marfu'); the alif maqsura hides the ending. The clause is an adjective (na't) of نِّعْمَةٍ, nominative in place",
           "en": "it is rewarded",
           "cs": "verb",
           "lens": [
@@ -27108,8 +27144,8 @@ const data: SurahDecoderData = {
           "ar": "إِلَّا",
           "tr": "illa",
           "root": "-",
-          "morph": "Particle - exception/restriction",
-          "irab": "Not declinable (mabni), introduces exception",
+          "morph": "Particle - exception",
+          "irab": "Not declinable (mabni), introduces a separate exception (munqati'): it works like \"but\"",
           "en": "except/only",
           "cs": "mabni",
           "lens": [
@@ -27120,8 +27156,8 @@ const data: SurahDecoderData = {
           "ar": "ابْتِغَاءَ",
           "tr": "ibtighaa",
           "root": "ب-غ-ي",
-          "morph": "Noun - masculine, singular, indefinite (verbal noun Form VIII)",
-          "irab": "Adverbial of reason (maf'ul li-ajlihi) - accusative (mansub), with tanwin",
+          "morph": "Noun - masculine, singular (verbal noun Form VIII), first part of an idafa",
+          "irab": "Accusative (mansub) as a separate exception (istithna' munqati'). al-Jadwal also allows maf'ul li-ajlihi (the reason), with an unspoken verb",
           "en": "seeking",
           "cs": "acc",
           "lens": [
@@ -27132,8 +27168,8 @@ const data: SurahDecoderData = {
           "ar": "وَجْهِ",
           "tr": "wajhi",
           "root": "و-ج-ه",
-          "morph": "Noun - masculine, singular, indefinite",
-          "irab": "Genitive (majrur) in idafa construction",
+          "morph": "Noun - masculine, singular",
+          "irab": "Genitive (majrur): the mudaf ilayhi of ابْتِغَاءَ, and itself the first part of the next idafa",
           "en": "countenance/face",
           "cs": "gen",
           "lens": [
@@ -27145,7 +27181,7 @@ const data: SurahDecoderData = {
           "tr": "rabbihi",
           "root": "ر-ب-ب",
           "morph": "Noun - masculine, singular, definite + attached pronoun",
-          "irab": "Genitive (majrur) in idafa construction, هِ 3rd person pronoun in genitive",
+          "irab": "Genitive (majrur): the mudaf ilayhi of وَجْهِ, هِ 3rd person pronoun in genitive",
           "en": "his Lord",
           "cs": "gen",
           "lens": [
@@ -27177,8 +27213,8 @@ const data: SurahDecoderData = {
           "ar": "وَ",
           "tr": "wa",
           "root": "-",
-          "morph": "Particle - conjunction",
-          "irab": "Not declinable (mabni), coordinates",
+          "morph": "Particle - resumptive",
+          "irab": "Not declinable (mabni), starts a new sentence",
           "en": "and",
           "cs": "mabni",
           "lens": [
@@ -27189,8 +27225,8 @@ const data: SurahDecoderData = {
           "ar": "لَ",
           "tr": "la-",
           "root": "-",
-          "morph": "Particle - emphasis",
-          "irab": "Not declinable (mabni), emphasizes future verb",
+          "morph": "Particle - lam of the oath",
+          "irab": "Not declinable (mabni). al-Jadwal: the lam of an oath that is left unsaid (\"I swear he will ...\")",
           "en": "surely/certainly",
           "cs": "mabni",
           "lens": [
@@ -27202,7 +27238,7 @@ const data: SurahDecoderData = {
           "tr": "sawfa",
           "root": "-",
           "morph": "Particle - future",
-          "irab": "Not declinable (mabni), indicates future tense (more emphatic than سَ)",
+          "irab": "Not declinable (mabni), indicates future tense",
           "en": "will/going to",
           "cs": "mabni",
           "lens": [
@@ -27214,7 +27250,7 @@ const data: SurahDecoderData = {
           "tr": "yarda",
           "root": "ر-ض-ي",
           "morph": "Verb - Form I, present, 3rd person masculine singular",
-          "irab": "Verb in indicative (marfu')",
+          "irab": "Verb in indicative (marfu'). The subject \"he\" is hidden and means الْأَتْقَى. The clause is the answer to the unspoken oath and has no place of its own",
           "en": "he will be pleased/satisfied",
           "cs": "verb",
           "lens": [
@@ -27237,7 +27273,7 @@ const data: SurahDecoderData = {
           "tr": "wa",
           "root": "-",
           "morph": "Particle - oath",
-          "irab": "Not declinable (mabni), introduces oath",
+          "irab": "Not declinable (mabni), oath particle: it stands in for bi (by)",
           "en": "And/By",
           "cs": "mabni",
           "lens": [
@@ -27249,7 +27285,7 @@ const data: SurahDecoderData = {
           "tr": "ad-duhā",
           "root": "ض ح و",
           "morph": "Noun - masculine, singular, definite",
-          "irab": "Object of oath (muqsam bihi) - genitive (majrur) by implied preposition",
+          "irab": "Thing sworn by (muqsam bihi) - genitive (majrur) after the oath wa; the phrase is tied to an unspoken verb \"I swear\" (aqsimu)",
           "en": "the morning brightness",
           "cs": "gen",
           "lens": [
@@ -27269,9 +27305,9 @@ const data: SurahDecoderData = {
           "ar": "وَ",
           "tr": "wa",
           "root": "-",
-          "morph": "Particle - oath",
-          "irab": "Not declinable (mabni), introduces oath",
-          "en": "And/By",
+          "morph": "Particle - conjunction",
+          "irab": "Not declinable (mabni), joins this second oath to the first",
+          "en": "And",
           "cs": "mabni",
           "lens": [
             "particle"
@@ -27282,7 +27318,7 @@ const data: SurahDecoderData = {
           "tr": "al-layli",
           "root": "ل ي ل",
           "morph": "Noun - masculine, singular, definite",
-          "irab": "Object of oath (muqsam bihi) - genitive (majrur)",
+          "irab": "Thing sworn by (muqsam bihi) - genitive (majrur), joined to ٱلضُّحَىٰ",
           "en": "the night",
           "cs": "gen",
           "lens": [
@@ -27293,12 +27329,12 @@ const data: SurahDecoderData = {
           "ar": "إِذَا",
           "tr": "idhā",
           "root": "-",
-          "morph": "Particle - conditional/temporal",
-          "irab": "Not declinable (mabni), introduces temporal clause",
+          "morph": "Adverb of time (zarf), with no condition in it",
+          "irab": "Not declinable (mabni), accusative position; tied to the unspoken verb \"I swear\"; the clause after it is its mudaf ilayhi",
           "en": "when",
-          "cs": "mabni",
+          "cs": "acc",
           "lens": [
-            "particle"
+            "acc"
           ]
         },
         {
@@ -27306,7 +27342,7 @@ const data: SurahDecoderData = {
           "tr": "sajā",
           "root": "س ج و",
           "morph": "Verb - Form I, past tense, 3rd person masculine singular",
-          "irab": "Verb in past tense - mabni 'ala al-fath",
+          "irab": "Verb in past tense - mabni on a hidden fatha; the subject is a hidden \"it\" (the night); the clause is in the genitive position, as the mudaf ilayhi of idha",
           "en": "it settled/became still",
           "cs": "verb",
           "lens": [
@@ -27327,7 +27363,7 @@ const data: SurahDecoderData = {
           "tr": "mā",
           "root": "-",
           "morph": "Particle - negation",
-          "irab": "Not declinable (mabni), negates past tense",
+          "irab": "Not declinable (mabni), negation; its clause is the answer to the oath",
           "en": "not",
           "cs": "mabni",
           "lens": [
@@ -27363,7 +27399,7 @@ const data: SurahDecoderData = {
           "tr": "wa-mā",
           "root": "-",
           "morph": "Particle - conjunction + negation",
-          "irab": "wa = conjunction, ma = negation particle",
+          "irab": "wa = joining wa (ʿāṭifa), joins this clause to the answer of the oath; ma = negation particle",
           "en": "and not",
           "cs": "mabni",
           "lens": [
@@ -27375,7 +27411,7 @@ const data: SurahDecoderData = {
           "tr": "qalā",
           "root": "ق ل و",
           "morph": "Verb - Form I, past tense, 3rd person masculine singular",
-          "irab": "Verb negated by ma, subject implied (rabbuka)",
+          "irab": "Verb negated by ma; the subject is a hidden \"He\" that points back to rabbuka",
           "en": "He was displeased",
           "cs": "verb",
           "lens": [
@@ -27396,7 +27432,7 @@ const data: SurahDecoderData = {
           "tr": "wa",
           "root": "-",
           "morph": "Particle - conjunction",
-          "irab": "Not declinable (mabni)",
+          "irab": "Not declinable (mabni), joins this sentence to the answer of the oath",
           "en": "And",
           "cs": "mabni",
           "lens": [
@@ -27407,8 +27443,8 @@ const data: SurahDecoderData = {
           "ar": "لَ",
           "tr": "la",
           "root": "-",
-          "morph": "Particle - emphasis",
-          "irab": "Not declinable (mabni), emphasizes sentence",
+          "morph": "Particle - lam of the oath",
+          "irab": "Not declinable (mabni), the lam of the oath (lam al-qasam); al-Jadwal says it is used because a positive statement follows a negative one",
           "en": "surely/indeed",
           "cs": "mabni",
           "lens": [
@@ -27444,7 +27480,7 @@ const data: SurahDecoderData = {
           "tr": "laka",
           "root": "-",
           "morph": "Particle - preposition + attached pronoun",
-          "irab": "la = preposition, ka = pronoun - genitive (majrur)",
+          "irab": "la = preposition, ka = pronoun - genitive (majrur); the phrase is tied to khayr",
           "en": "for you",
           "cs": "gen",
           "lens": [
@@ -27456,7 +27492,7 @@ const data: SurahDecoderData = {
           "tr": "mina",
           "root": "-",
           "morph": "Particle - preposition",
-          "irab": "Not declinable (mabni), governs genitive",
+          "irab": "Not declinable (mabni), governs genitive; the phrase مِنَ ٱلْأُولَىٰ is tied to khayr",
           "en": "than",
           "cs": "mabni",
           "lens": [
@@ -27489,7 +27525,7 @@ const data: SurahDecoderData = {
           "tr": "wa",
           "root": "-",
           "morph": "Particle - conjunction",
-          "irab": "Not declinable (mabni)",
+          "irab": "Not declinable (mabni), joins this sentence to the answer of the oath",
           "en": "And",
           "cs": "mabni",
           "lens": [
@@ -27500,8 +27536,8 @@ const data: SurahDecoderData = {
           "ar": "لَ",
           "tr": "la",
           "root": "-",
-          "morph": "Particle - emphasis",
-          "irab": "Not declinable (mabni), emphasizes sentence",
+          "morph": "Particle - lam of the oath",
+          "irab": "Not declinable (mabni), the lam of the oath, used for the same reason as in verse 4",
           "en": "surely",
           "cs": "mabni",
           "lens": [
@@ -27525,7 +27561,7 @@ const data: SurahDecoderData = {
           "tr": "yu'tīka",
           "root": "ع ط و",
           "morph": "Verb - Form IV, present tense, 3rd person masculine singular + attached pronoun",
-          "irab": "Present tense verb - indicative (marfu'), ka = direct object - accusative",
+          "irab": "Present tense verb - indicative (marfu'), ka = direct object - accusative; its clause is joined to the answer of the oath",
           "en": "He will give you",
           "cs": "verb",
           "lens": [
@@ -27549,7 +27585,7 @@ const data: SurahDecoderData = {
           "tr": "fa",
           "root": "-",
           "morph": "Particle - conjunction",
-          "irab": "Not declinable (mabni), indicates sequence/consequence",
+          "irab": "Not declinable (mabni), joining fa (ʿāṭifa): the clause after it is joined to yu'tīka",
           "en": "and then/so",
           "cs": "mabni",
           "lens": [
@@ -27561,7 +27597,7 @@ const data: SurahDecoderData = {
           "tr": "tardā",
           "root": "ر ض و",
           "morph": "Verb - Form I, present tense, 2nd person masculine singular",
-          "irab": "Present tense verb - indicative (marfu')",
+          "irab": "Present tense verb - indicative (marfu'), with a hidden damma; the subject is a hidden \"you\"",
           "en": "you will be satisfied",
           "cs": "verb",
           "lens": [
@@ -27582,7 +27618,7 @@ const data: SurahDecoderData = {
           "tr": "a-lam",
           "root": "-",
           "morph": "Particle - interrogative + negation",
-          "irab": "Alif = interrogative (mabni), lam = jussive negation (mabni)",
+          "irab": "Alif = a question asked to make the listener agree (istifham taqriri, mabni), lam = jussive negation (mabni)",
           "en": "Did not?",
           "cs": "mabni",
           "lens": [
@@ -27594,8 +27630,8 @@ const data: SurahDecoderData = {
           "tr": "yajidka",
           "root": "و ج د",
           "morph": "Verb - Form I, present tense, 3rd person masculine singular, jussive + attached pronoun",
-          "irab": "Verb in jussive mood (majzum) by lam, ka = direct object - accusative",
-          "en": "He find you",
+          "irab": "Verb in jussive mood (majzum) by lam, ka = first object - accusative; the sentence starts a new statement and has no place in the grammar",
+          "en": "He found you",
           "cs": "verb",
           "lens": [
             "verb"
@@ -27606,7 +27642,7 @@ const data: SurahDecoderData = {
           "tr": "yatīman",
           "root": "ي ت م",
           "morph": "Noun - masculine, singular, indefinite",
-          "irab": "Object complement (hal/tamyiz) - accusative (mansub)",
+          "irab": "Second object of yajidu (maf'ul bihi thani) - accusative (mansub): \"found you [as] an orphan\"",
           "en": "an orphan",
           "cs": "acc",
           "lens": [
@@ -27618,7 +27654,7 @@ const data: SurahDecoderData = {
           "tr": "fa-āwā",
           "root": "ء و ي",
           "morph": "Particle + Verb - Form IV, past tense, 3rd person masculine singular",
-          "irab": "Fa = conjunction, verb mabni 'ala fatha maqdurah",
+          "irab": "Fa = joining fa (ʿāṭifa); verb mabni on a hidden fatha; its object (you) is left out; the clause is joined to the opening statement",
           "en": "and [He] gave refuge",
           "cs": "verb",
           "lens": [
@@ -27651,7 +27687,7 @@ const data: SurahDecoderData = {
           "tr": "wajadaka",
           "root": "و ج د",
           "morph": "Verb - Form I, past tense, 3rd person masculine singular + attached pronoun",
-          "irab": "Verb mabni 'ala fath, ka = direct object - accusative",
+          "irab": "Verb mabni 'ala fath, ka = first object - accusative; the clause is joined to the opening statement of verse 6",
           "en": "He found you",
           "cs": "verb",
           "lens": [
@@ -27663,7 +27699,7 @@ const data: SurahDecoderData = {
           "tr": "dāllan",
           "root": "ض ل ل",
           "morph": "Noun/Active participle - masculine, singular, indefinite",
-          "irab": "Object complement (hal) - accusative (mansub)",
+          "irab": "Second object of wajada (maf'ul bihi thani) - accusative (mansub): \"found you [as] lost\"; same frame as verse 6",
           "en": "lost/astray",
           "cs": "acc",
           "lens": [
@@ -27675,7 +27711,7 @@ const data: SurahDecoderData = {
           "tr": "fa",
           "root": "-",
           "morph": "Particle - conjunction",
-          "irab": "Not declinable (mabni), indicates sequence",
+          "irab": "Not declinable (mabni), joining fa (ʿāṭifa)",
           "en": "and then/so",
           "cs": "mabni",
           "lens": [
@@ -27687,7 +27723,7 @@ const data: SurahDecoderData = {
           "tr": "hadā",
           "root": "ه د ي",
           "morph": "Verb - Form I, past tense, 3rd person masculine singular",
-          "irab": "Verb mabni 'ala fatha maqdurah, subject implied (He), object implied (you)",
+          "irab": "Verb mabni on a hidden fatha; the subject is a hidden \"He\"; its object (you) is left out; the clause is joined to wajadaka",
           "en": "He guided",
           "cs": "verb",
           "lens": [
@@ -27720,7 +27756,7 @@ const data: SurahDecoderData = {
           "tr": "wajadaka",
           "root": "و ج د",
           "morph": "Verb - Form I, past tense, 3rd person masculine singular + attached pronoun",
-          "irab": "Verb mabni 'ala fath, ka = direct object - accusative",
+          "irab": "Verb mabni 'ala fath, ka = first object - accusative; this second wajadaka is joined to the opening statement of verse 6",
           "en": "He found you",
           "cs": "verb",
           "lens": [
@@ -27732,7 +27768,7 @@ const data: SurahDecoderData = {
           "tr": "'ā'ilan",
           "root": "ع ي ل",
           "morph": "Active participle - masculine, singular, indefinite",
-          "irab": "Object complement (hal) - accusative (mansub)",
+          "irab": "Second object of wajada (maf'ul bihi thani) - accusative (mansub): \"found you [as] poor\"; same frame as verse 6",
           "en": "in need/poor",
           "cs": "acc",
           "lens": [
@@ -27744,7 +27780,7 @@ const data: SurahDecoderData = {
           "tr": "fa",
           "root": "-",
           "morph": "Particle - conjunction",
-          "irab": "Not declinable (mabni), indicates sequence",
+          "irab": "Not declinable (mabni), joining fa (ʿāṭifa)",
           "en": "and then/so",
           "cs": "mabni",
           "lens": [
@@ -27756,7 +27792,7 @@ const data: SurahDecoderData = {
           "tr": "aghnā",
           "root": "غ ن ي",
           "morph": "Verb - Form IV, past tense, 3rd person masculine singular",
-          "irab": "Verb mabni 'ala fatha maqdurah, subject and object implied",
+          "irab": "Verb mabni on a hidden fatha; the subject is a hidden \"He\"; its object (you) is left out; the clause is joined to the second wajadaka",
           "en": "He enriched/made self-sufficient",
           "cs": "verb",
           "lens": [
@@ -27777,8 +27813,8 @@ const data: SurahDecoderData = {
           "tr": "fa",
           "root": "-",
           "morph": "Particle - conjunction",
-          "irab": "Not declinable (mabni), introduces consequence",
-          "en": "So/Therefore",
+          "irab": "Not declinable (mabni), the fa that links to an unspoken condition (\"if your state was like that...\")",
+          "en": "So",
           "cs": "mabni",
           "lens": [
             "particle"
@@ -27789,7 +27825,7 @@ const data: SurahDecoderData = {
           "tr": "ammā",
           "root": "-",
           "morph": "Particle - conditional",
-          "irab": "Not declinable (mabni), introduces conditional clause",
+          "irab": "Not declinable (mabni), particle of condition and detail (harf shart wa-tafsil)",
           "en": "as for",
           "cs": "mabni",
           "lens": [
@@ -27801,7 +27837,7 @@ const data: SurahDecoderData = {
           "tr": "al-yatīma",
           "root": "ي ت م",
           "morph": "Noun - masculine, singular, definite",
-          "irab": "Object of attention (mansub) governed by amma",
+          "irab": "Object (maf'ul bihi) brought to the front - accusative (mansub); its verb is taqhar",
           "en": "the orphan",
           "cs": "acc",
           "lens": [
@@ -27813,7 +27849,7 @@ const data: SurahDecoderData = {
           "tr": "fa",
           "root": "-",
           "morph": "Particle - conjunction",
-          "irab": "Not declinable (mabni), answer to amma",
+          "irab": "Not declinable (mabni), links the answer to amma",
           "en": "then",
           "cs": "mabni",
           "lens": [
@@ -27837,7 +27873,7 @@ const data: SurahDecoderData = {
           "tr": "taqhar",
           "root": "ق ه ر",
           "morph": "Verb - Form I, present tense, 2nd person masculine singular, jussive",
-          "irab": "Verb in jussive mood (majzum) by la nahiy",
+          "irab": "Verb in jussive mood (majzum) by la nahiy; the clause is the answer of amma and has no place in the grammar",
           "en": "oppress",
           "cs": "verb",
           "lens": [
@@ -27870,7 +27906,7 @@ const data: SurahDecoderData = {
           "tr": "ammā",
           "root": "-",
           "morph": "Particle - conditional",
-          "irab": "Not declinable (mabni), introduces conditional clause",
+          "irab": "Not declinable (mabni), particle of condition and detail",
           "en": "as for",
           "cs": "mabni",
           "lens": [
@@ -27882,7 +27918,7 @@ const data: SurahDecoderData = {
           "tr": "as-sā'ila",
           "root": "س ء ل",
           "morph": "Active participle - masculine, singular, definite",
-          "irab": "Object of attention (mansub) governed by amma",
+          "irab": "Object (maf'ul bihi) brought to the front - accusative (mansub); its verb is tanhar",
           "en": "the one who asks/the petitioner",
           "cs": "acc",
           "lens": [
@@ -27894,7 +27930,7 @@ const data: SurahDecoderData = {
           "tr": "fa",
           "root": "-",
           "morph": "Particle - conjunction",
-          "irab": "Not declinable (mabni), answer to amma",
+          "irab": "Not declinable (mabni), links the answer to amma",
           "en": "then",
           "cs": "mabni",
           "lens": [
@@ -27918,7 +27954,7 @@ const data: SurahDecoderData = {
           "tr": "tanhar",
           "root": "ن ه ر",
           "morph": "Verb - Form I, present tense, 2nd person masculine singular, jussive",
-          "irab": "Verb in jussive mood (majzum) by la nahiy",
+          "irab": "Verb in jussive mood (majzum) by la nahiy; the clause is the answer of amma and has no place in the grammar",
           "en": "repel/rebuke harshly",
           "cs": "verb",
           "lens": [
@@ -27963,7 +27999,7 @@ const data: SurahDecoderData = {
           "tr": "bi",
           "root": "-",
           "morph": "Particle - preposition",
-          "irab": "Not declinable (mabni), governs genitive",
+          "irab": "Not declinable (mabni), governs genitive; the phrase is tied to haddith",
           "en": "with/about",
           "cs": "mabni",
           "lens": [
@@ -27975,7 +28011,7 @@ const data: SurahDecoderData = {
           "tr": "ni'mati",
           "root": "ن ع م",
           "morph": "Noun - feminine, singular, definite (mudaf)",
-          "irab": "Object of preposition - genitive (majrur)",
+          "irab": "Object of preposition - genitive (majrur); first term of an idafa",
           "en": "favor/blessing",
           "cs": "gen",
           "lens": [
@@ -27999,7 +28035,7 @@ const data: SurahDecoderData = {
           "tr": "fa",
           "root": "-",
           "morph": "Particle - conjunction",
-          "irab": "Not declinable (mabni), answer to amma",
+          "irab": "Not declinable (mabni), links the answer to amma",
           "en": "then",
           "cs": "mabni",
           "lens": [
@@ -28011,7 +28047,7 @@ const data: SurahDecoderData = {
           "tr": "haddith",
           "root": "ح د ث",
           "morph": "Verb - Form II, imperative, 2nd person masculine singular",
-          "irab": "Imperative verb (amr) - mabni 'ala sukun",
+          "irab": "Imperative verb (amr) - mabni on sukun; the subject is a hidden \"you\"; the clause is the answer of amma and has no place in the grammar",
           "en": "proclaim/speak about",
           "cs": "verb",
           "lens": [
@@ -29130,7 +29166,7 @@ const data: SurahDecoderData = {
           "tr": "bi",
           "root": "-",
           "morph": "Particle - preposition",
-          "irab": "Not declinable (mabni), governs genitive",
+          "irab": "Not declinable (mabni), governs genitive; its phrase is tied to a ḥāl of the subject of iqra'",
           "en": "in/with",
           "cs": "mabni",
           "lens": [
@@ -29166,10 +29202,12 @@ const data: SurahDecoderData = {
           "tr": "alladhī",
           "root": "-",
           "morph": "Relative pronoun - masculine, singular",
-          "irab": "Not declinable (mabni), modifies rabbika",
+          "irab": "Not declinable (mabni), adjective (na't) of rabbika - genitive in position",
           "en": "who",
-          "cs": "mabni",
-          "lens": []
+          "cs": "gen",
+          "lens": [
+            "gen"
+          ]
         },
         {
           "ar": "خَلَقَ",
@@ -29265,8 +29303,8 @@ const data: SurahDecoderData = {
           "ar": "وَ",
           "tr": "wa",
           "root": "-",
-          "morph": "Particle - conjunction",
-          "irab": "Not declinable (mabni), connects clauses",
+          "morph": "Particle - circumstantial wāw (wāw al-ḥāl)",
+          "irab": "Not declinable (mabni), opens a ḥāl clause",
           "en": "And",
           "cs": "mabni",
           "lens": [
@@ -29311,10 +29349,12 @@ const data: SurahDecoderData = {
           "tr": "alladhī",
           "root": "-",
           "morph": "Relative pronoun - masculine, singular",
-          "irab": "Not declinable (mabni), modifies al-akram",
+          "irab": "Not declinable (mabni), adjective (na't) of al-akram - nominative in position",
           "en": "Who",
-          "cs": "mabni",
-          "lens": []
+          "cs": "nom",
+          "lens": [
+            "nom"
+          ]
         },
         {
           "ar": "عَلَّمَ",
@@ -29366,7 +29406,7 @@ const data: SurahDecoderData = {
           "tr": "'allama",
           "root": "ع ل م",
           "morph": "Verb - Form II, past tense, 3rd person masculine singular",
-          "irab": "Verb - mabni 'ala fath",
+          "irab": "Verb - mabni 'ala fath; its clause is a badal of the clause in verse 4",
           "en": "He taught",
           "cs": "verb",
           "lens": [
@@ -29390,10 +29430,12 @@ const data: SurahDecoderData = {
           "tr": "mā",
           "root": "-",
           "morph": "Relative pronoun",
-          "irab": "Not declinable (mabni), second object (maf'ul bihi thani)",
+          "irab": "Not declinable (mabni), second object (maf'ul bihi thani) - accusative in position; its sila is lam ya'lam",
           "en": "what/that which",
-          "cs": "mabni",
-          "lens": []
+          "cs": "acc",
+          "lens": [
+            "acc"
+          ]
         },
         {
           "ar": "لَمْ",
@@ -29432,8 +29474,8 @@ const data: SurahDecoderData = {
           "ar": "كَلَّآ",
           "tr": "kallā",
           "root": "-",
-          "morph": "Particle - negation/deterrence",
-          "irab": "Not declinable (mabni), negates or warns",
+          "morph": "Particle - deterrence",
+          "irab": "Not declinable (mabni), deterrence and rebuke (radʿ wa zajr)",
           "en": "No!/Nay!",
           "cs": "mabni",
           "lens": [
@@ -29469,7 +29511,7 @@ const data: SurahDecoderData = {
           "tr": "la",
           "root": "-",
           "morph": "Particle - emphasis",
-          "irab": "Not declinable (mabni), emphasizes predicate",
+          "irab": "Not declinable (mabni), the shifted lām (lām al-muzaḥlaqa) that strengthens the predicate",
           "en": "surely/indeed",
           "cs": "mabni",
           "lens": [
@@ -29481,7 +29523,7 @@ const data: SurahDecoderData = {
           "tr": "yatghā",
           "root": "ط غ ي",
           "morph": "Verb - Form I, present tense, 3rd person masculine singular",
-          "irab": "Khabar inna (predicate) - nominative (marfu')",
+          "irab": "Verb marfu' (estimated damma); its clause is the khabar of inna, in position of rafʿ",
           "en": "he transgresses",
           "cs": "verb",
           "lens": [
@@ -29501,8 +29543,8 @@ const data: SurahDecoderData = {
           "ar": "أَن",
           "tr": "an",
           "root": "-",
-          "morph": "Particle - causative",
-          "irab": "Not declinable (mabni), indicates reason",
+          "morph": "Particle - maṣdar particle",
+          "irab": "Not declinable (mabni), turns the clause after it into a verbal noun; a lām of reason is left out before it",
           "en": "Because",
           "cs": "mabni",
           "lens": [
@@ -29514,7 +29556,7 @@ const data: SurahDecoderData = {
           "tr": "ra'āhu",
           "root": "ر ء ي",
           "morph": "Verb - Form I, past tense, 3rd person masculine singular + attached pronoun",
-          "irab": "Verb mabni, hu = direct object - accusative",
+          "irab": "Verb mabni; hu = first object - accusative (it points back to man)",
           "en": "he sees himself",
           "cs": "verb",
           "lens": [
@@ -29526,7 +29568,7 @@ const data: SurahDecoderData = {
           "tr": "istaghnā",
           "root": "غ ن ي",
           "morph": "Verb - Form X, past tense, 3rd person masculine singular",
-          "irab": "Verb mabni 'ala fatha maqdurah",
+          "irab": "Verb mabni 'ala fatha maqdurah; its clause is the second object of ra'a, in position of nasb",
           "en": "he became self-sufficient",
           "cs": "verb",
           "lens": [
@@ -29559,7 +29601,7 @@ const data: SurahDecoderData = {
           "tr": "ilā",
           "root": "-",
           "morph": "Particle - preposition",
-          "irab": "Not declinable (mabni), indicates direction",
+          "irab": "Not declinable (mabni), indicates direction; its phrase is tied to the khabar of inna",
           "en": "to",
           "cs": "mabni",
           "lens": [
@@ -29604,7 +29646,7 @@ const data: SurahDecoderData = {
           "tr": "a",
           "root": "-",
           "morph": "Particle - interrogative",
-          "irab": "Not declinable (mabni), introduces question",
+          "irab": "Not declinable (mabni), question of surprise (istifham ta'ajjubi)",
           "en": "[interrogative marker]",
           "cs": "mabni",
           "lens": [
@@ -29616,7 +29658,7 @@ const data: SurahDecoderData = {
           "tr": "ra'ayta",
           "root": "ر ء ي",
           "morph": "Verb - Form I, past tense, 2nd person masculine singular",
-          "irab": "Verb mabni 'ala sukun",
+          "irab": "Verb mabni 'ala sukun; al-Jadwal reads it as \"tell me\", with a second object left out",
           "en": "Have you seen/considered",
           "cs": "verb",
           "lens": [
@@ -29628,10 +29670,12 @@ const data: SurahDecoderData = {
           "tr": "alladhī",
           "root": "-",
           "morph": "Relative pronoun - masculine, singular",
-          "irab": "Not declinable (mabni), object of ra'ayta",
+          "irab": "Not declinable (mabni), first object of ra'ayta - accusative in position",
           "en": "the one who",
-          "cs": "mabni",
-          "lens": []
+          "cs": "acc",
+          "lens": [
+            "acc"
+          ]
         },
         {
           "ar": "يَنْهَىٰ",
@@ -29670,12 +29714,12 @@ const data: SurahDecoderData = {
           "ar": "إِذَا",
           "tr": "idhā",
           "root": "-",
-          "morph": "Particle - temporal/conditional",
-          "irab": "Not declinable (mabni), introduces temporal clause",
+          "morph": "Adverb of time (ẓarf), with no conditional meaning here",
+          "irab": "Not declinable (mabni), accusative in position, tied to yanhā",
           "en": "when",
-          "cs": "mabni",
+          "cs": "acc",
           "lens": [
-            "particle"
+            "acc"
           ]
         },
         {
@@ -29683,7 +29727,7 @@ const data: SurahDecoderData = {
           "tr": "sallā",
           "root": "ص ل و",
           "morph": "Verb - Form II, past tense, 3rd person masculine singular",
-          "irab": "Verb in temporal clause - mabni 'ala fatha maqdurah",
+          "irab": "Verb mabni 'ala fatha maqdurah; its clause is the mudaf ilayh of idha (genitive in position)",
           "en": "he prayed",
           "cs": "verb",
           "lens": [
@@ -29704,7 +29748,7 @@ const data: SurahDecoderData = {
           "tr": "a-ra'ayta",
           "root": "ر ء ي",
           "morph": "Verb - Form I, past tense, 2nd person masculine singular",
-          "irab": "Interrogative + verb mabni",
+          "irab": "Question of surprise + verb mabni",
           "en": "Have you considered",
           "cs": "verb",
           "lens": [
@@ -29716,7 +29760,7 @@ const data: SurahDecoderData = {
           "tr": "in",
           "root": "-",
           "morph": "Particle - conditional",
-          "irab": "Not declinable (mabni), introduces conditional",
+          "irab": "Not declinable (mabni), jazm particle that introduces the condition",
           "en": "if",
           "cs": "mabni",
           "lens": [
@@ -29728,7 +29772,7 @@ const data: SurahDecoderData = {
           "tr": "kāna",
           "root": "ك و ن",
           "morph": "Verb - Form I, past tense, 3rd person masculine singular",
-          "irab": "Defective verb (kana), governs nominative + accusative",
+          "irab": "Incomplete verb (kana), the verb of the condition: jazm in position",
           "en": "he was",
           "cs": "verb",
           "lens": [
@@ -29740,7 +29784,7 @@ const data: SurahDecoderData = {
           "tr": "'alā",
           "root": "-",
           "morph": "Particle - preposition",
-          "irab": "Not declinable (mabni), indicates position",
+          "irab": "Not declinable (mabni), indicates position; its phrase is tied to the khabar of kana",
           "en": "upon",
           "cs": "mabni",
           "lens": [
@@ -29773,7 +29817,7 @@ const data: SurahDecoderData = {
           "tr": "aw",
           "root": "-",
           "morph": "Particle - conjunction",
-          "irab": "Not declinable (mabni), indicates alternative",
+          "irab": "Not declinable (mabni), joins the clause to kana's clause",
           "en": "Or",
           "cs": "mabni",
           "lens": [
@@ -29830,7 +29874,7 @@ const data: SurahDecoderData = {
           "tr": "a-ra'ayta",
           "root": "ر ء ي",
           "morph": "Verb - Form I, past tense, 2nd person masculine singular",
-          "irab": "Interrogative + verb mabni",
+          "irab": "Question of surprise + verb mabni; first object left out, second object is the question in verse 14",
           "en": "Have you considered",
           "cs": "verb",
           "lens": [
@@ -29842,7 +29886,7 @@ const data: SurahDecoderData = {
           "tr": "in",
           "root": "-",
           "morph": "Particle - conditional",
-          "irab": "Not declinable (mabni), introduces conditional",
+          "irab": "Not declinable (mabni), jazm particle that introduces the condition",
           "en": "if",
           "cs": "mabni",
           "lens": [
@@ -29854,7 +29898,7 @@ const data: SurahDecoderData = {
           "tr": "kadhdhaba",
           "root": "ك ذ ب",
           "morph": "Verb - Form II, past tense, 3rd person masculine singular",
-          "irab": "Verb in conditional clause - mabni 'ala fath",
+          "irab": "Verb of the condition - mabni 'ala fath, jazm in position",
           "en": "he denied/rejected",
           "cs": "verb",
           "lens": [
@@ -29866,7 +29910,7 @@ const data: SurahDecoderData = {
           "tr": "wa",
           "root": "-",
           "morph": "Particle - conjunction",
-          "irab": "Not declinable (mabni), connects verbs",
+          "irab": "Not declinable (mabni), joins tawalla to kadhdhaba",
           "en": "And",
           "cs": "mabni",
           "lens": [
@@ -29878,7 +29922,7 @@ const data: SurahDecoderData = {
           "tr": "tawallā",
           "root": "و ل ي",
           "morph": "Verb - Form V, past tense, 3rd person masculine singular",
-          "irab": "Verb coordinated with kadhdhaba - mabni 'ala fatha maqdurah",
+          "irab": "Verb coordinated with kadhdhaba - mabni 'ala fatha maqdurah, jazm in position",
           "en": "he turned away",
           "cs": "verb",
           "lens": [
@@ -29899,7 +29943,7 @@ const data: SurahDecoderData = {
           "tr": "a",
           "root": "-",
           "morph": "Particle - interrogative",
-          "irab": "Not declinable (mabni), introduces rhetorical question",
+          "irab": "Not declinable (mabni), question of reproach (istifham tawbikhi)",
           "en": "[Does?]",
           "cs": "mabni",
           "lens": [
@@ -29935,8 +29979,8 @@ const data: SurahDecoderData = {
           "tr": "bi",
           "root": "-",
           "morph": "Particle - preposition",
-          "irab": "Not declinable (mabni), often extra (za'idah)",
-          "en": "[prepositional connection]",
+          "irab": "Not declinable (mabni), a real preposition: the anna clause after it is genitive in position and tied to ya'lam",
+          "en": "[of/about]",
           "cs": "mabni",
           "lens": [
             "particle"
@@ -29971,7 +30015,7 @@ const data: SurahDecoderData = {
           "tr": "yarā",
           "root": "ر ء ي",
           "morph": "Verb - Form I, present tense, 3rd person masculine singular",
-          "irab": "Khabar anna (predicate) - indicative (marfu')",
+          "irab": "Verb marfu' (estimated damma); its clause is the khabar of anna, in position of rafʿ",
           "en": "He sees",
           "cs": "verb",
           "lens": [
@@ -29991,8 +30035,8 @@ const data: SurahDecoderData = {
           "ar": "كَلَّا",
           "tr": "kallā",
           "root": "-",
-          "morph": "Particle - deterrence/negation",
-          "irab": "Not declinable (mabni), strong warning",
+          "morph": "Particle - deterrence",
+          "irab": "Not declinable (mabni), deterrence and rebuke (radʿ wa zajr)",
           "en": "No!/Nay!",
           "cs": "mabni",
           "lens": [
@@ -30003,8 +30047,8 @@ const data: SurahDecoderData = {
           "ar": "لَئِن",
           "tr": "la'in",
           "root": "-",
-          "morph": "Particle - emphatic conditional",
-          "irab": "La = emphasis, in = conditional",
+          "morph": "Particle - oath-preparing la + conditional",
+          "irab": "La = lām muwaṭṭiʾah (prepares for an oath), in = conditional particle that jazms",
           "en": "If indeed",
           "cs": "mabni",
           "lens": [
@@ -30028,7 +30072,7 @@ const data: SurahDecoderData = {
           "tr": "yantahi",
           "root": "ن ه ي",
           "morph": "Verb - Form VIII, present tense, 3rd person masculine singular, jussive",
-          "irab": "Verb in jussive mood (majzum) by lam",
+          "irab": "Verb in jussive mood (majzum) by lam; the last yā' is dropped",
           "en": "he desist",
           "cs": "verb",
           "lens": [
@@ -30039,8 +30083,8 @@ const data: SurahDecoderData = {
           "ar": "لَ",
           "tr": "la",
           "root": "-",
-          "morph": "Particle - emphasis",
-          "irab": "Not declinable (mabni), introduces answer to la'in",
+          "morph": "Particle - lām of the oath",
+          "irab": "Not declinable (mabni), the lām al-qasam that begins the answer to the oath",
           "en": "surely",
           "cs": "mabni",
           "lens": [
@@ -30051,8 +30095,8 @@ const data: SurahDecoderData = {
           "ar": "نَسْفَعًۢا",
           "tr": "nasfa'an",
           "root": "س ف ع",
-          "morph": "Verb - Form I, present tense, 1st person plural",
-          "irab": "Verb (future/threat) - indicative (marfu')",
+          "morph": "Verb - Form I, present tense, 1st person plural, with light emphatic nūn",
+          "irab": "Verb mabni 'ala fath (because of the nūn), rafʿ in position; answer to the oath",
           "en": "We will drag/seize",
           "cs": "verb",
           "lens": [
@@ -30064,7 +30108,7 @@ const data: SurahDecoderData = {
           "tr": "bi",
           "root": "-",
           "morph": "Particle - preposition",
-          "irab": "Not declinable (mabni), indicates instrument",
+          "irab": "Not declinable (mabni), indicates instrument; its phrase is tied to nasfa'an",
           "en": "by",
           "cs": "mabni",
           "lens": [
@@ -30141,8 +30185,8 @@ const data: SurahDecoderData = {
           "ar": "فَ",
           "tr": "fa",
           "root": "-",
-          "morph": "Particle - conjunction",
-          "irab": "Not declinable (mabni), indicates sequence",
+          "morph": "Particle - connecting fa",
+          "irab": "Not declinable (mabni), ties the answer to an unspoken condition (\"if he can ...\")",
           "en": "Then/So",
           "cs": "mabni",
           "lens": [
@@ -30154,7 +30198,7 @@ const data: SurahDecoderData = {
           "tr": "li",
           "root": "-",
           "morph": "Particle - command",
-          "irab": "Not declinable (mabni), introduces imperative",
+          "irab": "Not declinable (mabni), lām al-amr: introduces the command",
           "en": "Let [him]",
           "cs": "mabni",
           "lens": [
@@ -30166,7 +30210,7 @@ const data: SurahDecoderData = {
           "tr": "yad'u",
           "root": "د ع و",
           "morph": "Verb - Form I, present tense, 3rd person masculine singular, jussive",
-          "irab": "Verb in jussive mood (majzum) by lam amr",
+          "irab": "Verb in jussive mood (majzum) by lam amr; its clause is the answer to an unspoken condition",
           "en": "he call",
           "cs": "verb",
           "lens": [
@@ -30199,7 +30243,7 @@ const data: SurahDecoderData = {
           "tr": "sa",
           "root": "-",
           "morph": "Particle - future",
-          "irab": "Not declinable (mabni), indicates near future",
+          "irab": "Not declinable (mabni), marks the future; it does not change the verb's ending",
           "en": "will",
           "cs": "mabni",
           "lens": [
@@ -30211,7 +30255,7 @@ const data: SurahDecoderData = {
           "tr": "nad'u",
           "root": "د ع و",
           "morph": "Verb - Form I, present tense, 1st person plural",
-          "irab": "Verb governed by sa - indicative (marfu')",
+          "irab": "Verb marfu' (estimated damma on the last wāw, which the mushaf does not write); the subject is \"We\"",
           "en": "We call",
           "cs": "verb",
           "lens": [
@@ -30243,8 +30287,8 @@ const data: SurahDecoderData = {
           "ar": "كَلَّا",
           "tr": "kallā",
           "root": "-",
-          "morph": "Particle - deterrence/negation",
-          "irab": "Not declinable (mabni), negation/warning",
+          "morph": "Particle - deterrence",
+          "irab": "Not declinable (mabni), deterrence and rebuke (radʿ wa zajr)",
           "en": "No!",
           "cs": "mabni",
           "lens": [
@@ -30255,8 +30299,8 @@ const data: SurahDecoderData = {
           "ar": "لَا",
           "tr": "lā",
           "root": "-",
-          "morph": "Particle - negation",
-          "irab": "Not declinable (mabni), prohibitive la (nahiy)",
+          "morph": "Particle - prohibition",
+          "irab": "Not declinable (mabni), la of prohibition (nahiya): it jazms the verb",
           "en": "Do not",
           "cs": "mabni",
           "lens": [
@@ -30280,7 +30324,7 @@ const data: SurahDecoderData = {
           "tr": "wa",
           "root": "-",
           "morph": "Particle - conjunction",
-          "irab": "Not declinable (mabni), connects commands",
+          "irab": "Not declinable (mabni), joins the clause usjud to the new sentence before it",
           "en": "And",
           "cs": "mabni",
           "lens": [
@@ -30304,7 +30348,7 @@ const data: SurahDecoderData = {
           "tr": "wa",
           "root": "-",
           "morph": "Particle - conjunction",
-          "irab": "Not declinable (mabni), connects commands",
+          "irab": "Not declinable (mabni), joins the clause iqtarib to the same sentence",
           "en": "And",
           "cs": "mabni",
           "lens": [
@@ -30806,7 +30850,7 @@ const data: SurahDecoderData = {
           "tr": "alladhīna",
           "root": "-",
           "morph": "Relative pronoun - masculine, plural",
-          "irab": "Not declinable (mabni), ism kana (subject) - nominative",
+          "irab": "Not declinable (mabni), ism kana (subject) - in the place of nominative",
           "en": "those who",
           "cs": "nom",
           "lens": [
@@ -30830,7 +30874,7 @@ const data: SurahDecoderData = {
           "tr": "min",
           "root": "-",
           "morph": "Particle - preposition",
-          "irab": "Not declinable (mabni), partitive/explanatory",
+          "irab": "Not declinable (mabni), explains who the disbelievers are; al-Jadwal ties this phrase to a hal (state) from the \"they\" in kafarū",
           "en": "from/among",
           "cs": "mabni",
           "lens": [
@@ -30866,7 +30910,7 @@ const data: SurahDecoderData = {
           "tr": "wa",
           "root": "-",
           "morph": "Particle - conjunction",
-          "irab": "Not declinable (mabni), connects phrases",
+          "irab": "Not declinable (mabni), joins ٱلْمُشْرِكِينَ to أَهْلِ",
           "en": "and",
           "cs": "mabni",
           "lens": [
@@ -30878,7 +30922,7 @@ const data: SurahDecoderData = {
           "tr": "al-mushrikīna",
           "root": "ش ر ك",
           "morph": "Active participle - masculine, plural, definite",
-          "irab": "Object of min (coordinate) - genitive (majrur)",
+          "irab": "Joined to ahli (ma'tuf) - genitive (majrur)",
           "en": "the polytheists",
           "cs": "gen",
           "lens": [
@@ -30890,7 +30934,7 @@ const data: SurahDecoderData = {
           "tr": "munfakkīna",
           "root": "ف ك ك",
           "morph": "Active participle - masculine, plural, indefinite",
-          "irab": "Khabar kana (predicate) - accusative (mansub)",
+          "irab": "Khabar kana (predicate) - accusative (mansub). The hatta phrase is tied to it",
           "en": "desisting/ceasing",
           "cs": "acc",
           "lens": [
@@ -30901,8 +30945,8 @@ const data: SurahDecoderData = {
           "ar": "حَتَّىٰ",
           "tr": "hattā",
           "root": "-",
-          "morph": "Particle - purpose/limit",
-          "irab": "Not declinable (mabni), introduces purpose clause",
+          "morph": "Particle - preposition of limit",
+          "irab": "Not declinable (mabni), a preposition (jarr) of limit; the noun phrase built from the next verb is its majrur",
           "en": "until",
           "cs": "mabni",
           "lens": [
@@ -30914,7 +30958,7 @@ const data: SurahDecoderData = {
           "tr": "ta'tiyahum",
           "root": "ء ت ي",
           "morph": "Verb - Form I, present tense, 3rd person feminine singular, subjunctive + pronoun",
-          "irab": "Verb in subjunctive (mansub) by hatta, hum = indirect object",
+          "irab": "Verb in subjunctive (mansub) by a hidden أَنْ after hatta; hum = pronoun object",
           "en": "it comes to them",
           "cs": "verb",
           "lens": [
@@ -30947,7 +30991,7 @@ const data: SurahDecoderData = {
           "tr": "rasūlun",
           "root": "ر س ل",
           "morph": "Noun - masculine, singular, indefinite",
-          "irab": "Badal (apposition) to al-bayyinatu - nominative (marfu')",
+          "irab": "Badal ishtimal from al-bayyinatu - nominative (marfu'). al-Jadwal also allows a complete badal, or the khabar of an unsaid mubtada'",
           "en": "a messenger",
           "cs": "nom",
           "lens": [
@@ -30959,7 +31003,7 @@ const data: SurahDecoderData = {
           "tr": "mina",
           "root": "-",
           "morph": "Particle - preposition",
-          "irab": "Not declinable (mabni), indicates origin",
+          "irab": "Not declinable (mabni), indicates origin; the phrase is tied to an unsaid adjective of rasul",
           "en": "from",
           "cs": "mabni",
           "lens": [
@@ -30983,7 +31027,7 @@ const data: SurahDecoderData = {
           "tr": "yatlū",
           "root": "ت ل و",
           "morph": "Verb - Form I, present tense, 3rd person masculine singular",
-          "irab": "Verb (hal/state) describing rasul - indicative (marfu')",
+          "irab": "Verb in a clause that describes rasul (na't) - indicative (marfu'), estimated damma on the last letter",
           "en": "he recites",
           "cs": "verb",
           "lens": [
@@ -31006,7 +31050,7 @@ const data: SurahDecoderData = {
           "ar": "مُّطَهَّرَةًۭ",
           "tr": "mutahharatan",
           "root": "ط ه ر",
-          "morph": "Passive participle - feminine, plural, indefinite",
+          "morph": "Passive participle - feminine, singular, indefinite",
           "irab": "Adjective modifying suhufan - accusative (mansub)",
           "en": "purified",
           "cs": "acc",
@@ -31028,7 +31072,7 @@ const data: SurahDecoderData = {
           "tr": "fīhā",
           "root": "-",
           "morph": "Particle - preposition + attached pronoun",
-          "irab": "Fi = preposition, ha = pronoun - genitive",
+          "irab": "Fi = preposition, ha = pronoun - genitive; the phrase is tied to the fronted khabar",
           "en": "in them",
           "cs": "gen",
           "lens": [
@@ -31040,7 +31084,7 @@ const data: SurahDecoderData = {
           "tr": "kutubun",
           "root": "ك ت ب",
           "morph": "Noun - feminine, plural, indefinite",
-          "irab": "Subject (mubtada') - nominative (marfu')",
+          "irab": "Delayed subject (mubtada') - nominative (marfu')",
           "en": "writings/books",
           "cs": "nom",
           "lens": [
@@ -31051,7 +31095,7 @@ const data: SurahDecoderData = {
           "ar": "قَيِّمَةٌۭ",
           "tr": "qayyimatun",
           "root": "ق و م",
-          "morph": "Active participle - feminine, plural, indefinite",
+          "morph": "Adjective (intensive form) - feminine, singular, indefinite",
           "irab": "Adjective modifying kutub - nominative (marfu')",
           "en": "upright/correct",
           "cs": "nom",
@@ -31073,7 +31117,7 @@ const data: SurahDecoderData = {
           "tr": "wa",
           "root": "-",
           "morph": "Particle - conjunction",
-          "irab": "Not declinable (mabni), connects clauses",
+          "irab": "Not declinable (mabni), joins this sentence to the opening sentence of verse 1",
           "en": "And",
           "cs": "mabni",
           "lens": [
@@ -31133,7 +31177,7 @@ const data: SurahDecoderData = {
           "tr": "al-kitāba",
           "root": "ك ت ب",
           "morph": "Noun - masculine, singular, definite",
-          "irab": "Second object (na'ib fa'il in passive) - accusative (mansub)",
+          "irab": "Second object (maf'ul bihi thani) - accusative (mansub); the deputy subject is the waw in ūtū",
           "en": "the Scripture",
           "cs": "acc",
           "lens": [
@@ -31157,7 +31201,7 @@ const data: SurahDecoderData = {
           "tr": "min",
           "root": "-",
           "morph": "Particle - preposition",
-          "irab": "Not declinable (mabni), indicates starting point",
+          "irab": "Not declinable (mabni), indicates starting point; the phrase is tied to tafarraqa",
           "en": "from/after",
           "cs": "mabni",
           "lens": [
@@ -31180,9 +31224,9 @@ const data: SurahDecoderData = {
           "ar": "مَا",
           "tr": "mā",
           "root": "-",
-          "morph": "Relative pronoun/particle",
-          "irab": "Not declinable (mabni), introduces relative clause",
-          "en": "that which",
+          "morph": "Particle - masdari (turns the clause into a noun)",
+          "irab": "Not declinable (mabni), a masdari particle; the clause after it means \"the coming of the evidence\" and is the mudaf ilayh of ba'di",
+          "en": "(that)",
           "cs": "mabni",
           "lens": []
         },
@@ -31191,7 +31235,7 @@ const data: SurahDecoderData = {
           "tr": "jā'athum",
           "root": "ج ي ء",
           "morph": "Verb - Form I, past tense, 3rd person feminine singular + pronoun",
-          "irab": "Verb in relative clause - mabni, hum = indirect object",
+          "irab": "Verb in the clause after masdari ma - mabni; hum = pronoun object",
           "en": "it came to them",
           "cs": "verb",
           "lens": [
@@ -31224,7 +31268,7 @@ const data: SurahDecoderData = {
           "tr": "wa",
           "root": "-",
           "morph": "Particle - conjunction",
-          "irab": "Not declinable (mabni)",
+          "irab": "Not declinable (mabni), joining wa: this sentence is joined to the sentence in verse 4",
           "en": "And",
           "cs": "mabni",
           "lens": [
@@ -31248,7 +31292,7 @@ const data: SurahDecoderData = {
           "tr": "umirū",
           "root": "ء م ر",
           "morph": "Verb - Form I passive, past tense, 3rd person masculine plural",
-          "irab": "Passive verb negated - mabni 'ala damma",
+          "irab": "Passive verb negated - mabni 'ala damma; the waw is the deputy subject (na'ib fa'il)",
           "en": "they were commanded",
           "cs": "verb",
           "lens": [
@@ -31260,7 +31304,7 @@ const data: SurahDecoderData = {
           "tr": "illā",
           "root": "-",
           "morph": "Particle - exception",
-          "irab": "Not declinable (mabni), restricts meaning",
+          "irab": "Not declinable (mabni), marks the restriction (hasr)",
           "en": "except",
           "cs": "mabni",
           "lens": [
@@ -31272,7 +31316,7 @@ const data: SurahDecoderData = {
           "tr": "li",
           "root": "-",
           "morph": "Particle - preposition",
-          "irab": "Not declinable (mabni), indicates purpose",
+          "irab": "Not declinable (mabni), lam of cause/purpose; with the hidden أَنْ it makes a noun phrase that is its majrur, tied to umirū",
           "en": "to/in order to",
           "cs": "mabni",
           "lens": [
@@ -31284,7 +31328,7 @@ const data: SurahDecoderData = {
           "tr": "ya'budū",
           "root": "ع ب د",
           "morph": "Verb - Form I, present tense, 3rd person masculine plural, subjunctive",
-          "irab": "Verb in subjunctive (mansub) by li - purpose",
+          "irab": "Verb in subjunctive (mansub) by a hidden أَنْ after li",
           "en": "they worship",
           "cs": "verb",
           "lens": [
@@ -31308,7 +31352,7 @@ const data: SurahDecoderData = {
           "tr": "mukhlisīna",
           "root": "خ ل ص",
           "morph": "Active participle - masculine, plural, indefinite",
-          "irab": "Hal (state) - accusative (mansub)",
+          "irab": "Hal (state) from the \"they\" in ya'budū - accusative (mansub)",
           "en": "being sincere",
           "cs": "acc",
           "lens": [
@@ -31320,7 +31364,7 @@ const data: SurahDecoderData = {
           "tr": "lahu",
           "root": "-",
           "morph": "Particle - preposition + attached pronoun",
-          "irab": "La = preposition, hu = pronoun",
+          "irab": "La = preposition, hu = pronoun; the phrase is tied to mukhlisīna",
           "en": "to Him",
           "cs": "mabni",
           "lens": []
@@ -31330,7 +31374,7 @@ const data: SurahDecoderData = {
           "tr": "ad-dīna",
           "root": "د ي ن",
           "morph": "Noun - masculine, singular, definite",
-          "irab": "Direct object (maf'ul bihi) - accusative (mansub)",
+          "irab": "Object of the participle mukhlisīna (maf'ul bihi) - accusative (mansub)",
           "en": "the religion",
           "cs": "acc",
           "lens": [
@@ -31341,8 +31385,8 @@ const data: SurahDecoderData = {
           "ar": "حُنَفَآءَ",
           "tr": "hunafā'a",
           "root": "ح ن ف",
-          "morph": "Noun/Active participle - masculine, plural, indefinite",
-          "irab": "Hal (state) - accusative (mansub)",
+          "morph": "Noun - masculine, plural (of ḥanīf), indefinite",
+          "irab": "Second hal (state) - accusative (mansub)",
           "en": "inclining to truth/upright",
           "cs": "acc",
           "lens": [
@@ -31426,7 +31470,7 @@ const data: SurahDecoderData = {
           "tr": "wa",
           "root": "-",
           "morph": "Particle - conjunction",
-          "irab": "Not declinable (mabni)",
+          "irab": "Not declinable (mabni), resumptive wa (isti'nafiyya): it starts a new sentence",
           "en": "and",
           "cs": "mabni",
           "lens": [
@@ -31459,7 +31503,7 @@ const data: SurahDecoderData = {
           "ar": "ٱلْقَيِّمَةِ",
           "tr": "al-qayyimati",
           "root": "ق و م",
-          "morph": "Noun/Active participle - feminine, singular, definite",
+          "morph": "Adjective used as a noun - feminine, singular, definite",
           "irab": "Mudaf ilayh - genitive (majrur)",
           "en": "the upright/correct",
           "cs": "gen",
@@ -31493,7 +31537,7 @@ const data: SurahDecoderData = {
           "tr": "alladhīna",
           "root": "-",
           "morph": "Relative pronoun - masculine, plural",
-          "irab": "Not declinable (mabni), ism inna - accusative",
+          "irab": "Not declinable (mabni), ism inna - in the place of accusative",
           "en": "those who",
           "cs": "acc",
           "lens": [
@@ -31517,7 +31561,7 @@ const data: SurahDecoderData = {
           "tr": "min",
           "root": "-",
           "morph": "Particle - preposition",
-          "irab": "Not declinable (mabni), partitive",
+          "irab": "Not declinable (mabni), explains who the disbelievers are; the phrase is tied to a hal from the \"they\" in kafarū",
           "en": "from/among",
           "cs": "mabni",
           "lens": [
@@ -31577,7 +31621,7 @@ const data: SurahDecoderData = {
           "tr": "fī",
           "root": "-",
           "morph": "Particle - preposition",
-          "irab": "Not declinable (mabni), indicates location",
+          "irab": "Not declinable (mabni), indicates location; the phrase is tied to an unsaid khabar of inna",
           "en": "in",
           "cs": "mabni",
           "lens": [
@@ -31613,7 +31657,7 @@ const data: SurahDecoderData = {
           "tr": "khālidīna",
           "root": "خ ل د",
           "morph": "Active participle - masculine, plural, indefinite",
-          "irab": "Hal (state) - accusative (mansub)",
+          "irab": "Hal (state) from the hidden \"they\" in the khabar of inna - accusative (mansub)",
           "en": "abiding eternally",
           "cs": "acc",
           "lens": [
@@ -31625,7 +31669,7 @@ const data: SurahDecoderData = {
           "tr": "fīhā",
           "root": "-",
           "morph": "Particle - preposition + attached pronoun",
-          "irab": "Fi = preposition, ha = pronoun",
+          "irab": "Fi = preposition, ha = pronoun; the phrase is tied to khālidīna",
           "en": "in it",
           "cs": "mabni",
           "lens": []
@@ -31665,8 +31709,8 @@ const data: SurahDecoderData = {
         {
           "ar": "ٱلْبَرِيَّةِ",
           "tr": "al-bariyyati",
-          "root": "ب ر ء",
-          "morph": "Noun - feminine, singular, definite",
+          "root": "ب ر ي",
+          "morph": "Collective noun - feminine, singular, definite",
           "irab": "Mudaf ilayh - genitive (majrur)",
           "en": "creatures/creation",
           "cs": "gen",
@@ -31700,7 +31744,7 @@ const data: SurahDecoderData = {
           "tr": "alladhīna",
           "root": "-",
           "morph": "Relative pronoun - masculine, plural",
-          "irab": "Not declinable (mabni), ism inna - accusative",
+          "irab": "Not declinable (mabni), ism inna - in the place of accusative",
           "en": "those who",
           "cs": "acc",
           "lens": [
@@ -31748,7 +31792,7 @@ const data: SurahDecoderData = {
           "tr": "as-sālihāti",
           "root": "ص ل ح",
           "morph": "Active participle - feminine, plural, definite",
-          "irab": "Direct object (maf'ul bihi) - accusative (mansub)",
+          "irab": "Direct object (maf'ul bihi) - accusative (mansub), shown by kasra",
           "en": "the righteous deeds",
           "cs": "acc",
           "lens": [
@@ -31760,7 +31804,7 @@ const data: SurahDecoderData = {
           "tr": "ulā'ika",
           "root": "-",
           "morph": "Demonstrative pronoun - masculine, plural",
-          "irab": "Not declinable (mabni), khabar inna muqaddam (fronted predicate)",
+          "irab": "Not declinable (mabni), subject (mubtada') of the khabar of inna",
           "en": "those",
           "cs": "mabni",
           "lens": []
@@ -31780,7 +31824,7 @@ const data: SurahDecoderData = {
           "tr": "khayru",
           "root": "خ ي ر",
           "morph": "Noun - masculine, singular, definite (mudaf), superlative",
-          "irab": "Second khabar or khabar for mubtada' - nominative (marfu')",
+          "irab": "Khabar of ulā'ika - nominative (marfu'). The whole sentence ulā'ika hum khayru l-bariyyati is the khabar of inna",
           "en": "best",
           "cs": "nom",
           "lens": [
@@ -31790,8 +31834,8 @@ const data: SurahDecoderData = {
         {
           "ar": "ٱلْبَرِيَّةِ",
           "tr": "al-bariyyati",
-          "root": "ب ر ء",
-          "morph": "Noun - feminine, singular, definite",
+          "root": "ب ر ي",
+          "morph": "Collective noun - feminine, singular, definite",
           "irab": "Mudaf ilayh - genitive (majrur)",
           "en": "creatures/creation",
           "cs": "gen",
@@ -31825,7 +31869,7 @@ const data: SurahDecoderData = {
           "tr": "'inda",
           "root": "-",
           "morph": "Adverb/Preposition - place/time",
-          "irab": "Adverbial (zarf makan) - accusative (mansub)",
+          "irab": "Adverbial (zarf makan) - accusative (mansub); al-Jadwal ties it to a hal from jannāt, or to jazā'uhum",
           "en": "with/at",
           "cs": "mabni",
           "lens": [
@@ -31861,7 +31905,7 @@ const data: SurahDecoderData = {
           "tr": "'adnin",
           "root": "ع د ن",
           "morph": "Noun - masculine, singular, indefinite",
-          "irab": "Mudaf ilayh - genitive (majrur)",
+          "irab": "Mudaf ilayh - genitive (majrur). If it is a proper name, it makes jannāt definite; if a common noun, it makes it specific",
           "en": "eternity/Eden",
           "cs": "gen",
           "lens": [
@@ -31873,7 +31917,7 @@ const data: SurahDecoderData = {
           "tr": "tajrī",
           "root": "ج ر ي",
           "morph": "Verb - Form I, present tense, 3rd person feminine singular",
-          "irab": "Verb describing jannāt - indicative (marfu')",
+          "irab": "Verb in a clause that is a hal from jannāt - indicative (marfu')",
           "en": "they flow",
           "cs": "verb",
           "lens": [
@@ -31885,7 +31929,7 @@ const data: SurahDecoderData = {
           "tr": "min",
           "root": "-",
           "morph": "Particle - preposition",
-          "irab": "Not declinable (mabni), indicates source",
+          "irab": "Not declinable (mabni), indicates source; the phrase is tied to tajrī",
           "en": "from",
           "cs": "mabni",
           "lens": [
@@ -31897,11 +31941,11 @@ const data: SurahDecoderData = {
           "tr": "tahtihā",
           "root": "-",
           "morph": "Adverb/Preposition + attached pronoun",
-          "irab": "Adverbial (zarf makan) - accusative, ha = pronoun",
+          "irab": "Noun of place - genitive after min, ha = pronoun; al-Jadwal says a word is left out: from under its trees (or palaces)",
           "en": "beneath it",
-          "cs": "acc",
+          "cs": "gen",
           "lens": [
-            "acc"
+            "gen"
           ]
         },
         {
@@ -31921,7 +31965,7 @@ const data: SurahDecoderData = {
           "tr": "khālidīna",
           "root": "خ ل د",
           "morph": "Active participle - masculine, plural, indefinite",
-          "irab": "Hal (state) - accusative (mansub)",
+          "irab": "Hal (state) - accusative (mansub). al-Jadwal says the word that governs this hal is left out (understood: their entering it)",
           "en": "abiding",
           "cs": "acc",
           "lens": [
@@ -31933,7 +31977,7 @@ const data: SurahDecoderData = {
           "tr": "fīhā",
           "root": "-",
           "morph": "Particle - preposition + attached pronoun",
-          "irab": "Fi = preposition, ha = pronoun",
+          "irab": "Fi = preposition, ha = pronoun; the phrase is tied to khālidīna",
           "en": "in them",
           "cs": "mabni",
           "lens": []
@@ -31943,7 +31987,7 @@ const data: SurahDecoderData = {
           "tr": "abadan",
           "root": "ء ب د",
           "morph": "Noun - masculine, singular, indefinite",
-          "irab": "Adverbial (zarf zaman) - accusative (mansub)",
+          "irab": "Adverbial (zarf zaman) - accusative (mansub); tied to khālidīna",
           "en": "forever",
           "cs": "acc",
           "lens": [
@@ -31955,7 +31999,7 @@ const data: SurahDecoderData = {
           "tr": "radiya",
           "root": "ر ض و",
           "morph": "Verb - Form I, past tense, 3rd person masculine singular",
-          "irab": "Verb - mabni 'ala fatha maqdurah",
+          "irab": "Verb - mabni 'ala fath (shown on the last letter)",
           "en": "He was pleased",
           "cs": "verb",
           "lens": [
@@ -31979,7 +32023,7 @@ const data: SurahDecoderData = {
           "tr": "'anhum",
           "root": "-",
           "morph": "Particle - preposition + attached pronoun",
-          "irab": "'An = preposition, hum = pronoun",
+          "irab": "'An = preposition, hum = pronoun; the phrase is tied to radiya",
           "en": "with them",
           "cs": "mabni",
           "lens": []
@@ -32013,7 +32057,7 @@ const data: SurahDecoderData = {
           "tr": "'anhu",
           "root": "-",
           "morph": "Particle - preposition + attached pronoun",
-          "irab": "'An = preposition, hu = pronoun",
+          "irab": "'An = preposition, hu = pronoun; the phrase is tied to radū",
           "en": "with Him",
           "cs": "mabni",
           "lens": []
@@ -32023,7 +32067,7 @@ const data: SurahDecoderData = {
           "tr": "dhālika",
           "root": "-",
           "morph": "Demonstrative pronoun - masculine, singular",
-          "irab": "Not declinable (mabni), subject (mubtada')",
+          "irab": "Not declinable (mabni), subject (mubtada'); al-Jadwal says it points to settling in the Garden",
           "en": "that",
           "cs": "mabni",
           "lens": []
@@ -32033,7 +32077,7 @@ const data: SurahDecoderData = {
           "tr": "li",
           "root": "-",
           "morph": "Particle - preposition",
-          "irab": "Not declinable (mabni), indicates specification",
+          "irab": "Not declinable (mabni), indicates specification; the phrase is tied to the unsaid khabar of dhālika",
           "en": "for",
           "cs": "mabni",
           "lens": [
@@ -32045,17 +32089,19 @@ const data: SurahDecoderData = {
           "tr": "man",
           "root": "-",
           "morph": "Relative pronoun",
-          "irab": "Not declinable (mabni), object of li",
+          "irab": "Not declinable (mabni), relative pronoun in the place of genitive after li",
           "en": "whoever",
-          "cs": "mabni",
-          "lens": []
+          "cs": "gen",
+          "lens": [
+            "gen"
+          ]
         },
         {
           "ar": "خَشِىَ",
           "tr": "khashiya",
           "root": "خ ش ي",
           "morph": "Verb - Form I, past tense, 3rd person masculine singular",
-          "irab": "Verb in relative clause - mabni 'ala fatha maqdurah",
+          "irab": "Verb in the sila of man - mabni 'ala fath (shown on the last letter)",
           "en": "he feared",
           "cs": "verb",
           "lens": [
