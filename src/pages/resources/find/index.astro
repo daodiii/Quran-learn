@@ -1,0 +1,91 @@
+---
+/**
+ * /resources/find/: one search box for words and verbs. Light only, standalone, like /learn.
+ * Type English (a word, a phrase, a typo), a sound, or Arabic. The answer is a base word with its plain
+ * meaning, how the written form is built, its root family and its verb forms.
+ * Data: public/data/finder-layer.json (AI-written plain meanings, see docs/redesign/specs/resource-finder.md),
+ * word-lookup.json and verb-forms.json. All three load on the first focus of the search box.
+ */
+import CookieBanner from '../../../components/CookieBanner.astro';
+import '../../../styles/fonts.css';
+import '../../../styles/learn.css';
+import '../../../styles/finder.css';
+
+const title = 'Find a Word or Verb | Quranic Grammar';
+const description = 'Type any English word, a sound, or Arabic and find the Quranic word: what it means in plain English, how it is built, its root family and its verb forms.';
+const canonicalURL = new URL('/resources/find/', Astro.site);
+const ogImageURL = new URL('/images/og-default.jpg', Astro.site);
+const ICON = {
+  search: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>',
+  x: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>',
+};
+const EXAMPLES = ['pray', 'he said', 'sabr', 'they believed', 'afterlife', 'forgive', 'وَٱلَّذِينَ', 'beleive'];
+---
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <script is:inline>document.documentElement.classList.add('js')</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="description" content={description} />
+  <meta name="theme-color" content="#fbfcfd" />
+  <title>{title}</title>
+  <link rel="canonical" href={canonicalURL.href} />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={canonicalURL.href} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={ogImageURL.href} />
+  <meta property="og:site_name" content="Quranic Grammar" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="preload" href="/fonts/geist-500.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/geist-400.woff2" as="font" type="font/woff2" crossorigin />
+</head>
+<body>
+<a href="#main-content" class="skip">Skip to main content</a>
+<header class="site">
+  <a class="brand" href="/" aria-label="Quranic Grammar, home">
+    <svg viewBox="0 0 32 32" aria-hidden="true"><rect x="1" y="1" width="30" height="30" rx="9" fill="oklch(18% 0.03 240)"/><path d="M9 19h14" stroke="#fff" stroke-width="2" stroke-linecap="round"/><circle cx="16" cy="12" r="2.6" fill="oklch(79% 0.14 72)"/><circle cx="16" cy="24.5" r="1.6" fill="#fff"/></svg>
+    <span>Quranic Grammar</span>
+  </a>
+  <nav aria-label="Primary"><a href="/learn/">Learn</a><a href="/surahs/">Surahs</a><a href="/resources/" aria-current="page">Resources</a><a href="/about/">About</a></nav>
+  <details class="menu">
+    <summary aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></summary>
+    <div class="menu-panel"><a href="/learn/">Learn</a><a href="/surahs/">Surahs</a><a href="/resources/" aria-current="page">Resources</a><a href="/about/">About and feedback</a></div>
+  </details>
+</header>
+
+<main id="main-content" class="wrap fd">
+  <p class="crumb"><a href="/resources/">Resources</a><span aria-hidden="true">/</span><span>Find a word</span></p>
+  <h1 class="h1">Find a Quranic word</h1>
+  <p class="dek">Type it the way you would say it: an English word or phrase, a sound such as “sabr”, or the Arabic. Spelling mistakes are fine.</p>
+
+  <form class="find js-only fd-find" role="search" id="find" action="#" onsubmit="return false">
+    <label class="vh" for="q">Search for a word or verb</label>
+    <Fragment set:html={ICON.search} />
+    <input id="q" type="search" autocomplete="off" autocapitalize="none" spellcheck="false" placeholder="Try “forgive”, “they believed”, “sabr” or Arabic" aria-controls="results" />
+    <button type="button" class="clear" aria-label="Clear search"><Fragment set:html={ICON.x} /></button>
+  </form>
+  <noscript><p class="fd-note">This tool needs JavaScript. The <a href="/resources/glossary/">glossary</a> and <a href="/resources/200-most-used-words/">200 most used words</a> work without it.</p></noscript>
+
+  <p class="fd-try js-only" id="try"><span>Try</span>{EXAMPLES.map((e) => <button type="button" class="chip" data-q={e} lang={/[؀-ۿ]/.test(e) ? 'ar' : undefined} dir={/[؀-ۿ]/.test(e) ? 'rtl' : undefined}>{e}</button>)}</p>
+  <p class="fd-status" id="status" role="status" aria-live="polite"></p>
+
+  <div class="fd-grid" id="grid" hidden>
+    <section class="fd-results" id="results" aria-label="Results"></section>
+    <article class="fd-card" id="card" aria-label="Word" tabindex="-1" hidden></article>
+  </div>
+</main>
+
+<footer class="foot">
+  <div class="in">
+    <nav aria-label="Footer"><a href="/learn/">Learn</a><a href="/surahs/">Surahs</a><a href="/resources/">Resources</a><a href="/about/">About and feedback</a></nav>
+    <p>Word data from the <a href="https://corpus.quran.com/">Quranic Arabic Corpus</a> (Kais Dukes, GPL). The plain English meanings were written with AI for this site and are being checked; if one is wrong, <a href="/about/#feedback">tell us</a>.</p>
+  </div>
+</footer>
+<CookieBanner tone="light" />
+<script>
+  import '../../../scripts/finder';
+</script>
+</body>
+</html>

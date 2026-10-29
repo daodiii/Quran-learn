@@ -50,4 +50,7 @@ for (const f of readdirSync(`${DIR}/batches`).filter(f => /^in-\d+\.json$/.test(
 
 console.log(`entries=${Object.keys(layer).length} check=${flagged} problems=${problems.length}`);
 if (problems.length) { console.log(problems.slice(0, 60).join('\n')); process.exitCode = 1; }
-else writeFileSync(`${DIR}/plain-layer.json`, JSON.stringify(layer));
+else {
+  writeFileSync(`${DIR}/plain-layer.json`, JSON.stringify(layer));
+  writeFileSync('public/data/finder-layer.json', JSON.stringify(layer));   // what the finder page loads
+}
