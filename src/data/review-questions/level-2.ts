@@ -1,5 +1,5 @@
 // Level-2 cumulative review: sources exclusively level-1 lessons.
-// All Arabic strings copied verbatim from the cited lesson MDX files.
+// Verse quotes follow the Tanzil text (checked 2026-10-29); explanations follow the rewritten lessons.
 import type { ReviewQuestion } from './index.ts';
 
 export const LEVEL_2_REVIEW: ReviewQuestion[] = [
@@ -13,7 +13,7 @@ export const LEVEL_2_REVIEW: ReviewQuestion[] = [
       'Accusative — marked by fatha (ـَ) because it follows إِنَّ',
     ],
     correctAnswer: 0,
-    explanation: 'ٱللَّهُ is the mubtadaʾ (subject) of a nominal sentence, so it takes the nominative case, signalled by the damma (ـُ) on its final letter. (Lesson: Introduction to Case Endings.)',
+    explanation: 'ٱللَّهُ is the mubtadaʾ (subject) of a nominal sentence, so it takes the nominative case, signalled by the damma (ـُ) on its final letter. (Lesson: Endings That Show the Job.)',
     source: 'level-1/10-case-endings',
   },
   {
@@ -26,7 +26,7 @@ export const LEVEL_2_REVIEW: ReviewQuestion[] = [
       'It is the predicate of a nominal sentence',
     ],
     correctAnswer: 1,
-    explanation: 'ٱللَّهِ follows اِسْمِ in an idafah (possessive) chain; the second noun in idafah always takes the genitive case marked by kasra. (Lesson: Introduction to Case Endings.)',
+    explanation: 'ٱللَّهِ follows ٱسْمِ in an idafah (possessive) chain; the second noun in idafah always takes the genitive case marked by kasra. (Lesson: Endings That Show the Job.)',
     source: 'level-1/10-case-endings',
   },
   {
@@ -39,12 +39,12 @@ export const LEVEL_2_REVIEW: ReviewQuestion[] = [
       'وَ is a noun (ism); ٱلْعَصْرِ is a verb (fiʿl)',
     ],
     correctAnswer: 1,
-    explanation: 'وَ is a particle (ḥarf) — a connector that cannot stand alone — while ٱلْعَصْرِ is a noun (ism) recognisable by its definite article ال and its ability to take case endings. (Lesson: Three Word Types.)',
+    explanation: 'وَ is a particle (ḥarf) — a connector that cannot stand alone — while ٱلْعَصْرِ is a noun (ism) recognisable by its definite article ال and its ability to take case endings. (Lesson: Three Kinds of Word.)',
     source: 'level-1/04-three-word-types',
   },
   {
     id: 4,
-    question: 'In إِنَّ ٱلْإِنسَٰنَ لَفِيْ خُسْرٍ (Al-Asr 103:2), what word type is إِنَّ?',
+    question: 'In إِنَّ ٱلْإِنسَٰنَ لَفِى خُسْرٍ (Al-Asr 103:2), what word type is إِنَّ?',
     options: [
       'Noun (ism) — it names an abstract idea',
       'Verb (fiʿl) — it describes a state in the present',
@@ -52,7 +52,7 @@ export const LEVEL_2_REVIEW: ReviewQuestion[] = [
       'Verb (fiʿl) — it expresses emphasis and is bound to time',
     ],
     correctAnswer: 2,
-    explanation: 'إِنَّ is a particle (ḥarf): it has meaning only in relation to the words around it and fails both the tanween test and the time test that identify nouns and verbs. (Lesson: Three Word Types.)',
+    explanation: 'إِنَّ is a particle (ḥarf): it has meaning only in relation to the words around it and fails both the tanween test and the time test that identify nouns and verbs. (Lesson: Three Kinds of Word.)',
     source: 'level-1/04-three-word-types',
   },
   {
@@ -70,7 +70,7 @@ export const LEVEL_2_REVIEW: ReviewQuestion[] = [
   },
   {
     id: 6,
-    question: 'In ذَٰلِكَ ٱلْكِتَابُ لَا رَيْبَ فِيهِ (Al-Baqarah 2:2), what is the three-letter root of ٱلْكِتَابُ?',
+    question: 'In ذَٰلِكَ ٱلْكِتَٰبُ لَا رَيْبَ فِيهِ (Al-Baqarah 2:2), what is the three-letter root of ٱلْكِتَٰبُ?',
     options: [
       'ك-ب-ر',
       'ك-ت-ب',
@@ -78,7 +78,7 @@ export const LEVEL_2_REVIEW: ReviewQuestion[] = [
       'ك-ب-ت',
     ],
     correctAnswer: 1,
-    explanation: 'ٱلْكِتَابُ comes from the root ك-ت-ب (k-t-b), the "writing" root that also yields كَتَبَ ("he wrote"), كَاتِبٌ ("writer"), and مَكْتَبَةٌ ("library"). (Lesson: Root System Preview.)',
+    explanation: 'ٱلْكِتَٰبُ comes from the root ك-ت-ب (k-t-b), the "writing" root that also yields كَتَبَ ("he wrote"), كَاتِبٌ ("writer"), and مَكْتُوبٌ ("written"). (Lesson: Roots and Patterns: A First Look.)',
     source: 'level-1/05-root-system-preview',
   },
   {
@@ -117,7 +117,7 @@ export const LEVEL_2_REVIEW: ReviewQuestion[] = [
       'Verbal sentence — it starts with the noun قُلْ',
     ],
     correctAnswer: 1,
-    explanation: 'A verbal sentence (jumlah fiʿliyyah) begins with a verb; here قُلْ (qul, "say!") is the opening command verb, identifying the sentence as verbal. (Lesson: Introduction to Simple Sentences.)',
+    explanation: 'A verbal sentence (jumlah fiʿliyyah) begins with a verb; here قُلْ (qul, "say!") is the opening command verb, identifying the sentence as verbal. (Lesson: Two Kinds of Sentence.)',
     source: 'level-1/09-simple-sentences',
   },
   {
