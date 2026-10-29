@@ -11,6 +11,7 @@
 
 import { LEVEL_1 } from './surah-study-level1';
 import { LEVEL_2 } from './surah-study-level2';
+import { LEVEL_3 } from './surah-study-level3';
 
 export interface WordNote { role: string; say: string }
 export interface VerseQuiz { word: number; q: string; options: string[]; answer: number; why: string }
@@ -20,6 +21,7 @@ export interface SurahStudy { verses: Record<number, VerseStudy> }
 export const SURAH_STUDY: Record<string, SurahStudy> = {
   ...LEVEL_1,
   ...LEVEL_2,
+  ...LEVEL_3,
   '112-al-ikhlas': {
     verses: {
       1: {
