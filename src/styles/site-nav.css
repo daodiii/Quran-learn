@@ -30,16 +30,16 @@
 .sn-burger svg{width:20px;height:20px}
 
 /* running banner above the header */
-.rb{position:relative;z-index:41;overflow:hidden;background:var(--sn-ink);color:oklch(95% 0.01 230);font-family:'Geist',system-ui,-apple-system,'Segoe UI',sans-serif;font-size:.875rem;line-height:1.4}
+.rb{--rb-from:oklch(33% 0.085 178);--rb-to:oklch(43% 0.12 218);position:relative;z-index:41;overflow:hidden;background:linear-gradient(95deg,var(--rb-from),oklch(38% 0.1 196) 55%,var(--rb-to));box-shadow:inset 0 -2px 0 oklch(80% 0.14 85);color:#fff;font-family:'Geist',system-ui,-apple-system,'Segoe UI',sans-serif;font-size:.875rem;line-height:1.4}
 .rb-run{display:flex;width:max-content;animation:rb-scroll 70s linear infinite}
 .rb:hover .rb-run,.rb:focus-within .rb-run{animation-play-state:paused}
 .rb-set{display:flex;flex:none}
 .rb p{margin:0;flex:none;padding:0 56px 0 0;line-height:40px;white-space:nowrap}
-.rb-v{display:inline-block;margin-right:6px;padding:1px 10px;line-height:1.5;vertical-align:middle;border-radius:999px;background:oklch(94% 0.04 178);color:oklch(30% 0.09 178);font-weight:600}
+.rb-v{display:inline-block;margin-right:6px;padding:1px 10px;line-height:1.5;vertical-align:middle;border-radius:999px;background:oklch(91% 0.12 88);color:oklch(30% 0.08 60);font-weight:600}
 .rb a{color:#fff;font-weight:500;text-decoration:underline;text-underline-offset:3px;margin-left:6px}
 .rb a:hover{text-decoration-thickness:2px}
 .rb a:focus-visible,.rb-x:focus-visible{outline:2px solid #fff;outline-offset:2px}
-.rb-x{position:absolute;right:0;top:0;bottom:0;width:48px;display:grid;place-items:center;padding:0;border:0;cursor:pointer;color:#fff;background:linear-gradient(90deg,transparent,var(--sn-ink) 38%)}
+.rb-x{position:absolute;right:0;top:0;bottom:0;width:48px;display:grid;place-items:center;padding:0;border:0;cursor:pointer;color:#fff;background:linear-gradient(90deg,transparent,var(--rb-to) 38%)}
 .rb-x svg{width:16px;height:16px}
 @keyframes rb-scroll{to{transform:translateX(-50%)}}
 @media (prefers-reduced-motion:reduce){
