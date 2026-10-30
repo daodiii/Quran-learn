@@ -124,7 +124,7 @@ const tidy = (t: string) => t.replace(/^Part \d+: /, '').replace(/&amp;/g, '&');
   <div class:list={['g-body', { 'no-rail': !rail }]} style={rail ? undefined : 'grid-template-columns:minmax(0,1fr)'}>
     {rail && (
       <aside class="g-rail" aria-label="On this page" data-toc>
-        <h2>On this page</h2>
+        <h2><button type="button" data-toc-toggle aria-expanded="true">On this page</button></h2>
         <ol>{headings.map((h) => <li><a href={`#${h.slug}`}>{tidy(h.text)}</a></li>)}</ol>
       </aside>
     )}

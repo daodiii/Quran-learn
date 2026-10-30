@@ -128,6 +128,15 @@ img,svg{display:block}
 .g-rail a:hover{color:var(--ink);background:var(--c-soft)}
 .g-rail a[aria-current]{color:var(--c);font-weight:600;border-left-color:var(--c);background:linear-gradient(90deg,var(--c-soft),transparent)}
 .g-main{min-width:0}
+.g-rail h2{margin:0 0 10px}
+.g-rail h2 button{all:unset;box-sizing:border-box;display:inline-flex;align-items:center;gap:.5em;min-height:0;cursor:pointer;font:inherit;text-transform:inherit;letter-spacing:inherit;color:inherit}
+.g-rail h2 button::before{content:"";width:.5em;height:.5em;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg) translate(-2px,-2px);transition:transform .15s}
+.g-rail h2 button[aria-expanded=false]::before{transform:rotate(-45deg)}
+.g-rail h2 button:focus-visible{outline:3px solid var(--focus);outline-offset:3px;border-radius:4px}
+/* Hidden: the list goes, the heading stays as a button, and the text takes the whole width. */
+.g-body.rail-off{grid-template-columns:minmax(0,1fr);gap:0}
+.g-body.rail-off .g-rail{position:static;max-height:none;overflow:visible;padding-bottom:0}
+.g-body.rail-off .g-rail ol{display:none}
 @media (max-width:1000px){
   .g-hero-grid{grid-template-columns:1fr}
   .g-body{grid-template-columns:minmax(0,1fr);gap:0}
@@ -140,8 +149,9 @@ img,svg{display:block}
 }
 
 /* ---------- the guide text ---------- */
-.prose{font-size:1.0625rem;line-height:1.7;color:var(--text);columns:26rem 2;column-gap:clamp(32px,4.5vw,84px);column-rule:1px solid var(--edge)}
-.prose :is(h2,.table-wrapper,details,hr,.g-wide){column-span:all}
+.prose{font-size:1.0625rem;line-height:1.7;color:var(--text)}
+/* Running text stops at a readable line length; tables, verses and boxes use the full width. */
+.prose>:is(p,ul,ol,h3,h4){max-width:90ch}
 .prose :is(figure,aside,.callout,details,.table-wrapper){break-inside:avoid}
 .prose>:first-child{margin-top:0}
 .prose h2{position:relative;margin:2.4em 0 .7em;padding:0 0 14px;font-size:clamp(1.6rem,1.2rem + 1.2vw,2.4rem);line-height:1.1;letter-spacing:-.025em;font-weight:600;color:var(--ink);scroll-margin-top:96px;border:0}
