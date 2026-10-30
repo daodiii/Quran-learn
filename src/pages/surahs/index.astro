@@ -4,6 +4,8 @@ import '../../styles/night.css';
 import { getCollection } from 'astro:content';
 import { SURAH_OPENINGS } from '../../data/surah-openings';
 import CookieBanner from '../../components/CookieBanner.astro';
+import ReleaseBanner from '../../components/ReleaseBanner.astro';
+import '../../styles/site-nav.css';
 import LogoMark from '../../components/LogoMark.astro';
 
 const all = (await getCollection('surahs')).sort((a, b) => a.data.surahNumber - b.data.surahNumber);
@@ -181,9 +183,12 @@ body{background:var(--bg-0);color:var(--ink);font-family:var(--font-body);font-s
 .surah-index ol{list-style:none;display:flex;flex-direction:column;gap:10px;margin-top:18px}
 .surah-index a{color:var(--gold-bright)}
 .surah-index-note a{text-decoration:underline;text-underline-offset:2px}
+/* the 3.0 banner sits fixed above the fixed nav; the nav steps down while it is there */
+#rb{position:fixed;top:0;left:0;right:0;z-index:120}
+body:has(#rb) .nav{top:40px}
 
 .stage-foot{position:fixed;left:var(--pad-x);bottom:14px;z-index:6;padding:0;font-family:var(--font-mono);font-size:9.5px;letter-spacing:.14em;color:var(--ink-faint)}
-.stage-foot a{color:var(--ink-dim)}
+.stage-foot a{color:var(--ink-dim);text-decoration:underline;text-underline-offset:2px}
 .stage-foot a:hover{color:var(--gold-bright)}
 
 /* ============================================================
@@ -203,7 +208,7 @@ body{background:var(--bg-0);color:var(--ink);font-family:var(--font-body);font-s
 .m-head h1 em{font-style:normal;color:var(--gold-bright)}
 .m-head .dek{color:var(--ink-dim);font-weight:300;font-size:14.5px;line-height:1.7;margin-top:13px;max-width:36ch}
 .m-head .note{font-family:var(--font-mono);font-size:11px;letter-spacing:.05em;color:var(--ink-faint);margin-top:14px}
-.m-head .note a{color:var(--gold-bright)}
+.m-head .note a{color:var(--gold-bright);text-decoration:underline;text-underline-offset:2px}
 .m-group-h{display:flex;align-items:center;gap:11px;margin-top:40px;padding-bottom:10px;border-bottom:1px solid var(--hairline)}
 .m-gdot{width:8px;height:8px;border-radius:50%;flex:none;box-shadow:0 0 9px currentColor}
 .m-gdot.b{background:var(--gold-bright);color:var(--gold-bright)}
@@ -229,6 +234,7 @@ body{background:var(--bg-0);color:var(--ink);font-family:var(--font-body);font-s
   <svg viewBox="0 0 40 40" fill="none"><path d="M20 2l3.4 10.2L34 8.8l-6.8 8.6L38 20l-10.8 2.6L34 31.2l-10.6-3.4L20 38l-3.4-10.2L6 31.2l6.8-8.6L2 20l10.8-2.6L6 8.8l10.6 3.4z" fill="#e3b35c"/></svg>
 </div>
 
+<ReleaseBanner />
 <header class="nav">
   <a class="brand" href="/" aria-label="Quranic Grammar, home">
     <LogoMark color="#e68b80" />

@@ -1,6 +1,6 @@
 /* Shared header (.sn) and footer (.sf) for every light page. Self-contained: it carries its own colours,
    so it looks the same whichever page stylesheet is loaded beside it. */
-.sn,.sf{
+.sn,.sf,.rb{
   --sn-ink:oklch(18% 0.03 240);--sn-text:oklch(22% 0.035 230);--sn-muted:oklch(43% 0.025 230);
   --sn-page:oklch(99.2% 0.003 220);--sn-soft:oklch(96.5% 0.006 220);--sn-soft2:oklch(93.5% 0.008 220);--sn-edge:oklch(90% 0.008 220);
   --sn-accent:oklch(40% 0.1 178);--sn-teal-tint:oklch(94% 0.04 178);--sn-gutter:clamp(16px,4.5vw,64px);
@@ -28,6 +28,27 @@
 .sn-cta:hover{background:oklch(26% 0.04 240)}
 .sn-burger{display:none;place-items:center;min-height:44px;min-width:44px;border-radius:999px;border:1.5px solid var(--sn-edge);background:#fff;color:var(--sn-ink);cursor:pointer}
 .sn-burger svg{width:20px;height:20px}
+
+/* running banner above the header */
+.rb{position:relative;z-index:41;overflow:hidden;background:var(--sn-ink);color:oklch(95% 0.01 230);font-family:'Geist',system-ui,-apple-system,'Segoe UI',sans-serif;font-size:.875rem;line-height:1.4}
+.rb-run{display:flex;width:max-content;animation:rb-scroll 70s linear infinite}
+.rb:hover .rb-run,.rb:focus-within .rb-run{animation-play-state:paused}
+.rb-set{display:flex;flex:none}
+.rb p{margin:0;flex:none;padding:0 56px 0 0;line-height:40px;white-space:nowrap}
+.rb-v{display:inline-block;margin-right:6px;padding:1px 10px;line-height:1.5;vertical-align:middle;border-radius:999px;background:oklch(94% 0.04 178);color:oklch(30% 0.09 178);font-weight:600}
+.rb a{color:#fff;font-weight:500;text-decoration:underline;text-underline-offset:3px;margin-left:6px}
+.rb a:hover{text-decoration-thickness:2px}
+.rb a:focus-visible,.rb-x:focus-visible{outline:2px solid #fff;outline-offset:2px}
+.rb-x{position:absolute;right:0;top:0;bottom:0;width:48px;display:grid;place-items:center;padding:0;border:0;cursor:pointer;color:#fff;background:linear-gradient(90deg,transparent,var(--sn-ink) 38%)}
+.rb-x svg{width:16px;height:16px}
+@keyframes rb-scroll{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){
+  .rb-run{animation:none;width:auto;display:block}
+  .rb-set[aria-hidden]{display:none}
+  .rb-set{display:block;padding:0 48px 0 var(--sn-gutter)}
+  .rb p{white-space:normal;padding:10px 0;line-height:1.5}
+  .rb p:not(:first-child){display:none}
+}
 
 /* panels: a coloured card per level */
 .sn-p{display:none;position:absolute;left:0;right:0;top:100%;background:var(--sn-soft);padding:22px var(--sn-gutter) 28px;box-shadow:0 24px 48px oklch(30% 0.04 220/.14)}
