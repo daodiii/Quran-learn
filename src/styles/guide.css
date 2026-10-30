@@ -160,7 +160,10 @@ img,svg{display:block}
 .prose :where(code){font-size:.9em;background:var(--soft);padding:.1em .35em;border-radius:5px}
 
 /* tables: coloured header, tinted rows, big Arabic */
-.guide .prose .table-wrapper{margin:1.6em 0;border:0;border-radius:20px;overflow:auto;background:#fff;box-shadow:0 0 0 1px var(--edge),0 18px 40px -26px oklch(30% .08 var(--hue) / .45);backdrop-filter:none;-webkit-backdrop-filter:none}
+.guide .prose .table-wrapper{margin:1.6em 0;border:0;border-radius:20px;overflow-x:auto;overflow-y:hidden;background:#fff;box-shadow:0 0 0 1px var(--edge),0 18px 40px -26px oklch(30% .08 var(--hue) / .45);backdrop-filter:none;-webkit-backdrop-filter:none}
+/* A markdown table sits in a .table-scroll inside the .table-wrapper. Two nested scrollers, both on both axes, trapped a thumb on a phone (the boxes are 700 to 7000 px tall), so the wrapper only clips and rounds, and the inner box is the one scroller, sideways only. */
+.guide .prose .table-wrapper:has(>.table-scroll){overflow:hidden;overflow:clip}
+.guide .prose .table-scroll{overflow-x:auto;overflow-y:hidden}
 .guide .prose .table-wrapper .grammar-table{inline-size:100%;border-collapse:collapse;background:#fff;font-size:1rem}
 .guide .prose .table-wrapper .grammar-table caption{padding:16px 22px;text-align:left;font-family:var(--font);font-weight:600;font-size:1.0625rem;letter-spacing:0;color:#fff;background:linear-gradient(100deg,var(--c),oklch(48% .14 var(--h2)));border:0}
 .guide .prose .table-wrapper .grammar-table th[scope=col]{padding:12px 18px;background:var(--c-soft);color:var(--c);font-size:.8125rem;text-transform:uppercase;letter-spacing:.07em;font-weight:600;white-space:nowrap;border-block-end:1px solid var(--c-mid)}
@@ -168,6 +171,12 @@ img,svg{display:block}
 .guide .prose .table-wrapper .grammar-table td{padding:12px 18px;color:var(--text);font-size:1rem;border-block-end:1px solid var(--edge);vertical-align:middle}
 .guide .guide .prose .table-wrapper .grammar-table tbody tr:nth-child(even){background:color-mix(in oklab,var(--c-soft) 45%,#fff)}
 .guide .guide .prose .table-wrapper .grammar-table tbody tr:hover{background:var(--c2-soft)}
+@media (max-width:640px){
+  /* Tighter cells and wrapping headings, so a table of three or four columns fits a phone instead of needing a sideways scroll. */
+  .guide .prose .table-wrapper table :is(th,td){padding:10px 8px}
+  .guide .prose .table-wrapper table th{white-space:normal;font-size:.75rem;letter-spacing:.03em}
+  .guide .prose .table-wrapper table td{font-size:.9375rem}
+}
 .guide .guide .prose .table-wrapper .grammar-table td .ar{font-size:1.65rem;line-height:1.35;color:var(--ink)}
 .guide .prose .table-wrapper .grammar-table td.cell-ar .ar{font-size:1.9rem}
 .guide .guide .prose .table-wrapper .grammar-table tbody tr:last-child :is(th,td){border-block-end:0}
