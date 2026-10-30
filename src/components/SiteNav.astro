@@ -8,6 +8,7 @@ import { getCollection } from 'astro:content';
 import { READING_TRACK } from '../data/reading-track';
 import '../styles/site-nav.css';
 import LogoMark from './LogoMark.astro';
+import ReleaseBanner from './ReleaseBanner.astro';
 
 interface Props { current?: 'learn' | 'surahs' | 'resources' | 'about'; }
 const { current } = Astro.props;
@@ -51,6 +52,7 @@ for (const [id] of GUIDES) if (!guides.some((g) => g.id === id)) throw new Error
 const cur = (k: string) => (current === k ? 'page' : undefined);
 const chev = '<svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg>';
 ---
+<ReleaseBanner />
 <header class="sn" id="sn">
   <a class="sn-brand" href="/" aria-label="Quranic Grammar, home">
     <LogoMark />
@@ -106,10 +108,15 @@ const chev = '<svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-
   const head = document.getElementById('sn')!;
   const items = [...head.querySelectorAll<HTMLElement>('.sn-i[data-k]')];
   const wide = () => matchMedia('(min-width: 901px)').matches;
-  const set = (it: HTMLElement | null, on: boolean) => items.forEach((o) => {
-    const x = o === it && on;
+  const paint = (o: HTMLElement, x: boolean) => {
     o.classList.toggle('open', x);
     o.querySelector('.sn-c')!.setAttribute('aria-expanded', String(x));
+  };
+  // Opening a menu closes the others. Closing one closes only that one, so a late close timer from the menu you
+  // just left cannot shut the menu you moved to. set(null, false) closes them all.
+  const set = (it: HTMLElement | null, on: boolean) => items.forEach((o) => {
+    if (o === it) paint(o, on);
+    else if (on || it === null) paint(o, false);
   });
   items.forEach((it) => {
     let t: number;

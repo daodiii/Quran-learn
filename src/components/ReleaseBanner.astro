@@ -1,0 +1,39 @@
+---
+/**
+ * The running banner above the header (rendered by SiteNav, so it is on every page). It says the site is now
+ * version 3.0. The text scrolls slowly, stops while it is hovered or focused, and holds still for anyone who
+ * has asked their device for less motion. The close button remembers its answer on the device for this
+ * version only: change VERSION when the next announcement should show again.
+ */
+const VERSION = '3.0';
+const KEY = `qg-banner-${VERSION}`;
+---
+<div class="rb" id="rb" role="region" aria-label={`Quranic Grammar ${VERSION} announcement`} data-key={KEY}>
+  <div class="rb-run">
+    {[0, 1].map((set) => (
+      <div class="rb-set" aria-hidden={set === 1 ? 'true' : undefined}>
+        {[0, 1, 2].map(() => (
+          <p>
+            <b class="rb-v">Quranic Grammar {VERSION}</b> is here. We have made huge changes to the site, more interactive and more engaging, and inshallah even more beneficial for you.
+            <a href="/about/#feedback" tabindex={set === 1 ? -1 : undefined}>Tell us what you think</a>
+          </p>
+        ))}
+      </div>
+    ))}
+  </div>
+  <button class="rb-x" type="button" aria-label="Close this announcement">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" /></svg>
+  </button>
+</div>
+<script is:inline>
+  (function () {
+    var rb = document.getElementById('rb');
+    if (!rb) return;
+    var key = rb.getAttribute('data-key');
+    try { if (localStorage.getItem(key) === 'closed') { rb.remove(); return; } } catch (e) {}
+    rb.querySelector('.rb-x').addEventListener('click', function () {
+      try { localStorage.setItem(key, 'closed'); } catch (e) {}
+      rb.remove();
+    });
+  })();
+</script>
