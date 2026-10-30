@@ -1,4 +1,5 @@
 ---
+import { metaTitle, metaDescription } from '../../lib/seo';
 import '../../styles/night.css';
 import { getCollection } from 'astro:content';
 import { SURAH_OPENINGS } from '../../data/surah-openings';
@@ -45,29 +46,34 @@ const ogImageURL = new URL('/images/og-default.jpg', Astro.site);
   <script is:inline>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', { analytics_storage: 'denied', ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied' });
+    try { if (localStorage.getItem('qg-cookie-consent') === 'accepted') gtag('consent', 'update', { analytics_storage: 'granted' }); } catch (e) {}
     gtag('js', new Date());
     gtag('config', 'G-1MSBYYQT5Z');
   </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta name="description" content={description} />
+  <meta name="description" content={metaDescription(description)} />
   <meta name="theme-color" content="#05070e" />
-  <title>{title}</title>
+  <title>{metaTitle(title)}</title>
   <link rel="canonical" href={canonicalURL.href} />
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content={canonicalURL.href} />
   <meta property="og:title" content={title} />
-  <meta property="og:description" content={description} />
+  <meta property="og:description" content={metaDescription(description)} />
   <meta property="og:image" content={ogImageURL.href} />
   <meta property="og:site_name" content="Quranic Grammar" />
   <meta property="og:locale" content="en_US" />
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content={title} />
-  <meta name="twitter:description" content={description} />
+  <meta name="twitter:description" content={metaDescription(description)} />
   <meta name="twitter:image" content={ogImageURL.href} />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" href="/favicon.ico" sizes="48x48" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/manifest.webmanifest" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Amiri+Quran&family=Amiri:ital,wght@0,400;0,700;1,400&family=Marcellus&family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -79,7 +85,7 @@ const ogImageURL = new URL('/images/og-default.jpg', Astro.site);
       document.documentElement.setAttribute('data-theme', theme);
     })();
   </script>
-  <script src="https://analytics.ahrefs.com/analytics.js" data-key="sW/uZfxMauSpqoKnSL6i6g" async is:inline></script>
+  <script is:inline>(function(){try{if(localStorage.getItem('qg-cookie-consent')!=='accepted')return}catch(e){return}var a=document.createElement('script');a.async=true;a.src='https://analytics.ahrefs.com/analytics.js';a.setAttribute('data-key','sW/uZfxMauSpqoKnSL6i6g');document.head.appendChild(a)})()</script>
   <style is:global>
 /* ============================================================
    ASTROLABE ROYALE · surahs section page
@@ -174,6 +180,7 @@ body{background:var(--bg-0);color:var(--ink);font-family:var(--font-body);font-s
 .surah-index{position:absolute;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap}
 .surah-index ol{list-style:none;display:flex;flex-direction:column;gap:10px;margin-top:18px}
 .surah-index a{color:var(--gold-bright)}
+.surah-index-note a{text-decoration:underline;text-underline-offset:2px}
 
 .stage-foot{position:fixed;left:var(--pad-x);bottom:14px;z-index:6;padding:0;font-family:var(--font-mono);font-size:9.5px;letter-spacing:.14em;color:var(--ink-faint)}
 .stage-foot a{color:var(--ink-dim)}

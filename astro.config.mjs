@@ -21,12 +21,10 @@ export default defineConfig({
   integrations: [
     mdx({ rehypePlugins: [rehypeArabicWrap, rehypeTableScroll] }),
     sitemap({
-      // The retired tool pages only forward to /resources/find/.
-      filter: (page) => !/\/resources\/(word-lookup|verb-forms)\/$/.test(page),
-      serialize(item) {
-        item.lastmod = new Date().toISOString();
-        return item;
-      },
+      // The retired tool pages only forward to /resources/find/. The ebook pages are print sources for the
+      // PDFs (marked noindex), so they stay out of the sitemap. Pages carry no lastmod: stamping every URL with
+      // the build time says nothing true, and search engines learn to ignore it.
+      filter: (page) => !/\/resources\/(word-lookup|verb-forms)\/$/.test(page) && !/\/ebooks\//.test(page),
     }),
   ],
   trailingSlash: 'always',

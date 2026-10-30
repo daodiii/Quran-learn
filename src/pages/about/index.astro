@@ -1,4 +1,5 @@
 ---
+import { metaTitle, metaDescription } from '../../lib/seo';
 /**
  * /about: why the site exists (the owner's own words, unchanged), where to start, the sources, and the
  * feedback form. Light only, standalone (no BaseLayout), like home, learn and the guides.
@@ -8,17 +9,39 @@ import { getCollection } from 'astro:content';
 import SiteNav from '../../components/SiteNav.astro';
 import SiteFoot from '../../components/SiteFoot.astro';
 import CookieBanner from '../../components/CookieBanner.astro';
+import FaqSchema from '../../components/seo/FaqSchema.astro';
 import '../../styles/fonts.css';
 import '../../styles/about.css';
 
 const lessons = await getCollection('lessons');
 const surahs = await getCollection('surahs');
 const levels = new Set(lessons.map((l) => l.data.level)).size;
+const guides = await getCollection('resources');
 
 const title = 'About | Quranic Grammar';
 const description = 'About Quranic Grammar: a free, structured resource for learning Arabic grammar through the Quran. From alphabet basics to advanced rhetorical analysis.';
 const canonicalURL = new URL('/about/', Astro.site);
 const ogImageURL = new URL('/images/og-default.jpg', Astro.site);
+
+// Quick answers: shown on the page and sent to search and answer engines as FAQ data. Every line states
+// something the site already says elsewhere; counts come from the collections.
+const faq = [
+  { question: 'What is Quranic Grammar?', answer: `A free, structured resource for learning Quranic Arabic grammar. It has ${lessons.length} short lessons in ${levels} levels, ${surahs.length} surahs explained word by word, and ${guides.length} reference guides.` },
+  { question: 'Is Quranic Grammar free?', answer: 'Yes. It is free for everyone, with no sign-up and no ads.' },
+  { question: 'Do I need to know Arabic first?', answer: 'No. Level 1 starts with the alphabet and the vowel marks, and each level builds on the one before it.' },
+  { question: 'Where does the word data come from?', answer: 'Word-by-word data comes from the Quranic Arabic Corpus by Kais Dukes (GNU GPL). The Quran text follows Tanzil. The English meanings are our own plain wording, not a translation of the Quran.' },
+  { question: 'Who makes Quranic Grammar?', answer: 'One person, a non-Arabic Muslim who wanted to understand the words of the Quran directly and shares what they build with others.' },
+];
+const aboutSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'AboutPage',
+  name: 'About Quranic Grammar',
+  url: canonicalURL.href,
+  description: metaDescription(description),
+  inLanguage: 'en',
+  isPartOf: { '@type': 'WebSite', name: 'Quranic Grammar', url: new URL('/', Astro.site).href },
+  about: { '@type': 'Organization', name: 'Quranic Grammar', url: new URL('/', Astro.site).href, logo: new URL('/icons/harakat-512.png', Astro.site).href },
+};
 ---
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -27,6 +50,8 @@ const ogImageURL = new URL('/images/og-default.jpg', Astro.site);
   <script is:inline>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', { analytics_storage: 'denied', ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied' });
+    try { if (localStorage.getItem('qg-cookie-consent') === 'accepted') gtag('consent', 'update', { analytics_storage: 'granted' }); } catch (e) {}
     gtag('js', new Date());
     gtag('config', 'G-1MSBYYQT5Z');
     // Load them on the first tap, key press or scroll, or 5 seconds after the page loads, whichever comes
@@ -40,7 +65,7 @@ const ogImageURL = new URL('/images/og-default.jpg', Astro.site);
         clearTimeout(timer);
         events.forEach(function (t) { removeEventListener(t, start, true); });
         var g = document.createElement('script'); g.async = true; g.src = 'https://www.googletagmanager.com/gtag/js?id=G-1MSBYYQT5Z'; document.head.appendChild(g);
-        var a = document.createElement('script'); a.async = true; a.src = 'https://analytics.ahrefs.com/analytics.js'; a.setAttribute('data-key', 'sW/uZfxMauSpqoKnSL6i6g'); document.head.appendChild(a);
+        if ((function(){try{return localStorage.getItem('qg-cookie-consent')==='accepted'}catch(e){return false}})()) { var a = document.createElement('script'); a.async = true; a.src = 'https://analytics.ahrefs.com/analytics.js'; a.setAttribute('data-key', 'sW/uZfxMauSpqoKnSL6i6g'); document.head.appendChild(a); }
       }
       events.forEach(function (t) { addEventListener(t, start, { capture: true, passive: true }); });
       addEventListener('load', function () { timer = setTimeout(start, 5000); });
@@ -49,24 +74,29 @@ const ogImageURL = new URL('/images/og-default.jpg', Astro.site);
   <script is:inline>document.documentElement.classList.add('js')</script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta name="description" content={description} />
+  <meta name="description" content={metaDescription(description)} />
   <meta name="theme-color" content="#fbfcfd" />
-  <title>{title}</title>
+  <title>{metaTitle(title)}</title>
   <link rel="canonical" href={canonicalURL.href} />
   <meta property="og:type" content="website" />
   <meta property="og:url" content={canonicalURL.href} />
   <meta property="og:title" content={title} />
-  <meta property="og:description" content={description} />
+  <meta property="og:description" content={metaDescription(description)} />
   <meta property="og:image" content={ogImageURL.href} />
   <meta property="og:site_name" content="Quranic Grammar" />
   <meta property="og:locale" content="en_US" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content={title} />
-  <meta name="twitter:description" content={description} />
+  <meta name="twitter:description" content={metaDescription(description)} />
   <meta name="twitter:image" content={ogImageURL.href} />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" href="/favicon.ico" sizes="48x48" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/manifest.webmanifest" />
   <link rel="preload" href="/fonts/geist-500.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="/fonts/geist-400.woff2" as="font" type="font/woff2" crossorigin />
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(aboutSchema).replace(/<\//g, '<\\/')} />
+  <FaqSchema items={faq} />
 </head>
 <body>
 <a href="#main-content" class="skip">Skip to main content</a>
@@ -119,6 +149,15 @@ const ogImageURL = new URL('/images/og-default.jpg', Astro.site);
     </div>
   </section>
 
+  <section class="sec" aria-labelledby="qa-h">
+    <div class="wrap sec-grid">
+      <div class="sec-head"><h2 class="sec-h" id="qa-h">Quick answers</h2></div>
+      <dl class="qa">
+        {faq.map((f) => <div><dt>{f.question}</dt><dd>{f.answer}</dd></div>)}
+      </dl>
+    </div>
+  </section>
+
   <section class="sec" aria-labelledby="src-h">
     <div class="wrap sec-grid">
       <div class="sec-head"><h2 class="sec-h" id="src-h">Sources and credits</h2></div>
@@ -137,30 +176,34 @@ const ogImageURL = new URL('/images/og-default.jpg', Astro.site);
       </div>
       <div>
         <p class="thanks" id="thanks" role="status" hidden>Thank you. Your message was sent.</p>
-        <form action="https://api.web3forms.com/submit" method="POST" class="form">
+        <form action="https://api.web3forms.com/submit" method="POST" class="form" id="feedback-form">
           <input type="hidden" name="access_key" value="5343ff10-6be0-487f-92ef-311dc2a1c8af" />
           <input type="hidden" name="subject" value="Quranic Grammar - New Feedback" />
-          <input type="hidden" name="redirect" value="https://quran-learn.vercel.app/about/?submitted=true" />
+          <input type="hidden" name="redirect" value="https://www.quranic-grammar.com/about/?submitted=true" />
           <!-- Honeypot spam prevention -->
           <input type="checkbox" name="botcheck" class="hidden" style="display:none" />
 
           <div class="field">
             <label for="name">Name</label>
-            <input type="text" id="name" name="name" required placeholder="Your name" autocomplete="name" />
+            <input type="text" id="name" name="name" required minlength="2" maxlength="80" placeholder="Your name" autocomplete="name" aria-describedby="name-err" />
+            <p class="err" id="name-err" hidden></p>
           </div>
           <div class="field">
             <label for="email">Email</label>
-            <input type="email" id="email" name="email" required placeholder="your@email.com" autocomplete="email" />
+            <input type="email" id="email" name="email" required maxlength="120" placeholder="your@email.com" autocomplete="email" aria-describedby="email-err" />
+            <p class="err" id="email-err" hidden></p>
           </div>
           <div class="field">
             <label for="message">Message</label>
-            <textarea id="message" name="message" required rows="5" placeholder="Your feedback, suggestion, or testimonial..."></textarea>
+            <textarea id="message" name="message" required minlength="10" maxlength="3000" rows="5" placeholder="Your feedback, suggestion, or testimonial..." aria-describedby="message-err"></textarea>
+            <p class="err" id="message-err" hidden></p>
           </div>
           <div class="check">
             <input type="checkbox" id="testimonial" name="testimonial" value="yes" />
             <label for="testimonial">I'd like this to be considered as a testimonial on the site</label>
           </div>
           <button type="submit" class="send">Send feedback</button>
+          <p class="err" id="form-err" role="alert" hidden></p>
         </form>
       </div>
     </div>
@@ -175,7 +218,52 @@ const ogImageURL = new URL('/images/og-default.jpg', Astro.site);
   const note = params.get('report');
   const box = document.getElementById('message') as HTMLTextAreaElement | null;
   if (note && box && !box.value) box.value = note.slice(0, 500) + '\n\nWhat looks wrong: ';
-  // The form sends people back here with ?submitted=true.
+  // Check the form on the page with plain messages, and send it from here so nobody leaves the site.
+  // The hidden "botcheck" box and a minimum time on the page (a person takes longer than 4 seconds) keep
+  // most spam out; without JavaScript the form still posts to Web3Forms as before.
+  const form = document.getElementById('feedback-form') as HTMLFormElement | null;
+  const openedAt = Date.now();
+  if (form) {
+    form.noValidate = true; // the page shows its own messages; without JavaScript the browser checks the fields
+    const say = (id: string, msg: string) => {
+      const el = document.getElementById(id);
+      if (el) { el.textContent = msg; el.hidden = !msg; }
+    };
+    const check = () => {
+      const f = form.elements as unknown as Record<string, HTMLInputElement>;
+      const name = f.name.value.trim(), email = f.email.value.trim(), message = f.message.value.trim();
+      say('name-err', name.length < 2 ? 'Please enter your name.' : '');
+      say('email-err', !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email) ? 'Please enter a valid email address.' : '');
+      say('message-err', message.length < 10 ? 'Please write at least a few words (10 characters).' : '');
+      return name.length >= 2 && /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email) && message.length >= 10;
+    };
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      say('form-err', '');
+      if (!check()) { (form.querySelector('.err:not([hidden])')?.previousElementSibling as HTMLElement | null)?.focus(); return; }
+      const botcheck = (form.elements.namedItem('botcheck') as HTMLInputElement | null)?.checked;
+      if (botcheck || Date.now() - openedAt < 4000) { say('form-err', 'That was very quick. Please wait a moment and send it again.'); return; }
+      const btn = form.querySelector('button[type=submit]') as HTMLButtonElement;
+      btn.disabled = true; btn.textContent = 'Sending...';
+      try {
+        const res = await fetch(form.action, { method: 'POST', headers: { Accept: 'application/json' }, body: new FormData(form) });
+        const data = await res.json().catch(() => ({ success: res.ok }));
+        if (!res.ok || data.success === false) throw new Error('send failed');
+        form.reset();
+        const thanks = document.getElementById('thanks');
+        if (thanks) { thanks.hidden = false; thanks.scrollIntoView({ block: 'center' }); }
+      } catch {
+        say('form-err', 'Sorry, that did not send. Please try again in a moment.');
+      } finally {
+        btn.disabled = false; btn.textContent = 'Send feedback';
+      }
+    });
+    form.addEventListener('input', (e) => {
+      const id = (e.target as HTMLElement).id;
+      if (id) say(id + '-err', '');
+    });
+  }
+  // The form sends people back here with ?submitted=true when JavaScript is off.
   if (params.get('submitted') === 'true') {
     const thanks = document.getElementById('thanks');
     if (thanks) { thanks.hidden = false; thanks.scrollIntoView({ block: 'center' }); }

@@ -1,0 +1,68 @@
+---
+/**
+ * /privacy: what the site stores, what it sends where, and how to change a cookie choice.
+ * Written from what the code does. Keep it in step with it: the localStorage keys live in src/lib/progress.ts,
+ * src/lib/finder-saved.ts, src/scripts/lesson-steps.ts and src/components/CookieBanner.astro.
+ */
+import PlainLayout from '../../layouts/PlainLayout.astro';
+---
+<PlainLayout
+  title="Privacy policy"
+  description="What Quranic Grammar stores on your device, what it sends to others, and how to change your cookie choice. No accounts, no ads, no selling data."
+  path="/privacy/"
+  eyebrow="Privacy"
+  updated="30 October 2026"
+>
+  <h2>The short version</h2>
+  <p>There are no accounts and no ads. Your progress stays on your own device. Analytics cookies are used only if you press Accept on the cookie notice. The only thing you send us on purpose is the feedback form.</p>
+
+  <h2>Who runs this site</h2>
+  <p>Quranic Grammar is made and run by one person, who built it as a free resource for Muslims learning the Arabic of the Quran. The site was made by <a href="https://www.idweb.no" rel="noopener">IDweb</a>. To reach us about anything on this page, use the <a href="/about/#feedback">feedback form</a>.</p>
+
+  <h2>What stays on your device</h2>
+  <p>The site saves a few things in your browser's local storage. They never leave your device, and we cannot see them.</p>
+  <ul>
+    <li>Which lessons you have finished, and where you stopped in a lesson.</li>
+    <li>Words you saved in the word finder.</li>
+    <li>Your light or dark choice, and whether you have seen the note about moved lessons.</li>
+    <li>Your answer to the cookie notice.</li>
+  </ul>
+  <p>Clearing your browser's site data for quranic-grammar.com removes all of it.</p>
+
+  <h2>Analytics, and your choice</h2>
+  <p>We measure how the site is used so we can improve the lessons. We use two tools.</p>
+  <div class="tbl"><table>
+    <thead><tr><th>Tool</th><th>What it sees</th><th>When it runs</th></tr></thead>
+    <tbody>
+      <tr><td>Google Analytics 4 (Google)</td><td>Pages you open, device and browser type, approximate location from your IP address, and how long you stay.</td><td>Cookies and identifiers are used only after you press Accept. Before that, it runs in a restricted mode without cookies, though Google may still receive basic signals such as the page address and IP address.</td></tr>
+      <tr><td>Ahrefs Web Analytics (Ahrefs)</td><td>Pages you open and where you came from.</td><td>Only after you press Accept. It is not loaded before.</td></tr>
+    </tbody>
+  </table></div>
+  <p>If you press Decline, Google Analytics is switched off for you and Ahrefs is never loaded. We do not use advertising cookies and we do not sell data.</p>
+  <p>You can change your mind at any time:</p>
+  <p><button type="button" class="send" id="reset-consent">Ask me again about cookies</button></p>
+
+  <h2>The feedback form</h2>
+  <p>If you send feedback, we receive your name, email address and message. The form is run by <a href="https://web3forms.com" rel="noopener">Web3Forms</a>, which passes it on to us. We use it only to read your message and reply. If you tick the testimonial box, we may consider showing your words on the site. To have a message deleted, ask us through the same form.</p>
+
+  <h2>Other services your browser talks to</h2>
+  <ul>
+    <li><strong>Hosting.</strong> The site is hosted by Vercel, which keeps standard server logs, including your IP address, to run and protect the service.</li>
+    <li><strong>Fonts.</strong> Some lesson and hadith pages load fonts from Google Fonts, so Google receives your IP address when they load. Other pages use fonts served from this site.</li>
+    <li><strong>Recitation audio.</strong> When you play a recitation, your browser fetches it from everyayah.com.</li>
+    <li><strong>Links out.</strong> Links to the Quranic Arabic Corpus, Tanzil and other sites lead to places with their own policies.</li>
+  </ul>
+
+  <h2>Your rights</h2>
+  <p>You can ask what we hold about you, ask us to correct or delete it, and withdraw your consent to analytics at any time, using the button above. If you think we have handled your data wrongly, you can complain to your local data protection authority.</p>
+
+  <h2>Changes</h2>
+  <p>If this page changes in a way that matters, the date at the top changes too.</p>
+
+  <script is:inline>
+    document.getElementById('reset-consent').addEventListener('click', function () {
+      try { localStorage.removeItem('qg-cookie-consent'); } catch (e) {}
+      location.reload();
+    });
+  </script>
+</PlainLayout>
