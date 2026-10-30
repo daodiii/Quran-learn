@@ -54,6 +54,38 @@ function init() {
       const n = b.querySelector<HTMLElement>('.lx-block-n');
       if (n) n.textContent = `${k + 1} of ${blocks.length}`;
     });
+    // A step with several blocks gets a short "On this page" list that the reader can hide.
+    if (blocks.length >= 3) {
+      let open = true;
+      try { open = localStorage.getItem('lx-toc') !== 'closed'; } catch { /* storage blocked: stay open */ }
+      const toc = document.createElement('details');
+      toc.className = 'lx-toc';
+      toc.open = open;
+      const sum = document.createElement('summary');
+      sum.textContent = 'On this page';
+      const list = document.createElement('ol');
+      blocks.forEach((b) => {
+        const h = b.querySelector<HTMLElement>('.lx-block-h');
+        const t = h?.querySelector<HTMLElement>(':scope > span:not(.lx-block-n)')?.textContent?.trim();
+        if (!t || !b.id) return;
+        const li = document.createElement('li');
+        const a = document.createElement('a');
+        a.href = `#${b.id}`;
+        a.textContent = t;
+        a.addEventListener('click', (e) => {
+          e.preventDefault();
+          b.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+        li.appendChild(a);
+        list.appendChild(li);
+      });
+      toc.append(sum, list);
+      toc.addEventListener('toggle', () => {
+        try { localStorage.setItem('lx-toc', toc.open ? 'open' : 'closed'); } catch { /* ignore */ }
+        document.querySelectorAll<HTMLDetailsElement>('.lx-toc').forEach((o) => { if (o !== toc) o.open = toc.open; });
+      });
+      s.querySelector('.lx-head')?.after(toc);
+    }
   });
   const bar = root.querySelector<HTMLElement>('.lx-bar')!;
   const back = root.querySelector<HTMLButtonElement>('[data-lx-back]')!;
@@ -103,10 +135,6 @@ function init() {
     b.addEventListener('click', () => show(i, { focus: true }));
     holders[parts.length ? partOf(parts, i) : 0].appendChild(b);
     segs.push(b);
-    const num = s.querySelector<HTMLElement>('.lx-num');
-    const of = s.querySelector<HTMLElement>('.lx-of');
-    if (num) num.textContent = String(i + 1);
-    if (of) of.textContent = `of ${steps.length}`;
   });
 
   function show(index: number, opts: { focus?: boolean; scroll?: boolean; force?: boolean } = {}) {
@@ -131,7 +159,7 @@ function init() {
     const last = current === steps.length - 1;
     count.textContent = `Step ${current + 1} of ${steps.length}`;
     back.disabled = current === 0;
-    next.textContent = last ? (nextHref ? 'Next lesson' : 'Done') : current === 0 ? 'Start' : 'Next';
+    next.textContent = last ? (nextHref ? 'Next lesson' : 'Done') : 'Next';
     next.disabled = last && !nextHref;
     finish.hidden = !last;
     history.replaceState(null, '', `#${ids[current]}`);

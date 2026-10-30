@@ -28,7 +28,6 @@ const titleHtml = inlineHtml(tightHyphens(title));
 
 <section class="lx-step" id={`step-${id}`} data-step-id={id} data-step-label={label} data-step-part={part} aria-labelledby={`step-${id}-title`}>
   <header class="lx-head">
-    <p class="lx-count" aria-hidden="true"><span class="lx-num"></span><span class="lx-of"></span></p>
     {hero
       ? <h1 class="lx-title lx-title-hero" id={`step-${id}-title`} tabindex="-1" set:html={titleHtml} />
       : <h2 class="lx-title" id={`step-${id}-title`} tabindex="-1" set:html={titleHtml} />}
