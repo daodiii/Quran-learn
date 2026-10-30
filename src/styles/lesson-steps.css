@@ -57,6 +57,8 @@
   --lx-rem: oklch(50% 0.15 305); /* white label on it: 6.2:1 */
   --lx-rem-ink: oklch(99% 0.01 305);
   --lx-r: 14px;
+  --lx-max: 96rem; /* page width on a desktop; the old 74rem left wide margins and made every step scroll */
+  --lx-read: 80ch; /* longest line of running text */
   --lx-font: 'Geist', 'Lx Hafs', 'Lx Amiri Quran', system-ui, -apple-system, 'Segoe UI', sans-serif;
 
   background: var(--lx-bg);
@@ -141,7 +143,7 @@ html:has([data-lx]) {
 
 /* ---- progress bar ---- */
 .lx-bar {
-  max-width: 74rem;
+  max-width: var(--lx-max);
   margin: 0 auto;
   padding: 0.9rem 1.4rem 0.2rem;
   display: none;
@@ -234,7 +236,7 @@ html:has([data-lx]) {
 }
 
 .lx-wrap {
-  max-width: 74rem;
+  max-width: var(--lx-max);
   margin: 0 auto;
   padding: 0 1.4rem 8rem;
 }
@@ -247,8 +249,7 @@ html:has([data-lx]) {
 /* ---- steps ---- */
 .lx-step {
   display: grid;
-  grid-template-columns: minmax(0, 34rem) minmax(0, 1fr);
-  column-gap: 3.5rem;
+  grid-template-columns: minmax(0, 1fr);
   row-gap: 0;
   align-content: start;
   padding: 1.6rem 0 1rem;
@@ -256,38 +257,15 @@ html:has([data-lx]) {
 .lx-step[hidden] {
   display: none;
 }
-.lx-step > * {
-  grid-column: 1;
+/* The example panel sits above the text, full width, the same on every screen. Text and example
+   used to sit side by side, which squeezed both into half the page. */
+.lx-step > .lx-head {
+  order: -2;
 }
 .lx-step > .lx-stage {
-  grid-column: 2;
-  grid-row: 1 / span 40;
-  position: sticky;
-  top: 5.5rem;
-  align-self: start;
-}
-/* One counter, read as one phrase: a big "1" with "of 35" beside it, same colour. */
-.lx-count {
-  display: none;
-  align-items: baseline;
-  gap: 0.4rem;
-  margin: 0 0 0.9rem;
-  color: var(--lx-accent-2-text);
-  max-width: none;
-  line-height: 1;
-}
-.lx-js .lx-count {
-  display: flex;
-}
-.lx-num {
-  font-size: 3.6rem;
-  font-weight: 500;
-  letter-spacing: -0.04em;
-  font-variant-numeric: tabular-nums;
-}
-.lx-of {
-  font-size: 1.6rem;
-  font-weight: 500;
+  order: -1;
+  min-height: 0;
+  margin: 0 0 1.6rem;
 }
 .lx-title {
   margin: 0;
@@ -295,12 +273,12 @@ html:has([data-lx]) {
   font-weight: 500;
   letter-spacing: -0.035em;
   line-height: 1.1;
-  max-width: 17ch;
+  max-width: 30ch;
   text-wrap: balance;
 }
 .lx-title-hero {
   font-size: 3.3rem;
-  max-width: 12ch;
+  max-width: 22ch;
 }
 .lx-title:focus {
   outline: none;
@@ -315,7 +293,7 @@ html:has([data-lx]) {
 }
 .lx-step p {
   margin: 0 0 1em;
-  max-width: 62ch;
+  max-width: var(--lx-read);
 }
 .lx-step ul,
 .lx-step ol {
@@ -342,27 +320,48 @@ html:has([data-lx]) {
 }
 
 /* ---- big steps made of blocks: each block has its own example beside its text ---- */
-.lx-step:has(> .lx-block) {
-  grid-template-columns: minmax(0, 1fr);
-}
 .lx-block {
   display: grid;
-  grid-template-columns: minmax(0, 34rem) minmax(0, 1fr);
-  column-gap: 3.5rem;
+  grid-template-columns: minmax(0, 1fr);
   align-content: start;
   padding: 1.8rem 0 1.4rem;
   border-top: 1px solid var(--lx-line);
 }
-.lx-block > * {
-  grid-column: 1;
+.lx-block > /* ---- "On this page": a list of the blocks in a big step, hidden with one click ---- */
+.lx-step > .lx-toc {
+  order: -2;
+  margin: 0 0 1.4rem;
+  padding: 0.7rem 1rem;
+  border: 1px solid var(--lx-line);
+  border-radius: 12px;
+  background: var(--lx-surface);
+  font-size: 0.95rem;
+}
+.lx-toc summary {
+  cursor: pointer;
+  min-height: 0;
+  font-weight: 500;
+  color: var(--lx-muted);
+}
+.lx-toc ol {
+  list-style: decimal;
+  margin: 0.6rem 0 0;
+  padding-inline-start: 1.4rem;
+  columns: 2 22rem;
+  column-gap: 2.5rem;
+}
+.lx-toc li {
+  margin: 0 0 0.3rem;
+  break-inside: avoid;
+}
+
+.lx-block-h {
+  order: -2;
 }
 .lx-block > .lx-stage {
-  grid-column: 2;
-  grid-row: 1 / span 30;
-  position: sticky;
-  top: 5.5rem;
-  align-self: start;
+  order: -1;
   min-height: 0;
+  margin: 0 0 1.4rem;
 }
 .lx-block-h {
   margin: 0 0 0.9rem;
@@ -1161,7 +1160,7 @@ html:has([data-lx]) {
   display: block;
 }
 .lx-dock-in {
-  max-width: 74rem;
+  max-width: var(--lx-max);
   margin: 0 auto;
   padding: 0.7rem 1.4rem;
   display: flex;
@@ -1175,36 +1174,24 @@ html:has([data-lx]) {
   white-space: nowrap;
 }
 
+/* ---- wide desktops: more air at the sides, still much less margin than before ---- */
+@media (min-width: 1200px) {
+  .lx-wrap,
+  .lx-bar,
+  .lx-dock-in {
+    padding-inline: 2.5rem;
+  }
+}
+
 /* ---- phones and small tablets ---- */
 @media (max-width: 900px) {
   .lx-step {
-    grid-template-columns: minmax(0, 1fr);
     padding-top: 1.2rem;
   }
-  .lx-step > .lx-head {
-    order: -2;
-  }
   .lx-step > .lx-stage {
-    grid-column: 1;
-    grid-row: auto;
-    order: -1;
-    position: static;
-    min-height: 0;
-    margin: 0 0 1.4rem;
     padding: 1rem;
   }
-  .lx-block {
-    grid-template-columns: minmax(0, 1fr);
-  }
-  .lx-block > .lx-block-h {
-    order: -2;
-  }
   .lx-block > .lx-stage {
-    grid-column: 1;
-    grid-row: auto;
-    order: -1;
-    position: static;
-    margin: 0 0 1.2rem;
     padding: 1rem;
   }
   .lx-title {
