@@ -6,16 +6,16 @@
  * version only: change VERSION when the next announcement should show again.
  */
 const VERSION = '3.0';
-const KEY = `qg-banner-${VERSION}`;
+// The word after the version changes with the message, so people who closed an earlier message see this one.
+const KEY = `qg-banner-${VERSION}-live`;
 ---
 <div class="rb" id="rb" role="region" aria-label={`Quranic Grammar ${VERSION} announcement`} data-key={KEY}>
   <div class="rb-run">
     {[0, 1].map((set) => (
       <div class="rb-set" aria-hidden={set === 1 ? 'true' : undefined}>
-        {[0, 1, 2].map(() => (
+        {[0, 1, 2, 3].map(() => (
           <p>
-            <b class="rb-v">Quranic Grammar {VERSION}</b> is here. We have made huge changes to the site, more interactive and more engaging, and inshallah even more beneficial for you.
-            <a href="/about/#feedback" tabindex={set === 1 ? -1 : undefined}>Tell us what you think</a>
+            <b class="rb-v">Quranic Grammar {VERSION}</b> is live, Alhamdulillah. I hope it's a better, more engaging and more beneficial version.
           </p>
         ))}
       </div>
