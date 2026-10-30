@@ -43,6 +43,22 @@ const prose = document.querySelector('.prose');
 const mainEl = document.querySelector('main');
 if (mainEl) arabize(mainEl);
 
+// "On this page" can be hidden; the choice is remembered
+const tocBtn = document.querySelector('[data-toc-toggle]');
+const body = document.querySelector('.g-body');
+if (tocBtn && body) {
+  const set = (open) => {
+    body.classList.toggle('rail-off', !open);
+    tocBtn.setAttribute('aria-expanded', String(open));
+  };
+  try { set(localStorage.getItem('g-toc') !== 'closed'); } catch (e) { /* storage blocked: stay open */ }
+  tocBtn.addEventListener('click', () => {
+    const open = body.classList.contains('rail-off');
+    set(open);
+    try { localStorage.setItem('g-toc', open ? 'open' : 'closed'); } catch (e) { /* ignore */ }
+  });
+}
+
 // contents rail follows the scroll
 const links = [...document.querySelectorAll('[data-toc] a')];
 if (links.length && 'IntersectionObserver' in window) {
