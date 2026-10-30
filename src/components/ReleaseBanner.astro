@@ -7,15 +7,15 @@
  */
 const VERSION = '3.0';
 // The word after the version changes with the message, so people who closed an earlier message see this one.
-const KEY = `qg-banner-${VERSION}-live`;
+const KEY = `qg-banner-${VERSION}-feedback`;
 ---
 <div class="rb" id="rb" role="region" aria-label={`Quranic Grammar ${VERSION} announcement`} data-key={KEY}>
   <div class="rb-run">
     {[0, 1].map((set) => (
       <div class="rb-set" aria-hidden={set === 1 ? 'true' : undefined}>
-        {[0, 1, 2, 3].map(() => (
+        {[0, 1, 2].map(() => (
           <p>
-            <b class="rb-v">Quranic Grammar {VERSION}</b> is live, Alhamdulillah. I hope it's a better, more engaging and more beneficial version.
+            <b class="rb-v">Quranic Grammar {VERSION}</b> is live, alhamdulillah. I hope it's better, more engaging, and a more beneficial version. If you find any mistakes, please <a href="/about/#feedback" tabindex={set === 1 ? -1 : undefined}>let me know</a>.
           </p>
         ))}
       </div>
