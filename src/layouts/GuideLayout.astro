@@ -1,4 +1,5 @@
 ---
+import { metaTitle, metaDescription } from '../lib/seo';
 /**
  * Resource guide page. Light only, standalone (no BaseLayout), like home and learn.
  * The hero holds the title and either a search box (with tabs where they help) or a 30-second summary;
@@ -50,32 +51,37 @@ const tidy = (t: string) => t.replace(/^Part \d+: /, '').replace(/&amp;/g, '&');
   <script is:inline>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', { analytics_storage: 'denied', ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied' });
+    try { if (localStorage.getItem('qg-cookie-consent') === 'accepted') gtag('consent', 'update', { analytics_storage: 'granted' }); } catch (e) {}
     gtag('js', new Date());
     gtag('config', 'G-1MSBYYQT5Z');
   </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta name="description" content={description} />
+  <meta name="description" content={metaDescription(description)} />
   <meta name="theme-color" content="#fbfcfd" />
-  <title>{pageTitle}</title>
+  <title>{metaTitle(pageTitle)}</title>
   <link rel="canonical" href={canonicalURL.href} />
   <meta property="og:type" content="article" />
   <meta property="og:url" content={canonicalURL.href} />
   <meta property="og:title" content={pageTitle} />
-  <meta property="og:description" content={description} />
+  <meta property="og:description" content={metaDescription(description)} />
   <meta property="og:image" content={ogImageURL.href} />
   <meta property="og:site_name" content="Quranic Grammar" />
   <meta property="og:locale" content="en_US" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content={pageTitle} />
-  <meta name="twitter:description" content={description} />
+  <meta name="twitter:description" content={metaDescription(description)} />
   <meta name="twitter:image" content={ogImageURL.href} />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" href="/favicon.ico" sizes="48x48" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/manifest.webmanifest" />
   <link rel="preload" href="/fonts/geist-500.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="/fonts/geist-400.woff2" as="font" type="font/woff2" crossorigin />
   <BreadcrumbSchema items={[{ label: 'Home', href: '/' }, { label: 'Resources', href: '/resources/' }, { label: guide.short }]} />
   <ArticleSchema title={guide.title} description={description} url={Astro.url.pathname} type="LearningResource" />
-  <script src="https://analytics.ahrefs.com/analytics.js" data-key="sW/uZfxMauSpqoKnSL6i6g" async is:inline></script>
+  <script is:inline>(function(){try{if(localStorage.getItem('qg-cookie-consent')!=='accepted')return}catch(e){return}var a=document.createElement('script');a.async=true;a.src='https://analytics.ahrefs.com/analytics.js';a.setAttribute('data-key','sW/uZfxMauSpqoKnSL6i6g');document.head.appendChild(a)})()</script>
 </head>
 <body class="guide" style={`--hue:${guide.hue}`}>
 <a href="#main-content" class="skip">Skip to main content</a>

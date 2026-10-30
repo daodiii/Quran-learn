@@ -82,3 +82,28 @@ a{color:inherit}button,input,textarea{font:inherit;color:inherit}img,svg{display
 .check label{font-weight:400;color:var(--muted);cursor:pointer}
 .send{justify-self:start;min-height:48px;padding:0 28px;border:0;border-radius:var(--r-btn);background:var(--ink);color:#fff;font-weight:500;cursor:pointer;transition:background .2s var(--ease),transform .2s var(--ease)}
 .send:hover{background:var(--accent);transform:translateY(-1px)}
+
+/* privacy and terms: a plain reading column */
+.doc-date{margin:14px 0 0;color:var(--muted);font-size:.9375rem}
+.doc{max-width:46em}
+.doc h2{margin:2.2em 0 .5em;font-size:clamp(1.25rem,2vw,1.5rem);line-height:1.2;letter-spacing:-.02em;font-weight:500}
+.doc h2:first-child{margin-top:0}
+.doc p,.doc li{font-size:1.0625rem;line-height:1.75;color:var(--text)}
+.doc p{margin:0 0 1em}
+.doc ul{margin:0 0 1em;padding-left:1.25em}
+.doc li{margin-bottom:.4em}
+.doc a{color:var(--accent);text-underline-offset:3px}
+.doc table{width:100%;border-collapse:collapse;margin:0 0 1.2em;font-size:.9375rem}
+.doc th,.doc td{text-align:left;vertical-align:top;padding:10px 12px;border-bottom:1px solid var(--soft-2)}
+.doc th{font-weight:500;color:var(--ink);background:var(--soft)}
+.doc .tbl{overflow-x:auto;overflow-y:hidden}
+
+/* quick answers */
+.qa{margin:0;display:grid;gap:0;max-width:44em}
+.qa div{padding:18px 0;border-bottom:1px solid var(--soft-2)}
+.qa div:first-child{padding-top:0}
+.qa dt{font-weight:500;font-size:1.0625rem;color:var(--ink)}
+.qa dd{margin:6px 0 0;color:var(--muted);line-height:1.65}
+/* form messages */
+.err{margin:0;color:oklch(45% .17 25);font-size:.875rem;line-height:1.4}
+.field input[aria-invalid=true],.field textarea[aria-invalid=true]{border-color:oklch(52% .17 25)}

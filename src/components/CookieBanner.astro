@@ -18,7 +18,7 @@ const { tone = 'night' } = Astro.props as { tone?: 'night' | 'light' };
   </div>
   <div class="cb-body">
     <p class="cb-text">
-      We use a few cookies to see how the site is used and to keep improving the lessons. No ads, ever.
+      Analytics cookies only if you accept, to see how the site is used and keep improving the lessons. No ads, ever. <a href="/privacy/">Privacy policy</a>
     </p>
     <div class="cb-actions">
       <button type="button" class="cb-btn cb-accept" data-cookie="accept">Accept</button>
@@ -56,6 +56,8 @@ const { tone = 'night' } = Astro.props as { tone?: 'night' | 'light' };
   .cb-icon svg{width:100%;height:100%}
 
   .cb-body{min-width:0}
+  .cb-text a{color:inherit;text-decoration:underline;text-underline-offset:2px}
+  .cb-text a:hover{color:#e3b35c}
   .cb-text{
     margin:0 0 12px;
     font-size:12.75px;
@@ -138,6 +140,14 @@ const { tone = 'night' } = Astro.props as { tone?: 'night' | 'light' };
     function decide(value) {
       try { localStorage.setItem(KEY, value); } catch (e) {}
       if (value === 'declined') disableGA();
+      if (value === 'accepted') {
+        // Analytics starts only now: Google Analytics is told it may store, and the Ahrefs script is added.
+        try { if (window.gtag) window.gtag('consent', 'update', { analytics_storage: 'granted' }); } catch (e) {}
+        try {
+          var a = document.createElement('script'); a.async = true; a.src = 'https://analytics.ahrefs.com/analytics.js';
+          a.setAttribute('data-key', 'sW/uZfxMauSpqoKnSL6i6g'); document.head.appendChild(a);
+        } catch (e) {}
+      }
       banner.classList.remove('cb-in');
       setTimeout(function () { banner.hidden = true; }, 550);
     }

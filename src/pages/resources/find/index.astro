@@ -1,4 +1,5 @@
 ---
+import { metaTitle, metaDescription } from '../../../lib/seo';
 /**
  * /resources/find/: one search box for words and verbs. Light only, standalone, like /learn.
  * Type English (a word, a phrase, a typo), a sound, or Arabic. The answer is a base word with its plain
@@ -33,17 +34,20 @@ const EXAMPLES = ['pray', 'he said', 'sabr', 'they believed', 'bismillah', 'forg
   <script is:inline>document.documentElement.classList.add('js')</script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta name="description" content={description} />
+  <meta name="description" content={metaDescription(description)} />
   <meta name="theme-color" content="#fbfcfd" />
-  <title>{title}</title>
+  <title>{metaTitle(title)}</title>
   <link rel="canonical" href={canonicalURL.href} />
   <meta property="og:type" content="website" />
   <meta property="og:url" content={canonicalURL.href} />
   <meta property="og:title" content={title} />
-  <meta property="og:description" content={description} />
+  <meta property="og:description" content={metaDescription(description)} />
   <meta property="og:image" content={ogImageURL.href} />
   <meta property="og:site_name" content="Quranic Grammar" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" href="/favicon.ico" sizes="48x48" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/manifest.webmanifest" />
   <link rel="preload" href="/fonts/geist-500.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="/fonts/geist-400.woff2" as="font" type="font/woff2" crossorigin />
 </head>

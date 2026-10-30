@@ -1,4 +1,5 @@
 ---
+import { metaTitle, metaDescription } from '../lib/seo';
 import '../styles/global.css';
 import SiteNav from '../components/SiteNav.astro';
 import SiteFoot from '../components/SiteFoot.astro';
@@ -36,31 +37,36 @@ const current = (['learn', 'surahs', 'resources', 'about'] as const).find((k) =>
   <script is:inline>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', { analytics_storage: 'denied', ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied' });
+    try { if (localStorage.getItem('qg-cookie-consent') === 'accepted') gtag('consent', 'update', { analytics_storage: 'granted' }); } catch (e) {}
     gtag('js', new Date());
     gtag('config', 'G-1MSBYYQT5Z');
   </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta name="description" content={description} />
+  <meta name="description" content={metaDescription(description)} />
   <meta name="theme-color" content="#1A1147" media="(prefers-color-scheme: light)" />
   <meta name="theme-color" content="#1A1614" media="(prefers-color-scheme: dark)" />
-  <title>{fullTitle}</title>
+  <title>{metaTitle(fullTitle)}</title>
   <!-- Canonical URL -->
   <link rel="canonical" href={canonicalURL.href} />
   <!-- Open Graph -->
   <meta property="og:type" content={type} />
   <meta property="og:url" content={canonicalURL.href} />
   <meta property="og:title" content={fullTitle} />
-  <meta property="og:description" content={description} />
+  <meta property="og:description" content={metaDescription(description)} />
   <meta property="og:image" content={ogImageURL.href} />
   <meta property="og:site_name" content={siteName} />
   <meta property="og:locale" content="en_US" />
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content={fullTitle} />
-  <meta name="twitter:description" content={description} />
+  <meta name="twitter:description" content={metaDescription(description)} />
   <meta name="twitter:image" content={ogImageURL.href} />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" href="/favicon.ico" sizes="48x48" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/manifest.webmanifest" />
   <!-- Preload critical Arabic fonts -->
   <link rel="preload" href="/fonts/amiri-regular-arabic.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="/fonts/UthmanicHafs.woff2" as="font" type="font/woff2" crossorigin />
@@ -88,7 +94,7 @@ const current = (['learn', 'surahs', 'resources', 'about'] as const).find((k) =>
     })();
   </script>
   <slot name="head" />
-  <script src="https://analytics.ahrefs.com/analytics.js" data-key="sW/uZfxMauSpqoKnSL6i6g" async></script>
+  <script is:inline>(function(){try{if(localStorage.getItem('qg-cookie-consent')!=='accepted')return}catch(e){return}var a=document.createElement('script');a.async=true;a.src='https://analytics.ahrefs.com/analytics.js';a.setAttribute('data-key','sW/uZfxMauSpqoKnSL6i6g');document.head.appendChild(a)})()</script>
 </head>
 <body class="min-h-screen flex flex-col font-sans mesh-bg mesh-bg-primary">
   <!-- Skip link for keyboard navigation -->

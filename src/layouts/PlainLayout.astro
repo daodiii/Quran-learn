@@ -1,0 +1,110 @@
+---
+/**
+ * A plain light page for reading: privacy policy, terms. Standalone (no BaseLayout), like About.
+ * Title and description go through metaTitle and metaDescription, so they never run past what Google shows.
+ */
+import SiteNav from '../components/SiteNav.astro';
+import SiteFoot from '../components/SiteFoot.astro';
+import CookieBanner from '../components/CookieBanner.astro';
+import { metaTitle, metaDescription } from '../lib/seo';
+import '../styles/fonts.css';
+import '../styles/about.css';
+
+interface Props {
+  title: string;
+  description: string;
+  path: string;
+  eyebrow: string;
+  updated: string;
+}
+const { title, description, path, eyebrow, updated } = Astro.props;
+const fullTitle = `${title} | Quranic Grammar`;
+const canonicalURL = new URL(path, Astro.site);
+const ogImageURL = new URL('/images/og-default.jpg', Astro.site);
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: title,
+  url: canonicalURL.href,
+  description: metaDescription(description),
+  inLanguage: 'en',
+  isPartOf: { '@type': 'WebSite', name: 'Quranic Grammar', url: new URL('/', Astro.site).href },
+  dateModified: updated,
+};
+---
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <!-- Google Analytics (GA4) and Ahrefs, queued now and loaded later (see below). -->
+  <script is:inline>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', { analytics_storage: 'denied', ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied' });
+    try { if (localStorage.getItem('qg-cookie-consent') === 'accepted') gtag('consent', 'update', { analytics_storage: 'granted' }); } catch (e) {}
+    gtag('js', new Date());
+    gtag('config', 'G-1MSBYYQT5Z');
+    // Load them on the first tap, key press or scroll, or 5 seconds after the page loads, whichever comes
+    // first: on a phone the analytics script alone blocked the main thread for about 500 ms.
+    (function () {
+      var started = false, timer;
+      var events = ['pointerdown', 'keydown', 'scroll', 'touchstart'];
+      function start() {
+        if (started) return;
+        started = true;
+        clearTimeout(timer);
+        events.forEach(function (t) { removeEventListener(t, start, true); });
+        var g = document.createElement('script'); g.async = true; g.src = 'https://www.googletagmanager.com/gtag/js?id=G-1MSBYYQT5Z'; document.head.appendChild(g);
+        if ((function(){try{return localStorage.getItem('qg-cookie-consent')==='accepted'}catch(e){return false}})()) { var a = document.createElement('script'); a.async = true; a.src = 'https://analytics.ahrefs.com/analytics.js'; a.setAttribute('data-key', 'sW/uZfxMauSpqoKnSL6i6g'); document.head.appendChild(a); }
+      }
+      events.forEach(function (t) { addEventListener(t, start, { capture: true, passive: true }); });
+      addEventListener('load', function () { timer = setTimeout(start, 5000); });
+    })();
+  </script>
+  <script is:inline>document.documentElement.classList.add('js')</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="description" content={metaDescription(description)} />
+  <meta name="theme-color" content="#fbfcfd" />
+  <title>{metaTitle(fullTitle)}</title>
+  <link rel="canonical" href={canonicalURL.href} />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={canonicalURL.href} />
+  <meta property="og:title" content={fullTitle} />
+  <meta property="og:description" content={metaDescription(description)} />
+  <meta property="og:image" content={ogImageURL.href} />
+  <meta property="og:site_name" content="Quranic Grammar" />
+  <meta property="og:locale" content="en_US" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={fullTitle} />
+  <meta name="twitter:description" content={metaDescription(description)} />
+  <meta name="twitter:image" content={ogImageURL.href} />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" href="/favicon.ico" sizes="48x48" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/manifest.webmanifest" />
+  <link rel="preload" href="/fonts/geist-500.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/geist-400.woff2" as="font" type="font/woff2" crossorigin />
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(schema).replace(/<\//g, '<\\/')} />
+</head>
+<body>
+<a href="#main-content" class="skip">Skip to main content</a>
+<SiteNav />
+
+<main id="main-content">
+  <section class="hero" aria-labelledby="doc-h">
+    <div class="wrap">
+      <p class="eyebrow">{eyebrow}</p>
+      <h1 class="h1" id="doc-h">{title}</h1>
+      <p class="dek">{description}</p>
+      <p class="doc-date">Last updated {updated}</p>
+    </div>
+  </section>
+  <section class="sec">
+    <div class="wrap doc"><slot /></div>
+  </section>
+</main>
+
+<SiteFoot />
+<CookieBanner tone="light" />
+</body>
+</html>
