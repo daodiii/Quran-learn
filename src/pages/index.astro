@@ -150,7 +150,7 @@ const step = LESSON_STEPS[1];
   <p class="lede rise" style="--d:.08s">Short, clear lessons that take you from the Arabic alphabet to reading a verse and knowing what every word does. Free, for everyone.</p>
   <div class="cta rise" style="--d:.16s">
     <a class="btn primary" id="primary-cta" href="/learn/">Start learning</a>
-    <a class="btn" href="/resources/">Explore the free resources</a>
+    <a class="btn" href="/resources/" aria-label="Explore the free resources"><span class="m-hide">Explore the </span><span class="m-cap">free resources</span></a>
   </div>
   <p class="fine rise" style="--d:.2s">No sign-up. No ads. Works on any phone.</p>
 
@@ -243,15 +243,31 @@ const step = LESSON_STEPS[1];
           <span class="here">You are here</span>
           <div class="c-top"><span class="c-lvl">Level {l.level}</span><span>{l.count} lessons</span></div>
           <h3>{l.name}</h3>
-          <div class="spec" lang="ar" aria-hidden="true" set:html={l.spec} />
-          <p class="c-end">{l.end}</p>
-          <div class="segs" aria-hidden="true">{Array.from({ length: l.count }, () => <i></i>)}</div>
-          <div class="c-foot"><span class="cp">Ends with {l.cp}</span><span class="pct"></span></div>
-          <a class="cover" href={l.href}><span class="vh">Level {l.level}, {l.name}: start</span></a>
+          <button class="c-tog js-only" type="button" aria-expanded="false" aria-controls={`lv-${l.level}`}><span class="vh">Level {l.level}, {l.name}, {l.count} lessons: show details</span></button>
+          <div class="c-body" id={`lv-${l.level}`}>
+            <div class="spec" lang="ar" aria-hidden="true" set:html={l.spec} />
+            <p class="c-end">{l.end}</p>
+            <div class="segs" aria-hidden="true">{Array.from({ length: l.count }, () => <i></i>)}</div>
+            <div class="c-foot"><span class="cp">Ends with {l.cp}</span><span class="pct"></span></div>
+          </div>
+          <a class="cover" href={l.href}><span class="vh">Level {l.level}, {l.name}: start</span><span class="go" aria-hidden="true">Start Level {l.level} →</span></a>
         </li>
       ))}
     </ol>
   </section>
+
+  <!-- On a phone the reader and the library become one block with a tab strip (data-mt); on wider screens the strip is hidden and both sections show as before. -->
+  <div class="tools" id="tools" data-mt="surahs">
+  <div class="mt js-only">
+    <h2 class="mt-h" id="mt-h">Try the tools.</h2>
+    <div class="mt-tabs" role="group" aria-labelledby="mt-h">
+      <button type="button" data-mt="surahs" aria-pressed="true">Surahs</button>
+      <button type="button" data-mt="word" aria-pressed="false">Word finder</button>
+      <button type="button" data-mt="verbs" aria-pressed="false">Verb forms</button>
+      <button type="button" data-mt="charts" aria-pressed="false">Charts</button>
+      <button type="button" data-mt="guides" aria-pressed="false">Guides</button>
+    </div>
+  </div>
 
   <!-- The reader: Al-Ikhlas renders here; other surahs load from public/data/home-reader/<n>.json. -->
   <section class="sec" aria-labelledby="surahs-h">
@@ -385,12 +401,13 @@ const step = LESSON_STEPS[1];
       <div class="bench-foot"><a class="btn primary" href="/resources/">Open all resources</a></div>
     </div>
   </section>
+  </div>
 
   <!-- Learner quotes, after the reader so a visitor has seen the product first. Each card takes one of three tints.
        The quotes live in src/data/testimonials.ts. -->
   <section class="sec" aria-labelledby="voices-h">
     <div class="sec-head"><h2 id="voices-h">It finally makes sense.</h2></div>
-    <div class="stack">
+    <div class="stack" tabindex="0" role="group" aria-label="Learner quotes">
       {testimonials.map((t, i) => (
         <figure class={`sc k${(i % 3) + 1}`} style={`--i:${i}`}>
           <div class="sc-t">
@@ -404,8 +421,14 @@ const step = LESSON_STEPS[1];
 
   <section class="sec" aria-labelledby="trust-h">
     <div class="sec-head"><h2 id="trust-h">Sourced, free and open to correction.</h2></div>
+    <div class="tc-btns js-only" role="group" aria-label="More about this site">
+      <button type="button" data-tc="tc-src" aria-haspopup="dialog"><span class="ic" aria-hidden="true">§</span>Sources on every lesson</button>
+      <button type="button" data-tc="tc-free" aria-haspopup="dialog"><span class="ic" aria-hidden="true">✓</span>Free, for everyone</button>
+      <button type="button" data-tc="tc-bug" aria-haspopup="dialog"><span class="ic" aria-hidden="true">!</span>Found a mistake?</button>
+    </div>
     <div class="trio">
-      <article class="tc">
+      <article class="tc" id="tc-src">
+        <button class="tc-x js-only" type="button" aria-label="Close">×</button>
         <h3>Sources on every lesson.</h3>
         <p>Each lesson shows where its facts come from.<span class="js-only"> Tap a source to see what it feeds.</span></p>
         <div class="well">
@@ -425,7 +448,8 @@ const step = LESSON_STEPS[1];
         </div>
       </article>
 
-      <article class="tc">
+      <article class="tc" id="tc-free">
+        <button class="tc-x js-only" type="button" aria-label="Close">×</button>
         <h3>Free, for everyone.</h3>
         <p>No sign-up, no ads, nothing to buy. It works on any phone.</p>
         <div class="well rc">
@@ -442,7 +466,8 @@ const step = LESSON_STEPS[1];
         </div>
       </article>
 
-      <article class="tc">
+      <article class="tc" id="tc-bug">
+        <button class="tc-x js-only" type="button" aria-label="Close">×</button>
         <h3>Found a mistake?</h3>
         <p>Every page has a way to report it, and we fix it.</p>
         <div class="well fx js-only" id="fx" data-ref={`${reader.name} ${reader.number}:1`}>
@@ -460,6 +485,7 @@ const step = LESSON_STEPS[1];
         <a class="link" href="/about/#feedback">Send feedback →</a>
       </article>
     </div>
+    <div class="tc-bd js-only" hidden></div>
   </section>
 </div>
 

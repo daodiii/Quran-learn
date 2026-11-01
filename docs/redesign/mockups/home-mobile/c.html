@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Home mobile C: App style</title>
+<link rel="stylesheet" href="base.css">
+<style>
+.hero{padding:8px var(--g) 16px}
+.hero p.lede{color:var(--muted);margin-top:10px;font-size:.98rem}
+.cta{display:grid;gap:10px;margin-top:16px}
+.fine{font-size:.8rem;color:var(--muted);text-align:center;margin-top:10px}
+.tiles{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:0 var(--g)}
+.t{border:1px solid var(--edge);border-radius:16px;padding:12px;background:#fff;text-align:left;display:grid;gap:6px;align-content:space-between;min-height:118px}
+.t .ic{width:34px;height:34px;border-radius:10px;display:grid;place-items:center}
+.t b{font-weight:500;line-height:1.2}.t span.d{font-size:.78rem;color:var(--muted);line-height:1.3}
+.t.a .ic{background:var(--teal-tint);color:var(--accent)}.t.b .ic{background:var(--noun-tint);color:var(--noun)}.t.c .ic{background:var(--verb-tint);color:var(--verb)}.t.d .ic{background:var(--amber-tint);color:oklch(46% .13 55)}
+.t .go{font-size:.72rem;color:var(--muted);display:flex;justify-content:space-between}
+.sec{padding:28px var(--g) 0}.sec>.hd{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:12px}.hd a{font-size:.85rem;color:var(--accent)}
+.path{position:relative;display:grid;gap:0}
+.path a{display:grid;grid-template-columns:34px 1fr auto;gap:12px;align-items:center;text-decoration:none;padding:9px 0;position:relative;min-height:60px}
+.path a::before{content:"";position:absolute;left:16px;top:0;bottom:0;width:2px;background:var(--edge)}.path a:first-child::before{top:50%}.path a:last-child::before{bottom:50%}
+.path .n{width:34px;height:34px;border-radius:50%;background:var(--ink);color:#fff;display:grid;place-items:center;font-weight:600;font-size:.88rem;position:relative;z-index:1}
+.path a:first-child .n{background:var(--accent)}
+.path b{font-weight:500;display:block;line-height:1.2}.path small{font-size:.78rem;color:var(--muted);display:block;line-height:1.3}.path .ar{font-size:1.3rem;direction:rtl;color:var(--muted)}
+.lib{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.lib a{border:1px solid var(--edge);border-radius:14px;overflow:hidden;text-decoration:none;background:#fff;display:grid}
+.lib .h{padding:8px 10px;color:#fff;font-size:.82rem;font-weight:500;line-height:1.2}.lib .h small{display:block;font-size:.6rem;opacity:.8;letter-spacing:.08em}
+.lib .b{padding:8px 10px;display:flex;gap:8px;justify-content:center;direction:rtl;background:var(--soft)}.lib .b .ar{font-size:1.25rem}
+.lib .s1{background:oklch(40% .12 258)}.lib .s2{background:oklch(52% .13 60)}.lib .s3{background:oklch(40% .1 178)}.lib .s4{background:oklch(42% .14 25)}
+.chiprow{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;margin:12px calc(var(--g)*-1) 0;padding:0 var(--g)}.chiprow a{flex:none;text-decoration:none;border:1px solid var(--edge);border-radius:12px;background:#fff;padding:10px 12px;font-size:.84rem;max-width:210px;line-height:1.25}
+.chiprow a b{font-weight:500;display:block}.chiprow a em{font-style:normal;font-size:.6rem;background:var(--amber-tint);padding:1px 6px;border-radius:6px;letter-spacing:.06em}
+.quote{border-radius:20px;background:oklch(93% .06 170);padding:16px}.quote p{font-size:1.05rem;line-height:1.3}.quote .who{display:flex;gap:10px;align-items:center;margin-top:10px;font-size:.84rem}.quote .who i{width:28px;height:28px;border-radius:50%;background:#fff;display:grid;place-items:center;font-style:normal;font-weight:600}.quote small{display:block;color:var(--muted)}
+.quote .dots{margin-top:10px}
+.trust{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:12px}
+.trust button{border:1px solid var(--edge);border-radius:14px;background:#fff;padding:10px 6px;display:grid;gap:4px;justify-items:center;font-size:.76rem;text-align:center;line-height:1.2;min-height:78px;align-content:center}
+.trust .ic{width:30px;height:30px;border-radius:9px;background:var(--teal-tint);color:var(--accent);display:grid;place-items:center;font-size:.9rem}
+.close{margin-top:28px;background:oklch(19% .03 220);color:#fff;padding:24px var(--g);text-align:center;display:grid;gap:8px}
+.close .dua{display:flex;gap:10px;justify-content:center;direction:rtl}.close .dua .ar{font-size:1.8rem}.close .dua small{display:block;font-size:.66rem;opacity:.7;text-align:center}
+.close .btn{background:#fff;color:var(--ink);margin-top:6px}
+.foot{background:oklch(19% .03 220);color:#fff;padding:14px var(--g) 90px;font-size:.78rem;display:grid;gap:8px;border-top:1px solid rgba(255,255,255,.1)}.foot nav{display:flex;gap:14px;flex-wrap:wrap}.foot small{opacity:.65}
+/* sticky bar */
+.dock{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:430px;padding:10px var(--g) calc(10px + env(safe-area-inset-bottom));background:rgba(255,255,255,.92);backdrop-filter:blur(12px);border-top:1px solid var(--edge);display:grid;grid-template-columns:1fr auto;gap:10px;z-index:30}
+.dock .btn{min-height:46px}
+/* sheets */
+.sheet{position:fixed;inset:0;z-index:60;pointer-events:none}
+.sheet::before{content:"";position:absolute;inset:0;background:oklch(18% .03 240/.45);opacity:0;transition:opacity .2s}
+.sheet .p{position:absolute;bottom:0;left:50%;width:100%;max-width:430px;transform:translate(-50%,100%);transition:transform .25s;background:#fff;border-radius:22px 22px 0 0;padding:8px var(--g) 22px;max-height:82vh;overflow:auto;display:grid;gap:10px}
+.sheet:not(.open){visibility:hidden;transition:visibility 0s .25s}.sheet.open{pointer-events:auto}.sheet.open::before{opacity:1}.sheet.open .p{transform:translate(-50%,0)}
+.sheet .grab{width:40px;height:4px;border-radius:2px;background:var(--edge);margin:0 auto 4px}
+.sheet .top{display:flex;justify-content:space-between;align-items:center}.sheet .top button{width:36px;height:36px;border-radius:50%;border:1px solid var(--edge);background:#fff}
+.sheet h3{font-size:1.1rem}.sheet .s{font-size:.86rem;color:var(--muted)}
+.vs{display:flex;gap:6px;direction:rtl;flex-wrap:wrap;justify-content:center}
+.q{border:1px solid var(--edge);border-radius:12px;padding:11px 12px;color:var(--muted);font-size:.9rem}
+.card{border-radius:12px;padding:10px 12px;display:grid;grid-template-columns:auto 1fr;gap:2px 12px;align-items:center;background:var(--soft)}.card .ar{font-size:1.9rem;grid-row:span 2}.card small{color:var(--muted);font-size:.78rem}
+.cells{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}.cells i{font-style:normal;font-size:.78rem;text-align:center;border-radius:10px;background:var(--soft);padding:10px 0;border:1px solid var(--edge)}.cells i.on{background:var(--verb);color:#fff;border-color:transparent}.cells i.off{opacity:.4}
+.more{color:var(--accent);font-weight:500;font-size:.9rem;text-decoration:none}
+.sheet ol,.sheet ul{margin:0;padding-left:18px;font-size:.9rem;display:grid;gap:4px}
+</style></head>
+<body><div class="phone">
+<header class="site"><a class="brand" href="#"><svg viewBox="0 0 40 40"><g transform="translate(5.55 4.7) scale(.094)" fill="#c85447"><path d="M206 0 234 32 188 71 161 39Z"/><path d="M62 151C117 174 173 139 228 88C247 70 267 75 275 94C285 115 277 144 261 168C266 143 262 128 244 146C185 197 124 226 62 151Z"/><path d="M0 227C86 287 211 284 307 181C298 262 250 309 177 319C94 332 28 299 0 227Z"/></g></svg>Quranic Grammar</a><button class="burger" aria-label="Menu"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button></header>
+
+<section class="hero">
+  <h1>Learn the language of the Quran.</h1>
+  <p class="lede">Short, clear lessons from the Arabic alphabet to reading a verse and knowing what every word does. Free, for everyone.</p>
+  <p class="fine" style="text-align:left;margin-top:8px">No sign-up. No ads. Works on any phone.</p>
+</section>
+
+<h2 class="vh">Try a tool</h2>
+<div class="tiles">
+  <button class="t a" data-sheet="s-lesson"><span class="ic">▤</span><b>Lessons</b><span class="d">One idea at a time, then check it</span></button>
+  <button class="t b" data-sheet="s-word"><span class="ic">⌕</span><b>Word finder</b><span class="d">Any English word, in the Quran</span></button>
+  <button class="t c" data-sheet="s-dec"><span class="ic">☰</span><b>Verse decoder</b><span class="d">Tap a word, see its grammar</span></button>
+  <button class="t d" data-sheet="s-root"><span class="ic">▮</span><b>Roots</b><span class="d">One root across the whole Quran</span></button>
+</div>
+
+<section class="sec"><div class="hd"><h2>Five levels, from letters to reading.</h2></div>
+<div class="path">
+<a href="#"><span class="n">1</span><span><b>Foundation</b><small>11 lessons · read the letters and vowel marks</small></span><span class="ar">بَ بِ بُ</span></a>
+<a href="#"><span class="n">2</span><span><b>Core grammar</b><small>12 lessons · why a word ends the way it does</small></span><span class="ar">كِتَابٌ</span></a>
+<a href="#"><span class="n">3</span><span><b>Intermediate</b><small>22 lessons · a verb, its person and form</small></span><span class="ar">قَالَ</span></a>
+<a href="#"><span class="n">4</span><span><b>Advanced</b><small>19 lessons · long and careful sentences</small></span><span class="ar">إِلَّا</span></a>
+<a href="#"><span class="n">5</span><span><b>Applied study</b><small>17 lessons · explain every word of a passage</small></span><span class="ar">بِسْمِ</span></a>
+</div></section>
+
+<section class="sec"><div class="hd"><h2>The short surahs, word by word.</h2></div>
+<div class="chiprow" style="margin-top:0"><a href="#" style="max-width:none;background:var(--ink);color:#fff">Al-Ikhlas · 112</a><a href="#" style="max-width:none">Al-Falaq</a><a href="#" style="max-width:none">An-Nas</a><a href="#" style="max-width:none">Al-Kawthar</a><a href="#" style="max-width:none">Al-ʿAsr</a><a href="#" style="max-width:none">All surahs →</a></div>
+<div style="margin-top:12px;border:1px solid var(--edge);border-radius:16px;padding:12px">
+<div class="vs"><span class="tile verb sel"><span class="ar">قُلْ</span><small>Say</small></span><span class="tile"><span class="ar">هُوَ</span><small>He</small></span><span class="tile noun"><span class="ar">ٱللَّهُ</span><small>Allah</small></span><span class="tile"><span class="ar">أَحَدٌ</span><small>One</small></span></div>
+<p style="text-align:center;font-size:.9rem;margin-top:8px">Say: He is Allah, [the] One. <span style="color:var(--muted)">112:1</span></p>
+<div class="card" style="margin-top:8px"><span class="ar">قُلْ</span><b style="font-weight:500">Say</b><small>Verb · root ق و ل · command (fiʿl amr)</small></div></div></section>
+
+<section class="sec"><div class="hd"><h2>Free tools to keep open.</h2><a href="#">All resources</a></div>
+<div class="lib">
+<a href="#"><div class="h s1"><small>CHART</small>Case Endings</div><div class="b"><span class="ar">كِتَابٌ</span><span class="ar">كِتَابًا</span></div></a>
+<a href="#"><div class="h s2"><small>CHART</small>Pronouns</div><div class="b"><span class="ar">أَنَا</span><span class="ar">نَحْنُ</span></div></a>
+<a href="#"><div class="h s3"><small>CHEAT SHEET</small>Verb Forms</div><div class="b"><span class="ar">فَعَلَ</span><span class="ar">فَعَّلَ</span></div></a>
+<a href="#"><div class="h s4"><small>WORD LIST</small>200 Common Words</div><div class="b"><span class="ar">وَ</span><span class="ar">فِي</span><span class="ar">مِنْ</span></div></a>
+</div>
+<div class="chiprow"><a href="#"><em>START HERE</em><b>Quranic vs Modern Standard Arabic</b></a><a href="#"><b>Learning Roadmap</b></a><a href="#"><b>Arabic in 7 Principles</b></a><a href="#"><b>Grammar Glossary</b></a><a href="#"><b>Root System Guide</b></a><a href="#"><b>Conjugation Tables</b></a></div></section>
+
+<section class="sec"><div class="hd"><h2>It finally makes sense.</h2></div>
+<div class="quote"><p>This site completely changed how I approach the Quran. I can now understand the grammatical structure behind every ayah I read.</p><div class="who"><i>A</i><span><b>Ahmed K.</b><small>University Student</small></span></div><div class="dots"><i class="on"></i><i></i><i></i></div></div>
+<div class="trust"><button data-sheet="s-src"><span class="ic">§</span>Sources on every lesson</button><button data-sheet="s-free"><span class="ic">✓</span>Free, for everyone</button><button data-sheet="s-bug"><span class="ic">!</span>Found a mistake?</button></div></section>
+
+<section class="close"><div class="dua"><span><span class="ar">رَبِّ</span><small>my Lord</small></span><span><span class="ar">زِدْنِى</span><small>increase me</small></span><span><span class="ar">عِلْمًا</span><small>in knowledge</small></span></div>
+<p style="opacity:.85;font-size:.9rem">“My Lord, increase me in knowledge.” · Taha 20:114</p><a class="btn" href="#">Start with the alphabet</a></section>
+<footer class="foot"><nav><a href="#">Learn</a><a href="#">Surahs</a><a href="#">Resources</a><a href="#">Forty Hadith</a><a href="#">About</a></nav><small>Word data from the Quranic Arabic Corpus (Kais Dukes, GPL). Quran text after Tanzil.</small><small>Privacy · Terms</small></footer>
+
+<div class="dock"><a class="btn primary" href="#">Start learning</a><a class="btn" href="#">Resources</a></div>
+
+<div class="sheet" id="s-lesson"><div class="p"><div class="grab"></div><div class="top"><h3>A lesson: the nominal sentence</h3><button data-close aria-label="Close">×</button></div><p class="eyebrow">Level 2 · Step 2 of 3</p><p>A sentence can start with a noun. Arabic has no “is”.</p><div class="vs"><span class="tile noun"><span class="ar">هُوَ</span><small>he</small></span><span class="tile" style="border-style:dashed;background:transparent"><small>is</small></span><span class="tile noun"><span class="ar">ٱلْأَوَّلُ</span><small>the First</small></span></div><a class="btn primary" href="#">Start learning</a></div></div>
+<div class="sheet" id="s-word"><div class="p"><div class="grab"></div><div class="top"><h3>Word finder</h3><button data-close aria-label="Close">×</button></div><div class="q">Type an English word</div><div class="chips-pick" style="display:flex;gap:6px;flex-wrap:wrap"><button class="chip" aria-pressed="false">knowledge</button><button class="chip" aria-pressed="true">mercy</button><button class="chip" aria-pressed="false">guidance</button><button class="chip" aria-pressed="false">book</button></div><div class="card"><span class="ar">رَحْمَة</span><b style="font-weight:500">mercy · raḥma</b><small>114 times in the Quran · root ر ح م</small></div><p class="s">943 verbal roots, each in all ten forms:</p><div class="cells"><i>I</i><i class="on">II</i><i>III</i><i>IV</i><i>V</i><i class="off">VI</i><i class="off">VII</i><i class="off">VIII</i><i class="off">IX</i><i class="off">X</i></div><a class="more" href="#">Open the full finder →</a></div></div>
+<div class="sheet" id="s-dec"><div class="p"><div class="grab"></div><div class="top"><h3>Verse decoder · Taha 20:114</h3><button data-close aria-label="Close">×</button></div><div class="vs"><span class="tile noun sel"><span class="ar">رَبِّ</span><small>my Lord</small></span><span class="tile verb"><span class="ar">زِدْنِى</span><small>increase me</small></span><span class="tile"><span class="ar">عِلْمًا</span><small>in knowledge</small></span></div><p class="s">“My Lord, increase me in knowledge.” Every word of every surah, explained.</p><a class="more" href="#">Browse the surahs →</a></div></div>
+<div class="sheet" id="s-root"><div class="p"><div class="grab"></div><div class="top"><h3>Roots</h3><button data-close aria-label="Close">×</button></div><div class="card"><span class="ar" style="font-size:2.2rem">ع ل م</span><b style="font-weight:500">knowledge</b><small>one root, recognised everywhere</small></div><p class="s">Pick a root, see every surah it appears in.</p><a class="more" href="#">Open the finder →</a></div></div>
+<div class="sheet" id="s-src"><div class="p"><div class="grab"></div><div class="top"><h3>Sources on every lesson</h3><button data-close aria-label="Close">×</button></div><ol><li><b>Tanzil</b> · the Quran text</li><li><b>Quranic Arabic Corpus</b> · word data and roots</li><li><b>al-Ajurrumiyyah</b> · classical grammar</li><li><b>Madinah books</b> · textbook</li></ol></div></div>
+<div class="sheet" id="s-free"><div class="p"><div class="grab"></div><div class="top"><h3>Free, for everyone</h3><button data-close aria-label="Close">×</button></div><p class="s">No sign-up, no ads, nothing to buy. It works on any phone.</p><ul><li>Levels 1 to 5: Free</li><li>Word and verb finder, and verse decoder: Free</li><li>Surah reader: Free</li></ul></div></div>
+<div class="sheet" id="s-bug"><div class="p"><div class="grab"></div><div class="top"><h3>Found a mistake?</h3><button data-close aria-label="Close">×</button></div><p class="s">Every page has a way to report it, and we fix it.</p><div style="display:flex;gap:6px;flex-wrap:wrap"><span class="chip">Meaning</span><span class="chip">Grammar label</span><span class="chip">Arabic text</span><span class="chip">Something else</span></div><a class="btn green" href="#">Send feedback</a></div></div>
+</div><script src="m.js"></script></body></html>
