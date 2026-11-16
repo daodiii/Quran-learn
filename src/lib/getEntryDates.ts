@@ -1,4 +1,5 @@
 import { execFileSync } from 'node:child_process';
+import manifest from '../data/entry-dates.json';
 
 export interface EntryDates {
   datePublished: Date;
@@ -11,9 +12,24 @@ interface FrontmatterDates {
 }
 
 const cache = new Map<string, EntryDates>();
+
+// Vercel builds from a shallow clone, where git log reports one commit for every file.
+// In that case use the dates committed by scripts/build-entry-dates.mjs.
+const isShallow = (() => {
+  try {
+    return execFileSync('git', ['rev-parse', '--is-shallow-repository'], { encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] }).trim() === 'true';
+  } catch {
+    return true;
+  }
+})();
+const manifestDates = manifest as Record<string, { published: string; modified: string }>;
 const fallback = new Date();
 
 function gitDate(file: string, mode: 'first' | 'last'): Date | undefined {
+  if (isShallow) {
+    const entry = manifestDates[file];
+    return entry ? new Date(mode === 'first' ? entry.published : entry.modified) : undefined;
+  }
   try {
     const args =
       mode === 'first'
