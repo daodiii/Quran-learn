@@ -86,8 +86,6 @@ const stations = [
   { target: 'lesson-brief', pip: '00', label: 'Briefing' },
   ...tocHeadings.map((h, i) => ({ target: h.slug, pip: String(i + 1).padStart(2, '0'), label: h.text })),
 ];
-
-const fontsHref = "https://fonts.googleapis.com/css2?family=Amiri+Quran&family=Amiri:ital,wght@0,400;0,700;1,400&family=Marcellus&family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&display=swap";
 ---
 
 <BaseLayout title={title} description={description} type="article">
@@ -125,12 +123,6 @@ const fontsHref = "https://fonts.googleapis.com/css2?family=Amiri+Quran&family=A
       })();
     </script>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="stylesheet" href={fontsHref} media="print" onload="this.media='all'" />
-    <noscript>
-      <link rel="stylesheet" href={fontsHref} />
-    </noscript>
   </Fragment>
 
   <!-- Backdrop for mobile sidebar -->
