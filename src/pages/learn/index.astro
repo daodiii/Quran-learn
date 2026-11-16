@@ -74,8 +74,8 @@ const courseSchema = {
   description: `A structured course for learning Quranic Arabic grammar from beginner to advanced, ${total} lessons across ${levels.length} levels.`,
   url: 'https://www.quranic-grammar.com/learn/',
   provider: { '@type': 'Organization', '@id': 'https://www.quranic-grammar.com/#organization', name: 'Quranic Grammar', url: 'https://www.quranic-grammar.com/' },
-  numberOfCredits: 0,
   isAccessibleForFree: true,
+  offers: { '@type': 'Offer', price: 0, priceCurrency: 'USD', category: 'Free', url: 'https://www.quranic-grammar.com/learn/' },
   inLanguage: 'en',
   hasCourseInstance: levels.map((l) => ({ '@type': 'CourseInstance', name: `Level ${l.level}: ${l.title}`, description: l.blurb, courseMode: 'online' })),
 };

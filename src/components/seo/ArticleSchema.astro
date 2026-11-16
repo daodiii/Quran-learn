@@ -1,4 +1,6 @@
 ---
+import { getEntryDates } from '../../lib/getEntryDates';
+
 interface Props {
   title: string;
   description: string;
@@ -8,6 +10,8 @@ interface Props {
   datePublished?: Date;
   dateModified?: Date;
   isPartOfCourse?: boolean;
+  /** The source this page is built on, as a schema.org object (a Book or Dataset). */
+  isBasedOn?: Record<string, unknown>;
 }
 
 const {
@@ -19,9 +23,17 @@ const {
   datePublished,
   dateModified,
   isPartOfCourse = false,
+  isBasedOn,
 } = Astro.props;
 const siteUrl = Astro.site?.href.replace(/\/$/, '') || '';
 const fullUrl = `${siteUrl}${url}`;
+
+// Surah and hadith pages do not pass dates: read them from the committed git dates (src/data/entry-dates.json).
+const entryMatch = /^[/](surahs|hadith)[/]([^/]+)[/]?$/.exec(url);
+const entryDates = !datePublished && entryMatch ? getEntryDates(`src/content/${entryMatch[1]}/${entryMatch[2]}.mdx`, {}) : undefined;
+const published = datePublished ?? entryDates?.datePublished;
+const modified = dateModified ?? entryDates?.dateModified;
+const orgId = `${siteUrl}/#organization`;
 
 const jsonLd: Record<string, unknown> = {
   "@context": "https://schema.org",
@@ -34,9 +46,11 @@ const jsonLd: Record<string, unknown> = {
     "@id": fullUrl,
   },
   "inLanguage": "en",
+  "image": `${siteUrl}/images/og-default.jpg`,
+  "author": { "@id": orgId },
   "publisher": {
     "@type": "Organization",
-    "@id": "https://www.quranic-grammar.com/#organization",
+    "@id": orgId,
     "name": "Quranic Grammar",
     "url": siteUrl,
   },
@@ -46,12 +60,16 @@ if (educationalLevel) {
   jsonLd.educationalLevel = educationalLevel;
 }
 
-if (datePublished) {
-  jsonLd.datePublished = datePublished.toISOString();
+if (published) {
+  jsonLd.datePublished = published.toISOString();
 }
 
-if (dateModified) {
-  jsonLd.dateModified = dateModified.toISOString();
+if (modified) {
+  jsonLd.dateModified = modified.toISOString();
+}
+
+if (isBasedOn) {
+  jsonLd.isBasedOn = isBasedOn;
 }
 
 if (isPartOfCourse) {
