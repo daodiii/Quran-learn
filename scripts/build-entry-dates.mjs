@@ -29,9 +29,7 @@ for (const f of files('src/content/lessons').sort()) {
 }
 
 const next = JSON.stringify(result, null, 2) + '\n';
-const prev = existsSync(OUT) ? readFileSync(OUT, 'utf8').replace(/
-/g, '
-') : '';
+const prev = existsSync(OUT) ? readFileSync(OUT, 'utf8').split(String.fromCharCode(13)).join('') : '';
 if (next !== prev) {
   mkdirSync(dirname(OUT), { recursive: true });
   writeFileSync(OUT, next);
