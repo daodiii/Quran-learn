@@ -27,7 +27,7 @@ const breadcrumbItems = [ { label: 'Home', href: '/' }, { label: 'Hadith', href:
 <BaseLayout title={`Hadith ${number}: ${title}`} description={pageDescription} type="article">
   <Fragment slot="head">
     <BreadcrumbSchema items={breadcrumbItems} />
-    <ArticleSchema title={`Hadith ${number}: ${title}`} description={pageDescription} url={Astro.url.pathname} />
+    <ArticleSchema title={`Hadith ${number}: ${title}`} description={pageDescription} url={Astro.url.pathname} isBasedOn={ibnRajabAddition ? undefined : { '@type': 'Book', name: "Forty Hadith of al-Nawawi", author: { '@type': 'Person', name: 'Yahya ibn Sharaf al-Nawawi' } }} />
 
     <!-- Same always-night treatment as the surah pages; never touches localStorage. -->
     <script is:inline>

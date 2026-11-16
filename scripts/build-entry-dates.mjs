@@ -1,4 +1,4 @@
-// Writes src/data/entry-dates.json: first and last git commit date for every lesson file.
+// Writes src/data/entry-dates.json: first and last git commit date for every lesson, surah and hadith file.
 // Vercel clones shallow and `git fetch --unshallow` does not work there, so getEntryDates
 // (src/lib/getEntryDates.ts) falls back to this committed file when the clone is shallow.
 // It runs at the start of every build. With full history (a local build) it refreshes the file:
@@ -22,7 +22,7 @@ function files(dir) {
 }
 
 const result = {};
-for (const f of files('src/content/lessons').sort()) {
+for (const f of ['lessons', 'surahs', 'hadith'].flatMap((d) => files(`src/content/${d}`)).sort()) {
   const first = git('log', '--diff-filter=A', '--follow', '--format=%aI', '--', f).split('\n').filter(Boolean).pop();
   const last = git('log', '-1', '--format=%aI', '--', f);
   if (first && last) result[f] = { published: first, modified: last };
