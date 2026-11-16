@@ -13,11 +13,12 @@ export const GET: APIRoute = async ({ site }) => {
   const lessons = (await getCollection('lessons')).sort((a, b) => a.data.level - b.data.level || a.data.order - b.data.order);
   const surahs = (await getCollection('surahs')).sort((a, b) => a.id.localeCompare(b.id));
   const guides = await getCollection('resources');
+  const hadith = (await getCollection('hadith')).sort((a, b) => a.data.number - b.data.number);
 
   const out: string[] = [];
   out.push('# Quranic Grammar');
   out.push('');
-  out.push(`> A free, structured course in Quranic Arabic grammar. ${lessons.length} short lessons in ${LEVELS.length} levels, from the alphabet to reading whole passages, ${surahs.length} surahs explained word by word, and ${guides.length} reference guides. No sign-up and no ads. Word data is from the Quranic Arabic Corpus; the English wording is the site's own, not a translation.`);
+  out.push(`> A free, structured course in Quranic Arabic grammar. ${lessons.length} short lessons in ${LEVELS.length} levels, from the alphabet to reading whole passages, ${surahs.length} surahs explained word by word, ${guides.length} reference guides, and ${hadith.length} hadith from al-Nawawi's Forty (with Ibn Rajab's two) explained word by word. No sign-up and no ads. Word data is from the Quranic Arabic Corpus; the English wording is the site's own, not a translation.`);
   out.push('');
   out.push('## Start here');
   out.push(`- [Learn](${base}/learn/): every lesson in the order it is taught`);
@@ -37,6 +38,10 @@ export const GET: APIRoute = async ({ site }) => {
   out.push('');
   out.push('## Reference guides');
   for (const g of guides) out.push(`- [${g.data.title}](${base}/resources/${g.id}/)${g.data.description ? `: ${metaDescription(g.data.description, 110)}` : ''}`);
+  out.push('');
+  out.push('## Forty Hadith');
+  out.push(`- [Forty Hadith of al-Nawawi](${base}/hadith/): the index, with a free PDF`);
+  for (const h of hadith) out.push(`- [Hadith ${h.data.number}: ${h.data.title}](${base}/hadith/${h.id}/)`);
   out.push('');
   out.push('## Optional');
   out.push(`- [Privacy policy](${base}/privacy/)`);
