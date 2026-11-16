@@ -1,5 +1,6 @@
 ---
 import { metaTitle, metaDescription } from '../../lib/seo';
+import { collectionPageSchema } from '../../lib/collection-schema';
 /**
  * /resources/: the hub. Light only, standalone (no BaseLayout), like home, learn and the guides.
  * Two tools lead; the guides follow in groups by what you are trying to do. The cards live in
@@ -26,6 +27,7 @@ const title = 'Resources | Quranic Grammar';
 const description = 'Free tools and guides for Quranic Arabic: look up a word, generate verb forms, and keep the case endings, pronouns, verb tables and the 200 most common words open next to any lesson.';
 const canonicalURL = new URL('/resources/', Astro.site);
 const ogImageURL = new URL('/images/og-default.jpg', Astro.site);
+const collectionLd = collectionPageSchema({ name: 'Resources', description, path: '/resources/', items: HUB_GROUPS.flatMap((g) => g.cards).map((c) => ({ name: c.title, path: c.href })) });
 ---
 
 <!DOCTYPE html>
@@ -46,6 +48,7 @@ const ogImageURL = new URL('/images/og-default.jpg', Astro.site);
   <meta name="theme-color" content="#fbfcfd" />
   <title>{metaTitle(title)}</title>
   <link rel="canonical" href={canonicalURL.href} />
+  <script type="application/ld+json" is:inline set:html={collectionLd} />
   <meta property="og:type" content="website" />
   <meta property="og:url" content={canonicalURL.href} />
   <meta property="og:title" content={title} />
