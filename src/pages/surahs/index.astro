@@ -1,5 +1,6 @@
 ---
 import { metaTitle, metaDescription } from '../../lib/seo';
+import { collectionPageSchema } from '../../lib/collection-schema';
 import '../../styles/night.css';
 import '../../styles/fonts.css';
 import '../../styles/fonts-serif.css';
@@ -40,6 +41,7 @@ const title = 'Surah Breakdowns | Quranic Grammar';
 const description = "Word-by-word grammatical analysis of 38 Quranic surahs. Each breakdown includes I'rab case endings, morphology, and syntax for every verse.";
 const canonicalURL = new URL('/surahs/', Astro.site);
 const ogImageURL = new URL('/images/og-default.jpg', Astro.site);
+const collectionLd = collectionPageSchema({ name: 'Surah breakdowns', description, path: '/surahs/', items: SURAHS.map((s) => ({ name: `Surah ${s.name}`, path: s.href })) });
 ---
 
 <!DOCTYPE html>
@@ -61,6 +63,7 @@ const ogImageURL = new URL('/images/og-default.jpg', Astro.site);
   <meta name="theme-color" content="#05070e" />
   <title>{metaTitle(title)}</title>
   <link rel="canonical" href={canonicalURL.href} />
+  <script type="application/ld+json" is:inline set:html={collectionLd} />
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content={canonicalURL.href} />
@@ -203,8 +206,8 @@ body:has(#rb) .nav{top:40px}
   .stage-foot{position:static;padding:26px var(--pad-x) 40px;z-index:2}
   .m-surahs{display:block;position:relative;z-index:2;padding:calc(72px + env(safe-area-inset-top) + 4vh) var(--pad-x) 20px}
 }
-.m-head h1{font-family:var(--font-display);font-weight:400;font-size:clamp(32px,9.5vw,46px);line-height:1.06}
-.m-head h1 em{font-style:normal;color:var(--gold-bright)}
+.m-head .m-title{font-family:var(--font-display);font-weight:400;font-size:clamp(32px,9.5vw,46px);line-height:1.06}
+.m-head .m-title em{font-style:normal;color:var(--gold-bright)}
 .m-head .dek{color:var(--ink-dim);font-weight:300;font-size:14.5px;line-height:1.7;margin-top:13px;max-width:36ch}
 .m-head .note{font-family:var(--font-mono);font-size:11px;letter-spacing:.05em;color:var(--ink-faint);margin-top:14px}
 .m-head .note a{color:var(--gold-bright);text-decoration:underline;text-underline-offset:2px}
@@ -280,7 +283,7 @@ body:has(#rb) .nav{top:40px}
 
 <section class="m-surahs" aria-label="All surah breakdowns by level">
   <div class="m-head" data-reveal>
-    <h1>Thirty-eight surahs, <em>one word at a time</em>.</h1>
+    <p class="m-title" role="heading" aria-level="1">Thirty-eight surahs, <em>one word at a time</em>.</p>
     <p class="dek">Al-Fatiha and all of Juz ʿAmma — the case endings, the roots, and why each word takes the shape it does.</p>
     <p class="note">Best begun after <a href="/learn/">Level 3</a>.</p>
   </div>

@@ -2,12 +2,15 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Container from '../../components/primitives/Container.astro';
 import { getCollection } from 'astro:content';
+import { collectionPageSchema } from '../../lib/collection-schema';
 
 const hadith = (await getCollection('hadith')).sort((a, b) => a.data.number - b.data.number);
 const description = "Al-Nawawi's Forty Hadith (42 with Ibn Rajab's two), each with the Arabic and full vowel marks, an English translation, and a word-by-word explanation of why every word is written the way it is.";
+const collectionLd = collectionPageSchema({ name: 'Forty Hadith of al-Nawawi', description, path: '/hadith/', items: hadith.map((h) => ({ name: `Hadith ${h.data.number}: ${h.data.title}`, path: `/hadith/${h.id}/` })) });
 ---
 
 <BaseLayout title="Forty Hadith" description={description}>
+  <script slot="head" type="application/ld+json" is:inline set:html={collectionLd} />
   <Container maxWidth="md">
     <article class="hadith-index">
       <header class="page-header">
