@@ -16,6 +16,9 @@ import ArticleSchema from '../components/seo/ArticleSchema.astro';
 import SiteNav from '../components/SiteNav.astro';
 import SiteFoot from '../components/SiteFoot.astro';
 import CookieBanner from '../components/CookieBanner.astro';
+import CrossLinks from '../components/CrossLinks.astro';
+import { getCollection } from 'astro:content';
+import { rulesForSurah, DIRECT } from '../lib/surah-lesson-links';
 import '../styles/fonts.css';
 import '../styles/surah-study.css';
 import '../styles/surah-study-tools.css';
@@ -67,6 +70,15 @@ const ogImageURL = new URL('/images/og-default.jpg', Astro.site);
 const crumbs = [{ label: 'Home', href: '/' }, { label: 'Surahs', href: '/surahs/' }, { label: `Surah ${m.name}` }];
 
 const many = m.verses.length > 8;
+
+// Lessons that teach the grammar found in this surah, from the decoder data (src/lib/surah-lesson-links.ts).
+const lessonTitles = new Map((await getCollection('lessons')).map((l) => [l.id, l.data.title as string]));
+const lessonHref = (id: string) => `/learn/${id}/`;
+const directItems = (DIRECT[m.slug] ?? []).filter((d) => lessonTitles.has(d.lesson)).map((d) => ({ href: lessonHref(d.lesson), title: d.label, note: 'a lesson on this surah' }));
+const grammarItems = rulesForSurah(m.slug, 6, 1)
+  .filter((x) => lessonTitles.has(x.rule.lesson))
+  .map((x) => ({ href: lessonHref(x.rule.lesson), title: lessonTitles.get(x.rule.lesson)!, note: `${x.rule.label}: ${x.count} ${x.count === 1 ? 'word' : 'words'} here` }));
+const crossItems = [...directItems, ...grammarItems];
 // Lenses the surah actually uses, with how many words each marks.
 const lensCount = (k: string) => m.verses.reduce((n, v) => n + v.words.filter((w) => w.lens === k).length, 0);
 const lenses = LENSES.map((l) => ({ ...l, count: lensCount(l.key) })).filter((l) => l.count > 0);
@@ -294,6 +306,10 @@ const ICON = {
           <summary><span>Every verse, its sentence type and its message</span></summary>
           <div class="ans prose"><Fragment set:html={md(m.glance.table)} />{m.glance.notes.map((c) => <div class="note"><h3 set:html={withArabic(c.title)} /><div class="prose" set:html={md(c.body)} /></div>)}</div>
         </details>
+      </section>
+
+      <section class="sec" id="learn-grammar">
+        <CrossLinks heading={`Learn the grammar in Surah ${m.name}`} lead="The lessons that teach the grammar this surah uses most, with how many of its words they cover." items={crossItems} />
       </section>
 
       <section class="sec" id="sources" aria-labelledby="h-sources">

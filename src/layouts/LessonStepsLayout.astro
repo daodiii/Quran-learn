@@ -9,6 +9,9 @@ import BreadcrumbSchema from '../components/seo/BreadcrumbSchema.astro';
 import ArticleSchema from '../components/seo/ArticleSchema.astro';
 import '../styles/lesson-steps.css';
 import LessonMovedNote from '../components/LessonMovedNote.astro';
+import CrossLinks from '../components/CrossLinks.astro';
+import { getCollection } from 'astro:content';
+import { surahsForLesson, RULES } from '../lib/surah-lesson-links';
 
 interface Props {
   title: string;
@@ -24,6 +27,13 @@ interface Props {
 
 const { title, level, description, nextLesson, prevLesson, datePublished, dateModified, positionInLevel, lessonSlug } =
   Astro.props;
+
+// Surahs where this lesson's grammar shows up most, counted from the surah decoder data (src/lib/surah-lesson-links.ts).
+const surahNames = new Map((await getCollection('surahs')).map((s) => [s.id, s.data.name as string]));
+const ruleLabel = RULES.find((r) => r.lesson === lessonSlug)?.label;
+const seenIn = surahsForLesson(lessonSlug, 3, 2)
+  .filter((x) => surahNames.has(x.surah))
+  .map((x) => ({ href: `/surahs/${x.surah}/`, title: `Surah ${surahNames.get(x.surah)}`, note: `${x.count} words` }));
 
 const levelNames: Record<number, string> = {
   1: 'Foundation',
@@ -88,6 +98,8 @@ const updatedLabel = dateModified ? dateModified.toLocaleDateString('en-GB', { d
         {prevLesson ? <a href={prevLesson}>&larr; Previous</a> : <span></span>}
         {nextLesson && <a href={nextLesson}>Next lesson &rarr;</a>}
       </nav>
+
+      <CrossLinks heading="See it in the Quran" lead={ruleLabel ? `Surahs on this site that use ${ruleLabel} the most, with how many words.` : 'Surahs on this site that use this grammar the most, with how many words.'} items={seenIn} />
 
       <div class="lx-finish" data-lx-finish hidden>
         <div class="lx-finish-row">
