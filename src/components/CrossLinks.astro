@@ -1,0 +1,35 @@
+---
+/**
+ * A short list of links between a surah and the lessons that teach its grammar (and back).
+ * Built from src/lib/surah-lesson-links.ts, so every count shown is a count of words in the surah data.
+ * Colours come from the page it sits in (currentColor), so it works on the light and the night pages.
+ */
+interface Item { href: string; title: string; note?: string }
+interface Props { heading: string; lead?: string; items: Item[]; id?: string }
+const { heading, lead, items, id } = Astro.props;
+---
+
+{items.length > 0 && (
+  <aside class="xl" id={id} aria-label={heading}>
+    <h2 class="xl-h">{heading}</h2>
+    {lead && <p class="xl-lead">{lead}</p>}
+    <ul class="xl-list">
+      {items.map((it) => (
+        <li>
+          <a href={it.href}>{it.title}</a>
+          {it.note && <span class="xl-note">{it.note}</span>}
+        </li>
+      ))}
+    </ul>
+  </aside>
+)}
+
+<style>
+  .xl { margin-block: 2.5rem 0; }
+  .xl-h { margin: 0 0 .5rem; font-size: 1.35rem; font-weight: 600; letter-spacing: -.02em; }
+  .xl-lead { margin: 0 0 1rem; max-width: 62ch; opacity: .8; }
+  .xl-list { list-style: none; margin: 0; padding: 0; display: grid; gap: .5rem; max-width: 62ch; }
+  .xl-list li { padding: .65rem .9rem; border: 1px solid color-mix(in srgb, currentColor 18%, transparent); border-radius: 10px; display: flex; flex-wrap: wrap; gap: .25rem .75rem; align-items: baseline; justify-content: space-between; }
+  .xl-list a { font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+  .xl-note { font-size: .9em; opacity: .75; }
+</style>
