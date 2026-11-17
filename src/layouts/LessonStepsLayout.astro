@@ -40,6 +40,7 @@ const breadcrumbItems = [
   { label: `Level ${level}`, href: `/learn/#level-${level}` },
   { label: title },
 ];
+const updatedLabel = dateModified ? dateModified.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' }) : '';
 ---
 
 <BaseLayout title={title} description={description} type="article">
@@ -74,6 +75,7 @@ const breadcrumbItems = [
       <p class="lx-crumb">
         <a href={`/learn/#level-${level}`}>Level {level} · {levelNames[level]}</a>
         {positionInLevel && <span data-lesson-position> · Lesson {positionInLevel.index} of {positionInLevel.total}</span>}
+        {dateModified && <span> · Updated <time datetime={dateModified.toISOString().slice(0, 10)}>{updatedLabel}</time></span>}
       </p>
 
       <LessonMovedNote lessonSlug={lessonSlug} />
