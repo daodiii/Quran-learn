@@ -257,7 +257,7 @@ if (!reduce) {
   });
   // On a phone the list is a row; bring the open surah into view without moving the page.
   const on = $('[aria-current="true"]', list);
-  if (on && list.scrollWidth > list.clientWidth) list.scrollLeft = on.parentElement!.offsetLeft - 12;
+  if (on && list.scrollWidth > list.clientWidth) list.scrollLeft = on.parentElement!.offsetLeft - list.offsetLeft - 12;
 }
 
 // ---------- the closing dua, word by word ----------
@@ -368,8 +368,54 @@ try {
       const cover = $<HTMLAnchorElement>('.cover', c);
       cover.href = nextHref;
       cover.firstElementChild!.textContent = `Level ${c.dataset.level}: continue with ${titleOf.get(nextId)}`;
+      const go = $('.go', cover); if (go) go.textContent = 'Continue →';
     }
   });
 } catch {
   // Storage blocked or unreadable: the page simply shows the first-visit buttons.
+}
+
+// ---------- a phone: the course map folds into an accordion, the tools share one tab strip ----------
+{
+  const cards = $$('.card');
+  const set = (c: HTMLElement, on: boolean) => { c.classList.toggle('open', on); $('.c-tog', c).setAttribute('aria-expanded', String(on)); };
+  cards.forEach((c) => $('.c-tog', c).addEventListener('click', () => { const on = !c.classList.contains('open'); cards.forEach((x) => set(x, false)); set(c, on); }));
+  set(cards.find((c) => c.classList.contains('now')) ?? cards[0], true); // the learner's own level, else the first
+
+  const tools = $('#tools'), tabsMt = $$<HTMLButtonElement>('.mt-tabs button');
+  tabsMt.forEach((b) => b.addEventListener('click', () => { tools.dataset.mt = b.dataset.mt!; tabsMt.forEach((x) => x.setAttribute('aria-pressed', String(x === b))); }));
+
+  // The learner quotes swipe; dots show where you are.
+  const stack = $('.stack'), n = stack.children.length;
+  const dots = document.createElement('div');
+  dots.className = 'st-dots'; dots.setAttribute('aria-hidden', 'true'); dots.innerHTML = '<i></i>'.repeat(n);
+  stack.after(dots);
+  const mark = () => { const i = Math.round(stack.scrollLeft / (stack.scrollWidth / n)); [...dots.children].forEach((d, k) => d.classList.toggle('on', k === i)); };
+  stack.addEventListener('scroll', mark, { passive: true });
+  mark();
+
+  // Sources, free, mistakes: each button opens its card as a sheet (a dialog) on a phone.
+  const bd = $('.tc-bd'), sheets = $$('.trio .tc');
+  let opener: HTMLElement | null = null;
+  const shut = () => {
+    sheets.forEach((s) => { s.classList.remove('open'); ['role', 'aria-modal', 'aria-labelledby'].forEach((a) => s.removeAttribute(a)); });
+    bd.hidden = true; opener?.focus(); opener = null;
+  };
+  $$<HTMLButtonElement>('.tc-btns button').forEach((b) => b.addEventListener('click', () => {
+    const s = $('#' + b.dataset.tc!), h = $('h3', s);
+    opener = b; h.id ||= `${s.id}-h`;
+    s.classList.add('open'); s.setAttribute('role', 'dialog'); s.setAttribute('aria-modal', 'true'); s.setAttribute('aria-labelledby', h.id);
+    bd.hidden = false; $('.tc-x', s).focus();
+  }));
+  sheets.forEach((s) => $('.tc-x', s).addEventListener('click', shut));
+  bd.addEventListener('click', shut);
+  document.addEventListener('keydown', (e) => {
+    const open = sheets.find((s) => s.classList.contains('open'));
+    if (!open) return;
+    if (e.key === 'Escape') return shut();
+    if (e.key !== 'Tab') return;
+    const f = $$<HTMLElement>('button, a[href]', open), first = f[0], last = f[f.length - 1];
+    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+  });
 }

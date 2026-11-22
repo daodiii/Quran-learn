@@ -597,3 +597,90 @@ html:not(.js) .fn button{cursor:default;pointer-events:none}
   *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
   .rise{opacity:1;transform:none}
 }
+
+/* a phone: a shorter page. Levels fold into an accordion, the reader and library become one tabbed block,
+   the learner quotes swipe, and the three trust cards open as bottom sheets. Wider screens are unchanged. */
+.c-tog,.mt,.tc-btns,.tc-x,.tc-bd,.st-dots,.card .cover .go{display:none}
+.c-body{display:contents}
+@media (max-width:640px){
+  .m-hide{display:none}
+  .m-cap{display:inline-block}.m-cap::first-letter{text-transform:uppercase}
+  .cta{gap:10px;margin-top:18px}.cta .btn{flex:1 1 calc(50% - 5px);min-height:48px;padding-inline:12px;font-size:1rem}
+  .lede{margin-top:12px}
+  .fine{margin-top:10px;font-size:.875rem}
+  .stagebg{margin-top:20px}
+  .bar{display:none}
+  .sec{padding-top:36px}
+  .sec-head{text-align:left;margin-bottom:14px}
+  .sec-head h2{font-size:1.4rem;white-space:normal}
+
+  /* levels */
+  .track{grid-template-columns:minmax(0,1fr);grid-auto-flow:row;grid-auto-columns:auto;overflow:visible;margin-inline:0;padding:0;gap:8px;scroll-snap-type:none}
+  .card{display:grid;grid-template-columns:auto minmax(0,1fr) auto;grid-template-rows:56px auto auto;align-items:center;column-gap:10px;padding:0;border-radius:14px}
+  .card.now .here{display:none}
+  .c-top{display:contents}
+  .c-lvl{grid-column:1;grid-row:1;padding-left:14px;font-size:.8125rem;font-weight:500;color:var(--muted)}
+  .c-top>span:last-child{grid-column:3;grid-row:1;padding-right:36px;font-size:.78rem}
+  .card h3{grid-column:2;grid-row:1;margin:0;font-size:1.05rem}
+  .c-tog{display:block;position:absolute;inset:0 0 auto 0;height:56px;border:0;border-radius:14px;background:none;cursor:pointer}
+  .c-tog::after{content:"›";position:absolute;right:16px;top:50%;transform:translateY(-50%);font-size:1.5rem;line-height:1;color:var(--muted);transition:transform .2s}
+  .card.open .c-tog::after{transform:translateY(-50%) rotate(90deg)}
+  .js .c-body,.js .cover{display:none}
+  .js .card.open .c-body{display:block;grid-column:1 / -1;grid-row:2;padding:0 14px}
+  .js .card.open .cover{display:block;position:static;grid-column:1 / -1;grid-row:3;padding:6px 14px 14px;border-radius:0}
+  .js .card .cover .go{display:inline;font-weight:500;color:var(--accent)}
+  .spec{min-height:0;margin:0 0 10px}
+  .c-end{margin:0}
+  .segs{margin:12px 0 8px}
+
+  /* the reader and the library, as one block */
+  .js .tools{margin-top:36px;padding:14px 10px 10px;border-radius:22px;background:linear-gradient(165deg,oklch(36% .08 178),oklch(22% .05 205))}
+  .js .mt{display:block}
+  .mt-h{margin:2px 4px 10px;color:#fff;font-size:1.3rem;font-weight:600;letter-spacing:-.025em}
+  .mt-tabs{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding-bottom:10px}
+  .mt-tabs::-webkit-scrollbar{display:none}
+  .mt-tabs button{flex:none;min-height:40px;padding:0 14px;border:0;border-radius:999px;background:oklch(100% 0 0 / .12);color:#fff;font-size:.9rem;font-weight:500;cursor:pointer}
+  .mt-tabs button[aria-pressed="true"]{background:#fff;color:var(--ink)}
+  .js .tools .sec{padding-top:0}
+  .js .tools .sec-head,.js .tools .bench-top,.js .tools .w-bar,.js .tools .w-title{display:none}
+  .js .tools .bench{display:contents}
+  .js .tools .rd-stage,.js .tools .desk,.js .tools .wins,.js .tools .path,.js .tools .bench-foot,.js .tools .w-pane{display:none}
+  .js .tools[data-mt="surahs"] .rd-stage,.js .tools[data-mt="charts"] .desk,.js .tools[data-mt="guides"] .path{display:block}
+  .js .tools[data-mt="word"] .wins,.js .tools[data-mt="verbs"] .wins{display:grid}
+  .js .tools[data-mt="word"] #w-bench,.js .tools[data-mt="verbs"] #w-verbs{display:flex}
+  .js .tools[data-mt="guides"] .bench-foot{display:flex}
+  .js .tools .rd-read .rd-ayah:nth-of-type(n+4){display:none}
+  .js .tools .rd-read .rd-ayah:nth-of-type(n+4){display:none}
+  .tools .rd-stage{margin-inline:0;padding:0;border-radius:0;background:none}
+  .tools .rd-win,.tools .w{border-radius:16px}
+  .tools .desk{padding:14px 10px 6px;border-radius:16px}
+  .tools .w-one .w-body{padding:16px 14px}
+  .tools .path{margin-top:6px}
+  .tools .path h4{margin-bottom:16px;color:#fff}
+  .tools .bench-foot{margin-top:22px}
+
+  /* learner quotes: a row you swipe */
+  .stack{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;margin-inline:calc(var(--gutter) * -1);padding:2px var(--gutter) 6px;scroll-padding-inline:var(--gutter);scrollbar-width:none}
+  .stack::-webkit-scrollbar{display:none}
+  .sc{flex:0 0 86%;scroll-snap-align:start;min-height:0;padding:18px;gap:18px;border-radius:20px}
+  .sc-t{gap:22px}
+  .sc blockquote p{font-size:1.125rem;line-height:1.3}
+  .st-dots{display:flex;gap:6px;justify-content:center;margin-top:10px}
+  .st-dots i{width:6px;height:6px;border-radius:50%;background:var(--edge);transition:width .2s,background-color .2s}
+  .st-dots i.on{width:18px;border-radius:4px;background:var(--ink)}
+
+  /* sources, free, mistakes: three buttons, each opens its card as a sheet */
+  .tc-btns{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+  .tc-btns button{display:grid;gap:6px;justify-items:center;align-content:center;min-height:84px;padding:10px 6px;border:1px solid var(--edge);border-radius:14px;background:#fff;font-size:.78rem;line-height:1.2;text-align:center;cursor:pointer}
+  .tc-btns .ic{display:grid;place-items:center;width:30px;height:30px;border-radius:9px;background:var(--teal-tint);color:var(--accent);font-size:.9rem;font-weight:600}
+  .js .trio .tc{display:none}
+  .js .trio .tc.open{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:61;max-height:84vh;overflow:auto;border:0;border-radius:22px 22px 0 0;padding:22px 16px calc(22px + env(safe-area-inset-bottom));animation:sheetup .25s cubic-bezier(.2,.8,.2,1)}
+  .js .trio .tc.open h3{padding-right:44px}
+  .tc-x{display:grid;position:absolute;top:12px;right:12px;width:40px;height:40px;place-items:center;border:1px solid var(--edge);border-radius:50%;background:#fff;font-size:1.3rem;line-height:1;cursor:pointer}
+  .tc-bd:not([hidden]){display:block;position:fixed;inset:0;z-index:60;background:oklch(18% .03 240 / .45)}
+  @keyframes sheetup{from{transform:translateY(100%)}}
+
+  .close{margin:40px auto 24px}
+  .close .in{padding:36px var(--gutter)}
+  .dua .ar{font-size:2.4rem}
+}
